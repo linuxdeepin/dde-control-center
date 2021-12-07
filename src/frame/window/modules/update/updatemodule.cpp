@@ -329,11 +329,11 @@ void UpdateModule::initSearchData()
         } else if ("updateSecureUpdate" == gsetting) {
             //TODO
         } else {
-            qDebug() << " not contains the gsettings : " << gsetting << state;
+            qWarning() << " not contains the gsettings : " << gsetting << state;
             return;
         }
 
-        qWarning() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
         m_frameProxy->updateSearchData(module);
     });
 

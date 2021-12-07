@@ -234,11 +234,11 @@ void KeyboardModule::initSearchData()
         } else if ("keyboardShortcuts" == gsetting || "keyboardShortcut" == gsetting) {
             func_shortcuts_changed();
         } else {
-            qDebug() << " not contains the gsettings : " << gsetting << state;
+            qWarning() << " not contains the gsettings : " << gsetting << state;
             return;
         }
 
-        qWarning() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
         m_frameProxy->updateSearchData(module);
     });
 

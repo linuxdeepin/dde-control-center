@@ -326,7 +326,7 @@ void MouseModule::initSearchData()
             } else if ("mouseTouch" == gsetting) {
                 func_touchpad_changed(m_model->tpadExist());
             } else {
-                qDebug() << " not contains the gsettings : " << gsetting << state;
+                qWarning() << " not contains the gsettings : " << gsetting << state;
                 return;
             }
         } else {
@@ -339,12 +339,12 @@ void MouseModule::initSearchData()
             } else if ("mouseSpeedSlider" == gsetting) {
                 m_frameProxy->setDetailVisible(module, mouse, tr("Pointer Speed"), func_is_visible("mouseMouse") && func_is_visible("mouseSpeedSlider", true));
             } else {
-                qDebug() << " not contains the gsettings : " << gsetting << state;
+                qWarning() << " not contains the gsettings : " << gsetting << state;
                 return;
             }
         }
 
-        qWarning() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
         m_frameProxy->updateSearchData(module);
     });
 

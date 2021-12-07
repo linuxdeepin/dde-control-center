@@ -57,7 +57,6 @@ public:
     bool jumpContentPathWidget(const QString &path);
     void setLanguage(const QString &type);
     void addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation = "");
-    void addSpecialThreeMenuMap(const QString &name, bool flag);
 
     QList<QString> searchResults(const QString text);
     void getJumpPath(QString &moduleName, QString &pageName, const QString &searchName);

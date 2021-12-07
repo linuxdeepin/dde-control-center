@@ -302,7 +302,7 @@ void AccountsModule::initSearchData()
             gsettingsMap.insert("nopasswdLoginVisable", gsNopasswdLoginVisable);
             m_frameProxy->setWidgetVisible(module, tr("Login Without Password"), gsNopasswdLoginVisable);
         } else {
-            qDebug() << " not match gsettings : " << gsetting;
+            qWarning() << " not match gsettings : " << gsetting;
             return;
         }
 

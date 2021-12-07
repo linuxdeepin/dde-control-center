@@ -354,12 +354,12 @@ void CommonInfoModule::initSearchData()
            } else if ("commoninfoBootTheme" == gsetting) {
                m_frameProxy->setDetailVisible(module, bootMenu, theme, bootMenuVisible && func_is_visible("commoninfoBootTheme", true));
            } else {
-               qDebug() << " not contains the gsettings : " << gsetting << state;
+               qWarning() << " not contains the gsettings : " << gsetting << state;
                return;
            }
         }
 
-        qWarning() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
         m_frameProxy->updateSearchData(module);
      });
 

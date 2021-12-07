@@ -451,11 +451,6 @@ void MainWindow::updateWinsize(QRect rect)
                 m_primaryScreen->geometry().top() + (m_primaryScreen->geometry().height() - this->geometry().height()) / 2));
 }
 
-void MainWindow::setSpecialThreeMenuVisible(QString name, bool flag)
-{
-    m_searchWidget->addSpecialThreeMenuMap(name, flag);
-}
-
 void MainWindow::updateModuleVisible()
 {
     m_hideModuleNames = m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();

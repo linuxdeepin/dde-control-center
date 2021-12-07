@@ -235,9 +235,6 @@ void SoundModel::addPort(Port *port)
 
         Q_EMIT portAdded(port);
         Q_EMIT soundDeviceStatusChanged();
-
-        setInputDevicesVisible(m_inputPorts.isEmpty()? false: true);
-        setOutputDevicesVisible(m_outputPorts.isEmpty()? false: true);
     }
 }
 
@@ -255,10 +252,6 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
             m_inputPorts.removeOne(port);
         }
         port->deleteLater();
-
-
-        setInputDevicesVisible(m_inputPorts.isEmpty()? false: true);
-        setOutputDevicesVisible(m_outputPorts.isEmpty()? false: true);
     }
 }
 
@@ -434,7 +427,6 @@ void SoundModel::setCurrentBluetoothAudioMode(const QString &mode)
     if (mode != m_currentBluetoothMode) {
         m_currentBluetoothMode = mode;
         Q_EMIT bluetoothModeChanged(mode);
-        Q_EMIT balanceVisibleChanged("Left/Right Balance", !mode.contains("headset"));
     }
 }
 
@@ -444,22 +436,6 @@ void SoundModel::setWaitSoundReceiptTime(const int receiptTime)
     if (m_waitSoundReceiptTime != receiptTime) {
         qDebug() << "Sound Receopt Time is: " << receiptTime;
         m_waitSoundReceiptTime = receiptTime;
-    }
-}
-
-void SoundModel::setInputDevicesVisible(bool value)
-{
-    if (value != m_inputVisibled) {
-        m_inputVisibled = value;
-        Q_EMIT inputDevicesVisibleChanged("Input Devices",value);
-    }
-}
-
-void SoundModel::setOutputDevicesVisible(bool value)
-{
-    if (value != m_outputVisibled) {
-        m_outputVisibled = value;
-        Q_EMIT outputDevicesVisibleChanged("Output Devices",value);
     }
 }
 

@@ -127,8 +127,6 @@ private Q_SLOTS:
     void openManual();
 
 public Q_SLOTS:
-    //设置特别的三级菜单的可见性
-    void setSpecialThreeMenuVisible(QString name, bool flag);
     void updateWinsize(QRect rect = QRect(0,0,0,0));
 
 protected:

@@ -221,22 +221,12 @@ void PersonalizationModule::initSearchData()
     const QString& iconTheme = tr("Icon Theme");
     const QString& cursorTheme = tr("Cursor Theme");
 
-    static QMap<QString, bool> gsettingsMap;
+    static QMap<QString, QString> gsettingsMap;
 
-    auto func_is_visible = [=](const QString &gsettings, bool isBool = true) {
-        if (gsettings == "") {
-            return false;
-        }
-
-        bool ret = false;
-        if (isBool) {
-            ret = GSettingWatcher::instance()->get(gsettings).toBool();
-        } else {
-            ret = GSettingWatcher::instance()->get(gsettings).toString() != "Hidden";
-        }
-        gsettingsMap.insert(gsettings, ret);
-
-        return ret;
+    auto func_is_visible = [=](const QString &gsettings, QString value = "Hidden") {
+        const QString& status = GSettingWatcher::instance()->getStatus(gsettings);
+        gsettingsMap.insert(gsettings, status);
+        return status != value;
     };
 
     auto func_font_changed = [ = ](bool bFont) {
@@ -247,11 +237,11 @@ void PersonalizationModule::initSearchData()
     };
 
     auto func_general_changed = [ = ](bool bGeneral) {
-        bool bEffects = func_is_visible("perssonalGeneralEffects", false);
+        bool bEffects = func_is_visible("perssonalGeneralEffects");
         bool is3DWm = m_model->is3DWm();
 
         m_frameProxy->setWidgetVisible(module, general, bGeneral);
-        m_frameProxy->setDetailVisible(module, general, tr("Theme"), bGeneral && func_is_visible("perssonalGeneralThemes", false));
+        m_frameProxy->setDetailVisible(module, general, tr("Theme"), bGeneral && func_is_visible("perssonalGeneralThemes"));
         m_frameProxy->setDetailVisible(module, general, tr("Light"), bGeneral);
         m_frameProxy->setDetailVisible(module, general, tr("Dark"), bGeneral);
         m_frameProxy->setDetailVisible(module, general, tr("Auto"), bGeneral);
@@ -282,22 +272,13 @@ void PersonalizationModule::initSearchData()
         func_font_changed(func_is_visible("personalizationFont"));
      };
 
-    QStringList gslist;
-    gslist << "personalizationGeneral" << "personalizationIconTheme" << "personalizationCursorTheme" << "personalizationFont";
-
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
-
+        Q_UNUSED(state);
         if (gsetting == "" || !gsettingsMap.contains(gsetting)) {
             return;
         }
-
-        QVariant value = GSettingWatcher::instance()->get(gsetting);
-        if (gslist.contains(gsetting) && (gsettingsMap.value(gsetting) == value.toBool())) {
-            return;
-        }
-
-        if (("perssonalGeneralThemes" == gsetting || "perssonalGeneralEffects" == gsetting)
-                && (gsettingsMap.value(gsetting) == (value.toString() != "Hidden"))) {
+        const QString& status = GSettingWatcher::instance()->getStatus(gsetting);
+        if (gsettingsMap.value(gsetting) == status) {
             return;
         }
 
@@ -314,16 +295,16 @@ void PersonalizationModule::initSearchData()
         } else if ("perssonalGeneralEffects" == gsetting) {
             func_general_changed(func_is_visible("personalizationGeneral"));
         } else {
-            qInfo() << " not contains the gsettings : " << gsetting << state;
+            qWarning() << " not contains the gsettings : " << gsetting << status;
             return;
         }
-
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << status;
         m_frameProxy->updateSearchData(module);
     });
 
     connect(m_model, &dcc::personalization::PersonalizationModel::wmChanged, this, [ = ](const bool is3d){
         bool bGeneral = func_is_visible("personalizationGeneral");
-        bool bEffects = func_is_visible("perssonalGeneralEffects", false);
+        bool bEffects = func_is_visible("perssonalGeneralEffects");
         m_frameProxy->setDetailVisible(module, general, tr("Transparency"), bGeneral && bEffects && is3d);
         m_frameProxy->setDetailVisible(module, general, tr("Window Minimize Effect"), bGeneral && bEffects && is3d);
         m_frameProxy->updateSearchData(module);

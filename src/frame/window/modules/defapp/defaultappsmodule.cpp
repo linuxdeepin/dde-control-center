@@ -162,16 +162,6 @@ void DefaultAppsModule::addChildPageTrans() const
 
 void DefaultAppsModule::initSearchData()
 {
-    const QStringList& gslist {
-        "defappWebpage"
-        , "defappText"
-        , "defappMusic"
-        , "defappMail"
-        , "defappVideo"
-        , "defappPicture"
-        , "defappTerminal"
-    };
-
     const QString& module = displayName();
     const QString& addApplication = tr("Add Application");
 
@@ -215,12 +205,12 @@ void DefaultAppsModule::initSearchData()
     };
 
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
-
+        Q_UNUSED(state);
         if (!gsettingsMap.contains(gsetting)) {
             return;
         }
-
-        if (gslist.contains(gsetting) && gsettingsMap.value(gsetting) == GSettingWatcher::instance()->get(gsetting)) {
+        const bool status = GSettingWatcher::instance()->get(gsetting).toBool();
+        if (gsettingsMap.value(gsetting) == status) {
             return;
         }
 
@@ -241,11 +231,11 @@ void DefaultAppsModule::initSearchData()
         } else if ("defappApplistAddbtn" == gsetting) {
             func_addapp_changed();
         } else {
-            qDebug() << " not contains the gsettings : " << gsetting << state;
+            qWarning() << " not contains the gsettings : " << gsetting << status;
             return;
         }
 
-        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << status;
         m_frameProxy->updateSearchData(module);
     });
 

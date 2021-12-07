@@ -62,10 +62,6 @@ void SoundModule::preInitialize(bool, FrameProxyInterface::PushType pushtype)
 
     addChildPageTrans();
     initSearchData();
-
-    connect(m_model, &SoundModel::balanceVisibleChanged, m_pMainWindow, &MainWindow::setSpecialThreeMenuVisible);
-    connect(m_model, &SoundModel::inputDevicesVisibleChanged, m_pMainWindow, &MainWindow::setSpecialThreeMenuVisible);
-    connect(m_model, &SoundModel::outputDevicesVisibleChanged, m_pMainWindow, &MainWindow::setSpecialThreeMenuVisible);
 }
 
 void SoundModule::addChildPageTrans() const
@@ -142,7 +138,7 @@ void SoundModule::initSearchData()
         bool isOutputVisble = m_outputPortEnableCount > 0;
         m_frameProxy->setDetailVisible(module, output, tr("Output Volume"), bSoundOutput && func_is_visible("soundOutputSlider", "Hidden") && isOutputVisble);
         m_frameProxy->setDetailVisible(module, output, tr("Volume Boost"),  bSoundOutput && func_is_visible("soundVolumeBoost", "Hidden") && isOutputVisble);
-        m_frameProxy->setDetailVisible(module, output, leftRightBalance, bSoundOutput && func_is_visible("soundBalanceSlider", "Hidden") && isOutputVisble);
+        m_frameProxy->setDetailVisible(module, output, leftRightBalance, bSoundOutput && func_is_visible("soundBalanceSlider", "Hidden") && isOutputVisble && !m_model->currentBluetoothAudioMode().contains("headset"));
     };
 
     auto func_device_changed = [ = ]() {
@@ -231,7 +227,7 @@ void SoundModule::initSearchData()
             //输入设备为空不显示
             m_frameProxy->setDetailVisible(module, input, tr("Automatic Noise Suppression"), func_is_visible("soundInput") && func_is_visible("soundNoiseReduce", "Hidden") && m_inputPortEnableCount > 0);
         } else {
-            qInfo() << " not contains the gsettings : " << gsetting << state;
+            qWarning() << " not contains the gsettings : " << gsetting << state;
             return;
         }
 

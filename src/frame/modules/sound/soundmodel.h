@@ -212,9 +212,6 @@ public:
     inline int currentWaitSoundReceiptTime() { return m_waitSoundReceiptTime; }
     void setWaitSoundReceiptTime(const int receiptTime);
 
-    void setInputDevicesVisible(bool value);
-    void setOutputDevicesVisible(bool value);
-
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
@@ -236,8 +233,6 @@ Q_SIGNALS:
     //查询是否可用
     void requestSwitchEnable(unsigned int cardId,QString cardName);
 
-    //声音平衡模块是否可见
-    void balanceVisibleChanged(QString name, bool flag);
     //声音输入设备是否可见
     void inputDevicesVisibleChanged(QString name, bool flag);
     //声音输出设备是否可见

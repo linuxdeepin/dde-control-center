@@ -543,7 +543,7 @@ void DisplayModule::initSearchData()
             } else if ("displayScaling" == gsetting) {
                 m_frameProxy->setWidgetVisible(module, tr("Display Scaling"), func_is_visible("displayScaling"));
             } else {
-                qDebug() << " not contains the gsettings : " << gsetting << state;
+                qWarning() << " not contains the gsettings : " << gsetting << state;
                 return;
             }
         }

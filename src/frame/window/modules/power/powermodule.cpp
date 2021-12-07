@@ -267,16 +267,15 @@ void PowerModule::initSearchData()
     const QString& pluggedInWidget = tr("Plugged In");
     const QString& onBatteayWidget = tr("On Battery");
 
-    static QMap<QString, bool> gsettingsMap;
+    static QMap<QString, QString> gsettingsMap;
 
     auto func_is_visible = [=](const QString &gsettings, QString value = "Hidden") {
-        bool ret = GSettingWatcher::instance()->getStatus(gsettings) != value;
-        gsettingsMap.insert(gsettings, ret);
-        return ret;
+        const QString& status = GSettingWatcher::instance()->getStatus(gsettings);
+        gsettingsMap.insert(gsettings, status);
+        return status != value;
     };
 
     auto func_battary_Changed = [=](bool haveBettary, bool haveLib) {
-
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Auto power saving on low battery"), haveBettary && func_is_visible("powerAutointoSaveenergyBattery"));
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Auto power saving on battery"), haveBettary && func_is_visible("powerAutointoSaveenergy"));
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Display remaining using and charging time"), haveBettary && func_is_visible("powerShowtimeTofull"));
@@ -292,7 +291,7 @@ void PowerModule::initSearchData()
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Auto suspend battery level"), haveBettary && func_is_visible("systemSuspend"));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Monitor will suspend after"), haveBettary);
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Computer will suspend after"), haveBettary && func_is_visible("systemSuspend")
-                                       && m_model->canSleep() && m_model->getSuspend() && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
+                                       && m_model->canSleep() && m_model->getSuspend() && func_is_visible("systemSuspend"));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Lock screen after"), haveBettary && func_is_visible("powerAutoLockscreen"));
     };
 
@@ -302,7 +301,7 @@ void PowerModule::initSearchData()
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the computer"), func_is_visible("systemSuspend"));
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Decrease brightness"), func_is_visible("powerLowerBrightness"));
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Balanced"), true);
-        m_frameProxy->setDetailVisible(module, generalWidget, tr("High Performance"), true);
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("High Performance"), m_model->isHighPerformanceSupported());
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Saver"), true);
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Plans"), func_is_visible("powerPlansLabel"));
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Saving Settings"), true);
@@ -313,7 +312,7 @@ void PowerModule::initSearchData()
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Lock screen after"), func_is_visible("powerAutoLockscreen"));
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Monitor will suspend after"), true);
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Computer will suspend after"), func_is_visible("systemSuspend")
-                                       && m_model->canSleep() && m_model->getSuspend() && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
+                                       && m_model->canSleep() && m_model->getSuspend() && func_is_visible("systemSuspend"));
 
         func_battary_Changed(battaty, haveLib);
     };
@@ -322,16 +321,21 @@ void PowerModule::initSearchData()
         func_battary_Changed(state, m_model->lidPresent());
     });
 
+    connect(m_model, &PowerModel::highPerformaceChanged, this, [=] (const bool state) {
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("High Performance"), state);
+    });
+
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+        Q_UNUSED(state);
         if (!gsettingsMap.contains(gsetting)) {
             return;
         }
-
-        if (gsettingsMap.value(gsetting) == state) {
+        const QString& status = GSettingWatcher::instance()->getStatus(gsetting);
+        if (gsettingsMap.value(gsetting) == status) {
             return;
         }
 
-        bool isVisible = state != "Hidden";
+        bool isVisible = status != "Hidden";
 
         if ("powerAutointoSaveenergy" == gsetting) {
             m_frameProxy->setDetailVisible(module, generalWidget, tr("Auto power saving on battery"), m_model->haveBettary() && isVisible);
@@ -365,11 +369,11 @@ void PowerModule::initSearchData()
             m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Lock screen after"), func_is_visible("powerAutoLockscreen"));
             m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Lock screen after"), m_model->haveBettary() && func_is_visible("powerAutoLockscreen"));
         } else {
-            qDebug() << " not contains the gsettings : " << gsetting << state;
+            qWarning() << " not contains the gsettings : " << gsetting << status;
             return;
         }
 
-        qWarning() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << status;
         m_frameProxy->updateSearchData(module);
     });
 
