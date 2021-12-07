@@ -85,6 +85,16 @@ void AbstractSection::setSettingsHead(SettingsHead *settingsHead)
     m_layout->insertWidget(0, settingsHead);
 }
 
+int AbstractSection::itemIndex(SettingsItem *item)
+{
+    for (int i = 0; i < m_group->itemCount(); i++) {
+        if (m_group->getItem(i) == item)
+            return i;
+    }
+
+    return -1;
+}
+
 /**
  * @brief 按钮的实现类
  * @param parent

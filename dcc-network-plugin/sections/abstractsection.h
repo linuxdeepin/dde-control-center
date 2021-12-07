@@ -58,6 +58,7 @@ public:
     void insertItem(int idx, SettingsItem *item);
     void removeItem(SettingsItem *item);
     void setSettingsHead(SettingsHead *settingsHead);
+    int itemIndex(SettingsItem *item);
 
 Q_SIGNALS:
     void requestNextPage(ContentWidget * const page) const;

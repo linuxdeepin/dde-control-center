@@ -282,27 +282,35 @@ QList<IPInputSection *> MultiIpvxSection::createIpInputSections()
     return ipInputSections;
 }
 
-void MultiIpvxSection::setIpInputSection(IPInputSection *ipSection)
+void MultiIpvxSection::setIpInputSection(IPInputSection *ipSection, IPInputSection *itemBefore)
 {
     connect(ipSection, &IPV4InputSection::editClicked, this, &MultiIpvxSection::editClicked);
     connect(ipSection, &IPV4InputSection::requestDelete, this, &MultiIpvxSection::onDeleteItem);
     connect(ipSection, &IPV4InputSection::requestAdd, this, &MultiIpvxSection::onAddItem);
-    appendItem(ipSection);
+    if (itemBefore) {
+        int insertIndex = itemIndex(itemBefore);
+        if (insertIndex < 0)
+            appendItem(ipSection);
+        else
+            insertItem(++insertIndex, ipSection);
+    } else {
+        appendItem(ipSection);
+    }
     m_ipSections << ipSection;
 }
 
-void MultiIpvxSection::onAddItem()
+void MultiIpvxSection::onAddItem(IPInputSection *item)
 {
     if (m_ipvxSetting->type() == Setting::SettingType::Ipv4) {
         NetworkManager::IpAddress ipAddress;
         IPV4InputSection *ipSection = new IPV4InputSection(ipAddress, m_mainFrame);
-        setIpInputSection(ipSection);
+        setIpInputSection(ipSection, item);
         refreshItems();
     } else if (m_ipvxSetting->type() == Setting::SettingType::Ipv6) {
         NetworkManager::IpAddress ipAddress;
         ipAddress.setPrefixLength(64);
         IPV6InputSection *ipSection = new IPV6InputSection(ipAddress, m_mainFrame);
-        setIpInputSection(ipSection);
+        setIpInputSection(ipSection, item);
         refreshItems();
     }
 }
@@ -433,12 +441,12 @@ void IPInputSection::initConnection()
     });
 
     connect(m_newIpButton, &ActionButton::clicked, this, [ this ] {
-        Q_EMIT requestAdd();
         Q_EMIT editClicked();
+        Q_EMIT requestAdd(this);
     });
     connect(m_deleteButton, &ActionButton::clicked, this, [ this ] {
-        Q_EMIT requestDelete(this);
         Q_EMIT editClicked();
+        Q_EMIT requestDelete(this);
     });
 }
 

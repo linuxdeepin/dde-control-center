@@ -64,11 +64,11 @@ private:
     void addIPV6Config();
     void setDefaultValue();
     QList<IPInputSection *> createIpInputSections();
-    void setIpInputSection(IPInputSection *ipSection);
+    void setIpInputSection(IPInputSection *ipSection, IPInputSection *itemBefore = nullptr);
 
 protected slots:
     void onDeleteItem(IPInputSection *item);
-    void onAddItem();
+    void onAddItem(IPInputSection *item);
     void onIPV4OptionChanged();
     void onIPV6OptionChanged();
     void onButtonShow(bool edit);
@@ -104,7 +104,7 @@ public:
 Q_SIGNALS:
     void editClicked();
     void requestDelete(IPInputSection *);
-    void requestAdd();
+    void requestAdd(IPInputSection *);
 
 protected:
     void initUi();
