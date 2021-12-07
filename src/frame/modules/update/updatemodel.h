@@ -111,9 +111,6 @@ public:
     UpdateItemInfo *systemDownloadInfo() const;
     void setSystemDownloadInfo(UpdateItemInfo *updateItemInfo);
 
-    UpdateItemInfo *appDownloadInfo() const;
-    void setAppDownloadInfo(UpdateItemInfo *updateItemInfo);
-
     UpdateItemInfo *safeDownloadInfo() const;
     void setSafeDownloadInfo(UpdateItemInfo *updateItemInfo);
 
@@ -203,9 +200,6 @@ public:
     UpdatesStatus getSystemUpdateStatus() const;
     void setSystemUpdateStatus(const UpdatesStatus &systemUpdateStatus);
 
-    UpdatesStatus getAppUpdateStatus() const;
-    void setAppUpdateStatus(const UpdatesStatus &appUpdateStatus);
-
     UpdatesStatus getSafeUpdateStatus() const;
     void setSafeUpdateStatus(const UpdatesStatus &safeUpdateStatus);
 
@@ -230,9 +224,6 @@ public:
     UpdateJobErrorMessage getSystemUpdateJobError() const;
     void setSystemUpdateJobError(const UpdateJobErrorMessage &systemUpdateJobError);
 
-    UpdateJobErrorMessage getAppUpdateJobError() const;
-    void setAppUpdateJobError(const UpdateJobErrorMessage &appUpdateJobError);
-
     UpdateJobErrorMessage getSafeUpdateJobError() const;
     void setSafeUpdateJobError(const UpdateJobErrorMessage &safeUpdateJobError);
 
@@ -253,7 +244,6 @@ Q_SIGNALS:
     void statusChanged(const UpdatesStatus &status);
 
     void systemUpdateStatusChanged(const UpdatesStatus &status);
-    void appUpdateStatusChanged(const UpdatesStatus &status);
     void safeUpdateStatusChanged(const UpdatesStatus &status);
     void unkonowUpdateStatusChanged(const UpdatesStatus &status);
 
@@ -267,14 +257,12 @@ Q_SIGNALS:
     void downloadInfoChanged(DownloadInfo *downloadInfo);
 
     void systemUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
-    void appUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
     void safeUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
     void unknownUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
 
     void classityUpdateJobErrorChanged(ClassifyUpdateType type, const QString &errorMessage);
 
     void systemUpdateProgressChanged(const double &updateProgress);
-    void appUpdateProgressChanged(const double &updateProgress);
     void safeUpdateProgressChanged(const double &updateProgress);
     void unkonowUpdateProgressChanged(const double &updateProgress);
 
@@ -301,7 +289,6 @@ private:
     UpdatesStatus m_status;
 
     UpdatesStatus m_systemUpdateStatus;
-    UpdatesStatus m_appUpdateStatus;
     UpdatesStatus m_safeUpdateStatus;
     UpdatesStatus m_unkonowUpdateStatus;
 
@@ -309,7 +296,6 @@ private:
 
     QMap<ClassifyUpdateType, UpdateItemInfo *> m_allUpdateInfos;
     UpdateItemInfo *m_systemUpdateInfo;
-    UpdateItemInfo *m_appUpdateInfo;
     UpdateItemInfo *m_safeUpdateInfo;
     UpdateItemInfo *m_unknownUpdateInfo;
 
@@ -349,7 +335,6 @@ private:
     bool m_isUpdatablePackages;
 
     UpdateJobErrorMessage m_systemUpdateJobError;
-    UpdateJobErrorMessage m_appUpdateJobError;
     UpdateJobErrorMessage m_safeUpdateJobError;
     UpdateJobErrorMessage m_UnkonwUpdateJobError;
 };

@@ -208,13 +208,6 @@ QString UpdateSettings::getAutoInstallUpdateType(quint64 type)
     if (type & ClassifyUpdateType::SystemUpdate) {
         text = tr("System Updates");
     }
-    if (type & ClassifyUpdateType::AppStoreUpdate) {
-        if (text.isEmpty()) {
-            text += tr("App Updates in App Store");
-        } else {
-            text = text + "," + tr("App Updates in App Store");
-        }
-    }
     if (type & ClassifyUpdateType::SecurityUpdate) {
         if (text.isEmpty()) {
             text += tr("Security Updates");
@@ -277,7 +270,6 @@ void UpdateSettings::setModel(UpdateModel *model)
     GSettingWatcher::instance()->bind("updateAutoDownlaod", m_autoDownloadUpdate);
     GSettingWatcher::instance()->bind("updateCleanCache", m_autoCleanCache);
     GSettingWatcher::instance()->bind("updateSystemUpdate", m_autoCheckUniontechUpdate);
-    GSettingWatcher::instance()->bind("updateAppUpdate", m_autoCheckAppUpdate);
 
     m_dconfig = DConfigWatcher::instance()->getModulesConfig(DConfigWatcher::update);
     DConfigWatcher::instance()->bind(DConfigWatcher::update, "updateSafety", m_autoCheckSecureUpdate);

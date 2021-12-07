@@ -92,11 +92,9 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_model(model)
     , m_checkUpdateJob(nullptr)
     , m_sysUpdateDownloadJob(nullptr)
-    , m_appUpdateDownloadJob(nullptr)
     , m_safeUpdateDownloadJob(nullptr)
     , m_unknownUpdateDownloadJob(nullptr)
     , m_sysUpdateInstallJob(nullptr)
-    , m_appUpdateInstallJob(nullptr)
     , m_safeUpdateInstallJob(nullptr)
     , m_unknownUpdateInstallJob(nullptr)
     , m_lastoresessionHelper(nullptr)
@@ -124,8 +122,6 @@ UpdateWorker::~UpdateWorker()
 {
     deleteJob(m_sysUpdateDownloadJob);
     deleteJob(m_sysUpdateInstallJob);
-    deleteJob(m_appUpdateDownloadJob);
-    deleteJob(m_appUpdateInstallJob);
     deleteJob(m_safeUpdateDownloadJob);
     deleteJob(m_safeUpdateInstallJob);
     deleteJob(m_unknownUpdateDownloadJob);
@@ -352,10 +348,8 @@ void UpdateWorker::setUpdateInfo()
 {
     m_updatePackages.clear();
     m_systemPackages.clear();
-    m_appPackages.clear();
     m_safePackages.clear();
     m_unknownPackages.clear();
-    m_appUpdateName.clear();
 
     qDebug() << " UpdateWorker::setUpdateInfo() ";
     m_updateInter->setSync(true);
@@ -363,23 +357,13 @@ void UpdateWorker::setUpdateInfo()
 
     m_updatePackages = m_updateInter->classifiedUpdatablePackages();
     m_systemPackages = m_updatePackages.value(SystemUpdateType);
-    m_appPackages = m_updatePackages.value(AppStoreUpdateType);
     m_safePackages = m_updatePackages.value(SecurityUpdateType);
     m_unknownPackages = m_updatePackages.value(UnknownUpdateType);
-
-    if (m_appPackages.count() > 0) {
-        const AppUpdateInfoList applist = m_updateInter->ApplicationUpdateInfos(QLocale::system().name());
-        qDebug() << "getAppName applist.count() == " << applist.count();
-        for (AppUpdateInfo val : applist) {
-            m_appUpdateName.insert(val.m_packageId, val.m_name);
-        }
-    }
 
     m_updateInter->setSync(false);
     m_managerInter->setSync(false);
 
     qDebug() << "systemUpdate packages:" <<  m_systemPackages;
-    qDebug() << "appUpdate packages:" <<  m_appPackages;
     qDebug() << "safeUpdate packages:" <<  m_safePackages;
     qDebug() << "unkonowUpdate packages:" <<  m_unknownPackages;
 
@@ -388,7 +372,7 @@ void UpdateWorker::setUpdateInfo()
         return;
     }
 
-    int updateCount = m_systemPackages.count() + m_appPackages.count() + m_safePackages.count() + m_unknownPackages.count();
+    int updateCount = m_systemPackages.count() + m_safePackages.count() + m_unknownPackages.count();
     if (updateCount < 1) {
         QFile file("/tmp/.dcc-update-successd");
         if (file.exists()) {
@@ -456,24 +440,6 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
     } else {
         delete systemItemInfo;
         systemItemInfo = nullptr;
-    }
-
-    UpdateItemInfo *appItemInfo = getItemInfo(object.value("appUpdateInfo"));
-    if (appItemInfo != nullptr && m_appPackages.count() > 0 && m_model->autoCheckAppUpdates()) {
-        QString appName = "";
-        for (int i = 0; i < 3; i++) {
-            QString tempName = getAppName(i);
-            if(!tempName.isEmpty()){
-                appName = appName.isEmpty() ? tempName : appName + "," + tempName;
-            }
-        }
-
-        appItemInfo->setName(QString(tr("%1 apps updates available (such as %2)")).arg(m_appPackages.count()).arg(appName));
-        appItemInfo->setDownloadSize(m_managerInter->PackagesDownloadSize(m_appPackages));
-        resultMap.insert(ClassifyUpdateType::AppStoreUpdate, appItemInfo);
-    } else {
-        delete appItemInfo;
-        appItemInfo = nullptr;
     }
 
     UpdateItemInfo  *safeItemInfo = getItemInfo(object.value("safeUpdateInfo"));
@@ -550,8 +516,6 @@ bool UpdateWorker::checkDbusIsValid()
     if (!checkJobIsValid(m_checkUpdateJob)
             || !checkJobIsValid(m_sysUpdateDownloadJob)
             || !checkJobIsValid(m_sysUpdateInstallJob)
-            || !checkJobIsValid(m_appUpdateDownloadJob)
-            || !checkJobIsValid(m_appUpdateInstallJob)
             || !checkJobIsValid(m_safeUpdateDownloadJob)
             || !checkJobIsValid(m_safeUpdateInstallJob)
             || !checkJobIsValid(m_unknownUpdateDownloadJob)
@@ -597,15 +561,12 @@ void UpdateWorker::resetDownloadInfo(bool state)
 
     m_updatePackages.clear();
     m_systemPackages.clear();
-    m_appPackages.clear();
     m_safePackages.clear();
     m_unknownPackages.clear();
 
     if (!state) {
         deleteJob(m_sysUpdateDownloadJob);
         deleteJob(m_sysUpdateInstallJob);
-        deleteJob(m_appUpdateDownloadJob);
-        deleteJob(m_appUpdateInstallJob);
         deleteJob(m_safeUpdateDownloadJob);
         deleteJob(m_safeUpdateInstallJob);
         deleteJob(m_unknownUpdateDownloadJob);
@@ -836,10 +797,6 @@ void UpdateWorker::recoveryCanBackup(ClassifyUpdateType type)
                     setUpdateItemProgress(m_model->systemDownloadInfo(), 0.7);
                     m_model->setSystemUpdateStatus(UpdatesStatus::RecoveryBackingup);
                     break;
-                case ClassifyUpdateType::AppStoreUpdate:
-                    setUpdateItemProgress(m_model->appDownloadInfo(), 0.7);
-                    m_model->setAppUpdateStatus(UpdatesStatus::RecoveryBackingup);
-                    break;
                 case ClassifyUpdateType::SecurityUpdate:
                     setUpdateItemProgress(m_model->safeDownloadInfo(), 0.7);
                     m_model->setSafeUpdateStatus(UpdatesStatus::RecoveryBackingup);
@@ -902,12 +859,6 @@ void UpdateWorker::setDownloadJob(const QString &jobPath, ClassifyUpdateType upd
         connect(m_sysUpdateDownloadJob, &__Job::NameChanged, this, &UpdateWorker::setSysUpdateDownloadJobName);
         break;
 
-    case ClassifyUpdateType::AppStoreUpdate:
-        m_appUpdateDownloadJob = job;
-        connect(m_appUpdateDownloadJob, &__Job::ProgressChanged, this, &UpdateWorker::onAppUpdateDownloadProgressChanged);
-        connect(m_appUpdateDownloadJob, &__Job::NameChanged, this, &UpdateWorker::setAppUpdateDownloadJobName);
-        break;
-
     case ClassifyUpdateType::SecurityUpdate:
         m_safeUpdateDownloadJob = job;
         connect(m_safeUpdateDownloadJob, &__Job::ProgressChanged, this, &UpdateWorker::onSafeUpdateDownloadProgressChanged);
@@ -944,10 +895,6 @@ void UpdateWorker::setDistUpgradeJob(const QString &jobPath, ClassifyUpdateType 
     case ClassifyUpdateType::SystemUpdate:
         m_sysUpdateInstallJob = job;
         connect(m_sysUpdateInstallJob, &__Job::ProgressChanged, this, &UpdateWorker::onSysUpdateInstallProgressChanged);
-        break;
-    case ClassifyUpdateType::AppStoreUpdate:
-        m_appUpdateInstallJob = job;
-        connect(m_appUpdateInstallJob, &__Job::ProgressChanged, this, &UpdateWorker::onAppUpdateInstallProgressChanged);
         break;
     case ClassifyUpdateType::SecurityUpdate:
         m_safeUpdateInstallJob = job;
@@ -1006,12 +953,10 @@ void UpdateWorker::onRecoveryFinshed(bool successed)
     };
     if (successed) {
         requestUpdate(ClassifyUpdateType::SystemUpdate);
-        requestUpdate(ClassifyUpdateType::AppStoreUpdate);
         requestUpdate(ClassifyUpdateType::SecurityUpdate);
         requestUpdate(ClassifyUpdateType::UnknownUpdate);
     } else {
         if (requestUpdate(ClassifyUpdateType::SystemUpdate)
-                ||  requestUpdate(ClassifyUpdateType::AppStoreUpdate)
                 ||  requestUpdate(ClassifyUpdateType::SecurityUpdate)
                 ||  requestUpdate(ClassifyUpdateType::UnknownUpdate)) {
             return;
@@ -1042,17 +987,13 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
             setCheckUpdatesJob(m_jobPath);
         } else if (id == "prepare_system_upgrade" && m_sysUpdateDownloadJob == nullptr) {
             setDownloadJob(m_jobPath, ClassifyUpdateType::SystemUpdate);
-        } else if (id == "prepare_appstore_upgrade" && m_appUpdateDownloadJob == nullptr) {
-            setDownloadJob(m_jobPath, ClassifyUpdateType::AppStoreUpdate);
         } else if (id == "prepare_security_upgrade" && m_safeUpdateDownloadJob == nullptr) {
             setDownloadJob(m_jobPath, ClassifyUpdateType::SecurityUpdate);
         } else if (id == "prepare_unknown_upgrade" && m_unknownUpdateDownloadJob == nullptr) {
             setDownloadJob(m_jobPath, ClassifyUpdateType::UnknownUpdate);
         } else if (id == "system_upgrade" && m_sysUpdateInstallJob == nullptr) {
             setDistUpgradeJob(m_jobPath, ClassifyUpdateType::SystemUpdate);
-        } else if (id == "appstore_upgrade" && m_appUpdateInstallJob == nullptr) {
-            setDistUpgradeJob(m_jobPath, ClassifyUpdateType::AppStoreUpdate);
-        } else if (id == "security_upgrade" && m_safeUpdateInstallJob == nullptr) {
+        }  else if (id == "security_upgrade" && m_safeUpdateInstallJob == nullptr) {
             setDistUpgradeJob(m_jobPath, ClassifyUpdateType::SecurityUpdate);
         } else if (id == "unknown_upgrade" && m_unknownUpdateInstallJob == nullptr) {
             setDistUpgradeJob(m_jobPath, ClassifyUpdateType::UnknownUpdate);
@@ -1063,13 +1004,6 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
 void UpdateWorker::onSysUpdateDownloadProgressChanged(double value)
 {
     UpdateItemInfo *itemInfo = m_model->systemDownloadInfo();
-    setUpdateItemProgress(itemInfo, value);
-}
-
-void UpdateWorker::onAppUpdateDownloadProgressChanged(double value)
-{
-    UpdateItemInfo *itemInfo = m_model->appDownloadInfo();
-
     setUpdateItemProgress(itemInfo, value);
 }
 
@@ -1097,17 +1031,6 @@ void UpdateWorker::onSysUpdateInstallProgressChanged(double value)
 
     setUpdateItemProgress(itemInfo, value);
 
-}
-
-void UpdateWorker::onAppUpdateInstallProgressChanged(double value)
-{
-    UpdateItemInfo *itemInfo = m_model->appDownloadInfo();
-    if (itemInfo == nullptr || qFuzzyIsNull(value)) {
-        return;
-    }
-
-    qDebug() << "onAppUpdateInstallProgressChanged : " << value;
-    setUpdateItemProgress(itemInfo, value);
 }
 
 void UpdateWorker::onSafeUpdateInstallProgressChanged(double value)
@@ -1246,12 +1169,10 @@ void UpdateWorker::downloadAndInstallUpdates(ClassifyUpdateType updateType)
             watcher->reply().path();
             QDBusPendingReply<QList<QDBusObjectPath> > reply = watcher->reply();
             QList<QDBusObjectPath>  data = reply.value();
-            int count = data.count();
-            if (count < 2) {
+            if (data.count() < 1) {
                 qDebug() << "UpdateFailed, download updates error: " << watcher->error().message();
                 return;
             }
-
             setDownloadJob(reply.value().at(0).path(), updateType);
         } else
         {
@@ -1298,9 +1219,6 @@ QPointer<JobInter> UpdateWorker::getDownloadJob(ClassifyUpdateType updateType)
     case ClassifyUpdateType::SystemUpdate:
         job = m_sysUpdateDownloadJob;
         break;
-    case ClassifyUpdateType::AppStoreUpdate:
-        job = m_appUpdateDownloadJob;
-        break;
     case ClassifyUpdateType::SecurityUpdate:
         job = m_safeUpdateDownloadJob;
         break;
@@ -1322,9 +1240,6 @@ QPointer<JobInter> UpdateWorker::getInstallJob(ClassifyUpdateType updateType)
     case ClassifyUpdateType::SystemUpdate:
         job = m_sysUpdateInstallJob;
         break;
-    case ClassifyUpdateType::AppStoreUpdate:
-        job = m_appUpdateInstallJob;
-        break;
     case ClassifyUpdateType::SecurityUpdate:
         job = m_safeUpdateInstallJob;
         break;
@@ -1337,16 +1252,6 @@ QPointer<JobInter> UpdateWorker::getInstallJob(ClassifyUpdateType updateType)
     }
 
     return job;
-}
-
-QString UpdateWorker::getAppName(int id)
-{
-    if (m_appPackages.count() <= id) {
-        return "";
-    }
-    qDebug() << "getAppName";
-
-    return m_appUpdateName.value(m_appPackages.at(id));
 }
 
 bool UpdateWorker::checkJobIsValid(QPointer<JobInter> dbusJob)
@@ -1377,9 +1282,6 @@ void UpdateWorker::deleteClassityDownloadJob(ClassifyUpdateType type)
     case ClassifyUpdateType::SystemUpdate:
         deleteJob(m_sysUpdateDownloadJob);
         break;
-    case ClassifyUpdateType::AppStoreUpdate:
-        deleteJob(m_appUpdateDownloadJob);
-        break;
     case ClassifyUpdateType::SecurityUpdate:
         deleteJob(m_safeUpdateDownloadJob);
         break;
@@ -1397,9 +1299,6 @@ void UpdateWorker::deleteClassityInstallJob(ClassifyUpdateType type)
     case ClassifyUpdateType::SystemUpdate:
         deleteJob(m_sysUpdateInstallJob);
         break;
-    case ClassifyUpdateType::AppStoreUpdate:
-        deleteJob(m_appUpdateInstallJob);
-        break;
     case ClassifyUpdateType::SecurityUpdate:
         deleteJob(m_safeUpdateInstallJob);
         break;
@@ -1414,7 +1313,6 @@ void UpdateWorker::deleteClassityInstallJob(ClassifyUpdateType type)
 bool UpdateWorker::checkUpdateSuccessed()
 {
     if ((m_model->getSystemUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getSystemUpdateStatus() == UpdatesStatus::Default)
-            && (m_model->getAppUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getAppUpdateStatus() == UpdatesStatus::Default)
             && (m_model->getSafeUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getSafeUpdateStatus() == UpdatesStatus::Default)
             && (m_model->getUnkonowUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getUnkonowUpdateStatus() == UpdatesStatus::Default)) {
         QFile file("/tmp/.dcc-update-successd");
@@ -1446,12 +1344,6 @@ void UpdateWorker::setSafeUpdateDownloadJobName(const QString &safeUpdateDownloa
 {
     m_safeUpdateDownloadJobName = safeUpdateDownloadJobName;
 }
-
-void UpdateWorker::setAppUpdateDownloadJobName(const QString &appUpdateDownloadJobName)
-{
-    m_appUpdateDownloadJobName = appUpdateDownloadJobName;
-}
-
 
 void UpdateWorker::setSysUpdateDownloadJobName(const QString &sysUpdateDownloadJobName)
 {
@@ -1553,9 +1445,6 @@ QString UpdateWorker::getClassityUpdateDownloadJobName(ClassifyUpdateType update
     switch (updateType) {
     case ClassifyUpdateType::SystemUpdate:
         value = m_sysUpdateDownloadJobName;
-        break;
-    case ClassifyUpdateType::AppStoreUpdate:
-        value = m_appUpdateDownloadJobName;
         break;
     case ClassifyUpdateType::SecurityUpdate:
         value = m_safeUpdateDownloadJobName;

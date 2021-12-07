@@ -88,7 +88,6 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void onFullUpdateClicked();
-    void onRequestUpdate(ClassifyUpdateType type);
     void onRequestRefreshSize();
     void onRequestRefreshWidget();
     void onClassityUpdateJonErrorChanged(ClassifyUpdateType type, const QString &errorMessage);
@@ -99,12 +98,10 @@ private:
     void setStatus(const UpdatesStatus &status);
 
     void setSystemUpdateStatus(const UpdatesStatus &status);
-    void setAppUpdateStatus(const UpdatesStatus &status);
     void setSafeUpdateStatus(const UpdatesStatus &status);
     void setUnkonowUpdateStatus(const UpdatesStatus &status);
 
     void setSystemUpdateInfo(UpdateItemInfo *updateItemInfo);
-    void setAppUpdateInfo(UpdateItemInfo *updateItemInfo);
     void setSafeUpdateInfo(UpdateItemInfo *updateItemInfo);
     void setUnkonowUpdateInfo(UpdateItemInfo *updateItemInfo);
     void setAllUpdateInfo(QMap<ClassifyUpdateType, UpdateItemInfo *> updateInfoMap);
@@ -169,9 +166,10 @@ private:
     qlonglong m_updateSize;
 
     SystemUpdateItem *m_systemUpdateItem;
-    AppstoreUpdateItem *m_storeUpdateItem;
     SafeUpdateItem *m_safeUpdateItem;
     UnknownUpdateItem *m_unknownUpdateItem;
+
+    QMap<ClassifyUpdateType,UpdateSettingItem*> m_updateingItemMap;
     dcc::widgets::SettingsGroup *m_updateSummaryGroup;
 };
 

@@ -92,46 +92,6 @@ enum BackupStatus {
     BackupFailed
 };
 
-static inline QString UpdateTypeEnumToString(ClassifyUpdateType type)
-{
-    QString value = "";
-    switch (type) {
-    case ClassifyUpdateType::SystemUpdate:
-        value = SystemUpdateType;
-        break;
-    case ClassifyUpdateType::AppStoreUpdate:
-        value = AppStoreUpdateType;
-        break;
-    case ClassifyUpdateType::SecurityUpdate:
-        value = SecurityUpdateType;
-        break;
-    case ClassifyUpdateType::UnknownUpdate:
-        value = UnknownUpdateType;
-        break;
-    default:
-        value = "";
-    }
-
-    return value;
-}
-
-static inline ClassifyUpdateType UpdateTypeStringToEnum(QString type)
-{
-    ClassifyUpdateType value;
-    if (type.compare(SystemUpdateType, Qt::CaseSensitive) == 0) {
-        value = ClassifyUpdateType::SystemUpdate;
-    } else if (type.compare(AppStoreUpdateType, Qt::CaseSensitive) == 0) {
-        value = ClassifyUpdateType::AppStoreUpdate;
-    } else if (type.compare(SecurityUpdateType, Qt::CaseSensitive) == 0) {
-        value = ClassifyUpdateType::SecurityUpdate;
-    } else if (type.compare(UnknownUpdateType, Qt::CaseSensitive) == 0) {
-        value = ClassifyUpdateType::UnknownUpdate;
-    } else {
-        value = ClassifyUpdateType::Invalid;
-    }
-
-    return  value;
-}
 
 static inline ClassifyUpdateType uintToclassifyUpdateType(uint type)
 {
@@ -139,9 +99,6 @@ static inline ClassifyUpdateType uintToclassifyUpdateType(uint type)
     switch (type) {
     case ClassifyUpdateType::SystemUpdate:
         value = ClassifyUpdateType::SystemUpdate;
-        break;
-    case ClassifyUpdateType::AppStoreUpdate:
-        value = ClassifyUpdateType::AppStoreUpdate;
         break;
     case ClassifyUpdateType::SecurityUpdate:
         value = ClassifyUpdateType::SecurityUpdate;
