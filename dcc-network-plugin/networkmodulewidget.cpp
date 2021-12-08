@@ -72,7 +72,6 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     , m_settings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
     , m_isFirstEnter(true)
     , m_switchIndex(true)
-    , m_closeHotspotFromPage(false)
 {
     setObjectName("Network");
     m_lvnmpages->setAccessibleName("List_networkmenulist");
@@ -129,7 +128,6 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
 
     connect(m_lvnmpages, &DListView::activated, this, &NetworkModuleWidget::onClickCurrentListIndex);
     connect(m_lvnmpages, &DListView::clicked, this, [ this ] (const QModelIndex &index) {
-        m_closeHotspotFromPage = false;
         m_lvnmpages->activated(index);
         if (!m_lastDevicePath.isEmpty())
             m_lastDevicePath.clear();
@@ -330,11 +328,6 @@ void NetworkModuleWidget::setLastDevicePath(const QString &path)
     m_lastDevicePath = path;
 }
 
-void NetworkModuleWidget::setCloseHotspotFromHotspotPage()
-{
-    m_closeHotspotFromPage = true;
-}
-
 void NetworkModuleWidget::initSetting(const int settingIndex, const QString &searchPath)
 {
     if (!searchPath.isEmpty())
@@ -496,11 +489,6 @@ void NetworkModuleWidget::onDeviceChanged()
         int hotspotRow = m_modelpages->rowCount() - 1;
         m_modelpages->insertRow(hotspotRow, hotspotit);
         GSettingWatcher::instance()->bind("personalHotspot", m_lvnmpages, hotspotit);
-        if (m_closeHotspotFromPage) {
-            newRowIndex = hotspotRow;
-            m_closeHotspotFromPage = false;
-            m_switchIndex = true;
-        }
     }
     // 获取之前的索引就和当前的索引对比
     if (newRowIndex < 0) {
