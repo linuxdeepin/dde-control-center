@@ -186,7 +186,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="471"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
-        <translation>Tylko jedno konto może mieć włączoną opcję „Automatyczne logowanie”. Jeśli będziesz kontynuować, ta opcja innych kont zostanie wyłączona.</translation>
+        <translation>Tylko jedno konto może mieć włączoną opcję „Automatyczne logowanie”. Włączenie tej opcji na tym koncie, wyłączy ją dla pozostałych użytkowników. </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="473"/>
@@ -360,7 +360,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="483"/>
         <source>Username must be between 3 and 32 characters</source>
-        <translation>Nazwa użytkownika musi mieć od 3 do 32 znaków</translation>
+        <translation>Nazwa użytkownika musi zawierać od 3 do 32 znaków</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="490"/>
@@ -713,7 +713,7 @@
 <context>
     <name>dccV20::authentication::FaceidDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/faceiddetailwidget.cpp" line="20"/>
+        <location filename="../src/frame/window/modules/authentication/faceiddetailwidget.cpp" line="22"/>
         <source>No supported devices found</source>
         <translation>Nie znaleziono wspieranych urządzeń</translation>
     </message>
@@ -721,7 +721,7 @@
 <context>
     <name>dccV20::authentication::FingerDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="61"/>
         <source>No supported devices found</source>
         <translation>Nie znaleziono wspieranych urządzeń</translation>
     </message>
@@ -763,7 +763,7 @@
 <context>
     <name>dccV20::authentication::IrisDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/irisdetailwidget.cpp" line="20"/>
+        <location filename="../src/frame/window/modules/authentication/irisdetailwidget.cpp" line="22"/>
         <source>No supported devices found</source>
         <translation>Nie znaleziono wspieranych urządzeń</translation>
     </message>
@@ -1043,25 +1043,25 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="105"/>
         <source>Boot Menu</source>
         <translation>Menu rozruchu</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="113"/>
         <source>Developer Mode</source>
         <translation>Tryb dewelopera</translation>
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="117"/>
         <source>User Experience Program</source>
-        <translation>Program doświadczenia użytkownika</translation>
+        <translation>Program doświadczeń użytkownika</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="121"/>
         <source>Tablet Mode</source>
         <translation>Tryb tabletu</translation>
     </message>
@@ -1102,7 +1102,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="301"/>
         <source>Agree and Join User Experience Program</source>
-        <translation>Zgadzam się i dołącz do programu doświadczenia użytkownika</translation>
+        <translation>Zgadzam się i dołącz do programu doświadczeń użytkownika</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="360"/>
@@ -1244,7 +1244,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="50"/>
         <source>Join User Experience Program</source>
-        <translation>Dołącz do programu doświadczenia użytkownika</translation>
+        <translation>Dołącz do programu doświadczeń użytkownika</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
@@ -1661,7 +1661,7 @@
         <extra-contents_path>/defapp/Terminal</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="135"/>
         <source>Default Applications</source>
         <translation>Domyślne programy</translation>
     </message>
@@ -3093,28 +3093,28 @@
     <name>dccV20::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="146"/>
         <source>Output</source>
         <translation>Wyjście</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="150"/>
         <source>Input</source>
         <translation>Wejście</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="154"/>
         <source>Sound Effects</source>
         <translation>Dźwięki systemu</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="82"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="158"/>
         <source>Devices</source>
         <translation>Urządzenia</translation>
         <extra-contents_path>/sound/Devices</extra-contents_path>
@@ -3606,113 +3606,113 @@
     <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="75"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="371"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="392"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="398"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="391"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="397"/>
         <source>Check Again</source>
         <translation>Sprawdź ponownie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="95"/>
         <source>Restart the computer to use the system and the applications properly</source>
         <translation>Uruchom ponownie komputer, aby poprawnie korzystać z systemu i aplikacji</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Sieć jest rozłączona, spróbuj ponownie po podłączeniu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="105"/>
         <source>Your system is not authorized, please activate first</source>
         <translation>Twój system nie jest autoryzowany, najpierw aktywuj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="123"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation>Ta aktualizacja może zająć dużo czasu, nie wyłączaj się ani nie uruchamiaj ponownie podczas procesu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="138"/>
         <source>Updates Available</source>
         <translation>Aktualizacje są dostępne</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="147"/>
         <source>Current Edition</source>
         <translation>Obecna edycja</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="160"/>
         <source>Updating...</source>
         <translation>Aktualizowanie...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="166"/>
         <source>Update All</source>
         <translation>Aktualizuj wszystko</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="658"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="629"/>
         <source>Last checking time: </source>
         <translation>Data ostatniego sprawdzania: </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="339"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="372"/>
         <source>Your system is up to date</source>
         <translation>Twój system operacyjny jest aktualny</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="342"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="375"/>
         <source>Check for Updates</source>
         <translation>Sprawdź aktualizacje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="352"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
         <source>Checking for updates, please wait...</source>
         <translation>Sprawdzanie aktualizacji, proszę czekać...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Zainstalowano najnowszy system, uruchom ponownie aby zadziałał</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="390"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Aktualizacja nie powiodła się: za mało miejsca na dysku</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="396"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Błąd zależności, nie udało się wykryć aktualizacji</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="428"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>Pobrano %1% (Kliknij, aby wstrzymać)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="442"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="430"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>Pobrano %1% (Kliknij, aby kontynuować)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="443"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Poziom baterii jest poniżej 50%, prosimy podłączyć zasilacz, aby kontynuować</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="445"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Prosimy zapewnić dostateczną ilość zasilania, aby uruchomić ponownie. Nie wyłączaj komputera, ani odcinaj źródła zasilania.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="764"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="702"/>
         <source>Size</source>
         <translation>Rozmiar</translation>
     </message>
@@ -3833,23 +3833,17 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="213"/>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="215"/>
-        <source>App Updates in App Store</source>
-        <translation>Aktualizacje aplikacji w App Store</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="222"/>
         <source>Security Updates</source>
         <translation>Aktualizacje zabezpieczeń</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="227"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="222"/>
         <source>Unknown Apps Updates</source>
         <translation>Nieznane aktualizacje programów</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="226"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation>Zainstaluj &quot;%1&quot; automatycznie, jak tylko pobieranie zostanie zakończone</translation>
     </message>
@@ -3954,7 +3948,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="76"/>
         <source>Password must have at least %1 characters</source>
-        <translation>Hasło musi mieć co najmniej %1 znaków</translation>
+        <translation>Hasło musi zawierać co najmniej %1 znaków</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="77"/>
@@ -3969,17 +3963,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="79"/>
         <source>No more than 8 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Nie więcej niż 8 palindromowych znaków</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="80"/>
         <source>No more than 3 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Nie więcej niż 3 monotoniczne znaki</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="81"/>
         <source>No more than 3 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Nie więcej niż 3 powtarzające się znaki</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="87"/>
@@ -4956,42 +4950,37 @@ Dla lepszego rozpoznawania twarzą, zwróć uwagę na poniższe punkty podczas z
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="453"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="437"/>
         <source>System Updates</source>
         <translation>Aktualizacje systemu</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="471"/>
-        <source>%1 apps updates available (such as %2)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="481"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="447"/>
         <source>Security Updates</source>
         <translation>Aktualizacje zabezpieczeń</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="492"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="458"/>
         <source>Unknown Apps Updates</source>
         <translation>Nieznane aktualizacje programów</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1488"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1380"/>
         <source>Network error</source>
         <translation>Błąd sieci</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1491"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1383"/>
         <source>Dependency error</source>
         <translation>Błąd zależności</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1494"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1386"/>
         <source>Insufficient disk space</source>
         <translation>Za mało miejsca na dysku</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1497"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1389"/>
         <source>Update failed</source>
         <translation>Niepowodzenie aktualizacji</translation>
     </message>

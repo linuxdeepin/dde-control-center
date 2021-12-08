@@ -713,7 +713,7 @@
 <context>
     <name>dccV20::authentication::FaceidDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/faceiddetailwidget.cpp" line="20"/>
+        <location filename="../src/frame/window/modules/authentication/faceiddetailwidget.cpp" line="22"/>
         <source>No supported devices found</source>
         <translation>找不到可支持设备</translation>
     </message>
@@ -721,7 +721,7 @@
 <context>
     <name>dccV20::authentication::FingerDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="61"/>
         <source>No supported devices found</source>
         <translation>找不到可支持设备</translation>
     </message>
@@ -763,7 +763,7 @@
 <context>
     <name>dccV20::authentication::IrisDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/irisdetailwidget.cpp" line="20"/>
+        <location filename="../src/frame/window/modules/authentication/irisdetailwidget.cpp" line="22"/>
         <source>No supported devices found</source>
         <translation>找不到可支持设备</translation>
     </message>
@@ -1043,25 +1043,25 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="105"/>
         <source>Boot Menu</source>
         <translation>启动菜单</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="113"/>
         <source>Developer Mode</source>
         <translation>开发者模式</translation>
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="117"/>
         <source>User Experience Program</source>
         <translation>用户体验计划</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="121"/>
         <source>Tablet Mode</source>
         <translation>平板模式</translation>
     </message>
@@ -1661,7 +1661,7 @@
         <extra-contents_path>/defapp/Terminal</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="135"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
@@ -3093,28 +3093,28 @@
     <name>dccV20::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="146"/>
         <source>Output</source>
         <translation>输出</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="150"/>
         <source>Input</source>
         <translation>输入</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="154"/>
         <source>Sound Effects</source>
         <translation>系统音效</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="82"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="158"/>
         <source>Devices</source>
         <translation>设备管理</translation>
         <extra-contents_path>/sound/Devices</extra-contents_path>
@@ -3605,113 +3605,113 @@
     <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="75"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="371"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="392"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="398"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="391"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="397"/>
         <source>Check Again</source>
         <translation>重新检查更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="95"/>
         <source>Restart the computer to use the system and the applications properly</source>
         <translation>为了您能够正常的使用系统和应用，更新后请重新启动</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>网络断开，请联网后重试</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="105"/>
         <source>Your system is not authorized, please activate first</source>
         <translation>当前系统未授权，请激活后再更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="123"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation>本次更新可能会用时较长，更新完成前请不要关机或重启</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="138"/>
         <source>Updates Available</source>
         <translation>检测到有更新可用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="147"/>
         <source>Current Edition</source>
         <translation>当前版本</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="160"/>
         <source>Updating...</source>
         <translation>更新中...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="166"/>
         <source>Update All</source>
         <translation>全部更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="658"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="629"/>
         <source>Last checking time: </source>
         <translation>上次检查更新时间：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="339"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="372"/>
         <source>Your system is up to date</source>
         <translation>您的系统已经是最新的</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="342"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="375"/>
         <source>Check for Updates</source>
         <translation>检查更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="352"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
         <source>Checking for updates, please wait...</source>
         <translation>检查更新中，请稍候...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>您已安装最新版本，重启生效！</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="390"/>
         <source>Update failed: insufficient disk space</source>
         <translation>当前硬盘空间不足，无法进行系统更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="396"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>依赖错误，检测更新失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="428"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>已下载%1%（点击暂停）</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="442"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="430"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>已下载%1%（点击继续）</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="443"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>您的电池电量少于50%，请插入电源后继续</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="445"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>请确保重启后有充足的电源，并不要关机或者拔出电源</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="764"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="702"/>
         <source>Size</source>
         <translation>下载大小</translation>
     </message>
@@ -3832,23 +3832,17 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="213"/>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="215"/>
-        <source>App Updates in App Store</source>
-        <translation>应用商店的应用</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="222"/>
         <source>Security Updates</source>
         <translation>安全更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="227"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="222"/>
         <source>Unknown Apps Updates</source>
         <translation>未知来源应用更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="226"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation>“%1”下载完成后会自动进行安装</translation>
     </message>
@@ -4956,42 +4950,37 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="453"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="437"/>
         <source>System Updates</source>
         <translation>系统更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="471"/>
-        <source>%1 apps updates available (such as %2)</source>
-        <translation>%2等%1个应用更新</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="481"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="447"/>
         <source>Security Updates</source>
         <translation>安全更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="492"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="458"/>
         <source>Unknown Apps Updates</source>
         <translation>未知来源应用更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1488"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1380"/>
         <source>Network error</source>
         <translation>网络错误</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1491"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1383"/>
         <source>Dependency error</source>
         <translation>依赖错误</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1494"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1386"/>
         <source>Insufficient disk space</source>
         <translation>磁盘空间不足</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1497"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1389"/>
         <source>Update failed</source>
         <translation>更新失败</translation>
     </message>

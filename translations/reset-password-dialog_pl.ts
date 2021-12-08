@@ -9,7 +9,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="97"/>
         <source>Password must have at least %1 characters</source>
-        <translation>Hasło musi mieć co najmniej %1 znaków</translation>
+        <translation>Hasło musi zawierać co najmniej %1 znaków</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="98"/>
