@@ -109,6 +109,8 @@ Q_SIGNALS:
     void requestSetResolution(dcc::display::Monitor *monitor, const int mode);
     void requestSetFillMode(dcc::display::Monitor *monitor, const QString fillMode);
     void requestResizeDesktopVisibleChanged(bool visible);
+    void requestCurrFillModeChanged(dcc::display::Monitor *monitor, const QString fillMode); //用于复制模式下用主屏去更新其他屏幕铺满方式使用
+
 
 public Q_SLOTS:
     void OnAvailableFillModesChanged(const QStringList &lstFillMode);

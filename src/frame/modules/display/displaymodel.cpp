@@ -122,6 +122,7 @@ void DisplayModel::monitorAdded(Monitor *mon)
     qSort(m_monitors.begin(), m_monitors.end(), [=](const Monitor *m1, const Monitor *m2){
         return m1->name() > m2->name();
     });
+    checkAllSupportFillModes();
 
     Q_EMIT monitorListChanged();
 }
@@ -129,6 +130,7 @@ void DisplayModel::monitorAdded(Monitor *mon)
 void DisplayModel::monitorRemoved(Monitor *mon)
 {
     m_monitors.removeOne(mon);
+    checkAllSupportFillModes();
 
     Q_EMIT monitorListChanged();
 }
@@ -249,4 +251,15 @@ void DisplayModel::setBrightnessEnable(const bool enable)
         m_brightnessEnable = enable;
         Q_EMIT brightnessEnableChanged(m_brightnessEnable);
     }
+}
+
+void DisplayModel::checkAllSupportFillModes()
+{
+    for (auto m : monitorList()) {
+        if (m->availableFillModes().isEmpty()) {
+            m_allSupportFillModes = false;
+            return;
+        }
+    }
+    m_allSupportFillModes = true;
 }
