@@ -90,8 +90,6 @@ private Q_SLOTS:
 private:
     PluginState m_pluginState;
 
-    QTimer *m_wirelessScanTimer;
-
     TipsWidget *m_tipsWidget;
     bool m_switchWire;
     QPixmap m_iconPixmap;

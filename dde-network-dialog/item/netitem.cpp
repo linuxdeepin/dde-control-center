@@ -20,7 +20,6 @@
  */
 
 #include "netitem.h"
-#include "constants.h"
 #include "../widgets/statebutton.h"
 #include "wirelessconnect.h"
 #include "../localclient.h"

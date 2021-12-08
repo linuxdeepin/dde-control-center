@@ -20,7 +20,6 @@
  */
 
 #include "networkpanel.h"
-#include "constants.h"
 #include "utils.h"
 #include "item/netitem.h"
 #include "item/devicestatushandler.h"

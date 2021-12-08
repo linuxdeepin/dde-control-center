@@ -14,6 +14,7 @@ Build-Depends: debhelper-compat (= 12),
                libdtkwidget-dev,
                dde-control-center-dev,
                dde-dock-dev,
+               dde-session-shell-dev,
                qttools5-dev
 Rules-Requires-Root: no
 Standards-Version: 4.5.0

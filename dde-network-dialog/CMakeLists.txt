@@ -15,19 +15,15 @@ find_package(Qt5 COMPONENTS Core Widgets DBus Network LinguistTools REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_package(Qt5Svg REQUIRED)
 find_package(DtkWidget REQUIRED)
-find_package(DdeDock REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
 
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
-#pkg_check_modules(QGSettings REQUIRED gsettings-qt)
-pkg_check_modules(DDE-Dock REQUIRED dde-dock)
 
 file(GLOB TS_FILES "translations/*.ts")
 qt5_add_translation(QM_FILES ${TS_FILES})
 add_custom_target(${TARGET_NAME}_language ALL DEPENDS ${QM_FILES})
 
 add_definitions("${QT_DEFINITIONS} -DQT_PLUGIN")
-#add_library(${TARGET_NAME} SHARED ${SRCS} network.qrc)
 add_executable(${TARGET_NAME} ${SRCS} network.qrc)
 
 set(NETWORKINTERFACE "../src")
@@ -51,7 +47,6 @@ target_include_directories(${TARGET_NAME} PUBLIC
     ${DFrameworkDBus_INCLUDE_DIRS}
     ${QGSettings_INCLUDE_DIRS}
     #${DDE-Network-Core_INCLUDE_DIRS}
-    ${DDE_DOCK_INCLUDE_DIR}
     ${Qt5Network_INCLUDE_DIRS}
     ${KF5_QT_INCLUDE_DIRS}
 )
@@ -68,10 +63,6 @@ target_link_libraries(${TARGET_NAME} PRIVATE
     ${Qt5Network_LIBRARIES}
 )
 
-file(GLOB CONFIG_FILES "configs/*")
-dconfig_meta_files(APPID ${TARGET_NAME} FILES ./configs/${TARGET_NAME}.json)
-
 install(TARGETS ${TARGET_NAME} DESTINATION /usr/bin)
 # 安装 .qm 文件
 install(FILES ${QM_FILES} DESTINATION /usr/share/${TARGET_NAME}/translations)
-install(FILES ${CONFIG_FILES} DESTINATION /usr/share/dsg/apps/${TARGET_NAME}/configs/)

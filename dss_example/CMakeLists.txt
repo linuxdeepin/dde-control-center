@@ -14,6 +14,7 @@ find_package(Qt5Svg REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
 find_package(DtkWidget REQUIRED)
 find_package(DdeDock REQUIRED)
+find_package(DdeSessionShell REQUIRED)
 
 aux_source_directory(../dss-network-plugin DSSPLUGINTHEMES)
 aux_source_directory(../dss-network-plugin/notification DSSPLUGINNOTIFICATION)

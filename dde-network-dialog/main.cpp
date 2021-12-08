@@ -25,7 +25,6 @@
 #include "networkcontroller.h"
 
 #include <DApplication>
-#include <DConfig>
 #include <DPlatformTheme>
 #include <DLog>
 

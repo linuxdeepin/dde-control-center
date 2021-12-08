@@ -15,15 +15,11 @@ find_package(Qt5 COMPONENTS Core Widgets DBus Network LinguistTools REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_package(Qt5Svg REQUIRED)
 find_package(DtkWidget REQUIRED)
-#find_package(DtkCMake REQUIRED)
-find_package(DdeDock REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
-#find_package(x11extras REQUIRED)
-
+find_package(DdeSessionShell REQUIRED)
 
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
-pkg_check_modules(DDE-Dock REQUIRED dde-dock)
 
 file(GLOB TS_FILES "translations/*.ts")
 qt5_add_translation(QM_FILES ${TS_FILES})
@@ -53,11 +49,10 @@ target_include_directories(${PLUGIN_NAME} PUBLIC
     ${DFrameworkDBus_INCLUDE_DIRS}
     ${QGSettings_INCLUDE_DIRS}
     #${DDE-Network-Core_INCLUDE_DIRS}
-    ${DDE_DOCK_INCLUDE_DIR}
+    ${DDESESSIONSHELL_INCLUDE_DIR}
     ${Qt5Network_INCLUDE_DIRS}
     ${KF5_QT_INCLUDE_DIRS}
     "../common-plugin/"
-    "interface"
 )
 
 target_link_libraries(${PLUGIN_NAME} PRIVATE

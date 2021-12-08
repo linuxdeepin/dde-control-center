@@ -57,7 +57,6 @@ NETWORKPLUGIN_USE_NAMESPACE
 
 NetworkPluginHelper::NetworkPluginHelper(QObject *parent)
     : QObject(parent)
-    , m_wirelessScanTimer(new QTimer(this))
     , m_tipsWidget(new TipsWidget(nullptr))
     , m_switchWire(true)
     , m_mainWidget(nullptr)
@@ -91,26 +90,6 @@ void NetworkPluginHelper::initConnection()
     connect(networkController, &NetworkController::deviceAdded, this, &NetworkPluginHelper::onDeviceAdded);
     connect(networkController, &NetworkController::deviceRemoved, this, &NetworkPluginHelper::onUpdatePlugView);
     connect(networkController, &NetworkController::connectivityChanged, this, &NetworkPluginHelper::onUpdatePlugView);
-
-    int wirelessScanInterval = Utils::SettingValue("com.deepin.dde.dock", QByteArray(), "wireless-scan-interval", 10).toInt() * 1000;
-    m_wirelessScanTimer->setInterval(wirelessScanInterval);
-    const QGSettings *gsetting = Utils::SettingsPtr("com.deepin.dde.dock", QByteArray(), this);
-    if (gsetting)
-        connect(gsetting, &QGSettings::changed, [ = ](const QString &key) {
-            if (key == "wireless-scan-interval") {
-                int wirelessScanInterval = gsetting->get("wireless-scan-interval").toInt() * 1000;
-                m_wirelessScanTimer->setInterval(wirelessScanInterval);
-            }
-        });
-    connect(m_wirelessScanTimer, &QTimer::timeout, [ = ] {
-        QList<NetworkDeviceBase *> devices = networkController->devices();
-        for (NetworkDeviceBase *device : devices) {
-            if (device->deviceType() == DeviceType::Wireless) {
-                WirelessDevice *wirelessDevice = static_cast<WirelessDevice *>(device);
-                wirelessDevice->scanNetwork();
-            }
-        }
-    });
 
     QTimer::singleShot(100, this, [ = ] {
         onDeviceAdded(networkController->devices());
