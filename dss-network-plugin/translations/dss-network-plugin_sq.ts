@@ -7,65 +7,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>IP conflict</source>
-        <translation>Përplasje IP-sh</translation>
-    </message>
-    <message>
-        <source>Device disabled</source>
-        <translation>Pajisje e çaktivizuar</translation>
-    </message>
-    <message>
-        <source>Network cable unplugged</source>
-        <translation>Kablloja e rrjetit është e hequr</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>Jo e lidhur</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>Po bëhet lidhja</translation>
-    </message>
-    <message>
-        <source>Connected but no Internet access</source>
-        <translation>E lidhur, por pa hyrje Internet</translation>
-    </message>
-    <message>
-        <source>Connection failed</source>
-        <translation>Lidhja dështoi</translation>
-    </message>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Çaktivizo lidhje me fill</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Aktivizo lidhje me fill</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Çaktivizo lidhje pa fill</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Aktivizo lidhje pa fill</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Çaktivizo rrjetin</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Aktivizo rrjetin</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Rregullime rrjeti</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
@@ -139,16 +80,16 @@
         <translation>IPv4</translation>
     </message>
     <message>
+        <source>Netmask</source>
+        <translation>NetMask-ë</translation>
+    </message>
+    <message>
         <source>Gateway</source>
         <translation>Kanal</translation>
     </message>
     <message>
         <source>Primary DNS</source>
         <translation>DNS Parësore</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>NetMask-ë</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -202,6 +143,10 @@
         <translation>E shkëputur</translation>
     </message>
     <message>
+        <source>IP conflict</source>
+        <translation>Përplasje IP-sh</translation>
+    </message>
+    <message>
         <source>Failed</source>
         <translation>U dështua</translation>
     </message>
@@ -227,6 +172,65 @@
     <message>
         <source>Wireless Network %1</source>
         <translation>Rrjet Pa Fill %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::networkplugin::NetworkPluginHelper</name>
+    <message>
+        <source>Device disabled</source>
+        <translation>Pajisje e çaktivizuar</translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation>Kablloja e rrjetit është e hequr</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Jo e lidhur</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Po lidhet</translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation>E lidhur, por pa hyrje Internet</translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation>Lidhja dështoi</translation>
+    </message>
+    <message>
+        <source>IP conflict</source>
+        <translation>Përplasje IP-sh</translation>
+    </message>
+    <message>
+        <source>Disable wired connection</source>
+        <translation>Çaktivizo lidhje me fill</translation>
+    </message>
+    <message>
+        <source>Enable wired connection</source>
+        <translation>Aktivizo lidhje me fill</translation>
+    </message>
+    <message>
+        <source>Disable wireless connection</source>
+        <translation>Çaktivizo lidhje pa fill</translation>
+    </message>
+    <message>
+        <source>Enable wireless connection</source>
+        <translation>Aktivizo lidhje pa fill</translation>
+    </message>
+    <message>
+        <source>Disable network</source>
+        <translation>Çaktivizo rrjetin</translation>
+    </message>
+    <message>
+        <source>Enable network</source>
+        <translation>Aktivizo rrjetin</translation>
+    </message>
+    <message>
+        <source>Network settings</source>
+        <translation>Rregullime rrjeti</translation>
     </message>
 </context>
 </TS>

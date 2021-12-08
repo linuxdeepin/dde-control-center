@@ -7,65 +7,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>IP conflict</source>
-        <translation>IP conflict</translation>
-    </message>
-    <message>
-        <source>Device disabled</source>
-        <translation>Device disabled</translation>
-    </message>
-    <message>
-        <source>Network cable unplugged</source>
-        <translation>Network cable unplugged</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>Not connected</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>Connecting</translation>
-    </message>
-    <message>
-        <source>Connected but no Internet access</source>
-        <translation>Connected but no Internet access</translation>
-    </message>
-    <message>
-        <source>Connection failed</source>
-        <translation>Connection failed</translation>
-    </message>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Disable wired connection</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Enable wired connection</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Disable wireless connection</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Enable wireless connection</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Disable network</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Enable network</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Network settings</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
@@ -139,16 +80,16 @@
         <translation>IPv4</translation>
     </message>
     <message>
+        <source>Netmask</source>
+        <translation>Netmask</translation>
+    </message>
+    <message>
         <source>Gateway</source>
         <translation>Gateway</translation>
     </message>
     <message>
         <source>Primary DNS</source>
         <translation>Primary DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>Netmask</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -202,6 +143,10 @@
         <translation>Disconnected</translation>
     </message>
     <message>
+        <source>IP conflict</source>
+        <translation>IP conflict</translation>
+    </message>
+    <message>
         <source>Failed</source>
         <translation>Failed</translation>
     </message>
@@ -227,6 +172,65 @@
     <message>
         <source>Wireless Network %1</source>
         <translation>Wireless Network %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::networkplugin::NetworkPluginHelper</name>
+    <message>
+        <source>Device disabled</source>
+        <translation>Device disabled</translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation>Network cable unplugged</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Not connected</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Connecting</translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation>Connected but no Internet access</translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation>Connection failed</translation>
+    </message>
+    <message>
+        <source>IP conflict</source>
+        <translation>IP conflict</translation>
+    </message>
+    <message>
+        <source>Disable wired connection</source>
+        <translation>Disable wired connection</translation>
+    </message>
+    <message>
+        <source>Enable wired connection</source>
+        <translation>Enable wired connection</translation>
+    </message>
+    <message>
+        <source>Disable wireless connection</source>
+        <translation>Disable wireless connection</translation>
+    </message>
+    <message>
+        <source>Enable wireless connection</source>
+        <translation>Enable wireless connection</translation>
+    </message>
+    <message>
+        <source>Disable network</source>
+        <translation>Disable network</translation>
+    </message>
+    <message>
+        <source>Enable network</source>
+        <translation>Enable network</translation>
+    </message>
+    <message>
+        <source>Network settings</source>
+        <translation>Network settings</translation>
     </message>
 </context>
 </TS>

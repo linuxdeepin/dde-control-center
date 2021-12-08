@@ -7,65 +7,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>IP conflict</source>
-        <translation>Conflicto de IP</translation>
-    </message>
-    <message>
-        <source>Device disabled</source>
-        <translation>Dispositivo desactivado</translation>
-    </message>
-    <message>
-        <source>Network cable unplugged</source>
-        <translation>Cable de red desconectado</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>Sin conexión</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>Conectando</translation>
-    </message>
-    <message>
-        <source>Connected but no Internet access</source>
-        <translation>Conectado pero sin conexión a Internet</translation>
-    </message>
-    <message>
-        <source>Connection failed</source>
-        <translation>Conexión fallida</translation>
-    </message>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Desactivar conexión por cable</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Activar conexión por cable</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Desactivar conexión inalámbrica</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Activar conexión inalámbrica</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Desactivar red</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Activar red</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Ajustes de red</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
@@ -139,16 +80,16 @@
         <translation>IPv4</translation>
     </message>
     <message>
+        <source>Netmask</source>
+        <translation>Máscara de red</translation>
+    </message>
+    <message>
         <source>Gateway</source>
         <translation>Puerta de enlace</translation>
     </message>
     <message>
         <source>Primary DNS</source>
         <translation>DNS primario</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>Máscara de red</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -202,6 +143,10 @@
         <translation>Desconectado</translation>
     </message>
     <message>
+        <source>IP conflict</source>
+        <translation>Conflicto de IP</translation>
+    </message>
+    <message>
         <source>Failed</source>
         <translation>Fallido</translation>
     </message>
@@ -227,6 +172,65 @@
     <message>
         <source>Wireless Network %1</source>
         <translation>Red inalámbrica %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::networkplugin::NetworkPluginHelper</name>
+    <message>
+        <source>Device disabled</source>
+        <translation>Dispositivo deshabilitado</translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation>Cable de red desconectado</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Sin conexión</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Conectando</translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation>Conectado pero sin acceso a Internet</translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation>Conexión fallida</translation>
+    </message>
+    <message>
+        <source>IP conflict</source>
+        <translation>Conflicto de IP</translation>
+    </message>
+    <message>
+        <source>Disable wired connection</source>
+        <translation>Desactivar conexión por cable</translation>
+    </message>
+    <message>
+        <source>Enable wired connection</source>
+        <translation>Activar conexión por cable</translation>
+    </message>
+    <message>
+        <source>Disable wireless connection</source>
+        <translation>Desactivar conexión inalámbrica</translation>
+    </message>
+    <message>
+        <source>Enable wireless connection</source>
+        <translation>Activar conexión inalámbrica</translation>
+    </message>
+    <message>
+        <source>Disable network</source>
+        <translation>Desactivar red</translation>
+    </message>
+    <message>
+        <source>Enable network</source>
+        <translation>Activar red</translation>
+    </message>
+    <message>
+        <source>Network settings</source>
+        <translation>Ajustes de red</translation>
     </message>
 </context>
 </TS>

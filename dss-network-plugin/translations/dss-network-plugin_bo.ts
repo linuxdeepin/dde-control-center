@@ -7,65 +7,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>IP conflict</source>
-        <translation>IPགནས་ཡུལ་འགལ་ཟླ་བྱུང་བ།</translation>
-    </message>
-    <message>
-        <source>Device disabled</source>
-        <translation>སྒྲིག་ཆས་སྤྱོད་མི་ཆོག</translation>
-    </message>
-    <message>
-        <source>Network cable unplugged</source>
-        <translation>དྲ་སྐུད་མཐུད་མི་འདུག</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>སྦྲེལ་མེད་པ། </translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>སྦྲེལ་བཞིན་པ། </translation>
-    </message>
-    <message>
-        <source>Connected but no Internet access</source>
-        <translation>དྲ་རྒྱ་དང་འབྲེལ་ཟིན་ཡང་མཉམ་སྦྲེལ་དྲ་རྒྱར་འཛུལ་མི་ཐུབ།</translation>
-    </message>
-    <message>
-        <source>Connection failed</source>
-        <translation>འབྲེལ་མཐུད་བྱེད་མ་ཐུབ།</translation>
-    </message>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>སྐུད་ཡོད་དྲ་རྒྱ་ཁ་རྒྱོབ།</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>སྐུད་ཡོད་དྲ་རྒྱ་སྤྱོད་པ།</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>སྐུད་མེད་དྲ་རྒྱ་ཁ་རྒྱོབ།</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>སྐུད་མེད་དྲ་རྒྱ་སྤྱོད་པ།</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>དྲ་རྒྱ་ཁ་རྒྱོབ།</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>དྲ་རྒྱ་སྤྱོད་པ།</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>དྲ་རྒྱ་སྒྲིག་འགོད།</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
@@ -139,16 +80,16 @@
         <translation>IPv4</translation>
     </message>
     <message>
+        <source>Netmask</source>
+        <translation>བུ་དྲ་ཡིབ་ཨང་།</translation>
+    </message>
+    <message>
         <source>Gateway</source>
         <translation>དྲ་སྒོ།</translation>
     </message>
     <message>
         <source>Primary DNS</source>
         <translation>སྔོན་འདེམས་DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>བུ་དྲ་ཡིབ་ཨང་།</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -202,6 +143,10 @@
         <translation>བཅད་ཟིན།</translation>
     </message>
     <message>
+        <source>IP conflict</source>
+        <translation>IPགནས་ཡུལ་འགལ་ཟླ་བྱུང་བ།</translation>
+    </message>
+    <message>
         <source>Failed</source>
         <translation>ཕམ་པ།</translation>
     </message>
@@ -227,6 +172,65 @@
     <message>
         <source>Wireless Network %1</source>
         <translation>སྐུད་མེད་དྲ་རྒྱ་%1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::networkplugin::NetworkPluginHelper</name>
+    <message>
+        <source>Device disabled</source>
+        <translation>སྒྲིག་ཆས་སྤྱོད་མི་ཆོག</translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation>དྲ་སྐུད་མཐུད་མི་འདུག</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>སྦྲེལ་མེད་པ། </translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>སྦྲེལ་བཞིན་པ། </translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation>དྲ་རྒྱ་དང་འབྲེལ་ཟིན་ཡང་མཉམ་སྦྲེལ་དྲ་རྒྱར་འཛུལ་མི་ཐུབ།</translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation>འབྲེལ་མཐུད་བྱེད་མ་ཐུབ།</translation>
+    </message>
+    <message>
+        <source>IP conflict</source>
+        <translation>IPགནས་ཡུལ་འགལ་ཟླ་བྱུང་བ།</translation>
+    </message>
+    <message>
+        <source>Disable wired connection</source>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ་ཁ་རྒྱོབ།</translation>
+    </message>
+    <message>
+        <source>Enable wired connection</source>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ་སྤྱོད་པ།</translation>
+    </message>
+    <message>
+        <source>Disable wireless connection</source>
+        <translation>སྐུད་མེད་དྲ་རྒྱ་ཁ་རྒྱོབ།</translation>
+    </message>
+    <message>
+        <source>Enable wireless connection</source>
+        <translation>སྐུད་མེད་དྲ་རྒྱ་སྤྱོད་པ།</translation>
+    </message>
+    <message>
+        <source>Disable network</source>
+        <translation>དྲ་རྒྱ་ཁ་རྒྱོབ།</translation>
+    </message>
+    <message>
+        <source>Enable network</source>
+        <translation>དྲ་རྒྱ་སྤྱོད་པ།</translation>
+    </message>
+    <message>
+        <source>Network settings</source>
+        <translation>དྲ་རྒྱ་སྒྲིག་འགོད།</translation>
     </message>
 </context>
 </TS>

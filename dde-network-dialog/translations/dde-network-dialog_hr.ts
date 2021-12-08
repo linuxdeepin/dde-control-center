@@ -18,7 +18,7 @@
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Neispravna lozinka</translation>
     </message>
     <message>
         <source>Password required to connect %1</source>
@@ -130,7 +130,7 @@
     </message>
     <message>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Autentifikacija</translation>
     </message>
     <message>
         <source>Obtaining IP address</source>

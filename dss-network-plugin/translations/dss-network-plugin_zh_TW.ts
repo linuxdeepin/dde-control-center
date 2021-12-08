@@ -7,65 +7,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>IP conflict</source>
-        <translation>IP位址衝突</translation>
-    </message>
-    <message>
-        <source>Device disabled</source>
-        <translation>已停用裝置</translation>
-    </message>
-    <message>
-        <source>Network cable unplugged</source>
-        <translation>已拔除網路線</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>未連線</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>正在連線</translation>
-    </message>
-    <message>
-        <source>Connected but no Internet access</source>
-        <translation>已連線但不能存取網路</translation>
-    </message>
-    <message>
-        <source>Connection failed</source>
-        <translation>連接失敗</translation>
-    </message>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>關閉有線網路</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>啟用有線網路</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>關閉無線網路</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>啟用無線網路</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>停用網路</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>啟用網路</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>網路設定</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
@@ -139,16 +80,16 @@
         <translation>IPv4</translation>
     </message>
     <message>
+        <source>Netmask</source>
+        <translation>子網路遮罩</translation>
+    </message>
+    <message>
         <source>Gateway</source>
         <translation>閘道器</translation>
     </message>
     <message>
         <source>Primary DNS</source>
         <translation>主要 DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>子網路遮罩</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -202,6 +143,10 @@
         <translation>已斷線</translation>
     </message>
     <message>
+        <source>IP conflict</source>
+        <translation>IP位址衝突</translation>
+    </message>
+    <message>
         <source>Failed</source>
         <translation>連線失敗</translation>
     </message>
@@ -227,6 +172,65 @@
     <message>
         <source>Wireless Network %1</source>
         <translation>無線網路 %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::networkplugin::NetworkPluginHelper</name>
+    <message>
+        <source>Device disabled</source>
+        <translation>已停用裝置</translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation>已拔除網路線</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>未連線</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>正在連線</translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation>已連線但不能存取網路</translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation>連接失敗</translation>
+    </message>
+    <message>
+        <source>IP conflict</source>
+        <translation>IP位址衝突</translation>
+    </message>
+    <message>
+        <source>Disable wired connection</source>
+        <translation>關閉有線網路</translation>
+    </message>
+    <message>
+        <source>Enable wired connection</source>
+        <translation>啟用有線網路</translation>
+    </message>
+    <message>
+        <source>Disable wireless connection</source>
+        <translation>關閉無線網路</translation>
+    </message>
+    <message>
+        <source>Enable wireless connection</source>
+        <translation>啟用無線網路</translation>
+    </message>
+    <message>
+        <source>Disable network</source>
+        <translation>停用網路</translation>
+    </message>
+    <message>
+        <source>Enable network</source>
+        <translation>啟用網路</translation>
+    </message>
+    <message>
+        <source>Network settings</source>
+        <translation>網路設定</translation>
     </message>
 </context>
 </TS>

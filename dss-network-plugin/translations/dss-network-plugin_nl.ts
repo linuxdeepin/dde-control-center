@@ -7,65 +7,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>IP conflict</source>
-        <translation>IP-conflict</translation>
-    </message>
-    <message>
-        <source>Device disabled</source>
-        <translation>Apparaat uitgeschakeld</translation>
-    </message>
-    <message>
-        <source>Network cable unplugged</source>
-        <translation>Geen netwerkkabel aangesloten</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>Niet verbonden</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>Bezig met verbinden…</translation>
-    </message>
-    <message>
-        <source>Connected but no Internet access</source>
-        <translation>Verbonden, maar geen internettoegang</translation>
-    </message>
-    <message>
-        <source>Connection failed</source>
-        <translation>Verbinding mislukt</translation>
-    </message>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Bekabelde verbinding uitschakelen</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Bekabelde verbinding inschakelen</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Draadloze verbinding uitschakelen</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Draadloze verbinding inschakelen</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Netwerk uitschakelen</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Netwerk inschakelen</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Netwerkinstellingen</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
@@ -139,16 +80,16 @@
         <translation>IPv4</translation>
     </message>
     <message>
+        <source>Netmask</source>
+        <translation>Netmasker</translation>
+    </message>
+    <message>
         <source>Gateway</source>
         <translation>Gateway</translation>
     </message>
     <message>
         <source>Primary DNS</source>
         <translation>Primaire dns-server</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>Netmasker</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -202,6 +143,10 @@
         <translation>Niet verbonden</translation>
     </message>
     <message>
+        <source>IP conflict</source>
+        <translation>IP-conflict</translation>
+    </message>
+    <message>
         <source>Failed</source>
         <translation>Mislukt</translation>
     </message>
@@ -227,6 +172,65 @@
     <message>
         <source>Wireless Network %1</source>
         <translation>Draadloos netwerk: %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::networkplugin::NetworkPluginHelper</name>
+    <message>
+        <source>Device disabled</source>
+        <translation>Apparaat uitgeschakeld</translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation>Geen netwerkkabel aangesloten</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Niet verbonden</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Bezig met verbinden…</translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation>Verbonden, maar geen internettoegang</translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation>Verbinding mislukt</translation>
+    </message>
+    <message>
+        <source>IP conflict</source>
+        <translation>IP-conflict</translation>
+    </message>
+    <message>
+        <source>Disable wired connection</source>
+        <translation>Bekabelde verbinding uitschakelen</translation>
+    </message>
+    <message>
+        <source>Enable wired connection</source>
+        <translation>Bekabelde verbinding inschakelen</translation>
+    </message>
+    <message>
+        <source>Disable wireless connection</source>
+        <translation>Draadloze verbinding uitschakelen</translation>
+    </message>
+    <message>
+        <source>Enable wireless connection</source>
+        <translation>Draadloze verbinding inschakelen</translation>
+    </message>
+    <message>
+        <source>Disable network</source>
+        <translation>Netwerk uitschakelen</translation>
+    </message>
+    <message>
+        <source>Enable network</source>
+        <translation>Netwerk inschakelen</translation>
+    </message>
+    <message>
+        <source>Network settings</source>
+        <translation>Netwerkinstellingen</translation>
     </message>
 </context>
 </TS>

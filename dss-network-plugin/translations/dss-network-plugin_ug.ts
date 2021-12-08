@@ -7,65 +7,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>IP conflict</source>
-        <translation>IP ئادرېس توقۇنۇشۇپ قالدى</translation>
-    </message>
-    <message>
-        <source>Device disabled</source>
-        <translation>ئۈسكىنە چەكلەش</translation>
-    </message>
-    <message>
-        <source>Network cable unplugged</source>
-        <translation>تور سىمى ئۇلانمىغان </translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>ئۇلانمىدى</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>ئۇلىنىۋاتىدۇ</translation>
-    </message>
-    <message>
-        <source>Connected but no Internet access</source>
-        <translation>ئۇلاندى ، لېكىن تورغا چىققىلى بولمايدۇ</translation>
-    </message>
-    <message>
-        <source>Connection failed</source>
-        <translation>ئۇلىنىش مەغلۇپ بولدى</translation>
-    </message>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>سىملىق تورنى تاقاش</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>سىملىق تورنى ئېچىش</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>سىمسىز تورنى تاقاش</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>سىمسىز تورنى ئېچىش</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>تورنى تاقاش</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>تورنى قوزغىتىش </translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>تور تەڭشىكى </translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
@@ -139,16 +80,16 @@
         <translation>IPv4</translation>
     </message>
     <message>
+        <source>Netmask</source>
+        <translation>تور قەۋىتى</translation>
+    </message>
+    <message>
         <source>Gateway</source>
         <translation>تور قانىلى</translation>
     </message>
     <message>
         <source>Primary DNS</source>
         <translation>شەخسىي DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>تور قەۋىتى</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -202,6 +143,10 @@
         <translation>ئۈزۈلدى </translation>
     </message>
     <message>
+        <source>IP conflict</source>
+        <translation>IP ئادرېس توقۇنۇشۇپ قالدى</translation>
+    </message>
+    <message>
         <source>Failed</source>
         <translation>مەغلۇب بولدى</translation>
     </message>
@@ -227,6 +172,65 @@
     <message>
         <source>Wireless Network %1</source>
         <translation>سىمسىز تور%1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::networkplugin::NetworkPluginHelper</name>
+    <message>
+        <source>Device disabled</source>
+        <translation>ئۈسكۈنە ئىشلىتىش چەكلەندى </translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation>تور سىمى ئۇلانمىغان </translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>ئۇلانمىدى</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>ئۇلىنىۋاتىدۇ</translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation>تورغا ئۇلاندى،ئەمما تورنى زىيارەت قىلالمىدى</translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation>ئۇلىنىش مەغلۇپ بولدى</translation>
+    </message>
+    <message>
+        <source>IP conflict</source>
+        <translation>IP ئادرېس توقۇنۇشۇپ قالدى</translation>
+    </message>
+    <message>
+        <source>Disable wired connection</source>
+        <translation>سىملىق تورنى تاقاش</translation>
+    </message>
+    <message>
+        <source>Enable wired connection</source>
+        <translation>سىملىق تورنى ئېچىش</translation>
+    </message>
+    <message>
+        <source>Disable wireless connection</source>
+        <translation>سىمسىز تورنى تاقاش</translation>
+    </message>
+    <message>
+        <source>Enable wireless connection</source>
+        <translation>سىمسىز تورنى ئېچىش</translation>
+    </message>
+    <message>
+        <source>Disable network</source>
+        <translation>تورنى تاقاش</translation>
+    </message>
+    <message>
+        <source>Enable network</source>
+        <translation>تورنى قوزغىتىش </translation>
+    </message>
+    <message>
+        <source>Network settings</source>
+        <translation>تور تەڭشىكى </translation>
     </message>
 </context>
 </TS>

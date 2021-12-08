@@ -7,65 +7,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>IP conflict</source>
-        <translation>IP çakışması</translation>
-    </message>
-    <message>
-        <source>Device disabled</source>
-        <translation>Aygıt devre dışı</translation>
-    </message>
-    <message>
-        <source>Network cable unplugged</source>
-        <translation>Ağ kablosu takılı değil</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>Bağlı değil</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>Bağlanıyor</translation>
-    </message>
-    <message>
-        <source>Connected but no Internet access</source>
-        <translation>Bağlı ancak İnternet erişimi yok</translation>
-    </message>
-    <message>
-        <source>Connection failed</source>
-        <translation>Bağlantı başarısız</translation>
-    </message>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Kablolu bağlantıyı devre dışı bırak</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Kablolu bağlantıyı etkinleştir</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Kablosuz bağlantıyı devre dışı bırak</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Kablosuz bağlantıyı etkinleştir</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Ağı devre dışı bırak</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Ağı etkinleştir</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Ay ayarları</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
@@ -139,16 +80,16 @@
         <translation>IPv4</translation>
     </message>
     <message>
+        <source>Netmask</source>
+        <translation>Ağ Maskesi</translation>
+    </message>
+    <message>
         <source>Gateway</source>
         <translation>Ağ Geçidi</translation>
     </message>
     <message>
         <source>Primary DNS</source>
         <translation>Birincil DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>Ağ Maskesi</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -202,6 +143,10 @@
         <translation>Bağlantı kesildi</translation>
     </message>
     <message>
+        <source>IP conflict</source>
+        <translation>IP çakışması</translation>
+    </message>
+    <message>
         <source>Failed</source>
         <translation>Başarısız</translation>
     </message>
@@ -227,6 +172,65 @@
     <message>
         <source>Wireless Network %1</source>
         <translation>Kablosuz Ağ%1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::networkplugin::NetworkPluginHelper</name>
+    <message>
+        <source>Device disabled</source>
+        <translation>Aygıt devre dışı</translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation>Ağ kablosu takılı değil</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Bağlı değil</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Bağlanıyor</translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation>Bağlandı ancak İnternet erişimi yok</translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation>Bağlantı başarısız</translation>
+    </message>
+    <message>
+        <source>IP conflict</source>
+        <translation>IP çakışması</translation>
+    </message>
+    <message>
+        <source>Disable wired connection</source>
+        <translation>Kablolu bağlantıyı devre dışı bırak</translation>
+    </message>
+    <message>
+        <source>Enable wired connection</source>
+        <translation>Kablolu bağlantıyı etkinleştir</translation>
+    </message>
+    <message>
+        <source>Disable wireless connection</source>
+        <translation>Kablosuz bağlantıyı devre dışı bırak</translation>
+    </message>
+    <message>
+        <source>Enable wireless connection</source>
+        <translation>Kablosuz bağlantıyı etkinleştir</translation>
+    </message>
+    <message>
+        <source>Disable network</source>
+        <translation>Ağı devre dışı bırak</translation>
+    </message>
+    <message>
+        <source>Enable network</source>
+        <translation>Ağı etkinleştir</translation>
+    </message>
+    <message>
+        <source>Network settings</source>
+        <translation>Ay ayarları</translation>
     </message>
 </context>
 </TS>

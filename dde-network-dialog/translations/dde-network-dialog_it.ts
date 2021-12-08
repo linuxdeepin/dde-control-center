@@ -14,11 +14,11 @@
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"/>
+        <translation>Connetti ad una rete nascosta</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Password errata</translation>
     </message>
     <message>
         <source>Password required to connect %1</source>
@@ -26,17 +26,17 @@
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Password</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Annulla</translation>
     </message>
     <message>
         <source>Connect</source>
         <comment>button</comment>
-        <translation type="unfinished"/>
+        <translation>Connetti</translation>
     </message>
     <message>
         <source>Name (SSID)</source>

@@ -7,65 +7,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>IP conflict</source>
-        <translation>IP地址冲突</translation>
-    </message>
-    <message>
-        <source>Device disabled</source>
-        <translation>设备已禁用</translation>
-    </message>
-    <message>
-        <source>Network cable unplugged</source>
-        <translation>未插入网线</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>未连接</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>正在连接</translation>
-    </message>
-    <message>
-        <source>Connected but no Internet access</source>
-        <translation>已连接网络但无法访问互联网</translation>
-    </message>
-    <message>
-        <source>Connection failed</source>
-        <translation>连接失败</translation>
-    </message>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>关闭有线网络</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>启用有线网络</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>关闭无线网络</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>启用无线网络</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>关闭网络</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>启用网络</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>网络设置</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
@@ -139,16 +80,16 @@
         <translation>IPv4</translation>
     </message>
     <message>
+        <source>Netmask</source>
+        <translation>子网掩码</translation>
+    </message>
+    <message>
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
     <message>
         <source>Primary DNS</source>
         <translation>首选DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>子网掩码</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -202,6 +143,10 @@
         <translation>已断开</translation>
     </message>
     <message>
+        <source>IP conflict</source>
+        <translation>IP地址冲突</translation>
+    </message>
+    <message>
         <source>Failed</source>
         <translation>失败</translation>
     </message>
@@ -227,6 +172,65 @@
     <message>
         <source>Wireless Network %1</source>
         <translation>无线网络%1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::networkplugin::NetworkPluginHelper</name>
+    <message>
+        <source>Device disabled</source>
+        <translation>设备已禁用</translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation>未插入网线</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>未连接</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>正在连接</translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation>已连接网络但无法访问互联网</translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation>连接失败</translation>
+    </message>
+    <message>
+        <source>IP conflict</source>
+        <translation>IP地址冲突</translation>
+    </message>
+    <message>
+        <source>Disable wired connection</source>
+        <translation>关闭有线网络</translation>
+    </message>
+    <message>
+        <source>Enable wired connection</source>
+        <translation>启用有线网络</translation>
+    </message>
+    <message>
+        <source>Disable wireless connection</source>
+        <translation>关闭无线网络</translation>
+    </message>
+    <message>
+        <source>Enable wireless connection</source>
+        <translation>启用无线网络</translation>
+    </message>
+    <message>
+        <source>Disable network</source>
+        <translation>关闭网络</translation>
+    </message>
+    <message>
+        <source>Enable network</source>
+        <translation>启用网络</translation>
+    </message>
+    <message>
+        <source>Network settings</source>
+        <translation>网络设置</translation>
     </message>
 </context>
 </TS>

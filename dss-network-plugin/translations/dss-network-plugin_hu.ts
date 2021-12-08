@@ -7,65 +7,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>IP conflict</source>
-        <translation>IP cím ütközés</translation>
-    </message>
-    <message>
-        <source>Device disabled</source>
-        <translation>Eszköz letiltva</translation>
-    </message>
-    <message>
-        <source>Network cable unplugged</source>
-        <translation>A hálózati kábel kihúzva</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>Nincs kapcsolódva</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>Kapcsolódás</translation>
-    </message>
-    <message>
-        <source>Connected but no Internet access</source>
-        <translation>Csatlakoztatva, de nincs internet hozzáférés</translation>
-    </message>
-    <message>
-        <source>Connection failed</source>
-        <translation>A kapcsolódás sikertelen</translation>
-    </message>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Vezetékes kapcsolat letiltása</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Vezetékes kapcsolat engedélyezése</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Vezeték-nélküli kapcsolat letiltása</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Vezeték nélküli kapcsolat engedélyezése</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Hálózat letiltása</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Hálózat engedélyezése</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Hálózati beállítások</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
@@ -139,16 +80,16 @@
         <translation>IPv4</translation>
     </message>
     <message>
+        <source>Netmask</source>
+        <translation>Hálózati maszk</translation>
+    </message>
+    <message>
         <source>Gateway</source>
         <translation>Átjáró</translation>
     </message>
     <message>
         <source>Primary DNS</source>
         <translation>Elsődleges DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>Hálózati maszk</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -202,6 +143,10 @@
         <translation>Szétkapcsolva</translation>
     </message>
     <message>
+        <source>IP conflict</source>
+        <translation>IP cím ütközés</translation>
+    </message>
+    <message>
         <source>Failed</source>
         <translation>Sikertelen</translation>
     </message>
@@ -227,6 +172,65 @@
     <message>
         <source>Wireless Network %1</source>
         <translation>Vezeték nélküli hálózat %1 </translation>
+    </message>
+</context>
+<context>
+    <name>dde::networkplugin::NetworkPluginHelper</name>
+    <message>
+        <source>Device disabled</source>
+        <translation>Eszköz letiltva</translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation>A hálózati kábel kihúzva</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Nincs csatlakozva</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Csatlakozás</translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation>Csatlakoztatva, de nincs internet hozzáférés</translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation>A kapcsolódás sikertelen</translation>
+    </message>
+    <message>
+        <source>IP conflict</source>
+        <translation>IP cím ütközés</translation>
+    </message>
+    <message>
+        <source>Disable wired connection</source>
+        <translation>Vezetékes kapcsolat letiltása</translation>
+    </message>
+    <message>
+        <source>Enable wired connection</source>
+        <translation>Vezetékes kapcsolat engedélyezése</translation>
+    </message>
+    <message>
+        <source>Disable wireless connection</source>
+        <translation>Vezeték-nélküli kapcsolat letiltása</translation>
+    </message>
+    <message>
+        <source>Enable wireless connection</source>
+        <translation>Vezeték nélküli kapcsolat engedélyezése</translation>
+    </message>
+    <message>
+        <source>Disable network</source>
+        <translation>Hálózat letiltása</translation>
+    </message>
+    <message>
+        <source>Enable network</source>
+        <translation>Hálózat engedélyezése</translation>
+    </message>
+    <message>
+        <source>Network settings</source>
+        <translation>Hálózati beállítások</translation>
     </message>
 </context>
 </TS>

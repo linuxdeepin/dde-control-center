@@ -7,65 +7,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>IP conflict</source>
-        <translation>Conflicte d&apos;IP</translation>
-    </message>
-    <message>
-        <source>Device disabled</source>
-        <translation>Dispositiu inhabilitat</translation>
-    </message>
-    <message>
-        <source>Network cable unplugged</source>
-        <translation>El cable de xarxa està desendollat.</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>No connectat</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>Es connecta</translation>
-    </message>
-    <message>
-        <source>Connected but no Internet access</source>
-        <translation>Connectat però sense accés a Internet</translation>
-    </message>
-    <message>
-        <source>Connection failed</source>
-        <translation>Ha fallat la connexió.</translation>
-    </message>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Inhabilita la connexió amb fil</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Habilita la connexió amb fil</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Inhabilita la connexió sense fil</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Habilita la connexió sense fil</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Inhabilita la xarxa</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Habilita la xarxa</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Configuració de la xarxa</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
@@ -139,16 +80,16 @@
         <translation>IPv4</translation>
     </message>
     <message>
+        <source>Netmask</source>
+        <translation>Màscara de xarxa</translation>
+    </message>
+    <message>
         <source>Gateway</source>
         <translation>Passarel·la</translation>
     </message>
     <message>
         <source>Primary DNS</source>
         <translation>DNS primari</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>Màscara de xarxa</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -202,6 +143,10 @@
         <translation>Desconnectat</translation>
     </message>
     <message>
+        <source>IP conflict</source>
+        <translation>Conflicte d&apos;IP</translation>
+    </message>
+    <message>
         <source>Failed</source>
         <translation>Ha fallat</translation>
     </message>
@@ -227,6 +172,65 @@
     <message>
         <source>Wireless Network %1</source>
         <translation>Xarxa sense fil %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::networkplugin::NetworkPluginHelper</name>
+    <message>
+        <source>Device disabled</source>
+        <translation>Dispositiu inhabilitat</translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation>Cable de xarxa desendollat</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>No connectat</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Es connecta</translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation>Connectat però sense accés a Internet</translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation>Ha fallat la connexió.</translation>
+    </message>
+    <message>
+        <source>IP conflict</source>
+        <translation>Conflicte d&apos;IP</translation>
+    </message>
+    <message>
+        <source>Disable wired connection</source>
+        <translation>Inhabilita la connexió amb fil</translation>
+    </message>
+    <message>
+        <source>Enable wired connection</source>
+        <translation>Habilita la connexió amb fil</translation>
+    </message>
+    <message>
+        <source>Disable wireless connection</source>
+        <translation>Inhabilita la connexió sense fil</translation>
+    </message>
+    <message>
+        <source>Enable wireless connection</source>
+        <translation>Habilita la connexió sense fil</translation>
+    </message>
+    <message>
+        <source>Disable network</source>
+        <translation>Inhabilita la xarxa</translation>
+    </message>
+    <message>
+        <source>Enable network</source>
+        <translation>Habilita la xarxa</translation>
+    </message>
+    <message>
+        <source>Network settings</source>
+        <translation>Configuració de la xarxa</translation>
     </message>
 </context>
 </TS>

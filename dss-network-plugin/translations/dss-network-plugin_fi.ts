@@ -7,65 +7,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>IP conflict</source>
-        <translation>IP ristiriita</translation>
-    </message>
-    <message>
-        <source>Device disabled</source>
-        <translation>Laite suljettu</translation>
-    </message>
-    <message>
-        <source>Network cable unplugged</source>
-        <translation>Verkkokaapeli irrotettu</translation>
-    </message>
-    <message>
-        <source>Not connected</source>
-        <translation>Ei yhteyttä</translation>
-    </message>
-    <message>
-        <source>Connecting</source>
-        <translation>Yhdistää</translation>
-    </message>
-    <message>
-        <source>Connected but no Internet access</source>
-        <translation>Yhdistetty, mutta ei internet osoitetta</translation>
-    </message>
-    <message>
-        <source>Connection failed</source>
-        <translation>Yhteys epäonnistui</translation>
-    </message>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Poista kiinteä yhteys</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Kytke kiinteä yhteys</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Poista langaton käytöstä</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Kytke langaton käyttöön</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Poista verkko käytöstä</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Kytke verkko käyttöön</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Verkon asetukset</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
@@ -139,16 +80,16 @@
         <translation>IPv4</translation>
     </message>
     <message>
+        <source>Netmask</source>
+        <translation>Verkkopeite</translation>
+    </message>
+    <message>
         <source>Gateway</source>
         <translation>Yhdyskäytävä</translation>
     </message>
     <message>
         <source>Primary DNS</source>
         <translation>Ensisijainen DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>Verkkopeite</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -202,6 +143,10 @@
         <translation>Katkaistu</translation>
     </message>
     <message>
+        <source>IP conflict</source>
+        <translation>IP ristiriita</translation>
+    </message>
+    <message>
         <source>Failed</source>
         <translation>Epäonnistui</translation>
     </message>
@@ -227,6 +172,65 @@
     <message>
         <source>Wireless Network %1</source>
         <translation>Langaton verkko: %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::networkplugin::NetworkPluginHelper</name>
+    <message>
+        <source>Device disabled</source>
+        <translation>Laite suljettu</translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation>Verkkokaapeli irrotettu</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Ei yhteyttä</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Yhdistää</translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation>Yhdistetty, mutta ei internet osoitetta</translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation>Yhteys epäonnistui</translation>
+    </message>
+    <message>
+        <source>IP conflict</source>
+        <translation>IP ristiriita</translation>
+    </message>
+    <message>
+        <source>Disable wired connection</source>
+        <translation>Poista kiinteä yhteys</translation>
+    </message>
+    <message>
+        <source>Enable wired connection</source>
+        <translation>Kytke kiinteä yhteys</translation>
+    </message>
+    <message>
+        <source>Disable wireless connection</source>
+        <translation>Poista langaton käytöstä</translation>
+    </message>
+    <message>
+        <source>Enable wireless connection</source>
+        <translation>Kytke langaton käyttöön</translation>
+    </message>
+    <message>
+        <source>Disable network</source>
+        <translation>Poista verkko käytöstä</translation>
+    </message>
+    <message>
+        <source>Enable network</source>
+        <translation>Kytke verkko käyttöön</translation>
+    </message>
+    <message>
+        <source>Network settings</source>
+        <translation>Verkon asetukset</translation>
     </message>
 </context>
 </TS>
