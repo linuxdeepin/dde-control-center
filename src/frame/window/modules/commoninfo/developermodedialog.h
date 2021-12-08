@@ -53,6 +53,10 @@ Q_SIGNALS:
      void requestDeveloperMode(bool enabled);
      void requestLogin();
      void requestCommit(QString filePathName);
+
+protected:
+     virtual void showEvent(QShowEvent *);
+
 private Q_SLOTS:
      void setLogin();
 

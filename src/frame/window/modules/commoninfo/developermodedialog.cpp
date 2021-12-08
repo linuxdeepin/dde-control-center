@@ -282,3 +282,8 @@ void DeveloperModeDialog::setLogin()
         requestDev();
     }
 }
+
+void DeveloperModeDialog::showEvent(QShowEvent *)
+{
+    setFocus();
+}
