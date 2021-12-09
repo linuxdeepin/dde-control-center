@@ -178,6 +178,7 @@ void AccountsModule::addChildPageTrans() const
         m_frameProxy->addChildPageTrans("Login Without Password", tr("Login Without Password"));
         m_frameProxy->addChildPageTrans("Change Password", tr("Change Password"));
         m_frameProxy->addChildPageTrans("Delete Account", tr("Delete Account"));
+        m_frameProxy->addChildPageTrans("Fingerprint Password", tr("Fingerprint Password"));
     }
 }
 
@@ -264,6 +265,10 @@ void AccountsModule::initSearchData()
 
     const QString& module = displayName();
 
+    auto func_process_finger = [=] {
+        m_frameProxy->setWidgetVisible(module, tr("Fingerprint Password"), !IsServerSystem && m_fingerModel->isVaild());
+    };
+
     auto func_process_all = [=]() {
         //只存在二级页面，childpage为空，在判断是否加载数据时没有翻译，因此这个函数第二个参数不能添加翻译
         QString gsAccountUserModifypasswd = func_is_visible("accountUserModifypasswd").toString();
@@ -284,6 +289,8 @@ void AccountsModule::initSearchData()
 
         m_frameProxy->setWidgetVisible(module, tr("Create Account"), true);
         m_frameProxy->setDetailVisible(module, tr("Create Account"), tr("New Account"), true);
+
+        func_process_finger();
     };
 
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
@@ -332,6 +339,9 @@ void AccountsModule::initSearchData()
         m_frameProxy->updateSearchData(module);
     });
 
+    connect(m_fingerModel, &FingerModel::vaildChanged, this, [=](const bool isVaild) {
+        m_frameProxy->setWidgetVisible(module, tr("Fingerprint Password"), !IsServerSystem && isVaild);
+    });
     func_process_all();
 }
 

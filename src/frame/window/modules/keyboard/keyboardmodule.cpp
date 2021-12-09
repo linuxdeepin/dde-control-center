@@ -204,7 +204,8 @@ void KeyboardModule::initSearchData()
         m_frameProxy->setDetailVisible(module, shortcuts, tr("Custom Shortcut"), bShortcuts);
         m_frameProxy->setDetailVisible(module, shortcuts, tr("System"), bShortcuts);
         m_frameProxy->setDetailVisible(module, shortcuts, tr("Window"), bShortcuts);
-        m_frameProxy->setDetailVisible(module, shortcuts, tr("Workspace"), bShortcuts);
+        m_frameProxy->setDetailVisible(module, shortcuts, tr("Workspace"), bShortcuts && !IsServerSystem);
+        m_frameProxy->setDetailVisible(module, shortcuts, tr("Assistive Tools"), bShortcuts && !IsServerSystem && !DSysInfo::isCommunityEdition());
     };
 
     auto func_syslanguage_changed = [ = ]() {

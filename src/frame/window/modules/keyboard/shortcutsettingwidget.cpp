@@ -85,6 +85,8 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     if (!DCC_NAMESPACE::IsServerSystem && !DSysInfo::isCommunityEdition()) {
         SettingsHead *speechHead = new SettingsHead();
+        //~ contents_path /keyboard/Shortcuts
+        //~ child_page Shortcuts
         speechHead->setTitle(tr("Assistive Tools"));
         speechHead->setEditEnable(false);
         speechHead->layout()->setContentsMargins(10, 0, 10, 0);
