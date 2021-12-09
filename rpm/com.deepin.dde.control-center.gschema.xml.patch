@@ -1,0 +1,13 @@
+diff --git a/com.deepin.dde.control-center.gschema.xml b/com.deepin.dde.control-center.gschema.xml
+index 5b2a70fbc..b5a169dc1 100644
+--- a/com.deepin.dde.control-center.gschema.xml
++++ b/com.deepin.dde.control-center.gschema.xml
+@@ -103,7 +103,7 @@
+             <description>default is Enabled</description>
+         </key>
+         <key name="display-color-temperature" enum="com.deepin.dde.control-center.StatusMode">
+-            <default>'Enabled'</default>
++            <default>'Hidden'</default>
+             <summary>change display color Temperature status</summary>
+             <description>default is Enabled</description>
+         </key>
