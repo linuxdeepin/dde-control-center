@@ -84,7 +84,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     licenseStateChangeSlot();
 
     if (!IsCommunitySystem) {
-        m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::systemBus(), this);
+        m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::sessionBus(), this);
     }
 
     m_commomModel->setIsLogin(m_dBusdeepinIdInter->isLogin());
