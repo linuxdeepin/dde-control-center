@@ -77,6 +77,7 @@ private:
     void addSlider();
     int colorTemperatureToValue(int kelvin);
     QString brightnessToTickInterval(const double tb) const;
+    void setColorTemperatureVisible(bool visible);
 
 private:
     dcc::display::DisplayModel *m_displayModel;

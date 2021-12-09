@@ -123,7 +123,7 @@ void BrightnessWidget::setMode(DisplayModel *model)
     connect(m_displayModel, &DisplayModel::adjustCCTmodeChanged, this, &BrightnessWidget::setAdjustCCTmode);
     connect(m_displayModel, &DisplayModel::redshiftVaildChanged, this, [=](const bool visible) {
         if ("Hidden" != GSettingWatcher::instance()->getStatus("displayColorTemperature")) {
-            m_tempratureColorWidget->setVisible(visible);
+            setColorTemperatureVisible(visible);
         }
     });
     connect(m_nightManual, &SwitchWidget::checkedChanged, this, [=](const bool enable) {
@@ -150,11 +150,23 @@ void BrightnessWidget::setMode(DisplayModel *model)
         m_autoLightSpacerItem->changeSize(0, model->autoLightAdjustIsValid() ? 10 : 0);
         m_autoLightMode->setVisible(model->autoLightAdjustIsValid());
         m_autoLightMode->setChecked(model->isAudtoLightAdjust());
-        m_tempratureColorWidget->setVisible(model->redshiftIsValid());
+        setColorTemperatureVisible(model->redshiftIsValid());
         setAdjustCCTmode(model->adjustCCTMode()); //0不调节色温  1  自动调节   2手动调节
+    } else {
+        setColorTemperatureVisible(false);
     }
 
     addSlider();
+}
+
+void BrightnessWidget::setColorTemperatureVisible(bool visible)
+{
+    m_nightShift->setVisible(visible);
+    m_tempratureColorTitle->setVisible(visible);
+    m_tempratureColorWidget->setVisible(visible);
+    m_nightTips->setVisible(visible);
+    m_nightManual->setVisible(visible);
+    m_cctItem->setVisible(visible);
 }
 
 void BrightnessWidget::setAdjustCCTmode(int mode)
