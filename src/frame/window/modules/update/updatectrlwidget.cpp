@@ -343,6 +343,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkUpdateItem->setMessage(tr("Your system is up to date"));
         m_checkUpdateItem->setImageOrTextVisible(true);
         m_checkUpdateItem->setSystemVersion(m_systemVersion);
+        //~ contents_path /update/Check for Updates
         showCheckButton(tr("Check for Updates"));
         break;
     case UpdatesStatus::NoAtive:
