@@ -110,7 +110,6 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
     connect(this, &SecondaryScreenDialog::requestGatherEnabled, m_monitorControlWidget, &MonitorControlWidget::onGatherEnabled);
     connect(m_resolutionWidget, &ResolutionWidget::requestSetResolution, this, &SecondaryScreenDialog::requestSetResolution);
     connect(m_resolutionWidget, &ResolutionWidget::requestSetFillMode, this, &SecondaryScreenDialog::requestSetFillMode);
-    connect(m_resolutionWidget, &ResolutionWidget::requestCurrFillModeChanged, this, &SecondaryScreenDialog::requestCurrFillModeChanged);
     connect(m_resolutionWidget, &ResolutionWidget::requestResizeDesktopVisibleChanged, this, &SecondaryScreenDialog::OnRequestResizeDesktopVisibleChanged);
     connect(m_refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &SecondaryScreenDialog::requestSetResolution);
     connect(m_rotateWidget, &RotateWidget::requestSetRotate, this, &SecondaryScreenDialog::requestSetRotate);

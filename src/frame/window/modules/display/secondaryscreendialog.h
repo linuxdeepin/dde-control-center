@@ -72,7 +72,6 @@ Q_SIGNALS:
     void requestGatherWindows(const QPoint cursor);
     void requestGatherEnabled(const bool enable);
     void requestCloseRecognize();
-    void requestCurrFillModeChanged(dcc::display::Monitor *monitor, const QString fillMode);
 
 public Q_SLOTS:
     void OnRequestResizeDesktopVisibleChanged(bool visible);

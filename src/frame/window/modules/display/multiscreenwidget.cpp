@@ -278,7 +278,6 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     connect(m_scalingWidget, &ScalingWidget::requestUiScaleChange, this, &MultiScreenWidget::requestUiScaleChange);
     connect(m_resolutionWidget, &ResolutionWidget::requestSetResolution, this, &MultiScreenWidget::requestSetResolution);
     connect(m_resolutionWidget, &ResolutionWidget::requestSetFillMode, this, &MultiScreenWidget::requestSetFillMode);
-    connect(m_resolutionWidget, &ResolutionWidget::requestCurrFillModeChanged, this, &MultiScreenWidget::requestCurrFillModeChanged);
     connect(m_refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &MultiScreenWidget::requestSetResolution);
     connect(m_rotateWidget, &RotateWidget::requestSetRotate, this, &MultiScreenWidget::requestSetRotate);
 
@@ -355,7 +354,6 @@ void MultiScreenWidget::initSecondaryScreenDialog()
             connect(dlg, &SecondaryScreenDialog::requestAmbientLightAdjustBrightness, this, &MultiScreenWidget::requestAmbientLightAdjustBrightness);
             connect(dlg, &SecondaryScreenDialog::requestSetResolution, this, &MultiScreenWidget::requestSetResolution);
             connect(dlg, &SecondaryScreenDialog::requestSetFillMode, this, &MultiScreenWidget::requestSetFillMode);
-            connect(dlg, &SecondaryScreenDialog::requestCurrFillModeChanged, this, &MultiScreenWidget::requestCurrFillModeChanged);
             connect(dlg, &SecondaryScreenDialog::requestSetRotate, this, &MultiScreenWidget::requestSetRotate);
             connect(dlg, &SecondaryScreenDialog::requestGatherWindows, this, &MultiScreenWidget::onGatherWindows);
             connect(dlg, &SecondaryScreenDialog::requestCloseRecognize, this, &MultiScreenWidget::onRequestCloseRecognize);

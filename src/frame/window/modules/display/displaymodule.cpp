@@ -220,10 +220,6 @@ void DisplayModule::showSingleScreenWidget()
 
 void DisplayModule::showMultiScreenWidget()
 {
-    connect(m_displayModel, &DisplayModel::displayModeChanged, this, [this]() {
-        onSetFillMode();
-    });
-
     MultiScreenWidget *multiScreenWidget = new MultiScreenWidget(m_pMainWindow);
     multiScreenWidget->setModel(m_displayModel);
     connect(multiScreenWidget, &MultiScreenWidget::requestSwitchMode, m_displayWorker, &DisplayWorker::switchMode);
@@ -240,13 +236,6 @@ void DisplayModule::showMultiScreenWidget()
     }, Qt::QueuedConnection);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetFillMode, this, [this](dcc::display::Monitor *monitor, const QString fillMode) {
         onRequestSetFillMode(monitor, fillMode);
-    });
-
-    connect(multiScreenWidget, &MultiScreenWidget::requestCurrFillModeChanged, this, [this](dcc::display::Monitor *monitor, const QString currfillMode) {
-        if (m_displayModel->displayMode() == MERGE_MODE && monitor->isPrimary()) {
-            for (auto m : m_displayModel->monitorList())
-                m_displayWorker->setCurrentFillMode(m, currfillMode);
-        }
     });
 
     connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
@@ -283,7 +272,6 @@ void DisplayModule::onRequestSetResolution(Monitor *monitor, const int mode)
 {
     Resolution lastRes = monitor->currentMode();
     Resolution firstRes;
-    QString lastFillMode = m_displayModel->primaryMonitor()->currentFillMode();
 
     for (auto res : monitor->modeList()) {
         if (res.id() == mode) {
@@ -316,51 +304,23 @@ void DisplayModule::onRequestSetResolution(Monitor *monitor, const int mode)
     tfunc(monitor, firstRes);
 
     //此处处理调用applyChanges的200ms延时, TimeoutDialog提前弹出的问题
-    QTimer::singleShot(300, monitor, [this, tfunc, monitor, lastRes,lastFillMode]{
+    QTimer::singleShot(300, monitor, [this, tfunc, monitor, lastRes]{
         if (showTimeoutDialog(monitor) == QDialog::Accepted) {
             m_displayWorker->saveChanges();
         } else {
             tfunc(monitor, lastRes);
-            onSetFillMode(lastFillMode);
         }
     });
-}
-
-void DisplayModule::onSetFillMode(QString currFullMode)
-{
-    if(currFullMode.isEmpty())
-        currFullMode = m_displayModel->primaryMonitor()->currentFillMode();
-
-    //切分辨率时，如果是复制模式下，桌面显示不支持，全部切换为拉伸 否则以主屏为主
-    if (m_displayModel->displayMode() == MERGE_MODE) {
-        for (auto m : m_displayModel->monitorList()) {
-                if(!m_displayModel->allSupportFillModes())
-                    m_displayWorker->setCurrentFillMode(m, m_displayModel->defaultFillMode());
-                else
-                    m_displayWorker->setCurrentFillMode(m, currFullMode);
-        }
-    }
 }
 
 void DisplayModule::onRequestSetFillMode(dcc::display::Monitor *monitor, const QString fillMode)
 {
     auto lastFillMode = monitor->currentFillMode();
-    if (m_displayModel->displayMode() == MERGE_MODE) {
-        for (auto m : m_displayModel->monitorList())
-            m_displayWorker->setCurrentFillMode(m, fillMode);
-    } else {
-        m_displayWorker->setCurrentFillMode(monitor, fillMode);
-    }
+    m_displayWorker->setCurrentFillMode(monitor,fillMode);
     //桌面显示增加15秒倒计时功能
     QTimer::singleShot(300, monitor, [this, monitor, lastFillMode]{
         if (showTimeoutDialog(monitor, true) != QDialog::Accepted) {
-            if (m_displayModel->displayMode() == MERGE_MODE) {
-                for (auto m : m_displayModel->monitorList())
-                    m_displayWorker->setCurrentFillMode(m, lastFillMode);
-            }
-            else {
-               m_displayWorker->setCurrentFillMode(monitor, lastFillMode);
-            }
+            m_displayWorker->setCurrentFillMode(monitor,lastFillMode);
         }
     });
 }

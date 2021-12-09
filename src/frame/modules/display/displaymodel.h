@@ -62,7 +62,6 @@ public:
     inline const QString primary() const { return m_primary; }
     inline const QList<Monitor *> monitorList() const { return m_monitors; }
     Monitor *primaryMonitor() const;
-    inline const QString defaultFillMode() { return "Full"; }
 
     bool isNightMode() const;
     void setIsNightMode(bool isNightMode);
@@ -102,9 +101,6 @@ public:
 
     inline bool brightnessEnable() const { return m_brightnessEnable; }
     void setBrightnessEnable(const bool enable);
-
-    inline bool allSupportFillModes() const { return m_allSupportFillModes; }
-    void checkAllSupportFillModes();
 
 Q_SIGNALS:
     void screenHeightChanged(const int h) const;
@@ -160,7 +156,6 @@ private:
     TouchscreenInfoList m_touchscreenList;
     TouchscreenMap m_touchMap;
     uint m_maxBacklightBrightness {0};
-    bool m_allSupportFillModes;
 };
 
 } // namespace display
