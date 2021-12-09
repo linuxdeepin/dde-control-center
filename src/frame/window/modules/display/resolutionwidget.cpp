@@ -214,10 +214,7 @@ void ResolutionWidget::setMonitor(Monitor *monitor)
 
     // 先断开信号，设置数据再连接信号
     if (m_monitor != nullptr) {
-        disconnect(m_monitor, &Monitor::modelListChanged, this, &ResolutionWidget::initResolution);
-        disconnect(m_monitor, &Monitor::bestModeChanged, this, &ResolutionWidget::initResolution);
-        disconnect(m_monitor, &Monitor::currentModeChanged, this, nullptr);
-        disconnect(m_monitor, &Monitor::currentFillModeChanged, this, &ResolutionWidget::initResizeDesktop);
+        m_monitor->disconnect();
     }
 
     m_monitor = monitor;
@@ -226,7 +223,11 @@ void ResolutionWidget::setMonitor(Monitor *monitor)
     OnAvailableFillModesChanged(m_monitor->availableFillModes());
     initResizeDesktop();
 
+    connect(m_monitor, &Monitor::availableFillModesChanged, this, &ResolutionWidget::OnAvailableFillModesChanged);
     connect(m_monitor, &Monitor::currentFillModeChanged, this, &ResolutionWidget::initResizeDesktop);
+    connect(m_monitor, &Monitor::currentFillModeChanged, this, [this] (QString currFillMode) {
+        Q_EMIT requestCurrFillModeChanged(m_monitor,currFillMode);
+    });
 
     connect(m_monitor, &Monitor::modelListChanged, this, &ResolutionWidget::initResolution);
     connect(m_monitor, &Monitor::bestModeChanged, this, &ResolutionWidget::initResolution);
@@ -319,19 +320,9 @@ void ResolutionWidget::initResizeDesktop()
     int index = lstFillMode.indexOf(fillMode);
     if(index >= 0)
         m_resizeDesktopCombox->setCurrentIndex(index);
-
-    connect(m_monitor, &Monitor::availableFillModesChanged, this, &ResolutionWidget::OnAvailableFillModesChanged);
-
     //用户手动选择铺满方式时发送信号
     connect(m_resizeDesktopCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
-        if (m_model->displayMode() == MERGE_MODE) {
-            for (auto monitor : m_model->monitorList()) {
-                Q_EMIT requestSetFillMode(monitor, this->m_resizeDesktopCombox->itemData(idx,FillModeRole).toString());
-            }
-        }
-        else {
-            Q_EMIT requestSetFillMode(m_monitor, this->m_resizeDesktopCombox->itemData(idx,FillModeRole).toString());
-        }
+        Q_EMIT requestSetFillMode(m_monitor, this->m_resizeDesktopCombox->itemData(idx,FillModeRole).toString());
     });
 }
 
@@ -347,18 +338,16 @@ void ResolutionWidget::OnAvailableFillModesChanged(const QStringList &lstFillMod
     }
     m_resizeDesktopCombox->setDefaultRoleIcon();
 
-    if (lstFillMode.isEmpty()) {
-        DConfigWatcher::instance()->erase(DConfigWatcher::display,"desktopDisplay", m_resizeDesktopItem);
-        setMinimumHeight(48);
-        m_resizeDesktopItem->setVisible(false);
-        Q_EMIT requestResizeDesktopVisibleChanged(false);
-    }
+    resolutionWidgetChanged();
 }
 
-void ResolutionWidget::resolutionWidgetChanged()
+void ResolutionWidget::setResizeDesktopVisible(bool visible) 
 {
-    //推荐分辨率下隐藏铺满方式
-    if (m_resolutionCombox->currentText().contains(tr("Recommended"))) {
+    if (m_model->displayMode() == MERGE_MODE && visible) {
+        visible = m_model->allSupportFillModes();
+    }
+
+    if (!visible) {
         DConfigWatcher::instance()->erase(DConfigWatcher::display,"desktopDisplay", m_resizeDesktopItem);
         setMinimumHeight(48);
         m_resizeDesktopItem->setVisible(false);
@@ -368,6 +357,16 @@ void ResolutionWidget::resolutionWidgetChanged()
         m_resizeDesktopItem->setVisible(true);
         DConfigWatcher::instance()->bind(DConfigWatcher::display,"desktopDisplay", m_resizeDesktopItem);
         Q_EMIT requestResizeDesktopVisibleChanged(true);
+    }
+}
+
+void ResolutionWidget::resolutionWidgetChanged()
+{
+    //推荐分辨率下隐藏铺满方式
+    if (m_resolutionCombox->currentText().contains(tr("Recommended"))) {
+        setResizeDesktopVisible(false);
+    } else {
+        setResizeDesktopVisible(!m_monitor->availableFillModes().isEmpty());
     }
 }
 

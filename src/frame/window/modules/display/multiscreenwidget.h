@@ -84,6 +84,7 @@ Q_SIGNALS:
     void requestGatherEnabled(const bool enable);
     void requestSetMainwindowRect(dcc::display::Monitor *monitor, bool isInit);
     void requestSetFillMode(dcc::display::Monitor *monitor, const QString fillMode);
+    void requestCurrFillModeChanged(dcc::display::Monitor *monitor, const QString fillMode);
 
 private:
     void initModeList();
