@@ -123,6 +123,26 @@ HotspotController *NetworkManagerProcesser::hotspotController()
     return m_hotspotController;
 }
 
+void NetworkManagerProcesser::sortDevice()
+{
+    QStringList devicePaths;
+    Device::List allDevices = NetworkManager::networkInterfaces();
+    for (Device::Ptr device : allDevices) {
+        if (device->type() == Device::Type::Wifi || device->type() == Device::Type::Ethernet)
+            devicePaths << device->uni();
+    }
+    // 有线网络始终在无线网络的前面，如果两者都是有线或者无线网络，则按照path的顺序来排序
+    qSort(m_devices.begin(), m_devices.end(),  [ = ](NetworkDeviceBase *device1, NetworkDeviceBase *device2) {
+        if (device1->deviceType() == DeviceType::Wired && device2->deviceType() == DeviceType::Wireless)
+            return true;
+
+        if (device1->deviceType() == DeviceType::Wireless && device2->deviceType() == DeviceType::Wired)
+            return false;
+
+        return devicePaths.indexOf(device1->path()) < devicePaths.indexOf(device2->path());
+    });
+}
+
 void NetworkManagerProcesser::onDeviceAdded(const QString &uni)
 {
     auto deviceExist = [ this ] (const QString &uni)->bool {
@@ -152,58 +172,71 @@ void NetworkManagerProcesser::onDeviceAdded(const QString &uni)
     if (!currentDevice)
         return;
 
-    auto createDevice = [ = ](const QSharedPointer<Device> &device)->NetworkDeviceBase * {
+    auto createDevice = [ = ](const Device::Ptr &device)->NetworkDeviceBase * {
         if (device->type() == Device::Wifi) {
             // 无线网络
             NetworkManager::WirelessDevice::Ptr wDevice = device.staticCast<NetworkManager::WirelessDevice>();
             DeviceManagerRealize *deviceRealize = new DeviceManagerRealize(m_ipChecker, wDevice);
             return new WirelessDevice(deviceRealize, Q_NULLPTR);
-        } else if (device->type() == Device::Ethernet) {
+        }
+
+        if (device->type() == Device::Ethernet) {
             // 有线网络
             NetworkManager::WiredDevice::Ptr wDevice = device.staticCast<NetworkManager::WiredDevice>();
             DeviceManagerRealize *deviceRealize = new DeviceManagerRealize(m_ipChecker, wDevice);
             return new WiredDevice(deviceRealize, Q_NULLPTR);
         }
+
         return nullptr;
     };
 
-    NetworkDeviceBase *newDevice = Q_NULLPTR;
-    if (currentDevice->managed())
-        newDevice = createDevice(currentDevice);
-
-    connect(currentDevice.get(), &Device::managedChanged, this, [ this, currentDevice, deviceExist, createDevice ] {
-        if (currentDevice->managed()) {
+    auto deviceCreateOrRemove = [ this, deviceExist, createDevice ](const Device::Ptr &device) {
+        if (device->managed() && (device->interfaceFlags() & 0x1)) {
             // 如果由非manager变成manager的模式，则新增设备
-            if (!deviceExist(currentDevice->uni())) {
-                NetworkDeviceBase *newDevice = createDevice(currentDevice);
+            if (!deviceExist(device->uni())) {
+                NetworkDeviceBase *newDevice = createDevice(device);
                 if (newDevice) {
-                        m_devices << newDevice;
-                        updateDeviceName();
-                        Q_EMIT deviceAdded({ newDevice });
-                    }
-                }
-            } else {
-                // 如果由manager变成非manager模式，则移除设备
-                QList<NetworkDeviceBase *> rmDevices;
-                for (NetworkDeviceBase *dev : m_devices) {
-                    if (dev->path() == currentDevice->uni()) {
-                        m_devices.removeOne(dev);
-                        rmDevices << dev;
-                        break;
-                    }
-                }
-                if (rmDevices.size() > 0) {
+                    m_devices << newDevice;
+                    sortDevice();
                     updateDeviceName();
-                    Q_EMIT deviceRemoved(rmDevices);
-                    for (NetworkDeviceBase *rmDevice : rmDevices)
-                        delete rmDevice;
-                    rmDevices.clear();
+                    Q_EMIT deviceAdded({ newDevice });
                 }
             }
-        });
+        } else {
+            // 如果由manager变成非manager模式，则移除设备
+            NetworkDeviceBase *rmDevice = nullptr;
+            for (NetworkDeviceBase *dev : m_devices) {
+                if (dev->path() == device->uni()) {
+                    m_devices.removeOne(dev);
+                    rmDevice = dev;
+                    break;
+                }
+            }
+            if (rmDevice) {
+                Q_EMIT rmDevice->removed();
+                sortDevice();
+                updateDeviceName();
+                Q_EMIT deviceRemoved({ rmDevice });
+                delete rmDevice;
+                rmDevice = nullptr;
+            }
+        }
+    };
+
+    NetworkDeviceBase *newDevice = Q_NULLPTR;
+    if (currentDevice->managed() && (currentDevice->interfaceFlags() & 0x1))
+        newDevice = createDevice(currentDevice);
+
+    connect(currentDevice.get(), &Device::interfaceFlagsChanged, this, [ currentDevice, deviceCreateOrRemove ] {
+        deviceCreateOrRemove(currentDevice);
+    });
+    connect(currentDevice.get(), &Device::managedChanged, this, [ currentDevice, deviceCreateOrRemove ] {
+        deviceCreateOrRemove(currentDevice);
+    });
 
     if (newDevice) {
         m_devices << newDevice;
+        sortDevice();
         updateDeviceName();
         Q_EMIT deviceAdded({ newDevice });
     }
@@ -211,19 +244,21 @@ void NetworkManagerProcesser::onDeviceAdded(const QString &uni)
 
 void NetworkManagerProcesser::onDeviceRemove(const QString &uni)
 {
-    QList<NetworkDeviceBase *> rmDevices;
+    NetworkDeviceBase *rmDevice = Q_NULLPTR;
     for (NetworkDeviceBase *device : m_devices) {
         if (device->path() == uni) {
             m_devices.removeOne(device);
-            rmDevices << device;
+            rmDevice = device;
             break;
         }
     }
 
-    if (rmDevices.size() > 0) {
-        Q_EMIT deviceRemoved(rmDevices);
-        for (NetworkDeviceBase *device : rmDevices)
-            delete device;
+    if (rmDevice) {
+        Q_EMIT rmDevice->removed();
+        sortDevice();
+        updateDeviceName();
+        Q_EMIT deviceRemoved({ rmDevice });
+        delete rmDevice;
     }
 }
 

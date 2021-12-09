@@ -54,6 +54,7 @@ private:
     void initConnections();
     NetworkDeviceBase *findDevice(const QString devicePath);
     NetworkInter *networkInter();
+    void sortDevice();
 
 private slots:
     void onDeviceAdded(const QString &uni);

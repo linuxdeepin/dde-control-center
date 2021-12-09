@@ -27,7 +27,10 @@
 #include <DFloatingButton>
 #include <QMouseEvent>
 
+#include <networkcontroller.h>
+
 using namespace dss::module;
+using namespace dde::network;
 using namespace Dtk::Widget;
 DGUI_USE_NAMESPACE
 
@@ -50,6 +53,7 @@ DssTestWidget::~DssTestWidget()
 
 void DssTestWidget::loadDssPlugin()
 {
+    NetworkController::setServiceType(ServiceLoadType::LoadFromManager);
     m_pModule->init();
     m_button->setIcon(QIcon(m_pModule->icon()));
 }
