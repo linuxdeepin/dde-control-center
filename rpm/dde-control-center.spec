@@ -56,6 +56,8 @@ Summary:        %{summary}
 %prep
 %setup -q -n %{name}-%{version}
 sed -i 's|lrelease|lrelease-qt5|' translate_generation.sh
+sed -i -E '/add_compile_definitions/d' CMakeLists.txt
+patch com.deepin.dde.control-center.gschema.xml < rpm/com.deepin.dde.control-center.gschema.xml.patch
 
 %build
 %cmake . -DDCC_DISABLE_GRUB=YES \
