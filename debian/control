@@ -50,7 +50,7 @@ Depends: ${shlibs:Depends},
  uos-license-content,
  libglib2.0-0,
  libdeepin-pw-check,
- deepin-desktop-schemas (>=5.8.0.34),
+ deepin-desktop-schemas (>=5.8.0.43),
  libdframeworkdbus2 (>=5.3.38),
  libdareader1
 Recommends:
