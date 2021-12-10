@@ -67,6 +67,8 @@
 #include <QMouseEvent>
 #include <QResizeEvent>
 #include <QDialog>
+#include <QDesktopWidget>
+#include <QApplication>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -216,6 +218,9 @@ MainWindow::MainWindow(QWidget *parent)
     });
     updateViewBackground();
     updateWinsize();
+    m_primaryScreen = QGuiApplication::primaryScreen();
+    connect(qGuiApp, &QGuiApplication::primaryScreenChanged, this, &MainWindow::onPrimaryScreenChanged);
+    connect(m_primaryScreen,&QScreen::geometryChanged,this,&MainWindow::updateWinsize);
 }
 
 MainWindow::~MainWindow()
@@ -425,10 +430,22 @@ void MainWindow::initAllModule(const QString &m)
     qDebug() << QString("load search info with %1ms").arg(et.elapsed());
 }
 
-void MainWindow::updateWinsize()
+void MainWindow::onPrimaryScreenChanged(QScreen *screen)
+{
+    m_primaryScreen->disconnect();
+    m_primaryScreen = screen;
+    updateWinsize();
+    connect(m_primaryScreen,&QScreen::geometryChanged,this,&MainWindow::updateWinsize);
+}
+
+void MainWindow::updateWinsize(QRect rect)
 {
     int w = QGuiApplication::primaryScreen()->geometry().width();
     int h = QGuiApplication::primaryScreen()->geometry().height();
+    if (!rect.width() && !rect.height()) {
+        w = rect.width();
+        h = rect.height();
+    }
     WidgetMinimumWidth = qMin(w, 820);
     WidgetMinimumHeight = qMin(h, 634);
     setMinimumSize(QSize(WidgetMinimumWidth, WidgetMinimumHeight));

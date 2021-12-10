@@ -103,7 +103,6 @@ public:
     void popWidget();
     void initAllModule(const QString &m = "");
     inline QStack<QPair<ModuleInterface *, QWidget *>> getcontentStack() {return m_contentStack;}
-    void updateWinsize();
     inline QSize getLastSize() const { return m_lastSize; }
     inline void setNeedRememberLastSize(bool needRememberLastSize)  { m_needRememberLastSize = needRememberLastSize;}
 
@@ -120,10 +119,12 @@ private Q_SLOTS:
     void findFocusChild(QWidget *w, QWidget *&pre);
     void findFocusChild(QLayout *l, QWidget *&pre);
     void openManual();
+    void onPrimaryScreenChanged(QScreen *screen);
 
 public Q_SLOTS:
     //设置特别的三级菜单的可见性
     void setSpecialThreeMenuVisible(QString name, bool flag);
+    void updateWinsize(QRect rect = QRect(0,0,0,0));
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
@@ -179,6 +180,7 @@ private:
 
     //全局搜索
     QList<QJsonObject> m_lstGrandSearchTasks;
+    QScreen *m_primaryScreen;
 };
 }
 
