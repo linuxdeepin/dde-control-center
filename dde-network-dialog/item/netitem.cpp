@@ -608,15 +608,6 @@ void WirelessItem::expandWidget(ExpandWidget type)
         standardItem()->setSizeHint(QSize(-1, 130));
         m_stackWidget->setCurrentIndex(type);
         m_passwdEdit->lineEdit()->setFocus();
-        if (!m_passwdEdit->lineEdit()->text().isEmpty()) {
-            QTimer::singleShot(200, [ this ]() {
-                m_passwdEdit->showAlertMessage(tr("Wrong password"));
-            });
-        } else if (m_accessPoint) {
-            QTimer::singleShot(200, [ this ]() {
-                m_passwdEdit->showAlertMessage(tr("Password required to connect %1").arg(m_accessPoint->ssid()));
-            });
-        }
         checkInputValid();
         break;
     default:
