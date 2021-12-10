@@ -42,6 +42,7 @@
 #include <QListView>
 #include <QDebug>
 #include <QSizePolicy>
+#include <QScroller>
 
 using namespace dcc;
 using namespace widgets;
@@ -177,11 +178,18 @@ BootWidget::BootWidget(QWidget *parent)
     mainContentLayout->addWidget(m_scrollArea);
     QWidget *widget = new QWidget(this);
     widget->setAccessibleName("scrollAreaWidget");
-    widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     widget->setContentsMargins(0, 0, 0, 0);
     widget->setMinimumWidth(330);   //设置滑轮区域最小宽度,避免整体窗口最小的时候,fullnamelable太长导致出现滑轮
     widget->setLayout(layout);
     m_scrollArea->setWidget(widget);
+
+    // 设置触摸屏手势识别
+    QScroller::grabGesture(m_scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_scrollArea->viewport());
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootWhenScrollable);
+    scroller->setScrollerProperties(sp);
 
 #ifndef DCC_DISABLE_GRUB_THEME
     m_commoninfoBootWallpaperConfigSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
