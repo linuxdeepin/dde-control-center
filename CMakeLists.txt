@@ -14,7 +14,9 @@ if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 endif ()
 
 # 增加安全编译参数
-ADD_DEFINITIONS("-z relro -z now -pie -z noexecstack -fstack-protector-all -D_FORTITY_SOURCE=1")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fstack-protector-all")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fstack-protector-all")
+set(CMAKE_EXE_LINKER_FLAGS  "-z relro -z now -z noexecstack -pie")
 
 if (NOT (${CMAKE_BUILD_TYPE} MATCHES "Debug"))
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Ofast")
