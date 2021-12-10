@@ -25,39 +25,30 @@
 
 #include "monitorindicator.h"
 
-#include <QResizeEvent>
-#include <QX11Info>
-
-#include <X11/extensions/shape.h>
+#include <QPainter>
 
 using namespace dcc;
 using namespace dcc::display;
 
 MonitorIndicator::MonitorIndicator(QWidget *parent)
-    : QFrame(parent)
+    : QFrame(nullptr)
 {
-    setWindowFlags(Qt::SplashScreen | Qt::X11BypassWindowManagerHint);
-    setStyleSheet("background-color: #2ca7f8;");
+    Q_UNUSED(parent)
+
+    setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
+    setAttribute(Qt::WA_TranslucentBackground);
 }
 
-void MonitorIndicator::resizeEvent(QResizeEvent *e)
+
+void MonitorIndicator::paintEvent(QPaintEvent *e)
 {
-    QFrame::resizeEvent(e);
-
-    XRectangle rectangle;
-    rectangle.x = 0;
-    rectangle.y = 0;
-    rectangle.width = static_cast<ushort>(e->size().width());
-    rectangle.height = static_cast<ushort>(e->size().height());
-
-    // need to restore the cut area, if not,cut out will be repeated.
-    bool isWaylandDisplay = !qgetenv("WAYLAND_DISPLAY").isEmpty();
-    XShapeCombineRectangles(isWaylandDisplay ? XOpenDisplay(nullptr) : QX11Info::display(), winId(), ShapeBounding, 0, 0, &rectangle, 1, ShapeSet, YXBanded);
-
-    rectangle.x = 10;
-    rectangle.y = 10;
-    rectangle.width = static_cast<ushort>(e->size().width()) - 20;
-    rectangle.height = static_cast<ushort>(e->size().height()) - 20;
-
-    XShapeCombineRectangles(isWaylandDisplay ? XOpenDisplay(nullptr) : QX11Info::display(), winId(), ShapeBounding, 0, 0, &rectangle, 1, ShapeSubtract, YXBanded);
+    QPainter p(this);
+    QRect rect = QRect(0,0,this->geometry().width(),this->geometry().height());
+    QPen pen;
+    pen.setWidth(20);
+    pen.setColor(QColor("#2ca7f8"));
+    p.setPen(pen);
+    p.setBrush(Qt::BrushStyle::NoBrush);
+    p.drawRect(rect);
+    QFrame::paintEvent(e);
 }

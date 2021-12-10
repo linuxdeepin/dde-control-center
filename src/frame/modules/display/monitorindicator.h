@@ -42,7 +42,7 @@ public:
     explicit MonitorIndicator(QWidget *parent = 0);
 
 protected:
-    void resizeEvent(QResizeEvent *e);
+    void paintEvent(QPaintEvent *e);
 };
 
 } // namespace display
