@@ -144,11 +144,10 @@ public Q_SLOTS:
     void onAirplaneModeChanged(bool airplaneModeEnabled);
 
 private Q_SLOTS:
-    void onAPAdded(const QList<AccessPoints*> &addedAccessPoints);
-    void onAPRemoved(const QList<AccessPoints*> &lstRemovedAccessPoints);
     void onHotspotEnableChanged(const bool enabled);
     void onCloseHotspotClicked();
     void onDeviceStatusChanged(const DeviceStatus &stat);
+    void onUpdateAPItem();
 
     void sortAPList();
     void onApWidgetEditRequested(const QString &apPath, const QString &ssid);

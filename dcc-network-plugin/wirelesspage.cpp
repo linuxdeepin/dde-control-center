@@ -328,7 +328,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         m_switch->setChecked(enabled);
         m_switch->blockSignals(false);
         if (m_lvAP) {
-            onAPAdded(m_device->accessPointItems());
+            onUpdateAPItem();
             m_lvAP->setVisible(enabled && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hidden");
             updateLayout(!m_lvAP->isHidden());
         }
@@ -385,8 +385,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     connect(m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
 
-    connect(m_device, &WirelessDevice::networkAdded, this, &WirelessPage::onAPAdded);
-    connect(m_device, &WirelessDevice::networkRemoved, this, &WirelessPage::onAPRemoved);
+    connect(m_device, &WirelessDevice::networkAdded, this, &WirelessPage::onUpdateAPItem);
+    connect(m_device, &WirelessDevice::networkRemoved, this, &WirelessPage::onUpdateAPItem);
     connect(m_device, &WirelessDevice::connectionSuccess, this, &WirelessPage::updateApStatus);
     connect(m_device, &WirelessDevice::accessPointInfoChanged, this, &WirelessPage::onUpdateAccessPointInfo);
     connect(m_device, &WirelessDevice::hotspotEnableChanged, this, &WirelessPage::onHotspotEnableChanged);
@@ -399,7 +399,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     // init data
     const QList<AccessPoints *> lstUAccessPoints = m_device->accessPointItems();
     if (!lstUAccessPoints.isEmpty() && m_device->isEnabled())
-        onAPAdded(lstUAccessPoints);
+        onUpdateAPItem();
 
     QGSettings *gsetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
     connect(gsetting, &QGSettings::changed, this, [&](const QString &key) {
@@ -524,7 +524,7 @@ void WirelessPage::onNetworkAdapterChanged(bool checked)
 
     if (checked) {
         m_device->scanNetwork();
-        onAPAdded(m_device->accessPointItems());
+        onUpdateAPItem();
     }
 
     m_clickedItem = nullptr;
@@ -552,54 +552,52 @@ void WirelessPage::onAirplaneModeChanged(bool airplaneModeEnabled)
     setDisabled(airplaneModeEnabled);
 }
 
-void WirelessPage::onAPAdded(const QList<AccessPoints *> &addedAccessPoints)
+void WirelessPage::onUpdateAPItem()
 {
-    for (AccessPoints *ap: addedAccessPoints) {
+    QList<AccessPoints *> aps = m_device->accessPointItems();
+    QList<QString> removeSsid = m_apItems.keys();
+    for (AccessPoints *ap : aps) {
         const QString &ssid = ap->ssid();
+        APItem *apItem = nullptr;
         if (!m_apItems.contains(ssid)) {
-            APItem *apItem = new APItem(ssid, style(), m_lvAP);
+            apItem = new APItem(ssid, style(), m_lvAP);
             m_apItems[ssid] = apItem;
             m_modelAP->appendRow(apItem);
-            apItem->setSecure(ap->secured());
-            apItem->setPath(ap->path());
             if (ssid == m_autoConnectHideSsid) {
                 if (m_clickedItem)
                     m_clickedItem->setLoading(false);
 
                 m_clickedItem = apItem;
             }
-            apItem->setConnected(ap->status() == ConnectionStatus::Activated);
-            apItem->setLoading(ap->status() == ConnectionStatus::Activating);
-            apItem->setSignalStrength(ap->strength());
             connect(apItem->action(), &QAction::triggered, this, [ this, apItem ] {
                 this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(), apItem->data(Qt::ItemDataRole::DisplayRole).toString());
             });
-
-            m_sortDelayTimer->start();
+        } else {
+            apItem = m_apItems[ssid];
+            removeSsid.removeOne(ssid);
         }
-    }
-}
+        apItem->setSecure(ap->secured());
+        apItem->setPath(ap->path());
+        apItem->setConnected(ap->status() == ConnectionStatus::Activated);
+        apItem->setLoading(ap->status() == ConnectionStatus::Activating);
+        apItem->setSignalStrength(ap->strength());
 
-void WirelessPage::onAPRemoved(const QList<AccessPoints *> &lstRemovedAccessPoints)
-{
-    for (auto ap: lstRemovedAccessPoints) {
-        const QString &ssid = ap->ssid();
+        m_sortDelayTimer->start();
+    }
+
+    for (QString &ssid : removeSsid) {
         // 如果移除隐藏网络
         if (ssid == m_autoConnectHideSsid)
             m_autoConnectHideSsid = "";
 
         if (!m_apItems.contains(ssid))
-            return;
+            continue;
 
-        const QString &path = ap->path();
+        if (m_clickedItem == m_apItems[ssid])
+            m_clickedItem = nullptr;
 
-        if (m_apItems[ssid]->path() == path) {
-            if (m_clickedItem == m_apItems[ssid])
-                m_clickedItem = nullptr;
-
-            m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
-            m_apItems.erase(m_apItems.find(ssid));
-        }
+        m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
+        m_apItems.erase(m_apItems.find(ssid));
     }
 }
 
@@ -739,7 +737,7 @@ void WirelessPage::showConnectHidePage()
 void WirelessPage::updateApStatus()
 {
     QList<AccessPoints *> accessPoints = m_device->accessPointItems();
-    onAPAdded(accessPoints);
+    onUpdateAPItem();
     QMap<QString, ConnectionStatus> connectionStatus;
     bool isConnecting = false;
     for (AccessPoints *ap : accessPoints) {
