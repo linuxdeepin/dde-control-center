@@ -694,11 +694,6 @@ void WirelessDeviceInterRealize::updateAccesspoint(const QJsonArray &json)
     for (AccessPoints *ap : rmAccessPoints)
         ap->deleteLater();
 
-    // 按照信号强度从强到弱进行排序
-    qSort(m_accessPoints.begin(), m_accessPoints.end(), [ = ] (AccessPoints * ap1, AccessPoints * ap2) {
-        return ap1->strength() > ap2->strength();
-    });
-
     createConnection(m_connectionJson);
     syncConnectionAccessPoints();
 }

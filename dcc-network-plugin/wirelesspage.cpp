@@ -137,7 +137,7 @@ void APItem::setSignalStrength(int strength)
     APSortInfo si = data(SortRole).value<APSortInfo>();
     si.signalstrength = strength;
     si.ssid = text();
-    si.connected = (checkState() == Qt::CheckState::Checked);
+    si.connected = (checkState() == Qt::CheckState::Checked) || m_preLoading; // 连接或连接中
     setData(QVariant::fromValue(si), SortRole);
 }
 
@@ -585,7 +585,7 @@ void WirelessPage::onUpdateAPItem()
         m_sortDelayTimer->start();
     }
 
-    for (QString &ssid : removeSsid) {
+    for (const QString &ssid : removeSsid) {
         // 如果移除隐藏网络
         if (ssid == m_autoConnectHideSsid)
             m_autoConnectHideSsid = "";
@@ -645,7 +645,7 @@ void WirelessPage::onActivateApFailed(const AccessPoints* pAccessPoints)
 
 void WirelessPage::sortAPList()
 {
-    m_modelAP->sort(0, Qt::SortOrder::DescendingOrder);
+    m_modelAP->sort(0);
 }
 
 void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString &ssid)

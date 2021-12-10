@@ -281,6 +281,16 @@ void NetworkPanel::updateItems()
         items << ctrl;
         if (device->isEnabled() && !device->hotspotEnabled()) {
             QList<AccessPoints *> aps = accessPoints(device);
+            // 按连接状态、强度、名称排序
+            qSort(aps.begin(), aps.end(), [ ](AccessPoints *a, AccessPoints *b) {
+                int aStatus = static_cast<int>(a->status()) & 3;
+                int bStatus = static_cast<int>(b->status()) & 3;
+                if (aStatus ^ bStatus)
+                    return aStatus != 0;
+                if (a->strength() == b->strength())
+                    return a->ssid() <= b->ssid();
+                return a->strength() > b->strength();
+            });
             for (AccessPoints *ap : aps) {
                 WirelessItem *apCtrl = findWirelessItem(ap, device);
                 if (!apCtrl) {

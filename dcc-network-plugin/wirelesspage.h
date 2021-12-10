@@ -74,9 +74,10 @@ struct APSortInfo {
     bool connected;
     bool operator <(const APSortInfo &other) {
         if (connected ^ other.connected)
-            return !connected;
-
-        return signalstrength <= other.signalstrength;
+            return connected;
+        if(signalstrength == other.signalstrength)
+            return ssid <= other.ssid;
+        return signalstrength > other.signalstrength;
     }
 };
 
