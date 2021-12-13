@@ -287,16 +287,19 @@ void MultiIpvxSection::setIpInputSection(IPInputSection *ipSection, IPInputSecti
     connect(ipSection, &IPV4InputSection::editClicked, this, &MultiIpvxSection::editClicked);
     connect(ipSection, &IPV4InputSection::requestDelete, this, &MultiIpvxSection::onDeleteItem);
     connect(ipSection, &IPV4InputSection::requestAdd, this, &MultiIpvxSection::onAddItem);
-    if (itemBefore) {
-        int insertIndex = itemIndex(itemBefore);
-        if (insertIndex < 0)
-            appendItem(ipSection);
-        else
-            insertItem(++insertIndex, ipSection);
-    } else {
+    int insertIndex = itemIndex(itemBefore);
+    if (insertIndex < 0) {
         appendItem(ipSection);
+        // 放入到列表的最后面
+        m_ipSections << ipSection;
+    } else {
+        // 插入到当前IP的下方
+        insertIndex++;
+        insertItem(insertIndex, ipSection);
+        // 插入到列表中的正确位置
+        insertIndex = m_ipSections.indexOf(itemBefore) + 1;
+        m_ipSections.insert(insertIndex, ipSection);
     }
-    m_ipSections << ipSection;
 }
 
 void MultiIpvxSection::onAddItem(IPInputSection *item)
