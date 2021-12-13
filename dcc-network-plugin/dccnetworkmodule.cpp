@@ -340,9 +340,11 @@ void DCCNetworkModule::showProxyPage()
 void DCCNetworkModule::showHotspotPage()
 {
     HotspotPage *hotspot = new HotspotPage();
+    hotspot->onAirplaneModeChanged(m_airplaneMode->enabled());
     connect(hotspot, &HotspotPage::requestNextPage, this, [ = ] (ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
     });
+    connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, hotspot, &HotspotPage::onAirplaneModeChanged);
 
     m_frameProxy->pushWidget(this, hotspot);
 }

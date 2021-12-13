@@ -117,6 +117,9 @@ public:
 Q_SIGNALS:
     void requestNextPage(dcc::ContentWidget * const w) const;
 
+public Q_SLOTS:
+    void onAirplaneModeChanged(bool airplaneModeEnabled);
+
 private Q_SLOTS:
     void onDeviceAdded(const QList<WirelessDevice *> &devices);
     void onDeviceRemove(const QList<WirelessDevice *> &rmDevices);

@@ -308,6 +308,11 @@ HotspotPage::~HotspotPage()
     GSettingWatcher::instance()->erase("createHotspot", m_newprofile);
 }
 
+void HotspotPage::onAirplaneModeChanged(bool airplaneModeEnabled)
+{
+    setDisabled(airplaneModeEnabled);
+}
+
 void HotspotPage::onDeviceAdded(const QList<WirelessDevice *> &devices)
 {
     QList<WirelessDevice *> currentDevices;
