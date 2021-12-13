@@ -317,14 +317,10 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     });
 
     //点击用户全名编辑按钮
-    if (DOMAIN_USER_TYPE != m_curUser->userType()) {
-        connect(m_fullNameBtn, &DIconButton::clicked, this, [ = ]() {
-            updateLineEditDisplayStyle(true);
-            m_inputLineEdit->lineEdit()->setFocus();
-        });
-    }
-
-    connect(m_inputLineEdit->lineEdit(), &QLineEdit::textChanged, this, [ = ]() {
+    connect(m_fullNameBtn, &DIconButton::clicked, this, [ = ]() {
+        m_fullName->setVisible(false);
+        m_fullNameBtn->setVisible(false);
+        m_inputLineEdit->setVisible(true);
         m_inputLineEdit->setAlert(false);
         m_inputLineEdit->setText(m_curUser->fullname());
         m_inputLineEdit->hideAlertMessage();
