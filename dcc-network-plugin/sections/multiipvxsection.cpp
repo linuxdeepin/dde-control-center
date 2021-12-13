@@ -634,7 +634,6 @@ IPV6InputSection::IPV6InputSection(IpAddress ipAddress, QFrame *parent)
     , m_prefixIpv6(new SpinBoxWidget(this))
 {
     initUi();
-    initConnection();
 }
 
 IPV6InputSection::~IPV6InputSection()
