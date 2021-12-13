@@ -265,7 +265,7 @@ void DeviceIPChecker::handlerIpConflict()
         m_clearCount++;
     } else {
         m_clearCount = 0;
-        PRINT_INFO_MESSAGE(QString("find confilct device:%1, confilctCount:%2, conflictIP: %3").arg(m_device->deviceName()).arg(m_conflictCount)).arg(m_ipV4.join(","));
+        PRINT_INFO_MESSAGE(QString("find confilct device:%1, confilctCount:%2, conflictIP: %3").arg(m_device->deviceName()).arg(m_conflictCount).arg(m_ipV4.join(",")));
 
         // 如果少于两次，则继续确认
         if (m_conflictCount < 1) {
