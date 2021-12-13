@@ -566,7 +566,7 @@ void IPV4InputSection::initUi()
         netmask = QString("255.255.255.0");
 
     QString gateStr = m_ipAddress.gateway().toString();
-    if (gateStr != "0.0.0.0" && !isIpv4Address(gateStr))
+    if (!isIpv4Address(gateStr))
         gateStr = "";
 
     m_lineIpAddress->setText(ip);
