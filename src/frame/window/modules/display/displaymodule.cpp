@@ -328,7 +328,10 @@ void DisplayModule::onRequestSetResolution(Monitor *monitor, const int mode)
 
 void DisplayModule::onSetFillMode(QString currFullMode)
 {
-    if(currFullMode.isEmpty())
+    if (m_displayModel->primaryMonitor() == nullptr)
+        return;
+
+    if (currFullMode.isEmpty())
         currFullMode = m_displayModel->primaryMonitor()->currentFillMode();
 
     //切分辨率时，如果是复制模式下，桌面显示不支持，全部切换为拉伸 否则以主屏为主

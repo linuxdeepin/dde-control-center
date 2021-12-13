@@ -45,6 +45,8 @@ Monitor::Monitor(QObject *parent)
     , m_enable(false)
     , m_canBrightness(true)
     , m_screenSensingMode(RotateMode::Normal)
+    , m_fillModeList(QStringList())
+    , m_currentFillMode(QString())
 {
 }
 
