@@ -183,7 +183,7 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
         }
         initWidget();
         m_popopWindow->setArrowDirection(static_cast<DArrowRectangle::ArrowDirection>(position));
-        m_popopWindow->show(x, y);
+        m_popopWindow->show(QPoint(x, y), true);
     }
 }
 

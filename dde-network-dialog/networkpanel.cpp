@@ -122,6 +122,7 @@ void NetworkPanel::initUi()
     m_applet->viewport()->setAutoFillBackground(false);
     m_applet->setVisible(false);
     m_applet->installEventFilter(this);
+    m_applet->setFixedSize(PANELWIDTH, 0);
 
     setControlBackground();
 }

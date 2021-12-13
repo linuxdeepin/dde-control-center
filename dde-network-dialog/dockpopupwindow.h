@@ -76,6 +76,7 @@ private:
 
     Dtk::Gui::DRegionMonitor *m_regionInter;
     Dtk::Gui::DWindowManagerHelper *m_wmHelper;
+    QTimer *m_showTimer;
 };
 
 #endif // DOCKPOPUPWINDOW_H
