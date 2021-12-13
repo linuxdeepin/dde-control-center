@@ -69,7 +69,6 @@ private:
     void setControlBackground();
     void initUi();
     void initConnection();
-    void updateView(); // 更新网络列表内容大小
     void updateItems();
     bool deviceEnabled(const DeviceType &deviceType) const;
     void setDeviceEnabled(const DeviceType &deviceType, bool enabeld);
@@ -84,6 +83,7 @@ private Q_SLOTS:
 
     void onClickListView(const QModelIndex &index);
     void updateSize(); // 更新窗口大小
+    void updateView(); // 更新网络列表内容大小
 
 private:
     QTimer *m_wirelessScanTimer;
@@ -103,6 +103,7 @@ private:
     QString m_reconnectDev;
     QString m_reconnectSsid;
     DBusAirplaneMode *m_airplaneMode;
+    QTimer *m_updateTimer;
 };
 
 class NetworkDelegate : public DStyledItemDelegate

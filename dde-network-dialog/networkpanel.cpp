@@ -57,6 +57,7 @@ NetworkPanel::NetworkPanel(QObject *parent)
     , m_netListView(new DListView(m_centerWidget))
     , m_selectItem(nullptr)
     , m_airplaneMode(new DBusAirplaneMode("com.deepin.daemon.AirplaneMode", "/com/deepin/daemon/AirplaneMode", QDBusConnection::systemBus(), this))
+    , m_updateTimer(new QTimer(this))
 {
     initUi();
     initConnection();
@@ -158,8 +159,13 @@ void NetworkPanel::initConnection()
             }
         }
     });
+    connect(m_updateTimer, &QTimer::timeout, this, &NetworkPanel::updateView);
+    m_updateTimer->setInterval(200);
+    m_updateTimer->setSingleShot(true);
+
     QTimer::singleShot(0, this, [ = ] {
         onDeviceAdded(networkController->devices());
+        updateView();
     });
 }
 
@@ -523,7 +529,9 @@ void NetworkPanel::setControlBackground()
 
 void NetworkPanel::onUpdatePlugView()
 {
-    updateView();
+    if (!m_updateTimer->isActive()) {
+        m_updateTimer->start();
+    }
 }
 
 void NetworkPanel::onClickListView(const QModelIndex &index)

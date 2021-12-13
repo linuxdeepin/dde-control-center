@@ -147,8 +147,7 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
     if (m_isLockModel) {
         return;
     }
-    NetworkManager::Device *d = static_cast<NetworkManager::Device *>(sender());
-    NetworkManager::Device::Ptr device(new NetworkManager::Device(d->uni()));
+    NetworkManager::Device *device = static_cast<NetworkManager::Device *>(sender());
     NetworkManager::ActiveConnection::Ptr conn = device->activeConnection();
     if (!conn.isNull()) {
         m_lastConnection = conn->id();
