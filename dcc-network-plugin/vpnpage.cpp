@@ -219,6 +219,7 @@ VpnPage::VpnPage(QWidget *parent)
 
     connect(vpnController, &VPNController::enableChanged, m_vpnSwitch, &SwitchWidget::setChecked);
     connect(vpnController, &VPNController::activeConnectionChanged, this, &VpnPage::onActiveConnsInfoChanged);
+    connect(vpnController, &VPNController::enableChanged, this, &VpnPage::onActiveConnsInfoChanged);
     connect(vpnController, &VPNController::itemChanged, this, &VpnPage::updateVpnItems);
     connect(vpnController, &VPNController::itemAdded, this, [ = ] {
         QList<VPNItem *> items = vpnController->items();
@@ -309,13 +310,14 @@ void VpnPage::updateVpnItems(const QList<VPNItem *> &vpns)
 
 void VpnPage::onActiveConnsInfoChanged()
 {
+    bool vpnEnabled = NetworkController::instance()->vpnController()->enabled();
     for (int i = 0; i < m_modelprofiles->rowCount(); ++i) {
         ConnectionPageItem *item = static_cast<ConnectionPageItem *>(m_modelprofiles->item(i));
         VPNItem *vpnItem = static_cast<VPNItem *>(item->itemData());
         if (!vpnItem)
             continue;
 
-        item->setConnectionStatus(vpnItem->status());
+        item->setConnectionStatus(vpnEnabled ? vpnItem->status() : ConnectionStatus::Deactivated);
     }
 }
 
