@@ -90,6 +90,9 @@ class AccessPoints : public QObject
     Q_PROPERTY(QString devicePath READ devicePath)
     Q_PROPERTY(bool connected READ connected)
 
+public:
+    enum class WlanType { wlan, wlan6 };
+
 protected:
     AccessPoints(const QJsonObject &json, QObject *parent = Q_NULLPTR);
     ~AccessPoints();
@@ -105,6 +108,7 @@ public:
     bool connected() const;                                         // 网络是否连接成功
     ConnectionStatus status() const;                                // 当前网络的连接状态
     bool hidden() const;                                            // 是否为隐藏网络
+    WlanType type() const;
 
 Q_SIGNALS:
     void strengthChanged(const int) const;                          // 当前信号强度变化

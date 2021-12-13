@@ -20,6 +20,14 @@
         <file alias="wireless/disconnect">resources/light/wireless/disconnect.svg</file>
         <file alias="wireless/refresh">resources/light/wireless/refresh.svg</file>
         <file alias="wireless/wireless-disabled-symbolic">resources/light/wireless/wireless-disabled-symbolic.svg</file>
+        <file alias="wireless6/wireless6-0-symbolic">resources/light/wireless6/wireless6-0-symbolic.svg</file>
+        <file alias="wireless6/wireless6-20-symbolic">resources/light/wireless6/wireless6-20-symbolic.svg</file>
+        <file alias="wireless6/wireless6-40-symbolic">resources/light/wireless6/wireless6-40-symbolic.svg</file>
+        <file alias="wireless6/wireless6-60-symbolic">resources/light/wireless6/wireless6-60-symbolic.svg</file>
+        <file alias="wireless6/wireless6-80-symbolic">resources/light/wireless6/wireless6-80-symbolic.svg</file>
+        <file alias="wireless6/wireless6-no-route-symbolic">resources/light/wireless6/wireless6-no-route-symbolic.svg</file>
+        <file alias="wireless6/wireless6-offline-symbolic">resources/light/wireless6/wireless6-offline-symbolic.svg</file>
+        <file alias="wireless6/wireless6-warning-symbolic">resources/light/wireless6/wireless6-warning-symbolic.svg</file>
     </qresource>
     <qresource prefix="/dark">
         <file alias="wired/network-wired-symbolic-connecting1">resources/dark/wired/network-wired-symbolic-connecting1.svg</file>
@@ -47,6 +55,14 @@
         <file alias="wireless/disconnect">resources/dark/wireless/disconnect.svg</file>
         <file alias="wireless/refresh">resources/dark/wireless/refresh.svg</file>
         <file alias="wireless/wireless-disabled-symbolic">resources/dark/wireless/wireless-disabled-symbolic.svg</file>
+        <file alias="wireless6/wireless6-0-symbolic">resources/dark/wireless6/wireless6-0-symbolic.svg</file>
+        <file alias="wireless6/wireless6-20-symbolic">resources/dark/wireless6/wireless6-20-symbolic.svg</file>
+        <file alias="wireless6/wireless6-40-symbolic">resources/dark/wireless6/wireless6-40-symbolic.svg</file>
+        <file alias="wireless6/wireless6-60-symbolic">resources/dark/wireless6/wireless6-60-symbolic.svg</file>
+        <file alias="wireless6/wireless6-80-symbolic">resources/dark/wireless6/wireless6-80-symbolic.svg</file>
+        <file alias="wireless6/wireless6-no-route-symbolic">resources/dark/wireless6/wireless6-no-route-symbolic.svg</file>
+        <file alias="wireless6/wireless6-offline-symbolic">resources/dark/wireless6/wireless6-offline-symbolic.svg</file>
+        <file alias="wireless6/wireless6-warning-symbolic">resources/dark/wireless6/wireless6-warning-symbolic.svg</file>
     </qresource>
     <qresource prefix="/common/indicator">
         <file alias="spinner14/Spinner01">resources/common/spinner14/Spinner01.png</file>

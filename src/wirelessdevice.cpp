@@ -25,6 +25,8 @@
 
 using namespace dde::network;
 
+#define NM_802_11_AP_FLAGS_HE 0x10
+
 bool WirelessDevice::isConnected() const
 {
     QList<AccessPoints *> aps = deviceRealize()->accessPointItems();
@@ -178,6 +180,17 @@ bool AccessPoints::hidden() const
         return m_json.value("Hidden").toBool();
 
     return false;
+}
+
+AccessPoints::WlanType AccessPoints::type() const
+{
+    if (m_json.contains("Flags")) {
+        int flag = m_json.value("Flags").toInt();
+        if (flag & NM_802_11_AP_FLAGS_HE)
+            return WlanType::wlan6;
+    }
+
+    return WlanType::wlan;
 }
 
 void AccessPoints::updateAccessPoints(const QJsonObject &json)

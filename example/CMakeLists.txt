@@ -19,7 +19,11 @@ aux_source_directory(../dcc-network-plugin/themes DCCPLUGINTHEMES)
 aux_source_directory(../src NETWORKDIR)
 aux_source_directory(../src/realize REALIZEDIR)
 
-set(QRCFILE "./example.qrc")
+file(GLOB_RECURSE QRCFILE "./example.qrc"
+    "../dcc-network-plugin/icons/dcc-network-plugin.qrc"
+    "../dcc-network-plugin/icons/actions/*.svg"
+    "../dcc-network-plugin/icons/icons/*.svg")
+
 set(COMPILEFILES
     ./networkhandler.h
     ./networkhandler.cpp

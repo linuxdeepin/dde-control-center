@@ -31,6 +31,7 @@
 #include <wirelessdevice.h>
 
 NETWORKPLUGIN_USE_NAMESPACE
+using namespace dde::network;
 
 TrayIcon::TrayIcon(NetworkPluginHelper *networkHelper)
     : QWidget()
@@ -104,9 +105,9 @@ QString TrayIcon::getStrengthStateString(int strength) const
     return "80";
 }
 
-int TrayIcon::getStrongestAp()
+AccessPoints *TrayIcon::getStrongestAp()
 {
-    int retStrength = -1;
+    AccessPoints *maxAps = nullptr;
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
     for (NetworkDeviceBase *device : devices) {
         if (device->deviceType() != DeviceType::Wireless)
@@ -114,11 +115,11 @@ int TrayIcon::getStrongestAp()
 
         WirelessDevice *dev = static_cast<WirelessDevice *>(device);
         AccessPoints *ap = dev->activeAccessPoints();
-        if (ap && retStrength < ap->strength())
-            retStrength = ap->strength();
+        if (ap && (!maxAps || maxAps->strength() < ap->strength()))
+            maxAps = ap;
     }
 
-    return retStrength;
+    return maxAps;
 }
 
 bool TrayIcon::isDarkIcon() const
@@ -140,6 +141,7 @@ void TrayIcon::refreshIcon()
 {
     QString stateString;
     QString iconString;
+    QString localPath = ":/";
     const auto ratio = devicePixelRatioF();
     int iconSize = PLUGIN_ICON_MAX_SIZE;
     int strength = 0;
@@ -157,10 +159,22 @@ void TrayIcon::refreshIcon()
         iconString = QString("network-%1-symbolic").arg(stateString);
         break;
     case PluginState::Connected:
-    case PluginState::WirelessConnected:
-        strength = getStrongestAp();
+    case PluginState::WirelessConnected: {
+        bool isWlan6 = false;
+        AccessPoints *activeAp = getStrongestAp();
+        if (activeAp) {
+            strength = activeAp->strength();
+            isWlan6 = (activeAp->type() == AccessPoints::WlanType::wlan6);
+        }
+
         stateString = getStrengthStateString(strength);
-        iconString = QString("wireless-%1-symbolic").arg(stateString);
+        if (isWlan6) {
+            localPath = QString(":/wireless6/resources/wireless6/");
+            iconString = QString("wireless6-%1-symbolic").arg(stateString);
+        } else {
+            iconString = QString("wireless-%1-symbolic").arg(stateString);
+        }
+        }
         break;
     case PluginState::WiredConnected:
         stateString = "online";
@@ -268,7 +282,7 @@ void TrayIcon::refreshIcon()
     if (useDarkIcon)
         iconString.append(PLUGIN_MIN_ICON_NAME);
 
-    m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
+    m_iconPixmap = ImageUtil::loadSvg(iconString, localPath, iconSize, ratio);
 
     update();
 }

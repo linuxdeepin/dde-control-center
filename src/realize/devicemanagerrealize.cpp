@@ -628,6 +628,7 @@ QJsonObject DeviceManagerRealize::createWlanJson(QSharedPointer<NetworkManager::
     bool secured = ap->capabilities() == AccessPoint::Capability::Privacy || ap->wpaFlags() != 0 || ap->rsnFlags() != 0;
     jsonObject.insert("Secured", secured);
     jsonObject.insert("SecuredInEap", secured);
+    jsonObject.insert("Flags", static_cast<int>(ap->capabilities()));
     int frequency = static_cast<int>(ap->frequency());
     jsonObject.insert("Frequency", frequency);
     jsonObject.insert("Path", ap->uni());

@@ -555,8 +555,11 @@ void WirelessItem::updateWifiIcon()
     if (!m_accessPoint)
         return;
 
+    bool isWlan6 = (m_accessPoint->type() == AccessPoints::WlanType::wlan6);
     QString strength = getStrengthStateString(m_accessPoint->strength());
-    QString icon = ThemeManager::instance()->getIcon("wireless/wireless-%1-symbolic").arg(strength);
+    QString iconRes = QString(isWlan6 ? QString("wireless6/wireless6-%1-symbolic")
+                                      : QString("wireless/wireless-%1-symbolic")).arg(strength);
+    QString icon = ThemeManager::instance()->getIcon(iconRes);
     m_wifiLabel->setIcon(QIcon(icon));
 }
 

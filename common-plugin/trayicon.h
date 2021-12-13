@@ -27,7 +27,15 @@
 #include <QWidget>
 #include <QVariantMap>
 
+namespace dde {
+namespace network {
+class AccessPoints;
+}
+}
+
 NETWORKPLUGIN_BEGIN_NAMESPACE
+using namespace dde::network;
+
 class NetworkPluginHelper;
 
 /**
@@ -50,7 +58,7 @@ protected:
     void paintEvent(QPaintEvent *e);
     void resizeEvent(QResizeEvent *e);
     QString getStrengthStateString(int strength) const;
-    int getStrongestAp();
+    AccessPoints *getStrongestAp();
     bool isDarkIcon() const;
 
 public Q_SLOTS:

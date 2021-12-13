@@ -90,6 +90,7 @@ public:
     bool secure() const;
     void setSignalStrength(int strength);
     int signalStrength() const;
+    void setIsWlan6(const bool isWlan6);
     void setConnected(bool connected);
     bool isConnected();
     void setSortInfo(const APSortInfo &si);
@@ -118,6 +119,7 @@ private:
     QPointer<DViewItemAction> m_loadingAction;
     QPointer<DViewItemAction> m_arrowAction;
     QPointer<DSpinner> m_loadingIndicator;
+    bool m_isWlan6;
 };
 
 class WirelessPage : public dcc::ContentWidget

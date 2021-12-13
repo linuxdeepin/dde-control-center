@@ -71,6 +71,7 @@ APItem::APItem(const QString &text, QStyle *style, DListView *parent)
         , m_dStyleHelper(style)
         , m_preLoading(false)
         , m_uuid("")
+        , m_isWlan6(false)
 {
     setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
     setCheckable(false);
@@ -123,17 +124,32 @@ void APItem::setSignalStrength(int strength)
         return;
     }
 
-    if (strength <= 5)
-        setIcon(QIcon::fromTheme(QString("dcc_wireless-0")));
-    else if (strength > 5 && strength <= 30)
-        setIcon(QIcon::fromTheme(QString("dcc_wireless-2")));
-    else if (strength > 30 && strength <= 55)
-        setIcon(QIcon::fromTheme(QString("dcc_wireless-4")));
-    else if (strength > 55 && strength <= 65)
-        setIcon(QIcon::fromTheme(QString("dcc_wireless-6")));
-    else if (strength > 65)
-        setIcon(QIcon::fromTheme(QString("dcc_wireless-8")));
-
+    if (strength <= 5) {
+        if (m_isWlan6)
+            setIcon(QIcon::fromTheme(QString("dcc_wireless6-0")));
+        else
+            setIcon(QIcon::fromTheme(QString("dcc_wireless-0")));
+    } else if (strength > 5 && strength <= 30) {
+        if (m_isWlan6)
+            setIcon(QIcon::fromTheme(QString("dcc_wireless6-2")));
+        else
+            setIcon(QIcon::fromTheme(QString("dcc_wireless-2")));
+    } else if (strength > 30 && strength <= 55) {
+        if (m_isWlan6)
+            setIcon(QIcon::fromTheme(QString("dcc_wireless6-4")));
+        else
+            setIcon(QIcon::fromTheme(QString("dcc_wireless-4")));
+    } else if (strength > 55 && strength <= 65) {
+        if (m_isWlan6)
+            setIcon(QIcon::fromTheme(QString("dcc_wireless6-6")));
+        else
+            setIcon(QIcon::fromTheme(QString("dcc_wireless-6")));
+    } else if (strength > 65) {
+        if (m_isWlan6)
+            setIcon(QIcon::fromTheme(QString("dcc_wireless6-8")));
+        else
+            setIcon(QIcon::fromTheme(QString("dcc_wireless-8")));
+    }
     APSortInfo si = data(SortRole).value<APSortInfo>();
     si.signalstrength = strength;
     si.ssid = text();
@@ -144,6 +160,11 @@ void APItem::setSignalStrength(int strength)
 int APItem::signalStrength() const
 {
     return data(SortRole).value<APSortInfo>().signalstrength;
+}
+
+void APItem::setIsWlan6(const bool isWlan6)
+{
+    m_isWlan6 = isWlan6;
 }
 
 void APItem::setConnected(bool connected)
@@ -576,6 +597,7 @@ void WirelessPage::onUpdateAPItem()
             apItem = m_apItems[ssid];
             removeSsid.removeOne(ssid);
         }
+        apItem->setIsWlan6(ap->type() == AccessPoints::WlanType::wlan6);
         apItem->setSecure(ap->secured());
         apItem->setPath(ap->path());
         apItem->setConnected(ap->status() == ConnectionStatus::Activated);

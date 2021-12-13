@@ -22,7 +22,11 @@ aux_source_directory(../common-plugin/item COMMONPLUGINITEM)
 aux_source_directory(../src NETWORKDIR)
 aux_source_directory(../src/realize REALIZEDIR)
 aux_source_directory(. COMPILEFILES)
-set(QRCFILES ../common-plugin/network.qrc)
+file(GLOB_RECURSE QRCFILES "../common-plugin/network.qrc"
+    "../common-plugin/resources/common/*.svg"
+    "../common-plugin/resources/wired/*.svg"
+    "../common-plugin/resources/wireless/*.svg"
+    "../common-plugin/resources/wireless6/*.svg")
 
 get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
 

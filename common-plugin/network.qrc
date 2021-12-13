@@ -147,4 +147,16 @@
         <file>resources/common/notify_close_press.png</file>
         <file>resources/common/notify_close_press@2x.png</file>
     </qresource>
+    <qresource prefix="/wireless6">
+        <file>resources/wireless6/wireless6-0-symbolic-dark.svg</file>
+        <file>resources/wireless6/wireless6-0-symbolic.svg</file>
+        <file>resources/wireless6/wireless6-20-symbolic-dark.svg</file>
+        <file>resources/wireless6/wireless6-20-symbolic.svg</file>
+        <file>resources/wireless6/wireless6-40-symbolic-dark.svg</file>
+        <file>resources/wireless6/wireless6-40-symbolic.svg</file>
+        <file>resources/wireless6/wireless6-60-symbolic-dark.svg</file>
+        <file>resources/wireless6/wireless6-60-symbolic.svg</file>
+        <file>resources/wireless6/wireless6-80-symbolic-dark.svg</file>
+        <file>resources/wireless6/wireless6-80-symbolic.svg</file>
+    </qresource>
 </RCC>

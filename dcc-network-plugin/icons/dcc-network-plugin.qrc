@@ -16,6 +16,11 @@
         <file>texts/dcc_wireless-6_16px.svg</file>
         <file>texts/dcc_wireless-8_16px.svg</file>
         <file>texts/dcc_wireless-10_16px.svg</file>
+        <file>texts/dcc_wireless6-8_16px.svg</file>
+        <file>texts/dcc_wireless6-6_16px.svg</file>
+        <file>texts/dcc_wireless6-4_16px.svg</file>
+        <file>texts/dcc_wireless6-2_16px.svg</file>
+        <file>texts/dcc_wireless6-0_16px.svg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

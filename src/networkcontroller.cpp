@@ -90,10 +90,9 @@ void NetworkController::setIPConflictCheck(const bool &checkIp)
 
 void NetworkController::updateSync(const bool sync)
 {
-    if(m_serviceLoadType != ServiceLoadType::LoadFromManager) {
-        NetworkInterProcesser *processer = qobject_cast<NetworkInterProcesser *> (m_processer);
+    NetworkInterProcesser *processer = qobject_cast<NetworkInterProcesser *>(m_processer);
+    if (processer)
         processer->updateSync(sync);
-    }
 }
 
 ProxyController *NetworkController::proxyController()
