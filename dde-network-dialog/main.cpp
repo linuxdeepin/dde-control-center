@@ -132,6 +132,7 @@ int main(int argc, char **argv)
     app->setOrganizationName("deepin");
     app->setApplicationName("dde-network-dialog");
     app->setQuitOnLastWindowClosed(true);
+    app->setAttribute(Qt::AA_UseHighDpiPixmaps);
 
     QTranslator translator;
     translator.load("/usr/share/dde-network-dialog/translations/dde-network-dialog_" + QLocale::system().name());
