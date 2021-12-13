@@ -354,15 +354,16 @@ void ConnectionEditPage::prepareConnection()
 
 void ConnectionEditPage::updateConnection()
 {
-    QDBusPendingReply<> reply;
-
-    // update function saves the settings on the hard disk
-    reply = m_connection->update(m_connectionSettings->toMap());
-    reply.waitForFinished();
-    if (reply.isError()) {
-        qDebug() << "error occurred while updating the connection" << reply.error();
-        Q_EMIT back();
-        return;
+    if (!m_isNewConnection) {
+        // update function saves the settings on the hard disk
+        QDBusPendingReply<> reply;
+        reply = m_connection->update(m_connectionSettings->toMap());
+        reply.waitForFinished();
+        if (reply.isError()) {
+            qDebug() << "error occurred while updating the connection" << reply.error();
+            Q_EMIT back();
+            return;
+        }
     }
 
     if (m_settingsWidget->isAutoConnect()) {
@@ -374,7 +375,7 @@ void ConnectionEditPage::updateConnection()
              } else {
                  if (static_cast<int>(m_connType) == static_cast<int>(ConnectionEditPage::WirelessConnection))
                      Q_EMIT activateWirelessConnection(m_connectionSettings->id(), m_connectionUuid);
-                 reply = activateConnection(m_connection->path(), DevicePath, QString());
+                 QDBusPendingReply<> reply = activateConnection(m_connection->path(), DevicePath, QString());
                  reply.waitForFinished();
              }
          }
