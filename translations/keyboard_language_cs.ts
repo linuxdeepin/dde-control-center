@@ -9,7 +9,7 @@
     <message>
         <location filename="language.h" line="32"/>
         <source>Afrikaans</source>
-        <translation>Afrikaans</translation>
+        <translation>Afrikánský</translation>
     </message>
     <message>
         <location filename="language.h" line="33"/>
@@ -29,12 +29,12 @@
     <message>
         <location filename="language.h" line="36"/>
         <source>Asturianu</source>
-        <translation>Asturianu</translation>
+        <translation>Asturijský</translation>
     </message>
     <message>
         <location filename="language.h" line="37"/>
         <source>Беларуская</source>
-        <translation>Беларуская</translation>
+        <translation>Běloruský</translation>
     </message>
     <message>
         <location filename="language.h" line="38"/>
@@ -69,12 +69,12 @@
     <message>
         <location filename="language.h" line="44"/>
         <source>Bosanski</source>
-        <translation>Bosanski</translation>
+        <translation>Bosenský</translation>
     </message>
     <message>
         <location filename="language.h" line="45"/>
         <source>Català</source>
-        <translation>Català</translation>
+        <translation>Katalánský</translation>
     </message>
     <message>
         <location filename="language.h" line="46"/>
@@ -104,12 +104,12 @@
     <message>
         <location filename="language.h" line="51"/>
         <source>Dansk</source>
-        <translation>Dansk</translation>
+        <translation>Dánský</translation>
     </message>
     <message>
         <location filename="language.h" line="52"/>
         <source>Deutsch</source>
-        <translation>Deutsch</translation>
+        <translation>Německý</translation>
     </message>
     <message>
         <location filename="language.h" line="53"/>
@@ -124,17 +124,17 @@
     <message>
         <location filename="language.h" line="55"/>
         <source>British English</source>
-        <translation>British English</translation>
+        <translation>Britská angličtina</translation>
     </message>
     <message>
         <location filename="language.h" line="56"/>
         <source>American English</source>
-        <translation>American English</translation>
+        <translation>Americká angličtina</translation>
     </message>
     <message>
         <location filename="language.h" line="57"/>
         <source>Español</source>
-        <translation>Español</translation>
+        <translation>Španělský</translation>
     </message>
     <message>
         <location filename="language.h" line="58"/>
@@ -154,7 +154,7 @@
     <message>
         <location filename="language.h" line="61"/>
         <source>Suomi</source>
-        <translation>Suomi</translation>
+        <translation>Finský</translation>
     </message>
     <message>
         <location filename="language.h" line="62"/>
@@ -164,7 +164,7 @@
     <message>
         <location filename="language.h" line="63"/>
         <source>Français</source>
-        <translation>Français</translation>
+        <translation>Francouzský</translation>
     </message>
     <message>
         <location filename="language.h" line="64"/>
@@ -219,7 +219,7 @@
     <message>
         <location filename="language.h" line="74"/>
         <source>Hrvatski</source>
-        <translation>Hrvatski</translation>
+        <translation>Chorvatský</translation>
     </message>
     <message>
         <location filename="language.h" line="75"/>
@@ -229,7 +229,7 @@
     <message>
         <location filename="language.h" line="76"/>
         <source>Magyar</source>
-        <translation>Magyar</translation>
+        <translation>Maďarský</translation>
     </message>
     <message>
         <location filename="language.h" line="77"/>
@@ -239,7 +239,7 @@
     <message>
         <location filename="language.h" line="78"/>
         <source>Indonesia</source>
-        <translation>Indonesia</translation>
+        <translation>Indoneský</translation>
     </message>
     <message>
         <location filename="language.h" line="79"/>
@@ -254,7 +254,7 @@
     <message>
         <location filename="language.h" line="81"/>
         <source>Italiano</source>
-        <translation>Italiano</translation>
+        <translation>Italský</translation>
     </message>
     <message>
         <location filename="language.h" line="82"/>
@@ -304,7 +304,7 @@
     <message>
         <location filename="language.h" line="91"/>
         <source>Kurdî</source>
-        <translation>Kurdî</translation>
+        <translation>Kurdský</translation>
     </message>
     <message>
         <location filename="language.h" line="92"/>
@@ -404,7 +404,7 @@
     <message>
         <location filename="language.h" line="111"/>
         <source>Norsk (bokmål)</source>
-        <translation>Norsk (bokmål)</translation>
+        <translation>Norský (bokmål)</translation>
     </message>
     <message>
         <location filename="language.h" line="112"/>
@@ -419,7 +419,7 @@
     <message>
         <location filename="language.h" line="114"/>
         <source>Nederlands</source>
-        <translation>Nederlands</translation>
+        <translation>Nizozemský</translation>
     </message>
     <message>
         <location filename="language.h" line="115"/>
@@ -464,7 +464,7 @@
     <message>
         <location filename="language.h" line="123"/>
         <source>Polski</source>
-        <translation>Polski</translation>
+        <translation>Polský</translation>
     </message>
     <message>
         <location filename="language.h" line="124"/>
@@ -484,12 +484,12 @@
     <message>
         <location filename="language.h" line="127"/>
         <source>Română</source>
-        <translation>Română</translation>
+        <translation>Rumunský</translation>
     </message>
     <message>
         <location filename="language.h" line="128"/>
         <source>Русский</source>
-        <translation>Русский</translation>
+        <translation>Ruský</translation>
     </message>
     <message>
         <location filename="language.h" line="129"/>
@@ -524,7 +524,7 @@
     <message>
         <location filename="language.h" line="135"/>
         <source>Slovenčina</source>
-        <translation>Slovenčina</translation>
+        <translation>Slovenský</translation>
     </message>
     <message>
         <location filename="language.h" line="136"/>
@@ -564,7 +564,7 @@
     <message>
         <location filename="language.h" line="143"/>
         <source>Svenska</source>
-        <translation>Svenska</translation>
+        <translation>Švédský</translation>
     </message>
     <message>
         <location filename="language.h" line="144"/>
@@ -599,7 +599,7 @@
     <message>
         <location filename="language.h" line="150"/>
         <source>Türkmen</source>
-        <translation>Türkmen</translation>
+        <translation>Turkmenský</translation>
     </message>
     <message>
         <location filename="language.h" line="151"/>
@@ -609,7 +609,7 @@
     <message>
         <location filename="language.h" line="152"/>
         <source>Türkçe</source>
-        <translation>Türkçe</translation>
+        <translation>Turecký</translation>
     </message>
     <message>
         <location filename="language.h" line="153"/>
@@ -619,7 +619,7 @@
     <message>
         <location filename="language.h" line="154"/>
         <source>Татарский</source>
-        <translation>Татарский</translation>
+        <translation>Tatarský</translation>
     </message>
     <message>
         <location filename="language.h" line="155"/>
@@ -644,7 +644,7 @@
     <message>
         <location filename="language.h" line="159"/>
         <source>Uzbek (Cyrillic)</source>
-        <translation>Uzbek (Cyrillic)</translation>
+        <translation>Uzbecký (Cyrillic)</translation>
     </message>
     <message>
         <location filename="language.h" line="160"/>

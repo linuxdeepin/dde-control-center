@@ -1,117 +1,117 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_HK" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_HK">
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="188"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="190"/>
         <source>Help</source>
         <translation>幫助</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="330"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
         <source>Biometric Authentication</source>
         <translation>生物認證</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="331"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Accounts</source>
         <translation>帳戶</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
         <source>Display</source>
         <translation>顯示</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Touch Screen</source>
         <translation>觸控屏</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
         <source>Default Applications</source>
         <translation>默認程序</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Personalization</source>
         <translation>個性化</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Notification</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Sound</source>
         <translation>聲音</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="920"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="922"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
         <source>Bluetooth</source>
         <translation>藍牙</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Date and Time</source>
         <translation>日期與時刻</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Power</source>
         <translation>電源管理</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>Mouse</source>
         <translation>鼠標</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="932"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="934"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
         <source>Drawing Tablet</source>
         <translation>數位板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>Keyboard and Language</source>
         <translation>鍵盤和語言</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="967"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="969"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="984"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="986"/>
         <source>Updates</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <source>System Info</source>
         <translation>系統訊息</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="955"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="957"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="974"/>
         <source>General Settings</source>
         <translation>常規</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="418"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="423"/>
         <source>Touchpad</source>
         <translation>觸控板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="419"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="424"/>
         <source>TrackPoint</source>
         <translation>指點杆</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="944"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="946"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
         <source>Cloud Sync</source>
         <translation>雲同步</translation>
     </message>
@@ -434,7 +434,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="431"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="435"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -454,67 +454,73 @@
         <translation>強度中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="300"/>
+        <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>建議密碼長度8位以上，同時包含小寫字母、大寫字母、數字、符號中的3</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="288"/>
         <source>Weak</source>
         <translation>強度低</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="303"/>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>密碼規則配置文件讀取錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="407"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="477"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="310"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="481"/>
         <source>Passwords do not match</source>
         <translation>密碼不一致</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="339"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="341"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="347"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="349"/>
         <source>Optional</source>
         <translation>選填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="363"/>
         <source>Password cannot be empty</source>
         <translation>密碼不能為空</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="375"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="484"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="488"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>密碼提示對所有人可見，切勿包含具體密碼訊息</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="398"/>
         <source>Wrong password</source>
         <translation>密碼錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="400"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="404"/>
         <source>New password should differ from the current one</source>
         <translation>新密碼和舊密碼不能相同</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="430"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="434"/>
         <source>Go to Settings</source>
         <translation>前往設置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="557"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="561"/>
         <source>System error</source>
         <translation>系統錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="559"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="563"/>
         <source>Network error</source>
         <translation>網絡錯誤</translation>
     </message>
@@ -925,103 +931,103 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
         <source>Updating...</source>
         <translation>正在更新...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="118"/>
         <source>Startup Delay</source>
         <translation>啟動延時</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="122"/>
         <source>Theme</source>
         <translation>主題</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="125"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>您可以點擊菜單改變默認啟動項，也可以拖拽圖片到窗口改變背景圖片</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="126"/>
         <source>Click the option in boot menu to set it as the first boot</source>
         <translation>您可以點擊菜單改變默認啟動項</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="135"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>開啟主題後您可以在開機時看到主題背景</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="158"/>
         <source>GRUB Authentication</source>
         <translation>grub驗證</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="163"/>
         <source>GRUB password is required to edit its configuration</source>
         <translation>開啟後進入grub編輯需要密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="170"/>
         <source>Change Password</source>
         <translation>重設密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="176"/>
         <source>Boot Menu</source>
         <translation>啟動菜單</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="377"/>
         <source>Change GRUB password</source>
         <translation>修改grub驗證密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="382"/>
         <source>Username:</source>
         <translation>用戶名：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="383"/>
         <source>root</source>
         <translation>root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="384"/>
         <source>New password:</source>
         <translation>新密碼：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="385"/>
         <source>Repeat password:</source>
         <translation>重複密碼：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="395"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
         <source>Cancel</source>
         <comment>button</comment>
         <translation>取 消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="396"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="404"/>
         <source>Confirm</source>
         <comment>button</comment>
         <translation>確 定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="406"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="436"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="414"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="444"/>
         <source>Password cannot be empty</source>
         <translation>密碼不能為空</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="419"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="449"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="457"/>
         <source>Passwords do not match</source>
         <translation>密碼不一致</translation>
     </message>
@@ -1738,17 +1744,17 @@
         <translation>主螢幕</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="307"/>
         <source>Duplicate</source>
         <translation>同步</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="308"/>
         <source>Extend</source>
         <translation>延伸</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="314"/>
         <source>Only on %1</source>
         <translation>僅%1屏</translation>
     </message>
@@ -1785,24 +1791,24 @@
         <translation>桌面顯示</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="258"/>
         <source>Fit</source>
         <translation>適應</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="274"/>
         <source>Stretch</source>
         <translation>拉伸</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="290"/>
         <source>Center</source>
         <translation>居中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="361"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="419"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="461"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="460"/>
         <source>Recommended</source>
         <translation>推薦</translation>
     </message>
@@ -1851,7 +1857,7 @@
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="126"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -2143,41 +2149,41 @@
 <context>
     <name>dccV20::mouse::MouseSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
         <source>Pointer Speed</source>
         <translation>指針速度</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="47"/>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="51"/>
         <source>Mouse Acceleration</source>
         <translation>鼠標加速</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="51"/>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="55"/>
         <source>Disable touchpad when a mouse is connected</source>
         <translation>插入鼠標時禁用觸控板</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="56"/>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="60"/>
         <source>Natural Scrolling</source>
         <translation>自然滾動</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="64"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="65"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
@@ -3654,7 +3660,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="325"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="629"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="633"/>
         <source>Last checking time: </source>
         <translation>上次檢查更新時間：</translation>
     </message>
@@ -3711,7 +3717,7 @@
         <translation>請確保重啟後有充足的電源，並不要關機或者拔出電源</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="702"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="706"/>
         <source>Size</source>
         <translation>下載大小</translation>
     </message>
@@ -3775,74 +3781,74 @@
         <translation>開啟“僅安全性更新”將只會進行安全漏洞和兼容性相關的更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
         <source>Update Settings</source>
         <translation>更新設置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="88"/>
         <source>Check for Updates</source>
         <translation>自動檢查</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="112"/>
         <source>Clear Package Cache</source>
         <translation>清除軟件包緩存</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="117"/>
         <source>Updates from Repositories</source>
         <translation>可從倉庫更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="136"/>
         <source>System Repository Detection</source>
         <translation>系統源檢測</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="139"/>
         <source>Show a notification if system update repository has been modified</source>
         <translation>系統更新源被修改後會彈出通知</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="149"/>
         <source>Smart Mirror Switch</source>
         <translation>智能鏡像源</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="154"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation>開啟智能鏡像源會自動匹配響應最快的鏡像源</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="162"/>
         <source>Mirror List</source>
         <translation>鏡像源列表</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="208"/>
         <source>System Updates</source>
         <translation>系統更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="213"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="214"/>
         <source>Security Updates</source>
         <translation>安全更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="221"/>
         <source>Unknown Apps Updates</source>
         <translation>未知來源應用更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="225"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation>“%1”下載完成後會自動進行安裝</translation>
     </message>
@@ -4096,22 +4102,22 @@
 <context>
     <name>TimeoutDialog</name>
     <message>
-        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="32"/>
         <source>Do you want to save the display settings?</source>
         <translation>是否要保存顯示設置？</translation>
     </message>
     <message>
-        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="34"/>
         <source>If no operation, the display will be restored after %1s.</source>
         <translation>如無任何操作將在%1秒後還原。</translation>
     </message>
     <message>
-        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
         <source>Restore</source>
         <translation>還原</translation>
     </message>
     <message>
-        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
+        <location filename="../src/frame/widgets/timeoutdialog.cpp" line="40"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
@@ -4937,12 +4943,12 @@ If you agree to this statement and enroll your face (we will not collect your fa
         <translation>系統備份失敗</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="206"/>
         <source>Release date: </source>
         <translation>發佈時間：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="207"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
@@ -4950,37 +4956,37 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="437"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
         <source>System Updates</source>
         <translation>系統更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="447"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="432"/>
         <source>Security Updates</source>
         <translation>安全更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="458"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="439"/>
         <source>Unknown Apps Updates</source>
         <translation>未知來源應用更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1380"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1384"/>
         <source>Network error</source>
         <translation>網絡錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1383"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1387"/>
         <source>Dependency error</source>
         <translation>依賴錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1386"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1390"/>
         <source>Insufficient disk space</source>
         <translation>硬盤空間不足</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1389"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1393"/>
         <source>Update failed</source>
         <translation>更新失敗</translation>
     </message>

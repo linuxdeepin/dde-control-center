@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Uruchom ponownie komputer, aby poprawnie korzystać z systemu i aplikacji</translation>
+        <translation>Uruchom ponownie komputer, aby móc poprawnie korzystać z systemu i aplikacji</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
