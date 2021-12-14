@@ -27,6 +27,7 @@
 #include "constants.h"
 
 #include <DDialogCloseButton>
+#include <DBlurEffectWidget>
 
 #include <memory>
 #include <com_deepin_sessionmanager.h>
@@ -43,7 +44,7 @@ class ActionButton;
  * \~chinese \class Bubble
  * \~chinese \brief 自定义控件类,屏幕上方通知气泡的窗口类
  */
-class Bubble : public QWidget
+class Bubble : public DBlurEffectWidget
 {
     Q_OBJECT
 
@@ -83,7 +84,6 @@ protected:
     virtual void hideEvent(QHideEvent *event) Q_DECL_OVERRIDE;
     virtual void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
     virtual void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
-    virtual void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
     void onOutTimerTimeout();

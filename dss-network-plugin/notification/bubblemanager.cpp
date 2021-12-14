@@ -295,10 +295,8 @@ bool BubbleManager::isDoNotDisturb()
 
 QRect BubbleManager::calcDisplayRect()
 {
-    qreal ratio = qApp->primaryScreen()->devicePixelRatio();
-    QDesktopWidget * desktopWidget = qApp->desktop(); //->primaryScreen()
-    QRect displayRect = desktopWidget->screenGeometry(desktopWidget->primaryScreen());
-    return displayRect;
+    QDesktopWidget *desktopWidget = qApp->desktop();
+    return desktopWidget->screenGeometry(desktopWidget->primaryScreen());
 }
 
 QString BubbleManager::GetAllRecords()
@@ -516,9 +514,28 @@ bool BubbleManager::calcReplaceId(EntityPtr notify)
     return find;
 }
 
+QWidget *BubbleManager::parentWidget()
+{
+    // 获取主屏中窗口最大的窗口作为父窗口
+    QDesktopWidget *desktopWidget = qApp->desktop();
+    int primaryScreen = qApp->desktop()->primaryScreen();
+
+    QWidget *topWidget = nullptr;
+    QRect rect;
+    for (QWidget *w : qApp->topLevelWidgets()) {
+        if(primaryScreen != desktopWidget->screenNumber(w))
+            continue;
+        if(rect.isEmpty() || w->rect().contains(rect)) {
+            topWidget = w;
+            rect = w->rect();
+        }
+    }
+    return topWidget;
+}
+
 Bubble *BubbleManager::createBubble(EntityPtr notify, int index)
 {
-    Bubble *bubble = new Bubble(nullptr, notify);
+    Bubble *bubble = new Bubble(parentWidget(), notify);
     connect(bubble, &Bubble::expired, this, &BubbleManager::bubbleExpired);
     connect(bubble, &Bubble::dismissed, this, &BubbleManager::bubbleDismissed);
     connect(bubble, &Bubble::actionInvoked, this, &BubbleManager::bubbleActionInvoked);

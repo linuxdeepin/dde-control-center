@@ -244,6 +244,7 @@ private:
      * @return 气泡高度之和
      */
     int getBubbleHeightBefore(const int index);
+    QWidget *parentWidget();
 
 private:
     int m_replaceCount = 0;
