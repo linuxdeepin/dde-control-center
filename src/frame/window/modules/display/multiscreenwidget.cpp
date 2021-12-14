@@ -39,6 +39,7 @@
 #include <QApplication>
 #include <QComboBox>
 #include <QDesktopWidget>
+#include <QKeyEvent>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
