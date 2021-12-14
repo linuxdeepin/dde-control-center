@@ -439,10 +439,6 @@ void IPInputSection::initConnection()
             m_lineIpAddress->dTextEdit()->setAlert(false);
     });
 
-    connect(m_lineIpAddress->textEdit(), &QLineEdit::selectionChanged, this, [ this ] {
-        m_lineIpAddress->textEdit()->setFocus();
-    });
-
     connect(m_newIpButton, &ActionButton::clicked, this, [ this ] {
         Q_EMIT editClicked();
         Q_EMIT requestAdd(this);
