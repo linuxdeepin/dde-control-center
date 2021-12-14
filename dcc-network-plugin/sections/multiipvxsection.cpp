@@ -651,8 +651,12 @@ bool IPV6InputSection::allInputValid(const QList<IpAddress> &ipAddresses)
     if (m_lineIpAddress->text().isEmpty())
         m_lineIpAddress->dTextEdit()->setAlert(true);
 
+    // 此处需要先将IP地址转换成IpAddress再转回字符串，因为IPv6地址段中有某个段为0,则转回的字符串中就会把这个字符串删除导致两个地址不等
+    IpAddress tmpIpAddr;
+    tmpIpAddr.setIp(QHostAddress(ip));
+    const QString sourceIp = tmpIpAddr.ip().toString();
     for (const IpAddress &address : ipAddresses) {
-        if (address.ip().toString() == ip) {
+        if (address.ip().toString() == sourceIp) {
             valid = false;
             m_lineIpAddress->textEdit()->setFocus();
             m_lineIpAddress->setIsErr(true);
@@ -677,9 +681,13 @@ bool IPV6InputSection::allInputValid(const QList<IpAddress> &ipAddresses)
     }
 
     const QString &gateway = m_gateway->text();
+    IpAddress gateWayAddr;
+    gateWayAddr.setGateway(QHostAddress(gateway));
+    const QString formatGateway = gateWayAddr.gateway().toString();
+
     if (ipAddresses.size() > 0) {
         const IpAddress ipAddr = ipAddresses[0];
-        if (!gateway.isEmpty() && ipAddr.gateway().toString() != gateway) {
+        if (!formatGateway.isEmpty() && ipAddr.gateway().toString() != formatGateway) {
             valid = false;
             m_gateway->setIsErr(true);
             m_gateway->dTextEdit()->showAlertMessage(tr("Only one gateway is allowed"), parentWidget(), 2000);
