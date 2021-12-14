@@ -33,8 +33,6 @@ using namespace DCC_NAMESPACE::touchscreen;
 
 DWIDGET_USE_NAMESPACE
 
-const int FontSpaceLenght = 10;
-
 void MCombobox::showPopup()
 {
     QComboBox::showPopup();
@@ -54,6 +52,7 @@ TouchscreenWidget::TouchscreenWidget(QWidget *parent)
                                       this))
 {
     setAccessibleName("TouchscreenWidget");
+    //~ contents_path /touchscreen/Select your touch screen when connected or set it here.
     m_dTipLabel = new DTipLabel(tr("Select your touch screen when connected or set it here."));
     m_dTipLabel->setWordWrap(true);
     m_dTipLabel->setContentsMargins(10, 0, 0, 0);
