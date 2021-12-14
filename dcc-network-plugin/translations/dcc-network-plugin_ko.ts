@@ -430,37 +430,37 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IPv4</source>
-        <translation type="unfinished"/>
+        <translation>IPv4</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IPv6</source>
-        <translation type="unfinished"/>
+        <translation>IPv6</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>자동</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Manual</source>
-        <translation type="unfinished"/>
+        <translation>수동</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>무시</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Method</source>
-        <translation type="unfinished"/>
+        <translation>메소드</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>접두사</translation>
     </message>
 </context>
 <context>
@@ -468,17 +468,17 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IP Address</source>
-        <translation type="unfinished"/>
+        <translation>IP 주소</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>필수</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>게이트웨이</translation>
     </message>
 </context>
 <context>
@@ -486,27 +486,17 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 IP 주소</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid netmask</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 넷마스크</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 게이트웨이</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
@@ -521,12 +511,12 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Netmask</source>
-        <translation type="unfinished"/>
+        <translation>넷마스크</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>필수</translation>
     </message>
 </context>
 <context>
@@ -539,7 +529,7 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 IP 주소</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
@@ -549,12 +539,12 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 게이트웨이</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>접두사</translation>
     </message>
 </context>
 <context>
@@ -631,14 +621,24 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>유선 네트워크</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>무선 네트워크</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Network</source>
+        <translation>네트워크</translation>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>IP conflict</source>
+        <translation>IP 충돌</translation>
     </message>
 </context>
 <context>
@@ -1405,7 +1405,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 게이트웨이</translation>
     </message>
 </context>
 <context>
@@ -1518,7 +1518,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 게이트웨이</translation>
     </message>
 </context>
 <context>
@@ -1808,7 +1808,7 @@
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 게이트웨이</translation>
     </message>
 </context>
 <context>
@@ -1939,7 +1939,7 @@
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 게이트웨이</translation>
     </message>
 </context>
 <context>
@@ -2060,7 +2060,7 @@
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>잘못된 게이트웨이</translation>
     </message>
 </context>
 <context>
@@ -2390,7 +2390,7 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>IP 충돌</translation>
     </message>
 </context>
 </TS>

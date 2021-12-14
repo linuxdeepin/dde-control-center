@@ -430,37 +430,37 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IPv4</source>
-        <translation type="unfinished"/>
+        <translation>IPv4</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IPv6</source>
-        <translation type="unfinished"/>
+        <translation>IPv6</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Auto</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Manual</source>
-        <translation type="unfinished"/>
+        <translation>Manuale</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>Ignora</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Method</source>
-        <translation type="unfinished"/>
+        <translation>Metodo</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>Prefisso</translation>
     </message>
 </context>
 <context>
@@ -468,17 +468,17 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IP Address</source>
-        <translation type="unfinished"/>
+        <translation>Indirizzo IP</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Richiesto</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>Gateway</translation>
     </message>
 </context>
 <context>
@@ -486,27 +486,17 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>Indirizzo IP non valido</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid netmask</source>
-        <translation type="unfinished"/>
+        <translation>Netmask non valida</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Gateway non valido</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
@@ -516,17 +506,17 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Duplicate IP address</source>
-        <translation type="unfinished"/>
+        <translation>Indirizzo IP Duplicato</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Netmask</source>
-        <translation type="unfinished"/>
+        <translation>Netmask</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Richiesto</translation>
     </message>
 </context>
 <context>
@@ -534,12 +524,12 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Duplicate IP address</source>
-        <translation type="unfinished"/>
+        <translation>Indirizzo IP Duplicato</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>Indirizzo IP non valido</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
@@ -549,12 +539,12 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Gateway non valido</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>Prefisso</translation>
     </message>
 </context>
 <context>
@@ -631,14 +621,24 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Connessione cablata</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Connessione WiFi</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Network</source>
+        <translation>Rete</translation>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>IP conflict</source>
+        <translation>Conflitto IP</translation>
     </message>
 </context>
 <context>
@@ -1405,7 +1405,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Gateway non valido</translation>
     </message>
 </context>
 <context>
@@ -1518,7 +1518,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Gateway non valido</translation>
     </message>
 </context>
 <context>
@@ -1808,7 +1808,7 @@
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Gateway non valido</translation>
     </message>
 </context>
 <context>
@@ -1939,7 +1939,7 @@
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Gateway non valido</translation>
     </message>
 </context>
 <context>
@@ -2060,7 +2060,7 @@
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Gateway non valido</translation>
     </message>
 </context>
 <context>
@@ -2390,7 +2390,7 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Conflitto IP</translation>
     </message>
 </context>
 </TS>

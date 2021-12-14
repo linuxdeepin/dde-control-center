@@ -440,27 +440,27 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Manual</source>
-        <translation type="unfinished"/>
+        <translation>Elle</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>Yoksay</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Method</source>
-        <translation type="unfinished"/>
+        <translation>Yöntem</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>Ön Ek</translation>
     </message>
 </context>
 <context>
@@ -468,17 +468,17 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IP Address</source>
-        <translation type="unfinished"/>
+        <translation>IP Adresi</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Gereklidir</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>Ağ Geçidi</translation>
     </message>
 </context>
 <context>
@@ -486,27 +486,17 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz IP adresi</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid netmask</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz ağ maskesi</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz ağ geçidi</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
@@ -516,17 +506,17 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Duplicate IP address</source>
-        <translation type="unfinished"/>
+        <translation>Tekrarlanan IP adresi</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Netmask</source>
-        <translation type="unfinished"/>
+        <translation>Ağ Maskesi</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Gereklidir</translation>
     </message>
 </context>
 <context>
@@ -534,12 +524,12 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Duplicate IP address</source>
-        <translation type="unfinished"/>
+        <translation>Tekrarlanan IP adresi</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz IP adresi</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
@@ -549,12 +539,12 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz ağ geçidi</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>Ön Ek</translation>
     </message>
 </context>
 <context>
@@ -639,6 +629,16 @@
         <source>Wireless Network</source>
         <translation>Kablosuz Ağ</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Network</source>
+        <translation>Ağ</translation>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>IP conflict</source>
+        <translation>IP çakışması</translation>
     </message>
 </context>
 <context>
@@ -2390,7 +2390,7 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>IP çakışması</translation>
     </message>
 </context>
 </TS>

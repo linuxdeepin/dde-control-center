@@ -10,7 +10,7 @@
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>Přípojný bod</translation>
     </message>
     <message>
         <source>SSID</source>
@@ -109,7 +109,7 @@
     </message>
     <message>
         <source>IP conflict</source>
-        <translation>Konflikt IP adres</translation>
+        <translation>Střet IP adres</translation>
     </message>
     <message>
         <source>Failed</source>
@@ -167,7 +167,7 @@
     </message>
     <message>
         <source>IP conflict</source>
-        <translation>Konflikt IP adres</translation>
+        <translation>Střet IP adres</translation>
     </message>
     <message>
         <source>Disable wired connection</source>

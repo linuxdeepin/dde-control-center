@@ -430,37 +430,37 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IPv4</source>
-        <translation type="unfinished"/>
+        <translation>IPv4</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IPv6</source>
-        <translation type="unfinished"/>
+        <translation>IPv6</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>অটো</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Manual</source>
-        <translation type="unfinished"/>
+        <translation>ম্যানুয়াল</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
+        <translation>উপেক্ষা করা</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Method</source>
-        <translation type="unfinished"/>
+        <translation>পদ্ধতি</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>উপসর্গ</translation>
     </message>
 </context>
 <context>
@@ -468,17 +468,17 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IP Address</source>
-        <translation type="unfinished"/>
+        <translation>আইপি ঠিকানা</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>আবশ্যক</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>প্রবেশপথ</translation>
     </message>
 </context>
 <context>
@@ -500,16 +500,6 @@
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>IP conflict</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
         <source>Only one gateway is allowed</source>
         <translation type="unfinished"/>
     </message>
@@ -521,12 +511,12 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Netmask</source>
-        <translation type="unfinished"/>
+        <translation>নেটমাস্ক</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>আবশ্যক</translation>
     </message>
 </context>
 <context>
@@ -554,7 +544,7 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>উপসর্গ</translation>
     </message>
 </context>
 <context>
@@ -631,14 +621,24 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>ওয়্যার্ড নেটওয়ার্ক</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>ওয়্যারলেস নেটওয়ার্ক</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Network</source>
+        <translation>নেটওয়ার্ক</translation>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>IP conflict</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2312,7 +2312,7 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>ওয়্যার্ড নেটওয়ার্ক</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
@@ -2322,12 +2322,12 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>ওয়্যারলেস নেটওয়ার্ক</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network %1</source>
-        <translation type="unfinished"/>
+        <translation>ওয়্যারলেস নেটওয়ার্ক %1</translation>
     </message>
 </context>
 <context>
@@ -2335,17 +2335,17 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>অসংযুক্ত</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>সংযুক্ত হচ্ছে</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>প্রমাণীকরণ হচ্ছে</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
@@ -2355,37 +2355,37 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>সংযুক্ত</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation>ব্যর্থ হয়েছে</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"/>
+        <translation>ডিভাইস নিষ্ক্রিয়</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"/>
+        <translation>সংযুক্ত কিন্তু কোনো ইন্টারনেট এক্সেস নেই</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>সংযুক্ত নয়</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"/>
+        <translation>নেটওয়ার্ক তার তোলা হয়েছে</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
-        <translation type="unfinished"/>
+        <translation>আইপি ঠিকানা নেওয়া হচ্ছে</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>

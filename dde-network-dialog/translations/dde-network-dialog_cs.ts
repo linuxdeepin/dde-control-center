@@ -31,7 +31,7 @@
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation>Storno</translation>
+        <translation>Zrušit</translation>
     </message>
     <message>
         <source>Connect</source>
@@ -47,7 +47,7 @@
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>Přípojný bod</translation>
     </message>
     <message>
         <source>SSID</source>
@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Připojeno, ale bez přístupu k Internetu</translation>
+        <translation>Připojeno, ale bez přístupu k internetu</translation>
     </message>
     <message>
         <source>Not connected</source>

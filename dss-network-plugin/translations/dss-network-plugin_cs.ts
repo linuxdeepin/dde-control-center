@@ -10,7 +10,7 @@
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
-        <translation type="unfinished"/>
+        <translation>Připojování k %1</translation>
     </message>
     <message>
         <source>%1 connected</source>
@@ -18,34 +18,34 @@
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation type="unfinished"/>
+        <translation>%1 odpojeno</translation>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation type="unfinished"/>
+        <translation>Nedaří se připojit k %1 – zkontrolujte síťové zařízení a kabely prosím.</translation>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>
-        <translation type="unfinished"/>
+        <translation>Nelze se připojit k %1. Přesuňte se blíže k bezdrátovému přístupovému bodu</translation>
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Připojení k %1 se nezdařilo – chybné heslo</translation>
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>Pro připojení se k %1 je požadováno heslo</translation>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation type="unfinished"/>
+        <translation>%1 802.11 WLAN síť nebyla nalezena</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>Přípojný bod</translation>
     </message>
     <message>
         <source>SSID</source>
@@ -202,7 +202,7 @@
     </message>
     <message>
         <source>IP conflict</source>
-        <translation>Konflikt IP adres</translation>
+        <translation>Střet IP adres</translation>
     </message>
     <message>
         <source>Disable wired connection</source>

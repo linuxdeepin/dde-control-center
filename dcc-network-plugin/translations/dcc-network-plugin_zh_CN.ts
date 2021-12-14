@@ -500,16 +500,6 @@
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Network</source>
-        <translation>网络</translation>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>IP conflict</source>
-        <translation>IP地址冲突</translation>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
         <source>Only one gateway is allowed</source>
         <translation>只允许一个网关</translation>
     </message>
@@ -639,6 +629,16 @@
         <source>Wireless Network</source>
         <translation>无线网络</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Network</source>
+        <translation>网络</translation>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>IP conflict</source>
+        <translation>IP地址冲突</translation>
     </message>
 </context>
 <context>

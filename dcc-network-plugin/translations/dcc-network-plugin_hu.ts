@@ -500,16 +500,6 @@
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Network</source>
-        <translation>Hálózat</translation>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>IP conflict</source>
-        <translation>IP cím ütközés</translation>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
         <source>Only one gateway is allowed</source>
         <translation>Csak egy átjáró engedélyezett</translation>
     </message>
@@ -521,7 +511,7 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Netmask</source>
-        <translation type="unfinished"/>
+        <translation>Hálózati maszk</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
@@ -639,6 +629,16 @@
         <source>Wireless Network</source>
         <translation>Vezeték nélküli hálózat</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Network</source>
+        <translation>Hálózat</translation>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>IP conflict</source>
+        <translation>IP cím ütközés</translation>
     </message>
 </context>
 <context>

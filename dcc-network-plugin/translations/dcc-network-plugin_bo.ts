@@ -500,16 +500,6 @@
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Network</source>
-        <translation>དྲ་བ། </translation>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>IP conflict</source>
-        <translation>IPགནས་ཡུལ་འགལ་ཟླ་བྱུང་བ།</translation>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
         <source>Only one gateway is allowed</source>
         <translation>དྲ་སྒོ་གཅིག་རང་ལ་ཆོག་མཆན་ཡོད།</translation>
     </message>
@@ -639,6 +629,16 @@
         <source>Wireless Network</source>
         <translation>སྐུད་མེད་དྲ་རྒྱ།</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Network</source>
+        <translation>དྲ་བ། </translation>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>IP conflict</source>
+        <translation>IPགནས་ཡུལ་འགལ་ཟླ་བྱུང་བ།</translation>
     </message>
 </context>
 <context>
