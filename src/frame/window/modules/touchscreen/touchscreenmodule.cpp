@@ -56,19 +56,10 @@ void TouchscreenModule::preInitialize(bool sync, FrameProxyInterface::PushType p
     m_touchscreenModel->moveToThread(qApp->thread());
     m_touchscreenWorker->moveToThread(qApp->thread());
 
-    bool visible = !m_touchscreenModel->touchscreenList().isEmpty();
-    m_frameProxy->setModuleVisible(displayName(), visible);
-    setDeviceUnavailabel(!visible);
-    connect(m_touchscreenModel, &TouchscreenModel::touchscreenListChanged, this, [=] {
-        bool visible = !m_touchscreenModel->touchscreenList().isEmpty();
-        m_frameProxy->setModuleVisible(displayName(), visible);
-        setDeviceUnavailabel(!visible);
-        showTouchRecognize();
-    });
-
     addChildPageTrans();
 
     m_touchscreenWorker->active();
+    initSearchData();
 }
 
 void TouchscreenModule::initialize()
@@ -110,7 +101,7 @@ QStringList TouchscreenModule::availPage() const
 void TouchscreenModule::addChildPageTrans() const
 {
     if (m_frameProxy != nullptr) {
-        m_frameProxy->addChildPageTrans("", "");
+        m_frameProxy->addChildPageTrans("Select your touch screen when connected or set it here.", tr("Select your touch screen when connected or set it here."));
     }
 }
 
@@ -155,5 +146,18 @@ void TouchscreenModule::showTouchRecognize()
 
 void TouchscreenModule::initSearchData()
 {
+    auto func_process_all = [this] {
+        const QString& module = displayName();
+        const bool visible = !m_touchscreenModel->touchscreenList().isEmpty();
+        m_frameProxy->setModuleVisible(module, visible);
+        setDeviceUnavailabel(!visible);
+        m_frameProxy->setWidgetVisible(module, tr("Select your touch screen when connected or set it here."), visible);
+     };
 
+    connect(m_touchscreenModel, &TouchscreenModel::touchscreenListChanged, this, [=] {
+        func_process_all();
+        showTouchRecognize();
+    });
+
+    func_process_all();
 }
