@@ -41,6 +41,7 @@
 #include <DSysInfo>
 
 #define UpgradeWarningSize 500
+#define FullUpdateBtnWidth 92
 
 using namespace dcc;
 using namespace dcc::update;
@@ -163,8 +164,18 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_updateingTipsLab->setForegroundRole(DPalette::TextTips);
     updateTitleHLay->addSpacing(5);
     updateTitleHLay->addWidget(m_updateingTipsLab);
-    m_fullUpdateBtn->setText(tr("Update All"));
-    m_fullUpdateBtn->setFixedSize(92, 36);
+    QString text = tr("Update All");
+
+    m_fullUpdateBtn->setText(text);
+    QFontMetrics fontMetrics(font());
+    int fontWidth = fontMetrics.boundingRect(text).width();
+    if(FullUpdateBtnWidth < fontWidth){
+        m_fullUpdateBtn->setToolTip(text);
+        text = m_fullUpdateBtn->fontMetrics().elidedText(text, Qt::ElideRight, FullUpdateBtnWidth -10, 0);
+        m_fullUpdateBtn->setText(text);
+    }
+
+    m_fullUpdateBtn->setFixedSize(FullUpdateBtnWidth, 36);
     m_fullUpdateBtn->setVisible(false);
     updateTitleHLay->addWidget(m_fullUpdateBtn);
 

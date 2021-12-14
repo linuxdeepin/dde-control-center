@@ -163,7 +163,7 @@ void updateControlPanel::setProgressValue(int value)
         break;
     }
 
-    m_progressLabel->setText(text);
+    setProgressText(text);
 }
 
 void updateControlPanel::setButtonIcon(ButtonStatus status)
@@ -289,12 +289,7 @@ void updateControlPanel::setDate(QString date)
 void updateControlPanel::setProgressText(QString text)
 {
     m_progressLabel->setText(getElidedText(m_progressLabel, text, Qt::ElideRight, m_progressLabel->maximumWidth() -10, 0, __LINE__));
-    if(m_buttonStatus == ButtonStatus::retry){
-        m_progressLabel->setToolTip(text);
-    }else {
-        m_progressLabel->setToolTip("");
-    }
-
+    m_progressLabel->setToolTip(text);
 }
 
 //used to display long string: "12345678" -> "12345..."
