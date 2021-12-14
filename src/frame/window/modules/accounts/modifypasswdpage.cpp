@@ -278,6 +278,8 @@ void ModifyPasswdPage::initWidget()
             if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
                 m_newPasswordEdit->setAlert(true);
                 m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
+            } else {
+                m_newPasswordEdit->showAlertMessage(tr("A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols"));
             }
         } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
             palette.setColor(QPalette::Text, QColor("#FF5736"));
@@ -294,6 +296,8 @@ void ModifyPasswdPage::initWidget()
             if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
                 m_newPasswordEdit->setAlert(true);
                 m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
+            } else {
+                m_newPasswordEdit->showAlertMessage(tr("A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols"), m_newPasswordEdit, 2000);
             }
         } else {
             m_newPasswordEdit->showAlertMessage(tr("Error occurred when reading the configuration files of password rules!"));
