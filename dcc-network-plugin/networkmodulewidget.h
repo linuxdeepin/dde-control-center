@@ -109,6 +109,7 @@ private:
     void updateSecondMenu(int row);
     // 设置当前索引
     void setCurrentIndex(const int settingIndex);
+    void initIpConflictInfo(const QList<NetworkDeviceBase *> &devices);
 
 private:
     QVBoxLayout *m_centralLayout;

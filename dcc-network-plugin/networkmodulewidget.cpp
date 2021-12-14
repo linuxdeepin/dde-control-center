@@ -55,9 +55,12 @@
 
 #include <widgets/contentwidget.h>
 
+#include <org_freedesktop_notifications.h>
+
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
 using namespace dde::network;
+using Notifications = org::freedesktop::Notifications;
 
 static const int SectionRole = Dtk::UserRole + 1;
 static const int DeviceRole = Dtk::UserRole + 2;
@@ -138,7 +141,8 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     NetworkController *pNetworkController = NetworkController::instance();
     connect(pNetworkController, &NetworkController::activeConnectionChange, this, &NetworkModuleWidget::onDeviceStatusChanged);
     connect(pNetworkController, &NetworkController::deviceRemoved, this, &NetworkModuleWidget::onDeviceChanged);
-    connect(pNetworkController, &NetworkController::deviceAdded, this, [ = ] {
+    connect(pNetworkController, &NetworkController::deviceAdded, this, [ = ] (QList<NetworkDeviceBase *> devices) {
+        initIpConflictInfo(devices);
         onDeviceChanged();
         if (m_isFirstEnter) {
             showDefaultWidget();
@@ -149,6 +153,7 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     ProxyController *proxyController = pNetworkController->proxyController();
     connect(proxyController, &ProxyController::proxyMethodChanged, this, &NetworkModuleWidget::onProxyMethodChanged);
 
+    initIpConflictInfo(pNetworkController->devices());
     onDeviceChanged();
     if (NetworkController::instance()->devices().size() > 0)
         m_isFirstEnter = false;
@@ -178,6 +183,18 @@ NetworkModuleWidget::~NetworkModuleWidget()
         m_nmConnectionEditorProcess->close();
         m_nmConnectionEditorProcess->deleteLater();
         m_nmConnectionEditorProcess = nullptr;
+    }
+}
+
+void NetworkModuleWidget::initIpConflictInfo(const QList<NetworkDeviceBase *> &devices)
+{
+    for (NetworkDeviceBase *device : devices) {
+        connect(device, &NetworkDeviceBase::deviceStatusChanged, this, [](const DeviceStatus &deviceStatus) {
+            if (deviceStatus == DeviceStatus::IpConfilct) {
+                Notifications notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus());
+                notifications.Notify("dde-control-center", static_cast<uint>(QDateTime::currentMSecsSinceEpoch()), "preferences-system", tr("Network"), tr("IP conflict"), QStringList(), QVariantMap(), 3000);
+            }
+        });
     }
 }
 

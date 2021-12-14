@@ -92,7 +92,7 @@ void ConnectionWirelessEditPage::initApSecretType(AccessPoint::Ptr nmAp)
             rsnFlags.testFlag(AccessPoint::WpaFlag::KeyMgmtPsk))
         keyMgmt = WirelessSecuritySetting::KeyMgmt::WpaPsk;
 
-        //判断是否是wpa3加密的，因为wpa3加密方式，实际上是wpa2的扩展，所以其中会包含KeyMgmtPsk枚举值
+    // 判断是否是wpa3加密的，因为wpa3加密方式，实际上是wpa2的扩展，所以其中会包含KeyMgmtPsk枚举值
     if (wpaFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::keyMgmtSae) ||
         rsnFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::keyMgmtSae)) {
         keyMgmt = NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaSae;
