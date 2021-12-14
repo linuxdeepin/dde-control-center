@@ -163,7 +163,8 @@ void SecretHotspotSection::onKeyMgmtChanged(WirelessSecuritySetting::KeyMgmt key
         break;
     }
 
-    case WirelessSecuritySetting::KeyMgmt::WpaPsk: {
+    case WirelessSecuritySetting::KeyMgmt::WpaPsk:
+    case WirelessSecuritySetting::KeyMgmt::Ieee8021x: {
         m_passwdEdit->setText(m_wsSetting->psk());
         m_passwdEdit->setTitle(tr("Password"));
         m_passwdEdit->setVisible(true);
