@@ -442,13 +442,19 @@ void MainWindow::updateWinsize(QRect rect)
 {
     int w = QGuiApplication::primaryScreen()->geometry().width();
     int h = QGuiApplication::primaryScreen()->geometry().height();
-    if (!rect.width() && !rect.height()) {
+    if (rect.width() && rect.height()) {
         w = rect.width();
         h = rect.height();
     }
     WidgetMinimumWidth = qMin(w, 820);
     WidgetMinimumHeight = qMin(h, 634);
+
     setMinimumSize(QSize(WidgetMinimumWidth, WidgetMinimumHeight));
+
+    if (width() > WidgetMinimumWidth)
+        this->setGeometry(x(), y(), WidgetMinimumWidth, height());
+    if (height() > WidgetMinimumHeight)
+        this->setGeometry(x(), y(), width(), WidgetMinimumHeight);
 }
 
 void MainWindow::setSpecialThreeMenuVisible(QString name, bool flag)
