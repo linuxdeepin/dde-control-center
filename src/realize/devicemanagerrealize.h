@@ -42,7 +42,6 @@ class DeviceManagerRealize : public NetworkDeviceRealize
 public:
     explicit DeviceManagerRealize(IPConfilctChecker *ipChecker, QSharedPointer<Device> device, QObject *parent = nullptr);
     ~DeviceManagerRealize() override;
-    void resetDeviceStatus();
 
 protected:
     bool isEnabled() const override;                                                      // 当前的网卡是否启用

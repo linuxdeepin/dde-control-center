@@ -84,7 +84,8 @@ DStandardItem *NetItem::standardItem()
 DeviceControllItem::DeviceControllItem(const DeviceType &deviceType, QWidget *parent)
     : NetItem(parent)
     , m_deviceType(deviceType)
-    , m_switcher(new DSwitchButton(parent))
+    , m_widget(new QWidget(parent))
+    , m_switcher(new DSwitchButton(m_widget))
 {
     initItemText();
     initSwitcher();
@@ -126,7 +127,6 @@ void DeviceControllItem::updateView()
     m_switcher->blockSignals(true);
     m_switcher->setChecked(onOrOff);
     m_switcher->blockSignals(false);
-    NetItem::updateView();
 }
 
 NetItemType DeviceControllItem::itemType()
@@ -136,7 +136,11 @@ NetItemType DeviceControllItem::itemType()
 
 void DeviceControllItem::onAirplaneModeChanged(bool airplaneModeEnabled)
 {
-    m_switcher->setDisabled(airplaneModeEnabled);
+    // 此处只禁用无线网络
+    if (m_deviceType == DeviceType::Wireless) {
+        m_widget->setDisabled(airplaneModeEnabled);
+        m_switcher->setDisabled(airplaneModeEnabled);
+    }
 }
 
 void DeviceControllItem::initItemText()
@@ -155,10 +159,15 @@ void DeviceControllItem::initItemText()
 
 void DeviceControllItem::initSwitcher()
 {
+    QHBoxLayout *layout = new QHBoxLayout(m_widget);
+    layout->setContentsMargins(0, 0, 0, 0);
+    m_widget->setFixedSize(SWITCH_WIDTH + 8, SWITCH_HEIGHT + 20);
+    m_widget->setLayout(layout);
+    layout->addWidget(m_switcher);
     // 创建右侧的切换开关
     DViewItemAction *switchAction = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter, QSize(0, 0), QSize(0, 0), false);
     m_switcher->setSizeIncrement(SWITCH_WIDTH, SWITCH_HEIGHT);
-    switchAction->setWidget(m_switcher);
+    switchAction->setWidget(m_widget);
     standardItem()->setActionList(Qt::RightEdge, { switchAction });
 }
 

@@ -49,7 +49,7 @@ DeviceManagerRealize::DeviceManagerRealize(IPConfilctChecker *ipChecker, QShared
     // 初始化信号槽的连接
     initSigSlotConnection();
     // 改变状态
-    resetDeviceStatus();
+    changeStatus(m_wDevice->state());
     // 获取是否开启热点
     m_hotspotEnabled = getHotspotIsEnabled();
 }
@@ -78,11 +78,6 @@ void DeviceManagerRealize::initSigSlotConnection()
 
 DeviceManagerRealize::~DeviceManagerRealize()
 {
-}
-
-void DeviceManagerRealize::resetDeviceStatus()
-{
-    changeStatus(m_wDevice->state());
 }
 
 bool DeviceManagerRealize::isEnabled() const

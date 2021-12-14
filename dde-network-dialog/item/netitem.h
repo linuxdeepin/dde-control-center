@@ -133,6 +133,7 @@ private Q_SLOTS:
 private:
     QList<NetworkDeviceBase *> m_devices;
     DeviceType m_deviceType;
+    QWidget *m_widget;
     DSwitchButton *m_switcher;
 };
 
