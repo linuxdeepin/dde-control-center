@@ -160,19 +160,54 @@ void NetworkDetailPage::updateNetworkInfo()
            qDebug() << "GetActiveConnectionInfo error";
            return;
        }
-       QList<QJsonObject> activeinfos;
+       QStringList activeinfos;
        QJsonArray activeConns = QJsonDocument::fromJson(reply.value().toUtf8()).array();
-       for (const auto info : activeConns)
+       for (const QJsonValueRef info : activeConns)
        {
-           const auto &connInfo = info.toObject();
-           activeinfos << connInfo;
+           if (info.isObject()) {
+               activeinfos << QJsonDocument(info.toObject()).toJson();
+           }
        }
        onActiveInfoChanged(activeinfos);
        w->deleteLater();
    });
 }
 
-void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
+static bool activeInfoSort(const QString &info1, const QString &info2)
+{
+    const QMap<QString, int> ConnectionTypeOrder = {
+        { "wired", 0 },
+        { "wireless", 1 },
+        { "wireless-hotspot", 2 },
+        { "unknown", 99 },
+    };
+
+    QJsonObject obj1 = QJsonDocument::fromJson(info1.toUtf8().data()).object();
+    QJsonObject obj2 = QJsonDocument::fromJson(info2.toUtf8().data()).object();
+
+    int order1 = DEFAULT_ORDER;
+    int order2 = DEFAULT_ORDER;
+    const QString connectionType1 = obj1["ConnectionType"].toString();
+    const QString connectionType2 = obj2["ConnectionType"].toString();
+    const QString name1 = obj1["ConnectionName"].toString();
+    const QString name2 = obj2["ConnectionName"].toString();
+
+    if (ConnectionTypeOrder.contains(connectionType1)) {
+        order1 = ConnectionTypeOrder[connectionType1];
+    }
+
+    if (ConnectionTypeOrder.contains(connectionType2)) {
+        order2 = ConnectionTypeOrder[connectionType2];
+    }
+
+    if (order1 != order2) {
+        return order1 < order2;
+    }
+
+    return name1 <= name2;
+};
+
+void NetworkDetailPage::onActiveInfoChanged(QStringList &infos)
 {
     auto appendInfo = [](SettingsGroup *g, const QString &t, const QString &v) {
         TitleValueItem *i = new TitleValueItem;
@@ -192,13 +227,17 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         delete item;
     }
 
+    qSort(infos.begin(), infos.end(), activeInfoSort);
+
     int infoCount = infos.count();
     for (const auto &info : infos) {
+        QJsonObject infoObj = QJsonDocument::fromJson(info.toUtf8().data()).object();
+
         SettingsGroup *grp = new SettingsGroup;
-        const QString type = info.value("ConnectionType").toString();
+        const QString type = infoObj.value("ConnectionType").toString();
         const bool isHotspot = type == "wireless-hotspot";
         const bool isWireless = type == "wireless";
-        const QJsonObject &hotspotInfo = info.value("Hotspot").toObject();
+        const QJsonObject &hotspotInfo = infoObj.value("Hotspot").toObject();
 
         // 设置活跃网络标题
         SettingsHead *head = new SettingsHead;
@@ -212,19 +251,19 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             const QString ssid = hotspotInfo.value("Ssid").toString();
             appendInfo(grp, tr("SSID"), ssid);
         } else {
-            const QString name = info.value("ConnectionName").toString();
+            const QString name = infoObj.value("ConnectionName").toString();
             head->setTitle(name);
             grp->appendItem(head, SettingsGroup::NoneBackground);
         }
 
         if (isWireless) {
             // protocol
-            const QString &protocol = info.value("Protocol").toString();
+            const QString &protocol = infoObj.value("Protocol").toString();
             if (!protocol.isEmpty())
                 appendInfo(grp, tr("Protocol"), protocol);
 
             // security type
-            const QString &securityType = info.value("Security").toString();
+            const QString &securityType = infoObj.value("Security").toString();
             appendInfo(grp, tr("Security Type"), securityType);
 
             // band
@@ -240,15 +279,15 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
 
         // encrypt method
         if (isHotspot) {
-            const QString securityType = info.value("Security").toString();
+            const QString securityType = infoObj.value("Security").toString();
             appendInfo(grp, tr("Security Type"), securityType);
         }
         // device interface
-        const auto device = info.value("DeviceInterface").toString();
+        const auto device = infoObj.value("DeviceInterface").toString();
         if (!device.isEmpty())
             appendInfo(grp, tr("Interface"), device);
         // mac info
-        const QString mac = info.value("HwAddress").toString();
+        const QString mac = infoObj.value("HwAddress").toString();
         if (!mac.isEmpty())
             appendInfo(grp, tr("MAC"), mac);
         // band
@@ -257,7 +296,7 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             appendInfo(grp, tr("Band"), band);
         } else {
             // ipv4 info
-            const auto ipv4 = info.value("Ip4").toObject();
+            const auto ipv4 = infoObj.value("Ip4").toObject();
             if (!ipv4.isEmpty()) {
                 // ipv4 address
                 const auto ip4Addr = ipv4.value("Address").toString();
@@ -277,10 +316,10 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
                     appendInfo(grp, tr("Netmask"), ip4Netmask);
             }
             // ipv6 info
-            const auto ipv6 = info.value("Ip6").toObject();
+            const auto ipv6 = infoObj.value("Ip6").toObject();
             if (!ipv6.isEmpty()) {
-                appendInfo(grp, tr("IPv6"), compressedIpv6Addr(ipv6Infomation(info, NetworkDetailPage::Ip)));
-                appendInfo(grp, tr("Gateway"), compressedIpv6Addr(ipv6Infomation(info, NetworkDetailPage::Gateway)));
+                appendInfo(grp, tr("IPv6"), compressedIpv6Addr(ipv6Infomation(infoObj, NetworkDetailPage::Ip)));
+                appendInfo(grp, tr("Gateway"), compressedIpv6Addr(ipv6Infomation(infoObj, NetworkDetailPage::Gateway)));
 
                 // ipv6 primary dns
                 const auto ip6PrimaryDns = ipv6.value("Dnses").toArray();
@@ -292,7 +331,7 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
                     appendInfo(grp, tr("Prefix"), ip6Prefix);
             }
             // speed info
-            const QString speed = info.value("Speed").toString();
+            const QString speed = infoObj.value("Speed").toString();
             if (!speed.isEmpty())
                 appendInfo(grp, tr("Speed"), speed);
         }

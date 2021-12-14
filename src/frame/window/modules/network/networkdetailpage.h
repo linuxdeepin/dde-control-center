@@ -36,6 +36,8 @@ using namespace NetworkManager;
 namespace DCC_NAMESPACE {
 namespace network {
 
+#define DEFAULT_ORDER 98
+
 class NetworkDetailPage : public dcc::ContentWidget
 {
     Q_OBJECT
@@ -51,7 +53,7 @@ public:
     void updateNetworkInfo();
 
 private Q_SLOTS:
-    void onActiveInfoChanged(const QList<QJsonObject> &infos);
+    void onActiveInfoChanged(QStringList &infos);
 
 private:
     QString ipv6Infomation(QJsonObject connectinfos, InfoType type);
