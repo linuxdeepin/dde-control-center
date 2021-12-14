@@ -76,7 +76,7 @@ SecretWirelessSection::SecretWirelessSection(WirelessSecuritySetting::Ptr wsSeti
             if (passwordFlags.testFlag(it->second)) {
                 m_currentPasswordType = it->second;
                 if (m_currentPasswordType == NetworkManager::Setting::None && strKey.isEmpty()) {
-                    m_currentPasswordType = NetworkManager::Setting::AgentOwned;
+                    m_currentPasswordType = NetworkManager::Setting::None;
                 }
                 break;
             }
