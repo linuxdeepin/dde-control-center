@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="tr">
 <context>
     <name>dccV20::MainWindow</name>
     <message>
@@ -202,41 +202,48 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="176"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="291"/>
         <source>Create Account</source>
         <translation>Hesap Oluştur</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="279"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="328"/>
         <source>Auto Login</source>
         <translation>Otomatik Giriş</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="178"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="283"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="332"/>
         <source>Login Without Password</source>
         <translation>Parola Olmadan Giriş</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="271"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="320"/>
         <source>Change Password</source>
         <translation>Parolayı Değiştir</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="275"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="324"/>
         <source>Delete Account</source>
         <translation>Hesabı Sil</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="343"/>
+        <source>Fingerprint Password</source>
+        <translation>Parmak İzi Parolası</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="291"/>
         <source>New Account</source>
         <translation>Yeni Hesap</translation>
     </message>
@@ -438,6 +445,7 @@
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="51"/>
         <source>Fingerprint Password</source>
         <translation>Parmak İzi Parolası</translation>
+        <extra-contents_path>/accounts/Fingerprint Password</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="52"/>
@@ -1411,7 +1419,7 @@
     <name>dccV20::defapp::DefaultAppsModule</name>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="53"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="179"/>
         <source>Add Application</source>
         <translation>Uygulama Ekle</translation>
         <extra-child_page>Text</extra-child_page>
@@ -1424,57 +1432,57 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="166"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="200"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="215"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="231"/>
         <source>Webpage</source>
         <translation>Web sayfası</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="167"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="201"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="216"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="237"/>
         <source>Mail</source>
         <translation>E-posta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="168"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="202"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="217"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="233"/>
         <source>Text</source>
         <translation>Metin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="203"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="218"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="235"/>
         <source>Music</source>
         <translation>Müzik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="204"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="219"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="239"/>
         <source>Video</source>
         <translation>Video</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="241"/>
         <source>Picture</source>
         <translation>Resim</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="206"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="243"/>
         <source>Terminal</source>
         <translation>Uçbirim</translation>
     </message>
@@ -1980,7 +1988,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="204"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="399"/>
         <source>Custom Shortcut</source>
         <translation>Özel Kısayol</translation>
         <extra-child_page>Shortcuts</extra-child_page>
@@ -2002,17 +2010,22 @@
         <translation>Çalışma alanı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="208"/>
+        <source>Assistive Tools</source>
+        <translation>Yardımcı Araçlar</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="214"/>
         <source>Add System Language</source>
         <translation>Sistem Dili Ekle</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="215"/>
         <source>Language List</source>
         <translation>Dil Listesi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="270"/>
         <source>Keyboard and Language</source>
         <translation>Klavye ve Dil</translation>
     </message>
@@ -2067,22 +2080,24 @@
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="90"/>
         <source>Assistive Tools</source>
         <translation>Yardımcı Araçlar</translation>
+        <extra-child_page>Shortcuts</extra-child_page>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="107"/>
         <source>Custom Shortcut</source>
         <translation>Özel Kısayol</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="140"/>
         <source>Restore Defaults</source>
         <translation>Varsayılanları Geri Yükle</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="179"/>
         <source>Shortcut</source>
         <translation>Kısayol</translation>
     </message>
@@ -4980,59 +4995,59 @@
         <translation>Genel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="236"/>
         <source>Size</source>
         <translation>Boyut</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="237"/>
         <source>Standard Font</source>
         <translation>Standart Yazı Tipi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="238"/>
         <source>Monospaced Font</source>
         <translation>Sabit Aralıklı Yazı Tipi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
         <source>Light</source>
         <translation>Açık</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="248"/>
         <source>Dark</source>
         <translation>Koyu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="249"/>
         <source>Auto</source>
         <translation>Otomatik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="250"/>
         <source>Accent Color</source>
         <translation>Vurgu Rengi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="251"/>
         <source>Window Effect</source>
         <translation>Pencere Etkisi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="262"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="310"/>
         <source>Transparency</source>
         <translation>Saydamlık</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="263"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="311"/>
         <source>Window Minimize Effect</source>
         <translation>Pencere Küçültme Efekti</translation>
     </message>
@@ -5217,137 +5232,138 @@
         <translation>Fişe Takılı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="280"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="343"/>
         <source>Auto power saving on low battery</source>
         <translation>Düşük pilde otomatik güç tasarrufu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="281"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="341"/>
         <source>Auto power saving on battery</source>
         <translation>Pilden otomatik güç tasarrufu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="282"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="353"/>
         <source>Display remaining using and charging time</source>
         <translation>Kalan kullanım ve şarj süresini göster</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="283"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="355"/>
         <source>Maximum capacity</source>
         <translation>Azami kapasite</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="283"/>
         <source>Battery</source>
         <translation>Pil</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="286"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="362"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="367"/>
         <source>When the lid is closed</source>
         <translation>Kapak kapatıldığında</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="289"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="312"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="359"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="360"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="364"/>
         <source>When pressing the power button</source>
         <translation>Güç düğmesine basarken</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="290"/>
         <source>Low Battery Notification</source>
         <translation>Düşük Pil Bildirimi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="351"/>
         <source>Auto suspend battery level</source>
         <translation>Pil seviyesini otomatik askıya al</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="314"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="313"/>
         <source>Monitor will suspend after</source>
         <translation>Ekranın askıya alınma süresi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="314"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="350"/>
         <source>Computer will suspend after</source>
         <translation>Bilgisayarın askıya alınma süresi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="296"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="313"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="365"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="370"/>
         <source>Lock screen after</source>
         <translation>Sonrasında ekranı kilitle</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="300"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Ekranı uyandırmak için parola gerekli</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="349"/>
         <source>Password is required to wake up the computer</source>
         <translation>Bilgisayarı uyandırmak için parola gerekli</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="303"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="345"/>
         <source>Decrease brightness</source>
         <translation>Parlaklığı azalt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="303"/>
         <source>Balanced</source>
         <translation>Dengeli</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="325"/>
         <source>High Performance</source>
         <translation>Yüksek Performans</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
         <source>Power Saver</source>
         <translation>Güç Tasarrufu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="347"/>
         <source>Power Plans</source>
         <translation>Güç Planları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
         <source>Power Saving Settings</source>
         <translation>Güç Tasarrufu Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="308"/>
         <source>Wakeup Settings</source>
         <translation>Uyandırma Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="392"/>
         <source>Battery low, please plug in</source>
         <translation>Düşük pil düzeyi, lütfen fişe takın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="394"/>
         <source>Battery critically low</source>
         <translation>Pil kritik derecede düşük</translation>
     </message>
@@ -5645,85 +5661,85 @@
 <context>
     <name>dccV20::sound::SoundModule</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="83"/>
         <source>Sound Effects</source>
         <translation>Ses Etkileri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="74"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="81"/>
         <source>Devices</source>
         <translation>Aygıtlar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="75"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="82"/>
         <source>Input</source>
         <translation>Giriş</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="84"/>
         <source>Output</source>
         <translation>Çıkış</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="86"/>
         <source>Left/Right Balance</source>
         <translation>Sol/Sağ Dengesi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="125"/>
         <source>Input Device</source>
         <translation>Giriş Cihazı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="130"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="228"/>
         <source>Automatic Noise Suppression</source>
         <translation>Otomatik Gürültü Bastırma</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="131"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="213"/>
         <source>Input Volume</source>
         <translation>Ses Girişi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="130"/>
         <source>Input Level</source>
         <translation>Giriş Seviyesi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="136"/>
         <source>Output Device</source>
         <translation>Çıkış Cihazı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="216"/>
         <source>Output Volume</source>
         <translation>Ses Çıkışı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="142"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="219"/>
         <source>Volume Boost</source>
         <translation>Ses Artışı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="148"/>
         <source>Output Devices</source>
         <translation>Çıkış Cihazları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="150"/>
         <source>Input Devices</source>
         <translation>Giriş Cihazları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="274"/>
         <source>Sound</source>
         <translation>Ses</translation>
     </message>
@@ -5915,7 +5931,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="54"/>
         <source>Union ID Sign In</source>
-        <translation>Union ID Giriş</translation>
+        <translation>Union Kimliği Giriş</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="66"/>
@@ -5946,7 +5962,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="37"/>
         <source>Union ID</source>
-        <translation>Union ID</translation>
+        <translation>Union Kimliği </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="99"/>
@@ -6216,40 +6232,47 @@
 <context>
     <name>dccV20::touchscreen::TouchscreenModule</name>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenmodule.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenmodule.cpp" line="88"/>
         <source>Touch Screen</source>
         <translation>Dokunmatik Ekran</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenmodule.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenmodule.cpp" line="154"/>
+        <source>Select your touch screen when connected or set it here.</source>
+        <translation>Bağlandığınızda dokunmatik ekranınızı seçin veya buradan ayarlayın.</translation>
     </message>
 </context>
 <context>
     <name>dccV20::touchscreen::TouchscreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="56"/>
         <source>Select your touch screen when connected or set it here.</source>
         <translation>Bağlandığınızda dokunmatik ekranınızı seçin veya buradan ayarlayın.</translation>
+        <extra-contents_path>/touchscreen/Select your touch screen when connected or set it here.</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="64"/>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="67"/>
         <source>Confirm</source>
         <translation>Onayla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="124"/>
         <source>Touch Screen - %1 (%2)</source>
         <translation>Dokunmatik Ekran - %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="189"/>
         <source>Touch Screen Settings</source>
         <translation>Dokunmatik Ekran Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
         <source>The settings of touch screen changed</source>
         <translation>Dokunmatik ekranın ayarları değişti</translation>
     </message>
@@ -6330,10 +6353,10 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="199"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="363"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="373"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="386"/>
         <source>Check Again</source>
         <translation>Tekrar Kontrol Et</translation>
     </message>
@@ -6345,109 +6368,110 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
         <source>Your system is up to date</source>
         <translation>Sisteminiz güncel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>Check for Updates</source>
         <translation>Güncellemeleri kontrol et</translation>
+        <extra-contents_path>/update/Check for Updates</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="305"/>
         <source>Checking for updates, please wait...</source>
         <translation>Güncellemeler denetleniyor, lütfen bekleyin...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="314"/>
         <source>Download and install updates</source>
         <translation>Güncellemeleri indir ve kur</translation>
         <extra-child_page>Updates</extra-child_page>
         <extra-contents_path>/update/Updates</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="451"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% indirildi (Duraklatmak için tıkla)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="452"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="453"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% indirildi (Sürdürmek için tıkla)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
         <source>Install updates</source>
         <translation>Güncellemeleri kur</translation>
         <extra-child_page>Updates</extra-child_page>
         <extra-contents_path>/update/Updates</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="354"/>
         <source>Updating, please wait...</source>
         <translation>Güncelleniyor, lütfen bekleyin...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="368"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>En yeni sistem kuruldu, etkin olması için yeniden başlat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Güncelleme başarısız oldu: yetersiz disk alanı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Bağımlılık sorunu, güncellemeler belirlenemedi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="392"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="393"/>
         <source>Backing up, please wait...</source>
         <translation>Yedekleniyor, lütfen bekleyin...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="398"/>
         <source>System backup failed</source>
         <translation>Sistem yedekleme başarısız</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="421"/>
         <source>%n application update(s) available</source>
         <translation><numerusform>%n uygulama güncellemesi(s) mevcut</numerusform><numerusform>%n uygulama güncellemesi(s) mevcut</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="425"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="426"/>
         <source>New system edition available</source>
         <translation>Yeni sistem sürümü mevcut</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="428"/>
         <source>New system edition and %n application update(s) available</source>
         <translation><numerusform>Yeni sistem sürümü ve %n uygulama güncelleme(leri) mevcut</numerusform><numerusform>Yeni sistem sürümü ve %n uygulama güncelleme(leri) mevcut</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="435"/>
         <source>Downloaded</source>
         <translation>İndirildi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="436"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="437"/>
         <source>Size: %1</source>
         <translation>Boyut: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="466"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Pil düzeyiniz %50 değerinin altında, lütfen devam etmek için fişe takın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="468"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Lütfen yeniden başlatmak için yeterli güç sağlayın ve makinenizi kapatmayın veya fişten çekmeyin</translation>
     </message>
@@ -6719,7 +6743,7 @@
         <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="126"/>
         <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="136"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Kip</translation>
     </message>
 </context>
 <context>
@@ -7541,13 +7565,13 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="86"/>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="122"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="85"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="121"/>
         <source>Details</source>
         <translation>Ayrıntılar</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="122"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="121"/>
         <source>Collapse</source>
         <translation>Daralt</translation>
     </message>

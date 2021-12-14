@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="el" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="el">
 <context>
     <name>dccV20::MainWindow</name>
     <message>
@@ -202,41 +202,48 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="176"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="291"/>
         <source>Create Account</source>
         <translation>Δημιουργία Λογαριασμού</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="279"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="328"/>
         <source>Auto Login</source>
         <translation>Αυτόματη Είσοδος</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="178"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="283"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="332"/>
         <source>Login Without Password</source>
         <translation>Σύνδεση Χωρίς Κωδικό Πρόσβασης</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="271"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="320"/>
         <source>Change Password</source>
         <translation>Αλλαγή Κωδικού Πρόσβασης</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="275"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="324"/>
         <source>Delete Account</source>
         <translation>Διαγραφή λογαριασμού</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="343"/>
+        <source>Fingerprint Password</source>
+        <translation>Κωδικός Αποτυπώματος</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="291"/>
         <source>New Account</source>
         <translation>Νέος Λογαριασμός</translation>
     </message>
@@ -438,6 +445,7 @@
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="51"/>
         <source>Fingerprint Password</source>
         <translation>Κωδικός Αποτυπώματος</translation>
+        <extra-contents_path>/accounts/Fingerprint Password</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="52"/>
@@ -765,7 +773,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="102"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Η φόρτωση πιστοποιητικού απέτυχε, μη δυνατή η διεκδίκηση πρόσβασης root</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="104"/>
@@ -848,7 +856,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="58"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="213"/>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Αίτηση Πρόσβασης Root</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="59"/>
@@ -879,7 +887,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="120"/>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>Δεν υπάρχει σύνδεση δικτύου</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="122"/>
@@ -1411,7 +1419,7 @@
     <name>dccV20::defapp::DefaultAppsModule</name>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="53"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="179"/>
         <source>Add Application</source>
         <translation>Προσθήκη Εφαρμογής</translation>
         <extra-child_page>Text</extra-child_page>
@@ -1424,57 +1432,57 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="166"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="200"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="215"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="231"/>
         <source>Webpage</source>
         <translation>Ιστοσελίδα</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="167"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="201"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="216"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="237"/>
         <source>Mail</source>
         <translation>Αλληλογραφία</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="168"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="202"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="217"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="233"/>
         <source>Text</source>
         <translation>Κείμενο</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="203"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="218"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="235"/>
         <source>Music</source>
         <translation>Μουσική</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="204"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="219"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="239"/>
         <source>Video</source>
         <translation>Βίντεο</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="241"/>
         <source>Picture</source>
         <translation>Εικόνα</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="206"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="243"/>
         <source>Terminal</source>
         <translation>Τερματικό</translation>
     </message>
@@ -1980,7 +1988,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="204"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="399"/>
         <source>Custom Shortcut</source>
         <translation>Προσαρμοσμένη Συντόμευση</translation>
         <extra-child_page>Shortcuts</extra-child_page>
@@ -2002,17 +2010,22 @@
         <translation>Χώρος εργασίας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="208"/>
+        <source>Assistive Tools</source>
+        <translation>Βοηθητικά Εργαλεία</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="214"/>
         <source>Add System Language</source>
         <translation>Προσθήκη Γλώσσας Συστήματος</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="215"/>
         <source>Language List</source>
         <translation>Λίστα Γλωσσών</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="270"/>
         <source>Keyboard and Language</source>
         <translation>Πληκτρολόγιο και Γλώσσα</translation>
     </message>
@@ -2067,22 +2080,24 @@
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="90"/>
         <source>Assistive Tools</source>
         <translation>Βοηθητικά Εργαλεία</translation>
+        <extra-child_page>Shortcuts</extra-child_page>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="107"/>
         <source>Custom Shortcut</source>
         <translation>Προσαρμοσμένη Συντόμευση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="140"/>
         <source>Restore Defaults</source>
         <translation>Ανάκτηση Προεπιλογών</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="179"/>
         <source>Shortcut</source>
         <translation>Συντόμευση</translation>
     </message>
@@ -2897,7 +2912,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="224"/>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation>Πρωτόκολλο</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="228"/>
@@ -4980,59 +4995,59 @@
         <translation>Γενικά</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="236"/>
         <source>Size</source>
         <translation>Μέγεθος</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="237"/>
         <source>Standard Font</source>
         <translation>Τυπική Γραμματοσειρά</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="238"/>
         <source>Monospaced Font</source>
         <translation>Γραμματοσειρά σταθερού πλάτους</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
         <source>Theme</source>
         <translation>Θέμα</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
         <source>Light</source>
         <translation>Ελαφριά</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="248"/>
         <source>Dark</source>
         <translation>Σκούρο</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="249"/>
         <source>Auto</source>
         <translation>Αυτόματο</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="250"/>
         <source>Accent Color</source>
         <translation>Χρώμα Ανάδειξης </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="251"/>
         <source>Window Effect</source>
         <translation>Εφέ Παραθύρου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="262"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="310"/>
         <source>Transparency</source>
         <translation>Διαφάνεια</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="263"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="311"/>
         <source>Window Minimize Effect</source>
         <translation>Εφέ Σμίκρυνσης Παραθύρου</translation>
     </message>
@@ -5179,7 +5194,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="210"/>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ρυθμίσεις Αφύπνισης</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
@@ -5217,137 +5232,138 @@
         <translation>Στην πρίζα</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="280"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="343"/>
         <source>Auto power saving on low battery</source>
         <translation>Αυτόματη εξοικονόμηση ενέργειας όταν η μπαταρία είναι χαμηλή</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="281"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="341"/>
         <source>Auto power saving on battery</source>
         <translation>Αυτόματη εξοικονόμηση ενέργειας όταν χρησίμοποιείται η μπαταρία</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="282"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="353"/>
         <source>Display remaining using and charging time</source>
         <translation>Εμφάνιση διαθέσιμου χρόνου και χρόνου φόρτισης</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="283"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="355"/>
         <source>Maximum capacity</source>
         <translation>Μέγιστη χωρητικότητα</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="283"/>
         <source>Battery</source>
         <translation>Μπαταρία</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="286"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="362"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="367"/>
         <source>When the lid is closed</source>
         <translation>Όταν το καπάκι κλείνει</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="289"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="312"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="359"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="360"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="364"/>
         <source>When pressing the power button</source>
         <translation>Όταν πατηθεί το κουμπί τροφοδοσίας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="290"/>
         <source>Low Battery Notification</source>
         <translation>Ειδοποίηση Χαμηλής Μπαταρίας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="351"/>
         <source>Auto suspend battery level</source>
         <translation>Αυτόματη αναστολή λειτουργίας βάσει επιπέδου μπαταρίας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="314"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="313"/>
         <source>Monitor will suspend after</source>
         <translation>Η οθόνη θα μπει σε κατάσταση αναστολής μετά από</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="314"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="350"/>
         <source>Computer will suspend after</source>
         <translation>Ο υπολογιστής θα μπει σε κατάσταση αναστολής μετά από</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="296"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="313"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="365"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="370"/>
         <source>Lock screen after</source>
         <translation>Κλείδωμα οθόνης μετά από</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="300"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Απαιτείται κωδικός πρόσβασης για να βγει η οθόνη από την κατάσταση αναστολής λειτουργίας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="349"/>
         <source>Password is required to wake up the computer</source>
         <translation>Απαιτείται κωδικός πρόσβασης για να βγει ο υπολογιστής από την κατάσταση αναστολής λειτουργίας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="303"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="345"/>
         <source>Decrease brightness</source>
         <translation>Μείωση φωτεινότητας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="303"/>
         <source>Balanced</source>
         <translation>Ισορροπημένο</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="325"/>
         <source>High Performance</source>
         <translation>Υψηλής Επίδοσης</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
         <source>Power Saver</source>
         <translation>Εξοικονόμηση Ενέργειας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="347"/>
         <source>Power Plans</source>
         <translation>Σχέδια Ενέργειας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
         <source>Power Saving Settings</source>
         <translation>Ρυθμίσεις Εξοικονόμησης Ενέργειας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="308"/>
         <source>Wakeup Settings</source>
         <translation>Ρυθμίσεις Αφύπνισης</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="392"/>
         <source>Battery low, please plug in</source>
         <translation>Χαμηλή μπαταρία, παρακαλώ συνδέστε</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="394"/>
         <source>Battery critically low</source>
         <translation>Κρίσιμα χαμηλή μπαταρία</translation>
     </message>
@@ -5645,85 +5661,85 @@
 <context>
     <name>dccV20::sound::SoundModule</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="83"/>
         <source>Sound Effects</source>
         <translation>Ηχητικά Εφέ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="74"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="81"/>
         <source>Devices</source>
         <translation>Συσκευές</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="75"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="82"/>
         <source>Input</source>
         <translation>Είσοδος</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="84"/>
         <source>Output</source>
         <translation>Έξοδος</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="86"/>
         <source>Left/Right Balance</source>
         <translation>Αριστερή/Δεξιά Ισορροπία</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="125"/>
         <source>Input Device</source>
         <translation>Συσκευή Εισόδου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="130"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="228"/>
         <source>Automatic Noise Suppression</source>
         <translation>Αυτόματη Κατάπνιξη Θορύβου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="131"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="213"/>
         <source>Input Volume</source>
         <translation>Ένταση Εισόδου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="130"/>
         <source>Input Level</source>
         <translation>Επίπεδο Εισόδου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="136"/>
         <source>Output Device</source>
         <translation>Συσκευή Εξόδου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="216"/>
         <source>Output Volume</source>
         <translation>Όγκος εξόδου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="142"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="219"/>
         <source>Volume Boost</source>
         <translation>Ενίσχυση Ήχου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="148"/>
         <source>Output Devices</source>
         <translation>Συσκεύες Εξόδου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="150"/>
         <source>Input Devices</source>
         <translation>Συσκευές Εισόδου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="274"/>
         <source>Sound</source>
         <translation>Ήχος</translation>
     </message>
@@ -5821,7 +5837,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="50"/>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Η λειτουργία για το παρών δεν είναι διαθέσιμη, παρακαλώ ενεργοποιήστε πρώτα το σύστημα σας </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
@@ -6216,40 +6232,47 @@
 <context>
     <name>dccV20::touchscreen::TouchscreenModule</name>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenmodule.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenmodule.cpp" line="88"/>
         <source>Touch Screen</source>
         <translation>Οθόνη Αφής</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenmodule.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenmodule.cpp" line="154"/>
+        <source>Select your touch screen when connected or set it here.</source>
+        <translation>Επιλέξτε την οθόνη αφής σας όταν συνδεθεί ή ορίστε την εδώ.</translation>
     </message>
 </context>
 <context>
     <name>dccV20::touchscreen::TouchscreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="56"/>
         <source>Select your touch screen when connected or set it here.</source>
         <translation>Επιλέξτε την οθόνη αφής σας όταν συνδεθεί ή ορίστε την εδώ.</translation>
+        <extra-contents_path>/touchscreen/Select your touch screen when connected or set it here.</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="64"/>
         <source>Cancel</source>
         <translation>Ακύρωση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="67"/>
         <source>Confirm</source>
         <translation>Επιβεβαίωση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="124"/>
         <source>Touch Screen - %1 (%2)</source>
         <translation>Οθόνη Αφής - %1(%2)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="189"/>
         <source>Touch Screen Settings</source>
         <translation>Ρυθμίσεις Οθόνης Αφής</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
         <source>The settings of touch screen changed</source>
         <translation>Οι ρυθμίσεις της οθόνης αφής άλλαξαν</translation>
     </message>
@@ -6330,10 +6353,10 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="199"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="363"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="373"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="386"/>
         <source>Check Again</source>
         <translation>&apos;Ελεγχος Πάλι</translation>
     </message>
@@ -6345,109 +6368,110 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
         <source>Your system is up to date</source>
         <translation>Το σύστημά σας είναι ενημερωμένο</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
         <source>Check for Updates</source>
         <translation>Έλεγχος για Ενημερώσεις</translation>
+        <extra-contents_path>/update/Check for Updates</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="305"/>
         <source>Checking for updates, please wait...</source>
         <translation>Έλεγχος για ενημερώσεις, παρακαλώ περιμένετε...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="314"/>
         <source>Download and install updates</source>
         <translation>Κατέβασμα και εγκατάσταση ενημερώσεων</translation>
         <extra-child_page>Updates</extra-child_page>
         <extra-contents_path>/update/Updates</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="451"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% κατέβηκαν (Πατήστε για παύση)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="452"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="453"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% κατέβηκαν (Πατήστε για συνέχιση)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
         <source>Install updates</source>
         <translation>Εγκατάσταση ενημερώσεων</translation>
         <extra-child_page>Updates</extra-child_page>
         <extra-contents_path>/update/Updates</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="354"/>
         <source>Updating, please wait...</source>
         <translation>Ενημέρωση, παρακαλούμε περιμένετε...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="368"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Η τελευταία έκδοση συστήματος εγκαταστάθηκε, επανεκκινήστε για να γίνει εφαρμογή των αλλαγών</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Αποτυχία αναβάθμισης: μη επαρκής χωρητικότητα δίσκου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Σφάλμα εξαρτήσεων (dependency), αποτυχία ανίχνευσης ενημερώσεων</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="392"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="393"/>
         <source>Backing up, please wait...</source>
         <translation>Δημιουργία αντιγράφου ασφαλείας, παρακαλώ περιμένετε...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="398"/>
         <source>System backup failed</source>
         <translation>Η δημιουργία αντιγράφου ασφαλείας συστήματος απέτυχε</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="421"/>
         <source>%n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="425"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="426"/>
         <source>New system edition available</source>
         <translation>Νέα έκδοση συστήματος διαθέσιμη</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="428"/>
         <source>New system edition and %n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="435"/>
         <source>Downloaded</source>
         <translation>Κατέβηκε</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="436"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="437"/>
         <source>Size: %1</source>
         <translation>Μέγεθος: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="466"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Η μπαταρία σας έχει λιγότερο από 50%, παρακαλώ συνδέστε την πρίζα για να συνεχίσετε</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="468"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Παρακαλώ εξασφαλίστε επαρκή ενέργεια για επανεκκίνηση, και μην απενεργοποιήσετε ή αποσυνδέσετε την συσκευή σας απο την πρίζα</translation>
     </message>
@@ -6719,7 +6743,7 @@
         <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="126"/>
         <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="136"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Λειτουργία</translation>
     </message>
 </context>
 <context>
@@ -7541,13 +7565,13 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="86"/>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="122"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="85"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="121"/>
         <source>Details</source>
         <translation>Λεπτομέριες</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="122"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="121"/>
         <source>Collapse</source>
         <translation>Σύμπτυξη</translation>
     </message>
