@@ -120,7 +120,7 @@ private:
     void initResizeDesktop();
     void setItemIcon();
     void setResizeDesktopVisible(bool visible);
-    void resolutionWidgetChanged();
+    void updateResizeDesktopVisible();
 
 private:
     QHBoxLayout *m_resolutionLayout;

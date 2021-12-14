@@ -338,7 +338,7 @@ void ResolutionWidget::OnAvailableFillModesChanged(const QStringList &lstFillMod
     }
     m_resizeDesktopCombox->setDefaultRoleIcon();
 
-    resolutionWidgetChanged();
+    updateResizeDesktopVisible();
 }
 
 void ResolutionWidget::setResizeDesktopVisible(bool visible) 
@@ -350,17 +350,16 @@ void ResolutionWidget::setResizeDesktopVisible(bool visible)
     if (!visible) {
         DConfigWatcher::instance()->erase(DConfigWatcher::display,"desktopDisplay", m_resizeDesktopItem);
         setMinimumHeight(48);
-        m_resizeDesktopItem->setVisible(false);
-        Q_EMIT requestResizeDesktopVisibleChanged(false);
     } else {
         setMinimumHeight(48*2);
-        m_resizeDesktopItem->setVisible(true);
         DConfigWatcher::instance()->bind(DConfigWatcher::display,"desktopDisplay", m_resizeDesktopItem);
-        Q_EMIT requestResizeDesktopVisibleChanged(true);
     }
+
+    m_resizeDesktopItem->setVisible(visible);
+    Q_EMIT requestResizeDesktopVisibleChanged(visible);
 }
 
-void ResolutionWidget::resolutionWidgetChanged()
+void ResolutionWidget::updateResizeDesktopVisible()
 {
     //推荐分辨率下隐藏铺满方式
     if (m_resolutionCombox->currentText().contains(tr("Recommended"))) {
@@ -471,7 +470,7 @@ void ResolutionWidget::initResolution()
     }
 
     //推荐分辨率下隐藏铺满方式并改变高度
-    resolutionWidgetChanged();
+    updateResizeDesktopVisible();
 
     connect(m_resolutionCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
         auto item = m_resoItemModel->item(idx);
@@ -480,7 +479,7 @@ void ResolutionWidget::initResolution()
         auto h = item->data(HeightRole).toInt();
 
         //推荐分辨率下隐藏铺满方式并改变高度
-        resolutionWidgetChanged();
+        updateResizeDesktopVisible();
 
         // 选中分辨率和当前分别率相同
         if (m_monitor->currentMode().width() == w && m_monitor->currentMode().height() == h) {
