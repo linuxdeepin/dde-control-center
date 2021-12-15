@@ -209,7 +209,7 @@ void NativeInfoWidget::initWidget()
     m_authorized->setValue(tr("To be activated"));
     m_authorized->setValueForegroundRole(QColor(255, 0, 0));
     m_authorized->setButtonText(tr("Activate"));
-    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler || DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC) {
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC) {
         m_authorized->setVisable(false);
     } else {
         m_authorized->setVisable(true);
