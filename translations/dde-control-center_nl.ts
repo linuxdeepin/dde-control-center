@@ -48,8 +48,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="943"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="945"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -70,8 +70,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="955"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="957"/>
         <source>Drawing Tablet</source>
         <translation>Tekentablet</translation>
     </message>
@@ -82,8 +82,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="984"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="986"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="990"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="992"/>
         <source>Updates</source>
         <translation>Updates</translation>
     </message>
@@ -94,8 +94,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="974"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="978"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="980"/>
         <source>General Settings</source>
         <translation>Algemene instellingen</translation>
     </message>
@@ -110,8 +110,8 @@
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="967"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="969"/>
         <source>Cloud Sync</source>
         <translation>Cloudsynchronisatie</translation>
     </message>
@@ -3610,114 +3610,114 @@
 <context>
     <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="75"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="364"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="391"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="396"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="408"/>
         <source>Check Again</source>
         <translation>Opnieuw controleren</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
         <source>Restart the computer to use the system and the applications properly</source>
         <translation>Start de computer opnieuw op om de wijzigingen toe te passen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="97"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Geen netwerkverbinding - maak verbinding en probeer het opnieuw</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="106"/>
         <source>Your system is not authorized, please activate first</source>
         <translation>Je systeem is niet geactiveerd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="124"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation>Het bijwerken kan lang duren. Sluit het systeem niet af en start niet opnieuw op.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="139"/>
         <source>Updates Available</source>
         <translation>Updates beschikbaar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="148"/>
         <source>Current Edition</source>
         <translation>Huidige versie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="161"/>
         <source>Updating...</source>
         <translation>Bezig met bijwerken…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="167"/>
         <source>Update All</source>
         <translation>Alles bijwerken</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="325"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="633"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="644"/>
         <source>Last checking time: </source>
         <translation>Recenste controle:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="383"/>
         <source>Your system is up to date</source>
         <translation>Je systeem is actueel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="335"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="386"/>
         <source>Check for Updates</source>
         <translation>Controleren op updates</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="356"/>
         <source>Checking for updates, please wait...</source>
         <translation>Bezig met controleren op updates…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="390"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Het nieuwste systeem is geïnstalleerd - herstart om de wijzigingen toe te passen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="401"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Bijwerken mislukt: onvoldoende vrije schijfruimte</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="396"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="407"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Bijwerken mislukt: afhankelijkheidsfout</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="428"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="439"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% gedownload (klik om te pauzeren)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="430"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="441"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% gedownload (klik om verder te gaan)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="443"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="454"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Je accuniveau is lager dan 50% - sluit de netstroomadapter aan om door te gaan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="456"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Zorg er voor dat je voldoende vermogen hebt om opnieuw op te starten. Schakel je computer niet uit en koppel de netstroomadapter niet af.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="706"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="717"/>
         <source>Size</source>
         <translation>Grootte</translation>
     </message>
@@ -4999,28 +4999,28 @@ Als je dit alles gelezen hebt en hiermee doorgaat (we verzamelen geen informatie
         <translation>Downloaden en installeren</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="107"/>
         <source>Learn more</source>
         <translation>Meer informatie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="150"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="325"/>
         <source>Downloading </source>
         <translation>Bezig met downloaden…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="154"/>
         <source>Waiting </source>
         <translation>Bezig met wachten…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="157"/>
         <source>Installing </source>
         <translation>Bezig met installeren…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="160"/>
         <source>Backing up </source>
         <translation>Bezig met back-uppen…</translation>
     </message>
