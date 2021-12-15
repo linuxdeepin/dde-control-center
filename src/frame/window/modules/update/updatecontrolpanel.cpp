@@ -91,6 +91,7 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     m_detailLabel->setTextFormat(Qt::RichText);
     m_detailLabel->setAlignment(Qt::AlignJustify | Qt::AlignLeft);
     m_detailLabel->setWordWrap(true);
+    m_detailLabel->setOpenExternalLinks(true);
 
     QHBoxLayout *dateLay = new QHBoxLayout();
     DFontSizeManager::instance()->bind(m_dateLabel, DFontSizeManager::T8);
