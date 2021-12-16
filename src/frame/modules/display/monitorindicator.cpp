@@ -31,10 +31,8 @@ using namespace dcc;
 using namespace dcc::display;
 
 MonitorIndicator::MonitorIndicator(QWidget *parent)
-    : QFrame(nullptr)
+    : QFrame(parent)
 {
-    Q_UNUSED(parent)
-
     setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
     setAttribute(Qt::WA_TranslucentBackground);
 }
