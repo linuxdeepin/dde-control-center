@@ -39,8 +39,13 @@ namespace dcc {
   }
 }
 
+DWIDGET_BEGIN_NAMESPACE
+class DIconButton;
+DWIDGET_END_NAMESPACE
+
 using namespace NetworkManager;
 using namespace dcc::widgets;
+DWIDGET_USE_NAMESPACE
 
 class QComboBox;
 class ActionButton;
@@ -121,9 +126,8 @@ private:
     QWidget *m_headerWidget;
     DLabel *m_titleLabel;
 
-    ActionButton *m_newIpButton;
-    QLabel *m_pSpaceLabel;
-    ActionButton *m_deleteButton;
+    DIconButton *m_newIpButton;
+    DIconButton *m_deleteButton;
 };
 
 class IPV4InputSection : public IPInputSection

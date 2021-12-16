@@ -71,29 +71,4 @@ private:
     SettingsHead *m_head;
 };
 
-class ActionButton : public QWidget
-{
-    Q_OBJECT
-
-public:
-    enum ActionType { Add = 0, Delete };
-
-Q_SIGNALS:
-    void clicked();
-
-public:
-    explicit ActionButton(ActionType type, QWidget *parent);
-    ~ActionButton() override;
-
-protected:
-    void paintEvent(QPaintEvent *event) override;
-    bool eventFilter(QObject *object, QEvent *event) override;
-
-    QColor backgroundColor();
-
-private:
-    ActionType m_actionType;
-    bool m_isMouseEnter;
-};
-
 #endif /* ABSTRACTSECTION_H */

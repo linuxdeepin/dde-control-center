@@ -24,6 +24,7 @@
 
 #include <DSpinBox>
 #include <DPushButton>
+#include <DIconButton>
 
 #include <QDBusMetaType>
 #include <QComboBox>
@@ -369,9 +370,8 @@ IPInputSection::IPInputSection(IpAddress ipAddress, QFrame *parent)
     , m_ipAddress(ipAddress)
     , m_headerWidget(new QWidget(this))
     , m_titleLabel(new DLabel(this))
-    , m_newIpButton(new ActionButton(ActionButton::Add, this))
-    , m_pSpaceLabel(new QLabel(this))
-    , m_deleteButton(new ActionButton(ActionButton::Delete, this))
+    , m_newIpButton(new DIconButton(DStyle::SP_AddButton, this))
+    , m_deleteButton(new DIconButton(DStyle::SP_DeleteButton, this))
 {
     initUi();
     initConnection();
@@ -395,23 +395,22 @@ void IPInputSection::setAddItemVisible(bool visible)
 void IPInputSection::setDeleteItemVisible(bool visible)
 {
     m_deleteButton->setVisible(visible);
-    m_pSpaceLabel->setVisible(visible);
 }
 
 void IPInputSection::initUi()
 {
     m_mainLayout->setContentsMargins(0, 0, 0, 0);
     // 添加删除按钮
-    m_deleteButton->setFixedSize(20, 20);
+    m_deleteButton->setFixedSize(QSize(19, 19));
+    m_deleteButton->setIconSize(QSize(17, 17));
 
-    m_pSpaceLabel->setFixedWidth(10);
-    m_newIpButton->setFixedSize(20, 20);
+    m_newIpButton->setFixedSize(QSize(19, 19));
+    m_newIpButton->setIconSize(QSize(17, 17));
     QHBoxLayout *headerLayout = new QHBoxLayout(m_headerWidget);
     headerLayout->setContentsMargins(10, 10, 10, 0);
     headerLayout->addWidget(m_titleLabel);
     headerLayout->addStretch();
     headerLayout->addWidget(m_newIpButton);
-    headerLayout->addWidget(m_pSpaceLabel);
     headerLayout->addWidget(m_deleteButton);
 
     m_lineIpAddress->setTitle(tr("IP Address"));
@@ -435,11 +434,11 @@ void IPInputSection::initConnection()
             m_lineIpAddress->dTextEdit()->setAlert(false);
     });
 
-    connect(m_newIpButton, &ActionButton::clicked, this, [ this ] {
+    connect(m_newIpButton, &DIconButton::clicked, this, [ this ] {
         Q_EMIT editClicked();
         Q_EMIT requestAdd(this);
     });
-    connect(m_deleteButton, &ActionButton::clicked, this, [ this ] {
+    connect(m_deleteButton, &DIconButton::clicked, this, [ this ] {
         Q_EMIT editClicked();
         Q_EMIT requestDelete(this);
     });
