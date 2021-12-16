@@ -621,6 +621,7 @@ void WirelessItem::expandWidget(ExpandWidget type)
         m_stackWidget->setCurrentIndex(type);
         m_passwdEdit->lineEdit()->setFocus();
         checkInputValid();
+        m_passwdEdit->setAlert(!m_passwdEdit->text().isEmpty());
         break;
     default:
         break;
@@ -779,6 +780,6 @@ void WirelessItem::checkInputValid()
 {
     bool isValid = m_wirelessConnect->passwordIsValid(m_passwdEdit->text());
 
-    m_passwdEdit->setAlert(!isValid);
+    m_passwdEdit->setAlert(false);
     m_connectButton->setEnabled(isValid);
 }
