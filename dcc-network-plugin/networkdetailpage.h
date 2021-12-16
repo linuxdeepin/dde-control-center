@@ -28,10 +28,6 @@
 
 #include <widgets/contentwidget.h>
 
-#include <networkmanagerqt/ipaddress.h>
-
-using namespace NetworkManager;
-
 class NetworkDetailPage : public dcc::ContentWidget
 {
     Q_OBJECT

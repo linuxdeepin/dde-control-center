@@ -27,28 +27,13 @@
 #include "window/utils.h"
 
 #include <QVBoxLayout>
-#include <QDebug>
-#include <QJsonArray>
-#include <DFontSizeManager>
-#include <QDBusInterface>
-#include <QDBusPendingCallWatcher>
-#include <QDBusPendingCall>
-#include <QDBusPendingReply>
 
 #include <widgets/settingshead.h>
 #include <widgets/settingsgroup.h>
-#include <widgets/settingsheaderitem.h>
-#include <widgets/translucentframe.h>
 #include <widgets/titlevalueitem.h>
 
 #include <networkcontroller.h>
 #include <networkdetails.h>
-
-#include <networkmanagerqt/settings.h>
-#include <networkmanagerqt/connection.h>
-#include <networkmanagerqt/connectionsettings.h>
-#include <networkmanagerqt/ipv6setting.h>
-#include <com_deepin_daemon_network.h>
 
 using namespace dcc::widgets;
 using namespace dde::network;
@@ -56,13 +41,14 @@ using namespace dde::network;
 NetworkDetailPage::NetworkDetailPage(QWidget *parent)
     : ContentWidget(parent)
 {
-    m_groupsLayout = new QVBoxLayout;
+    QWidget *mainWidget = new TranslucentFrame;
+
+    m_groupsLayout = new QVBoxLayout(mainWidget);
     m_groupsLayout->setSpacing(0);
     m_groupsLayout->setMargin(0);
     m_groupsLayout->setContentsMargins(ThirdPageContentsMargins);
     m_groupsLayout->setAlignment(Qt::AlignTop);
 
-    QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(m_groupsLayout);
 
     setTitle(tr("Network Details"));
@@ -104,7 +90,7 @@ void NetworkDetailPage::onUpdateNetworkInfo()
         head->setEditEnable(false);
         head->setContentsMargins(10, 0, 0, 0);
         head->setTitle(detail->name());
-        itemGroup->appendItem(head);
+        itemGroup->appendItem(head, SettingsGroup::BackgroundStyle::NoneBackground);
         QList<QPair<QString, QString>> items = detail->items();
         for (const QPair<QString, QString> &item : items)
             appendInfo(itemGroup, item.first, item.second);
