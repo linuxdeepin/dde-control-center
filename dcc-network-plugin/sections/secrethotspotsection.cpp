@@ -41,7 +41,7 @@ static const QList<WirelessSecuritySetting::KeyMgmt> KeyMgmtList {
 SecretHotspotSection::SecretHotspotSection(WirelessSecuritySetting::Ptr wsSeting, QFrame *parent)
     : AbstractSection(parent)
     , m_keyMgmtChooser(new ComboxWidget(this))
-    , m_passwdEdit(new LineEditWidget(true, this))
+    , m_passwdEdit(new LineEditWidget(true))
     , m_currentKeyMgmt(WirelessSecuritySetting::KeyMgmt::WpaNone)
     , m_wsSetting(wsSeting)
 {
@@ -60,6 +60,7 @@ SecretHotspotSection::SecretHotspotSection(WirelessSecuritySetting::Ptr wsSeting
 
 SecretHotspotSection::~SecretHotspotSection()
 {
+    delete m_passwdEdit;
 }
 
 bool SecretHotspotSection::allInputValid()
