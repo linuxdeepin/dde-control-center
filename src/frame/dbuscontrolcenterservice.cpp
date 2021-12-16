@@ -97,7 +97,7 @@ void DBusControlCenterService::exitProc()
 {
     pid_t pid = getpid();
     qDebug() << "exit pid:" << pid;
-    exit(0);
+    QCoreApplication::quit();
 }
 
 void DBusControlCenterService::Hide()
@@ -200,7 +200,7 @@ DBusControlCenterGrandSearchService::DBusControlCenterGrandSearchService(MainWin
     connect(m_autoExitTimer, &QTimer::timeout, this, [=]() {
         //当主界面show出来之后不再执行自动退出
         if(!this->parent()->isVisible())
-            exit(0);
+            QCoreApplication::quit();
     });
     m_autoExitTimer->start();
 }
