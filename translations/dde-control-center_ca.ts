@@ -4907,6 +4907,14 @@ Si accepteu aquesta declaració i registreu la vostra cara (no recopilarem la vo
     </message>
 </context>
 <context>
+    <name>dcc::update::UnknownUpdateItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/update/unknownupdateitem.cpp" line="41"/>
+        <source>Release date: </source>
+        <translation>Data de publicació:</translation>
+    </message>
+</context>
+<context>
     <name>dcc::update::UpdateItem</name>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="85"/>
@@ -4923,32 +4931,32 @@ Si accepteu aquesta declaració i registreu la vostra cara (no recopilarem la vo
 <context>
     <name>dcc::update::UpdateSettingItem</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="155"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>S&apos;ha instal·lat el sistema més nou. Reinicieu-lo perquè els canvis facin efecte.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="160"/>
         <source>Waiting</source>
         <translation>S&apos;espera</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="167"/>
         <source>Backing up</source>
         <translation>Còpia de seguetat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="178"/>
         <source>System backup failed</source>
         <translation>Ha fallat la còpia de seguretat.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="210"/>
         <source>Release date: </source>
         <translation>Data de publicació:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
         <source>Version</source>
         <translation>Versió</translation>
     </message>
@@ -4994,35 +5002,35 @@ Si accepteu aquesta declaració i registreu la vostra cara (no recopilarem la vo
 <context>
     <name>dcc::update::updateControlPanel</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="43"/>
-        <source>Download and install</source>
-        <translation>Baixa-les i instal·la-les</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="107"/>
-        <source>Learn more</source>
-        <translation>Més informació</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
         <source>Downloading </source>
         <translation>Es baixa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="60"/>
         <source>Waiting </source>
         <translation>S&apos;espera</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="63"/>
         <source>Installing </source>
         <translation>S&apos;instal·la</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="66"/>
         <source>Backing up </source>
         <translation>Còpia de seguetat</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <source>Download and install</source>
+        <translation>Baixa-les i instal·la-les</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <source>Learn more</source>
+        <translation>Més informació</translation>
     </message>
 </context>
 <context>

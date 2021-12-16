@@ -4906,6 +4906,14 @@ Si acepta esta declaración e inscribe su rostro (no recopilaremos su informaci�
     </message>
 </context>
 <context>
+    <name>dcc::update::UnknownUpdateItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/update/unknownupdateitem.cpp" line="41"/>
+        <source>Release date: </source>
+        <translation>Fecha de publicación: </translation>
+    </message>
+</context>
+<context>
     <name>dcc::update::UpdateItem</name>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="85"/>
@@ -4922,32 +4930,32 @@ Si acepta esta declaración e inscribe su rostro (no recopilaremos su informaci�
 <context>
     <name>dcc::update::UpdateSettingItem</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="155"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Ha instalado la última versión, reinicie para aplicar los cambios</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="160"/>
         <source>Waiting</source>
         <translation>Esperando</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="167"/>
         <source>Backing up</source>
         <translation>Copia de seguridad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="178"/>
         <source>System backup failed</source>
         <translation>Copia de seguridad del sistema fallida</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="210"/>
         <source>Release date: </source>
         <translation>Fecha de publicación: </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
         <source>Version</source>
         <translation>Versión</translation>
     </message>
@@ -4993,35 +5001,35 @@ Si acepta esta declaración e inscribe su rostro (no recopilaremos su informaci�
 <context>
     <name>dcc::update::updateControlPanel</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="43"/>
-        <source>Download and install</source>
-        <translation>Descargar e instalar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="107"/>
-        <source>Learn more</source>
-        <translation>Más información</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
         <source>Downloading </source>
         <translation>Descargando</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="60"/>
         <source>Waiting </source>
         <translation>Esperando</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="63"/>
         <source>Installing </source>
         <translation>Instalando</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="66"/>
         <source>Backing up </source>
         <translation>Copia de seguridad </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <source>Download and install</source>
+        <translation>Descargar e instalar</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <source>Learn more</source>
+        <translation>Más información</translation>
     </message>
 </context>
 <context>

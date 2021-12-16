@@ -4896,6 +4896,14 @@ If you agree to this statement and enroll your face (we will not collect your fa
     </message>
 </context>
 <context>
+    <name>dcc::update::UnknownUpdateItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/update/unknownupdateitem.cpp" line="41"/>
+        <source>Release date: </source>
+        <translation>Yayın tarihi:</translation>
+    </message>
+</context>
+<context>
     <name>dcc::update::UpdateItem</name>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="85"/>
@@ -4912,32 +4920,32 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::update::UpdateSettingItem</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="155"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>En yeni sistem kuruldu, etkin olması için yeniden başlat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="160"/>
         <source>Waiting</source>
         <translation>Bekliyor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="167"/>
         <source>Backing up</source>
         <translation>Yedekleme</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="178"/>
         <source>System backup failed</source>
         <translation>Sistem yedekleme başarısız</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="210"/>
         <source>Release date: </source>
         <translation>Yayın tarihi:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
         <source>Version</source>
         <translation>Sürüm</translation>
     </message>
@@ -4983,35 +4991,35 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::update::updateControlPanel</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="43"/>
-        <source>Download and install</source>
-        <translation>İndir ve yükle</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="107"/>
-        <source>Learn more</source>
-        <translation>Daha fazla bilgi edin</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
         <source>Downloading </source>
         <translation>İndiriliyor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="60"/>
         <source>Waiting </source>
         <translation>Bekliyor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="63"/>
         <source>Installing </source>
         <translation>Yükleniyor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="66"/>
         <source>Backing up </source>
         <translation>Yedekleme</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <source>Download and install</source>
+        <translation>İndir ve yükle</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <source>Learn more</source>
+        <translation>Daha fazla bilgi edin</translation>
     </message>
 </context>
 <context>

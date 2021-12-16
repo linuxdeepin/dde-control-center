@@ -4907,6 +4907,14 @@ Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (nuk do të grumbullo
     </message>
 </context>
 <context>
+    <name>dcc::update::UnknownUpdateItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/update/unknownupdateitem.cpp" line="41"/>
+        <source>Release date: </source>
+        <translation>Datë hedhjeje në qarkullim: </translation>
+    </message>
+</context>
+<context>
     <name>dcc::update::UpdateItem</name>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="85"/>
@@ -4923,32 +4931,32 @@ Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (nuk do të grumbullo
 <context>
     <name>dcc::update::UpdateSettingItem</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="155"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Sistemi më i ri u instalua, riniseni, që të vihet në punë</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="160"/>
         <source>Waiting</source>
         <translation>Po pritet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="167"/>
         <source>Backing up</source>
         <translation>Po kryhet kopjeruajtje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="178"/>
         <source>System backup failed</source>
         <translation>Kopjeruajtja e sistemit dështoi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="210"/>
         <source>Release date: </source>
         <translation>Datë hedhjeje në qarkullim: </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
         <source>Version</source>
         <translation>Version</translation>
     </message>
@@ -4994,35 +5002,35 @@ Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (nuk do të grumbullo
 <context>
     <name>dcc::update::updateControlPanel</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="43"/>
-        <source>Download and install</source>
-        <translation>Shkarkojeni dhe instalojeni</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="107"/>
-        <source>Learn more</source>
-        <translation>Mësoni më tepër</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
         <source>Downloading </source>
         <translation>Po shkarkohet </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="60"/>
         <source>Waiting </source>
         <translation>Po pritet </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="63"/>
         <source>Installing </source>
         <translation>Po instalohet </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="66"/>
         <source>Backing up </source>
         <translation>Po kryhet kopjeruajtje </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <source>Download and install</source>
+        <translation>Shkarkojeni dhe instalojeni</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <source>Learn more</source>
+        <translation>Mësoni më tepër</translation>
     </message>
 </context>
 <context>
