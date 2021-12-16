@@ -166,8 +166,10 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
     Q_UNUSED(exitCode)
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
                                                                                       m_newPasswordEdit->lineEdit()->text());
-    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler ? exitCode != 0 : errorTxt.contains("password unchanged")) {
-        if (DSysInfo::uosEditionType() == DSysInfo::UosEuler ? errorTxt.startsWith("Current password: Current Password: passwd:", Qt::CaseInsensitive) : !errorTxt.contains("password right", Qt::CaseInsensitive)) {
+    qDebug() << "exit code:" << exitCode << "error text:" << errorTxt << "error type:" << error
+            << "error tips:" << PwqualityManager::instance()->getErrorTips(error);
+    if (exitCode != 0) {
+        if (errorTxt.startsWith("Current password: Current Password: passwd:", Qt::CaseInsensitive)) {
             m_oldPasswordEdit->setAlert(true);
             m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
             return;
