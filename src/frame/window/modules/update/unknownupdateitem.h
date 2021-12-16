@@ -12,8 +12,8 @@ class UnknownUpdateItem: public UpdateSettingItem
     Q_OBJECT
 public:
     explicit UnknownUpdateItem(QWidget *parent = nullptr);
-
     void init();
+    void setData(UpdateItemInfo *updateItemInfo) override;
 
 };
 }

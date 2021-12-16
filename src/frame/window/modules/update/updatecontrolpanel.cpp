@@ -26,102 +26,8 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     , m_progressType(UpdateDProgressType::InvalidType)
     , m_currentValue(0)
 {
-    QVBoxLayout *titleLay = new QVBoxLayout();
-    m_titleLable->setForegroundRole(DPalette::TextTitle);
-    m_titleLable->setWordWrap(true);
-    DFontSizeManager::instance()->bind(m_titleLable, DFontSizeManager::T6, QFont::DemiBold);
-    titleLay->addWidget(m_titleLable, 0, Qt::AlignTop);
-
-    DFontSizeManager::instance()->bind(m_versionLabel, DFontSizeManager::T8);
-    m_versionLabel->setForegroundRole(DPalette::TextTitle);
-    titleLay->addWidget(m_versionLabel);
-    QHBoxLayout *hlay = new QHBoxLayout();
-    hlay->addLayout(titleLay);
-
-    QVBoxLayout *buttonLay = new QVBoxLayout();
-    buttonLay->setSpacing(0);
-    m_updateButton->setText(tr("Download and install"));
-    m_updateButton->setForegroundRole(DPalette::Button);
-    DFontSizeManager::instance()->bind(m_updateButton, DFontSizeManager::T8);
-    buttonLay->addWidget(m_updateButton, 0, Qt::AlignRight | Qt::AlignTop);
-
-    m_startButton->setIcon(QIcon::fromTheme("dcc_start"));
-    m_startButton->setIconSize(QSize(32, 32));
-    m_startButton->setFlat(true);//设置背景透明
-    m_startButton->setFixedSize(32, 32);
-    m_startButton->hide();
-
-    QHBoxLayout *progressLay = new QHBoxLayout;
-    m_Progess->setFixedHeight(8);
-    m_Progess->setRange(0, 100);
-    m_Progess->setAlignment(Qt::AlignRight);
-    m_Progess->setFixedWidth(100);
-    m_Progess->setVisible(true);
-
-    m_progressLabel->setVisible(false);
-    DFontSizeManager::instance()->bind(m_progressLabel, DFontSizeManager::T10);
-    m_progressLabel->setFixedWidth(100);
-    m_progressLabel->setScaledContents(true);
-    m_progressLabel->setAlignment(Qt::AlignHCenter);
-
-
-    QVBoxLayout *progressVlay = new QVBoxLayout;
-    progressVlay->setSpacing(0);
-    progressVlay->addWidget(m_progressLabel);
-    progressVlay->addSpacing(2);
-
-    progressVlay->addWidget(m_Progess);
-    progressVlay->addStretch();
-    progressLay->addLayout(progressVlay);
-
-    QVBoxLayout *ctrlButtonVlay = new QVBoxLayout;
-    int progressHeight = m_progressLabel->height();
-    ctrlButtonVlay->addSpacing(progressHeight - 24);
-    ctrlButtonVlay->addWidget(m_startButton);
-    ctrlButtonVlay->addStretch();
-    progressLay->addLayout(ctrlButtonVlay);
-
-    buttonLay->addLayout(progressLay);
-
-    hlay->addLayout(buttonLay);
-
-    DFontSizeManager::instance()->bind(m_detailLabel, DFontSizeManager::T8);
-    m_detailLabel->setForegroundRole(DPalette::TextTips);
-    m_detailLabel->adjustSize();
-    m_detailLabel->setTextFormat(Qt::RichText);
-    m_detailLabel->setAlignment(Qt::AlignJustify | Qt::AlignLeft);
-    m_detailLabel->setWordWrap(true);
-    m_detailLabel->setOpenExternalLinks(true);
-
-    QHBoxLayout *dateLay = new QHBoxLayout();
-    DFontSizeManager::instance()->bind(m_dateLabel, DFontSizeManager::T8);
-    m_dateLabel->setEnabled(false);
-
-    auto pal = m_dateLabel->palette();
-    QColor base_color = pal.text().color();
-    base_color.setAlpha(255 / 10 * 6);
-    pal.setColor(QPalette::Text, base_color);
-    m_dateLabel->setPalette(pal);
-    dateLay->addWidget(m_dateLabel, 0, Qt::AlignLeft);
-
-    m_showMoreBUtton->setText(tr("Learn more"));
-    DFontSizeManager::instance()->bind(m_showMoreBUtton, DFontSizeManager::T8);
-    m_showMoreBUtton->setForegroundRole(DPalette::Button);
-    dateLay->addStretch();
-    dateLay->addWidget(m_showMoreBUtton);
-
-    QVBoxLayout *main = new QVBoxLayout();
-    main->setSpacing(0);
-    main->addLayout(hlay);
-    main->addWidget(m_detailLabel);
-    m_detailLabel->setContentsMargins(0, 10, 0, 0);
-    main->addLayout(dateLay);
-
-    setLayout(main);
-
-    connect(m_showMoreBUtton, &DCommandLinkButton::clicked, this, &updateControlPanel::showDetail);
-    connect(m_updateButton, &DCommandLinkButton::clicked, this, &updateControlPanel::onStartUpdate);
-    connect(m_startButton, &DIconButton::clicked, this, &updateControlPanel::onButtonClicked);
+    initUi();
+    initConnect();
 }
 
 void updateControlPanel::onStartUpdate()
@@ -262,7 +168,7 @@ void updateControlPanel::setButtonStatus(const ButtonStatus &value)
 {
     m_buttonStatus = value;
     setButtonIcon(value);
-    if(value == ButtonStatus::invalid){
+    if (value == ButtonStatus::invalid) {
         m_startButton->setEnabled(false);
     }
 }
@@ -289,12 +195,12 @@ void updateControlPanel::setDate(QString date)
 
 void updateControlPanel::setProgressText(QString text)
 {
-    m_progressLabel->setText(getElidedText(m_progressLabel, text, Qt::ElideRight, m_progressLabel->maximumWidth() -10, 0, __LINE__));
+    m_progressLabel->setText(getElidedText(m_progressLabel, text, Qt::ElideRight, m_progressLabel->maximumWidth() - 10, 0, __LINE__));
     m_progressLabel->setToolTip(text);
 }
 
 //used to display long string: "12345678" -> "12345..."
-const QString updateControlPanel::getElidedText(QWidget* widget, QString data, Qt::TextElideMode mode, int width, int flags, int line)
+const QString updateControlPanel::getElidedText(QWidget *widget, QString data, Qt::TextElideMode mode, int width, int flags, int line)
 {
     QString retTxt = data;
     if (retTxt == "")
@@ -346,5 +252,121 @@ void updateControlPanel::onButtonClicked()
     }
 
     setButtonStatus(status);
+}
+
+void updateControlPanel::setDatetimeVisible(bool visible)
+{
+    m_dateLabel->setVisible(visible);
+}
+
+void updateControlPanel::initUi()
+{
+    QVBoxLayout *titleLay = new QVBoxLayout();
+    titleLay->setMargin(0);
+    m_titleLable->setForegroundRole(DPalette::TextTitle);
+    m_titleLable->setWordWrap(true);
+    DFontSizeManager::instance()->bind(m_titleLable, DFontSizeManager::T6, QFont::DemiBold);
+    titleLay->addWidget(m_titleLable, 0, Qt::AlignTop);
+
+    DFontSizeManager::instance()->bind(m_versionLabel, DFontSizeManager::T8);
+    m_versionLabel->setForegroundRole(DPalette::TextTitle);
+    m_versionLabel->setObjectName("versionLabel");
+    titleLay->addWidget(m_versionLabel);
+    titleLay->addStretch();
+    QHBoxLayout *hlay = new QHBoxLayout();
+    hlay->addLayout(titleLay);
+
+    QVBoxLayout *buttonLay = new QVBoxLayout();
+    buttonLay->setSpacing(0);
+    m_updateButton->setText(tr("Download and install"));
+    m_updateButton->setForegroundRole(DPalette::Button);
+    DFontSizeManager::instance()->bind(m_updateButton, DFontSizeManager::T8);
+    buttonLay->addWidget(m_updateButton, 0, Qt::AlignRight | Qt::AlignTop);
+    buttonLay->setContentsMargins(0, 0, 8, 0);
+
+    m_startButton->setIcon(QIcon::fromTheme("dcc_start"));
+    m_startButton->setIconSize(QSize(32, 32));
+    m_startButton->setFlat(true);//设置背景透明
+    m_startButton->setFixedSize(32, 32);
+    m_startButton->hide();
+
+    QHBoxLayout *progressLay = new QHBoxLayout;
+    m_Progess->setFixedHeight(8);
+    m_Progess->setRange(0, 100);
+    m_Progess->setAlignment(Qt::AlignRight);
+    m_Progess->setFixedWidth(100);
+    m_Progess->setVisible(true);
+
+    m_progressLabel->setVisible(false);
+    DFontSizeManager::instance()->bind(m_progressLabel, DFontSizeManager::T10);
+    m_progressLabel->setFixedWidth(100);
+    m_progressLabel->setScaledContents(true);
+    m_progressLabel->setAlignment(Qt::AlignHCenter);
+
+
+    QVBoxLayout *progressVlay = new QVBoxLayout;
+    progressVlay->setSpacing(0);
+    progressVlay->addWidget(m_progressLabel);
+    progressVlay->addSpacing(2);
+
+    progressVlay->addWidget(m_Progess);
+    progressVlay->addStretch();
+    progressLay->addLayout(progressVlay);
+
+    QVBoxLayout *ctrlButtonVlay = new QVBoxLayout;
+    int progressHeight = m_progressLabel->height();
+    ctrlButtonVlay->addSpacing(progressHeight - 24);
+    ctrlButtonVlay->addWidget(m_startButton);
+    ctrlButtonVlay->addStretch();
+    progressLay->addLayout(ctrlButtonVlay);
+
+    buttonLay->addLayout(progressLay);
+
+    hlay->addLayout(buttonLay);
+
+    DFontSizeManager::instance()->bind(m_detailLabel, DFontSizeManager::T8);
+    m_detailLabel->setForegroundRole(DPalette::TextTips);
+    m_detailLabel->adjustSize();
+    m_detailLabel->setTextFormat(Qt::RichText);
+    m_detailLabel->setAlignment(Qt::AlignJustify | Qt::AlignLeft);
+    m_detailLabel->setWordWrap(true);
+    m_detailLabel->setOpenExternalLinks(true);
+
+    QHBoxLayout *dateLay = new QHBoxLayout();
+    DFontSizeManager::instance()->bind(m_dateLabel, DFontSizeManager::T8);
+    m_dateLabel->setObjectName("dateLable");
+    m_dateLabel->setEnabled(false);
+
+    auto pal = m_dateLabel->palette();
+    QColor base_color = pal.text().color();
+    base_color.setAlpha(255 / 10 * 6);
+    pal.setColor(QPalette::Text, base_color);
+    m_dateLabel->setPalette(pal);
+    dateLay->addWidget(m_dateLabel, 0, Qt::AlignLeft | Qt::AlignTop);
+    dateLay->setSpacing(0);
+
+    m_showMoreBUtton->setText(tr("Learn more"));
+    DFontSizeManager::instance()->bind(m_showMoreBUtton, DFontSizeManager::T8);
+    m_showMoreBUtton->setForegroundRole(DPalette::Button);
+    dateLay->addStretch();
+    dateLay->addWidget(m_showMoreBUtton, 0, Qt::AlignTop);
+    dateLay->setContentsMargins(0, 0, 8, 0);
+
+    QVBoxLayout *main = new QVBoxLayout();
+    main->setSpacing(0);
+    main->addLayout(hlay);
+    main->addWidget(m_detailLabel);
+    m_detailLabel->setContentsMargins(0, 5, 0, 0);
+    main->addLayout(dateLay);
+    main->addStretch();
+
+    setLayout(main);
+}
+
+void updateControlPanel::initConnect()
+{
+    connect(m_showMoreBUtton, &DCommandLinkButton::clicked, this, &updateControlPanel::showDetail);
+    connect(m_updateButton, &DCommandLinkButton::clicked, this, &updateControlPanel::onStartUpdate);
+    connect(m_startButton, &DIconButton::clicked, this, &updateControlPanel::onButtonClicked);
 }
 

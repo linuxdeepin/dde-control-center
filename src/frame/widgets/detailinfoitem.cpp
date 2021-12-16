@@ -65,8 +65,8 @@ void DetailInfoItem::initUi()
     DFontSizeManager::instance()->bind(m_dateLabel, DFontSizeManager::T8);
     m_dateLabel->setForegroundRole(DPalette::TextTips);
 
-    hboxlayout->addWidget(m_title, 0, Qt::AlignLeft);
-    hboxlayout->addWidget(m_dateLabel, 0, Qt::AlignRight);
+    hboxlayout->addWidget(m_title, 0, Qt::AlignLeft | Qt::AlignTop);
+    hboxlayout->addWidget(m_dateLabel, 0, Qt::AlignRight | Qt::AlignTop);
 
     DFontSizeManager::instance()->bind(m_dataLable, DFontSizeManager::T8);
     m_dataLable->setForegroundRole(DPalette::TextTips);

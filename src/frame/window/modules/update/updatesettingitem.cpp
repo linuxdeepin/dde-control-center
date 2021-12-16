@@ -40,7 +40,11 @@ void UpdateSettingItem::initUi()
     widget->setLayout(vboxLay);
 
     QHBoxLayout *main = new QHBoxLayout;
+    main->setMargin(0);
+    main->setSpacing(0);
+    main->setContentsMargins(10, 10, 0, 0);
     m_settingsGroup->appendItem(m_controlWidget);
+    m_settingsGroup->setSpacing(0);
     main->addWidget(widget, 0, Qt::AlignTop);
     main->addWidget(m_settingsGroup, 0, Qt::AlignTop);
     setLayout(main);
@@ -182,8 +186,8 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
     }
 
     // 默认状态 不用刷新页面按钮
-    if(m_status != UpdatesStatus::Default){
-    	Q_EMIT requestRefreshWidget();
+    if (m_status != UpdatesStatus::Default) {
+        Q_EMIT requestRefreshWidget();
     }
 }
 

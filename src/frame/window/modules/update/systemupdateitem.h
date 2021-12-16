@@ -22,6 +22,7 @@ public:
 private:
     QList<dcc::widgets::DetailInfoItem *> m_updateDetailItemList;
     DHorizontalLine *m_line;
+    QWidget *m_lineWidget;
 
 };
 }
