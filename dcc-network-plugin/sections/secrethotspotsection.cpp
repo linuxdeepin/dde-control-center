@@ -33,9 +33,8 @@ using namespace NetworkManager;
 
 static const QList<WirelessSecuritySetting::KeyMgmt> KeyMgmtList {
     WirelessSecuritySetting::KeyMgmt::WpaNone,
-    //WirelessSecuritySetting::KeyMgmt::Wep,
     WirelessSecuritySetting::KeyMgmt::WpaPsk,
-    WirelessSecuritySetting::KeyMgmt::Ieee8021x
+    WirelessSecuritySetting::KeyMgmt::WpaSae
 };
 
 SecretHotspotSection::SecretHotspotSection(WirelessSecuritySetting::Ptr wsSeting, QFrame *parent)
@@ -67,18 +66,23 @@ bool SecretHotspotSection::allInputValid()
 {
     bool valid = true;
 
-    if (m_currentKeyMgmt == WirelessSecuritySetting::KeyMgmt::Wep) {
+    switch (m_currentKeyMgmt) {
+    case WirelessSecuritySetting::KeyMgmt::Wep: {
         valid = wepKeyIsValid(m_passwdEdit->text(), WirelessSecuritySetting::WepKeyType::Passphrase);
         m_passwdEdit->setIsErr(!valid);
         if (!valid && !m_passwdEdit->text().isEmpty())
             m_passwdEdit->showAlertMessage(tr("Invalid password"));
+        break;
     }
-
-    if (m_currentKeyMgmt == WirelessSecuritySetting::KeyMgmt::WpaPsk) {
+    case WirelessSecuritySetting::KeyMgmt::WpaPsk:
+    case WirelessSecuritySetting::KeyMgmt::WpaSae: {
         valid = wpaPskIsValid(m_passwdEdit->text());
         m_passwdEdit->setIsErr(!valid);
         if (!valid && !m_passwdEdit->text().isEmpty())
             m_passwdEdit->showAlertMessage(tr("Invalid password"));
+        break;
+    }
+    default: break;
     }
 
     return valid;
@@ -93,17 +97,24 @@ void SecretHotspotSection::saveSettings()
 
     m_wsSetting->setKeyMgmt(m_currentKeyMgmt);
 
-    if (m_currentKeyMgmt == WirelessSecuritySetting::KeyMgmt::Wep) {
+    switch (m_currentKeyMgmt) {
+    case WirelessSecuritySetting::KeyMgmt::Wep: {
         m_wsSetting->setAuthAlg(WirelessSecuritySetting::AuthAlg::Open);
         m_wsSetting->setWepKeyType(WirelessSecuritySetting::WepKeyType::Passphrase);
         m_wsSetting->setWepKey0(m_passwdEdit->text());
         m_wsSetting->setPsk("");
-    } else if (m_currentKeyMgmt == WirelessSecuritySetting::KeyMgmt::WpaPsk) {
+        break;
+    }
+    case WirelessSecuritySetting::KeyMgmt::WpaPsk:
+    case WirelessSecuritySetting::KeyMgmt::WpaSae: {
         m_wsSetting->setPsk(m_passwdEdit->text());
         m_wsSetting->setPskFlags(NetworkManager::Setting::AgentOwned);
         m_wsSetting->setProto(QList<NetworkManager::WirelessSecuritySetting::WpaProtocolVersion>{NetworkManager::WirelessSecuritySetting::Wpa,NetworkManager::WirelessSecuritySetting::Rsn});
         m_wsSetting->setGroup(QList<NetworkManager::WirelessSecuritySetting::WpaEncryptionCapabilities>{NetworkManager::WirelessSecuritySetting::Ccmp});
         m_wsSetting->setPairwise(QList<NetworkManager::WirelessSecuritySetting::WpaEncryptionCapabilities>{NetworkManager::WirelessSecuritySetting::Ccmp});
+        break;
+    }
+    default: break;
     }
 
     m_wsSetting->setInitialized(true);
@@ -115,7 +126,7 @@ void SecretHotspotSection::initStrMaps()
         { tr("None"), WirelessSecuritySetting::KeyMgmt::WpaNone },
         { tr("WEP"), WirelessSecuritySetting::KeyMgmt::Wep },
         { tr("WPA/WPA2 Personal"), WirelessSecuritySetting::KeyMgmt::WpaPsk },
-        { tr("WPA3 Personal"), WirelessSecuritySetting::KeyMgmt::Ieee8021x }
+        { tr("WPA3 Personal"), WirelessSecuritySetting::KeyMgmt::WpaSae }
     };
 }
 
@@ -165,7 +176,7 @@ void SecretHotspotSection::onKeyMgmtChanged(WirelessSecuritySetting::KeyMgmt key
     }
 
     case WirelessSecuritySetting::KeyMgmt::WpaPsk:
-    case WirelessSecuritySetting::KeyMgmt::Ieee8021x: {
+    case WirelessSecuritySetting::KeyMgmt::WpaSae: {
         m_passwdEdit->setText(m_wsSetting->psk());
         m_passwdEdit->setTitle(tr("Password"));
         m_passwdEdit->setVisible(true);
