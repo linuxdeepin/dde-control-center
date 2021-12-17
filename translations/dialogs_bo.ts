@@ -14,7 +14,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
-        <translation>འདོར་བ། </translation>
+        <translation>ཕྱིར་འཐེན།</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
