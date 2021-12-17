@@ -44,6 +44,7 @@
 #include <QStyle>
 
 #include <unistd.h>
+#include <QSvgRenderer>
 
 
 using namespace dcc::accounts;
@@ -148,22 +149,23 @@ void ModifyPasswdPage::initWidget()
     newPasswdLevelLayout->addWidget(m_newPasswdLevelText, 0, Qt::AlignRight);
     newPasswdLevelLayout->addSpacing(4);
 
+    m_pixmap = loadSvgImg(m_newPasswdLevelIconModePath, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
+
     m_newPasswdLevelIcons[0]->setFixedWidth(8);
     m_newPasswdLevelIcons[0]->setFixedHeight(4);
-    m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
-    m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+    m_newPasswdLevelIcons[0]->setPixmap(m_pixmap);
     newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[0]);
     newPasswdLevelLayout->addSpacing(4);
 
     m_newPasswdLevelIcons[1]->setFixedWidth(8);
     m_newPasswdLevelIcons[1]->setFixedHeight(4);
-    m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+    m_newPasswdLevelIcons[1]->setPixmap(m_pixmap);
     newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[1]);
     newPasswdLevelLayout->addSpacing(4);
 
     m_newPasswdLevelIcons[2]->setFixedWidth(8);
     m_newPasswdLevelIcons[2]->setFixedHeight(4);
-    m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+    m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
     newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[2]);
     newPasswdLevelLayout->addSpacing(50);
 
@@ -255,10 +257,10 @@ void ModifyPasswdPage::initWidget()
             m_newPasswdLevelText->setForegroundRole(QPalette::Text);
             m_newPasswdLevelText->setText(tr("Strong"));
 
-            m_passwdLevelImg->load(PASSWORD_LEVEL_ICON_HIGH_PATH);
-            m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
-            m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
-            m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            m_pixmap = loadSvgImg(PASSWORD_LEVEL_ICON_HIGH_PATH, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
+            m_newPasswdLevelIcons[0]->setPixmap(m_pixmap);
+            m_newPasswdLevelIcons[1]->setPixmap(m_pixmap);
+            m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
             if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
                 m_newPasswordEdit->setAlert(true);
                 m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
@@ -269,11 +271,11 @@ void ModifyPasswdPage::initWidget()
             m_newPasswdLevelText->setForegroundRole(QPalette::Text);
             m_newPasswdLevelText->setText(tr("Medium"));
 
-            m_passwdLevelImg->load(PASSWORD_LEVEL_ICON_MIDDLE_PATH);
-            m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
-            m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
-            m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
-            m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            m_pixmap = loadSvgImg(PASSWORD_LEVEL_ICON_MIDDLE_PATH, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
+            m_newPasswdLevelIcons[0]->setPixmap(m_pixmap);
+            m_newPasswdLevelIcons[1]->setPixmap(m_pixmap);
+            m_pixmap = loadSvgImg(m_newPasswdLevelIconModePath, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
+            m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
 
             if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
                 m_newPasswordEdit->setAlert(true);
@@ -287,11 +289,11 @@ void ModifyPasswdPage::initWidget()
             m_newPasswdLevelText->setForegroundRole(QPalette::Text);
             m_newPasswdLevelText->setText(tr("Weak"));
 
-            m_passwdLevelImg->load(PASSWORD_LEVEL_ICON_LOW_PATH);
-            m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
-            m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
-            m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
-            m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            m_pixmap = loadSvgImg(PASSWORD_LEVEL_ICON_LOW_PATH, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
+            m_newPasswdLevelIcons[0]->setPixmap(m_pixmap);
+            m_pixmap = loadSvgImg(m_newPasswdLevelIconModePath, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
+            m_newPasswdLevelIcons[1]->setPixmap(m_pixmap);
+            m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
 
             if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
                 m_newPasswordEdit->setAlert(true);
@@ -323,18 +325,18 @@ void ModifyPasswdPage::initWidget()
             break;
         }
         if (m_focusOut == false) {
-            m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
-            m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
-            m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
-            m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            m_pixmap = loadSvgImg(m_newPasswdLevelIconModePath, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
+            m_newPasswdLevelIcons[0]->setPixmap(m_pixmap);
+            m_newPasswdLevelIcons[1]->setPixmap(m_pixmap);
+            m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
         } else {
             if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
-                m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
-                m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+                m_pixmap = loadSvgImg(m_newPasswdLevelIconModePath, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
+                m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
             } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
-                m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
-                m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
-                m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+                m_pixmap = loadSvgImg(m_newPasswdLevelIconModePath, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
+                m_newPasswdLevelIcons[1]->setPixmap(m_pixmap);
+                m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
             }
         }
 
@@ -567,4 +569,24 @@ void ModifyPasswdPage::onCheckBindFailed(const QString &errorText)
     DMessageManager::instance()->sendMessage(this,
                                              style()->standardIcon(QStyle::SP_MessageBoxWarning),
                                              tips);
+}
+
+const QPixmap ModifyPasswdPage::loadSvgImg(const QString &fileName, const int width, const int hight)
+{
+    if (!QFileInfo::exists(fileName))
+        return QPixmap();
+
+    QPixmap pixmap(width, hight);
+    QSvgRenderer renderer(fileName);
+    pixmap.fill(Qt::transparent);
+
+    QPainter painter;
+    painter.begin(&pixmap);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    renderer.render(&painter);
+    painter.end();
+
+    pixmap.setDevicePixelRatio(qRound(qApp->devicePixelRatio()));
+
+    return pixmap;
 }

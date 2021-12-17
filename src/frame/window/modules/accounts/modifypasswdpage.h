@@ -65,6 +65,7 @@ public:
     void onPasswordChangeFinished(const int exitCode, const QString &errorTxt);
     void setPasswordEditAttribute(DPasswordEdit *);
     void resetPassword(const QString &password, const QString &repeatPassword);
+    const QPixmap loadSvgImg(const QString &fileName, const int width, const int hight);
 
 protected:
     void showEvent(QShowEvent *event) override;
@@ -98,6 +99,7 @@ private:
     bool m_isCurrent;
     QString m_newPasswdLevelIconModePath;
     bool m_isBindCheckError;
+    QPixmap m_pixmap;
 
 };
 }
