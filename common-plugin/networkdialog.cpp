@@ -194,6 +194,7 @@ void NetworkDialog::disconnectedHandler()
 {
     QLocalSocket *socket = static_cast<QLocalSocket *>(sender());
     if (socket) {
+        sendPassword(socket, "{}");
         m_clients.remove(socket);
         socket->deleteLater();
     }
