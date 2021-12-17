@@ -141,6 +141,7 @@ MultiScreenWidget::~MultiScreenWidget()
         widget->deleteLater();
     }
     m_recognizeWidget.clear();
+    m_fullIndication->deleteLater();
 
     GSettingWatcher::instance()->erase("displayResolution", m_resolutionWidget);
     GSettingWatcher::instance()->erase("displayRefreshRate", m_refreshRateWidget);
@@ -231,7 +232,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
 
         for (const auto &monitor : m_model->monitorList()) {
             if (name == monitor->name()) {
-                m_fullIndication->setGeometry(monitor->rect());
+                move(monitor->x(), monitor->y());
                 m_fullIndication->setVisible(true);
                 QTimer::singleShot(500, this, [=] { m_fullIndication->setVisible(false); });
                 break;

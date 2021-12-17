@@ -26,13 +26,15 @@
 #include "monitorindicator.h"
 
 #include <QPainter>
+#include <QApplication>
 
 using namespace dcc;
 using namespace dcc::display;
 
 MonitorIndicator::MonitorIndicator(QWidget *parent)
-    : QFrame(parent)
+    : QFrame(nullptr)
 {
+    Q_UNUSED(parent)
     setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
     setAttribute(Qt::WA_TranslucentBackground);
 }
@@ -41,9 +43,11 @@ MonitorIndicator::MonitorIndicator(QWidget *parent)
 void MonitorIndicator::paintEvent(QPaintEvent *e)
 {
     QPainter p(this);
-    QRect rect = QRect(0,0,this->geometry().width(),this->geometry().height());
+    const qreal ratio = qApp->devicePixelRatio();
+    qreal width = 10.0 / ratio;
+    QRectF rect = QRectF(width / 2.0, width / 2.0, this->geometry().width() / ratio - width, this->geometry().height() / ratio - width);
     QPen pen;
-    pen.setWidth(20);
+    pen.setWidthF(width);
     pen.setColor(QColor("#2ca7f8"));
     p.setPen(pen);
     p.setBrush(Qt::BrushStyle::NoBrush);
