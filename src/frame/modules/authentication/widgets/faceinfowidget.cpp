@@ -107,11 +107,23 @@ void FaceInfoWidget::paintEvent(QPaintEvent *event)
     m_rotateAngle = 360 * m_persent / 100;
     int side = qMin(width(), height());
     QRectF outRect(0, 0, side, side);
-    QRectF inRect(4, 4, side-8, side-8);
+    QRectF inRect(5, 5, side-10, side-10);
 
     painter.setPen(Qt::NoPen);
-    painter.setBrush(QBrush(QColor("#e6e6e6")));
+    painter.setOpacity(0.1);
+    switch (DGuiApplicationHelper::instance()->themeType()) {
+    case DGuiApplicationHelper::UnknownType:
+        break;
+    case DGuiApplicationHelper::LightType:
+        painter.setBrush(QBrush(QColor("#000000")));
+        break;
+    case DGuiApplicationHelper::DarkType:
+        painter.setBrush(QBrush(QColor("#ffffff")));
+        break;
+    }
     painter.drawEllipse(outRect);
+
+    painter.setOpacity(1);
     painter.setBrush(QBrush(m_themeColor));
     // startAngle和spanAngle必须以1/16度指定，即整圆等于5760（16 * 360）
     painter.drawPie(outRect, (90 - m_rotateAngle)*16, 40 * 16);
