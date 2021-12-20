@@ -21,8 +21,8 @@ static const QStringList SYSTEM_LOCAL_LIST {
     "zh_CN",
     "zh_HK",
     "zh_TW",
-    "ug_CN",
-    "bo_CN"
+    "ug_CN",    // 维语
+    "bo_CN"     // 藏语
 };
 
 enum UiActiveState {

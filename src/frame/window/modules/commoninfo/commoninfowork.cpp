@@ -306,8 +306,13 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         m_process = new QProcess(this);
 
         auto pathType = "-c";
-        QStringList sl;
-        sl << "zh_CN" << "zh_TW";
+        const QStringList& sl {
+            "zh_CN",
+            "zh_HK",
+            "zh_TW",
+            "ug_CN",    // 维语
+            "bo_CN"     // 藏语
+        };
         if (!sl.contains(QLocale::system().name()))
             pathType = "-e";
         m_process->start("dde-license-dialog",
