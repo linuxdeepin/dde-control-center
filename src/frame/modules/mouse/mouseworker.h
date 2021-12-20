@@ -103,7 +103,6 @@ private:
 
 private:
     MouseModel *m_model;
-    bool m_isNotWayland;
 };
 }
 }
