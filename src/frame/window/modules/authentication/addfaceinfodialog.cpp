@@ -182,7 +182,7 @@ QString AddFaceInfoDialog::getFacePicture()
 
 void AddFaceInfoDialog::refreshInfoStatusDisplay()
 {
-    m_facePic->setPixmap(QIcon::fromTheme(getFacePicture()).pixmap(128,100));
+    m_facePic->setPixmap(QIcon::fromTheme(getFacePicture()).pixmap(128, 128));
     if (m_currentState == CharaMangerModel::AddInfoState::Success) {
         m_resultTips->setText(tr("Face enrolled"));
         m_resultTips->show();
