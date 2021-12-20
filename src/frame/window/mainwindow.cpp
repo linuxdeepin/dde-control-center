@@ -529,6 +529,7 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     Q_UNUSED(animation)
 
     if (module == m_moduleName && page.isEmpty()) { //当前模块且未指定页面，直接返回
+        showNormal();
         activateWindow();
         return;
     }
