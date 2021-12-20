@@ -92,7 +92,7 @@ void AddIrisInfoDialog::initWidget()
     m_explainTips = new QLabel(tr("Look at the iris scanner and make sure your eyes are inside the frame"));
     m_explainTips->setWordWrap(true);
     m_explainTips->setAlignment(Qt::AlignCenter);
-    DFontSizeManager::instance()->bind(m_explainTips, DFontSizeManager::T9);
+    DFontSizeManager::instance()->bind(m_explainTips, DFontSizeManager::T8);
 
     QHBoxLayout *tips = new QHBoxLayout(this);
     tips->addWidget(m_explainTips, 0, Qt::AlignHCenter);

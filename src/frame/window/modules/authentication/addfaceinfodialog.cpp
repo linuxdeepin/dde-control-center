@@ -93,7 +93,7 @@ void AddFaceInfoDialog::initWidget()
     m_explainTips = new QLabel(tr("Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well."));
     m_explainTips->setWordWrap(true);
     m_explainTips->setAlignment(Qt::AlignCenter);
-    DFontSizeManager::instance()->bind(m_explainTips, DFontSizeManager::T9);
+    DFontSizeManager::instance()->bind(m_explainTips, DFontSizeManager::T8);
 
     QHBoxLayout *tips = new QHBoxLayout(this);
     tips->addWidget(m_explainTips, 0, Qt::AlignHCenter);
