@@ -550,6 +550,7 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     Q_UNUSED(animation)
 
     if (module == m_moduleName && page.isEmpty()) { //当前模块且未指定页面，直接返回
+        show();
         activateWindow();
         return;
     }
@@ -619,7 +620,7 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     // Note: 当直接进入模块界面(二级界面)，先将模块界面显示出来，在加载首界面
     QTimer::singleShot(0, this, [ = ] {
         if (isMinimized() || !isVisible())
-            showNormal();
+            show();
 
         activateWindow();
     });
