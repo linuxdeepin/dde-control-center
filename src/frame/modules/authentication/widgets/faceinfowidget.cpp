@@ -75,7 +75,7 @@ void FaceInfoWidget::createConnection(const int fd)
 
 void FaceInfoWidget::onUpdateProgressbar()
 {
-    m_persent >= 100 ? m_persent = 0 : m_persent += 2;
+    m_persent >= 96 ? m_persent = 0 : m_persent += 4;
     update();
 }
 
