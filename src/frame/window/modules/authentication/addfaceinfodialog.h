@@ -74,8 +74,6 @@ private:
     void initConnect();
     QString getFacePicture();
 
-    void refreshInfoStatusDisplay();
-
     /**
      * @brief responseEnrollInfoState 响应当前人脸录入状态
      * @param state 三种状态

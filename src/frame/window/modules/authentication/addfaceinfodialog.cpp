@@ -180,12 +180,16 @@ QString AddFaceInfoDialog::getFacePicture()
     return QString(":/authentication/themes/%1/icons/icon_face-%2.svg").arg(theme).arg(icon);
 }
 
-void AddFaceInfoDialog::refreshInfoStatusDisplay()
+void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState state, const QString &tips)
 {
+    m_currentState = state;
+
     m_facePic->setPixmap(QIcon::fromTheme(getFacePicture()).pixmap(128, 128));
     if (m_currentState == CharaMangerModel::AddInfoState::Success) {
         m_resultTips->setText(tr("Face enrolled"));
         m_resultTips->show();
+
+        m_explainTips->setText(tr("Use your face to unlock the device and make settings later"));
 
         m_disclaimersItem->hide();
         m_acceptBtn->hide();
@@ -197,6 +201,8 @@ void AddFaceInfoDialog::refreshInfoStatusDisplay()
         m_resultTips->setText(tr("Failed to enroll your face"));
         m_resultTips->show();
 
+        m_explainTips->setText(tips);
+
         m_disclaimersItem->hide();
         m_acceptBtn->show();
         m_acceptBtn->setText(tr("Try Again"));
@@ -204,13 +210,6 @@ void AddFaceInfoDialog::refreshInfoStatusDisplay()
         m_cancelBtn->show();
         m_cancelBtn->setText(tr("Close"));
     }
-}
-
-void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState state, const QString &tips)
-{
-    m_currentState = state;
-    m_explainTips->setText(tips);
-    refreshInfoStatusDisplay();
 
     this->show();
     Q_EMIT requestStopEnroll();
