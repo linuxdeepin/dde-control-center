@@ -73,12 +73,11 @@ void DetailInfoItem::initUi()
     m_dataLable->setWordWrap(true);
 
     QHBoxLayout *bomboxlayout = new QHBoxLayout;
-    m_linkDataLabel->setText("有关本次更新的详细内容可访问:");
+    m_linkDataLabel->setText(tr("For more details, visit:"));
     DFontSizeManager::instance()->bind(m_linkDataLabel, DFontSizeManager::T8);
     m_linkDataLabel->setForegroundRole(DPalette::TextTips);
     m_linkDataLabel->setMaximumWidth(250);
 
-    m_linkLable->setText("<a href=\"http://www.baidu.com/\">http://www.baidu.com");
     m_linkLable->setOpenExternalLinks(true);
     DFontSizeManager::instance()->bind(m_linkLable, DFontSizeManager::T8);
     m_linkLable->setForegroundRole(DPalette::LinkVisited);

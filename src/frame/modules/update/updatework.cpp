@@ -242,7 +242,7 @@ void UpdateWorker::activate()
     m_model->setAutoCheckUpdates(m_updateInter->autoCheckUpdates());
     m_model->setUpdateMode(m_managerInter->updateMode());
     m_model->setUpdateNotify(m_updateInter->updateNotify());
-    if(IsCommunitySystem){
+    if (IsCommunitySystem) {
         m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
         onSmartMirrorServiceIsValid(m_smartMirrorInter->isValid());
     }
@@ -468,11 +468,17 @@ void UpdateWorker::getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo)
         return ;
     }
 
+    QStringList language = QLocale::system().name().split('_');
+    QString languageType = "CN";
+    if (language.count() > 1) {
+        languageType = language.value(1);
+    }
+
     itemInfo->setPackageId(jsonValue.toObject().value("package_id").toString());
-    itemInfo->setName(jsonValue.toObject().value("name_CN").toString());
-    itemInfo->setCurrentVersion(jsonValue.toObject().value("current_version").toString());
-    itemInfo->setAvailableVersion(jsonValue.toObject().value("available_version").toString());
-    itemInfo->setExplain(jsonValue.toObject().value("update_explain").toString());
+    itemInfo->setName(jsonValue.toObject().value("name_" + languageType).toString());
+    itemInfo->setCurrentVersion(jsonValue.toObject().value("current_version_" + languageType).toString());
+    itemInfo->setAvailableVersion(jsonValue.toObject().value("available_version_" + languageType).toString());
+    itemInfo->setExplain(jsonValue.toObject().value("update_explain_" + languageType).toString());
     itemInfo->setUpdateTime(jsonValue.toObject().value("update_time").toString());
 
     qDebug() << "UpdateWorker::getItemInfo  itemInfo->name() == " << itemInfo->name();
@@ -484,9 +490,9 @@ void UpdateWorker::getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo)
         int count = array.count();
         for (int i = 0; i < count; ++i) {
             DetailInfo detailInfo;
-            detailInfo.name = array.at(i).toObject().value("name").toString().trimmed();
+            detailInfo.name = array.at(i).toObject().value("name_" + languageType).toString().trimmed();
             detailInfo.updateTime = array.at(i).toObject().value("update_time").toString().trimmed();
-            detailInfo.info = array.at(i).toObject().value("detail_info").toString().trimmed();
+            detailInfo.info = array.at(i).toObject().value("detail_info_" + languageType).toString().trimmed();
             detailInfo.link = array.at(i).toObject().value("link").toString().trimmed();
             if (detailInfo.name.isEmpty()
                     && detailInfo.updateTime.isEmpty()
