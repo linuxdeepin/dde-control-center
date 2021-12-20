@@ -375,6 +375,13 @@ void NetworkPanel::updateView()
     updateItems();
     updateSize();
     passwordError(QString(), QString());
+    if (m_items.isEmpty()) {
+        // 1s后依旧无网络设备则退出
+        QTimer::singleShot(1000, this, [ this ] {
+            if (m_items.isEmpty())
+                qApp->quit();
+        });
+    }
 }
 
 void NetworkPanel::updateSize()

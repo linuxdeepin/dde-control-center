@@ -83,11 +83,13 @@ void NetworkDialog::finished(int, QProcess::ExitStatus)
 
 void NetworkDialog::show()
 {
-    m_process->blockSignals(true);
-    m_process->close();
-    m_process->blockSignals(false);
-    requestFocus();
-    runProcess(true);
+    QTimer::singleShot(0, this, [ this ] {
+        m_process->blockSignals(true);
+        m_process->close();
+        m_process->blockSignals(false);
+        requestFocus();
+        runProcess(true);
+    });
 }
 
 void NetworkDialog::requestFocus()

@@ -389,7 +389,7 @@ const QString NetworkPluginHelper::contextMenu(bool hasSetting) const
 
         wirelessEnable["isActive"] = true;
         items.push_back(wirelessEnable);
-    } else {
+    } else if (wiredCount || wirelessCount) {
         items.reserve(2);
         QMap<QString, QVariant> enable;
         if (wiredEnabled || wirelessEnabeld) {
