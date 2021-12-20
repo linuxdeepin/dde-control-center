@@ -126,7 +126,7 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
         QStringList mimelist = getTypeListByCategory(m_stringToCategory[mime]);
         QFileInfo fileInfo(info.filePath());
 
-        const QString &filename = "deepin-custom-" + fileInfo.baseName() + ".desktop";
+        const QString &filename = "deepin-custom-" + fileInfo.completeBaseName() + ".desktop";
 
         m_dbusManager->AddUserApp(mimelist, filename).waitForFinished();
 
