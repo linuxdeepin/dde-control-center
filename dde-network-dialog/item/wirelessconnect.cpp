@@ -86,8 +86,7 @@ WirelessSecuritySetting::KeyMgmt WirelessConnect::getKeyMgmtByAp(dde::network::A
     }
 
     // 判断是否是wpa3加密的，因为wpa3加密方式，实际上是wpa2的扩展，所以其中会包含KeyMgmtPsk枚举值
-    if (wpaFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::keyMgmtSae) ||
-        rsnFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::keyMgmtSae)) {
+    if (wpaFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::keyMgmtSae) || rsnFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::keyMgmtSae)) {
         keyMgmt = NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaSae;
     }
 
@@ -100,42 +99,46 @@ WirelessSecuritySetting::KeyMgmt WirelessConnect::getKeyMgmtByAp(dde::network::A
 void WirelessConnect::initConnection()
 {
     NetworkManager::Connection::Ptr conn;
-    const QList<WirelessConnection *> lstConnections = m_device->items();
-    for (auto item : lstConnections) {
-        if (item->connection()->ssid() != m_ssid)
-            continue;
+    for (auto it : NetworkManager::activeConnections()) {
+        if (it->type() == ConnectionSettings::ConnectionType::Wireless && it->id() == m_ssid) {
+            conn = findConnectionByUuid(it->uuid());
+        }
+    }
 
-        QString uuid = item->connection()->uuid();
-        if (!uuid.isEmpty()) {
-            conn = findConnectionByUuid(uuid);
-            if (!conn.isNull() && conn->isValid()) {
-                m_connectionSettings = conn->settings();
+    if (conn.isNull()) {
+        for (auto item : m_device->items()) {
+            if (item->connection()->ssid() != m_ssid)
+                continue;
 
-                Setting::SettingType sType = Setting::SettingType::WirelessSecurity;
-                WirelessSecuritySetting::KeyMgmt keyMgmt = m_connectionSettings->setting(sType).staticCast<WirelessSecuritySetting>()->keyMgmt();
-                if (keyMgmt != WirelessSecuritySetting::KeyMgmt::WpaNone
-                    && keyMgmt != WirelessSecuritySetting::KeyMgmt::Unknown) {
-                    if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaEap) {
-                        sType = Setting::SettingType::Security8021x;
-                    }
-                    qInfo() << "setting:" << m_connectionSettings->setting(sType)->typeAsString(sType);
-                    QDBusPendingReply<NMVariantMapMap> reply;
-                    reply = conn->secrets(m_connectionSettings->setting(sType)->name());
-                    reply.waitForFinished();
-                    if (reply.isError() || !reply.isValid()) {
-                        qDebug() << "get secrets error for connection:" << reply.error();
-                    }
-
-                    QSharedPointer<WirelessSecuritySetting> setting = m_connectionSettings->setting(sType).staticCast<WirelessSecuritySetting>();
-                    setting->secretsFromMap(reply.value().value(setting->name()));
-                }
-                // 检查密码 密码有效则继续(有可能有多个配置)
-                QString password;
-                hasPassword(password);
-                if (!password.isEmpty()) {
+            QString uuid = item->connection()->uuid();
+            if (!uuid.isEmpty()) {
+                conn = findConnectionByUuid(uuid);
+                if (!conn.isNull() && conn->isValid()) {
                     break;
                 }
             }
+        }
+    }
+    if (!conn.isNull() && conn->isValid()) {
+        m_connectionSettings = conn->settings();
+
+        Setting::SettingType sType = Setting::SettingType::WirelessSecurity;
+        WirelessSecuritySetting::KeyMgmt keyMgmt = m_connectionSettings->setting(sType).staticCast<WirelessSecuritySetting>()->keyMgmt();
+        if (keyMgmt != WirelessSecuritySetting::KeyMgmt::WpaNone
+            && keyMgmt != WirelessSecuritySetting::KeyMgmt::Unknown) {
+            if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaEap) {
+                sType = Setting::SettingType::Security8021x;
+            }
+            qInfo() << "setting:" << m_connectionSettings->setting(sType)->typeAsString(sType);
+            QDBusPendingReply<NMVariantMapMap> reply;
+            reply = conn->secrets(m_connectionSettings->setting(sType)->name());
+            reply.waitForFinished();
+            if (reply.isError() || !reply.isValid()) {
+                qDebug() << "get secrets error for connection:" << reply.error();
+            }
+
+            QSharedPointer<WirelessSecuritySetting> setting = m_connectionSettings->setting(sType).staticCast<WirelessSecuritySetting>();
+            setting->secretsFromMap(reply.value().value(setting->name()));
         }
     }
     //　没连接过的需要新建连接
@@ -242,15 +245,26 @@ void WirelessConnect::connectNetworkPassword(const QString password)
 
 void WirelessConnect::activateConnection()
 {
-    QString connPath;
-    QString connectionUuid = m_connectionSettings->uuid();
-    NetworkManager::Connection::Ptr conn = findConnectionByUuid(connectionUuid);
+    NetworkManager::Connection::Ptr conn;
+    QString id = m_connectionSettings->id();
+    ConnectionSettings::ConnectionType type = m_connectionSettings->connectionType();
+    for (auto it : NetworkManager::listConnections()) {
+        if (type == it->settings()->connectionType() && id == it->name()) {
+            m_connectionSettings->setUuid(it->uuid());
+            conn = it;
+            break;
+        }
+    }
+
     QString accessPointPath;
     if (m_accessPoint) {
         accessPointPath = m_accessPoint->path();
     }
     if (conn.isNull()) {
-        qInfo() << "addAndActivateConnection" << connPath << m_device->path() << accessPointPath;
+        conn = findConnectionByUuid(m_connectionSettings->uuid());
+    }
+    if (conn.isNull()) {
+        qInfo() << "addAndActivateConnection" << m_device->path() << accessPointPath;
         addAndActivateConnection(m_connectionSettings->toMap(), m_device->path(), accessPointPath);
         return;
     }
@@ -261,8 +275,7 @@ void WirelessConnect::activateConnection()
         qInfo() << "error occurred while updating the connection" << reply.error();
         return;
     }
-    connPath = conn->path();
-    NetworkManager::activateConnection(connPath, m_device->path(), accessPointPath);
+    NetworkManager::activateConnection(conn->path(), m_device->path(), accessPointPath);
 }
 
 void WirelessConnect::getoldPassword()

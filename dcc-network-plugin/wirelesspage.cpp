@@ -61,6 +61,8 @@
 #include <wirelessdevice.h>
 #include <hotspotcontroller.h>
 
+#include <networkmanagerqt/manager.h>
+
 DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
 using namespace dde::network;
@@ -789,6 +791,11 @@ void WirelessPage::updateApStatus()
 
 QString WirelessPage::connectionUuid(const QString &ssid)
 {
+    for (auto conn : NetworkManager::activeConnections()) {
+        if (conn->type() == ConnectionSettings::ConnectionType::Wireless &&  conn->id() == ssid) {
+            return conn->uuid();
+        }
+    }
     const QList<WirelessConnection *> lstConnections = m_device->items();
     for (auto item : lstConnections) {
         if (item->connection()->ssid() != ssid) continue;

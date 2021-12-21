@@ -93,6 +93,7 @@ Q_SIGNALS:
 protected:
     int connectionSuffixNum(const QString &matchConnName);
     void addHeaderButton(QPushButton *button);
+    virtual void prepareConnection();
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
@@ -103,7 +104,6 @@ private:
     void initConnection();
     void initConnectionSecrets();
     void saveConnSettings();
-    void prepareConnection();
     void updateConnection();
     void createConnSettings();
 
@@ -125,6 +125,8 @@ protected:
 
     static FrameProxyInterface *m_frame;
     ParametersContainer::Ptr m_tempParameter;
+    bool m_isNewConnection;
+    QString m_connectionUuid;
 
 private:
     QVBoxLayout *m_mainLayout;
@@ -137,8 +139,6 @@ private:
 
     ConnectionSettings::ConnectionType m_connType;
 
-    bool m_isNewConnection;
-    QString m_connectionUuid;
     bool m_isHotSpot;
 };
 
