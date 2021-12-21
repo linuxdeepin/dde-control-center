@@ -34,6 +34,7 @@
 
 #include <NetworkManagerQt/WirelessDevice>
 #include <NetworkManagerQt/WiredDevice>
+#include <NetworkManagerQt/Settings>
 
 #define NETWORK_KEY "network-item-key"
 
@@ -134,11 +135,47 @@ void NetworkModule::onAddDevice(const QString &devicePath)
             connect(wDevice, &NetworkManager::WirelessDevice::activeAccessPointChanged, this, [this](const QString &ap) {
                 m_lastActiveWirelessDevicePath = static_cast<NetworkManager::WirelessDevice *>(sender())->uni() + NetworkManager::AccessPoint(ap).ssid();
             });
-        } else {
+        } else if (device->type() == Device::Ethernet) {
             nmDevice = new NetworkManager::Device(devicePath, this);
+            addFirstConnection(nmDevice);
         }
-        connect(nmDevice, &NetworkManager::Device::stateChanged, this, &NetworkModule::onDeviceStatusChanged);
-        m_devicePaths.insert(devicePath);
+        if (nmDevice) {
+            connect(nmDevice, &NetworkManager::Device::stateChanged, this, &NetworkModule::onDeviceStatusChanged);
+            m_devicePaths.insert(devicePath);
+        }
+    }
+}
+
+void NetworkModule::addFirstConnection(NetworkManager::Device *nmDevice)
+{
+    if (nmDevice->type() != Device::Ethernet)
+        return;
+
+    // 先查找当前的设备下是否存在有线连接，如果不存在，则直接新建一个，因为按照要求是至少要有一个有线连接
+    NetworkManager::Connection::List unSaveConnections;
+    bool findConnection = false;
+    NetworkManager::Connection::List connections = nmDevice->availableConnections();
+    for (QSharedPointer<NetworkManager::Connection> conn : connections) {
+        if (conn->settings()->connectionType() != ConnectionSettings::ConnectionType::Wired)
+            continue;
+
+        if (conn->isUnsaved()) {
+            unSaveConnections << conn;
+            continue;
+        }
+
+        findConnection = true;
+    }
+    // 按照需求，需要将未保存的连接删除
+    for (NetworkManager::Connection::Ptr conn : unSaveConnections)
+        conn->remove();
+
+    if (!findConnection) {
+        // 如果发现当前的连接的数量为空,则自动创建以当前语言为基础的连接
+        ConnectionSettings::Ptr conn(new ConnectionSettings);
+        conn->setId(tr("Wired Connection"));
+        conn->setUuid("");
+        NetworkManager::addConnection(conn->toMap());
     }
 }
 

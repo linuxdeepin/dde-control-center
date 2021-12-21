@@ -62,6 +62,9 @@ public Q_SLOTS:
     void onDeviceStatusChanged(NetworkManager::Device::State newstate, NetworkManager::Device::State oldstate, NetworkManager::Device::StateChangeReason reason);
     void onAddDevice(const QString &path);
 
+private:
+    void addFirstConnection(NetworkManager::Device *nmDevice);
+
 public:
     NETWORKPLUGIN_NAMESPACE::NetworkPluginHelper *m_networkHelper;
     NETWORKPLUGIN_NAMESPACE::NetworkDialog *m_networkDialog;
