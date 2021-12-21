@@ -68,7 +68,7 @@ void PowerModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
     m_work->active(); //refresh data
-\
+
     addChildPageTrans();
     initSearchData();
 }
@@ -229,7 +229,7 @@ void PowerModule::showUseElectric()
 {
     qDebug() << Q_FUNC_INFO;
 
-    UseElectricWidget *electric = new UseElectricWidget(m_model, m_widget);
+    UseElectricWidget *electric = new UseElectricWidget(m_model, m_widget, m_work);
     electric->setVisible(false);
     //When use power : false -> hide (default : show)
     if (!m_widget->getIsUseBattety()) {
@@ -255,7 +255,7 @@ void PowerModule::showUseBattery()
 {
     qDebug() << Q_FUNC_INFO;
 
-    UseBatteryWidget *battery = new UseBatteryWidget(m_model);
+    UseBatteryWidget *battery = new UseBatteryWidget(m_model, nullptr, m_work);
     battery->setVisible(false);
     m_frameProxy->pushWidget(this, battery);
     battery->setVisible(true);
