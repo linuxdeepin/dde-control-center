@@ -126,9 +126,9 @@ void PowerWorker::active()
 
     QFutureWatcher<bool> *canSleepWatcher = new QFutureWatcher<bool>();
     connect(canSleepWatcher, &QFutureWatcher<bool>::finished, this, [=] {
-        bool canSleep = canSleepWatcher->result();
-        bool can_sleep = env.contains(POWER_CAN_SLEEP) ? envVal : confVal && canSleep;
-        m_powerModel->setCanSleep(can_sleep);
+        bool canSuspend = canSleepWatcher->result();
+        bool can_suspend = env.contains(POWER_CAN_SLEEP) ? envVal : confVal && canSuspend;
+        m_powerModel->setCanSuspend(can_suspend);
         canSleepWatcher->deleteLater();
     });
 

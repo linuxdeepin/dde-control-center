@@ -256,10 +256,10 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 //    m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
     setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
 
-    m_computerSleepOnBattery->setVisible(model->canSleep() && model->getSuspend()
+    m_computerSleepOnBattery->setVisible(model->canSuspend() && model->getSuspend()
                                                            && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
     m_sldAutoSuspend->setVisible(model->getSuspend() && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
-//    m_suspendOnLidClose->setVisible(model->canSleep());
+//    m_suspendOnLidClose->setVisible(model->canSuspend());
 
     //--------------sp2 add-----------------
     m_cmbCloseLid->setVisible(model->lidPresent() && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hidden");

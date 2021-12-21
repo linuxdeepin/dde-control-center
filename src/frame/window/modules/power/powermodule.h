@@ -90,7 +90,6 @@ private:
     QPointer<PowerWidget> m_widget;
     double m_nBatteryPercentage;
     QGSettings *m_powerSetting;
-    bool m_isSuspend;
     MainWindow *m_pMainWindow;
 };
 
