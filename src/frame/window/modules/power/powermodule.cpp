@@ -37,9 +37,9 @@ using namespace dcc;
 using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
-#define GSETTING_SHOW_SUSPEND "show-suspend"
-#define GSETTING_SHOW_HIBERNATE "show-hibernate"
-#define GSETTING_SHOW_SHUTDOWN "show-shutdown"
+const QString gsetting_showSuspend = "showSuspend";
+const QString gsetting_showHiberante = "showHibernate";
+const QString gsetting_showShutdown = "showShutdown";
 
 PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
@@ -94,17 +94,30 @@ void PowerModule::active()
     m_widget->setVisible(false);
 
     m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-    m_isSuspend = m_powerSetting->get(GSETTING_SHOW_SUSPEND).toBool();
-    m_model->setSuspend(m_isSuspend && m_model->canSleep());
 
-    bool hibernate = m_powerSetting->get(GSETTING_SHOW_HIBERNATE).toBool();
-    m_model->setHibernate(!IsServerSystem && hibernate && m_model->canHibernate());
-    connect(m_model, &PowerModel::canHibernateChanged, this, [=](const bool &value) {
-        m_model->setHibernate(!IsServerSystem && hibernate && value);
+    m_model->setSuspend(!IsServerSystem && m_powerSetting->get(gsetting_showSuspend).toBool() && m_model->canSuspend());
+    connect(m_model, &PowerModel::suspendChanged, this, [=](const bool &value) {
+        m_model->setSuspend(!IsServerSystem && m_powerSetting->get(gsetting_showSuspend).toBool() && value);
     });
 
-    bool isShutdown = m_powerSetting->get(GSETTING_SHOW_SHUTDOWN).toBool();
-    m_model->setShutdown(isShutdown);
+    m_model->setHibernate(!IsServerSystem && m_powerSetting->get(gsetting_showHiberante).toBool() && m_model->canHibernate());
+    connect(m_model, &PowerModel::canHibernateChanged, this, [=](const bool &value) {
+        m_model->setHibernate(!IsServerSystem && m_powerSetting->get(gsetting_showHiberante).toBool() && value);
+    });
+
+    m_model->setShutdown(m_powerSetting->get(gsetting_showShutdown).toBool());
+
+    connect(m_powerSetting, &QGSettings::changed, this, [=](const QString &key) {
+        if (key == gsetting_showSuspend) {
+            m_model->setSuspend(!IsServerSystem &&  m_powerSetting->get(gsetting_showSuspend).toBool() && m_model->canSuspend());
+        } else if (key == gsetting_showHiberante) {
+            m_model->setHibernate(!IsServerSystem &&  m_powerSetting->get(gsetting_showHiberante).toBool() && m_model->canHibernate());
+        } else if (key == gsetting_showShutdown) {
+            m_model->setShutdown(m_powerSetting->get(gsetting_showShutdown).toBool());
+        } else {
+            qWarning() << " not contains the key : " << key;
+        }
+    });
 
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::removeBattery);
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);

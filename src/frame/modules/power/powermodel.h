@@ -47,8 +47,8 @@ public:
     inline bool sleepLock() const { return m_sleepLock; }
     void setSleepLock(bool sleepLock);
 
-    inline bool canSleep() const { return m_canSleep; }
-    void setCanSleep(bool canSleep);
+    inline bool canSuspend() const { return m_canSuspend; }
+    void setCanSuspend(bool canSuspend);
 
     inline bool lidPresent() const { return m_lidPresent; }
     void setLidPresent(bool lidPresent);
@@ -186,7 +186,7 @@ private:
     bool m_sleepOnLidOnBatteryClose;
     bool m_screenBlackLock;
     bool m_sleepLock;
-    bool m_canSleep;
+    bool m_canSuspend;
     bool m_canHibernate;
     int m_screenBlackDelayOnPower;
     int m_sleepDelayOnPower;

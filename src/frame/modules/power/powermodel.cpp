@@ -39,7 +39,7 @@ PowerModel::PowerModel(QObject *parent)
     , m_sleepOnLidOnBatteryClose(false)
     , m_screenBlackLock(false)
     , m_sleepLock(false)
-    , m_canSleep(true)
+    , m_canSuspend(true)
     , m_canHibernate(false)
     , m_screenBlackDelayOnPower(0)
     , m_sleepDelayOnPower(0)
@@ -304,12 +304,12 @@ void PowerModel::setSleepLock(bool sleepLock)
     }
 }
 
-void PowerModel::setCanSleep(bool canSleep)
+void PowerModel::setCanSuspend(bool canSuspend)
 {
-    if (canSleep != m_canSleep) {
-        m_canSleep = canSleep;
+    if (canSuspend != m_canSuspend) {
+        m_canSuspend = canSuspend;
 
-        Q_EMIT canSleepChanged(canSleep);
+        Q_EMIT suspendChanged(canSuspend);
     }
 }
 
