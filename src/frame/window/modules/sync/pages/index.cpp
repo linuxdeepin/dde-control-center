@@ -161,7 +161,10 @@ IndexPage::IndexPage(QWidget *parent)
     connect(m_autoSyncSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::requestSetAutoSync);
     connect(m_autoSyncSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::SyncTimeLbl);
     connect(m_bindSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::onBindUserAccountChanged);
-    connect(logoutBtn, &QPushButton::clicked, this, &IndexPage::requestLogout);
+    connect(logoutBtn, &QPushButton::clicked, this, [this] {
+        m_bindSwitch->setChecked(!unbindUserAccount());
+        Q_EMIT IndexPage::requestLogout();
+    });
 }
 
 void IndexPage::setModel(dcc::cloudsync::SyncModel *model)

@@ -60,12 +60,12 @@ int main(int argc, char *argv[])
     translator.load("/usr/share/dde-control-center/translations/reset-password-dialog_" + QLocale::system().name());
     a.installTranslator(&translator);
 
-    DLogManager::registerConsoleAppender();
-    DLogManager::registerFileAppender();
     DLogManager::setlogFilePath(QString("/tmp/%1.log").arg(a.applicationName()));
     const QDir &logDir = QFileInfo((Dtk::Core::DLogManager::getlogFilePath())).dir();
     if (!logDir.exists())
         QDir().mkpath(logDir.path());
+    DLogManager::registerConsoleAppender();
+    DLogManager::registerFileAppender();
 
     Manager *manager = new Manager(userName, appName);
     manager->start();
