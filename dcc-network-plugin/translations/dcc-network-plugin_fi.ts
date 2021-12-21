@@ -1012,12 +1012,12 @@
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>Oma WPA/WPA2</translation>
+        <translation>WPA/WPA2</translation>
     </message>
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
         <source>WPA3 Personal</source>
-        <translation type="unfinished"/>
+        <translation>WPA3</translation>
     </message>
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
@@ -1068,17 +1068,17 @@
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>Oma WPA/WPA2</translation>
+        <translation>WPA/WPA2</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>WPA/WPA2 Enterprise</source>
-        <translation>Yritys WPA/WPA2</translation>
+        <translation>WPA/WPA2 liikeyritys</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>WPA3 Personal</source>
-        <translation type="unfinished"/>
+        <translation>WPA3</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>

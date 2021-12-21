@@ -42,6 +42,13 @@
     </message>
 </context>
 <context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>Проводное Соединение</translation>
+    </message>
+</context>
+<context>
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>

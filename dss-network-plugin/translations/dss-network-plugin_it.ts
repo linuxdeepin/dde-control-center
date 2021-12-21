@@ -42,6 +42,13 @@
     </message>
 </context>
 <context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>Connessione cablata</translation>
+    </message>
+</context>
+<context>
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
