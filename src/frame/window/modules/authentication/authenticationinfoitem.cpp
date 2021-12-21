@@ -88,6 +88,13 @@ AuthenticationInfoItem::AuthenticationInfoItem(QWidget *parent)
         m_editTitle->lineEdit()->clearFocus();
         setEditTitle(false);
     });
+
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
+        this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
+        Q_UNUSED(themeType);
+        DApplicationHelper::instance()->resetPalette(this);
+        m_currentpa = DApplicationHelper::instance()->palette(this);
+    });
 }
 
 void AuthenticationInfoItem::setTitle(const QString &title)
