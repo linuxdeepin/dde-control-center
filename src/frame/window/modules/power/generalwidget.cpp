@@ -295,7 +295,7 @@ void GeneralWidget::setModel(const PowerModel *model)
     m_autoIntoSaveEnergyMode->setChecked(model->autoPowerSaveMode());
 #endif
 
-    m_wakeComputerNeedPassword->setVisible(model->canSleep() && model->getSuspend()
+    m_wakeComputerNeedPassword->setVisible(model->canSuspend() && model->getSuspend()
                                                              && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
 
     //-------------sp2 add-------------------------

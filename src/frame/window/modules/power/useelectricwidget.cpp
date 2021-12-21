@@ -186,6 +186,15 @@ void UseElectricWidget::setModel(const PowerModel *model)
         setPowerBtn(model, model->linePowerPressPowerBtnAction());
         setCloseLid(model, model->linePowerLidClosedAction());
     });
+    connect(model, &PowerModel::suspendChanged, this, [=] {
+        updatePowerButtonActionList();
+        setPowerBtn(model, model->linePowerPressPowerBtnAction());
+        setCloseLid(model, model->linePowerLidClosedAction());
+    });
+
+    connect(model, &PowerModel::shutdownChanged, this, [=] {
+        updatePowerButtonActionList();
+    });
 
     if (!IsServerSystem) {
         connect(model, &PowerModel::sleepDelayChangedOnPower, this, &UseElectricWidget::setSleepDelayOnPower);
@@ -200,7 +209,7 @@ void UseElectricWidget::setModel(const PowerModel *model)
     }
 
     if (m_computerSleepOnPower) {
-        m_computerSleepOnPower->setVisible(model->canSleep() && model->getSuspend()
+        m_computerSleepOnPower->setVisible(model->canSuspend() && model->getSuspend()
                                                              && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
     }
 
