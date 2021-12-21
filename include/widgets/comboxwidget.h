@@ -23,15 +23,28 @@
 #define COMBOXWIDGET_H
 
 #include "widgets/settingsitem.h"
+#include <QComboBox>
 
 QT_BEGIN_NAMESPACE
-class QComboBox;
 class QStringList;
 class QLabel;
 QT_END_NAMESPACE
 
 namespace dcc {
 namespace widgets {
+
+class PowerComboBox : public QComboBox
+{
+    Q_OBJECT
+
+public:
+    explicit PowerComboBox(QComboBox *parent = nullptr);
+
+    bool eventFilter(QObject *o, QEvent *e) override;
+
+Q_SIGNALS:
+    void clicked();
+};
 
 class ComboxWidget : public SettingsItem
 {
@@ -47,7 +60,7 @@ public:
     void setCurrentIndex(const int index);
     void setTitle(const QString &title);
 
-    QComboBox *comboBox();
+    PowerComboBox *comboBox();
 
 Q_SIGNALS:
     void onIndexChanged(int index);
@@ -61,7 +74,7 @@ protected:
 
 private:
     QWidget *m_leftWidget;
-    QComboBox *m_switchComboBox;
+    PowerComboBox *m_switchComboBox;
     QLabel *m_titleLabel;
     QString m_str;
 };

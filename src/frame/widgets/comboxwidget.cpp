@@ -49,7 +49,7 @@ ComboxWidget::ComboxWidget(const QString &title, QFrame *parent)
 ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     : SettingsItem(parent)
     , m_leftWidget(widget)
-    , m_switchComboBox(new QComboBox)
+    , m_switchComboBox(new PowerComboBox)
     , m_str("")
 {
     // FIXME: 默认统一控件高度
@@ -59,7 +59,6 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     if (m_titleLabel) {
         m_str = m_titleLabel->text();
     }
-
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
     mainLayout->setStretchFactor(m_leftWidget,3);
     mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
@@ -113,7 +112,7 @@ void ComboxWidget::setTitle(const QString &title)
     setAccessibleName(m_str);
 }
 
-QComboBox *ComboxWidget::comboBox()
+PowerComboBox *ComboxWidget::comboBox()
 {
     return m_switchComboBox;
 }
@@ -144,7 +143,20 @@ void ComboxWidget::resizeEvent(QResizeEvent *event)
             }
         }
     }
-    SettingsItem::resizeEvent(event);
+}
+
+PowerComboBox::PowerComboBox(QComboBox *parent)
+    : QComboBox(parent)
+{
+    installEventFilter(this);
+}
+
+bool PowerComboBox::eventFilter(QObject *o, QEvent *e)
+{
+    if (e->type() == QEvent::Type::MouseButtonPress) {
+        Q_EMIT clicked();
+    }
+    return QComboBox::eventFilter(o, e);
 }
 
 }

@@ -40,6 +40,7 @@ class ComboxWidget;
 
 namespace power {
 class PowerModel;
+class PowerWorker;
 }
 }
 
@@ -50,7 +51,7 @@ class UseElectricWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit UseElectricWidget(dcc::power::PowerModel *model, QWidget *parent = nullptr);
+    explicit UseElectricWidget(dcc::power::PowerModel *model, QWidget *parent = nullptr, dcc::power::PowerWorker *work = nullptr);
     virtual ~UseElectricWidget();
 
     void setModel(const dcc::power::PowerModel *model);
@@ -78,6 +79,7 @@ private:
 
 private:
     dcc::power::PowerModel *m_model;
+    dcc::power::PowerWorker *m_work;
     QVBoxLayout *m_layout = nullptr;
     dcc::widgets::TitledSliderItem *m_monitorSleepOnPower = nullptr;
     dcc::widgets::TitledSliderItem *m_computerSleepOnPower = nullptr;

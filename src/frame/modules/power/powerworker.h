@@ -29,11 +29,13 @@
 #include <com_deepin_daemon_power.h>
 #include <com_deepin_system_systempower.h>
 #include <org_freedesktop_login1.h>
+#include <com_deepin_daemon_powermanager.h>
 #include <QObject>
 
 using PowerInter = com::deepin::daemon::Power;
 using SysPowerInter = com::deepin::system::Power;
 using Login1ManagerInter = org::freedesktop::login1::Manager;
+using PowerManager = com::deepin::daemon::PowerManager;
 
 namespace dcc{
 namespace power {
@@ -78,6 +80,9 @@ public Q_SLOTS:
     //------------------------------------------
     void setPowerPlan(const QString &powerPlan);
 
+    bool getCurCanSuspend();
+    bool getCurCanHibernate();
+
 #ifndef DCC_DISABLE_POWERSAVE
     void setEnablePowerSave(const bool isEnable);
     void setAutoEnablePowerSave(const bool isEnable);
@@ -92,6 +97,7 @@ private:
     PowerInter *m_powerInter;
     SysPowerInter *m_sysPowerInter;
     Login1ManagerInter *m_login1ManagerInter;
+    PowerManager *m_powerManager;
 };
 
 }

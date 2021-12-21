@@ -43,6 +43,7 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
     , m_sysPowerInter(new SysPowerInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this))
     , m_login1ManagerInter(new Login1ManagerInter("org.freedesktop.login1", "/org/freedesktop/login1", QDBusConnection::systemBus(), this))
+    , m_powerManager(new PowerManager("com.deepin.daemon.PowerManager", "/com/deepin/daemon/PowerManager", QDBusConnection::systemBus(), this))
 {
     m_powerInter->setSync(false);
     m_sysPowerInter->setSync(false);
@@ -282,6 +283,16 @@ void PowerWorker::setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold)
 void PowerWorker::setPowerPlan(const QString &powerPlan)
 {
     m_sysPowerInter->SetMode(powerPlan);
+}
+
+bool PowerWorker::getCurCanSuspend()
+{
+    return m_powerManager->CanSuspend();
+}
+
+bool PowerWorker::getCurCanHibernate()
+{
+    return m_powerManager->CanHibernate();
 }
 
 void PowerWorker::setScreenBlackDelayToModelOnBattery(const int delay)

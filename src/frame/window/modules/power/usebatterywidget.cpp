@@ -27,6 +27,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "modules/power/powermodel.h"
+#include "modules/power/powerworker.h"
 #include "window/utils.h"
 #include "window/gsettingwatcher.h"
 #include "widgets/comboxwidget.h"
@@ -42,14 +43,15 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 
-UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
+UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::power::PowerWorker *worker)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_monitorSleepOnBattery(new TitledSliderItem(tr("Monitor will suspend after")))
     , m_computerSleepOnBattery(new TitledSliderItem(tr("Computer will suspend after")))
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
     , m_sldLowBatteryHint(new TitledSliderItem(tr("Low battery level")))
-//    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
+    , m_model(model)
+    , m_work(worker)
 {
     //~ contents_path /power/On Battery
     //~ child_page On Battery
@@ -120,22 +122,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     //~ child_page On Battery
 //    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
-    /*** 笔记本合盖功能与按电源按钮功能 ***/
-    if (model->getShutdown()) {
-        options << tr("Shut down");
-    }
-    if (model->getSuspend()) {
-        options << tr("Suspend");
-    }
-    if (model->getHibernate()) {
-        options << tr("Hibernate");
-    }
-    options << tr("Turn off the monitor") << tr("Do nothing");
-    m_cmbPowerBtn->setComboxOption(options);
-    m_cmbPowerBtn->addBackground();
-    options.pop_front();
-    m_cmbCloseLid->setComboxOption(options);
-    m_cmbCloseLid->addBackground();
+    updatePowerButtonActionList();
 
     m_layout->addWidget(m_cmbCloseLid);
     m_layout->addWidget(m_cmbPowerBtn);
@@ -204,7 +191,11 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     connect(m_computerSleepOnBattery->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetSleepDelayOnBattery);
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetAutoLockScreenOnBattery);
 
-
+    connect(m_cmbPowerBtn->comboBox(), &PowerComboBox::clicked, this, [ = ]() {
+        updatePowerButtonActionList();
+        setPowerBtn(model, model->batteryPressPowerBtnAction());
+        setCloseLid(model, model->batteryLidClosedAction());
+    });
 
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
         if (!model->getSuspend()) {
@@ -220,6 +211,12 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
                 Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex);
             }
         }
+    });
+
+    connect(m_cmbCloseLid->comboBox(), &PowerComboBox::clicked, this, [ = ]() {
+        updatePowerButtonActionList();
+        setPowerBtn(model, model->batteryPressPowerBtnAction());
+        setCloseLid(model, model->batteryLidClosedAction());
     });
     connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
         if (!model->getSuspend()) {
@@ -392,6 +389,31 @@ void UseBatteryWidget::setPowerBtn(const dcc::power::PowerModel *model, int powI
             m_cmbPowerBtn->comboBox()->setCurrentIndex(model->batteryPressPowerBtnAction());
         }
     }
+}
+
+void UseBatteryWidget::updatePowerButtonActionList()
+{
+    if (!m_model) {
+        return;
+    }
+
+    QStringList options;
+    /*** 笔记本合盖功能与按电源按钮功能 ***/
+    if (m_model->getShutdown()) {
+        options << tr("Shut down");
+    }
+    if (m_work->getCurCanSuspend()) {
+        options << tr("Suspend");
+    }
+    if (m_work->getCurCanHibernate()) {
+        options << tr("Hibernate");
+    }
+    options << tr("Turn off the monitor") << tr("Do nothing");
+    m_cmbPowerBtn->setComboxOption(options);
+    m_cmbPowerBtn->addBackground();
+    options.pop_front();
+    m_cmbCloseLid->setComboxOption(options);
+    m_cmbCloseLid->addBackground();
 }
 
 QString UseBatteryWidget::delayToLiteralString(const int delay) const
