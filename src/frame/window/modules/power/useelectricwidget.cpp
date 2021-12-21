@@ -32,6 +32,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "modules/power/powermodel.h"
+#include "modules/power/powerworker.h"
 #include "window/utils.h"
 #include "window/gsettingwatcher.h"
 #include "widgets/comboxwidget.h"
@@ -43,12 +44,12 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 
-UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
+UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::power::PowerWorker *work)
     : QWidget(parent)
     , m_model(model)
+    , m_work(work)
     , m_layout(new QVBoxLayout)
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
-//    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
     , m_cmbPowerBtn(new ComboxWidget(tr("When pressing the power button")))
     , m_cmbCloseLid(new ComboxWidget(tr("When the lid is closed")))
 {
@@ -130,6 +131,12 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     setModel(model);
 
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetAutoLockScreenOnPower);
+
+    connect(m_cmbPowerBtn->comboBox(), &AlertComboBox::clicked, this, [ = ]() {
+        updatePowerButtonActionList();
+        setPowerBtn(model, model->linePowerPressPowerBtnAction());
+        setCloseLid(model, model->linePowerLidClosedAction());
+    });
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
         if (!model->getSuspend()) {
             if (!model->getHibernate()) {
@@ -144,6 +151,12 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
                 Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex);
             }
         }
+    });
+
+    connect(m_cmbCloseLid->comboBox(), &AlertComboBox::clicked, this, [ = ]() {
+        updatePowerButtonActionList();
+        setPowerBtn(model, model->linePowerPressPowerBtnAction());
+        setCloseLid(model, model->linePowerLidClosedAction());
     });
     connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
         if (!model->getSuspend()) {
@@ -304,11 +317,11 @@ void UseElectricWidget::updatePowerButtonActionList()
     if (m_model->getShutdown()) {
         options << tr("Shut down");
     }
-    if (m_model->getSuspend())
+    if (m_work->getCurCanSuspend())
     {
         options << tr("Suspend");
     }
-    if (m_model->getHibernate())
+    if (m_work->getCurCanHibernate())
     {
         options << tr("Hibernate");
     }

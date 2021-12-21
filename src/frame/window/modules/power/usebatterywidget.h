@@ -40,6 +40,7 @@ class ComboxWidget;
 
 namespace power {
 class PowerModel;
+class PowerWorker;
 }
 }
 
@@ -50,7 +51,7 @@ class UseBatteryWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit UseBatteryWidget(dcc::power::PowerModel *model, QWidget *parent = nullptr);
+    explicit UseBatteryWidget(dcc::power::PowerModel *model, QWidget *parent = nullptr, dcc::power::PowerWorker *worker = nullptr);
     virtual ~UseBatteryWidget();
 
     void setModel(const dcc::power::PowerModel *model);
@@ -74,6 +75,8 @@ private:
     QMap<int, int> m_sldLowBatteryMap;
 
     dcc::widgets::TitledSliderItem *m_sldAutoSuspend;
+    dcc::power::PowerModel *m_model;
+    dcc::power::PowerWorker *m_work;
 
 Q_SIGNALS:
     void requestSetScreenBlackDelayOnBattery(const int delay) const;
@@ -93,7 +96,7 @@ public Q_SLOTS:
     void onLowPowerAutoSleepThreshold(const int value);
     void setCloseLid(const dcc::power::PowerModel *model, int lidIndex);
     void setPowerBtn(const dcc::power::PowerModel *model, int powIndex);
-
+    void updatePowerButtonActionList();
 };
 
 }// namespace datetime

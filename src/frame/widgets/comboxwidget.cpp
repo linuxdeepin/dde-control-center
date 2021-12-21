@@ -60,7 +60,6 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     if (m_titleLabel) {
         m_str = m_titleLabel->text();
     }
-
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
     mainLayout->setStretchFactor(m_leftWidget,3);
     mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
@@ -146,7 +145,6 @@ void ComboxWidget::resizeEvent(QResizeEvent *event)
             }
         }
     }
-    SettingsItem::resizeEvent(event);
 }
 
 /**
@@ -157,6 +155,7 @@ AlertComboBox::AlertComboBox(QWidget *parent)
     : QComboBox (parent)
     , m_isWarning(false)
 {
+    installEventFilter(this);
     connect(this, &AlertComboBox::currentTextChanged, this, &AlertComboBox::onValueChange);
 }
 
@@ -173,6 +172,14 @@ void AlertComboBox::setIsWarning(bool isWarning)
 bool AlertComboBox::isWarning()
 {
     return m_isWarning;
+}
+
+bool AlertComboBox::eventFilter(QObject *o, QEvent *e)
+{
+    if (e->type() == QEvent::Type::MouseButtonPress) {
+        Q_EMIT clicked();
+    }
+    return QComboBox::eventFilter(o, e);
 }
 
 void AlertComboBox::onValueChange(const QString &text)

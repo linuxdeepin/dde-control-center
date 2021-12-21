@@ -23,6 +23,7 @@
 #define COMBOXWIDGET_H
 
 #include "widgets/settingsitem.h"
+#include <QComboBox>
 
 #include <QComboBox>
 
@@ -80,6 +81,10 @@ public:
     ~AlertComboBox() override;
     void setIsWarning(bool isWarning);
     bool isWarning();
+    bool eventFilter(QObject *o, QEvent *e) override;
+
+Q_SIGNALS:
+    void clicked();
 
 protected Q_SLOTS:
     void onValueChange(const QString &text);
