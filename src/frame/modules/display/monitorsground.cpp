@@ -104,6 +104,8 @@ void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
     qDeleteAll(m_monitors.keys());
     m_monitors.clear();
     m_lstItems.clear();
+    m_mapItemConnectedState.clear();
+    m_mapInitItemConnectedState.clear();
     m_lstSortItems.clear();
     m_graphicsScene.clear();
     m_model = model;
