@@ -390,11 +390,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
             validityDaysBox->setValue(m_curUser->passwordAge());
             return;
         }
-        // fix bug#107941
-        static int age = 0;
-        if (age == validityDaysBox->value())
-            return;
-        age = validityDaysBox->value();
+        int age = validityDaysBox->value();
         if (age == m_curUser->passwordAge())
             return;
 
