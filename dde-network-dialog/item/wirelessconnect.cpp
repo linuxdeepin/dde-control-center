@@ -98,47 +98,50 @@ WirelessSecuritySetting::KeyMgmt WirelessConnect::getKeyMgmtByAp(dde::network::A
 
 void WirelessConnect::initConnection()
 {
-    NetworkManager::Connection::Ptr conn;
-    for (auto it : NetworkManager::activeConnections()) {
-        if (it->type() == ConnectionSettings::ConnectionType::Wireless && it->id() == m_ssid) {
-            conn = findConnectionByUuid(it->uuid());
+    // 隐藏网络直接创建settings
+    if (m_accessPoint) {
+        NetworkManager::Connection::Ptr conn;
+        for (auto it : NetworkManager::activeConnections()) {
+            if (it->type() == ConnectionSettings::ConnectionType::Wireless && it->id() == m_ssid) {
+                conn = findConnectionByUuid(it->uuid());
+            }
         }
-    }
 
-    if (conn.isNull()) {
-        for (auto item : m_device->items()) {
-            if (item->connection()->ssid() != m_ssid)
-                continue;
+        if (conn.isNull()) {
+            for (auto item : m_device->items()) {
+                if (item->connection()->ssid() != m_ssid)
+                    continue;
 
-            QString uuid = item->connection()->uuid();
-            if (!uuid.isEmpty()) {
-                conn = findConnectionByUuid(uuid);
-                if (!conn.isNull() && conn->isValid()) {
-                    break;
+                QString uuid = item->connection()->uuid();
+                if (!uuid.isEmpty()) {
+                    conn = findConnectionByUuid(uuid);
+                    if (!conn.isNull() && conn->isValid()) {
+                        break;
+                    }
                 }
             }
         }
-    }
-    if (!conn.isNull() && conn->isValid()) {
-        m_connectionSettings = conn->settings();
+        if (!conn.isNull() && conn->isValid()) {
+            m_connectionSettings = conn->settings();
 
-        Setting::SettingType sType = Setting::SettingType::WirelessSecurity;
-        WirelessSecuritySetting::KeyMgmt keyMgmt = m_connectionSettings->setting(sType).staticCast<WirelessSecuritySetting>()->keyMgmt();
-        if (keyMgmt != WirelessSecuritySetting::KeyMgmt::WpaNone
-            && keyMgmt != WirelessSecuritySetting::KeyMgmt::Unknown) {
-            if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaEap) {
-                sType = Setting::SettingType::Security8021x;
-            }
-            qInfo() << "setting:" << m_connectionSettings->setting(sType)->typeAsString(sType);
-            QDBusPendingReply<NMVariantMapMap> reply;
-            reply = conn->secrets(m_connectionSettings->setting(sType)->name());
-            reply.waitForFinished();
-            if (reply.isError() || !reply.isValid()) {
-                qDebug() << "get secrets error for connection:" << reply.error();
-            }
+            Setting::SettingType sType = Setting::SettingType::WirelessSecurity;
+            WirelessSecuritySetting::KeyMgmt keyMgmt = m_connectionSettings->setting(sType).staticCast<WirelessSecuritySetting>()->keyMgmt();
+            if (keyMgmt != WirelessSecuritySetting::KeyMgmt::WpaNone
+                && keyMgmt != WirelessSecuritySetting::KeyMgmt::Unknown) {
+                if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaEap) {
+                    sType = Setting::SettingType::Security8021x;
+                }
+                qInfo() << "setting:" << m_connectionSettings->setting(sType)->typeAsString(sType);
+                QDBusPendingReply<NMVariantMapMap> reply;
+                reply = conn->secrets(m_connectionSettings->setting(sType)->name());
+                reply.waitForFinished();
+                if (reply.isError() || !reply.isValid()) {
+                    qDebug() << "get secrets error for connection:" << reply.error();
+                }
 
-            QSharedPointer<WirelessSecuritySetting> setting = m_connectionSettings->setting(sType).staticCast<WirelessSecuritySetting>();
-            setting->secretsFromMap(reply.value().value(setting->name()));
+                QSharedPointer<WirelessSecuritySetting> setting = m_connectionSettings->setting(sType).staticCast<WirelessSecuritySetting>();
+                setting->secretsFromMap(reply.value().value(setting->name()));
+            }
         }
     }
     //　没连接过的需要新建连接
