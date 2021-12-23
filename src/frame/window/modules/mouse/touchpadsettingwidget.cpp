@@ -40,8 +40,6 @@ using namespace dcc::widgets;
 TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
     : QWidget(parent)
 {
-    auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
-    m_isNotWayland = !sessionType.contains("wayland");
     //~ contents_path /mouse/Touchpad
     //~ child_page Touchpad
     m_touchMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
@@ -82,10 +80,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
     setLayout(m_contentLayout);
 
     connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, [this](int value) {
-        if(m_isNotWayland)
-             requestSetTouchpadMotionAcceleration(value);
-        else
-            requestSetTouchpadMotionAcceleration(abs(value - 6));
+        requestSetTouchpadMotionAcceleration(value);
     });
     connect(m_touchClickStn, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTapClick);
     connect(m_touchNaturalScroll, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTouchNaturalScroll);
@@ -95,10 +90,7 @@ void TouchPadSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 {
     m_mouseModel = model;
     connect(model, &MouseModel::tpadMoveSpeedChanged, this, [this] (int value) {
-        if(m_isNotWayland)
-            onTouchMoveSpeedChanged(value);
-        else
-            onTouchMoveSpeedChanged(abs(value - 6));
+        onTouchMoveSpeedChanged(value);
     });
     connect(model, &MouseModel::tapClickChanged, m_touchClickStn, &SwitchWidget::setChecked);
     connect(model, &MouseModel::tpadNaturalScrollChanged, m_touchNaturalScroll, &SwitchWidget::setChecked);
@@ -108,10 +100,7 @@ void TouchPadSettingWidget::setModel(dcc::mouse::MouseModel *const model)
     connect(m_palmDetectSetting, &PalmDetectSetting::requestDetectState, this, &TouchPadSettingWidget::requestDetectState);
     connect(m_palmDetectSetting, &PalmDetectSetting::requestPressure, this, &TouchPadSettingWidget::requestPressure);
 
-    if(m_isNotWayland)
-        onTouchMoveSpeedChanged(m_mouseModel->tpadMoveSpeed());
-    else
-        onTouchMoveSpeedChanged(abs(m_mouseModel->tpadMoveSpeed() - 6));
+    onTouchMoveSpeedChanged(m_mouseModel->tpadMoveSpeed());
     m_touchClickStn->setChecked(m_mouseModel->tapclick());
     m_touchNaturalScroll->setChecked(m_mouseModel->tpadNaturalScroll());
 }
