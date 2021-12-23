@@ -399,7 +399,7 @@ const QString NetworkPluginHelper::contextMenu(bool hasSetting) const
 
 QWidget *NetworkPluginHelper::itemTips()
 {
-    return m_tipsWidget;
+    return m_tipsWidget->height() == 0 ? nullptr : m_tipsWidget;
 }
 
 void NetworkPluginHelper::onUpdatePlugView()
