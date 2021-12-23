@@ -432,16 +432,17 @@ void MainWindow::initAllModule(const QString &m)
 
 void MainWindow::onPrimaryScreenChanged(QScreen *screen)
 {
-    m_primaryScreen->disconnect();
+    disconnect(m_primaryScreen, &QScreen::geometryChanged, this, &MainWindow::updateWinsize);
     m_primaryScreen = screen;
     updateWinsize();
-    connect(m_primaryScreen,&QScreen::geometryChanged,this,&MainWindow::updateWinsize);
+    connect(m_primaryScreen, &QScreen::geometryChanged, this, &MainWindow::updateWinsize);
 }
 
 void MainWindow::updateWinsize(QRect rect)
 {
-    int w = QGuiApplication::primaryScreen()->geometry().width();
-    int h = QGuiApplication::primaryScreen()->geometry().height();
+    QScreen *screen = QGuiApplication::primaryScreen();
+    int w = screen->geometry().width();
+    int h = screen->geometry().height();
     if (rect.width() && rect.height()) {
         w = rect.width();
         h = rect.height();
@@ -456,9 +457,8 @@ void MainWindow::updateWinsize(QRect rect)
     if (height() > WidgetMinimumHeight)
         this->setGeometry(x(), y(), width(), WidgetMinimumHeight);
 
-    move(QPoint(rect.left() + (rect.width() - this->geometry().width()) / 2,
-                rect.top() + (rect.height() - this->geometry().height()) / 2));
-    show();
+    move(QPoint(screen->geometry().left() + (screen->geometry().width() - this->geometry().width()) / 2,
+                screen->geometry().top() + (screen->geometry().height() - this->geometry().height()) / 2));
 }
 
 void MainWindow::setSpecialThreeMenuVisible(QString name, bool flag)

@@ -43,9 +43,8 @@ MonitorIndicator::MonitorIndicator(QWidget *parent)
 void MonitorIndicator::paintEvent(QPaintEvent *e)
 {
     QPainter p(this);
-    const qreal ratio = qApp->devicePixelRatio();
-    qreal width = 10.0 / ratio;
-    QRectF rect = QRectF(width / 2.0, width / 2.0, this->geometry().width() / ratio - width, this->geometry().height() / ratio - width);
+    qreal width = 10.0;
+    QRectF rect = QRectF(width / 2.0, width / 2.0, this->geometry().width() - width, this->geometry().height() - width);
     QPen pen;
     pen.setWidthF(width);
     pen.setColor(QColor("#2ca7f8"));

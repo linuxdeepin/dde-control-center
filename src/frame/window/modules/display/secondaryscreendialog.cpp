@@ -266,7 +266,10 @@ void SecondaryScreenDialog::resetDialog()
     move(QPoint(screen->geometry().left() + (screen->geometry().width() - rt.width()) / 2,
                 screen->geometry().top() + (screen->geometry().height() - rt.height()) / 2));
 
-    screen->disconnect();
+    for (auto screen : QGuiApplication::screens()) {
+        screen->disconnect(this);
+    }
+
     connect(screen, &QScreen::geometryChanged, this, [=](const QRect &geometry) {
         move(QPoint(geometry.left() + (geometry.width() - rt.width()) / 2,
                     geometry.top() + (geometry.height() - rt.height()) / 2));

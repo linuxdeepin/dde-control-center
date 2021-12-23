@@ -99,6 +99,7 @@ private Q_SLOTS:
     void onRequestRecognize();
     void onRequestCloseRecognize();
     void onResetSecondaryScreenDlg();
+    void onResetFullIndication(const QRect &geometry);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;

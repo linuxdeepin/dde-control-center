@@ -39,6 +39,7 @@
 #include <QApplication>
 #include <QComboBox>
 #include <QDesktopWidget>
+#include <QScreen>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -232,9 +233,16 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
 
         for (const auto &monitor : m_model->monitorList()) {
             if (name == monitor->name()) {
-                move(monitor->x(), monitor->y());
+                for (auto screen : QGuiApplication::screens()) {
+                    disconnect(screen, &QScreen::geometryChanged, this, &MultiScreenWidget::onResetFullIndication);
+                }
+                QScreen *screen = m_model->primaryMonitor()->getQScreen();
+                connect(screen, &QScreen::geometryChanged, this, &MultiScreenWidget::onResetFullIndication);
+
+                m_fullIndication->setGeometry(screen->geometry());
+                m_fullIndication->move(screen->geometry().topLeft());
                 m_fullIndication->setVisible(true);
-                QTimer::singleShot(500, this, [=] { m_fullIndication->setVisible(false); });
+                QTimer::singleShot(1000, this, [=] { m_fullIndication->setVisible(false); });
                 break;
             }
         }
@@ -408,8 +416,9 @@ void MultiScreenWidget::onGatherWindows(const QPoint cursor)
 
 void MultiScreenWidget::onMonitorPress(Monitor *monitor)
 {
-    m_fullIndication->setGeometry(monitor->rect());
-
+    QScreen *screen = monitor->getQScreen();
+    m_fullIndication->setGeometry(screen->geometry());
+    m_fullIndication->move(screen->geometry().topLeft());
     m_fullIndication->setVisible(true);
 
     QTimer::singleShot(1000, this, [=] { m_fullIndication->setVisible(false); });
@@ -425,6 +434,12 @@ void MultiScreenWidget::onMonitorRelease(Monitor *monitor)
 void MultiScreenWidget::onRequestSetMonitorPosition(QHash<dcc::display::Monitor *, QPair<int, int>> monitorPosition)
 {
     Q_EMIT requestSetMonitorPosition(monitorPosition);
+}
+
+void MultiScreenWidget::onResetFullIndication(const QRect &geometry)
+{
+    m_fullIndication->setGeometry(geometry);
+    m_fullIndication->move(geometry.topLeft());
 }
 
 void MultiScreenWidget::onResetSecondaryScreenDlg()

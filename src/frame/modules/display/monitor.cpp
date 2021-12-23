@@ -315,7 +315,8 @@ QScreen *Monitor::getQScreen()
     auto screens = QGuiApplication::screens();
 
     for(auto screen : screens) {
-        if(screen->name() == name())
+        //x11下，qt获取的名字和后端给的名字一致 wayland下，qt获取的序列号中包含名称
+        if(screen->name() == name() || screen->model().contains(name()))
             return screen;
     }
 

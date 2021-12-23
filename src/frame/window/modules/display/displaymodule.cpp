@@ -274,16 +274,10 @@ void DisplayModule::showMultiScreenWidget()
             m_pMainWindow->showMaximized();
         }
 
-        QScreen *screen = moi->getQScreen();
+        QScreen *screen = QGuiApplication::primaryScreen();
         m_pMainWindow->setGeometry(QRect(screen->geometry().topLeft(),m_pMainWindow->size()));
         m_pMainWindow->move(QPoint(screen->geometry().left() + (screen->geometry().width() - m_pMainWindow->width()) / 2,
                     screen->geometry().top() + (screen->geometry().height() - m_pMainWindow->height()) / 2));
-        screen->disconnect();
-        connect(screen, &QScreen::geometryChanged, this, [=](const QRect &geometry) {
-            m_pMainWindow->move(QPoint(geometry.left() + (geometry.width() - m_pMainWindow->width()) / 2,
-                        geometry.top() + (geometry.height() - m_pMainWindow->height()) / 2));
-        });
-
     });
 
     m_displayWidget->setContent(multiScreenWidget);
