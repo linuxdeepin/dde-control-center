@@ -242,13 +242,13 @@ void NativeInfoWidget::setLicenseState(ActiveState state)
 const QString NativeInfoWidget::systemCopyright() const
 {
     const QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
-    const QString oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
+    const QString& oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
 
     if (oem_copyright.isEmpty()) {
         if (DSysInfo::isCommunityEdition())
-            return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2011-2021 Deepin Community"));
+            return QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2011-%1 Deepin Community").arg(2022);
         else
-            return QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2019-2021 UnionTech Software Technology Co., LTD")).arg(2019);
+            return QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2019-%1 UnionTech Software Technology Co., LTD").arg(2022);
     } else {
         return oem_copyright;
     }
