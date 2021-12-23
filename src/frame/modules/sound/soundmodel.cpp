@@ -245,6 +245,7 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
 {
     Port *port = findPort(portId, cardId);
     if (port) {
+        Q_EMIT portRemoved(portId, cardId);
         m_ports.removeOne(port);
 
         if (port->direction() == Port::Out) {
@@ -255,7 +256,6 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
         }
         port->deleteLater();
 
-        Q_EMIT portRemoved(portId, cardId);
 
         setInputDevicesVisible(m_inputPorts.isEmpty()? false: true);
         setOutputDevicesVisible(m_outputPorts.isEmpty()? false: true);

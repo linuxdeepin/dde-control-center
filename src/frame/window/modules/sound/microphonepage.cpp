@@ -188,7 +188,7 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
     for (int i = 0; i < m_inputModel->rowCount(); ++i) {
         auto item = m_inputModel->item(i);
         auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
-        if (port->id() == portId && cardId == port->cardId()) {
+        if (port && port->id() == portId && cardId == port->cardId()) {
             m_inputSoundCbx->comboBox()->hidePopup();
             if (m_currentPort->id() == portId && m_currentPort->cardId() == cardId)
                 m_currentPort = nullptr;
