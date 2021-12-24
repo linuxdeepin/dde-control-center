@@ -70,7 +70,7 @@ const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//�
 const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
 const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition); // 是否是教育版
 const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
-const QStringList m_hideModuleName{"update","commoninfo"};
+const QStringList m_hideModuleName{"update","commoninfo"};    // 设置服务器版默认隐藏模块，注意与gsettings属性字段hide-module区分
 
 struct ListSubItem {
     ListSubItem();

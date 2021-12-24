@@ -101,7 +101,7 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
     onUpdatablePackagesChanged(m_model->getUpdatablePackages());
     connect(m_model, &UpdateModel::updatablePackagesChanged, this, &UpdateModule::onUpdatablePackagesChanged);
 
-    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler && m_hideModuleName.contains("update")) {
+    if ((DSysInfo::uosEditionType() == DSysInfo::UosEuler || DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC) && m_hideModuleName.contains("update")) {
         m_frameProxy->setModuleVisible(this, false);
         setDeviceUnavailabel(true);
     } else {

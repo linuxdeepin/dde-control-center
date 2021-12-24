@@ -368,7 +368,7 @@ void MainWindow::initAllModule(const QString &m)
     });
     updateModuleVisible();
 
-    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler || DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC) {
         for (auto i : m_modules) {
             if (m_hideModuleName.contains((i.first->name()))) {
                 setModuleVisible(i.first, false);
