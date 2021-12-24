@@ -24,14 +24,17 @@
 
 #include "widgets/settingsitem.h"
 
+#include <QComboBox>
+
 QT_BEGIN_NAMESPACE
-class QComboBox;
 class QStringList;
 class QLabel;
 QT_END_NAMESPACE
 
 namespace dcc {
 namespace widgets {
+
+class AlertComboBox;
 
 class ComboxWidget : public SettingsItem
 {
@@ -47,7 +50,7 @@ public:
     void setCurrentIndex(const int index);
     void setTitle(const QString &title);
 
-    QComboBox *comboBox();
+    AlertComboBox *comboBox();
 
 Q_SIGNALS:
     void onIndexChanged(int index);
@@ -61,9 +64,31 @@ protected:
 
 private:
     QWidget *m_leftWidget;
-    QComboBox *m_switchComboBox;
+    AlertComboBox *m_switchComboBox;
     QLabel *m_titleLabel;
     QString m_str;
+};
+
+class AlertComboBox : public QComboBox
+{
+    Q_OBJECT
+
+    Q_PROPERTY(bool isWarning READ isWarning WRITE setIsWarning)
+
+public:
+    explicit AlertComboBox(QWidget *parent = Q_NULLPTR);
+    ~AlertComboBox() override;
+    void setIsWarning(bool isWarning);
+    bool isWarning();
+
+protected Q_SLOTS:
+    void onValueChange(const QString &text);
+
+protected:
+    void paintEvent(QPaintEvent *e) override;
+
+private:
+    bool m_isWarning;
 };
 
 }

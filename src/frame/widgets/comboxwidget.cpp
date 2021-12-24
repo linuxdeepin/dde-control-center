@@ -29,6 +29,7 @@
 #include <QStringList>
 #include <QMouseEvent>
 #include <QLabel>
+#include <QPainter>
 
 using namespace DCC_NAMESPACE;
 namespace dcc {
@@ -49,7 +50,7 @@ ComboxWidget::ComboxWidget(const QString &title, QFrame *parent)
 ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     : SettingsItem(parent)
     , m_leftWidget(widget)
-    , m_switchComboBox(new QComboBox)
+    , m_switchComboBox(new AlertComboBox(this))
     , m_str("")
 {
     // FIXME: 默认统一控件高度
@@ -114,7 +115,7 @@ void ComboxWidget::setTitle(const QString &title)
     setAccessibleName(m_str);
 }
 
-QComboBox *ComboxWidget::comboBox()
+AlertComboBox *ComboxWidget::comboBox()
 {
     return m_switchComboBox;
 }
@@ -146,6 +147,55 @@ void ComboxWidget::resizeEvent(QResizeEvent *event)
         }
     }
     SettingsItem::resizeEvent(event);
+}
+
+/**
+ * @brief 错误提示下拉框
+ * @param parent
+ */
+AlertComboBox::AlertComboBox(QWidget *parent)
+    : QComboBox (parent)
+    , m_isWarning(false)
+{
+    connect(this, &AlertComboBox::currentTextChanged, this, &AlertComboBox::onValueChange);
+}
+
+AlertComboBox::~AlertComboBox()
+{
+}
+
+void AlertComboBox::setIsWarning(bool isWarning)
+{
+    m_isWarning = isWarning;
+    update();
+}
+
+bool AlertComboBox::isWarning()
+{
+    return m_isWarning;
+}
+
+void AlertComboBox::onValueChange(const QString &text)
+{
+    if (!m_isWarning)
+        return;
+
+    if (!text.isEmpty())
+        setIsWarning(false);
+}
+
+void AlertComboBox::paintEvent(QPaintEvent *e)
+{
+    QComboBox::paintEvent(e);
+    if (m_isWarning) {
+        QPainter painter(this);
+        painter.save();
+        painter.setPen(Qt::NoPen);
+        painter.setBrush(QColor(241, 57, 50, qRound(0.15 * 255)));
+        QRect r = rect().adjusted(2,2,-2,-2);
+        painter.drawRoundedRect(r, 8, 8);
+        painter.restore();
+    }
 }
 
 }
