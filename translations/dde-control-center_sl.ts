@@ -393,134 +393,134 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="114"/>
         <source>Change Password</source>
         <translation>Spremeni geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="117"/>
         <source>Reset Password</source>
         <translation>Ponastavi geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="118"/>
         <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
         <translation>Ponastavljanje gesel ne spreminja verige za prijavljanje. Za upravljanje te lahko namestite seahorse.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="125"/>
         <source>Current Password</source>
         <translation>Trenutno geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="126"/>
         <source>Forgot password?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="140"/>
         <source>New Password</source>
         <translation>Novo geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
         <source>Repeat Password</source>
         <translation>Ponovite geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
         <source>Password Hint</source>
         <translation>Namig za geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="435"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="437"/>
         <source>Cancel</source>
         <translation>Prekliči</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="189"/>
         <source>Save</source>
         <translation>Shrani</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="258"/>
         <source>Strong</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="272"/>
         <source>Medium</source>
         <translation>Srednje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="302"/>
         <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
         <source>Weak</source>
         <translation>Šibko</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="305"/>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="310"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="411"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="481"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="483"/>
         <source>Passwords do not match</source>
         <translation>Gesli se ne ujemata</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="343"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="345"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="349"/>
         <source>Required</source>
         <translation>Obvezno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="351"/>
         <source>Optional</source>
         <translation>Izbirno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="365"/>
         <source>Password cannot be empty</source>
         <translation>Geslo ne more biti prazno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="379"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="488"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="490"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Namig je viden vsem uporabnikom. Sem ne zapisujte gesla.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="400"/>
         <source>Wrong password</source>
         <translation>Napačno geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="406"/>
         <source>New password should differ from the current one</source>
         <translation>Novo geslo naj bo drugačno od sedanjega</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="436"/>
         <source>Go to Settings</source>
         <translation>Pojdite v nastavitve</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="561"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="563"/>
         <source>System error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="563"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="565"/>
         <source>Network error</source>
         <translation type="unfinished"/>
     </message>
@@ -548,27 +548,32 @@
         <translation>Naprej</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="189"/>
         <source>Face enrolled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="192"/>
+        <source>Use your face to unlock the device and make settings later</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="197"/>
         <source>Done</source>
         <translation>Končano</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="201"/>
         <source>Failed to enroll your face</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
         <source>Try Again</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
         <source>Close</source>
         <translation>Zapri</translation>
     </message>
@@ -649,17 +654,17 @@
 <context>
     <name>dccV20::authentication::AuthenticationInfoItem</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/authenticationinfoitem.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/authentication/authenticationinfoitem.cpp" line="152"/>
         <source>No more than 15 characters</source>
         <translation>Največ 15 znakov</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/authenticationinfoitem.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/authentication/authenticationinfoitem.cpp" line="152"/>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
         <translation>Uporabite zgolj črke, številke in podčrtaje ter največ 15 znakov</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/authenticationinfoitem.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/authentication/authenticationinfoitem.cpp" line="157"/>
         <source>Use letters, numbers and underscores only</source>
         <translation>Uporabite zgolj črke, številke in podčrtaje</translation>
     </message>
@@ -1111,12 +1116,12 @@
         <translation>Sprejmem in se pridružujem programu uporabniške izkušnje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="360"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="365"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Izjava o omejitvi odgovornosti za razvojni način</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="366"/>
         <source>Agree and Request Root Access</source>
         <translation>Se strinjam in zahtevam korenski dostop</translation>
     </message>
@@ -1744,17 +1749,17 @@
         <translation>Glavni zaslon</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="308"/>
         <source>Duplicate</source>
         <translation>Podvoji</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="309"/>
         <source>Extend</source>
         <translation>Razširi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="314"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="315"/>
         <source>Only on %1</source>
         <translation>Zgolj na %1</translation>
     </message>
@@ -1806,9 +1811,9 @@
         <translation>Na sredino</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="366"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="418"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="460"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="365"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="417"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="459"/>
         <source>Recommended</source>
         <translation>Priporočeno</translation>
     </message>
@@ -2149,41 +2154,41 @@
 <context>
     <name>dccV20::mouse::MouseSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="45"/>
         <source>Pointer Speed</source>
         <translation>Hitrost kazalca</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="50"/>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
         <source>Mouse Acceleration</source>
         <translation>Posepešek miške</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="54"/>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="52"/>
         <source>Disable touchpad when a mouse is connected</source>
         <translation>Izklopi sledilno ploščico, kadar je priključena miška</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="59"/>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="57"/>
         <source>Natural Scrolling</source>
         <translation>Naravno pomikanje</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="61"/>
         <source>Slow</source>
         <translation>Počasi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="62"/>
         <source>Fast</source>
         <translation>Hitro</translation>
     </message>
@@ -3209,77 +3214,77 @@
         <translation>Vaše WLAN geslo je bo sinhroniziralo, če so nastavitve omrežja vklopljene</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
         <source>Network Settings</source>
         <translation>Nastavitve omrežja</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
         <source>Sound Settings</source>
         <translation>Nastavitve zvoka</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
         <source>Mouse Settings</source>
         <translation>Nastavitve miške</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
         <source>Update Settings</source>
         <translation>Nastavitve posodobitev</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Dock</source>
         <translation>Sidrišče</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Launcher</source>
         <translation>Zaganjalnik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
         <source>Wallpaper</source>
         <translation>Ozadje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
         <source>Power Settings</source>
         <translation>Nastavitve rabe energije</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="340"/>
         <source>Last Sync: %1</source>
         <translation>Zadnja sinhronizacija: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="342"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="377"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="433"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="462"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="436"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="465"/>
         <source>System error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="379"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="435"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="467"/>
         <source>Network error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="437"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="469"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation type="unfinished"/>
     </message>
@@ -3932,6 +3937,14 @@
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="71"/>
         <source>Mouse</source>
         <translation>Miška</translation>
+    </message>
+</context>
+<context>
+    <name>DetailInfoItem</name>
+    <message>
+        <location filename="../src/frame/widgets/detailinfoitem.cpp" line="76"/>
+        <source>For more details, visit:</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4860,13 +4873,13 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
-        <source>Copyright© 2011-2021 Deepin Community</source>
-        <translation>Avtorstvo© 2011-2020 Deepin Community</translation>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
-        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
-        <translation>Avtorstvo© 2019-2020 UnionTech Software Technology Co., LTD</translation>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4968,22 +4981,22 @@ If you agree to this statement and enroll your face (we will not collect your fa
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1384"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1390"/>
         <source>Network error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1387"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1393"/>
         <source>Dependency error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1390"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1396"/>
         <source>Insufficient disk space</source>
         <translation>Premalo prostora na disku</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1393"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1399"/>
         <source>Update failed</source>
         <translation type="unfinished"/>
     </message>
