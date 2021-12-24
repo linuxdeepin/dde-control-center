@@ -49,11 +49,13 @@
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Cancel</source>
-        <translation>İmtina</translation>
+        <comment>button</comment>
+        <translation>Ləğv edin</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Save</source>
+        <comment>button</comment>
         <translation>Saxla</translation>
     </message>
     <message>
@@ -85,16 +87,19 @@
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Delete</source>
+        <comment>button</comment>
         <translation>Sil</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Cancel</source>
-        <translation>İmtina</translation>
+        <comment>button</comment>
+        <translation>Ləğv edin</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Save</source>
+        <comment>button</comment>
         <translation>Saxla</translation>
     </message>
     <message>
@@ -168,7 +173,8 @@
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>Export</source>
-        <translation>İxrac etmək</translation>
+        <comment>button</comment>
+        <translation>İxrac edin</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
@@ -771,11 +777,13 @@
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Cancel</source>
-        <translation>İmtina</translation>
+        <comment>button</comment>
+        <translation>Ləğv edin</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Save</source>
+        <comment>button</comment>
         <translation>Saxla</translation>
     </message>
     <message>

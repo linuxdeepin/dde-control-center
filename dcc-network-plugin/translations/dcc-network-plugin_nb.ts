@@ -49,11 +49,13 @@
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Cancel</source>
+        <comment>button</comment>
         <translation>Avbryt</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Save</source>
+        <comment>button</comment>
         <translation>Lagre</translation>
     </message>
     <message>
@@ -85,16 +87,19 @@
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Delete</source>
+        <comment>button</comment>
         <translation>Slett</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Cancel</source>
+        <comment>button</comment>
         <translation>Avbryt</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Save</source>
+        <comment>button</comment>
         <translation>Lagre</translation>
     </message>
     <message>
@@ -169,6 +174,7 @@
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>Export</source>
+        <comment>button</comment>
         <translation>Eksporter</translation>
     </message>
     <message>
@@ -772,11 +778,13 @@
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Cancel</source>
+        <comment>button</comment>
         <translation>Avbryt</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Save</source>
+        <comment>button</comment>
         <translation>Lagre</translation>
     </message>
     <message>

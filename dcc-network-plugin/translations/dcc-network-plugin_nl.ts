@@ -49,11 +49,13 @@
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Cancel</source>
+        <comment>button</comment>
         <translation>Annuleren</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Save</source>
+        <comment>button</comment>
         <translation>Opslaan</translation>
     </message>
     <message>
@@ -85,16 +87,19 @@
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Delete</source>
+        <comment>button</comment>
         <translation>Verwijderen</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Cancel</source>
+        <comment>button</comment>
         <translation>Annuleren</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Save</source>
+        <comment>button</comment>
         <translation>Opslaan</translation>
     </message>
     <message>
@@ -168,6 +173,7 @@
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>Export</source>
+        <comment>button</comment>
         <translation>Exporteren</translation>
     </message>
     <message>
@@ -771,11 +777,13 @@
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Cancel</source>
+        <comment>button</comment>
         <translation>Annuleren</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Save</source>
+        <comment>button</comment>
         <translation>Opslaan</translation>
     </message>
     <message>

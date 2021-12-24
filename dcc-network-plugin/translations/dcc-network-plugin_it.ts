@@ -49,11 +49,13 @@
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Cancel</source>
+        <comment>button</comment>
         <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Save</source>
+        <comment>button</comment>
         <translation>Salva</translation>
     </message>
     <message>
@@ -85,16 +87,19 @@
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Delete</source>
+        <comment>button</comment>
         <translation>Elimina</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Cancel</source>
+        <comment>button</comment>
         <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Save</source>
+        <comment>button</comment>
         <translation>Salva</translation>
     </message>
     <message>
@@ -168,6 +173,7 @@
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>Export</source>
+        <comment>button</comment>
         <translation>Esporta</translation>
     </message>
     <message>
@@ -501,7 +507,7 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Only one gateway is allowed</source>
-        <translation type="unfinished"/>
+        <translation>E&apos; permesso un solo un gateway</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
@@ -534,7 +540,7 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Only one gateway is allowed</source>
-        <translation type="unfinished"/>
+        <translation>E&apos; permesso un solo un gateway</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
@@ -771,11 +777,13 @@
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Cancel</source>
+        <comment>button</comment>
         <translation>Annulla</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Save</source>
+        <comment>button</comment>
         <translation>Salva</translation>
     </message>
     <message>
@@ -1017,7 +1025,7 @@
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
         <source>WPA3 Personal</source>
-        <translation type="unfinished"/>
+        <translation>WPA3 Personale</translation>
     </message>
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
@@ -1078,7 +1086,7 @@
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>WPA3 Personal</source>
-        <translation type="unfinished"/>
+        <translation>WPA3 Personale</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
