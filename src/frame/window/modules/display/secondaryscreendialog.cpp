@@ -33,6 +33,7 @@
 #include <DFontSizeManager>
 #include <QKeyEvent>
 #include <QVBoxLayout>
+#include <QScreen>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -252,7 +253,7 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
 void SecondaryScreenDialog::resetDialog()
 {
     adjustSize();
-
+    
     auto rt = rect();
     if (rt.width() > m_monitor->w())
         rt.setWidth(m_monitor->w());
@@ -260,11 +261,16 @@ void SecondaryScreenDialog::resetDialog()
     if (rt.height() > m_monitor->h())
         rt.setHeight(m_monitor->h());
 
-    auto mrt = m_monitor->rect();
-    auto tsize = (mrt.size() / m_model->monitorScale(m_monitor) - rt.size()) / 2;
-    rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
+    QScreen *screen = m_monitor->getQScreen();
+    setGeometry(QRect(screen->geometry().topLeft(),rt.size()));
+    move(QPoint(screen->geometry().left() + (screen->geometry().width() - rt.width()) / 2,
+                screen->geometry().top() + (screen->geometry().height() - rt.height()) / 2));
 
-    setGeometry(rt);
+    screen->disconnect();
+    connect(screen, &QScreen::geometryChanged, this, [=](const QRect &geometry) {
+        move(QPoint(geometry.left() + (geometry.width() - rt.width()) / 2,
+                    geometry.top() + (geometry.height() - rt.height()) / 2));
+    });
     show();
 }
 

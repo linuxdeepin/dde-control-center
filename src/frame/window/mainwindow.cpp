@@ -455,6 +455,10 @@ void MainWindow::updateWinsize(QRect rect)
         this->setGeometry(x(), y(), WidgetMinimumWidth, height());
     if (height() > WidgetMinimumHeight)
         this->setGeometry(x(), y(), width(), WidgetMinimumHeight);
+
+    move(QPoint(rect.left() + (rect.width() - this->geometry().width()) / 2,
+                rect.top() + (rect.height() - this->geometry().height()) / 2));
+    show();
 }
 
 void MainWindow::setSpecialThreeMenuVisible(QString name, bool flag)

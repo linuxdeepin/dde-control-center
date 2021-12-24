@@ -26,6 +26,7 @@
 #include "monitor.h"
 
 #include <QGSettings>
+#include <QGuiApplication>
 
 using namespace dcc::display;
 
@@ -307,4 +308,16 @@ bool Monitor::hasRatefresh(const double r)
     }
 
     return false;
+}
+
+QScreen *Monitor::getQScreen()
+{
+    auto screens = QGuiApplication::screens();
+
+    for(auto screen : screens) {
+        if(screen->name() == name())
+            return screen;
+    }
+
+    return nullptr;
 }

@@ -27,6 +27,7 @@
 #define MONITOR_H
 
 #include <QObject>
+#include <QScreen>
 
 #include <com_deepin_daemon_display_monitor.h>
 
@@ -115,6 +116,7 @@ public:
     bool hasResolution(const Resolution &r);
     bool hasResolutionAndRate(const Resolution &r);
     bool hasRatefresh(const double r);
+    QScreen *getQScreen();
 
 private Q_SLOTS:
     void setX(const int x);
