@@ -90,13 +90,13 @@ void AddFaceInfoDialog::initWidget()
     // 提示信息
     m_resultTips = new QLabel(this);
     m_resultTips->hide();
-    m_explainTips = new QLabel(tr("Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well."));
+    m_explainTips = new DLabel(tr("Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well."));
     m_explainTips->setWordWrap(true);
     m_explainTips->setAlignment(Qt::AlignCenter);
     DFontSizeManager::instance()->bind(m_explainTips, DFontSizeManager::T8);
 
     QHBoxLayout *tips = new QHBoxLayout(this);
-    tips->addWidget(m_explainTips, 0, Qt::AlignHCenter);
+    tips->addWidget(m_explainTips);
     tips->setContentsMargins(42, 10, 42, 10);
 
     // 免责声明
@@ -122,7 +122,7 @@ void AddFaceInfoDialog::initWidget()
     m_mainLayout->addWidget(m_resultTips, 0, Qt::AlignHCenter);
     m_mainLayout->addSpacing(10);
     m_mainLayout->addLayout(tips);
-    m_mainLayout->addSpacing(100);
+    m_mainLayout->addStretch();
     m_mainLayout->addWidget(m_disclaimersItem, 0, Qt::AlignCenter);
     m_mainLayout->addLayout(btnLayout);
 

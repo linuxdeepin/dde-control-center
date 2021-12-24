@@ -86,7 +86,7 @@ private:
     QVBoxLayout *m_mainLayout;
     QLabel *m_facePic; // 人脸图片
     QLabel *m_resultTips; // 录入结果说明
-    QLabel *m_explainTips; // 状态说明信息
+    DLabel *m_explainTips; // 状态说明信息
     dcc::authentication::DisclaimersItem *m_disclaimersItem; // 免责声明
     QPushButton* m_cancelBtn; // 取消
     DTK_WIDGET_NAMESPACE::DSuggestButton* m_acceptBtn; // 下一步
