@@ -477,7 +477,6 @@ void UpdateWorker::getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo)
     QJsonObject jsonObject = jsonValue.toObject();
 
     itemInfo->setPackageId(jsonObject.value("package_id").toString());
-    itemInfo->setName(jsonObject.value("name_" + languageType).toString());
     itemInfo->setCurrentVersion(jsonObject.value("current_version_" + languageType).toString());
     itemInfo->setAvailableVersion(jsonObject.value("available_version_" + languageType).toString());
     itemInfo->setExplain(jsonObject.value("update_explain_" + languageType).toString());
