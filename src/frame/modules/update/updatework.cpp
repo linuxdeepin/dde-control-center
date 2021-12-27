@@ -474,12 +474,21 @@ void UpdateWorker::getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo)
         languageType = language.value(1);
     }
 
-    itemInfo->setPackageId(jsonValue.toObject().value("package_id").toString());
-    itemInfo->setName(jsonValue.toObject().value("name_" + languageType).toString());
-    itemInfo->setCurrentVersion(jsonValue.toObject().value("current_version_" + languageType).toString());
-    itemInfo->setAvailableVersion(jsonValue.toObject().value("available_version_" + languageType).toString());
-    itemInfo->setExplain(jsonValue.toObject().value("update_explain_" + languageType).toString());
-    itemInfo->setUpdateTime(jsonValue.toObject().value("update_time").toString());
+    QJsonObject jsonObject = jsonValue.toObject();
+
+    itemInfo->setPackageId(jsonObject.value("package_id").toString());
+    itemInfo->setName(jsonObject.value("name_" + languageType).toString());
+    itemInfo->setCurrentVersion(jsonObject.value("current_version_" + languageType).toString());
+    itemInfo->setAvailableVersion(jsonObject.value("available_version_" + languageType).toString());
+    itemInfo->setExplain(jsonObject.value("update_explain_" + languageType).toString());
+
+    if (jsonObject.contains("update_time_" + languageType)) {
+        itemInfo->setUpdateTime(jsonValue.toObject().value("update_time_" + languageType).toString());
+    } else {
+        itemInfo->setUpdateTime(jsonValue.toObject().value("update_time").toString());
+    }
+
+
 
     qDebug() << "UpdateWorker::getItemInfo  itemInfo->name() == " << itemInfo->name();
 
