@@ -90,8 +90,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="927"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -112,8 +112,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
         <source>Drawing Tablet</source>
         <translation>Tablet de Desenho</translation>
     </message>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="974"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="973"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="975"/>
         <source>Updates</source>
         <translation>Atualizações</translation>
     </message>
@@ -136,8 +136,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
         <source>General Settings</source>
         <translation>Definições Gerais</translation>
     </message>
@@ -152,8 +152,8 @@
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
         <source>Cloud Sync</source>
         <translation>Sincronização na nuvem</translation>
     </message>
@@ -544,7 +544,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
         <source>New password should differ from the current one</source>
-        <translation>A nova palavra-passe deverá ser diferente da atual</translation>
+        <translation>A nova palavra-passe deve ser diferente da atual</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="190"/>
@@ -6401,7 +6401,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/widgets/settingshead.cpp" line="105"/>
         <source>Done</source>
-        <translation>Concluído</translation>
+        <translation>Feito</translation>
     </message>
 </context>
 <context>
@@ -6730,7 +6730,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>O PIN para ligar com o dispositivo Bluetooth é:</translation>
+        <translation>O PIN para ligar ao dispositivo Bluetooth é:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -6781,22 +6781,22 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>Confirmar</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation>Adicionar fuso horário</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>Adicionar</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>Alterar fuso horário</translation>
     </message>
@@ -6868,7 +6868,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="61"/>
         <source>Required</source>
-        <translation>Necessário</translation>
+        <translation>Obrigatório</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="72"/>
@@ -7163,13 +7163,13 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
-        <source>Copyright© 2011-2021 Deepin Community</source>
-        <translation>Direitos de autor© 2011-2021 Comunidade Deepin</translation>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
-        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
-        <translation>Direitos de autor© 2019-2021 UnionTech Software Technology Co., LTD</translation>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

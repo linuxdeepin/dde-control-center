@@ -90,8 +90,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="927"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>Bluetooth</source>
         <translation>كۆكچىش</translation>
     </message>
@@ -112,8 +112,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
         <source>Drawing Tablet</source>
         <translation>سېزىمچان تاختا</translation>
     </message>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="974"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="973"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="975"/>
         <source>Updates</source>
         <translation>يېڭىلانمىلار</translation>
     </message>
@@ -136,8 +136,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
         <source>General Settings</source>
         <translation>ئادەتتىكى تەڭشەكلەر</translation>
     </message>
@@ -152,8 +152,8 @@
         <translation>ئىز قوغلىغۇچ تېزلىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
         <source>Cloud Sync</source>
         <translation>بۇلۇت ماسقەدەملەش</translation>
     </message>
@@ -4830,7 +4830,7 @@
         <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="442"/>
         <source>Disable touchpad while typing</source>
-        <translation>كىرگۈزگەندە سىزىمچان تاختا چەكلەنسۇن</translation>
+        <translation>خەت يېزىۋاتقاندا سېزىمچان تاختا ئىشلىمىسۇن</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
@@ -5364,7 +5364,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="52"/>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation>https://www.uniontech.com/agreement/privacy-uy</translation>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="53"/>
@@ -5689,7 +5689,7 @@ Visit User Center and manage your account there.</source>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="420"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform>%n دانە ئەپنىڭ يىڭى نەشرى بايقالدى</numerusform></translation>
+        <translation><numerusform>%n ئەپ يېڭىلاندى</numerusform><numerusform>%n دانە ئەپنىڭ يىڭى نەشرى بايقالدى</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="425"/>
@@ -5699,7 +5699,7 @@ Visit User Center and manage your account there.</source>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="427"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform>يېڭى سىستېما نەشرى ۋە %n ئەپنىڭ يېڭىلانمىسى بايقالدى</numerusform></translation>
+        <translation><numerusform>يېڭى سىستېما نەشرى ۋە %n ئەپنىڭ يېڭىلانمىسى بايقالدى</numerusform><numerusform>يېڭى سىستېما نەشرى ۋە %n ئەپنىڭ يېڭىلانمىسى بايقالدى</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
@@ -6082,7 +6082,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/main.cpp" line="125"/>
         <source>Control Center</source>
-        <translation>كونترول مەركىزى</translation>
+        <translation>كونترول مەركىزى </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="723"/>
@@ -6102,17 +6102,17 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="726"/>
         <source>Boot Menu</source>
-        <translation>تىزىملىكنى قوزغىتىش</translation>
+        <translation>قوزغىلىش تىزىملىكى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="727"/>
         <source>Developer Mode</source>
-        <translation>ئاچقۇچى ھالىتى</translation>
+        <translation>ئاچقۇچىلار ھالىتى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="728"/>
         <source>User Experience Program</source>
-        <translation>ئىشلەتكۈچى تەسىرات پىلانى</translation>
+        <translation>ئىشلەتكۈچى تەجرىبە پروگراممىسى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="729"/>
@@ -6172,7 +6172,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="740"/>
         <source>Keyboard Layout</source>
-        <translation>كۇنۇپكا ئورۇنلاشتۇرۇلۇشى</translation>
+        <translation>كۇنۇپكا تاختىسى ئورۇنلاشتۇرۇلۇشى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="741"/>
@@ -6182,7 +6182,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="742"/>
         <source>Personal Hotspot</source>
-        <translation>شەخسىي سىمسىز تور</translation>
+        <translation>تور تارقىتىش</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="743"/>
@@ -6232,7 +6232,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="752"/>
         <source>Sound Effects</source>
-        <translation>سىستېما ئاۋاز ئۈنۈمى</translation>
+        <translation>ئاۋاز ئۈنۈملىرى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="753"/>
@@ -6257,7 +6257,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="757"/>
         <source>Edition License</source>
-        <translation>نەشر كېلىشىمى</translation>
+        <translation>نەشىر ئىجازەتنامىسى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="758"/>
@@ -6272,7 +6272,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="760"/>
         <source>Updates</source>
-        <translation>يېڭىلانما تەكشۈرۈش</translation>
+        <translation>يېڭىلانمىلار</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="761"/>
@@ -6676,7 +6676,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="145"/>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation>بارمىقىڭىزنى ئېلىپ قايتا بېسىڭ</translation>
+        <translation>بارمىقىڭىزنى ئېلىپ قايتا قويۇڭ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="151"/>
@@ -6781,22 +6781,22 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>جەزملەشتۈرۈش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation> ۋاقىت رايونى قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>ۋاقىت رايونىنى ئۆزگەرتىش</translation>
     </message>
@@ -6816,7 +6816,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="114"/>
         <source>Today</source>
-        <translation>بۈگۈن</translation>
+        <translation>Today</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="133"/>
@@ -6868,7 +6868,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="61"/>
         <source>Required</source>
-        <translation>چوقۇم تولدۇرۇڭ</translation>
+        <translation>زۆرۈر</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="72"/>
@@ -7151,7 +7151,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="206"/>
         <source>available</source>
-        <translation>ئىشلەتكىلى بولىدىغىنى</translation>
+        <translation>ئىشلەتكىلى بولىدۇ</translation>
     </message>
 </context>
 <context>
@@ -7163,13 +7163,13 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
-        <source>Copyright© 2011-2021 Deepin Community</source>
-        <translation>Copyright© 2011-2021 Deepin مەھەللىسى</translation>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation>Copyright © 2011-%1 Deepin مەھەللىسى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
-        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</translation>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation>Copyright © 2019-%1 توڭشىن يۇمشاق دېتال تېخنىكا چەكلىك شىركىتى</translation>
     </message>
 </context>
 <context>
@@ -7242,7 +7242,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="122"/>
         <source>Collapse</source>
-        <translation>يېغىش</translation>
+        <translation>يىغىش</translation>
     </message>
 </context>
 <context>

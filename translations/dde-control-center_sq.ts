@@ -90,8 +90,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="927"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -112,8 +112,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
         <source>Drawing Tablet</source>
         <translation>Tablet Vizatimi</translation>
     </message>
@@ -124,20 +124,20 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="974"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="973"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="975"/>
         <source>Updates</source>
         <translation>Përditësime</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <source>System Info</source>
-        <translation>Të dhëna Sistemi</translation>
+        <translation>Hollësi Sistemi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
         <source>General Settings</source>
         <translation>Rregullime të Përgjithshme</translation>
     </message>
@@ -152,8 +152,8 @@
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
         <source>Cloud Sync</source>
         <translation>Njëkohësim Në Re</translation>
     </message>
@@ -717,7 +717,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="106"/>
         <source>User Experience Program</source>
-        <translation>User Experience Program</translation>
+        <translation>Program Përshtypjesh Përdoruesi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="110"/>
@@ -761,17 +761,17 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="244"/>
         <source>Agree and Join User Experience Program</source>
-        <translation>Shprehni Pajtimin dhe Merrni Pjesë Te programi “User Experience Program”</translation>
+        <translation>Shprehni Pajtimin dhe Merrni Pjesë Te Programi i Përshtypjeve të Përdoruesit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="303"/>
         <source>The Disclaimer of Developer Mode</source>
-        <translation>Klauzola e Mënyrës Zhvillues</translation>
+        <translation>Klauzolë e Mënyrës Zhvillues</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="304"/>
         <source>Agree and Request Root Access</source>
-        <translation>Shprehni Pajtimin dhe Kërkoni Hyrje Si Rrënjë</translation>
+        <translation>Shprehni Pajtimin dhe Kërko Hyrje Si Rrënjë</translation>
     </message>
 </context>
 <context>
@@ -815,7 +815,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="216"/>
         <source>1. Export your PC information</source>
-        <translation>1. Eksportoni informacionin e PC-së tuaj</translation>
+        <translation>1. Eksporto të Dhëna PC-je</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="217"/>
@@ -903,7 +903,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="49"/>
         <source>Join User Experience Program</source>
-        <translation>Merrni Pjesë Te programi “User Experience Program”</translation>
+        <translation>Merrni Pjesë Te Programi i Përshtypjeve të Përdoruesit</translation>
         <extra-child_page>User Experience Program</extra-child_page>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
@@ -1075,7 +1075,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="77"/>
         <source>Short Time</source>
-        <translation>Kohë e Shkurtër</translation>
+        <translation>Kohë e shkurtër</translation>
         <extra-child_page>Format Settings</extra-child_page>
         <extra-contents_path>/datetime/Format Settings</extra-contents_path>
     </message>
@@ -1140,17 +1140,17 @@
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="219"/>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="228"/>
         <source>April 5, 2020</source>
-        <translation>Prill 5, 2020</translation>
+        <translation>5 prill, 2020</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="222"/>
         <source>April 5, 2020, Sunday</source>
-        <translation>Prill 5, 2020, E diel</translation>
+        <translation>5 prill, 2020, E diel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="225"/>
         <source>Sunday, April 5, 2020</source>
-        <translation>E diel, 5 prill 2020</translation>
+        <translation>E diel, 5 prill, 2020</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="244"/>
@@ -1287,7 +1287,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="53"/>
         <source>Webpage</source>
-        <translation>Sajt</translation>
+        <translation>Faqe web</translation>
         <extra-contents_path>/defapp</extra-contents_path>
     </message>
     <message>
@@ -1596,14 +1596,14 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="108"/>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Tastierë Numerike</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="115"/>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>Kycja e kapakeve</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
@@ -1696,7 +1696,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
         <source>Assistive Tools</source>
-        <translation>Mjete Ndihmuese</translation>
+        <translation>Teknologji Ndihmuese</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="105"/>
@@ -4404,7 +4404,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="70"/>
         <source>Password is required to wake up the monitor</source>
-        <translation>Që të zgjohet monitori, lypset fjalëkalim</translation>
+        <translation>Që të zgjohet monitor, lypset fjalëkalim</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
@@ -5064,7 +5064,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="414"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
-        <translation>Nëse volumi është më i fortë se 100%, mund të shformohen tingujt dhe të jetë e dëmshme për altoparlantët tuaj</translation>
+        <translation>Nëse volumi është më i fortë se 100%, mund të shformohet audioja dhe të jetë e dëmshme për altoparlantët tuaj</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="428"/>
@@ -5248,7 +5248,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
         <source>Edition:</source>
-        <translation>Edicioni:</translation>
+        <translation>Edicion:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
@@ -5320,7 +5320,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="342"/>
         <source>Expired</source>
-        <translation>Ka skaduar</translation>
+        <translation>Skadoi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="346"/>
@@ -5330,7 +5330,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="350"/>
         <source>Trial expired</source>
-        <translation>Prova skadoi</translation>
+        <translation>Provë skadoi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="419"/>
@@ -5539,7 +5539,7 @@ Vizitoni Qendrën e Përdoruesit dhe administroni atje llogarinë tuaj.</transla
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="82"/>
         <source>Slow</source>
-        <translation>I ngadaltë</translation>
+        <translation>Ngadalë</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="84"/>
@@ -5549,7 +5549,7 @@ Vizitoni Qendrën e Përdoruesit dhe administroni atje llogarinë tuaj.</transla
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="86"/>
         <source>Fast</source>
-        <translation>I shpejtë</translation>
+        <translation>Shpejt</translation>
     </message>
 </context>
 <context>
@@ -5563,7 +5563,7 @@ Vizitoni Qendrën e Përdoruesit dhe administroni atje llogarinë tuaj.</transla
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="51"/>
         <source>Test Speed</source>
-        <translation>Provoni Shpejtësinë</translation>
+        <translation>Testoni Shpejtësinë</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="141"/>
@@ -5573,7 +5573,7 @@ Vizitoni Qendrën e Përdoruesit dhe administroni atje llogarinë tuaj.</transla
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="170"/>
         <source>Retest</source>
-        <translation>Riprovoje</translation>
+        <translation>Ritestoje</translation>
     </message>
 </context>
 <context>
@@ -5664,7 +5664,7 @@ Vizitoni Qendrën e Përdoruesit dhe administroni atje llogarinë tuaj.</transla
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="367"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation>U instalua sistemi më i ri, riniseni që të hyjë në fuqi</translation>
+        <translation>U instaluar sistemi më i ri, riniseni që të hyjë në fuqi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="378"/>
@@ -5824,7 +5824,7 @@ Vizitoni Qendrën e Përdoruesit dhe administroni atje llogarinë tuaj.</transla
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="187"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Që të lidhet automatikisht me sajtin pasqyrë më të shpejtë, aktivizojeni</translation>
+        <translation>Aktivizojeni që të lidhet automatikisht me sajtin pasqyrë më të shpejtë</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -5858,7 +5858,7 @@ Vizitoni Qendrën e Përdoruesit dhe administroni atje llogarinë tuaj.</transla
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="127"/>
         <source>Return</source>
-        <translation type="unfinished"/>
+        <translation>kthehu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="180"/>
@@ -6781,22 +6781,22 @@ Vizitoni Qendrën e Përdoruesit dhe administroni atje llogarinë tuaj.</transla
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>Ripohojeni</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation>Shtoni Zonë Kohore</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>Shto</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>Ndryshoni Zonë Kohore</translation>
     </message>
@@ -7163,13 +7163,13 @@ Vizitoni Qendrën e Përdoruesit dhe administroni atje llogarinë tuaj.</transla
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
-        <source>Copyright© 2011-2021 Deepin Community</source>
-        <translation>Të drejta kopjimi© 2011-2021 Bashkësia Deepin</translation>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
-        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
-        <translation>Të drejta kopjimi© 2019-2021 UnionTech Software Technology Co., LTD</translation>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

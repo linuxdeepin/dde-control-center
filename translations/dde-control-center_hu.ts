@@ -90,8 +90,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="927"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -112,8 +112,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
         <source>Drawing Tablet</source>
         <translation>Rajztábla</translation>
     </message>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="974"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="973"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="975"/>
         <source>Updates</source>
         <translation>Frissítések</translation>
     </message>
@@ -136,8 +136,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
         <source>General Settings</source>
         <translation>Általános beállítások</translation>
     </message>
@@ -152,8 +152,8 @@
         <translation>Pöcökegér</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
         <source>Cloud Sync</source>
         <translation>Felhő alapú szinkronizálás</translation>
     </message>
@@ -6342,7 +6342,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="772"/>
         <source>Change System Timezone</source>
-        <translation>A rendszer időzónájának módosítása </translation>
+        <translation>A rendszer időzónájának módosítása</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="774"/>
@@ -6518,7 +6518,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="598"/>
         <source>Password not match</source>
-        <translation>A jelszó nem egyezik</translation>
+        <translation>A jelszavak nem egyeznek</translation>
     </message>
 </context>
 <context>
@@ -6739,7 +6739,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>A PIN-kód megadásával csatlakozhat a bluetooth eszközhöz:</translation>
+        <translation>A Bluetooth-eszközhöz való csatlakozás PIN kódja:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -6790,22 +6790,22 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>Megerősítés</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation>Időzóna hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>Hozzáadás</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>Időzóna módosítása</translation>
     </message>
@@ -6830,7 +6830,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="133"/>
         <source>%1 hours earlier than local</source>
-        <translation>%1 órával kevesebb, mint a helyi idő</translation>
+        <translation>%1 órával korábban, mint a helyi idő</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="135"/>
@@ -7172,13 +7172,13 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
-        <source>Copyright© 2011-2021 Deepin Community</source>
-        <translation>Szerzői jog© 2011-2021 Deepin® Közösség</translation>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
-        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
-        <translation>Szerzői Jog© 2019-2021 UnionTech Software Technology Co., LTD</translation>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -7219,7 +7219,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="70"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation>A rendszer nem hitelesített kérjük, először aktiválja</translation>
+        <translation>A rendszere nincs engedélyezve, kérjük először aktiválja</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="75"/>

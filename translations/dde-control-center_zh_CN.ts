@@ -90,8 +90,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="927"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
@@ -112,8 +112,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
         <source>Drawing Tablet</source>
         <translation>数位板</translation>
     </message>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="974"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="973"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="975"/>
         <source>Updates</source>
         <translation>更新</translation>
     </message>
@@ -136,8 +136,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
         <source>General Settings</source>
         <translation>通用</translation>
     </message>
@@ -152,8 +152,8 @@
         <translation>指点杆</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
         <source>Cloud Sync</source>
         <translation>云同步</translation>
     </message>
@@ -4846,7 +4846,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
         <source>Sign In</source>
-        <translation>登录</translation>
+        <translation>登 录</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="141"/>
@@ -5743,24 +5743,24 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="52"/>
         <source>Security Updates</source>
-        <translation>安全更新</translation>
+        <translation>检查安全更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>开启“自动下载”，会在有无线网络和有线网络的情况下自动下载</translation>
+        <translation>开启“下载更新”，会在有无线网络和有线网络的情况下自动下载</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="59"/>
         <source>System Updates</source>
-        <translation>系统更新</translation>
+        <translation>检查系统更新</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="63"/>
         <source>App Updates in App Store</source>
-        <translation>应用商店的应用</translation>
+        <translation>检查应用商店的应用更新</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -5774,7 +5774,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="71"/>
         <source>Download Updates</source>
-        <translation>自动下载</translation>
+        <translation>下载更新</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -5791,7 +5791,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="104"/>
         <source>Check for Updates</source>
-        <translation>自动检查</translation>
+        <translation>检查更新</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -6272,7 +6272,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="760"/>
         <source>Updates</source>
-        <translation>检查更新</translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="761"/>
@@ -6781,22 +6781,22 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>修改系统时区</translation>
     </message>
@@ -7163,13 +7163,13 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
-        <source>Copyright© 2011-2021 Deepin Community</source>
-        <translation>Copyright © 2011-2021 深度社区</translation>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation>Copyright © 2011-%1 深度社区</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
-        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright © 2019-2021 统信软件技术有限公司</translation>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation>Copyright © 2019-%1 统信软件技术有限公司</translation>
     </message>
 </context>
 <context>

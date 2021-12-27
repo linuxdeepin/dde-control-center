@@ -90,8 +90,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="927"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -112,8 +112,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
         <source>Drawing Tablet</source>
         <translation>Tablet graficzny</translation>
     </message>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="974"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="973"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="975"/>
         <source>Updates</source>
         <translation>Aktualizacje</translation>
     </message>
@@ -136,8 +136,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
         <source>General Settings</source>
         <translation>Ustawienia Ogólne</translation>
     </message>
@@ -152,8 +152,8 @@
         <translation>Manipulator punktowy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
         <source>Cloud Sync</source>
         <translation>Synchronizacja z chmurą</translation>
     </message>
@@ -380,7 +380,7 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="250"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="467"/>
         <source>The full name is too long</source>
-        <translation>Pełna nazwa jest za długa</translation>
+        <translation>Podana nazwa jest za długa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
@@ -412,7 +412,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="400"/>
         <source>Policykit authentication failed</source>
-        <translation>Uwierzytelnianie zestawu zasad nie powiodło się</translation>
+        <translation>Uwierzytelnianie Policykit nie powiodło się</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="419"/>
@@ -669,7 +669,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="103"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation>Kliknij opcję w menu rozruchu, aby ustawić ją jako pierwszy rozruch, a następnie przeciągnij i upuść obraz, aby zmienić tło</translation>
+        <translation>Kliknij opcję w menu rozruchu, aby ustawić ją jako domyślną, a następnie przeciągnij i upuść obraz, aby zmienić tło</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="104"/>
@@ -679,7 +679,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="113"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation>Włącz temat, aby wyświetlić go w menu startowym</translation>
+        <translation>Włącz motyw, aby wyświetlić go w menu startowym</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="137"/>
@@ -834,7 +834,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="58"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="213"/>
         <source>Request Root Access</source>
-        <translation>Poproś o dostęp do katalogu głównego</translation>
+        <translation>Poproś o dostęp do konta administratora</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="59"/>
@@ -1603,7 +1603,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="115"/>
         <source>Caps Lock Prompt</source>
-        <translation>Podpowiedź Caps Lock</translation>
+        <translation>Notyfikacja Caps Lock</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
@@ -1760,7 +1760,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="51"/>
         <source>Left Hand</source>
-        <translation>Lewa ręka</translation>
+        <translation>Tryb dla leworęcznych</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
@@ -1827,7 +1827,7 @@
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="49"/>
         <source>Mouse Acceleration</source>
-        <translation>Przyspieszenie myszki</translation>
+        <translation>Akceleracja myszki</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
@@ -4271,7 +4271,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="199"/>
         <source>Transparency</source>
-        <translation>Przejrzystość</translation>
+        <translation>Przezroczystość</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
@@ -4548,7 +4548,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="48"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="83"/>
         <source>Monitor will suspend after</source>
-        <translation>Monitor zostanie wstrzymany po</translation>
+        <translation>Monitor zostanie wstrzymany za</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -5347,7 +5347,7 @@
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="482"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="483"/>
         <source>1~63 characters please</source>
-        <translation>1~63 znaki proszę</translation>
+        <translation>1~63 znaków proszę</translation>
     </message>
 </context>
 <context>
@@ -5768,14 +5768,14 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="67"/>
         <source>Updates Notification</source>
-        <translation>Powiadomienia aktualizacji</translation>
+        <translation>Powiadomienia o aktualizacjach</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="71"/>
         <source>Download Updates</source>
-        <translation>Pobierz aktualizacje</translation>
+        <translation>Pobieraj aktualizacje</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -5799,7 +5799,7 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="159"/>
         <source>Clear Package Cache</source>
-        <translation>Wyczyść pamięć podręczną pakietów</translation>
+        <translation>Wyczyść pamięć podręczną zainstalowanych pakietów</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -6048,12 +6048,12 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (!&quot;#$%&amp;&apos;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</source>
-        <translation type="unfinished"/>
+        <translation>Hasło musi zawierać tylko litery angielskie (z rozróżnieniem wielkich i małych), cyfry lub symbole specjalne (!&quot;#$%&amp;&apos;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (!&quot;#$%&amp;&apos;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</source>
-        <translation type="unfinished"/>
+        <translation>Hasło musi zawierać wielkie litery, małe litery, cyfry i symbole (!&quot;#$%&amp;&apos;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="65"/>
@@ -6397,7 +6397,7 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
         <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/frame/widgets/settingshead.cpp" line="103"/>
         <source>Edit</source>
-        <translation>Edycja</translation>
+        <translation>Edytuj</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/settingshead.cpp" line="105"/>
@@ -6415,7 +6415,7 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
         <source>If no operation, the display will be restored after %1s.</source>
-        <translation>Jeśli brak działania, wyświetlacz zostanie przywrócony po %1s.</translation>
+        <translation>Jeśli nie wykonasz żadnego działania, wyświetlacz zostanie przywrócony po %1s.</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
@@ -6782,22 +6782,22 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>Potwierdź</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation>Dodaj strefę czasową</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>Dodaj</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>Zmień strefę czasową</translation>
     </message>
@@ -7079,7 +7079,7 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="143"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="144"/>
         <source>Wake up</source>
-        <translation>Wybudzanie</translation>
+        <translation>Wybudzenie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
@@ -7102,13 +7102,13 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="119"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="135"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Wyślij ikonę Launchera na pulpit</translation>
+        <translation>Wysłanie ikony z Launchera na pulpit</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="136"/>
         <source>Empty Trash</source>
-        <translation>Pusty kosz</translation>
+        <translation>Opróżnienie kosza</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
@@ -7124,13 +7124,13 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="137"/>
         <source>Removable device connected</source>
-        <translation>Podłączone urządzenie wymienne</translation>
+        <translation>Urządzenie wymienne zostało podłączone</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="124"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="138"/>
         <source>Removable device removed</source>
-        <translation>Usunięto urządzenie wymienne</translation>
+        <translation>Urządzenie wymienne zostało usunięte</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="125"/>
@@ -7164,13 +7164,13 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
-        <source>Copyright© 2011-2021 Deepin Community</source>
-        <translation>Copyright© 2011-2021 Deepin Community</translation>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation>Copyright© 2011-%1 Deepin Community</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
-        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</translation>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>

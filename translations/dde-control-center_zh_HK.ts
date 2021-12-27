@@ -90,8 +90,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="927"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>Bluetooth</source>
         <translation>藍牙</translation>
     </message>
@@ -112,8 +112,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
         <source>Drawing Tablet</source>
         <translation>數位板</translation>
     </message>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="974"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="973"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="975"/>
         <source>Updates</source>
         <translation>更新</translation>
     </message>
@@ -136,8 +136,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
         <source>General Settings</source>
         <translation>常規</translation>
     </message>
@@ -152,8 +152,8 @@
         <translation>指點杆</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
         <source>Cloud Sync</source>
         <translation>雲同步</translation>
     </message>
@@ -483,7 +483,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="150"/>
         <source>The name already exists</source>
-        <translation>該名稱已存在</translation>
+        <translation>名稱已被佔用</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="196"/>
@@ -4846,7 +4846,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
         <source>Sign In</source>
-        <translation>登錄</translation>
+        <translation>登 錄</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="141"/>
@@ -5172,7 +5172,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="38"/>
         <source>Sign In</source>
-        <translation>登入</translation>
+        <translation>登錄</translation>
         <extra-contents_path>/cloudsync/Union ID Sign In</extra-contents_path>
     </message>
     <message>
@@ -5364,7 +5364,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="52"/>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation>https://www.uniontech.com/agreement/privacy-hk</translation>
+        <translation>https://www.uniontech.com/agreement/privacy-cn</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="53"/>
@@ -5742,17 +5742,17 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="52"/>
         <source>Security Updates</source>
-        <translation>安全更新</translation>
+        <translation>安全性更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>開啟“自動下載”，會在有無線網絡和有線網絡的情況下自動下載</translation>
+        <translation>開啟“下載更新”，會在有無線網絡和有線網絡的情況下自動下載</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="59"/>
         <source>System Updates</source>
-        <translation>系統更新</translation>
+        <translation>檢查系統更新</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -5773,7 +5773,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="71"/>
         <source>Download Updates</source>
-        <translation>自動下載</translation>
+        <translation>下載更新</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -5790,7 +5790,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="104"/>
         <source>Check for Updates</source>
-        <translation>自動檢查</translation>
+        <translation>檢查更新</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -6136,7 +6136,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="733"/>
         <source>Text</source>
-        <translation>文字</translation>
+        <translation>文本</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="734"/>
@@ -6231,7 +6231,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="752"/>
         <source>Sound Effects</source>
-        <translation>系統音效</translation>
+        <translation>音效</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="753"/>
@@ -6271,7 +6271,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="760"/>
         <source>Updates</source>
-        <translation>檢查更新</translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="761"/>
@@ -6780,22 +6780,22 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>確定</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation>添加時區</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>修改系統時區</translation>
     </message>
@@ -7162,13 +7162,13 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
-        <source>Copyright© 2011-2021 Deepin Community</source>
-        <translation>Copyright © 2011-2021 深度社區</translation>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation>Copyright © 2011-%1 深度社區</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
-        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright © 2019-2021 統信軟件技術有限公司</translation>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation>Copyright © 2019-%1 統信軟件技術有限公司</translation>
     </message>
 </context>
 <context>

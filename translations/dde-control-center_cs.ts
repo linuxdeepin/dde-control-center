@@ -90,8 +90,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="927"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -112,8 +112,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
         <source>Drawing Tablet</source>
         <translation>Grafický tablet</translation>
     </message>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="974"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="973"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="975"/>
         <source>Updates</source>
         <translation>Aktualizace</translation>
     </message>
@@ -136,8 +136,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
         <source>General Settings</source>
         <translation>Obecná nastavení</translation>
     </message>
@@ -152,8 +152,8 @@
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
         <source>Cloud Sync</source>
         <translation>Synchronizace se serverem</translation>
     </message>
@@ -235,7 +235,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="459"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="460"/>
@@ -337,7 +337,7 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="534"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="93"/>
@@ -517,7 +517,7 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="84"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="211"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
@@ -885,7 +885,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="168"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="168"/>
@@ -944,7 +944,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="91"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="92"/>
@@ -1537,7 +1537,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="114"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="116"/>
@@ -1719,7 +1719,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="67"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="70"/>
@@ -4882,7 +4882,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="161"/>
         <source>Touchpad</source>
-        <translation>Dotyková plocha (touchpad)</translation>
+        <translation>Touchpad</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="162"/>
@@ -5309,7 +5309,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="334"/>
         <source>Activated</source>
-        <translation>Zapnuto</translation>
+        <translation>Aktivováno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="336"/>
@@ -5369,7 +5369,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="53"/>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Jsme si hluboce vědomi důležitosti vašich osobních údajů pro vás. Proto máme zásady ochrany, které pokrývají to, jak shromažďujeme, používáme, sdílím, přenášíme, zveřejňujeme a uchováváme vaše údaje.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;%1&quot;&gt;Klepnutím sem&lt;/a&gt; si zobrazíte naše nejnovější zásady ochrany soukromí a/nebo si je zobrazte na Internetu navštívením &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Pečlivě si je pročtěte a zcela porozumněte našim praktikám ohledně soukromí zákazníka. Pokud máte jakékoli dotazy, spojte se s námi: support@uniontech.com.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Jsme si hluboce vědomi důležitosti vašich osobních údajů pro vás. Proto máme zásady ochrany, které pokrývají to, jak shromažďujeme, používáme, sdílím, přenášíme, zveřejňujeme a uchováváme vaše údaje.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;%1&quot;&gt;Klepnutím sem&lt;/a&gt; si zobrazíte naše nejnovější zásady ochrany soukromí a/nebo si je zobrazte na Internetu navštívením &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Pečlivě si je pročtěte a zcela porozumněte našim praktikám ohledně soukromí zákazníka. Pokud máte jakékoli dotazy, kontaktujte nás na: support@uniontech.com.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -5805,7 +5805,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="167"/>
         <source>System Repository Detection</source>
-        <translation>Rozpoznání systémového úložiště</translation>
+        <translation>Rozpoznání systémového repozitáře</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -5817,7 +5817,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="181"/>
         <source>Smart Mirror Switch</source>
-        <translation>Chytré přepínání mezi zrcadly</translation>
+        <translation>Inteligentní přepínání mezi zrcadly</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -6307,7 +6307,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="767"/>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation>Dotyková plocha</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="768"/>
@@ -6709,7 +6709,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -6735,7 +6735,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
@@ -6777,26 +6777,26 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="61"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>Potvrdit</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation>Přidat časové pásmo</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>Přidat</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>Změnit časové pásmo</translation>
     </message>
@@ -6873,7 +6873,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="72"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="73"/>
@@ -6898,7 +6898,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="122"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Tato klávesová zkratka je ve střetu s %1. Pokud chcete, aby platila ta nová, klepněte na Přidat</translation>
+        <translation>Tato klávesová zkratka je ve střetu s %1. Pokud chcete, aby platila ta nová, klikněte na Přidat</translation>
     </message>
 </context>
 <context>
@@ -6926,7 +6926,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="75"/>
@@ -6952,7 +6952,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="65"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="66"/>
@@ -6967,7 +6967,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="100"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Tato klávesová zkratka je ve střetu s %1. Pokud chcete, aby platila ta nová, klepněte na Nahradit</translation>
+        <translation>Tato klávesová zkratka je ve střetu s %1. Pokud chcete, aby platila ta nová, klikněte na Nahradit</translation>
     </message>
 </context>
 <context>
@@ -6983,7 +6983,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="46"/>
         <source>Double-click Test</source>
-        <translation>Zkouška dvojklepnutí</translation>
+        <translation>Zkouška dvojkliku</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
@@ -7163,13 +7163,13 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
-        <source>Copyright© 2011-2021 Deepin Community</source>
-        <translation>Autorská práva © 2011-2021 komunita Deepin</translation>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
-        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
-        <translation>Autorská práva © 2019-2021 UnionTech Software Technology Co., LTD</translation>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -90,8 +90,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="927"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>Bluetooth</source>
         <translation>སོ་སྔོན།</translation>
     </message>
@@ -112,8 +112,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
         <source>Drawing Tablet</source>
         <translation>དཔེ་རིས་འབྲི་ས།</translation>
     </message>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="974"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="973"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="975"/>
         <source>Updates</source>
         <translation>གསར་སྒྱུར། </translation>
     </message>
@@ -136,8 +136,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
         <source>General Settings</source>
         <translation>ཀུན་སྤྱོད།</translation>
     </message>
@@ -152,8 +152,8 @@
         <translation>མཐེབ་རིས་དམར་ཆུང་།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
         <source>Cloud Sync</source>
         <translation>སྤྲིན་ཐོག་མཉམ་བགྲོད།</translation>
     </message>
@@ -3120,7 +3120,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="157"/>
         <source>Customize Tunnel MTU</source>
-        <translation>རང་སྒྲུབ་བརྒྱུད་གཏོང་སྡེ་ཚན་ཆེ་ཤོས། MTU</translation>
+        <translation>རང་སྒྲུབ་བརྒྱུད་གཏོང་སྡེ་ཚན་ཆེ་ཤོས། (MTU) </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="160"/>
@@ -3309,7 +3309,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="97"/>
         <source>Phase2 Algorithms</source>
-        <translation>བདེ་འཇགས་2གཏུམ་པའི་གྲོས་མཐུན།</translation>
+        <translation>བདེ་འཇགས་གཏུམ་པའི་གྲོས་མཐུན།</translation>
     </message>
 </context>
 <context>
@@ -5365,7 +5365,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="52"/>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation>https://www.uniontech.com/agreement/privacy-ti</translation>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="53"/>
@@ -6048,12 +6048,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (!&quot;#$%&amp;&apos;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་ནི་དབྱིན་ཡིག་（ཆེ་ཆུང་གི་ཁྱད་པར་ཡོད་པ།）དང་།དམིགས་བསལ་མཚོན་རྟགས་（!&quot;#$%&amp;&apos;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~）ལས་གྲུབ་དགོས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (!&quot;#$%&amp;&apos;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~)</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་ནི་ངེས་པར་དུ་ཡི་གེ་ཆེ་བྲིས་དང་། ཆུང་བྲིས། ཨང་ཀི། མཚོན་རྟགས་（!&quot;#$%&amp;&apos;()*+,-./:;&lt;=&gt;?@[\]^_`{|}~）བཅས་རིགས་བཞི་ལས་གྲུབ་དགོས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="65"/>
@@ -6273,12 +6273,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="760"/>
         <source>Updates</source>
-        <translation>ཞིབ་བཤེར་གསར་སྒྱུར། </translation>
+        <translation>གསར་སྒྱུར། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="761"/>
         <source>Update Settings</source>
-        <translation>གསར་སྒྱུར་སྒྲིག་འགོད།</translation>
+        <translation>གསར་སྒྱུར།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="762"/>
@@ -6782,22 +6782,22 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>གཏན་ཁེལ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation>དུས་ཁུལ་སྣོན་པ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>ཁ་སྣོན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>རྒྱུད་ཁོངས་ཀྱི་དུས་ཁུལ་བཟོ་བཅོས།</translation>
     </message>
@@ -7164,13 +7164,13 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
-        <source>Copyright© 2011-2021 Deepin Community</source>
-        <translation>Copyright © 2011-2021 གཏིང་ཚད་སྡེ་ཁུལ།</translation>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation>Copyright © 2011-%1 གཏིང་ཚད་སྡེ་ཁུལ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
-        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright © 2019-2021 ཐུང་ཞིན་མཉེན་ཆས་ལག་རྩལ་ཚད་ཡོད་ཀུང་སི།</translation>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation>Copyright © 2019-%1 ཐུང་ཞིན་མཉེན་ཆས་ལག་རྩལ་ཚད་ཡོད་ཀུང་སི།</translation>
     </message>
 </context>
 <context>
