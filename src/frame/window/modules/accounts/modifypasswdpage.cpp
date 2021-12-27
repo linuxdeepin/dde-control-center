@@ -24,28 +24,23 @@
 #include "pwqualitymanager.h"
 #include "../../utils.h"
 #include "createaccountpage.h"
+#include "widgets/securitylevelitem.h"
 
 #include "deepin_pw_check.h"
 #include "unionidbindreminderdialog.h"
 #include <DDialog>
-#include <DFontSizeManager>
 #include <DDBusSender>
 #include <DDesktopServices>
-#include <DApplicationHelper>
 #include <DCommandLinkButton>
 #include <DMessageManager>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QPushButton>
-#include <QLabel>
 #include <QSettings>
 #include <QDebug>
-#include <QStyle>
 
 #include <unistd.h>
-#include <QSvgRenderer>
-
 
 using namespace dcc::accounts;
 using namespace dcc::widgets;
@@ -59,54 +54,21 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     , m_newPasswordEdit(new DPasswordEdit)
     , m_repeatPasswordEdit(new DPasswordEdit)
     , m_passwordTipsEdit(new DLineEdit)
-    , m_newPasswdLevelText(new QLabel)
-    , m_passwdLevelImg(new QImage)
-    , m_level(PASSWORD_STRENGTH_LEVEL_HIGH)
-    , m_focusOut(false)
     , m_isCurrent(isCurrent)
-    , m_newPasswdLevelIconModePath(PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH)
     , m_isBindCheckError(false)
+    , m_securityLevelItem(new SecurityLevelItem(this))
 
 {
-    //密码强度label初始化，３个label设置icon用于显示密码强度
-    for (int i = 0; i < PASSWORD_LEVEL_ICON_NUM; i++) {
-        m_newPasswdLevelIcons[i] = new QLabel;
-    }
-    m_oldPasswordEdit->setCopyEnabled(false);
-    m_oldPasswordEdit->setCutEnabled(false);
-
-    m_newPasswordEdit->setCopyEnabled(false);
-    m_newPasswordEdit->setCutEnabled(false);
-
-    m_repeatPasswordEdit->setCopyEnabled(false);
-    m_repeatPasswordEdit->setCutEnabled(false);
-
     initWidget();
 }
 
 ModifyPasswdPage::~ModifyPasswdPage()
 {
-    for (int i = 0; i < PASSWORD_LEVEL_ICON_NUM; i++) {
-        if (m_newPasswdLevelIcons[i] != nullptr)
-            delete m_newPasswdLevelIcons[i];
-    }
 
 }
 
 void ModifyPasswdPage::initWidget()
 {
-    DGuiApplicationHelper::ColorType type = DGuiApplicationHelper::instance()->themeType();
-    switch (type) {
-    case DGuiApplicationHelper::UnknownType:
-        break;
-    case DGuiApplicationHelper::LightType:
-        m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH;
-        break;
-    case DGuiApplicationHelper::DarkType:
-        m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_DEEP_MODE_PATH;
-        break;
-    }
-
     this->setAccessibleName("ModifyPasswdPage");
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->addSpacing(40);
@@ -141,35 +103,7 @@ void ModifyPasswdPage::initWidget()
     newPasswdLayout->addWidget(newPasswdLabel);
     newPasswdLayout->addSpacing(80);
 
-    QHBoxLayout *newPasswdLevelLayout = new QHBoxLayout;
-    m_newPasswdLevelText->setFixedWidth(55);
-    m_newPasswdLevelText->setFixedHeight(20);
-    m_newPasswdLevelText->setAlignment(Qt::AlignRight);
-    DFontSizeManager::instance()->bind(m_newPasswdLevelText, DFontSizeManager::T8);
-    newPasswdLevelLayout->addWidget(m_newPasswdLevelText, 0, Qt::AlignRight);
-    newPasswdLevelLayout->addSpacing(4);
-
-    m_pixmap = loadSvgImg(m_newPasswdLevelIconModePath, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
-
-    m_newPasswdLevelIcons[0]->setFixedWidth(8);
-    m_newPasswdLevelIcons[0]->setFixedHeight(4);
-    m_newPasswdLevelIcons[0]->setPixmap(m_pixmap);
-    newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[0]);
-    newPasswdLevelLayout->addSpacing(4);
-
-    m_newPasswdLevelIcons[1]->setFixedWidth(8);
-    m_newPasswdLevelIcons[1]->setFixedHeight(4);
-    m_newPasswdLevelIcons[1]->setPixmap(m_pixmap);
-    newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[1]);
-    newPasswdLevelLayout->addSpacing(4);
-
-    m_newPasswdLevelIcons[2]->setFixedWidth(8);
-    m_newPasswdLevelIcons[2]->setFixedHeight(4);
-    m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
-    newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[2]);
-    newPasswdLevelLayout->addSpacing(50);
-
-    newPasswdLayout->addLayout(newPasswdLevelLayout);
+    newPasswdLayout->addWidget(m_securityLevelItem);
     mainContentLayout->addSpacing(6);
     mainContentLayout->addLayout(newPasswdLayout);
     mainContentLayout->addWidget(m_newPasswordEdit);
@@ -222,13 +156,6 @@ void ModifyPasswdPage::initWidget()
             m_oldPasswordEdit->setAlert(false);
         }
     });
-    connect(m_newPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
-        if (m_newPasswordEdit->isAlert())
-        {
-            m_newPasswordEdit->hideAlertMessage();
-            m_newPasswordEdit->setAlert(false);
-        }
-    });
     connect(m_repeatPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
         if (m_repeatPasswordEdit->isAlert())
         {
@@ -244,61 +171,42 @@ void ModifyPasswdPage::initWidget()
             m_passwordTipsEdit->setAlert(false);
         }
     });
-    connect(m_newPasswordEdit, &DPasswordEdit::editingFinished, this, [ = ]() {
-        QPalette palette;
-        m_focusOut = true;
-        m_level = PwqualityManager::instance()->GetNewPassWdLevel(m_newPasswordEdit->text());
+    connect(m_newPasswordEdit, &DPasswordEdit::textChanged, this, [ = ]() {
+        if (m_newPasswordEdit->text().isEmpty()) {
+            m_securityLevelItem->setLevel(SecurityLevelItem::NoneLevel);
+            m_newPasswordEdit->setAlert(false);
+            m_newPasswordEdit->hideAlertMessage();
+            return ;
+        }
+        PASSWORD_LEVEL_TYPE m_level = PwqualityManager::instance()->GetNewPassWdLevel(m_newPasswordEdit->text());
         PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_newPasswordEdit->lineEdit()->text(),
                                                                                           m_newPasswordEdit->lineEdit()->text());
 
         if (m_level == PASSWORD_STRENGTH_LEVEL_HIGH) {
-            palette.setColor(QPalette::Text, QColor("#15BB18"));
-            m_newPasswdLevelText->setPalette(palette);
-            m_newPasswdLevelText->setForegroundRole(QPalette::Text);
-            m_newPasswdLevelText->setText(tr("Strong"));
-
-            m_pixmap = loadSvgImg(PASSWORD_LEVEL_ICON_HIGH_PATH, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
-            m_newPasswdLevelIcons[0]->setPixmap(m_pixmap);
-            m_newPasswdLevelIcons[1]->setPixmap(m_pixmap);
-            m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
-            if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
-                m_newPasswordEdit->setAlert(true);
-                m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
-            }
-        } else if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
-            palette.setColor(QPalette::Text, QColor("#FFAA00"));
-            m_newPasswdLevelText->setPalette(palette);
-            m_newPasswdLevelText->setForegroundRole(QPalette::Text);
-            m_newPasswdLevelText->setText(tr("Medium"));
-
-            m_pixmap = loadSvgImg(PASSWORD_LEVEL_ICON_MIDDLE_PATH, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
-            m_newPasswdLevelIcons[0]->setPixmap(m_pixmap);
-            m_newPasswdLevelIcons[1]->setPixmap(m_pixmap);
-            m_pixmap = loadSvgImg(m_newPasswdLevelIconModePath, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
-            m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
-
+            m_securityLevelItem->setLevel(SecurityLevelItem::HighLevel);
             if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
                 m_newPasswordEdit->setAlert(true);
                 m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
             } else {
+                m_newPasswordEdit->setAlert(false);
+                m_newPasswordEdit->hideAlertMessage();
+            }
+        } else if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
+            m_securityLevelItem->setLevel(SecurityLevelItem::MidLevel);
+            if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+                m_newPasswordEdit->setAlert(true);
+                m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
+            } else {
+                m_newPasswordEdit->setAlert(false);
                 m_newPasswordEdit->showAlertMessage(tr("A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols"));
             }
         } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
-            palette.setColor(QPalette::Text, QColor("#FF5736"));
-            m_newPasswdLevelText->setPalette(palette);
-            m_newPasswdLevelText->setForegroundRole(QPalette::Text);
-            m_newPasswdLevelText->setText(tr("Weak"));
-
-            m_pixmap = loadSvgImg(PASSWORD_LEVEL_ICON_LOW_PATH, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
-            m_newPasswdLevelIcons[0]->setPixmap(m_pixmap);
-            m_pixmap = loadSvgImg(m_newPasswdLevelIconModePath, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
-            m_newPasswdLevelIcons[1]->setPixmap(m_pixmap);
-            m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
-
+            m_securityLevelItem->setLevel(SecurityLevelItem::LowLevel);
             if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
                 m_newPasswordEdit->setAlert(true);
                 m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
             } else {
+                m_newPasswordEdit->setAlert(false);
                 m_newPasswordEdit->showAlertMessage(tr("A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols"), m_newPasswordEdit, 2000);
             }
         } else {
@@ -311,35 +219,6 @@ void ModifyPasswdPage::initWidget()
             m_repeatPasswordEdit->setAlert(true);
             m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
         }
-    });
-
-    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, [ = ](DGuiApplicationHelper::ColorType themeType) {
-        switch (themeType) {
-        case DGuiApplicationHelper::UnknownType:
-            break;
-        case DGuiApplicationHelper::LightType:
-            m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH;
-            break;
-        case DGuiApplicationHelper::DarkType:
-            m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_DEEP_MODE_PATH;
-            break;
-        }
-        if (m_focusOut == false) {
-            m_pixmap = loadSvgImg(m_newPasswdLevelIconModePath, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
-            m_newPasswdLevelIcons[0]->setPixmap(m_pixmap);
-            m_newPasswdLevelIcons[1]->setPixmap(m_pixmap);
-            m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
-        } else {
-            if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
-                m_pixmap = loadSvgImg(m_newPasswdLevelIconModePath, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
-                m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
-            } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
-                m_pixmap = loadSvgImg(m_newPasswdLevelIconModePath, qRound(8 * devicePixelRatioF()), qRound(4 * devicePixelRatioF()));
-                m_newPasswdLevelIcons[1]->setPixmap(m_pixmap);
-                m_newPasswdLevelIcons[2]->setPixmap(m_pixmap);
-            }
-        }
-
     });
 
     m_oldPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
@@ -569,24 +448,4 @@ void ModifyPasswdPage::onCheckBindFailed(const QString &errorText)
     DMessageManager::instance()->sendMessage(this,
                                              style()->standardIcon(QStyle::SP_MessageBoxWarning),
                                              tips);
-}
-
-const QPixmap ModifyPasswdPage::loadSvgImg(const QString &fileName, const int width, const int hight)
-{
-    if (!QFileInfo::exists(fileName))
-        return QPixmap();
-
-    QPixmap pixmap(width, hight);
-    QSvgRenderer renderer(fileName);
-    pixmap.fill(Qt::transparent);
-
-    QPainter painter;
-    painter.begin(&pixmap);
-    painter.setRenderHint(QPainter::Antialiasing, true);
-    renderer.render(&painter);
-    painter.end();
-
-    pixmap.setDevicePixelRatio(qRound(qApp->devicePixelRatio()));
-
-    return pixmap;
 }

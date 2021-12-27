@@ -50,6 +50,13 @@ class QPushButton;
 class QLabel;
 QT_END_NAMESPACE
 
+
+namespace dcc {
+namespace widgets {
+class SecurityLevelItem;
+}
+}
+
 namespace DCC_NAMESPACE {
 namespace accounts {
 //修改密码页面
@@ -65,7 +72,6 @@ public:
     void onPasswordChangeFinished(const int exitCode, const QString &errorTxt);
     void setPasswordEditAttribute(DPasswordEdit *);
     void resetPassword(const QString &password, const QString &repeatPassword);
-    const QPixmap loadSvgImg(const QString &fileName, const int width, const int hight);
 
 protected:
     void showEvent(QShowEvent *event) override;
@@ -91,16 +97,10 @@ private:
     DPasswordEdit *m_newPasswordEdit;
     DPasswordEdit *m_repeatPasswordEdit;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_passwordTipsEdit;
-    QLabel *m_newPasswdLevelText;
-    QImage *m_passwdLevelImg;
-    QLabel *m_newPasswdLevelIcons[PASSWORD_LEVEL_ICON_NUM];
-    int m_level;
-    bool m_focusOut;
     bool m_isCurrent;
-    QString m_newPasswdLevelIconModePath;
     bool m_isBindCheckError;
-    QPixmap m_pixmap;
 
+    dcc::widgets::SecurityLevelItem *m_securityLevelItem;
 };
 }
 }

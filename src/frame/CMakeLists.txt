@@ -247,6 +247,8 @@ set(WIDGETS_FILES
                 ../../include/widgets/passwordedit.h
                 widgets/detailinfoitem.cpp
                 ../../include/widgets/detailinfoitem.h
+                ../../include/widgets/securitylevelitem.h
+                widgets/securitylevelitem.cpp
                 widgets/widgets.qrc
 )
 
@@ -687,6 +689,7 @@ target_include_directories(dccwidgets PUBLIC
 target_link_libraries(dccwidgets PRIVATE
     ${DtkWidget_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
+    ${Qt5Svg_LIBRARIES}
 )
 
 add_executable(${BIN_NAME} ${SRCS} ${QRC})

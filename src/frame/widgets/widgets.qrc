@@ -217,5 +217,10 @@
         <file>themes/dark/icons/password_show_press.svg</file>
         <file>themes/dark/icons/select.svg</file>
         <file>themes/dark/icons/display_setting.svg</file>
+        <file>themes/common/dcc_deepin_password_strength_high.svg</file>
+        <file>themes/common/dcc_deepin_password_strength_low.svg</file>
+        <file>themes/common/dcc_deepin_password_strength_middle.svg</file>
+        <file>themes/dark/icons/dcc_deepin_password_strength_unactive_deep_mode.svg</file>
+        <file>themes/light/icons/dcc_deepin_password_strength_unactive_light_mode.svg</file>
     </qresource>
 </RCC>
