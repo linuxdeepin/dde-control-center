@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ar" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ar">
 <context>
     <name>BatteryHealthPlugin</name>
     <message>
@@ -54,100 +54,100 @@
         <translation>الحسابات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
         <source>Display</source>
         <translation>عرض</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
         <source>Touch Screen</source>
         <translation>شاشة اللمس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Default Applications</source>
         <translation>التطبيقات الافتراضية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
         <source>Personalization</source>
         <translation>التخصيص</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Network</source>
         <translation>الشبكة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Notification</source>
         <translation>اشعارات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Sound</source>
         <translation>الصوت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>Bluetooth</source>
         <translation>البلوتوث</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Date and Time</source>
         <translation>التاريخ والوقت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Power</source>
         <translation>الطاقة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>Mouse</source>
         <translation>الفأرة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
         <source>Drawing Tablet</source>
         <translation>لوح الرسم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>Keyboard and Language</source>
         <translation>اللغة ولوحة المفاتيح</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="965"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="973"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="975"/>
         <source>Updates</source>
         <translation>التحديثات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <source>System Info</source>
         <translation>معلومات النظام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="956"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="958"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
         <source>General Settings</source>
         <translation>الإعدادات العامة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="424"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="423"/>
         <source>Touchpad</source>
         <translation>لوحة اللمس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="425"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="424"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
@@ -179,83 +179,84 @@
 <context>
     <name>dccV20::accounts::AccountSpinBox</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="81"/>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>دائماً</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="224"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="322"/>
         <source>Full Name</source>
         <translation>الاسم بالكامل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="284"/>
         <source>The full name is too long</source>
         <translation>الاسم الكامل طويل جداً</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="303"/>
-        <source>The username already exists</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="312"/>
-        <source>The name already exists</source>
-        <translation>الاسم موجود بالفعل</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="376"/>
         <source>Validity Days</source>
         <translation>أيام الصلاحية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="428"/>
         <source>Change Password</source>
         <translation>تغيير كلمة المرور</translation>
-        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+        <extra-contents_path>/accounts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="453"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="430"/>
         <source>Delete Account</source>
         <translation>حذف الحساب</translation>
-        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+        <extra-contents_path>/accounts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="432"/>
         <source>Auto Login</source>
         <translation>دخول تلقائي</translation>
-        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+        <extra-contents_path>/accounts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="458"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="435"/>
         <source>Login Without Password</source>
         <translation>تسجيل الدخول دون كلمة مرور</translation>
-        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+        <extra-contents_path>/accounts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="489"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="466"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="491"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="492"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="469"/>
         <source>Enable</source>
         <translation>تمكين</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="572"/>
         <source>Group</source>
         <translation>مجموعة</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="620"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="628"/>
+        <source>The username already exists</source>
+        <translation>إسم المستخدم موجود مسبقاً</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="637"/>
+        <source>The name already exists</source>
+        <translation>الاسم موجود بالفعل</translation>
     </message>
 </context>
 <context>
@@ -269,21 +270,20 @@
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="62"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="63"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="64"/>
         <source>Create Account</source>
         <translation>إنشاء حساب</translation>
-        <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="180"/>
         <source>Administrator</source>
         <translation>مسؤول</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="182"/>
         <source>Standard User</source>
         <translation>مستخدم قياسي</translation>
     </message>
@@ -335,7 +335,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="531"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="546"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
@@ -345,107 +345,109 @@
         <translation>إنشاء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="155"/>
         <source>New Account</source>
         <translation>حساب جديد</translation>
-        <extra-contents_path>/accounts/New Account</extra-contents_path>
+        <extra-child_page>Create Account</extra-child_page>
+        <extra-contents_path>/accounts/Create Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="170"/>
         <source>Account Type</source>
         <translation>نوع الحساب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="175"/>
         <source>Username</source>
         <translation>اسم المستخدم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="181"/>
         <source>Full Name</source>
         <translation>الاسم بالكامل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="187"/>
         <source>Password</source>
         <translation>كلمة المرور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="193"/>
         <source>Repeat Password</source>
         <translation>إعادة كلمة المرور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="243"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="460"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="467"/>
         <source>The full name is too long</source>
         <translation>الاسم الكامل طويل جداً</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
         <source>Standard User</source>
         <translation>مستخدم قياسي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="277"/>
         <source>Administrator</source>
         <translation>مسؤول</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="280"/>
         <source>Customized</source>
         <translation>يعدل أو يكيف</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="281"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="283"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="291"/>
         <source>Required</source>
         <translation>مطلوب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="289"/>
         <source>optional</source>
         <translation>اختياري</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="400"/>
         <source>Policykit authentication failed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="419"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>يجب أن يكون اسم المستخدم بين 3-32 حرفاً</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="419"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="426"/>
         <source>The first character must be a letter or number</source>
         <translation>المحرف اﻷول يجب أن يكون رقم أو حرف</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="425"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="432"/>
         <source>Your username should not only have numbers</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="470"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="495"/>
         <source>The username already exists</source>
-        <translation type="unfinished"/>
+        <translation>إسم المستخدم موجود مسبقاً</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="480"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="486"/>
         <source>The name already exists</source>
         <translation>الاسم موجود بالفعل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="502"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="517"/>
         <source>Passwords do not match</source>
         <translation>كلمتا المرور غير متطابقتان</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="530"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="545"/>
         <source>Go to Settings</source>
         <translation>إذهب للإعدادات</translation>
     </message>
@@ -644,34 +646,36 @@
         <translation>يتم الآن التحديث...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="95"/>
         <source>Startup Delay</source>
         <translation>تأخير في بدء التشغيل</translation>
+        <extra-child_page>Boot Menu</extra-child_page>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
         <source>Theme</source>
         <translation>السمة</translation>
+        <extra-child_page>Boot Menu</extra-child_page>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="103"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>إختر الخيار في قائمة إقلاع الجهاز لجعله الأول في الإقلاع، وإختر صورة واسحبها لتغيير الخلفية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="104"/>
         <source>Click the option in boot menu to set it as the first boot</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="113"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>غير السمة لتراها في قائمة إقلاع الجهاز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="137"/>
         <source>Boot Menu</source>
         <translation>قائمة الإقلاع</translation>
     </message>
@@ -693,25 +697,24 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="95"/>
         <source>Boot Menu</source>
         <translation>قائمة الإقلاع</translation>
-        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="104"/>
         <source>Developer Mode</source>
         <translation>وضع المطور</translation>
+        <extra-child_page>Developer Mode</extra-child_page>
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="107"/>
         <source>User Experience Program</source>
         <translation>برنامج تجربة المستخدم</translation>
-        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="111"/>
         <source>Tablet Mode</source>
         <translation>وضح الجهاز اللوحى</translation>
     </message>
@@ -892,23 +895,24 @@
 <context>
     <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="51"/>
         <source>Join User Experience Program</source>
         <translation>الانضمام إلى برنامج تجربة المستخدم</translation>
+        <extra-child_page>User Experience Program</extra-child_page>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="54"/>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="54"/>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="56"/>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
         <translation type="unfinished"/>
     </message>
@@ -935,54 +939,56 @@
 <context>
     <name>dccV20::datetime::DateSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="82"/>
         <source>Auto Sync</source>
         <translation>مزامنة تلقائية</translation>
+        <extra-child_page>Time Settings</extra-child_page>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="91"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="224"/>
         <source>Confirm</source>
         <translation>تأكيد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="141"/>
         <source>Server</source>
         <translation>الخادم</translation>
+        <extra-child_page>Time Settings</extra-child_page>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="149"/>
         <source>Address</source>
         <translation>عنوان</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="151"/>
         <source>Required</source>
         <translation>مطلوب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="226"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="251"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="291"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="304"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="350"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="358"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="413"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="495"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="410"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="473"/>
         <source>Customize</source>
         <translation>تخصيص</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="224"/>
         <source>Save</source>
         <translation>حفظ</translation>
     </message>
@@ -1007,6 +1013,13 @@
         <source>Day</source>
         <translation>يوم</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="126"/>
+        <source>Add Application</source>
+        <translation>إضافة تطبيق</translation>
+        <extra-child_page>Terminal</extra-child_page>
+        <extra-contents_path>/defapp/Terminal/Add Application</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>dccV20::datetime::DatetimeModule</name>
@@ -1019,190 +1032,209 @@
 <context>
     <name>dccV20::datetime::DatetimeWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="54"/>
+        <source>Add Application</source>
+        <translation>إضافة تطبيق</translation>
+        <extra-child_page>Music</extra-child_page>
+        <extra-contents_path>/defapp/Music/Add Application</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="66"/>
         <source>Timezone List</source>
         <translation>قائمة المنطقة الزمنية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="67"/>
         <source>Time Settings</source>
         <translation>إعدادات الوقت</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="68"/>
         <source>Time Format</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/datetime/Format Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="100"/>
         <source>24-hour Time</source>
         <translation>توقيت الـ 24 ساعة</translation>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+        <extra-contents_path>/datetime</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::datetime::FormatSetting</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="50"/>
         <source>Date and Time Formats</source>
         <translation type="unfinished"/>
+        <extra-child_page>Format Settings</extra-child_page>
+        <extra-contents_path>/datetime/Format Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="62"/>
         <source>Weeks</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="61"/>
-        <source>Short Date</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="64"/>
-        <source>Long Date</source>
-        <translation type="unfinished"/>
+        <extra-child_page>Format Settings</extra-child_page>
+        <extra-contents_path>/datetime/Format Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="67"/>
+        <source>Short Date</source>
+        <translation type="unfinished"/>
+        <extra-child_page>Format Settings</extra-child_page>
+        <extra-contents_path>/datetime/Format Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="72"/>
+        <source>Long Date</source>
+        <translation type="unfinished"/>
+        <extra-child_page>Format Settings</extra-child_page>
+        <extra-contents_path>/datetime/Format Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="77"/>
         <source>Short Time</source>
         <translation type="unfinished"/>
+        <extra-child_page>Format Settings</extra-child_page>
+        <extra-contents_path>/datetime/Format Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="82"/>
         <source>Long Time</source>
         <translation type="unfinished"/>
+        <extra-child_page>Format Settings</extra-child_page>
+        <extra-contents_path>/datetime/Format Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="87"/>
         <source>First Day of Week</source>
         <translation>أول يوم في الأسبوع</translation>
+        <extra-child_page>Format Settings</extra-child_page>
+        <extra-contents_path>/datetime/Format Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="158"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="204"/>
         <source>Monday</source>
         <translation>الاثنين</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="169"/>
         <source>monday</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="186"/>
         <source>Tuesday</source>
         <translation>الثلاثاء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="189"/>
         <source>Wednesday</source>
         <translation>الأربعاء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="192"/>
         <source>Thursday</source>
         <translation>الخميس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="195"/>
         <source>Friday</source>
         <translation>الجمعة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="198"/>
         <source>Saturday</source>
         <translation>السبت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="201"/>
         <source>Sunday</source>
         <translation>الأحد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="228"/>
         <source>April 5, 2020</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="222"/>
         <source>April 5, 2020, Sunday</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="225"/>
         <source>Sunday, April 5, 2020</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="244"/>
         <source>2020/4/5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="247"/>
         <source>2020-4-5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="250"/>
         <source>2020.4.5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="239"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="271"/>
         <source>2020/04/05</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="256"/>
         <source>2020-04-05</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="259"/>
         <source>2020.04.05</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="262"/>
         <source>20/4/5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="265"/>
         <source>20-4-5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="268"/>
         <source>20.4.5</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="287"/>
         <source>9:40:07</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="276"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="293"/>
         <source>09:40:07</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="309"/>
         <source>9:40</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="298"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="315"/>
         <source>09:40</source>
         <translation type="unfinished"/>
     </message>
@@ -1210,50 +1242,60 @@
 <context>
     <name>dccV20::datetime::SystemTimezone</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="46"/>
         <source>Change System Timezone</source>
         <translation>تغيير المنطقة الزمنية للنظام</translation>
+        <extra-child_page>Timezone List</extra-child_page>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="53"/>
         <source>System Timezone</source>
         <translation>المنطقة الزمنية للنظام</translation>
+        <extra-child_page>Timezone List</extra-child_page>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::datetime::TimezoneList</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="49"/>
         <source>Timezone List</source>
         <translation>قائمة المنطقة الزمنية</translation>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="72"/>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="73"/>
         <source>Add Timezone</source>
         <translation>إضافة المنطقة الزمنية</translation>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+        <extra-child_page>Timezone List</extra-child_page>
+        <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="94"/>
+        <source>Add Application</source>
+        <translation>إضافة تطبيق</translation>
+        <extra-child_page>Mail</extra-child_page>
+        <extra-contents_path>/defapp/Mail/Add Application</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::defapp::DefappDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="80"/>
         <source>Add Application</source>
         <translation>إضافة تطبيق</translation>
-        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+        <extra-child_page>Video</extra-child_page>
+        <extra-contents_path>/defapp/Video/Add Application</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="82"/>
         <source>Open Desktop file</source>
         <translation>فتح ملف سطح المكتب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="343"/>
         <source>Invalid</source>
         <translation>غير صالح</translation>
     </message>
@@ -1261,7 +1303,14 @@
 <context>
     <name>dccV20::defapp::DefaultAppsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="53"/>
+        <source>Add Application</source>
+        <translation>إضافة تطبيق</translation>
+        <extra-child_page>Text</extra-child_page>
+        <extra-contents_path>/defapp/Text/Add Application</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="103"/>
         <source>Default Applications</source>
         <translation>التطبيقات الافتراضية</translation>
     </message>
@@ -1269,49 +1318,63 @@
 <context>
     <name>dccV20::defapp::DefaultAppsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="54"/>
         <source>Webpage</source>
         <translation>صفحة الويب</translation>
+        <extra-child_page_hide>Webpage</extra-child_page_hide>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="58"/>
         <source>Mail</source>
         <translation>البريد</translation>
+        <extra-child_page_hide>Mail</extra-child_page_hide>
         <extra-contents_path>/defapp/Mail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="62"/>
         <source>Text</source>
         <translation>نص</translation>
+        <extra-child_page_hide>Text</extra-child_page_hide>
         <extra-contents_path>/defapp/Text</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="66"/>
         <source>Music</source>
         <translation>موسيقى</translation>
+        <extra-child_page_hide>Music</extra-child_page_hide>
         <extra-contents_path>/defapp/Music</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="70"/>
         <source>Video</source>
         <translation>الفيديو</translation>
+        <extra-child_page_hide>Video</extra-child_page_hide>
         <extra-contents_path>/defapp/Video</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="74"/>
         <source>Picture</source>
         <translation>صورة</translation>
+        <extra-child_page_hide>Picture</extra-child_page_hide>
         <extra-contents_path>/defapp/Picture</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="78"/>
         <source>Terminal</source>
         <translation>الطرفية</translation>
+        <extra-child_page_hide>Terminal</extra-child_page_hide>
         <extra-contents_path>/defapp/Terminal</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="82"/>
+        <source>Add Application</source>
+        <translation>إضافة تطبيق</translation>
+        <extra-child_page>Webpage</extra-child_page>
+        <extra-contents_path>/defapp/Webpage/Add Application</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="149"/>
         <source>Default Applications</source>
         <translation>التطبيقات الافتراضية</translation>
     </message>
@@ -1332,13 +1395,13 @@
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="74"/>
         <source>Auto Brightness</source>
         <translation>سطوع تلقائى</translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
+        <extra-contents_path>/display</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="83"/>
         <source>Night Shift</source>
         <translation>الوضع الليلي</translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
+        <extra-contents_path>/display</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="88"/>
@@ -1349,7 +1412,7 @@
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="100"/>
         <source>Change Color Temperature</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
+        <extra-contents_path>/display</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="101"/>
@@ -1373,32 +1436,35 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="66"/>
         <source>Multiple Displays</source>
         <translation>شاشات متعددة</translation>
+        <extra-contents_path>/display</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="68"/>
         <source>Mode</source>
         <translation>النمط</translation>
+        <extra-contents_path>/display</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="70"/>
         <source>Main Screen</source>
         <translation>الشاشة الرئيسية</translation>
+        <extra-contents_path>/display</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="289"/>
         <source>Duplicate</source>
         <translation>مكرر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="290"/>
         <source>Extend</source>
         <translation>تمديد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="295"/>
         <source>Only on %1</source>
         <translation type="unfinished"/>
     </message>
@@ -1406,18 +1472,19 @@
 <context>
     <name>dccV20::display::RefreshRateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="36"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="43"/>
         <source>Refresh Rate</source>
         <translation>معدل التحديث</translation>
+        <extra-contents_path>/display</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="151"/>
         <source>Hz</source>
         <translation>هرتز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="151"/>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="157"/>
         <source>Recommended</source>
         <translation>مستحسن</translation>
     </message>
@@ -1425,12 +1492,13 @@
 <context>
     <name>dccV20::display::ResolutionWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="40"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="47"/>
         <source>Resolution</source>
         <translation>الدقة</translation>
+        <extra-contents_path>/display</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="153"/>
         <source>Recommended</source>
         <translation>مستحسن</translation>
     </message>
@@ -1438,27 +1506,28 @@
 <context>
     <name>dccV20::display::RotateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="45"/>
         <source>Rotation</source>
         <translation>دوران</translation>
+        <extra-contents_path>/display</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="58"/>
         <source>Standard</source>
         <translation>قياسي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="58"/>
         <source>90°</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="58"/>
         <source>180°</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="58"/>
         <source>270°</source>
         <translation type="unfinished"/>
     </message>
@@ -1466,60 +1535,64 @@
 <context>
     <name>dccV20::display::ScalingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="44"/>
-        <source>Display Scaling</source>
-        <translation>عرض الشاشة</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="45"/>
         <source>The monitor only supports 100% display scaling</source>
         <translation>الشاشة تدعم فقط 100% من التكبير</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="51"/>
+        <source>Display Scaling</source>
+        <translation>عرض الشاشة</translation>
+        <extra-contents_path>/display</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="116"/>
         <source>Brightness</source>
         <translation>السطوع</translation>
+        <extra-contents_path>/display</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::CustomContent</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="60"/>
         <source>Add Custom Shortcut</source>
         <translation>إضافة اختصار مخصص</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+        <extra-child_page>Shortcuts</extra-child_page>
+        <extra-contents_path>/keyboard/Shortcuts/Add Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="66"/>
         <source>Name</source>
         <translation>الاسم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="94"/>
         <source>Required</source>
         <translation>مطلوب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="83"/>
         <source>Command</source>
         <translation>أمر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="114"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="116"/>
         <source>Add</source>
         <translation>إضافة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="147"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>هذا الإختصار يتعارض مع %1، انقر على إضافة لجعل هذا الإختصار فعال على الفور</translation>
     </message>
@@ -1527,71 +1600,78 @@
 <context>
     <name>dccV20::keyboard::GeneralKBSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="50"/>
         <source>Repeat Delay</source>
         <translation>مهلة التأخير</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="60"/>
         <source>Short</source>
         <translation>قصير</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="61"/>
         <source>Long</source>
         <translation>طويل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="66"/>
         <source>Repeat Rate</source>
         <translation>معدل التكرار</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="77"/>
         <source>Slow</source>
         <translation>بطيء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="78"/>
         <source>Fast</source>
         <translation>سريع</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="85"/>
         <source>Test here</source>
         <translation>تجربة هنا</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="108"/>
         <source>Numeric Keypad</source>
         <translation>لوحة اﻷرقام</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="115"/>
         <source>Caps Lock Prompt</source>
         <translation>تفعيل مفتاح &quot;Caps Lock&quot;</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::KBLayoutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="55"/>
         <source>Keyboard Layout</source>
         <translation>تخطيط لوحة المفاتيح</translation>
+        <extra-child_page>Keyboard Layout</extra-child_page>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="58"/>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="170"/>
         <source>Edit</source>
         <translation>تحرير</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="161"/>
         <source>Done</source>
         <translation>تم</translation>
     </message>
@@ -1599,77 +1679,84 @@
 <context>
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="147"/>
         <source>Keyboard and Language</source>
         <translation>اللغة ولوحة المفاتيح</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="276"/>
         <source>Custom Shortcut</source>
         <translation>اختصار مخصص</translation>
+        <extra-child_page>Shortcuts</extra-child_page>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="70"/>
         <source>General</source>
         <translation>عام</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="156"/>
+        <source>Keyboard Layout</source>
+        <translation>تخطيط لوحة المفاتيح</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="158"/>
+        <source>System Language</source>
+        <translation>لغة النظام</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="73"/>
-        <source>Keyboard Layout</source>
-        <translation>تخطيط لوحة المفاتيح</translation>
-        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="75"/>
-        <source>System Language</source>
-        <translation>لغة النظام</translation>
-        <extra-contents_path>/keyboard/System Language</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="160"/>
         <source>Shortcuts</source>
         <translation>الإختصارات</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="59"/>
         <source>System</source>
         <translation>النظام</translation>
+        <extra-child_page>Shortcuts</extra-child_page>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="69"/>
         <source>Window</source>
         <translation>النافذة</translation>
+        <extra-child_page>Shortcuts</extra-child_page>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="80"/>
         <source>Workspace</source>
         <translation>مساحة العمل</translation>
+        <extra-child_page>Shortcuts</extra-child_page>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="88"/>
         <source>Assistive Tools</source>
         <translation>اﻷدوات المساعِدة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="105"/>
         <source>Custom Shortcut</source>
         <translation>اختصار مخصص</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="138"/>
         <source>Restore Defaults</source>
         <translation>استعادة الافتراضيات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="177"/>
         <source>Shortcut</source>
         <translation>إختصار</translation>
     </message>
@@ -1687,28 +1774,30 @@
         <translation>إضافة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="77"/>
         <source>Add System Language</source>
         <translation>إضافة لغة النظام</translation>
-        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+        <extra-child_page>System Language</extra-child_page>
+        <extra-contents_path>/keyboard/System Language/Add System Language</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::SystemLanguageWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="60"/>
         <source>Language List</source>
         <translation>قائمة اللغات</translation>
+        <extra-child_page>System Language</extra-child_page>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="61"/>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="151"/>
         <source>Edit</source>
         <translation>تحرير</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="131"/>
         <source>Done</source>
         <translation>تم</translation>
     </message>
@@ -1716,36 +1805,40 @@
 <context>
     <name>dccV20::mouse::GeneralSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="51"/>
         <source>Left Hand</source>
         <translation>اليد اليسرى</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="57"/>
         <source>Disable touchpad while typing</source>
         <translation>تعطيل لوحة اللمس أثناء الكتابة</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="63"/>
         <source>Scrolling Speed</source>
         <translation>سرعة التمرير</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="68"/>
         <source>Double-click Speed</source>
         <translation>سرعة النقر المزدوج</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="86"/>
         <source>Slow</source>
         <translation>بطيء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="87"/>
         <source>Fast</source>
         <translation>سريع</translation>
     </message>
@@ -1778,34 +1871,36 @@
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="47"/>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="49"/>
         <source>Mouse Acceleration</source>
         <translation>تسارع الفأرة</translation>
+        <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="51"/>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="54"/>
         <source>Disable touchpad when a mouse is connected</source>
         <translation>تعطيل لوحة اللمس عند توصيل فأرة</translation>
+        <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="56"/>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="59"/>
         <source>Natural Scrolling</source>
         <translation>تمرير طبيعي</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="63"/>
         <source>Slow</source>
         <translation>بطيء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="64"/>
         <source>Fast</source>
         <translation>سريع</translation>
     </message>
@@ -1818,27 +1913,24 @@
         <translation>عام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="86"/>
         <source>Mouse</source>
         <translation>الفأرة</translation>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="75"/>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="80"/>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="111"/>
         <source>Touchpad</source>
         <translation>لوحة اللمس</translation>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="83"/>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="136"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
-        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1851,25 +1943,26 @@
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="50"/>
         <source>Tap to Click</source>
         <translation>إضغط للنقر</translation>
+        <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="55"/>
         <source>Natural Scrolling</source>
         <translation>تمرير طبيعي</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="63"/>
         <source>Slow</source>
         <translation>بطيء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="64"/>
         <source>Fast</source>
         <translation>سريع</translation>
     </message>
@@ -1902,64 +1995,74 @@
         <translation>تطبيقات البروكسي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="53"/>
         <source>Proxy Type</source>
         <translation>نوع الوكيل</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
         <source>IP Address</source>
         <translation>عنوان IP</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="60"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
         <source>Required</source>
         <translation>مطلوب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="70"/>
         <source>Port</source>
         <translation>المنفذ</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="77"/>
         <source>Username</source>
         <translation>اسم المستخدم</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="70"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="85"/>
         <source>Optional</source>
         <translation>اختياري</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="84"/>
         <source>Password</source>
         <translation>كلمة المرور</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="106"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
         <translation>تحقق من &quot;فتح بواسطة بروكسي&quot; من قائمة سياق التطبيق في المشغل لاستخدامها بعد الإعداد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="113"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="114"/>
         <source>Save</source>
         <translation>حفظ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="214"/>
         <source>Invalid IP address</source>
         <translation>عنوان IP غير صحيح</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="222"/>
         <source>Invalid port</source>
         <translation>منفذ غير صحيح</translation>
     </message>
@@ -2155,9 +2258,11 @@
         <translation>عام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="65"/>
         <source>Name</source>
         <translation>الاسم</translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -2186,13 +2291,14 @@
 <context>
     <name>dccV20::network::HotspotDeviceWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="72"/>
         <source>Hotspot</source>
         <translation>نقطة الإتصال</translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="75"/>
         <source>Add Settings</source>
         <translation>إضافة إعدادات</translation>
     </message>
@@ -2200,9 +2306,10 @@
 <context>
     <name>dccV20::network::HotspotPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="280"/>
         <source>Create Hotspot</source>
         <translation>إنشاء Hotspot</translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
@@ -2273,7 +2380,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="430"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="495"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="497"/>
         <source>Invalid IP address</source>
         <translation>عنوان IP غير صحيح</translation>
     </message>
@@ -2284,17 +2391,17 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="451"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="511"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="513"/>
         <source>Invalid gateway</source>
         <translation>بوابة غير صالحة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="464"/>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>الشبكة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="464"/>
         <source>IP conflict</source>
         <translation type="unfinished"/>
     </message>
@@ -2307,83 +2414,114 @@
         <translation>تفاصيل الشبكة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="249"/>
+        <source>Interface</source>
+        <translation>الواجهة</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="253"/>
+        <source>MAC</source>
+        <translation>ماك</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="257"/>
+        <source>Band</source>
+        <translation>الحزمة</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="265"/>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="283"/>
+        <source>Gateway</source>
+        <translation>البوابة</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="288"/>
+        <source>Primary DNS</source>
+        <translation>DNS رئيسي</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="277"/>
+        <source>Netmask</source>
+        <translation>قناع الشبكة</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="282"/>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="292"/>
+        <source>Prefix</source>
+        <translation>البادئة</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="297"/>
+        <source>Speed</source>
+        <translation>السرعة</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="209"/>
         <source>Hotspot</source>
         <translation>نقطة الإتصال</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="213"/>
         <source>SSID</source>
         <translation>SSID </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="224"/>
         <source>Protocol</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="244"/>
         <source>Security Type</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="189"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="213"/>
-        <source>Band</source>
-        <translation>الحزمة</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="238"/>
         <source>Channel</source>
         <translation>القناة</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="205"/>
-        <source>Interface</source>
-        <translation>الواجهة</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="209"/>
-        <source>MAC</source>
-        <translation>ماك</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="221"/>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="225"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="239"/>
-        <source>Gateway</source>
-        <translation>البوابة</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="229"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="244"/>
-        <source>Primary DNS</source>
-        <translation>DNS رئيسي</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="233"/>
-        <source>Netmask</source>
-        <translation>قناع الشبكة</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="238"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="248"/>
-        <source>Prefix</source>
-        <translation>البادئة</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="253"/>
-        <source>Speed</source>
-        <translation>السرعة</translation>
     </message>
 </context>
 <context>
@@ -2404,7 +2542,7 @@
         <translation>Hotspot شخصية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="295"/>
         <source>Network</source>
         <translation>الشبكة</translation>
     </message>
@@ -2412,90 +2550,82 @@
 <context>
     <name>dccV20::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="74"/>
         <source>DSL</source>
         <translation>DSL</translation>
-        <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="82"/>
         <source>VPN</source>
         <translation>VPN</translation>
-        <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="90"/>
         <source>System Proxy</source>
         <translation>وكيل النظام</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="96"/>
         <source>Application Proxy</source>
         <translation>تطبيقات البروكسي</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="104"/>
         <source>Network Details</source>
         <translation>تفاصيل الشبكة</translation>
-        <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="211"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="500"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="507"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="517"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="496"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="503"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="513"/>
         <source>Disabled</source>
         <translation>معطل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="203"/>
         <source>Manual</source>
         <translation>يدوي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="205"/>
         <source>Auto</source>
         <translation>تلقائي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="218"/>
         <source>Configure by Network Manager</source>
         <translation>إعداد بواسطة مدير الشبكة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="447"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="445"/>
         <source>Personal Hotspot</source>
         <translation>Hotspot شخصية</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="474"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="472"/>
         <source>Wired Network %1</source>
         <translation>شبكة سلكية 1%</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="477"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="474"/>
         <source>Wired Network</source>
         <translation>شبكة سلكية</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="481"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="478"/>
         <source>Wireless Network %1</source>
         <translation>الشبكة اللاسلكية : %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="484"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="480"/>
         <source>Wireless Network</source>
         <translation>شبكة لاسلكية</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="527"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="533"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="523"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="529"/>
         <source>Disconnected</source>
         <translation>غير متصل</translation>
     </message>
@@ -2612,9 +2742,10 @@
     <message>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="58"/>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="59"/>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="83"/>
         <source>Create PPPoE Connection</source>
         <translation>إنشاء اتصال PPPoE</translation>
+        <extra-child_page>DSL</extra-child_page>
         <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
@@ -2637,66 +2768,72 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="71"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="173"/>
         <source>System Proxy</source>
         <translation>وكيل النظام</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="72"/>
-        <source>Proxy Type</source>
-        <translation>نوع الوكيل</translation>
+        <extra-child_page>System Proxy</extra-child_page>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
+        <source>Proxy Type</source>
+        <translation>نوع الوكيل</translation>
+        <extra-child_page>System Proxy</extra-child_page>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="76"/>
         <source>Manual</source>
         <translation>يدوي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="77"/>
         <source>Auto</source>
         <translation>تلقائي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="129"/>
         <source>Optional</source>
         <translation>اختياري</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="90"/>
         <source>Port</source>
         <translation>المنفذ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="105"/>
         <source>HTTP Proxy</source>
         <translation>وكيل HTTP </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="108"/>
         <source>HTTPS Proxy</source>
         <translation>وكيل HTTPS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="111"/>
         <source>FTP Proxy</source>
         <translation>وكيل FTP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="114"/>
         <source>SOCKS Proxy</source>
         <translation>وكيل Socks</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="124"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
         <translation>تجاهل إعدادات الوكيل من أجل الإستضافات و النطاقات أعلاه</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="132"/>
         <source>Configuration URL</source>
         <translation>إعداد الرابط</translation>
+        <extra-child_page>System Proxy</extra-child_page>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
 </context>
 <context>
@@ -2888,22 +3025,24 @@
         <translation>WPA/WPA2 Personal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="125"/>
         <source>Security</source>
         <translation>الأمان</translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="131"/>
         <source>Required</source>
         <translation>مطلوب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="162"/>
         <source>Key</source>
         <translation>المفتاح</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="168"/>
         <source>Password</source>
         <translation>كلمة المرور</translation>
     </message>
@@ -3486,38 +3625,42 @@
 <context>
     <name>dccV20::network::VpnPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="104"/>
         <source>VPN Status</source>
         <translation>حالة VPN</translation>
+        <extra-child_page>VPN</extra-child_page>
+        <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="136"/>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="139"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="143"/>
         <source>Create VPN</source>
         <translation>إنشاء VPN</translation>
+        <extra-child_page>VPN</extra-child_page>
         <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="145"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="148"/>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="153"/>
         <source>Import VPN</source>
         <translation>إستيراد شبكة خاصة إفتراضية</translation>
+        <extra-child_page>VPN</extra-child_page>
         <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="190"/>
         <source>Import Error</source>
         <translation>خطأ في الإستيراد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="191"/>
         <source>File error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="192"/>
         <source>OK</source>
         <translation>موافق</translation>
     </message>
@@ -3941,19 +4084,21 @@
         <translation>قم بتوصيل سلك الشبكة أولًا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="77"/>
         <source>Wired Network Adapter</source>
         <translation>محول شبكة سلكية</translation>
+        <extra-child_page>Wired Network</extra-child_page>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="98"/>
         <source>Add Network Connection</source>
         <translation>إضافة اتصال شبكة</translation>
-        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
+        <extra-child_page>Wired Network</extra-child_page>
+        <extra-contents_path>/network/Wired Network/Add Network Connection</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="118"/>
         <source>Select Settings</source>
         <translation>تحديد الإعدادات</translation>
     </message>
@@ -3966,18 +4111,19 @@
         <translation>الإتصال بشبكة مخفية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="295"/>
         <source>Wireless Network Adapter</source>
         <translation>كرت الشبكة اللاسلكية</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+        <extra-child_page>Wireless Network</extra-child_page>
+        <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="324"/>
         <source>Close Hotspot</source>
         <translation>أغلق نقطة الاتصال</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="327"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>يرجى أولا تعطيل مشاركة &quot;نقطة الاتصال&quot; إذا كنت ترغب في الاتصال واستخدام وظيفة الشبكة اللاسلكية</translation>
     </message>
@@ -3995,27 +4141,33 @@
         <translation>لا يوجد جهاز مرتبط بعنوان ال MAC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="117"/>
         <source>SSID</source>
         <translation>SSID </translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="118"/>
         <source>Required</source>
         <translation>مطلوب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="123"/>
         <source>Device MAC Addr</source>
         <translation>عنوان MAC الجهاز </translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="141"/>
         <source>Customize MTU</source>
         <translation>تخصيص MTU</translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="144"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -4059,37 +4211,41 @@
 <context>
     <name>dccV20::notification::NotificationWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="71"/>
         <source>System Notifications</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="87"/>
         <source>App Notifications</source>
         <translation type="unfinished"/>
+        <extra-child_page>System Notifications</extra-child_page>
+        <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::notification::SystemNotifyWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="54"/>
         <source>Show icon on Dock</source>
         <translation type="unfinished"/>
+        <extra-child_page>System Notifications</extra-child_page>
+        <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="83"/>
         <source>Do Not Disturb</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/notification/Do Not Disturb</extra-contents_path>
+        <extra-child_page>System Notifications</extra-child_page>
+        <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="89"/>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="107"/>
         <source>When the screen is locked</source>
         <translation type="unfinished"/>
     </message>
@@ -4110,24 +4266,28 @@
 <context>
     <name>dccV20::personalization::PersonalizationFontsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="59"/>
         <source>Size</source>
         <translation>الحجم</translation>
+        <extra-child_page>Font</extra-child_page>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="90"/>
         <source>Standard Font</source>
         <translation>خط قياسي</translation>
+        <extra-child_page>Font</extra-child_page>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="111"/>
         <source>Monospaced Font</source>
         <translation>خط أحادي المسافة</translation>
+        <extra-child_page>Font</extra-child_page>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="260"/>
         <source> (Unsupported font)</source>
         <translation>(الخط غير مدعوم)</translation>
     </message>
@@ -4135,90 +4295,94 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="118"/>
         <source>Theme</source>
         <translation>السمة</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="129"/>
         <source>Accent Color</source>
         <translation>تدرج لوني</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="189"/>
         <source>Window Effect</source>
         <translation>تأثيرات النوافذ</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="199"/>
         <source>Transparency</source>
         <translation>الشفافية</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="221"/>
         <source>Window Minimize Effect</source>
         <translation type="unfinished"/>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="224"/>
         <source>Scale</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="224"/>
         <source>Magic Lamp</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="244"/>
         <source>Rounded Corner</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="251"/>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>صغير</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="251"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>متوسط</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="251"/>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>كبير</translation>
     </message>
 </context>
 <context>
     <name>dccV20::personalization::PersonalizationList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="49"/>
         <source>General</source>
         <translation>عام</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="51"/>
         <source>Icon Theme</source>
         <translation>سمة الأيقونات</translation>
         <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="53"/>
         <source>Cursor Theme</source>
         <translation>سمة المؤشر</translation>
         <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="54"/>
         <source>Font</source>
         <translation>الخط</translation>
-        <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
 </context>
 <context>
@@ -4255,26 +4419,29 @@
 <context>
     <name>dccV20::personalization::PerssonalizationThemeWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="80"/>
         <source>Light</source>
         <translation>إضاءة</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="85"/>
         <source>Dark</source>
         <translation>مظلم</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="90"/>
         <source>Auto</source>
         <translation>تلقائي</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="99"/>
         <source>Default</source>
         <translation>افتراضي</translation>
     </message>
@@ -4282,77 +4449,101 @@
 <context>
     <name>dccV20::power::GeneralWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="64"/>
-        <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="65"/>
-        <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
-        <source>Decrease brightness</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="67"/>
-        <source>Password is required to wake up the computer</source>
-        <translation>كلمة المرور مطلوبة لإيقاظ الحاسب</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="70"/>
         <source>Password is required to wake up the monitor</source>
         <translation>كلمة المرور مطلوبة لإيقاظ الشاشة</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="74"/>
         <source>Display remaining using and charging time</source>
         <translation type="unfinished"/>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="78"/>
         <source>Maximum capacity</source>
         <translation>السعة القصوى</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="75"/>
-        <source>Balanced</source>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="82"/>
+        <source>Password is required to wake up the computer</source>
+        <translation>كلمة المرور مطلوبة لإيقاظ الحاسب</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="86"/>
+        <source>Auto power saving on battery</source>
         <translation type="unfinished"/>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="90"/>
+        <source>Auto power saving on low battery</source>
+        <translation type="unfinished"/>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="94"/>
+        <source>Decrease brightness</source>
+        <translation type="unfinished"/>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="98"/>
+        <source>Balanced</source>
+        <translation>متوازن</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="101"/>
         <source>High Performance</source>
         <translation type="unfinished"/>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="104"/>
         <source>Power Saver</source>
         <translation type="unfinished"/>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="137"/>
         <source>Power Plans</source>
         <translation type="unfinished"/>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="175"/>
         <source>Power Saving Settings</source>
         <translation type="unfinished"/>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="210"/>
         <source>Wakeup Settings</source>
         <translation type="unfinished"/>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="230"/>
         <source>Battery</source>
         <translation>البطارية</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
 </context>
@@ -4383,29 +4574,26 @@
 <context>
     <name>dccV20::power::PowerWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="75"/>
         <source>General</source>
         <translation>عام</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="77"/>
         <source>Plugged In</source>
         <translation>وضع الطاقة</translation>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="78"/>
         <source>On Battery</source>
         <translation>على البطارية</translation>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::power::UseBatteryWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="48"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="83"/>
         <source>Monitor will suspend after</source>
         <translation>الشاشة ستدخل في وضع السبات بعد</translation>
         <extra-child_page>On Battery</extra-child_page>
@@ -4413,7 +4601,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="49"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="96"/>
         <source>Computer will suspend after</source>
         <translation>الحاسوب سيدخل وضع الإسبات بعد</translation>
         <extra-child_page>On Battery</extra-child_page>
@@ -4421,7 +4609,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="109"/>
         <source>Lock screen after</source>
         <translation>قفل الشاشة بعد</translation>
         <extra-child_page>On Battery</extra-child_page>
@@ -4429,78 +4617,86 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
-        <source>When pressing the power button</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="52"/>
-        <source>When the lid is closed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="53"/>
-        <source>Low Battery Notification</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
         <source>Low battery level</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="55"/>
-        <source>Auto suspend battery level</source>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="56"/>
+        <source>When pressing the power button</source>
         <translation type="unfinished"/>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="66"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="60"/>
+        <source>When the lid is closed</source>
+        <translation type="unfinished"/>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="64"/>
+        <source>Low Battery Notification</source>
+        <translation type="unfinished"/>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="68"/>
+        <source>Auto suspend battery level</source>
+        <translation type="unfinished"/>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="421"/>
         <source>Never</source>
         <translation>أبداً</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="125"/>
         <source>Shut down</source>
         <translation>إيقاف التشغيل</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="128"/>
         <source>Suspend</source>
         <translation>إسبات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="131"/>
         <source>Hibernate</source>
         <translation>وضع السكون</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="133"/>
         <source>Turn off the monitor</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="133"/>
         <source>Do nothing</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="403"/>
         <source>1 Minute</source>
         <translation> دقيقة واحدة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="375"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="378"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="381"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="384"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="415"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="424"/>
         <source>%1 Minutes</source>
         <translation>%1 دقائق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="418"/>
         <source>1 Hour</source>
         <translation> ساعة 1</translation>
     </message>
@@ -4509,85 +4705,89 @@
     <name>dccV20::power::UseElectricWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="50"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="64"/>
         <source>Lock screen after</source>
         <translation>قفل الشاشة بعد</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="55"/>
         <source>When pressing the power button</source>
         <translation type="unfinished"/>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="59"/>
         <source>When the lid is closed</source>
         <translation type="unfinished"/>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="63"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="72"/>
         <source>Monitor will suspend after</source>
         <translation>الشاشة ستدخل في وضع السبات بعد</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="85"/>
         <source>Computer will suspend after</source>
         <translation>الحاسوب سيدخل وضع الإسبات بعد</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="342"/>
         <source>Never</source>
         <translation>أبداً</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="302"/>
         <source>Shut down</source>
         <translation>إيقاف التشغيل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="306"/>
         <source>Suspend</source>
         <translation>إسبات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="310"/>
         <source>Hibernate</source>
         <translation>وضع السكون</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="312"/>
         <source>Turn off the monitor</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="312"/>
         <source>Do nothing</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="324"/>
         <source>1 Minute</source>
         <translation> دقيقة واحدة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="321"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="324"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="327"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="330"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="333"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="345"/>
         <source>%1 Minutes</source>
         <translation>%1 دقائق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="333"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="339"/>
         <source>1 Hour</source>
         <translation> ساعة 1</translation>
     </message>
@@ -4595,209 +4795,200 @@
 <context>
     <name>dccV20::search::SearchModel</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="121"/>
-        <source>Server</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="364"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="821"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="456"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="936"/>
         <source>Window Effect</source>
-        <translation type="unfinished"/>
+        <translation>تأثيرات النوافذ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="123"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="151"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="155"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="150"/>
         <source>Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>وضع المطور</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="124"/>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>برنامج تجربة المستخدم</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="125"/>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>الانضمام إلى برنامج تجربة المستخدم</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="126"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>عرض الشاشة</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="127"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>الوضع الليلي</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
-        <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <source>Login Without Password</source>
+        <translation>تسجيل الدخول دون كلمة مرور</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
-        <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <source>Auto Brightness</source>
+        <translation>سطوع تلقائى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
-        <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <source>General</source>
+        <translation>عام</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
-        <source>General</source>
-        <translation type="unfinished"/>
+        <source>Password is required to wake up the monitor</source>
+        <translation>كلمة المرور مطلوبة لإيقاظ الشاشة</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
-        <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <source>Password is required to wake up the computer</source>
+        <translation>كلمة المرور مطلوبة لإيقاظ الحاسب</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
-        <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <source>Power Saving Mode</source>
+        <translation>وضع توفير الطاقة</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
-        <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <source>Auto Mode Switch</source>
+        <translation>تبديل الوضع تلقائيا</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
-        <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <source>Transparency</source>
+        <translation>الشفافية</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
-        <source>Transparency</source>
-        <translation type="unfinished"/>
+        <source>Create PPPoE Connection</source>
+        <translation>إنشاء اتصال PPPoE</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
-        <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="446"/>
+        <source>Disable touchpad while typing</source>
+        <translation>تعطيل لوحة اللمس أثناء الكتابة</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="351"/>
-        <source>Disable the touchpad while typing</source>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="445"/>
+        <source>Disable touchpad when inserting the mouse</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="139"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="350"/>
-        <source>Disable the touchpad when inserting the mouse</source>
-        <translation type="unfinished"/>
+        <source>Computer will suspend after</source>
+        <translation>الحاسوب سيدخل وضع الإسبات بعد</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
-        <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <source>Sign In</source>
+        <translation>تسجيل الدخول</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="141"/>
-        <source>Sign In</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="142"/>
         <source>Auto power saving on battery</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="142"/>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>شاشة اللمس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="144"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
         <source>Power Plans</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="144"/>
         <source>Power Saving Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
         <source>Wakeup Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="147"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="345"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="440"/>
         <source>Battery</source>
-        <translation type="unfinished"/>
+        <translation>البطارية</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="157"/>
+        <source>Touchpad</source>
+        <translation>لوحة اللمس</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="158"/>
+        <source>TrackPoint</source>
+        <translation>TrackPoint</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="159"/>
+        <source>Personal Hotspot</source>
+        <translation>Hotspot شخصية</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="160"/>
+        <source>On Battery</source>
+        <translation>على البطارية</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="161"/>
+        <source>Wired Network</source>
+        <translation>شبكة سلكية</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="162"/>
-        <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <source>Wireless Network</source>
+        <translation>شبكة لاسلكية</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="163"/>
-        <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <source>Multiple Displays</source>
+        <translation>شاشات متعددة</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="164"/>
-        <source>Personal Hotspot</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="165"/>
-        <source>On Battery</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="166"/>
-        <source>Wired Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="167"/>
-        <source>Wireless Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="168"/>
-        <source>Multiple Displays</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="169"/>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>قائمة الإقلاع</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="340"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="802"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="435"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="920"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"/>
+        <translation>حساب السحابة الإلكترونية</translation>
     </message>
 </context>
 <context>
     <name>dccV20::sound::DevicemanagesPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="143"/>
         <source>Output Devices</source>
         <translation type="unfinished"/>
+        <extra-child_page>Devices</extra-child_page>
+        <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="171"/>
         <source>Enable or disable a device as you want</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="166"/>
         <source>Input Devices</source>
         <translation type="unfinished"/>
     </message>
@@ -4810,32 +5001,42 @@
         <translation>الإدخال</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="82"/>
         <source>Input Device</source>
         <translation type="unfinished"/>
+        <extra-child_page>Input</extra-child_page>
+        <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="87"/>
         <source>Automatic Noise Suppression</source>
         <translation type="unfinished"/>
+        <extra-child_page>Input</extra-child_page>
+        <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="318"/>
         <source>Input Volume</source>
         <translation>حجم الإدخال</translation>
+        <extra-child_page>Input</extra-child_page>
+        <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="364"/>
         <source>Input Level</source>
         <translation>مستوى اﻹدخال</translation>
+        <extra-child_page>Input</extra-child_page>
+        <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::sound::SoundEffectsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="64"/>
         <source>Sound Effects</source>
         <translation>مؤثرات الصوت</translation>
+        <extra-child_page>Sound Effects</extra-child_page>
+        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
     </message>
 </context>
 <context>
@@ -4849,32 +5050,28 @@
 <context>
     <name>dccV20::sound::SoundWidget</name>
     <message>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="130"/>
+        <source>Output</source>
+        <translation>الإخراج</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="134"/>
-        <source>Output</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
+        <source>Input</source>
+        <translation>الإدخال</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="138"/>
+        <source>Sound Effects</source>
+        <translation>مؤثرات الصوت</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="138"/>
-        <source>Input</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="142"/>
-        <source>Sound Effects</source>
-        <translation>مؤثرات الصوت</translation>
-        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="82"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="146"/>
         <source>Devices</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
 </context>
 <context>
@@ -4885,44 +5082,50 @@
         <translation>الإخراج</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="80"/>
         <source>Output Device</source>
         <translation type="unfinished"/>
+        <extra-child_page>Output</extra-child_page>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="86"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>النمط</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="303"/>
         <source>Output Volume</source>
         <translation>حجم اﻹخراج</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
+        <extra-child_page>Output</extra-child_page>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="407"/>
         <source>Volume Boost</source>
         <translation>تضخيم الصوت</translation>
+        <extra-child_page>Output</extra-child_page>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="414"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>إذا كان مستوى الصوت أعلى من 100٪، فقد يشوه الصوت وقد يضر بمكبر الصوت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="428"/>
         <source>Left/Right Balance</source>
         <translation>تبديل يمين/يسار</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
+        <extra-child_page>Output</extra-child_page>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="425"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="433"/>
         <source>Left</source>
         <translation>يسار</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="426"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="434"/>
         <source>Right</source>
         <translation>يمين</translation>
     </message>
@@ -5016,7 +5219,7 @@
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="38"/>
         <source>Sign In</source>
         <translation>تسجيل الدخول</translation>
-        <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
+        <extra-contents_path>/cloudsync/Union ID Sign In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="40"/>
@@ -5068,118 +5271,128 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="128"/>
         <source>Computer Name:</source>
         <translation type="unfinished"/>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="246"/>
-        <source>It cannot start or end with dashes</source>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
+        <source>OS Name:</source>
         <translation type="unfinished"/>
+        <extra-child_page>About This PC</extra-child_page>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
+        <source>Version:</source>
+        <translation>الإصدار :</translation>
+        <extra-child_page>About This PC</extra-child_page>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="196"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="208"/>
-        <source>1~63 characters please</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="281"/>
-        <source>OS Name:</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="286"/>
-        <source>Version:</source>
-        <translation>الإصدار :</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="291"/>
         <source>Edition:</source>
         <translation>إصدار:</translation>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
         <source>Type:</source>
         <translation>النوع:</translation>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="206"/>
         <source>Authorization</source>
         <translation>تفويض</translation>
+        <extra-child_page>About This PC</extra-child_page>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="300"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="426"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="346"/>
         <source>To be activated</source>
         <translation>ليتم تفعيلها</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="302"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="428"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="436"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="360"/>
         <source>Activate</source>
         <translation>تفعيل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
         <source>Kernel:</source>
         <translation>النواة:</translation>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
         <source>Processor:</source>
         <translation>المعالج :</translation>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
         <source>Memory:</source>
         <translation>الذاكرة :</translation>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="326"/>
         <source>%1-bit</source>
         <translation> %1 بت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="422"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="342"/>
         <source>Activated</source>
         <translation>مفعّل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="424"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="432"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="352"/>
         <source>View</source>
         <translation>عرض</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="430"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="350"/>
         <source>Expired</source>
         <translation>منتهي الصلاحية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="354"/>
         <source>In trial period</source>
         <translation>في مدة التجريب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="358"/>
         <source>Trial expired</source>
         <translation>انتهت التجربة</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="429"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="430"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="488"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="489"/>
+        <source>It cannot start or end with dashes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="493"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="494"/>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5216,25 +5429,24 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="74"/>
         <source>About This PC</source>
         <translation>عن هذا الجهاز</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="76"/>
         <source>Edition License</source>
         <translation>رخصة النسخة</translation>
         <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="78"/>
         <source>End User License Agreement</source>
         <translation>اتفاقية ترخيص المستخدم النهائي</translation>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="80"/>
         <source>Privacy Policy</source>
         <translation type="unfinished"/>
         <extra-contents_path>/systeminfo/Privacy Policy</extra-contents_path>
@@ -5266,17 +5478,17 @@
         <translation>تأكيد</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="125"/>
         <source>Touch Screen - %1 (%2)</source>
         <translation>شاشة اللمس - %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
         <source>Touch Screen Settings</source>
         <translation>إعدادات شاشة اللمس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="191"/>
         <source>The settings of touch screen changed</source>
         <translation type="unfinished"/>
     </message>
@@ -5433,10 +5645,10 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="199"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="371"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="377"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
         <source>Check Again</source>
         <translation type="unfinished"/>
     </message>
@@ -5448,13 +5660,13 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="344"/>
         <source>Your system is up to date</source>
         <translation>نظامك محدث حتى الآن</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="347"/>
         <source>Check for Updates</source>
         <translation type="unfinished"/>
     </message>
@@ -5464,91 +5676,93 @@ Visit User Center and manage your account there.</source>
         <translation>التحقق من وجود تحديثات، يرجى الانتظار ...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
         <source>Download and install updates</source>
         <translation>تنزيل وتثبيت التحديثات</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
+        <extra-child_page>Updates</extra-child_page>
+        <extra-contents_path>/update/Updates</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="321"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="450"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% تم تحميله (انقر للإيقاف)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="328"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="452"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% تم تحميله (أنقر للإستمرار)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="337"/>
         <source>Install updates</source>
         <translation>تثبيت التحديثات</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
+        <extra-child_page>Updates</extra-child_page>
+        <extra-contents_path>/update/Updates</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="353"/>
         <source>Updating, please wait...</source>
         <translation>يتم التحديث ، يرجى الانتظار ..</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="365"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="367"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>النظام الأحدث مثبت الآن ، إعادة التشغيل </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="378"/>
         <source>Update failed: insufficient disk space</source>
         <translation>فشل التحديث: مساحة القرص غير كافية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="384"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>خطأ في الملفات المعتمد عليها، فشل في تحديد التحديثات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="392"/>
         <source>Backing up, please wait...</source>
         <translation>النسخ الاحتياطي قيد العمل، يرجى الانتظار ...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="395"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="397"/>
         <source>System backup failed</source>
         <translation>فشل النسخ الاحتياطي للنظام</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="420"/>
         <source>%n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="423"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="425"/>
         <source>New system edition available</source>
         <translation>متاح إصدار جديد من النظام</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="425"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="427"/>
         <source>New system edition and %n application update(s) available</source>
         <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="432"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
         <source>Downloaded</source>
         <translation>تم التنزيل</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="436"/>
         <source>Size: %1</source>
         <translation>الحجم: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="465"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>البطارية أقل من 50٪، يرجى التوصيل للمتابعة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="467"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>الرجاء التأكد من أن الطاقة كافية لإعادة التشغيل، وعدم فصل الجهاز من الطاقة</translation>
     </message>
@@ -5578,94 +5792,108 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
-        <source>System Updates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
-        <source>App Updates in App Store</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="55"/>
-        <source>Updates Notification</source>
-        <translation>الإشعارات الخاصة بالتحديثات</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="56"/>
-        <source>Download Updates</source>
-        <translation>تحميل التحديثات</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="57"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
         <translation>فعله ليتم تنزيل التحديثات تلقائيًا من خلال الشبكة السلكية أو اللاسلكية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="59"/>
+        <source>System Updates</source>
+        <translation type="unfinished"/>
+        <extra-child_page>Update Settings</extra-child_page>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="63"/>
+        <source>App Updates in App Store</source>
+        <translation type="unfinished"/>
+        <extra-child_page>Update Settings</extra-child_page>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="67"/>
+        <source>Updates Notification</source>
+        <translation>الإشعارات الخاصة بالتحديثات</translation>
+        <extra-child_page>Update Settings</extra-child_page>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="71"/>
+        <source>Download Updates</source>
+        <translation>تحميل التحديثات</translation>
+        <extra-child_page>Update Settings</extra-child_page>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="91"/>
         <source>Update Settings</source>
         <translation>إعدادات التحديث</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="96"/>
         <source>Automatic Updating Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="104"/>
         <source>Check for Updates</source>
         <translation type="unfinished"/>
+        <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="159"/>
         <source>Clear Package Cache</source>
         <translation type="unfinished"/>
+        <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="167"/>
         <source>System Repository Detection</source>
         <translation>الكشف عن مخزن النظام</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="155"/>
-        <source>Show a notification if system update repository has been modified</source>
-        <translation>تنبيه عاجل إذا تم تغيير مخزن تحديث النظام</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="165"/>
-        <source>Smart Mirror Switch</source>
-        <translation>التبديل الذكي للسيرفر</translation>
+        <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="170"/>
-        <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>فعله للاتصال بأسرع سيرفر تلقائيًا</translation>
+        <source>Show a notification if system update repository has been modified</source>
+        <translation>تنبيه عاجل إذا تم تغيير مخزن تحديث النظام</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="181"/>
+        <source>Smart Mirror Switch</source>
+        <translation>التبديل الذكي للسيرفر</translation>
+        <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="187"/>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation>فعله للاتصال بأسرع سيرفر تلقائيًا</translation>
+        <extra-child_page>Update Settings</extra-child_page>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="196"/>
         <source>Mirror List</source>
         <translation>قائمة المرايا</translation>
+        <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::update::UpdateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="61"/>
         <source>Updates</source>
         <translation>التحديثات</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
+        <extra-child_page>Updates</extra-child_page>
+        <extra-contents_path>/update/Updates</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="64"/>
         <source>Update Settings</source>
         <translation>إعدادات التحديث</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="76"/>
@@ -5692,18 +5920,19 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dccV20::wacom::PressureSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="45"/>
         <source>Pressure Sensitivity</source>
         <translation>حساسية الضغط</translation>
+        <extra-child_page>Pressure Sensitivity</extra-child_page>
         <extra-contents_path>/wacon/Pressure Sensitivity</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="53"/>
         <source>Light</source>
         <translation>إضاءة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="53"/>
         <source>Heavy</source>
         <translation>ثقيل</translation>
     </message>
@@ -5896,65 +6125,273 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="125"/>
+        <location filename="../src/frame/main.cpp" line="130"/>
         <source>Control Center</source>
         <translation>مركز التحكم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="672"/>
+        <location filename="../src/frame/modules/defapp/defappmodel.cpp" line="44"/>
+        <source>Add Application</source>
+        <translation>إضافة تطبيق</translation>
+        <extra-child_page>Picture</extra-child_page>
+        <extra-contents_path>/defapp/Picture/Add Application</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="724"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="782"/>
+        <source>Input Methods</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="731"/>
+        <source>Create Account</source>
+        <translation>إنشاء حساب</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="732"/>
+        <source>My Devices</source>
+        <translation>أجهزتي</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="733"/>
+        <source>Other Devices</source>
+        <translation>أجهزة أخرى</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="734"/>
+        <source>Boot Menu</source>
+        <translation>قائمة الإقلاع</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="735"/>
+        <source>Developer Mode</source>
+        <translation>وضع المطور</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="736"/>
+        <source>User Experience Program</source>
+        <translation>برنامج تجربة المستخدم</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="737"/>
+        <source>Format Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="738"/>
+        <source>Timezone List</source>
+        <translation>قائمة المنطقة الزمنية</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="739"/>
+        <source>Webpage</source>
+        <translation>صفحة الويب</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="740"/>
+        <source>Mail</source>
+        <translation>البريد</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="741"/>
+        <source>Text</source>
+        <translation>نص</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="742"/>
+        <source>Music</source>
+        <translation>موسيقى</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="743"/>
+        <source>Video</source>
+        <translation>الفيديو</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="744"/>
+        <source>Picture</source>
+        <translation>صورة</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="745"/>
+        <source>Terminal</source>
+        <translation>الطرفية</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="746"/>
+        <source>Brightness</source>
+        <translation>السطوع</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="747"/>
+        <source>Shortcuts</source>
+        <translation>الإختصارات</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="748"/>
+        <source>Keyboard Layout</source>
+        <translation>تخطيط لوحة المفاتيح</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="749"/>
+        <source>System Language</source>
+        <translation>لغة النظام</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="750"/>
+        <source>Personal Hotspot</source>
+        <translation>Hotspot شخصية</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="751"/>
+        <source>DSL</source>
+        <translation>DSL</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="752"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="753"/>
+        <source>Wired Network</source>
+        <translation>شبكة سلكية</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="754"/>
+        <source>Wireless Network</source>
+        <translation>شبكة لاسلكية</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="755"/>
+        <source>Network Details</source>
+        <translation>تفاصيل الشبكة</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="756"/>
+        <source>System Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="757"/>
+        <source>Font</source>
+        <translation>الخط</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="758"/>
+        <source>Icon Theme</source>
+        <translation>سمة الأيقونات</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="759"/>
+        <source>Cursor Theme</source>
+        <translation>سمة المؤشر</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="760"/>
+        <source>Sound Effects</source>
+        <translation>مؤثرات الصوت</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="761"/>
+        <source>Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="762"/>
+        <source>Input</source>
+        <translation>الإدخال</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="763"/>
+        <source>Output</source>
+        <translation>الإخراج</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="764"/>
+        <source>About This PC</source>
+        <translation>عن هذا الجهاز</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="765"/>
+        <source>Edition License</source>
+        <translation>رخصة النسخة</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="766"/>
+        <source>End User License Agreement</source>
+        <translation>اتفاقية ترخيص المستخدم النهائي</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="767"/>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="768"/>
+        <source>Updates</source>
+        <translation>التحديثات</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="769"/>
+        <source>Update Settings</source>
+        <translation>إعدادات التحديث</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="770"/>
+        <source>Pressure Sensitivity</source>
+        <translation>حساسية الضغط</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="771"/>
         <source>On Battery</source>
         <translation>على البطارية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="673"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="772"/>
         <source>Plugged In</source>
         <translation>وضع الطاقة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="674"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="773"/>
         <source>General</source>
         <translation>عام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="675"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="774"/>
         <source>Mouse</source>
         <translation>الفأرة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="676"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="775"/>
         <source>Touchpad</source>
         <translation>لوحة اللمس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="677"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="776"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="678"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="777"/>
         <source>Application Proxy</source>
         <translation>تطبيقات البروكسي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="679"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="682"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="778"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="781"/>
         <source>System Proxy</source>
         <translation>وكيل النظام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="680"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="779"/>
         <source>Time Settings</source>
         <translation>إعدادات الوقت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="681"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="780"/>
         <source>Change System Timezone</source>
         <translation>تغيير المنطقة الزمنية للنظام</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="683"/>
-        <source>Input Methods</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -6397,22 +6834,22 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>تأكيد</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation>إضافة المنطقة الزمنية</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>إضافة</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>تغيير المنطقة الزمنية</translation>
     </message>
@@ -6533,18 +6970,19 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="50"/>
         <source>Add Keyboard Layout</source>
         <translation>إضافة تخطيط لوحة مفاتيح</translation>
-        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+        <extra-child_page>Keyboard Layout</extra-child_page>
+        <extra-contents_path>/keyboard/Keyboard Layout/Add Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="73"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="75"/>
         <source>Add</source>
         <translation>إضافة</translation>
     </message>
@@ -6596,9 +7034,10 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::mouse::DouTestWidget</name>
     <message>
-        <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="45"/>
+        <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="46"/>
         <source>Double-click Test</source>
         <translation>اختبار النقر المزدوج</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
 </context>
@@ -6614,30 +7053,24 @@ Visit User Center and manage your account there.</source>
     <name>dcc::mouse::PalmDetectSetting</name>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
-        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="39"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="37"/>
         <source>Palm Detection</source>
         <translation>اكتشاف راحة اليد</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
-        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="42"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="38"/>
         <source>Minimum Contact Surface</source>
         <translation>أدنى مساحة تلامس</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
-        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="47"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="41"/>
         <source>Minimum Pressure Value</source>
         <translation>أدنى مقدار للضغط</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="87"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="81"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>يُرجى تعطيل الخيار إن لم تعمل لوحة اللمس بعد تمكينها.</translation>
     </message>
@@ -6776,13 +7209,13 @@ Visit User Center and manage your account there.</source>
         <translation>معلومات النظام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="451"/>
-        <source>Copyright© 2011-2021 Deepin Community</source>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="371"/>
+        <source>Copyright© 2011-%1 Deepin Community</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
-        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="373"/>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6862,17 +7295,17 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="426"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
         <source>System Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="434"/>
         <source>Patches</source>
         <translation>تصحيحات</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="436"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
         <source>System patches</source>
         <translation>تصحيحات النظام.</translation>
     </message>
@@ -6888,7 +7321,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="126"/>
+        <location filename="../src/frame/main.cpp" line="131"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>مركز التحكم يقدم الخيارات لإعداد النظام.</translation>
     </message>

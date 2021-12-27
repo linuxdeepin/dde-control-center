@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ug" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ug">
 <context>
     <name>BatteryHealthPlugin</name>
     <message>
@@ -90,8 +90,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="927"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
         <source>Bluetooth</source>
         <translation>كۆكچىش</translation>
     </message>
@@ -112,8 +112,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
         <source>Drawing Tablet</source>
         <translation>سېزىمچان تاختا</translation>
     </message>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="964"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="973"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="975"/>
         <source>Updates</source>
         <translation>يېڭىلانمىلار</translation>
     </message>
@@ -136,8 +136,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="955"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="957"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="961"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
         <source>General Settings</source>
         <translation>ئادەتتىكى تەڭشەكلەر</translation>
     </message>
@@ -152,8 +152,8 @@
         <translation>ئىز قوغلىغۇچ تېزلىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
         <source>Cloud Sync</source>
         <translation>بۇلۇت ماسقەدەملەش</translation>
     </message>
@@ -189,7 +189,7 @@
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="225"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="322"/>
         <source>Full Name</source>
         <translation>تولۇق نامى</translation>
     </message>
@@ -199,63 +199,64 @@
         <translation>تولۇق ئىسمى بەك ئۇزۇن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="310"/>
-        <source>The username already exists</source>
-        <translation>بۇ ئىسىم ئاللىبۇرۇن مەۋجۇت</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="319"/>
-        <source>The name already exists</source>
-        <translation>بۇ ئىسىم ئاللىبۇرۇن مەۋجۇت</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="376"/>
         <source>Validity Days</source>
         <translation>ئىناۋەتلىك كۈنلەر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="428"/>
         <source>Change Password</source>
         <translation>پارولنى ئۆزگەرتىش</translation>
         <extra-contents_path>/accounts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="470"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="430"/>
         <source>Delete Account</source>
         <translation>ھېساباتنى ئۆچۈرۈش</translation>
         <extra-contents_path>/accounts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="472"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="432"/>
         <source>Auto Login</source>
         <translation>ئاپتوماتىك كىرىش</translation>
         <extra-contents_path>/accounts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="435"/>
         <source>Login Without Password</source>
         <translation>پارولسىز كىرىش</translation>
         <extra-contents_path>/accounts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="506"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="466"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation>پەقەت بىرلا ئاپتوماتىك كىرىش ھېساباتى ئېچىشقا رۇخسەت قىلىنىدۇ، جەزملەشتۈرۈلگەندىن كېيىن باشقا ھېساباتلارنىڭ ئاپتوماتىك كىرىش تاللىشى ئېتىلىدۇ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="508"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
         <source>Cancel</source>
         <translation>بىكار قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="509"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="469"/>
         <source>Enable</source>
         <translation>ئېچىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="612"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="572"/>
         <source>Group</source>
         <translation>گۇرۇپپا</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="620"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="628"/>
+        <source>The username already exists</source>
+        <translation>بۇ ئىسىم ئاللىبۇرۇن مەۋجۇت</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="637"/>
+        <source>The name already exists</source>
+        <translation>بۇ ئىسىم ئاللىبۇرۇن مەۋجۇت</translation>
     </message>
 </context>
 <context>
@@ -334,7 +335,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="538"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="546"/>
         <source>Cancel</source>
         <translation>بىكار قىلىش</translation>
     </message>
@@ -430,22 +431,23 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="438"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="477"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="495"/>
         <source>The username already exists</source>
         <translation>بۇ ئىسىم ئاللىبۇرۇن مەۋجۇت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="487"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="486"/>
         <source>The name already exists</source>
         <translation>بۇ ئىسىم ئاللىبۇرۇن مەۋجۇت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="509"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="517"/>
         <source>Passwords do not match</source>
         <translation>پارول ماس كەلمىدى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="537"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="545"/>
         <source>Go to Settings</source>
         <translation>تەڭشەكلەرگە بېرىش</translation>
     </message>
@@ -950,43 +952,43 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="224"/>
         <source>Confirm</source>
         <translation>جەزملەشتۈرۈش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="141"/>
         <source>Server</source>
         <translation>مۇلازىمىتېر</translation>
         <extra-child_page>Time Settings</extra-child_page>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="149"/>
         <source>Address</source>
         <translation>ئادرېس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="151"/>
         <source>Required</source>
         <translation>زۆرۈر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="165"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="228"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="253"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="306"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="352"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="360"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="415"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="497"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="410"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="473"/>
         <source>Customize</source>
         <translation> ئۆزى بەلگىلەش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="224"/>
         <source>Save</source>
         <translation>ساقلاش</translation>
     </message>
@@ -1265,7 +1267,7 @@
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="72"/>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="73"/>
         <source>Add Timezone</source>
-        <translation>ئاپتوماتىك ۋاقىت رايونى</translation>
+        <translation>ۋاقىت رايونى قوشۇش</translation>
         <extra-child_page>Timezone List</extra-child_page>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
@@ -1290,7 +1292,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="82"/>
         <source>Open Desktop file</source>
-        <translation>ئۈستەليۈزى ھۆججىتىنى ئىچىش</translation>
+        <translation>ئۈستەل يۈزى ھۆججىتىنى ئېچىش</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="343"/>
@@ -2291,7 +2293,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="72"/>
         <source>Hotspot</source>
-        <translation>ھەمبەھىر نۇقتىسى</translation>
+        <translation>تور تارقىتىش</translation>
         <extra-child_page>Personal Hotspot</extra-child_page>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
@@ -2306,7 +2308,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="280"/>
         <source>Create Hotspot</source>
-        <translation>قىزىق نۇقتا قوشۇش</translation>
+        <translation>تور تارقىتىش قۇرۇش</translation>
         <extra-child_page>Personal Hotspot</extra-child_page>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
@@ -2378,7 +2380,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="430"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="495"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="497"/>
         <source>Invalid IP address</source>
         <translation>ئىناۋەتسىز IP ئادرېس</translation>
     </message>
@@ -2389,17 +2391,17 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="451"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="511"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="513"/>
         <source>Invalid gateway</source>
         <translation>تور ئۆتكىلى ئادرېسى ئىناۋەتسىز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="464"/>
         <source>Network</source>
         <translation>تور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="464"/>
         <source>IP conflict</source>
         <translation>IP ئادرېس توقۇنۇشۇپ قالدى</translation>
     </message>
@@ -2498,7 +2500,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="209"/>
         <source>Hotspot</source>
-        <translation>ھەمبەھىر نۇقتىسى</translation>
+        <translation>تور تارقىتىش</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="213"/>
@@ -2537,7 +2539,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="173"/>
         <source>Personal Hotspot</source>
-        <translation>شەخسىي قىزىق نۇقتا</translation>
+        <translation>شەخسىي تور تارقىتىش</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="295"/>
@@ -2573,59 +2575,57 @@
         <translation>تور تەپسىلاتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="200"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="206"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="494"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="501"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="511"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="496"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="503"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="513"/>
         <source>Disabled</source>
         <translation>تاقاق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="203"/>
         <source>Manual</source>
         <translation>قولدا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="205"/>
         <source>Auto</source>
         <translation>ئاپتوماتىك</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="218"/>
         <source>Configure by Network Manager</source>
         <translation>تور باشقۇرغۇچى ئارقىلىق سەپلەش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="443"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="445"/>
         <source>Personal Hotspot</source>
-        <translation>شەخسىي قىزىق نۇقتا</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+        <translation>شەخسىي تور تارقىتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="470"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="472"/>
         <source>Wired Network %1</source>
         <translation>سىملىق تور%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="472"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="474"/>
         <source>Wired Network</source>
         <translation>سىملىق تور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="478"/>
         <source>Wireless Network %1</source>
         <translation>سىمسىز تور%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="478"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="480"/>
         <source>Wireless Network</source>
         <translation>سىمسىز تور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="521"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="527"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="523"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="529"/>
         <source>Disconnected</source>
         <translation>ئۇلانمىدى</translation>
     </message>
@@ -3022,7 +3022,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="116"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>شەخسىي</translation>
+        <translation>WPA/WPA2شەخسى نۇسخىسى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="125"/>
@@ -3076,7 +3076,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="160"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>شەخسىي</translation>
+        <translation>WPA/WPA2شەخسى نۇسخىسى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
@@ -4120,12 +4120,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="324"/>
         <source>Close Hotspot</source>
-        <translation>قىزىق نۇقتىنى تاقاش</translation>
+        <translation>تور تارقىتىشنى تاقاش</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="327"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation>سىمسىز تور ئىقتىدارىنى ئىشلەتمەكچى بولسىڭىز، ئاۋۋال بەھرىلىگەن قىزىق نۇقتىنى تاقاڭ</translation>
+        <translation>سىمسىز تور ئىقتىدارىنى ئىشلەتمەكچى بولسىڭىز، ئاۋۋال تور تارقىتىشنى تاقاڭ</translation>
     </message>
 </context>
 <context>
@@ -4295,67 +4295,67 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="118"/>
         <source>Theme</source>
         <translation>ئۇسلۇب</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="129"/>
         <source>Accent Color</source>
         <translation>پائالىيەت رەڭگى</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="189"/>
         <source>Window Effect</source>
         <translation>ئېكران ئالاھىدە ئۈنۈمى</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="199"/>
         <source>Transparency</source>
         <translation>سۈزۈكلۈكىنى تەڭشەش</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="221"/>
         <source>Window Minimize Effect</source>
         <translation>كىچىكلىتىلگەندىكى ئۈنۈم</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="224"/>
         <source>Scale</source>
         <translation>كىچىكلىتىش ۋە چوڭايتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="224"/>
         <source>Magic Lamp</source>
         <translation>سېھرىي لامپا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="244"/>
         <source>Rounded Corner</source>
         <translation>كۆزنەكنىڭ يۇمىلاق بۇلۇڭى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="251"/>
         <source>Small</source>
         <translation>كىچىك</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="251"/>
         <source>Medium</source>
         <translation>ئوتتوراھال</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="251"/>
         <source>Large</source>
         <translation>چوڭ</translation>
     </message>
@@ -4650,7 +4650,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="421"/>
         <source>Never</source>
         <translation>ھېچقايسىسى ئەمەس</translation>
     </message>
@@ -4682,21 +4682,21 @@
         <translation>مەشغۇلات يوق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="403"/>
         <source>1 Minute</source>
         <translation>1 مىنۇت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="387"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="390"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="393"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="396"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="405"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="415"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="424"/>
         <source>%1 Minutes</source>
         <translation>%1 مىنۇت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="399"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="418"/>
         <source>1 Hour</source>
         <translation>1 سائەت</translation>
     </message>
@@ -4796,15 +4796,14 @@
     <name>dccV20::search::SearchModel</name>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="457"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="939"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="456"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="936"/>
         <source>Window Effect</source>
         <translation>كۆزنەك ئۈنۈمى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="123"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="151"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="155"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="150"/>
         <source>Developer Mode</source>
         <translation>ئاچقۇچىلار ھالىتى</translation>
     </message>
@@ -4830,149 +4829,144 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
-        <source>Auto Login</source>
-        <translation>ئاپتوماتىك كىرىش</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
         <source>Login Without Password</source>
         <translation>پارولسىز كىرىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
         <source>Auto Brightness</source>
         <translation>يورۇقلۇقنى ئاپتوماتىك تەڭشەش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
         <source>General</source>
         <translation>ئاممىباب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
         <source>Password is required to wake up the monitor</source>
         <translation>ئېكران ئويغانغاندا پارول تەلەپ قىلسۇن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
         <source>Password is required to wake up the computer</source>
         <translation>كومپيۇتېر ئويغانغاندا پارول تەلەپ قىلسۇن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
         <source>Power Saving Mode</source>
         <translation>سەرپىيات تېجەش ھالىتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
         <source>Auto Mode Switch</source>
         <translation>سەرپىيات تېجەش ھالىتىگە ئاپتوماتىك ئالماشسۇن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
         <source>Transparency</source>
         <translation>سۈزۈكلۈكىنى تەڭشەش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
         <source>Create PPPoE Connection</source>
         <translation>PPPoE ئۇلىنىشى قۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="444"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="446"/>
         <source>Disable touchpad while typing</source>
         <translation>كىرگۈزگەندە سىزىمچان تاختا چەكلەنسۇن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="139"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="443"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="445"/>
         <source>Disable touchpad when inserting the mouse</source>
         <translation>مائۇسنى چاتقاندا سېزىمچان تاختا چەكلەنسۇن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="139"/>
         <source>Computer will suspend after</source>
         <translation>كومپيۇتېر كۈتۈش ھالىتىگە كىرىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="141"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
         <source>Sign In</source>
         <translation>كىرىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="142"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="141"/>
         <source>Auto power saving on battery</source>
         <translation>باتارېيە ئىشلەتكەندە ئاپتوماتىك قوزغالسۇن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="142"/>
         <source>Touch Screen</source>
         <translation>چەكمە ئېكران</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="144"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
         <source>Power Plans</source>
         <translation>ئىقتىدار ھالىتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="144"/>
         <source>Power Saving Settings</source>
         <translation>سەرپىيات تېجەش تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
         <source>Wakeup Settings</source>
         <translation>ئويغوتۇش تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="147"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="438"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="440"/>
         <source>Battery</source>
         <translation>باتارېيە</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="162"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="157"/>
         <source>Touchpad</source>
         <translation>سېزىمچان تاختا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="163"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="158"/>
         <source>TrackPoint</source>
         <translation>كۆرسەتكۈچ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="164"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="159"/>
         <source>Personal Hotspot</source>
         <translation>تور تارقىتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="165"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="160"/>
         <source>On Battery</source>
         <translation>باتارېيە ئىشلىتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="166"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="161"/>
         <source>Wired Network</source>
         <translation>سىملىق تور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="167"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="162"/>
         <source>Wireless Network</source>
         <translation>سىمسىز تور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="168"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="163"/>
         <source>Multiple Displays</source>
         <translation>كۆپ ئېكرانلىق كۆرسىتىش ھالىتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="169"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="164"/>
         <source>Boot Menu</source>
         <translation>قوزغىلىش تىزىملىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="433"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="435"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="920"/>
         <source>Cloud Account</source>
         <translation>بۇلۇت ھېساباتى</translation>
@@ -5235,7 +5229,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="52"/>
         <source>Deepin ID Sign In</source>
-        <translation>Union ID ئارقىلىق كىرىش</translation>
+        <translation>Deepin ID ئارقىلىق كىرىش</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="54"/>
@@ -5284,121 +5278,121 @@
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="249"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="250"/>
-        <source>It cannot start or end with dashes</source>
-        <translation>كومپيۇتېر نامى - بىلەن ئاياغلاشسا بولمايدۇ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="198"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="199"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="211"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="212"/>
-        <source>1~63 characters please</source>
-        <translation>كومپيۇتېر نامىنىڭ ئۇزۇنلۇقى چوقۇم 1 دىن 63 ھەرپ ئارىلىقىدا بولۇشى كېرەك</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
         <source>OS Name:</source>
         <translation>مەھسۇلات نامى:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
         <source>Version:</source>
         <translation>نەشر نومۇرى:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>Edition:</source>
         <translation>&lt;br&gt;نەشرى:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
         <source>Type:</source>
         <translation>تىپى: </translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="206"/>
         <source>Authorization</source>
         <translation>نەشر ھوقۇقى:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="313"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="452"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="346"/>
         <source>To be activated</source>
         <translation>ئاكتىپلانمىغان</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="454"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="462"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="360"/>
         <source>Activate</source>
         <translation>ئاكتىپلاش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
         <source>Kernel:</source>
         <translation>ئىچكى يادرو نەشرى:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
         <source>Processor:</source>
         <translation>بىر تەرەپ قىلغۇچ: </translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
         <source>Memory:</source>
         <translation>ئىچكى ساقلىغۇچ: </translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="432"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="326"/>
         <source>%1-bit</source>
         <translation>%1 خانە</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="342"/>
         <source>Activated</source>
         <translation>ئاكتىپلاندى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="450"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="458"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="352"/>
         <source>View</source>
         <translation>كۆرۈش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="456"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="350"/>
         <source>Expired</source>
         <translation>ۋاقتى ئۆتتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="460"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="354"/>
         <source>In trial period</source>
         <translation>سىناق ۋاقتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="358"/>
         <source>Trial expired</source>
         <translation>سىناق ۋاقتى ئۆتتى</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="429"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="430"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="488"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="489"/>
+        <source>It cannot start or end with dashes</source>
+        <translation>كومپيۇتېر نامى - بىلەن ئاياغلاشسا بولمايدۇ</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="493"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="494"/>
+        <source>1~63 characters please</source>
+        <translation>كومپيۇتېر نامىنىڭ ئۇزۇنلۇقى چوقۇم 1 دىن 63 ھەرپ ئارىلىقىدا بولۇشى كېرەك</translation>
     </message>
 </context>
 <context>
@@ -5484,17 +5478,17 @@
         <translation>جەزملەشتۈرۈش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="125"/>
         <source>Touch Screen - %1 (%2)</source>
         <translation>چەكمە ئېكران - %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
         <source>Touch Screen Settings</source>
         <translation>چەكمە ئېكران تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="191"/>
         <source>The settings of touch screen changed</source>
         <translation>چەكمە ئېكران تەڭشىكى ئۆزگەردى</translation>
     </message>
@@ -5741,7 +5735,7 @@ Visit User Center and manage your account there.</source>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="420"/>
         <source>%n application update(s) available</source>
-        <translation><numerusform>%n ئەپ يېڭىلاندى</numerusform><numerusform>%n ئەپ يېڭىلاندى</numerusform></translation>
+        <translation><numerusform>%n ئەپ يېڭىلاندى</numerusform><numerusform>%n دانە ئەپنىڭ يىڭى نەشرى بايقالدى</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="425"/>
@@ -6037,7 +6031,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="57"/>
         <source>Location services use GPS, Bluetooth and WiFi hotspots and signals to determine your approximate location</source>
-        <translation>ئورۇن مۇلازىمىتى GPS ، كۆك چىش ۋە WiFi قىزىق نۇقتىلىرى ۋە سىگناللارنى ئىشلىتىپ ، يېقىن ئورنىڭىزنى بەلگىلەيدۇ</translation>
+        <translation>ئورۇن مۇلازىمىتى GPS ، كۆك چىش ۋە WiFi، تور تارقىتىش ۋە سىگناللارنى ئىشلىتىپ ، يېقىن ئورنىڭىزنى بەلگىلەيدۇ</translation>
     </message>
 </context>
 <context>
@@ -6104,7 +6098,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>پارول چوڭ ھەرپ،كىچىك ھەرپ، سانلار ۋە بەلگىلەردىن ئىبارەت ئۈچ تۈرنى ئۆز ئىچىگە ئېلىشى كىرەك(~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation>پارول چوڭ ھەرپ،كىچىك ھەرپ، سانلار ۋە بەلگىلەردىن ئىبارەت ئۈچ تۈرنى ئۆز ئىچىگە ئېلىشى كېرەك(~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="65"/>
@@ -6132,7 +6126,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="125"/>
+        <location filename="../src/frame/main.cpp" line="130"/>
         <source>Control Center</source>
         <translation>كونترول مەركىزى </translation>
     </message>
@@ -6144,260 +6138,261 @@ Visit User Center and manage your account there.</source>
         <extra-contents_path>/defapp/Picture/Add Application</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="729"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="724"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="782"/>
+        <source>Input Methods</source>
+        <translation>كىرگۈزگۈچ</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="731"/>
         <source>Create Account</source>
         <translation>ئىشلەتكۈچى قۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="730"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="732"/>
         <source>My Devices</source>
         <translation>ئۈسكۈنەم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="731"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="733"/>
         <source>Other Devices</source>
         <translation>باشقا ئۈسكۈنە</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="732"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="734"/>
         <source>Boot Menu</source>
         <translation>تىزىملىكنى قوزغىتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="733"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="735"/>
         <source>Developer Mode</source>
         <translation>ئاچقۇچى ھالىتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="734"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="736"/>
         <source>User Experience Program</source>
         <translation>ئىشلەتكۈچى تەسىرات پىلانى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="735"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="737"/>
         <source>Format Settings</source>
         <translation>فورمات تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="736"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="738"/>
         <source>Timezone List</source>
         <translation>ۋاقىت رايونى تىزىملىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="737"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="739"/>
         <source>Webpage</source>
         <translation>تور بەت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="738"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="740"/>
         <source>Mail</source>
         <translation>ئېلخەت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="739"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="741"/>
         <source>Text</source>
         <translation>تېكىست</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="740"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="742"/>
         <source>Music</source>
         <translation>مۇزىكا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="741"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="743"/>
         <source>Video</source>
         <translation>سىن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="742"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="744"/>
         <source>Picture</source>
         <translation>سۈرەت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="743"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="745"/>
         <source>Terminal</source>
         <translation>تېرمىنال</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="744"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="746"/>
         <source>Brightness</source>
         <translation>يورۇقلۇقى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="745"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="747"/>
         <source>Shortcuts</source>
         <translation>تىزلەتمە كۇنۇپكىلار</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="746"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="748"/>
         <source>Keyboard Layout</source>
         <translation>كۇنۇپكا ئورۇنلاشتۇرۇلۇشى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="747"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="749"/>
         <source>System Language</source>
         <translation>سىستېما تىلى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="748"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="750"/>
         <source>Personal Hotspot</source>
         <translation>شەخسىي سىمسىز تور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="749"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="751"/>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="750"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="752"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="751"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="753"/>
         <source>Wired Network</source>
         <translation>سىملىق تور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="752"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="754"/>
         <source>Wireless Network</source>
         <translation>سىمسىز تور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="753"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="755"/>
         <source>Network Details</source>
         <translation>تور تەپسىلاتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="754"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="756"/>
         <source>System Notifications</source>
         <translation>سىستېما ئۇقتۇرۇشى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="755"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="757"/>
         <source>Font</source>
         <translation>خەت نۇسخىسى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="756"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="758"/>
         <source>Icon Theme</source>
         <translation>سىنبەلگە ئۇسلۇبى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="757"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="759"/>
         <source>Cursor Theme</source>
         <translation>مائۇس ئۇسلۇبى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="758"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="760"/>
         <source>Sound Effects</source>
         <translation>سىستېما ئاۋاز ئۈنۈمى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="759"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="761"/>
         <source>Devices</source>
         <translation>ئۈسكۈنە باشقۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="760"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="762"/>
         <source>Input</source>
         <translation>كىرگۈزۈش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="761"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="763"/>
         <source>Output</source>
         <translation>چىقىرىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="762"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="764"/>
         <source>About This PC</source>
         <translation>ھەققىدە</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="763"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="765"/>
         <source>Edition License</source>
         <translation>نەشر كېلىشىمى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="764"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="766"/>
         <source>End User License Agreement</source>
         <translation>ئاخىرقى ئىشلەتكۈچى ئىجازەت كېلىشىمى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="765"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="767"/>
         <source>Privacy Policy</source>
         <translation>شەخسىيەت سىياسىتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="766"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="768"/>
         <source>Updates</source>
         <translation>يېڭىلانما تەكشۈرۈش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="767"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="769"/>
         <source>Update Settings</source>
         <translation>يېڭىلاش تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="768"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="770"/>
         <source>Pressure Sensitivity</source>
         <translation>بېسىش سېزىمى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="769"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="771"/>
         <source>On Battery</source>
-        <translation>باتارېيە ئىشلىتىش</translation>
+        <translation>باتارېيە ئىشلىتىلىشى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="770"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="772"/>
         <source>Plugged In</source>
         <translation>توك مەنبەسى ئىشلىتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="771"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="773"/>
         <source>General</source>
-        <translation>ئورتاق</translation>
+        <translation>ئۇنىۋېرسال</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="772"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="774"/>
         <source>Mouse</source>
         <translation>مائۇس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="773"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="775"/>
         <source>Touchpad</source>
         <translation>سېزىمچان تاختا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="774"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="776"/>
         <source>TrackPoint</source>
         <translation>ئىز قوغلىغۇچ تېزلىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="775"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="777"/>
         <source>Application Proxy</source>
         <translation>ئەپ ۋاكالەتچىسى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="776"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="779"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="778"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="781"/>
         <source>System Proxy</source>
         <translation>سىستېما ۋاكالەتچىلىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="777"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="779"/>
         <source>Time Settings</source>
         <translation>ۋاقىت تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="778"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="780"/>
         <source>Change System Timezone</source>
         <translation>سىستېما ۋاقىت رايونىنى ئۆزگەرتىش</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="780"/>
-        <source>Input Methods</source>
-        <translation>كىرگۈزگۈچ</translation>
     </message>
 </context>
 <context>
@@ -6840,22 +6835,22 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>جەزملەشتۈرۈش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
-        <translation>ئاپتوماتىك ۋاقىت رايونى</translation>
+        <translation> ۋاقىت رايونى قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>ۋاقىت رايونىنى ئۆزگەرتىش</translation>
     </message>
@@ -7059,30 +7054,24 @@ Visit User Center and manage your account there.</source>
     <name>dcc::mouse::PalmDetectSetting</name>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
-        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="39"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="37"/>
         <source>Palm Detection</source>
         <translation>ئالقاندا بېسىش سىنىقى</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
-        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="42"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="38"/>
         <source>Minimum Contact Surface</source>
         <translation>ئەڭ كىچىك تېگىشىش يۈزى</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
-        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="47"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="41"/>
         <source>Minimum Pressure Value</source>
         <translation>ئەڭ كىچىك بېسىلىش قىممىتى</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="87"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="81"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>ئاچقاندىن كېيىن چەكمە ئېكران ئىشلىمەس بولۇپ قالسا، بۇ تۈرنى تاقىۋەتسىڭىز بولىدۇ</translation>
     </message>
@@ -7221,14 +7210,14 @@ Visit User Center and manage your account there.</source>
         <translation>سىستېما تەپسىلاتلىرى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="477"/>
-        <source>Copyright© 2011-2021 Deepin Community</source>
-        <translation>Copyright© 2011-2020 Deepin Community</translation>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="371"/>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation>Copyright © 2011-%1 Deepin مەھەللىسى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="479"/>
-        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright © 2019-2020 توڭشىن يۇمشاق دېتال تېخنىكا چەكلىك شىركىتى</translation>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="373"/>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation>Copyright © 2019-%1 توڭشىن يۇمشاق دېتال تېخنىكا چەكلىك شىركىتى</translation>
     </message>
 </context>
 <context>
@@ -7333,7 +7322,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="126"/>
+        <location filename="../src/frame/main.cpp" line="131"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>كونترول مەركىزىدە مەشغۇلات سىستېمىسىنىڭ بارلىق تەڭشەك تۈرلىرى تەمىنلىدۇ</translation>
     </message>
