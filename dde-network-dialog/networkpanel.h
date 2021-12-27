@@ -76,6 +76,7 @@ private:
     int getStrongestAp();
     int deviceCount(const DeviceType &devType);
     void expandPasswordInput();
+    NetItem *selectItem();
 
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
@@ -97,7 +98,6 @@ private:
     DListView *m_netListView;
 
     QList<NetItem *> m_items;
-    NetItem *m_selectItem;
     // 记录无线设备Path,防止信号重复连接
     QSet<QString> m_wirelessDevicePath;
     QString m_reconnectDev;

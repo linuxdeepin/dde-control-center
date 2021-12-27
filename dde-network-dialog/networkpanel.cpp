@@ -54,7 +54,6 @@ NetworkPanel::NetworkPanel(QObject *parent)
     , m_applet(new QScrollArea())
     , m_centerWidget(new QWidget(m_applet))
     , m_netListView(new DListView(m_centerWidget))
-    , m_selectItem(nullptr)
     , m_airplaneMode(new DBusAirplaneMode("com.deepin.daemon.AirplaneMode", "/com/deepin/daemon/AirplaneMode", QDBusConnection::systemBus(), this))
     , m_updateTimer(new QTimer(this))
 {
@@ -64,6 +63,11 @@ NetworkPanel::NetworkPanel(QObject *parent)
 
 NetworkPanel::~NetworkPanel()
 {
+    NetItem *oldSelectItem = selectItem();
+    if(oldSelectItem) {
+        WirelessItem *item = static_cast<WirelessItem*>(oldSelectItem);
+        item->onCancel();
+    }
 }
 
 void NetworkPanel::initUi()
@@ -548,23 +552,21 @@ void NetworkPanel::onClickListView(const QModelIndex &index)
     if ((type == WirelessHiddenViewItem || type == WirelessViewItem) && m_airplaneMode->enabled())
         return;
 
-    NetItem *selectItem = m_items.at(index.row());
-    if (selectItem != m_selectItem
-        && m_items.contains(m_selectItem)) {
-        WirelessItem *item = static_cast<WirelessItem *>(m_selectItem);
+    NetItem *oldSelectItem = selectItem();
+    NetItem *newSelectItem = m_items.at(index.row());
+    if (newSelectItem != oldSelectItem && oldSelectItem) {
+        WirelessItem *item = static_cast<WirelessItem *>(oldSelectItem);
         item->expandWidget(WirelessItem::Hide); // 选择切换时隐藏输入框
-        m_selectItem = nullptr;
     }
     switch (type) {
     case WirelessHiddenViewItem:
     case WirelessViewItem: {
-        m_selectItem = selectItem;
-        WirelessItem *item = static_cast<WirelessItem *>(selectItem);
+        WirelessItem *item = static_cast<WirelessItem *>(newSelectItem);
         item->connectNetwork();
         break;
     }
     case WiredViewItem: {
-        WiredItem *item = static_cast<WiredItem *>(selectItem);
+        WiredItem *item = static_cast<WiredItem *>(newSelectItem);
         item->connectNetwork();
         break;
     }
@@ -606,21 +608,20 @@ void NetworkPanel::expandPasswordInput()
     if (m_reconnectSsid.isEmpty()) {
         return;
     }
-
+    NetItem *oldSelectItem = selectItem();
     for (NetItem *item : m_items) {
         if (NetItemType::WirelessViewItem == item->itemType()) {
             WirelessItem *wirelessItem = static_cast<WirelessItem *>(item);
             if (wirelessItem->accessPoint()
                 && (m_reconnectDev.isEmpty() || wirelessItem->wirelessDevice()->path() == m_reconnectDev)
                 && (wirelessItem->accessPoint()->ssid() == m_reconnectSsid)) {
-                if (item != m_selectItem
-                    && m_items.contains(m_selectItem)) {
-                    WirelessItem *selectItem = static_cast<WirelessItem *>(m_selectItem);
-                    selectItem->expandWidget(WirelessItem::Hide); // 选择切换时隐藏输入框
-                    m_selectItem = nullptr;
+                if (item != oldSelectItem) {
+                    if (oldSelectItem) {
+                        WirelessItem *selectItem = static_cast<WirelessItem *>(oldSelectItem);
+                        selectItem->expandWidget(WirelessItem::Hide); // 选择切换时隐藏输入框
+                    }
+                    wirelessItem->expandPasswordInput();
                 }
-                wirelessItem->expandPasswordInput();
-                m_selectItem = wirelessItem;
                 m_reconnectSsid.clear();
                 m_reconnectDev.clear();
                 break;
@@ -628,6 +629,20 @@ void NetworkPanel::expandPasswordInput()
         }
     }
 }
+
+NetItem *NetworkPanel::selectItem()
+{
+    for (NetItem *item : m_items) {
+        if (NetItemType::WirelessViewItem == item->itemType() || NetItemType::WirelessHiddenViewItem == item->itemType()) {
+            WirelessItem *wirelessItem = static_cast<WirelessItem *>(item);
+            if (wirelessItem->expandVisible()) {
+                return wirelessItem;
+            }
+        }
+    }
+    return nullptr;
+}
+
 // 用于绘制分割线
 #define RIGHTMARGIN 13
 #define DIAMETER 16

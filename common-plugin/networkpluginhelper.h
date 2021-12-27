@@ -61,7 +61,7 @@ Q_SIGNALS:
     void viewUpdate();
 
 public:
-    explicit NetworkPluginHelper(QObject *parent = Q_NULLPTR);
+    explicit NetworkPluginHelper(NetworkDialog *networkDialog, QObject *parent = Q_NULLPTR);
     ~NetworkPluginHelper();
 
     void setMainWidget(QWidget *mainWidget);
@@ -86,6 +86,7 @@ private:
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
     void onUpdatePlugView();
+    void onActiveConnectionChanged();
 
 private:
     PluginState m_pluginState;
@@ -97,6 +98,7 @@ private:
     QSet<QString> m_devicePaths; // 记录无线设备Path,防止信号重复连接
     QString m_lastActiveWirelessDevicePath;
     QWidget *m_mainWidget;
+    NetworkDialog *m_networkDialog;
 };
 
 }

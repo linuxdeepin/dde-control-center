@@ -56,7 +56,7 @@ NetworkModule::NetworkModule(QObject *parent)
 
     m_networkDialog = new NetworkDialog(this);
     m_networkDialog->setRunReason(NetworkDialog::Lock);
-    m_networkHelper = new NetworkPluginHelper(this);
+    m_networkHelper = new NetworkPluginHelper(m_networkDialog, this);
     if (!m_isLockModel) {
         m_networkDialog->setRunReason(NetworkDialog::Greeter);
         connect(m_networkHelper, &NetworkPluginHelper::addDevice, this, &NetworkModule::onAddDevice);

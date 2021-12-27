@@ -66,8 +66,8 @@ void NetworkPlugin::init(PluginProxyInterface *proxyInter)
     if (m_networkHelper)
         return;
 
-    m_networkHelper.reset(new NetworkPluginHelper);
     m_networkDialog = new NetworkDialog(this);
+    m_networkHelper.reset(new NetworkPluginHelper(m_networkDialog));
     QDBusConnection::sessionBus().connect("com.deepin.dde.lockFront", "/com/deepin/dde/lockFront", "com.deepin.dde.lockFront", "Visible", this, SLOT(lockFrontVisible(bool)));
 
     if (!pluginIsDisable())

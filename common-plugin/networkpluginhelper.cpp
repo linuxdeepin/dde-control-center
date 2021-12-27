@@ -42,6 +42,9 @@
 #include <NetworkManagerQt/WirelessDevice>
 #include <NetworkManagerQt/Manager>
 #include <NetworkManagerQt/ConnectionSettings>
+#include <NetworkManagerQt/Setting>
+#include <NetworkManagerQt/WirelessSecuritySetting>
+#include <NetworkManagerQt/WirelessSetting>
 
 enum MenuItemKey : int {
     MenuSettings = 1,
@@ -55,11 +58,12 @@ enum MenuItemKey : int {
 
 NETWORKPLUGIN_USE_NAMESPACE
 
-NetworkPluginHelper::NetworkPluginHelper(QObject *parent)
+NetworkPluginHelper::NetworkPluginHelper(NetworkDialog *networkDialog, QObject *parent)
     : QObject(parent)
     , m_tipsWidget(new TipsWidget(nullptr))
     , m_switchWire(true)
     , m_mainWidget(nullptr)
+    , m_networkDialog(networkDialog)
 {
     initUi();
     initConnection();
@@ -221,7 +225,6 @@ void NetworkPluginHelper::onDeviceAdded(QList<NetworkDeviceBase *> devices)
     for (NetworkDeviceBase *device : devices) {
         // 当网卡连接状态发生变化的时候重新绘制任务栏的图标
         connect(device, &NetworkDeviceBase::deviceStatusChanged, this, &NetworkPluginHelper::onUpdatePlugView);
-        connect(device, &NetworkDeviceBase::activeConnectionChanged, this, &NetworkPluginHelper::onUpdatePlugView);
 
         emit addDevice(device->path());
         switch (device->deviceType()) {
@@ -231,9 +234,9 @@ void NetworkPluginHelper::onDeviceAdded(QList<NetworkDeviceBase *> devices)
             connect(wiredDevice, &WiredDevice::connectionAdded, this, &NetworkPluginHelper::onUpdatePlugView);
             connect(wiredDevice, &WiredDevice::connectionRemoved, this, &NetworkPluginHelper::onUpdatePlugView);
             connect(wiredDevice, &WiredDevice::connectionPropertyChanged, this, &NetworkPluginHelper::onUpdatePlugView);
-            connect(wiredDevice, &NetworkDeviceBase::deviceStatusChanged, this, &NetworkPluginHelper::onUpdatePlugView);
             connect(wiredDevice, &NetworkDeviceBase::enableChanged, this, &NetworkPluginHelper::onUpdatePlugView);
             connect(wiredDevice, &NetworkDeviceBase::connectionChanged, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wiredDevice, &WiredDevice::activeConnectionChanged, this, &NetworkPluginHelper::onUpdatePlugView);
         } break;
         case DeviceType::Wireless: {
             WirelessDevice *wirelessDevice = static_cast<WirelessDevice *>(device);
@@ -243,7 +246,7 @@ void NetworkPluginHelper::onDeviceAdded(QList<NetworkDeviceBase *> devices)
             connect(wirelessDevice, &WirelessDevice::enableChanged, this, &NetworkPluginHelper::onUpdatePlugView);
             connect(wirelessDevice, &WirelessDevice::connectionChanged, this, &NetworkPluginHelper::onUpdatePlugView);
             connect(wirelessDevice, &WirelessDevice::hotspotEnableChanged, this, &NetworkPluginHelper::onUpdatePlugView);
-            connect(wirelessDevice, &WirelessDevice::activeConnectionChanged, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wirelessDevice, &WirelessDevice::activeConnectionChanged, this, &NetworkPluginHelper::onActiveConnectionChanged);
 
             wirelessDevice->scanNetwork();
         } break;
@@ -407,4 +410,27 @@ void NetworkPluginHelper::onUpdatePlugView()
     updatePluginState();
     updateTooltips();
     emit viewUpdate();
+}
+
+void NetworkPluginHelper::onActiveConnectionChanged()
+{
+    WirelessDevice *wireless = static_cast<WirelessDevice *>(sender());
+    QString wirelessPath = wireless->path();
+    for (auto conn : NetworkManager::activeConnections()) {
+        if (!conn->id().isEmpty() && conn->devices().contains(wirelessPath)) {
+            NetworkManager::ConnectionSettings::Ptr connSettings = conn->connection()->settings();
+            // 隐藏网络配置错误时提示重连
+            if(connSettings->setting(NetworkManager::Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>()->hidden()
+                    && NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown == connSettings->setting(NetworkManager::Setting::SettingType::WirelessSecurity).staticCast<NetworkManager::WirelessSecuritySetting>()->keyMgmt()) {
+                for(auto ap : wireless->accessPointItems()) {
+                    if(ap->ssid() == conn->id() && ap->secured() && ap->strength() > 0) {
+                        m_networkDialog->setConnectWireless(wireless->path(), ap->ssid());
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    onUpdatePlugView();
 }

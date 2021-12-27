@@ -223,7 +223,6 @@ void WiredControllItem::updateView()
     m_switcher->blockSignals(true);
     m_switcher->setChecked(m_device->isEnabled());
     m_switcher->blockSignals(false);
-    NetItem::updateView();
 }
 
 NetItemType WiredControllItem::itemType()
@@ -308,7 +307,6 @@ void WirelessControllItem::updateView()
     QPixmap pix = DHiDPIHelper::loadNxPixmap(iconFile());
     m_loadingIndicator->setImageSource(pix);
     m_loadingIndicator->setVisible(m_device->isEnabled() && !m_device->hotspotEnabled());
-    NetItem::updateView();
 }
 
 NetItemType WirelessControllItem::itemType()
@@ -392,7 +390,6 @@ void WiredItem::updateView()
 
     // 设置左侧的连接图标
     m_connectionIconAction->setIcon(QIcon(connectionIconFile));
-    NetItem::updateView();
 }
 
 NetItemType WiredItem::itemType()
@@ -482,7 +479,6 @@ void WirelessItem::updateView()
     updateSrcirityIcon();
     updateWifiIcon();
     updateConnectionStatus();
-    NetItem::updateView();
 }
 
 NetItemType WirelessItem::itemType()
@@ -582,6 +578,7 @@ void WirelessItem::updateConnectionStatus()
         break;
     case ConnectionStatus::Activated:
         standardItem()->setData(NetConnectionType::Connected, ConnectionStatusRole);
+        expandWidget(ExpandWidget::Hide);
         break;
     default:
         standardItem()->setData(NetConnectionType::UnConnected, ConnectionStatusRole);
@@ -663,7 +660,7 @@ void WirelessItem::createPasswordEdit()
     passwdWidget->setLayout(layout);
     m_stackWidget->addWidget(passwdWidget);
 
-    connect(cancelButtion, &DPushButton::clicked, this, [ this ]() { this->expandWidget(ExpandWidget::Hide); });
+    connect(cancelButtion, &DPushButton::clicked, this, &WirelessItem::onCancel);
     connect(m_connectButton, &DPushButton::clicked, this, &WirelessItem::onConnectNetwork);
     connect(m_passwdEdit->lineEdit(), &QLineEdit::returnPressed, this, &WirelessItem::onConnectNetwork);
     connect(m_passwdEdit->lineEdit(), &QLineEdit::textChanged, this, &WirelessItem::checkInputValid);
@@ -705,7 +702,7 @@ void WirelessItem::createSsidEdit()
     ssidWidget->setLayout(layout);
     m_stackWidget->addWidget(ssidWidget);
 
-    connect(cancelButtion, &DPushButton::clicked, this, [ this ]() { this->expandWidget(ExpandWidget::Hide); });
+    connect(cancelButtion, &DPushButton::clicked, this, &WirelessItem::onCancel);
     connect(connectButton, &DPushButton::clicked, this, &WirelessItem::onConnectHidden);
     connect(m_ssidEdit->lineEdit(), &QLineEdit::returnPressed, this, &WirelessItem::onConnectHidden);
     ThemeManager::instance()->updateInputStyle(m_ssidEdit);
@@ -781,4 +778,17 @@ void WirelessItem::checkInputValid()
 
     m_passwdEdit->setAlert(false);
     m_connectButton->setEnabled(isValid);
+}
+
+bool WirelessItem::expandVisible()
+{
+    return m_expandItem->isVisible();
+}
+
+void WirelessItem::onCancel()
+{
+    if (m_accessPoint && m_accessPoint->status() == ConnectionStatus::Activating) {
+        m_device->disconnectNetwork();
+    }
+    this->expandWidget(ExpandWidget::Hide);
 }

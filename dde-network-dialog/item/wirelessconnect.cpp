@@ -248,6 +248,7 @@ void WirelessConnect::connectNetworkPassword(const QString password)
 
 void WirelessConnect::activateConnection()
 {
+    m_device->disconnectNetwork();
     NetworkManager::Connection::Ptr conn;
     QString id = m_connectionSettings->id();
     ConnectionSettings::ConnectionType type = m_connectionSettings->connectionType();

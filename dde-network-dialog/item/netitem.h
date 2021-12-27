@@ -237,9 +237,11 @@ public:
     void expandWidget(ExpandWidget type);
     void connectNetwork();
     void expandPasswordInput();
+    bool expandVisible();
 
 public Q_SLOTS:
     void onAirplaneModeChanged(bool airplaneModeEnabled);
+    void onCancel();
 
 private:
     void initUi(QWidget *parent);

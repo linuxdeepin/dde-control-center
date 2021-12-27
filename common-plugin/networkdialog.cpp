@@ -139,6 +139,9 @@ void NetworkDialog::runProcess(bool show)
 
 void NetworkDialog::setConnectWireless(const QString &dev, const QString &ssid)
 {
+    if(!m_server->isListening())
+        return;
+
     m_connectDev = dev;
     m_connectSsid = ssid;
     for (auto it = m_clients.begin(); it != m_clients.end(); it++) {
