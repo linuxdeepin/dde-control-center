@@ -235,7 +235,8 @@ void DetailPage::onDeviceStatusChanged()
         m_connectButton->setDisabled(true);
         m_disconnectButton->hide();
         m_transfileButton->hide();
-        m_ignoreButton->setEnabled(true);
+        m_ignoreButton->setEnabled(false);
+
         break;
     case Device::StateUnavailable:
         m_connectButton->show();
