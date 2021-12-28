@@ -36,13 +36,6 @@
 namespace dde {
 namespace network {
 
-enum InterfaceFlags {
-    NM_DEVICE_INTERFACE_FLAG_NONE     = 0,          // an alias for numeric zero, no flags set.
-    NM_DEVICE_INTERFACE_FLAG_UP       = 0x1,        // the interface is enabled from the administrative point of view. Corresponds to kernel IFF_UP.
-    NM_DEVICE_INTERFACE_FLAG_LOWER_UP = 0x2,        // the physical link is up. Corresponds to kernel IFF_LOWER_UP.
-    NM_DEVICE_INTERFACE_FLAG_CARRIER  = 0x10000,    // the interface has carrier. In most cases this is equal to the value of @NM_DEVICE_INTERFACE_FLAG_LOWER_UP
-};
-
 const static QString networkService = "com.deepin.daemon.Network";
 const static QString networkPath = "/com/deepin/daemon/Network";
 
@@ -175,7 +168,7 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
             // 根据标志位InterfaceFlags判断网络连接是否有效
             if (type != DeviceType::Wireless) {
                 if (!deviceInfo.value("InterfaceFlags").isUndefined()) {
-                    if (!(deviceInfo.value("InterfaceFlags").toInt() & NM_DEVICE_INTERFACE_FLAG_UP)) {
+                    if (!(deviceInfo.value("InterfaceFlags").toInt() & DEVICE_INTERFACE_FLAG_UP)) {
                         PRINT_DEBUG_MESSAGE(QString("Interface_flag_up: %1").arg(deviceInfo.value("Interface").toString()));
                         continue;
                     }

@@ -51,7 +51,7 @@ void DslPppoeSettings::initSections()
     PPPOESection *pppoeSection = new PPPOESection(m_connSettings->setting(Setting::Pppoe).staticCast<PppoeSetting>());
     MultiIpvxSection *ipv4Section = new MultiIpvxSection(m_connSettings->setting(Setting::Ipv4).staticCast<Ipv4Setting>());
     DNSSection *dnsSection = new DNSSection(m_connSettings, false);
-    m_etherNetSection = new EthernetSection(m_connSettings->setting(Setting::Wired).staticCast<WiredSetting>(), m_devicePath);
+    m_etherNetSection = new EthernetSection(m_connSettings->setting(Setting::Wired).staticCast<WiredSetting>(), false, m_devicePath);
     PPPSection *pppSection = new PPPSection(m_connSettings->setting(Setting::Ppp).staticCast<PppSetting>());
 
     connect(genericSection, &GenericSection::editClicked, this, &DslPppoeSettings::anyEditClicked);

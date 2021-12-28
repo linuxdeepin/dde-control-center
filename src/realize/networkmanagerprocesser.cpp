@@ -191,7 +191,7 @@ void NetworkManagerProcesser::onDeviceAdded(const QString &uni)
     };
 
     auto deviceCreateOrRemove = [ this, deviceExist, createDevice ](const Device::Ptr &device) {
-        if (device->managed() && (device->interfaceFlags() & 0x1)) {
+        if (device->managed() && (device->interfaceFlags() & DEVICE_INTERFACE_FLAG_UP)) {
             // 如果由非manager变成manager的模式，则新增设备
             if (!deviceExist(device->uni())) {
                 NetworkDeviceBase *newDevice = createDevice(device);
@@ -224,7 +224,7 @@ void NetworkManagerProcesser::onDeviceAdded(const QString &uni)
     };
 
     NetworkDeviceBase *newDevice = Q_NULLPTR;
-    if (currentDevice->managed() && (currentDevice->interfaceFlags() & 0x1))
+    if (currentDevice->managed() && (currentDevice->interfaceFlags() & DEVICE_INTERFACE_FLAG_UP))
         newDevice = createDevice(currentDevice);
 
     connect(currentDevice.get(), &Device::interfaceFlagsChanged, this, [ currentDevice, deviceCreateOrRemove ] {

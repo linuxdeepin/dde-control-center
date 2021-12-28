@@ -57,7 +57,7 @@ void WiredSettings::initSections()
     MultiIpvxSection *ipv4Section = new MultiIpvxSection(m_connSettings->setting(Setting::Ipv4).staticCast<Ipv4Setting>(), frame);
     MultiIpvxSection *ipv6Section = new MultiIpvxSection(m_connSettings->setting(Setting::Ipv6).staticCast<Ipv6Setting>(), frame);
     DNSSection *dnsSection = new DNSSection(m_connSettings);
-    EthernetSection *etherNetSection = new EthernetSection(m_connSettings->setting(Setting::Wired).staticCast<WiredSetting>(), m_devicePath, frame);
+    EthernetSection *etherNetSection = new EthernetSection(m_connSettings->setting(Setting::Wired).staticCast<WiredSetting>(), true, m_devicePath, frame);
 
     // 指针destroyed时自动解绑
     GSettingWatcher::instance()->bind("wiredEditConnectionName", genericSection->connIdItem());

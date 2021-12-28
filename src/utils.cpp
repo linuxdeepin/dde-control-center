@@ -1,5 +1,8 @@
 #include "utils.h"
 
+namespace dde {
+namespace network {
+
 Connectivity connectivityValue(uint sourceConnectivity)
 {
     switch (sourceConnectivity) {
@@ -47,4 +50,7 @@ ConnectionStatus convertConnectionStatus(int sourceConnectionStatus)
     }
 
     return ConnectionStatus::Unknown;
+}
+
+}
 }

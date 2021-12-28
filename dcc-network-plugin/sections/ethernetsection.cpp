@@ -40,7 +40,9 @@
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-EthernetSection::EthernetSection(WiredSetting::Ptr wiredSetting, QString devPath, QFrame *parent)
+#define DEVICE_INTERFACE_FLAG_UP 0x1
+
+EthernetSection::EthernetSection(WiredSetting::Ptr wiredSetting, bool deviceAllowEmpty, QString devPath, QFrame *parent)
     : AbstractSection(tr("Ethernet"), parent)
     , m_deviceMacLine(new ComboxWidget(this))
     , m_clonedMac(new LineEditWidget(this))
@@ -48,6 +50,7 @@ EthernetSection::EthernetSection(WiredSetting::Ptr wiredSetting, QString devPath
     , m_customMtu(new SpinBoxWidget(this))
     , m_wiredSetting(wiredSetting)
     , m_devicePath(devPath)
+    , m_deviceAllowEmpty(deviceAllowEmpty)
 {
     setAccessibleName("EthernetSection");
     // 获取所有有线网卡的Mac地址列表
@@ -57,7 +60,7 @@ EthernetSection::EthernetSection(WiredSetting::Ptr wiredSetting, QString devPath
 
         WiredDevice::Ptr wDevice = device.staticCast<WiredDevice>();
         if (m_devicePath.isEmpty() || m_devicePath == "/") {
-            if (!wDevice->managed())
+            if (!wDevice->managed() || !(wDevice->interfaceFlags() & DEVICE_INTERFACE_FLAG_UP))
                 continue;
         } else {
             if (wDevice->uni() != m_devicePath)
@@ -73,7 +76,8 @@ EthernetSection::EthernetSection(WiredSetting::Ptr wiredSetting, QString devPath
         m_macStrMap.insert(macStr, mac.remove(":"));
     }
 
-    m_macStrMap.insert(tr("Not Bind"), NotBindValue);
+    if (deviceAllowEmpty)
+        m_macStrMap.insert(tr("Not Bind"), NotBindValue);
 
     m_macAddrRegExp = QRegExp("^([0-9A-Fa-f]{2}[:]){5}([0-9A-Fa-f]{2})$");
 
@@ -88,6 +92,12 @@ EthernetSection::~EthernetSection()
 
 bool EthernetSection::allInputValid()
 {
+    if (!m_deviceAllowEmpty && m_deviceMacComboBox->currentIndex() < 0) {
+        m_deviceMacComboBox->setProperty("isWarning", true);
+        m_deviceMacComboBox->setFocus();
+        return false;
+    }
+
     const QString &clonedMacStr = m_clonedMac->text();
     if (clonedMacStr.isEmpty())
         return true;
@@ -138,10 +148,14 @@ void EthernetSection::initUI()
     // get the macAddress from existing Settings
     const QString &macAddr = QString(m_wiredSetting->macAddress().toHex()).toUpper();
 
-    if (m_macStrMap.values().contains(macAddr))
+    if (m_macStrMap.values().contains(macAddr)) {
         m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(macAddr));
-    else
+    } else if (!m_deviceAllowEmpty) {
+        if (m_deviceMacComboBox->count() > 0)
+            m_deviceMacComboBox->setCurrentIndex(0);
+    } else {
         m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(NotBindValue));
+    }
 
     m_clonedMac->setTitle(tr("Cloned MAC Addr"));
     QString tmp = QString(m_wiredSetting->clonedMacAddress().toHex()).toUpper();
