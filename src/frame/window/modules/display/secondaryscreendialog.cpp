@@ -262,6 +262,9 @@ void SecondaryScreenDialog::resetDialog()
         rt.setHeight(m_monitor->h());
 
     QScreen *screen = m_monitor->getQScreen();
+    if(!screen)
+        return;
+
     setGeometry(QRect(screen->geometry().topLeft(),rt.size()));
     move(QPoint(screen->geometry().left() + (screen->geometry().width() - rt.width()) / 2,
                 screen->geometry().top() + (screen->geometry().height() - rt.height()) / 2));

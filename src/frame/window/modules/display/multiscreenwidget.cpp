@@ -237,6 +237,9 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
                     disconnect(screen, &QScreen::geometryChanged, this, &MultiScreenWidget::onResetFullIndication);
                 }
                 QScreen *screen = m_model->primaryMonitor()->getQScreen();
+                if(!screen)
+                    continue;
+
                 connect(screen, &QScreen::geometryChanged, this, &MultiScreenWidget::onResetFullIndication);
 
                 m_fullIndication->setGeometry(screen->geometry());
@@ -417,6 +420,9 @@ void MultiScreenWidget::onGatherWindows(const QPoint cursor)
 void MultiScreenWidget::onMonitorPress(Monitor *monitor)
 {
     QScreen *screen = monitor->getQScreen();
+    if(!screen)
+        return;
+
     m_fullIndication->setGeometry(screen->geometry());
     m_fullIndication->move(screen->geometry().topLeft());
     m_fullIndication->setVisible(true);
