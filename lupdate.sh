@@ -13,7 +13,7 @@ do
 	echo ../src/frame/$i >> files.tmp
 done
 
-lupdate @files.tmp -ts -no-obsolete dde-control-center_en.ts
+lupdate @files.tmp -I ../include/ -ts -no-obsolete dde-control-center_en.ts
 rm -f files.tmp
 
 sed -e 's/DCC_NAMESPACE/dccV20/g' dde-control-center_en.ts > tmp.ts
