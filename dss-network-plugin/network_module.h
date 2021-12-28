@@ -26,6 +26,7 @@
 #include "../common-plugin/utils.h"
 
 #include <NetworkManagerQt/Device>
+#include <NetworkManagerQt/WiredDevice>
 
 NETWORKPLUGIN_BEGIN_NAMESPACE
 class NetworkPluginHelper;
@@ -63,7 +64,9 @@ public Q_SLOTS:
     void onAddDevice(const QString &path);
 
 private:
-    void addFirstConnection(NetworkManager::Device *nmDevice);
+    void addFirstConnection(NetworkManager::WiredDevice *nmDevice);
+    bool hasConnection(NetworkManager::WiredDevice *nmDevice, NetworkManager::Connection::List &unSaveDevices);
+    const QString connectionMatchName() const;
 
 public:
     NETWORKPLUGIN_NAMESPACE::NetworkPluginHelper *m_networkHelper;

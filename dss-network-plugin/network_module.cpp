@@ -35,6 +35,8 @@
 #include <NetworkManagerQt/WirelessDevice>
 #include <NetworkManagerQt/WiredDevice>
 #include <NetworkManagerQt/Settings>
+#include <NetworkManagerQt/Connection>
+#include <NetworkManagerQt/WiredSetting>
 
 #define NETWORK_KEY "network-item-key"
 
@@ -136,8 +138,9 @@ void NetworkModule::onAddDevice(const QString &devicePath)
                 m_lastActiveWirelessDevicePath = static_cast<NetworkManager::WirelessDevice *>(sender())->uni() + NetworkManager::AccessPoint(ap).ssid();
             });
         } else if (device->type() == Device::Ethernet) {
-            nmDevice = new NetworkManager::Device(devicePath, this);
-            addFirstConnection(nmDevice);
+            NetworkManager::WiredDevice *wDevice = new NetworkManager::WiredDevice(devicePath, this);
+            nmDevice = wDevice;
+            addFirstConnection(wDevice);
         }
         if (nmDevice) {
             connect(nmDevice, &NetworkManager::Device::stateChanged, this, &NetworkModule::onDeviceStatusChanged);
@@ -146,36 +149,89 @@ void NetworkModule::onAddDevice(const QString &devicePath)
     }
 }
 
-void NetworkModule::addFirstConnection(NetworkManager::Device *nmDevice)
+const QString NetworkModule::connectionMatchName() const
 {
-    if (nmDevice->type() != Device::Ethernet)
-        return;
+    NetworkManager::Connection::List connList = listConnections();
+    QStringList connNameList;
+    int connSuffixNum = 1;
 
-    // 先查找当前的设备下是否存在有线连接，如果不存在，则直接新建一个，因为按照要求是至少要有一个有线连接
-    NetworkManager::Connection::List unSaveConnections;
-    bool findConnection = false;
-    NetworkManager::Connection::List connections = nmDevice->availableConnections();
-    for (QSharedPointer<NetworkManager::Connection> conn : connections) {
-        if (conn->settings()->connectionType() != ConnectionSettings::ConnectionType::Wired)
+    for (NetworkManager::Connection::Ptr conn : connList) {
+        if (conn->settings()->connectionType() == ConnectionSettings::ConnectionType::Wired)
+            connNameList.append(conn->name());
+    }
+
+    QString matchConnName = QString(tr("Wired Connection")) + QString(" %1");
+    for (int i = 1; i <= connNameList.size(); ++i) {
+        if (!connNameList.contains(matchConnName.arg(i))) {
+            connSuffixNum = i;
+            break;
+        }
+        if (i == connNameList.size())
+            connSuffixNum = i + 1;
+    }
+
+    return matchConnName.arg(connSuffixNum);
+}
+
+bool NetworkModule::hasConnection(NetworkManager::WiredDevice *nmDevice, NetworkManager::Connection::List &unSaveDevices)
+{
+    bool connIsEmpty = false;
+    // 获取所有的连接列表,遍历连接列表,如果当前连接中的MAC地址不为空且不等于当前网卡的MAC地址，则认为它不是当前网卡的连接
+    // 在获取所有连接之前，需要手动调用一下当前设备的availableConnections接口，否则获取到的连接列表就不是最新的(具体原因待查)。
+    nmDevice->availableConnections();
+    NetworkManager::Connection::List connList = listConnections();
+    for (NetworkManager::Connection::Ptr conn : connList) {
+        WiredSetting::Ptr settings = conn->settings()->setting(Setting::Wired).staticCast<WiredSetting>();
+        // 如果当前连接的MAC地址不为空且连接的MAC地址不等于当前设备的MAC地址，则认为不是当前的连接，跳过
+        if (settings.isNull() || (!settings->macAddress().isEmpty() && settings->macAddress() != nmDevice->hardwareAddress()))
             continue;
 
+        // 将未保存的连接放入到列表中，供外面调用删除
         if (conn->isUnsaved()) {
-            unSaveConnections << conn;
+            unSaveDevices << conn;
             continue;
         }
 
-        findConnection = true;
+        connIsEmpty = true;
     }
+
+    return connIsEmpty;
+}
+
+void NetworkModule::addFirstConnection(NetworkManager::WiredDevice *nmDevice)
+{
+    static bool connectionCreated = false;
+    // 只要有一个新增的连接,就不继续新增连接了,因为这个新增的连接是所有网卡共享的
+    if (connectionCreated)
+        return;
+
+    connectionCreated = true;
+
+    // 先查找当前的设备下是否存在有线连接，如果不存在，则直接新建一个，因为按照要求是至少要有一个有线连接
+    NetworkManager::Connection::List unSaveConnections;
+    bool findConnection = hasConnection(nmDevice, unSaveConnections);
     // 按照需求，需要将未保存的连接删除
+    bool isRemoved = !unSaveConnections.isEmpty();
     for (NetworkManager::Connection::Ptr conn : unSaveConnections)
         conn->remove();
 
-    if (!findConnection) {
+    auto autoCreateConnection = [ & ]() {
         // 如果发现当前的连接的数量为空,则自动创建以当前语言为基础的连接
         ConnectionSettings::Ptr conn(new ConnectionSettings);
-        conn->setId(tr("Wired Connection"));
+        conn->setId(connectionMatchName());
         conn->setUuid("");
         NetworkManager::addConnection(conn->toMap());
+    };
+
+    if (!findConnection) {
+        if (isRemoved) {
+            // 如果有删除的连接，则等待1秒后重新创建
+            QTimer::singleShot(1000, this, [ = ] {
+                autoCreateConnection();
+            });
+        } else {
+            autoCreateConnection();
+        }
     }
 }
 
@@ -203,6 +259,7 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
             case Device::Type::Wifi:
                 NotificationManager::NetworkNotify(NotificationManager::WirelessConnecting, m_lastConnection);
                 break;
+            default: break;
             }
         }
     } break;
@@ -214,6 +271,7 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
         case Device::Type::Wifi:
             NotificationManager::NetworkNotify(NotificationManager::WirelessConnected, m_lastConnection);
             break;
+        default: break;
         }
     } break;
     case Device::State::Failed:
@@ -247,6 +305,7 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
                 case Device::Type::Wifi:
                     NotificationManager::NetworkNotify(NotificationManager::WirelessDisconnected, m_lastConnection);
                     break;
+                default: break;
                 }
             }
             break;
@@ -259,6 +318,7 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
             case Device::Type::Wifi:
                 NotificationManager::NetworkNotify(NotificationManager::WirelessUnableConnect, m_lastConnection);
                 break;
+            default: break;
             }
             break;
         case Device::StateChangeReason::AuthSupplicantDisconnectReason:
@@ -272,6 +332,7 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
                     emit signalShowNetworkDialog();
                     m_networkDialog->setConnectWireless(device->uni(), m_lastConnection);
                     break;
+                default: break;
                 }
             }
             break;
@@ -293,6 +354,7 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
             break;
         }
     } break;
+    default: break;
     }
 }
 
