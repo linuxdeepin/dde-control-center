@@ -45,6 +45,11 @@ public:
         Dock,     // 任务栏插件唤起
         Password, // 密码错误唤起
     };
+    enum WaitClient {
+        No,    // 无客户端等待
+        Other, // 有其他客户端在等待密码
+        Self,  // 本程序在等待密码
+    };
 
 protected:
     explicit LocalClient(QObject *parent = nullptr);
@@ -76,7 +81,7 @@ private:
     QLocalSocket *m_clinet;
     QString m_dev;
     QString m_ssid; // 等待密码输入模式时才有值，由命令转入 @see waitPassword
-    bool m_wait;    // 等待模式
+    WaitClient m_wait; // 等待模式
     QTimer *m_timer;
     QTimer *m_exitTimer;
     QByteArray m_lastData;
