@@ -45,7 +45,7 @@ SettingsHead::SettingsHead(QFrame *parent)
     m_title->setObjectName("SettingsHeadTitle");
 
     // can not translate correctly just using tr()
-    m_edit->setText(qApp->translate("SettingsHead", "Edit"));
+    m_edit->setText(tr("Edit"));
     DFontSizeManager::instance()->bind(m_title, DFontSizeManager::T5, QFont::DemiBold);
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setMargin(0);
@@ -100,8 +100,8 @@ void SettingsHead::onClicked()
 void SettingsHead::refershButton()
 {
     if (m_state == Cancel) {
-        m_edit->setText(qApp->translate("SettingsHead", "Edit"));
+        m_edit->setText(tr("Edit"));
     } else {
-        m_edit->setText(qApp->translate("SettingsHead", "Done"));
+        m_edit->setText(tr("Done"));
     }
 }
