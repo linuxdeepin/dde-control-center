@@ -1314,6 +1314,7 @@ void MonitorsGround::onRequestKeyPress(MonitorProxyWidget *pw, int keyValue)
 
     pw->update();
     updateConnectedState();
+    onResize();
 
     Q_EMIT setEffectiveReminderVisible(true, m_nEffectiveTime);
     m_effectiveTimer->start();
