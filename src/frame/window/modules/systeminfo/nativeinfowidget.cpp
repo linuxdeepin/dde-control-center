@@ -381,7 +381,6 @@ const QString NativeInfoWidget::systemLogo() const
 void NativeInfoWidget::onSetHostNameError(const QString &error)
 {
     m_hostNameLineEdit->setVisible(true);
-    m_hostNameLineEdit->lineEdit()->setFocus();
     m_hostNameLabel->setVisible(false);
     m_hostNameBtn->setVisible(false);
     m_hostNameLineEdit->setAlert(true);
