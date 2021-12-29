@@ -65,6 +65,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     initUi();
     initConnection();
     setModel(model);
+    if (DSysInfo::isCommunityEdition()) {
+        m_autoCheckUniontechUpdate->setTitle(tr("System"));
+    }
 }
 
 UpdateSettings::~UpdateSettings()

@@ -3846,6 +3846,11 @@ Visit User Center and manage your account there.</source>
         <translation>开启“仅安全性更新”将只会进行安全漏洞和兼容性相关的更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
+        <source>System</source>
+        <translation>系统</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
         <source>Update Settings</source>
         <translation>更新设置</translation>

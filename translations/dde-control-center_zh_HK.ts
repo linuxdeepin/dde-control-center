@@ -3845,6 +3845,11 @@ Visit User Center and manage your account there.</source>
         <translation>開啟“僅安全性更新”將只會進行安全漏洞和兼容性相關的更新</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
+        <source>System</source>
+        <translation>系統</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
         <source>Update Settings</source>
         <translation>更新設置</translation>
