@@ -4077,28 +4077,6 @@ lecsukásakor</translation>
     </message>
 </context>
 <context>
-    <name>SearchInput</name>
-    <message>
-        <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
-        <source>Search</source>
-        <translation>Keresés</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsHead</name>
-    <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="103"/>
-        <source>Edit</source>
-        <translation>Szerkesztés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="105"/>
-        <source>Done</source>
-        <translation>Kész</translation>
-    </message>
-</context>
-<context>
     <name>TimeoutDialog</name>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="32"/>
@@ -5042,6 +5020,14 @@ A &quot;Biometrikus hitelesítés&quot;&gt; &quot;Arc&quot; menüpontban töröl
     </message>
 </context>
 <context>
+    <name>dcc::widgets::SearchInput</name>
+    <message>
+        <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
+        <source>Search</source>
+        <translation>Keresés</translation>
+    </message>
+</context>
+<context>
     <name>dcc::widgets::SecurityLevelItem</name>
     <message>
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="73"/>
@@ -5057,6 +5043,20 @@ A &quot;Biometrikus hitelesítés&quot;&gt; &quot;Arc&quot; menüpontban töröl
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="93"/>
         <source>Strong</source>
         <translation>Erős</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::widgets::SettingsHead</name>
+    <message>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="103"/>
+        <source>Edit</source>
+        <translation>Szerkesztés</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="105"/>
+        <source>Done</source>
+        <translation>Kész</translation>
     </message>
 </context>
 <context>

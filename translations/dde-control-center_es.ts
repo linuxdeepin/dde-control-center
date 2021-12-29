@@ -4068,28 +4068,6 @@
     </message>
 </context>
 <context>
-    <name>SearchInput</name>
-    <message>
-        <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
-        <source>Search</source>
-        <translation>Buscar</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsHead</name>
-    <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="103"/>
-        <source>Edit</source>
-        <translation>Editar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="105"/>
-        <source>Done</source>
-        <translation>Finalizar</translation>
-    </message>
-</context>
-<context>
     <name>TimeoutDialog</name>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="32"/>
@@ -5031,6 +5009,14 @@ Si acepta esta declaraci√≥n e inscribe su rostro (no recopilaremos su informaci√
     </message>
 </context>
 <context>
+    <name>dcc::widgets::SearchInput</name>
+    <message>
+        <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
+        <source>Search</source>
+        <translation>Buscar</translation>
+    </message>
+</context>
+<context>
     <name>dcc::widgets::SecurityLevelItem</name>
     <message>
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="73"/>
@@ -5046,6 +5032,20 @@ Si acepta esta declaraci√≥n e inscribe su rostro (no recopilaremos su informaci√
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="93"/>
         <source>Strong</source>
         <translation>Fuerte</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::widgets::SettingsHead</name>
+    <message>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="103"/>
+        <source>Edit</source>
+        <translation>Editar</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="105"/>
+        <source>Done</source>
+        <translation>Hecho</translation>
     </message>
 </context>
 <context>

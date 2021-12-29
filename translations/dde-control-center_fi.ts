@@ -4068,28 +4068,6 @@
     </message>
 </context>
 <context>
-    <name>SearchInput</name>
-    <message>
-        <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
-        <source>Search</source>
-        <translation>Etsi</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsHead</name>
-    <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="103"/>
-        <source>Edit</source>
-        <translation>Muokkaa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="105"/>
-        <source>Done</source>
-        <translation>Valmis</translation>
-    </message>
-</context>
-<context>
     <name>TimeoutDialog</name>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="32"/>
@@ -5032,6 +5010,14 @@ Jos olet hyväksyt tämän lausunnon ja rekisteröit kasvosi niin kasvojen tunni
     </message>
 </context>
 <context>
+    <name>dcc::widgets::SearchInput</name>
+    <message>
+        <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
+        <source>Search</source>
+        <translation>Etsi</translation>
+    </message>
+</context>
+<context>
     <name>dcc::widgets::SecurityLevelItem</name>
     <message>
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="73"/>
@@ -5047,6 +5033,20 @@ Jos olet hyväksyt tämän lausunnon ja rekisteröit kasvosi niin kasvojen tunni
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="93"/>
         <source>Strong</source>
         <translation>Vahva</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::widgets::SettingsHead</name>
+    <message>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="103"/>
+        <source>Edit</source>
+        <translation>Muokkaa</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="105"/>
+        <source>Done</source>
+        <translation>Valmis</translation>
     </message>
 </context>
 <context>

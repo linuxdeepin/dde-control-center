@@ -2649,7 +2649,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="48"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="71"/>
         <source>Monitor will suspend after</source>
-        <translation>Monitor zostanie wstrzymany po</translation>
+        <translation>Monitor zostanie wstrzymany za</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -2657,7 +2657,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="49"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="84"/>
         <source>Computer will suspend after</source>
-        <translation>Komputer przejdzie w stan uśpienia po</translation>
+        <translation>Komputer zostanie wstrzymany za</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -2710,7 +2710,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="116"/>
         <source>Suspend</source>
-        <translation>Uśpij</translation>
+        <translation>Wstrzymaj</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="119"/>
@@ -2779,7 +2779,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="76"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="79"/>
         <source>Computer will suspend after</source>
-        <translation>Komputer przejdzie w stan uśpienia po</translation>
+        <translation>Komputer zostanie wstrzymany za</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
@@ -2797,7 +2797,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="300"/>
         <source>Suspend</source>
-        <translation>Uśpij</translation>
+        <translation>Wstrzymaj</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="304"/>
@@ -2935,7 +2935,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
         <source>Computer will suspend after</source>
-        <translation>Komputer przejdzie w stan uśpienia po</translation>
+        <translation>Komputer zostanie wstrzymany za</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="141"/>
@@ -4069,28 +4069,6 @@
     </message>
 </context>
 <context>
-    <name>SearchInput</name>
-    <message>
-        <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
-        <source>Search</source>
-        <translation>Szukaj</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsHead</name>
-    <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="103"/>
-        <source>Edit</source>
-        <translation>Edycja</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="105"/>
-        <source>Done</source>
-        <translation>Gotowe</translation>
-    </message>
-</context>
-<context>
     <name>TimeoutDialog</name>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="32"/>
@@ -5032,6 +5010,14 @@ Dla lepszego rozpoznawania twarzą, zwróć uwagę na poniższe punkty podczas z
     </message>
 </context>
 <context>
+    <name>dcc::widgets::SearchInput</name>
+    <message>
+        <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
+        <source>Search</source>
+        <translation>Szukaj</translation>
+    </message>
+</context>
+<context>
     <name>dcc::widgets::SecurityLevelItem</name>
     <message>
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="73"/>
@@ -5047,6 +5033,20 @@ Dla lepszego rozpoznawania twarzą, zwróć uwagę na poniższe punkty podczas z
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="93"/>
         <source>Strong</source>
         <translation>Silne</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::widgets::SettingsHead</name>
+    <message>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="103"/>
+        <source>Edit</source>
+        <translation>Edycja</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="105"/>
+        <source>Done</source>
+        <translation>Gotowe</translation>
     </message>
 </context>
 <context>

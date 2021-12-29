@@ -520,7 +520,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Sigurohuni se krejt pjesët e fytyrës tuaj janë të pambuluara nga objekte dhe të dukshme qartësisht. Fytyra juaj duhet të jetë gjithashtu e ndriçuar mirë.</translation>
+        <translation>Sigurohuni se krejt pjesët e fytyrës tuaj janë të pambuluara nga objekte dhe të dukshme qartësisht. Gjithashtu fytyra juaj duhet të jetë e ndriçuar mirë.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="108"/>
@@ -540,7 +540,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="192"/>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Përdorni fytyrën tuaj që të shkyçni pajisjen dhe për të bërë ujdisjen më vonë</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="197"/>
@@ -790,7 +790,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="105"/>
         <source>Add Iris</source>
-        <translation>Shtoni Bebe Sysh</translation>
+        <translation>Shtoni Bebe Syri</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="146"/>
@@ -800,7 +800,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="176"/>
         <source>Iris</source>
-        <translation>Iris</translation>
+        <translation>Bebe Syri</translation>
     </message>
 </context>
 <context>
@@ -828,7 +828,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="115"/>
         <source>Iris</source>
-        <translation>Iris</translation>
+        <translation>Bebe Syri</translation>
         <extra-contents_path>/authentication/Iris</extra-contents_path>
     </message>
 </context>
@@ -1256,12 +1256,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="55"/>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Pjesëmarrja te programi “User Experience Program” do të thotë se na akordoni dhe autorizoni grumbullimin dhe përdorimin e të dhënave të pajisjes, sistemit dhe aplikacioneve tuaja. Nëse refuzoni grumbullimin dhe përdorimin  e të dhënave të përmendura më sipër, mos merrni pjesë te  “User Experience Program”. Për hollësi, ju lutemi, referojuni Rregullave të Privatësisë për Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Pjesëmarrja te programi “User Experience Program” do të thotë se na akordoni dhe autorizoni grumbullimin dhe përdorimin e të dhënave të pajisjes, sistemit dhe aplikacioneve tuaja. Nëse nuk pranoni grumbullimin dhe përdorimin  e të dhënave të përmendura më sipër, mos merrni pjesë te  “User Experience Program”. Për hollësi, ju lutemi, referojuni Rregullave të Privatësisë për Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="60"/>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Pjesëmarrja te programi “User Experience Program” do të thotë se na akordoni dhe autorizoni grumbullimin dhe përdorimin e të dhënave të pajisjes, sistemit dhe aplikacioneve tuaja. Nëse refuzoni grumbullimin dhe përdorimin  nga ne të të dhënave të përmendura më sipër, mos merrni pjesë te “User Experience Program”. Për të ditur më tepër rreth administrimit të të dhënave tuaja, ju lutemi, referojuni Rregullave të Privatësisë për UnionTech OS (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Pjesëmarrja te programi “User Experience Program” do të thotë se na akordoni dhe autorizoni grumbullimin dhe përdorimin e të dhënave të pajisjes, sistemit dhe aplikacioneve tuaja. Nëse nuk pranoni grumbullimin dhe përdorimin  nga ne të të dhënave të përmendura më sipër, mos merrni pjesë te “User Experience Program”. Për të ditur më tepër rreth administrimit të të dhënave tuaja, ju lutemi, referojuni Rregullave të Privatësisë për UnionTech OS (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -1935,13 +1935,13 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="104"/>
         <source>Numeric Keypad</source>
-        <translation>Tastierë Numerike</translation>
+        <translation type="unfinished"/>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="110"/>
         <source>Caps Lock Prompt</source>
-        <translation>Kycja e kapakeve</translation>
+        <translation type="unfinished"/>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
 </context>
@@ -3768,7 +3768,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="60"/>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
-        <translation>Aktivizojeni, që të përditësohet vetëm për cenueshmëri sigurie dhe probleme përputhshmërie</translation>
+        <translation>Aktivizojeni, që të bëhen përditësime vetëm për cenueshmëri sigurie dhe probleme përputhshmërie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
@@ -3840,7 +3840,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="225"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
-        <translation>Instaloje &quot;%1&quot;, automatikisht, kur të jetë plotësuar shkarkimi</translation>
+        <translation>Instaloje “%1” automatikisht, kur të jetë plotësuar shkarkimi</translation>
     </message>
 </context>
 <context>
@@ -3865,7 +3865,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="130"/>
         <source>Return</source>
-        <translation>kthehu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="177"/>
@@ -4068,28 +4068,6 @@
     </message>
 </context>
 <context>
-    <name>SearchInput</name>
-    <message>
-        <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
-        <source>Search</source>
-        <translation>Kërkim</translation>
-    </message>
-</context>
-<context>
-    <name>SettingsHead</name>
-    <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="103"/>
-        <source>Edit</source>
-        <translation>Përpunim</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/widgets/settingshead.cpp" line="105"/>
-        <source>Done</source>
-        <translation>U bë</translation>
-    </message>
-</context>
-<context>
     <name>TimeoutDialog</name>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="32"/>
@@ -4122,7 +4100,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="30"/>
         <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
-        <translation>Që të ricaktoni fjalëkalime, duhet së pari të bëni mirëfilltësimin e ID-së tuaj Union. Klikoni mbi “Kalo te Lidhe” që të përfundohet ujdisa.</translation>
+        <translation>Që të ricaktoni fjalëkalime, duhet së pari të bëni mirëfilltësimin e ID-së tuaj Union. Klikoni mbi “Kalo te Lidhje” që të përfundohet ujdisja.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="35"/>
@@ -4294,9 +4272,9 @@ If you agree to this statement and enroll your face (we will not collect your fa
 5. Veç këtyre, duhet të bëni kujdes me faktorë të tjerë që mund të prekin përdorimin normal të njohjes së fytyrave.
 Për njohje më të mirë të fytyrave, mbani parasysh sa vijon, kur jepni fytyrën tuaj:
 1. Garantoni ndriçim të mjaftueshëm, shmangni dritën drejtpërdrejt nga dielli dhe pengoni shfaqjen e personave të tjerë te korniza.
-2. Bëni kujdes për pamjen tuaj para dhënies. Mos mbuloni fytyrën tuaj me flokët tuaj, apo kapele, apo maskë, apo makijazh të tepruar.
+2. Bëni kujdes për pamjen tuaj para dhënies. Mos mbuloni fytyrën tuaj me flokë, apo kapele, apo maskë, apo makijazh të tepruar.
 3. Mos ngrini ose ulni kokën, mos mbyllni sytë, mos jepni fytyrë në profil. Sigurohuni që pamja ballore e fytyrës tuaj shfaqet qartë dhe plotësisht te korniza.
-Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (nuk do të grumbullojmë të dhëna të fytyrës tuaj, të cilat do të fshehtëzohen lokalisht dhe depozitohen ndaras në pajisjen tuaj), njohja e fytyrave do të aktivizohet. Që të fshini të dhëna të fytyrës së dhënë, mund të shkoni te “Mirëfilltësim Biometrik”&gt; “Fytyrë”.
+Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (s’do të grumbullojmë të dhëna të fytyrës tuaj, të cilat do të fshehtëzohen lokalisht dhe depozitohen ndaras në pajisjen tuaj), njohja e fytyrave do të aktivizohet. Që të fshini të dhëna të fytyrës së dhënë, mund të shkoni te “Mirëfilltësim Biometrik”&gt; “Fytyrë”.
 </translation>
     </message>
     <message>
@@ -4465,14 +4443,14 @@ Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (nuk do të grumbullo
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="65"/>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="137"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>Vendoseni gishtin gishtin tuaj pa e lëvizur te ndijuesi, deri sa t’ju kërkohet ta hiqni</translation>
+        <translation>Vendoseni gishtin tuaj te ndijuesi dhe mbajeni pa e lëvizur, deri sa t’ju kërkohet ta hiqni</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="67"/>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="150"/>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="153"/>
         <source>Scan the edges of your fingerprint</source>
-        <translation>Skanoni skajet e shenjës tuaj të gishtit</translation>
+        <translation>Skanoni skajet e mollëzës së gishtit tuaj</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="68"/>
@@ -4608,7 +4586,7 @@ Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (nuk do të grumbullo
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="101"/>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Risistemimi i ekrani do të hyjë në fuqi pas %1s pas ndryshimeve</translation>
+        <translation>Pas ndryshimesh, risistemimi i ekrani do të hyjë në fuqi pas %1s</translation>
     </message>
 </context>
 <context>
@@ -4862,12 +4840,12 @@ Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (nuk do të grumbullo
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Të drejta kopjimi© 2011-%1 Bashkësia Deepin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"/>
+        <translation>Të drejta kopjimi© 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
@@ -4923,7 +4901,7 @@ Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (nuk do të grumbullo
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="155"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation>Sistemi më i ri u instalua, riniseni, që të vihet në punë</translation>
+        <translation>Sistemi më i ri u instalua, që të vihet në punë, bëni rinisjen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="160"/>
@@ -5028,7 +5006,15 @@ Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (nuk do të grumbullo
     <message>
         <location filename="../src/frame/widgets/detailinfoitem.cpp" line="76"/>
         <source>For more details, visit:</source>
-        <translation type="unfinished"/>
+        <translation>Për më tepër hollësi, vizitoni:</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::widgets::SearchInput</name>
+    <message>
+        <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
+        <source>Search</source>
+        <translation>Kërkim</translation>
     </message>
 </context>
 <context>
@@ -5047,6 +5033,20 @@ Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (nuk do të grumbullo
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="93"/>
         <source>Strong</source>
         <translation>I fortë</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::widgets::SettingsHead</name>
+    <message>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="103"/>
+        <source>Edit</source>
+        <translation>Përpunim</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/widgets/settingshead.cpp" line="105"/>
+        <source>Done</source>
+        <translation>U bë</translation>
     </message>
 </context>
 <context>
