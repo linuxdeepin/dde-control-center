@@ -112,6 +112,7 @@ protected:
     void showEvent(QShowEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
+    bool eventFilter(QObject *o, QEvent *e);
 
 private:
     void initWidget();
@@ -134,7 +135,7 @@ private slots:
     void onNewPasswordLineEditFocusChanged(bool);
     void onResetPasswordBtnClicked();
     void onReadFromServerChanged(int);
-    void startMonitor();
+    void updatePosition();
 
 private:
     QRect m_screenGeometry;
@@ -161,6 +162,7 @@ private:
     QTimer *m_monitorTimer;
     QLocalSocket *m_client;
     bool m_verifyCodeSuccess;
+    DDialog m_tipDialog;
 };
 
 class Manager : public QObject

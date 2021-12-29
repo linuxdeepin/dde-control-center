@@ -158,6 +158,16 @@ void ResetPasswordDialog::mousePressEvent(QMouseEvent *event)
     }
 }
 
+bool ResetPasswordDialog::eventFilter(QObject *o, QEvent *e)
+{
+    if (o == &m_tipDialog) {
+        if (e->type() == QEvent::MouseButtonPress || e->type() == QEvent::MouseButtonDblClick) {
+            return true;
+        }
+    }
+    return DDialog::eventFilter(o, e);
+}
+
 void ResetPasswordDialog::initWidget()
 {
     DGuiApplicationHelper::ColorType type = DGuiApplicationHelper::instance()->themeType();
@@ -233,9 +243,16 @@ void ResetPasswordDialog::initWidget()
     this->addButtons(buttons);
     this->addButton(tr("Reset"), true, ButtonRecommend);
 
+    m_tipDialog.setMessage(tr("Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance"));
+    m_tipDialog.addButtons(QStringList() << tr("Cancel") << tr("Confirm and Reset"));
+    m_tipDialog.setIcon(QIcon::fromTheme("dialog-warning"));
+    m_tipDialog.setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+    m_tipDialog.installEventFilter(this);
+    m_tipDialog.setFixedSize(380, 189);
+    m_tipDialog.setOnButtonClickedClose(false);
+
     setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
     setOnButtonClickedClose(false);
-    setAttribute(Qt::WA_DeleteOnClose, true);
 }
 
 void ResetPasswordDialog::initData()
@@ -328,7 +345,18 @@ void ResetPasswordDialog::initData()
     });
     connect(m_sendCodeBtn, &QPushButton::clicked, this, &ResetPasswordDialog::onVerificationCodeBtnClicked);
     connect(m_codeTimer, &QTimer::timeout, this, &ResetPasswordDialog::startCount);
-    connect(m_monitorTimer, &QTimer::timeout, this, &ResetPasswordDialog::startMonitor);
+    connect(m_monitorTimer, &QTimer::timeout, this, &ResetPasswordDialog::updatePosition);
+    connect(m_tipDialog.getButton(0), &QPushButton::clicked, this, [this]{
+        updatePosition();
+        this->show();
+        m_tipDialog.hide();
+    });
+    connect(m_tipDialog.getButton(1), &QPushButton::clicked, this, [this]{
+        updatePosition();
+        this->show();
+        m_tipDialog.hide();
+        std::cout << cryptUserPassword(m_newPasswordEdit->text()).toStdString().c_str() << std::endl;
+    });
     if (m_appName == "greeter" || m_appName == "lock") {
         m_monitorTimer->start(300);
         m_client = new QLocalSocket(this);
@@ -460,7 +488,9 @@ void ResetPasswordDialog::onResetPasswordBtnClicked()
         m_userInter->SetPasswordHint(m_passwordTipsEdit->text()).waitForFinished();
     }
 
-    std::cout << cryptUserPassword(m_newPasswordEdit->text()).toStdString().c_str() << std::endl;
+    updatePosition();
+    m_tipDialog.show();
+    this->hide();
 }
 
 int ResetPasswordDialog::parseError(const QString& errorMsg)
@@ -708,7 +738,14 @@ void ResetPasswordDialog::quit()
     m_resetPasswordFloatingMessage->setMessage(tr("Successfully reset, please log in and unlock with the new password"));
     m_resetPasswordFloatingMessage->setDuration(2000);
     DMessageManager::instance()->sendMessage(this, m_resetPasswordFloatingMessage);
-    QTimer::singleShot(3000, [this]{ this->close(); });
+    QTimer::singleShot(3000, [this] {
+        if (m_appName == "greeter" || m_appName == "lock") {
+            m_client->write("close");
+            m_client->flush();
+        }
+        this->close();
+        qApp->quit();
+    });
 }
 
 void ResetPasswordDialog::onReadFromServerChanged(int fd)
@@ -726,12 +763,15 @@ void ResetPasswordDialog::onReadFromServerChanged(int fd)
     }
 }
 
-void ResetPasswordDialog::startMonitor()
+void ResetPasswordDialog::updatePosition()
 {
-    QRect deskRt = QApplication::desktop()->screenGeometry(QCursor::pos());
+    const QRect deskRt = QApplication::desktop()->screenGeometry(QCursor::pos());
     int x = deskRt.left() + (deskRt.width() - width()) / 2;
     int y = deskRt.top() + (deskRt.height() - height()) / 2;
     move(x, y);
+    int tx = deskRt.left() + (deskRt.width() - m_tipDialog.width()) / 2;
+    int ty = deskRt.top() + (deskRt.height() - m_tipDialog.height()) / 2;
+    m_tipDialog.move(tx, ty);
 }
 
 Manager::Manager(const QString &userName, const QString &appName)

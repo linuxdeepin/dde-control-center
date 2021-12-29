@@ -162,8 +162,9 @@ IndexPage::IndexPage(QWidget *parent)
     connect(m_autoSyncSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::SyncTimeLbl);
     connect(m_bindSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::onBindUserAccountChanged);
     connect(logoutBtn, &QPushButton::clicked, this, [this] {
-        m_bindSwitch->setChecked(!unbindUserAccount());
         Q_EMIT IndexPage::requestLogout();
+        if (m_bindSwitch->checked())
+            m_bindSwitch->setChecked(!unbindUserAccount());
     });
 }
 
