@@ -64,8 +64,6 @@ public:
     explicit NetworkPluginHelper(NetworkDialog *networkDialog, QObject *parent = Q_NULLPTR);
     ~NetworkPluginHelper();
 
-    void setMainWidget(QWidget *mainWidget);
-
     void invokeMenuItem(const QString &menuId);
     bool needShowControlCenter();
     const QString contextMenu(bool hasSetting) const;
@@ -97,7 +95,6 @@ private:
 
     QSet<QString> m_devicePaths; // 记录无线设备Path,防止信号重复连接
     QString m_lastActiveWirelessDevicePath;
-    QWidget *m_mainWidget;
     NetworkDialog *m_networkDialog;
 };
 

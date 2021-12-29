@@ -62,7 +62,6 @@ NetworkPluginHelper::NetworkPluginHelper(NetworkDialog *networkDialog, QObject *
     : QObject(parent)
     , m_tipsWidget(new TipsWidget(nullptr))
     , m_switchWire(true)
-    , m_mainWidget(nullptr)
     , m_networkDialog(networkDialog)
 {
     initUi();
@@ -71,11 +70,6 @@ NetworkPluginHelper::NetworkPluginHelper(NetworkDialog *networkDialog, QObject *
 
 NetworkPluginHelper::~NetworkPluginHelper()
 {
-}
-
-void NetworkPluginHelper::setMainWidget(QWidget *mainWidget)
-{
-    m_mainWidget = mainWidget;
 }
 
 void NetworkPluginHelper::initUi()

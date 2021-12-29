@@ -39,7 +39,6 @@ TrayIcon::TrayIcon(NetworkPluginHelper *networkHelper)
     , m_greeterStyle(false)
     , m_refreshIconTimer(new QTimer(this))
 {
-    m_networkHelper->setMainWidget(this);
     setAccessibleName(QStringLiteral("NetworkTrayIcon"));
     setFixedSize(QSize(20, 20));
     setBackgroundRole(DPalette::Button);
@@ -143,7 +142,7 @@ void TrayIcon::refreshIcon()
     QString iconString;
     QString localPath = ":/";
     const auto ratio = devicePixelRatioF();
-    int iconSize = PLUGIN_ICON_MAX_SIZE;
+    int iconSize = m_greeterStyle ? 26 : PLUGIN_ICON_MAX_SIZE;
     int strength = 0;
 
     bool useDarkIcon = isDarkIcon();

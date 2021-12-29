@@ -28,7 +28,7 @@ const QPixmap ImageUtil::loadSvg(const QString &iconName, const QString &localPa
 {
     QIcon icon = QIcon::fromTheme(iconName);
     if (!icon.isNull()) {
-        QPixmap pixmap = icon.pixmap(int(size * ratio), int(size * ratio));
+        QPixmap pixmap = icon.pixmap(QCoreApplication::testAttribute(Qt::AA_UseHighDpiPixmaps) ? size : int(size * ratio));
         pixmap.setDevicePixelRatio(ratio);
         return pixmap;
     }
@@ -51,7 +51,7 @@ const QPixmap ImageUtil::loadSvg(const QString &iconName, const QSize size, cons
 {
     QIcon icon = QIcon::fromTheme(iconName);
     if (!icon.isNull()) {
-        QPixmap pixmap = icon.pixmap(size*ratio);
+        QPixmap pixmap = icon.pixmap(QCoreApplication::testAttribute(Qt::AA_UseHighDpiPixmaps) ? size : size * ratio);
         pixmap.setDevicePixelRatio(ratio);
         return pixmap;
     }
