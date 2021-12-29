@@ -62,7 +62,7 @@ public:
     inline const QString primary() const { return m_primary; }
     inline const QList<Monitor *> monitorList() const { return m_monitors; }
     Monitor *primaryMonitor() const;
-    inline const QString defaultFillMode() { return "Full"; }
+    inline const QString defaultFillMode() { return "None"; }
 
     bool isNightMode() const;
     void setIsNightMode(bool isNightMode);

@@ -21,5 +21,12 @@
         <file>themes/light/icon/hover/Center.svg</file>
         <file>themes/light/icon/hover/Fit.svg</file>
         <file>themes/light/icon/hover/Stretch.svg</file>
+        <file>themes/dark/icons/dark/Default.svg</file>
+        <file>themes/dark/icons/hover/Default.svg</file>
+        <file>themes/dark/icons/white/Default.svg</file>
+        <file>themes/light/icon/black/Default.svg</file>
+        <file>themes/light/icon/hover/Default.svg</file>
+        <file>themes/light/icon/light/Default.svg</file>
+        <file>themes/light/icon/white/Default.svg</file>
     </qresource>
 </RCC>

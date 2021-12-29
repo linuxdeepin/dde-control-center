@@ -44,6 +44,7 @@ fillModeCombox::fillModeCombox(QWidget *parent)
 
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, [=](DGuiApplicationHelper::ColorType themeType){
         //在切换主题的时候，combox无法获取当前是hidepopup还是showpopup, 所以需要设置为hidepopup来达到更新图标的目的
+        Q_UNUSED(themeType)
         hidePopup();
     });
 
@@ -166,7 +167,6 @@ ResolutionWidget::ResolutionWidget(int comboxWidth, QWidget *parent)
     m_resolutionCombox->setModel(m_resoItemModel);
     resolutionItem->setLayout(m_resolutionLayout);
     //"Resize Desktop"
-    //resizeDesktopItem = new SettingsItem;
     m_resizeDesktopLayout->setContentsMargins(10, 10, 10, 10);
     m_resizeDesktopLayout->addWidget(m_resizeDesktopLabel);
     m_resizeDesktopLayout->addWidget(m_resizeDesktopCombox);
@@ -262,6 +262,23 @@ void ResolutionWidget::OnCurrentModeChanged(const Resolution &mode)
 
 void ResolutionWidget::setItemIcon()
 {
+
+    DStandardItem *defaultItem = new DStandardItem(tr("Default"));
+    //深色
+    defaultItem->setData("None", FillModeRole);
+    defaultItem->setData(":/display/themes/dark/icons/dark/Default.svg", DarkItemIconRole);
+    defaultItem->setData(":/display/themes/dark/icons/dark/Default.svg", DarkDefaultIconRole);
+    defaultItem->setData(":/display/themes/dark/icons/white/Default.svg", DarkHighlightIconRole);
+    defaultItem->setData(":/display/themes/dark/icons/hover/Default.svg", DarkHoverIconRole);
+    //浅色
+    defaultItem->setData(":/display/themes/light/icon/black/Default.svg", LightItemIconRole);
+    defaultItem->setData(":/display/themes/light/icon/light/Default.svg", LightDefaultIconRole);
+    defaultItem->setData(":/display/themes/light/icon/white/Default.svg", LightHighlightIconRole);
+    defaultItem->setData(":/display/themes/light/icon/hover/Default.svg", LightHoverIconRole);
+
+    m_mapFillModeItems["None"] = defaultItem; /*默认*/
+
+
     DStandardItem *fitItem = new DStandardItem(tr("Fit"));
     //深色
     fitItem->setData("Full aspect", FillModeRole);
@@ -323,7 +340,7 @@ void ResolutionWidget::initResizeDesktop()
     //获取最新的铺面方式
     QString fillMode = m_monitor->currentFillMode();
     if(fillMode.isEmpty())
-        fillMode = "Full aspect";
+        fillMode = "None";
     int index = lstFillMode.indexOf(fillMode);
     if(index >= 0)
         m_resizeDesktopCombox->setCurrentIndex(index);
