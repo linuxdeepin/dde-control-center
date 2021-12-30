@@ -142,7 +142,7 @@ MultiScreenWidget::~MultiScreenWidget()
         widget->deleteLater();
     }
     m_recognizeWidget.clear();
-    m_fullIndication->deleteLater();
+    delete m_fullIndication;
 
     GSettingWatcher::instance()->erase("displayResolution", m_resolutionWidget);
     GSettingWatcher::instance()->erase("displayRefreshRate", m_refreshRateWidget);

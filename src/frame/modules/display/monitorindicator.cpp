@@ -27,29 +27,65 @@
 
 #include <QPainter>
 #include <QApplication>
+#include <QDebug>
+
+#define LINE_WIDTH 10
 
 using namespace dcc;
 using namespace dcc::display;
 
 MonitorIndicator::MonitorIndicator(QWidget *parent)
     : QFrame(nullptr)
+    , m_topLine(new QFrame(nullptr))
+    , m_bottomLine(new QFrame(nullptr))
+    , m_leftLine(new QFrame(nullptr))
+    , m_rightLine(new QFrame(nullptr))
 {
     Q_UNUSED(parent)
-    setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
-    setAttribute(Qt::WA_TranslucentBackground);
+    QFrame::setVisible(false);
+
+    QPalette pal = QPalette();
+    pal.setColor(QPalette::Window, QColor("#2ca7f8"));
+
+    m_topLine->setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
+    m_topLine->setAutoFillBackground(true);
+    m_topLine->setPalette(pal);
+
+    m_bottomLine->setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
+    m_bottomLine->setAutoFillBackground(true);
+    m_bottomLine->setPalette(pal);
+
+    m_leftLine->setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
+    m_leftLine->setAutoFillBackground(true);
+    m_leftLine->setPalette(pal);
+
+    m_rightLine->setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
+    m_rightLine->setAutoFillBackground(true);
+    m_rightLine->setPalette(pal);
 }
 
-
-void MonitorIndicator::paintEvent(QPaintEvent *e)
+MonitorIndicator::~MonitorIndicator()
 {
-    QPainter p(this);
-    qreal width = 10.0;
-    QRectF rect = QRectF(width / 2.0, width / 2.0, this->geometry().width() - width, this->geometry().height() - width);
-    QPen pen;
-    pen.setWidthF(width);
-    pen.setColor(QColor("#2ca7f8"));
-    p.setPen(pen);
-    p.setBrush(Qt::BrushStyle::NoBrush);
-    p.drawRect(rect);
-    QFrame::paintEvent(e);
+    delete m_topLine;
+    delete m_bottomLine;
+    delete m_leftLine;
+    delete m_rightLine;
+}
+
+void MonitorIndicator::setVisible(bool visible)
+{
+    updateGeometry();
+    m_topLine->setVisible(visible);
+    m_bottomLine->setVisible(visible);
+    m_leftLine->setVisible(visible);
+    m_rightLine->setVisible(visible);
+}
+
+void MonitorIndicator::updateGeometry()
+{
+    QPoint topLeft = mapToGlobal(QPoint(0,0));
+    m_topLine->setGeometry(topLeft.x(), topLeft.y(), width(), LINE_WIDTH);
+    m_bottomLine->setGeometry(topLeft.x(), topLeft.y() + height() - LINE_WIDTH, width(), LINE_WIDTH);
+    m_rightLine->setGeometry(topLeft.x() + width() - LINE_WIDTH, topLeft.y(), LINE_WIDTH, height());
+    m_leftLine->setGeometry(topLeft.x(), topLeft.y(), LINE_WIDTH, height());
 }
