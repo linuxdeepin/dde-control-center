@@ -1719,32 +1719,32 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="56"/>
         <source>Multiple Displays</source>
         <translation>Meerdere beeldschermen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="58"/>
         <source>Mode</source>
         <translation>Modus</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="61"/>
         <source>Main Screen</source>
         <translation>Hoofdscherm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="319"/>
         <source>Duplicate</source>
         <translation>Klonen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="320"/>
         <source>Extend</source>
         <translation>Uitbreiden</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="326"/>
         <source>Only on %1</source>
         <translation>Alleen op %1</translation>
     </message>
@@ -3199,77 +3199,77 @@
         <translation>Als je de netwerkinstellingen inschakelt, wordt je draadloze netwerkwachtwoord gesynchroniseerd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
         <source>Network Settings</source>
         <translation>Netwerkinstellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
         <source>Sound Settings</source>
         <translation>Geluidsinstellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
         <source>Mouse Settings</source>
         <translation>Muisinstellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Update Settings</source>
         <translation>Update-instellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Dock</source>
         <translation>Dock</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
         <source>Launcher</source>
         <translation>Programmastarter</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
         <source>Wallpaper</source>
         <translation>Achtergrond</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
         <source>Theme</source>
         <translation>Thema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="204"/>
         <source>Power Settings</source>
         <translation>Energie-instellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="341"/>
         <source>Last Sync: %1</source>
         <translation>Recentste synchronisatie: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="343"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>dd-MM-yyyy hh:mm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="380"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="436"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="437"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="466"/>
         <source>System error</source>
         <translation>Systeemfout</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="382"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="438"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="468"/>
         <source>Network error</source>
         <translation>Netwerkfout</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="469"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="441"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="470"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>Je sessie is verlopen - log opnieuw in met je Union-id</translation>
     </message>
@@ -3430,18 +3430,18 @@
         <translation>Proefperiode verlopen</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="418"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="419"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="477"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="478"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="479"/>
         <source>It cannot start or end with dashes</source>
         <translation>De naam mag niet beginnen met of eindigen op streepjes</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="452"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="482"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="483"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="484"/>
         <source>1~63 characters please</source>
         <translation>Voer 1-63 tekens in</translation>
     </message>
@@ -3737,8 +3737,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
-        <source>UnionTech</source>
-        <translation>UnionTech</translation>
+        <source>System</source>
+        <translation>Systeem</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
@@ -4947,22 +4947,22 @@ Als je dit alles gelezen hebt en hiermee doorgaat (we verzamelen geen informatie
         <translation>Onbekende programma-updates</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1398"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1403"/>
         <source>Network error</source>
         <translation>Netwerkfout</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1401"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1406"/>
         <source>Dependency error</source>
         <translation>Afhankelijkheidsfout</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1404"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1409"/>
         <source>Insufficient disk space</source>
         <translation>Onvoldoende vrije ruimte</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1412"/>
         <source>Update failed</source>
         <translation>Update mislukt</translation>
     </message>

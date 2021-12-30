@@ -1719,32 +1719,32 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="56"/>
         <source>Multiple Displays</source>
         <translation>多屏設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="58"/>
         <source>Mode</source>
         <translation>模式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="61"/>
         <source>Main Screen</source>
         <translation>主螢幕</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="319"/>
         <source>Duplicate</source>
         <translation>同步顯示畫面</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="320"/>
         <source>Extend</source>
         <translation>延伸畫面</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="326"/>
         <source>Only on %1</source>
         <translation>僅%1屏</translation>
     </message>
@@ -3199,77 +3199,77 @@
         <translation>如啟用「網路設定」，就會同步您的 WLAN 密碼。</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
         <source>Network Settings</source>
         <translation>網路設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
         <source>Sound Settings</source>
         <translation>音效設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
         <source>Mouse Settings</source>
         <translation>滑鼠設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Update Settings</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Dock</source>
         <translation>任務欄</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
         <source>Launcher</source>
         <translation>啟動器</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
         <source>Wallpaper</source>
         <translation>背景圖片</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
         <source>Theme</source>
         <translation>主題</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="204"/>
         <source>Power Settings</source>
         <translation>電源</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="341"/>
         <source>Last Sync: %1</source>
         <translation>上次同步時間：%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="343"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="380"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="436"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="437"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="466"/>
         <source>System error</source>
         <translation>系統錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="382"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="438"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="468"/>
         <source>Network error</source>
         <translation>網路錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="469"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="441"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="470"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>登入過期，請重新登入Union ID</translation>
     </message>
@@ -3430,18 +3430,18 @@
         <translation>試用期過期</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="418"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="419"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="477"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="478"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="479"/>
         <source>It cannot start or end with dashes</source>
         <translation>電腦名不能以 - 開頭結尾</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="452"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="482"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="483"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="484"/>
         <source>1~63 characters please</source>
         <translation>電腦名長度必須介於1到63個字元之間</translation>
     </message>
@@ -3737,8 +3737,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
-        <source>UnionTech</source>
-        <translation>UnionTech</translation>
+        <source>System</source>
+        <translation>系統</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
@@ -4947,22 +4947,22 @@ If you agree to this statement and enroll your face (we will not collect your fa
         <translation>未知來源應用更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1398"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1403"/>
         <source>Network error</source>
         <translation>網路錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1401"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1406"/>
         <source>Dependency error</source>
         <translation>依賴錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1404"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1409"/>
         <source>Insufficient disk space</source>
         <translation>硬碟空間不足</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1412"/>
         <source>Update failed</source>
         <translation>更新失敗</translation>
     </message>

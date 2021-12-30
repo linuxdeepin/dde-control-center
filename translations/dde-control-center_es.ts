@@ -1719,32 +1719,32 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="56"/>
         <source>Multiple Displays</source>
         <translation>Múltiples pantallas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="58"/>
         <source>Mode</source>
         <translation>Modo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="61"/>
         <source>Main Screen</source>
         <translation>Pantalla principal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="319"/>
         <source>Duplicate</source>
         <translation>Duplicado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="320"/>
         <source>Extend</source>
         <translation>Extendida</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="326"/>
         <source>Only on %1</source>
         <translation>Solo en %1</translation>
     </message>
@@ -3199,77 +3199,77 @@
         <translation>Activar la sincronización en la nube, sincronizará su contraseña de WLAN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
         <source>Network Settings</source>
         <translation>Ajustes de red</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
         <source>Sound Settings</source>
         <translation>Ajustes de sonido</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
         <source>Mouse Settings</source>
         <translation>Ajustes del ratón</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Update Settings</source>
         <translation>Ajustes de actualización</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Dock</source>
         <translation>Anclar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
         <source>Launcher</source>
         <translation>Lanzador</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
         <source>Wallpaper</source>
         <translation>Fondo de pantalla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="204"/>
         <source>Power Settings</source>
         <translation>Ajustes de energía</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="341"/>
         <source>Last Sync: %1</source>
         <translation>Última sincronización: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="343"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>aaaa-MM-dd hh:mm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="380"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="436"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="437"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="466"/>
         <source>System error</source>
         <translation>Error del sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="382"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="438"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="468"/>
         <source>Network error</source>
         <translation>Error de red</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="469"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="441"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="470"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>El inicio de sesión ha caducado, por favor, inicie la sesión con el ID de la Unión de nuevo</translation>
     </message>
@@ -3430,18 +3430,18 @@
         <translation>Período de prueba finalizado</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="418"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="419"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="477"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="478"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="479"/>
         <source>It cannot start or end with dashes</source>
         <translation>No puede empezar ni terminar con guiones</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="452"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="482"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="483"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="484"/>
         <source>1~63 characters please</source>
         <translation>De 1 a 63 caracteres, por favor</translation>
     </message>
@@ -3737,8 +3737,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
-        <source>UnionTech</source>
-        <translation>UnionTech</translation>
+        <source>System</source>
+        <translation>Sistema</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
@@ -4946,22 +4946,22 @@ Si acepta esta declaración e inscribe su rostro (no recopilaremos su informaci�
         <translation>Actualizaciones de aplicaciones desconocidas</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1398"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1403"/>
         <source>Network error</source>
         <translation>Error de red</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1401"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1406"/>
         <source>Dependency error</source>
         <translation>Error de dependencia</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1404"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1409"/>
         <source>Insufficient disk space</source>
         <translation>Espacio de disco insuficiente</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1412"/>
         <source>Update failed</source>
         <translation>Actualización fallida</translation>
     </message>

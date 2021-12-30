@@ -1720,32 +1720,32 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="56"/>
         <source>Multiple Displays</source>
         <translation>བརྙན་མང་སྒྲིག་འགོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="58"/>
         <source>Mode</source>
         <translation>དཔེ་རྣམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="61"/>
         <source>Main Screen</source>
         <translation>བརྙན་ཡོལ་གཙོ་བོ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="319"/>
         <source>Duplicate</source>
         <translation>པར་སློག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="320"/>
         <source>Extend</source>
         <translation>རྒྱ་སྐྱེད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="326"/>
         <source>Only on %1</source>
         <translation>བརྙན་ཡོལ་%1</translation>
     </message>
@@ -3200,77 +3200,77 @@
         <translation>དྲ་རྒྱ་མཉམ་བགྲོད་ཁ་ཕྱེ་ཚེ་ཁྱོད་ཀྱི་WLANགསང་ཨང་ཡང་མཉམ་བགྲོད་བྱ་སྲིད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
         <source>Network Settings</source>
         <translation>དྲ་རྒྱ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
         <source>Sound Settings</source>
         <translation>སྒྲ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
         <source>Mouse Settings</source>
         <translation>ཙི་གུ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Update Settings</source>
         <translation>གསར་སྒྱུར།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Dock</source>
         <translation>ལས་འགན་ཚན་བྱང་།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
         <source>Launcher</source>
         <translation>འགོ་སློང་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
         <source>Wallpaper</source>
         <translation>གྱང་ཤོག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
         <source>Theme</source>
         <translation>བརྗོད་གཞི། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="204"/>
         <source>Power Settings</source>
         <translation>གློག་ཁུངས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="341"/>
         <source>Last Sync: %1</source>
         <translation>ཐེངས་སྔ་མའི་མཉམ་བགྲོད་དུས་ཚོད། %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="343"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="380"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="436"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="437"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="466"/>
         <source>System error</source>
         <translation>མ་ལག་ནོར་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="382"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="438"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="468"/>
         <source>Network error</source>
         <translation>དྲ་རྒྱ་ནོར་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="469"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="441"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="470"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>ཐོ་འཇུག་དུས་ལས་ཡོལ་བས། Union IDཡང་བསྐྱར་ཐོ་འཇུག་གནང་རོགས། </translation>
     </message>
@@ -3431,18 +3431,18 @@
         <translation>ལས་ཚོད་ལྟ་བའི་དུས་ཡུན་ལས་བརྒལ་བ།</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="418"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="419"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="477"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="478"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="479"/>
         <source>It cannot start or end with dashes</source>
         <translation>རྩིས་འཁོར་གྱི་མིང་གི་ཐོག་མ་དང་མཇུག་ན་- ཡིན་མི་རུང་།</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="452"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="482"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="483"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="484"/>
         <source>1~63 characters please</source>
         <translation>རྩིས་འཁོར་མིང་གི་རིང་ཚད་ནི་ངེས་པར་དུ་ཡིག་འབྲུ་1ནས་63བར་ཡིན་དགོས།</translation>
     </message>
@@ -3738,8 +3738,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
-        <source>UnionTech</source>
-        <translation>UnionTech</translation>
+        <source>System</source>
+        <translation>རྒྱུད་ཁོངས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
@@ -4947,22 +4947,22 @@ If you agree to this statement and enroll your face (we will not collect your fa
         <translation>ཡོང་ཁུངས་མི་ཤེས་པའི་ཉེར་སྤྱོད་གསར་སྒྱུར། </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1398"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1403"/>
         <source>Network error</source>
         <translation>དྲ་རྒྱ་ནོར་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1401"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1406"/>
         <source>Dependency error</source>
         <translation>རྟེན་གཞི་ནོར་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1404"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1409"/>
         <source>Insufficient disk space</source>
         <translation>སྡུད་སྡེར་བར་སྟོང་མི་འདང་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1412"/>
         <source>Update failed</source>
         <translation>གསར་སྒྱུར་མི་ཐུབ་པ། </translation>
     </message>

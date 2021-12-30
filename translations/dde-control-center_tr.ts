@@ -1719,32 +1719,32 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="56"/>
         <source>Multiple Displays</source>
         <translation>Çoklu Ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="58"/>
         <source>Mode</source>
         <translation>Kip</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="61"/>
         <source>Main Screen</source>
         <translation>Ana Ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="319"/>
         <source>Duplicate</source>
         <translation>Çoğalt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="320"/>
         <source>Extend</source>
         <translation>Genişlet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="326"/>
         <source>Only on %1</source>
         <translation>Yanlız %1 üzerinde</translation>
     </message>
@@ -3199,77 +3199,77 @@
         <translation>Ağ Ayarları açıksa WLAN parolanız eşitlenecektir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
         <source>Network Settings</source>
         <translation>Ağ Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
         <source>Sound Settings</source>
         <translation>Ses Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
         <source>Mouse Settings</source>
         <translation>Fare Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Update Settings</source>
         <translation>Güncelleme Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Dock</source>
         <translation>Rıhtım</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
         <source>Launcher</source>
         <translation>Başlatıcı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
         <source>Wallpaper</source>
         <translation>Duvar Kâğıdı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="204"/>
         <source>Power Settings</source>
         <translation>Güç Ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="341"/>
         <source>Last Sync: %1</source>
         <translation>Son Eşitlenme: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="343"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="380"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="436"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="437"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="466"/>
         <source>System error</source>
         <translation>Sistem hatası</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="382"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="438"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="468"/>
         <source>Network error</source>
         <translation>Ağ hatası</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="469"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="441"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="470"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>Girişin süresi doldu, lütfen Union ID&apos;de tekrar oturum açın</translation>
     </message>
@@ -3430,18 +3430,18 @@
         <translation>Deneme süresi doldu</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="418"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="419"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="477"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="478"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="479"/>
         <source>It cannot start or end with dashes</source>
         <translation>Kısa çizgi ile başlayamaz veya bitemez</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="452"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="482"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="483"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="484"/>
         <source>1~63 characters please</source>
         <translation>1~63 karakterler lütfen</translation>
     </message>
@@ -3737,8 +3737,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
-        <source>UnionTech</source>
-        <translation>UnionTech</translation>
+        <source>System</source>
+        <translation>Sistem</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
@@ -4936,22 +4936,22 @@ If you agree to this statement and enroll your face (we will not collect your fa
         <translation>Bilinmeyen Uygulama Güncellemeleri</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1398"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1403"/>
         <source>Network error</source>
         <translation>Ağ hatası</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1401"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1406"/>
         <source>Dependency error</source>
         <translation>Bağımlılık hatası</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1404"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1409"/>
         <source>Insufficient disk space</source>
         <translation>Yetersiz disk alanı</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1412"/>
         <source>Update failed</source>
         <translation>Güncelleştirme başarısız</translation>
     </message>
