@@ -96,7 +96,25 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
 
     connect(m_bluetoothInter, &DBusBluetooth::TransportableChanged, m_model, &BluetoothModel::setTransportable);
     connect(m_bluetoothInter, &DBusBluetooth::CanSendFileChanged, m_model, &BluetoothModel::setCanSendFile);
-    connect(m_bluetoothInter, &DBusBluetooth::DisplaySwitchChanged, m_model, &BluetoothModel::setDisplaySwitch);
+
+    /*FIXME
+     * 这里关联的信号有时候收不到是因为 qt-dbus-factory 中的 changed 的信号有时候会发不出来，
+     * qt-dbus-factory 中的 DBusExtendedAbstractInterface::internalPropGet 在同步调用情况下，会将缓存中的数据写入属性中，
+     * 导致后面 onPropertyChanged 中的判断认为属性值没变，就没有发出 changed 信号。
+     * 建议：前端仅在初始化时主动获取一次 dbus 中的值存储在成员变量中，并建立 changed 信号连接，后面所有用到那个值的地方，均获取成员变量;
+    */
+
+#if 0
+//    connect(m_bluetoothInter, &DBusBluetooth::DisplaySwitchChanged, m_model, &BluetoothModel::setDisplaySwitch);
+#else
+    QDBusConnection::sessionBus().connect("com.deepin.daemon.Bluetooth",
+                                          "/com/deepin/daemon/Bluetooth",
+                                          "org.freedesktop.DBus.Properties",
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this, SLOT(handleDbusSignal(QDBusMessage)));
+#endif
+
     m_model->setTransportable(m_bluetoothInter->transportable());
     m_model->setCanSendFile(m_bluetoothInter->canSendFile());
     m_model->setDisplaySwitch(m_bluetoothInter->displaySwitch());
@@ -507,6 +525,25 @@ void BluetoothWorker::onRequestSetDiscoverable(const Adapter *adapter, const boo
 void BluetoothWorker::setDisplaySwitch(const bool &on)
 {
     m_bluetoothInter->setDisplaySwitch(on);
+}
+
+void BluetoothWorker::handleDbusSignal(QDBusMessage mes)
+{
+    QList<QVariant> arguments = mes.arguments();
+    if (3 != arguments.count()) {
+        return;
+    }
+    QString interfaceName = mes.arguments().at(0).toString();
+    if (interfaceName == "com.deepin.daemon.Bluetooth") {
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        QStringList keys = changedProps.keys();
+        for (int i = 0; i < keys.size(); i++) {
+            if (keys.at(i) == "DisplaySwitch") {
+                bool state = static_cast<bool>(changedProps.value(keys.at(i)).toBool());
+                m_model->setDisplaySwitch(state);
+            }
+        }
+    }
 }
 
 } // namespace bluetooth

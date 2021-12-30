@@ -107,7 +107,14 @@ void AdapterWidget::initUI()
     m_refreshBtn = new DIconButton(this);
     m_refreshBtn->setFixedSize(36, 36);
     m_refreshBtn->setIcon(QIcon::fromTheme("dcc_refresh"));
-    m_showAnonymousCheckBox->setChecked(m_model->displaySwitch());
+
+    QDBusInterface app_ifc("com.deepin.daemon.Bluetooth",
+                           "/com/deepin/daemon/Bluetooth",
+                           "com.deepin.daemon.Bluetooth",
+                           QDBusConnection::sessionBus()
+                );
+    bool Checked = app_ifc.property("DisplaySwitch").toBool();
+    m_showAnonymousCheckBox->setChecked(Checked);
     m_showAnonymousCheckBox->setAccessibleName("Btn_anonymouscheckbox");
 
     m_hideAnonymousLabel->setFixedHeight(36);

@@ -71,6 +71,7 @@ public Q_SLOTS:
     void setAdapterDiscovering(const QDBusObjectPath &path, bool enable);
     void onRequestSetDiscoverable(const Adapter *adapter, const bool &discoverable);
     void setDisplaySwitch(const bool &on);
+    void handleDbusSignal(QDBusMessage mes);
 
 private:
     void inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj);
