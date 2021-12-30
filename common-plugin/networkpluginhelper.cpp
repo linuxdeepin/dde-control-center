@@ -413,13 +413,16 @@ void NetworkPluginHelper::onActiveConnectionChanged()
     for (auto conn : NetworkManager::activeConnections()) {
         if (!conn->id().isEmpty() && conn->devices().contains(wirelessPath)) {
             NetworkManager::ConnectionSettings::Ptr connSettings = conn->connection()->settings();
+            NetworkManager::WirelessSetting::Ptr wSetting = connSettings->setting(NetworkManager::Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>();
             // 隐藏网络配置错误时提示重连
-            if(connSettings->setting(NetworkManager::Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>()->hidden()
-                    && NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown == connSettings->setting(NetworkManager::Setting::SettingType::WirelessSecurity).staticCast<NetworkManager::WirelessSecuritySetting>()->keyMgmt()) {
-                for(auto ap : wireless->accessPointItems()) {
-                    if(ap->ssid() == conn->id() && ap->secured() && ap->strength() > 0) {
-                        m_networkDialog->setConnectWireless(wireless->path(), ap->ssid());
-                        break;
+            if (wSetting && wSetting->hidden()) {
+                NetworkManager::WirelessSecuritySetting::Ptr wsSetting = connSettings->setting(NetworkManager::Setting::SettingType::WirelessSecurity).staticCast<NetworkManager::WirelessSecuritySetting>();
+                if (wsSetting && NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown == wsSetting->keyMgmt()) {
+                    for (auto ap : wireless->accessPointItems()) {
+                        if (ap->ssid() == conn->id() && ap->secured() && ap->strength() > 0) {
+                            m_networkDialog->setConnectWireless(wireless->path(), ap->ssid());
+                            break;
+                        }
                     }
                 }
             }
