@@ -160,7 +160,11 @@ const QString NetworkModule::connectionMatchName() const
             connNameList.append(conn->name());
     }
 
-    QString matchConnName = QString(tr("Wired Connection")) + QString(" %1");
+    QString matchConnName = tr("Wired Connection");
+    if (!connNameList.contains(matchConnName))
+        return matchConnName;
+
+    matchConnName = QString(tr("Wired Connection")) + QString(" %1");
     for (int i = 1; i <= connNameList.size(); ++i) {
         if (!connNameList.contains(matchConnName.arg(i))) {
             connSuffixNum = i;
