@@ -214,7 +214,11 @@ void ResolutionWidget::setMonitor(Monitor *monitor)
 
     // 先断开信号，设置数据再连接信号
     if (m_monitor != nullptr) {
-        m_monitor->disconnect();
+        disconnect(m_monitor, &Monitor::currentFillModeChanged, this, nullptr);
+        disconnect(m_monitor, &Monitor::availableFillModesChanged, this, &ResolutionWidget::OnAvailableFillModesChanged);
+        disconnect(m_monitor, &Monitor::modelListChanged, this, &ResolutionWidget::initResolution);
+        disconnect(m_monitor, &Monitor::bestModeChanged, this, &ResolutionWidget::initResolution);
+        disconnect(m_monitor, &Monitor::currentModeChanged, this, &ResolutionWidget::OnCurrentModeChanged);
     }
 
     m_monitor = monitor;
@@ -231,26 +235,29 @@ void ResolutionWidget::setMonitor(Monitor *monitor)
 
     connect(m_monitor, &Monitor::modelListChanged, this, &ResolutionWidget::initResolution);
     connect(m_monitor, &Monitor::bestModeChanged, this, &ResolutionWidget::initResolution);
-    connect(m_monitor, &Monitor::currentModeChanged, this, [=](const Resolution &mode) {
-        // 按主线逻辑，当mode=0时，在x11环境下需要特殊处理
-        // 在wayland环境下，直接跳过
-        if (qEnvironmentVariable("XDG_SESSION_TYPE").contains("x11")) {
-            // 规避mode == 0
-            if (mode.id() == 0) {
-                return;
-            }
-        }
+    connect(m_monitor, &Monitor::currentModeChanged, this, &ResolutionWidget::OnCurrentModeChanged);
+}
 
-        for (int idx = 0; idx < m_resoItemModel->rowCount(); ++idx) {
-            auto item = m_resoItemModel->item(idx);
-            auto w = item->data(WidthRole).toInt();
-            auto h = item->data(HeightRole).toInt();
-            if (w == mode.width() && h == mode.height() && m_resolutionCombox->currentIndex() != item->row()) {
-                m_resolutionCombox->setCurrentIndex(item->row());
-                break;
-            }
+void ResolutionWidget::OnCurrentModeChanged(const Resolution &mode)
+{
+    // 按主线逻辑，当mode=0时，在x11环境下需要特殊处理
+    // 在wayland环境下，直接跳过
+    if (qEnvironmentVariable("XDG_SESSION_TYPE").contains("x11")) {
+        // 规避mode == 0
+        if (mode.id() == 0) {
+            return;
         }
-    });
+    }
+
+    for (int idx = 0; idx < m_resoItemModel->rowCount(); ++idx) {
+        auto item = m_resoItemModel->item(idx);
+        auto w = item->data(WidthRole).toInt();
+        auto h = item->data(HeightRole).toInt();
+        if (w == mode.width() && h == mode.height() && m_resolutionCombox->currentIndex() != item->row()) {
+            m_resolutionCombox->setCurrentIndex(item->row());
+            break;
+        }
+    }
 }
 
 void ResolutionWidget::setItemIcon()

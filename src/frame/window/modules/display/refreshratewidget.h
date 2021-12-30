@@ -73,6 +73,9 @@ public:
 Q_SIGNALS:
     void requestSetResolution(dcc::display::Monitor *monitor, const int mode);
 
+public Q_SLOTS:
+    void OnCurrentModeChanged(const Resolution &mode);
+
 private:
     void initRefreshRate();
 

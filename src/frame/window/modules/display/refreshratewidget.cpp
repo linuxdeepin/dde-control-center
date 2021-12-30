@@ -73,7 +73,7 @@ void RefreshRateWidget::setMonitor(Monitor *monitor)
     // 先断开信号，设置数据再连接信号
     if (m_monitor != nullptr) {
         disconnect(m_monitor, &Monitor::modelListChanged, this, &RefreshRateWidget::initRefreshRate);
-        disconnect(m_monitor, &Monitor::currentModeChanged, this, nullptr);
+        disconnect(m_monitor, &Monitor::currentModeChanged, this, &RefreshRateWidget::OnCurrentModeChanged);
     }
 
     m_monitor = monitor;
@@ -81,38 +81,41 @@ void RefreshRateWidget::setMonitor(Monitor *monitor)
     initRefreshRate();
 
     connect(m_monitor, &Monitor::modelListChanged, this, &RefreshRateWidget::initRefreshRate);
-    connect(m_monitor, &Monitor::currentModeChanged, this, [=](const Resolution &mode) {
-        // 按主线逻辑，当mode=0时，在x11环境下需要特殊处理
-        // 在wayland环境下，直接跳过
-        if (qEnvironmentVariable("XDG_SESSION_TYPE").contains("x11")) {
-            // 规避mode == 0
-            if (mode.id() == 0) {
-                return;
-            }
-        }
+    connect(m_monitor, &Monitor::currentModeChanged, this, &RefreshRateWidget::OnCurrentModeChanged);
+}
 
-        auto w = 0;
-        auto h = 0;
-        // 当前分辨率宽度和高度
-        if (m_refreshCombox->currentIndex() >= 0 && m_refreshItemModel->rowCount() >= 0) {
-            auto item = m_refreshItemModel->item(m_refreshCombox->currentIndex());
-            w = item->data(WidthRole).toInt();
-            h = item->data(HeightRole).toInt();
+void RefreshRateWidget::OnCurrentModeChanged(const Resolution &mode)
+{
+    // 按主线逻辑，当mode=0时，在x11环境下需要特殊处理
+    // 在wayland环境下，直接跳过
+    if (qEnvironmentVariable("XDG_SESSION_TYPE").contains("x11")) {
+        // 规避mode == 0
+        if (mode.id() == 0) {
+            return;
         }
+    }
 
-        // 无刷新率,分辨率宽度或高度改变则重新加载刷新率
-        if (m_refreshCombox->currentIndex() < 0 || m_refreshItemModel->rowCount() < 0 || w != mode.width() || h != mode.height()) {
-            initRefreshRate();
-        }
+    auto w = 0;
+    auto h = 0;
+    // 当前分辨率宽度和高度
+    if (m_refreshCombox->currentIndex() >= 0 && m_refreshItemModel->rowCount() >= 0) {
+        auto item = m_refreshItemModel->item(m_refreshCombox->currentIndex());
+        w = item->data(WidthRole).toInt();
+        h = item->data(HeightRole).toInt();
+    }
 
-        for (int idx = 0; idx < m_refreshItemModel->rowCount(); ++idx) {
-            auto item = m_refreshItemModel->item(idx);
-            if (item->data(IdRole).toInt() == mode.id()) {
-                m_refreshCombox->setCurrentIndex(item->row());
-                break;
-            }
+    // 无刷新率,分辨率宽度或高度改变则重新加载刷新率
+    if (m_refreshCombox->currentIndex() < 0 || m_refreshItemModel->rowCount() < 0 || w != mode.width() || h != mode.height()) {
+        initRefreshRate();
+    }
+
+    for (int idx = 0; idx < m_refreshItemModel->rowCount(); ++idx) {
+        auto item = m_refreshItemModel->item(idx);
+        if (item->data(IdRole).toInt() == mode.id()) {
+            m_refreshCombox->setCurrentIndex(item->row());
+            break;
         }
-    });
+    }
 }
 
 void RefreshRateWidget::initRefreshRate()

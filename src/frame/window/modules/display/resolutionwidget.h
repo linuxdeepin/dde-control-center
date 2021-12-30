@@ -114,6 +114,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void OnAvailableFillModesChanged(const QStringList &lstFillMode);
+    void OnCurrentModeChanged(const Resolution &mode);
 
 private:
     void initResolution();
