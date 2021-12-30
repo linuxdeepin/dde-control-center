@@ -472,6 +472,13 @@ void UpdateWorker::getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo)
     QString languageType = "CN";
     if (language.count() > 1) {
         languageType = language.value(1);
+        if(languageType == "CN"
+                || languageType == "TW"
+                || languageType == "HK"){
+            languageType = "CN";
+        }else {
+            languageType = "US";
+        }
     }
 
     QJsonObject jsonObject = jsonValue.toObject();
@@ -486,8 +493,6 @@ void UpdateWorker::getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo)
     } else {
         itemInfo->setUpdateTime(jsonValue.toObject().value("update_time").toString());
     }
-
-
 
     qDebug() << "UpdateWorker::getItemInfo  itemInfo->name() == " << itemInfo->name();
 
