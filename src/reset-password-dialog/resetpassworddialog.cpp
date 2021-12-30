@@ -117,7 +117,7 @@ QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type, CheckT
     return PasswordFlagsStrMap.value(type);
 }
 
-ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, const QString &userName, const QString &appName)
+ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, const QString &userName, const QString &appName, const int &fd)
     : DDialog(tr("Reset Password"), tr("By Union ID"))
     , m_screenGeometry(screenGeometry)
     , m_phoneEmailEdit (new DLineEdit )
@@ -131,6 +131,7 @@ ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, const QString &us
     , m_isCodeCorrect(false)
     , m_userName(userName)
     , m_appName(appName)
+    , m_fd(fd)
     , m_codeTimer(new QTimer(this))
     , m_monitorTimer(new QTimer(this))
     , m_verifyCodeSuccess(false)
@@ -355,7 +356,12 @@ void ResetPasswordDialog::initData()
         updatePosition();
         this->show();
         m_tipDialog.hide();
-        std::cout << cryptUserPassword(m_newPasswordEdit->text()).toStdString().c_str() << std::endl;
+        QFile file;
+        if (file.open(m_fd, QIODevice::WriteOnly)) {
+            file.write((cryptUserPassword(m_newPasswordEdit->text())+ "\n").toStdString().c_str());
+            file.flush();
+            file.close();
+        }
     });
     if (m_appName == "greeter" || m_appName == "lock") {
         m_monitorTimer->start(300);
@@ -469,7 +475,7 @@ void ResetPasswordDialog::onResetPasswordBtnClicked()
         }
     }
 
-    // 新密码和旧密码是否一致
+    // 新密码和重复密码是否一致
     if (m_newPasswordEdit->text() != m_repeatPasswordEdit->text()) {
         m_repeatPasswordEdit->setAlert(true);
         m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
@@ -739,10 +745,6 @@ void ResetPasswordDialog::quit()
     m_resetPasswordFloatingMessage->setDuration(2000);
     DMessageManager::instance()->sendMessage(this, m_resetPasswordFloatingMessage);
     QTimer::singleShot(3000, [this] {
-        if (m_appName == "greeter" || m_appName == "lock") {
-            m_client->write("close");
-            m_client->flush();
-        }
         this->close();
         qApp->quit();
     });
@@ -774,11 +776,12 @@ void ResetPasswordDialog::updatePosition()
     m_tipDialog.move(tx, ty);
 }
 
-Manager::Manager(const QString &userName, const QString &appName)
+Manager::Manager(const QString &userName, const QString &appName, const int &fd)
     : QObject()
     , m_dialog(nullptr)
     , m_usrName(userName)
     , m_appName(appName)
+    , m_fd(fd)
 {
 }
 
@@ -794,7 +797,7 @@ void Manager::setupDialog()
         // If the original screen contains the original mouse, save the scaled geometry.
         if (g.contains(cp)) {
             if (!m_dialog) {
-                m_dialog = new ResetPasswordDialog(realRect, m_usrName, m_appName);
+                m_dialog = new ResetPasswordDialog(realRect, m_usrName, m_appName, m_fd);
             } else {
                 m_dialog->setScreenGeometry(realRect);
             }

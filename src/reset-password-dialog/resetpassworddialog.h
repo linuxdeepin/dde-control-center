@@ -102,7 +102,7 @@ class ResetPasswordDialog : public DDialog
         UNION_ID_ERROR_USER_UNBIND = 7514,       // 推送验证码的账号未绑定
     };
 public:
-    explicit ResetPasswordDialog(QRect screenGeometry, const QString &userName, const QString &appName);
+    explicit ResetPasswordDialog(QRect screenGeometry, const QString &userName, const QString &appName, const int &fd);
     ~ResetPasswordDialog() {}
 
     QRect screenGeometry() const;
@@ -157,6 +157,7 @@ private:
     QString m_user;
     QString m_userName;
     QString m_appName;
+    int m_fd;
     QString m_ubid;
     QTimer *m_codeTimer;
     QTimer *m_monitorTimer;
@@ -169,7 +170,7 @@ class Manager : public QObject
 {
     Q_OBJECT
 public:
-   explicit Manager(const QString &userName, const QString &appName);
+   explicit Manager(const QString &userName, const QString &appName, const int &fd);
     ~Manager() {}
 
     void start();
@@ -180,6 +181,7 @@ private:
     ResetPasswordDialog *m_dialog;
     QString m_usrName;
     QString m_appName;
+    int m_fd;
 };
 
 #endif // REMINDERDDIALOG_H

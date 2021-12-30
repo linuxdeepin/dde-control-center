@@ -50,11 +50,14 @@ int main(int argc, char *argv[])
     parser.addOption(userNameOption);
     QCommandLineOption appNameOption(QStringList() << "a" << "appname", "application name", "applicationName", "");
     parser.addOption(appNameOption);
+    QCommandLineOption fdOption(QStringList() << "fd" << "filedescriptipn", "file descriptipn", "filedescriptipn", "");
+    parser.addOption(fdOption);
 
     parser.parse(QCoreApplication::arguments());
 
     QString userName = parser.value(userNameOption);
     QString appName = parser.value(appNameOption);
+    int fd = parser.value(fdOption).toInt();
 
     QTranslator translator;
     translator.load("/usr/share/dde-control-center/translations/reset-password-dialog_" + QLocale::system().name());
@@ -67,7 +70,7 @@ int main(int argc, char *argv[])
     DLogManager::registerConsoleAppender();
     DLogManager::registerFileAppender();
 
-    Manager *manager = new Manager(userName, appName);
+    Manager *manager = new Manager(userName, appName, fd);
     manager->start();
 
     return a.exec();
