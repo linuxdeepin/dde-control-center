@@ -33,6 +33,7 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 #include <DDialog>
+#include <QDBusMetaType>
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
