@@ -592,7 +592,7 @@ void WirelessItem::onConnection()
         m_device->disconnectNetwork();
 }
 
-void WirelessItem::expandWidget(ExpandWidget type)
+void WirelessItem::expandWidget(ExpandWidget type, bool autoDisconnect)
 {
     switch (type) {
     case ExpandWidget::Hide:
@@ -601,6 +601,9 @@ void WirelessItem::expandWidget(ExpandWidget type)
         standardItem()->setSizeHint(QSize(-1, 36));
         if (m_accessPoint) {
             LocalClient::instance()->changePassword(m_accessPoint->ssid(), QString(), false);
+            if(autoDisconnect && m_accessPoint->status() == ConnectionStatus::Activating) {
+                m_device->disconnectNetwork();
+            }
         }
         break;
     case ExpandWidget::ShowSSID:
@@ -737,12 +740,12 @@ void WirelessItem::onConnectNetwork()
     if (m_wirelessConnect->passwordIsValid(password)) {
         if (m_accessPoint) {
             if (LocalClient::instance()->changePassword(m_accessPoint->ssid(), password, true)) {
-                expandWidget(ExpandWidget::Hide);
+                expandWidget(ExpandWidget::Hide, false);
                 return;
             }
         }
         m_wirelessConnect->connectNetworkPassword(m_passwdEdit->text());
-        expandWidget(ExpandWidget::Hide);
+        expandWidget(ExpandWidget::Hide, false);
     }
 }
 
@@ -766,7 +769,7 @@ void WirelessItem::onConnectHidden()
 {
     QString ssid = m_ssidEdit->text();
     if (!ssid.isEmpty()) {
-        expandWidget(ExpandWidget::Hide);
+        expandWidget(ExpandWidget::Hide, false);
         m_wirelessConnect->setSsid(m_ssidEdit->text());
         m_wirelessConnect->connectNetwork();
     }

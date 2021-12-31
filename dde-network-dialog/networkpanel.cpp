@@ -609,24 +609,28 @@ void NetworkPanel::expandPasswordInput()
         return;
     }
     NetItem *oldSelectItem = selectItem();
+    int y = 0;
     for (NetItem *item : m_items) {
         if (NetItemType::WirelessViewItem == item->itemType()) {
             WirelessItem *wirelessItem = static_cast<WirelessItem *>(item);
             if (wirelessItem->accessPoint()
                 && (m_reconnectDev.isEmpty() || wirelessItem->wirelessDevice()->path() == m_reconnectDev)
-                && (wirelessItem->accessPoint()->ssid() == m_reconnectSsid)) {
+                && (wirelessItem->standardItem()->text() == m_reconnectSsid)) {
                 if (item != oldSelectItem) {
                     if (oldSelectItem) {
                         WirelessItem *selectItem = static_cast<WirelessItem *>(oldSelectItem);
                         selectItem->expandWidget(WirelessItem::Hide); // 选择切换时隐藏输入框
                     }
                     wirelessItem->expandPasswordInput();
+                    int h = item->standardItem()->sizeHint().height() / 2;
+                    m_applet->ensureVisible(0, y + h, 0, h);
                 }
                 m_reconnectSsid.clear();
                 m_reconnectDev.clear();
                 break;
             }
         }
+        y += item->standardItem()->sizeHint().height();
     }
 }
 
