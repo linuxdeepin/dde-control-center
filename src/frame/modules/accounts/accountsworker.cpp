@@ -243,15 +243,19 @@ void AccountsWorker::setFullname(User *user, const QString &fullname)
 }
 
 void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
-{  
+{
     QDBusPendingCall call = m_accountsInter->DeleteUser(user->name(), deleteHome);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [=] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, user] (QDBusPendingCallWatcher* call) {
         Q_EMIT requestMainWindowEnabled(true);
-        if (call.isError()) {
-            qDebug() << Q_FUNC_INFO << call.error().message();
+        if (call->isError()) {
+            qDebug() << Q_FUNC_INFO << call->error().message();
             Q_EMIT m_userModel->isCancelChanged();
         } else {
+            if (!m_userInters.contains(user)) {
+                call->deleteLater();
+                return;
+            }
             Q_EMIT m_userModel->deleteUserSuccess();
             removeUser(m_userInters.value(user)->path());
             getAllGroups();
@@ -270,7 +274,7 @@ void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
                 }
             }
         }
-        watcher->deleteLater();
+        call->deleteLater();
     });
     Q_EMIT requestMainWindowEnabled(false);
 }
