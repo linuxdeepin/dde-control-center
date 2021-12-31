@@ -143,7 +143,6 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
     PRINT_INFO_MESSAGE("device Changed");
     const QJsonObject data = QJsonDocument::fromJson(value.toUtf8()).object();
     QStringList devPaths;
-    QMap<NetworkDeviceBase *, QJsonObject> devInfoMap;
     QList<NetworkDeviceBase *> newDevices;
     QStringList keys = data.keys();
     for (int i = 0; i < keys.size(); i++) {
@@ -182,12 +181,14 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
                     PRINT_DEBUG_MESSAGE(QString("new Wireless Device: %1").arg(deviceInfo.value("Interface").toString()));
                     DeviceInterRealize *wirelessRealize = new WirelessDeviceInterRealize(m_ipChecker, m_networkInter, nullptr);
                     device = new WirelessDevice(wirelessRealize, this);
+                    wirelessRealize->updateDeviceInfo(deviceInfo);
                     break;
                 }
                 case DeviceType::Wired: {
                     PRINT_DEBUG_MESSAGE(QString("new Wired Device: %1").arg(deviceInfo.value("Interface").toString()));
                     DeviceInterRealize *wiredRealize = new WiredDeviceInterRealize(m_ipChecker, m_networkInter, nullptr);
                     device = new WiredDevice(wiredRealize, this);
+                    wiredRealize->updateDeviceInfo(deviceInfo);
                     break;
                 }
                 default:
@@ -197,9 +198,11 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
                     newDevices << device;
                     m_devices << device;
                 }
+            } else {
+                DeviceInterRealize *deviceRealized = static_cast<DeviceInterRealize *>(device->deviceRealize());
+                deviceRealized->updateDeviceInfo(deviceInfo);
             }
             if (device) {
-                devInfoMap[device] = deviceInfo;
                 // 将所有的设备路径添加到缓存中
                 if (!devPaths.contains(device->path()))
                     devPaths << device->path();
@@ -207,6 +210,12 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
         }
     }
     // 对设备进行排序，有线网络始终排在无线网络前面
+    auto getPathIndex = [ ](const QString path)->int {
+        int index = path.lastIndexOf("/");
+        QString tmpIndexValue = path.mid(index + 1);
+        return tmpIndexValue.toInt();
+    };
+
     qSort(m_devices.begin(), m_devices.end(), [ = ] (NetworkDeviceBase *dev1, NetworkDeviceBase *dev2) {
         if (dev1->deviceType() == DeviceType::Wired && dev2->deviceType() == DeviceType::Wireless)
             return true;
@@ -214,7 +223,7 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
         if (dev1->deviceType() == DeviceType::Wireless && dev2->deviceType() == DeviceType::Wired)
             return false;
 
-        return devPaths.indexOf(dev1->path()) < devPaths.indexOf(dev2->path());
+        return getPathIndex(dev1->path()) < getPathIndex(dev2->path());
     });
     // 更新设备的连接信息，因为读取设备状态信息的时候，需要这个连接信息
     updateDeviceConnectiveInfo();
@@ -227,14 +236,6 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
 
     for (NetworkDeviceBase *device : rmDevices)
         m_devices.removeOne(device);
-
-    for (NetworkDeviceBase *device : m_devices) {
-        if (devInfoMap.contains(device)) {
-            QJsonObject info = devInfoMap.value(device);
-            DeviceInterRealize *deviceInter = static_cast<DeviceInterRealize *>(device->deviceRealize());
-            deviceInter->updateDeviceInfo(info);
-        }
-    }
 
     if (newDevices.size() > 0 || rmDevices.size() > 0) {
         // 更新设备名称
@@ -288,7 +289,7 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
             delete device;
     }
     // 如果发现有Manager=false的对象，则让它等一秒后从设备列表中移除manager==false的对象，因为可能是关闭热点引起的Manager=false
-    if (unManager)
+    if (unManager) {
         QTimer::singleShot(1000, this, [ this ] {
             QList<NetworkDeviceBase *> rmDevices;
             for (NetworkDeviceBase *device : m_devices) {
@@ -310,6 +311,7 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
                     delete device;
             }
         });
+    }
 }
 
 void NetworkInterProcesser::onConnectionListChanged(const QString &connections)

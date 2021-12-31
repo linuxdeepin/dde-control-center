@@ -349,11 +349,14 @@ void DeviceManagerRealize::changeWiredStatus(Device::State newstate)
     if (m_activeWiredConnection)
         oldStatus = m_activeWiredConnection->status();
 
-    for (WiredConnection *conn : m_wiredConnections)
-        conn->setConnectionStatus(ConnectionStatus::Deactivated);
-
     NetworkManager::ActiveConnection::Ptr activeConn = m_wDevice->activeConnection();
     if (activeConn.isNull()) {
+        // 断开了连接以后，如果以前存在连接，则向外抛出断开的信号
+        if (m_activeWiredConnection) {
+            m_activeWiredConnection->setConnectionStatus(ConnectionStatus::Deactivated);
+            m_activeWiredConnection = nullptr;
+            Q_EMIT activeConnectionChanged();
+        }
         PRINT_INFO_MESSAGE("active connection is empty");
         return;
     }
@@ -365,7 +368,11 @@ void DeviceManagerRealize::changeWiredStatus(Device::State newstate)
     }
 
     ConnectionStatus newStatus = convertStatus(newstate);
-    if (oldStatus != newStatus || currentConnection != m_activeWiredConnection) {
+    if (m_activeWiredConnection && currentConnection != m_activeWiredConnection) {
+        m_activeWiredConnection->setConnectionStatus(ConnectionStatus::Deactivated);
+        oldStatus = ConnectionStatus::Unknown;
+    }
+    if(oldStatus != newStatus){
         m_activeWiredConnection = currentConnection;
         currentConnection->setConnectionStatus(newStatus);
         Q_EMIT activeConnectionChanged();
@@ -388,14 +395,17 @@ void DeviceManagerRealize::changeWirelessStatus(Device::State newstate)
             oldStatus = activePoint->status();
     }
 
-    // 重置所有的连接的状态
-    for (AccessPoints *accessPoint : m_accessPoints)
-        accessPoint->m_status = ConnectionStatus::Deactivated;
-
     NetworkManager::ActiveConnection::Ptr activeConn = m_wDevice->activeConnection();
     if (activeConn.isNull()) {
+        if (m_activeWirelessConnection) {
+            AccessPoints *ap = findAccessPoints(m_activeWirelessConnection->connection()->ssid());
+            if (ap)
+                ap->m_status = ConnectionStatus::Deactivated;
+
+            m_activeWirelessConnection = nullptr;
+            Q_EMIT activeConnectionChanged();
+        }
         PRINT_INFO_MESSAGE("active connection is empty");
-        Q_EMIT activeConnectionChanged();
         return;
     }
 
@@ -406,8 +416,15 @@ void DeviceManagerRealize::changeWirelessStatus(Device::State newstate)
         return;
     }
 
+    if (m_activeWirelessConnection && m_activeWirelessConnection != currentConnection) {
+        AccessPoints *ap = findAccessPoints(m_activeWirelessConnection->connection()->ssid());
+        if (ap)
+            ap->m_status = ConnectionStatus::Deactivated;
+        oldStatus = ConnectionStatus::Unknown;
+    }
+
     ConnectionStatus newStatus = convertStatus(newstate);
-    if (newStatus != oldStatus || m_activeWirelessConnection != currentConnection) {
+    if (newStatus != oldStatus) {
         m_activeWirelessConnection = currentConnection;
         AccessPoints *ap = findAccessPoints(currentConnection->connection()->ssid());
         if (ap) {
@@ -543,8 +560,11 @@ void DeviceManagerRealize::createWlans(QList<WirelessConnection *> &allConnectio
 
     PRINT_DEBUG_MESSAGE(QString("new AccessPoint size:%1, remove AccessPoint Size: %2").arg(newAps.size()).arg(rmAps.size()));
     if (rmAps.size() > 0 || newAps.size() > 0) {
-        if (newAps.size() > 0)
+        if (newAps.size() > 0) {
             Q_EMIT networkAdded(newAps);
+            // 新增无线网络之前最好先刷新网络列表状态，因为考虑到连接隐藏网络的时候，没有触发网络状态变化信号，因此此处需要手动调用
+            changeStatus(m_wDevice->state());
+        }
 
         if (rmAps.size() > 0)
             Q_EMIT networkRemoved(rmAps);

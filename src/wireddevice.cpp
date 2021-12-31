@@ -91,6 +91,7 @@ ConnectionStatus WiredConnection::status() const
 
 WiredConnection::WiredConnection()
     : ControllItems()
+    , m_status(ConnectionStatus::Unknown)
 {
 }
 

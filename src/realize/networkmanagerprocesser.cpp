@@ -125,12 +125,11 @@ HotspotController *NetworkManagerProcesser::hotspotController()
 
 void NetworkManagerProcesser::sortDevice()
 {
-    QStringList devicePaths;
-    Device::List allDevices = NetworkManager::networkInterfaces();
-    for (Device::Ptr device : allDevices) {
-        if (device->type() == Device::Type::Wifi || device->type() == Device::Type::Ethernet)
-            devicePaths << device->uni();
-    }
+    auto getPathIndex = [](const QString path)->int {
+        int index = path.lastIndexOf("/");
+        QString tmpIndexValue = path.mid(index + 1);
+        return tmpIndexValue.toInt();
+    };
     // 有线网络始终在无线网络的前面，如果两者都是有线或者无线网络，则按照path的顺序来排序
     qSort(m_devices.begin(), m_devices.end(),  [ = ](NetworkDeviceBase *device1, NetworkDeviceBase *device2) {
         if (device1->deviceType() == DeviceType::Wired && device2->deviceType() == DeviceType::Wireless)
@@ -139,7 +138,7 @@ void NetworkManagerProcesser::sortDevice()
         if (device1->deviceType() == DeviceType::Wireless && device2->deviceType() == DeviceType::Wired)
             return false;
 
-        return devicePaths.indexOf(device1->path()) < devicePaths.indexOf(device2->path());
+        return getPathIndex(device1->path()) < getPathIndex(device2->path());
     });
 }
 
