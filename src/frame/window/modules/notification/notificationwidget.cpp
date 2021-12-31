@@ -76,7 +76,7 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_systemListView->setModel(m_sysmodel);
     m_centralLayout->addWidget(m_systemListView, 0, Qt::AlignTop);
     m_centralLayout->addSpacing(0);
-    m_centralLayout->setContentsMargins(10,10,0,0);
+    m_centralLayout->setContentsMargins(10, 10, 0, 0);
 
     connect(m_systemListView, &DListView::clicked, this, &NotificationWidget::onSystemClicked);
     connect(m_systemListView, &DListView::activated, m_systemListView, &DListView::clicked);
@@ -151,6 +151,16 @@ void NotificationWidget::onSystemClicked(const QModelIndex &index)
 
 void NotificationWidget::refreshList()
 {
+    int row = 0;
+    bool systemHasChecked = m_systemListView->selectionModel()->hasSelection();
+
+    if (!systemHasChecked) {
+        row = m_lastIndex.row();
+        if (row >= m_model->getAppSize()) {
+            row = 0;
+        }
+    }
+
     m_softwaremodel->clear();
     for (int i = 0; i < m_model->getAppSize(); ++i) {
         QString softName = m_model->getAppModel(i)->getAppName();
@@ -158,6 +168,10 @@ void NotificationWidget::refreshList()
         DStandardItem *item = new DStandardItem(icon, softName);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_softwaremodel->appendRow(item);
+    }
+
+    if (!systemHasChecked) {
+        onAppClicked(m_softwaremodel->indexFromItem(m_softwaremodel->item(row)));
     }
 }
 
