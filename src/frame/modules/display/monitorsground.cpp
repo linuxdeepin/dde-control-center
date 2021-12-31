@@ -596,7 +596,7 @@ QPointF MonitorsGround::multiScreenSortAlgo(bool &isRestore, bool isMove)
                qreal x1 = pair.first->mapToScene(pair.first->boundingRect().topLeft()).x();
                qreal x2 = pair.first->mapToScene(pair.first->boundingRect().topRight()).x();
 
-               if (!((x1 > movex1 && x1 > movex2) || (x2 < movex1 && x2 < movex2))) {
+               if (!((x1 >= movex1 && x1 >= movex2) || (x2 <= movex1 && x2 <= movex2))) {
                    lstActivedItemsX.append(pair.first);
                 }
            }
@@ -737,7 +737,7 @@ QPointF MonitorsGround::multiScreenSortAlgo(bool &isRestore, bool isMove)
                qreal y1 = pair.first->mapToScene(pair.first->boundingRect().topLeft()).y();
                qreal y2 = pair.first->mapToScene(pair.first->boundingRect().bottomLeft()).y();
 
-               if (!((y1 > movey1 && y1 > movey2) || (y2 < movey1 && y2 < movey2))) {
+               if (!((y1 >= movey1 && y1 >= movey2) || (y2 <= movey1 && y2 <= movey2))) {
                     lstActivedItemsY.append(pair.first);
                 }
            }
