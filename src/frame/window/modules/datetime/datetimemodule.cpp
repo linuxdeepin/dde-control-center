@@ -53,14 +53,21 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
     GSettingWatcher::instance()->insertState("timeFormat");
 }
 
-void DatetimeModule::initialize()
+void DatetimeModule::preInitialize(bool sync, FrameProxyInterface::PushType)
 {
+    Q_UNUSED(sync)
+
     m_work = &DatetimeWork::getInstance();
     m_model = m_work->model();
 
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
 
+    initSearchData();
+}
+
+void DatetimeModule::initialize()
+{
 #ifndef DCC_DISABLE_TIMEZONE
     connect(this, &DatetimeModule::requestSetTimeZone, m_work, &DatetimeWork::setTimezone);
     connect(this, &DatetimeModule::requestRemoveUserTimeZone, m_work, &DatetimeWork::removeUserTimeZone);
@@ -185,6 +192,135 @@ QStringList DatetimeModule::availPage() const
     list << "Timezone List" << "Timezone List/Change System Timezone" << "Time Settings" << "Timezone List/Add Timezone" << "Format Settings";
 
     return list;
+}
+
+void DatetimeModule::initSearchData()
+{
+    static QMap<QString, bool> gsettingsMap;
+    QString module = tr("Date and Time");
+    QString timeSettings = tr("Time Settings");
+    QString timezoneList = tr("Timezone List");
+    QString formatSettings = tr("Format Settings");
+    QString weeks = tr("Weeks").remove('/').trimmed();
+
+    QStringList gsecondList;
+    gsecondList << "timezoneList" << "timeSettings" << "timeFormat";
+
+    auto func_is_visible = [ = ](const QString &gsettings, bool state = false) {
+        if (gsettings == "") {
+            return false;
+        }
+
+        bool ret = false;
+        if (state) {
+            ret = GSettingWatcher::instance()->get(gsettings).toBool();
+        } else {
+            ret = GSettingWatcher::instance()->get(gsettings).toString() != "Hidden";
+        }
+
+        gsettingsMap.insert(gsettings, ret);
+        return ret;
+    };
+
+    auto func_timezonelist_changed = [ = ]() {
+        if (!m_frameProxy || !m_model) {
+            return;
+        }
+
+        bool bTimezonelist = func_is_visible("timezoneList", true);
+        m_frameProxy->setWidgetVisible(module, timezoneList, bTimezonelist);
+        m_frameProxy->setDetailVisible(module, timezoneList, tr("Change System Timezone"), bTimezonelist);
+        m_frameProxy->setDetailVisible(module, timezoneList, tr("System Timezone"), bTimezonelist);
+        m_frameProxy->setDetailVisible(module, timezoneList, tr("Add Timezone"), bTimezonelist && func_is_visible("datetimeZonelistAddtimezone"));
+    };
+
+    auto func_format_changed = [ = ]() {
+        if (!m_frameProxy || !m_model) {
+            return;
+        }
+
+        //TODO: datetimeFromatsetting为Hidden时只会隐藏三级页面，耳机页面的选项还在需要移除
+        bool bTimeFormat = func_is_visible("timeFormat", true) && func_is_visible("datetimeFromatsetting");
+        m_frameProxy->setWidgetVisible(module, formatSettings, bTimeFormat);
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Date and Time Formats"), bTimeFormat);
+        m_frameProxy->setDetailVisible(module, formatSettings, weeks, bTimeFormat);
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Short Date"), bTimeFormat);
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Long Date"), bTimeFormat);
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Short Time"), bTimeFormat);
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Long Time"), bTimeFormat);
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("First Day of Week"), bTimeFormat);
+    };
+
+    auto func_setting_changed = [ = ]() {
+        if (!m_frameProxy || !m_model) {
+            return;
+        }
+
+        bool bTimeSettings = func_is_visible("timeSettings", true);
+        m_frameProxy->setWidgetVisible(module, timeSettings, bTimeSettings);
+        m_frameProxy->setDetailVisible(module, timeSettings, tr("Auto Sync"), bTimeSettings && func_is_visible("datetimeDatesettingAutosync"));
+        m_frameProxy->setDetailVisible(module, timeSettings, tr("Server"), bTimeSettings && m_model->nTP());
+    };
+
+    auto func_process_all = [ = ]() {
+
+        m_frameProxy->setModuleVisible(module, true);
+        m_frameProxy->setWidgetVisible(module, tr("24-hour Time"), true);
+
+        func_timezonelist_changed();
+
+        func_format_changed();
+
+        func_setting_changed();
+
+     };
+
+    //更新开/关时间同步显示“服务器”
+    connect(m_model, &DatetimeModel::NTPChanged, [ = ](bool value) {
+        m_frameProxy->setDetailVisible(module, timeSettings, tr("Server"), func_is_visible("timeSettings", true) && value);
+        if (m_frameProxy) {
+            m_frameProxy->updateSearchData(module);
+        }
+    });
+
+    //gsetting data changed
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+        if ("" == gsetting || !gsettingsMap.contains(gsetting)) {
+            return;
+        }
+
+        if (gsecondList.contains(gsetting)) {//bool: timezonlist, timeFormat, timeSettings
+            if (gsettingsMap.value(gsetting) == GSettingWatcher::instance()->get(gsetting).toBool()) {
+                return;
+            }
+        } else {//QString: datetimeZonelistAddtimezone, datetimeDatesettingAutosync, datetimeFromatsetting
+            if (gsettingsMap.value(gsetting) == (state != "Hidden")) {
+                return;
+            }
+        }
+
+        if ("timezoneList" == gsetting) {
+            func_timezonelist_changed();
+        } else if ("timeSettings" == gsetting) {
+            func_setting_changed();
+        } else if ("timeFormat" == gsetting || "datetimeFromatsetting" == gsetting) {
+            func_format_changed();
+        } else if ("datetimeZonelistAddtimezone" == gsetting) {
+            if (m_frameProxy)
+                m_frameProxy->setDetailVisible(module, timezoneList, tr("Add Timezone"), func_is_visible("timezoneList") && func_is_visible("datetimeZonelistAddtimezone"));
+        } else if ("datetimeDatesettingAutosync" == gsetting) {
+            if (m_frameProxy)
+                m_frameProxy->setDetailVisible(module, timeSettings, tr("Auto Sync"), func_is_visible("timeSettings", true) && func_is_visible("datetimeDatesettingAutosync"));
+        } else {
+            qInfo() << " not contains the gsettings : " << gsetting << state;
+            return;
+        }
+
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        m_frameProxy->updateSearchData(module);
+    });
+
+    func_process_all();
 }
 
 void DatetimeModule::updateSystemTimezone(const QString &timezone)

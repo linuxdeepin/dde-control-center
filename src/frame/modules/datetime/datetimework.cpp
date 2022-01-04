@@ -90,6 +90,7 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     refreshNtpServerList();
     m_model->setNtpServerAddress(m_timedateInter->nTPServer());
     m_model->setTimeZoneInfo(m_timedateInter->timezone());
+    m_model->setNTP(m_timedateInter->nTP());
 }
 
 DatetimeWork::~DatetimeWork()

@@ -425,14 +425,14 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     bool isCurUser = m_curUser->isCurrentUser();
     m_autoLogin->switchButton()->setEnabled(isCurUser);
     m_nopasswdLogin->switchButton()->setEnabled(isCurUser);
-    //~ contents_path /accounts/Accounts Detail
+    //~ contents_path /accounts/Change Password
     m_modifyPassword->setText(m_curUser->isCurrentUser() ? tr("Change Password") : tr("Reset Password"));
-    //~ contents_path /accounts/Accounts Detail
+    //~ contents_path /accounts/Delete Account
     m_deleteAccount->setText(tr("Delete Account"));
-    //~ contents_path /accounts/Accounts Detail
+    //~ contents_path /accounts/Auto Login
     m_autoLogin->setTitle(tr("Auto Login"));
     m_autoLogin->setChecked(m_curUser->autoLogin());
-    //~ contents_path /accounts/Accounts Detail
+    //~ contents_path /accounts/Login Without Password
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
     //~ contents_path /accounts/Accounts Detail
@@ -444,6 +444,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         setModifyPwdBtnStatus("accountUserModifypasswd");
     });
     setModifyPwdBtnStatus("accountUserModifypasswd");
+//    GSettingWatcher::instance()->bind("accountUserModifypasswd", m_modifyPassword);
 
     //修改密码
     connect(m_modifyPassword, &QPushButton::clicked, [ = ] {

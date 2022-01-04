@@ -73,12 +73,15 @@ private Q_SLOTS:
     void pushScreenWidget();
     int showTimeoutDialog(dcc::display::Monitor *monitor, const bool isFillMode = false);
     void onSetFillMode(QString currFullMode = "");
+    void initSearchData();
+    void showDisplayRecognize();
 
 private:
     dcc::display::DisplayModel *m_displayModel;
     dcc::display::DisplayWorker *m_displayWorker;
     DisplayWidget *m_displayWidget;
     MainWindow *m_pMainWindow;
+    QMap<QString, RecognizeWidget *> m_recognizeWidget;
 };
 
 } // namespace display

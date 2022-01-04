@@ -48,6 +48,12 @@ public:
     inline bool airplaneMode() const { return m_airplaneEnable; }
     inline bool displaySwitch() const { return m_displaySwitch; }
 
+    bool myDeviceVisible() {return m_myDeviceVisible;}
+    void setMyDeviceVisible(const bool visible);
+
+    bool otherDeviceVisible() {return m_otherDeviceVisible;}
+    void setOtherDeviceVisible(const bool visible);
+
 public Q_SLOTS:
     void addAdapter(Adapter *adapter);
     const Adapter *removeAdapater(const QString &adapterId);
@@ -65,6 +71,8 @@ Q_SIGNALS:
     void canSendFileChanged(const bool canSendFile) const;
     void airplaneEnableChanged(bool enable) const;
     void displaySwitchChanged(bool on) const;
+    void notifyMyDeviceVisibleChanged(bool);
+    void notifyOtherDeviceVisibleChanged(bool);
 
 private:
     QMap<QString, const Adapter *> m_adapters;
@@ -73,6 +81,8 @@ private:
     bool m_airplaneEnable;
     bool m_displaySwitch;
     friend class BluetoothWorker;
+    bool m_myDeviceVisible = false;
+    bool m_otherDeviceVisible = false;
 };
 
 } // namespace bluetooth

@@ -54,6 +54,7 @@ class AccountsModule : public QObject, public ModuleInterface
 public:
     explicit AccountsModule(FrameProxyInterface *frame, QObject *parent = nullptr);
 
+    virtual void preInitialize(bool sync = false, FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     void initialize() override;
     void reset() override;
     const QString name() const override;
@@ -76,6 +77,7 @@ public Q_SLOTS:
 
 private:
     ~AccountsModule();
+    void initSearchData();
 
 private:
     dcc::accounts::UserModel *m_userModel{nullptr};

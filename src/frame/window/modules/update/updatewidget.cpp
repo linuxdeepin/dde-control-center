@@ -57,9 +57,9 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     , m_topSwitchWidgetBtn(new DButtonBox)
     , m_mainLayout(new QStackedLayout)
 {
-    ;
-    //~ contents_path /update/Update
-    DButtonBoxButton *btnUpdate = new DButtonBoxButton(QIcon::fromTheme("dcc_update_topupdate"), tr("Updates"));
+    //~ contents_path /update/Updates
+    //~ child_page Updates
+    DButtonBoxButton *btnUpdate = new DButtonBoxButton(QIcon::fromTheme("dcc_update_topupdate"), tr("Check for Updates"));
     btnUpdate->setIconSize(QSize(24, 24));
     btnUpdate->setAccessibleName("UPDATE_CHECK");
     //~ contents_path /update/Update Settings

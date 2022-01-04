@@ -46,6 +46,7 @@ public:
     explicit PersonalizationModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     ~PersonalizationModule();
 
+    virtual void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual const QString displayName() const override;
@@ -62,6 +63,7 @@ private Q_SLOTS:
     void showIconThemeWidget();
     void showCursorThemeWidget();
     void showFontThemeWidget();
+    void initSearchData();
 
 private:
     dcc::personalization::PersonalizationModel  *m_model;

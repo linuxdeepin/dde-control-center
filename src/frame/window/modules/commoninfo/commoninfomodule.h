@@ -70,6 +70,7 @@ public Q_SLOTS:
 private:
     void initBootWidget();
     void initUeProgramWidget(); // for user experience program
+    void initSearchData();
 
 private:
     CommonInfoWork *m_commonWork {nullptr};

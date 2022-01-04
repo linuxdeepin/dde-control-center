@@ -36,6 +36,8 @@ using namespace DCC_NAMESPACE::sound;
 SoundModule::SoundModule(FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frameProxy)
+    , m_outputPortCount(0)
+    , m_inputPortCount(0)
 {
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
     GSettingWatcher::instance()->insertState("soundInput");
@@ -56,9 +58,186 @@ void SoundModule::preInitialize(bool, FrameProxyInterface::PushType pushtype)
     m_model->moveToThread(qApp->thread());
     m_worker->moveToThread(qApp->thread());
 
+    initSearchData();
+
     connect(m_model, &SoundModel::balanceVisibleChanged, m_pMainWindow, &MainWindow::setSpecialThreeMenuVisible);
     connect(m_model, &SoundModel::inputDevicesVisibleChanged, m_pMainWindow, &MainWindow::setSpecialThreeMenuVisible);
     connect(m_model, &SoundModel::outputDevicesVisibleChanged, m_pMainWindow, &MainWindow::setSpecialThreeMenuVisible);
+}
+
+void SoundModule::initSearchData()
+{
+    QString module = tr("Sound");
+    QString devices = tr("Devices");
+    QString input = tr("Input");
+    QString soundEffects = tr("Sound Effects");
+    QString output = tr("Output");
+
+    QString leftRightBalance = tr("Left/Right Balance").remove('/').trimmed();
+
+    QStringList gsSeclist;
+    gsSeclist << "soundOutput" << "soundInput" << "soundEffects" << "deviceManage";
+    QStringList gsThirdlist;
+    gsThirdlist << "soundInputSlider" << "soundOutputSlider" << "soundVolumeBoost"
+                << "soundBalanceSlider" << "soundEffectPage" << "soundNoiseReduce";
+
+    static QMap<QString, bool> gsettingsMap;
+
+    auto func_is_visible = [ = ](const QString &gsettings, QString state = "") {
+        if (gsettings == "") {
+            return false;
+        }
+
+        bool ret = false;
+        if (state == "") {
+            ret = GSettingWatcher::instance()->get(gsettings).toBool();
+        } else {
+            ret = GSettingWatcher::instance()->get(gsettings).toString() != "Hidden";
+        }
+
+        gsettingsMap.insert(gsettings, ret);
+
+        return ret;
+    };
+
+    auto func_input_changed = [ = ]() {
+        bool bSoundInput = func_is_visible("soundInput");
+        m_frameProxy->setWidgetVisible(module, input, bSoundInput);
+        m_frameProxy->setDetailVisible(module, input, tr("Input Device"), bSoundInput);
+        //输入设备为空不显示
+        bool isInputVisble = m_inputPortCount > 0;
+        m_frameProxy->setDetailVisible(module, input, tr("Automatic Noise Suppression"), bSoundInput && func_is_visible("soundNoiseReduce", "Hidden") && isInputVisble);
+        m_frameProxy->setDetailVisible(module, input, tr("Input Volume"), bSoundInput && func_is_visible("soundInputSlider", "Hidden") && isInputVisble);
+        m_frameProxy->setDetailVisible(module, input, tr("Input Level"), bSoundInput && isInputVisble);
+    };
+
+    auto func_output_changed = [ = ]() {
+        bool bSoundOutput = func_is_visible("soundOutput");
+        m_frameProxy->setWidgetVisible(module, output, bSoundOutput);
+        m_frameProxy->setDetailVisible(module, output, tr("Output Device"), bSoundOutput);
+        //输出设备为空不显示
+        bool isOutputVisble = m_outputPortCount > 0;
+        m_frameProxy->setDetailVisible(module, output, tr("Output Volume"), bSoundOutput && func_is_visible("soundOutputSlider", "Hidden") && isOutputVisble);
+        m_frameProxy->setDetailVisible(module, output, tr("Volume Boost"),  bSoundOutput && func_is_visible("soundVolumeBoost", "Hidden") && isOutputVisble);
+        m_frameProxy->setDetailVisible(module, output, leftRightBalance, bSoundOutput && func_is_visible("soundBalanceSlider", "Hidden") && isOutputVisble);
+    };
+
+    auto func_device_changed = [ = ]() {
+        bool bDevice = func_is_visible("deviceManage");
+        m_frameProxy->setWidgetVisible(module, devices, bDevice);
+        //输出设备不为空
+        m_frameProxy->setDetailVisible(module, devices, tr("Output Devices"), bDevice && m_outputPortCount > 0);
+        //输入设备不为空
+        m_frameProxy->setDetailVisible(module, devices, tr("Input Devices"), bDevice && m_inputPortCount > 0);
+    };
+
+    auto func_effect_changed = [ = ]() {
+        bool bSoundEffects = func_is_visible("soundEffects");
+        m_frameProxy->setWidgetVisible(module, soundEffects, bSoundEffects);
+        m_frameProxy->setDetailVisible(module, soundEffects, soundEffects, bSoundEffects && func_is_visible("soundEffectPage", "Hidden"));
+    };
+
+    auto func_process_all = [ = ]() {
+
+        m_frameProxy->setModuleVisible(module, true);
+
+        func_device_changed();
+
+        func_input_changed();
+
+        func_effect_changed();
+
+        func_output_changed();
+    };
+
+    //TODO: 当有输入或输出设备时可能不显示，该问题需要解决
+    connect(m_model, &SoundModel::portAdded, this, [ = ](const Port *port) {
+        if (!port) {
+            return;
+        }
+        if (Port::Out == port->direction()) {
+            m_outputPortCount++;
+        } else {
+            m_inputPortCount++;
+        }
+
+        func_process_all();
+        m_frameProxy->updateSearchData(module);
+    });
+
+    connect(m_model, &SoundModel::portRemoved, this, [ = ](const QString portName, const uint &cardId) {
+        if (!m_model) {
+            return;
+        }
+
+        const Port *port = m_model->findPort(portName, cardId);
+        if (!port) {
+            return;
+        }
+        if (cardId != port->cardId()) {
+            return;
+        }
+
+        if (Port::Out == port->direction()) {
+            m_outputPortCount--;
+        } else {
+            m_inputPortCount--;
+        }
+
+        func_process_all();
+        m_frameProxy->updateSearchData(module);
+    });
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+        if ("" == gsetting || !gsettingsMap.contains(gsetting)) {
+            return;
+        }
+
+        bool bGsMap = gsettingsMap.value(gsetting);
+        if (gsSeclist.contains(gsetting) && GSettingWatcher::instance()->get(gsetting).toBool() == bGsMap) {
+            return;
+        }
+
+        if (gsThirdlist.contains(gsetting)  && ((state != "Hidden") == bGsMap)) {
+            return;
+        }
+
+        if ("soundOutput" == gsetting) {
+            func_output_changed();
+        } else if ("soundInput" == gsetting) {
+            func_input_changed();
+        } else if ("soundEffects" == gsetting) {
+            func_effect_changed();
+        } else if ("deviceManage" == gsetting) {
+            func_device_changed();
+        } else if ("soundInputSlider" == gsetting) {
+            //输入设备为空不显示
+            m_frameProxy->setDetailVisible(module, input, tr("Input Volume"), func_is_visible("soundInput") && func_is_visible("soundInputSlider", "Hidden") && m_inputPortCount > 0);
+        } else if ("soundOutputSlider" == gsetting) {
+            //输出设备为空不显示
+            m_frameProxy->setDetailVisible(module, output, tr("Output Volume"), func_is_visible("soundOutput") && func_is_visible("soundOutputSlider", "Hidden") && m_outputPortCount > 0);
+        } else if ("soundVolumeBoost" == gsetting) {
+            //输出设备为空不显示
+            m_frameProxy->setDetailVisible(module, output, tr("Volume Boost"),  func_is_visible("soundOutput") && func_is_visible("soundVolumeBoost", "Hidden") && m_outputPortCount > 0);
+        } else if ("soundBalanceSlider" == gsetting) {
+            //输出设备为空不显示
+            m_frameProxy->setDetailVisible(module, output, leftRightBalance, func_is_visible("soundOutput") && func_is_visible("soundBalanceSlider", "Hidden") && m_outputPortCount > 0);
+        } else if ("soundEffectPage" == gsetting) {
+            bool bSoundEffects = func_is_visible("soundEffects");
+            m_frameProxy->setDetailVisible(module, soundEffects, soundEffects, bSoundEffects && func_is_visible("soundEffectPage", "Hidden"));
+        } else if ("soundNoiseReduce" == gsetting) {
+            //输入设备为空不显示
+            m_frameProxy->setDetailVisible(module, input, tr("Automatic Noise Suppression"), func_is_visible("soundInput") && func_is_visible("soundNoiseReduce", "Hidden") && m_inputPortCount > 0);
+        } else {
+            qInfo() << " not contains the gsettings : " << gsetting << state;
+            return;
+        }
+
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        m_frameProxy->updateSearchData(module);
+    });
+
+    func_process_all();
 }
 
 void SoundModule::initialize()

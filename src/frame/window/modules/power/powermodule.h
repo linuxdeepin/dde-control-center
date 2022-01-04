@@ -80,6 +80,7 @@ private:
     void showUseElectric();
     void showUseBattery();
     bool getDoubleCompare(const double value1, const double value2);
+    void initSearchData();
 
 private:
     dcc::power::PowerModel *m_model;

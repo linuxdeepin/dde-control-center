@@ -69,10 +69,13 @@ void MouseModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
     m_dbusProxy->moveToThread(qApp->thread());
     m_dbusProxy->active();
 
+    initSearchData();
+
     connect(m_model, &MouseModel::tpadExistChanged, this, [this](bool state) {
         qDebug() << "[Mouse] Touchpad , exist state : " << state;
         m_frameProxy->setRemoveableDeviceStatus(tr("Touchpad"), state);
     });//触控板
+
     connect(m_model, &MouseModel::redPointExistChanged, this, [this](bool state) {
         qDebug() << "[Mouse] TrackPoint , exist state : " << state;
         m_frameProxy->setRemoveableDeviceStatus(tr("TrackPoint"), state);
@@ -211,6 +214,139 @@ QStringList MouseModule::availPage() const
         sl << "TrackPoint";
     }
     return sl;
+}
+
+void MouseModule::initSearchData()
+{
+    QString module = tr("Mouse");
+    QString general = tr("General");
+    QString mouse = tr("Mouse");
+    QString touchpad = tr("Touchpad");
+    QString trackPoint = tr("TrackPoint");
+    QStringList boolGsList;
+    boolGsList << "mouseGeneral" << "mouseMouse" << "mouseTrackpoint" << "mouseTouch";
+
+    static QMap<QString, bool> gsettingsMap;
+
+    auto func_is_visible = [=](const QString &gsettings, bool state = false) {
+        if ("" == gsettings) {
+            return false;
+        }
+
+        bool ret = false;
+        QVariant value = GSettingWatcher::instance()->get(gsettings);
+        if (state) {
+            ret = value.toString() != "Hidden";
+        } else {
+            ret = value.toBool();
+        }
+        gsettingsMap.insert(gsettings, ret);
+        return ret;
+    };
+
+    auto func_general_changed = [ = ]() {
+        bool bGeneral = func_is_visible("mouseGeneral");
+        m_frameProxy->setWidgetVisible(module, general, bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Double-click Test"), bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Left Hand"), bGeneral && func_is_visible("mouseLeftHand", true));
+        m_frameProxy->setDetailVisible(module, general, tr("Disable touchpad while typing"), bGeneral && (m_model ? m_model->tpadExist() : true));
+        m_frameProxy->setDetailVisible(module, general, tr("Scrolling Speed"), bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Double-click Speed"), bGeneral);
+    };
+
+    auto func_mouse_changed = [ = ]() {
+        bool bModule = func_is_visible("mouseMouse");
+        m_frameProxy->setWidgetVisible(module, mouse, bModule);
+        m_frameProxy->setDetailVisible(module, mouse, tr("Pointer Speed"), bModule && func_is_visible("mouseSpeedSlider", true));
+        m_frameProxy->setDetailVisible(module, mouse, tr("Mouse Acceleration"), bModule);
+        m_frameProxy->setDetailVisible(module, mouse, tr("Disable touchpad when a mouse is connected"), bModule && (m_model ? m_model->tpadExist() : true));
+        m_frameProxy->setDetailVisible(module, mouse, tr("Natural Scrolling"), bModule);
+    };
+
+    auto func_touchpad_changed = [ = ](bool tpadExist) {
+        bool bTouchpad = func_is_visible("mouseTouch") && tpadExist;
+        m_frameProxy->setWidgetVisible(module, touchpad, bTouchpad);
+        m_frameProxy->setDetailVisible(module, touchpad, tr("Pointer Speed"), bTouchpad);
+        m_frameProxy->setDetailVisible(module, touchpad, tr("Tap to Click"), bTouchpad);
+        m_frameProxy->setDetailVisible(module, touchpad, tr("Natural Scrolling"), bTouchpad);
+    };
+
+     auto func_trackPoint_changed = [ = ](bool redPointExist) {
+         bool bTrackPoint = func_is_visible("mouseTrackpoint") && redPointExist;
+         m_frameProxy->setWidgetVisible(module, trackPoint, bTrackPoint);
+         m_frameProxy->setDetailVisible(module, trackPoint, tr("Pointer Speed"), bTrackPoint);
+     };
+
+    auto func_process_all = [ = ]() {
+
+        m_frameProxy->setModuleVisible(module, true);
+
+        func_general_changed();
+
+        func_mouse_changed();
+
+        func_touchpad_changed(m_model->tpadExist());
+
+        func_trackPoint_changed(m_model->redPointExist());
+     };
+
+    connect(m_model, &MouseModel::redPointExistChanged, this, [ = ](bool state) {
+        QTimer::singleShot(0, this, [ = ]() {
+            func_trackPoint_changed(state);
+            m_frameProxy->updateSearchData(module);
+        });
+    });
+    connect(m_model, &MouseModel::tpadExistChanged, this, [ = ](bool state) {
+        QTimer::singleShot(0, this, [ = ]() {
+            func_touchpad_changed(state);
+            m_frameProxy->updateSearchData(module);
+        });
+    });
+
+    //mouseGeneral,mouseMouse,mouseTrackpoint,mouseTouch
+    //mouseLeftHand, mouseTouchpad, mouseSpeedSlider(鼠标/指针速度)
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [ = ](const QString &gsetting, const QString &state) {
+        if (!gsettingsMap.contains(gsetting) || !m_frameProxy) {
+            return;
+        }
+
+        if (boolGsList.contains(gsetting)) {
+            if (gsettingsMap.value(gsetting) == GSettingWatcher::instance()->get(gsetting).toBool()) {
+                return;
+            }
+
+            if ("mouseGeneral" == gsetting) {
+                func_general_changed();
+            } else if ("mouseMouse" == gsetting) {
+                func_mouse_changed();
+            } else if ("mouseTrackpoint" == gsetting) {
+                func_trackPoint_changed(m_model->redPointExist());
+            } else if ("mouseTouch" == gsetting) {
+                func_touchpad_changed(m_model->tpadExist());
+            } else {
+                qDebug() << " not contains the gsettings : " << gsetting << state;
+                return;
+            }
+        } else {
+            if (gsettingsMap.value(gsetting) == (state != "Hidden")) {
+                return;
+            }
+
+            if ("mouseLeftHand" == gsetting) {
+                m_frameProxy->setDetailVisible(module, general, tr("Left Hand"), func_is_visible("mouseGeneral") && func_is_visible("mouseLeftHand", true));
+            } else if ("mouseSpeedSlider" == gsetting) {
+                m_frameProxy->setDetailVisible(module, mouse, tr("Pointer Speed"), func_is_visible("mouseMouse") && func_is_visible("mouseSpeedSlider", true));
+            } else {
+                qDebug() << " not contains the gsettings : " << gsetting << state;
+                return;
+            }
+        }
+
+        qWarning() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        m_frameProxy->updateSearchData(module);
+    });
+
+    func_process_all();
 }
 
 void MouseModule::contentPopped(QWidget *const w)

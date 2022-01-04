@@ -27,6 +27,7 @@
 #include "modules/systeminfo/systeminfowork.h"
 #include "widgets/utils.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <QVBoxLayout>
 #include <QGSettings>
@@ -121,6 +122,8 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
 
     Q_EMIT m_work->requestInit();
     Q_EMIT m_work->requestActive();
+
+    initSearchData();
 }
 
 void UpdateModule::initialize()
@@ -247,6 +250,101 @@ void UpdateModule::onNotifyDealMirrorWidget(bool state)
         //避免第三级页面不存在后,还会处理该函数
         disconnect(m_model, &UpdateModel::smartMirrorSwitchChanged, this, &UpdateModule::onNotifyDealMirrorWidget);
     }
+}
+
+void UpdateModule::initSearchData()
+{
+    QString module = tr("Updates");//更新
+    QString updates = tr("Check for Updates");//检查更新
+    QString updateSettings = tr("Update Settings");
+    static QMap<QString, bool> gsettingsMap;
+
+    auto func_is_visible = [=](const QString &gsettings) {
+        if ("" == gsettings) {
+            return false;
+        }
+
+        bool ret = false;
+        ret = GSettingWatcher::instance()->get(gsettings).toString() != "Hidden";
+        gsettingsMap.insert(gsettings, ret);
+        return ret;
+    };
+
+    auto func_process_all = [ = ]() {
+
+        m_frameProxy->setModuleVisible(module, true);
+        m_frameProxy->setWidgetVisible(module, updates, true);
+        m_frameProxy->setDetailVisible(module, updates, tr("Check for Updates"), true);//检查更新
+        m_frameProxy->setDetailVisible(module, updates, tr("Download and install updates"), true);
+        m_frameProxy->setDetailVisible(module, updates, tr("Install updates"), true);
+
+
+        m_frameProxy->setWidgetVisible(module, updateSettings, true);
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("Check for Updates"), func_is_visible("updateAutoCheck"));
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("System Updates"), m_model->autoCheckUpdates() && func_is_visible("updateSystemUpdate"));
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("App Updates in App Store"), m_model->autoCheckSystemUpdates() && func_is_visible("updateAppUpdate"));
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("Updates Notification"), func_is_visible("updateUpdateNotify"));
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("Download Updates"), m_model->autoDownloadUpdates() && func_is_visible("updateAutoDownlaod"));
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("Clear Package Cache"), func_is_visible("updateCleanCache"));
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("System Repository Detection"), true);
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("Smart Mirror Switch"), true);
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("Switch it on to connect to the quickest mirror site automatically"), true);
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("Mirror List"), true);
+#endif
+     };
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+        if ("" == gsetting || !gsettingsMap.contains(gsetting)) {
+            return;
+        }
+
+        if (gsettingsMap.value(gsetting) == (GSettingWatcher::instance()->get(gsetting).toString() != "Hidden")) {
+            return;
+        }
+
+        bool isVisible = func_is_visible(gsetting);
+        if ("updateAutoCheck" == gsetting) {
+            m_frameProxy->setDetailVisible(module, updateSettings, tr("Check for Updates"), isVisible);
+        } else if ("updateSystemUpdate" == gsetting) {
+            m_frameProxy->setDetailVisible(module, updateSettings, tr("System Updates"), isVisible && m_model->autoCheckUpdates());
+        } else if ("updateAppUpdate" == gsetting) {
+            m_frameProxy->setDetailVisible(module, updateSettings, tr("App Updates in App Store"), isVisible && m_model->autoCheckSystemUpdates());
+        } else if ("updateUpdateNotify" == gsetting) {
+            m_frameProxy->setDetailVisible(module, updateSettings, tr("Updates Notification"), isVisible);
+        } else if ("updateAutoDownlaod" == gsetting) {
+            m_frameProxy->setDetailVisible(module, updateSettings, tr("Download Updates"), isVisible && m_model->autoDownloadUpdates());
+        } else if ("updateCleanCache" == gsetting) {
+            m_frameProxy->setDetailVisible(module, updateSettings, tr("Clear Package Cache"), isVisible);
+        } else if ("updateDocStore" == gsetting) {
+            //TODO
+        } else if ("updateSecureUpdate" == gsetting) {
+            //TODO
+        } else {
+            qDebug() << " not contains the gsettings : " << gsetting << state;
+            return;
+        }
+
+        qWarning() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        m_frameProxy->updateSearchData(module);
+    });
+
+    connect(m_model, &dcc::update::UpdateModel::autoCheckUpdatesChanged, this, [ = ](bool autoCheckUpdates) {
+         m_frameProxy->setDetailVisible(module, updateSettings, tr("System Updates"), autoCheckUpdates && func_is_visible("updateSystemUpdate"));
+         m_frameProxy->updateSearchData(module);
+    });
+
+    connect(m_model, &dcc::update::UpdateModel::autoCheckSystemUpdatesChanged, this, [ = ](bool autoCheckUpdates) {
+         m_frameProxy->setDetailVisible(module, updateSettings, tr("App Updates in App Store"), autoCheckUpdates && func_is_visible("updateAppUpdate"));
+         m_frameProxy->updateSearchData(module);
+    });
+
+    connect(m_model, &dcc::update::UpdateModel::updateNotifyChanged, this, [ = ](bool notify) {
+         m_frameProxy->setDetailVisible(module, updateSettings, tr("Download Updates"), notify && func_is_visible("updateAutoDownlaod"));
+         m_frameProxy->updateSearchData(module);
+    });
+
+    func_process_all();
 }
 
 void UpdateModule::notifyDisplayReminder(UpdatesStatus status)

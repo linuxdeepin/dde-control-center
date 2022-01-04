@@ -84,6 +84,24 @@ bool BluetoothModel::canTransportable() const
     return m_transPortable;
 }
 
+void BluetoothModel::setMyDeviceVisible(const bool visible)
+{
+    if (m_myDeviceVisible == visible)
+        return;
+
+    m_myDeviceVisible = visible;
+    Q_EMIT notifyMyDeviceVisibleChanged(m_myDeviceVisible);
+}
+
+void BluetoothModel::setOtherDeviceVisible(const bool visible)
+{
+    if (m_otherDeviceVisible == visible)
+        return;
+
+    m_otherDeviceVisible = visible;
+    Q_EMIT notifyOtherDeviceVisibleChanged(m_otherDeviceVisible);
+}
+
 /**
  * @brief BluetoothModel::setTransportable
  * @param transPortable

@@ -23,7 +23,6 @@
 #include "interface/namespace.h"
 
 #include "dsearchedit.h"
-#include <com_deepin_wm.h>
 
 #include <QWidget>
 #include <QList>
@@ -48,8 +47,7 @@ const QString XML_Title = "translation";
 const QString XML_Numerusform = "numerusform";
 const QString XML_Explain_Path = "extra-contents_path";
 const QString XML_Child_Path = "extra-child_page";
-
-using WM = com::deepin::wm;
+const QString XML_ChildHide_Path = "extra-child_page_hide";
 
 namespace DCC_NAMESPACE {
 namespace search {
@@ -72,6 +70,17 @@ struct UnexsitStruct {
     QString datail;
 };
 
+struct HideChildWidgetStruct {
+    QString module;                                     //子页面的模块
+    QMap<QString, bool> childWidgetMap;              //子页面名称, 子页面是否显示
+};
+
+struct HideChildWidgetDetailStruct {
+    QString module;                                     //子页面的模块，避免重复子页面名称
+    QString childWidget;                                //子页面名称
+    QMap<QString, bool> detailMap;                     //详细搜索数据是否显示
+};
+
 class DCompleterStyledItemDelegate : public QStyledItemDelegate
 {
     Q_OBJECT
@@ -88,6 +97,7 @@ public:
     explicit SearchModel(QObject* parent = nullptr);
 
 public:
+    int getDataNum(QString source, char value);
     bool jumpContentPathWidget(const QString &path);
     void setLanguage(const QString &type);
     void addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation = "");
@@ -95,6 +105,13 @@ public:
     void removeUnExsitData(const QString &module = "", const QString &datail = "");
     void setRemoveableDeviceStatus(const QString &name, bool isExist);
     void addSpecialThreeMenuMap(const QString &name, bool flag);
+    bool getModuleVisible(const QString module);
+    bool getWidgetVisible(const QString module, QString widget = "");
+    bool getDetailVisible(const QString module, QString widget = "", QString detail = "");
+    void setModuleVisible(const QString &module, bool visible);
+    void setWidgetVisible(const QString &module, const QString &widget, bool visible);
+    void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible);
+    void updateSearchData(const QString &module);
     void getJumpPath(QString &moduleName, QString &pageName, const QString &searchName);
     inline bool getDataUpdateCompleted() { return m_dataUpdateCompleted; }
 
@@ -102,7 +119,7 @@ Q_SIGNALS:
     void notifyModuleSearch(QString, QString);
 
 private:
-    void loadxml();
+    void loadxml(const QString module = "");
     SearchBoxStruct::Ptr getModuleBtnString(QString value);
     QString getModulesName(const QString &name, bool state = true);
     QString removeDigital(QString input);
@@ -123,6 +140,8 @@ private:
     QList<SearchDataStruct> m_inputList;
     QList<UnexsitStruct>    m_unexsitList;
     QList<QPair<QString, bool>> m_serverTxtList;//QString表示和服务器/桌面版有关的文言,bool:true表示只有服务器版会存在,false表示只有桌面版存在
+    QList<QString> m_childWidgetList; //二级页面list
+    QList<QString> m_childeHideWidgetList; //不需要显示的二级页面list，比如 “默认程序 --> 终端 / 添加默认程序” 和 “默认程序 --> 终端”
     QList<QString> m_TxtList;
     QList<QString> m_TxtListAll;
     QStringList m_defaultRemoveableList;//存储已知全部模块是否存在
@@ -134,11 +153,11 @@ private:
     bool m_bIstextEdited;
     bool m_bIsServerType;
     bool m_bIsContensServerType;
-    bool m_bIsOnBattery;
-    bool m_bIsUseTouchpad;
     QGSettings *m_searchModuleDevelop{nullptr};
-    WM *m_deepinwm;
-    bool m_compositingAllowSwitch = true;
+    QMap<QString, bool> m_hideModuleList;
+    QList<HideChildWidgetStruct> m_hideWidgetList;
+    QList<HideChildWidgetDetailStruct> m_hideWidgetDetailList;
+    QMap<QString, QString> m_transChildPageName;
     bool m_dataUpdateCompleted;
 };
 
@@ -159,12 +178,14 @@ public:
 
     QList<QString> searchResults(const QString text);
     void getJumpPath(QString &moduleName, QString &pageName, const QString &searchName);
-
+    void setModuleVisible(const QString &module, bool visible);
+    void setWidgetVisible(const QString &module, const QString &widget, bool visible);
+    void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible);
+    void updateSearchdata(const QString &module);
 private Q_SLOTS:
     void onCompleterActivated(const QString &value);
     void onAutoComplete(const QString &text);
     void onSearchTextChange(const QString &text);
-
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);
 

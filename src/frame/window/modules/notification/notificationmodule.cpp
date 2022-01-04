@@ -65,6 +65,8 @@ void NotificationModule::preInitialize(bool sync, FrameProxyInterface::PushType 
     m_worker->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
     m_worker->active(true); //refresh data
+
+    initSearchData();
 }
 
 // 仅在进入模块是会被调用
@@ -141,4 +143,58 @@ void NotificationModule::showAppNotify(int index)
     connect(widget, &AppNotifyWidget::requestSetAppSetting, m_worker, &NotificationWorker::setAppSetting);
     m_frameProxy->pushWidget(this, widget);
     widget->setVisible(true);
+}
+
+void NotificationModule::initSearchData()
+{
+    static QMap<QString, bool> gsettingsMap;
+
+    auto func_is_visible = [ = ](const QString &gsettings) {
+        if (gsettings == "") {
+            return false;
+        }
+
+        bool ret = false;
+        ret = GSettingWatcher::instance()->get(gsettings).toBool();
+        gsettingsMap.insert(gsettings, ret);
+
+        return ret;
+    };
+
+    QString module = tr("Notification");
+
+    auto func_process_all = [ = ]() {
+
+        m_frameProxy->setModuleVisible(module, true);
+
+        m_frameProxy->setWidgetVisible(module, tr("System Notifications"), true);
+        m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("App Notifications"), func_is_visible("appNotifications"));
+        m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("Do Not Disturb"), func_is_visible("systemNotification"));
+        m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("Show icon on Dock"), func_is_visible("systemNotification"));
+     };
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+        if (gsetting == "" || !gsettingsMap.contains(gsetting)) {
+            return;
+        }
+
+        if (gsettingsMap.value(gsetting) == GSettingWatcher::instance()->get(gsetting).toBool()) {
+            return;
+        }
+
+        if ("systemNotification" == gsetting) {
+            m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("Do Not Disturb"), func_is_visible("systemNotification"));
+            m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("Show icon on Dock"), func_is_visible("systemNotification"));
+        } else if ("appNotifications" == gsetting) {
+            m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("App Notifications"), func_is_visible("appNotifications"));
+        } else {
+            qInfo() << " not contains the gsettings : " << gsetting << state;
+            return;
+        }
+
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        m_frameProxy->updateSearchData(module);
+    });
+
+    func_process_all();
 }

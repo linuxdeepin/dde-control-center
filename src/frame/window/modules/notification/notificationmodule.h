@@ -55,6 +55,7 @@ public:
 private Q_SLOTS:
     void showSystemNotify();
     void showAppNotify(int index);
+    void initSearchData();
 
 private:
     dcc::notification::NotificationModel *m_model;

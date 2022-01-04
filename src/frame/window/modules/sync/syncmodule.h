@@ -49,6 +49,9 @@ public:
     QStringList availPage() const override;
 
 private:
+    void initSearchData();
+
+private:
     dcc::cloudsync::SyncModel  *m_model;
     dcc::cloudsync::SyncWorker *m_worker;
 };

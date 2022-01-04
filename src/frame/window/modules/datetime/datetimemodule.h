@@ -59,12 +59,16 @@ public:
 public:
     DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
 
+    void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual const QString displayName() const override;
     virtual void active() override;
     virtual int load(const QString &path) override;
     QStringList availPage() const override;
+
+private:
+    void initSearchData();
 
 Q_SIGNALS:
     void requestAddUserTimeZone(const QString &zone);

@@ -489,6 +489,10 @@ void MainWindow::modulePreInitialize(const QString &m)
                  .arg(et.elapsed());
 
         setModuleVisible(it->first, it->first->isAvailable());
+        if (it->first->isAvailable()) {
+            // 模块有效时先初始化模块和搜索数据
+            InsertPlugin::instance()->preInitialize(it->first->name());
+        }
     }
 }
 
@@ -1013,6 +1017,42 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
     } else {
         qDebug() << Q_FUNC_INFO << "Not found module!";
     }
+}
+
+void MainWindow::setModuleVisible(const QString &module, bool visible)
+{
+    if (!m_searchWidget) {
+        return;
+    }
+
+    m_searchWidget->setModuleVisible(module, visible);
+}
+
+void MainWindow::setWidgetVisible(const QString &module, const QString &widget, bool visible)
+{
+    if (!m_searchWidget) {
+        return;
+    }
+
+    m_searchWidget->setWidgetVisible(module, widget, visible);
+}
+
+void MainWindow::setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible)
+{
+    if (!m_searchWidget) {
+        return;
+    }
+
+    m_searchWidget->setDetailVisible(module, widget, detail, visible);
+}
+
+void MainWindow::updateSearchData(const QString &module)
+{
+    if (!m_searchWidget) {
+        return;
+    }
+
+    m_searchWidget->updateSearchdata(module);
 }
 
 void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type)

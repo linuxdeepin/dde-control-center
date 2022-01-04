@@ -54,6 +54,8 @@ public:
     QStringList availPages(const QString &moduleName);
     // 获取单例
     static InsertPlugin *instance(QObject *obj = nullptr, FrameProxyInterface *interface = nullptr);
+    // 初始化插件搜索数据
+    void preInitialize(QString moduleName);
 
 private:
     static QPointer<InsertPlugin> INSTANCE;

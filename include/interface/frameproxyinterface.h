@@ -26,6 +26,11 @@ public:
 
     virtual void setModuleVisible(ModuleInterface *const inter, const bool visible) = 0;
 
+    virtual void setModuleVisible(const QString &module, bool visible) = 0;
+    virtual void setWidgetVisible(const QString &module, const QString &widget, bool visible) = 0;
+    virtual void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible) = 0;
+    virtual void updateSearchData(const QString &module) = 0;
+
     virtual void showModulePage(const QString &module, const QString &page, bool animation) = 0;
 
     virtual void setModuleSubscriptVisible(const QString &module, bool bIsDisplay) = 0;

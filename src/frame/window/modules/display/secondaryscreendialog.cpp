@@ -124,6 +124,7 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
     };
 
     if (m_monitor->canBrightness()) {
+        //~ contents_path /display/Brightness
         TitleLabel *headTitle = new TitleLabel(tr("Brightness"), this); //亮度
         DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T7, QFont::Normal);
 
@@ -253,7 +254,7 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
 void SecondaryScreenDialog::resetDialog()
 {
     adjustSize();
-    
+
     auto rt = rect();
     if (rt.width() > m_monitor->w())
         rt.setWidth(m_monitor->w());

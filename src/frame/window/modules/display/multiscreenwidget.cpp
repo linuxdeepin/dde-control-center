@@ -53,12 +53,9 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_contentLayout(new QVBoxLayout(this))
     , m_monitorControlWidget(new MonitorControlWidget(240, this)) //根据产品设计更改出事高度为240
     , m_fullIndication(new MonitorIndicator(this))
-    , m_multiSettingLabel(new TitleLabel(tr("Multiple Displays"), this))
     , m_modeSettingsItem(new SettingsItem(this))
-    , m_modeLabel(new QLabel(tr("Mode"), this))
     , m_modeCombox(new QComboBox(this))
     , m_primarySettingsItem(new SettingsItem(this))
-    , m_primaryLabel(new QLabel(tr("Main Screen"), this))
     , m_primaryCombox(new QComboBox(this))
     , m_brightnessSpacerItem(new QSpacerItem(0, 20))
     , m_brightnessWidget(new BrightnessWidget(this))
@@ -68,6 +65,14 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_rotateWidget(new RotateWidget(300, this))
     , m_model(nullptr)
 {
+    //初始化列表无法进行静态翻译
+    //~ contents_path /display/Multiple Displays
+    m_multiSettingLabel = new TitleLabel(tr("Multiple Displays"), this);
+    //~ contents_path /display/Mode
+    m_modeLabel = new QLabel(tr("Mode"), this);
+    //~ contents_path /display/Main Scree
+    m_primaryLabel = new QLabel(tr("Main Screen"), this);
+
     m_monitorControlWidget->setAccessibleName("MultiScreenWidget_monitorControl");
     m_fullIndication->setAccessibleName("fullIndication");
 
@@ -123,7 +128,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_multiSettingLabel);
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_modeSettingsItem);
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_primarySettingsItem);
-    
+
     DConfigWatcher::instance()->bind(DConfigWatcher::display,"mainScreen", m_primarySettingsItem);
     DConfigWatcher::instance()->bind(DConfigWatcher::display,"multiscreenMode", m_modeSettingsItem);
 

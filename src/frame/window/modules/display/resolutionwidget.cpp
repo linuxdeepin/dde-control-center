@@ -145,9 +145,7 @@ ResolutionWidget::ResolutionWidget(int comboxWidth, QWidget *parent)
     , m_resolutionLayout(new QHBoxLayout(this))
     , m_resizeDesktopLayout(new QHBoxLayout(this))
     , m_contentLayout(new QVBoxLayout(this))
-    , m_resolutionLabel(new QLabel(tr("Resolution"), this))
     , m_resolutionCombox(new QComboBox(this))
-    , m_resizeDesktopLabel(new QLabel(tr("Resize Desktop"), this))
     , m_resizeDesktopCombox(new fillModeCombox(this))
     , m_resizeDesktopItem(new SettingsItem)
     , m_model(nullptr)
@@ -155,9 +153,13 @@ ResolutionWidget::ResolutionWidget(int comboxWidth, QWidget *parent)
     , m_resoItemModel(new QStandardItemModel)
     , m_resizeItemModel(new QStandardItemModel)
 {
-    setAccessibleName("ResolutionWidget");
+    //~ contents_path /display/Resolution
+    m_resolutionLabel = new QLabel(tr("Resolution"), this);
+    //~ contents_path /display/Resize Desktop
+    m_resizeDesktopLabel = new QLabel(tr("Resize Desktop"), this);
+
     setMinimumHeight(48);
-    SettingsItem *resolutionItem = new SettingsItem; 
+    SettingsItem *resolutionItem = new SettingsItem;
     m_resolutionLayout->setContentsMargins(10, 10, 10, 10);
     m_resolutionLayout->addWidget(m_resolutionLabel);
     m_resolutionLayout->addWidget(m_resolutionCombox);
@@ -365,7 +367,7 @@ void ResolutionWidget::OnAvailableFillModesChanged(const QStringList &lstFillMod
     updateResizeDesktopVisible();
 }
 
-void ResolutionWidget::setResizeDesktopVisible(bool visible) 
+void ResolutionWidget::setResizeDesktopVisible(bool visible)
 {
     if (m_model->displayMode() == MERGE_MODE && visible) {
         visible = m_model->allSupportFillModes();
