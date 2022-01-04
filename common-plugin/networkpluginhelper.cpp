@@ -60,6 +60,7 @@ NETWORKPLUGIN_USE_NAMESPACE
 
 NetworkPluginHelper::NetworkPluginHelper(NetworkDialog *networkDialog, QObject *parent)
     : QObject(parent)
+    , m_pluginState(PluginState::Unknow)
     , m_tipsWidget(new TipsWidget(nullptr))
     , m_switchWire(true)
     , m_networkDialog(networkDialog)
@@ -409,6 +410,11 @@ void NetworkPluginHelper::onUpdatePlugView()
 void NetworkPluginHelper::onActiveConnectionChanged()
 {
     WirelessDevice *wireless = static_cast<WirelessDevice *>(sender());
+    DeviceStatus status = wireless->deviceStatus();
+    if (status == DeviceStatus::Disconnected
+        || status == DeviceStatus::Deactivation)
+        return;
+
     QString wirelessPath = wireless->path();
     for (auto conn : NetworkManager::activeConnections()) {
         if (!conn->id().isEmpty() && conn->devices().contains(wirelessPath)) {
@@ -419,7 +425,7 @@ void NetworkPluginHelper::onActiveConnectionChanged()
                 NetworkManager::WirelessSecuritySetting::Ptr wsSetting = connSettings->setting(NetworkManager::Setting::SettingType::WirelessSecurity).staticCast<NetworkManager::WirelessSecuritySetting>();
                 if (wsSetting && NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown == wsSetting->keyMgmt()) {
                     for (auto ap : wireless->accessPointItems()) {
-                        if (ap->ssid() == conn->id() && ap->secured() && ap->strength() > 0) {
+                        if (ap->ssid() == wSetting->ssid() && ap->secured() && ap->strength() > 0) {
                             m_networkDialog->setConnectWireless(wireless->path(), ap->ssid());
                             break;
                         }
