@@ -1,2 +1,2 @@
-lib/dde-dock/plugins/system-trays/libdock-network-plugin.so
+usr/lib/dde-dock/plugins/system-trays/libdock-network-plugin.so
 usr/share/dock-network-plugin/translations

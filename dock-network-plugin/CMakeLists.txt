@@ -68,6 +68,6 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE
     ${Qt5Network_LIBRARIES}
 )
 
-install(TARGETS ${PLUGIN_NAME} LIBRARY DESTINATION /lib/dde-dock/plugins/system-trays)
+install(TARGETS ${PLUGIN_NAME} LIBRARY DESTINATION /usr/lib/dde-dock/plugins/system-trays)
 # 安装 .qm 文件
 install(FILES ${QM_FILES} DESTINATION /usr/share/${PLUGIN_NAME}/translations)
