@@ -100,6 +100,8 @@ Q_SIGNALS:
     void connectionRemoved(const QList<WiredConnection *>);                              // 删除连接
     void connectionPropertyChanged(const QList<WiredConnection *> &);                    // 连接属性发生变化
     void ipV4Changed();                                                                  // IPv4地址发生变化
+    // 用于在不同的线程之间获取返回值的信号
+    bool deviceIpIsConfilct(NetworkDeviceBase *) const;
 
 public:
     void setDevice(NetworkDeviceBase *device);                                           // 设置当前的设备

@@ -206,7 +206,7 @@ Connectivity NetworkDeviceRealize::connectivity()
 
 DeviceStatus NetworkDeviceRealize::deviceStatus() const
 {
-    if (m_ipConflictChecker->ipConfilct(m_device))
+    if (deviceIpIsConfilct(m_device))
         return DeviceStatus::IpConfilct;
 
     return m_deviceStatus;
@@ -251,6 +251,7 @@ NetworkDeviceRealize::NetworkDeviceRealize(IPConfilctChecker *ipConflictChecker,
     , m_ipConflictChecker(ipConflictChecker)
 {
     Q_ASSERT(m_ipConflictChecker);
+    connect(this, &NetworkDeviceRealize::deviceIpIsConfilct, m_ipConflictChecker, &IPConfilctChecker::ipConfilct, Qt::BlockingQueuedConnection);
 }
 
 NetworkDeviceRealize::~NetworkDeviceRealize()

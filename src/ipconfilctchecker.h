@@ -22,6 +22,7 @@ public:
     explicit IPConfilctChecker(NetworkProcesser *networkProcesser, const bool ipChecked, QObject *parent = nullptr);
     ~IPConfilctChecker();
 
+public Q_SLOT:
     bool ipConfilct(NetworkDeviceBase *device) const;
 
 private Q_SLOT:
