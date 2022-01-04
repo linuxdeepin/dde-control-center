@@ -802,6 +802,9 @@ void MainWindow::resetNavList(bool isIconMode)
         return;
 
     if (isIconMode) {
+        if (m_lastPushWidget)
+            m_lastPushWidget = nullptr;
+
         //Only remain 1 level page : back to top page
         m_navView->setViewportMargins(QMargins(0, 0, 0, 0));
         m_navView->setViewMode(QListView::IconMode);
