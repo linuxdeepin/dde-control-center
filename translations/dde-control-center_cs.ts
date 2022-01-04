@@ -350,7 +350,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Nápověda je viditelná všem uživatelům. Nepište sem heslo.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="464"/>
@@ -415,7 +415,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="88"/>
         <source>Forgot password?</source>
-        <translation type="unfinished"/>
+        <translation>Zapomněli jste heslo?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="102"/>
@@ -452,7 +452,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="213"/>
         <source>Error occurred when reading the configuration files of password rules!</source>
-        <translation type="unfinished"/>
+        <translation>Při načítání souborů s nastaveními pravidel pro heslo došlo k chybě!</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
@@ -482,7 +482,7 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="369"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Nápověda je viditelná všem uživatelům. Nepište sem heslo.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="279"/>
@@ -857,7 +857,7 @@
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="145"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Pokud chcete najít zařízení poblíž (reproduktory, klávesnici, myš, atp.), zapněte rozhraní Bluetooth</translation>
     </message>
@@ -996,6 +996,12 @@
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="385"/>
         <source>Repeat password:</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="389"/>
+        <source>Required</source>
+        <translation>Vyžadováno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
@@ -1757,13 +1763,13 @@
         <translation>Obnovovací frekvence</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="155"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="155"/>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="161"/>
         <source>Recommended</source>
         <translation>Doporučeno</translation>
     </message>
@@ -1771,34 +1777,39 @@
 <context>
     <name>dccV20::display::ResolutionWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="148"/>
         <source>Resolution</source>
         <translation>Rozlišení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="150"/>
         <source>Resize Desktop</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="266"/>
+        <source>Default</source>
+        <translation>Výchozí</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="282"/>
         <source>Fit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="298"/>
         <source>Stretch</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="314"/>
         <source>Center</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="365"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="417"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="459"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="389"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="441"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="483"/>
         <source>Recommended</source>
         <translation>Doporučeno</translation>
     </message>
@@ -3271,7 +3282,7 @@
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="441"/>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="470"/>
         <source>Login expired, please sign in to the Union ID again</source>
-        <translation type="unfinished"/>
+        <translation>Platnost přihlášení skončila. Přihlaste se Union identifikátorem znovu</translation>
     </message>
 </context>
 <context>
@@ -3631,7 +3642,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="139"/>
         <source>Updates Available</source>
-        <translation type="unfinished"/>
+        <translation>Jsou k dispozici aktualizace</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="148"/>
@@ -4829,12 +4840,12 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Autorská práva © 2011-%1 komunita Deepin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"/>
+        <translation>Autorská práva © 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
@@ -5021,7 +5032,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="93"/>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Silné</translation>
     </message>
 </context>
 <context>

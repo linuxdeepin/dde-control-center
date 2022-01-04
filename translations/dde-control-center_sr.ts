@@ -857,7 +857,7 @@
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="145"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Укључите Блутут да пронађете уређаје у околини (звучници, тастатура, миш)</translation>
     </message>
@@ -996,6 +996,12 @@
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="385"/>
         <source>Repeat password:</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="389"/>
+        <source>Required</source>
+        <translation>Неопходно</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
@@ -1757,13 +1763,13 @@
         <translation>Брзина освежавања</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="155"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="155"/>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="161"/>
         <source>Recommended</source>
         <translation>Препоручено</translation>
     </message>
@@ -1771,34 +1777,39 @@
 <context>
     <name>dccV20::display::ResolutionWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="148"/>
         <source>Resolution</source>
         <translation>Резолуција</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="150"/>
         <source>Resize Desktop</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="266"/>
+        <source>Default</source>
+        <translation>Подразумевано</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="282"/>
         <source>Fit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="298"/>
         <source>Stretch</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="314"/>
         <source>Center</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="365"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="417"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="459"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="389"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="441"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="483"/>
         <source>Recommended</source>
         <translation>Препоручено</translation>
     </message>

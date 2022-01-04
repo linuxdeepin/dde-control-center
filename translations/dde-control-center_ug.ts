@@ -857,7 +857,7 @@
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="145"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>كۆكچىش ئارقىلىق يېقىن ئەتراپتىكى ئۈسكۈنىلەرنى (ياڭراتقۇ ، كۇنۇپكا تاختىسى ، مائۇس) تېپىڭ.</translation>
     </message>
@@ -996,6 +996,12 @@
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="385"/>
         <source>Repeat password:</source>
         <translation>پارولنى يەنە كىرگۈزۈڭ :</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="389"/>
+        <source>Required</source>
+        <translation>زۆرۈر</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
@@ -1431,7 +1437,7 @@
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="169"/>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="190"/>
         <source>Monday</source>
-        <translation>Monday</translation>
+        <translation>دۈشەنبە</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="155"/>
@@ -1441,32 +1447,32 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="172"/>
         <source>Tuesday</source>
-        <translation>Tuesday</translation>
+        <translation>سەيشەنبە</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="175"/>
         <source>Wednesday</source>
-        <translation>Wednesday</translation>
+        <translation>چارشەنبە</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="178"/>
         <source>Thursday</source>
-        <translation>Thursday</translation>
+        <translation>پەيشەنبە</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="181"/>
         <source>Friday</source>
-        <translation>Friday</translation>
+        <translation>جۈمە</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="184"/>
         <source>Saturday</source>
-        <translation>Saturday</translation>
+        <translation>شەنبە</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="187"/>
         <source>Sunday</source>
-        <translation>Sunday</translation>
+        <translation>يەكشەنبە</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="205"/>
@@ -1757,13 +1763,13 @@
         <translation>يىڭىلاش چاستوتىسى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="155"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="155"/>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="161"/>
         <source>Recommended</source>
         <translation>تەۋسىيە</translation>
     </message>
@@ -1771,34 +1777,39 @@
 <context>
     <name>dccV20::display::ResolutionWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="148"/>
         <source>Resolution</source>
         <translation>ئېنىقلىق دەرىجىسى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="150"/>
         <source>Resize Desktop</source>
         <translation>ئۈستەليۈزىدە كۆرسىتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="266"/>
+        <source>Default</source>
+        <translation>سۈكۈتتىكى</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="282"/>
         <source>Fit</source>
         <translation>ماسلاشتۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="298"/>
         <source>Stretch</source>
         <translation>سوزۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="314"/>
         <source>Center</source>
         <translation>ئوتتۇرىغا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="365"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="417"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="459"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="389"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="441"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="483"/>
         <source>Recommended</source>
         <translation>تەۋسىيە</translation>
     </message>
@@ -1941,7 +1952,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="110"/>
         <source>Caps Lock Prompt</source>
-        <translation>Caps Lock نى ئويغىتىش</translation>
+        <translation>Caps Lock نى ئەسكەرتىش</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
 </context>
@@ -3352,7 +3363,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="191"/>
         <source>Edition:</source>
-        <translation>&lt;br&gt;نەشرى:</translation>
+        <translation>نەشرى:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
