@@ -385,8 +385,8 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
     DLabel *label2 = new DLabel(tr("Repeat password:"));
     DPasswordEdit *edit1 = new DPasswordEdit();
     DPasswordEdit *edit2 = new DPasswordEdit();
-    edit1->setPlaceholderText("Required");
-    edit2->setPlaceholderText("Required");
+    edit1->setPlaceholderText(tr("Required"));
+    edit2->setPlaceholderText(tr("Required"));
     edit1->setCutEnabled(false);
     edit1->setCopyEnabled(false);
     edit2->setCutEnabled(false);
