@@ -3,7 +3,7 @@ include /usr/share/dpkg/default.mk
 
 export QT_SELECT = qt5
 DEB_BUILD_ARCH ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
-export DEB_BUILD_OPTIONS=nocheck parallel=-1
+export DEB_BUILD_OPTIONS=nocheck
 SYSTYPE=Desktop
 SYSTYPE=$(shell cat /etc/deepin-version | grep Type= | awk -F'=' '{print $$2}')
 
