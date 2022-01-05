@@ -129,9 +129,8 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     if (IsServerSystem)
         handleNMEditor();
 
-    connect(m_lvnmpages, &DListView::activated, this, &NetworkModuleWidget::onClickCurrentListIndex);
-    connect(m_lvnmpages, &DListView::clicked, this, [ this ] (const QModelIndex &index) {
-        m_lvnmpages->activated(index);
+    connect(m_lvnmpages->selectionModel(), &QItemSelectionModel::currentChanged, this, [ this ] (const QModelIndex &index) {
+        selectListIndex(index);
         if (!m_lastDevicePath.isEmpty())
             m_lastDevicePath.clear();
     });
@@ -198,7 +197,7 @@ void NetworkModuleWidget::initIpConflictInfo(const QList<NetworkDeviceBase *> &d
     }
 }
 
-void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
+void NetworkModuleWidget::selectListIndex(const QModelIndex &idx)
 {
     if (!m_switchIndex)
         return;
@@ -326,7 +325,7 @@ void NetworkModuleWidget::setCurrentIndex(const int settingIndex)
     // 设置网络列表当前索引
     QModelIndex index = m_modelpages->index(settingIndex, 0);
     m_lvnmpages->setCurrentIndex(index);
-    m_lvnmpages->activated(index);
+    selectListIndex(index);
 }
 
 void NetworkModuleWidget::setIndexFromPath(const QString &path)

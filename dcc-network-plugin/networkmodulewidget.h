@@ -101,7 +101,6 @@ Q_SIGNALS:
 private Q_SLOTS:
     void onDeviceStatusChanged();
     void onDeviceChanged();
-    void onClickCurrentListIndex(const QModelIndex &idx);
     void onProxyMethodChanged(const ProxyMethod &method);
 
 private:
@@ -110,6 +109,7 @@ private:
     // 设置当前索引
     void setCurrentIndex(const int settingIndex);
     void initIpConflictInfo(const QList<NetworkDeviceBase *> &devices);
+    void selectListIndex(const QModelIndex &idx);
 
 private:
     QVBoxLayout *m_centralLayout;
