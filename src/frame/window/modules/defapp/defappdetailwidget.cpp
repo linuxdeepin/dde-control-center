@@ -338,7 +338,7 @@ void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
     qDebug() << "appendItemData=" << app.MimeTypeFit;
     DStandardItem *item = new DStandardItem;
     QString appName = (!app.isUser || app.MimeTypeFit)
-                      ? app.Name : QString("%1(%2)").arg(app.Name).arg(tr("Invalid"));
+                      ? app.Name : QString("%1(%2)").arg(app.Name).arg(tr("Inactive"));
 
     if (!app.isUser || app.MimeTypeFit) {
         item->setText(appName);
