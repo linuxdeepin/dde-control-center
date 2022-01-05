@@ -92,9 +92,11 @@ QWidget *NetworkModule::itemWidget() const
 QWidget *NetworkModule::itemTipsWidget() const
 {
     QWidget *itemTips = m_networkHelper->itemTips();
-    QPalette palette = itemTips->palette();
-    palette.setColor(QPalette::BrightText, Qt::black);
-    itemTips->setPalette(palette);
+    if (itemTips) {
+        QPalette palette = itemTips->palette();
+        palette.setColor(QPalette::BrightText, Qt::black);
+        itemTips->setPalette(palette);
+    }
     return itemTips;
 }
 
