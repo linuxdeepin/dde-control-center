@@ -66,8 +66,7 @@ class BubbleManager : public QObject, public QDBusContext
     Q_PROPERTY(QString systemSetting READ getSystemSetting WRITE setSystemSetting)
 
 public:
-    explicit BubbleManager(AbstractPersistence *persistence = nullptr,
-                           AbstractNotifySetting *setting = nullptr, QObject *parent = nullptr);
+    explicit BubbleManager(QObject *parent = nullptr);
     ~BubbleManager();
 
     enum ClosedReason {

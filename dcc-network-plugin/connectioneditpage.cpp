@@ -56,6 +56,8 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &d
     , m_connection(nullptr)
     , m_connectionSettings(nullptr)
     , m_settingsWidget(nullptr)
+    , m_isNewConnection(false)
+    , m_connectionUuid(connUuid)
     , m_mainLayout(new QVBoxLayout(this))
     , m_disconnectBtn(nullptr)
     , m_removeBtn(nullptr)
@@ -63,8 +65,6 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &d
     , m_buttonTuple_conn(new ButtonTuple(ButtonTuple::Delete, this))
     , m_subPage(nullptr)
     , m_connType(static_cast<ConnectionSettings::ConnectionType>(connType))
-    , m_isNewConnection(false)
-    , m_connectionUuid(connUuid)
     , m_isHotSpot(isHotSpot)
 {
     DevicePath = devPath;

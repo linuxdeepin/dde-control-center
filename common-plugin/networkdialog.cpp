@@ -168,23 +168,25 @@ void NetworkDialog::setPosition(int x, int y, Dtk::Widget::DArrowRectangle::Arro
 
 void NetworkDialog::runServer(bool start)
 {
-    if (start) {
-        m_server->close();
+    if (!start)
+        return;
+
+    m_server->close();
+    QLocalServer::removeServer(m_serverName);
+    if (m_server->listen(m_serverName))
+        return;
+
+    QLocalSocket *socket = new QLocalSocket(this);
+    connect(socket, SIGNAL(readyRead()), this, SLOT(readyReadHandler()));
+    connect(socket, &QLocalSocket::connected, this, [ socket ]() {
+        socket->write("\nclose:{}\n");
+    });
+    connect(socket, &QLocalSocket::disconnected, this, [ this, socket ]() {
+        socket->deleteLater();
         QLocalServer::removeServer(m_serverName);
-        if (!m_server->listen(m_serverName)) {
-            QLocalSocket *socket = new QLocalSocket(this);
-            connect(socket, SIGNAL(readyRead()), this, SLOT(readyReadHandler()));
-            connect(socket, &QLocalSocket::connected, this, [ socket ]() {
-                socket->write("\nclose:{}\n");
-            });
-            connect(socket, &QLocalSocket::disconnected, this, [ this, socket ]() {
-                socket->deleteLater();
-                QLocalServer::removeServer(m_serverName);
-                m_server->listen(m_serverName);
-            });
-            socket->connectToServer(m_serverName);
-        }
-    }
+        m_server->listen(m_serverName);
+    });
+    socket->connectToServer(m_serverName);
 }
 
 void NetworkDialog::newConnectionHandler()

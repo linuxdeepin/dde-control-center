@@ -160,9 +160,9 @@ QSize ActionButton::contentSize(const QString &text, bool is_menu) const
             max_width = qMax(MenuWidth + 2 * MenuPadding + text_width, OSD::ButtonSize(m_showStyle).width());
         }
         return QSize(qMin(max_width, MaxBubbleButtonWidth), OSD::ButtonSize(m_showStyle).height());
-    } else {
-        return OSD::ButtonSize(m_showStyle);
     }
+
+    return OSD::ButtonSize(m_showStyle);
 }
 
 void ActionButton::initConnections()

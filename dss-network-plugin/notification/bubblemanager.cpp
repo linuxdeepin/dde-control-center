@@ -46,7 +46,7 @@
 using DisplayInter = com::deepin::daemon::Display;
 using MonitorInter = com::deepin::daemon::display::Monitor;
 
-BubbleManager::BubbleManager(AbstractPersistence *persistence, AbstractNotifySetting *setting, QObject *parent)
+BubbleManager::BubbleManager(QObject *parent)
     : QObject(parent)
     , m_gestureInter(new GestureInter("com.deepin.daemon.Gesture"
                                       , "/com/deepin/daemon/Gesture"
