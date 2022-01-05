@@ -9,7 +9,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Biometrické ověřování</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
@@ -48,8 +48,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="948"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="953"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -70,8 +70,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="965"/>
         <source>Drawing Tablet</source>
         <translation>Grafický tablet</translation>
     </message>
@@ -82,8 +82,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="995"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="997"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="998"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="1000"/>
         <source>Updates</source>
         <translation>Aktualizace</translation>
     </message>
@@ -94,8 +94,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="983"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="985"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="986"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="988"/>
         <source>General Settings</source>
         <translation>Obecná nastavení</translation>
     </message>
@@ -110,8 +110,8 @@
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="974"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="975"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="977"/>
         <source>Cloud Sync</source>
         <translation>Synchronizace se serverem</translation>
     </message>
@@ -146,7 +146,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="414"/>
         <source>Account Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nastavení účtu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="429"/>
@@ -206,10 +206,6 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="650"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="658"/>
-        <source>The username already exists</source>
-        <translation>Toto uživatelské jméno už je v počítači používáno</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="667"/>
         <source>The name already exists</source>
         <translation>Jméno už existuje</translation>
@@ -374,15 +370,15 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="502"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="550"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="559"/>
-        <source>The username already exists</source>
-        <translation>Toto uživatelské jméno už je v počítači používáno</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="539"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="559"/>
         <source>The name already exists</source>
         <translation>Jméno už existuje</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="550"/>
+        <source>The username already exists</source>
+        <translation>Toto uživatelské jméno už je v počítači používáno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="609"/>
@@ -405,7 +401,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
         <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
-        <translation type="unfinished"/>
+        <translation>Resetování hesel nezmění přihlašovací klíčenku. Pokud ji chcete spravovat, je možné si nainstalovat aplikaci Seahorse.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="87"/>
@@ -447,7 +443,7 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="201"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="210"/>
         <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Je doporučeno silnější heslo: více než 8 znaků a obsahující 3 ze čtyřech typů znaků: malá a velká písmena, číslice a symboly</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="213"/>
@@ -515,12 +511,12 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="84"/>
         <source>Enroll Face</source>
-        <translation type="unfinished"/>
+        <translation>Zaregistrovat obličej</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation type="unfinished"/>
+        <translation>Ověřte, že žádná část obličeje není zakrytá nějakým objektem a je jasně viditelný. Také by měl být dobře nasvícený.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="108"/>
@@ -535,12 +531,12 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="189"/>
         <source>Face enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Obličej zaregistrován</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="192"/>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Použijte svůj obličej pro odemykání zařízení a nastavte později</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="197"/>
@@ -550,12 +546,12 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="201"/>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"/>
+        <translation>Obličej se nepodařilo zaregistrovat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
         <source>Try Again</source>
-        <translation type="unfinished"/>
+        <translation>Zkusit znovu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
@@ -598,12 +594,12 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="84"/>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Zaregistrovat duhovku</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="92"/>
         <source>Look at the iris scanner and make sure your eyes are inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>Dívejte se do tohoto skeneru duhovky a zajistěte, aby se oči nacházely uvnitř rámečku</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="106"/>
@@ -618,7 +614,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Duhovka zaregistrována</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="163"/>
@@ -628,12 +624,12 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="171"/>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>Duhovku se nepodařilo zaregistrovat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="176"/>
         <source>Try Again</source>
-        <translation type="unfinished"/>
+        <translation>Zkusit znovu</translation>
     </message>
 </context>
 <context>
@@ -659,7 +655,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/faceinfodialog.cpp" line="66"/>
         <source>Enroll Face</source>
-        <translation type="unfinished"/>
+        <translation>Zaregistrovat obličej</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/faceinfodialog.cpp" line="74"/>
@@ -678,12 +674,12 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="39"/>
         <source>Manage Faces</source>
-        <translation type="unfinished"/>
+        <translation>Spravovat obličeje</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="40"/>
         <source>You can add up to 5 faces</source>
-        <translation type="unfinished"/>
+        <translation>Je možné přidat až 5 obličejů</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="78"/>
@@ -693,7 +689,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="105"/>
         <source>Add Face</source>
-        <translation type="unfinished"/>
+        <translation>Přidat obličej</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="147"/>
@@ -703,7 +699,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="177"/>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>„Otisk“ obličeje</translation>
     </message>
 </context>
 <context>
@@ -711,7 +707,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/faceiddetailwidget.cpp" line="22"/>
         <source>No supported devices found</source>
-        <translation type="unfinished"/>
+        <translation>Nenalezena žádná podporovaná zařízení</translation>
     </message>
 </context>
 <context>
@@ -719,7 +715,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="61"/>
         <source>No supported devices found</source>
-        <translation type="unfinished"/>
+        <translation>Nenalezena žádná podporovaná zařízení</translation>
     </message>
 </context>
 <context>
@@ -761,7 +757,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/irisdetailwidget.cpp" line="22"/>
         <source>No supported devices found</source>
-        <translation type="unfinished"/>
+        <translation>Nenalezena žádná podporovaná zařízení</translation>
     </message>
 </context>
 <context>
@@ -775,12 +771,12 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="39"/>
         <source>Manage Irises</source>
-        <translation type="unfinished"/>
+        <translation>Spravovat snímky duhovek</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="40"/>
         <source>You can add up to 5 irises</source>
-        <translation type="unfinished"/>
+        <translation>Je možné přidat až 5 snímků duhovek</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="78"/>
@@ -790,7 +786,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="105"/>
         <source>Add Iris</source>
-        <translation type="unfinished"/>
+        <translation>Přidat snímek duhovky</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="146"/>
@@ -808,7 +804,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="55"/>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Biometrické ověřování</translation>
     </message>
 </context>
 <context>
@@ -822,7 +818,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="113"/>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Obličej</translation>
         <extra-contents_path>/authentication/Face</extra-contents_path>
     </message>
     <message>
@@ -955,12 +951,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="158"/>
         <source>GRUB Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Ověřování v zavaděči GRUB</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="163"/>
         <source>GRUB password is required to edit its configuration</source>
-        <translation type="unfinished"/>
+        <translation>Pro upravování nastavení zavaděče GRUB je zapotřebí heslo k němu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="170"/>
@@ -975,7 +971,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="377"/>
         <source>Change GRUB password</source>
-        <translation type="unfinished"/>
+        <translation>Změnit heslo do zavaděče GRUB</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="382"/>
@@ -985,17 +981,17 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="383"/>
         <source>root</source>
-        <translation type="unfinished"/>
+        <translation>root</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="384"/>
         <source>New password:</source>
-        <translation type="unfinished"/>
+        <translation>Nové heslo:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="385"/>
         <source>Repeat password:</source>
-        <translation type="unfinished"/>
+        <translation>Zopakování hesla:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="388"/>
@@ -1606,8 +1602,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="341"/>
-        <source>Invalid</source>
-        <translation>Neplatný</translation>
+        <source>Inactive</source>
+        <translation>Nečinný</translation>
     </message>
 </context>
 <context>
@@ -1784,7 +1780,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="150"/>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Změnit velikost plochy</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="266"/>
@@ -1794,17 +1790,17 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="282"/>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Přizpůsobit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="298"/>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Roztáhnout</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="314"/>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Vystředit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="389"/>
@@ -3182,7 +3178,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="51"/>
         <source>Link to the user account</source>
-        <translation type="unfinished"/>
+        <translation>Propojit s uživatelským účtem</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
@@ -3657,7 +3653,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="167"/>
         <source>Update All</source>
-        <translation type="unfinished"/>
+        <translation>Zaktualizovat vše</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
@@ -3744,7 +3740,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="52"/>
         <source>Security Updates Only</source>
-        <translation type="unfinished"/>
+        <translation>Pouze aktualizace zabezpečení</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
@@ -3754,7 +3750,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
         <source>App installed in App Store</source>
-        <translation type="unfinished"/>
+        <translation>Aplikace nainstalována v katalogu aplikací</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="55"/>
@@ -3769,7 +3765,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="57"/>
         <source>Auto Install Updates</source>
-        <translation type="unfinished"/>
+        <translation>Automaticky instalovat aktualizace</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="59"/>
@@ -3779,7 +3775,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="60"/>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
-        <translation type="unfinished"/>
+        <translation>Zapněte, pokud chcete instalovat pouze aktualizace týkající se oprav zranitelností v zabezpečení a kompatibility</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
@@ -3800,7 +3796,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="117"/>
         <source>Updates from Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizace z repozitářů</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="136"/>
@@ -3846,12 +3842,12 @@
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="219"/>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="221"/>
         <source>Unknown Apps Updates</source>
-        <translation type="unfinished"/>
+        <translation>Neznámé aktualizace aplikací</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="225"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
-        <translation type="unfinished"/>
+        <translation>Po dokončení stahování „%1“ automaticky nainstalovat</translation>
     </message>
 </context>
 <context>
@@ -3969,17 +3965,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="79"/>
         <source>No more than 8 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ne více než 8 znaků, které se tam i zpět čtou stejně (palindrom)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="80"/>
         <source>No more than 3 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ne více než 3 v abecedě po sobě jdoucí znaky prosím</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="81"/>
         <source>No more than 3 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ne více než 3 opakující se znaky prosím</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="87"/>
@@ -4106,12 +4102,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="29"/>
         <source>The user account is not linked to Union ID</source>
-        <translation type="unfinished"/>
+        <translation>Uživatelský účet není propojen s Union ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="30"/>
         <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Pokud chcete resetovat hesla, je třeba se nejprve ověřit svým Union ID. Kliknutím na „Přejít na odkaz“ dokončete nastavení.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="35"/>
@@ -4121,7 +4117,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="37"/>
         <source>Go to Link</source>
-        <translation type="unfinished"/>
+        <translation>Přejít na odkaz</translation>
     </message>
 </context>
 <context>
@@ -4196,13 +4192,13 @@
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="99"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="157"/>
         <source>Face enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Obličej zaregistrován</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="104"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="162"/>
         <source>Position a human face please</source>
-        <translation type="unfinished"/>
+        <translation>Předložte prosím obličej člověka</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="112"/>
@@ -4240,13 +4236,13 @@
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="140"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="188"/>
         <source>Scan timed out</source>
-        <translation type="unfinished"/>
+        <translation>Překročen časový limit pokusu o naskenování</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="143"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="185"/>
         <source>Device crashed, please scan sgain!</source>
-        <translation type="unfinished"/>
+        <translation>Zařízení zhavarovalo, prosím naskenujte znovu!</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="182"/>
@@ -4259,7 +4255,7 @@
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="40"/>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Zřeknutí se odpovědnosti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
@@ -4275,7 +4271,18 @@ For better face recognition, take notice of the following when enrolling your fa
 3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
 If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
 </source>
-        <translation type="unfinished"/>
+        <translation>Než si nastavíte rozpoznávání obličeje, věnujte pozornost následujícímu: 
+1. Vaše zařízení může být odemčeno někým, kdo vypadá podobně nebo objekty, vytvarované do vaší podoby.
+2. Odemykání obličejem je zabezpečené hůře než heslem.
+3. Úspěšnost rozpoznání obličeje může být snížena použitím snímku obličeje z profilu, nebo v temném, přesvíceném prostředí či v protisvětle.
+4. Nepůjčujte své zařízení ostatním – zamezíte tak zneužití rozpoznávání obličeje.
+5. Krom toho byste měli věnovat pozornost dalším faktorům, které mohou poznamenat běžné použití rozpoznávání obličeje.
+Pokud chcete dosáhnout úspěšnějšího rozpoznávání obličeje, dejte si při registraci obličeje pozor na následující:
+1. Zajistěte dostatek světla, vyhněte se přímému slunečnímu svitu a zamezte tomu, aby se v rámečku objevovali další lidé.
+2. Dejte si před registrací pozor na svůj vzhled. Nezakrývejte si obličej vlasy, kloboukem, slunečními brýlemi, maskou nebo silným mejkapem.
+3. Nezvedejte nebo neklopte hlavu, nezavírejte oči nebo se neukazujte z profilu. Zajistěte, aby se váš obličej jasně a celý zobrazoval v rámečku.
+Pokud souhlasíte s tímto prohlášením a zaregistrujete si svůj obličej (neshromažďujeme žádné údaje o vašem obličeji – ty budou zašifrovány a uloženy pouze na vašem počítači, rozpoznávání obličeje bude zapnuto. Pokud budete chtít data o obličeji smazat, jděte do „Biometrické ověřování“ &gt; „Obličej“.
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="77"/>
@@ -4293,12 +4300,12 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="25"/>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Přečetl(a) jsem si a souhlasím se</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="27"/>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Zřeknutí se odpovědnosti</translation>
     </message>
 </context>
 <context>
@@ -4586,7 +4593,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="101"/>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>Změna uspořádání obrazu se projeví za %1s po provedení změn</translation>
     </message>
 </context>
 <context>
@@ -4853,7 +4860,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/window/modules/update/appstoreupdateitem.cpp" line="27"/>
         <source>View in App Store</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazit v katalogu aplikací</translation>
     </message>
 </context>
 <context>
@@ -4879,7 +4886,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/window/modules/update/unknownupdateitem.cpp" line="41"/>
         <source>Release date: </source>
-        <translation type="unfinished"/>
+        <translation>Datum vydání:</translation>
     </message>
 </context>
 <context>
@@ -4911,7 +4918,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="167"/>
         <source>Backing up</source>
-        <translation type="unfinished"/>
+        <translation>Zálohuje se</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="178"/>
@@ -4921,7 +4928,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="210"/>
         <source>Release date: </source>
-        <translation type="unfinished"/>
+        <translation>Datum vydání:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
@@ -4944,7 +4951,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="439"/>
         <source>Unknown Apps Updates</source>
-        <translation type="unfinished"/>
+        <translation>Neznámé aktualizace aplikací</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="1403"/>
@@ -4954,7 +4961,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="1406"/>
         <source>Dependency error</source>
-        <translation type="unfinished"/>
+        <translation>Chyba v závislostech</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="1409"/>
@@ -4964,7 +4971,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="1412"/>
         <source>Update failed</source>
-        <translation type="unfinished"/>
+        <translation>Aktualizace se nezdařila</translation>
     </message>
 </context>
 <context>
@@ -4973,32 +4980,32 @@ If you agree to this statement and enroll your face (we will not collect your fa
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
         <source>Downloading </source>
-        <translation type="unfinished"/>
+        <translation>Stahuje se </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="60"/>
         <source>Waiting </source>
-        <translation type="unfinished"/>
+        <translation>Čeká se </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="63"/>
         <source>Installing </source>
-        <translation type="unfinished"/>
+        <translation>Instaluje se </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="66"/>
         <source>Backing up </source>
-        <translation type="unfinished"/>
+        <translation>Zálohuje se </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
         <source>Download and install</source>
-        <translation type="unfinished"/>
+        <translation>Stáhnout a nainstalovat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Zjistit více</translation>
     </message>
 </context>
 <context>
@@ -5006,7 +5013,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/widgets/detailinfoitem.cpp" line="76"/>
         <source>For more details, visit:</source>
-        <translation type="unfinished"/>
+        <translation>Podrobnosti naleznete na:</translation>
     </message>
 </context>
 <context>
