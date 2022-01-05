@@ -251,6 +251,10 @@
             <summary></summary>
             <description>keyboard shortcut menu is visible</description>
         </key>
+        <key name="keyboard-general-numlock-enable" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>keyboard general numlock item is visible</summary>
+        </key>
         <key name="mouse-left-hand" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary>change mouse left hand status</summary>

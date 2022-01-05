@@ -26,6 +26,7 @@
 #include "widgets/titledslideritem.h"
 #include "widgets/switchwidget.h"
 #include "modules/keyboard/keyboardmodel.h"
+#include "window/gsettingwatcher.h"
 
 #include <DApplicationHelper>
 
@@ -39,6 +40,8 @@ using namespace DCC_NAMESPACE::keyboard;
 using namespace dcc;
 using namespace dcc::keyboard;
 using namespace dcc::widgets;
+
+#define GSETTINGS_NUMLOCK_ENABLE "keyboardGeneralNumlockEnable"
 
 GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *parent)
     : dcc::ContentWidget(parent)
@@ -140,6 +143,8 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     setSpeedValue(m_model->repeatInterval());
     m_upper->setChecked(m_model->capsLock());
     m_numLock->setChecked(m_model->numLock());
+
+    GSettingWatcher::instance()->bind(GSETTINGS_NUMLOCK_ENABLE, m_numLock);
 }
 
 void GeneralKBSettingWidget::setDelayValue(uint value)
