@@ -157,6 +157,11 @@ BootWidget::BootWidget(QWidget *parent)
     setLayout(layout);
     setWindowTitle(tr("Boot Menu"));
 
+    if (IsCommunitySystem) {
+        m_grubVerification->hide();
+        m_grubVerifyLbl->hide();
+    }
+
 #ifndef DCC_DISABLE_GRUB_THEME
     m_commoninfoBootWallpaperConfigSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
     m_isCommoninfoBootWallpaperConfigValid = m_commoninfoBootWallpaperConfigSetting->get(GSETTINGS_COMMONINFO_BOOT_WALLPAPER_CONFIG).toBool();
@@ -331,8 +336,10 @@ void BootWidget::setGrubEditAuthVisible(bool show)
     if (!show) {
         m_grubModifyPasswdLink->hide();
     }
-    m_grubVerifyLbl->setVisible(show);
-    m_grubVerification->setVisible(show);
+
+    m_grubVerifyLbl->setVisible(!IsCommunitySystem && show);
+    m_grubVerification->setVisible(!IsCommunitySystem && show);
+
 }
 
 void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)

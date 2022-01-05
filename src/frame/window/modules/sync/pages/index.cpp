@@ -162,6 +162,10 @@ IndexPage::IndexPage(QWidget *parent)
     connect(m_autoSyncSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::SyncTimeLbl);
     connect(m_bindSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::onBindUserAccountChanged);
     connect(logoutBtn, &QPushButton::clicked, this, &IndexPage::requestLogout);
+
+    if (IsCommunitySystem) {
+        m_bindSwitch->hide();
+    }
 }
 
 void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
