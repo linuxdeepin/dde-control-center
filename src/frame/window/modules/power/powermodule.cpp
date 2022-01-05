@@ -262,10 +262,10 @@ void PowerModule::showUseBattery()
 
 void PowerModule::initSearchData()
 {
-    QString module = tr("Power");
-    QString generalWidget = tr("General");
-    QString pluggedInWidget = tr("Plugged In");
-    QString onBatteayWidget = tr("On Battery");
+    const QString& module = displayName();
+    const QString& generalWidget = tr("General");
+    const QString& pluggedInWidget = tr("Plugged In");
+    const QString& onBatteayWidget = tr("On Battery");
 
     static QMap<QString, bool> gsettingsMap;
 
@@ -293,13 +293,9 @@ void PowerModule::initSearchData()
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Monitor will suspend after"), haveBettary);
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Computer will suspend after"), haveBettary && func_is_visible("systemSuspend"));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Lock screen after"), haveBettary && func_is_visible("powerAutoLockscreen"));
-
-        m_frameProxy->updateSearchData(module);
     };
 
     auto func_process_all = [=](bool battaty, bool haveLib) {
-        m_frameProxy->setModuleVisible(module, true);
-
         m_frameProxy->setWidgetVisible(module, generalWidget, func_is_visible("general"));
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the monitor"), true);
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the computer"), func_is_visible("systemSuspend"));

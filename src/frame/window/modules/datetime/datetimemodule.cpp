@@ -209,14 +209,17 @@ void DatetimeModule::addChildPageTrans() const
 void DatetimeModule::initSearchData()
 {
     static QMap<QString, bool> gsettingsMap;
-    QString module = tr("Date and Time");
-    QString timeSettings = tr("Time Settings");
-    QString timezoneList = tr("Timezone List");
-    QString formatSettings = tr("Format Settings");
-    QString weeks = tr("Weeks").remove('/').trimmed();
+    const QString& module = displayName();
+    const QString& timeSettings = tr("Time Settings");
+    const QString& timezoneList = tr("Timezone List");
+    const QString& formatSettings = tr("Format Settings");
+    const QString& weeks = tr("Weeks").remove('/').trimmed();
 
-    QStringList gsecondList;
-    gsecondList << "timezoneList" << "timeSettings" << "timeFormat";
+    const QStringList& gsecondList {
+        "timezoneList"
+        , "timeSettings"
+        , "timeFormat"
+    };
 
     auto func_is_visible = [ = ](const QString &gsettings, bool state = false) {
         if (gsettings == "") {
@@ -275,8 +278,6 @@ void DatetimeModule::initSearchData()
     };
 
     auto func_process_all = [ = ]() {
-
-        m_frameProxy->setModuleVisible(module, true);
         m_frameProxy->setWidgetVisible(module, tr("24-hour Time"), true);
 
         func_timezonelist_changed();
@@ -284,7 +285,6 @@ void DatetimeModule::initSearchData()
         func_format_changed();
 
         func_setting_changed();
-
      };
 
     //更新开/关时间同步显示“服务器”

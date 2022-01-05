@@ -109,15 +109,7 @@ void SyncModule::addChildPageTrans() const
 void SyncModule::initSearchData()
 {
     auto tfunc = [this]() {
-        if (DSysInfo::isCommunityEdition()) {
-            QString module = tr("Deepin ID");
-            m_frameProxy->setModuleVisible(module, true);
-            m_frameProxy->setWidgetVisible(module, tr("Sign In"), true);
-        } else {
-            QString module = tr("Union ID");
-            m_frameProxy->setModuleVisible(module, true);
-            m_frameProxy->setWidgetVisible(module, tr("Sign In"), true);
-        }
+            m_frameProxy->setWidgetVisible(displayName(), tr("Sign In"), true);
      };
 
     tfunc();

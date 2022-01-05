@@ -143,11 +143,11 @@ void KeyboardModule::addChildPageTrans() const
 
 void KeyboardModule::initSearchData()
 {
-    QString module = tr("Keyboard and Language");
-    QString general = tr("General");
-    QString keyboardLayout = tr("Keyboard Layout");
-    QString shortcuts = tr("Shortcuts");
-    QString systemLanguage = tr("System Language");
+    const QString& module = displayName();
+    const QString& general = tr("General");
+    const QString& keyboardLayout = tr("Keyboard Layout");
+    const QString& shortcuts = tr("Shortcuts");
+    const QString& systemLanguage = tr("System Language");
     static QMap<QString, bool> gsettingsMap;
 
     auto func_is_visible = [=](const QString &gsettings, bool state = true) {
@@ -201,9 +201,6 @@ void KeyboardModule::initSearchData()
     };
 
     auto func_process_all = [ = ]() {
-
-        m_frameProxy->setModuleVisible(module, true);
-
         func_general_changed();
 
         func_keyboard_changed();

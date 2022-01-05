@@ -170,12 +170,9 @@ void NotificationModule::initSearchData()
         return ret;
     };
 
-    QString module = tr("Notification");
+    const QString& module = displayName();
 
     auto func_process_all = [ = ]() {
-
-        m_frameProxy->setModuleVisible(module, true);
-
         m_frameProxy->setWidgetVisible(module, tr("System Notifications"), true);
         m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("App Notifications"), func_is_visible("appNotifications"));
         m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("Do Not Disturb"), func_is_visible("systemNotification"));

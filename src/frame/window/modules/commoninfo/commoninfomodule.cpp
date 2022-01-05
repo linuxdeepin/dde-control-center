@@ -70,6 +70,7 @@ void CommonInfoModule::preInitialize(bool sync , FrameProxyInterface::PushType p
     Q_UNUSED(sync);
     Q_UNUSED(pushtype);
     addChildPageTrans();
+    setAvailable(DSysInfo::uosEditionType() != DSysInfo::UosEuler);
     initSearchData();
 }
 
@@ -255,16 +256,19 @@ void CommonInfoModule::initUeProgramWidget()
 
 void CommonInfoModule::initSearchData()
 {
-    QString module = tr("General Settings");
-    QString bootMenu = tr("Boot Menu");
-    QString startupDelay = tr("Startup Delay");
-    QString theme = tr("Theme");
-    QString developerMode = tr("Developer Mode");
-    QString experienceProgram = tr("Join User Experience Program");
-    QString userExperienceProgram = tr("User Experience Program");
+    const QString& module = displayName();
+    const QString& bootMenu = tr("Boot Menu");
+    const QString& startupDelay = tr("Startup Delay");
+    const QString& theme = tr("Theme");
+    const QString& developerMode = tr("Developer Mode");
+    const QString& experienceProgram = tr("Join User Experience Program");
+    const QString& userExperienceProgram = tr("User Experience Program");
 
-    QStringList gsSecondList;
-    gsSecondList << "bootMenu" << "developerMode" << "userExperienceProgram";
+    const QStringList& gsSecondList {
+        "bootMenu"
+        , "developerMode"
+        , "userExperienceProgram"
+    };
 
     static QMap<QString, bool> gsettingsMap;
 
@@ -309,8 +313,6 @@ void CommonInfoModule::initSearchData()
 
 
     auto func_process_all = [=]() {
-        m_frameProxy->setModuleVisible(module, true);
-
         func_bootMenu_changed();
 
         func_developerMode_changed();

@@ -220,14 +220,17 @@ void MouseModule::addChildPageTrans() const
 
 void MouseModule::initSearchData()
 {
-    QString module = tr("Mouse");
-    QString general = tr("General");
-    QString mouse = tr("Mouse");
-    QString touchpad = tr("Touchpad");
-    QString trackPoint = tr("TrackPoint");
-    QStringList boolGsList;
-    boolGsList << "mouseGeneral" << "mouseMouse" << "mouseTrackpoint" << "mouseTouch";
-
+    const QString& module = displayName();
+    const QString& general = tr("General");
+    const QString& mouse = tr("Mouse");
+    const QString& touchpad = tr("Touchpad");
+    const QString& trackPoint = tr("TrackPoint");
+    const QStringList& boolGsList {
+        "mouseGeneral"
+        , "mouseMouse"
+        , "mouseTrackpoint"
+        , "mouseTouch"
+    };
     static QMap<QString, bool> gsettingsMap;
 
     auto func_is_visible = [=](const QString &gsettings, bool state = false) {
@@ -280,9 +283,6 @@ void MouseModule::initSearchData()
      };
 
     auto func_process_all = [ = ]() {
-
-        m_frameProxy->setModuleVisible(module, true);
-
         func_general_changed();
 
         func_mouse_changed();

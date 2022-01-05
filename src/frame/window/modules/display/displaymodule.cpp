@@ -458,8 +458,7 @@ void DisplayModule::initSearchData()
 {
     static QMap<QString, bool> gsettingsMap;
 
-    QStringList gsSecondList;
-    gsSecondList << "brightnessEnable";
+    const QStringList& gsSecondList { "brightnessEnable" };
 
     auto func_is_visible = [=](const QString &gsettings, bool state = true) {
         if ("" == gsettings) {
@@ -477,7 +476,7 @@ void DisplayModule::initSearchData()
     };
 
 
-    QString module = tr("Display");
+    const QString& module = displayName();
     bool isMulti = m_displayModel->monitorList().size() > 1;
 
     auto func_mul_changed = [ = ](bool multi) {
@@ -498,9 +497,6 @@ void DisplayModule::initSearchData()
     };
 
     auto func_process_all = [ = ]() {
-
-        m_frameProxy->setModuleVisible(module, true);
-
         func_brightnessEnable_changed();
 
         m_frameProxy->setWidgetVisible(module, tr("Mode"), isMulti && func_is_visible("displayMultipleDisplays"));

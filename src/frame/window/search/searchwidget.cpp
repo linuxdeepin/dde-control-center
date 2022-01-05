@@ -268,16 +268,6 @@ void SearchWidget::addModulesName(QString moduleName, const QString &searchName,
     return m_model->addModulesName(moduleName, searchName, icon, translation);
 }
 
-void SearchWidget::addUnExsitData(const QString &module, const QString &datail)
-{
-    return m_model->addUnExsitData(module, datail);
-}
-
-void SearchWidget::removeUnExsitData(const QString &module, const QString &datail)
-{
-    return m_model->removeUnExsitData(module, datail);
-}
-
 void SearchWidget::addSpecialThreeMenuMap(const QString &name, bool flag)
 {
     return m_model->addSpecialThreeMenuMap(name, flag);

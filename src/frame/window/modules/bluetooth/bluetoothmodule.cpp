@@ -133,10 +133,10 @@ void BluetoothModule::initSearchData()
         return;
     }
 
-    QString module = tr("Bluetooth");
-    QString myDevices = tr("My Devices");
-    QString otherDevices = tr("Other Devices");
-    QString explain = tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)");
+    const QString& module = displayName();
+    const QString& myDevices = tr("My Devices");
+    const QString& otherDevices = tr("Other Devices");
+    const QString& explain = tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)");
 
     static QMap<QString, bool> gsMap = {
         {myDevices, false},

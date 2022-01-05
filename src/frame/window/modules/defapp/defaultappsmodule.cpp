@@ -135,10 +135,15 @@ int DefaultAppsModule::load(const QString &path)
 
 QStringList DefaultAppsModule::availPage() const
 {
-    QStringList sl;
-    sl << "Webpage" << "Mail" << "Text" << "Music" << "Video" << "Picture" << "Terminal";
-
-    return sl;
+    return {
+        "Webpage"
+        , "Mail"
+        , "Text"
+        , "Music"
+        , "Video"
+        , "Picture"
+        , "Terminal"
+    };
 }
 
 void DefaultAppsModule::addChildPageTrans() const
@@ -157,12 +162,18 @@ void DefaultAppsModule::addChildPageTrans() const
 
 void DefaultAppsModule::initSearchData()
 {
-    QStringList gslist;
-    gslist << "defappWebpage" << "defappText" << "defappMusic" << "defappMail"
-           << "defappVideo" << "defappPicture" << "defappTerminal";
+    const QStringList& gslist {
+        "defappWebpage"
+        , "defappText"
+        , "defappMusic"
+        , "defappMail"
+        , "defappVideo"
+        , "defappPicture"
+        , "defappTerminal"
+    };
 
-    QString module = tr("Default Applications");
-    QString addApplication = tr("Add Application");
+    const QString& module = displayName();
+    const QString& addApplication = tr("Add Application");
 
     static QMap<QString, bool> gsettingsMap;
 
@@ -198,9 +209,6 @@ void DefaultAppsModule::initSearchData()
     };
 
     auto func_process_all = [ = ]() {
-
-        m_frameProxy->setModuleVisible(module, true);
-
         func_second_changed();
 
         func_addapp_changed();
