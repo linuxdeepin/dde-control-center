@@ -32,8 +32,6 @@
 #include <DLog>
 #include <DApplicationSettings>
 
-#include <QScreen>
-
 #include <unistd.h>
 
 DWIDGET_USE_NAMESPACE
@@ -134,12 +132,7 @@ int main(int argc, char *argv[])
     pid_t pid = getpid();
     qDebug() << QString("main window size: %1 * %2").arg(w).arg(h) << ", pid is:" << pid;
 
-    auto screen = app->primaryScreen();
-    QRect mwRect(0, 0, w, h);
-    mwRect.moveCenter(screen->geometry().center());
-
     DCC_NAMESPACE::MainWindow mw;
-    mw.setGeometry(mwRect);
     gwm = &mw;
 
     DBusControlCenterService adaptor(&mw);

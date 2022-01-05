@@ -109,6 +109,7 @@ public:
     inline QStack<QPair<ModuleInterface *, QWidget *>> getcontentStack() {return m_contentStack;}
     inline QSize getLastSize() const { return m_lastSize; }
     inline void setNeedRememberLastSize(bool needRememberLastSize)  { m_needRememberLastSize = needRememberLastSize;}
+    void setPrimaryScreen(QScreen *screen);
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
@@ -123,7 +124,6 @@ private Q_SLOTS:
     void findFocusChild(QWidget *w, QWidget *&pre);
     void findFocusChild(QLayout *l, QWidget *&pre);
     void openManual();
-    void onPrimaryScreenChanged(QScreen *screen);
 
 public Q_SLOTS:
     //设置特别的三级菜单的可见性

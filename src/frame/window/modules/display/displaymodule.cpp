@@ -130,6 +130,15 @@ void DisplayModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
     QTimer::singleShot(0, m_displayWorker, [=] {
         m_displayWorker->active();
     });
+
+    //wayland下没有主屏和副屏之分 所以mainwindow窗体想要居中，直接使用QGuiApplication::primaryScreen()方法
+    //获取的主屏的信息是错误的，所以不能直接使用。现在的方法是通过/com/deepin/daemon/Display服务获取主屏的名称
+    //然后再在QGuiApplication::screens()中匹配，从而获取主屏的信息。
+    connect(m_displayModel, &DisplayModel::primaryScreenChanged, this, [=] {
+        if(m_pMainWindow) {
+            m_pMainWindow->setPrimaryScreen(m_displayModel->primaryMonitor()->getQScreen());
+        }
+    });
 }
 
 QStringList DisplayModule::availPage() const
@@ -276,7 +285,7 @@ void DisplayModule::showMultiScreenWidget()
             m_pMainWindow->showMaximized();
         }
 
-        QScreen *screen = QGuiApplication::primaryScreen();
+        QScreen *screen = m_displayModel->primaryMonitor()->getQScreen();
         m_pMainWindow->setGeometry(QRect(screen->geometry().topLeft(),m_pMainWindow->size()));
         m_pMainWindow->move(QPoint(screen->geometry().left() + (screen->geometry().width() - m_pMainWindow->width()) / 2,
                     screen->geometry().top() + (screen->geometry().height() - m_pMainWindow->height()) / 2));

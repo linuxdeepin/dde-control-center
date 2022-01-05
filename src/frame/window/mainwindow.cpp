@@ -114,6 +114,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_widgetName("")
     , m_backwardBtn(nullptr)
     , m_lastSize(WidgetMinimumWidth, WidgetMinimumHeight)
+    , m_primaryScreen(nullptr)
 {
     //Initialize view and layout structure
     DMainWindow::installEventFilter(this);
@@ -217,10 +218,6 @@ MainWindow::MainWindow(QWidget *parent)
         resetNavList(m_contentStack.isEmpty());
     });
     updateViewBackground();
-    updateWinsize();
-    m_primaryScreen = QGuiApplication::primaryScreen();
-    connect(qGuiApp, &QGuiApplication::primaryScreenChanged, this, &MainWindow::onPrimaryScreenChanged);
-    connect(m_primaryScreen,&QScreen::geometryChanged,this,&MainWindow::updateWinsize);
 }
 
 MainWindow::~MainWindow()
@@ -304,6 +301,16 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
             }
         }
     }
+}
+
+void MainWindow::setPrimaryScreen(QScreen *screen)
+{
+    if(m_primaryScreen)
+        disconnect(m_primaryScreen, &QScreen::geometryChanged, this, &MainWindow::updateWinsize);
+
+    m_primaryScreen = screen;
+    updateWinsize();
+    connect(m_primaryScreen, &QScreen::geometryChanged, this, &MainWindow::updateWinsize);
 }
 
 void MainWindow::initAllModule(const QString &m)
@@ -427,19 +434,13 @@ void MainWindow::initAllModule(const QString &m)
     qDebug() << QString("load search info with %1ms").arg(et.elapsed());
 }
 
-void MainWindow::onPrimaryScreenChanged(QScreen *screen)
-{
-    disconnect(m_primaryScreen, &QScreen::geometryChanged, this, &MainWindow::updateWinsize);
-    m_primaryScreen = screen;
-    updateWinsize();
-    connect(m_primaryScreen, &QScreen::geometryChanged, this, &MainWindow::updateWinsize);
-}
-
 void MainWindow::updateWinsize(QRect rect)
 {
-    QScreen *screen = QGuiApplication::primaryScreen();
-    int w = screen->geometry().width();
-    int h = screen->geometry().height();
+    if(!m_primaryScreen)
+        return;
+
+    int w = m_primaryScreen->geometry().width();
+    int h = m_primaryScreen->geometry().height();
     if (rect.width() && rect.height()) {
         w = rect.width();
         h = rect.height();
@@ -454,8 +455,8 @@ void MainWindow::updateWinsize(QRect rect)
     if (height() > WidgetMinimumHeight)
         this->setGeometry(x(), y(), width(), WidgetMinimumHeight);
 
-    move(QPoint(screen->geometry().left() + (screen->geometry().width() - this->geometry().width()) / 2,
-                screen->geometry().top() + (screen->geometry().height() - this->geometry().height()) / 2));
+    move(QPoint(m_primaryScreen->geometry().left() + (m_primaryScreen->geometry().width() - this->geometry().width()) / 2,
+                m_primaryScreen->geometry().top() + (m_primaryScreen->geometry().height() - this->geometry().height()) / 2));
 }
 
 void MainWindow::setSpecialThreeMenuVisible(QString name, bool flag)
