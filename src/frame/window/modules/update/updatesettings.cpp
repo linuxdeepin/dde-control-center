@@ -78,6 +78,12 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     initUi();
     initConnection();
     setModel(model);
+
+    if (IsCommunitySystem) {
+        m_autoCheckUniontechUpdate->setTitle(tr("System"));
+        m_autoCheckSecureUpdate->hide();
+        m_autoCheckSecureUpdateTips->hide();
+    }
 }
 
 UpdateSettings::~UpdateSettings()

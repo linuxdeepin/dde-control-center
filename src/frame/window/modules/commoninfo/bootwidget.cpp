@@ -190,6 +190,11 @@ BootWidget::BootWidget(QWidget *parent)
     widget->setLayout(layout);
     m_scrollArea->setWidget(widget);
 
+    if (IsCommunitySystem) {
+        m_grubVerification->hide();
+        m_grubVerifyLbl->hide();
+    }
+
 #ifndef DCC_DISABLE_GRUB
     // 设置触摸屏手势识别
     QScroller::grabGesture(m_scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
@@ -379,8 +384,10 @@ void BootWidget::setGrubEditAuthVisible(bool show)
     if (!show) {
         m_grubModifyPasswdLink->hide();
     }
-    m_grubVerifyLbl->setVisible(show);
-    m_grubVerification->setVisible(show);
+
+    m_grubVerifyLbl->setVisible(!IsCommunitySystem && show);
+    m_grubVerification->setVisible(!IsCommunitySystem && show);
+
 }
 
 void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)

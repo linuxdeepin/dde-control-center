@@ -165,6 +165,10 @@ IndexPage::IndexPage(QWidget *parent)
     connect(logoutBtn, &QPushButton::clicked, this, [this] {
         Q_EMIT IndexPage::requestLogout(m_bindSwitch->checked() ? m_ubid : "");
     });
+
+    if (IsCommunitySystem) {
+        m_bindSwitch->hide();
+    }
 }
 
 void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
