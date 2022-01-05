@@ -84,7 +84,7 @@
     <message>
         <location filename="language.h" line="47"/>
         <source>Český</source>
-        <translation>čeština</translation>
+        <translation>Český</translation>
     </message>
     <message>
         <location filename="language.h" line="48"/>
