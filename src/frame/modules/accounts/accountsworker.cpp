@@ -253,11 +253,11 @@ void AccountsWorker::localBindCheck(dcc::accounts::User *user, const QString &uo
 
 void AccountsWorker::startResetPasswordExec(User *user)
 {
-    qWarning() << "begin setpassword";
+    qDebug() << "begin setpassword";
     AccountsUser *userInter = m_userInters.value(user);
     auto reply = userInter->SetPassword("");
     reply.waitForFinished();
-    qWarning() << "reply setpassword:" << reply.error().message();
+    Q_EMIT user->startResetPasswordReplied(reply.error().message());
 }
 
 void AccountsWorker::setPasswordHint(User *user, const QString &passwordHint)

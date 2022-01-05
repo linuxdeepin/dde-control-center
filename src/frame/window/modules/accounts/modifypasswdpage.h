@@ -27,7 +27,7 @@
 
 #include <DSuggestButton>
 #include <DLineEdit>
-
+#include <DCommandLinkButton>
 #include <DPasswordEdit>
 
 #include "com_deepin_defender_hmiscreen.h"
@@ -76,11 +76,11 @@ public:
 protected:
     void showEvent(QShowEvent *event) override;
     void paintEvent(QPaintEvent *event) override;
-
 private:
     void resetPasswordFinished(const QString &errorText);
     void onForgetPasswordBtnClicked();
     void onCheckBindFailed(const QString &errorText);
+    void onStartResetPasswordReplied(const QString &errorText);
 
 Q_SIGNALS:
     void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password, const QString &repeatPassword, const bool needResule = true);
@@ -96,11 +96,12 @@ private:
     DPasswordEdit *m_oldPasswordEdit;
     DPasswordEdit *m_newPasswordEdit;
     DPasswordEdit *m_repeatPasswordEdit;
+    DCommandLinkButton *m_forgetPasswordBtn;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_passwordTipsEdit;
     bool m_isCurrent;
     bool m_isBindCheckError;
-
     dcc::widgets::SecurityLevelItem *m_securityLevelItem;
+    QTimer m_enableBtnTimer;
 };
 }
 }

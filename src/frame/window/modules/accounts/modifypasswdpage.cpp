@@ -31,7 +31,6 @@
 #include <DDialog>
 #include <DDBusSender>
 #include <DDesktopServices>
-#include <DCommandLinkButton>
 #include <DMessageManager>
 
 #include <QVBoxLayout>
@@ -85,14 +84,14 @@ void ModifyPasswdPage::initWidget()
 
     if (m_isCurrent) {
         QLabel *oldPasswdLabel = new QLabel(tr("Current Password") + ":");
-        DCommandLinkButton *forgetPasswordBtn = new DCommandLinkButton(tr("Forgot password?"));
-        DFontSizeManager::instance()->bind(forgetPasswordBtn, DFontSizeManager::T8);
-        forgetPasswordBtn->setVisible(getuid() < 9999); // 如果当前账户是域账号,则屏蔽重置密码入口
-        connect(forgetPasswordBtn, &QPushButton::clicked, this, &ModifyPasswdPage::onForgetPasswordBtnClicked);
+        m_forgetPasswordBtn = new DCommandLinkButton(tr("Forgot password?"));
+        DFontSizeManager::instance()->bind(m_forgetPasswordBtn, DFontSizeManager::T8);
+        m_forgetPasswordBtn->setVisible(getuid() < 9999); // 如果当前账户是域账号,则屏蔽重置密码入口
+        connect(m_forgetPasswordBtn, &QPushButton::clicked, this, &ModifyPasswdPage::onForgetPasswordBtnClicked);
         QHBoxLayout *hLayout = new QHBoxLayout;
         hLayout->addWidget(oldPasswdLabel);
         hLayout->addStretch();
-        hLayout->addWidget(forgetPasswordBtn);
+        hLayout->addWidget(m_forgetPasswordBtn);
         hLayout->addSpacing(45);
         mainContentLayout->addLayout(hLayout);
         mainContentLayout->addWidget(m_oldPasswordEdit);
@@ -148,6 +147,7 @@ void ModifyPasswdPage::initWidget()
     });
     connect(m_curUser, &User::passwordResetFinished, this, &ModifyPasswdPage::resetPasswordFinished);
     connect(m_curUser, &User::checkBindFailed, this, &ModifyPasswdPage::onCheckBindFailed);
+    connect(m_curUser, &User::startResetPasswordReplied, this, &ModifyPasswdPage::onStartResetPasswordReplied);
 
     connect(m_oldPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
         if (m_oldPasswordEdit->isAlert())
@@ -410,6 +410,8 @@ void ModifyPasswdPage::resetPasswordFinished(const QString &errorText)
 
 void ModifyPasswdPage::onForgetPasswordBtnClicked()
 {
+    m_forgetPasswordBtn->setEnabled(false);
+
     QString uosid;
     Q_EMIT requestUOSID(uosid);
     if (uosid.isEmpty()) {
@@ -448,4 +450,14 @@ void ModifyPasswdPage::onCheckBindFailed(const QString &errorText)
     DMessageManager::instance()->sendMessage(this,
                                              style()->standardIcon(QStyle::SP_MessageBoxWarning),
                                              tips);
+}
+
+void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)
+{
+    if (!errorText.isEmpty()) {
+        m_forgetPasswordBtn->setEnabled(true);
+    } else {
+        m_enableBtnTimer.singleShot(5000, this, [this]{ m_forgetPasswordBtn->setEnabled(true); });
+    }
+    qDebug() << "Resetpassword reply:" << errorText;
 }
