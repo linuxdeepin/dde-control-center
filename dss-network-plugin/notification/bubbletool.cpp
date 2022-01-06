@@ -180,10 +180,6 @@ void BubbleTool::processIconData(AppIcon *icon, EntityPtr entity)
     }
 }
 
-void BubbleTool::register_wm_state(WId winid)
-{
-}
-
 const QString BubbleTool::getDeepinAppName(const QString &name)
 {
     QString settingFile = "/usr/share/applications/" + name + ".desktop";

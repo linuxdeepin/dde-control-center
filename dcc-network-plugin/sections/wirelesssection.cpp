@@ -107,7 +107,7 @@ void WirelessSection::saveSettings()
     //QString clonedAddr = m_clonedMac->text().remove(":");
     //m_wirelessSetting->setClonedMacAddress(QByteArray::fromHex(clonedAddr.toUtf8()));
 
-    m_wirelessSetting->setMtu(m_customMtuSwitch->checked() ? m_customMtu->spinBox()->value() : 0);
+    m_wirelessSetting->setMtu(m_customMtuSwitch->checked() ? static_cast<unsigned int>(m_customMtu->spinBox()->value()) : 0);
 
     m_wirelessSetting->setInitialized(true);
 }
@@ -159,7 +159,7 @@ void WirelessSection::initUI()
     m_customMtu->setTitle(tr("MTU"));
     m_customMtu->spinBox()->setMinimum(0);
     m_customMtu->spinBox()->setMaximum(10000);
-    m_customMtu->spinBox()->setValue(m_wirelessSetting->mtu());
+    m_customMtu->spinBox()->setValue(static_cast<int>(m_wirelessSetting->mtu()));
     onCostomMtuChanged(m_customMtuSwitch->checked());
 
     appendItem(m_apSsid);

@@ -622,8 +622,6 @@ void WirelessItem::expandWidget(ExpandWidget type, bool autoDisconnect)
         checkInputValid();
         m_passwdEdit->setAlert(!m_passwdEdit->text().isEmpty());
         break;
-    default:
-        break;
     }
     emit sizeChanged();
 }

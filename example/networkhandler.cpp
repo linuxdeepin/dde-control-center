@@ -266,9 +266,6 @@ void NetworkHandler::onDeviceAdded(QList<NetworkDeviceBase *> devices)
     outputMessage("received DeviceAdded signal:");
     for (int i = 0; i < devices.size(); i++) {
         NetworkDeviceBase *device = devices[i];
-        connect(device, &NetworkDeviceBase::deviceStatusChanged,
-                this, &NetworkHandler::onDeviceStatusChanged);
-
         connect(device, &NetworkDeviceBase::enableChanged,
                 this, &NetworkHandler::onEnableChanged);
         connect(device, &NetworkDeviceBase::connectionChanged,
@@ -299,15 +296,6 @@ void NetworkHandler::onDeviceRemoved(QList<NetworkDeviceBase *> devices)
     outputMessage("received DeviceRemoved signal:");
     for (NetworkDeviceBase *device : devices)
         cout << "remove Device:" << static_cast<const char *>(device->path().toLocal8Bit());
-}
-
-void NetworkHandler::onDeviceStatusChanged(const DeviceStatus &s) const
-{
-    /*UNetworkDeviceBase *device = static_cast<UNetworkDeviceBase *>(sender());
-    outputMessage("received DeviceStatusChanged : devcice path:"
-                  + device->path() + ", status:"
-                  + QString("%1").arg(static_cast<int>(s)));
-    */
 }
 
 void NetworkHandler::onEnableChanged(const bool enabled) const

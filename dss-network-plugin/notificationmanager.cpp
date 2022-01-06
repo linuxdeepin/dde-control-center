@@ -81,8 +81,6 @@ uint NotificationManager::NetworkNotify(NetworkNotifyType type, const QString &n
         return NotificationManager::Notify(notifyIconWirelessDisconnected, QObject::tr("Password is required to connect %1").arg(name));
     case SsidNotFound:
         return NotificationManager::Notify(notifyIconWirelessDisconnected, QObject::tr("The %1 802.11 WLAN network could not be found").arg(name));
-    default:
-        break;
     }
     return 0;
 }

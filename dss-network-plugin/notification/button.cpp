@@ -19,7 +19,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "button.h"
-#include "constants.h"
 
 #include <QAction>
 #include <QDebug>
@@ -199,7 +198,7 @@ Button::Button(QWidget *parent)
     m_menuArea->setAccessibleName("ButtonMenu");
     m_menu->setAccessibleName("Menu");
 
-    m_menuArea->setFixedWidth(MIN(MenuWidth + 2 * MenuPadding, width() / 3));
+    m_menuArea->setFixedWidth(qMin(MenuWidth + 2 * MenuPadding, width() / 3));
     m_menuArea->hide();
 
     QHBoxLayout *layout = new QHBoxLayout;

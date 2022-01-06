@@ -63,8 +63,6 @@ class BubbleManager : public QObject, public QDBusContext
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString systemSetting READ getSystemSetting WRITE setSystemSetting)
-
 public:
     explicit BubbleManager(QObject *parent = nullptr);
     ~BubbleManager();
@@ -124,22 +122,6 @@ public Q_SLOTS:
      */
     uint Notify(const QString &, uint replacesId, const QString &, const QString &, const QString &);
 
-    // Extra DBus APIs
-
-    /*!
-     * \~chinese \name GetAllRecords
-     * \~chinese \brief 返回所有通知的记录
-     * \~chinese \return 返回一个json格式的字符串
-     */
-    QString GetAllRecords();
-    /*!
-     * \~chinese \name GetRecordById
-     * \~chinese \brief 根据ID查询通知记录
-     * \~chinese \param id
-     * \~chinese \return 返回一个json格式的字符串
-     */
-    QString GetRecordById(const QString &id);
-    QString GetRecordsFromId(int rowCount, const QString &offsetId);
     /*!
      * \~chinese \name RemoveRecord
      * \~chinese \brief 根据ID删除通知记录
@@ -163,19 +145,6 @@ public Q_SLOTS:
      */
     void Show();
     void Hide();
-    uint recordCount();
-    QStringList GetAppList();
-    QDBusVariant GetAppInfo(const QString id, uint item);
-    QDBusVariant GetSystemInfo(uint item);
-    void SetAppInfo(const QString id, uint item, const QDBusVariant var);
-    void SetSystemInfo(uint item, const QDBusVariant var);
-
-    // 旧接口之后废弃
-    void setAllSetting(const QString settings);
-    QString getAppSetting(QString appName);
-    void setAppSetting(const QString settings);
-    QString getSystemSetting();
-    void setSystemSetting(QString settings);
 
 private Q_SLOTS:
     /*!
@@ -208,12 +177,9 @@ private Q_SLOTS:
      * \~chinese \brief 当主屏幕发生改变或几何大小发送改变,更新所有通知气泡的几何位置
      */
     void updateGeometry();
-    void appInfoChanged(QString action, LauncherItemInfo info);
-    void onOpacityChanged(double value);
 
 private:
     void initConnections();                 //初始化信号槽连接
-    void registerAsService();               //注册Dbus服务
     /*!
      * \~chinese \name calcReplaceId
      * \~chinese \brief 计算ReplaceId,并查找当前通知中是否有相同的ReplaceId,如果有相同的
@@ -235,7 +201,6 @@ private:
     QRect getBubbleGeometry(int index);                     //根据索引获取气泡的矩形大小
     // Get the last unanimated bubble rect
     QRect getLastStableRect(int index);                     //得到最后一个没有动画的矩形气泡
-    bool isDoNotDisturb();
     QRect calcDisplayRect();
     /**
      * @brief getBubbleHeightBefore 获取序号小于index的气泡的高度之和

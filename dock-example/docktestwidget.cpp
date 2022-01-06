@@ -42,6 +42,7 @@ bool DockTestWidget::eventFilter(QObject *object, QEvent *event)
 
 void DockTestWidget::enterEvent(QEvent *event)
 {
+    Q_UNUSED(event);
     QWidget *tip = m_networkPlugin->itemTipsWidget(NETWORK_KEY);
     tip->setFixedSize(200, 300);
     tip->show();

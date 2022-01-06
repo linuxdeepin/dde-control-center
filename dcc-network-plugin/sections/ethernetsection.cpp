@@ -133,7 +133,7 @@ void EthernetSection::saveSettings()
     QString clonedAddr = m_clonedMac->text().remove(":");
     m_wiredSetting->setClonedMacAddress(QByteArray::fromHex(clonedAddr.toUtf8()));
 
-    m_wiredSetting->setMtu(m_customMtuSwitch->checked() ? m_customMtu->spinBox()->value() : 0);
+    m_wiredSetting->setMtu(m_customMtuSwitch->checked() ? static_cast<unsigned int>(m_customMtu->spinBox()->value()) : 0);
 
     m_wiredSetting->setInitialized(true);
 }
@@ -177,7 +177,7 @@ void EthernetSection::initUI()
     m_customMtu->setTitle(tr("MTU"));
     m_customMtu->spinBox()->setMinimum(0);
     m_customMtu->spinBox()->setMaximum(10000);
-    m_customMtu->spinBox()->setValue(m_wiredSetting->mtu());
+    m_customMtu->spinBox()->setValue(static_cast<int>(m_wiredSetting->mtu()));
     connect(m_customMtu->spinBox()->lineEdit(), &QLineEdit::textEdited, this, [this] (const QString &str) {
         if (str.contains("+"))
             m_customMtu->spinBox()->lineEdit()->clear();

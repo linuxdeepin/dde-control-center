@@ -148,6 +148,7 @@ QWidget *NetworkPlugin::itemTipsWidget(const QString &itemKey)
 
 QWidget *NetworkPlugin::itemPopupApplet(const QString &itemKey)
 {
+    Q_UNUSED(itemKey);
     int msec = QTime::currentTime().msecsSinceStartOfDay();
     if (!m_networkHelper->needShowControlCenter() && abs(msec - m_clickTime) > 200) {
         m_clickTime = msec;
@@ -189,6 +190,7 @@ void NetworkPlugin::refreshPluginItemsVisible()
 
 void NetworkPlugin::positionChanged(const Dock::Position position)
 {
+    Q_UNUSED(position);
     updatePoint();
 }
 

@@ -59,8 +59,6 @@ BubbleManager::BubbleManager(QObject *parent)
 
     initConnections();
     geometryChanged();
-
-    registerAsService();
 }
 
 BubbleManager::~BubbleManager()
@@ -138,7 +136,8 @@ uint BubbleManager::Notify(const QString &appName, uint replacesId,
 
 void BubbleManager::pushBubble(EntityPtr notify)
 {
-    if (notify == nullptr) return;
+    if (notify == nullptr)
+        return;
 
     Bubble *bubble = createBubble(notify);
 
@@ -288,30 +287,10 @@ QRect BubbleManager::getLastStableRect(int index)
     return rect;
 }
 
-bool BubbleManager::isDoNotDisturb()
-{
-    return false;
-}
-
 QRect BubbleManager::calcDisplayRect()
 {
     QDesktopWidget *desktopWidget = qApp->desktop();
     return desktopWidget->screenGeometry(desktopWidget->primaryScreen());
-}
-
-QString BubbleManager::GetAllRecords()
-{
-    return QString();
-}
-
-QString BubbleManager::GetRecordById(const QString &id)
-{
-    return QString();
-}
-
-QString BubbleManager::GetRecordsFromId(int rowCount, const QString &offsetId)
-{
-    return QString();
 }
 
 void BubbleManager::RemoveRecord(const QString &id)
@@ -357,71 +336,6 @@ void BubbleManager::Hide()
     geometryChanged();
 }
 
-uint BubbleManager::recordCount()
-{
-    return 0;
-}
-
-QStringList BubbleManager::GetAppList()
-{
-    return QStringList();
-}
-
-QDBusVariant BubbleManager::GetAppInfo(const QString id, const uint item)
-{
-    return QDBusVariant();
-}
-
-QDBusVariant BubbleManager::GetSystemInfo(uint item)
-{
-    return QDBusVariant();
-}
-
-void BubbleManager::SetAppInfo(const QString id, const uint item, const QDBusVariant var)
-{
-
-}
-
-void BubbleManager::SetSystemInfo(uint item, const QDBusVariant var)
-{
-
-}
-
-void BubbleManager::appInfoChanged(QString action, LauncherItemInfo info)
-{
-}
-
-void BubbleManager::onOpacityChanged(double value)
-{
-}
-
-void BubbleManager::setAllSetting(const QString settings)
-{
-}
-
-QString BubbleManager::getAppSetting(QString appName)
-{
-}
-
-void BubbleManager::setAppSetting(const QString settings)
-{
-    QJsonObject currentObj = QJsonDocument::fromJson(settings.toUtf8()).object();
-    Q_EMIT systemSettingChanged(currentObj.begin().key());
-}
-
-QString BubbleManager::getSystemSetting()
-{
-}
-
-void BubbleManager::setSystemSetting(QString settings)
-{
-}
-
-void BubbleManager::registerAsService()
-{
-}
-
-
 void BubbleManager::bubbleExpired(Bubble *bubble)
 {
     popBubble(bubble);
@@ -458,7 +372,6 @@ void BubbleManager::updateGeometry()
 
 void BubbleManager::initConnections()
 {
-
     connect(qApp, &QApplication::primaryScreenChanged, this, [ = ] {
         updateGeometry();
     });

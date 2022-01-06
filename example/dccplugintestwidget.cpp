@@ -9,6 +9,8 @@
 #include <DApplicationHelper>
 #include <QScrollArea>
 #include <DTitlebar>
+#include <DPaletteHelper>
+
 #include <QLineEdit>
 #include <QScroller>
 #include <QObject>
@@ -204,6 +206,8 @@ void DccPluginTestWidget::setModuleVisible(ModuleInterface * const inter, const 
 
 void DccPluginTestWidget::showModulePage(const QString &module, const QString &page, bool animation)
 {
+    Q_UNUSED(module);
+    Q_UNUSED(page);
     Q_UNUSED(animation)
 
     raise();
@@ -531,7 +535,7 @@ void DccPluginTestWidget::pushFinalWidget(ModuleInterface * const inter, QWidget
 
 void DccPluginTestWidget::updateViewBackground()
 {
-    DPalette pa = DApplicationHelper::instance()->palette(m_navView);
+    DPalette pa = DPaletteHelper::instance()->palette(m_navView);
     QColor base_color = palette().base().color();
 
     if (m_navView->viewMode() == QListView::IconMode) {
@@ -548,7 +552,7 @@ void DccPluginTestWidget::updateViewBackground()
         pa.setColor(DPalette::ItemBackground, base_color);
     }
 
-    DApplicationHelper::instance()->setPalette(m_navView, pa);
+    DPaletteHelper::instance()->setPalette(m_navView, pa);
 }
 
 void DccPluginTestWidget::updateWinsize()
@@ -689,7 +693,7 @@ void FourthColWidget::paintEvent(QPaintEvent *event)
 
     linear.setColorAt(1, QColor(0, 0, 0, 0));
 
-    DPalette pa = DApplicationHelper::instance()->palette(this);
+    DPalette pa = DPaletteHelper::instance()->palette(this);
 
     QPainter painter(this);
     painter.setPen(Qt::NoPen);

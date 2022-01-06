@@ -35,7 +35,6 @@ private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
     void onDeviceRemoved(QList<NetworkDeviceBase *> devices);
 
-    void onDeviceStatusChanged(const DeviceStatus &s) const;
     void onEnableChanged(const bool enabled) const;
     void onConnectionChanged();
     void onConnectivityChanged();

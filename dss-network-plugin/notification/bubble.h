@@ -74,7 +74,6 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void setFixedGeometry(QRect rect);
-    void onOpacityChanged(double value);
 
 protected:
     virtual void mousePressEvent(QMouseEvent *) Q_DECL_OVERRIDE;

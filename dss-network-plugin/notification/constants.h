@@ -18,8 +18,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef DEFINE_H
-#define DEFINE_H
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 
 #include "notificationentity.h"
 
@@ -30,9 +30,6 @@
 #include <QSettings>
 #include <QDebug>
 #include <QApplication>
-
-#define MIN(a,b) ((a)>(b)?(b):(a))
-#define ABS(a) (a)>0?(a):(-(a))
 
 #define  DEFAULT_TIME_SLOT true
 #define  DEFAULT_DO_NOT_DISTURB false

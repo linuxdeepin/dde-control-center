@@ -28,7 +28,6 @@
 #include "actionbutton.h"
 #include "button.h"
 #include "bubbletool.h"
-#include "constants.h"
 
 #include <DWidget>
 
@@ -306,7 +305,7 @@ void Bubble::startMove(const QRect &startRect, const QRect &endRect, bool needDe
     geometryAni->setEasingCurve(QEasingCurve::Linear);
 
     // 保证动画的速度恒定为 72pix/300ms
-    int ySpace = ABS(endRect.y() - startRect.y());
+    int ySpace = qAbs(endRect.y() - startRect.y());
     int animationTime = int(ySpace * 1.0 / 72 * AnimationTime);
     geometryAni->setDuration(animationTime);
 
@@ -351,8 +350,4 @@ void Bubble::setFixedGeometry(QRect rect)
     setFixedWidth(rect.width());
     rect.setHeight(height());
     setGeometry(rect);
-}
-
-void Bubble::onOpacityChanged(double value)
-{
 }
