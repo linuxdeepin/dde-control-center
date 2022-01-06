@@ -140,7 +140,7 @@ void CharaMangerModel::onEnrollStatusChanged(int code, const QString &msg)
         Q_EMIT enrollInfoState(AddInfoState::Fail, tr("Scan timed out"));
         break;
     case STATUS_COLLAPSE:
-        Q_EMIT enrollInfoState(AddInfoState::Fail, tr("Device crashed, please scan sgain!"));
+        Q_EMIT enrollInfoState(AddInfoState::Fail, tr("Device crashed, please scan again!"));
         break;
     default:
         break;
@@ -182,7 +182,7 @@ void CharaMangerModel::onEnrollIrisStatusChanged(int code, const QString &msg)
        Q_EMIT enrollIrisInfoState(AddInfoState::Fail, tr("Cancel"));
        break;
    case STATUS_IRIS_Error:
-       Q_EMIT enrollIrisInfoState(AddInfoState::Fail, tr("Device crashed, please scan sgain!"));
+       Q_EMIT enrollIrisInfoState(AddInfoState::Fail, tr("Device crashed, please scan again!"));
        break;
    case STATUS_IRIS_OVERTIME:
        Q_EMIT enrollIrisInfoState(AddInfoState::Fail, tr("Scan timed out"));
