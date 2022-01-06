@@ -22,6 +22,7 @@
 #include "modules/notification/model/appitemmodel.h"
 #include "modules/notification/notificationmodel.h"
 #include "window/utils.h"
+#include "widgets/multiselectlistview.h"
 
 #include <DListView>
 
@@ -42,7 +43,7 @@ using namespace DCC_NAMESPACE::notification;
 
 NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent)
     : QWidget(parent)
-    , m_softwareListView(new DListView())
+    , m_softwareListView(new dcc::widgets::MultiSelectListView())
     , m_systemListView(new DListView())
     , m_sysmodel(new QStandardItemModel(this))
     , m_softwaremodel(new QStandardItemModel(this))
@@ -122,6 +123,7 @@ void NotificationWidget::onAppClicked(const QModelIndex &index)
         m_lastIndex = index;
         Q_EMIT requestShowApp(index.row());
         m_softwareListView->setCurrentIndex(index);
+        m_softwareListView->resetStatus(m_lastIndex);
     }
 }
 

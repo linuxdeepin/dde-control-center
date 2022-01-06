@@ -39,6 +39,12 @@ class QGSettings;
 class QLabel;
 QT_END_NAMESPACE
 
+namespace dcc {
+namespace widgets {
+class MultiSelectListView;
+}
+}
+
 namespace DCC_NAMESPACE {
 namespace notification {
 
@@ -59,7 +65,7 @@ public Q_SLOTS:
     void setAppCurrentIndex(int row);
     void onSystemClicked(const QModelIndex &index);
     void refreshList();
-    Dtk::Widget::DListView* getAppListview() const {return m_softwareListView;}
+    Dtk::Widget::DListView* getAppListview() const {return (Dtk::Widget::DListView*)m_softwareListView;}
     Dtk::Widget::DListView* getSysListview() const {return m_systemListView;}
     void showDefaultWidget();
     void onSettingChanged(const QString &key);
@@ -68,7 +74,7 @@ private:
     const QPixmap loadSvg(const QString &fileName, const QSize &size);
 
 private:
-    Dtk::Widget::DListView *m_softwareListView;
+    dcc::widgets::MultiSelectListView *m_softwareListView;
     Dtk::Widget::DListView *m_systemListView;
     QStandardItemModel *m_sysmodel;
     QStandardItemModel *m_softwaremodel;
