@@ -46,16 +46,16 @@ void SyncModule::active()
 {
     SyncWidget *widget = new SyncWidget;
     widget->setVisible(false);
-    connect(widget, &SyncWidget::requestLoginUser, m_worker, &dcc::cloudsync::SyncWorker::loginUser, Qt::UniqueConnection);
-    connect(widget, &SyncWidget::requestSetAutoSync, m_worker, &dcc::cloudsync::SyncWorker::setAutoSync, Qt::UniqueConnection);
-    connect(widget, &SyncWidget::requestLogoutUser, m_worker, &dcc::cloudsync::SyncWorker::logoutUser, Qt::QueuedConnection);
-    connect(widget, &SyncWidget::requestSetModuleState, m_worker, &dcc::cloudsync::SyncWorker::setSync, Qt::UniqueConnection);
-    connect(widget, &SyncWidget::requestUOSID, m_worker, &dcc::cloudsync::SyncWorker::getUOSID, Qt::UniqueConnection);
-    connect(widget, &SyncWidget::requestUUID, m_worker, &dcc::cloudsync::SyncWorker::getUUID, Qt::UniqueConnection);
-    connect(widget, &SyncWidget::requestLocalBindCheck, m_worker, &dcc::cloudsync::SyncWorker::localBindCheck, Qt::UniqueConnection);
-    connect(widget, &SyncWidget::requestHostName, m_worker, &dcc::cloudsync::SyncWorker::getHostName, Qt::UniqueConnection);
-    connect(widget, &SyncWidget::requestBindAccount, m_worker, &dcc::cloudsync::SyncWorker::bindAccount, Qt::UniqueConnection);
-    connect(widget, &SyncWidget::requestUnBindAccount, m_worker, &dcc::cloudsync::SyncWorker::unBindAccount, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestLoginUser, m_worker.get(), &dcc::cloudsync::SyncWorker::loginUser, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestSetAutoSync, m_worker.get(), &dcc::cloudsync::SyncWorker::setAutoSync, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestLogoutUser, m_worker.get(), &dcc::cloudsync::SyncWorker::logoutUser, Qt::QueuedConnection);
+    connect(widget, &SyncWidget::requestSetModuleState, m_worker.get(), &dcc::cloudsync::SyncWorker::setSync, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestUOSID, m_worker.get(), &dcc::cloudsync::SyncWorker::getUOSID, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestUUID, m_worker.get(), &dcc::cloudsync::SyncWorker::getUUID, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestLocalBindCheck, m_worker.get(), &dcc::cloudsync::SyncWorker::localBindCheck, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestHostName, m_worker.get(), &dcc::cloudsync::SyncWorker::getHostName, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestBindAccount, m_worker.get(), &dcc::cloudsync::SyncWorker::bindAccount, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestUnBindAccount, m_worker.get(), &dcc::cloudsync::SyncWorker::unBindAccount, Qt::UniqueConnection);
     MainWindow *pMainWindow = static_cast<MainWindow *>(m_frameProxy);
     widget->setModel(m_model, pMainWindow);
 
@@ -76,13 +76,17 @@ void SyncModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype
 
     Q_UNUSED(sync);
     Q_UNUSED(pushtype);
+    m_workThread = QSharedPointer<QThread>(new QThread);
     m_model = new SyncModel;
-    m_worker = new SyncWorker(m_model);
+    m_worker  = QSharedPointer<SyncWorker>(new SyncWorker(m_model));
+    m_worker->moveToThread(m_workThread.get());
+    m_workThread->start(QThread::LowPriority);
+
 
     bool visible = m_model->syncIsValid() && !IsServerSystem;
     m_frameProxy->setModuleVisible(this, visible);
     setDeviceUnavailabel(!visible);
-    connect(m_model, &SyncModel::syncIsValidChanged, this, [=](bool valid) {
+    connect(m_model, &SyncModel::syncIsValidChanged, this, [ = ](bool valid) {
         bool visible = valid && !IsServerSystem;
         m_frameProxy->setModuleVisible(this, visible);
         setDeviceUnavailabel(!visible);
@@ -109,8 +113,8 @@ void SyncModule::addChildPageTrans() const
 void SyncModule::initSearchData()
 {
     auto tfunc = [this]() {
-            m_frameProxy->setWidgetVisible(displayName(), tr("Sign In"), true);
-     };
+        m_frameProxy->setWidgetVisible(displayName(), tr("Sign In"), true);
+    };
 
     tfunc();
 }

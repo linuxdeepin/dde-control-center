@@ -45,7 +45,7 @@ public:
     virtual const QString displayName() const override;
     virtual void contentPopped(QWidget *const w) override;
     virtual void active() override;
-    virtual void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
+    virtual void preInitialize(bool sync = false, FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     QStringList availPage() const override;
     virtual void addChildPageTrans() const override;
 
@@ -54,7 +54,8 @@ private:
 
 private:
     dcc::cloudsync::SyncModel  *m_model;
-    dcc::cloudsync::SyncWorker *m_worker;
+    QSharedPointer<dcc::cloudsync::SyncWorker> m_worker;
+    QSharedPointer<QThread> m_workThread;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE
