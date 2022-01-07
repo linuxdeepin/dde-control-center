@@ -277,6 +277,38 @@ void DccPluginTestWidget::setSearchPath(ModuleInterface * const inter) const
     Q_UNUSED(inter);
 }
 
+void DccPluginTestWidget::setModuleVisible(const QString &module, bool visible)
+{
+    Q_UNUSED(module);
+    Q_UNUSED(visible);
+}
+
+void DccPluginTestWidget::setWidgetVisible(const QString &module, const QString &widget, bool visible)
+{
+    Q_UNUSED(module);
+    Q_UNUSED(widget);
+    Q_UNUSED(visible);
+}
+
+void DccPluginTestWidget::setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible)
+{
+    Q_UNUSED(module);
+    Q_UNUSED(widget);
+    Q_UNUSED(detail);
+    Q_UNUSED(visible);
+}
+
+void DccPluginTestWidget::updateSearchData(const QString &module)
+{
+    Q_UNUSED(module);
+}
+
+void DccPluginTestWidget::addChildPageTrans(const QString &menu, const QString &rran)
+{
+    Q_UNUSED(menu);
+    Q_UNUSED(rran);
+}
+
 void DccPluginTestWidget::onBack()
 {
     popWidget();

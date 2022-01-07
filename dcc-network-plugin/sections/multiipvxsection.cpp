@@ -40,7 +40,6 @@
 Q_DECLARE_METATYPE(Ipv4Setting::ConfigMethod)
 Q_DECLARE_METATYPE(Ipv6Setting::ConfigMethod)
 
-using NetworkInter = com::deepin::daemon::Network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
