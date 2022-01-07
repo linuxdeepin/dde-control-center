@@ -23,6 +23,7 @@
 #define PROXYCONTROLLER_H
 
 #include "networkconst.h"
+#include "netutils.h"
 
 #include <QObject>
 

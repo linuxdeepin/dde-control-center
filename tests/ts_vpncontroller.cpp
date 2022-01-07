@@ -2,6 +2,9 @@
 #include "networkdevicebase.h"
 #include "networkdetails.h"
 #include "vpncontroller.h"
+
+#include <QDebug>
+
 #include <gtest/gtest.h>
 
 using namespace dde::network;

@@ -1,7 +1,13 @@
-#ifndef UTILS_H
-#define UTILS_H
+#ifndef NETUTILS_H
+#define NETUTILS_H
 
 #include "networkconst.h"
+
+#include <QDebug>
+#include <QJsonObject>
+
+#include "com_deepin_daemon_network.h"
+#include "com_deepin_daemon_network_proxychains.h"
 
 namespace dde {
 namespace network {
@@ -18,9 +24,13 @@ namespace network {
 // the interface has carrier. In most cases this is equal to the value of @NM_DEVICE_INTERFACE_FLAG_LOWER_UP
 #define DEVICE_INTERFACE_FLAG_CARRIER 0x10000
 
+using NetworkInter = com::deepin::daemon::Network;
+using ProxyChains = com::deepin::daemon::network::ProxyChains;
+
 Connectivity connectivityValue(uint sourceConnectivity);
 DeviceStatus convertDeviceStatus(int sourceDeviceStatus);
 ConnectionStatus convertConnectionStatus(int sourceConnectionStatus);
+
 
 }
 }

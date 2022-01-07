@@ -23,7 +23,9 @@
 #define HOTSPOTCONTROLLER_H
 
 #include "networkconst.h"
+#include "netutils.h"
 
+#include <QMap>
 #include <QObject>
 
 namespace dde {

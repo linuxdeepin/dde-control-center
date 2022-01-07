@@ -20,7 +20,6 @@
  */
 
 #include "deviceinterrealize.h"
-#include "utils.h"
 #include "wireddevice.h"
 #include "wirelessdevice.h"
 

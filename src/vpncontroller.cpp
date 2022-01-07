@@ -21,12 +21,16 @@
 
 #include "vpncontroller.h"
 #include "networkconst.h"
-#include "utils.h"
 
 #include "networkmanagerqt/manager.h"
 
 using namespace dde::network;
 using namespace NetworkManager;
+
+void VPNController::setEnabled(const bool enabled)
+{
+    m_networkInter->setVpnEnabled(enabled);
+}
 
 void VPNController::connectItem(VPNItem *item)
 {

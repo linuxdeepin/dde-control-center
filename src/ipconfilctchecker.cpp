@@ -1,7 +1,6 @@
 ﻿#include "ipconfilctchecker.h"
 #include "networkdevicebase.h"
 #include "realize/netinterface.h"
-#include "utils.h"
 
 #include <QtMath>
 
@@ -171,11 +170,6 @@ QMap<QString, NetworkDeviceBase *> IPConfilctChecker::parseDeviceIp(const QStrin
             if (ipv4.isEmpty())
                 continue;
 
-            const QString devicePath = info.value("Device").toString();
-            if (!tmpDevicePath.contains(devicePath))
-                continue;
-
-            NetworkDeviceBase *device = tmpDevicePath[devicePath];
             deviceIp[ipv4] = device;
         }
     }

@@ -30,7 +30,6 @@
 #include "vpncontroller.h"
 #include "wireddevice.h"
 #include "wirelessdevice.h"
-#include "utils.h"
 #include "deviceinterrealize.h"
 
 namespace dde {

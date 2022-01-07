@@ -21,7 +21,6 @@
 
 #include "dslcontroller.h"
 #include "networkdevicebase.h"
-#include "utils.h"
 
 #include <networkmanagerqt/manager.h>
 

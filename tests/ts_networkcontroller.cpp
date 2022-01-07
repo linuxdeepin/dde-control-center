@@ -4,6 +4,8 @@
 #include "networkcontroller.h"
 #include "networkdevicebase.h"
 
+#include <QDebug>
+
 #include <gtest/gtest.h>
 
 using namespace dde::network;

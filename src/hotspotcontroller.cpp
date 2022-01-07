@@ -21,7 +21,6 @@
 
 #include "hotspotcontroller.h"
 #include "wirelessdevice.h"
-#include "utils.h"
 
 #include <QDebug>
 

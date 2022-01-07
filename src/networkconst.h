@@ -1,10 +1,8 @@
-#ifndef UNETWORKCONST_H
-#define UNETWORKCONST_H
+#ifndef NETWORKCONST_H
+#define NETWORKCONST_H
 
 #include <QString>
-
-#include "com_deepin_daemon_network.h"
-#include "com_deepin_daemon_network_proxychains.h"
+#include <QJsonObject>
 
 namespace dde {
 
@@ -92,17 +90,17 @@ class Connection
     friend class ControllItems;
 
 public:
-    inline QString path() { return m_data.value("Path").toString(); }                        // 对应connections数据中的path
-    inline QString uuid() { return m_data.value("Uuid").toString(); }                        // 对应connections数据中的uuid
-    inline QString id() { return m_data.value("Id").toString(); }                            // 对应connections数据中的id
-    inline QString hwAddress() { return m_data.value("HwAddress").toString(); }              // 对应connections数据中的hwAddress
-    inline QString clonedAddress() { return m_data.value("ClonedAddress").toString(); }      // 对应connections数据中的clonedAddress
-    inline QString ssid() { return m_data.value("Ssid").toString(); }                        // 对应connections数据中的Ssid
+    QString path();                        // 对应connections数据中的path
+    QString uuid();                        // 对应connections数据中的uuid
+    QString id();                          // 对应connections数据中的id
+    QString hwAddress();                   // 对应connections数据中的hwAddress
+    QString clonedAddress();               // 对应connections数据中的clonedAddress
+    QString ssid();                        // 对应connections数据中的Ssid
 
 protected:
-    Connection() {}
-    ~Connection() {}
-    inline void updateConnection(const QJsonObject &data) { m_data = data; }
+    Connection();
+    ~Connection();
+    void updateConnection(const QJsonObject &data);
 
 private:
     QJsonObject m_data;
@@ -111,16 +109,15 @@ private:
 class ControllItems
 {
 public:
-    Connection *connection() const { return  m_connection; }
+    Connection *connection() const;
 
 protected:
-    ControllItems() : m_connection(new Connection) {}
-    virtual ~ControllItems() { delete m_connection; }
-    void setConnection(const QJsonObject &jsonObj) { m_connection->updateConnection(jsonObj); }
+    ControllItems();
+    virtual ~ControllItems();
+    void setConnection(const QJsonObject &jsonObj);
 
 private:
     Connection *m_connection;
-    QVariantMap m_data;
 };
 
 /**
@@ -159,9 +156,6 @@ enum class ConnectionStatus {
     Deactivating = 3,       // 断开连接中
     Deactivated = 4         // 连接已断开
 };
-
-using NetworkInter = com::deepin::daemon::Network;
-using ProxyChains = com::deepin::daemon::network::ProxyChains;
 
 }
 

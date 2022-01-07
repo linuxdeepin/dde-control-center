@@ -21,7 +21,7 @@
 
 #include "realize/netinterface.h"
 #include "networkdevicebase.h"
-#include "utils.h"
+#include "netutils.h"
 
 using namespace dde::network;
 

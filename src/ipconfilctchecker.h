@@ -2,11 +2,13 @@
 #define IPCONFILCTCHECKER_H
 
 #include <QObject>
+#include "netutils.h"
 
 #include "networkconst.h"
 
 namespace dde {
 namespace network {
+
 class NetworkDeviceBase;
 class NetworkProcesser;
 class DeviceIPChecker;

@@ -23,6 +23,7 @@
 #define VPNCONTROLLER_H
 
 #include "networkconst.h"
+#include "netutils.h"
 
 #include <QObject>
 
@@ -40,7 +41,7 @@ class VPNController : public QObject
     friend class NetworkManagerProcesser;
 
 public:
-    inline void setEnabled(const bool enabled) { m_networkInter->setVpnEnabled(enabled); }       // 开启或者关闭VPN
+    void setEnabled(const bool enabled);                                                  // 开启或者关闭VPN
     inline bool enabled() const { return m_enabled; }                                            // VPN开启还是关闭
     void connectItem(VPNItem *item);                                                             // 连接VPN
     void connectItem(const QString &uuid);                                                       // 连接VPN(重载函数)

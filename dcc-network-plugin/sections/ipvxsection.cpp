@@ -21,6 +21,7 @@
 
 #include "ipvxsection.h"
 #include "widgets/contentwidget.h"
+#include "netutils.h"
 
 #include <DSpinBox>
 
@@ -40,10 +41,10 @@ Q_DECLARE_METATYPE(Ipv6Setting::ConfigMethod)
 
 const unsigned int ipConflictCheckTime = 500;
 
-using NetworkInter = com::deepin::daemon::Network;
 using Notifications = org::freedesktop::Notifications;
 
 using namespace dcc::widgets;
+using namespace dde::network;
 using namespace NetworkManager;
 
 IpvxSection::IpvxSection(Ipv4Setting::Ptr ipv4Setting, QFrame *parent)

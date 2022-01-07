@@ -25,6 +25,7 @@
 #include "networkconst.h"
 
 #include <QObject>
+#include <QQueue>
 
 namespace dde {
 

@@ -23,6 +23,9 @@
 #define NETWORKPROCESSER_H
 
 #include "netinterface.h"
+#include "netutils.h"
+
+#include <QJsonArray>
 
 namespace dde {
 namespace network {

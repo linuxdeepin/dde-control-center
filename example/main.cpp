@@ -2,6 +2,7 @@
 
 #include <QApplication>
 #include <QDesktopWidget>
+#include <QTranslator>
 
 #include "dccplugintestwidget.h"
 
@@ -17,7 +18,7 @@ int main(int argc, char *argv[])
 
     if (QString(argv[1]) == "dccPlug") {
         DccPluginTestWidget testPluginWidget;
-        testPluginWidget.setFixedSize(1024, 720);
+        testPluginWidget.resize(1024, 720);
         QDesktopWidget *deskdop = QApplication::desktop();
         testPluginWidget.move((deskdop->width() - testPluginWidget.width()) / 2, (deskdop->height() - testPluginWidget.height()) / 2);
 

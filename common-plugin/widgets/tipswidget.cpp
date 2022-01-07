@@ -83,9 +83,9 @@ void TipsWidget::paintEvent(QPaintEvent *event)
         int lineHeight = fontMetrics().boundingRect(displayText).height();
         painter.drawText(QRect(MARGIN, y, rect().width(), lineHeight), displayText, option);
         for (const QString &text : values) {
-            int lineHeight = fontMetrics().boundingRect(text).height();
-            painter.drawText(QRect(valueX, y, rect().width(), lineHeight), text, option);
-            y += lineHeight;
+            int textHeight = fontMetrics().boundingRect(text).height();
+            painter.drawText(QRect(valueX, y, rect().width(), textHeight), text, option);
+            y += textHeight;
         }
     }
 }

@@ -20,7 +20,7 @@
  */
 
 #include "devicemanagerrealize.h"
-#include "utils.h"
+#include "netutils.h"
 #include "networkdevicebase.h"
 
 #include <networkmanagerqt/wirelessdevice.h>

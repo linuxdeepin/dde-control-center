@@ -40,6 +40,7 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QHBoxLayout>
+#include <QTimer>
 
 #include <networkdevicebase.h>
 #include <wireddevice.h>

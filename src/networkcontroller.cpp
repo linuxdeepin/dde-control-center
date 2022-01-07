@@ -28,7 +28,7 @@
 #include "vpncontroller.h"
 #include "wireddevice.h"
 #include "wirelessdevice.h"
-#include "utils.h"
+#include "netutils.h"
 #include "realize/networkmanagerprocesser.h"
 #include "realize/networkinterprocesser.h"
 

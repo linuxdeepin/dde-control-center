@@ -20,7 +20,7 @@
  */
 
 #include "wirelessdevice.h"
-#include "utils.h"
+#include "netutils.h"
 #include "realize/netinterface.h"
 
 using namespace dde::network;

@@ -20,7 +20,6 @@
  */
 
 #include "devicemanagerrealize.h"
-#include "utils.h"
 #include "dslcontroller.h"
 #include "hotspotcontroller.h"
 #include "networkdevicebase.h"

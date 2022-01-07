@@ -24,7 +24,9 @@
 
 #include "netinterface.h"
 #include "networkconst.h"
+#include "netutils.h"
 
+#include <QJsonArray>
 #include <QObject>
 
 namespace dde {

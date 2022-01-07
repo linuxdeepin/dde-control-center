@@ -13,6 +13,7 @@
 
 #include <QTextStream>
 #include <QKeyEvent>
+#include <QDebug>
 
 using namespace std;
 
@@ -307,11 +308,11 @@ void NetworkHandler::onEnableChanged(const bool enabled) const
 
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
     for (int i = 0; i < devices.size(); i++) {
-        NetworkDeviceBase *device = devices[i];
+        NetworkDeviceBase *tmpDevice = devices[i];
         QString deviceMessage = QString("find new Device %1 %2 %3 enabled:%4:  %5").arg(i)
-                                .arg(device->deviceType() == DeviceType::Wired ? "wired" : "wireless")
-                                .arg(device->deviceName()).arg(device->isEnabled() ? "true" : "false")
-                                .arg(device->path());
+                                .arg(tmpDevice->deviceType() == DeviceType::Wired ? "wired" : "wireless")
+                                .arg(tmpDevice->deviceName()).arg(tmpDevice->isEnabled() ? "true" : "false")
+                                .arg(tmpDevice->path());
         outputMessage(deviceMessage);
     }
     onDeviceInput();
