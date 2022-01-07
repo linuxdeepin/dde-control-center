@@ -57,7 +57,13 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
 {
     setFixedWidth(410);
     setMinimumHeight(480);
-    setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint);
+
+    //WAYLAND下需要CoverWindow属性才能保证激活父窗口时，此窗口置顶的效果，而x11下则不需要
+    if (!qgetenv("WAYLAND_DISPLAY").isEmpty()) {
+        setWindowFlags(Qt::CoverWindow);
+    }
+
+    setWindowState((this->windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
     m_monitorControlWidget->setAccessibleName("monitorControlWidget");

@@ -364,7 +364,7 @@ void MultiScreenWidget::initSecondaryScreenDialog()
                 continue;
             }
 
-            SecondaryScreenDialog *dlg = new SecondaryScreenDialog(nullptr);
+            SecondaryScreenDialog *dlg = new SecondaryScreenDialog(this);
             dlg->setAttribute(Qt::WA_WState_WindowOpacitySet);
             dlg->setModel(m_model, monitor);
             connect(dlg, &SecondaryScreenDialog::requestRecognize, this, &MultiScreenWidget::requestRecognize);
