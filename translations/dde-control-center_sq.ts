@@ -1517,7 +1517,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="281"/>
         <source>24-hour Time</source>
-        <translation>Orë 24-orëshe</translation>
+        <translation>Kohë 24-orëshe</translation>
     </message>
 </context>
 <context>
@@ -2319,12 +2319,12 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="175"/>
         <source>Numeric Keypad</source>
-        <translation>Tastierë Numerike</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="176"/>
         <source>Caps Lock Prompt</source>
-        <translation>Kycja e kapakeve</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="183"/>
@@ -2601,7 +2601,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="275"/>
         <source>Tap to Click</source>
-        <translation>Për Klikim, prekeni</translation>
+        <translation>Prekeni, që të klikohet</translation>
     </message>
 </context>
 <context>
@@ -4969,7 +4969,7 @@
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="143"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="185"/>
         <source>Device crashed, please scan again!</source>
-        <translation type="unfinished"/>
+        <translation>Pajisja u vithis, ju lutemi, skanoni sërish!</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="182"/>

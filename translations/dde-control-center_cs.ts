@@ -2601,7 +2601,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="275"/>
         <source>Tap to Click</source>
-        <translation>Klepnutí klepnutím</translation>
+        <translation>Kliknutí klepnutím</translation>
     </message>
 </context>
 <context>
@@ -2984,7 +2984,7 @@
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="146"/>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="222"/>
         <source>Cursor Theme</source>
-        <translation>Vzhled ukazovátka</translation>
+        <translation>Vzhled ukazatele</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="220"/>
@@ -4969,7 +4969,7 @@
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="143"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="185"/>
         <source>Device crashed, please scan again!</source>
-        <translation type="unfinished"/>
+        <translation>Zařízení zhavarovalo, prosím naskenujte znovu!</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="182"/>

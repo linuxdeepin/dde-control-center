@@ -177,7 +177,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="531"/>
         <source>The Union ID is not linked to a user account</source>
-        <translation>此Union ID未绑定本地帐号</translation>
+        <translation>此Union ID未绑定本地帐户</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="550"/>

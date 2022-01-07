@@ -102,7 +102,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="247"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
-        <translation type="unfinished"/>
+        <translation>Door het wachtwoord te herstellen worden de gegevens in je sleutelbos gewist en dien je opnieuw in te loggen. Maak van tevoren een back-up van je bestanden.</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="248"/>
