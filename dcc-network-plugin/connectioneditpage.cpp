@@ -225,6 +225,7 @@ void ConnectionEditPage::initConnection()
 
     if (m_frame)
         connect(this, &ConnectionEditPage::back, [ = ] {
+            parentWidget()->setFocus();
             m_frame->popWidget(nullptr);
         });
 
