@@ -185,6 +185,20 @@ void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState s
     m_currentState = state;
 
     m_facePic->setPixmap(QIcon::fromTheme(getFacePicture()).pixmap(128, 128));
+    if (m_currentState == CharaMangerModel::AddInfoState::StartState) {
+        m_resultTips->hide();
+
+        m_explainTips->setText(tr("Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well."));
+        m_disclaimersItem->setAcceptState(false);
+        m_disclaimersItem->show();
+
+        m_cancelBtn->hide();
+        m_acceptBtn->setText(tr("Next"));
+        m_acceptBtn->setDisabled(true);
+        m_acceptBtn->show();
+        return;
+    }
+
     if (m_currentState == CharaMangerModel::AddInfoState::Success) {
         m_resultTips->setText(tr("Face enrolled"));
         m_resultTips->show();

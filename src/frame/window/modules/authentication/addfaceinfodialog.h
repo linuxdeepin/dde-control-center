@@ -59,6 +59,12 @@ public:
     ~AddFaceInfoDialog();
 
     void onSetWindowEnabled(const bool isEnabled);
+    /**
+     * @brief responseEnrollInfoState 响应当前人脸录入状态
+     * @param state 三种状态
+     * @param tips 对应的提示语
+     */
+    void responseEnrollInfoState(dcc::authentication::CharaMangerModel::AddInfoState state, const QString &tips);
 
 Q_SIGNALS:
     void requestShowFaceInfoDialog();
@@ -74,12 +80,6 @@ private:
     void initConnect();
     QString getFacePicture();
 
-    /**
-     * @brief responseEnrollInfoState 响应当前人脸录入状态
-     * @param state 三种状态
-     * @param tips 对应的提示语
-     */
-    void responseEnrollInfoState(dcc::authentication::CharaMangerModel::AddInfoState state, const QString &tips);
 
 private:
     dcc::authentication::CharaMangerModel *m_faceModel;

@@ -25,6 +25,7 @@
 #include "../../mainwindow.h"
 #include "faceinfodialog.h"
 #include "addirisinfodialog.h"
+#include "addfaceinfodialog.h"
 
 namespace dcc {
 namespace authentication {
@@ -78,6 +79,7 @@ private:
     dcc::authentication::CharaMangerWorker *m_charaMangerWorker{nullptr};
 
     FaceInfoDialog *m_facedlg;
+    AddFaceInfoDialog *m_addFaceInfodlg;
 };
 
 }   // namespace authentication

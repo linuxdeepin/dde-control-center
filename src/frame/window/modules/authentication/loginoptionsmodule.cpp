@@ -38,6 +38,7 @@ void LoginOptionsModule::initialize()
     m_charaMangerWorker->moveToThread(qApp->thread());
 
     m_facedlg = new FaceInfoDialog(m_charaMangerModel);
+    m_addFaceInfodlg = new AddFaceInfoDialog(m_charaMangerModel);
 }
 
 void LoginOptionsModule::reset()
@@ -182,33 +183,35 @@ void LoginOptionsModule::onShowAddFace(const QString &driverName, const int &cha
     if (!m_pMainWindow->isEnabled())
         return;
 
-    AddFaceInfoDialog *dlg = new AddFaceInfoDialog(m_charaMangerModel);
-
-    connect(dlg, &AddFaceInfoDialog::requestStopEnroll, m_charaMangerWorker, &CharaMangerWorker::stopEnroll);
-    connect(dlg, &AddFaceInfoDialog::requesetCloseDlg, dlg, [=]{
+    connect(m_addFaceInfodlg, &AddFaceInfoDialog::requestStopEnroll, m_charaMangerWorker, &CharaMangerWorker::stopEnroll, Qt::UniqueConnection);
+    disconnect(m_addFaceInfodlg, &AddFaceInfoDialog::requesetCloseDlg, m_addFaceInfodlg, nullptr);
+    connect(m_addFaceInfodlg, &AddFaceInfoDialog::requesetCloseDlg, m_addFaceInfodlg, [this]{
         onSetMainWindowEnabled(true);
-        dlg->deleteLater();
     });
+
     // 用户点击对话框开始录入
-    connect(dlg, &AddFaceInfoDialog::requestShowFaceInfoDialog, [=](){
-        dlg->hide();
+    disconnect(m_addFaceInfodlg, &AddFaceInfoDialog::requestShowFaceInfoDialog, this, nullptr);
+    connect(m_addFaceInfodlg, &AddFaceInfoDialog::requestShowFaceInfoDialog, this, [=](){
+        m_addFaceInfodlg->hide();
         onSetMainWindowEnabled(true);
         qDebug() << "connect(dlg, &AddFaceInfoDialog::requestShowFaceInfoDialog ";
         onShowAddFaceidVideo(driverName, charaType, charaName);
     });
 
     onSetMainWindowEnabled(false);
-    dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
-    dlg->show();
-    dlg->setFocus();
-    dlg->activateWindow();
+    m_addFaceInfodlg->responseEnrollInfoState(CharaMangerModel::AddInfoState::StartState, QString());
+    m_addFaceInfodlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+    m_addFaceInfodlg->show();
+    m_addFaceInfodlg->setFocus();
+    m_addFaceInfodlg->activateWindow();
 }
 
 // 添加人脸数据录入人脸视频对话框 ： 只处理开始录入
 void LoginOptionsModule::onShowAddFaceidVideo(const QString &driverName, const int &charaType, const QString &charaName)
 {
     // 开始录入人脸
-    connect(m_facedlg, &FaceInfoDialog::requestCloseDlg, m_facedlg, [=]() {
+    disconnect(m_facedlg, &FaceInfoDialog::requestCloseDlg, m_facedlg, nullptr);
+    connect(m_facedlg, &FaceInfoDialog::requestCloseDlg, m_facedlg, [this](){
         m_charaMangerWorker->stopEnroll();
         onSetMainWindowEnabled(true);
     });
@@ -256,6 +259,8 @@ void LoginOptionsModule::onShowAddIris(const QString &driverName, const int &cha
 
 LoginOptionsModule::~LoginOptionsModule()
 {
+    if (m_facedlg) m_facedlg->deleteLater();
+    if (m_addFaceInfodlg) m_addFaceInfodlg->deleteLater();
 }
 
 void LoginOptionsModule::onSetMainWindowEnabled(const bool isEnabled)
