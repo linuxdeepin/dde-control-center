@@ -20,6 +20,14 @@ SyncModule::SyncModule(FrameProxyInterface *frameProxy, QObject *parent)
 {
 }
 
+SyncModule::~SyncModule()
+{
+    if (m_workThread) {
+        m_workThread->quit();
+        m_workThread->wait();
+    }
+}
+
 void SyncModule::initialize()
 {
 }

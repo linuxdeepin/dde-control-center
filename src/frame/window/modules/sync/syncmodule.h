@@ -39,6 +39,7 @@ class SyncModule : public QObject, public ModuleInterface
     Q_OBJECT
 public:
     SyncModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
+    ~SyncModule();
 
     virtual void initialize() override;
     virtual const QString name() const override;
