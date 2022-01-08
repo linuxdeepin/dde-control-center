@@ -67,7 +67,13 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
                                                 QDBusConnection::sessionBus(), this);
 
     // TODO: 使用控制中心统一配置
-    m_commomModel->setShowGrubEditAuth(true);
+    bool showGrubEditAuth;
+#if defined (DISABLE_GRUB_EDIT_AUTH)
+    showGrubEditAuth = false;
+#else
+    showGrubEditAuth = true;
+#endif
+    m_commomModel->setShowGrubEditAuth(showGrubEditAuth);
 //    m_dconfig = new DConfig("dde-control-center-config", QString(), this);
 //    if (!m_dconfig->isValid()) {
 //        qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(m_dconfig->name(), m_dconfig->subpath());
