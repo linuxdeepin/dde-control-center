@@ -87,18 +87,23 @@ void MonitorProxyWidget::paint(QPainter *painter, const QStyleOptionGraphicsItem
     QFont font ("Microsoft YaHei", 100, 20);
     painter->setFont(font);
     const QFontMetrics fm(painter->font());
-    
+
     //修复在数字为0的时候，计算的字体宽度偏小导致显示遮挡的问题
     const int width = fm.boundingRect(name()).width() + 100;
     const int height = fm.boundingRect(name()).height();
     painter->setPen(Qt::white);
     if (m_model->displayMode() != MERGE_MODE) {
-        painter->drawText(QRectF(r.x() + r.width() - width - height, r.y() + height, width, height), Qt::AlignCenter, name());
+        if (width > this->w()) {
+            QString elidedText = fm.elidedText(name(), Qt::ElideRight, this->w() - height);
+            painter->drawText(QRectF(r.x() + r.width() - width, r.y() + height, width, height), Qt::AlignRight, elidedText);
+        } else {
+            painter->drawText(QRectF(r.x() + r.width() - width - height / 2, r.y() + height, width, height), Qt::AlignCenter, name());
+        }
     }
 
     // draw dock pattern if it's primary screen
     if (m_model->displayMode() == EXTEND_MODE) {
-        
+
         if(m_monitor->isPrimary()) {
             QPen penWhite(Qt::white);
             const qreal width = r.width() / 2.0;
