@@ -121,6 +121,16 @@ void DBusControlCenterService::Show()
     parent()->initAllModule();
 
     parent()->raise();
+
+    if (!qgetenv("WAYLAND_DISPLAY").isEmpty()) {
+        QElapsedTimer et;
+        et.start();
+        while (!parent()->primaryScreen() && et.elapsed() < 2000) {
+            QThread::msleep(50);
+            QCoreApplication::processEvents();
+        }
+    }
+
     if (parent()->isMinimized() || !parent()->isVisible())
         parent()->showNormal();
 

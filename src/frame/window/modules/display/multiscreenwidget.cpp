@@ -378,8 +378,16 @@ void MultiScreenWidget::initSecondaryScreenDialog()
             connect(dlg, &SecondaryScreenDialog::requestCloseRecognize, this, &MultiScreenWidget::onRequestCloseRecognize);
             connect(this, &MultiScreenWidget::requestGatherEnabled, dlg, &SecondaryScreenDialog::requestGatherEnabled);
             m_secondaryScreenDlgList.append(dlg);
-        }
 
+            dlg->show();
+            if (!qgetenv("WAYLAND_DISPLAY").isEmpty()) {
+                QTimer::singleShot(100,this,[=]{
+                    dlg->resetDialog();
+                });
+            } else {
+                dlg->resetDialog();
+            }
+        }
         activateWindow();
     }
 }

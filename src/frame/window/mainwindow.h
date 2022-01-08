@@ -111,6 +111,7 @@ public:
     inline QSize getLastSize() const { return m_lastSize; }
     inline void setNeedRememberLastSize(bool needRememberLastSize)  { m_needRememberLastSize = needRememberLastSize;}
     void setPrimaryScreen(QScreen *screen);
+    inline QScreen *primaryScreen() const { return m_primaryScreen; }
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);

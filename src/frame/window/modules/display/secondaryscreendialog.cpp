@@ -253,8 +253,6 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
             resetDialog();
         });
     }
-
-    resetDialog();
 }
 
 void SecondaryScreenDialog::resetDialog()
