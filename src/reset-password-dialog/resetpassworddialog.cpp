@@ -281,7 +281,7 @@ void ResetPasswordDialog::initData()
 
     connect(sn, SIGNAL(activated(int)), this, SLOT(onReadFromServerChanged(int)));
     connect(m_phoneEmailEdit, &DLineEdit::focusChanged, this, &ResetPasswordDialog::onPhoneEmailLineEditFocusChanged);
-    connect(m_newPasswordEdit, &DLineEdit::focusChanged, this, &ResetPasswordDialog::onNewPasswordLineEditFocusChanged);
+    connect(m_newPasswordEdit, &DLineEdit::textChanged, this, &ResetPasswordDialog::onNewPasswordLineEditChanged);
     connect(getButton(0), &QPushButton::clicked, this, [this]{
         if (m_appName == "greeter" || m_appName == "lock") {
             m_client->write("close");
@@ -315,6 +315,12 @@ void ResetPasswordDialog::initData()
             m_repeatPasswordEdit->setAlert(false);
         }
     });
+    connect(m_repeatPasswordEdit, &DPasswordEdit::editingFinished, this, [ & ]() {
+        if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
+            m_repeatPasswordEdit->setAlert(true);
+            m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
+        }
+    });
     connect(m_passwordTipsEdit, &DLineEdit::textEdited, this, [=](const QString &passwdTips) {
         if (passwdTips.size() > 14) {
             m_passwordTipsEdit->lineEdit()->backspace();
@@ -335,6 +341,14 @@ void ResetPasswordDialog::initData()
             break;
         }
         QImage img;
+        if (m_newPasswordEdit->text().isEmpty()) {
+            img.load(m_newPasswdLevelIconModePath);
+            m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(img));
+            m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(img));
+            m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(img));
+            m_newPasswdLevelText->setText("");
+            return ;
+        }
         if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
             img.load(m_newPasswdLevelIconModePath);
             m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(img));
@@ -369,7 +383,7 @@ void ResetPasswordDialog::initData()
         m_client->abort();
         m_client->connectToServer("GrabKeyboard");
         if(!m_client->waitForConnected(1000)) {
-            qWarning() << "连接失败!";
+            qWarning() << "connect failed!" << m_client->errorString();
             return;
         }
     }
@@ -427,10 +441,38 @@ void ResetPasswordDialog::onVerificationCodeBtnClicked()
     }
 }
 
-void ResetPasswordDialog::onNewPasswordLineEditFocusChanged(bool onFocus)
+void ResetPasswordDialog::onNewPasswordLineEditChanged(const QString&)
 {
-    if (!onFocus && !m_newPasswordEdit->text().isEmpty()) {
-        updatePasswordStrengthLevelWidget();
+    if (m_newPasswordEdit->text().isEmpty()) {
+        m_newPasswordEdit->setAlert(false);
+        m_newPasswordEdit->hideAlertMessage();
+        DGuiApplicationHelper::ColorType type = DGuiApplicationHelper::instance()->themeType();
+        switch (type) {
+        case DGuiApplicationHelper::UnknownType:
+            break;
+        case DGuiApplicationHelper::LightType:
+            m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH;
+            break;
+        case DGuiApplicationHelper::DarkType:
+            m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_DEEP_MODE_PATH;
+            break;
+        }
+        QImage img;
+        img.load(m_newPasswdLevelIconModePath);
+        m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(img));
+        m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(img));
+        m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(img));
+        m_newPasswdLevelText->setText("");
+        return ;
+    }
+    PASSWORD_LEVEL_TYPE level = PwqualityManager::instance()->GetNewPassWdLevel(m_newPasswordEdit->text());
+    updatePasswordStrengthLevelWidget(level);
+    m_level = level;
+    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_userName,
+                                                                                      m_newPasswordEdit->text());
+    if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
     }
 }
 
@@ -585,25 +627,11 @@ bool ResetPasswordDialog::checkPhoneEmailFormat(const QString &content)
     return phoneRegExp.exactMatch(content) || emailRegExp.exactMatch(content);
 }
 
-ResetPasswordDialog::PasswordStrengthLevel ResetPasswordDialog::getPasswordStrengthLevel(const QString &password)
-{
-    QRegExp strongRegExp("^(?=.*[\\da-z])(?=.*[\\dA-Z])(?=.*[\\d\\W_])(?=.*[A-Z\\W_])(?=.*[a-zA-Z])(?=.*[a-z\\W_]).{8,}$");
-    QRegExp middleRegExp("^(?=.*[\\da-zA-Z])(?=.*[\\da-z\\W_])(?=.*[\\dA-Z\\W_])(?=.*[a-zA-Z\\W_]).{6,}$");
-    if (strongRegExp.exactMatch(password)) {
-        return PASSWORD_STRENGTH_LEVEL_HIGH;
-    } else if (middleRegExp.exactMatch(password)) {
-        return PASSWORD_STRENGTH_LEVEL_MIDDLE;
-    } else {
-        return PASSWORD_STRENGTH_LEVEL_LOW;
-    }
-}
-
-void ResetPasswordDialog::updatePasswordStrengthLevelWidget()
+void ResetPasswordDialog::updatePasswordStrengthLevelWidget(PASSWORD_LEVEL_TYPE level)
 {
     QPalette palette;
-    m_level = getPasswordStrengthLevel(m_newPasswordEdit->text());
     QImage img;
-    if (m_level == PASSWORD_STRENGTH_LEVEL_HIGH) {
+    if (level == PASSWORD_STRENGTH_LEVEL_HIGH) {
         palette.setColor(QPalette::WindowText, QColor("#15BB18"));
         m_newPasswdLevelText->setPalette(palette);
         m_newPasswdLevelText->setText(tr("Strong"));
@@ -613,7 +641,7 @@ void ResetPasswordDialog::updatePasswordStrengthLevelWidget()
         m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(img));
         m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(img));
 
-    } else if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
+    } else if (level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
         palette.setColor(QPalette::WindowText, QColor("#FFAA00"));
         m_newPasswdLevelText->setPalette(palette);
         m_newPasswdLevelText->setText(tr("Medium"));
@@ -624,8 +652,9 @@ void ResetPasswordDialog::updatePasswordStrengthLevelWidget()
         img.load(m_newPasswdLevelIconModePath);
         m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(img));
 
+        m_newPasswordEdit->setAlert(false);
         m_newPasswordEdit->showAlertMessage(tr("A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols."));
-    } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
+    } else if (level == PASSWORD_STRENGTH_LEVEL_LOW) {
         palette.setColor(QPalette::WindowText, QColor("#FF5736"));
         m_newPasswdLevelText->setPalette(palette);
         m_newPasswdLevelText->setText(tr("Weak"));
@@ -636,6 +665,7 @@ void ResetPasswordDialog::updatePasswordStrengthLevelWidget()
         m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(img));
         m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(img));
 
+        m_newPasswordEdit->setAlert(false);
         m_newPasswordEdit->showAlertMessage(tr("A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols."));
     } else {
         m_newPasswordEdit->showAlertMessage(tr("Error occurred when reading the configuration files of password rules!"));
@@ -654,7 +684,7 @@ int ResetPasswordDialog::requestVerficationCode()
     QString uosid;
     if (retUOSID.error().message().isEmpty()) {
         uosid = retUOSID.value();
-        qDebug() << "UOSID:" << uosid;
+        qDebug() << "UOSID success!";
     } else {
         qWarning() << "UOSID failed:" << retUOSID.error().message();
         return -1;
@@ -677,7 +707,7 @@ int ResetPasswordDialog::requestVerficationCode()
     QDBusReply<QString> retLocalBindCheck= syncHelperInter.call("LocalBindCheck", uosid, uuid);
     if (retLocalBindCheck.error().message().isEmpty()) {
         m_ubid = retLocalBindCheck.value();
-        qDebug() << "isBinded:" << m_ubid;
+        qDebug() << "isBinded:" << !m_ubid.isEmpty();
     } else {
         qWarning() << "isBinded failed:" << retLocalBindCheck.error().message();
         int code = parseError(retLocalBindCheck.error().message());
@@ -716,8 +746,6 @@ int ResetPasswordDialog::verifyVerficationCode()
         qDebug() << "VerifyResetCaptcha success";
         ret = 0;
     } else {
-        qWarning() << "phoneEmail:" << m_phoneEmailEdit->text();
-        qWarning() << "verification code:" << m_verificationCodeEdit->text();
         qWarning() << "VerifyResetCaptcha failed:" << retVerifyResetCaptcha.error().message();
         ret = parseError(retVerifyResetCaptcha.error().message());
     }

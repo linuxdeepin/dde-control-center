@@ -85,11 +85,6 @@ private:
 class ResetPasswordDialog : public DDialog
 {
     Q_OBJECT
-    enum PasswordStrengthLevel {
-        PASSWORD_STRENGTH_LEVEL_HIGH,            // 密码强度高
-        PASSWORD_STRENGTH_LEVEL_MIDDLE,          // 密码强度中
-        PASSWORD_STRENGTH_LEVEL_LOW              // 密码强度低
-    };
     enum UNION_ID_ERROR_TYPE {
         UNION_ID_ERROR_NO_ERR = 0,
         UNION_ID_ERROR_SYSTEM_ERROR = 7500,      // 系统错误（dbus错误或者服务端异常）
@@ -122,8 +117,7 @@ private:
     bool isContentEmpty(DLineEdit *);
     QString cryptUserPassword(const QString &password);
     bool checkPhoneEmailFormat(const QString &content);
-    PasswordStrengthLevel getPasswordStrengthLevel(const QString &password);
-    void updatePasswordStrengthLevelWidget();
+    void updatePasswordStrengthLevelWidget(PASSWORD_LEVEL_TYPE level);
     int requestVerficationCode();
     int verifyVerficationCode();
     void startCount();
@@ -132,7 +126,7 @@ private:
 private slots:
     void onPhoneEmailLineEditFocusChanged(bool);
     void onVerificationCodeBtnClicked();
-    void onNewPasswordLineEditFocusChanged(bool);
+    void onNewPasswordLineEditChanged(const QString&);
     void onResetPasswordBtnClicked();
     void onReadFromServerChanged(int);
     void updatePosition();
@@ -147,7 +141,7 @@ private:
     DLineEdit *m_passwordTipsEdit;
     QLabel *m_newPasswdLevelText;
     QLabel *m_newPasswdLevelIcons[PASSWORD_LEVEL_ICON_NUM];
-    PasswordStrengthLevel m_level;
+    PASSWORD_LEVEL_TYPE m_level;
     QString m_newPasswdLevelIconModePath;
     com::deepin::daemon::Accounts *m_accountInter;
     com::deepin::daemon::accounts::User *m_userInter;
