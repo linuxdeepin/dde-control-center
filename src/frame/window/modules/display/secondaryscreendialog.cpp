@@ -63,7 +63,7 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
         setWindowFlags(Qt::CoverWindow);
     }
 
-    setWindowState((this->windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
+    setWindowState((this->windowState() & ~Qt::WindowMinimized));
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
     m_monitorControlWidget->setAccessibleName("monitorControlWidget");
