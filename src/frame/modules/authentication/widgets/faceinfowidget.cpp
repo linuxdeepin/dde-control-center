@@ -70,6 +70,7 @@ void FaceInfoWidget::initWidget()
 
 void FaceInfoWidget::createConnection(const int fd)
 {
+    m_faceLable->setPixmap(QPixmap());
     DA_read_frames(fd, static_cast<void *>(m_faceLable), recvCamara);
 }
 
