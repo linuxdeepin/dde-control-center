@@ -54,14 +54,13 @@ void SyncModule::active()
 {
     SyncWidget *widget = new SyncWidget;
     widget->setVisible(false);
-
     connect(widget, &SyncWidget::requestLoginUser, m_worker.get(), &dcc::cloudsync::SyncWorker::loginUser, Qt::UniqueConnection);
     connect(widget, &SyncWidget::requestSetAutoSync, m_worker.get(), &dcc::cloudsync::SyncWorker::setAutoSync, Qt::UniqueConnection);
     connect(widget, &SyncWidget::requestLogoutUser, m_worker.get(), &dcc::cloudsync::SyncWorker::logoutUser, Qt::QueuedConnection);
     connect(widget, &SyncWidget::requestSetModuleState, m_worker.get(), &dcc::cloudsync::SyncWorker::setSync, Qt::UniqueConnection);
-    connect(widget, &SyncWidget::requestUOSID, m_worker.get(), &dcc::cloudsync::SyncWorker::getUOSID, Qt::BlockingQueuedConnection);
-    connect(widget, &SyncWidget::requestUUID, m_worker.get(), &dcc::cloudsync::SyncWorker::getUUID, Qt::BlockingQueuedConnection);
-    connect(widget, &SyncWidget::requestLocalBindCheck, m_worker.get(), &dcc::cloudsync::SyncWorker::localBindCheck, Qt::BlockingQueuedConnection);
+    connect(widget, &SyncWidget::requestUOSID, m_worker.get(), &dcc::cloudsync::SyncWorker::getUOSID, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestUUID, m_worker.get(), &dcc::cloudsync::SyncWorker::getUUID, Qt::UniqueConnection);
+    connect(widget, &SyncWidget::requestLocalBindCheck, m_worker.get(), &dcc::cloudsync::SyncWorker::localBindCheck, Qt::UniqueConnection);
     connect(widget, &SyncWidget::requestHostName, m_worker.get(), &dcc::cloudsync::SyncWorker::getHostName, Qt::UniqueConnection);
     connect(widget, &SyncWidget::requestBindAccount, m_worker.get(), &dcc::cloudsync::SyncWorker::bindAccount, Qt::UniqueConnection);
     connect(widget, &SyncWidget::requestUnBindAccount, m_worker.get(), &dcc::cloudsync::SyncWorker::unBindAccount, Qt::UniqueConnection);
@@ -71,7 +70,7 @@ void SyncModule::active()
     m_frameProxy->pushWidget(this, widget);
     widget->setVisible(true);
 
-    QMetaObject::invokeMethod(m_worker.get(), "onActive", Qt::QueuedConnection);
+    m_worker->activate(); //refresh data
 }
 
 void SyncModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)

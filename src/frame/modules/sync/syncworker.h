@@ -36,8 +36,6 @@ public Q_SLOTS:
     void getHostName(QString &hostName);
     void bindAccount(const QString &uuid, const QString &hostName, QString &ubid, QString &errorTxt);
     void unBindAccount(const QString &ubid, bool &ret, QString &errorTxt);
-
-    void onActive();
 private:
     void onSyncModuleStateChanged(const QString& module, bool enable);
     void onStateChanged(const IntString& state);

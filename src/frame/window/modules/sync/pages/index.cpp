@@ -172,7 +172,6 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
 {
     LoginedIn::setModel(model);
     m_lab->setVisible(!model->getActivation());
-    qRegisterMetaType<std::pair<SyncType, bool>>("std::pair<SyncType, bool>");
 
     connect(model, &dcc::cloudsync::SyncModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_autoSyncSwitch, &SwitchWidget::setChecked);
