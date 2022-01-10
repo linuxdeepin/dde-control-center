@@ -924,7 +924,7 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
         return pair.first == inter;
     });
     if (find_it == m_modules.cend()) {
-        qDebug() << Q_FUNC_INFO << "Not found module:" << find_it->second;
+        qDebug() << Q_FUNC_INFO << "Not found module:" << inter->name();
         return;
     }
     bool bFinalVisible = visible;
@@ -958,7 +958,7 @@ void MainWindow::setModuleVisible(const QString &module, bool visible)
         return pair.second == module;
     });
     if (find_it == m_modules.cend()) {
-        qDebug() << Q_FUNC_INFO << "Not found module:" << find_it->second;
+        qDebug() << Q_FUNC_INFO << "Not found module:" << module;
         return;
     }
     const auto& inter = find_it->first;
