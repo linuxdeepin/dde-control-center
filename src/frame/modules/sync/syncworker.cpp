@@ -255,6 +255,11 @@ void SyncWorker::unBindAccount(const QString &ubid, bool &ret, QString &errorTxt
     }
 }
 
+void SyncWorker::onActive()
+{
+    activate();
+}
+
 void SyncWorker::getLicenseState()
 {
     if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
