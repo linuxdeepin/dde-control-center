@@ -82,6 +82,9 @@ void FaceInfoWidget::onUpdateProgressbar()
 
 void FaceInfoWidget::recvCamara(void *const context, const DA_img *const img)
 {
+    if (!context)
+        return;
+
     QLabel *label_ptr = static_cast<QLabel *>(context);
 
     QPixmap pix(Faceimg_SIZE, Faceimg_SIZE);

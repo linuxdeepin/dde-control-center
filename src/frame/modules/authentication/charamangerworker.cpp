@@ -168,7 +168,7 @@ void CharaMangerWorker::predefineDriverInfo(const QString &driverInfo)
             irisDriverNames.append(it.key());
         }
 
-        if (it.value() & 0) {
+        if (it.value() == 0) {
             // 处理界面显示空设备
             m_model->setFaceDriverVaild(false);
             m_model->setIrisDriverVaild(false);
@@ -238,7 +238,7 @@ void CharaMangerWorker::refreshDriverInfo()
 
 void CharaMangerWorker::entollStart(const QString &driverName, const int &charaType, const QString &charaName)
 {
-    qDebug() << "CharaMangerWorker::entollStart " << driverName << charaType << charaName;
+    qDebug() << " CharaMangerWorker::entollStart " << driverName << charaType << charaName;
     m_currentInputCharaType = charaType;
 
     m_fileDescriptor = new QDBusPendingReply<QDBusUnixFileDescriptor>();
@@ -250,7 +250,7 @@ void CharaMangerWorker::entollStart(const QString &driverName, const int &charaT
         m_stopTimer->start(1000 * INPUT_TIME);
 
         if (charaType & FACE_CHARA)
-            Q_EMIT tryStartInputFace(m_fileDescriptor->value().fileDescriptor());
+            m_model->setInputFaceFD(m_fileDescriptor->value().fileDescriptor());
 
         if (charaType & IRIS_CHARA)
             Q_EMIT tryStartInputIris(CharaMangerModel::AddInfoState::Processing);

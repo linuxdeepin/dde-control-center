@@ -36,7 +36,7 @@ DWIDGET_USE_NAMESPACE
 using namespace dcc::authentication;
 using namespace DCC_NAMESPACE::authentication;
 
-FaceInfoDialog::FaceInfoDialog(dcc::authentication::CharaMangerModel *model, Dtk::Widget::DAbstractDialog *parent)
+FaceInfoDialog::FaceInfoDialog(dcc::authentication::CharaMangerModel *model, QWidget *parent)
     : DAbstractDialog(parent)
     , m_faceModel(model)
     , m_faceLabel(new FaceInfoWidget(this))

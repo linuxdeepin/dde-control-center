@@ -119,6 +119,9 @@ public:
      */
     void onRefreshEnrollDate(const int &charaType);
 
+    void setInputFaceFD(const int &fd);
+    void setInputIrisFD(CharaMangerModel::AddInfoState state);
+
 Q_SIGNALS:
     void vaildFaceDriverChanged(const bool isVaild);
     void vaildIrisDriverChanged(const bool isVaild);
@@ -141,6 +144,13 @@ Q_SIGNALS:
      */
     void enrollIrisInfoState(AddInfoState state, const QString &tips);
     void enrollIrisStatusTips(QString title);
+
+    /**
+     * @brief tryStartInputFace tryStartInputIris  获取人脸虹膜文件标识符
+     * @param fd
+     */
+    void tryStartInputFace(const int &fd);
+    void tryStartInputIris(CharaMangerModel::AddInfoState state);
 
 private:
     // 人脸

@@ -75,7 +75,7 @@ void FingerWorker::tryEnroll(const QString &name, const QString &thumb)
     callClaim.waitForFinished();
     if (callClaim.isError()) {
         qDebug() << "call Claim Error : " << callClaim.error();
-        Q_EMIT tryEnrollResult(Enroll_ClaimFailed);
+        m_model->refreshEnrollResult(FingerModel::EnrollResult::Enroll_ClaimFailed);
     } else {
         m_fingerPrintInter->setTimeout(-1);
         auto callEnroll =  m_fingerPrintInter->Enroll(thumb);
@@ -83,9 +83,9 @@ void FingerWorker::tryEnroll(const QString &name, const QString &thumb)
         if (callEnroll.isError()) {
             qDebug() << "call Enroll Error : " << callEnroll.error();
             m_fingerPrintInter->Claim(name, false);
-            Q_EMIT tryEnrollResult(Enroll_Failed);
+            m_model->refreshEnrollResult(FingerModel::EnrollResult::Enroll_Failed);
         } else {
-            Q_EMIT tryEnrollResult(Enroll_Success);
+            m_model->refreshEnrollResult(FingerModel::EnrollResult::Enroll_Success);
         }
     }
     m_fingerPrintInter->setTimeout(-1);

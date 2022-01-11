@@ -55,7 +55,7 @@ class AddFaceInfoDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
 public:
-    explicit AddFaceInfoDialog(dcc::authentication::CharaMangerModel *model, DAbstractDialog *parent = nullptr);
+    explicit AddFaceInfoDialog(dcc::authentication::CharaMangerModel *model, QWidget *parent = nullptr);
     ~AddFaceInfoDialog();
 
     void onSetWindowEnabled(const bool isEnabled);

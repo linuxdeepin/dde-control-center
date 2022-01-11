@@ -34,7 +34,7 @@ DWIDGET_USE_NAMESPACE
 using namespace dcc::authentication;
 using namespace DCC_NAMESPACE::authentication;
 
-AddIrisInfoDialog::AddIrisInfoDialog(CharaMangerModel *model, DAbstractDialog *parent)
+AddIrisInfoDialog::AddIrisInfoDialog(CharaMangerModel *model, QWidget *parent)
     : DAbstractDialog(parent)
     , m_charaModel(model)
     , m_mainLayout(new QVBoxLayout(this))

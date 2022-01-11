@@ -203,6 +203,11 @@ void FingerModel::onTouch(const QString &id, bool pressed)
 {
 }
 
+void FingerModel::refreshEnrollResult(FingerModel::EnrollResult enrollRes)
+{
+    Q_EMIT enrollResult(enrollRes);
+}
+
 void FingerModel::setThumbsList(const QStringList &thumbs)
 {
     if (thumbs != m_thumbsList) {

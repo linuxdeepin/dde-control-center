@@ -36,6 +36,15 @@ class FingerModel : public QObject
 {
     Q_OBJECT
 public:
+    enum EnrollResult {
+        Enroll_AuthFailed,
+        Enroll_ClaimFailed,
+        Enroll_Failed,
+        Enroll_Success,
+        Count
+    };
+
+public:
     explicit FingerModel(QObject *parent = nullptr);
     inline QList<QString> getPredefineThumbsName() const { return m_predefineThumbsNames; }
 
@@ -53,6 +62,8 @@ public:
 
     void resetProgress() { m_progress = 0; }
 
+    void refreshEnrollResult(EnrollResult enrollRes);
+
 Q_SIGNALS:
     void vaildChanged(const bool isVaild);
     void thumbsListChanged(const QStringList &thumbs);
@@ -62,8 +73,10 @@ Q_SIGNALS:
     void enrollStagePass(int pro);
     void enrollRetry(QString title, QString msg);
     void enrollDisconnected();
+    void enrollResult(EnrollResult enrollRes);
 
     void lockedChanged(bool locked);
+
 private:
     QString m_userName;
     bool m_isVaild{false};

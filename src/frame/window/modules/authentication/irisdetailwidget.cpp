@@ -1,3 +1,4 @@
+#include "addirisinfodialog.h"
 #include "irisdetailwidget.h"
 #include "modules/authentication/charamangermodel.h"
 
@@ -89,6 +90,7 @@ QString IrisDetailWidget::getDisplayPath()
     return QString(":/authentication/themes/%1/icons/icon_unknown_device.svg").arg(theme);
 }
 
+
 void IrisDetailWidget::onDeviceStatusChanged(bool hasDevice)
 {
     if (hasDevice) {
@@ -104,3 +106,21 @@ void IrisDetailWidget::onDeviceStatusChanged(bool hasDevice)
     }
 }
 
+void IrisDetailWidget::onShowAddIrisDialog(const QString &driverName, const int &charaType, const QString &charaName)
+{
+    AddIrisInfoDialog *irisDlg = new AddIrisInfoDialog(m_model, this);
+    connect(m_model, &CharaMangerModel::tryStartInputIris, irisDlg, &AddIrisInfoDialog::refreshInfoStatusDisplay);
+
+    connect(irisDlg, &AddIrisInfoDialog::requestStopEnroll, this, &IrisDetailWidget::requestStopEnroll);
+    connect(irisDlg, &AddIrisInfoDialog::requesetCloseDlg, irisDlg, &AddIrisInfoDialog::deleteLater);
+
+    // 点击下一步开始录入
+    connect(irisDlg, &AddIrisInfoDialog::requestInputIris, this, [ = ](){
+        Q_EMIT requestEntollStart(driverName, charaType, charaName);
+    });
+
+    irisDlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+    irisDlg->exec();
+    irisDlg->setFocus();
+    irisDlg->activateWindow();
+}

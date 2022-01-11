@@ -56,7 +56,7 @@ class AddIrisInfoDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
     Q_OBJECT
 public:
 
-    explicit AddIrisInfoDialog(dcc::authentication::CharaMangerModel *model, DAbstractDialog *parent = nullptr);
+    explicit AddIrisInfoDialog(dcc::authentication::CharaMangerModel *model, QWidget *parent = nullptr);
     ~AddIrisInfoDialog();
 
 Q_SIGNALS:

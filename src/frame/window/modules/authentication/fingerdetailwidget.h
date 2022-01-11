@@ -60,12 +60,14 @@ private:
 
 Q_SIGNALS:
     void requestAddThumbs(const QString &name, const QString &thumb);
+    void requestStopEnroll(const QString &thumb);
     void requestDeleteFingerItem(const QString &userName, const QString& finger);
     void requestRenameFingerItem(const QString &userName, const QString& finger, const QString& newName);
     void noticeEnrollCompleted(QString username);
 
 public Q_SLOTS:
     void showDeviceStatus(bool hasDevice);
+    void showAddFingeDialog(const QString &name, const QString &thumb);
 
 private:
     QString m_currentUserName;

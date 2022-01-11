@@ -38,7 +38,7 @@ DWIDGET_USE_NAMESPACE
 using namespace dcc::authentication;
 using namespace DCC_NAMESPACE::authentication;
 
-AddFaceInfoDialog::AddFaceInfoDialog(dcc::authentication::CharaMangerModel *model, Dtk::Widget::DAbstractDialog *parent)
+AddFaceInfoDialog::AddFaceInfoDialog(dcc::authentication::CharaMangerModel *model, QWidget *parent)
     : DAbstractDialog(parent)
     , m_faceModel(model)
     , m_mainLayout(new QVBoxLayout(this))
@@ -141,12 +141,7 @@ void AddFaceInfoDialog::initConnect()
     connect(m_disclaimersItem, &DisclaimersItem::requestSetWindowEnabled, this, &AddFaceInfoDialog::onSetWindowEnabled);
     connect(m_disclaimersItem, &DisclaimersItem::requestStateChange, m_acceptBtn, &QPushButton::setDisabled);
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddFaceInfoDialog::close);
-    connect(m_acceptBtn, &QPushButton::clicked, this, &AddFaceInfoDialog::requestShowFaceInfoDialog);
-    connect(m_acceptBtn, &QPushButton::clicked, this, [this]{
-        if (m_acceptBtn->text() == "Done") {
-            this->close();
-        }
-    });
+    connect(m_acceptBtn, &QPushButton::clicked, this, &AddFaceInfoDialog::requestShowFaceInfoDialog, Qt::UniqueConnection);
 }
 
 QString AddFaceInfoDialog::getFacePicture()

@@ -1,3 +1,4 @@
+#include "addfingedialog.h"
 #include "fingerdetailwidget.h"
 #include "modules/authentication/fingermodel.h"
 
@@ -43,7 +44,7 @@ void FingerDetailWidget::initFingerUI()
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
 
     //指纹界面操作
-    connect(m_fingerWidget, &FingerWidget::requestAddThumbs, this, &FingerDetailWidget::requestAddThumbs);
+    connect(m_fingerWidget, &FingerWidget::requestAddThumbs, this, &FingerDetailWidget::showAddFingeDialog);
     connect(m_fingerWidget, &FingerWidget::requestDeleteFingerItem, this, &FingerDetailWidget::requestDeleteFingerItem);
     connect(m_fingerWidget, &FingerWidget::requestRenameFingerItem, this, &FingerDetailWidget::requestRenameFingerItem);
     connect(m_fingerWidget, &FingerWidget::noticeEnrollCompleted, this, &FingerDetailWidget::noticeEnrollCompleted);
@@ -107,6 +108,42 @@ void FingerDetailWidget::showDeviceStatus(bool hasDevice)
     } else {
         initNotFingerDevice();
     }
+}
+
+void FingerDetailWidget::showAddFingeDialog(const QString &name, const QString &thumb)
+{
+    AddFingeDialog *dlg = new AddFingeDialog(thumb);
+    connect(dlg, &AddFingeDialog::requestEnrollThumb, this, [=] {
+        dlg->deleteLater();
+        showAddFingeDialog(name, thumb);
+    });
+    connect(dlg, &AddFingeDialog::requestStopEnroll, this, &FingerDetailWidget::requestStopEnroll);
+    connect(dlg, &AddFingeDialog::requesetCloseDlg, dlg, [=](const QString &userName) {
+        Q_EMIT noticeEnrollCompleted(userName);
+        dlg->deleteLater();
+    });
+
+    connect(m_model, &FingerModel::enrollResult, dlg, [=] (FingerModel::EnrollResult res) {
+        // 第一次tryEnroll进入时显示添加指纹对话框
+        if (res == FingerModel::Enroll_Success) {
+            m_model->resetProgress();
+            dlg->setFingerModel(m_model);
+            dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+            dlg->setUsername(name);
+            dlg->show();
+            dlg->setFocus();
+            dlg->activateWindow();
+        } else if (res == FingerModel::Enroll_Failed) {
+            qDebug() << "FingerModel::Enroll_Failed";
+            Q_EMIT requestStopEnroll(name);
+            dlg->deleteLater();
+        } else if (res == FingerModel::Enroll_AuthFailed) {
+            qDebug() << "FingerModel::Enroll_AuthFailed";
+            dlg->deleteLater();
+        }
+    });
+
+    Q_EMIT requestAddThumbs(name, thumb);
 }
 
 void FingerDetailWidget::setFingerModel(FingerModel *model)

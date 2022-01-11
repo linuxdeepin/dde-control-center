@@ -33,6 +33,13 @@ class CharaMangerModel;
 }
 }
 
+namespace DCC_NAMESPACE {
+namespace authentication {
+class AddFaceInfoDialog;
+class FaceInfoDialog;
+}
+}
+
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 class QHBoxLayout;
@@ -51,15 +58,21 @@ public:
 private:
     void initFaceidShow();
     QString getDisplayPath();
+    void onShowAddFaceidVideo();
 
 Q_SIGNALS:
-    void requestAddFace(const QString &driverName, const int &charaType, const QString &charaName);
     void requestDeleteFaceItem(const int &charaType, const QString &charaName);
     void requestRenameFaceItem(const int &charaType, const QString& oldFaceName, const QString& newFaceName);
     void noticeEnrollCompleted(const QString &driverName, const int &CharaType);
+    void requestEntollStart(const QString &driverName, const int &charaType, const QString &charaName);
+    void requestStopEnroll();
 
 public Q_SLOTS:
     void onDeviceStatusChanged(bool hasDevice);
+    void onShowAddFaceDialog(const QString &driverName, const int &charaType, const QString &charaName);
+
+private Q_SLOTS:
+    void onConnectFD(const int &facedf);
 
 private:
     dcc::authentication::CharaMangerModel *m_model;
@@ -68,6 +81,9 @@ private:
     FaceWidget *m_faceWidget;
     QLabel *m_pNotDevice;
     DLabel *m_tip;
+
+    AddFaceInfoDialog *m_addFaceInfodlg;
+    FaceInfoDialog *m_facedlg;
 };
 
 }

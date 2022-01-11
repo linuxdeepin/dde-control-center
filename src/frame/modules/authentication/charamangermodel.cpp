@@ -89,6 +89,16 @@ void CharaMangerModel::setIrisList(const QStringList &iris)
     Q_EMIT irisListChanged(iris);
 }
 
+void CharaMangerModel::setInputFaceFD(const int &fd)
+{
+    Q_EMIT tryStartInputFace(fd);
+}
+
+void CharaMangerModel::setInputIrisFD(CharaMangerModel::AddInfoState state)
+{
+    Q_EMIT tryStartInputIris(state);
+}
+
 void CharaMangerModel::onEnrollStatusChanged(int code, const QString &msg)
 {
      // TODO： 处理所有录入状态提示信息
@@ -202,5 +212,6 @@ void CharaMangerModel::onRefreshEnrollDate(const int &charaType)
         Q_EMIT irisListChanged(this->irisList());
     }
 }
+
 
 

@@ -23,9 +23,7 @@
 
 #include "interface/moduleinterface.h"
 #include "../../mainwindow.h"
-#include "faceinfodialog.h"
 #include "addirisinfodialog.h"
-#include "addfaceinfodialog.h"
 
 namespace dcc {
 namespace authentication {
@@ -60,9 +58,6 @@ public Q_SLOTS:
     void showFingerPage();
     void showFaceidPage();
     void showIrisPage();
-    void onShowAddThumb(const QString &name, const QString &thumb);
-    void onShowAddFace(const QString &driverName, const int &charaType, const QString &charaName);
-    void onShowAddFaceidVideo(const QString &driverName, const int &charaType, const QString &charaName);
     void onShowAddIris(const QString &driverName, const int &charaType, const QString &charaName);
 
 private:
@@ -77,9 +72,6 @@ private:
     dcc::authentication::FingerWorker *m_fingerWorker{nullptr};
     dcc::authentication::CharaMangerModel *m_charaMangerModel{nullptr};
     dcc::authentication::CharaMangerWorker *m_charaMangerWorker{nullptr};
-
-    FaceInfoDialog *m_facedlg;
-    AddFaceInfoDialog *m_addFaceInfodlg;
 };
 
 }   // namespace authentication

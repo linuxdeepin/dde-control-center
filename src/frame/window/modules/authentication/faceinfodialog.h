@@ -52,7 +52,7 @@ class FaceInfoDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
 public:
-    explicit FaceInfoDialog(dcc::authentication::CharaMangerModel *model, DTK_WIDGET_NAMESPACE::DAbstractDialog *parent = nullptr);
+    explicit FaceInfoDialog(dcc::authentication::CharaMangerModel *model, QWidget *parent = nullptr);
     ~FaceInfoDialog();
 
     inline dcc::authentication::FaceInfoWidget* faceInfoLabel() { return m_faceLabel; }
