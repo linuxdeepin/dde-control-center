@@ -100,6 +100,7 @@ private Q_SLOTS:
     void onRequestCloseRecognize();
     void onResetSecondaryScreenDlg();
     void onResetFullIndication(const QRect &geometry);
+    void onResetSecondaryScreenDlgTimerOut();
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
@@ -128,6 +129,7 @@ private:
     QMap<QString, dcc::display::RecognizeWidget *> m_recognizeWidget;
 
     bool isReleaseMonitor = false;
+    QTimer *m_resetSecondaryScreenDlgTimer;
 };
 
 } // namespace display

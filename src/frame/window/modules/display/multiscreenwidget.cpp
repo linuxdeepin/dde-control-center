@@ -64,6 +64,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_refreshRateWidget(new RefreshRateWidget(300, this))
     , m_rotateWidget(new RotateWidget(300, this))
     , m_model(nullptr)
+    , m_resetSecondaryScreenDlgTimer(new QTimer(this))
 {
     //初始化列表无法进行静态翻译
     //~ contents_path /display/Multiple Displays
@@ -134,6 +135,10 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
 
     QDesktopWidget *desktopwidget = QApplication::desktop();
     connect(desktopwidget,SIGNAL(resized(int)),this,SLOT(onResetSecondaryScreenDlg()));
+
+    m_resetSecondaryScreenDlgTimer->setSingleShot(true);
+    m_resetSecondaryScreenDlgTimer->setInterval(100);
+    connect(m_resetSecondaryScreenDlgTimer, &QTimer::timeout, this, &MultiScreenWidget::onResetSecondaryScreenDlgTimerOut);
 }
 
 MultiScreenWidget::~MultiScreenWidget()
@@ -353,6 +358,7 @@ void MultiScreenWidget::initPrimaryList()
 void MultiScreenWidget::initSecondaryScreenDialog()
 {
     if (m_model->displayMode() == EXTEND_MODE) {
+        m_resetSecondaryScreenDlgTimer->stop();
         for (auto dlg : m_secondaryScreenDlgList) {
             dlg->deleteLater();
         }
@@ -378,17 +384,16 @@ void MultiScreenWidget::initSecondaryScreenDialog()
             connect(dlg, &SecondaryScreenDialog::requestCloseRecognize, this, &MultiScreenWidget::onRequestCloseRecognize);
             connect(this, &MultiScreenWidget::requestGatherEnabled, dlg, &SecondaryScreenDialog::requestGatherEnabled);
             m_secondaryScreenDlgList.append(dlg);
-
+            
             dlg->show();
-            if (!qgetenv("WAYLAND_DISPLAY").isEmpty()) {
-                QTimer::singleShot(100,this,[=]{
-                    dlg->resetDialog();
-                });
-            } else {
-                dlg->resetDialog();
-            }
         }
         activateWindow();
+
+        if (!qgetenv("WAYLAND_DISPLAY").isEmpty()) {
+            m_resetSecondaryScreenDlgTimer->start();
+        } else {
+            onResetSecondaryScreenDlgTimerOut();
+        }
     }
 }
 
@@ -459,6 +464,13 @@ void MultiScreenWidget::onResetFullIndication(const QRect &geometry)
 {
     m_fullIndication->setGeometry(geometry);
     m_fullIndication->move(geometry.topLeft());
+}
+
+void MultiScreenWidget::onResetSecondaryScreenDlgTimerOut()
+{
+    for (auto dlg : m_secondaryScreenDlgList) {
+        dlg->resetDialog();
+    }
 }
 
 void MultiScreenWidget::onResetSecondaryScreenDlg()
