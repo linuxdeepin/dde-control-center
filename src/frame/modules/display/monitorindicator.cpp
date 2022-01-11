@@ -84,8 +84,9 @@ void MonitorIndicator::setVisible(bool visible)
 void MonitorIndicator::updateGeometry()
 {
     QPoint topLeft = mapToGlobal(QPoint(0,0));
-    m_topLine->setGeometry(topLeft.x(), topLeft.y(), width(), LINE_WIDTH);
-    m_bottomLine->setGeometry(topLeft.x(), topLeft.y() + height() - LINE_WIDTH, width(), LINE_WIDTH);
-    m_rightLine->setGeometry(topLeft.x() + width() - LINE_WIDTH, topLeft.y(), LINE_WIDTH, height());
-    m_leftLine->setGeometry(topLeft.x(), topLeft.y(), LINE_WIDTH, height());
+    int lineWidth = static_cast<int>(LINE_WIDTH / qApp->devicePixelRatio());
+    m_topLine->setGeometry(topLeft.x(), topLeft.y(), width(), lineWidth);
+    m_bottomLine->setGeometry(topLeft.x(), topLeft.y() + height() - lineWidth, width(), lineWidth);
+    m_rightLine->setGeometry(topLeft.x() + width() - lineWidth, topLeft.y(), lineWidth, height());
+    m_leftLine->setGeometry(topLeft.x(), topLeft.y(), lineWidth, height());
 }
