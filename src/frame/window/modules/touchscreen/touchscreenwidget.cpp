@@ -61,6 +61,7 @@ TouchscreenWidget::TouchscreenWidget(QWidget *parent)
     QPushButton *cancelBtn = m_buttonTuple->leftButton();
     QPushButton *acceptBtn = m_buttonTuple->rightButton();
     m_buttonTuple->setAutoFillBackground(true);
+    m_buttonTuple->setBackgroundRole(QPalette::Base);
     cancelBtn->setText(tr("Cancel"));
     cancelBtn->setFixedSize(200, 36);
     acceptBtn->setFixedSize(200, 36);
@@ -150,7 +151,7 @@ void TouchscreenWidget::onMonitorChanged()
         itemLayout->addWidget(label);
         itemLayout->addWidget(listCombo);
         listCombo->setFocusPolicy(Qt::NoFocus);
-        listCombo->setMinimumWidth(250);
+        listCombo->setMinimumWidth(240);
         listCombo->setMinimumHeight(36);
         modeSettingsItem->addBackground();
         modeSettingsItem->setFixedHeight(56);
