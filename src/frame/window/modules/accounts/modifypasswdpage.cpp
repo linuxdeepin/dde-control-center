@@ -448,12 +448,12 @@ void ModifyPasswdPage::onCheckBindFailed(const QString &errorText)
         tips = tr("System error");
     } else if (errorText.contains("7506")) {
         tips = tr("Network error");
-    } else {
-        tips = errorText;
     }
-    DMessageManager::instance()->sendMessage(this,
-                                             style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                             tips);
+    if (!tips.isEmpty()) {
+        DMessageManager::instance()->sendMessage(this,
+                                                 style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                 tips);
+    }
 }
 
 void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)

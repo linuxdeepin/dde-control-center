@@ -169,13 +169,14 @@ void SyncWorker::licenseStateChangeSlot()
 void SyncWorker::getUOSID(QString &uosid)
 {
     if (!m_syncHelperInter->isValid()) {
-        qWarning() << "syncHelper interface:" << m_syncHelperInter->lastError();
+        qWarning() << "syncHelper interface invalid: (getUOSID)" << m_syncHelperInter->lastError().message();
+        return;
     }
     QDBusReply<QString> retUOSID = m_syncHelperInter->call("UOSID");
     if (retUOSID.error().message().isEmpty()) {
         uosid = retUOSID.value();
     } else {
-        qWarning() << retUOSID.error().message();
+        qWarning() << "UOSID failed:" << retUOSID.error().message();
     }
 }
 
@@ -186,7 +187,8 @@ void SyncWorker::getUUID(QString &uuid)
                                  "com.deepin.daemon.Accounts.User",
                                  QDBusConnection::systemBus());
     if (!accountsInter.isValid()) {
-        qWarning() << "accounts interface:" << accountsInter.lastError();
+        qWarning() << "accounts interface invalid: (getUUID)" << accountsInter.lastError().message();
+        return;
     }
     QVariant retUUID = accountsInter.property("UUID");
     uuid = retUUID.toString();
@@ -196,14 +198,13 @@ void SyncWorker::localBindCheck(const QString &uosid, const QString &uuid, QStri
 {
     QDBusReply<QString> retLocalBindCheck= m_syncHelperInter->call("LocalBindCheck", uosid, uuid);
     if (!m_syncHelperInter->isValid()) {
+        qWarning() << "syncHelper interface invalid: (localBindCheck)" << m_syncHelperInter->lastError().message();
         return;
     }
     if (retLocalBindCheck.error().message().isEmpty()) {
         ubid = retLocalBindCheck.value();
     } else {
-        qWarning() << "UOSID:" << uosid;
-        qWarning() << "uuid:" << uuid;
-        qWarning() << retLocalBindCheck.error().message();
+        qWarning() << "localBindCheck failed:" << retLocalBindCheck.error().message();
         errorTxt = retLocalBindCheck.error().message();
     }
 }
@@ -227,9 +228,8 @@ void SyncWorker::bindAccount(const QString &uuid, const QString &hostName, QStri
     retUBID.waitForFinished();
     if (retUBID.error().message().isEmpty()) {
         ubid = retUBID.value();
-        qDebug() << "Bind success:" << ubid;
+        qDebug() << "Bind success!";
     } else {
-        qWarning() << "uuid:" << uuid << "HostName:" << hostName;
         qWarning() << "Bind failed:" << retUBID.error().message();
         errorTxt = retUBID.error().message();
     }
@@ -245,10 +245,9 @@ void SyncWorker::unBindAccount(const QString &ubid, bool &ret, QString &errorTxt
                                               .call();
     retUnBoundle.waitForFinished();
     if (retUnBoundle.error().message().isEmpty()) {
-        qDebug() << "unBind success:" << retUnBoundle.value();
+        qDebug() << "unBind success!";
         ret = true;
     } else {
-        qWarning() << "ubid:" << ubid;
         qWarning() << "unBind failed:" << retUnBoundle.error().message();
         errorTxt = retUnBoundle.error().message();
         ret = false;

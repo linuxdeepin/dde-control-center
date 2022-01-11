@@ -381,12 +381,12 @@ bool IndexPage::isUserAccountBinded()
             tips = tr("System error");
         } else if (errorTxt.contains("7506")) {
             tips = tr("Network error");
-        } else {
-            tips = errorTxt;
         }
-        DMessageManager::instance()->sendMessage(this,
-                                                 style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                                 tips);
+        if (!tips.isEmpty()) {
+            DMessageManager::instance()->sendMessage(this,
+                                                     style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                     tips);
+        }
     }
     if(!m_ubid.isEmpty()) {
         return true;
@@ -439,12 +439,12 @@ bool IndexPage::bindUserAccount()
             tips = tr("Network error");
         } else if (errorTxt.contains("7502")) {
             tips = tr("Login expired, please sign in to the Union ID again");
-        } else {
-            tips = errorTxt;
         }
-        DMessageManager::instance()->sendMessage(this,
-                                                 style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                                 tips);
+        if (!tips.isEmpty()) {
+            DMessageManager::instance()->sendMessage(this,
+                                                     style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                     tips);
+        }
     }
 
     return !m_ubid.isEmpty();
@@ -468,12 +468,12 @@ bool IndexPage::unbindUserAccount()
             tips = tr("Network error");
         } else if (errorTxt.contains("7502")) {
             tips = tr("Login expired, please sign in to the Union ID again");
-        } else {
-            tips = errorTxt;
         }
-        DMessageManager::instance()->sendMessage(this,
-                                                 style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                                 tips);
+        if (!tips.isEmpty()) {
+            DMessageManager::instance()->sendMessage(this,
+                                                     style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                     tips);
+        }
     }
     return ret;
 }

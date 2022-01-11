@@ -152,13 +152,14 @@ void AccountsWorker::getPresetGroupsResult(QDBusPendingCallWatcher *watch)
 void AccountsWorker::getUOSID(QString &uosid)
 {
     if (!m_syncHelperInter->isValid()) {
+        qWarning() << "syncHelper interface invalid: (getUOSID)" << m_syncHelperInter->lastError().message();
         return;
     }
     QDBusReply<QString> retUOSID = m_syncHelperInter->call("UOSID");
     if (retUOSID.error().message().isEmpty()) {
         uosid = retUOSID.value();
     } else {
-        qDebug() << retUOSID.error().message();
+        qWarning() << "UOSID failed:" << retUOSID.error().message();
         return;
     }
 }
@@ -170,6 +171,7 @@ void AccountsWorker::getUUID(QString &uuid)
                                  "com.deepin.daemon.Accounts.User",
                                  QDBusConnection::systemBus());
     if (!accountsInter.isValid()) {
+        qWarning() << "accountsInter invalid: (getUUID)" << accountsInter.lastError().message();
         return;
     }
     QVariant retUUID = accountsInter.property("UUID");
@@ -179,21 +181,21 @@ void AccountsWorker::getUUID(QString &uuid)
 void AccountsWorker::localBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid, QString &ubid)
 {
     if (!m_syncHelperInter->isValid()) {
+        qWarning() << "syncHelper interface invalid: (localBindCheck)" << m_syncHelperInter->lastError().message();
         return;
     }
     QDBusReply<QString> retLocalBindCheck= m_syncHelperInter->call("LocalBindCheck", uosid, uuid);
     if (retLocalBindCheck.error().message().isEmpty()) {
         ubid = retLocalBindCheck.value();
     } else {
-        qDebug() << "UOSID:" << uosid << "uuid:" << uuid;
-        qDebug() << retLocalBindCheck.error().message();
+        qWarning() << "LocalBindCheck failed:" << retLocalBindCheck.error().message();
         Q_EMIT user->checkBindFailed(retLocalBindCheck.error().message());
     }
 }
 
 void AccountsWorker::startResetPasswordExec(User *user)
 {
-    qDebug() << "begin setpassword";
+    qDebug() << "Begin Resetpassword";
     AccountsUser *userInter = m_userInters.value(user);
     auto reply = userInter->SetPassword("");
     reply.waitForFinished();
