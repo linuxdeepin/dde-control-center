@@ -43,6 +43,7 @@ SearchModel::SearchModel(QObject *parent)
     : QStandardItemModel(parent)
     , m_bIsChinese(false)
     , m_bIstextEdited(false)
+    , m_dataUpdateCompleted(false)
 {
     //左边是从从xml解析出来的数据，右边是需要被翻译成的数据；
     //后续若还有相同模块还有一样的翻译文言，也可在此处添加类似处理，并在注释处添加　//~ child_page xxx
@@ -508,7 +509,9 @@ void SearchModel::setLanguage(const QString &type)
     connect(watcher, &QFutureWatcher<QList<SearchBoxStruct::Ptr>>::finished, this, [=] {
         m_originList = watcher->result();
         watcher->deleteLater();
-        return loadxml();
+        loadxml();
+        m_dataUpdateCompleted = true;
+
     });
 
     m_childeHideWidgetList.clear();
