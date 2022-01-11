@@ -158,7 +158,7 @@ void ShortcutItem::onShortcutEdit()
 void ShortcutItem::updateTitleSize()
 {
     show();
-
+    if (m_info->name.isEmpty()) return;
     int v = width() - m_key->width() - 32;
     if (m_title->fontMetrics().width(m_info->name) > v) {
         QFontMetrics fontWidth(m_title->font());
