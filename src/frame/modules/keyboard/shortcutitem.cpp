@@ -171,7 +171,7 @@ void ShortcutItem::onShortcutEdit()
 void ShortcutItem::updateTitleSize()
 {
     show();
-
+    if (m_info->name.isEmpty()) return;
     int v = 0;
     if(m_shortcutEdit->isHidden())
         v = width() - m_key->width() - 32;
