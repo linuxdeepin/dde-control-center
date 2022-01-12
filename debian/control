@@ -65,7 +65,8 @@ Recommends:
 Suggests: redshift
 Conflicts:
  dde-control-center-plugin-weather,
- dde-control-center-plugin-notify
+ dde-control-center-plugin-notify,
+ deepin-desktop-schemas (<< 5.8.0.43)
 Replaces:
  dde-control-center-plugin-weather,
  dde-control-center-plugin-notify
