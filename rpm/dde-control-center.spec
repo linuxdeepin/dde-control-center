@@ -37,7 +37,8 @@ Requires:       dde-daemon
 Requires:       dde-qt5integration
 Requires:       startdde
 Requires:       dde-server-industry-config
-Requires:	   deepin-pw-check
+Requires:	deepin-pw-check
+Requires:	deepin-installer-timezones
 
 %description
 New control center for Linux Deepin.
