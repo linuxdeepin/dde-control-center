@@ -311,5 +311,6 @@ void CharaMangerWorker::renameCharaItem(const int &charaType, const QString &old
     call.waitForFinished();
     if (call.isError()) {
         qDebug() << "call RenameFinger Error : " << call.error();
+        m_model->onRefreshEnrollDate(charaType);
     }
 }

@@ -113,6 +113,12 @@ public:
     void onEnrollStatusChanged(int code, const QString& msg);
     void onEnrollIrisStatusChanged(int code, const QString& msg);
 
+    /**
+     * @brief onRefreshEnrollDate  用于刷新用户已录入的数据（ eg： 重命名失败后）
+     * @param charaType 对应类型
+     */
+    void onRefreshEnrollDate(const int &charaType);
+
 Q_SIGNALS:
     void vaildFaceDriverChanged(const bool isVaild);
     void vaildIrisDriverChanged(const bool isVaild);
