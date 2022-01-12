@@ -97,6 +97,9 @@ QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type, CheckT
         {PW_ERR_LENGTH_SHORT, tr("Password must have at least %1 characters").arg(m_passwordMinLen)},
         {PW_ERR_LENGTH_LONG, tr("Password must be no more than %1 characters").arg(m_passwordMaxLen)},
         {PW_ERR_CHARACTER_INVALID, tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&*()-_+=|\\{}[]:\"'<>,.?/)")},
+        {PW_ERR_PALINDROME, tr("No more than 8 palindrome characters please")},
+        {PW_ERR_PW_MONOTONE, tr("No more than 3 monotonic characters please")},
+        {PW_ERR_PW_CONSECUTIVE_SAME, tr("No more than 3 repeating characters please")},
     };
 
     //服务器版校验规则
