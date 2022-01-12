@@ -45,16 +45,6 @@ void IPConfilctChecker::onDeviceAdded(QList<NetworkDeviceBase *> devices)
     }
 }
 
-bool IPConfilctChecker::ipConfilct(NetworkDeviceBase *device) const
-{
-    for (DeviceIPChecker *ipChecker : m_deviceCheckers) {
-        if (ipChecker->device() == device)
-            return ipChecker->ipConfilct();
-    }
-
-    return false;
-}
-
 void IPConfilctChecker::clearUnExistDevice()
 {
     QList<NetworkDeviceBase *> devices = m_networkProcesser->devices();
@@ -222,11 +212,6 @@ void DeviceIPChecker::setDeviceInfo(const QStringList &ipv4, const QString &macA
 {
     m_ipV4 = ipv4;
     m_macAddress = macAddress;
-}
-
-bool DeviceIPChecker::ipConfilct()
-{
-    return m_ipConflicted;
 }
 
 void DeviceIPChecker::handlerIpConflict()

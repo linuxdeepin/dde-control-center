@@ -206,7 +206,7 @@ Connectivity NetworkDeviceRealize::connectivity()
 
 DeviceStatus NetworkDeviceRealize::deviceStatus() const
 {
-    if (deviceIpIsConfilct(m_device))
+    if (m_ipConflicted)
         return DeviceStatus::IpConfilct;
 
     return m_deviceStatus;
@@ -249,9 +249,10 @@ NetworkDeviceRealize::NetworkDeviceRealize(IPConfilctChecker *ipConflictChecker,
     , m_connectivity(Connectivity::Full)
     , m_deviceStatus(DeviceStatus::Unknown)
     , m_ipConflictChecker(ipConflictChecker)
+    , m_ipConflicted(false)
 {
     Q_ASSERT(m_ipConflictChecker);
-    connect(this, &NetworkDeviceRealize::deviceIpIsConfilct, m_ipConflictChecker, &IPConfilctChecker::ipConfilct, Qt::BlockingQueuedConnection);
+    connect(m_ipConflictChecker, &IPConfilctChecker::conflictStatusChanged, this, &NetworkDeviceRealize::onConflictStatusChanged);
 }
 
 NetworkDeviceRealize::~NetworkDeviceRealize()
@@ -380,6 +381,14 @@ void NetworkDeviceRealize::sortWiredItem(QList<WiredConnection *> &items)
         QString configName2 = path2.mid(path2.lastIndexOf("/") + 1);
         return configName1.toInt() < configName2.toInt();
     });
+}
+
+void NetworkDeviceRealize::onConflictStatusChanged(NetworkDeviceBase *device, const bool confilcted)
+{
+    if (device != m_device)
+        return;
+
+    m_ipConflicted = confilcted;
 }
 
 }

@@ -18,14 +18,11 @@ class IPConfilctChecker : public QObject
     Q_OBJECT
 
 Q_SIGNALS:
-    void conflictStatusChanged(NetworkDeviceBase *, const bool &);
+    void conflictStatusChanged(NetworkDeviceBase *, const bool);
 
 public:
     explicit IPConfilctChecker(NetworkProcesser *networkProcesser, const bool ipChecked, QObject *parent = nullptr);
     ~IPConfilctChecker();
-
-public Q_SLOT:
-    bool ipConfilct(NetworkDeviceBase *device) const;
 
 private Q_SLOT:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
@@ -50,7 +47,7 @@ class DeviceIPChecker : public QObject
     Q_OBJECT
 
 Q_SIGNALS:
-    void conflictStatusChanged(NetworkDeviceBase *, const bool &);
+    void conflictStatusChanged(NetworkDeviceBase *, const bool);
     void ipConflictCheck(const QStringList &);
 
 public:
@@ -58,7 +55,6 @@ public:
     ~DeviceIPChecker();
     NetworkDeviceBase *device();
     void setDeviceInfo(const QStringList &ipv4, const QString &macAddress);
-    bool ipConfilct();
     void handlerIpConflict();
     QStringList ipV4();
 
