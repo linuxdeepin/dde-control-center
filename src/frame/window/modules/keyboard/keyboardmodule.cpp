@@ -127,7 +127,7 @@ QStringList KeyboardModule::availPage() const
        << "System Language/Add System Language"
        << "Shortcuts"
        << "Shortcuts/Add Custom Shortcut"
-       << "Input Methods";
+       << "Manage Input Methods";
     return sl;
 }
 
