@@ -52,7 +52,8 @@ Depends: ${shlibs:Depends},
  libdeepin-pw-check,
  deepin-desktop-schemas (>=5.8.0.43),
  libdframeworkdbus2 (>=5.3.38),
- libdareader1
+ libdareader1,
+ deepin-sync-daemon
 Recommends:
  netselect,
  deepin-ab-recovery,
