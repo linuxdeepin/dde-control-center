@@ -27,10 +27,12 @@
 #include <QStandardItemModel>
 #include <QVariant>
 #include <QWidget>
+#include <QDebug>
 
 GSettingWatcher::GSettingWatcher(QObject *parent)
     : QObject(parent)
-    , m_gsettings(SettingsPtr("com.deepin.dde.control-center", QByteArray(), this))
+    , m_gsettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
+    , m_keys(m_gsettings->keys())
 {
     connect(m_gsettings, &QGSettings::changed, this, &GSettingWatcher::onStatusModeChanged);
 }
@@ -39,6 +41,11 @@ GSettingWatcher *GSettingWatcher::instance()
 {
     static GSettingWatcher w;
     return &w;
+}
+
+bool GSettingWatcher::existKey(const QString &key)
+{
+    return m_keys.contains(key);
 }
 
 /**
@@ -53,7 +60,7 @@ void GSettingWatcher::bind(const QString &gsettingsName, QWidget *binder)
     setStatus(gsettingsName, binder);
 
     // 自动解绑
-    connect(binder, &QObject::destroyed, this, [=] {
+    connect(binder, &QObject::destroyed, this, [ = ] {
         erase(m_map.key(binder));
     });
 }
@@ -70,7 +77,7 @@ void GSettingWatcher::bind(const QString &gsettingsName, QListView *viewer, QSta
 
     setStatus(gsettingsName, viewer, item);
 
-    connect(viewer, &QListView::destroyed, this, [=] {
+    connect(viewer, &QListView::destroyed, this, [ = ] {
         erase(gsettingsName);
     });
 }
@@ -84,7 +91,7 @@ void GSettingWatcher::erase(const QString &gsettingsName)
     if (!m_map.isEmpty() && m_map.contains(gsettingsName))
         m_map.remove(gsettingsName);
 
-    if (m_menuMap.contains(gsettingsName))
+    if (!m_menuMap.isEmpty() && m_menuMap.contains(gsettingsName))
         m_menuMap.remove(gsettingsName);
 }
 
@@ -107,7 +114,10 @@ void GSettingWatcher::erase(const QString &gsettingsName, QWidget *binder)
  */
 void GSettingWatcher::insertState(const QString &key)
 {
-   m_menuState.insert(key, m_gsettings->get(key).toBool());
+    if(!existKey(key))
+        return;
+
+    m_menuState.insert(key, m_gsettings->get(key).toBool());
 }
 
 /**
@@ -117,10 +127,7 @@ void GSettingWatcher::insertState(const QString &key)
  */
 void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
 {
-    if (!binder || !m_gsettings)
-        return;
-
-    if (!m_gsettings->keys().contains(gsettingsName))
+    if (!binder || !existKey(gsettingsName))
         return;
 
     const QString setting = m_gsettings->get(gsettingsName).toString();
@@ -132,6 +139,7 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
     }
 
     binder->setVisible("Hidden" != setting);
+    Q_EMIT notifyGSettingsChanged(gsettingsName, setting);
 }
 
 /**
@@ -142,13 +150,18 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
  */
 void GSettingWatcher::setStatus(const QString &gsettingsName, QListView *viewer, QStandardItem *item)
 {
+    if (!existKey(gsettingsName))
+        return;
+
     bool visible = m_gsettings->get(gsettingsName).toBool();
 
     viewer->setRowHidden(item->row(), !visible);
+    Q_EMIT notifyGSettingsChanged(gsettingsName, item->data().toString());
 
-    if (!visible) {
-        Q_EMIT requestUpdateSecondMenu(item->row());
-    }
+    if(visible)
+        Q_EMIT requestShowSecondMenu(item->row());
+    else
+        Q_EMIT requestUpdateSecondMenu(item->row(), gsettingsName);
 }
 
 /**
@@ -158,6 +171,9 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QListView *viewer,
  */
 const QString GSettingWatcher::getStatus(const QString &gsettingsName)
 {
+    if (!existKey(gsettingsName))
+        return QString();
+
     return m_gsettings->get(gsettingsName).toString();
 }
 
@@ -169,6 +185,14 @@ const QString GSettingWatcher::getStatus(const QString &gsettingsName)
 QMap<QString, bool> GSettingWatcher::getMenuState()
 {
     return m_menuState;
+}
+
+QVariant GSettingWatcher::get(const QString &key) const
+{
+    if (!m_gsettings)
+        return "";
+
+    return m_gsettings->get(key);
 }
 
 /**
@@ -187,7 +211,7 @@ void GSettingWatcher::onStatusModeChanged(const QString &key)
         }
     }
 
-    if (m_menuMap.contains(key)) {
+    if (!m_menuMap.isEmpty() && m_menuMap.contains(key)) {
         for (QString &nameKey : m_menuMap.keys()) {
             if (key == nameKey) {
                 setStatus(key, m_menuMap.value(nameKey).first, m_menuMap.value(nameKey).second);
@@ -200,14 +224,6 @@ void GSettingWatcher::onStatusModeChanged(const QString &key)
         insertState(key);
         Q_EMIT requestUpdateSearchMenu(key, m_menuState.value(key));
     }
-}
 
-QGSettings *GSettingWatcher::SettingsPtr(const QString &schema_id, const QByteArray &path, QObject *parent)
-{
-    if (QGSettings::isSchemaInstalled(schema_id.toUtf8())) {
-        QGSettings *settings = new QGSettings(schema_id.toUtf8(), path, parent);
-        return settings;
-    }
-
-    return nullptr;
+    Q_EMIT notifyGSettingsChanged(key, "");
 }

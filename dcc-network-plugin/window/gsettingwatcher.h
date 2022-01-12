@@ -42,24 +42,28 @@ public:
     void insertState(const QString &);
     const QString getStatus(const QString &gsettingsName);
     QMap<QString, bool> getMenuState();
+    QVariant get(const QString &key) const;
 
 private:
-    GSettingWatcher(QObject *parent = nullptr);
+    explicit GSettingWatcher(QObject *parent = nullptr);
 
     void setStatus(const QString &gsettingsName, QWidget *binder);
     void setStatus(const QString &gsettingsName, QListView *viewer, QStandardItem *item);
     void onStatusModeChanged(const QString &key);
-    QGSettings *SettingsPtr(const QString &schema_id, const QByteArray &path = QByteArray(), QObject *parent = nullptr);
+    bool existKey(const QString &key);
 
 Q_SIGNALS:
-    void requestUpdateSecondMenu(int);
+    void requestUpdateSecondMenu(int, const QString &gsettingsName = QString());
     void requestUpdateSearchMenu(const QString &, bool);
+    void requestShowSecondMenu(int); //显示第二级页面
+    void notifyGSettingsChanged(const QString &, const QString &);
 
 private:
     QMultiHash<QString, QWidget *> m_map;
     QGSettings *m_gsettings;
     QHash<QString, QPair<QListView *, QStandardItem *>> m_menuMap;
     QMap<QString, bool> m_menuState;
+    QStringList m_keys;
 };
 
 #endif // GSETTINGWATCHER_H

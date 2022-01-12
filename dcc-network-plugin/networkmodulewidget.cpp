@@ -135,8 +135,6 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
             m_lastDevicePath.clear();
     });
 
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, &NetworkModuleWidget::updateSecondMenu);
-
     NetworkController *pNetworkController = NetworkController::instance();
     connect(pNetworkController, &NetworkController::activeConnectionChange, this, &NetworkModuleWidget::onDeviceStatusChanged);
     connect(pNetworkController, &NetworkController::deviceRemoved, this, &NetworkModuleWidget::onDeviceChanged);
@@ -156,24 +154,6 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     onDeviceChanged();
     if (NetworkController::instance()->devices().size() > 0)
         m_isFirstEnter = false;
-
-    connect(m_settings, &QGSettings::changed, this, [ = ](const QString & key) {
-        if (key == "networkWired" || key == "networkWireless") {
-            for (int i = 0; i < m_modelpages->rowCount(); i++) {
-                if (m_modelpages->index(i, 0).data(SectionRole).value<PageType>() == PageType::WiredPage) {
-                    bool status = m_settings->get("networkWired").toBool();
-                    m_lvnmpages->setRowHidden(i, !status);
-                    if (!status)
-                        updateSecondMenu(i);
-                } else if (m_modelpages->index(i, 0).data(SectionRole).value<PageType>() == PageType::WirelessPage) {
-                    bool status = m_settings->get("networkWireless").toBool();
-                    m_lvnmpages->setRowHidden(i, !status);
-                    if (!status)
-                        updateSecondMenu(i);
-                }
-            }
-        }
-    });
 }
 
 NetworkModuleWidget::~NetworkModuleWidget()
@@ -289,27 +269,6 @@ bool NetworkModuleWidget::handleNMEditor()
     return true;
 }
 
-void NetworkModuleWidget::updateSecondMenu(int row)
-{
-    bool isAllHidden = true;
-    for (int i = 0; i < m_modelpages->rowCount(); i++) {
-        if (!m_lvnmpages->isRowHidden(i)) {
-            isAllHidden = false;
-            break;
-        }
-    }
-
-    if (m_lvnmpages->selectionModel()->selectedRows().size() > 0) {
-        int index = m_lvnmpages->selectionModel()->selectedRows()[0].row();
-        Q_EMIT requestUpdateSecondMenu(index == row);
-    } else {
-        Q_EMIT requestUpdateSecondMenu(false);
-    }
-
-    if (isAllHidden)
-        m_lvnmpages->clearSelection();
-}
-
 void NetworkModuleWidget::showDefaultWidget()
 {
     for (int i = 0; i < m_modelpages->rowCount(); i++) {
@@ -351,6 +310,44 @@ void NetworkModuleWidget::initSetting(const int settingIndex, const QString &sea
 
     m_lvnmpages->setCurrentIndex(m_modelpages->index(settingIndex, 0));
     m_lvnmpages->clicked(m_modelpages->index(settingIndex, 0));
+}
+
+static PageType getPageTypeFromModelName(const QString &modelName)
+{
+    if (modelName == "networkWired")
+        return PageType::WiredPage;
+
+    if (modelName == "networkWireless")
+        return PageType::WirelessPage;
+
+    if (modelName == "personalHotspot")
+        return PageType::HotspotPage;
+
+    if (modelName =="applicationProxy")
+        return PageType::AppProxyPage;
+
+    if (modelName == "networkDetails")
+        return PageType::NetworkInfoPage;
+
+    if (modelName == "networkDsl")
+        return PageType::DSLPage;
+
+    if (modelName == "systemProxy")
+        return PageType::SysProxyPage;
+
+    if (modelName == "networkVpn")
+        return PageType::VPNPage;
+
+    return PageType::NonePage;
+}
+
+void NetworkModuleWidget::setModelVisible(const QString &modelName, const bool &visible)
+{
+    PageType type = getPageTypeFromModelName(modelName);
+    for (int i = 0; i < m_modelpages->rowCount(); i++) {
+        if (m_modelpages->item(i)->data(SectionRole).value<PageType>() == type)
+            m_lvnmpages->setRowHidden(i, !visible);
+    }
 }
 
 int NetworkModuleWidget::gotoSetting(const QString &path)

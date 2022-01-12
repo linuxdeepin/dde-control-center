@@ -1,3 +1,24 @@
+﻿/*
+ * Copyright (C) 2020 ~ 2021 Uniontech Technology Co., Ltd.
+ *
+ * Author:     donghualin <donghualin@uniontech.com>
+ *
+ * Maintainer: donghualin <donghualin@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 #include "dccnetworkmodule.h"
 #include "window/gsettingwatcher.h"
 #include "chainsproxypage.h"
@@ -11,6 +32,7 @@
 #include "vpnpage.h"
 #include "wiredpage.h"
 #include "wirelesspage.h"
+#include "window/gsettingwatcher.h"
 
 #include <QLayout>
 
@@ -36,6 +58,17 @@ DCCNetworkModule::DCCNetworkModule()
     QTranslator *translator = new QTranslator(this);
     translator->load(QString("/usr/share/dcc-network-plugin/translations/dcc-network-plugin_%1.qm").arg(QLocale::system().name()));
     QCoreApplication::installTranslator(translator);
+}
+
+DCCNetworkModule::~DCCNetworkModule()
+{
+    if (m_indexWidget)
+        m_indexWidget->deleteLater();
+}
+
+void DCCNetworkModule::preInitialize(bool sync, FrameProxyInterface::PushType)
+{
+    Q_UNUSED(sync);
 
     GSettingWatcher::instance()->insertState("networkWireless");
     GSettingWatcher::instance()->insertState("networkWired");
@@ -48,12 +81,9 @@ DCCNetworkModule::DCCNetworkModule()
 
     // 初始化时采用同步方式获取所有网络数据，加载后使用异步操作进行通信
     NetworkController::setActiveSync(true);
-}
 
-DCCNetworkModule::~DCCNetworkModule()
-{
-    if (m_indexWidget)
-        m_indexWidget->deleteLater();
+    addChildPageTrans();
+    initSearchData();
 }
 
 void DCCNetworkModule::initialize()
@@ -86,6 +116,7 @@ void DCCNetworkModule::active()
 
     m_frameProxy->pushWidget(this, m_indexWidget);
     m_indexWidget->setVisible(true);
+    initListConfig();
     m_indexWidget->showDefaultWidget();
 }
 
@@ -181,6 +212,214 @@ int DCCNetworkModule::load(const QString &path)
     return index == -1 ? -1 : 0;
 }
 
+void DCCNetworkModule::addChildPageTrans() const
+{
+    if (m_frameProxy) {
+        m_frameProxy->addChildPageTrans("Personal Hotspot", tr("Personal Hotspot"));
+        m_frameProxy->addChildPageTrans("DSL", tr("DSL"));
+        m_frameProxy->addChildPageTrans("VPN", tr("VPN"));
+        m_frameProxy->addChildPageTrans("Wired Network", tr("Wired Network"));
+        m_frameProxy->addChildPageTrans("Wireless Network", tr("Wireless Network"));
+        m_frameProxy->addChildPageTrans("Network Details", tr("Network Details"));
+        m_frameProxy->addChildPageTrans("Application Proxy", tr("Application Proxy"));
+        m_frameProxy->addChildPageTrans("System Proxy", tr("System Proxy"));
+    }
+}
+
+void DCCNetworkModule::initListConfig()
+{
+    auto func_is_visible = [](const QString &gsettings)->bool {
+        if (gsettings.isEmpty())
+            return false;
+
+        return GSettingWatcher::instance()->get(gsettings).toBool();
+    };
+
+    auto setModulVisible = [ func_is_visible, this ](const QString &key) {
+        bool visible = func_is_visible(key);
+        m_indexWidget->setModelVisible(key, visible);
+    };
+
+    setModulVisible("networkWired");
+    setModulVisible("networkWireless");
+    setModulVisible("personalHotspot");
+    setModulVisible("applicationProxy");
+    setModulVisible("networkDetails");
+    setModulVisible("networkDsl");
+    setModulVisible("systemProxy");
+    setModulVisible("networkVpn");
+}
+
+void DCCNetworkModule::initSearchData()
+{
+    const QString& module = displayName();
+    const QString& applicationProxy = tr("Application Proxy");
+    const QString& personalHost = tr("Personal Hotspot");
+    const QString& networkDetail = tr("Network Details");
+    const QString& systemProxy = tr("System Proxy");
+    const QString& wiredNetwork = tr("Wired Network");
+    const QString& wirelessNetwork = tr("Wireless Network");
+    const QString& dsl = tr("DSL");
+    const QString& vpn = tr("VPN");
+    static QMap<QString, bool> gsettingsMap;
+
+    auto func_is_visible = [ = ](const QString &gsettings)->bool {
+        if (gsettings.isEmpty())
+            return false;
+
+        bool ret = GSettingWatcher::instance()->get(gsettings).toBool();
+        gsettingsMap.insert(gsettings, ret);
+
+        return ret;
+    };
+
+    const QStringList& gslist {
+        "networkWired"
+        , "networkWireless"
+        , "personalHotspot"
+        , "applicationProxy"
+        , "networkDetails"
+        , "networkDsl"
+        , "systemProxy"
+        , "networkVpn"
+    };
+    auto func_wired_visible = [ = ](bool visible) {
+        bool isVisible = func_is_visible("networkWired");
+        bool bWireNetwork = isVisible && visible;
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("networkWired", isVisible);
+        m_frameProxy->setWidgetVisible(module, wiredNetwork, bWireNetwork);
+        m_frameProxy->setDetailVisible(module, wiredNetwork, tr("Wired Network Adapter"), bWireNetwork);
+        m_frameProxy->setDetailVisible(module, wiredNetwork, tr("Add Network Connection"), bWireNetwork);
+    };
+
+    auto func_wireless_visible = [ = ](bool visible) {
+        bool configVisible = func_is_visible("networkWireless");
+        bool bWirelessNetwork = configVisible && visible;
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("networkWireless", configVisible);
+        m_frameProxy->setWidgetVisible(module, wirelessNetwork, bWirelessNetwork);
+        m_frameProxy->setDetailVisible(module, wirelessNetwork, tr("Wireless Network Adapter"), bWirelessNetwork);
+    };
+
+    auto func_perhotspot_visible = [ = ](bool visible) {
+        bool configVisible = func_is_visible("personalHotspot");
+        bool bPersonalHost = configVisible && visible;
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("personalHotspot", bPersonalHost);
+        m_frameProxy->setWidgetVisible(module, personalHost, bPersonalHost);
+        m_frameProxy->setDetailVisible(module, personalHost, tr("Hotspot"), bPersonalHost);
+    };
+
+    auto func_appproxy_visible = [ = ] {
+        bool bAppProxy = func_is_visible("applicationProxy");
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("applicationProxy", bAppProxy);
+        m_frameProxy->setWidgetVisible(module, applicationProxy, bAppProxy);
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Proxy Type"), bAppProxy);
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("IP Address"), bAppProxy);
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Port"), bAppProxy);
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Username"), bAppProxy);
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Password"), bAppProxy);
+    };
+
+    auto func_netdetails_visible = [ = ] {
+        bool bNetworkDetail = func_is_visible("networkDetails");
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("networkDetails", bNetworkDetail);
+        m_frameProxy->setWidgetVisible(module, networkDetail, bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Interface"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("MAC"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Band"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Port"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("IPv4"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Gateway"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Primary DNS"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Netmask"), true);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("IPv6"), true);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Prefix"), true);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Speed"), true);
+    };
+
+    auto func_dsl_visible = [ = ] {
+        bool bDSL = func_is_visible("networkDsl");
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("networkDsl", bDSL);
+        m_frameProxy->setWidgetVisible(module, dsl, bDSL);
+        m_frameProxy->setDetailVisible(module, dsl, tr("Create PPPoE Connection"), bDSL);
+    };
+
+    auto func_sysproxy_visible = [ = ] {
+        bool bSystemProxy = func_is_visible("systemProxy");
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("systemProxy", bSystemProxy);
+        m_frameProxy->setWidgetVisible(module, systemProxy, bSystemProxy);
+        m_frameProxy->setDetailVisible(module, systemProxy, tr("Proxy Type"), bSystemProxy);
+        m_frameProxy->setDetailVisible(module, systemProxy, tr("Configuration URL"), bSystemProxy);
+        m_frameProxy->setDetailVisible(module, systemProxy, systemProxy, bSystemProxy);
+    };
+
+    auto func_vpn_visible = [ = ] {
+        bool bVPN = func_is_visible("networkVpn");
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("networkVpn", bVPN);
+        m_frameProxy->setWidgetVisible(module, vpn, bVPN);
+        m_frameProxy->setDetailVisible(module, vpn, tr("VPN Status"), bVPN);
+        m_frameProxy->setDetailVisible(module, vpn, tr("Create VPN"), bVPN);
+        m_frameProxy->setDetailVisible(module, vpn, tr("Import VPN"), bVPN);
+    };
+
+    auto func_process_all = [ = ] {
+        func_appproxy_visible();
+        func_netdetails_visible();
+        func_dsl_visible();
+        func_sysproxy_visible();
+        func_vpn_visible();
+        func_wired_visible(m_hasWired);
+        func_wireless_visible(m_hasWireless);
+        func_perhotspot_visible(m_hasAp);
+     };
+
+    connect(this, &DCCNetworkModule::deviceChanged, this, [ = ] {
+        func_wired_visible(m_hasWired);
+        func_wireless_visible(m_hasWireless);
+        func_perhotspot_visible(m_hasAp);
+        m_frameProxy->updateSearchData(module);
+    });
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [ = ](const QString &gsetting, const QString &state) {
+        if (gsetting.isEmpty() || !gsettingsMap.contains(gsetting) || !gslist.contains(gsetting))
+            return;
+
+        if (gsettingsMap.value(gsetting) == GSettingWatcher::instance()->get(gsetting).toBool())
+            return;
+
+        if ("applicationProxy" == gsetting) {
+            func_appproxy_visible();
+        } else if ("networkDetails" == gsetting) {
+            func_netdetails_visible();
+        } else if ("networkDsl" == gsetting) {
+            func_dsl_visible();
+        } else if ("systemProxy" == gsetting) {
+            func_sysproxy_visible();
+        } else if ("networkVpn" == gsetting) {
+            func_vpn_visible();
+        } else if ("networkWired" == gsetting || "networkWireless" == gsetting || "personalHotspot" == gsetting) {
+            func_wired_visible(m_hasWired);
+            func_wireless_visible(m_hasWireless);
+            func_perhotspot_visible(m_hasAp);
+        } else {
+            qWarning() << " not contains the gsettings : " << gsetting << state;
+            return;
+        }
+
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        m_frameProxy->updateSearchData(module);
+    });
+
+    func_process_all();
+}
+
 void DCCNetworkModule::removeConnEditPageByDevice(NetworkDeviceBase *dev)
 {
     if (m_connEditPage && dev->path() == m_connEditPage->devicePath()) {
@@ -213,6 +452,8 @@ void DCCNetworkModule::onDeviceChanged()
     m_frameProxy->setRemoveableDeviceStatus(tr("Wired Network"), m_hasWired);
     m_frameProxy->setRemoveableDeviceStatus(tr("Wireless Network"), m_hasWireless);
     m_frameProxy->setRemoveableDeviceStatus(tr("Personal Hotspot"), m_hasAp);
+
+    Q_EMIT deviceChanged();
 }
 
 void DCCNetworkModule::showWirelessEditPage(NetworkDeviceBase *dev, const QString &connUuid, const QString &apPath)
@@ -220,16 +461,16 @@ void DCCNetworkModule::showWirelessEditPage(NetworkDeviceBase *dev, const QStrin
     // it will be destroyed by Frame
     m_connEditPage = new ConnectionWirelessEditPage(dev->path(), connUuid, apPath);
     m_connEditPage->setVisible(false);
-    connect(m_connEditPage, &ConnectionEditPage::requestNextPage, [ = ](ContentWidget * const w) {
+    connect(m_connEditPage, &ConnectionEditPage::requestNextPage, [ this ] (ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w);
     });
 
-    connect(m_connEditPage, &ConnectionEditPage::back, this, [ = ]() {
+    connect(m_connEditPage, &ConnectionEditPage::back, this, [ this ] {
         m_connEditPage = nullptr;
     });
 
     NetworkController *networkController = NetworkController::instance();
-    connect(networkController, &NetworkController::deviceRemoved, this, [ = ](QList<NetworkDeviceBase *> devices) {
+    connect(networkController, &NetworkController::deviceRemoved, this, [ this, dev ] (QList<NetworkDeviceBase *> devices) {
         Q_UNUSED(devices);
         removeConnEditPageByDevice(dev);
     });
@@ -257,7 +498,7 @@ void DCCNetworkModule::showPppPage(const QString &searchPath)
     connect(pppoe, &PppoePage::requestNextPage, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, FrameProxyInterface::PushType::CoverTop);
     });
-    connect(pppoe, &PppoePage::requestFrameKeepAutoHide, [ = ] (const bool autoHide) {
+    connect(pppoe, &PppoePage::requestFrameKeepAutoHide, [ = ](const bool autoHide) {
         Q_UNUSED(autoHide);
     });
 
@@ -273,7 +514,7 @@ void DCCNetworkModule::showVPNPage(const QString &searchPath)
     connect(vpn, &VpnPage::requestNextPage, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
     });
-    connect(vpn, &VpnPage::requestFrameKeepAutoHide, [ = ] (const bool &hide) {
+    connect(vpn, &VpnPage::requestFrameKeepAutoHide, [ = ](const bool &hide) {
         Q_UNUSED(hide);
     });
 
@@ -294,7 +535,7 @@ void DCCNetworkModule::showDeviceDetailPage(NetworkDeviceBase *dev, const QStrin
             m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
             wirelessPage->setVisible(true);
         });
-        connect(wirelessPage, &WirelessPage::closeHotspot, this, [ = ] (WirelessDevice *device) {
+        connect(wirelessPage, &WirelessPage::closeHotspot, this, [ = ](WirelessDevice *device) {
             m_indexWidget->setLastDevicePath(device->path());
         });
         connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, wirelessPage, &WirelessPage::onAirplaneModeChanged);
@@ -341,7 +582,7 @@ void DCCNetworkModule::showHotspotPage()
 {
     HotspotPage *hotspot = new HotspotPage();
     hotspot->onAirplaneModeChanged(m_airplaneMode->enabled());
-    connect(hotspot, &HotspotPage::requestNextPage, this, [ = ] (ContentWidget * const w) {
+    connect(hotspot, &HotspotPage::requestNextPage, this, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
     });
     connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, hotspot, &HotspotPage::onAirplaneModeChanged);

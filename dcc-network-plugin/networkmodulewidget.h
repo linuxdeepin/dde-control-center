@@ -87,6 +87,7 @@ public:
     void setIndexFromPath(const QString &path);
     void setLastDevicePath(const QString &path);
     void initSetting(const int settingIndex, const QString &searchPath);
+    void setModelVisible(const QString &modelName, const bool &visible);
 
 Q_SIGNALS:
     void requestShowVpnPage(const QString &path = "") const;
@@ -96,7 +97,6 @@ Q_SIGNALS:
     void requestShowChainsPage() const;
     void requestHotspotPage() const;
     void requestShowDeviceDetail(NetworkDeviceBase *device, const QString &path = "") const;
-    void requestUpdateSecondMenu(bool);
 
 private Q_SLOTS:
     void onDeviceStatusChanged();
@@ -105,7 +105,6 @@ private Q_SLOTS:
 
 private:
     bool handleNMEditor();
-    void updateSecondMenu(int row);
     // 设置当前索引
     void setCurrentIndex(const int settingIndex);
     void initIpConflictInfo(const QList<NetworkDeviceBase *> &devices);
