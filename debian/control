@@ -55,8 +55,15 @@ Depends: ${shlibs:Depends},
  deepin-recovery-tool,
  deepin-desktop-schemas (>=5.8.0.34),
  libdframeworkdbus2 (>=5.3.38),
- libdde-network-utils(>=5.3.0.5)
-Recommends: netselect, deepin-ab-recovery
+ libdde-network-utils(>=5.3.0.5),
+ deepin-sync-daemon
+
+Recommends:
+ netselect,
+ deepin-ab-recovery,
+ deepin-user-experience-daemon,
+ deepin-recovery-plugin
+
 Suggests: redshift
 Conflicts:
  dde-control-center-plugin-weather,
