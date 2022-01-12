@@ -170,6 +170,8 @@ QString AddFaceInfoDialog::getFacePicture()
     case dcc::authentication::CharaMangerModel::AddInfoState::Fail:
         icon = QString("fail");
         break;
+    default:
+        break;
     }
 
     return QString(":/authentication/themes/%1/icons/icon_face-%2.svg").arg(theme).arg(icon);

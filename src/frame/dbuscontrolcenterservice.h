@@ -80,7 +80,7 @@ public: // PROPERTIES
     const QRect rect() const;
 
 public Q_SLOTS: // METHODS
-    void exitProc() __attribute__((noreturn));
+    void exitProc();
     void Hide();
     void HideImmediately();
     void Show();

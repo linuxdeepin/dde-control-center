@@ -412,7 +412,6 @@ void DateSettings::updateSettingTime()
 {
     QDateTime datetime = QDateTime::currentDateTime();
     qint64 second = datetime.toSecsSinceEpoch();
-    int nHours = datetime.time().hour();
 
     //不论设置的时间比当前时间大或者小，都需要重新设置该页面的时间
     if (qAbs(second - m_timeSec) > 60) {

@@ -139,6 +139,7 @@ QString ProtocolFile::getEnduserAgreement()
             return oldPath;
         }
     }
+    return QString();
 }
 
 QString ProtocolFile::getEulerEnduserAgreement()

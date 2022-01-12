@@ -37,8 +37,6 @@
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
-static DCC_NAMESPACE::MainWindow *gwm{nullptr};
-
 int main(int argc, char *argv[])
 {
     DApplication *app = DApplication::globalApplication(argc, argv);

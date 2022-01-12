@@ -178,6 +178,8 @@ void AddIrisInfoDialog::refreshInfoStatusDisplay(CharaMangerModel::AddInfoState 
         Q_EMIT requestStopEnroll();
     }
         break;
+    default:
+        break;
     }
 }
 

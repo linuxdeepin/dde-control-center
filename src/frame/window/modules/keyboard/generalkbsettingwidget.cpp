@@ -28,7 +28,7 @@
 #include "modules/keyboard/keyboardmodel.h"
 #include "window/gsettingwatcher.h"
 
-#include <DApplicationHelper>
+#include <DPaletteHelper>
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -87,10 +87,9 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_testArea->setClearButtonEnabled(false);
     DStyle::setFocusRectVisible(m_testArea->lineEdit(), false);
 
-    DApplicationHelper *testAreaHelper = DApplicationHelper::instance();
-    auto pa = testAreaHelper->palette(m_testArea);
+    auto pa = DPaletteHelper::instance()->palette(m_testArea);
     pa.setColor(DPalette::Button, Qt::transparent);
-    testAreaHelper->setPalette(m_testArea, pa);
+    DPaletteHelper::instance()->setPalette(m_testArea, pa);
 
     // adding extra stuff to speedItem
     QVBoxLayout *speedItemLayout = qobject_cast<QVBoxLayout *>(speedItem->layout());
