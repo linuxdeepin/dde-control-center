@@ -151,7 +151,7 @@ void TouchscreenWidget::onMonitorChanged()
         itemLayout->addWidget(label);
         itemLayout->addWidget(listCombo);
         listCombo->setFocusPolicy(Qt::NoFocus);
-        listCombo->setMinimumWidth(240);
+        listCombo->setMinimumWidth(238);
         listCombo->setMinimumHeight(36);
         modeSettingsItem->addBackground();
         modeSettingsItem->setFixedHeight(56);
