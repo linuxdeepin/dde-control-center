@@ -229,6 +229,31 @@
         <source>Personal Hotspot</source>
         <translation>Kawasan Khas Peribadi</translation>
     </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>Application Proxy</source>
+        <translation>Proksi Aplikasi</translation>
+    </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>Network Details</source>
+        <translation>Perincian Rangkaian</translation>
+    </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>System Proxy</source>
+        <translation>Proksi Sistem</translation>
+    </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>DSL</source>
+        <translation>DSL</translation>
+    </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>

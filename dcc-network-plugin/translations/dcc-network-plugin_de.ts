@@ -229,6 +229,31 @@
         <source>Personal Hotspot</source>
         <translation>Persönlicher Hotspot</translation>
     </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>Application Proxy</source>
+        <translation>Anwendungsproxy</translation>
+    </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>Network Details</source>
+        <translation>Netzwerkdetails</translation>
+    </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>System Proxy</source>
+        <translation>Systemproxy</translation>
+    </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>DSL</source>
+        <translation>DSL</translation>
+    </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>
@@ -1096,7 +1121,7 @@
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>Open system</source>
-        <translation type="unfinished"/>
+        <translation>Offenes System</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>

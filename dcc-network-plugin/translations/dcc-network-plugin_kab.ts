@@ -229,6 +229,31 @@
         <source>Personal Hotspot</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>Application Proxy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>Network Details</source>
+        <translation>Talqayt n uzeṭṭa</translation>
+    </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>System Proxy</source>
+        <translation>Apṛuksi n unagraw</translation>
+    </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>DSL</source>
+        <translation>DSL</translation>
+    </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>VPN</source>
+        <translation>VPN</translation>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>
