@@ -256,13 +256,13 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_autoCheckAppUpdate->setChecked(model->autoCheckAppUpdates());
     m_updateNotify->setChecked(model->updateNotify());
     m_autoDownloadUpdate->setChecked(model->autoDownloadUpdates());
+    setCheckStatus(m_autoInstallUpdate, model->autoDownloadUpdates(), "updateAutoInstall");
+    setCheckStatus(m_autoInstallUpdatesTips, model->autoDownloadUpdates(), "updateAutoInstall");
     m_autoCleanCache->setChecked(m_model->autoCleanCache());
 
     quint64 type = m_model->getAutoInstallUpdateType();
     m_autoInstallUpdatesTips->setText(getAutoInstallUpdateType(type));
-    m_autoInstallUpdate->setVisible(model->autoDownloadUpdates());
     m_autoInstallUpdate->setChecked(model->getAutoInstallUpdates());
-    m_autoInstallUpdatesTips->setVisible(model->autoDownloadUpdates());
 
     GSettingWatcher::instance()->bind("updateAutoCheck", m_autoCheckUpdate);
     GSettingWatcher::instance()->bind("updateUpdateNotify", m_updateNotify);

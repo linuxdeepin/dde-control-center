@@ -472,11 +472,11 @@ void UpdateWorker::getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo)
     QString languageType = "CN";
     if (language.count() > 1) {
         languageType = language.value(1);
-        if(languageType == "CN"
+        if (languageType == "CN"
                 || languageType == "TW"
-                || languageType == "HK"){
+                || languageType == "HK") {
             languageType = "CN";
-        }else {
+        } else {
             languageType = "US";
         }
     }
@@ -860,6 +860,10 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
 void UpdateWorker::setDownloadJob(const QString &jobPath, ClassifyUpdateType updateType)
 {
     QMutexLocker locker(&m_downloadMutex);
+    if (m_model->status() == UpdatesStatus::Default || m_model->status() == UpdatesStatus::Checking) {
+        setUpdateInfo();
+    }
+
     m_model->setStatus(UpdatesStatus::Updateing, __LINE__);
     QPointer<JobInter> job = new JobInter("com.deepin.lastore",
                                           jobPath,
