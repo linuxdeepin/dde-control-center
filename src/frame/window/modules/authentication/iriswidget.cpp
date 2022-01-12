@@ -101,7 +101,7 @@ void IrisWidget::initConnect()
 
 void IrisWidget::addIrisButton(const QString &newIrisName)
 {
-    SettingsItem* addItem = new SettingsItem(this);
+    AuthenticationLinkButtonItem* addItem = new AuthenticationLinkButtonItem(this);
     QString strAddIris = tr("Add Iris");
     DCommandLinkButton *addBtn = new DCommandLinkButton(strAddIris);
     QHBoxLayout *irisLayout = new QHBoxLayout(this);

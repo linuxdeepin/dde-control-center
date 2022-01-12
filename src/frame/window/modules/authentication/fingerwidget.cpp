@@ -192,7 +192,7 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 
 void FingerWidget::addFingerButton(const QString &newFingerName)
 {
-    SettingsItem* addfingerItem = new SettingsItem(this);
+    AuthenticationLinkButtonItem* addfingerItem = new AuthenticationLinkButtonItem(this);
     QString strAddFinger = tr("Add Fingerprint");
     DCommandLinkButton *addBtn = new DCommandLinkButton(strAddFinger);
     QHBoxLayout *fingerLayout = new QHBoxLayout(this);

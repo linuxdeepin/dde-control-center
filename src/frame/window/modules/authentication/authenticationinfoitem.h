@@ -40,6 +40,20 @@ DWIDGET_USE_NAMESPACE
 namespace DCC_NAMESPACE {
 namespace authentication {
 
+class AuthenticationLinkButtonItem : public dcc::widgets::SettingsItem{
+    Q_OBJECT
+public:
+    explicit AuthenticationLinkButtonItem(QWidget *parent = nullptr);
+
+protected:
+    void enterEvent(QEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+
+private:
+    DPalette m_currentpa;
+
+};
+
 class AuthenticationInfoItem : public dcc::widgets::SettingsItem
 {
     Q_OBJECT

@@ -197,3 +197,40 @@ void AuthenticationInfoItem::leaveEvent(QEvent *event)
     m_editBtn->hide();
     QFrame::leaveEvent(event);
 }
+
+AuthenticationLinkButtonItem::AuthenticationLinkButtonItem(QWidget *parent)
+    : SettingsItem(parent)
+    , m_currentpa(DApplicationHelper::instance()->palette(this))
+{
+    setFixedHeight(36);
+
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
+        this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
+        Q_UNUSED(themeType);
+        DApplicationHelper::instance()->resetPalette(this);
+        m_currentpa = DApplicationHelper::instance()->palette(this);
+    });
+}
+
+void AuthenticationLinkButtonItem::enterEvent(QEvent *event)
+{
+    DPalette pa = DApplicationHelper::instance()->palette(this);
+    DStyleHelper styleHelper;
+    styleHelper = DStyleHelper(this->style());
+
+    QBrush brush;
+    if (styleHelper.dstyle()) {
+        brush = styleHelper.dstyle()->generatedBrush(DStyle::SS_HoverState, pa.itemBackground(), DPalette::Normal, DPalette::ItemBackground);
+    }
+    pa.setBrush(DPalette::Window, Qt::transparent);
+    pa.setBrush(DPalette::ItemBackground, brush);
+    DApplicationHelper::instance()->setPalette(this, pa);
+
+    QFrame::enterEvent(event);
+}
+
+void AuthenticationLinkButtonItem::leaveEvent(QEvent *event)
+{
+    DApplicationHelper::instance()->setPalette(this, m_currentpa);
+    QFrame::leaveEvent(event);
+}

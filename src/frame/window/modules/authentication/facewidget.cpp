@@ -101,7 +101,7 @@ void FaceWidget::initConnect()
 
 void FaceWidget::addFaceButton(const QString &newFaceName)
 {
-    SettingsItem* addfaceItem = new SettingsItem(this);
+    AuthenticationLinkButtonItem* addfaceItem = new AuthenticationLinkButtonItem(this);
     QString strAddFace = tr("Add Face");
     DCommandLinkButton *addBtn = new DCommandLinkButton(strAddFace);
     QHBoxLayout *faceLayout = new QHBoxLayout();
