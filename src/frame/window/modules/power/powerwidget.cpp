@@ -125,10 +125,16 @@ void PowerWidget::setDefaultWidget()
 
 void PowerWidget::onItemClicked(const QModelIndex &index)
 {
-    if (index == m_lastIndex) return;
+    if (index == m_lastIndex || index.row() > m_listview->count() - 1)
+        return;
+
+    if (index.row() < 0 || m_listview->isRowHidden(index.row())) {
+        m_listview->resetStatus(m_lastIndex);
+        return;
+    }
 
     m_lastIndex = index;
-    m_listview->setCurrentIndex(index);
-    m_menuIconText[index.row()].method.invoke(this);
-    m_listview->resetStatus(index);
+    m_listview->setCurrentIndex(m_lastIndex);
+    m_menuIconText[m_lastIndex.row()].method.invoke(this);
+    m_listview->resetStatus(m_lastIndex);
 }
