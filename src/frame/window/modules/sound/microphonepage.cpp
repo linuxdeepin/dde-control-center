@@ -77,10 +77,13 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     labelInput->setContentsMargins(titleLeftMargin, 0, 0, 0);
     labelInput->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-
+    //~ contents_path /sound/Input
+    //~ child_page Input
     m_inputSoundCbx = new ComboxWidget(tr("Input Device"));
     m_inputSoundCbx->comboBox()->setAccessibleName("inputSoundCbx");
 
+    //~ contents_path /sound/Input
+    //~ child_page Input
     m_noiseReductionsw = new SwitchWidget(tr("Automatic Noise Suppression"), this);
     m_noiseReductionsw->addBackground();
 
@@ -308,6 +311,8 @@ void MicrophonePage::toggleMute()
 
 void MicrophonePage::initSlider()
 {
+    //~ contents_path /sound/Input
+    //~ child_page Input
     m_inputSlider = new TitledSliderItem(tr("Input Volume"));
     m_inputSlider->addBackground();
     m_layout->insertWidget(2, m_inputSlider);
@@ -352,6 +357,8 @@ void MicrophonePage::initSlider()
     connect(m_volumeBtn, &SoundLabel::clicked, this, &MicrophonePage::toggleMute);
 
 #ifndef DCC_DISABLE_FEEDBACK
+    //~ contents_path /sound/Input
+    //~ child_page Input
     m_feedbackSlider = (new TitledSliderItem(tr("Input Level")));
     m_feedbackSlider->addBackground();
     DCCSlider *slider2 = m_feedbackSlider->slider();

@@ -260,6 +260,7 @@ void CommonInfoModule::initSearchData()
     const QString& bootMenu = tr("Boot Menu");
     const QString& startupDelay = tr("Startup Delay");
     const QString& theme = tr("Theme");
+    const QString& auth = tr("GRUB Authentication");
     const QString& developerMode = tr("Developer Mode");
     const QString& experienceProgram = tr("Join User Experience Program");
     const QString& userExperienceProgram = tr("User Experience Program");
@@ -296,14 +297,14 @@ void CommonInfoModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, bootMenu, visible);
         m_frameProxy->setDetailVisible(module, bootMenu, startupDelay, visible && func_is_visible("commoninfoBootBootdelay", true));
         m_frameProxy->setDetailVisible(module, bootMenu, theme, visible && func_is_visible("commoninfoBootTheme", true));
-
+        m_frameProxy->setDetailVisible(module, bootMenu, auth, visible && (m_commonModel ? m_commonModel->isShowGrubEditAuth() : true));
     };
 
     auto func_developerMode_changed = [ = ] {
         bool visible = func_is_visible("developerMode");
         m_frameProxy->setWidgetVisible(module, developerMode, visible && !IsServerSystem
             && !(DSysInfo::uosEditionType() == DSysInfo::UosEuler || DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC));
-        m_frameProxy->setDetailVisible(module, developerMode, developerMode, visible);
+        m_frameProxy->setDetailVisible(module, developerMode, tr("Request Root Access"), visible);
     };
 
     auto func_userExperienceProgram_changed = [ = ] {
@@ -363,6 +364,9 @@ void CommonInfoModule::initSearchData()
         m_frameProxy->updateSearchData(module);
      });
 
+    connect(m_commonWork, &CommonInfoWork::showGrubEditAuthChanged, this, [=] (bool show) {
+        m_frameProxy->setDetailVisible(module, bootMenu, auth, func_is_visible("bootMenu") && show);
+    });
 
     func_process_all();
 }

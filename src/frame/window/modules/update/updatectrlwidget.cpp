@@ -344,6 +344,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_checkUpdateItem->setImageOrTextVisible(true);
         m_checkUpdateItem->setSystemVersion(m_systemVersion);
         //~ contents_path /update/Check for Updates
+        //~ child_page Check for Updates
         showCheckButton(tr("Check for Updates"));
         break;
     case UpdatesStatus::NoAtive:

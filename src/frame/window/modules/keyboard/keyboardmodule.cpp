@@ -135,6 +135,7 @@ void KeyboardModule::addChildPageTrans() const
 {
     if (m_frameProxy != nullptr) {
         //keyboard
+        m_frameProxy->addChildPageTrans("General", tr("General"));
         m_frameProxy->addChildPageTrans("Shortcuts", tr("Shortcuts"));
         m_frameProxy->addChildPageTrans("Keyboard Layout", tr("Keyboard Layout"));
         m_frameProxy->addChildPageTrans("System Language", tr("System Language"));

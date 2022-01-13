@@ -72,13 +72,9 @@ void SoundWidget::initUi()
 
 void SoundWidget::initMembers()
 {
-    //~ contents_path /sound/Speaker
     m_itemList.append({"dcc_speaker", tr("Output"), QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage), nullptr, "soundOutput"});
-    //~ contents_path /sound/Microphone
     m_itemList.append({"dcc_noun", tr("Input"), QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage), nullptr, "soundInput"});
-    //~ contents_path /sound/Sound Effects
     m_itemList.append({"dcc_sound_effect", tr("Sound Effects"), QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage), nullptr, "soundEffects"});
-    //~ contents_path /sound/Devices
     m_itemList.append({"dcc_device_mange", tr("Devices"), QMetaMethod::fromSignal(&SoundWidget::requsetDeviceManagesPage), nullptr, "deviceManage"});
 
     for (auto mm : m_itemList) {
@@ -143,11 +139,11 @@ int SoundWidget::showPath(const QString &path)
 {
     auto getIndex = [=](const QString &name) {
         for (int i = 0; i < m_itemList.size(); ++i) {
-            if (name == "Speaker" && m_itemList[ i ].itemText == tr("Output")) {
+            if (name == "Output" && m_itemList[ i ].itemText == tr("Output")) {
                 return i;
             }
 
-            if (name == "Microphone" && m_itemList[ i ].itemText == tr("Input")) {
+            if (name == "Input" && m_itemList[ i ].itemText == tr("Input")) {
                 return i;
             }
 

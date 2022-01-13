@@ -301,10 +301,11 @@ void PowerModule::initSearchData()
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("When pressing the power button"), haveBettary && func_is_visible("powerPressPowerbtn"));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("When the lid is closed"), haveLib && haveBettary && func_is_visible("powerLidPresent"));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Low Battery Notification"), haveBettary);
+        m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Low battery level"), haveBettary);
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Auto suspend battery level"), haveBettary && func_is_visible("systemSuspend"));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Monitor will suspend after"), haveBettary);
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Computer will suspend after"), haveBettary && func_is_visible("systemSuspend")
-                                       && m_model->canSuspend() && m_model->getSuspend() && func_is_visible("systemSuspend"));
+                                       && m_model->canSuspend() && func_is_visible("systemSuspend"));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Lock screen after"), haveBettary && func_is_visible("powerAutoLockscreen"));
     };
 
@@ -325,7 +326,7 @@ void PowerModule::initSearchData()
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Lock screen after"), func_is_visible("powerAutoLockscreen"));
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Monitor will suspend after"), true);
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Computer will suspend after"), func_is_visible("systemSuspend")
-                                       && m_model->canSuspend() && m_model->getSuspend() && func_is_visible("systemSuspend"));
+                                       && m_model->canSuspend() && func_is_visible("systemSuspend"));
 
         func_battary_Changed(battaty, haveLib);
     };

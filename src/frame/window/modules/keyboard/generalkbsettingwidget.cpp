@@ -49,6 +49,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
 {
     m_generalSettingsGrp = new SettingsGroup();
     //~ contents_path /keyboard/General
+    //~ child_page General
     TitledSliderItem *delayItem =  new TitledSliderItem(tr("Repeat Delay"));
     delayItem->setObjectName("RepeatDelay");
     m_delaySlider = delayItem->slider();
@@ -64,6 +65,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     delayItem->setAnnotations(delays);
     m_generalSettingsGrp->appendItem(delayItem);
     //~ contents_path /keyboard/General
+    //~ child_page General
     TitledSliderItem *speedItem =  new TitledSliderItem(tr("Repeat Rate"));
     speedItem->setObjectName("RepeatRate");
     speedItem->setFocusPolicy(Qt::ClickFocus);
@@ -82,6 +84,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_testArea = new DLineEdit();
     m_testArea->setFixedWidth(200);
     //~ contents_path /keyboard/General
+    //~ child_page General
     m_testArea->lineEdit()->setPlaceholderText(tr("Test here"));
     m_testArea->lineEdit()->setAlignment(Qt::AlignCenter);
     m_testArea->setClearButtonEnabled(false);
@@ -103,12 +106,14 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
 
     m_numLock = new SwitchWidget;
     //~ contents_path /keyboard/General
+    //~ child_page General
     m_numLock->setTitle(tr("Numeric Keypad"));
     m_numLock->setObjectName("NumLock");
     m_generalSettingsGrp->appendItem(m_numLock);
 
     m_upper = new SwitchWidget();
     //~ contents_path /keyboard/General
+    //~ child_page General
     m_upper->setTitle(tr("Caps Lock Prompt"));
     m_upper->setObjectName("Upper");
     m_generalSettingsGrp->appendItem(m_upper);

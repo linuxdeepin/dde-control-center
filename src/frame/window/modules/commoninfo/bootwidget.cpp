@@ -115,10 +115,12 @@ BootWidget::BootWidget(QWidget *parent)
 
     m_bootDelay = new SwitchWidget(this);
     //~ contents_path /commoninfo/Boot Menu
+    //~ child_page Boot Menu
     m_bootDelay->setTitle(tr("Startup Delay"));
 #ifndef DCC_DISABLE_GRUB_THEME
     m_theme = new SwitchWidget(this);
     //~ contents_path /commoninfo/Boot Menu
+    //~ child_page Boot Menu
     m_theme->setTitle(tr("Theme"));
 #endif
     QMap<bool, QString> mapBackgroundMessage;
@@ -155,6 +157,8 @@ BootWidget::BootWidget(QWidget *parent)
     layout->addWidget(m_themeLbl);
 #endif
     m_grubVerification = new SwitchWidget(this);
+    //~ contents_path /commoninfo/Boot Menu
+    //~ child_page Boot Menu
     m_grubVerification->setTitle(tr("GRUB Authentication"));
     m_grubVerification->addBackground();
     layout->addSpacing(List_Interval);

@@ -49,11 +49,17 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::po
     , m_model(model)
     , m_work(work)
     , m_layout(new QVBoxLayout)
-    , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
-    , m_cmbPowerBtn(new ComboxWidget(tr("When pressing the power button")))
-    , m_cmbCloseLid(new ComboxWidget(tr("When the lid is closed")))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    //~ contents_path /power/Plugged In
+    //~ child_page Plugged In
+    m_autoLockScreen = new TitledSliderItem(tr("Lock screen after"));
+    //~ contents_path /power/Plugged In
+    //~ child_page Plugged In
+    m_cmbPowerBtn = new ComboxWidget(tr("When pressing the power button"));
+    //~ contents_path /power/Plugged In
+    //~ child_page Plugged In
+    m_cmbCloseLid = new ComboxWidget(tr("When the lid is closed"));
     //~ contents_path /power/Plugged In
     //~ child_page Plugged In
     m_autoLockScreen->setAccessibleName(tr("Lock screen after"));
@@ -61,9 +67,9 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::po
     SettingsGroup *powerSettingsGrp = new SettingsGroup;
     powerSettingsGrp->setSpacing(List_Interval);
 
-    m_monitorSleepOnPower = new TitledSliderItem(tr("Monitor will suspend after"));
     //~ contents_path /power/Plugged In
     //~ child_page Plugged In
+    m_monitorSleepOnPower = new TitledSliderItem(tr("Monitor will suspend after"));
     m_monitorSleepOnPower->setAccessibleName(tr("Monitor will suspend after"));
     m_monitorSleepOnPower->slider()->setType(DCCSlider::Vernier);
     m_monitorSleepOnPower->slider()->setRange(1, 7);
@@ -74,9 +80,9 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::po
     powerSettingsGrp->appendItem(m_monitorSleepOnPower);
 
     if (!IsServerSystem) {
-        m_computerSleepOnPower = new TitledSliderItem(tr("Computer will suspend after"));
         //~ contents_path /power/Plugged In
         //~ child_page Plugged In
+        m_computerSleepOnPower = new TitledSliderItem(tr("Computer will suspend after"));
         m_computerSleepOnPower->setAccessibleName(tr("Computer will suspend after"));
         m_computerSleepOnPower->slider()->setType(DCCSlider::Vernier);
         m_computerSleepOnPower->slider()->setRange(1, 7);

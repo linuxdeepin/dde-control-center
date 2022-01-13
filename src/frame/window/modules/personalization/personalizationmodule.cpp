@@ -141,9 +141,10 @@ void PersonalizationModule::addChildPageTrans() const
 {
     if (m_frameProxy != nullptr) {
         //personalization
-        m_frameProxy->addChildPageTrans("Font", tr("Font"));
+        m_frameProxy->addChildPageTrans("General", tr("General"));
         m_frameProxy->addChildPageTrans("Icon Theme", tr("Icon Theme"));
         m_frameProxy->addChildPageTrans("Cursor Theme", tr("Cursor Theme"));
+        m_frameProxy->addChildPageTrans("Font", tr("Font"));
     }
 }
 

@@ -141,7 +141,7 @@ int DatetimeModule::load(const QString &path)
         type = TimeSetting;
     } else if (path == "Timezone List/Add Timezone") {
         type = AddTimeZone;
-    } else if (path == "Format Settings") {
+    } else if (path == "Time Format") {
         type = FormatSetting;
     }
 
@@ -190,7 +190,7 @@ int DatetimeModule::load(const QString &path)
 QStringList DatetimeModule::availPage() const
 {
     QStringList list;
-    list << "Timezone List" << "Timezone List/Change System Timezone" << "Time Settings" << "Timezone List/Add Timezone" << "Format Settings";
+    list << "Timezone List" << "Timezone List/Change System Timezone" << "Time Settings" << "Timezone List/Add Timezone" << "Time Format";
 
     return list;
 }
@@ -199,10 +199,9 @@ void DatetimeModule::addChildPageTrans() const
 {
     if (m_frameProxy != nullptr) {
         //datetime
-        m_frameProxy->addChildPageTrans("Format Settings", tr("Format Settings"));
+        m_frameProxy->addChildPageTrans("Time Format", tr("Time Format"));
         m_frameProxy->addChildPageTrans("Timezone List", tr("Timezone List"));
         m_frameProxy->addChildPageTrans("Time Settings", tr("Time Settings"));
-        m_frameProxy->addChildPageTrans("Timezone List/Change System Timezone", tr("Change System Timezone"));
     }
 }
 
@@ -212,8 +211,7 @@ void DatetimeModule::initSearchData()
     const QString& module = displayName();
     const QString& timeSettings = tr("Time Settings");
     const QString& timezoneList = tr("Timezone List");
-    const QString& formatSettings = tr("Format Settings");
-    const QString& weeks = tr("Weeks").remove('/').trimmed();
+    const QString& formatSettings = tr("Time Format");
 
     const QStringList& gsecondList {
         "timezoneList"
@@ -258,7 +256,7 @@ void DatetimeModule::initSearchData()
         bool bTimeFormat = func_is_visible("timeFormat", true) && func_is_visible("datetimeFromatsetting");
         m_frameProxy->setWidgetVisible(module, formatSettings, bTimeFormat);
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Date and Time Formats"), bTimeFormat);
-        m_frameProxy->setDetailVisible(module, formatSettings, weeks, bTimeFormat);
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Weeks"), bTimeFormat);
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Short Date"), bTimeFormat);
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Long Date"), bTimeFormat);
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Short Time"), bTimeFormat);

@@ -124,6 +124,8 @@ void BluetoothModule::addChildPageTrans() const
         m_frameProxy->addChildPageTrans("My Devices", tr("My Devices"));
         m_frameProxy->addChildPageTrans("Other Devices", tr("Other Devices"));
         m_frameProxy->addChildPageTrans("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)", tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
+        m_frameProxy->addChildPageTrans("Show Bluetooth devices without names", tr("Show Bluetooth devices without names"));
+        m_frameProxy->addChildPageTrans("Allow other Bluetooth devices to find this device", tr("Allow other Bluetooth devices to find this device"));
     }
 }
 
@@ -137,11 +139,15 @@ void BluetoothModule::initSearchData()
     const QString& myDevices = tr("My Devices");
     const QString& otherDevices = tr("Other Devices");
     const QString& explain = tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)");
+    const QString& withoutNames = tr("Show Bluetooth devices without names");
+    const QString& allowFind = tr("Allow other Bluetooth devices to find this device");
 
     static QMap<QString, bool> gsMap = {
         {myDevices, false},
         {otherDevices, false},
         {explain, false},
+        {withoutNames, false},
+        {allowFind, false}
     };
 
     auto setSearchState = [ = ](QString data, bool visible, bool first = false) {
@@ -168,6 +174,12 @@ void BluetoothModule::initSearchData()
         } else if (explain == data) {
             m_frameProxy->setWidgetVisible(module, explain, visible);
             gsMap.insert(data, visible);
+        } else if (withoutNames == data) {
+            m_frameProxy->setWidgetVisible(module, withoutNames, visible);
+            gsMap.insert(data, visible);
+        } else if (allowFind == data) {
+            m_frameProxy->setWidgetVisible(module, allowFind, visible);
+            gsMap.insert(data, visible);
         } else {
             qWarning() << " [setSearchState] not match data : " << data << visible;
         }
@@ -189,9 +201,11 @@ void BluetoothModule::initSearchData()
          }
 
          m_frameProxy->setModuleVisible(module, bBluetoothModel);
-         setSearchState(explain, bBluetoothModel, first);
-         setSearchState(myDevices, bBluetoothModel && powered && m_bluetoothModel->myDeviceVisible(), first);
-         setSearchState(otherDevices, bBluetoothModel && powered && m_bluetoothModel->otherDeviceVisible(), first);
+         setSearchState(withoutNames, powered && bBluetoothModel, first);
+         setSearchState(allowFind, powered && bBluetoothModel, first);
+         setSearchState(myDevices, powered && bBluetoothModel, first);
+         setSearchState(otherDevices, powered && bBluetoothModel, first);
+         setSearchState(explain, !powered && bBluetoothModel, first);
      };
 
     connect(m_bluetoothModel, &BluetoothModel::notifyMyDeviceVisibleChanged, this, [=](bool visible) {

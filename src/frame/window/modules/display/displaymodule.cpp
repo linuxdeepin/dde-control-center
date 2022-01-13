@@ -496,8 +496,10 @@ void DisplayModule::initSearchData()
                                        && m_displayModel->autoLightAdjustIsValid() && !IsServerSystem);
         m_frameProxy->setWidgetVisible(module, tr("Brightness"), isBrightnessEnable && func_is_visible("displayLightLighting"));
 
-        m_frameProxy->setWidgetVisible(module, tr("Night Shift"), isBrightnessEnable && func_is_visible("displayColorTemperature"));
-        m_frameProxy->setWidgetVisible(module, tr("Change Color Temperature"), isBrightnessEnable && func_is_visible("displayColorTemperature"));
+        m_frameProxy->setWidgetVisible(module, tr("Night Shift"), isBrightnessEnable && func_is_visible("displayColorTemperature")
+                                       && m_displayModel->redshiftIsValid());
+        m_frameProxy->setWidgetVisible(module, tr("Change Color Temperature"), isBrightnessEnable && func_is_visible("displayColorTemperature")
+                                       && m_displayModel->redshiftIsValid());
     };
 
     auto func_process_all = [ = ]() {

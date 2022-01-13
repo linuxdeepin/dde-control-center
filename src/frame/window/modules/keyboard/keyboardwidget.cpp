@@ -67,13 +67,9 @@ void KeyboardWidget::init()
 
     QList<QPair<QString, QString>> menuIconText;
     menuIconText = {
-        //~ contents_path /keyboard/General
         { "dcc_general_purpose", tr("General")},
-        //~ contents_path /keyboard/Keyboard Layout
         { "dcc_keyboard", tr("Keyboard Layout")},
-        //~ contents_path /keyboard/System Language
         { "dcc_language", tr("System Language")},
-        //~ contents_path /keyboard/Shortcuts
         { "dcc_hot_key", tr("Shortcuts")}
     };
 

@@ -369,6 +369,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     loginGrp->appendItem(pwWidget);
     pwWidget->setLayout(pwHLayout);
 
+    //~ contents_path /accounts/Validity Days
     QLabel *vlidityLabel= new QLabel(tr("Validity Days"));
     pwHLayout->addWidget(vlidityLabel, 0, Qt::AlignLeft);
     auto validityDaysBox = new AccountSpinBox();
@@ -411,6 +412,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     //账户设置
     SettingsGroup *accountSettingsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    //~ contents_path /accounts/Account Settings
     m_accountSettingsTitle = new TitleLabel(tr("Account Settings"));
     m_asAdministrator = new SwitchWidget;
     accountSettingsGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
@@ -435,7 +437,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //~ contents_path /accounts/Login Without Password
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
-    //~ contents_path /accounts/Accounts Detail
+    //~ contents_path /accounts/Administrator
     m_asAdministrator->setTitle(tr("Administrator"));
     m_asAdministrator->setChecked(m_curUser->userType() == User::UserType::Administrator);
     //修改密码状态判断
@@ -444,10 +446,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         setModifyPwdBtnStatus("accountUserModifypasswd");
     });
     setModifyPwdBtnStatus("accountUserModifypasswd");
-//    GSettingWatcher::instance()->bind("accountUserModifypasswd", m_modifyPassword);
 
     //修改密码
-    connect(m_modifyPassword, &QPushButton::clicked, [ = ] {
+    connect(m_modifyPassword, &QPushButton::clicked, this, [ = ] {
         Q_EMIT requestShowPwdSettings(m_curUser);
     });
 

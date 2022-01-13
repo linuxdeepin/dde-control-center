@@ -69,7 +69,6 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_systemListView->setViewportMargins(QMargins(0, 0, 8, 0));
     m_systemListView->setIconSize(ListViweIconSize);
 
-    //~ contents_path /notification/System Notifications
     DStandardItem *systemitem = new DStandardItem(QIcon::fromTheme("dcc_general_purpose"), tr("System Notifications"));
 
     systemitem->setData(VListViewItemMargin, Dtk::MarginsRole);
@@ -84,6 +83,7 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_lastIndex = m_sysmodel->indexFromItem(m_sysmodel->item(0));
     m_systemListView->setCurrentIndex(m_lastIndex);
 
+    //~ contents_path /notification/App Notifications
     m_appTitleLable = new QLabel(tr("App Notifications"));
     m_appTitleLable->setMargin(3);
     m_centralLayout->addWidget(m_appTitleLable);

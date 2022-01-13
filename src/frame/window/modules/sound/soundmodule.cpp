@@ -134,6 +134,7 @@ void SoundModule::initSearchData()
         bool bSoundOutput = func_is_visible("soundOutput");
         m_frameProxy->setWidgetVisible(module, output, bSoundOutput);
         m_frameProxy->setDetailVisible(module, output, tr("Output Device"), bSoundOutput);
+        m_frameProxy->setDetailVisible(module, output, tr("Mode"), bSoundOutput);
         //输出设备为空不显示
         bool isOutputVisble = m_outputPortEnableCount > 0;
         m_frameProxy->setDetailVisible(module, output, tr("Output Volume"), bSoundOutput && func_is_visible("soundOutputSlider", "Hidden") && isOutputVisble);

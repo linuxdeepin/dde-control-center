@@ -78,6 +78,7 @@ DateSettings::DateSettings(QWidget *parent)
     m_addressContent = new DLineEdit;
 
     //~ contents_path /datetime/Time Settings
+    //~ child_page Time Settings
     m_autoSyncTimeSwitch->setTitle(tr("Auto Sync"));
     m_autoSyncTimeSwitch->addBackground();
 
@@ -135,7 +136,9 @@ DateSettings::DateSettings(QWidget *parent)
     timeItem->setLayout(timeLayout);
 
     QHBoxLayout *ntpServeLayout = new QHBoxLayout;
+
     //~ contents_path /datetime/Time Settings
+    //~ child_page Time Settings
     QLabel *serverText = new QLabel(tr("Server"));
     m_ntpSrvItem->setLayout(ntpServeLayout);
     m_ntpSrvItem->addBackground();

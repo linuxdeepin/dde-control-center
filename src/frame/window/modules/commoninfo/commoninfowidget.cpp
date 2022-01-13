@@ -101,7 +101,6 @@ void CommonInfoWidget::initWidget()
 void CommonInfoWidget::initData()
 {
 #ifndef DCC_DISABLE_GRUB
-    //~ contents_path /commoninfo/Boot Menu
     m_itemList.append({"dcc_boot_menu", tr("Boot Menu"),
                        QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget), nullptr, "bootMenu"});
 #endif
@@ -109,11 +108,9 @@ void CommonInfoWidget::initData()
     //以下模块只在非服务器版本使用
     if (!IsServerSystem && !IsCommunitySystem) {
         if (DSysInfo::uosEditionType() != DSysInfo::UosEuler || DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC) {
-            //~ contents_path /commoninfo/Developer Mode
             m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
                                QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget), nullptr, "developerMode"});
         }
-        //~ contents_path /commoninfo/User Experience Program
         m_itemList.append({"dcc_ue_plan", tr("User Experience Program"),
                            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget), nullptr, "userExperienceProgram"});
 

@@ -133,6 +133,7 @@ void NotificationModule::addChildPageTrans() const
     if (m_frameProxy != nullptr) {
         //notification
         m_frameProxy->addChildPageTrans("System Notifications", tr("System Notifications"));
+        m_frameProxy->addChildPageTrans("App Notifications", tr("App Notifications"));
     }
 }
 
@@ -173,8 +174,8 @@ void NotificationModule::initSearchData()
     const QString& module = displayName();
 
     auto func_process_all = [ = ]() {
-        m_frameProxy->setWidgetVisible(module, tr("System Notifications"), true);
-        m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("App Notifications"), func_is_visible("appNotifications"));
+        m_frameProxy->setWidgetVisible(module, tr("System Notifications"), func_is_visible("systemNotification"));
+        m_frameProxy->setWidgetVisible(module, tr("App Notifications"), func_is_visible("appNotifications"));
         m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("Do Not Disturb"), func_is_visible("systemNotification"));
         m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("Show icon on Dock"), func_is_visible("systemNotification"));
      };
@@ -192,7 +193,7 @@ void NotificationModule::initSearchData()
             m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("Do Not Disturb"), func_is_visible("systemNotification"));
             m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("Show icon on Dock"), func_is_visible("systemNotification"));
         } else if ("appNotifications" == gsetting) {
-            m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("App Notifications"), func_is_visible("appNotifications"));
+            m_frameProxy->setWidgetVisible(module, tr("App Notifications"), func_is_visible("appNotifications"));
         } else {
             qWarning() << " not contains the gsettings : " << gsetting << state;
             return;

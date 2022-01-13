@@ -53,16 +53,22 @@ DWIDGET_USE_NAMESPACE
 
 AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::bluetooth::BluetoothModel *model)
     : m_titleEdit(new TitleEdit)
-    , m_hideAnonymousLabel(new QLabel(tr("Show Bluetooth devices without names")))
     , m_adapter(adapter)
     , m_powerSwitch(new SwitchWidget(nullptr, m_titleEdit))
     , m_showAnonymousCheckBox(new DCheckBox(this))
     , m_model(model)
-    , m_discoverySwitch(new SwitchWidget(tr("Allow other Bluetooth devices to find this device")))
 {
     setAccessibleName("AdapterWidget");
     m_showAnonymousCheckBox->setAccessibleName("AnonymousCheckBox");
 
+    //~ contents_path /bluetooth/Show Bluetooth devices without names
+    m_hideAnonymousLabel = new QLabel(tr("Show Bluetooth devices without names"));
+    //~ contents_path /bluetooth/Allow other Bluetooth devices to find this device
+    m_discoverySwitch = new SwitchWidget(tr("Allow other Bluetooth devices to find this device"));
+    //~ contents_path /bluetooth/My Devices
+    m_myDevicesGroup = new TitleLabel(tr("My Devices"));
+    //~ contents_path /bluetooth/Other Devices
+    m_otherDevicesGroup = new TitleLabel(tr("Other Devices"));
     initUI();
     initConnect();
 
@@ -105,12 +111,8 @@ void AdapterWidget::setOtherDevicesVisible(bool visible)
 
 void AdapterWidget::initUI()
 {
-    //~ contents_path /bluetooth/My Devices
-    m_myDevicesGroup = new TitleLabel(tr("My Devices"));
     setMyDevicesVisible(false);
 
-    //~ contents_path /bluetooth/Other Devices
-    m_otherDevicesGroup = new TitleLabel(tr("Other Devices"));
     m_spinnerBtn = new DSpinner(m_titleEdit);
 
     m_titleEdit->setMinimumWidth(10);

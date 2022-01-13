@@ -60,9 +60,7 @@ void DatetimeWidget::init()
     QList<QPair<QString, QString>> menuIconText;
     menuIconText = {
         { "dcc_time_zone", tr("Timezone List")},
-        //~ contents_path /datetime/Time Settings
         { "dcc_setting", tr("Time Settings")} ,
-        //~ contents_path /datetime/Format Settings
         { "dcc_time_format", tr("Time Format")}
     };
 

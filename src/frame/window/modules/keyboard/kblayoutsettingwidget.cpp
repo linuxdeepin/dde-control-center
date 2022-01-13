@@ -50,6 +50,8 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout();
     QHBoxLayout *headLayout = new QHBoxLayout();
 
+    //~ contents_path /keyboard/Keyboard Layout
+    //~ child_page Keyboard Layout
     TitleLabel *headTitle = new TitleLabel(tr("Keyboard Layout"));
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
     headLayout->addWidget(headTitle);

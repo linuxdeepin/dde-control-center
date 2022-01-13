@@ -56,6 +56,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
 
     QHBoxLayout *headLayout = new QHBoxLayout();
     //~ contents_path /keyboard/System Language
+    //~ child_page System Language
     TitleLabel *headTitle = new TitleLabel(tr("Language List"));
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
     m_editSystemLang = new DCommandLinkButton(tr("Edit"));

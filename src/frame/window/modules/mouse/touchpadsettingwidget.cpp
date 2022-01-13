@@ -44,6 +44,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
     //~ child_page Touchpad
     m_touchMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
     //~ contents_path /mouse/Touchpad
+    //~ child_page Touchpad
     m_touchClickStn = new SwitchWidget(tr("Tap to Click"));
     m_touchClickStn->setObjectName("touchClicked");
     m_touchClickStn->addBackground();

@@ -124,7 +124,8 @@ void NativeInfoWidget::initWidget()
             (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
         m_productName = new TitleValueItem(frame);
         //~ contents_path /systeminfo/About This PC
-        m_hostNameTitleLabel = new DLabel(tr("Computer Name:"));
+        //~ child_page About This PC
+        m_hostNameTitleLabel = new DLabel(tr("Computer Name") + ':');
         m_hostNameTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
         m_hostNameLayout->addWidget(m_hostNameTitleLabel);
 
@@ -178,24 +179,30 @@ void NativeInfoWidget::initWidget()
         connect(m_model, &SystemInfoModel::setHostNameError, this, &NativeInfoWidget::onSetHostNameError);
 
         //~ contents_path /systeminfo/About This PC
-        m_productName->setTitle(tr("OS Name:"));
+        //~ child_page About This PC
+        m_productName->setTitle(tr("OS Name") + ':');
         m_productName->setValue(m_model->productName());
 
         m_versionNumber = new TitleValueItem(frame);
         //~ contents_path /systeminfo/About This PC
-        m_versionNumber->setTitle(tr("Version:"));
+        //~ child_page About This PC
+        m_versionNumber->setTitle(tr("Version") + ':');
         m_versionNumber->setValue(m_model->versionNumber());
     }
     m_version = new TitleValueItem(frame);
     //~ contents_path /systeminfo/About This PC
-    m_version->setTitle(tr("Edition:"));
+    //~ child_page About This PC
+    m_version->setTitle(tr("Edition") + ':');
     m_version->setValue(m_model->version());
     GSettingWatcher::instance()->bind("edition", m_version);
     m_type = new TitleValueItem(frame);
     //~ contents_path /systeminfo/About This PC
-    m_type->setTitle(tr("Type:"));
+    //~ child_page About This PC
+    m_type->setTitle(tr("Type") + ':');
 
     m_authorized = new TitleAuthorizedItem(frame);
+    //~ contents_path /systeminfo/About This PC
+    //~ child_page About This PC
     m_authorized->setTitle(tr("Authorization") + ':');
     m_authorized->setValue(tr("To be activated"));
     m_authorized->setValueForegroundRole(QColor(255, 0, 0));
@@ -208,17 +215,20 @@ void NativeInfoWidget::initWidget()
 
     m_kernel = new TitleValueItem(frame);
     //~ contents_path /systeminfo/About This PC
-    m_kernel->setTitle(tr("Kernel:"));
+    //~ child_page About This PC
+    m_kernel->setTitle(tr("Kernel") + ':');
     m_kernel->setValue(m_model->kernel());
 
     m_processor = new TitleValueItem(frame);
     //~ contents_path /systeminfo/About This PC
-    m_processor->setTitle(tr("Processor:"));
+    //~ child_page About This PC
+    m_processor->setTitle(tr("Processor") + ':');
     m_processor->setValue(m_model->processor());
 
     m_memory = new TitleValueItem(frame);
     //~ contents_path /systeminfo/About This PC
-    m_memory->setTitle(tr("Memory:"));
+    //~ child_page About This PC
+    m_memory->setTitle(tr("Memory") + ':');
     m_memory->setValue(m_model->memory());
 
     GSettingWatcher::instance()->bind("systeminfoNativeinfoAuthorized", m_authorized);

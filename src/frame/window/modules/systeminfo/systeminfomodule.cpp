@@ -173,15 +173,15 @@ void SystemInfoModule::initSearchData()
     auto func_aboutthispc_changed = [ = ] {
         bool bAountThiePc = func_is_visible("aboutThisPc");
         m_frameProxy->setWidgetVisible(module, aboutThisPC, bAountThiePc);
-        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Computer Name:"), bAountThiePc);
-        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("OS Name:"), bAountThiePc);
-        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Version:"), bAountThiePc);
-        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Edition:"), bAountThiePc && func_is_visible("edition", true));
-        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Type:"), bAountThiePc);
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Computer Name"), bAountThiePc);
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("OS Name"), bAountThiePc);
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Version"), bAountThiePc);
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Edition"), bAountThiePc && func_is_visible("edition", true));
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Type"), bAountThiePc);
         m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Authorization"), bAountThiePc && func_is_visible("systeminfoNativeinfoAuthorized", true));
-        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Kernel:"), bAountThiePc &&  func_is_visible("systeminfoNativeinfoKernel", true));
-        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Processor:"), bAountThiePc && func_is_visible("systeminfoNativeinfoProcessor", true));
-        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Memory:"), bAountThiePc && func_is_visible("systeminfoNativeinfoMemory", true));
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Kernel"), bAountThiePc &&  func_is_visible("systeminfoNativeinfoKernel", true));
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Processor"), bAountThiePc && func_is_visible("systeminfoNativeinfoProcessor", true));
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Memory"), bAountThiePc && func_is_visible("systeminfoNativeinfoMemory", true));
     };
 
     auto func_edtlicense_changed = [ = ] {
@@ -242,15 +242,15 @@ void SystemInfoModule::initSearchData()
 
             bool isAbout = func_is_visible("aboutThisPc");
             if ("edition" == gsetting) {
-                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Edition:"), isAbout && func_is_visible("edition", true));
+                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Edition"), isAbout && func_is_visible("edition", true));
             } else if ("systeminfoNativeinfoAuthorized" == gsetting) {
                 m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Authorization"), isAbout && func_is_visible("systeminfoNativeinfoAuthorized", true));
             } else if ("systeminfoNativeinfoKernel" == gsetting) {
-                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Kernel:"), isAbout &&  func_is_visible("systeminfoNativeinfoKernel", true));
+                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Kernel"), isAbout &&  func_is_visible("systeminfoNativeinfoKernel", true));
             } else if ("systeminfoNativeinfoProcessor" == gsetting) {
-                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Processor:"), isAbout && func_is_visible("systeminfoNativeinfoProcessor", true));
+                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Processor"), isAbout && func_is_visible("systeminfoNativeinfoProcessor", true));
             } else if ("systeminfoNativeinfoMemory" == gsetting) {
-                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Memory:"), isAbout && func_is_visible("systeminfoNativeinfoMemory", true));
+                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Memory"), isAbout && func_is_visible("systeminfoNativeinfoMemory", true));
             } else {
                 qWarning() << " not contains the gsettings : " << gsetting << state;
                 return;

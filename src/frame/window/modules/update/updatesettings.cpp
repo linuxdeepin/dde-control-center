@@ -49,18 +49,32 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_model(nullptr)
     , m_autoCheckUpdate(new SwitchWidget(this))
-    , m_autoCheckSecureUpdate(new SwitchWidget(tr("Security Updates Only"), this))
-    , m_autoCheckUniontechUpdate(new SwitchWidget(tr("System"), this))
-    , m_autoCheckAppUpdate(new SwitchWidget(tr("App installed in App Store"), this))
-    , m_updateNotify(new SwitchWidget(tr("Updates Notification"), this))
-    , m_autoDownloadUpdate(new SwitchWidget(tr("Download Updates"), this))
-    , m_autoInstallUpdate(new SwitchWidget(tr("Auto Install Updates"), this))
     , m_autoInstallUpdatesTips(new DTipLabel(tr("")))
     , m_autoDownloadUpdateTips(new DTipLabel(tr("Switch it on to automatically download the updates in wireless or wired network"), this))
     , m_autoCheckSecureUpdateTips(new DTipLabel(tr("Switch it on to only update security vulnerabilities and compatibility issues"), this))
     , m_autoCleanCache(new SwitchWidget(this))
     , m_dconfig(nullptr)
 {
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    m_autoCheckSecureUpdate = new SwitchWidget(tr("Security Updates Only"), this);
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    m_autoCheckUniontechUpdate = new SwitchWidget(tr("System"), this);
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    m_autoCheckAppUpdate = new SwitchWidget(tr("App installed in App Store"), this);
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    m_updateNotify = new SwitchWidget(tr("Updates Notification"), this);
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    m_autoDownloadUpdate = new SwitchWidget(tr("Download Updates"), this);
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    m_autoInstallUpdate = new SwitchWidget(tr("Auto Install Updates"), this);
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
     initUi();
     initConnection();
     setModel(model);
@@ -85,6 +99,7 @@ void UpdateSettings::initUi()
     QVBoxLayout *contentLayout = new QVBoxLayout(contentWidget);
 
     //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
     m_autoCheckUpdate->setTitle(tr("Check for Updates"));
 
     contentLayout->addSpacing(20);
@@ -109,11 +124,15 @@ void UpdateSettings::initUi()
 
     SettingsGroup *updatesNotificationtGrp = new SettingsGroup;
     updatesNotificationtGrp->appendItem(m_updateNotify);
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
     m_autoCleanCache->setTitle(tr("Clear Package Cache"));
     updatesNotificationtGrp->appendItem(m_autoCleanCache);
     contentLayout->addWidget(updatesNotificationtGrp);
     contentLayout->addSpacing(20);
 
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
     QLabel *autoUpdateSettingsLabel = new QLabel(tr("Updates from Repositories"), this);
     DFontSizeManager::instance()->bind(autoUpdateSettingsLabel, DFontSizeManager::T5, QFont::DemiBold);
     autoUpdateSettingsLabel->setContentsMargins(10, 0, 10, 0); // 左右边距为10
@@ -132,7 +151,6 @@ void UpdateSettings::initUi()
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsEducationSystem && !IsDeepinDesktop) {
-        //~ contents_path /update/Update Settings
         m_sourceCheck = new SwitchWidget(tr("System Repository Detection"), this);
         m_sourceCheck->addBackground();
         contentLayout->addWidget(m_sourceCheck);
@@ -145,12 +163,10 @@ void UpdateSettings::initUi()
 #endif
 
     if (IsCommunitySystem) {
-        //~ contents_path /update/Update Settings
         m_smartMirrorBtn = new SwitchWidget(tr("Smart Mirror Switch"), this);
         m_smartMirrorBtn->addBackground();
         contentLayout->addWidget(m_smartMirrorBtn);
 
-        //~ contents_path /update/Update Settings
         DTipLabel *smartTips = new DTipLabel(tr("Switch it on to connect to the quickest mirror site automatically"), this);
         smartTips->setWordWrap(true);
         smartTips->setAlignment(Qt::AlignLeft);
@@ -158,7 +174,6 @@ void UpdateSettings::initUi()
         contentLayout->addWidget(smartTips);
 
         m_updateMirrors = new NextPageWidget(nullptr, false);
-        //~ contents_path /update/Update Settings/Mirror List
         m_updateMirrors->setTitle(tr("Mirror List"));
         m_updateMirrors->setRightTxtWordWrap(true);
         m_updateMirrors->addBackground();
@@ -205,6 +220,8 @@ QString UpdateSettings::getAutoInstallUpdateType(quint64 type)
 {
     QString text = "";
     if (type & ClassifyUpdateType::SystemUpdate) {
+        //~ contents_path /update/Update Settings
+        //~ child_page General
         text = tr("System Updates");
     }
     if (type & ClassifyUpdateType::SecurityUpdate) {

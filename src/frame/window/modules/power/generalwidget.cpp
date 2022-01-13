@@ -61,21 +61,40 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     : QWidget(parent)
     , m_bIsBattery(bIsBattery)
     , m_layout(new QVBoxLayout(this))
-    , m_swLowPowerAutoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on low battery"), this))
-    , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on battery"), this))
-    , m_sldLowerBrightness(new TitledSliderItem(tr("Decrease brightness"), this))
-    , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer"), this))
-    , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor"), this))
     , m_batteryLabel(nullptr)
-    , m_powerShowTimeToFull(new SwitchWidget(tr("Display remaining using and charging time"), this))
-    , m_ShowTimeToFullTips(new PowerDisplayWidget(tr("Maximum capacity"), this))
-    //, m_showBatteryCapacity(new SwitchWidget(tr("Show battery capacity"), this))
     , m_batteryCapacity(new TitleValueItem)
 {
+    //~ contents_path /power/General
+    //~ child_page General
     m_powerPlanMap.insert(BALANCE, tr("Balanced"));
+    //~ contents_path /power/General
+    //~ child_page General
     m_powerPlanMap.insert(PERFORMANCE, tr("High Performance"));
+    //~ contents_path /power/General
+    //~ child_page General
     m_powerPlanMap.insert(POWERSAVE, tr("Power Saver"));
 
+    //~ contents_path /power/General
+    //~ child_page General
+    m_swLowPowerAutoIntoSaveEnergyMode = new SwitchWidget(tr("Auto power saving on low battery"), this);
+    //~ contents_path /power/General
+    //~ child_page General
+    m_autoIntoSaveEnergyMode = new SwitchWidget(tr("Auto power saving on battery"), this);
+    //~ contents_path /power/General
+    //~ child_page General
+    m_sldLowerBrightness = new TitledSliderItem(tr("Decrease brightness"), this);
+    //~ contents_path /power/General
+    //~ child_page General
+    m_wakeComputerNeedPassword = new SwitchWidget(tr("Password is required to wake up the computer"), this);
+    //~ contents_path /power/General
+    //~ child_page General
+    m_wakeDisplayNeedPassword = new SwitchWidget(tr("Password is required to wake up the monitor"), this);
+    //~ contents_path /power/General
+    //~ child_page General
+    m_powerShowTimeToFull = new SwitchWidget(tr("Display remaining using and charging time"), this);
+    //~ contents_path /power/General
+    //~ child_page General
+    m_ShowTimeToFullTips = new PowerDisplayWidget(tr("Maximum capacity"), this);
     initUi();
 
     connect(m_powerplanListview, &DListView::clicked, this, &GeneralWidget::onPowerPlanChanged);
@@ -106,6 +125,7 @@ void GeneralWidget::initUi()
 
     /**** 性能设置 ************************************************************************/
     //~ contents_path /power/General
+    //~ child_page General
     TitleLabel *powerPlansLabel = new TitleLabel(tr("Power Plans"), this);                            // 性能设置label
     DFontSizeManager::instance()->bind(powerPlansLabel, DFontSizeManager::T5, QFont::DemiBold); // 性能设置label字体
     GSettingWatcher::instance()->bind("powerPlansLabel", powerPlansLabel);                      // 使用GSettings来控制显示状态
@@ -143,6 +163,7 @@ void GeneralWidget::initUi()
 
     /**** 节能设置 ************************************************************************/
     //~ contents_path /power/General
+    //~ child_page General
     TitleLabel *energySavingLabel = new TitleLabel(tr("Power Saving Settings"), this);                  // 节能设置label
     DFontSizeManager::instance()->bind(energySavingLabel, DFontSizeManager::T5, QFont::DemiBold); // 节能设置label字体
     QVBoxLayout *energySavingLayout = new QVBoxLayout(this);                                            // 节能设置布局
@@ -177,6 +198,7 @@ void GeneralWidget::initUi()
 
     /**** 唤醒设置 ************************************************************************/
     //~ contents_path /power/General
+    //~ child_page General
     TitleLabel *wakeupLabel = new TitleLabel(tr("Wakeup Settings"), this);                        // 唤醒设置label
     DFontSizeManager::instance()->bind(wakeupLabel, DFontSizeManager::T5, QFont::DemiBold); // 唤醒设置label字体
     QVBoxLayout *wakeupLayout = new QVBoxLayout(this);                                          // 唤醒设置布局
@@ -196,6 +218,7 @@ void GeneralWidget::initUi()
 
     /**** 电池设置 ************************************************************************/
     //~ contents_path /power/General
+    //~ child_page General
     m_batteryLabel = new TitleLabel(tr("Battery"), this);
     DFontSizeManager::instance()->bind(m_batteryLabel, DFontSizeManager::T5, QFont::DemiBold); // 电池设置label字体
     QVBoxLayout *batteyLayout = new QVBoxLayout(this);                                               // 电池设置布局

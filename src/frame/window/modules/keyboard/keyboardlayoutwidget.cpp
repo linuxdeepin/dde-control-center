@@ -46,6 +46,7 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
 {
     //~ contents_path /keyboard/Keyboard Layout
+    //~ child_page Keyboard Layout
     setTitle(tr("Add Keyboard Layout"));
 
     m_mainWidget = new TranslucentFrame();

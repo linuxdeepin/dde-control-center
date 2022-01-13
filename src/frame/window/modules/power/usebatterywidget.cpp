@@ -46,14 +46,6 @@ using namespace DCC_NAMESPACE::power;
 UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::power::PowerWorker *worker)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
-    , m_monitorSleepOnBattery(new TitledSliderItem(tr("Monitor will suspend after")))
-    , m_computerSleepOnBattery(new TitledSliderItem(tr("Computer will suspend after")))
-    , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
-    , m_cmbPowerBtn(new ComboxWidget(tr("When pressing the power button")))
-    , m_cmbCloseLid(new ComboxWidget(tr("When the lid is closed")))
-    , m_swBatteryHint(new SwitchWidget(tr("Low Battery Notification")))
-    , m_sldLowBatteryHint(new TitledSliderItem(tr("Low battery level")))
-    , m_sldAutoSuspend(new TitledSliderItem(tr("Auto suspend battery level")))
     , m_model(model)
     , m_work(worker)
 {
@@ -67,6 +59,30 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
           << "30m"
           << "1h" << tr("Never");
 
+    //~ contents_path /power/On Battery
+    //~ child_page On Battery
+    m_monitorSleepOnBattery = new TitledSliderItem(tr("Monitor will suspend after"));
+    //~ contents_path /power/On Battery
+    //~ child_page On Battery
+    m_computerSleepOnBattery = new TitledSliderItem(tr("Computer will suspend after"));
+    //~ contents_path /power/On Battery
+    //~ child_page On Battery
+    m_autoLockScreen = new TitledSliderItem(tr("Lock screen after"));
+    //~ contents_path /power/On Battery
+    //~ child_page On Battery
+    m_cmbPowerBtn = new ComboxWidget(tr("When pressing the power button"));
+    //~ contents_path /power/On Battery
+    //~ child_page On Battery
+    m_cmbCloseLid = new ComboxWidget(tr("When the lid is closed"));
+    //~ contents_path /power/On Battery
+    //~ child_page On Battery
+    m_swBatteryHint = new SwitchWidget(tr("Low Battery Notification"));
+    //~ contents_path /power/On Battery
+    //~ child_page On Battery
+    m_sldLowBatteryHint = new TitledSliderItem(tr("Low battery level"));
+    //~ contents_path /power/On Battery
+    //~ child_page On Battery
+    m_sldAutoSuspend = new TitledSliderItem(tr("Auto suspend battery level"));
     /*** 超时关闭显示器 ***/
     //~ contents_path /power/On Battery
     //~ child_page On Battery
@@ -105,10 +121,6 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
     m_autoLockScreen->setAnnotations(annos);
     m_autoLockScreen->addBackground();
     m_layout->addWidget(m_autoLockScreen);
-
-    //~ contents_path /power/On Battery
-    //~ child_page On Battery
-//    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
     updatePowerButtonActionList();
 

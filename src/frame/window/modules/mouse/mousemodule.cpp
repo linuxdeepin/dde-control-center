@@ -254,7 +254,6 @@ void MouseModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, general, bGeneral);
         m_frameProxy->setDetailVisible(module, general, tr("Double-click Test"), bGeneral);
         m_frameProxy->setDetailVisible(module, general, tr("Left Hand"), bGeneral && func_is_visible("mouseLeftHand", true));
-        m_frameProxy->setDetailVisible(module, general, tr("Disable touchpad while typing"), bGeneral && (m_model ? m_model->tpadExist() : true));
         m_frameProxy->setDetailVisible(module, general, tr("Scrolling Speed"), bGeneral);
         m_frameProxy->setDetailVisible(module, general, tr("Double-click Speed"), bGeneral);
     };
@@ -264,7 +263,6 @@ void MouseModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, mouse, bModule);
         m_frameProxy->setDetailVisible(module, mouse, tr("Pointer Speed"), bModule && func_is_visible("mouseSpeedSlider", true));
         m_frameProxy->setDetailVisible(module, mouse, tr("Mouse Acceleration"), bModule);
-        m_frameProxy->setDetailVisible(module, mouse, tr("Disable touchpad when a mouse is connected"), bModule && (m_model ? m_model->tpadExist() : true));
         m_frameProxy->setDetailVisible(module, mouse, tr("Natural Scrolling"), bModule);
     };
 
@@ -274,6 +272,9 @@ void MouseModule::initSearchData()
         m_frameProxy->setDetailVisible(module, touchpad, tr("Pointer Speed"), bTouchpad);
         m_frameProxy->setDetailVisible(module, touchpad, tr("Tap to Click"), bTouchpad);
         m_frameProxy->setDetailVisible(module, touchpad, tr("Natural Scrolling"), bTouchpad);
+
+        m_frameProxy->setDetailVisible(module, general, tr("Disable touchpad while typing"), func_is_visible("mouseGeneral") && bTouchpad);
+        m_frameProxy->setDetailVisible(module, mouse, tr("Disable touchpad when a mouse is connected"), func_is_visible("mouseMouse") && bTouchpad);
     };
 
      auto func_trackPoint_changed = [ = ](bool redPointExist) {

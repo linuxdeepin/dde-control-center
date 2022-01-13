@@ -76,14 +76,17 @@ void PerssonalizationThemeWidget::onAddItem(const QJsonObject &json)
     if (json["type"] == "gtk") {
         if (title == "deepin") {
             //~ contents_path /personalization/General
+            //~ child_page General
             theme->setTitle(tr("Light"));
             theme->setAccessibleName("Light");
         } else if (title == "deepin-dark") {
             //~ contents_path /personalization/General
+            //~ child_page General
             theme->setTitle(tr("Dark"));
             theme->setAccessibleName("Dark");
         } else if (title == "deepin-auto") {
             //~ contents_path /personalization/General
+            //~ child_page General
             theme->setTitle(tr("Auto"));
             theme->setAccessibleName("Auto");
         } else {

@@ -71,7 +71,6 @@ void SystemInfoWidget::initWidget()
 void SystemInfoWidget::initData()
 {
     m_itemList = {
-        //~ contents_path /systeminfo/About This PC
         {"dcc_on_sel", tr("About This PC"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowAboutNative), nullptr, "aboutThisPc"},
         //~ contents_path /systeminfo/Edition License
         {"dcc_version", tr("Edition License"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowVersionProtocol), nullptr, "editionLicense"},
