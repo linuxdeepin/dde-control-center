@@ -452,7 +452,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="318"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -474,8 +474,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="364"/>
         <source>Passwords do not match</source>
         <translation>密碼不符</translation>
     </message>
@@ -498,32 +498,32 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="371"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>密碼提示對所有人可見，切勿包含具體密碼訊息</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="281"/>
         <source>Wrong password</source>
         <translation>密碼錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="287"/>
         <source>New password should differ from the current one</source>
         <translation>新的密碼必須不同於目前密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="317"/>
         <source>Go to Settings</source>
         <translation>前往設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="446"/>
         <source>System error</source>
         <translation>系統錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="448"/>
         <source>Network error</source>
         <translation>網路錯誤</translation>
     </message>
@@ -537,6 +537,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="191"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
         <translation>請確保五官清晰可見，避免佩戴帽子、墨鏡、口罩等物件，保證光線充足，避免陽光直射，以提高輸入成功率</translation>
     </message>
@@ -547,36 +548,37 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="196"/>
         <source>Next</source>
         <translation>下一步</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="203"/>
         <source>Face enrolled</source>
         <translation>人臉輸入完成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="206"/>
         <source>Use your face to unlock the device and make settings later</source>
         <translation>使用人臉資料解鎖您的裝置，之後還可進行更多設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
         <source>Done</source>
         <translation>完 成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="215"/>
         <source>Failed to enroll your face</source>
         <translation>人臉輸入失敗</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="222"/>
         <source>Try Again</source>
         <translation>重新輸入</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="225"/>
         <source>Close</source>
         <translation>關 閉</translation>
     </message>
@@ -825,7 +827,7 @@
 <context>
     <name>dccV20::authentication::LoginOptionsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="56"/>
         <source>Biometric Authentication</source>
         <translation>生物認證</translation>
     </message>
@@ -2015,35 +2017,35 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="71"/>
         <source>Multiple Displays</source>
         <translation>多屏設定</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="73"/>
         <source>Mode</source>
         <translation>模式</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="75"/>
         <source>Main Screen</source>
         <translation>主螢幕</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="329"/>
         <source>Duplicate</source>
         <translation>同步顯示畫面</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="330"/>
         <source>Extend</source>
         <translation>延伸畫面</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="336"/>
         <source>Only on %1</source>
         <translation>僅%1屏</translation>
     </message>
@@ -2157,7 +2159,7 @@
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="134"/>
         <source>Brightness</source>
         <translation>螢幕亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -4214,27 +4216,27 @@
         <extra-contents_path>/touchscreen/Select your touch screen when connected or set it here.</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="65"/>
         <source>Cancel</source>
         <translation>取 消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="68"/>
         <source>Confirm</source>
         <translation>確 定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="125"/>
         <source>Touch Screen - %1 (%2)</source>
         <translation>觸控屏 - %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
         <source>Touch Screen Settings</source>
         <translation>觸控螢幕設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="191"/>
         <source>The settings of touch screen changed</source>
         <translation>已變更觸控螢幕設定</translation>
     </message>
@@ -4796,7 +4798,7 @@
         <translation>控制中心</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="50"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="51"/>
         <source>Input Methods</source>
         <translation>輸入法</translation>
     </message>
@@ -4850,32 +4852,32 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="660"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="599"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>您的主機已順利從網域伺服器移除</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="661"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="600"/>
         <source>Your host joins the domain server successfully</source>
         <translation>您的主機已順利加入網域伺服器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="689"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="628"/>
         <source>Your host failed to leave the domain server</source>
         <translation>您的主機離開網域伺服器失敗</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="690"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="629"/>
         <source>Your host failed to join the domain server</source>
         <translation>您的主機加入網域伺服器失敗</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="693"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="632"/>
         <source>AD domain settings</source>
         <translation>AD 網域設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="762"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="701"/>
         <source>Password not match</source>
         <translation>密碼不符</translation>
     </message>

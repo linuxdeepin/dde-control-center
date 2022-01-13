@@ -452,7 +452,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="318"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -474,8 +474,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="364"/>
         <source>Passwords do not match</source>
         <translation>Las contraseñas no coinciden</translation>
     </message>
@@ -498,32 +498,32 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="371"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>La pista es visible para todos los usuarios. No incluya aquí la contraseña.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="281"/>
         <source>Wrong password</source>
         <translation>Contraseña incorrecta </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="287"/>
         <source>New password should differ from the current one</source>
         <translation>La nueva contraseña debe ser diferente a la actual</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="317"/>
         <source>Go to Settings</source>
         <translation>Ir a ajustes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="446"/>
         <source>System error</source>
         <translation>Error del sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="448"/>
         <source>Network error</source>
         <translation>Error de red</translation>
     </message>
@@ -537,6 +537,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="191"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
         <translation>Asegúrese de que todas las partes de su cara no estén cubiertas por objetos y sean claramente visibles. Su cara también debe estar bien iluminada.</translation>
     </message>
@@ -547,36 +548,37 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="196"/>
         <source>Next</source>
         <translation>Siguiente</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="203"/>
         <source>Face enrolled</source>
         <translation>Cara inscrita</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="206"/>
         <source>Use your face to unlock the device and make settings later</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
         <source>Done</source>
         <translation>Hecho</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="215"/>
         <source>Failed to enroll your face</source>
         <translation>No se ha podido inscribir su cara</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="222"/>
         <source>Try Again</source>
         <translation>Inténtelo de nuevo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="225"/>
         <source>Close</source>
         <translation>Cerrar</translation>
     </message>
@@ -825,7 +827,7 @@
 <context>
     <name>dccV20::authentication::LoginOptionsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="56"/>
         <source>Biometric Authentication</source>
         <translation>Autenticación biométrica</translation>
     </message>
@@ -2015,35 +2017,35 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="71"/>
         <source>Multiple Displays</source>
         <translation>Múltiples pantallas</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="73"/>
         <source>Mode</source>
         <translation>Modo</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="75"/>
         <source>Main Screen</source>
         <translation>Pantalla principal</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="329"/>
         <source>Duplicate</source>
         <translation>Duplicado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="330"/>
         <source>Extend</source>
         <translation>Extendida</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="336"/>
         <source>Only on %1</source>
         <translation>Solo en %1</translation>
     </message>
@@ -2157,7 +2159,7 @@
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="134"/>
         <source>Brightness</source>
         <translation>Brillo</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -4214,27 +4216,27 @@
         <extra-contents_path>/touchscreen/Select your touch screen when connected or set it here.</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="65"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="68"/>
         <source>Confirm</source>
         <translation>Confirmar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="125"/>
         <source>Touch Screen - %1 (%2)</source>
         <translation>Pantalla táctil - %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
         <source>Touch Screen Settings</source>
         <translation>Ajustes de pantalla táctil</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="191"/>
         <source>The settings of touch screen changed</source>
         <translation>Los ajustes de pantalla táctil cambiaron</translation>
     </message>
@@ -4796,7 +4798,7 @@
         <translation>Centro de control</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="50"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="51"/>
         <source>Input Methods</source>
         <translation>Métodos de entrada</translation>
     </message>
@@ -4850,32 +4852,32 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="660"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="599"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Su host fue retirado del servidor de dominio exitosamente</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="661"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="600"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Su host se unió al servidor de dominio exitósamente</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="689"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="628"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Su host no se pudo retirar del servidor de dominio</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="690"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="629"/>
         <source>Your host failed to join the domain server</source>
         <translation>Su host no pudo unirse al servidor de dominio</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="693"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="632"/>
         <source>AD domain settings</source>
         <translation>Ajustes de dominio AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="762"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="701"/>
         <source>Password not match</source>
         <translation>La contraseña no coincide</translation>
     </message>

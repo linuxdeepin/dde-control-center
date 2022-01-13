@@ -22,29 +22,44 @@
         <translation>Het wachtwoord mag alleen Nederlandstalige letters (hoofdlettergevoelig), cijfers of speciale tekens (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) bevatten</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="100"/>
+        <source>No more than 8 palindrome characters please</source>
+        <translation>Maximaal 8 palindroomtekens</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="101"/>
+        <source>No more than 3 monotonic characters please</source>
+        <translation>Maximaal 3 monotone tekens</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="102"/>
+        <source>No more than 3 repeating characters please</source>
+        <translation>Maximaal 3 dezelfde tekens</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="107"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>Het wachtwoord moet hoofdletters, kleine letters, getallen en speciale tekens bevatten (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="105"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="108"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Het wachtwoord mag niet meer dan 4 palindroomtekens bevatten</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="106"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="109"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="112"/>
         <source>Do not use common words and combinations as password</source>
         <translation>Het wachtwoord mag geen algemene woorden of samenstellingen bevatten</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="107"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="108"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="110"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="111"/>
         <source>Create a strong password please</source>
         <translation>Stel een sterk wachtwoord samen</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="114"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="117"/>
         <source>It does not meet password rules</source>
         <translation>Het wachtwoord voldoet niet aan de vereisten</translation>
     </message>
@@ -52,166 +67,167 @@
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="121"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="124"/>
         <source>Reset Password</source>
         <translation>Wachtwoord herstellen</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="121"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="124"/>
         <source>By Union ID</source>
         <translation>Via Union ID</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="192"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="195"/>
         <source>Phone/Email</source>
         <translation>Via telefoonnummer/e-mailadres</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="196"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="263"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="733"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="199"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="266"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="764"/>
         <source>Get Code</source>
         <translation>Code versturen</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="203"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
         <source>New Password</source>
         <translation>Nieuw wachtwoord</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="233"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="236"/>
         <source>Repeat Password</source>
         <translation>Wachtwoord herhalen</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="237"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="240"/>
         <source>Password Hint</source>
         <translation>Wachtwoordhint</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="243"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="248"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="246"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="251"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="245"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="248"/>
         <source>Reset</source>
         <translation>Herstellen</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="247"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="250"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
         <translation>Door het wachtwoord te herstellen worden de gegevens in je sleutelbos gewist en dien je opnieuw in te loggen. Maak van tevoren een back-up van je bestanden.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="248"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="251"/>
         <source>Confirm and Reset</source>
         <translation>Bevestigen en herstellen</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="261"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="262"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="264"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="265"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="267"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="268"/>
         <source>Required</source>
         <translation>Vereist</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="266"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="269"/>
         <source>Optional</source>
         <translation>Optioneel</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="385"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="400"/>
-        <source>Phone/Email format is incorrect</source>
-        <translation>De opmaak van het telefoonnummer/e-mailadres is niet correct</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="407"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="736"/>
-        <source>Resend (%1s)</source>
-        <translation>Opnieuw versturen (%1s)</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="426"/>
-        <source>Failed to get the code</source>
-        <translation>Het verkrijgen van de toegangscode is mislukt</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="473"/>
-        <source>Wrong verification code</source>
-        <translation>Onjuiste verificatiecode</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="481"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="324"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="526"/>
         <source>Passwords do not match</source>
         <translation>De wachtwoorden komen niet overeen</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="489"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="402"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="417"/>
+        <source>Phone/Email format is incorrect</source>
+        <translation>De opmaak van het telefoonnummer/e-mailadres is niet correct</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="424"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="767"/>
+        <source>Resend (%1s)</source>
+        <translation>Opnieuw versturen (%1s)</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="443"/>
+        <source>Failed to get the code</source>
+        <translation>Het verkrijgen van de toegangscode is mislukt</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="518"/>
+        <source>Wrong verification code</source>
+        <translation>Onjuiste verificatiecode</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="534"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Deze hint is zichtbaar voor alle gebruikers, dus zet hier NIET je wachtwoord neer.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="524"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="569"/>
         <source>System error</source>
         <translation>Systeemfout</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="526"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="571"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>Je sessie is verlopen - log opnieuw in met je Union-id</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="528"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="573"/>
         <source>Network error</source>
         <translation>Netwerkfout</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="530"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="575"/>
         <source>You have reached the number limit to get the code today</source>
         <translation>Je hebt het maximumaantal inlogpogingen van vandaag bereikt</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="531"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="576"/>
         <source>The Union ID is not linked to a user account</source>
         <translation>Deze Union-id is niet gekoppeld aan een gebruikersaccount</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="550"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="595"/>
         <source>It cannot be empty</source>
         <translation>Het veld mag niet leeg zijn</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="609"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="640"/>
         <source>Strong</source>
         <translation>Sterk</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="619"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="650"/>
         <source>Medium</source>
         <translation>Redelijk</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="627"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="639"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="659"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="672"/>
         <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols.</source>
         <translation>Het is raadzaam een sterker wachtwoord te kiezen - minimaal 8 tekens én minstens 3 van de volgende tekens: kleine letters, hoofdletters, cijfers en symbolen</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="631"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="663"/>
         <source>Weak</source>
         <translation>Zwak</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="641"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="674"/>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>Er is een fout opgetreden tijdens het uitlezen van de configuratiebestanden omtrent de wachtwoordregels!</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="744"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="775"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Het herstellen is voltooid - meld af en weer aan met het nieuwe wachtwoord</translation>
     </message>

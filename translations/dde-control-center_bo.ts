@@ -452,7 +452,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="318"/>
         <source>Cancel</source>
         <translation>འདོར་བ། </translation>
     </message>
@@ -474,8 +474,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="364"/>
         <source>Passwords do not match</source>
         <translation>གསང་ཨང་མི་མཐུན་བ། </translation>
     </message>
@@ -498,32 +498,32 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="371"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>གསང་ཨང་ཚང་མས་མཐོང་ཐུབ་པས། གསང་ཨང་གི་ཞིབ་ཕྲའི་ཆ་འཕྲིན་མ་འབྲི།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="281"/>
         <source>Wrong password</source>
         <translation>གསང་ཨང་ནོར་འདུག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="287"/>
         <source>New password should differ from the current one</source>
         <translation>གསང་ཨང་གསར་པ་དང་རྙིང་པ་གཅིག་མཚུངས་ཡིན་མི་རུང་། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="317"/>
         <source>Go to Settings</source>
         <translation>སྒྲིག་འགོད་བྱེད་དུ་འགྲོ་བ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="446"/>
         <source>System error</source>
         <translation>མ་ལག་ནོར་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="448"/>
         <source>Network error</source>
         <translation>དྲ་རྒྱ་ནོར་བ།</translation>
     </message>
@@ -537,6 +537,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="191"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
         <translation>དབང་པོ་ལྔ་གསལ་པོ་ཡོད་པར་ཁག་ཐེག་བྱེད་དགོས། ཞ་མོ་དང་། མིག་ཤེལ་ནག་པོ། ཁ་རས་སོགས་དངོས་པོ་བཏགས་རྒྱུ་མེད། འོད་ཟེར་འདང་ངེས་ཡོད་པ་དང་། ཟློག་འོད་མེད་པ་བྱས་ཏེ། ནང་འཇུག་ལེགས་གྲུབ་བྱེད་ཚད་མཐོ་རུ་གཏོང་དགོས།</translation>
     </message>
@@ -547,36 +548,37 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="196"/>
         <source>Next</source>
         <translation>རྗེས་མ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="203"/>
         <source>Face enrolled</source>
         <translation>ངོ་གདོང་ནང་འཇུག་བྱས་ཟིན། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="206"/>
         <source>Use your face to unlock the device and make settings later</source>
         <translation>གདོང་རིས་གཞི་གྲངས་སྤྱད་དེ་ཁྱེད་ཀྱི་སྒྲིག་ཆས་སྒོ་ལྕགས་འབྱེད་ཆོག དེ་རྗེས་དེ་བས་མང་བའི་སྒྲིག་འགོད་ཀྱང་བྱེད་ཆོག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
         <source>Done</source>
         <translation>གྲུབ་ཟིན། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="215"/>
         <source>Failed to enroll your face</source>
         <translation>ངོ་གདོང་ནང་འཇུག་མི་ཐུབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="222"/>
         <source>Try Again</source>
         <translation>ཡང་བསྐྱར་ནང་འཇུག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="225"/>
         <source>Close</source>
         <translation>ཁ་རྒྱག</translation>
     </message>
@@ -825,7 +827,7 @@
 <context>
     <name>dccV20::authentication::LoginOptionsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="56"/>
         <source>Biometric Authentication</source>
         <translation>སྐྱེ་དངོས་བདེན་མིན་ར་སྤྲོད</translation>
     </message>
@@ -2016,35 +2018,35 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="71"/>
         <source>Multiple Displays</source>
         <translation>བརྙན་མང་སྒྲིག་འགོད།</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="73"/>
         <source>Mode</source>
         <translation>དཔེ་རྣམ།</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="75"/>
         <source>Main Screen</source>
         <translation>བརྙན་ཡོལ་གཙོ་བོ།</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="329"/>
         <source>Duplicate</source>
         <translation>པར་སློག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="330"/>
         <source>Extend</source>
         <translation>རྒྱ་སྐྱེད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="336"/>
         <source>Only on %1</source>
         <translation>བརྙན་ཡོལ་%1</translation>
     </message>
@@ -2158,7 +2160,7 @@
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="134"/>
         <source>Brightness</source>
         <translation>གསལ་ཚད།</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -4215,27 +4217,27 @@
         <extra-contents_path>/touchscreen/Select your touch screen when connected or set it here.</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="65"/>
         <source>Cancel</source>
         <translation>ཕྱིར་འཐེན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="68"/>
         <source>Confirm</source>
         <translation>གཏན་ཁེལ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="125"/>
         <source>Touch Screen - %1 (%2)</source>
         <translation>ཐུག་རེག་བརྙན་ཡོལ། - %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
         <source>Touch Screen Settings</source>
         <translation>ཐུག་རེག་བརྙན་ཡོལ་སྒྲིག་འགོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="191"/>
         <source>The settings of touch screen changed</source>
         <translation>ཐུག་རེག་བརྙན་ཡོལ་གྱི་སྒྲིག་བཀོད་སྒྱུར་ཟིན།</translation>
     </message>
@@ -4797,7 +4799,7 @@
         <translation>ཚོད་འཛིན་ལྟེ་གནས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="50"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="51"/>
         <source>Input Methods</source>
         <translation>ནང་འཇུག་བྱེད་སྟངས།</translation>
     </message>
@@ -4851,32 +4853,32 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="660"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="599"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>ཁྱོད་ཀྱི་རྩིས་འཁོར་ཨ་མ་ཁོངས་ཞབས་ཞུ་ཆས་ལས་ཕྱིར་དོན་ཟིན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="661"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="600"/>
         <source>Your host joins the domain server successfully</source>
         <translation>ཁྱོད་ཀྱི་རྩིས་འཁོར་ཨ་མ་ཁོངས་ཞབས་ཞུ་ཆས་ནང་ཞུགས་ཟིན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="689"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="628"/>
         <source>Your host failed to leave the domain server</source>
         <translation>ཁྱོད་ཀྱི་རྩིས་འཁོར་ཨ་མ་ཁོངས་ཞབས་ཞུ་ཆས་ལས་ཕྱིར་དོན་མ་ཐུབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="690"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="629"/>
         <source>Your host failed to join the domain server</source>
         <translation>ཁྱོད་ཀྱི་རྩིས་འཁོར་ཨ་མ་ཁོངས་ཞབས་ཞུ་ཆས་ནང་ཞུགས་མ་ཐུབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="693"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="632"/>
         <source>AD domain settings</source>
         <translation>ADཁོངས་ཀྱི་སྒྲིག་འགོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="762"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="701"/>
         <source>Password not match</source>
         <translation>གསང་ཨང་མི་མཐུན་བ། </translation>
     </message>
@@ -5009,7 +5011,8 @@ If you agree to this statement and enroll your face (we will not collect your fa
 1.འོད་མདངས་གསལ་པོ་ཡོད་དགོས་པ་མ་ཟད། ཉི་འོད་ཀྱིས་ཐད་ཀར་འཕྲོ་མི་རུང་། ནང་འཇུག་བྱེད་པའི་བཪྙན་ངོས་ནང་དུ་མི་གཞན་དག་མི་འཛུལ་བ་བྱེད་དགོས།
 2.གཞི་གྲངས་འཇུག་པའི་སྐབས་སུ་ངོ་གདོང་ལ་དོ་སྣང་བྱེད་དགོས། ཞྭ་མོ་དང་། སྐྲ། མིག་ཤེལ། ཁ་རས། མཛེས་འཆོས་སོགས་ཀྱིས་ངོ་གདོང་བཀབ་མི་ཆོག
 3.མགོ་བཏེགས་པ་དང་། མགོ་སྒུར་སྒུར། མིག་བཙུམ་པ། ཡང་ན་གདོང་ཕྱེད་ཀ་སོགས་པའི་གནས་དོན་མི་ཡོང་བ་བྱེད་ཅིང་། ངོ་གདོང་གསལ་ལ་ཆ་ཚང་བ་ཡོད་པར་ཁག་ཐེག་བྱེད་དགོས།
-ཁྱེད་ཀྱིས་གསལ་བསྒྲགས་འདི་ལ་མོས་མཐུན་ཡོད་པ་དང་། ངོ་གདོང་གཞི་གྲངས་ནང་འཇུག་བྱེད་ཚེ།（ང་ཚོས་ཁྱེད་ཀྱི་ངོ་གདོང་ཆ་འཕྲིན་བསྡུ་རུབ་བྱེད་མི་སྲིད། ཆ་འཕྲིན་འདི་ཁྱེད་ཀྱི་སྒྲིག་ཆས་ཐོག་གསང་སྣོན་བྱས་ཏེ་གཅིག་པུར་གསོག་ཉར་བྱེད་སྲིད་） མ་ལག་གིས་ངོ་གདོང་དབྱེ་འབྱེད་ཀྱི་ནུས་པ་སྤྱོད་འགོ་ཚུགས་སྲིད། ཁྱེད་ཀྱིས་“སྐྱེ་དངོས་ར་སྲོད་”&gt;&quot;ངོ་གདོང་&quot;ལ་བསྐྱོད་ནས་ནང་འཇུག་བྱས་པའི་ངོ་གདོང་གཞི་གྲངས་བསུབ་ཆོག</translation>
+ཁྱེད་ཀྱིས་གསལ་བསྒྲགས་འདི་ལ་མོས་མཐུན་ཡོད་པ་དང་། ངོ་གདོང་གཞི་གྲངས་ནང་འཇུག་བྱེད་ཚེ།（ང་ཚོས་ཁྱེད་ཀྱི་ངོ་གདོང་ཆ་འཕྲིན་བསྡུ་རུབ་བྱེད་མི་སྲིད། ཆ་འཕྲིན་འདི་ཁྱེད་ཀྱི་སྒྲིག་ཆས་ཐོག་གསང་སྣོན་བྱས་ཏེ་གཅིག་པུར་གསོག་ཉར་བྱེད་སྲིད་） མ་ལག་གིས་ངོ་གདོང་དབྱེ་འབྱེད་ཀྱི་ནུས་པ་སྤྱོད་འགོ་ཚུགས་སྲིད། ཁྱེད་ཀྱིས་“སྐྱེ་དངོས་ར་སྲོད་”&gt;&quot;ངོ་གདོང་&quot;ལ་བསྐྱོད་ནས་ནང་འཇུག་བྱས་པའི་ངོ་གདོང་གཞི་གྲངས་བསུབ་ཆོག
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="77"/>

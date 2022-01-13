@@ -452,7 +452,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="318"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
@@ -474,8 +474,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="364"/>
         <source>Passwords do not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
@@ -498,32 +498,32 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="371"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>힌트는 모든 사용자에게 표시됩니다. 여기에 비밀번호를 포함하지 마십시오</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="281"/>
         <source>Wrong password</source>
         <translation>잘못된 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="287"/>
         <source>New password should differ from the current one</source>
         <translation>새 비밀번호는 현재 비밀번호와 같을 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="317"/>
         <source>Go to Settings</source>
         <translation>설정으로 이동</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="446"/>
         <source>System error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="448"/>
         <source>Network error</source>
         <translation type="unfinished"/>
     </message>
@@ -537,6 +537,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="191"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
         <translation type="unfinished"/>
     </message>
@@ -547,36 +548,37 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="196"/>
         <source>Next</source>
         <translation>다음</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="203"/>
         <source>Face enrolled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="206"/>
         <source>Use your face to unlock the device and make settings later</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
         <source>Done</source>
         <translation>완료</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="215"/>
         <source>Failed to enroll your face</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="222"/>
         <source>Try Again</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="225"/>
         <source>Close</source>
         <translation>닫기</translation>
     </message>
@@ -825,7 +827,7 @@
 <context>
     <name>dccV20::authentication::LoginOptionsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="56"/>
         <source>Biometric Authentication</source>
         <translation type="unfinished"/>
     </message>
@@ -2015,35 +2017,35 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="71"/>
         <source>Multiple Displays</source>
         <translation>다중 디스플레이</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="73"/>
         <source>Mode</source>
         <translation>모드</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="75"/>
         <source>Main Screen</source>
         <translation>기본 화면</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="329"/>
         <source>Duplicate</source>
         <translation>복제</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="330"/>
         <source>Extend</source>
         <translation>확장</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="336"/>
         <source>Only on %1</source>
         <translation type="unfinished"/>
     </message>
@@ -2157,7 +2159,7 @@
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="134"/>
         <source>Brightness</source>
         <translation>밝기</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
@@ -4214,27 +4216,27 @@
         <extra-contents_path>/touchscreen/Select your touch screen when connected or set it here.</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="65"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="68"/>
         <source>Confirm</source>
         <translation>확인</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="125"/>
         <source>Touch Screen - %1 (%2)</source>
         <translation>터치 스크린 - %1(%2)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
         <source>Touch Screen Settings</source>
         <translation>터치 스크린 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="191"/>
         <source>The settings of touch screen changed</source>
         <translation type="unfinished"/>
     </message>
@@ -4796,7 +4798,7 @@
         <translation>제어 센터</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="50"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="51"/>
         <source>Input Methods</source>
         <translation type="unfinished"/>
     </message>
@@ -4850,32 +4852,32 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="660"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="599"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>호스트가 도메인 서버에서 제거되었습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="661"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="600"/>
         <source>Your host joins the domain server successfully</source>
         <translation>호스트가 도메인 서버에 성공적으로 참여합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="689"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="628"/>
         <source>Your host failed to leave the domain server</source>
         <translation>호스트가 도메인 서버를 종료하지 못했습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="690"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="629"/>
         <source>Your host failed to join the domain server</source>
         <translation>호스트가 도메인 서버에 참여하지 못했습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="693"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="632"/>
         <source>AD domain settings</source>
         <translation>광고 도메인 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="762"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="701"/>
         <source>Password not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>

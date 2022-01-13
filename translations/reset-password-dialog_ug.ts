@@ -22,29 +22,44 @@
         <translation>پارولدا پەقەت ئىنگلىزچە ھەرپلەر (چوڭ-كىچىك) ، سان ياكى ئالاھىدە بەلگىلەر بار (~! @ # $% ^ &amp; * () [] {} \ | /?,. &lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="100"/>
+        <source>No more than 8 palindrome characters please</source>
+        <translation>جاۋاب خەتنىڭ ئۇزۇنلۇقى 8 ھەرپتىن ئېشىپ كەتمىسۇن</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="101"/>
+        <source>No more than 3 monotonic characters please</source>
+        <translation>مونوتونلۇق بەلگە 3 تىن ئېشىپ كەتمىسۇن</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="102"/>
+        <source>No more than 3 repeating characters please</source>
+        <translation>قايتىلانغان ھەرپ 3 تىن ئېشىپ كەتمىسۇن</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="107"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>پارول چوڭ ھەرپ،كىچىك ھەرپ، سانلار ۋە بەلگىلەردىن ئىبارەت ئۈچ تۈرنى ئۆز ئىچىگە ئېلىشى كېرەك(~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="105"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="108"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>پارولدا ئۇدا 4 تىن ئارتۇق قايتىلانما ھەرپ-بەلگە بولسا بولمايدۇ</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="106"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="109"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="112"/>
         <source>Do not use common words and combinations as password</source>
         <translation>پارولدا دائىم ئۇچرايدىغان ئاددىي سۆز ۋە سۆز بىرىكمىلىرى بولسا بولمايدۇ</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="107"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="108"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="110"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="111"/>
         <source>Create a strong password please</source>
         <translation>پارول بەك ئاددىي، مۇرەككەپرەك بېكىتىڭ</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="114"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="117"/>
         <source>It does not meet password rules</source>
         <translation>پارول بىخەتەرلىك تەلىپىگە ئۇيغۇن كەلمەيدۇ</translation>
     </message>
@@ -52,166 +67,167 @@
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="121"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="124"/>
         <source>Reset Password</source>
         <translation>پارولنى قايتا بېكىتىش</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="121"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="124"/>
         <source>By Union ID</source>
         <translation>پارولنى Union ID ئارقىلىق قايتا بېكىتىش</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="192"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="195"/>
         <source>Phone/Email</source>
         <translation>تېلېفون/ئېلخەت</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="196"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="263"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="733"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="199"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="266"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="764"/>
         <source>Get Code</source>
         <translation>دەلىللەش كودىغا ئېرىشىش</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="203"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
         <source>New Password</source>
         <translation>يېڭى پارول</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="233"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="236"/>
         <source>Repeat Password</source>
         <translation>پارولنى يەنە كىرگۈزۈڭ </translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="237"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="240"/>
         <source>Password Hint</source>
         <translation>پارول ئەسكەرتمىسى </translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="243"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="248"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="246"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="251"/>
         <source>Cancel</source>
         <translation>بىكار قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="245"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="248"/>
         <source>Reset</source>
         <translation>قايتا بېكىتىش</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="247"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="250"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
         <translation>پارولنى قايتا بېكىستسىڭىز مەخپىي ئاچقۇچ ھالقىسىدا ساقلانغان سانلىق مەلۇماتلار تازىلىنىدۇ، ھەمدە بۇ ئىشلەتكۈچى قايتىدىن كىرىدۇ، ھۆججەتلىرىڭىزنى ئالدىن ساقلاشقا دىققەت قىلىڭ</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="248"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="251"/>
         <source>Confirm and Reset</source>
         <translation>قايتا بېكىتشىنى جەزملەش</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="261"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="262"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="264"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="265"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="267"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="268"/>
         <source>Required</source>
         <translation>چوقۇم تولدۇرۇڭ</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="266"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="269"/>
         <source>Optional</source>
         <translation>ئىختىيارىي</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="385"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="400"/>
-        <source>Phone/Email format is incorrect</source>
-        <translation>تېلېفون/ئېلخەت فورماتى خاتا</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="407"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="736"/>
-        <source>Resend (%1s)</source>
-        <translation> قايىتىدىن ئېرىشش (%1s)</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="426"/>
-        <source>Failed to get the code</source>
-        <translation>كودقا ئېرىشەلمىدى</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="473"/>
-        <source>Wrong verification code</source>
-        <translation>دەلىللەش كودى خاتا</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="481"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="324"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="526"/>
         <source>Passwords do not match</source>
         <translation>پارول بىردەك ئەمەس</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="489"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="402"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="417"/>
+        <source>Phone/Email format is incorrect</source>
+        <translation>تېلېفون/ئېلخەت فورماتى خاتا</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="424"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="767"/>
+        <source>Resend (%1s)</source>
+        <translation> قايىتىدىن ئېرىشش (%1s)</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="443"/>
+        <source>Failed to get the code</source>
+        <translation>كودقا ئېرىشەلمىدى</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="518"/>
+        <source>Wrong verification code</source>
+        <translation>دەلىللەش كودى خاتا</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="534"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>پارول ئەسكەرتمىسى ھەممە ئادەمگە كۆرۈنىدۇ ، مەخپىي نومۇر قاتارلىق مۇھىم ئۇچۇرلار بولمىسۇن</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="524"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="569"/>
         <source>System error</source>
         <translation>سىستېما خاتالىقى </translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="526"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="571"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>تىزىملىتىش ۋاقتى ئۆتۈپ كەتكەن , Union ID قايتىدىن تىزىملىتىڭ </translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="528"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="573"/>
         <source>Network error</source>
         <translation>تور خاتالىقى </translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="530"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="575"/>
         <source>You have reached the number limit to get the code today</source>
         <translation>بۈگۈنكى دەلىللەش كودىغا ئېرىشىش سانىڭىز توشتى</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="531"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="576"/>
         <source>The Union ID is not linked to a user account</source>
         <translation>بۇ Union ID يەرلىك ھېسابات نومۇرىغا باغلانمىغان </translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="550"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="595"/>
         <source>It cannot be empty</source>
         <translation> قۇرۇق قويۇشقا بولمايدۇ</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="609"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="640"/>
         <source>Strong</source>
         <translation>كۈچلۈك</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="619"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="650"/>
         <source>Medium</source>
         <translation>ئوتتۇراھال كۈچلۈك</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="627"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="639"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="659"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="672"/>
         <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols.</source>
         <translation>پارول8خانىدىن يۇقىرى بولىشىنى تەۋسىيە قىلىمىز،ئوخشاشلا چوڭ-كىچىك يېزىش،سان-ھەرپلەردىن ئۈچ خىلى بار بولسۇن </translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="631"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="663"/>
         <source>Weak</source>
         <translation>ئاجىز</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="641"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="674"/>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>پارول قائىدىسىنىڭ سەپلىمە ھۆججەتلىرىنى ئوقۇغاندا خاتالىق كۆرۈلدى!</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="744"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="775"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>پارول قايتا بېكىتىلدى، يېڭى پارولدا كىرىڭ</translation>
     </message>
