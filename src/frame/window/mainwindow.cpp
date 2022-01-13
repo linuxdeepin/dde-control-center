@@ -305,8 +305,8 @@ void MainWindow::findFocusChild(QLayout *l, QWidget *&pre)
 
 void MainWindow::setPrimaryScreen(QScreen *screen)
 {
-    if(m_primaryScreen)
-        disconnect(m_primaryScreen, &QScreen::geometryChanged, this, &MainWindow::updateWinsize);
+    if(m_primaryScreen == screen)
+        return;
 
     m_primaryScreen = screen;
     updateWinsize();
