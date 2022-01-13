@@ -43,6 +43,8 @@
 #include <dslcontroller.h>
 #include <hotspotcontroller.h>
 
+#include <NetworkManagerQt/Manager>
+
 using namespace dde::network;
 using namespace dccV20;
 using namespace dcc;
@@ -57,6 +59,13 @@ DCCNetworkModule::DCCNetworkModule()
     QTranslator *translator = new QTranslator(this);
     translator->load(QString("/usr/share/dcc-network-plugin/translations/dcc-network-plugin_%1.qm").arg(QLocale::system().name()));
     QCoreApplication::installTranslator(translator);
+
+    connect(NetworkManager::notifier(), &Notifier::isStartingUpChanged, this, [] {
+        // 在服务重新启动后，需要手动调用一下每个设备的可用连接的函数，否则NetworkManager无法获取到连接
+        Device::List devices = networkInterfaces();
+        for (Device::Ptr device : devices)
+            device->availableConnections();
+    });
 }
 
 DCCNetworkModule::~DCCNetworkModule()

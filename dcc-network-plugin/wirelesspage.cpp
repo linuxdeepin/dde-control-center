@@ -442,7 +442,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_wirelessScanTimer->start(gsetting->get("wireless-scan-interval").toInt() * 1000);
 
     QTimer::singleShot(100, this, [ = ] {
-        m_device->scanNetwork();
+        if (m_device)
+            m_device->scanNetwork();
     });
 
     m_lvAP->setVisible(m_switch->checked() && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hidden");
