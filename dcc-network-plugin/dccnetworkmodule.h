@@ -44,6 +44,8 @@ namespace DCC_NAMESPACE {
   class FrameProxyInterface;
 }
 
+enum class PageType;
+
 using DBusAirplaneMode = com::deepin::daemon::AirplaneMode;
 
 using namespace DCC_NAMESPACE;
@@ -101,9 +103,9 @@ public:
 private:
     void removeConnEditPageByDevice(NetworkDeviceBase *dev);
     void initListConfig();
+    bool hasModule(const PageType &type);
 
 private Q_SLOTS:
-    void onDeviceChanged();
     void showWirelessEditPage(NetworkDeviceBase *dev, const QString &connUuid = QString(), const QString &apPath = QString());
 
     void showPppPage(const QString &searchPath);
@@ -115,10 +117,6 @@ private Q_SLOTS:
     void showDetailPage();
 
 private:
-    bool m_hasAp;
-    bool m_hasWired;
-    bool m_hasWireless;
-
     NetworkModuleWidget *m_indexWidget;
     ConnectionEditPage *m_connEditPage;
     DBusAirplaneMode *m_airplaneMode;

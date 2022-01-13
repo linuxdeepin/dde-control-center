@@ -41,6 +41,7 @@
 #include <wireddevice.h>
 #include <wirelessdevice.h>
 #include <dslcontroller.h>
+#include <hotspotcontroller.h>
 
 using namespace dde::network;
 using namespace dccV20;
@@ -49,10 +50,8 @@ using namespace dcc;
 DCCNetworkModule::DCCNetworkModule()
     : QObject()
     , ModuleInterface()
-    , m_hasAp(false)
-    , m_hasWired(false)
-    , m_hasWireless(false)
     , m_indexWidget(nullptr)
+    , m_connEditPage(nullptr)
     , m_airplaneMode(new DBusAirplaneMode("com.deepin.daemon.AirplaneMode", "/com/deepin/daemon/AirplaneMode", QDBusConnection::systemBus(), this))
 {
     QTranslator *translator = new QTranslator(this);
@@ -89,9 +88,9 @@ void DCCNetworkModule::preInitialize(bool sync, FrameProxyInterface::PushType)
 void DCCNetworkModule::initialize()
 {
     NetworkController *networkController = NetworkController::instance();
-    connect(networkController, &NetworkController::deviceRemoved, this, &DCCNetworkModule::onDeviceChanged);
-    connect(networkController, &NetworkController::deviceAdded, this, &DCCNetworkModule::onDeviceChanged);
-    onDeviceChanged();
+    connect(networkController, &NetworkController::deviceRemoved, this, &DCCNetworkModule::deviceChanged);
+    connect(networkController, &NetworkController::deviceAdded, this, &DCCNetworkModule::deviceChanged);
+    deviceChanged();
     // 后续的操作仍然使用异步，防止操作卡顿
     networkController->updateSync(false);
 }
@@ -228,16 +227,16 @@ void DCCNetworkModule::addChildPageTrans() const
 
 void DCCNetworkModule::initListConfig()
 {
-    auto func_is_visible = [](const QString &gsettings)->bool {
-        if (gsettings.isEmpty())
+    auto func_is_visible = [](const QString &key)->bool {
+        if (key.isEmpty())
             return false;
 
-        return GSettingWatcher::instance()->get(gsettings).toBool();
+        return GSettingWatcher::instance()->get(key).toBool();
     };
 
-    auto setModulVisible = [ func_is_visible, this ](const QString &key) {
-        bool visible = func_is_visible(key);
-        m_indexWidget->setModelVisible(key, visible);
+    auto setModulVisible = [ func_is_visible, this ](const QString &key, bool visible = true) {
+        bool isVisible = func_is_visible(key) && visible;
+        m_indexWidget->setModelVisible(key, isVisible);
     };
 
     setModulVisible("networkWired");
@@ -245,9 +244,38 @@ void DCCNetworkModule::initListConfig()
     setModulVisible("personalHotspot");
     setModulVisible("applicationProxy");
     setModulVisible("networkDetails");
-    setModulVisible("networkDsl");
+    setModulVisible("networkDsl", hasModule(PageType::DSLPage));
     setModulVisible("systemProxy");
     setModulVisible("networkVpn");
+}
+
+bool DCCNetworkModule::hasModule(const PageType &type)
+{
+    if (type == PageType::NonePage)
+        return false;
+
+    auto deviceExist = [ = ](const DeviceType &deviceType) {
+        QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
+        for (NetworkDeviceBase *device : devices) {
+            if (device->deviceType() == deviceType)
+                return true;
+        }
+
+        return false;
+    };
+
+    switch (type) {
+    case PageType::WiredPage:
+    case PageType::DSLPage:
+        return deviceExist(DeviceType::Wired);
+    case PageType::WirelessPage:
+        return deviceExist(DeviceType::Wireless);
+    case PageType::HotspotPage:
+        return NetworkController::instance()->hotspotController()->supportHotspot();
+    default: break;
+    }
+
+    return true;
 }
 
 void DCCNetworkModule::initSearchData()
@@ -261,6 +289,9 @@ void DCCNetworkModule::initSearchData()
     const QString& wirelessNetwork = tr("Wireless Network");
     const QString& dsl = tr("DSL");
     const QString& vpn = tr("VPN");
+    const bool wiredVisible = hasModule(PageType::WiredPage);
+    const bool wirelessVisible = hasModule(PageType::WirelessPage);
+    const bool hotspotsVisible = hasModule(PageType::HotspotPage);
     static QMap<QString, bool> gsettingsMap;
 
     auto func_is_visible = [ = ](const QString &gsettings)->bool {
@@ -341,12 +372,12 @@ void DCCNetworkModule::initSearchData()
         m_frameProxy->setDetailVisible(module, networkDetail, tr("Speed"), true);
     };
 
-    auto func_dsl_visible = [ = ] {
-        bool bDSL = func_is_visible("networkDsl");
+    auto func_dsl_visible = [ = ](bool visible) {
+        bool dslVisible = func_is_visible("networkDsl") && visible;
         if (m_indexWidget)
-            m_indexWidget->setModelVisible("networkDsl", bDSL);
-        m_frameProxy->setWidgetVisible(module, dsl, bDSL);
-        m_frameProxy->setDetailVisible(module, dsl, tr("Create PPPoE Connection"), bDSL);
+            m_indexWidget->setModelVisible("networkDsl", dslVisible);
+        m_frameProxy->setWidgetVisible(module, dsl, dslVisible);
+        m_frameProxy->setDetailVisible(module, dsl, tr("Create PPPoE Connection"), dslVisible);
     };
 
     auto func_sysproxy_visible = [ = ] {
@@ -372,18 +403,18 @@ void DCCNetworkModule::initSearchData()
     auto func_process_all = [ = ] {
         func_appproxy_visible();
         func_netdetails_visible();
-        func_dsl_visible();
+        func_dsl_visible(wiredVisible);
         func_sysproxy_visible();
         func_vpn_visible();
-        func_wired_visible(m_hasWired);
-        func_wireless_visible(m_hasWireless);
-        func_perhotspot_visible(m_hasAp);
+        func_wired_visible(wiredVisible);
+        func_wireless_visible(wirelessVisible);
+        func_perhotspot_visible(hotspotsVisible);
      };
 
     connect(this, &DCCNetworkModule::deviceChanged, this, [ = ] {
-        func_wired_visible(m_hasWired);
-        func_wireless_visible(m_hasWireless);
-        func_perhotspot_visible(m_hasAp);
+        func_wired_visible(hasModule(PageType::WiredPage));
+        func_wireless_visible(hasModule(PageType::WirelessPage));
+        func_perhotspot_visible(hasModule(PageType::HotspotPage));
         m_frameProxy->updateSearchData(module);
     });
 
@@ -399,15 +430,15 @@ void DCCNetworkModule::initSearchData()
         } else if ("networkDetails" == gsetting) {
             func_netdetails_visible();
         } else if ("networkDsl" == gsetting) {
-            func_dsl_visible();
+            func_dsl_visible(wiredVisible);
         } else if ("systemProxy" == gsetting) {
             func_sysproxy_visible();
         } else if ("networkVpn" == gsetting) {
             func_vpn_visible();
         } else if ("networkWired" == gsetting || "networkWireless" == gsetting || "personalHotspot" == gsetting) {
-            func_wired_visible(m_hasWired);
-            func_wireless_visible(m_hasWireless);
-            func_perhotspot_visible(m_hasAp);
+            func_wired_visible(wiredVisible);
+            func_wireless_visible(wirelessVisible);
+            func_perhotspot_visible(hotspotsVisible);
         } else {
             qWarning() << " not contains the gsettings : " << gsetting << state;
             return;
@@ -426,34 +457,6 @@ void DCCNetworkModule::removeConnEditPageByDevice(NetworkDeviceBase *dev)
         m_connEditPage->onDeviceRemoved();
         m_connEditPage = nullptr;
     }
-}
-
-void DCCNetworkModule::onDeviceChanged()
-{
-    m_hasAp = false;
-    m_hasWired = false;
-    m_hasWireless = false;
-
-    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
-    for (NetworkDeviceBase *dev : devices) {
-        if (dev->deviceType() == DeviceType::Wired)
-            m_hasWired = true;
-
-        if (dev->deviceType() != DeviceType::Wireless)
-            continue;
-
-        m_hasWireless = true;
-        if (static_cast<WirelessDevice*>(dev)->supportHotspot()) {
-            m_hasAp = true;
-            break;
-        }
-    }
-
-    m_frameProxy->setRemoveableDeviceStatus(tr("Wired Network"), m_hasWired);
-    m_frameProxy->setRemoveableDeviceStatus(tr("Wireless Network"), m_hasWireless);
-    m_frameProxy->setRemoveableDeviceStatus(tr("Personal Hotspot"), m_hasAp);
-
-    Q_EMIT deviceChanged();
 }
 
 void DCCNetworkModule::showWirelessEditPage(NetworkDeviceBase *dev, const QString &connUuid, const QString &apPath)

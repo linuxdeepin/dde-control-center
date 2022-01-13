@@ -400,12 +400,33 @@ void NetworkModuleWidget::onDeviceStatusChanged()
     }
 }
 
+static bool wiredExist(const QList<NetworkDeviceBase *> &devices)
+{
+    for (NetworkDeviceBase *device : devices) {
+        if (device->deviceType() == DeviceType::Wired)
+            return true;
+    }
+
+    return false;
+}
+
 void NetworkModuleWidget::onDeviceChanged()
 {
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
+
+    // 查询是否存在有线网络，来决定是否显示DSL模块，只要存在有线网络，就显示DSL，否则，不显示DSL
+    bool hasWired = wiredExist(devices);
+    setModelVisible("networkDsl", hasWired);
+
+    // 在新增项或删除项的过程中会触发QItemSelectionModel::currentChanged的信号，因此，先将此处的信号进行阻塞
+    m_lvnmpages->selectionModel()->blockSignals(true);
+
     QModelIndex currentIndex = m_lvnmpages->currentIndex();
     PageType pageType = currentIndex.data(SectionRole).value<PageType>();
     NetworkDeviceBase *currentDevice = currentIndex.data(DeviceRole).value<NetworkDeviceBase *>();
+    // 如果当前选择的是隐藏项，则让其默认为NonePage，此时选中的就是第一个页面
+    if (m_lvnmpages->isRowHidden(currentIndex.row()))
+        pageType = PageType::NonePage;
 
     for (int i = m_modelpages->rowCount() - 1; i >= 0; i--) {
         QStandardItem *item = m_modelpages->item(i);
@@ -434,11 +455,14 @@ void NetworkModuleWidget::onDeviceChanged()
              //~ contents_path /network/WirelessPage
             deviceItem->setData(QVariant::fromValue(PageType::WirelessPage), SectionRole);
             deviceItem->setIcon(QIcon::fromTheme("dcc_wifi"));
-        } else {
+        } else if (device->deviceType() == DeviceType::Wired){
              //~ contents_path /network/Wired Network
             deviceItem->setData(QVariant::fromValue(PageType::WiredPage), SectionRole);
             deviceItem->setIcon(QIcon::fromTheme("dcc_ethernet"));
+        } else {
+            continue;
         }
+
         deviceItem->setData(QVariant::fromValue(device), DeviceRole);
 
         QPointer<DViewItemAction> dummyStatus(new DViewItemAction(Qt::AlignmentFlag::AlignRight | Qt::AlignmentFlag::AlignVCenter));
@@ -518,8 +542,16 @@ void NetworkModuleWidget::onDeviceChanged()
         }
     }
 
-    if (newRowIndex < 0)
-        newRowIndex = 0;
+    if (newRowIndex < 0) {
+        for (int i = 0; i < m_modelpages->rowCount(); i++) {
+            if (!m_lvnmpages->isRowHidden(i)) {
+                newRowIndex = i;
+                break;
+            }
+        }
+    }
+
+    m_lvnmpages->selectionModel()->blockSignals(false);
 
     setCurrentIndex(newRowIndex);
     m_switchIndex = true;

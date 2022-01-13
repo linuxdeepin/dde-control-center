@@ -164,12 +164,10 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
             }
 
             // 根据标志位InterfaceFlags判断网络连接是否有效
-            if (type != DeviceType::Wireless) {
-                if (!deviceInfo.value("InterfaceFlags").isUndefined()) {
-                    if (!(deviceInfo.value("InterfaceFlags").toInt() & DEVICE_INTERFACE_FLAG_UP)) {
-                        PRINT_DEBUG_MESSAGE(QString("Interface_flag_up: %1").arg(deviceInfo.value("Interface").toString()));
-                        continue;
-                    }
+            if (!deviceInfo.value("InterfaceFlags").isUndefined()) {
+                if (!(deviceInfo.value("InterfaceFlags").toInt() & DEVICE_INTERFACE_FLAG_UP)) {
+                    PRINT_DEBUG_MESSAGE(QString("Interface_flag_up: %1").arg(deviceInfo.value("Interface").toString()));
+                    continue;
                 }
             }
 
@@ -290,23 +288,24 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
     // 如果发现有Manager=false的对象，则让它等一秒后从设备列表中移除manager==false的对象，因为可能是关闭热点引起的Manager=false
     if (unManager) {
         QTimer::singleShot(1000, this, [ this ] {
-            QList<NetworkDeviceBase *> rmDevices;
+            QList<NetworkDeviceBase *> unManagerDevices;
             for (NetworkDeviceBase *device : m_devices) {
                 if (!device->managed())
-                    rmDevices << device;
+                    unManagerDevices << device;
             }
-            if (rmDevices.size() > 0) {
-                for (NetworkDeviceBase *device : rmDevices)
+
+            if (unManagerDevices.size() > 0) {
+                for (NetworkDeviceBase *device : unManagerDevices)
                     m_devices.removeOne(device);
 
-                for (NetworkDeviceBase *device : rmDevices)
+                for (NetworkDeviceBase *device : unManagerDevices)
                     Q_EMIT device->removed();
 
-                Q_EMIT deviceRemoved(rmDevices);
+                Q_EMIT deviceRemoved(unManagerDevices);
                 // 在移除设备后，需要立刻将网络详情中对应的项移除
                 updateNetworkDetails();
                 // 删除对象
-                for (NetworkDeviceBase *device : rmDevices)
+                for (NetworkDeviceBase *device : unManagerDevices)
                     delete device;
             }
         });
