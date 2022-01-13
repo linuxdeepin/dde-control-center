@@ -242,7 +242,7 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
 {
     Port *port = findPort(portId, cardId);
     if (port) {
-        Q_EMIT portRemoved(portId, cardId);
+        Q_EMIT portRemoved(portId, cardId, port->direction());
         m_ports.removeOne(port);
 
         if (port->direction() == Port::Out) {

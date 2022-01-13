@@ -66,7 +66,6 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_fristChangePort(true)
     , m_fristStatusChangePort(true)
     , m_waitStatusChangeTimer(new QTimer (this))
-    , m_waitCurrentPortRemove( new QTimer (this))
 {
     const int titleLeftMargin = 8;
 
@@ -94,14 +93,16 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     m_layout->addWidget(labelOutput);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_waitStatusChangeTimer->setSingleShot(true);
-    m_waitCurrentPortRemove->setSingleShot(true);
+    connect(m_waitStatusChangeTimer, &QTimer::timeout, this, [ = ] {
+        refreshActivePortShow(m_currentPort);
+        showWaitSoundPortStatus(true);
+    });
     setLayout(m_layout);
 }
 
 SpeakerPage::~SpeakerPage()
 {
     m_waitStatusChangeTimer->stop();
-    m_waitCurrentPortRemove->stop();
     GSettingWatcher::instance()->erase("soundOutputSlider");
     GSettingWatcher::instance()->erase("soundVolumeBoost");
     GSettingWatcher::instance()->erase("soundBalanceSlider");
@@ -162,44 +163,31 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     initCombox();
 }
 
-void SpeakerPage::removePort(const QString &portId, const uint &cardId)
+void SpeakerPage::removePort(const QString &portId, const uint &cardId, const dcc::sound::Port::Direction &direction)
 {
-    // TODO: 用户快速插拔耳机， 1S 内没有及时响应， 下次进入加先删除上次未删除的端口
-    if ((m_outputModel->rowCount() != m_model->ports().size()) && (m_lastRmPortIndex != -1)) {
-            m_outputModel->removeRow(m_lastRmPortIndex);
-            m_lastRmPortIndex = -1;
-    }
+    if (direction != dcc::sound::Port::Direction::Out)
+        return;
 
+    // 先阻塞m_outputSoundCbx切换信号，避免移除当前端口时被动触发切换端口信号，而新的当前端口由是后端确定
+    m_outputSoundCbx->blockSignals(true);
+    m_outputSoundCbx->comboBox()->hidePopup();
+
+    // 查找移除的端口直接从model中移除，如果是当前端口直接设置为空，新的当前端口由后端确定，控制中心响应信号设置当前端口
     for (int i = 0; i < m_outputModel->rowCount(); i++) {
         auto item = m_outputModel->item(i);
         auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
         if (port && port->id() == portId && cardId == port->cardId()) {
-            m_outputSoundCbx->comboBox()->hidePopup();
-            if (m_currentPort && m_currentPort->id() == portId && m_currentPort->cardId() == cardId)
+            m_outputModel->removeRow(i);
+            if (m_currentPort && m_currentPort->id() == portId && m_currentPort->cardId() == cardId) {
                 m_currentPort = nullptr;
-
-            if (m_outputModel->rowCount() == 1) {
-                m_outputModel->removeRow(i);
-                showDevice();
-                return;
             }
-
-            m_lastRmPortIndex = i;
+            break;
         }
     }
-    // 由于移除端口没有做输入输出区分
-    if (m_lastRmPortIndex == -1)
-        return;
 
-    m_outputSoundCbx->blockSignals(true);
-    m_waitCurrentPortRemove->disconnect();
-    connect(m_waitCurrentPortRemove, &QTimer::timeout, this, [=](){
-        m_outputSoundCbx->blockSignals(false);
-        m_outputModel->removeRow(m_lastRmPortIndex);
-        m_lastRmPortIndex = -1;
-    });
-    m_waitCurrentPortRemove->start(m_waitTimerValue);
     changeComboxStatus();
+    showDevice();
+    m_outputSoundCbx->blockSignals(false);
 }
 
 void SpeakerPage::changeComboxIndex(const int idx)
@@ -227,11 +215,7 @@ void SpeakerPage::changeComboxStatus()
         showWaitSoundPortStatus(true);
         m_fristStatusChangePort = false;
     } else {
-        m_waitStatusChangeTimer->disconnect();
-        connect(m_waitStatusChangeTimer, &QTimer::timeout, this, [=](){
-            refreshActivePortShow(m_currentPort);
-            showWaitSoundPortStatus(true);
-        });
+        m_waitStatusChangeTimer->stop();
     }
     m_waitStatusChangeTimer->start(m_waitTimerValue);
     showDevice();

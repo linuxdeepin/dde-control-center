@@ -75,7 +75,7 @@ Q_SIGNALS:
    void requestMute(bool flag = true);
 
 private Q_SLOTS:
-    void removePort(const QString &portId, const uint &cardId);
+    void removePort(const QString &portId, const uint &cardId, const dcc::sound::Port::Direction &direction);
     void addPort(const dcc::sound::Port *port);
     void toggleMute();
     void changeComboxIndex(const int idx);
@@ -112,7 +112,6 @@ private:
     bool m_fristChangePort;
     bool m_currentBluetoothPortStatus;
     QTimer *m_waitStatusChangeTimer;
-    QTimer *m_waitCurrentPortRemove;
 };
 
 }

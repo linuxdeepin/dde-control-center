@@ -69,7 +69,6 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_fristChangePort(true)
     , m_currentBluetoothPortStatus(true)
     , m_waitStatusChangeTimer(new QTimer (this))
-    , m_waitCurrentPortRemove( new QTimer (this))
 {
     const int titleLeftMargin = 8;
     TitleLabel *labelInput = new TitleLabel(tr("Input"));
@@ -93,14 +92,18 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     m_layout->addWidget(labelInput);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_waitStatusChangeTimer->setSingleShot(true);
-    m_waitCurrentPortRemove->setSingleShot(true);
+
+    connect(m_waitStatusChangeTimer, &QTimer::timeout, this, [ = ] {
+        refreshActivePortShow(m_currentPort);
+        showWaitSoundPortStatus(true);
+    });
+
     setLayout(m_layout);
 }
 
 MicrophonePage::~MicrophonePage()
 {
     m_waitStatusChangeTimer->stop();
-    m_waitCurrentPortRemove->stop();
 
 #ifndef DCC_DISABLE_FEEDBACK
     if (m_feedbackSlider)
@@ -181,44 +184,31 @@ void MicrophonePage::setModel(SoundModel *model)
     initCombox();
 }
 
-void MicrophonePage::removePort(const QString &portId, const uint &cardId)
+void MicrophonePage::removePort(const QString &portId, const uint &cardId, const dcc::sound::Port::Direction &direction)
 {
-    if ((m_inputModel->rowCount() != m_model->ports().size()) && (m_lastRmPortIndex != -1)) {
-        m_inputModel->removeRow(m_lastRmPortIndex);
-        m_lastRmPortIndex = -1;
-    }
+    if (direction != dcc::sound::Port::Direction::In)
+        return;
 
+    // 先阻塞m_outputSoundCbx切换信号，避免移除当前端口时被动触发切换当前端口信号，而新的当前端口由是后端确定
+    m_inputSoundCbx->blockSignals(true);
+    m_inputSoundCbx->comboBox()->hidePopup();
+
+    // 查找移除的端口直接从model中移除，如果是当前端口直接设置为空，新的当前端口由后端确定，控制中心响应信号设置当前端口
     for (int i = 0; i < m_inputModel->rowCount(); ++i) {
         auto item = m_inputModel->item(i);
         auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
         if (port && port->id() == portId && cardId == port->cardId()) {
-            m_inputSoundCbx->comboBox()->hidePopup();
-            if (m_currentPort->id() == portId && m_currentPort->cardId() == cardId)
+            m_inputModel->removeRow(i);
+            if (m_currentPort->id() == portId && m_currentPort->cardId() == cardId) {
                 m_currentPort = nullptr;
-
-            // 当只有一个端口 拔出端口后直接移除，不进行延迟置灰操作
-            if (m_inputModel->rowCount() == 1) {
-                m_inputModel->removeRow(i);
-                showDevice();
-                return;
             }
-            m_lastRmPortIndex = i;
+            break;
         }
     }
 
-    if (m_lastRmPortIndex == -1)
-        return;
-
-    m_inputSoundCbx->blockSignals(true);
-    m_waitCurrentPortRemove->disconnect();
-    connect(m_waitCurrentPortRemove, &QTimer::timeout, this, [=](){
-        m_inputSoundCbx->blockSignals(false);
-        m_inputModel->removeRow(m_lastRmPortIndex);
-        m_lastRmPortIndex = -1;
-    });
-    m_waitCurrentPortRemove->start(m_waitTimerValue);
     changeComboxStatus();
     showDevice();
+    m_inputSoundCbx->blockSignals(false);
 }
 
 void MicrophonePage::changeComboxIndex(const int idx)
@@ -242,11 +232,7 @@ void MicrophonePage::changeComboxIndex(const int idx)
 void MicrophonePage::changeComboxStatus()
 {
     showWaitSoundPortStatus(false);
-    m_waitStatusChangeTimer->disconnect();
-    connect(m_waitStatusChangeTimer, &QTimer::timeout, this, [=](){
-        refreshActivePortShow(m_currentPort);
-        showWaitSoundPortStatus(true);
-    });
+    m_waitStatusChangeTimer->stop();
     m_waitStatusChangeTimer->start(m_waitTimerValue);
 }
 

@@ -359,8 +359,7 @@ void SoundWorker::cardsChanged(const QString &cards)
         //if the card is not in the list
         if (!tmpCardIds.contains(port->cardId())) {
             m_model->removePort(port->id(), port->cardId());
-        }
-        else if (!tmpCardIds[port->cardId()].contains(port->id())) {
+        } else if (!tmpCardIds[port->cardId()].contains(port->id())) {
             m_model->removePort(port->id(), port->cardId());
         }
     }

@@ -242,7 +242,7 @@ Q_SIGNALS:
     void microphoneFeedbackChanged(double microphoneFeedback) const;
 #endif
     void portAdded(const Port *port);
-    void portRemoved(const QString & portId, const uint &cardId);
+    void portRemoved(const QString & portId, const uint &cardId, const Port::Direction &direction);
     void soundDeviceStatusChanged();
     void soundEffectDataChanged(DDesktopServices::SystemSoundEffect effect, const bool enable);
     void enableSoundEffectChanged(bool enableSoundEffect);
