@@ -1365,7 +1365,9 @@ bool MainWindow::GrandSearchAction(const QString json)
     if(moduleName.isEmpty() || pageName.isEmpty())
         return false;
 
-    showModulePage(moduleName,pageName,false);
+    show();
+    activateWindow();
+    m_searchWidget->jumpContentPathWidget(searchName);
     return true;
 }
 
