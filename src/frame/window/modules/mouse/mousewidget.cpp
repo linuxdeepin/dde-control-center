@@ -82,6 +82,7 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
     m_mouseListView->setRowHidden(3, !redPointExist);
     m_mouseListView->setViewportMargins(ScrollAreaMargins);
     m_mouseListView->setIconSize(ListViweIconSize);
+    m_mouseListView->resetStatus(m_lastIndex);
     connect(m_mouseListView, &DListView::clicked, this, &MouseWidget::onItemClicked);
     connect(m_mouseListView, &DListView::activated, m_mouseListView, &QListView::clicked);
     connect(this, &MouseWidget::tpadExistChanged, this, [this](bool bExist) {
@@ -96,16 +97,21 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
 
 void MouseWidget::initSetting(const int settingIndex)
 {
-    m_mouseListView->setCurrentIndex(m_listviewModel->index(settingIndex, 0));
     m_mouseListView->clicked(m_listviewModel->index(settingIndex, 0));
 }
 
 void MouseWidget::onItemClicked(const QModelIndex &index)
 {
-    if (m_lastIndex == index) return;
+    if (index == m_lastIndex || index.row() > m_mouseListView->count() - 1)
+        return;
+
+    if (index.row() < 0 || m_mouseListView->isRowHidden(index.row())) {
+        m_mouseListView->resetStatus(m_lastIndex);
+        return;
+    }
 
     m_lastIndex = index;
-    switch (index.row()) {
+    switch (m_lastIndex.row()) {
     case 0:
         Q_EMIT showGeneralSetting();
         break;
@@ -122,5 +128,7 @@ void MouseWidget::onItemClicked(const QModelIndex &index)
         Q_EMIT showGeneralSetting();
         break;
     }
-    m_mouseListView->resetStatus(index);
+
+    m_mouseListView->setCurrentIndex(m_lastIndex);  
+    m_mouseListView->resetStatus(m_lastIndex);
 }
