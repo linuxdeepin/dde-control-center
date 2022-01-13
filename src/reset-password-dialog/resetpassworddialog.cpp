@@ -232,10 +232,14 @@ void ResetPasswordDialog::initWidget()
     newPasswordLayout->addLayout(newPasswdLevelLayout);
     mainContentLayout->addLayout(newPasswordLayout);
     mainContentLayout->addWidget(m_newPasswordEdit);
+    m_newPasswordEdit->setCopyEnabled(false);
+    m_newPasswordEdit->setCutEnabled(false);
 
     QLabel *repeatPasswordLabel = new QLabel(tr("Repeat Password") + ":");
     mainContentLayout->addWidget(repeatPasswordLabel);
     mainContentLayout->addWidget(m_repeatPasswordEdit);
+    m_repeatPasswordEdit->setCopyEnabled(false);
+    m_repeatPasswordEdit->setCutEnabled(false);
 
     QLabel *passwdTipsLabel = new QLabel(tr("Password Hint") + ":");
     mainContentLayout->addWidget(passwdTipsLabel);

@@ -345,6 +345,8 @@ void ModifyPasswdPage::setPasswordEditAttribute(DPasswordEdit *edit)
 {
     edit->setAttribute(Qt::WA_InputMethodEnabled, false);
     edit->lineEdit()->setValidator(new QRegExpValidator(QRegExp("[^\\x4e00-\\x9fa5]+")));
+    edit->setCopyEnabled(false);
+    edit->setCutEnabled(false);
 }
 
 void ModifyPasswdPage::resetPassword(const QString &password, const QString &repeatPassword)
