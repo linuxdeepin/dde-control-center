@@ -138,8 +138,19 @@ void DisplayModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
     connect(m_displayModel, &DisplayModel::monitorListChanged, this, [=] {
         if (m_pMainWindow) {
             for (auto mon : m_displayModel->monitorList()) {
-                if (mon->isPrimary())
+                if (mon->isPrimary()) {
                     m_pMainWindow->setPrimaryScreen(mon->getQScreen());
+                }
+            }
+        }
+    });
+
+    connect(m_displayModel, &DisplayModel::primaryScreenChanged, this, [=] (QString primary) {
+        if (m_pMainWindow && !primary.isEmpty()) {
+            for (auto mon : m_displayModel->monitorList()) {
+                if (mon->name() == primary) {
+                    m_pMainWindow->setPrimaryScreen(mon->getQScreen());
+                }
             }
         }
     });

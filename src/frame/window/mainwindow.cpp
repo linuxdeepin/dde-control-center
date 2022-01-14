@@ -428,7 +428,7 @@ void MainWindow::initAllModule(const QString &m)
 
 void MainWindow::updateWinsize(QRect rect)
 {
-    if(!m_primaryScreen)
+    if (!qApp->screens().contains(m_primaryScreen))
         return;
 
     int w = m_primaryScreen->geometry().width();
