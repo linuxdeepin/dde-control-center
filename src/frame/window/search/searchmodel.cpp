@@ -434,7 +434,8 @@ void SearchModel::appendChineseData(SearchBoxStruct::Ptr data)
                             .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->translateContent.remove(QRegularExpression(R"([a-zA-Z]+)")))));
 
         // 如果模块名称中英文相同则不继续添加拼音搜索显示,否则会重复索引
-        if (dataBackup->actualModuleName == DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->actualModuleName)) return;
+        // guoyao：针对Union ID（中文环境使用英文模块名），dataBackup->actualModuleName将被过滤为空，所以会return掉；但是data数据并不会更改，所以用data数据进行判断即可
+        if (data->actualModuleName == DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->actualModuleName)) return;
 
         //添加显示的汉字(用于拼音搜索显示)
         appendRow(new QStandardItem(icon.value(), hanziTxt));
