@@ -115,74 +115,76 @@
         <translation>Nama penuh terlalu panjang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="373"/>
         <source>Validity Days</source>
         <translation>Hari Sah</translation>
+        <extra-contents_path>/accounts/Validity Days</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="414"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="416"/>
         <source>Account Settings</source>
         <translation type="unfinished"/>
+        <extra-contents_path>/accounts/Account Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="429"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="431"/>
         <source>Change Password</source>
         <translation>Ubah Kata Laluan</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="429"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="431"/>
         <source>Reset Password</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="431"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="433"/>
         <source>Delete Account</source>
         <translation>Padam Akaun</translation>
         <extra-contents_path>/accounts/Delete Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="433"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="435"/>
         <source>Auto Login</source>
         <translation>Daftar Masuk Automatik</translation>
         <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="436"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="438"/>
         <source>Login Without Password</source>
         <translation>Daftar Masuk Tanpa Kata Laluan</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="441"/>
         <source>Administrator</source>
         <translation>Pentadbir</translation>
-        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+        <extra-contents_path>/accounts/Administrator</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="472"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="473"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation>Hanya satu akaun boleh guna  &quot;Daftar Masuk Automatik&quot;. Jika diteruskan, pilihan tersebut akan dilumpuhkan untuk akaun lain.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="474"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="475"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="476"/>
         <source>Enable</source>
         <translation>Benarkan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="603"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="604"/>
         <source>Group</source>
         <translation>Kumpulan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="651"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="659"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="668"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="652"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="660"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="669"/>
         <source>The name already exists</source>
         <translation>Nama sudah wujud</translation>
     </message>
@@ -196,47 +198,59 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="160"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="267"/>
         <source>Create Account</source>
         <translation>Cipta Akaun</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="161"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="260"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="306"/>
         <source>Auto Login</source>
         <translation>Daftar Masuk Automatik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="162"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="310"/>
         <source>Login Without Password</source>
         <translation>Daftar Masuk Tanpa Kata Laluan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="271"/>
+        <source>Validity Days</source>
+        <translation>Hari Sah</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="252"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="298"/>
         <source>Change Password</source>
         <translation>Ubah Kata Laluan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="164"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="256"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="302"/>
         <source>Delete Account</source>
         <translation>Padam Akaun</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="165"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="247"/>
-        <source>Fingerprint Password</source>
-        <translation>Kata Laluan Cap Jari</translation>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="269"/>
+        <source>Account Settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="270"/>
+        <source>Administrator</source>
+        <translation>Pentadbir</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="267"/>
         <source>New Account</source>
         <translation>Akaun Baharu</translation>
     </message>
@@ -475,7 +489,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="366"/>
         <source>Passwords do not match</source>
         <translation>Kata laluan tidak sepadan</translation>
     </message>
@@ -498,7 +512,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="373"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation type="unfinished"/>
     </message>
@@ -518,12 +532,12 @@
         <translation>Pergi ke Tetapan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="448"/>
         <source>System error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="450"/>
         <source>Network error</source>
         <translation type="unfinished"/>
     </message>
@@ -537,7 +551,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="188"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
         <translation type="unfinished"/>
     </message>
@@ -548,37 +562,37 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="110"/>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="193"/>
         <source>Next</source>
         <translation>Berikutnya</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="200"/>
         <source>Face enrolled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="203"/>
         <source>Use your face to unlock the device and make settings later</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
         <source>Done</source>
         <translation>Selesai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="212"/>
         <source>Failed to enroll your face</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="219"/>
         <source>Try Again</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="222"/>
         <source>Close</source>
         <translation>Tutup</translation>
     </message>
@@ -729,7 +743,7 @@
 <context>
     <name>dccV20::authentication::FaceidDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/faceiddetailwidget.cpp" line="22"/>
+        <location filename="../src/frame/window/modules/authentication/faceiddetailwidget.cpp" line="24"/>
         <source>No supported devices found</source>
         <translation type="unfinished"/>
     </message>
@@ -737,7 +751,7 @@
 <context>
     <name>dccV20::authentication::FingerDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="62"/>
         <source>No supported devices found</source>
         <translation type="unfinished"/>
     </message>
@@ -780,7 +794,7 @@
 <context>
     <name>dccV20::authentication::IrisDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/irisdetailwidget.cpp" line="22"/>
+        <location filename="../src/frame/window/modules/authentication/irisdetailwidget.cpp" line="23"/>
         <source>No supported devices found</source>
         <translation type="unfinished"/>
     </message>
@@ -827,7 +841,7 @@
 <context>
     <name>dccV20::authentication::LoginOptionsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="53"/>
         <source>Biometric Authentication</source>
         <translation type="unfinished"/>
     </message>
@@ -856,29 +870,31 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="65"/>
         <source>Show Bluetooth devices without names</source>
         <translation>Tunjuk peranti Bluetooth tanpa nama</translation>
+        <extra-contents_path>/bluetooth/Show Bluetooth devices without names</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="67"/>
         <source>Allow other Bluetooth devices to find this device</source>
         <translation>Izin peranti Bluetooth lain mencari peranti ini</translation>
+        <extra-contents_path>/bluetooth/Allow other Bluetooth devices to find this device</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>My Devices</source>
         <translation>Peranti Saya</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="71"/>
         <source>Other Devices</source>
         <translation>Peranti Lain</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="168"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Benarkan Bluetooth untuk mencari peranti berhampiran (pembesar suara, papan kekunci, tetikus)</translation>
         <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
@@ -893,21 +909,33 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="124"/>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="139"/>
         <source>My Devices</source>
         <translation>Peranti Saya</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="125"/>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="140"/>
         <source>Other Devices</source>
         <translation>Peranti Lain</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="126"/>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="141"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Benarkan Bluetooth untuk mencari peranti berhampiran (pembesar suara, papan kekunci, tetikus)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="142"/>
+        <source>Show Bluetooth devices without names</source>
+        <translation>Tunjuk peranti Bluetooth tanpa nama</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="143"/>
+        <source>Allow other Bluetooth devices to find this device</source>
+        <translation>Izin peranti Bluetooth lain mencari peranti ini</translation>
     </message>
 </context>
 <context>
@@ -966,104 +994,108 @@
         <translation>Mengemas kini...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="119"/>
         <source>Startup Delay</source>
         <translation>Lengah Permulaan</translation>
+        <extra-child_page>Boot Menu</extra-child_page>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="124"/>
         <source>Theme</source>
         <translation>Tema</translation>
+        <extra-child_page>Boot Menu</extra-child_page>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="127"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>Klik pilihan dalam menu but untuk tetap ia sebagai but pertama, kemudian seret dan lepas satu gambar untuk mengubah latar belakang.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="128"/>
         <source>Click the option in boot menu to set it as the first boot</source>
         <translation>Klik pilihan dalam menu but untuk menetapkannya sebagai but pertama</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="137"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>Tukar tema untuk melihatnya di dalam menu but</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="162"/>
         <source>GRUB Authentication</source>
         <translation type="unfinished"/>
+        <extra-child_page>Boot Menu</extra-child_page>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="167"/>
         <source>GRUB password is required to edit its configuration</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="174"/>
         <source>Change Password</source>
         <translation>Ubah Kata Laluan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="180"/>
         <source>Boot Menu</source>
         <translation>Menu But</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="381"/>
         <source>Change GRUB password</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="386"/>
         <source>Username:</source>
         <translation>Nama Pengguna:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="387"/>
         <source>root</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="388"/>
         <source>New password:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="389"/>
         <source>Repeat password:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="388"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="389"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="392"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="393"/>
         <source>Required</source>
         <translation>Diperlukan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="407"/>
         <source>Cancel</source>
         <comment>button</comment>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="408"/>
         <source>Confirm</source>
         <comment>button</comment>
         <translation>Sahkan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="414"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="448"/>
         <source>Password cannot be empty</source>
         <translation>Kata laluan tidak boleh kosong</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="427"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="431"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="461"/>
         <source>Passwords do not match</source>
         <translation>Kata laluan tidak sepadan</translation>
     </message>
@@ -1083,13 +1115,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="264"/>
         <source>Developer Mode</source>
         <translation>Mod Pembangun</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="181"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="266"/>
         <source>User Experience Program</source>
         <translation>Program Pengalaman Pengguna</translation>
     </message>
@@ -1104,33 +1136,40 @@
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="263"/>
+        <source>GRUB Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="265"/>
         <source>Join User Experience Program</source>
         <translation>Sertai Program Pengalaman Pengguna</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="307"/>
+        <source>Request Root Access</source>
+        <translation>Mohon Capaian Akar</translation>
     </message>
 </context>
 <context>
     <name>dccV20::commoninfo::CommonInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="104"/>
         <source>Boot Menu</source>
         <translation>Menu But</translation>
-        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="111"/>
         <source>Developer Mode</source>
         <translation>Mod Pembangun</translation>
-        <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="114"/>
         <source>User Experience Program</source>
         <translation>Program Pengalaman Pengguna</translation>
-        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="118"/>
         <source>Tablet Mode</source>
         <translation>Mod Tablet</translation>
     </message>
@@ -1138,48 +1177,48 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="118"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="136"/>
         <source>Failed to get root access</source>
         <translation>Gagal mendapatkan capaian root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="126"/>
         <source>Please sign in to your Union ID first</source>
         <translation>Sila daftar masuk ke ID Union anda terlebih dahulu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="128"/>
         <source>Cannot read your PC information</source>
         <translation>Tidak dapat membaca maklumat PC anda</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="130"/>
         <source>No network connection</source>
         <translation>Tiada sambungan rangkaian</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="132"/>
         <source>Certificate loading failed, unable to get root access</source>
         <translation>Sijil gagal dimuatkan, tidak boleh mendapatkan capaian akar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="134"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation>Pengesahan tanda tangan gagal, tidak boleh mendapatkan capaian akar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="307"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Setuju dan Sertai Program Pengalaman Pengguna</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="365"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="371"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Penafian Mod Pembangun</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="372"/>
         <source>Agree and Request Root Access</source>
         <translation>Setuju dan Mohon Capaian Akar</translation>
     </message>
@@ -1241,69 +1280,71 @@
 <context>
     <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="58"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="216"/>
         <source>Request Root Access</source>
         <translation>Mohon Capaian Akar</translation>
+        <extra-child_page>Developer Mode</extra-child_page>
+        <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="62"/>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
         <translation>Mod pembangun membolehkan anda dapatkan kelayakan akar, pasang dan jalankan apl tiada tanda tangan yang tidak tersenarai dalam kedai, tetapi integriti sistem anda boleh rosak, sila guna ia dengan hati-hati.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="67"/>
         <source>The feature is not available at present, please activate your system first</source>
         <translation>Fitur ini tidak tersedia masa kini, sila aktifkan sistem anda terlebih dahulu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="114"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="129"/>
         <source>Failed to get root access</source>
         <translation>Gagal mendapatkan capaian akar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="119"/>
         <source>Please sign in to your Union ID first</source>
         <translation>Sila daftar masuk ke ID Union anda terlebih dahulu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="121"/>
         <source>Cannot read your PC information</source>
         <translation>Tidak dapat membaca maklumat PC anda</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="123"/>
         <source>No network connection</source>
         <translation>Tiada sambungan rangkaian</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="125"/>
         <source>Certificate loading failed, unable to get root access</source>
         <translation>Sijil gagal dimuatkan, tidak boleh mendapatkan capaian akar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="127"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation>Pengesahan tanda tangan gagal, tidak boleh mendapatkan capaian akar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="170"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
         <translation>Untuk memastikan beberapa fitur berkesan, satu mula semula diperlukan. Mula semula sekarang?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="171"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="171"/>
         <source>Restart Now</source>
         <translation>Mula Semula Sekarang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="209"/>
         <source>Root Access Allowed</source>
         <translation>Capaian Akar Dibenarkan</translation>
     </message>
@@ -1311,28 +1352,29 @@
 <context>
     <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="51"/>
         <source>Join User Experience Program</source>
         <translation>Sertai Program Pengalaman Pengguna</translation>
+        <extra-child_page>User Experience Program</extra-child_page>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="54"/>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
         <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="54"/>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
         <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="56"/>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="61"/>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
         <translation type="unfinished"/>
     </message>
@@ -1354,54 +1396,56 @@
 <context>
     <name>dccV20::datetime::DateSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="82"/>
         <source>Auto Sync</source>
         <translation>Auto Segerak</translation>
+        <extra-child_page>Time Settings</extra-child_page>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="91"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="225"/>
         <source>Confirm</source>
         <translation>Sahkan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="142"/>
         <source>Server</source>
         <translation>Pelayan</translation>
+        <extra-child_page>Time Settings</extra-child_page>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="150"/>
         <source>Address</source>
         <translation>Alamat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="152"/>
         <source>Required</source>
         <translation>Diperlukan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="158"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="246"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="286"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="299"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="345"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="353"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="408"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="471"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="473"/>
         <source>Customize</source>
         <translation>Suaikan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="225"/>
         <source>Save</source>
         <translation>Simpan</translation>
     </message>
@@ -1436,88 +1480,87 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="202"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="215"/>
-        <source>Format Settings</source>
-        <translation>Tetapan Format</translation>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="214"/>
+        <source>Time Format</source>
+        <translation>Format Waktu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="203"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="213"/>
         <source>Timezone List</source>
         <translation>Senarai Zon Waktu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="204"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="212"/>
         <source>Time Settings</source>
         <translation>Tetapan Waktu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="245"/>
         <source>Change System Timezone</source>
         <translation>Ubah Zon Waktu Sistem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="216"/>
-        <source>Weeks</source>
-        <translation>Minggu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="246"/>
         <source>System Timezone</source>
         <translation>Zon Waktu Sistem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="249"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="320"/>
         <source>Add Timezone</source>
         <translation>Tambah Zon Waktu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="258"/>
         <source>Date and Time Formats</source>
         <translation>Format Tarikh dan Waktu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="259"/>
+        <source>Weeks</source>
+        <translation>Minggu</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="260"/>
         <source>Short Date</source>
         <translation>Tarikh Pendek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="261"/>
         <source>Long Date</source>
         <translation>Tarikh Panjang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="262"/>
         <source>Short Time</source>
         <translation>Waktu Pendek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="263"/>
         <source>Long Time</source>
         <translation>Waktu Panjang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="264"/>
         <source>First Day of Week</source>
         <translation>Hari Pertama dalam Seminggu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="276"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="323"/>
         <source>Auto Sync</source>
         <translation>Auto Segerak</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="277"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="290"/>
         <source>Server</source>
         <translation>Pelayan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="279"/>
         <source>24-hour Time</source>
         <translation>Waktu 24-jam</translation>
     </message>
@@ -1530,19 +1573,17 @@
         <translation>Senarai Zon Waktu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="63"/>
         <source>Time Settings</source>
         <translation>Tetapan Waktu</translation>
-        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="64"/>
         <source>Time Format</source>
         <translation>Format Waktu</translation>
-        <extra-contents_path>/datetime/Format Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="96"/>
         <source>24-hour Time</source>
         <translation>Waktu 24-jam</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
@@ -1551,164 +1592,178 @@
 <context>
     <name>dccV20::datetime::FormatSetting</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="50"/>
         <source>Date and Time Formats</source>
         <translation>Format Tarikh dan Waktu</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="62"/>
         <source>Weeks</source>
         <translation>Minggu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="61"/>
-        <source>Short Date</source>
-        <translation>Tarikh Pendek</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="64"/>
-        <source>Long Date</source>
-        <translation>Tarikh Panjang</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="67"/>
+        <source>Short Date</source>
+        <translation>Tarikh Pendek</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="72"/>
+        <source>Long Date</source>
+        <translation>Tarikh Panjang</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="77"/>
         <source>Short Time</source>
         <translation>Waktu Pendek</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="82"/>
         <source>Long Time</source>
         <translation>Waktu Panjang</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="87"/>
         <source>First Day of Week</source>
         <translation>Hari Pertama dalam Seminggu</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="158"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="204"/>
         <source>Monday</source>
         <translation>Isnin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="169"/>
         <source>monday</source>
         <translation>isnin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="186"/>
         <source>Tuesday</source>
         <translation>Selasa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="189"/>
         <source>Wednesday</source>
         <translation>Rabu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="192"/>
         <source>Thursday</source>
         <translation>Khamis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="195"/>
         <source>Friday</source>
         <translation>Jumaat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="198"/>
         <source>Saturday</source>
         <translation>Sabtu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="201"/>
         <source>Sunday</source>
         <translation>Ahad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="228"/>
         <source>April 5, 2020</source>
         <translation>5 April, 2020</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="222"/>
         <source>April 5, 2020, Sunday</source>
         <translation>5 April, 2020, Ahad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="225"/>
         <source>Sunday, April 5, 2020</source>
         <translation>Ahad, 5 April, 2020</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="244"/>
         <source>2020/4/5</source>
         <translation>2020/4/5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="247"/>
         <source>2020-4-5</source>
         <translation>2020-4-5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="250"/>
         <source>2020.4.5</source>
         <translation>2020.4.5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="239"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="271"/>
         <source>2020/04/05</source>
         <translation>2020/04/05</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="256"/>
         <source>2020-04-05</source>
         <translation>2020-04-05</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="259"/>
         <source>2020.04.05</source>
         <translation>2020.04.05</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="262"/>
         <source>20/4/5</source>
         <translation>20/4/5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="265"/>
         <source>20-4-5</source>
         <translation>20-4-5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="268"/>
         <source>20.4.5</source>
         <translation>20.4.5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="287"/>
         <source>9:40:07</source>
         <translation>9:40:07</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="276"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="293"/>
         <source>09:40:07</source>
         <translation>09:40:07</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="309"/>
         <source>9:40</source>
         <translation>9:40</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="298"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="315"/>
         <source>09:40</source>
         <translation>09:40</translation>
     </message>
@@ -1716,31 +1771,33 @@
 <context>
     <name>dccV20::datetime::SystemTimezone</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="45"/>
+        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="46"/>
         <source>Change System Timezone</source>
         <translation>Ubah Zon Waktu Sistem</translation>
-        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
+        <extra-child_page>Timezone List</extra-child_page>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="54"/>
         <source>System Timezone</source>
         <translation>Zon Waktu Sistem</translation>
+        <extra-child_page>Timezone List</extra-child_page>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::datetime::TimezoneList</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="49"/>
         <source>Timezone List</source>
         <translation>Senarai Zon Waktu</translation>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="72"/>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="73"/>
         <source>Add Timezone</source>
         <translation>Tambah Zon Waktu</translation>
+        <extra-child_page>Timezone List</extra-child_page>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -1937,79 +1994,79 @@
         <translation>Paparan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="494"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="497"/>
         <source>Brightness</source>
         <translation>Kecerahan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="492"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="563"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="495"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="568"/>
         <source>Auto Brightness</source>
         <translation>Kecerahan Automatik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="496"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="499"/>
         <source>Night Shift</source>
         <translation>Shif Malam</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="174"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="497"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="501"/>
         <source>Change Color Temperature</source>
         <translation>Ubah Suhu Warna</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="175"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="485"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="505"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="536"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="488"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="541"/>
         <source>Multiple Displays</source>
         <translation>Paparan Berbilang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="176"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="483"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="503"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="534"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="486"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="508"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="539"/>
         <source>Mode</source>
         <translation>Mod</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="484"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="504"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="535"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="487"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="509"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="540"/>
         <source>Main Screen</source>
         <translation>Skrin Utama</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="178"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="507"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="538"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="512"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="543"/>
         <source>Refresh Rate</source>
         <translation>Kadar Segar Semula</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="508"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="540"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="545"/>
         <source>Resolution</source>
         <translation>Resolusi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="509"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="542"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="514"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="547"/>
         <source>Rotation</source>
         <translation>Putaran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="181"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="510"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="544"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="515"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="549"/>
         <source>Display Scaling</source>
         <translation>Penskalaan Paparan</translation>
     </message>
@@ -2168,39 +2225,40 @@
 <context>
     <name>dccV20::keyboard::CustomContent</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="60"/>
         <source>Add Custom Shortcut</source>
         <translation>Tambah Pintasan Suai</translation>
+        <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="66"/>
         <source>Name</source>
         <translation>Nama</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="94"/>
         <source>Required</source>
         <translation>Diperlukan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="83"/>
         <source>Command</source>
         <translation>Perintah</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="130"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="132"/>
         <source>Add</source>
         <translation>Tambah</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="163"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Pintasan ini berkonflik dengan %1, klik untuk Tambah supaya pintasan ini berkesan serta-merta</translation>
     </message>
@@ -2208,71 +2266,78 @@
 <context>
     <name>dccV20::keyboard::GeneralKBSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="53"/>
         <source>Repeat Delay</source>
         <translation>Lengah Ulang</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="63"/>
         <source>Short</source>
         <translation>Pendek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="64"/>
         <source>Long</source>
         <translation>Panjang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="69"/>
         <source>Repeat Rate</source>
         <translation>Kadar Ulang</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="80"/>
         <source>Slow</source>
         <translation>Perlahan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="81"/>
         <source>Fast</source>
         <translation>Pantas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="88"/>
         <source>Test here</source>
         <translation>Uji di sini</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="110"/>
         <source>Numeric Keypad</source>
         <translation>Pad Kekunci Numerik</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="117"/>
         <source>Caps Lock Prompt</source>
         <translation>Makluman Caps Lock</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::KBLayoutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="55"/>
         <source>Keyboard Layout</source>
         <translation>Bentangan Papan Kekunci</translation>
+        <extra-child_page>Keyboard Layout</extra-child_page>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="58"/>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="170"/>
         <source>Edit</source>
         <translation>Sunting</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="161"/>
         <source>Done</source>
         <translation>Selesai</translation>
     </message>
@@ -2281,101 +2346,102 @@
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="138"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="149"/>
-        <source>Shortcuts</source>
-        <translation>Pintasan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="139"/>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="182"/>
-        <source>Keyboard Layout</source>
-        <translation>Bentangan Papan Kekunci</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="150"/>
-        <source>System Language</source>
-        <translation>Bahasa Sistem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="147"/>
         <source>General</source>
         <translation>Am</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="150"/>
+        <source>Shortcuts</source>
+        <translation>Pintasan</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="183"/>
+        <source>Keyboard Layout</source>
+        <translation>Bentangan Papan Kekunci</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="151"/>
+        <source>System Language</source>
+        <translation>Bahasa Sistem</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="173"/>
         <source>Repeat Delay</source>
         <translation>Lengah Ulang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="174"/>
         <source>Test here</source>
         <translation>Uji di sini</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="175"/>
         <source>Repeat Rate</source>
         <translation>Kadar Ulang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="176"/>
         <source>Numeric Keypad</source>
         <translation>Pad Kekunci Numerik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="177"/>
         <source>Caps Lock Prompt</source>
         <translation>Makluman Caps Lock</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="184"/>
         <source>Add Keyboard Layout</source>
         <translation>Tambah Bentangan Papan Kekunci</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="190"/>
         <source>Add Custom Shortcut</source>
         <translation>Tambah Pintasan Suai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="386"/>
         <source>Custom Shortcut</source>
         <translation>Pintasan Suai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="192"/>
         <source>System</source>
         <translation>Sistem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="193"/>
         <source>Window</source>
         <translation>Tetingkap</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="194"/>
         <source>Workspace</source>
         <translation>Ruang Kerja</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="195"/>
         <source>Assistive Tools</source>
         <translation>Alatan Bantuan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="201"/>
         <source>Add System Language</source>
         <translation>Tambah Bahasa Sistem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="202"/>
         <source>Language List</source>
         <translation>Senarai Bahasa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="257"/>
         <source>Keyboard and Language</source>
         <translation>Papan Kekunci dan Bahasa</translation>
     </message>
@@ -2383,66 +2449,70 @@
 <context>
     <name>dccV20::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="70"/>
         <source>General</source>
         <translation>Am</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="71"/>
+        <source>Keyboard Layout</source>
+        <translation>Bentangan Papan Kekunci</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="72"/>
+        <source>System Language</source>
+        <translation>Bahasa Sistem</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="73"/>
-        <source>Keyboard Layout</source>
-        <translation>Bentangan Papan Kekunci</translation>
-        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="75"/>
-        <source>System Language</source>
-        <translation>Bahasa Sistem</translation>
-        <extra-contents_path>/keyboard/System Language</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="77"/>
         <source>Shortcuts</source>
         <translation>Pintasan</translation>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="59"/>
         <source>System</source>
         <translation>Sistem</translation>
+        <extra-child_page>Shortcuts</extra-child_page>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="69"/>
         <source>Window</source>
         <translation>Tetingkap</translation>
+        <extra-child_page>Shortcuts</extra-child_page>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="80"/>
         <source>Workspace</source>
         <translation>Ruang Kerja</translation>
+        <extra-child_page>Shortcuts</extra-child_page>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="90"/>
         <source>Assistive Tools</source>
         <translation>Alatan Bantuan</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="109"/>
         <source>Custom Shortcut</source>
         <translation>Pintasan Suai</translation>
+        <extra-child_page>Shortcuts</extra-child_page>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="142"/>
         <source>Restore Defaults</source>
         <translation>Pulih ke Lalai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="181"/>
         <source>Shortcut</source>
         <translation>Pintasan</translation>
     </message>
@@ -2460,28 +2530,30 @@
         <translation>Tambah</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="78"/>
         <source>Add System Language</source>
         <translation>Tambah Bahasa Sistem</translation>
+        <extra-child_page>System Language</extra-child_page>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::keyboard::SystemLanguageWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="60"/>
         <source>Language List</source>
         <translation>Senarai Bahasa</translation>
+        <extra-child_page>System Language</extra-child_page>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="61"/>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="151"/>
         <source>Edit</source>
         <translation>Sunting</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="131"/>
         <source>Done</source>
         <translation>Selesai</translation>
     </message>
@@ -2489,36 +2561,40 @@
 <context>
     <name>dccV20::mouse::GeneralSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="51"/>
         <source>Left Hand</source>
         <translation>Tangan Kiri</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="57"/>
         <source>Disable touchpad while typing</source>
         <translation>Lumpuhkan pad sentuh ketika menaip</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="63"/>
         <source>Scrolling Speed</source>
         <translation>Kelajuan Penatalan</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="68"/>
         <source>Double-click Speed</source>
         <translation>Kelajuan Dwi-klik</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="86"/>
         <source>Slow</source>
         <translation>Perlahan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="87"/>
         <source>Fast</source>
         <translation>Pantas</translation>
     </message>
@@ -2557,53 +2633,53 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="256"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="339"/>
         <source>Left Hand</source>
         <translation>Tangan Kiri</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="257"/>
-        <source>Disable touchpad while typing</source>
-        <translation>Lumpuhkan pad sentuh ketika menaip</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="258"/>
         <source>Scrolling Speed</source>
         <translation>Kelajuan Penatalan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="258"/>
         <source>Double-click Speed</source>
         <translation>Kelajuan Dwi-klik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="265"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="274"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="282"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="341"/>
         <source>Pointer Speed</source>
         <translation>Kelajuan Penuding</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="265"/>
         <source>Mouse Acceleration</source>
         <translation>Pemecutan Tetikus</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="267"/>
-        <source>Disable touchpad when a mouse is connected</source>
-        <translation>Lumpuhkan pad sentuh ketika tetikus disambungkan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="274"/>
         <source>Natural Scrolling</source>
         <translation>Penatalan Tabii</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="273"/>
         <source>Tap to Click</source>
         <translation>Ketik untuk Klik</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="276"/>
+        <source>Disable touchpad while typing</source>
+        <translation>Lumpuhkan pad sentuh ketika menaip</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="277"/>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation>Lumpuhkan pad sentuh ketika tetikus disambungkan</translation>
     </message>
 </context>
 <context>
@@ -2616,34 +2692,36 @@
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="47"/>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="49"/>
         <source>Mouse Acceleration</source>
         <translation>Pemecutan Tetikus</translation>
+        <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="51"/>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="54"/>
         <source>Disable touchpad when a mouse is connected</source>
         <translation>Lumpuhkan pad sentuh ketika tetikus disambungkan</translation>
+        <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="56"/>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="59"/>
         <source>Natural Scrolling</source>
         <translation>Penatalan Tabii</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="63"/>
         <source>Slow</source>
         <translation>Perlahan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="64"/>
         <source>Fast</source>
         <translation>Pantas</translation>
     </message>
@@ -2656,27 +2734,24 @@
         <translation>Am</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="86"/>
         <source>Mouse</source>
         <translation>Tetikus</translation>
-        <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="75"/>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="80"/>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="111"/>
         <source>Touchpad</source>
         <translation>Pad Sentuh</translation>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="83"/>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="136"/>
         <source>TrackPoint</source>
         <translation>Titik Jejak</translation>
-        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
 </context>
 <context>
@@ -2689,25 +2764,26 @@
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="48"/>
         <source>Tap to Click</source>
         <translation>Ketik untuk Klik</translation>
+        <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="53"/>
         <source>Natural Scrolling</source>
         <translation>Penatalan Tabii</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="61"/>
         <source>Slow</source>
         <translation>Perlahan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="62"/>
         <source>Fast</source>
         <translation>Pantas</translation>
     </message>
@@ -2769,31 +2845,30 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="135"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="176"/>
         <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="178"/>
         <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="180"/>
         <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="194"/>
         <source>System Notifications</source>
         <translation>Pemberitahuan Sistem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="196"/>
         <source>App Notifications</source>
         <translation>Pemberitahuan Apl</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="178"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="193"/>
         <source>Do Not Disturb</source>
         <translation>Jangan Ganggu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="194"/>
         <source>Show icon on Dock</source>
         <translation>Tunjuk ikon atas Labuh</translation>
     </message>
@@ -2801,29 +2876,25 @@
 <context>
     <name>dccV20::notification::NotificationWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="72"/>
         <source>System Notifications</source>
         <translation>Pemberitahuan Sistem</translation>
-        <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="87"/>
         <source>App Notifications</source>
         <translation>Pemberitahuan Apl</translation>
+        <extra-contents_path>/notification/App Notifications</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::notification::SystemNotifyWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="49"/>
-        <source>Show icon on Dock</source>
-        <translation>Tunjuk ikon atas Labuh</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="79"/>
         <source>Do Not Disturb</source>
         <translation>Jangan Ganggu</translation>
-        <extra-contents_path>/notification/Do Not Disturb</extra-contents_path>
+        <extra-child_page>System Notifications</extra-child_page>
+        <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="85"/>
@@ -2834,6 +2905,13 @@
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="103"/>
         <source>When the screen is locked</source>
         <translation>Bila skrin dikunci</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="109"/>
+        <source>Show icon on Dock</source>
+        <translation>Tunjuk ikon atas Labuh</translation>
+        <extra-child_page>System Notifications</extra-child_page>
+        <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
 </context>
 <context>
@@ -2852,24 +2930,28 @@
 <context>
     <name>dccV20::personalization::PersonalizationFontsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="64"/>
         <source>Size</source>
         <translation>Saiz</translation>
+        <extra-child_page>Font</extra-child_page>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="89"/>
         <source>Standard Font</source>
         <translation>Fon Piawai</translation>
+        <extra-child_page>Font</extra-child_page>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="110"/>
         <source>Monospaced Font</source>
         <translation>Fon Bermonospace</translation>
+        <extra-child_page>Font</extra-child_page>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="259"/>
         <source> (Unsupported font)</source>
         <translation>(Fon tidak disokong)</translation>
     </message>
@@ -2877,61 +2959,67 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="118"/>
         <source>Theme</source>
         <translation>Tema</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="129"/>
         <source>Accent Color</source>
         <translation>Warna Serlah</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="189"/>
         <source>Window Effect</source>
         <translation>Kesan Tetingkap</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="199"/>
         <source>Transparency</source>
         <translation>Kelutsinaran</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="221"/>
         <source>Window Minimize Effect</source>
         <translation>Kesan Minimum Tetingkap</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="224"/>
         <source>Scale</source>
         <translation>Skala</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="224"/>
         <source>Magic Lamp</source>
         <translation>Lampu Ajaib</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="244"/>
         <source>Rounded Corner</source>
         <translation>Bucu Terbundar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="251"/>
         <source>Small</source>
         <translation>Kecil</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="251"/>
         <source>Medium</source>
         <translation>Sederhana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="251"/>
         <source>Large</source>
         <translation>Besar</translation>
     </message>
@@ -2939,28 +3027,26 @@
 <context>
     <name>dccV20::personalization::PersonalizationList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="49"/>
         <source>General</source>
         <translation>Am</translation>
-        <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="51"/>
         <source>Icon Theme</source>
         <translation>Tema Ikon</translation>
         <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="53"/>
         <source>Cursor Theme</source>
         <translation>Tema Kursor</translation>
         <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="54"/>
         <source>Font</source>
         <translation>Fon</translation>
-        <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
 </context>
 <context>
@@ -2972,81 +3058,82 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="144"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="219"/>
-        <source>Font</source>
-        <translation>Fon</translation>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="221"/>
+        <source>General</source>
+        <translation>Am</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="145"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="222"/>
         <source>Icon Theme</source>
         <translation>Tema Ikon</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="146"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="223"/>
         <source>Cursor Theme</source>
         <translation>Tema Kursor</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="147"/>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="220"/>
-        <source>General</source>
-        <translation>Am</translation>
+        <source>Font</source>
+        <translation>Fon</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="234"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="235"/>
         <source>Size</source>
         <translation>Saiz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="236"/>
         <source>Standard Font</source>
         <translation>Fon Piawai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="237"/>
         <source>Monospaced Font</source>
         <translation>Fon Bermonospace</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
         <source>Light</source>
         <translation>Ringan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
         <source>Dark</source>
         <translation>Gelap</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="248"/>
         <source>Auto</source>
         <translation>Auto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="249"/>
         <source>Accent Color</source>
         <translation>Warna Serlah</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="250"/>
         <source>Window Effect</source>
         <translation>Kesan Tetingkap</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="250"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="309"/>
         <source>Transparency</source>
         <translation>Kelutsinaran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="251"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="310"/>
         <source>Window Minimize Effect</source>
         <translation>Kesan Minimum Tetingkap</translation>
     </message>
@@ -3077,26 +3164,29 @@
 <context>
     <name>dccV20::personalization::PerssonalizationThemeWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="80"/>
         <source>Light</source>
         <translation>Ringan</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="85"/>
         <source>Dark</source>
         <translation>Gelap</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="90"/>
         <source>Auto</source>
         <translation>Auto</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="99"/>
         <source>Default</source>
         <translation>Lalai</translation>
     </message>
@@ -3104,77 +3194,101 @@
 <context>
     <name>dccV20::power::GeneralWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="64"/>
-        <source>Auto power saving on low battery</source>
-        <translation>Penjimatan kuasa automatik bila kuasa bateri rendah</translation>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="69"/>
+        <source>Balanced</source>
+        <translation>Seimbang</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="65"/>
-        <source>Auto power saving on battery</source>
-        <translation>Penjimatan kuasa automatik pada bateri</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
-        <source>Decrease brightness</source>
-        <translation>Kurangkan kecerahan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="67"/>
-        <source>Password is required to wake up the computer</source>
-        <translation>Kata laluan diperlukan untuk bangunkan komputer</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="68"/>
-        <source>Password is required to wake up the monitor</source>
-        <translation>Kata laluan diperlukan untuk bangunkan monitor</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="70"/>
-        <source>Display remaining using and charging time</source>
-        <translation>Papar baki penggunaan dan masa mengecas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="71"/>
-        <source>Maximum capacity</source>
-        <translation>Kapasiti maksimum</translation>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="72"/>
+        <source>High Performance</source>
+        <translation>Prestasi Tinggi</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="75"/>
-        <source>Balanced</source>
-        <translation>Seimbang</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="76"/>
-        <source>High Performance</source>
-        <translation>Prestasi Tinggi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="77"/>
         <source>Power Saver</source>
         <translation>Jimat Kuasa</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="79"/>
+        <source>Auto power saving on low battery</source>
+        <translation>Penjimatan kuasa automatik bila kuasa bateri rendah</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="82"/>
+        <source>Auto power saving on battery</source>
+        <translation>Penjimatan kuasa automatik pada bateri</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="85"/>
+        <source>Decrease brightness</source>
+        <translation>Kurangkan kecerahan</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="88"/>
+        <source>Password is required to wake up the computer</source>
+        <translation>Kata laluan diperlukan untuk bangunkan komputer</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="91"/>
+        <source>Password is required to wake up the monitor</source>
+        <translation>Kata laluan diperlukan untuk bangunkan monitor</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="94"/>
+        <source>Display remaining using and charging time</source>
+        <translation>Papar baki penggunaan dan masa mengecas</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="97"/>
+        <source>Maximum capacity</source>
+        <translation>Kapasiti maksimum</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="129"/>
         <source>Power Plans</source>
         <translation>Pelan Kuasa</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="167"/>
         <source>Power Saving Settings</source>
         <translation>Tetapan Penjimatan Kuasa</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="202"/>
         <source>Wakeup Settings</source>
         <translation>Tetapan Bangun</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="222"/>
         <source>Battery</source>
         <translation>Bateri</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
 </context>
@@ -3205,25 +3319,25 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="357"/>
         <source>Auto power saving on low battery</source>
         <translation>Penjimatan kuasa automatik bila kuasa bateri rendah</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="354"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="355"/>
         <source>Auto power saving on battery</source>
         <translation>Penjimatan kuasa automatik pada bateri</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="367"/>
         <source>Display remaining using and charging time</source>
         <translation>Papar baki penggunaan dan masa mengecas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="295"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="368"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="369"/>
         <source>Maximum capacity</source>
         <translation>Kapasiti maksimum</translation>
     </message>
@@ -3235,16 +3349,16 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="298"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="379"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="381"/>
         <source>When the lid is closed</source>
         <translation>Bila penutup komputer ditutup</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="301"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="324"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="325"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="378"/>
         <source>When pressing the power button</source>
         <translation>Bila menekan butang kuasa</translation>
     </message>
@@ -3255,87 +3369,92 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="364"/>
+        <source>Low battery level</source>
+        <translation>Aras kuasa bateri rendah</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="365"/>
         <source>Auto suspend battery level</source>
         <translation>Aras kuasa bateri ditangguh automatik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="327"/>
         <source>Monitor will suspend after</source>
         <translation>Monitor akan ditangguh selepas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="327"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="364"/>
         <source>Computer will suspend after</source>
         <translation>Komputer akan ditangguh selepas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="308"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="325"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="326"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="384"/>
         <source>Lock screen after</source>
         <translation>Kunci skrin selepas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="314"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Kata laluan diperlukan untuk bangunkan monitor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="314"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="363"/>
         <source>Password is required to wake up the computer</source>
         <translation>Kata laluan diperlukan untuk bangunkan komputer</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="359"/>
         <source>Decrease brightness</source>
         <translation>Kurangkan kecerahan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="317"/>
         <source>Balanced</source>
         <translation>Seimbang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="317"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="339"/>
         <source>High Performance</source>
         <translation>Prestasi Tinggi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="319"/>
         <source>Power Saver</source>
         <translation>Jimat Kuasa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="319"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="360"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="361"/>
         <source>Power Plans</source>
         <translation>Pelan Kuasa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="321"/>
         <source>Power Saving Settings</source>
         <translation>Tetapan Penjimatan Kuasa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="322"/>
         <source>Wakeup Settings</source>
         <translation>Tetapan Bangun</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="405"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="406"/>
         <source>Battery low, please plug in</source>
         <translation>Kuasa bateri lemah, sila palamkan kuasa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="408"/>
         <source>Battery critically low</source>
         <translation>Kuasa bateri sangat rendah</translation>
     </message>
@@ -3343,122 +3462,129 @@
 <context>
     <name>dccV20::power::PowerWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="75"/>
         <source>General</source>
         <translation>Am</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="77"/>
         <source>Plugged In</source>
         <translation>Dipalam masuk</translation>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="78"/>
         <source>On Battery</source>
         <translation>Kuasa Bateri</translation>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::power::UseBatteryWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="49"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="443"/>
+        <source>Never</source>
+        <translation>Tidak sesekali</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="89"/>
         <source>Monitor will suspend after</source>
         <translation>Monitor akan ditangguh selepas</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="102"/>
         <source>Computer will suspend after</source>
         <translation>Komputer akan ditangguh selepas</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="115"/>
         <source>Lock screen after</source>
         <translation>Kunci skrin selepas</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="73"/>
         <source>When pressing the power button</source>
         <translation>Bila menekan butang kuasa</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="76"/>
         <source>When the lid is closed</source>
         <translation>Bila penutup komputer ditutup</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="79"/>
         <source>Low Battery Notification</source>
         <translation>Pemberitahuan Kuasa Bateri Rendah</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="82"/>
         <source>Low battery level</source>
         <translation>Aras kuasa bateri rendah</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="85"/>
         <source>Auto suspend battery level</source>
         <translation>Aras kuasa bateri ditangguh automatik</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="68"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="431"/>
-        <source>Never</source>
-        <translation>Tidak sesekali</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="391"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="403"/>
         <source>Shut down</source>
         <translation>Matikan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="406"/>
         <source>Suspend</source>
         <translation>Tangguh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="409"/>
         <source>Hibernate</source>
         <translation>Hibernasi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="399"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="411"/>
         <source>Turn off the monitor</source>
         <translation>Matikan monitor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="399"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="411"/>
         <source>Do nothing</source>
         <translation>Jangan buat apa-apa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="425"/>
         <source>1 Minute</source>
         <translation>1 Minit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="416"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="419"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="422"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="425"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="428"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="431"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="437"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="446"/>
         <source>%1 Minutes</source>
         <translation>%1 Minit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="428"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="440"/>
         <source>1 Hour</source>
         <translation>1 Jam</translation>
     </message>
@@ -3466,86 +3592,90 @@
 <context>
     <name>dccV20::power::UseElectricWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="52"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="65"/>
         <source>Lock screen after</source>
         <translation>Kunci skrin selepas</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="59"/>
         <source>When pressing the power button</source>
         <translation>Bila menekan butang kuasa</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="62"/>
         <source>When the lid is closed</source>
         <translation>Bila penutup komputer ditutup</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="64"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="73"/>
         <source>Monitor will suspend after</source>
         <translation>Monitor akan ditangguh selepas</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="86"/>
         <source>Computer will suspend after</source>
         <translation>Komputer akan ditangguh selepas</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="118"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="364"/>
         <source>Never</source>
         <translation>Tidak sesekali</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="324"/>
         <source>Shut down</source>
         <translation>Matikan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="328"/>
         <source>Suspend</source>
         <translation>Tangguh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="332"/>
         <source>Hibernate</source>
         <translation>Hibernasi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="334"/>
         <source>Turn off the monitor</source>
         <translation>Matikan monitor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="334"/>
         <source>Do nothing</source>
         <translation>Jangan buat apa-apa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="346"/>
         <source>1 Minute</source>
         <translation>1 Minit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="343"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="346"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="349"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="352"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="367"/>
         <source>%1 Minutes</source>
         <translation>%1 Minit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="361"/>
         <source>1 Hour</source>
         <translation>1 Jam</translation>
     </message>
@@ -3553,19 +3683,20 @@
 <context>
     <name>dccV20::sound::DevicemanagesPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="143"/>
         <source>Output Devices</source>
         <translation>Peranti Output</translation>
+        <extra-child_page>Devices</extra-child_page>
         <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="173"/>
         <source>Enable or disable a device as you want</source>
         <translation>Benar atau lumpuhkan peranti yang anda mahu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="168"/>
         <source>Input Devices</source>
         <translation>Peranti Input</translation>
         <extra-child_page>Devices</extra-child_page>
@@ -3580,32 +3711,42 @@
         <translation>Input</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="82"/>
         <source>Input Device</source>
         <translation>Peranti Input</translation>
+        <extra-child_page>Input</extra-child_page>
+        <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="87"/>
         <source>Automatic Noise Suppression</source>
         <translation>Penindasan HIngar Automatik</translation>
+        <extra-child_page>Input</extra-child_page>
+        <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="316"/>
         <source>Input Volume</source>
         <translation>Volum Input</translation>
+        <extra-child_page>Input</extra-child_page>
+        <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="362"/>
         <source>Input Level</source>
         <translation>Aras Input</translation>
+        <extra-child_page>Input</extra-child_page>
+        <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::sound::SoundEffectsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="64"/>
         <source>Sound Effects</source>
         <translation>Kesan Bunyi</translation>
+        <extra-child_page>Sound Effects</extra-child_page>
+        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
     </message>
 </context>
 <context>
@@ -3646,13 +3787,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="229"/>
         <source>Automatic Noise Suppression</source>
         <translation>Penindasan HIngar Automatik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="129"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="214"/>
         <source>Input Volume</source>
         <translation>Volum Input</translation>
     </message>
@@ -3667,29 +3808,34 @@
         <translation>Peranti output</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="139"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="137"/>
+        <source>Mode</source>
+        <translation>Mod</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="217"/>
         <source>Output Volume</source>
         <translation>Volum Output</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="220"/>
         <source>Volume Boost</source>
         <translation>Galak Volum</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="149"/>
         <source>Output Devices</source>
         <translation>Peranti Output</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="151"/>
         <source>Input Devices</source>
         <translation>Peranti Input</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="275"/>
         <source>Sound</source>
         <translation>Bunyi</translation>
     </message>
@@ -3697,80 +3843,86 @@
 <context>
     <name>dccV20::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="142"/>
         <source>Output</source>
         <translation>Output</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="146"/>
+        <source>Input</source>
+        <translation>Input</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="150"/>
+        <source>Sound Effects</source>
+        <translation>Kesan Bunyi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="150"/>
-        <source>Input</source>
-        <translation>Input</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="154"/>
-        <source>Sound Effects</source>
-        <translation>Kesan Bunyi</translation>
-        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="82"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="158"/>
         <source>Devices</source>
         <translation>Peranti</translation>
-        <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::sound::SpeakerPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="75"/>
         <source>Output</source>
         <translation>Output</translation>
+        <extra-child_page>Output</extra-child_page>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="82"/>
         <source>Output Device</source>
         <translation>Peranti output</translation>
+        <extra-child_page>Output</extra-child_page>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="91"/>
         <source>Mode</source>
         <translation>Mod</translation>
+        <extra-child_page>Output</extra-child_page>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="308"/>
         <source>Output Volume</source>
         <translation>Volum Output</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
+        <extra-child_page>Output</extra-child_page>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="395"/>
         <source>Volume Boost</source>
         <translation>Galak Volum</translation>
+        <extra-child_page>Output</extra-child_page>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="402"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Jika volum lebih kuat dari 100%, ia mungkin menyebabkan audio terherot dan boleh merosakkan pembesar suara anda.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="401"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="416"/>
         <source>Left/Right Balance</source>
         <translation>Imbangan Kiri/Kanan</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
+        <extra-child_page>Output</extra-child_page>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="421"/>
         <source>Left</source>
         <translation>Kiri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="422"/>
         <source>Right</source>
         <translation>Kanan</translation>
     </message>
@@ -3947,116 +4099,126 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="127"/>
-        <source>Computer Name:</source>
-        <translation>Nama Komputer:</translation>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="128"/>
+        <source>Computer Name</source>
+        <translation>Nama Komputer</translation>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="181"/>
-        <source>OS Name:</source>
-        <translation>Nama OS:</translation>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
+        <source>OS Name</source>
+        <translation type="unfinished"/>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="186"/>
-        <source>Version:</source>
-        <translation>Versi:</translation>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
+        <source>Version</source>
+        <translation>Versi</translation>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="191"/>
-        <source>Edition:</source>
-        <translation>Edisi:</translation>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
+        <source>Edition</source>
+        <translation type="unfinished"/>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="196"/>
-        <source>Type:</source>
-        <translation>Jenis:</translation>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
+        <source>Type</source>
+        <translation>Jenis</translation>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="206"/>
         <source>Authorization</source>
         <translation>Pengesahihan</translation>
+        <extra-child_page>About This PC</extra-child_page>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="200"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="346"/>
         <source>To be activated</source>
         <translation>Untuk diaktifkan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="202"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="338"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="346"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="360"/>
         <source>Activate</source>
         <translation>Aktifkan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="211"/>
-        <source>Kernel:</source>
-        <translation>Kernel:</translation>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
+        <source>Kernel</source>
+        <translation type="unfinished"/>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="216"/>
-        <source>Processor:</source>
-        <translation>Pemproses:</translation>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
+        <source>Processor</source>
+        <translation type="unfinished"/>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="221"/>
-        <source>Memory:</source>
-        <translation>Ingatan:</translation>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
+        <source>Memory</source>
+        <translation type="unfinished"/>
+        <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="326"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="342"/>
         <source>Activated</source>
         <translation>Diaktifkan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="334"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="352"/>
         <source>View</source>
         <translation>Lihat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="350"/>
         <source>Expired</source>
         <translation>Luput</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="354"/>
         <source>In trial period</source>
         <translation>Dalam tempoh percubaan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="358"/>
         <source>Trial expired</source>
         <translation>Percubaan telah luput</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="418"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="419"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="477"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="478"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="428"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="429"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="487"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="488"/>
         <source>It cannot start or end with dashes</source>
         <translation>Tidak boleh mula atau tamat dengan tanda sempang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="452"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="482"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="483"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="462"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="492"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="493"/>
         <source>1~63 characters please</source>
         <translation>1~63 aksara sahaja</translation>
     </message>
@@ -4117,29 +4279,29 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="176"/>
-        <source>Computer Name:</source>
-        <translation>Nama Komputer:</translation>
+        <source>Computer Name</source>
+        <translation>Nama Komputer</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="177"/>
-        <source>OS Name:</source>
-        <translation>Nama OS:</translation>
+        <source>OS Name</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="178"/>
-        <source>Version:</source>
-        <translation>Versi:</translation>
+        <source>Version</source>
+        <translation>Versi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="179"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="245"/>
-        <source>Edition:</source>
-        <translation>Edisi:</translation>
+        <source>Edition</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="180"/>
-        <source>Type:</source>
-        <translation>Jenis:</translation>
+        <source>Type</source>
+        <translation>Jenis</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="181"/>
@@ -4150,44 +4312,43 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="182"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="249"/>
-        <source>Kernel:</source>
-        <translation>Kernel:</translation>
+        <source>Kernel</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="183"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="251"/>
-        <source>Processor:</source>
-        <translation>Pemproses:</translation>
+        <source>Processor</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="184"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="253"/>
-        <source>Memory:</source>
-        <translation>Ingatan:</translation>
+        <source>Memory</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV20::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="74"/>
         <source>About This PC</source>
         <translation>Perihal Komputer Ini</translation>
-        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="76"/>
         <source>Edition License</source>
         <translation>Lesen Edisi</translation>
         <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="78"/>
         <source>End User License Agreement</source>
         <translation>Perjanjian Lesen Pengguna Akhir</translation>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="80"/>
         <source>Privacy Policy</source>
         <translation>Dasar Persendirian</translation>
         <extra-contents_path>/systeminfo/Privacy Policy</extra-contents_path>
@@ -4297,10 +4458,10 @@
     <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="376"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="397"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="403"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="410"/>
         <source>Check Again</source>
         <translation>Periksa Lagi</translation>
     </message>
@@ -4346,65 +4507,66 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="645"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="646"/>
         <source>Last checking time: </source>
         <translation>Masa pemeriksaan terakhir:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="343"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
         <source>Your system is up to date</source>
         <translation>Sistem anda sudah dikemaskinikan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="347"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="388"/>
         <source>Check for Updates</source>
         <translation>Periksa Kemas Kini</translation>
+        <extra-child_page>Check for Updates</extra-child_page>
         <extra-contents_path>/update/Check for Updates</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="358"/>
         <source>Checking for updates, please wait...</source>
         <translation>Memeriksa kemas kini, tunggu sebentar...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="391"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="392"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Sistem terbaharu dipasang, mula semula supaya ia berkesan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="403"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Kemas kini gagal: ruang cakera tidak mencukupi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="409"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Ralat dependensi, gagal mengesan kemas kini</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="441"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1 dimuat turun (Klik untuk jeda)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="442"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="443"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1 dimuat turun (Klik untuk teruskan)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="456"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Kuasa bateri anda lebih rendah dari 50%, sila palamkan untuk diteruskan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="458"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Sila pastikan kuasa mencukupi untuk memulakan semula, dan matikan atau tanggalkan pemalam kuasa komputer anda.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="718"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="719"/>
         <source>Size</source>
         <translation>Saiz</translation>
     </message>
@@ -4421,200 +4583,191 @@
     <name>dccV20::update::UpdateModule</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="247"/>
         <source>Updates</source>
         <translation>Kemas Kini</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="246"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="291"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="308"/>
         <source>Check for Updates</source>
         <translation>Periksa Kemas Kini</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="248"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="268"/>
         <source>Update Settings</source>
         <translation>Tetapan Kemas Kini</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="286"/>
-        <source>Download and install updates</source>
-        <translation>Muat turun dan pasang kemas kini</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="287"/>
-        <source>Install updates</source>
-        <translation>Pasang kemas kini</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="318"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="341"/>
-        <source>System Updates</source>
-        <translation>Kemas Kini Sistem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="320"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="346"/>
-        <source>App Updates in App Store</source>
-        <translation>Kemas Kini Apl dalam Kedai Apl</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="322"/>
-        <source>Updates Notification</source>
-        <translation>Pemberitahuan Kemas Kini</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="295"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="324"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="310"/>
         <source>Download Updates</source>
         <translation>Muat Turun Kemas Kini</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="296"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="289"/>
+        <source>Auto Install Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="312"/>
+        <source>Updates Notification</source>
+        <translation>Pemberitahuan Kemas Kini</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="314"/>
         <source>Clear Package Cache</source>
         <translation>Kosongkan Cache Pakej</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="298"/>
-        <source>System Repository Detection</source>
-        <translation>Pengesanan Repositori Sistem</translation>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="292"/>
+        <source>Updates from Repositories</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="299"/>
-        <source>Smart Mirror Switch</source>
-        <translation>Pertukaran Cermin Pintar</translation>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="316"/>
+        <source>App installed in App Store</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="300"/>
-        <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Hidupkannya untuk bersambung dengan tapak cermin terpantas secara automatik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="301"/>
-        <source>Mirror List</source>
-        <translation>Senarai Cermin</translation>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="318"/>
+        <source>Security Updates Only</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV20::update::UpdateSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="52"/>
-        <source>Security Updates Only</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
-        <source>System</source>
-        <translation>Sistem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
-        <source>App installed in App Store</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="55"/>
-        <source>Updates Notification</source>
-        <translation>Pemberitahuan Kemas Kini</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="56"/>
-        <source>Download Updates</source>
-        <translation>Muat Turun Kemas Kini</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="57"/>
-        <source>Auto Install Updates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="59"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
         <translation>Hidupkannya untuk muat turun secara automatik dengan rangkaian tanpa wayar atau berwayar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="60"/>
+        <source>Security Updates Only</source>
+        <translation type="unfinished"/>
+        <extra-child_page>Update Settings</extra-child_page>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="63"/>
+        <source>System</source>
+        <translation>Sistem</translation>
+        <extra-child_page>Update Settings</extra-child_page>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="66"/>
+        <source>App installed in App Store</source>
+        <translation type="unfinished"/>
+        <extra-child_page>Update Settings</extra-child_page>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
+        <source>Updates Notification</source>
+        <translation>Pemberitahuan Kemas Kini</translation>
+        <extra-child_page>Update Settings</extra-child_page>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="72"/>
+        <source>Download Updates</source>
+        <translation>Muat Turun Kemas Kini</translation>
+        <extra-child_page>Update Settings</extra-child_page>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="75"/>
+        <source>Auto Install Updates</source>
+        <translation type="unfinished"/>
+        <extra-child_page>Update Settings</extra-child_page>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="96"/>
         <source>Update Settings</source>
         <translation>Tetapan Kemas Kini</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>Check for Updates</source>
         <translation>Periksa Kemas Kini</translation>
+        <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="129"/>
         <source>Clear Package Cache</source>
         <translation>Kosongkan Cache Pakej</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="117"/>
-        <source>Updates from Repositories</source>
-        <translation type="unfinished"/>
+        <extra-child_page>Update Settings</extra-child_page>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="136"/>
-        <source>System Repository Detection</source>
-        <translation>Pengesanan Repositori Sistem</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="139"/>
-        <source>Show a notification if system update repository has been modified</source>
-        <translation>Tunjuk satu pemberitahuan jika repositori kemas kini telah diubah suai</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="149"/>
-        <source>Smart Mirror Switch</source>
-        <translation>Pertukaran Cermin Pintar</translation>
+        <source>Updates from Repositories</source>
+        <translation type="unfinished"/>
+        <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="154"/>
+        <source>System Repository Detection</source>
+        <translation>Pengesanan Repositori Sistem</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="157"/>
+        <source>Show a notification if system update repository has been modified</source>
+        <translation>Tunjuk satu pemberitahuan jika repositori kemas kini telah diubah suai</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="166"/>
+        <source>Smart Mirror Switch</source>
+        <translation>Pertukaran Cermin Pintar</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="170"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation>Hidupkannya untuk bersambung dengan tapak cermin terpantas secara automatik</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="177"/>
+        <source>Mirror List</source>
+        <translation>Senarai Cermin</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="225"/>
+        <source>System Updates</source>
+        <translation>Kemas Kini Sistem</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="162"/>
-        <source>Mirror List</source>
-        <translation>Senarai Cermin</translation>
-        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="208"/>
-        <source>System Updates</source>
-        <translation>Kemas Kini Sistem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="212"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="231"/>
         <source>Security Updates</source>
         <translation>Kemas Kini Keselamatan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="219"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="238"/>
         <source>Unknown Apps Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="242"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation type="unfinished"/>
     </message>
@@ -4622,36 +4775,33 @@
 <context>
     <name>dccV20::update::UpdateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="60"/>
         <source>Check for Updates</source>
         <translation>Periksa Kemas Kini</translation>
-        <extra-child_page>Updates</extra-child_page>
-        <extra-contents_path>/update/Updates</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="63"/>
         <source>Update Settings</source>
         <translation>Tetapan Kemas Kini</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="75"/>
         <source>Last Update</source>
         <translation>Kemas Kini Terakhir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="127"/>
         <source>Return</source>
         <translation>Kembali</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="180"/>
         <source>Current Edition</source>
         <translation>Edisi Semasa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="188"/>
         <source>Update History</source>
         <translation>Sejarah Kemas Kini</translation>
     </message>
@@ -4728,64 +4878,64 @@
 <context>
     <name>PwqualityManager</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="78"/>
         <source>Password cannot be empty</source>
         <translation>Kata laluan tidak boleh kosong</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="79"/>
         <source>Password must have at least %1 characters</source>
         <translation>Kata laluan mesti sekurang-kurangnya %1 aksara</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="80"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Kata laluan mestilah tidak lebih daripada %1 aksara</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="81"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>Kata laluan hanya boleh mengandungi abjad Inggeris (sensitif-kata), angka atau simbol khas (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="79"/>
-        <source>No more than 8 palindrome characters please</source>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="82"/>
+        <source>No more than %1 palindrome characters please</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="80"/>
-        <source>No more than 3 monotonic characters please</source>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="83"/>
+        <source>No more than %1 monotonic characters please</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="81"/>
-        <source>No more than 3 repeating characters please</source>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="84"/>
+        <source>No more than %1 repeating characters please</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="90"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>Kata laluan mesti mengandungi abjad huruf besar, abjad huruf kecil, angka dan simbol  (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Kata laluan mesti tidak mengandungi lebih daripada 4 aksara palindrome</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="89"/>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
         <source>Do not use common words and combinations as password</source>
         <translation>Jangan guna perkataan dan gabungan umum sebagai kata laluan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="90"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="94"/>
         <source>Create a strong password please</source>
         <translation>Sila cipta satu kata laluan yang kuat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="100"/>
         <source>It does not meet password rules</source>
         <translation>Ia tidak menepati peraturan kata laluan</translation>
     </message>
@@ -4793,7 +4943,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="124"/>
+        <location filename="../src/frame/main.cpp" line="122"/>
         <source>Control Center</source>
         <translation>Pusat Kawalan</translation>
     </message>
@@ -4908,73 +5058,73 @@
 <context>
     <name>dcc::authentication::CharaMangerModel</name>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="96"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="108"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="120"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="154"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="166"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="178"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="106"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="118"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="130"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="164"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="176"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="188"/>
         <source>Position your face inside the frame</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="99"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="157"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="109"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="167"/>
         <source>Face enrolled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="104"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="162"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="172"/>
         <source>Position a human face please</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="112"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="170"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="122"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="180"/>
         <source>Keep away from the camera</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="116"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="174"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="126"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="184"/>
         <source>Get closer to the camera</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="124"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="134"/>
         <source>Do not position multiple faces inside the frame</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="128"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="138"/>
         <source>Make sure the camera lens is clean</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="132"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="142"/>
         <source>Do not enroll in dark, bright or backlit environments</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="136"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="146"/>
         <source>Keep your face uncovered</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="140"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="188"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="150"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="198"/>
         <source>Scan timed out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="143"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="185"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="153"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="195"/>
         <source>Device crashed, please scan again!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="182"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="192"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
@@ -5373,18 +5523,19 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="50"/>
         <source>Add Keyboard Layout</source>
         <translation>Tambah Bentangan Papan Kekunci</translation>
+        <extra-child_page>Keyboard Layout</extra-child_page>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="73"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="75"/>
         <source>Add</source>
         <translation>Tambah</translation>
     </message>
@@ -5428,9 +5579,10 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::mouse::DouTestWidget</name>
     <message>
-        <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="45"/>
+        <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="46"/>
         <source>Double-click Test</source>
         <translation>Ujian Dwi-klik</translation>
+        <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
 </context>
@@ -5563,12 +5715,12 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="371"/>
         <source>Copyright© 2011-%1 Deepin Community</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="373"/>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
         <translation type="unfinished"/>
     </message>
@@ -5672,22 +5824,22 @@ If you agree to this statement and enroll your face (we will not collect your fa
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1403"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
         <source>Network error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1406"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1410"/>
         <source>Dependency error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1409"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1413"/>
         <source>Insufficient disk space</source>
         <translation>Ruang cakera tidak mencukupi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1412"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1416"/>
         <source>Update failed</source>
         <translation type="unfinished"/>
     </message>
@@ -5777,7 +5929,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="125"/>
+        <location filename="../src/frame/main.cpp" line="123"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>Pusat Kawalan menyediakan pilihan untuk tetapan sistem.</translation>
     </message>
