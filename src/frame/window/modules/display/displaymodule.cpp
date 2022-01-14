@@ -69,6 +69,7 @@ void DisplayModule::windowUpdate()
 
 void DisplayModule::initialize()
 {
+    initSearchData();
 }
 
 const QString DisplayModule::name() const
@@ -184,6 +185,7 @@ void DisplayModule::addChildPageTrans() const
         //display
         m_frameProxy->addChildPageTrans("Brightness", tr("Brightness"));
         m_frameProxy->addChildPageTrans("Auto Brightness", tr("Auto Brightness"));
+        m_frameProxy->addChildPageTrans("Color Temperature", tr("Color Temperature"));
         m_frameProxy->addChildPageTrans("Night Shift", tr("Night Shift"));
         m_frameProxy->addChildPageTrans("Change Color Temperature", tr("Change Color Temperature"));
         m_frameProxy->addChildPageTrans("Multiple Displays", tr("Multiple Displays"));
@@ -507,10 +509,9 @@ void DisplayModule::initSearchData()
                                        && m_displayModel->autoLightAdjustIsValid() && !IsServerSystem);
         m_frameProxy->setWidgetVisible(module, tr("Brightness"), isBrightnessEnable && func_is_visible("displayLightLighting"));
 
-        m_frameProxy->setWidgetVisible(module, tr("Night Shift"), isBrightnessEnable && func_is_visible("displayColorTemperature")
-                                       && m_displayModel->redshiftIsValid());
-        m_frameProxy->setWidgetVisible(module, tr("Change Color Temperature"), isBrightnessEnable && func_is_visible("displayColorTemperature")
-                                       && m_displayModel->redshiftIsValid());
+        m_frameProxy->setWidgetVisible(module, tr("Color Temperature"), isBrightnessEnable && func_is_visible("displayColorTemperature")  && m_displayModel->redshiftIsValid());
+        m_frameProxy->setWidgetVisible(module, tr("Night Shift"), isBrightnessEnable && func_is_visible("displayColorTemperature") && m_displayModel->redshiftIsValid());
+        m_frameProxy->setWidgetVisible(module, tr("Change Color Temperature"), isBrightnessEnable && func_is_visible("displayColorTemperature") && m_displayModel->redshiftIsValid());
     };
 
     auto func_process_all = [ = ]() {
@@ -568,15 +569,21 @@ void DisplayModule::initSearchData()
         m_frameProxy->updateSearchData(module);
     });
 
-    connect(m_displayModel, &DisplayModel::monitorListChanged, [ = ]() {
+    connect(m_displayModel, &DisplayModel::monitorListChanged, this, [ = ]() {
         int count = m_displayModel->monitorList().size();
         qInfo() << " [monitorListChanged] screen count : " << count;
         func_mul_changed(count > 1);
     });
 
-    connect(m_displayModel, &DisplayModel::autoLightAdjustVaildChanged, [ = ](bool enable) {
+    connect(m_displayModel, &DisplayModel::autoLightAdjustVaildChanged, this, [ = ](bool enable) {
         bool isBrightnessEnable = func_is_visible("brightnessEnable", false);
         m_frameProxy->setWidgetVisible(module, tr("Auto Brightness"), isBrightnessEnable && func_is_visible("displayLightLighting") && enable);
+    });
+
+    connect(m_displayModel, &DisplayModel::redshiftVaildChanged, this, [ = ] (bool valid) {
+        m_frameProxy->setWidgetVisible(module, tr("Color Temperature"), func_is_visible("brightnessEnable", false) && func_is_visible("displayColorTemperature"));
+        m_frameProxy->setWidgetVisible(module, tr("Night Shift"), func_is_visible("brightnessEnable", false) && func_is_visible("displayColorTemperature"));
+        m_frameProxy->setWidgetVisible(module, tr("Change Color Temperature"), func_is_visible("brightnessEnable", false) && func_is_visible("displayColorTemperature"));
     });
 
     func_process_all();

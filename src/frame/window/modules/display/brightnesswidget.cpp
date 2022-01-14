@@ -51,12 +51,10 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     : QWidget(parent)
     , m_displayModel(nullptr)
     , m_centralLayout(new QVBoxLayout(this))
-    , m_brightnessTitle(new TitleLabel(tr("Brightness"), this))
     , m_autoLightSpacerItem(new QSpacerItem(0, 10))
     , m_autoLightMode(new SwitchWidget(this))
     , m_colorSpacerItem(new QSpacerItem(0, 20))
     , m_tempratureColorWidget(new QWidget(this))
-    , m_tempratureColorTitle(new TitleLabel(tr("Color Temperature"), this))
     , m_nightShift(new SwitchWidget(this))
     , m_settingsGroup(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
     , m_nightManual(new SwitchWidget(this))
@@ -65,6 +63,10 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(0);
 
+    //~ contents_path /display/Brightness
+    m_brightnessTitle = new TitleLabel(tr("Brightness"), this);
+    //~ contents_path /display/Color Temperature
+    m_tempratureColorTitle = new TitleLabel(tr("Color Temperature"), this);
     GSettingWatcher::instance()->bind("displayLightLighting", m_brightnessTitle);  // 使用GSettings来控制显示状态
     m_centralLayout->addWidget(m_brightnessTitle);
 

@@ -290,7 +290,7 @@ void UpdateModule::initSearchData()
         m_frameProxy->setDetailVisible(module, updateSettings, tr("Updates Notification"), func_is_visible("updateUpdateNotify"));
         m_frameProxy->setDetailVisible(module, updateSettings, tr("Clear Package Cache"), func_is_visible("updateCleanCache"));
         m_frameProxy->setDetailVisible(module, updateSettings, tr("Updates from Repositories"), true);
-        m_frameProxy->setDetailVisible(module, updateSettings, tr("App installed in App Store"), func_is_visible("updateAppUpdate"));
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("App installed in App Store"), false/*func_is_visible("updateAppUpdate")*/);
         m_frameProxy->setDetailVisible(module, updateSettings, tr("Security Updates Only"), func_is_visible("updateSecureUpdate"));
      };
 
