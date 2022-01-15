@@ -52,7 +52,6 @@ using namespace dde::network;
 namespace Dtk {
     namespace Widget {
         class DListView;
-        class DSwitchButton;
         class DViewItemAction;
         class DLoadingIndicator;
         class DSpinner;
@@ -69,7 +68,9 @@ enum NetItemRole {
     DeviceDataRole,
     DataRole,
     ConnectionStatusRole,
-    MouseInBoundingRole
+    MouseInBoundingRole,
+    DeviceTypeRole,
+    sortRole
 };
 
 #define PANELWIDTH 300
@@ -119,22 +120,12 @@ public:
     void updateView() Q_DECL_OVERRIDE;
     NetItemType itemType() Q_DECL_OVERRIDE;
 
-public Q_SLOTS:
-    void onAirplaneModeChanged(bool airplaneModeEnabled);
-
 private:
     void initItemText();
-    void initSwitcher();
-    void initConnection();
-
-private Q_SLOTS:
-    void onSwitchDevices(bool on);
 
 private:
     QList<NetworkDeviceBase *> m_devices;
     DeviceType m_deviceType;
-    QWidget *m_widget;
-    DSwitchButton *m_switcher;
 };
 
 class WiredControllItem : public NetItem
@@ -149,12 +140,8 @@ public:
     void updateView() Q_DECL_OVERRIDE;
     NetItemType itemType() Q_DECL_OVERRIDE;
 
-private Q_SLOTS:
-    void onSwitchDevices(bool on);
-
 private:
     WiredDevice *m_device;
-    DSwitchButton *m_switcher;
 };
 
 class WirelessControllItem : public NetItem
@@ -169,22 +156,11 @@ public:
     void updateView() Q_DECL_OVERRIDE;
     NetItemType itemType() Q_DECL_OVERRIDE;
 
-public Q_SLOTS:
-    void onAirplaneModeChanged(bool airplaneModeEnabled);
-
 protected:
-    bool eventFilter(QObject *object, QEvent *event) Q_DECL_OVERRIDE;
-
     QString iconFile();
-
-private Q_SLOTS:
-    void onSwitchDevices(bool on);
 
 private:
     WirelessDevice *m_device;
-    QWidget *m_widget;
-    DSwitchButton *m_switcher;
-    DLoadingIndicator *m_loadingIndicator;
 };
 
 class WiredItem : public NetItem
@@ -281,5 +257,9 @@ private:
     WirelessConnect *m_wirelessConnect;
     DPushButton *m_connectButton;
 };
+
+Q_DECLARE_METATYPE(NetItemType)
+Q_DECLARE_METATYPE(QList<NetworkDeviceBase *>)
+Q_DECLARE_METATYPE(DeviceType)
 
 #endif //  NETWORKAPPLETMODEL_H

@@ -81,10 +81,12 @@ private:
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
     void onUpdatePlugView();
+    void onEnabledClicked(const QModelIndex &index, const bool enabled);
+    void onRefreshClicked(const QModelIndex &index);
 
     void onClickListView(const QModelIndex &index);
-    void updateSize(); // 更新窗口大小
     void updateView(); // 更新网络列表内容大小
+    void refreshItems();
 
 private:
     QTimer *m_wirelessScanTimer;
@@ -116,7 +118,9 @@ public:
     void setDBusAirplaneMode(DBusAirplaneMode *airplane);
 
 Q_SIGNALS:
+    void refreshClicked(const QModelIndex &);
     void closeClicked(const QModelIndex &);
+    void enabledClicked(const QModelIndex &, const bool);
 
 protected:
     void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const override;
@@ -124,10 +128,13 @@ protected:
 
     bool needDrawLine(const QModelIndex &index) const;
     bool cantHover(const QModelIndex &index) const;
+    bool hasSwitchButton(const QModelIndex &index) const;
 
     void drawCheck(QPainter *painter, QRect &rect, QPen &pen, int radius) const;
     void drawFork(QPainter *painter, QRect &rect, QPen &pen, int radius) const;
     void drawLoading(QPainter *painter, QRect &rect, int diameter) const;
+    void drawRefreshButton(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void drawSwitchButton(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
     bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
 
     QRect checkRect(const QRect &rct) const;
@@ -135,11 +142,16 @@ protected:
     QList<QColor> createDefaultIndicatorColorList(QColor color) const;
 
 private:
+    bool switchIsEnabled(const QModelIndex &index) const;
+
+private:
     QAbstractItemView *m_parentWidget;
+    QTimer *m_refreshIconTimer;
     mutable double m_currentDegree;
     QTimer *m_refreshTimer;
     DBusAirplaneMode *m_airplaneMode;
     mutable QList<QModelIndex> m_ConnectioningIndexs;
+    mutable QMap<QModelIndex, int> m_refreshAngle;
 };
 
 #endif // NETWORKPANEL_H

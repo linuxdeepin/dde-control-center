@@ -47,6 +47,9 @@
 #include <wireddevice.h>
 #include <wirelessdevice.h>
 
+#define SWITCH_WIDTH 50
+#define SWITCH_HEIGHT 24
+
 NetworkPanel::NetworkPanel(QObject *parent)
     : QObject(parent)
     , m_wirelessScanTimer(new QTimer(this))
@@ -87,11 +90,13 @@ void NetworkPanel::initUi()
     delegate->setDBusAirplaneMode(m_airplaneMode);
     delegate->setMargins(QMargins(10, 0, 6, 0));
     m_netListView->setItemDelegate(delegate);
-    connect(delegate, &NetworkDelegate::closeClicked, this, [ ] (const QModelIndex &index) {
+    connect(delegate, &NetworkDelegate::refreshClicked, this, &NetworkPanel::onRefreshClicked);
+    connect(delegate, &NetworkDelegate::enabledClicked, this, &NetworkPanel::onEnabledClicked);
+    connect(delegate, &NetworkDelegate::closeClicked, this, [] (const QModelIndex &index) {
         // 获取该行数据对应的设备
-        NetItemType type = static_cast<NetItemType>(index.data(NetItemRole::TypeRole).toInt());
+        NetItemType type = index.data(NetItemRole::TypeRole).value<NetItemType>();
         if (type == NetItemType::WiredViewItem) {
-            WiredDevice *device = static_cast<WiredDevice *>(index.data(NetItemRole::DeviceDataRole).value<void *>());
+            WiredDevice *device = index.data(NetItemRole::DeviceDataRole).value<WiredDevice *>();
             WiredConnection *connection = static_cast<WiredConnection *>(index.data(NetItemRole::DataRole).value<void *>());
             if (device && connection) {
                 if (connection->connected())
@@ -100,7 +105,7 @@ void NetworkPanel::initUi()
                     device->connectNetwork(connection);
             }
         } else if (type == NetItemType::WirelessViewItem || type == NetItemType::WirelessHiddenViewItem) {
-            WirelessDevice *device = static_cast<WirelessDevice *>(index.data(NetItemRole::DeviceDataRole).value<void *>());
+            WirelessDevice *device = index.data(NetItemRole::DeviceDataRole).value<WirelessDevice *>();
             AccessPoints *accessPoint = static_cast<AccessPoints *>(index.data(NetItemRole::DataRole).value<void *>());
             if (device && accessPoint) {
                 if (device->activeAccessPoints() == accessPoint)
@@ -110,6 +115,7 @@ void NetworkPanel::initUi()
     });
 
     m_model = new QStandardItemModel(this);
+    m_model->setSortRole(sortRole);
     m_netListView->setModel(m_model);
 
     QVBoxLayout *centerLayout = new QVBoxLayout(m_centerWidget);
@@ -173,9 +179,44 @@ void NetworkPanel::initConnection()
     });
 }
 
+void NetworkPanel::onEnabledClicked(const QModelIndex &index, const bool enabled)
+{
+    NetItemType itemType = index.data(TypeRole).value<NetItemType>();
+    switch (itemType) {
+    case NetItemType::DeviceControllViewItem: {
+        QList<NetworkDeviceBase *> devices = index.data(DeviceDataRole).value<QList<NetworkDeviceBase *>>();
+        for (NetworkDeviceBase *device : devices) {
+            if (device->isEnabled() != enabled)
+                device->setEnabled(enabled);
+        }
+        break;
+    }
+    case NetItemType::WiredControllViewItem:
+    case NetItemType::WirelessControllViewItem:{
+        NetworkDeviceBase *device = index.data(DeviceDataRole).value<NetworkDeviceBase *>();
+        if (device && device->isEnabled() != enabled)
+            device->setEnabled(enabled);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void NetworkPanel::onRefreshClicked(const QModelIndex &index)
+{
+    NetItemType itemType = index.data(TypeRole).value<NetItemType>();
+    if (itemType != NetItemType::WirelessControllViewItem)
+        return;
+
+    WirelessDevice *device = index.data(DeviceDataRole).value<WirelessDevice *>();
+    if (device)
+        device->scanNetwork();
+}
+
 void NetworkPanel::updateItems()
 {
-    auto findBaseController = [ = ] (DeviceType t)-> DeviceControllItem * {
+    auto findBaseController = [ this ] (DeviceType t)-> DeviceControllItem * {
         for (NetItem *item : m_items) {
             if (item->itemType() != NetItemType::DeviceControllViewItem)
                 continue;
@@ -188,7 +229,7 @@ void NetworkPanel::updateItems()
         return Q_NULLPTR;
     };
 
-    auto findWiredController = [ = ] (WiredDevice *device)-> WiredControllItem * {
+    auto findWiredController = [ this ] (WiredDevice *device)-> WiredControllItem * {
         for (NetItem *item : m_items) {
             if (item->itemType() != NetItemType::WiredControllViewItem)
                 continue;
@@ -201,7 +242,7 @@ void NetworkPanel::updateItems()
         return Q_NULLPTR;
     };
 
-    auto findWiredItem = [ = ] (WiredConnection *conn)-> WiredItem * {
+    auto findWiredItem = [ this ] (WiredConnection *conn)-> WiredItem * {
         for (NetItem *item : m_items) {
             if (item->itemType() != NetItemType::WiredViewItem)
                 continue;
@@ -214,7 +255,7 @@ void NetworkPanel::updateItems()
         return Q_NULLPTR;
     };
 
-    auto findWirelessController = [ = ] (WirelessDevice *device)-> WirelessControllItem * {
+    auto findWirelessController = [ this ] (WirelessDevice *device)-> WirelessControllItem * {
         for (NetItem *item : m_items) {
             if (item->itemType() != NetItemType::WirelessControllViewItem)
                 continue;
@@ -227,7 +268,7 @@ void NetworkPanel::updateItems()
         return Q_NULLPTR;
     };
 
-    auto findWirelessItem = [ = ] (const AccessPoints *ap, const WirelessDevice *device)-> WirelessItem * {
+    auto findWirelessItem = [ this ] (const AccessPoints *ap, const WirelessDevice *device)-> WirelessItem * {
         for (NetItem *item : m_items) {
             if (item->itemType() != NetItemType::WirelessViewItem)
                 continue;
@@ -256,23 +297,22 @@ void NetworkPanel::updateItems()
     }
 
     // 存在多个无线设备的情况下，需要显示总开关
+    int sortIndex = 0;
     QList<NetItem *> items;
     if (wirelessDevices.size() > 1) {
         DeviceControllItem *ctrl = findBaseController(DeviceType::Wireless);
-        if (!ctrl) {
+        if (!ctrl)
             ctrl = new DeviceControllItem(DeviceType::Wireless, m_netListView->viewport());
-            connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, ctrl, &DeviceControllItem::onAirplaneModeChanged);
-        } else {
+        else
             ctrl->updateView();
-        }
-        ctrl->onAirplaneModeChanged(m_airplaneMode->enabled());
 
+        ctrl->standardItem()->setData(sortIndex++, sortRole);
         ctrl->setDevices(devices);
         items << ctrl;
     }
 
     // 遍历当前所有的无线网卡
-    auto accessPoints = [ & ] (WirelessDevice *device) {
+    auto accessPoints = [] (WirelessDevice *device) {
         if (device->isEnabled())
             return device->accessPointItems();
 
@@ -281,18 +321,16 @@ void NetworkPanel::updateItems()
 
     for (WirelessDevice *device : wirelessDevices) {
         WirelessControllItem *ctrl = findWirelessController(device);
-        if (!ctrl) {
+        if (!ctrl)
             ctrl = new WirelessControllItem(m_netListView->viewport(), static_cast<WirelessDevice *>(device));
-            connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, ctrl, &WirelessControllItem::onAirplaneModeChanged);
-        }
         ctrl->updateView();
-        ctrl->onAirplaneModeChanged(m_airplaneMode->enabled());
 
+        ctrl->standardItem()->setData(sortIndex++, sortRole);
         items << ctrl;
         if (device->isEnabled() && !device->hotspotEnabled()) {
             QList<AccessPoints *> aps = accessPoints(device);
             // 按连接状态、强度、名称排序
-            qSort(aps.begin(), aps.end(), [ ](AccessPoints *a, AccessPoints *b) {
+            qSort(aps.begin(), aps.end(), [](AccessPoints *a, AccessPoints *b) {
                 int aStatus = static_cast<int>(a->status()) & 3;
                 int bStatus = static_cast<int>(b->status()) & 3;
                 if (aStatus ^ bStatus)
@@ -305,12 +343,13 @@ void NetworkPanel::updateItems()
                 WirelessItem *apCtrl = findWirelessItem(ap, device);
                 if (!apCtrl) {
                     apCtrl = new WirelessItem(m_netListView->viewport(), device, ap);
-                    connect(apCtrl, &WirelessItem::sizeChanged, this, &NetworkPanel::updateSize);
+                    connect(apCtrl, &WirelessItem::sizeChanged, this, &NetworkPanel::refreshItems);
                     connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, apCtrl, &WirelessItem::onAirplaneModeChanged);
                 }
                 apCtrl->updateView();
                 apCtrl->onAirplaneModeChanged(m_airplaneMode->enabled());
 
+                apCtrl->standardItem()->setData(sortIndex++, sortRole);
                 items << apCtrl;
             }
             if (!m_airplaneMode->enabled()) {
@@ -318,9 +357,11 @@ void NetworkPanel::updateItems()
                 WirelessItem *apCtrl = findWirelessItem(nullptr, device);
                 if (!apCtrl) {
                     apCtrl = new WirelessItem(m_netListView->viewport(), device, nullptr);
-                    connect(apCtrl, &WirelessItem::sizeChanged, this, &NetworkPanel::updateSize);
+                    connect(apCtrl, &WirelessItem::sizeChanged, this, &NetworkPanel::refreshItems);
                 }
                 apCtrl->updateView();
+
+                apCtrl->standardItem()->setData(sortIndex++, sortRole);
                 items << apCtrl;
             }
         }
@@ -333,11 +374,12 @@ void NetworkPanel::updateItems()
             ctrl = new DeviceControllItem(DeviceType::Wired, m_netListView->viewport());
         ctrl->updateView();
 
+        ctrl->standardItem()->setData(sortIndex++, sortRole);
         ctrl->setDevices(devices);
         items << ctrl;
     }
 
-    auto wiredConnections = [ & ] (WiredDevice *device) {
+    auto wiredConnections = [ & ](WiredDevice *device) {
         if (device->isEnabled())
             return device->items();
 
@@ -351,6 +393,7 @@ void NetworkPanel::updateItems()
             ctrl = new WiredControllItem(m_netListView->viewport(), device);
         ctrl->updateView();
 
+        ctrl->standardItem()->setData(sortIndex++, sortRole);
         items << ctrl;
 
         QList<WiredConnection *> connItems = wiredConnections(device);
@@ -360,6 +403,7 @@ void NetworkPanel::updateItems()
                 connectionCtrl = new WiredItem(m_netListView->viewport(), device, conn);
             connectionCtrl->updateView();
 
+            connectionCtrl->standardItem()->setData(sortIndex++, sortRole);
             items << connectionCtrl;
         }
     }
@@ -376,7 +420,8 @@ void NetworkPanel::updateItems()
 void NetworkPanel::updateView()
 {
     updateItems();
-    updateSize();
+    //updateSize();
+    refreshItems();
     passwordError(QString(), QString());
     if (m_items.isEmpty()) {
         // 1s后依旧无网络设备则退出
@@ -387,35 +432,39 @@ void NetworkPanel::updateView()
     }
 }
 
-void NetworkPanel::updateSize()
+void NetworkPanel::refreshItems()
 {
     QList<QStandardItem *> items;
-    for (int i = 0; i < m_items.size(); i++) {
-        NetItem *item = m_items[i];
-        int nRow = item->standardItem()->row();
-        if (nRow < 0) {
-            m_model->insertRow(i, item->standardItem());
-        } else if (nRow != i) {
-            m_model->takeItem(nRow, 0);
-            m_model->removeRow(nRow);
-            m_model->insertRow(i, item->standardItem());
-        }
-
-        items << item->standardItem();
-    }
-
-    // 删除model在items中不存在的项目
     QList<int> rmRows;
-    for (int i = 0; i < m_model->rowCount(); i++) {
-        QStandardItem *item = m_model->item(i);
-        if (!items.contains(item))
-            rmRows << item->row();
-    }
+    for (NetItem *item : m_items)
+        items << item->standardItem();
 
+    for (int i = 0; i < m_model->rowCount(); i++) {
+        DStandardItem *item = static_cast<DStandardItem *>(m_model->item(i));
+        if (!items.contains(item))
+            rmRows << i;
+    }
     // 将row按照从大到小的顺序排序，否则会出现删除错误的问题
     qSort(rmRows.begin(), rmRows.end(), [=](int &row1, int &row2) { return row1 > row2; });
     for (int row : rmRows)
         m_model->removeRow(row);
+
+    // 从缓存中查找出当前列表不存在的Item,并插入到列表中
+    QList<QStandardItem *> currentItems;
+    for (int i = 0; i < m_model->rowCount(); i++)
+        currentItems << m_model->item(i);
+
+    QList<QStandardItem *> newItems;
+    for (QStandardItem *item : items) {
+        if (!currentItems.contains(item))
+            newItems << item;
+    }
+
+    for (QStandardItem *item : newItems)
+        m_model->appendRow(item);
+
+    // 对列表进行重新排序
+    m_model->sort(0);
 
     // 设置高度
     int height = 0;
@@ -548,7 +597,7 @@ void NetworkPanel::onUpdatePlugView()
 void NetworkPanel::onClickListView(const QModelIndex &index)
 {
     // 如果当前点击的是连接隐藏网络或者无线网络，且开启了飞行模式，则不让点击
-    NetItemType type = static_cast<NetItemType>(index.data(NetItemRole::TypeRole).toInt());
+    NetItemType type = index.data(NetItemRole::TypeRole).value<NetItemType>();
     if ((type == WirelessHiddenViewItem || type == WirelessViewItem) && m_airplaneMode->enabled())
         return;
 
@@ -654,6 +703,7 @@ NetItem *NetworkPanel::selectItem()
 NetworkDelegate::NetworkDelegate(QAbstractItemView *parent)
     : DStyledItemDelegate(parent)
     , m_parentWidget(parent)
+    , m_refreshIconTimer(new QTimer(this))
     , m_currentDegree(0)
     , m_refreshTimer(new QTimer(this))
     , m_airplaneMode(nullptr)
@@ -661,6 +711,27 @@ NetworkDelegate::NetworkDelegate(QAbstractItemView *parent)
     connect(m_refreshTimer, &QTimer::timeout, this, [this]() {
         this->m_currentDegree += 14;
         m_parentWidget->update();
+    });
+
+    m_refreshIconTimer->setInterval(3);
+    connect(m_refreshIconTimer, &QTimer::timeout, this, [ this ] {
+        QList<QModelIndex> refreshIndexs = m_refreshAngle.keys();
+        for (int i = refreshIndexs.size() - 1; i >= 0; i--) {
+            const QModelIndex &index = refreshIndexs[i];
+            int angle = m_refreshAngle[index];
+            if (angle >= 360) {
+                m_refreshAngle.remove(index);
+            } else {
+                angle += (angle <= 180 ? 5 : 8);
+                m_refreshAngle[index] = angle;
+            }
+        }
+        if (m_refreshAngle.size() == 0) {
+            if (m_refreshIconTimer->isActive())
+                m_refreshIconTimer->stop();
+        } else {
+            m_parentWidget->update();
+        }
     });
 
     m_refreshTimer->setInterval(30);
@@ -687,11 +758,13 @@ void NetworkDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
 {
     bool drawLine = needDrawLine(index);
     if (drawLine) {
+        // 绘制间隔线
         QRect rct = option.rect;
         rct.setY(rct.top() + rct.height() - 2);
         rct.setHeight(2);
         painter->fillRect(rct, ThemeManager::instance()->lineColor());
     }
+    // 鼠标移动的时候不
     bool isHoverItem = cantHover(index);
     QRect rect = option.rect;
     if (drawLine)
@@ -700,6 +773,15 @@ void NetworkDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     if (!isHoverItem && (option.state & QStyle::State_MouseOver)) {
         painter->fillRect(rect, ThemeManager::instance()->itemBackgroundColor());
     }
+
+    // 绘制无线网络左侧的刷新按钮
+    if (index.data(TypeRole).value<NetItemType>() == NetItemType::WirelessControllViewItem)
+        drawRefreshButton(painter, option, index);
+
+    // 绘制开关按钮，因为如果直接在DStandardItem上使用DSwitchButton就会导致更新列表的时候引起错位，就使用绘制开关的方式来实现吧
+    if (hasSwitchButton(index))
+        drawSwitchButton(painter, option, index);
+
     // 绘制右侧的连接图标
     NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ConnectionStatusRole).toInt());
     if (connectionStatus == NetConnectionType::Connecting) {
@@ -756,23 +838,32 @@ bool NetworkDelegate::needDrawLine(const QModelIndex &index) const
         return false;
 
     // 如果是总控开关，无线开关和有线开关，下面都要分割线
-    NetItemType itemType = static_cast<NetItemType>(index.data(TypeRole).toInt());
+    NetItemType itemType = index.data(TypeRole).value<NetItemType>();
     if (itemType == NetItemType::DeviceControllViewItem
         || itemType == NetItemType::WirelessControllViewItem
         || itemType == NetItemType::WiredControllViewItem)
         return true;
 
-    NetItemType nextItemType = static_cast<NetItemType>(siblingIndex.data(TypeRole).toInt());
+    NetItemType nextItemType = siblingIndex.data(TypeRole).value<NetItemType>();
     return itemType != nextItemType;
 }
 
 bool NetworkDelegate::cantHover(const QModelIndex &index) const
 {
-    NetItemType itemType = static_cast<NetItemType>(index.data(TypeRole).toInt());
+    NetItemType itemType = index.data(TypeRole).value<NetItemType>();
     // 如果是无线网络或者连接隐藏网络项，且当前开启了飞行模式，则当前行不让点击
     if (itemType == NetItemType::WirelessViewItem || itemType == NetItemType::WirelessHiddenViewItem)
         return (m_airplaneMode && m_airplaneMode->enabled());
 
+    return (itemType == NetItemType::DeviceControllViewItem
+            || itemType == NetItemType::WirelessControllViewItem
+            || itemType == NetItemType::WiredControllViewItem);
+}
+
+bool NetworkDelegate::hasSwitchButton(const QModelIndex &index) const
+{
+    NetItemType itemType = index.data(TypeRole).value<NetItemType>();
+    // 如果是总控、有线网卡、无线网卡开关，则需要显示开关
     return (itemType == NetItemType::DeviceControllViewItem
             || itemType == NetItemType::WirelessControllViewItem
             || itemType == NetItemType::WiredControllViewItem);
@@ -825,7 +916,7 @@ void NetworkDelegate::drawLoading(QPainter *painter, QRect &rect, int diameter) 
 #define INDICATOR_SHADOW_OFFSET 10
 
     for (int i = 0; i < indicatorColors.count(); ++i) {
-        auto colors = indicatorColors.value(i);
+        QList<QColor> colors = indicatorColors.value(i);
         for (int j = 0; j < colors.count(); ++j) {
             double degreeCurrent = m_currentDegree - j * INDICATOR_SHADOW_OFFSET + indicatorDegreeDelta * i;
             auto x = (radius - indicatorRadius) * qCos(qDegreesToRadians(degreeCurrent));
@@ -844,6 +935,81 @@ void NetworkDelegate::drawLoading(QPainter *painter, QRect &rect, int diameter) 
     }
 }
 
+bool NetworkDelegate::switchIsEnabled(const QModelIndex &index) const
+{
+    if (!index.isValid())
+        return false;
+
+    NetItemType itemType = index.data(TypeRole).value<NetItemType>();
+    switch (itemType) {
+    case NetItemType::DeviceControllViewItem: {
+        QList<NetworkDeviceBase *> devices = index.data(NetItemRole::DeviceDataRole).value<QList<NetworkDeviceBase *>>();
+        for (NetworkDeviceBase *device : devices) {
+            if (device->isEnabled())
+                return true;
+        }
+        return false;
+    }
+    case NetItemType::WiredControllViewItem:
+    case NetItemType::WirelessControllViewItem:{
+        NetworkDeviceBase *device = index.data(NetItemRole::DeviceDataRole).value<NetworkDeviceBase *>();
+        if (device)
+            return device->isEnabled();
+        break;
+    }
+    default: break;
+    }
+    return false;
+}
+
+void NetworkDelegate::drawRefreshButton(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    // 如果当前开关为关闭状态，则不显示刷新按钮
+    if (!switchIsEnabled(index))
+        return;
+
+    QRect rctIcon(option.rect.width() - SWITCH_WIDTH - 36, option.rect.top() + (option.rect.height() - 20) / 2, 20, 20);
+    QPixmap pixmap = DHiDPIHelper::loadNxPixmap(ThemeManager::instance()->getIcon("wireless/refresh"));
+    painter->save();
+    painter->setRenderHint(QPainter::Antialiasing, true);
+    if (m_refreshAngle.contains(index)) {
+        QPoint ptCenter(rctIcon.left() + rctIcon.width() / 2, rctIcon.top() + rctIcon.height() / 2);
+        painter->translate(ptCenter);
+        painter->rotate(m_refreshAngle[index]);
+        painter->drawPixmap(QRect(-10, -10, 20, 20), pixmap);
+    } else {
+        painter->drawPixmap(rctIcon, pixmap);
+    }
+
+    painter->restore();
+}
+
+void NetworkDelegate::drawSwitchButton(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    painter->save();
+    painter->setRenderHint(QPainter::Antialiasing, true);
+    QRect rctSwitch(option.rect.width() - SWITCH_WIDTH - 10,
+                    option.rect.top() + (option.rect.height() - SWITCH_HEIGHT) / 2,
+                    SWITCH_WIDTH, SWITCH_HEIGHT);
+    painter->setPen(Qt::NoPen);
+    DPalette palette = DGuiApplicationHelper::instance()->applicationPalette();
+    painter->setBrush(palette.color(DPalette::ColorRole::Background));
+    painter->drawRoundedRect(rctSwitch, 8, 8);
+    bool isSwitchEnabled = switchIsEnabled(index);
+    NetItemType itemType = index.data(TypeRole).value<NetItemType>();
+    // 如果是总控、有线网卡、无线网卡开关，则需要显示开关
+    QPalette::ColorRole colorRole = isSwitchEnabled ? QPalette::ColorRole::Highlight : DPalette::ColorRole::WindowText;
+    if (m_airplaneMode->enabled() && itemType == NetItemType::WirelessControllViewItem)
+        painter->setBrush(palette.color(QPalette::ColorGroup::Disabled, colorRole));
+    else
+        painter->setBrush(palette.color(colorRole));
+
+    isSwitchEnabled ? rctSwitch.setLeft(rctSwitch.left() + 20) : rctSwitch.setWidth(30);
+    painter->drawRoundedRect(rctSwitch, 8, 8);
+
+    painter->restore();
+}
+
 bool NetworkDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
 {
     switch (event->type()) {
@@ -860,13 +1026,46 @@ bool NetworkDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
         break;
     }
     case QEvent::MouseButtonPress: {
-        NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ConnectionStatusRole).toInt());
-        if (connectionStatus == NetConnectionType::Connected) {
-            QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        if (index.data(TypeRole).value<NetItemType>() == NetItemType::WirelessControllViewItem) {
+            if (!m_airplaneMode->enabled()) {
+                if (!m_refreshAngle.contains(index)) {
+                    QRect rctSwitch(option.rect.width() - SWITCH_WIDTH - 36, option.rect.top() + (option.rect.height() - 20) / 2, 20, 20);
+                    if (rctSwitch.contains(mouseEvent->pos())) {
+                        Q_EMIT refreshClicked(index);
+                        // 后面刷新图标是根据m_refreshAngle列表中是否存在来决定是否刷新的，因此，需要提前将m_refreshAngle填充数据
+                        m_refreshAngle[index] = 0;
+                        if (!m_refreshIconTimer->isActive())
+                            m_refreshIconTimer->start();
+                        return true;
+                    }
+                }
+            }
+        }
+        if (hasSwitchButton(index)) {
+            NetItemType itemType = index.data(TypeRole).value<NetItemType>();
+            // 以下三种情况可以点击按钮
+            // 1: 飞行模式关闭 2: 当前是有线网卡 3: 当前是有线网卡总控
+            if (!m_airplaneMode->enabled() || itemType == NetItemType::WiredControllViewItem
+                    || (itemType == NetItemType::DeviceControllViewItem && index.data(NetItemRole::DeviceTypeRole).value<DeviceType>() == DeviceType::Wired)) {
+                QRect rctSwitch(option.rect.width() - SWITCH_WIDTH - 10,
+                                option.rect.top() + (option.rect.height() - SWITCH_HEIGHT) / 2,
+                                SWITCH_WIDTH, SWITCH_HEIGHT);
+                bool isEnabled = switchIsEnabled(index);
+                isEnabled ? rctSwitch.setWidth(20) : rctSwitch.setLeft(rctSwitch.left() + 30);
+                if (rctSwitch.contains(mouseEvent->pos())) {
+                    Q_EMIT enabledClicked(index, !isEnabled);
+                    return true;
+                }
+            }
+        } else {
+            NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ConnectionStatusRole).toInt());
             QRect rct = checkRect(option.rect);
-            if (rct.contains(mouseEvent->pos())) {
-                Q_EMIT closeClicked(index);
-                return true;
+            if (connectionStatus == NetConnectionType::Connected) {
+                if (rct.contains(mouseEvent->pos())) {
+                    Q_EMIT closeClicked(index);
+                    return true;
+                }
             }
         }
         break;
