@@ -165,8 +165,14 @@ void NativeInfoWidget::initWidget()
         m_hostNameSettingItem->setLayout(m_hostNameLayout);
         m_hostNameSettingItem->addBackground();
 
+        QString text = m_hostNameTitleLabel->text();
+        QFontMetrics fontMetrics(m_hostNameTitleLabel->font());
+        int fontWidth = fontMetrics.boundingRect(text).width();
+
+        int hostnameWidth = this->width() - fontWidth - m_hostNameBtn->width() - 40;
         m_hostNameLabel->setToolTip(m_model->hostName());
-        m_hostNameLabel->setText(getElidedText(m_hostNameLabel, m_model->hostName(), Qt::ElideRight, this->width() - hostname_placeholder - 30, 0, __LINE__));
+        QString elidedText = getElidedText(m_hostNameLabel, m_model->hostName(), Qt::ElideRight, hostnameWidth, 0, __LINE__);
+        m_hostNameLabel->setText(elidedText);
         m_hostNameLabel->setMinimumHeight(m_hostNameLineEdit->lineEdit()->height());
         //点击编辑按钮
         connect(m_hostNameBtn, &DToolButton::clicked, this, &NativeInfoWidget::onToolButtonButtonClicked);
@@ -301,7 +307,10 @@ void NativeInfoWidget::resizeEvent(QResizeEvent *event)
     if (m_hostNameLineEdit->lineEdit()) {
         m_hostNameLineEdit->lineEdit()->setFixedWidth(this->width() - hostname_placeholder);
         m_hostNameLineEdit->lineEdit()->setText(m_hostnameEdit);
-        QString txt = getElidedText(m_hostNameLabel, m_hostname, Qt::ElideRight, this->width() - hostname_placeholder - 30, 0, __LINE__);
+        QFontMetrics fontMetrics(m_hostNameTitleLabel->font());
+        int fontWidth = fontMetrics.boundingRect(m_hostNameTitleLabel->text()).width();
+        int width = this->width() - fontWidth - m_hostNameBtn->width() - 40;
+        QString txt = getElidedText(m_hostNameLabel, m_hostname, Qt::ElideRight, width, 0, __LINE__);
         m_hostNameLabel->setText(txt);
     }
 }
@@ -403,7 +412,11 @@ void NativeInfoWidget::onHostNameChanged(const QString &hostName)
 {
     m_hostNameLabel->setToolTip(hostName);
     m_hostname = hostName;
-    QString name = getElidedText(m_hostNameLabel, hostName, Qt::ElideRight, this->width() - hostname_placeholder - 30, 0, __LINE__);
+
+    QFontMetrics fontMetrics(m_hostNameTitleLabel->font());
+    int fontWidth = fontMetrics.boundingRect(m_hostNameTitleLabel->text()).width();
+    int width = this->width() - fontWidth - m_hostNameBtn->width() - 40;
+    QString name = getElidedText(m_hostNameLabel, m_hostname, Qt::ElideRight, width, 0, __LINE__);
     m_hostNameLabel->setText(name);
 }
 
@@ -517,7 +530,7 @@ const QString NativeInfoWidget::getElidedText(QWidget* widget, QString data, Qt:
 
 
     QFontMetrics fontMetrics(font());
-    int fontWidth = fontMetrics.width(data);
+    int fontWidth = fontMetrics.boundingRect(data).width();
 
     qInfo() << Q_FUNC_INFO << " [Enter], data, width, fontWidth : " << data << width << fontWidth << line;
 
