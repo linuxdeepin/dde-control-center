@@ -122,8 +122,8 @@ void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
         }
 
         for (auto mon : model->monitorList()) {
-            connect(mon, &Monitor::wChanged, this, &MonitorsGround::onRotateChanged);
-            connect(mon, &Monitor::hChanged, this, &MonitorsGround::onRotateChanged);
+            connect(mon, &Monitor::rotateChanged, this, &MonitorsGround::onRotateChanged);
+            connect(mon, &Monitor::currentModeChanged, this, &MonitorsGround::onCurrentModeChanged);
             connect(mon, &Monitor::geometryChanged, this, &MonitorsGround::onGeometryChanged);
         }
 
@@ -131,8 +131,8 @@ void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
     } else {
         initMonitorProxyWidget(moni);
         connect(moni, &Monitor::geometryChanged, this, &MonitorsGround::onGeometryChanged);
-        connect(moni, &Monitor::wChanged, this, &MonitorsGround::onRotateChanged);
-        connect(moni, &Monitor::hChanged, this, &MonitorsGround::onRotateChanged);
+        connect(moni, &Monitor::currentModeChanged, this, &MonitorsGround::onCurrentModeChanged);
+        connect(moni, &Monitor::rotateChanged, this, &MonitorsGround::onRotateChanged);
         m_isSingleDisplay = true;
     }
 
@@ -190,10 +190,14 @@ void MonitorsGround::onGeometryChanged()
     onResize();
 }
 
-void MonitorsGround::onRotateChanged(const quint16 rotate)
+void MonitorsGround::onRotateChanged()
 {
-    Q_UNUSED(rotate)
+    onCurrentModeChanged();
+}
 
+//当方向改变时 当分辨率改变时
+void MonitorsGround::onCurrentModeChanged()
+{
     onResize();
     if (m_setMergeMode)
         return;
@@ -205,19 +209,19 @@ void MonitorsGround::onRotateChanged(const quint16 rotate)
               pw->update();
               break;
           }
-      }
+    }
 
-    onRequestMonitorRelease(mon);
+   executemultiScreenAlgo(false);
 }
 
-void MonitorsGround::onRequestMonitorRelease(Monitor *mon)
+
+void MonitorsGround::executemultiScreenAlgo(const bool isRebound)
 {
     if (m_isSingleDisplay)
         return;
 
-    Q_UNUSED(mon)
     bool isRestore = false;
-    multiScreenSortAlgo(isRestore);
+    multiScreenSortAlgo(isRestore, isRebound);
     if (isRestore == true)
         return;
 
@@ -228,6 +232,11 @@ void MonitorsGround::onRequestMonitorRelease(Monitor *mon)
     //显示设置生效倒计时提示框
     Q_EMIT setEffectiveReminderVisible(true, m_nEffectiveTime);
     m_effectiveTimer->start();
+}
+
+void MonitorsGround::onRequestMonitorRelease()
+{
+    executemultiScreenAlgo(true);
 }
 
 void MonitorsGround::resetMonitorsView()
@@ -328,8 +337,8 @@ void MonitorsGround::paintEvent(QPaintEvent *event)
 
 void MonitorsGround::singleScreenAdjest()
 {
-    const double scaleW = double(width()) / (m_monitors.values().last()->w()*1.5);
-    const double scaleH = double(height()) / (m_monitors.values().last()->h()*1.5);
+    const double scaleW = double(width()) / (m_monitors.keys().last()->w()*1.5);
+    const double scaleH = double(height()) / (m_monitors.keys().last()->h()*1.5);
 
     const double scale = std::min(scaleW, scaleH);
 
@@ -428,7 +437,7 @@ void MonitorsGround::applySettings()
 
 /*1050-5401*/
 //多屏排序算法
-QPointF MonitorsGround::multiScreenSortAlgo(bool &isRestore, bool isMove)
+QPointF MonitorsGround::multiScreenSortAlgo(bool &isRestore, const bool isRebound)
 {
     //排列算法
     //1、寻找位置变化的屏幕块，确定为被移动的块
@@ -442,6 +451,7 @@ QPointF MonitorsGround::multiScreenSortAlgo(bool &isRestore, bool isMove)
 
     m_lstMoveingItemToCenterPosLen.clear();
 
+    bool isMove = true;
     isRestore = false;
     bool isAutoAdsorption = false;
     bool isIntersect = false;
@@ -513,7 +523,7 @@ QPointF MonitorsGround::multiScreenSortAlgo(bool &isRestore, bool isMove)
     });
 
     //自动回弹的触发条件: 1. 一个屏幕完全包含另一个屏的时候 2. 一个屏幕剩下的屏幕集合所包围
-    if (lstShelterItems.size() > 0) {
+    if (lstShelterItems.size() > 0 && isRebound) {
         if (isMove) {
             autoRebound();
             qDebug() << "自动回弹流程触发! == " << lstShelterItems.size();

@@ -50,7 +50,7 @@ public:
     explicit MonitorsGround(int activateHeight, QWidget *parent = nullptr);
     ~MonitorsGround();
 
-    void setMergeMode(bool val) { m_setMergeMode = val; }
+    inline void setMergeMode(bool val) { m_setMergeMode = val; }
     void setModel(DisplayModel *model, Monitor *moni = nullptr);
 Q_SIGNALS:
     void requestApplySettings(QHash<Monitor *, QPair<int, int>> monitorposition);
@@ -60,15 +60,12 @@ Q_SIGNALS:
     void setEffectiveReminderVisible(bool visible, int nEffectiveTime);
 
 private Q_SLOTS:
-    void resetMonitorsView();
     void onRequestMouseMove(MonitorProxyWidget *pw);
     void onRequestKeyPress(MonitorProxyWidget *pw, int keyValue);
-    void centeredMonitorsView();
-    void adjustAll();
-    void onRequestMonitorRelease(Monitor *mon);
-    void onResize();
-    void onRotateChanged(const quint16 rotate);
+    void onRequestMonitorRelease();
     void onGeometryChanged();
+    void onCurrentModeChanged();
+    void onRotateChanged();
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
@@ -78,9 +75,14 @@ protected:
 
 private:
     void applySettings();
+    void adjustAll();
+    void onResize();
+    void resetMonitorsView();
+    void centeredMonitorsView();
+    void executemultiScreenAlgo(const bool isRebound);
 
     /*1050-5401*/
-    QPointF multiScreenSortAlgo(bool &isRestore, bool isMove = true);//排序算法 返回值为计算之后需要移动的XY值
+    QPointF multiScreenSortAlgo(bool &isRestore, const bool isRebound = true);//排序算法 返回值为计算之后需要移动的XY值
     void multiScreenAutoAdjust(); // 手动调整完如果出现没有完全连通的情况，需要启动自动调整算法
     bool updateConnectedState(bool isInit = false); //更新连通状态
     QList<MonitorProxyWidget *> getConnectedDomain(MonitorProxyWidget *item); //获取每个屏幕的连通域

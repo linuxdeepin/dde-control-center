@@ -56,13 +56,23 @@ void MonitorProxyWidget::setMovedY(const int y)
 
 
 int MonitorProxyWidget::w() const
-{
-    return m_monitor->w();
+{   
+    //90度和270度
+    if (m_monitor->rotate() == 2 || m_monitor->rotate() == 8) {
+        return m_monitor->currentMode().height();
+    } else {
+        return m_monitor->currentMode().width();
+    }
 }
 
 int MonitorProxyWidget::h() const
 {
-    return m_monitor->h();
+    //90度和270度
+    if (m_monitor->rotate() == 2 || m_monitor->rotate() == 8) {
+        return m_monitor->currentMode().width();
+    } else {
+        return m_monitor->currentMode().height();
+    }
 }
 
 const QString MonitorProxyWidget::name() const
