@@ -1489,7 +1489,7 @@ void MonitorsGround::centeredMonitorsView()
     if (m_monitors.size() == 1) {
         singleScreenAdjest();
     } else {
-        setEnabled(true);
+        setEnabled(DConfigWatcher::instance()->getStatus(DConfigWatcher::display, "sketchMap") == "Enabled");
 
         QPointF dPos = sceneRect().center() - scene()->itemsBoundingRect().center();
         for (auto pw : m_monitors.keys()) {
