@@ -101,6 +101,7 @@ private Q_SLOTS:
     void onResetSecondaryScreenDlg();
     void onResetFullIndication(const QRect &geometry);
     void onResetSecondaryScreenDlgTimerOut();
+    void onGSettingsChanged(const QString & gsettingsName, const QString &setting);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;

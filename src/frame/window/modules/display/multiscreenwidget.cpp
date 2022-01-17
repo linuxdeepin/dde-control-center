@@ -129,9 +129,10 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_multiSettingLabel);
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_modeSettingsItem);
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_primarySettingsItem);
-
-    DConfigWatcher::instance()->bind(DConfigWatcher::display,"mainScreen", m_primarySettingsItem);
-    DConfigWatcher::instance()->bind(DConfigWatcher::display,"multiscreenMode", m_modeSettingsItem);
+    connect(GSettingWatcher::instance(), SIGNAL(notifyGSettingsChanged(const QString &, const QString &)), this, SLOT(onGSettingsChanged(const QString &, const QString &)));
+// 先屏蔽dconfig配置,待后续进行配置迁移时统一替换为dconfig配置
+//    DConfigWatcher::instance()->bind(DConfigWatcher::display,"mainScreen", m_primarySettingsItem);
+//    DConfigWatcher::instance()->bind(DConfigWatcher::display,"multiscreenMode", m_modeSettingsItem);
 
     QDesktopWidget *desktopwidget = QApplication::desktop();
     connect(desktopwidget,SIGNAL(resized(int)),this,SLOT(onResetSecondaryScreenDlg()));
@@ -160,9 +161,9 @@ MultiScreenWidget::~MultiScreenWidget()
     GSettingWatcher::instance()->erase("displayMultipleDisplays", m_multiSettingLabel);
     GSettingWatcher::instance()->erase("displayMultipleDisplays", m_modeSettingsItem);
     GSettingWatcher::instance()->erase("displayMultipleDisplays", m_primarySettingsItem);
-
-    DConfigWatcher::instance()->erase(DConfigWatcher::display,"mainScreen", m_primarySettingsItem);
-    DConfigWatcher::instance()->erase(DConfigWatcher::display,"multiscreenMode", m_modeSettingsItem);
+// 先屏蔽dconfig配置,待后续进行配置迁移时统一替换为dconfig配置
+//    DConfigWatcher::instance()->erase(DConfigWatcher::display,"mainScreen", m_primarySettingsItem);
+//    DConfigWatcher::instance()->erase(DConfigWatcher::display,"multiscreenMode", m_modeSettingsItem);
 
 }
 
@@ -264,9 +265,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
         initSecondaryScreenDialog();
     });
     connect(m_model, &DisplayModel::resolutionRefreshEnableChanged, this, [=](const bool enable) {
-        m_multiSettingLabel->setVisible(GSettingWatcher::instance()->getStatus("displayMultipleDisplays") != "Hidden" ? enable : false);
-        m_modeSettingsItem->setVisible(enable);
-        m_primarySettingsItem->setVisible(enable);
+        onGSettingsChanged("displayMultipleDisplays", GSettingWatcher::instance()->getStatus("displayMultipleDisplays"));
     });
     connect(m_model, &DisplayModel::brightnessEnableChanged, this, [=](const bool enable) {
         m_brightnessSpacerItem->changeSize(0, enable ? 20 : 0);
@@ -308,10 +307,9 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
 
     m_monitorControlWidget->setScreensMerged(m_model->displayMode());
     m_monitorControlWidget->setModel(m_model, m_model->displayMode() == SINGLE_MODE ? m_model->primaryMonitor() : nullptr);
-    m_multiSettingLabel->setVisible(m_model->resolutionRefreshEnable() && (GSettingWatcher::instance()->getStatus("displayMultipleDisplays") != "Hidden"));
-    m_modeSettingsItem->setVisible(m_model->resolutionRefreshEnable());
-    m_primarySettingsItem->setVisible(m_model->resolutionRefreshEnable());
-    m_primarySettingsItem->setVisible(m_model->displayMode() == EXTEND_MODE);
+
+    onGSettingsChanged("displayMultipleDisplays", GSettingWatcher::instance()->getStatus("displayMultipleDisplays"));
+
     m_brightnessWidget->setMode(m_model);
     m_brightnessWidget->showBrightness(m_model->displayMode() == MERGE_MODE ? nullptr : m_model->primaryMonitor());
     m_brightnessWidget->setVisible(m_model->brightnessEnable());
@@ -322,6 +320,20 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     m_rotateWidget->setModel(m_model, m_model->primaryMonitor());
 
     initSecondaryScreenDialog();
+}
+
+void MultiScreenWidget::onGSettingsChanged(const QString &gsettingsName, const QString &setting)
+{
+    if (m_model && gsettingsName == "displayMultipleDisplays" && !setting.isEmpty()) {
+        bool multipleDisplays = m_model->resolutionRefreshEnable() && (setting != "Hidden");
+        m_multiSettingLabel->setVisible(multipleDisplays);
+        m_modeSettingsItem->setVisible(multipleDisplays);
+        m_primarySettingsItem->setVisible(multipleDisplays && m_model->displayMode() == EXTEND_MODE);
+        bool multipleEnable = m_model->resolutionRefreshEnable() && (setting != "Disabled");
+        m_multiSettingLabel->setEnabled(multipleEnable);
+        m_modeSettingsItem->setEnabled(multipleEnable);
+        m_primarySettingsItem->setEnabled(multipleEnable);
+    }
 }
 
 void MultiScreenWidget::initModeList()
