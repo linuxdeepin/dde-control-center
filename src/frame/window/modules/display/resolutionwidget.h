@@ -122,6 +122,7 @@ private:
     void setItemIcon();
     void setResizeDesktopVisible(bool visible);
     void updateResizeDesktopVisible();
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 private:
     QHBoxLayout *m_resolutionLayout;

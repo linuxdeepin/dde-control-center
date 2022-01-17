@@ -177,6 +177,7 @@ ResolutionWidget::ResolutionWidget(int comboxWidth, QWidget *parent)
     m_resizeDesktopCombox->setMinimumHeight(36);
     m_resizeDesktopCombox->setModel(m_resizeItemModel);
     m_resizeDesktopItem->setLayout(m_resizeDesktopLayout);
+    m_resizeDesktopItem->installEventFilter(this);
 
     SettingsGroup *grp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     grp->getLayout()->setContentsMargins(0, 0, 0, 0);
@@ -373,16 +374,31 @@ void ResolutionWidget::setResizeDesktopVisible(bool visible)
         visible = m_model->allSupportFillModes();
     }
 
+    m_resizeDesktopItem->setVisible(visible);
     if (!visible) {
         DConfigWatcher::instance()->erase(DConfigWatcher::display,"desktopDisplay", m_resizeDesktopItem);
-        setMinimumHeight(48);
     } else {
-        setMinimumHeight(48*2);
         DConfigWatcher::instance()->bind(DConfigWatcher::display,"desktopDisplay", m_resizeDesktopItem);
     }
+}
 
-    m_resizeDesktopItem->setVisible(visible);
-    Q_EMIT requestResizeDesktopVisibleChanged(visible);
+bool ResolutionWidget::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == m_resizeDesktopItem) {
+        switch (event->type()) {
+        case QEvent::Hide:
+            setMinimumHeight(48);
+            Q_EMIT requestResizeDesktopVisibleChanged(false);
+            break;
+        case QEvent::Show:
+            setMinimumHeight(48 * 2);
+            Q_EMIT requestResizeDesktopVisibleChanged(true);
+            break;
+        default:
+            break;
+        }
+    }
+    return SettingsItem::eventFilter(obj, event);
 }
 
 void ResolutionWidget::updateResizeDesktopVisible()
