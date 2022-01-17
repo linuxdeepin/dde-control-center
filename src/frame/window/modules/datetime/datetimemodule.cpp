@@ -256,7 +256,7 @@ void DatetimeModule::initSearchData()
         bool bTimeFormat = func_is_visible("timeFormat", true) && func_is_visible("datetimeFromatsetting");
         m_frameProxy->setWidgetVisible(module, formatSettings, bTimeFormat);
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Date and Time Formats"), bTimeFormat);
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Weeks"), bTimeFormat);
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Weeks").remove('/'), bTimeFormat);
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Short Date"), bTimeFormat);
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Long Date"), bTimeFormat);
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Short Time"), bTimeFormat);

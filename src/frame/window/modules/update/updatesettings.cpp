@@ -69,7 +69,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_updateNotify = new SwitchWidget(tr("Updates Notification"), this);
     //~ contents_path /update/Update Settings
     //~ child_page Update Settings
-    m_autoDownloadUpdate = new SwitchWidget(tr("Download Updates"), this);
+    m_autoDownloadUpdate = new SwitchWidget(tr("Auto Download Updates"), this);
     //~ contents_path /update/Update Settings
     //~ child_page Update Settings
     m_autoInstallUpdate = new SwitchWidget(tr("Auto Install Updates"), this);
@@ -100,7 +100,7 @@ void UpdateSettings::initUi()
 
     //~ contents_path /update/Update Settings
     //~ child_page Update Settings
-    m_autoCheckUpdate->setTitle(tr("Check for Updates"));
+    m_autoCheckUpdate->setTitle(tr("Auto Check for Updates"));
 
     contentLayout->addSpacing(20);
     SettingsGroup *checkUpdatesGrp = new SettingsGroup;

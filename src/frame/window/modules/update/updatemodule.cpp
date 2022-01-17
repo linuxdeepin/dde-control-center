@@ -284,8 +284,8 @@ void UpdateModule::initSearchData()
         m_frameProxy->setDetailVisible(module, updates, tr("Check for Updates"), true);//检查更新
 
         m_frameProxy->setWidgetVisible(module, updateSettings, true);
-        m_frameProxy->setDetailVisible(module, updateSettings, tr("Check for Updates"), func_is_visible("updateAutoCheck"));
-        m_frameProxy->setDetailVisible(module, updateSettings, tr("Download Updates"), func_is_visible("updateAutoDownlaod"));
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("Auto Check for Updates"), func_is_visible("updateAutoCheck"));
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("Auto Download Updates"), func_is_visible("updateAutoDownlaod"));
         m_frameProxy->setDetailVisible(module, updateSettings, tr("Auto Install Updates"), m_model->autoDownloadUpdates());
         m_frameProxy->setDetailVisible(module, updateSettings, tr("Updates Notification"), func_is_visible("updateUpdateNotify"));
         m_frameProxy->setDetailVisible(module, updateSettings, tr("Clear Package Cache"), func_is_visible("updateCleanCache"));
