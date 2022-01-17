@@ -1359,11 +1359,6 @@ bool MainWindow::GrandSearchAction(const QString json)
             searchName = jsonObject.value("item").toString();
         }
     }
-    QString moduleName, pageName;
-    m_searchWidget->getJumpPath(moduleName, pageName, searchName);
-
-    if(moduleName.isEmpty() || pageName.isEmpty())
-        return false;
 
     show();
     activateWindow();
