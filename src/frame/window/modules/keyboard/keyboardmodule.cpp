@@ -429,4 +429,5 @@ void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
 
     m_frameProxy->pushWidget(this, m_customEdit);
     m_customEdit->setVisible(true);
+    m_customEdit->setFocus();
 }
