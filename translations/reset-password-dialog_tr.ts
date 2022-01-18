@@ -24,17 +24,17 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="103"/>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>En fazla %1 palindrom karakter lütfen</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>%1&apos;den fazla monoton karakter yok lütfen</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="105"/>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Lütfen %1&apos;den fazla yinelenen karakter yok</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="110"/>
@@ -117,12 +117,12 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="257"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
-        <translation type="unfinished"/>
+        <translation>Şifreyi sıfırlamak, anahtarlığınızda saklanan verileri siler ve tekrar giriş yapmalısınız, lütfen dosyaları önceden kaydedin</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="258"/>
         <source>Confirm and Reset</source>
-        <translation type="unfinished"/>
+        <translation>Onayla ve Sıfırla</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="271"/>

@@ -19,22 +19,22 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="102"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Das Passwort darf nur englische Buchstaben (Groß- und Kleinschreibung beachten), Zahlen oder Sonderzeichen (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/) enthalten</translation>
+        <translation>Passwort darf nur englische Buchstaben (Groß- und Kleinschreibung beachten), Zahlen oder Sonderzeichen (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/) enthalten</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="103"/>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Bitte nicht mehr als %1 Palindrom-Zeichen</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Bitte nicht mehr als %1 monotone Zeichen</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="105"/>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Bitte nicht mehr als %1 sich wiederholende Zeichen</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="110"/>

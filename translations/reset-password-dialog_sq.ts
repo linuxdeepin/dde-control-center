@@ -24,17 +24,17 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="103"/>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, jo më shumë se %1 shenja palindromike</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, jo më shumë se %1 shenja monotonike</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="105"/>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, jo më shumë se %1 shenja të përsëritura</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="110"/>

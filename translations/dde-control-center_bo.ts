@@ -1997,88 +1997,88 @@
         <translation>མངོན་སྟོན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="175"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="510"/>
         <source>Brightness</source>
         <translation>གསལ་ཚད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="176"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="497"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="569"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="508"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="580"/>
         <source>Auto Brightness</source>
         <translation>གསལ་ཚད་རང་སྙོམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="501"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="573"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="512"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="584"/>
         <source>Color Temperature</source>
         <translation>མདོག་དྲོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="178"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="502"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="574"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="585"/>
         <source>Night Shift</source>
         <translation>མདོག་དྲོད་རང་སྙོམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="503"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="575"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="514"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="586"/>
         <source>Change Color Temperature</source>
         <translation>ལག་ཐབས་སྙོམ་སྒྲིག </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="490"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="511"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="542"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="522"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="553"/>
         <source>Multiple Displays</source>
         <translation>བརྙན་མང་སྒྲིག་འགོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="181"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="488"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="509"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="540"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="520"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="551"/>
         <source>Mode</source>
         <translation>དཔེ་རྣམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="182"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="489"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="510"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="541"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="500"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="521"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="552"/>
         <source>Main Screen</source>
         <translation>བརྙན་ཡོལ་གཙོ་བོ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="183"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="513"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="544"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="524"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="555"/>
         <source>Refresh Rate</source>
         <translation>གསར་འདོན་ཕྱོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="514"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="546"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="525"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="557"/>
         <source>Resolution</source>
         <translation>འབྱེད་ཕྱོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="515"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="548"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="526"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
         <source>Rotation</source>
         <translation>ཁ་ཕྱོགས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="516"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="550"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="527"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="561"/>
         <source>Display Scaling</source>
         <translation>བརྙན་ཡོལ་སྐྱེད་སྐྱུང་།</translation>
     </message>
@@ -2104,17 +2104,17 @@
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="341"/>
         <source>Duplicate</source>
         <translation>པར་སློག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="342"/>
         <source>Extend</source>
         <translation>རྒྱ་སྐྱེད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="348"/>
         <source>Only on %1</source>
         <translation>བརྙན་ཡོལ་%1</translation>
     </message>
@@ -3798,13 +3798,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="238"/>
         <source>Automatic Noise Suppression</source>
         <translation>སུན་སྒྲ་ཚོད་འཛིན།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="129"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="223"/>
         <source>Input Volume</source>
         <translation>སྒྲ་ཤུགས་ནང་འཇུག</translation>
     </message>
@@ -3819,34 +3819,34 @@
         <translation>ཕྱིར་འདྲེན་སྒྲིག་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="145"/>
         <source>Mode</source>
         <translation>དཔེ་རྣམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="226"/>
         <source>Output Volume</source>
         <translation>སྒྲ་ཤུགས་ཕྱིར་འདོན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="229"/>
         <source>Volume Boost</source>
         <translation>སྐད་ཤུགས་ཆེ་རུ་གཏོང་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="158"/>
         <source>Output Devices</source>
         <translation>ཕྱིར་གཏོང་སྒྲིག་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="160"/>
         <source>Input Devices</source>
         <translation>ནང་འཇུག་སྒྲིག་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="284"/>
         <source>Sound</source>
         <translation>སྒྲ།</translation>
     </message>
@@ -4112,14 +4112,14 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="128"/>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>རྩིས་འཁོར་གྱི་མིང་།</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>ཐོན་རྫས་ཀྱི་མིང་།</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
@@ -4133,7 +4133,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>པར་གཞི།</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
@@ -4168,21 +4168,21 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>ལྟེ་བའི་པར་གཞི།</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲིག་གཅོད་ཆས།</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>ནང་གསོག</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
@@ -4291,12 +4291,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="176"/>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>རྩིས་འཁོར་གྱི་མིང་།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="177"/>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>ཐོན་རྫས་ཀྱི་མིང་།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="178"/>
@@ -4307,7 +4307,7 @@
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="179"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="245"/>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>པར་གཞི།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="180"/>
@@ -4324,19 +4324,19 @@
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="182"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="249"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>ལྟེ་བའི་པར་གཞི།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="183"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="251"/>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲིག་གཅོད་ཆས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="184"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="253"/>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>ནང་གསོག</translation>
     </message>
 </context>
 <context>
@@ -4601,8 +4601,6 @@
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="246"/>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="267"/>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="284"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="287"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="308"/>
         <source>Check for Updates</source>
         <translation>ཞིབ་བཤེར་གསར་སྒྱུར།</translation>
     </message>
@@ -4613,10 +4611,16 @@
         <translation>གསར་སྒྱུར་སྒྲིག་འགོད།</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="309"/>
+        <source>Auto Check for Updates</source>
+        <translation>ཞིབ་བཤེར་གསར་སྒྱུར།</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="288"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="310"/>
-        <source>Download Updates</source>
-        <translation>ཕབ་ལེན་གསར་སྒྱུར།</translation>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="311"/>
+        <source>Auto Download Updates</source>
+        <translation>རང་འགུལ་གྱིས་ཕབ་ལེན་བྱས་ཏེ་གསར་སྒྱུར་བྱེད།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="289"/>
@@ -4625,13 +4629,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="313"/>
         <source>Updates Notification</source>
         <translation>གསར་སྒྱུར་དྲན་སྐུལ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="291"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="314"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="315"/>
         <source>Clear Package Cache</source>
         <translation>མཉེན་ཆས་ཐུམ་བུའི་གསོག་ཆས་གཙང་སེལ།</translation>
     </message>
@@ -4642,13 +4646,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="317"/>
         <source>App installed in App Store</source>
         <translation>ཉེར་སྤྱོད་ཚོང་ཁང་གི་ཉེར་སྤྱོད།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="319"/>
+        <source>System</source>
+        <translation>རྒྱུད་ཁོངས།</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="321"/>
         <source>Security Updates Only</source>
         <translation>བདེ་འཇགས་རང་བཞིན་གྱི་གསར་སྒྱུར་གཅིག་པུ། </translation>
     </message>
@@ -4695,8 +4705,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="72"/>
-        <source>Download Updates</source>
-        <translation>ཕབ་ལེན་གསར་སྒྱུར།</translation>
+        <source>Auto Download Updates</source>
+        <translation>རང་འགུལ་གྱིས་ཕབ་ལེན་བྱས་ཏེ་གསར་སྒྱུར་བྱེད།</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -4714,7 +4724,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
-        <source>Check for Updates</source>
+        <source>Auto Check for Updates</source>
         <translation>ཞིབ་བཤེར་གསར་སྒྱུར།</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>

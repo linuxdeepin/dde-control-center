@@ -547,7 +547,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="84"/>
         <source>Enroll Face</source>
-        <translation type="unfinished"/>
+        <translation>Kayıt Yüzü</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
@@ -569,12 +569,12 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="200"/>
         <source>Face enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Yüz kayıtlı</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="203"/>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Cihazın kilidini açmak ve ayarları daha sonra yapmak için yüzünüzü kullanın</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
@@ -584,7 +584,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="212"/>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"/>
+        <translation>Yüzünüz kaydedilemedi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="219"/>
@@ -632,7 +632,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="84"/>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>İris&apos;i kaydet</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="92"/>
@@ -652,7 +652,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>İris kaydoldu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="163"/>
@@ -662,7 +662,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="171"/>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>İris&apos;in kaydedilemedi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="176"/>
@@ -693,7 +693,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/faceinfodialog.cpp" line="66"/>
         <source>Enroll Face</source>
-        <translation type="unfinished"/>
+        <translation>Kayıt Yüzü</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/faceinfodialog.cpp" line="74"/>
@@ -737,7 +737,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="177"/>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Yüz izi</translation>
     </message>
 </context>
 <context>
@@ -825,7 +825,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="105"/>
         <source>Add Iris</source>
-        <translation type="unfinished"/>
+        <translation>İris ekle</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="146"/>
@@ -1996,88 +1996,88 @@
         <translation>Ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="175"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="510"/>
         <source>Brightness</source>
         <translation>Parlaklık</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="176"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="497"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="569"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="508"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="580"/>
         <source>Auto Brightness</source>
         <translation>Otomatik Parlaklık</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="501"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="573"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="512"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="584"/>
         <source>Color Temperature</source>
         <translation>Renk Sıcaklığı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="178"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="502"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="574"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="585"/>
         <source>Night Shift</source>
         <translation>Gece Kipi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="503"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="575"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="514"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="586"/>
         <source>Change Color Temperature</source>
         <translation>Renk Sıcaklığını Değiştir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="490"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="511"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="542"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="522"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="553"/>
         <source>Multiple Displays</source>
         <translation>Çoklu Ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="181"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="488"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="509"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="540"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="520"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="551"/>
         <source>Mode</source>
         <translation>Kip</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="182"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="489"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="510"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="541"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="500"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="521"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="552"/>
         <source>Main Screen</source>
         <translation>Ana Ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="183"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="513"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="544"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="524"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="555"/>
         <source>Refresh Rate</source>
         <translation>Yenileme Hızı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="514"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="546"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="525"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="557"/>
         <source>Resolution</source>
         <translation>Çözünürlük</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="515"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="548"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="526"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
         <source>Rotation</source>
         <translation>Döndür</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="516"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="550"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="527"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="561"/>
         <source>Display Scaling</source>
         <translation>Görüntü Ölçeği</translation>
     </message>
@@ -2103,17 +2103,17 @@
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="341"/>
         <source>Duplicate</source>
         <translation>Çoğalt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="342"/>
         <source>Extend</source>
         <translation>Genişlet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="348"/>
         <source>Only on %1</source>
         <translation>Yanlız %1 üzerinde</translation>
     </message>
@@ -3797,13 +3797,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="238"/>
         <source>Automatic Noise Suppression</source>
         <translation>Otomatik Gürültü Bastırma</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="129"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="223"/>
         <source>Input Volume</source>
         <translation>Ses Girişi</translation>
     </message>
@@ -3818,34 +3818,34 @@
         <translation>Çıkış Cihazı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="145"/>
         <source>Mode</source>
         <translation>Kip</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="226"/>
         <source>Output Volume</source>
         <translation>Ses Çıkışı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="229"/>
         <source>Volume Boost</source>
         <translation>Ses Artışı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="158"/>
         <source>Output Devices</source>
         <translation>Çıkış Cihazları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="160"/>
         <source>Input Devices</source>
         <translation>Giriş Cihazları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="284"/>
         <source>Sound</source>
         <translation>Ses</translation>
     </message>
@@ -4118,7 +4118,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>OS Adı</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
@@ -4132,7 +4132,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>Sürüm</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
@@ -4167,21 +4167,21 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Çekirdek</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>İşlemci</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Bellek</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
@@ -4295,7 +4295,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="177"/>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>OS Adı</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="178"/>
@@ -4306,7 +4306,7 @@
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="179"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="245"/>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>Sürüm</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="180"/>
@@ -4323,19 +4323,19 @@
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="182"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="249"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Çekirdek</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="183"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="251"/>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>İşlemci</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="184"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="253"/>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Bellek</translation>
     </message>
 </context>
 <context>
@@ -4600,8 +4600,6 @@
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="246"/>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="267"/>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="284"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="287"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="308"/>
         <source>Check for Updates</source>
         <translation>Güncellemeleri kontrol et</translation>
     </message>
@@ -4612,10 +4610,16 @@
         <translation>Güncelleme Ayarları</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="309"/>
+        <source>Auto Check for Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="288"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="310"/>
-        <source>Download Updates</source>
-        <translation>Güncellemeleri İndir</translation>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="311"/>
+        <source>Auto Download Updates</source>
+        <translation>Güncellemeleri Otomatik İndir</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="289"/>
@@ -4624,13 +4628,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="313"/>
         <source>Updates Notification</source>
         <translation>Güncelleme Bildirimi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="291"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="314"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="315"/>
         <source>Clear Package Cache</source>
         <translation>Paket Önbelleğini Temizle</translation>
     </message>
@@ -4641,13 +4645,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="317"/>
         <source>App installed in App Store</source>
         <translation>Uygulama Mağazasındaki yüklü uygulama</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="319"/>
+        <source>System</source>
+        <translation>Sistem</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="321"/>
         <source>Security Updates Only</source>
         <translation>Yalnızca Güvenlik Güncellemeleri</translation>
     </message>
@@ -4694,8 +4704,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="72"/>
-        <source>Download Updates</source>
-        <translation>Güncellemeleri İndir</translation>
+        <source>Auto Download Updates</source>
+        <translation>Güncellemeleri Otomatik İndir</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -4713,8 +4723,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
-        <source>Check for Updates</source>
-        <translation>Güncellemeleri kontrol et</translation>
+        <source>Auto Check for Updates</source>
+        <translation type="unfinished"/>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -4910,17 +4920,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="82"/>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>En fazla %1 palindrom karakter lütfen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="83"/>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>%1&apos;den fazla monoton karakter yok lütfen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="84"/>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Lütfen %1&apos;den fazla yinelenen karakter yok</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="90"/>
@@ -5081,7 +5091,7 @@
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="109"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="167"/>
         <source>Face enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Yüz kayıtlı</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="114"/>
@@ -5131,7 +5141,7 @@
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="153"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="195"/>
         <source>Device crashed, please scan again!</source>
-        <translation type="unfinished"/>
+        <translation>Cihaz çöktü, lütfen tekrar tarayın!</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="192"/>
@@ -5160,7 +5170,18 @@ For better face recognition, take notice of the following when enrolling your fa
 3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
 If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
 </source>
-        <translation type="unfinished"/>
+        <translation>Yüz tanımayı kurmadan önce lütfen aşağıdakilere dikkat edin: 
+1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
+2. Yüzle kilit açma, paroladan daha az güvenlidir.
+3. Bir profil yüzü gösteriliyorsa veya karanlık, parlak, arkadan aydınlatmalı ortamlarda yüz tanıma oranları düşecektir.
+4. Yüz tanımanın kötü amaçlı kullanımından kaçınmak için cihazınızı başkalarına teslim etmeyin.
+5. Ayrıca yüz tanımanın normal kullanımını etkileyebilecek diğer faktörlere de dikkat etmelisiniz. 
+Daha iyi yüz tanıma için yüzünüzü kaydederken aşağıdakilere dikkat edin:
+1. Yeterli ışık sağlayın, doğrudan güneş ışığından kaçının ve diğer kişilerin çerçevede görünmesini önleyin.
+2. Kayıttan önce görünüşünüze dikkat edin. Yüzünüzü saçınız, şapkanız, güneş gözlüğünüz, maskeniz veya ağır makyajınız ile kapatmayın. 
+3. Başınızı kaldırmayın veya alçaltmayın, gözlerinizi kapatmayın veya profil yüzünüzü göstermeyin. Ön yüzünüzün çerçevede net ve eksiksiz göründüğünden emin olun. 
+Bu beyanı kabul ederseniz ve yüzünüzü kaydederseniz (yerel olarak şifrelenecek ve cihazınızda ayrı olarak saklanacak olan yüz bilgilerinizi toplamayacağız), yüz tanıma etkinleştirilecektir. Kayıtlı yüz verilerini silmek için &quot;Biyometrik Kimlik Doğrulama&quot; &gt; &quot;Yüz&quot; seçeneğine gidebilirsiniz. 
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="77"/>
@@ -5727,12 +5748,12 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="371"/>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Copyright© 2011-%1 Deepin Topluluğu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="373"/>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"/>
+        <translation>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
@@ -5893,7 +5914,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
     <message>
         <location filename="../src/frame/widgets/detailinfoitem.cpp" line="76"/>
         <source>For more details, visit:</source>
-        <translation type="unfinished"/>
+        <translation>Daha fazla ayrıntı için şu adresi ziyaret edin:</translation>
     </message>
 </context>
 <context>

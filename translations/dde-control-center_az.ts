@@ -1996,88 +1996,88 @@
         <translation>Ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="175"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="510"/>
         <source>Brightness</source>
         <translation>Parlaqlıq</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="176"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="497"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="569"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="508"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="580"/>
         <source>Auto Brightness</source>
         <translation>Avto parlaqlıq</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="501"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="573"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="512"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="584"/>
         <source>Color Temperature</source>
         <translation>Rəng temperaturu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="178"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="502"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="574"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="585"/>
         <source>Night Shift</source>
         <translation>Gecə rejimi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="503"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="575"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="514"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="586"/>
         <source>Change Color Temperature</source>
         <translation>Rəng temperaturunu dəyişmək</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="490"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="511"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="542"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="522"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="553"/>
         <source>Multiple Displays</source>
         <translation>Bir neçə ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="181"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="488"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="509"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="540"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="520"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="551"/>
         <source>Mode</source>
         <translation>Rejim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="182"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="489"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="510"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="541"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="500"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="521"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="552"/>
         <source>Main Screen</source>
         <translation>Əsas ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="183"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="513"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="544"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="524"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="555"/>
         <source>Refresh Rate</source>
         <translation>Yeniləmə tezliyi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="514"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="546"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="525"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="557"/>
         <source>Resolution</source>
         <translation>Görüntü imkanı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="515"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="548"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="526"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
         <source>Rotation</source>
         <translation>Döndərin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="516"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="550"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="527"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="561"/>
         <source>Display Scaling</source>
         <translation>Ekran miqyası</translation>
     </message>
@@ -2103,17 +2103,17 @@
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="341"/>
         <source>Duplicate</source>
         <translation>Dublikat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="342"/>
         <source>Extend</source>
         <translation>Genişlədin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="348"/>
         <source>Only on %1</source>
         <translation>Yalnız %1 -də/da</translation>
     </message>
@@ -3797,13 +3797,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="238"/>
         <source>Automatic Noise Suppression</source>
         <translation>Avtomatik səs-küy boğma</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="129"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="223"/>
         <source>Input Volume</source>
         <translation>Səs girişi</translation>
     </message>
@@ -3818,34 +3818,34 @@
         <translation>Çıxış cihazı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="145"/>
         <source>Mode</source>
         <translation>Rejim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="226"/>
         <source>Output Volume</source>
         <translation>Səs çıxışı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="229"/>
         <source>Volume Boost</source>
         <translation>Səs artımı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="158"/>
         <source>Output Devices</source>
         <translation>Çıxış cihazları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="160"/>
         <source>Input Devices</source>
         <translation>Giriş cihazı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="284"/>
         <source>Sound</source>
         <translation>Səs</translation>
     </message>
@@ -4118,7 +4118,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>ƏS adı</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
@@ -4132,7 +4132,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>Buraxılış</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
@@ -4167,21 +4167,21 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Nüvə</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>Prosessor</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Yaddaş</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
@@ -4295,7 +4295,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="177"/>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>ƏS adı</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="178"/>
@@ -4306,7 +4306,7 @@
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="179"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="245"/>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>Buraxılış</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="180"/>
@@ -4323,19 +4323,19 @@
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="182"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="249"/>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Nüvə</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="183"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="251"/>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>Prosessor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="184"/>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="253"/>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Yaddaş</translation>
     </message>
 </context>
 <context>
@@ -4600,8 +4600,6 @@
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="246"/>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="267"/>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="284"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="287"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="308"/>
         <source>Check for Updates</source>
         <translation>Yenilənmələri yoxlamaq</translation>
     </message>
@@ -4612,10 +4610,16 @@
         <translation>Yenilənmə ayarları</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="309"/>
+        <source>Auto Check for Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="288"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="310"/>
-        <source>Download Updates</source>
-        <translation>Yenilənmələri endirmək</translation>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="311"/>
+        <source>Auto Download Updates</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="289"/>
@@ -4624,13 +4628,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="313"/>
         <source>Updates Notification</source>
         <translation>Yenilənmə bildirişi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="291"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="314"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="315"/>
         <source>Clear Package Cache</source>
         <translation>Paket keşini təmizləmək</translation>
     </message>
@@ -4641,13 +4645,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="317"/>
         <source>App installed in App Store</source>
         <translation>Tətbiq, Tətbiq Mağazasında quraşdırıldı</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="319"/>
+        <source>System</source>
+        <translation>Sistem</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="321"/>
         <source>Security Updates Only</source>
         <translation>Yalnız təhlükəszlik yenilənmələri</translation>
     </message>
@@ -4694,8 +4704,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="72"/>
-        <source>Download Updates</source>
-        <translation>Yenilənmələri endirmək</translation>
+        <source>Auto Download Updates</source>
+        <translation type="unfinished"/>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -4713,8 +4723,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
-        <source>Check for Updates</source>
-        <translation>Yenilənmələri yoxlayın</translation>
+        <source>Auto Check for Updates</source>
+        <translation type="unfinished"/>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -4910,17 +4920,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="82"/>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>%1 palondrom simvoldan artıq olmasın</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="83"/>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>%1 monoton simvoldan çox olmasın</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="84"/>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>%1 təkrarlanan simvoldan artıq olmasın</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="90"/>
