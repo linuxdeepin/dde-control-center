@@ -1374,3 +1374,17 @@ void MainWindow::addChildPageTrans(const QString &menu, const QString &tran)
 
     m_searchWidget->addChildPageTrans(menu, tran);
 }
+
+QString MainWindow::moduleDisplayName(const QString &module) const
+{
+    auto find_it = std::find_if(m_modules.cbegin(),
+                                m_modules.cend(),
+    [ module ](const QPair<ModuleInterface *, QString> &pair) {
+        return pair.first->name() == module;
+    });
+    if (find_it == m_modules.cend()) {
+        qDebug() << Q_FUNC_INFO << "Not found module:" << module;
+        return QString();
+    }
+    return find_it->second;
+}

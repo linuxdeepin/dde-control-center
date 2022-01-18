@@ -542,12 +542,12 @@ void SearchModel::setLanguage(const QString &type)
             QFile   file(xmlPath);
 
             if (!file.exists()) {
-                qDebug() << " [SearchWidget] File not exist";
+                qDebug() << " [SearchWidget] File not exist:" << xmlPath;
                 continue;
             }
 
             if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-                qDebug() << " [SearchWidget] File open failed";
+                qDebug() << " [SearchWidget] File open failed:" << xmlPath;
                 continue;
             }
 
