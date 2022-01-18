@@ -131,7 +131,13 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 
     // 点击有线连接按钮
     connect(m_lvProfiles, &DListView::clicked, this, [ this ](const QModelIndex & idx) {
-        m_device->connectNetwork(idx.data(PathRole).toString());
+        if (idx.row() < 0 || idx.row() >= m_modelprofiles->rowCount())
+            return;
+
+        ConnectionPageItem *item = static_cast<ConnectionPageItem *>(m_modelprofiles->item(idx.row()));
+        WiredConnection *connObj = static_cast<WiredConnection *>(item->itemData());
+        if (!connObj->connected())
+            m_device->connectNetwork(idx.data(PathRole).toString());
     });
 
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
