@@ -163,11 +163,13 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
                 unManager = true;
             }
 
-            // 根据标志位InterfaceFlags判断网络连接是否有效
-            if (!deviceInfo.value("InterfaceFlags").isUndefined()) {
-                if (!(deviceInfo.value("InterfaceFlags").toInt() & DEVICE_INTERFACE_FLAG_UP)) {
-                    PRINT_DEBUG_MESSAGE(QString("Interface_flag_up: %1").arg(deviceInfo.value("Interface").toString()));
-                    continue;
+            // 根据标志位InterfaceFlags判断网络连接是否有效(无线网络不需要根据这个标志位来判断，因为无线网络在开启飞行模式后，这个标志位会变成0,但是需要显示无线网卡)
+            if (type != DeviceType::Wireless) {
+                if (!deviceInfo.value("InterfaceFlags").isUndefined()) {
+                    if (!(deviceInfo.value("InterfaceFlags").toInt() & DEVICE_INTERFACE_FLAG_UP)) {
+                        PRINT_DEBUG_MESSAGE(QString("Interface_flag_up: %1").arg(deviceInfo.value("Interface").toString()));
+                        continue;
+                    }
                 }
             }
 
