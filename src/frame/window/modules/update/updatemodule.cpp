@@ -291,6 +291,7 @@ void UpdateModule::initSearchData()
         m_frameProxy->setDetailVisible(module, updateSettings, tr("Clear Package Cache"), func_is_visible("updateCleanCache"));
         m_frameProxy->setDetailVisible(module, updateSettings, tr("Updates from Repositories"), true);
         m_frameProxy->setDetailVisible(module, updateSettings, tr("App installed in App Store"), false/*func_is_visible("updateAppUpdate")*/);
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("System"), func_is_visible("updateSystemUpdate"));
         m_frameProxy->setDetailVisible(module, updateSettings, tr("Security Updates Only"), func_is_visible("updateSecureUpdate"));
      };
 
@@ -305,15 +306,17 @@ void UpdateModule::initSearchData()
 
         bool isVisible = func_is_visible(gsetting);
         if ("updateAutoCheck" == gsetting) {
-            m_frameProxy->setDetailVisible(module, updateSettings, tr("Check for Updates"), isVisible);
+            m_frameProxy->setDetailVisible(module, updateSettings, tr("Auto Check for Updates"), isVisible);
         } else if ("updateAutoDownlaod" == gsetting) {
-            m_frameProxy->setDetailVisible(module, updateSettings, tr("Download Updates"), isVisible);
+            m_frameProxy->setDetailVisible(module, updateSettings, tr("Auto Download Updates"), isVisible);
         } else if ("updateUpdateNotify" == gsetting) {
             m_frameProxy->setDetailVisible(module, updateSettings, tr("Updates Notification"), isVisible);
         } else if ("updateCleanCache" == gsetting) {
             m_frameProxy->setDetailVisible(module, updateSettings, tr("Clear Package Cache"), isVisible);
         } else if ("updateAppUpdate" == gsetting) {
             m_frameProxy->setDetailVisible(module, updateSettings, tr("App installed in App Store"), isVisible);
+        } else if ("updateSystemUpdate" == gsetting) {
+            m_frameProxy->setDetailVisible(module, updateSettings, tr("System"), isVisible);
         } else if ("updateSecureUpdate" == gsetting) {
             m_frameProxy->setDetailVisible(module, updateSettings, tr("Security Updates Only"), isVisible);
         } else {
