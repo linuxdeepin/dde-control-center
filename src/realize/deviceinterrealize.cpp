@@ -617,9 +617,20 @@ bool dde::network::WirelessDeviceInterRealize::hotspotEnabled()
 
 void WirelessDeviceInterRealize::updateAccesspoint(const QJsonArray &json)
 {
+    auto isWifi6 = [](const QJsonObject &json) {
+        if (json.contains("Flags")) {
+            int flag = json.value("Flags").toInt();
+            if (flag & AP_FLAGS_HE)
+                return true;
+        }
+
+        return false;
+    };
+
     // 先过滤相同的ssid，找出信号强度最大的那个
     QMap<QString, int> ssidMaxStrength;
     QMap<QString, QString> ssidPath;
+    QMap<QString, int> wifi6Ssids;
     for (const QJsonValue &jsonValue : json) {
         const QJsonObject obj = jsonValue.toObject();
         const QString ssid = obj.value("Ssid").toString();
@@ -637,18 +648,24 @@ void WirelessDeviceInterRealize::updateAccesspoint(const QJsonArray &json)
             ssidMaxStrength[ssid] = strength;
             ssidPath[ssid] = path;
         }
+        if (isWifi6(obj))
+            wifi6Ssids[ssid] = obj.value("Flags").toInt();
     }
 
     QList<AccessPoints *> newAp;
     QList<AccessPoints *> changedAp;
     QStringList ssids;
     for (const QJsonValue &jsonValue : json) {
-        const QJsonObject accessInfo = jsonValue.toObject();
+        QJsonObject accessInfo = jsonValue.toObject();
         const QString ssid = accessInfo.value("Ssid").toString();
         const QString maxSsidPath = ssidPath.value(ssid);
         const QString path = accessInfo.value("Path").toString();
         if (path != maxSsidPath)
             continue;
+
+        // 如果当前的SSID存在WiFi6,就让其显示WiFi6的属性
+        if (wifi6Ssids.contains(ssid))
+            accessInfo["extendFlags"] = wifi6Ssids[ssid];
 
         // 从网络列表中查找现有的网络
         AccessPoints *accessPoint = findAccessPoint(ssid);

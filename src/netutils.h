@@ -24,6 +24,9 @@ namespace network {
 // the interface has carrier. In most cases this is equal to the value of @NM_DEVICE_INTERFACE_FLAG_LOWER_UP
 #define DEVICE_INTERFACE_FLAG_CARRIER 0x10000
 
+// wifi6的标记
+#define AP_FLAGS_HE 0x10
+
 using NetworkInter = com::deepin::daemon::Network;
 using ProxyChains = com::deepin::daemon::network::ProxyChains;
 

@@ -25,8 +25,6 @@
 
 using namespace dde::network;
 
-#define NM_802_11_AP_FLAGS_HE 0x10
-
 bool WirelessDevice::isConnected() const
 {
     QList<AccessPoints *> aps = deviceRealize()->accessPointItems();
@@ -184,9 +182,19 @@ bool AccessPoints::hidden() const
 
 AccessPoints::WlanType AccessPoints::type() const
 {
+    // 根据需求，在当前Wlan未连接的情况下，才判断是否有同名Wlan中存在Wlan6，如果当前已连接，则直接判断
+    if (!connected()) {
+        // 如果是重名的Wlan，则判断同名的Wlan的Flags是否为Wlan6
+        if (m_json.contains("extendFlags")) {
+            int flag = m_json.value("extendFlags").toInt();
+            if (flag & AP_FLAGS_HE)
+                return WlanType::wlan6;
+        }
+    }
+
     if (m_json.contains("Flags")) {
         int flag = m_json.value("Flags").toInt();
-        if (flag & NM_802_11_AP_FLAGS_HE)
+        if (flag & AP_FLAGS_HE)
             return WlanType::wlan6;
     }
 
