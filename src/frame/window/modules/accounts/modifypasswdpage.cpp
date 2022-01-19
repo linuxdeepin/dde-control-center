@@ -276,7 +276,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
     qDebug() << "exit code:" << exitCode << "error text:" << errorTxt << "error type:" << error
             << "error tips:" << PwqualityManager::instance()->getErrorTips(error);
     if (exitCode != 0) {
-        if (errorTxt.startsWith("Current password: Current Password: passwd:", Qt::CaseInsensitive)) {
+        if (errorTxt.startsWith("Current Password: passwd:", Qt::CaseInsensitive)) {
             m_oldPasswordEdit->setAlert(true);
             m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
             return;
