@@ -289,7 +289,10 @@ bool DCCNetworkModule::hasModule(const PageType &type)
 
 void DCCNetworkModule::initSearchData()
 {
-    const QString& module = displayName();
+    if (!m_frameProxy)
+        return;
+
+    const QString& module = m_frameProxy->moduleDisplayName(name());
     const QString& applicationProxy = tr("Application Proxy");
     const QString& personalHost = tr("Personal Hotspot");
     const QString& networkDetail = tr("Network Details");

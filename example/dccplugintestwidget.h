@@ -79,6 +79,7 @@ public:
     void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible);
     void updateSearchData(const QString &module);
     void addChildPageTrans(const QString &menu, const QString &rran);
+    QString moduleDisplayName(const QString &module) const;
 
 private slots:
     void onBack();

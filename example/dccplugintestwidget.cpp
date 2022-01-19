@@ -330,6 +330,11 @@ void DccPluginTestWidget::addChildPageTrans(const QString &menu, const QString &
     Q_UNUSED(rran);
 }
 
+QString DccPluginTestWidget::moduleDisplayName(const QString &module) const
+{
+    return module;
+}
+
 void DccPluginTestWidget::onBack()
 {
     popWidget();
