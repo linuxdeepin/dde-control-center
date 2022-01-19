@@ -31,7 +31,7 @@ DisplayWidget::DisplayWidget(QWidget *parent)
 {
     setObjectName("Display");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    setContentsMargins(8, 8, 8, 8);
+    setContentsMargins(0, 0, 0, 0);
 }
 
 void DisplayWidget::setModel()
