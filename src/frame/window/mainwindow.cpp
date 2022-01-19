@@ -532,6 +532,8 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     Q_UNUSED(animation)
 
     if (module == m_moduleName && page.isEmpty()) { //当前模块且未指定页面，直接返回
+        //Note: 在关闭窗口特效的情况下，控制中心最小化之后，调用show()，无法显示出来【开了窗口特效则无此问题】
+        setWindowState(windowState() &~ Qt::WindowMinimized);
         show();
         activateWindow();
         return;
@@ -601,8 +603,11 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     onEnterSearchWidget(module, page);
     // Note: 当直接进入模块界面(二级界面)，先将模块界面显示出来，在加载首界面
     QTimer::singleShot(0, this, [ = ] {
-        if (isMinimized() || !isVisible())
+        if (isMinimized() || !isVisible()) {
+            //Note: 在关闭窗口特效的情况下，控制中心最小化之后，调用show()，无法显示出来【开了窗口特效则无此问题】
+            setWindowState(windowState() &~ Qt::WindowMinimized);
             show();
+        }
 
         activateWindow();
     });
