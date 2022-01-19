@@ -199,11 +199,11 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId, const
         auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
         if (port && port->id() == portId && cardId == port->cardId()) {
             m_inputModel->removeRow(i);
-            if (m_currentPort->id() == portId && m_currentPort->cardId() == cardId) {
-                m_currentPort = nullptr;
-            }
             break;
         }
+    }
+    if (m_currentPort && m_currentPort->id() == portId && m_currentPort->cardId() == cardId) {
+        m_currentPort = nullptr;
     }
 
     changeComboxStatus();
@@ -257,11 +257,12 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
         });
         connect(port, &dcc::sound::Port::isInputActiveChanged, this, [ = ](bool isActive) {
             // 若关闭设备 此时pi为空
-            if (pi)
+            if (pi) {
                 pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
-            if (isActive) {
-                m_currentPort = port;
-                changeComboxStatus();
+                if (isActive) {
+                    m_currentPort = port;
+                    changeComboxStatus();
+                }
             }
         });
         connect(port, &dcc::sound::Port::currentPortEnabled, this, [ = ](bool isEnable) {
