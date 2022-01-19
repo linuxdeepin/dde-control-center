@@ -102,6 +102,8 @@ public:
     QAction *action() const;
     bool operator<(const QStandardItem &other) const override;
     bool setLoading(bool isLoading);
+    bool isLastRow() const;
+    void setIsLastRow(const bool lastRow);
 
 public:
     enum {
@@ -120,6 +122,7 @@ private:
     QPointer<DViewItemAction> m_arrowAction;
     QPointer<DSpinner> m_loadingIndicator;
     bool m_isWlan6;
+    bool m_isLastRow;
 };
 
 class WirelessPage : public dcc::ContentWidget
@@ -168,6 +171,7 @@ private:
     QString connectionSsid(const QString &uuid);
     void updateLayout(bool enabled);
     bool isHiddenWlan(const QString &ssid) const;
+    void appendConnectHidden();
 
 private:
     WirelessDevice *m_device;

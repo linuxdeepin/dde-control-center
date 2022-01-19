@@ -74,6 +74,7 @@ APItem::APItem(const QString &text, QStyle *style, DListView *parent)
         , m_preLoading(false)
         , m_uuid("")
         , m_isWlan6(false)
+        , m_isLastRow(false)
 {
     setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
     setCheckable(false);
@@ -284,6 +285,16 @@ bool APItem::setLoading(bool isLoading)
     return isReconnect;
 }
 
+bool APItem::isLastRow() const
+{
+    return m_isLastRow;
+}
+
+void APItem::setIsLastRow(const bool lastRow)
+{
+    m_isLastRow = lastRow;
+}
+
 WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         : ContentWidget(parent)
         , m_device(dev)
@@ -316,13 +327,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_modelAP->setSortRole(APItem::SortRole);
     m_sortDelayTimer->setInterval(100);
     m_sortDelayTimer->setSingleShot(true);
-
-    APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
-    nonbc->setSignalStrength(-1);
-    nonbc->setPath("");
-    nonbc->setSortInfo({ -1, "", false });
-    connect(nonbc->action(), &QAction::triggered, this, [ this ] { showConnectHidePage(); });
-    m_modelAP->appendRow(nonbc);
 
     //~ contents_path /network/WirelessPage
     QLabel *lblTitle = new QLabel(tr("Wireless Network Adapter"));              // 无线网卡
@@ -624,6 +628,29 @@ void WirelessPage::onUpdateAPItem()
         m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
         m_apItems.erase(m_apItems.find(ssid));
     }
+    appendConnectHidden();
+}
+
+void WirelessPage::appendConnectHidden()
+{
+    bool finded = false;
+    for (int i = 0; i < m_modelAP->rowCount(); i++) {
+        APItem *item = static_cast<APItem *>(m_modelAP->item(i));
+        if (item && item->isLastRow()) {
+            finded = true;
+            break;
+        }
+    }
+    if (finded)
+        return;
+
+    APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
+    nonbc->setSignalStrength(-1);
+    nonbc->setPath("");
+    nonbc->setSortInfo({ -1, "", false });
+    nonbc->setIsLastRow(true);
+    connect(nonbc->action(), &QAction::triggered, this, &WirelessPage::showConnectHidePage);
+    m_modelAP->appendRow(nonbc);
 }
 
 void WirelessPage::onHotspotEnableChanged(const bool enabled)
