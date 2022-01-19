@@ -166,6 +166,11 @@ void NetworkDialog::setPosition(int x, int y, Dtk::Widget::DArrowRectangle::Arro
     m_position = position;
 }
 
+bool NetworkDialog::isVisible() const
+{
+    return !m_clients.isEmpty();
+}
+
 void NetworkDialog::runServer(bool start)
 {
     if (!start)

@@ -140,7 +140,7 @@ QWidget *NetworkPlugin::itemWidget(const QString &itemKey)
 
 QWidget *NetworkPlugin::itemTipsWidget(const QString &itemKey)
 {
-    if (itemKey == NETWORK_KEY)
+    if (itemKey == NETWORK_KEY && !m_networkDialog->isVisible())
         return m_networkHelper->itemTips();
 
     return Q_NULLPTR;

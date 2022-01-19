@@ -183,6 +183,9 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
             break;
         }
         initWidget();
+        if (reason != Dock) {
+            m_popopWindow->setWindowFlag(Qt::Popup);
+        }
         m_popopWindow->setArrowDirection(static_cast<DArrowRectangle::ArrowDirection>(position));
         m_popopWindow->show(QPoint(x, y), true);
     }

@@ -56,6 +56,7 @@ public:
     void setConnectWireless(const QString &dev, const QString &ssid);
     void setRunReason(RunReason reason);
     void setPosition(int x, int y, Dtk::Widget::DArrowRectangle::ArrowDirection position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowBottom);
+    bool isVisible() const;
 
 private:
     void runProcess(bool show = true);

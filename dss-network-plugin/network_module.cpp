@@ -91,6 +91,8 @@ QWidget *NetworkModule::itemWidget() const
 
 QWidget *NetworkModule::itemTipsWidget() const
 {
+    if (m_networkDialog->isVisible())
+        return nullptr;
     QWidget *itemTips = m_networkHelper->itemTips();
     if (itemTips) {
         QPalette palette = itemTips->palette();

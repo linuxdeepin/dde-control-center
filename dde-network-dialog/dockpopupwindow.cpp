@@ -48,7 +48,7 @@ DockPopupWindow::DockPopupWindow(QWidget *parent)
     m_wmHelper = DWindowManagerHelper::instance();
 
     compositeChanged();
-    setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
+    setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
 
     setShadowBlurRadius(20);
     setRadius(6);
