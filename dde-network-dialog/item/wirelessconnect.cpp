@@ -43,6 +43,8 @@ WirelessConnect::WirelessConnect(QObject *parent, dde::network::WirelessDevice *
     , m_device(device)
     , m_accessPoint(ap)
 {
+    qDBusRegisterMetaType<IpV6DBusAddress>();
+    qDBusRegisterMetaType<IpV6DBusAddressList>();
 }
 
 WirelessConnect::~WirelessConnect()
