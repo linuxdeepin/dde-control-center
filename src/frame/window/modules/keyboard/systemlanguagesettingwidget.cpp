@@ -73,7 +73,7 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     ok->setObjectName("Ok");
 
     m_search = new SearchInput();
-    //~ contents_path /keyboard/System Language
+    //~ contents_path /keyboard/System Language/Add System Language
     //~ child_page System Language
     m_title = new QLabel(tr("Add System Language"));
     m_title->setAlignment(Qt::AlignCenter | Qt::AlignHCenter | Qt::AlignVCenter);

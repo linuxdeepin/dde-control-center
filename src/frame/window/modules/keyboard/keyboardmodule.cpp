@@ -107,12 +107,24 @@ void KeyboardModule::active()
         }
         m_keyboardWidget->setDefaultWidget();
     });
+    connect(m_keyboardWidget, &KeyboardWidget::notifyEnterSearchWidget, this, [this](const QString searchData) {
+            if (searchData == "Add Custom Shortcut") {
+                onPushCustomShortcut();
+            } else if (searchData == "Add System Language") {
+                onPushSystemLanguageSetting();
+            } else if (searchData == "Add Keyboard Layout") {
+                QTimer::singleShot(0, [this] {
+                    if (m_kbLayoutSettingWidget)
+                        m_kbLayoutSettingWidget->onLayoutAdded();
+                });
+            }
+    });
 }
 
 int KeyboardModule::load(const QString &path)
 {
     QStringList pathList = path.split("/");
-    QString loadPath = pathList.at(0);
+    QString loadPath = pathList.last();
 
     return m_keyboardWidget->showPath(loadPath);
 }

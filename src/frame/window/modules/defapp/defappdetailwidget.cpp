@@ -73,7 +73,8 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     setLayout(m_centralLayout);
 
     connect(m_addBtn, &Dtk::Widget::DFloatingButton::clicked, this, &DefappDetailWidget::onAddBtnClicked);
-    //~ contents_path /defapp/Webpage
+    //~ contents_path /defapp/Video/Add Application
+    //~ child_page Video
     m_addBtn->setToolTip(tr("Add Application"));
     m_addBtn->setAccessibleName(tr("Add Application"));
     m_createFile->setModal(true);

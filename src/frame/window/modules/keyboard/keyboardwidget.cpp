@@ -154,7 +154,25 @@ int KeyboardWidget::showPath(const QString &path)
         }
     }
 
-    return -1;
+    //从三级页面进入四级页面
+    int index = -1;
+    qDebug() << "temp path:" << path;
+    if (path == "Add Keyboard Layout") {
+        index = getListIndex(tr("Keyboard Layout"));
+    } else if (path == "Add System Language") {
+        index = getListIndex(tr("System Language"));
+    } else if (path == "Add Custom Shortcut") {
+        index = getListIndex(tr("Shortcuts"));
+    } else {
+        return index;
+    }
+    if (index > -1 && index < m_itemList.count()) {
+        m_keyboardListView->clicked(m_listviewModel->index(index, 0));
+        Q_EMIT notifyEnterSearchWidget(path);
+        return 0;
+    }
+
+    return index;
 }
 
 void KeyboardWidget::onItemClick(const QModelIndex &index)
@@ -167,6 +185,19 @@ void KeyboardWidget::onItemClick(const QModelIndex &index)
 
     m_lastIndex = index;
     m_keyboardListView->resetStatus(index);
+}
+
+int KeyboardWidget::getListIndex(QString data)
+{
+    int index = -1;
+    for (int i = 0; i < m_itemList.size(); ++i) {
+        auto menu = m_itemList[i];
+        if (data == menu.itemText) {
+            index = i;
+            return index;
+        }
+    }
+    return index;
 }
 
 bool KeyboardWidget::configContent(const QString &configName)

@@ -55,7 +55,7 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
     mainLayout->setContentsMargins(10, 35, 10, 0);
-    //~ contents_path /keyboard/Shortcuts
+    //~ contents_path /keyboard/Shortcuts/Add Custom Shortcut
     //~ child_page Shortcuts
     QLabel *shortCutTitle = new QLabel(tr("Add Custom Shortcut"));
     DFontSizeManager::instance()->bind(shortCutTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体

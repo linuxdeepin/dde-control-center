@@ -41,7 +41,7 @@ SystemTimezone::SystemTimezone(QWidget *parent)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
-    //~ contents_path /datetime/Timezone List
+    //~ contents_path /datetime/Timezone List/Change System Timezone
     //~ child_page Timezone List
     m_setSystemTimezone->setText(tr("Change System Timezone"));
     m_systemTimezone->addBackground();

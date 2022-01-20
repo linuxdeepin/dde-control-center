@@ -47,6 +47,11 @@ DefaultAppsModule::DefaultAppsModule(FrameProxyInterface *frame, QObject *parent
     GSettingWatcher::instance()->insertState("defappVideo");
     GSettingWatcher::instance()->insertState("defappPicture");
     GSettingWatcher::instance()->insertState("defappTerminal");
+
+    /*以下三行为默认程序模块服务，由于每个cpp只能有一种翻译，故将注释分配到其他地方*/
+    //~ contents_path /defapp/Text/Add Application
+    //~ child_page Text
+    tr("Add Application");
 }
 
 DefaultAppsModule::~DefaultAppsModule()
@@ -125,11 +130,21 @@ int DefaultAppsModule::load(const QString &path)
         { QStringLiteral("Picture"), dcc::defapp::DefAppWorker::Picture},
         { QStringLiteral("Terminal"), dcc::defapp::DefAppWorker::Terminal},
     };
+
+    QStringList pathList = path.split("/");
+    int count = pathList.count();
+    if (count <= 0) {
+        return -1;
+    }
     QString loadPath = path.split("/").at(0);
     dcc::defapp::DefAppWorker::DefaultAppsCategory currentCategory = maps.value(loadPath, dcc::defapp::DefAppWorker::Browser);
 
     showDetailWidget(currentCategory);
     Q_EMIT requestSetDefappCategory(currentCategory);
+    if (count == 2 && pathList.at(1) == "Add Application") {
+        Q_EMIT requestAddDefault();
+    }
+
     return 0;
 }
 
@@ -249,6 +264,7 @@ void DefaultAppsModule::showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsC
     connect(detailWidget, &DefappDetailWidget::requestSetDefaultApp, m_defAppWorker, &dcc::defapp::DefAppWorker::onSetDefaultApp); //设置默认程序
     connect(detailWidget, &DefappDetailWidget::requestDelUserApp, m_defAppWorker, &dcc::defapp::DefAppWorker::onDelUserApp);
     connect(detailWidget, &DefappDetailWidget::requestCreateFile, m_defAppWorker, &dcc::defapp::DefAppWorker::onCreateFile);
+    connect(this, &DefaultAppsModule::requestAddDefault, detailWidget, &DefappDetailWidget::onAddBtnClicked);
     m_frameProxy->pushWidget(this, detailWidget);
     detailWidget->setVisible(true);
 }

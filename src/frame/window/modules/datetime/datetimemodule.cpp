@@ -51,6 +51,11 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
     GSettingWatcher::instance()->insertState("timezoneList");
     GSettingWatcher::instance()->insertState("timeSettings");
     GSettingWatcher::instance()->insertState("timeFormat");
+
+    /*以下三行为默认程序模块服务，由于每个cpp只能有一种翻译，故将注释分配到其他地方*/
+    //~ contents_path /defapp/Picture/Add Application
+    //~ child_page Picture
+    tr("Add Application");
 }
 
 void DatetimeModule::preInitialize(bool sync, FrameProxyInterface::PushType)

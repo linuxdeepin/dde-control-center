@@ -56,6 +56,7 @@ private:
 
 Q_SIGNALS:
     void requestSetDefappCategory(dcc::defapp::DefAppWorker::DefaultAppsCategory category);
+    void requestAddDefault();
 
 private Q_SLOTS:
     void showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category = dcc::defapp::DefAppWorker::Browser);

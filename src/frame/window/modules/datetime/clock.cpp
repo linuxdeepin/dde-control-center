@@ -38,6 +38,11 @@ Clock::Clock(QWidget *parent)
     m_hour = getPixmap(":/datetime/icons/dcc_noun_hour.svg", pointSize);
     m_min = getPixmap(":/datetime/icons/dcc_noun_minute.svg", pointSize);
     m_sec = getPixmap(":/datetime/icons/dcc_noun_second.svg", pointSize);
+
+    /*以下三行为默认程序模块服务，由于每个cpp只能有一种翻译，故将注释分配到其他地方*/
+    //~ contents_path /defapp/Mail/Add Application
+    //~ child_page Mail
+    tr("Add Application");
 }
 
 Clock::~Clock()

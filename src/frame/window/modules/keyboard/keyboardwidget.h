@@ -65,6 +65,7 @@ public:
 private:
     void init();
     void onItemClick(const QModelIndex &index);
+    int getListIndex(QString data);
     bool configContent(const QString & configName);
 Q_SIGNALS:
     void showGeneralSetting();
@@ -72,6 +73,7 @@ Q_SIGNALS:
     void showSystemLanguageSetting();
     void showShortCutSetting();
     void requestUpdateSecondMenu(const bool needPop);
+    void notifyEnterSearchWidget(const QString &search);
 
 private:
     QList<ListSubItem> m_itemList;

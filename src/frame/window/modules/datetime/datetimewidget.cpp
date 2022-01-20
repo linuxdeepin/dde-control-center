@@ -48,6 +48,11 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     init();
+
+    /*以下三行为默认程序模块服务，由于每个cpp只能有一种翻译，故将注释分配到其他地方*/
+    //~ contents_path /defapp/Terminal/Add Application
+    //~ child_page Terminal
+    tr("Add Application");
 }
 
 DatetimeWidget::~DatetimeWidget()
