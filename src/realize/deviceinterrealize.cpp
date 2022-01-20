@@ -498,7 +498,6 @@ WirelessConnection *WirelessDeviceInterRealize::findConnectionByAccessPoint(cons
  */
 void WirelessDeviceInterRealize::syncConnectionAccessPoints()
 {
-    PRINT_INFO_MESSAGE("start");
     if (m_accessPoints.isEmpty()) {
         clearListData(m_connections);
         PRINT_INFO_MESSAGE("can't found accesspoint");
@@ -517,7 +516,6 @@ void WirelessDeviceInterRealize::syncConnectionAccessPoints()
         connection->m_accessPoints = accessPoint;
         connections << connection;
     }
-    PRINT_DEBUG_MESSAGE(QString("connection size:%1").arg(connections.size()));
     updateActiveInfo();
     // 删除列表中没有AccessPoints的Connection，让两边保持数据一致
     QList<WirelessConnection *> rmConns;
@@ -527,7 +525,6 @@ void WirelessDeviceInterRealize::syncConnectionAccessPoints()
     }
 
     for (WirelessConnection *rmConnection : rmConns) {
-        PRINT_DEBUG_MESSAGE(QString("remove connection:%1").arg(rmConnection->connection()->ssid()));
         m_connections.removeOne(rmConnection);
         delete rmConnection;
     }
@@ -587,7 +584,6 @@ QList<WirelessConnection *> WirelessDeviceInterRealize::wirelessItems() const
 void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot)
 {
     bool enabledHotspotOld = hotspotEnabled();
-    PRINT_INFO_MESSAGE(QString("hotspot enabled old: %1").arg(enabledHotspotOld));
 
     m_hotspotInfo = QJsonObject();
     for (const QJsonObject &info : infos) {
@@ -602,7 +598,6 @@ void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObj
 
     if (emitHotspot) {
         bool enabledHotspot = hotspotEnabled();
-        PRINT_INFO_MESSAGE(QString("hotspot enable: %1").arg(enabledHotspot));
         if (enabledHotspotOld != enabledHotspot)
             Q_EMIT hotspotEnableChanged(enabledHotspot);
     }

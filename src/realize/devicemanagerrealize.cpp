@@ -599,15 +599,12 @@ void DeviceManagerRealize::syncWlanAndConnections(QList<WirelessConnection *> &a
         connection->m_accessPoints = accessPoint;
         connections << connection;
     }
-    PRINT_DEBUG_MESSAGE(QString("connections size: %1").arg(connections.size()));
     // 删除列表中没有AccessPoints的Connection，让两边保持数据一致
     QList<WirelessConnection *> rmConns;
     for (WirelessConnection *connection : allConnections) {
         if (!connections.contains(connection))
             rmConns << connection;
     }
-
-    PRINT_DEBUG_MESSAGE(QString("remove connections size: %1").arg(rmConns.size()));
 
     for (WirelessConnection *rmConnection : rmConns) {
         allConnections.removeOne(rmConnection);
