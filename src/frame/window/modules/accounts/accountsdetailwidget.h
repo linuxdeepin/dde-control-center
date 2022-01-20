@@ -93,6 +93,7 @@ public:
     bool getOtherUserAutoLogin();
     void setDeleteBtnStatus(const QString &key, const bool &status);
     void setModifyPwdBtnStatus(const QString &key);
+    bool isSystemAdmin(dcc::accounts::User *user);
 
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);

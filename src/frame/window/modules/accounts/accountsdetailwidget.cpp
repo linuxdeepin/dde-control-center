@@ -63,7 +63,7 @@ using namespace DCC_NAMESPACE::accounts;
 #define GSETTINGS_EFFECTIVE_DAY_VISIBLE "effectiveDayVisible"
 
 AccountSpinBox::AccountSpinBox(QWidget *parent)
-    :DSpinBox(parent)
+    : DSpinBox(parent)
 {
 }
 
@@ -160,7 +160,7 @@ AccountsDetailWidget::~AccountsDetailWidget()
 
 bool AccountsDetailWidget::getOtherUserAutoLogin()
 {
-    for(auto user : m_userModel->userList()) {
+    for (auto user : m_userModel->userList()) {
         if (user->name() != m_curUser->name() && user->autoLogin()) {
             return false;
         }
@@ -333,11 +333,18 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         m_inputLineEdit->lineEdit()->setFocus();
     });
 
-    for(auto user : m_userModel->userList()) {
+    for (auto user : m_userModel->userList()) {
         if (user->name() == m_userModel->getCurrentUserName()) {
             m_curLoginUser = user;
+            // 结束后续没必要的循环
+            break;
         }
     }
+
+    if (m_userModel->getIsSecurityHighLever() && m_curLoginUser->securityLever() != SecurityLever::Sysadm && !m_curUser->isCurrentUser()) {
+        avatar->setEnabled(false) ;
+    }
+
 }
 
 void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
@@ -370,13 +377,13 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     pwWidget->setLayout(pwHLayout);
 
     //~ contents_path /accounts/Validity Days
-    QLabel *vlidityLabel= new QLabel(tr("Validity Days"));
+    QLabel *vlidityLabel = new QLabel(tr("Validity Days"));
     pwHLayout->addWidget(vlidityLabel, 0, Qt::AlignLeft);
     auto validityDaysBox = new AccountSpinBox();
     validityDaysBox->lineEdit()->setValidator(new QRegularExpressionValidator(QRegularExpression("[1-9]\\d{0,4}/^[1-9]\\d*$/"), validityDaysBox->lineEdit()));
     validityDaysBox->lineEdit()->setPlaceholderText("99999");
-    validityDaysBox->setRange(1,99999);
-    pwHLayout->addWidget(validityDaysBox,0, Qt::AlignRight);
+    validityDaysBox->setRange(1, 99999);
+    pwHLayout->addWidget(validityDaysBox, 0, Qt::AlignRight);
 
     // 设置安全问题
     auto sqHLayout = new QHBoxLayout;
@@ -419,7 +426,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     const bool isVisible = m_gsettings->get(GSETTINGS_EFFECTIVE_DAY_VISIBLE).toBool();
     pwWidget->setVisible(isVisible);
-    connect(m_gsettings, &QGSettings::changed, [=] (const QString &key){
+    connect(m_gsettings, &QGSettings::changed, [ = ](const QString &key) {
         if (key != GSETTINGS_EFFECTIVE_DAY_VISIBLE) {
             return;
         }
@@ -458,10 +465,20 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
     //~ contents_path /accounts/Administrator
     m_asAdministrator->setTitle(tr("Administrator"));
-    m_asAdministrator->setChecked(m_curUser->userType() == User::UserType::Administrator);
+    m_asAdministrator->setChecked(isSystemAdmin(m_curUser));
+    //开启等保3级后如果当前登陆的账户不是sysadm_u，则用户只能操作当前自己登陆用户的界面
+    if (m_userModel->getIsSecurityHighLever() && m_curLoginUser->securityLever() != SecurityLever::Sysadm && !isCurUser) {
+        validityDaysBox->setEnabled(false);
+        m_fullNameBtn->setEnabled(false);
+        m_deleteAccount->setEnabled(false);
+        m_modifyPassword->setEnabled(false);
+        m_autoLogin->switchButton()->setEnabled(false);
+        m_nopasswdLogin->switchButton()->setEnabled(false);
+        m_asAdministrator->setEnabled(false);
+    }
     //修改密码状态判断
     connect(m_gsettings, &QGSettings::changed, this, &AccountsDetailWidget::setModifyPwdBtnStatus);
-    connect(m_curUser, &User::onlineChanged, this, [=] {
+    connect(m_curUser, &User::onlineChanged, this, [ = ] {
         setModifyPwdBtnStatus("accountUserModifypasswd");
     });
     setModifyPwdBtnStatus("accountUserModifypasswd");
@@ -481,7 +498,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
     connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
     connect(m_autoLogin, &SwitchWidget::checkedChanged,
-            this, [ = ](const bool autoLogin) {
+    this, [ = ](const bool autoLogin) {
         if (autoLogin) {
             if (getOtherUserAutoLogin()) {
                 Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
@@ -545,27 +562,36 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         connect(m_userModel, &UserModel::noPassWordLoginVisableChanged, m_nopasswdLogin, &SwitchWidget::setVisible);
     }
 
-    auto adminCnt = [=]() {
+    auto adminCnt = [ = ]() {
         int adminCnt = 0;
-        for(auto user : m_userModel->userList()) {
-            if(user->userType() == User::UserType::Administrator)
+        if (m_userModel->getIsSecurityHighLever()) {
+            return 1;
+        }
+        for (auto user : m_userModel->userList()) {
+            if (user->userType() == User::UserType::Administrator)
                 adminCnt++;
         }
         return adminCnt;
     };
 
-    auto isOnlyAdmin = [=]() {                                  // 是最后一个管理员
-        return m_curUser->userType() == User::Administrator     // 是管理员
+    auto isOnlyAdmin = [ = ] {                                // 是最后一个管理员
+        return isSystemAdmin(m_curUser)                         // 是管理员
                && adminCnt() == 1;                              // 管理员只有一个
     };
 
-    auto deleteUserBtnEnable = [=]() {      // 可以删除用户
+    auto deleteUserBtnEnable = [ = ] {    // 可以删除用户
+        if (m_userModel->getIsSecurityHighLever()){
+            return m_curLoginUser->securityLever() == SecurityLever::Sysadm && !m_curUser->isCurrentUser();
+        }
         return !m_curUser->isCurrentUser()  // 不是当前用户
-                && !m_curUser->online()     // 未登录
-                && !isOnlyAdmin();          // 不是最后一个管理员
+               && !m_curUser->online()     // 未登录
+               && !isOnlyAdmin();          // 不是最后一个管理员
     };
 
-    auto asAdministratorEnable = [=]() {    // 可以切换账户类型
+    auto asAdministratorEnable = [ = ] {  // 可以切换账户类型
+        if (m_userModel->getIsSecurityHighLever()){
+            return m_curLoginUser->securityLever() == SecurityLever::Sysadm && !m_curUser->isCurrentUser();
+        }
         return !m_curUser->isCurrentUser()  // 不是当前用户
                && !m_curUser->online()      // 未登录
                && !isOnlyAdmin();           // 不是最后一个管理员
@@ -573,20 +599,24 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
 
     setDeleteBtnStatus("accountUserDeleteaccount", deleteUserBtnEnable());
 
-    connect(m_curUser, &User::onlineChanged, m_deleteAccount,
-            [=]() { m_deleteAccount->setEnabled(deleteUserBtnEnable()); });
-    connect(m_userModel, &UserModel::adminCntChange, m_deleteAccount,
-            [=]() { m_deleteAccount->setEnabled(deleteUserBtnEnable()); });
+    connect(m_curUser, &User::onlineChanged, m_deleteAccount, [ = ] {
+        m_deleteAccount->setEnabled(deleteUserBtnEnable());
+    });
+    connect(m_userModel, &UserModel::adminCntChange, m_deleteAccount, [ = ] {
+        m_deleteAccount->setEnabled(deleteUserBtnEnable());
+    });
 
-    connect(m_gsettings, &QGSettings::changed, m_deleteAccount, [=](const QString &key) {
+    connect(m_gsettings, &QGSettings::changed, m_deleteAccount, [ = ](const QString &key) {
         setDeleteBtnStatus(key, deleteUserBtnEnable());
     });
 
     m_asAdministrator->switchButton()->setEnabled(asAdministratorEnable());
-    connect(m_curUser, &User::onlineChanged, m_asAdministrator,
-            [=]() { m_asAdministrator->switchButton()->setEnabled(asAdministratorEnable()); });
-    connect(m_userModel, &UserModel::adminCntChange, m_asAdministrator,
-            [=]() { m_asAdministrator->switchButton()->setEnabled(asAdministratorEnable()); });
+    connect(m_curUser, &User::onlineChanged, m_asAdministrator, [ = ] {
+        m_asAdministrator->switchButton()->setEnabled(asAdministratorEnable());
+    });
+    connect(m_userModel, &UserModel::adminCntChange, m_asAdministrator, [ = ] {
+        m_asAdministrator->switchButton()->setEnabled(asAdministratorEnable());
+    });
 
     if (!m_groupItemModel)
         return;
@@ -602,7 +632,7 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
     onGidChanged(m_curUser->gid());
     connect(m_curUser, &User::groupsChanged, this, &AccountsDetailWidget::changeUserGroup);
     connect(m_curUser, &User::gidChanged, this, &AccountsDetailWidget::onGidChanged);
-    connect(m_curLoginUser, &User::userTypeChanged, this, [=] {
+    connect(m_curLoginUser, &User::userTypeChanged, this, [ = ] {
         setModifyPwdBtnStatus("accountUserModifypasswd");
     });
 }
@@ -652,7 +682,7 @@ void AccountsDetailWidget::resetDelButtonState()
     m_deleteAccount->setEnabled(true);
 }
 
-void AccountsDetailWidget::onEditingFinished(bool isValid, const QString& userFullName)
+void AccountsDetailWidget::onEditingFinished(bool isValid, const QString &userFullName)
 {
     if (userFullName == m_curUser->fullname() || (!userFullName.isEmpty() && userFullName.simplified().isEmpty())) {
         m_inputLineEdit->lineEdit()->clearFocus();
@@ -726,16 +756,25 @@ void AccountsDetailWidget::setModifyPwdBtnStatus(const QString &key)
 
     const QString btnStatus = m_gsettings->get(key).toString();
 
-    m_modifyPassword->setEnabled("Enabled" == btnStatus && ((!m_curUser->online() && m_curLoginUser->userType() == User::UserType::Administrator) || m_curUser->isCurrentUser()));
+    m_modifyPassword->setEnabled("Enabled" == btnStatus && ((!m_curUser->online() && isSystemAdmin(m_curLoginUser)) || m_curUser->isCurrentUser()));
 
     m_modifyPassword->setVisible("Hidden" != btnStatus);
+}
+
+bool AccountsDetailWidget::isSystemAdmin(User *user)
+{
+    if (user->userType() == User::UserType::Administrator) {
+        return m_curLoginUser->securityLever() == SecurityLever::Sysadm && !m_curUser->isCurrentUser();
+    }
+
+    return false;
 }
 
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
 {
     QStandardItem *item = m_groupItemModel->item(index.row(), index.column());
     //不可移除主组
-    if(nullptr == item || item->text() == m_groupName)
+    if (!item || item->text() == m_groupName)
         return;
 
     QStringList curUserGroup;

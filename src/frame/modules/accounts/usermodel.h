@@ -69,6 +69,9 @@ public:
     QString getCurrentUserName() const;
     void setCurrentUserName(const QString &currentUserName);
 
+    bool getIsSecurityHighLever() const;
+    void setIsSecurityHighLever(bool isSecurityHighLever);
+
 Q_SIGNALS:
     void userAdded(User *user);
     void userRemoved(User *user);
@@ -94,6 +97,7 @@ private:
     bool m_isJoinADDomain;
     bool m_isADUserLogind;
 #endif
+    bool m_isSecurityHighLever;
 };
 
 } // namespace accounts

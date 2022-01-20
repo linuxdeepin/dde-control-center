@@ -37,6 +37,7 @@ UserModel::UserModel(QObject *parent)
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_isJoinADDomain(false)
     , m_isADUserLogind(false)
+    , m_isSecurityHighLever(false)
 #endif
 {
 
@@ -139,6 +140,16 @@ QString UserModel::getCurrentUserName() const
 void UserModel::setCurrentUserName(const QString &currentUserName)
 {
     m_currentUserName = currentUserName;
+}
+
+bool UserModel::getIsSecurityHighLever() const
+{
+    return m_isSecurityHighLever;
+}
+
+void UserModel::setIsSecurityHighLever(bool isSecurityHighLever)
+{
+    m_isSecurityHighLever = isSecurityHighLever;
 }
 
 #ifdef DCC_ENABLE_ADDOMAIN

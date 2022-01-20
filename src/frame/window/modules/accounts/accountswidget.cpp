@@ -120,6 +120,14 @@ void AccountsWidget::setModel(UserModel *model)
     m_userModel = model;
 
     m_createBtn->setVisible(m_userModel->isCreateUserValid() && m_isCreateValid);
+    if (m_userModel->getIsSecurityHighLever()) {
+        for (auto user : m_userModel->userList()) {
+            if (user->name() == m_userModel->getCurrentUserName() && !(user->securityLever() == SecurityLever::Sysadm)) {
+                m_createBtn->setVisible(false);
+                break;
+            }
+        }
+    }
 
     connect(model, &UserModel::userAdded, this, [this](User * user) {
         addUser(user);
@@ -164,23 +172,45 @@ void AccountsWidget::addUser(User *user, bool t1)
     DStandardItem *item = new DStandardItem;
     item->setData(0, AccountsWidget::ItemDataRole);
 
+    auto func = [ = ](dcc::accounts::SecurityLever lever, DViewItemAction * subTitleAction) {
+        QString text = tr("Standard User");
+        switch (lever) {
+        case SecurityLever::Sysadm :
+            text = tr("System administrator");
+            break;
+        case SecurityLever::Secadm :
+            text = tr("Safety manager");
+            break;
+        case SecurityLever::Audadm :
+        case SecurityLever::Auditadm :
+            text = tr("Auditor");
+            break;
+        case SecurityLever::Standard :
+            text = tr("Standard User");;
+            break;
+        default:
+            break;
+        }
+        subTitleAction->setText(text);
+    };
+
+    auto setTitelFunc = [ = ](int userType, DViewItemAction * subTitleAction) {
+        if (m_userModel->getIsSecurityHighLever()) {
+            func(user->securityLever(), subTitleAction);
+        } else {
+            subTitleAction->setText(userType == User::UserType::Administrator ? tr("Administrator") : tr("Standard User"));
+        }
+    };
+
     /* 用户列表显示用户类型 */
     auto *subTitleAction = new DViewItemAction;
-    if (user->userType() == User::UserType::Administrator) {
-        subTitleAction->setText(tr("Administrator"));
-    } else {
-        subTitleAction->setText(tr("Standard User"));
-    }
+    setTitelFunc(user->userType(), subTitleAction);
     subTitleAction->setFontSize(DFontSizeManager::T8);
     subTitleAction->setTextColorRole(DPalette::TextTips);
     item->setTextActionList({subTitleAction});
 
     connect(user, &User::userTypeChanged, this, [ = ](int userType) {
-        if (userType == User::UserType::Administrator) {
-            subTitleAction->setText(tr("Administrator"));
-        } else {
-            subTitleAction->setText(tr("Standard User"));
-        }
+        setTitelFunc(userType, subTitleAction);
         m_userlistView->update(m_userItemModel->indexFromItem(item));
     });
 
@@ -194,7 +224,7 @@ void AccountsWidget::addUser(User *user, bool t1)
     if (onlineFlag->widget()) {
         onlineFlag->widget()->setVisible(onlineFlag->isVisible());
     }
-    connect(user, &User::onlineChanged, this, [=](const bool &online) {
+    connect(user, &User::onlineChanged, this, [ = ](const bool &online) {
         onlineFlag->setVisible(online);
         if (onlineFlag->widget()) {
             onlineFlag->widget()->setVisible(onlineFlag->isVisible());
@@ -360,22 +390,22 @@ void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)
         m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex0);
         onItemClicked(qindex0);
-        }
-        break;
+    }
+    break;
     case AccountsWidget::CreateUserSuccess: { //创建账户成功
         QModelIndex qindex1 = m_userItemModel->index(m_userItemModel->rowCount() - 1, 0);
         m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex1);
         onItemClicked(qindex1);
-        }
-        break;
+    }
+    break;
     case AccountsWidget::ModifyPwdSuccess: { //修改密码成功
         QModelIndex qindex2 = m_userItemModel->index(0, 0);
         m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex2);
         onItemClicked(qindex2);
-        }
-        break;
+    }
+    break;
     }
 }
 

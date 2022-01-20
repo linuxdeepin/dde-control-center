@@ -35,6 +35,7 @@ User::User(QObject *parent)
     , m_nopasswdLogin(false)
     , m_userType(UserType::StandardUser)
     , m_createdTime(0)
+    , m_securityLever(SecurityLever::Standard)
 {
 }
 
@@ -226,3 +227,14 @@ void User::setGid(const QString &gid)
     m_gid = gid;
     Q_EMIT gidChanged(gid);
 }
+
+SecurityLever User::securityLever() const
+{
+    return m_securityLever;
+}
+
+void User::setSecurityLever(const SecurityLever &securityLever)
+{
+    m_securityLever = securityLever;
+}
+

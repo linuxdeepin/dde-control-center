@@ -52,6 +52,10 @@ const QString DisplayManagerService("org.freedesktop.DisplayManager");
 
 const QString AutoLoginVisable = "auto-login-visable";
 const QString NoPasswordVisable = "nopasswd-login-visable";
+const QString Sysadm_u = "sysadm_u";
+const QString Secadm_u = "secadm_u";
+const QString Audadm_u = "audadm_u";
+const QString Auditadm_u = "auditadm_u";
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
@@ -68,6 +72,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     pws = getpwuid(getuid());
     m_currentUserName = QString(pws->pw_name);
     m_userModel->setCurrentUserName(m_currentUserName);
+    m_userModel->setIsSecurityHighLever(hasOpenSecurity());
 
     connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged, Qt::QueuedConnection);
     connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser, Qt::QueuedConnection);
@@ -96,7 +101,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 
         m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
         m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
-        connect(gsetting, &QGSettings::changed, m_userModel, [=](const QString &key) {
+        connect(gsetting, &QGSettings::changed, m_userModel, [ = ](const QString &key) {
             if (key == "autoLoginVisable") {
                 m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
             } else if (key == "nopasswdLoginVisable") {
@@ -229,6 +234,53 @@ void AccountsWorker::setSecurityQuestions(User *user, const QMap<int, QByteArray
     reply.waitForFinished();
     if (reply.isError())
         Q_EMIT user->setSecurityQuestionsReplied(reply.error().message());
+}
+
+bool AccountsWorker::hasOpenSecurity()
+{
+    QDBusInterface securityEnhance("com.deepin.daemon.SecurityEnhance",
+                            "/com/deepin/daemon/SecurityEnhance",
+                            "com.deepin.daemon.SecurityEnhance",
+                            QDBusConnection::systemBus());
+    QDBusMessage reply = securityEnhance.call("Status");
+    qDebug() << reply.errorMessage();
+    QList<QVariant> outArgs = reply.arguments();
+    if (outArgs.count() > 0) {
+        QString value  = outArgs.at(0).toString();
+        if (value == "open") {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+SecurityLever AccountsWorker::getSecUserLeverbyname(QString userName)
+{
+    QDBusInterface securityEnhance("com.deepin.daemon.SecurityEnhance",
+                            "/com/deepin/daemon/SecurityEnhance",
+                            "com.deepin.daemon.SecurityEnhance",
+                            QDBusConnection::systemBus());
+
+    QList<QVariant> currentUserSeName = securityEnhance.call("GetSEUserByName", userName).arguments();
+
+    if (currentUserSeName.count() > 0) {
+        QString value  = currentUserSeName.first().toString();
+        if (value == Sysadm_u) {
+            return SecurityLever::Sysadm;
+        }
+        if (value == Secadm_u) {
+            return SecurityLever::Secadm;
+        }
+        if (value == Audadm_u) {
+            return SecurityLever::Audadm;
+        }
+        if (value == Auditadm_u) {
+            return SecurityLever::Auditadm;
+        }
+    }
+
+    return SecurityLever::Standard;
 }
 
 void AccountsWorker::setGroups(User *user, const QStringList &usrGroups)
@@ -490,6 +542,7 @@ void AccountsWorker::addUser(const QString &userPath)
 
     connect(userInter, &AccountsUser::UserNameChanged, user, [=](const QString &name) {
         user->setName(name);
+        user->setSecurityLever(getSecUserLeverbyname(name));
         user->setOnline(m_onlineUsers.contains(name));
         user->setIsCurrentUser(name == m_currentUserName);
 #ifdef DCC_ENABLE_ADDOMAIN

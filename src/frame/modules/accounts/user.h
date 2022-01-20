@@ -35,6 +35,14 @@ static const QString NO_PASSWORD { "NP" };
 namespace dcc {
 namespace accounts {
 
+enum SecurityLever {
+    Standard,
+    Sysadm,
+    Secadm,
+    Audadm,
+    Auditadm
+};
+
 class User : public QObject
 {
     Q_OBJECT
@@ -45,6 +53,7 @@ public:
         Administrator,
         Customized
     };
+
     explicit User(QObject *parent = 0);
 
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
@@ -107,6 +116,9 @@ public:
     inline QString gid() const { return m_gid; }
     void setGid(const QString &gid);
 
+    SecurityLever securityLever() const;
+    void setSecurityLever(const SecurityLever &securityLever);
+
 Q_SIGNALS:
     void passwordModifyFinished(const int exitCode, const QString &errorTxt) const;
     void nameChanged(const QString &name) const;
@@ -148,6 +160,10 @@ private:
     quint64 m_createdTime;
     QString m_gid;
     QString m_passwordHint;
+    SecurityLever m_securityLever;
+
+
+    Q_ENUM(SecurityLever);
 };
 
 } // namespace accounts
