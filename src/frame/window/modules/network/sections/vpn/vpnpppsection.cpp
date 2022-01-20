@@ -30,6 +30,7 @@ using namespace NetworkManager;
 VpnPPPSection::VpnPPPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN PPP"), parent)
     , m_vpnSetting(vpnSetting)
+    , m_dataMap(m_vpnSetting->data())
     , m_mppeEnable(new SwitchWidget(this))
     , m_mppeChooser(new ComboxWidget(this))
     , m_mppeStateful(new SwitchWidget(this))
@@ -74,6 +75,7 @@ void VpnPPPSection::saveSettings()
     // retrieve the data map
     m_dataMap = m_vpnSetting->data();
 
+    // 未启用点到点加密时安全设置不生效
     for (auto it = MppeMethodStrMap.cbegin(); it != MppeMethodStrMap.cend(); ++it) {
         if (m_mppeEnable->checked() && m_currentMppeMethod == it->second) {
             m_dataMap.insert(it->second, "yes");
@@ -82,7 +84,8 @@ void VpnPPPSection::saveSettings()
         }
     }
 
-    if (m_mppeStateful->checked()) {
+    // 未启用点到点加密时带状态的MPPE设置不生效
+    if (m_mppeEnable->checked() && m_mppeStateful->checked()) {
         m_dataMap.insert("mppe-stateful", "yes");
     } else {
         m_dataMap.remove("mppe-stateful");

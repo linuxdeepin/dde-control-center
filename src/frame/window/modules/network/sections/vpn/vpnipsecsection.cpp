@@ -28,6 +28,7 @@ using namespace NetworkManager;
 VpnIpsecSection::VpnIpsecSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN IPsec"), parent)
     , m_vpnSetting(vpnSetting)
+    , m_dataMap(m_vpnSetting->data())
     , m_ipsecEnable(new SwitchWidget(this))
     , m_groupName(new LineEditWidget(this))
     , m_gatewayId(new LineEditWidget(this))
