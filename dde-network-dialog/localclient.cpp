@@ -251,5 +251,7 @@ bool LocalClient::changePassword(QString key, QString password, bool input)
 
     receivePassword(nullptr, data);
     m_clinet->write("\npassword:" + data + "\n");
-    return m_wait != WaitClient::No;
+    bool isWait = m_wait != WaitClient::No;
+    m_wait = WaitClient::No;
+    return isWait;
 }

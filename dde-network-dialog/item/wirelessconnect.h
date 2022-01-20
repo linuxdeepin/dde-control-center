@@ -51,7 +51,7 @@ public:
 
 protected:
     void setPassword(const QString &password);
-    bool hasPassword(QString &password);
+    bool hasPassword();
     void initConnection();
     void activateConnection();
     NetworkManager::WirelessSecuritySetting::KeyMgmt getKeyMgmtByAp(dde::network::AccessPoints *ap);
@@ -67,6 +67,7 @@ private:
     dde::network::WirelessDevice *m_device;
     dde::network::AccessPoints *m_accessPoint;
     QString m_ssid;
+    bool m_needUpdate;
 
     NetworkManager::ConnectionSettings::Ptr m_connectionSettings;
 };

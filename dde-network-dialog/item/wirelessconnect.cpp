@@ -42,6 +42,7 @@ WirelessConnect::WirelessConnect(QObject *parent, dde::network::WirelessDevice *
     : QObject(parent)
     , m_device(device)
     , m_accessPoint(ap)
+    , m_needUpdate(false)
 {
     qDBusRegisterMetaType<IpV6DBusAddress>();
     qDBusRegisterMetaType<IpV6DBusAddressList>();
@@ -125,25 +126,6 @@ void WirelessConnect::initConnection()
         }
         if (!conn.isNull() && conn->isValid()) {
             m_connectionSettings = conn->settings();
-
-            Setting::SettingType sType = Setting::SettingType::WirelessSecurity;
-            WirelessSecuritySetting::KeyMgmt keyMgmt = m_connectionSettings->setting(sType).staticCast<WirelessSecuritySetting>()->keyMgmt();
-            if (keyMgmt != WirelessSecuritySetting::KeyMgmt::WpaNone
-                && keyMgmt != WirelessSecuritySetting::KeyMgmt::Unknown) {
-                if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaEap) {
-                    sType = Setting::SettingType::Security8021x;
-                }
-                qInfo() << "setting:" << m_connectionSettings->setting(sType)->typeAsString(sType);
-                QDBusPendingReply<NMVariantMapMap> reply;
-                reply = conn->secrets(m_connectionSettings->setting(sType)->name());
-                reply.waitForFinished();
-                if (reply.isError() || !reply.isValid()) {
-                    qDebug() << "get secrets error for connection:" << reply.error();
-                }
-
-                QSharedPointer<WirelessSecuritySetting> setting = m_connectionSettings->setting(sType).staticCast<WirelessSecuritySetting>();
-                setting->secretsFromMap(reply.value().value(setting->name()));
-            }
         }
     }
     //　没连接过的需要新建连接
@@ -179,6 +161,7 @@ void WirelessConnect::initConnection()
         WirelessSetting::Ptr wirelessSetting = m_connectionSettings->setting(Setting::Wireless).dynamicCast<WirelessSetting>();
         wirelessSetting->setSsid(m_ssid.toUtf8());
         wirelessSetting->setInitialized(true);
+        m_needUpdate = true;
     }
 }
 
@@ -195,33 +178,19 @@ void WirelessConnect::setPassword(const QString &password)
         wsSetting->setPsk(password);
     }
     wsSetting->setInitialized(true);
+    m_needUpdate = true;
 }
 
 /**
  * @brief WirelessConnect::hasPassword
- * @param password [out] 已保存的密码
  * @return 是否需要密码
  */
-bool WirelessConnect::hasPassword(QString &password)
+bool WirelessConnect::hasPassword()
 {
     if (m_accessPoint && m_accessPoint->secured()) {
-        WirelessSecuritySetting::Ptr wsSetting = m_connectionSettings->setting(Setting::SettingType::WirelessSecurity).staticCast<WirelessSecuritySetting>();
-        WirelessSecuritySetting::KeyMgmt keyMgmt = wsSetting->keyMgmt();
-
-        switch (keyMgmt) {
-        case WirelessSecuritySetting::KeyMgmt::Wep: {
-            password = wsSetting->wepKey0();
-            return wsSetting->wepKeyFlags() != Setting::NotSaved;
-        }
-        case WirelessSecuritySetting::KeyMgmt::WpaPsk:
-        case WirelessSecuritySetting::KeyMgmt::WpaSae: {
-            password = wsSetting->psk();
-            return wsSetting->pskFlags() != Setting::NotSaved;
-        }
-        default:
-            break;
-        }
-        return true;
+        // 已有Connection则尝试直接连接
+        NetworkManager::Connection::Ptr conn = findConnectionByUuid(m_connectionSettings->uuid());
+        return conn.isNull();
     }
 
     return (!m_accessPoint || m_accessPoint->secured());
@@ -232,8 +201,7 @@ void WirelessConnect::connectNetwork()
     initConnection();
     // 隐藏网络先尝试无密码连接
     if (m_accessPoint) {
-        QString password;
-        if ((hasPassword(password) && password.isEmpty())) {
+        if ((hasPassword())) {
             emit passwordError(QString());
             return;
         }
@@ -274,20 +242,23 @@ void WirelessConnect::activateConnection()
         addAndActivateConnection(m_connectionSettings->toMap(), m_device->path(), accessPointPath);
         return;
     }
-    QDBusPendingReply<> reply;
-    reply = conn->update(m_connectionSettings->toMap());
-    reply.waitForFinished();
-    if (reply.isError()) {
-        qInfo() << "error occurred while updating the connection" << reply.error();
-        return;
+    // 隐藏网络或设置过密码的需要update
+    if (m_needUpdate) {
+        m_needUpdate = false;
+        QDBusPendingReply<> reply;
+        reply = conn->update(m_connectionSettings->toMap());
+        reply.waitForFinished();
+        if (reply.isError()) {
+            qInfo() << "error occurred while updating the connection" << reply.error();
+            return;
+        }
     }
+    qInfo() << "activateConnection" <<conn->path()<< m_device->path() << accessPointPath;
     NetworkManager::activateConnection(conn->path(), m_device->path(), accessPointPath);
 }
 
 void WirelessConnect::getoldPassword()
 {
-    initConnection();
-    QString password;
-    hasPassword(password);
-    emit passwordError(password);
+    // 旧密码不展示
+    emit passwordError(QString());
 }
