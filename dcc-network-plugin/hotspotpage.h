@@ -64,7 +64,7 @@ public:
     virtual ~HotspotDeviceWidget();
     void setPage(HotspotPage *p);
 
-    inline WirelessDevice *device() { return m_wdev; }
+    inline WirelessDevice *device() { return m_device; }
 
     void addItems(const QList<HotspotItem *> &newItems);
     void removeItems(const QList<HotspotItem *> &rmItems);
@@ -87,7 +87,7 @@ private Q_SLOTS:
     void onHotsportEnabledChanged();
 
 private:
-    WirelessDevice * const m_wdev;
+    WirelessDevice * const m_device;
     SwitchWidget *m_hotspotSwitch;
     DListView *m_lvprofiles;
     QStandardItemModel *m_modelprofiles;

@@ -53,14 +53,14 @@ const QString defaultHotspotName()
 
 HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, QWidget *parent)
     : QWidget(parent)
-    , m_wdev(wdev)
+    , m_device(wdev)
     , m_lvprofiles(new DListView)
     , m_modelprofiles(new QStandardItemModel(this))
     , m_createBtn(new QPushButton)
     , m_page(nullptr)
     , m_isClicked(false)
 {
-    Q_ASSERT(m_wdev->supportHotspot());
+    Q_ASSERT(m_device->supportHotspot());
 
     m_lvprofiles->setModel(m_modelprofiles);
     m_lvprofiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
@@ -94,8 +94,8 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, QWidget *parent)
         openEditPage();
     });
 
-    connect(m_wdev, &WirelessDevice::removed, this, &HotspotDeviceWidget::onDeviceRemoved);
-    connect(m_wdev, &WirelessDevice::hotspotEnableChanged, this, &HotspotDeviceWidget::onHotsportEnabledChanged);
+    connect(m_device, &WirelessDevice::removed, this, &HotspotDeviceWidget::onDeviceRemoved);
+    connect(m_device, &WirelessDevice::hotspotEnableChanged, this, &HotspotDeviceWidget::onHotsportEnabledChanged);
 
     connect(m_hotspotSwitch, &SwitchWidget::checkedChanged, this, &HotspotDeviceWidget::onSwitchToggled);
     GSettingWatcher::instance()->bind("hotspotSwitch", m_hotspotSwitch->switchButton());
@@ -165,26 +165,26 @@ void HotspotDeviceWidget::closeHotspot()
     // 断开连接
     hotspotController->disconnectItem();
     // 同时禁用热点
-    hotspotController->setEnabled(m_wdev, false);
+    hotspotController->setEnabled(m_device, false);
 }
 
 void HotspotDeviceWidget::openHotspot()
 {
     HotspotController *hotspotController = NetworkController::instance()->hotspotController();
-    QList<HotspotItem *> items = hotspotController->items(m_wdev);
-    if (items.size() == 0) {
+    QList<HotspotItem *> items = hotspotController->items(m_device);
+    if (items.isEmpty()) {
         m_hotspotSwitch->setChecked(false);
         m_hotspotSwitch->setEnabled(true);
         openEditPage(QString());
     } else {
-        // 如果有热点列表，则直接连接第一个即可
-        hotspotController->connectItem(items[0]);
+        // 开启热点
+        hotspotController->setEnabled(m_device, true);
     }
 }
 
 void HotspotDeviceWidget::openEditPage(const QString &uuid)
 {
-    m_editPage = new ConnectionHotspotEditPage(m_wdev->path(), uuid);
+    m_editPage = new ConnectionHotspotEditPage(m_device->path(), uuid);
     m_editPage->initSettingsWidget();
     m_editPage->setButtonTupleEnable(true);
 
@@ -219,13 +219,13 @@ void HotspotDeviceWidget::onConnWidgetSelected(const QModelIndex &idx)
     // 个人热点开启时才尝试激活连接
     if (m_hotspotSwitch->checked()) {
         HotspotController *hotspotController = NetworkController::instance()->hotspotController();
-        hotspotController->connectItem(m_wdev, uuid);
+        hotspotController->connectItem(m_device, uuid);
     }
 }
 
 void HotspotDeviceWidget::onConnEditRequested(const QString &uuid)
 {
-    m_editPage = new ConnectionHotspotEditPage(m_wdev->path(), uuid);
+    m_editPage = new ConnectionHotspotEditPage(m_device->path(), uuid);
     m_editPage->initSettingsWidget();
     m_editPage->setLeftButtonEnable(true);
 
@@ -243,7 +243,7 @@ void HotspotDeviceWidget::onHotsportEnabledChanged()
     if (!m_isClicked) {
         HotspotController *hotspotController = NetworkController::instance()->hotspotController();
         m_hotspotSwitch->blockSignals(true);
-        m_hotspotSwitch->setChecked(hotspotController->enabled(m_wdev));
+        m_hotspotSwitch->setChecked(hotspotController->enabled(m_device));
         m_hotspotSwitch->setEnabled(true);
         m_hotspotSwitch->blockSignals(false);
     }

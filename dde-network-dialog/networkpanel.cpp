@@ -1051,10 +1051,8 @@ bool NetworkDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
                 QRect rctSwitch(option.rect.width() - SWITCH_WIDTH - 10,
                                 option.rect.top() + (option.rect.height() - SWITCH_HEIGHT) / 2,
                                 SWITCH_WIDTH, SWITCH_HEIGHT);
-                bool isEnabled = switchIsEnabled(index);
-                isEnabled ? rctSwitch.setWidth(20) : rctSwitch.setLeft(rctSwitch.left() + 30);
                 if (rctSwitch.contains(mouseEvent->pos())) {
-                    Q_EMIT enabledClicked(index, !isEnabled);
+                    Q_EMIT enabledClicked(index, !switchIsEnabled(index));
                     return true;
                 }
             }

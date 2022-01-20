@@ -45,11 +45,16 @@ void HotspotController::setEnabled(WirelessDevice *device, const bool enable)
 {
     QList<HotspotItem *> deviceHotsItem = items(device);
     if (enable) {
-        if (deviceHotsItem.size() > 0) {
-            // 在打开热点的时候,默认开启第一个热点
-            HotspotItem *item = deviceHotsItem[0];
-            m_networkInter->ActivateConnection(item->connection()->uuid(), QDBusObjectPath(device->path()));
-        }
+        auto getTimeStamp = [](const QString &path) {
+            NetworkManager::Connection::Ptr connection(new NetworkManager::Connection(path));
+            return connection->settings()->timestamp();
+        };
+       // 在打开热点的时候,默认打开上次打开的热点
+       auto lastNode = std::max_element(deviceHotsItem.begin(), deviceHotsItem.end(), [ getTimeStamp ](HotspotItem *item1, HotspotItem *item2) {
+               return getTimeStamp(item1->connection()->path()) < getTimeStamp(item2->connection()->path());
+       });
+       if (lastNode != deviceHotsItem.end())
+           m_networkInter->ActivateConnection((*lastNode)->connection()->uuid(), QDBusObjectPath(device->path()));
     } else {
         // 在关闭热点的时候,找到当前已经连接的热点,并断开它的连接
         for (HotspotItem *item : deviceHotsItem) {
