@@ -339,7 +339,7 @@ void MainWindow::initAllModule(const QString &m)
     using namespace notification;
 
     m_modules = {
-        { new LoginOptionsModule (this), tr("Biometric Authentication")},
+        { new LoginOptionsModule(this), tr("Biometric Authentication")},
         { new AccountsModule(this), tr("Accounts")},
         //~ contents_path /cloudsync/Cloud Sync
         { new SyncModule(this), DSysInfo::isCommunityEdition() ? "Deepin ID" : "Union ID"},

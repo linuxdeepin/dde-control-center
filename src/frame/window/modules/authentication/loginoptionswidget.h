@@ -59,11 +59,14 @@ private:
     void initUI();
     void initMembers();
     void initConnections();
+    bool configContent(const QString & configName);
 
 Q_SIGNALS:
     void requestShowFingerDetail();
     void requestShowFaceIdDetail();
     void requestShowIrisDetail();
+    void requsetDeviceManagesPage();
+    void requestUpdateSecondMenu(bool);
 
 private:
     QList <ListSubItem> m_itemList;

@@ -56,7 +56,28 @@ LoginOptionsWidget::~LoginOptionsWidget()
 
 int LoginOptionsWidget::showPath(const QString &path)
 {
-    return 0;
+    auto getIndex = [ = ](const QString &name){
+        for(int i = 0; i < m_itemList.size(); i++) {
+            if (name == "Fingerprint" && m_itemList[i].itemText == tr("Fingerprint")) {
+                return i;
+            }
+
+            if (name == "Face" && m_itemList[i].itemText == tr("Face")) {
+                return i;
+            }
+
+            if (name == "Iris" && m_itemList[i].itemText == tr("Iris")) {
+                return i;
+            }
+        }
+        return 0;
+    };
+
+    int index = getIndex(path);
+    m_itemList[ index ].itemSignal.invoke(this);
+    m_currentIndex = m_deviceListView->model()->index(index, 0);
+    m_deviceListView->setCurrentIndex(m_currentIndex);
+    return index;
 }
 
 void LoginOptionsWidget::showDefaultWidget()
@@ -81,7 +102,7 @@ void LoginOptionsWidget::onItemClicked(const QModelIndex &index)
 
 void LoginOptionsWidget::initUI()
 {
-    QVBoxLayout *mainContentLayout = new QVBoxLayout();
+    QVBoxLayout *mainContentLayout = new QVBoxLayout(this);
     mainContentLayout->setMargin(0);
     mainContentLayout->addWidget(m_deviceListView);
 
@@ -102,16 +123,15 @@ void LoginOptionsWidget::initUI()
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
+    m_currentIndex = m_deviceListView->currentIndex();
+    m_deviceListView->resetStatus(m_currentIndex);
     setLayout(mainContentLayout);
 }
 
 void LoginOptionsWidget::initMembers()
 {
-    //~ contents_path /authentication/Finger
     m_itemList.append({"dcc_fingerprint", tr("Fingerprint"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowFingerDetail), nullptr, "authenticationFinger"});
-    //~ contents_path /authentication/Face
     m_itemList.append({"dcc_faceid", tr("Face"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowFaceIdDetail), nullptr, "authenticationFace"});
-    //~ contents_path /authentication/Iris
     m_itemList.append({"dcc_iris", tr("Iris"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowIrisDetail), nullptr, "authenticationIris"});
 
     for (auto mm : m_itemList) {
@@ -127,4 +147,36 @@ void LoginOptionsWidget::initConnections()
 {
     connect(m_deviceListView, &QListView::clicked, this, &LoginOptionsWidget::onItemClicked);
     connect(m_deviceListView, &DListView::activated, m_deviceListView, &QListView::clicked);
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row, const QString & name) {
+        //不是本模块配置不响应
+        if (!configContent(name))
+            return ;
+        bool isAllHidden = true;
+        for (int i = 0; i < m_deviceItemModel->rowCount(); i++) {
+            if (!m_deviceListView->isRowHidden(i))
+                isAllHidden = false;
+        }
+
+        if (m_deviceListView->selectionModel()->selectedRows().size() > 0) {
+            int index = m_deviceListView->selectionModel()->selectedRows()[0].row();
+            Q_EMIT requestUpdateSecondMenu(index == row);
+        } else {
+            Q_EMIT requestUpdateSecondMenu(false);
+        }
+
+        if (isAllHidden) {
+            m_currentIndex = QModelIndex();
+            m_deviceListView->clearSelection();
+        }
+    });
+}
+
+bool LoginOptionsWidget::configContent(const QString &configName)
+{
+    for (auto m : m_itemList) {
+        if (configName == m.gsettingsName)
+            return true;
+    }
+    return false;
 }

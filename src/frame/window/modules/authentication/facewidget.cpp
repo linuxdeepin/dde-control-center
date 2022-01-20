@@ -36,6 +36,8 @@ void FaceWidget::initUI()
 {
     m_clearBtn->setCheckable(true);
 
+    //~ contents_path /authentication/Face
+    //~ child_page Face
     TitleLabel *facetitleLabel = new TitleLabel(tr("Manage Faces"), this);
     TitleLabel *maxFingerTip = new TitleLabel(tr("You can add up to 5 faces"), this);
 
@@ -102,6 +104,8 @@ void FaceWidget::initConnect()
 void FaceWidget::addFaceButton(const QString &newFaceName)
 {
     AuthenticationLinkButtonItem* addfaceItem = new AuthenticationLinkButtonItem(this);
+    //~ contents_path /authentication/Face
+    //~ child_page Face
     QString strAddFace = tr("Add Face");
     DCommandLinkButton *addBtn = new DCommandLinkButton(strAddFace);
     QHBoxLayout *faceLayout = new QHBoxLayout();

@@ -36,6 +36,8 @@ void IrisWidget::initUI()
 {
     m_clearBtn->setCheckable(true);
 
+    //~ contents_path /authentication/Iris
+    //~ child_page Iris
     TitleLabel *titleLabel = new TitleLabel(tr("Manage Irises"), this);
     TitleLabel *maxFingerTip = new TitleLabel(tr("You can add up to 5 irises"), this);
 
@@ -102,6 +104,8 @@ void IrisWidget::initConnect()
 void IrisWidget::addIrisButton(const QString &newIrisName)
 {
     AuthenticationLinkButtonItem* addItem = new AuthenticationLinkButtonItem(this);
+    //~ contents_path /authentication/Iris
+    //~ child_page Iris
     QString strAddIris = tr("Add Iris");
     DCommandLinkButton *addBtn = new DCommandLinkButton(strAddIris);
     QHBoxLayout *irisLayout = new QHBoxLayout(this);

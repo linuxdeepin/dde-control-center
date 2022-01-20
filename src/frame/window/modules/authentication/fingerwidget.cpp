@@ -46,7 +46,9 @@ FingerWidget::FingerWidget(QWidget *parent)
 
     m_clearBtn = new DCommandLinkButton(tr("Edit"));
     m_clearBtn->setCheckable(true);
-    //~ contents_path /accounts/Fingerprint Password
+
+    //~ contents_path /authentication/Fingerprint
+    //~ child_page Fingerprint
     TitleLabel *fingetitleLabel = new TitleLabel(tr("Fingerprint Password"));
     TitleLabel *maxFingerTip = new TitleLabel(tr("You can add up to 10 fingerprints"));
     QFont font;
@@ -193,6 +195,9 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 void FingerWidget::addFingerButton(const QString &newFingerName)
 {
     AuthenticationLinkButtonItem* addfingerItem = new AuthenticationLinkButtonItem(this);
+
+    //~ contents_path /authentication/Fingerprint
+    //~ child_page Fingerprint
     QString strAddFinger = tr("Add Fingerprint");
     DCommandLinkButton *addBtn = new DCommandLinkButton(strAddFinger);
     QHBoxLayout *fingerLayout = new QHBoxLayout(this);

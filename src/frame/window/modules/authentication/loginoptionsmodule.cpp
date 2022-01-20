@@ -11,6 +11,7 @@
 #include "modules/authentication/fingerworker.h"
 #include "modules/authentication/charamangermodel.h"
 #include "modules/authentication/charamangerworker.h"
+#include "window/gsettingwatcher.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::authentication;
@@ -23,9 +24,12 @@ LoginOptionsModule::LoginOptionsModule(dccV20::FrameProxyInterface *frame, QObje
 {
     m_frameProxy = frame;
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+    GSettingWatcher::instance()->insertState("authenticationFinger");
+    GSettingWatcher::instance()->insertState("authenticationFace");
+    GSettingWatcher::instance()->insertState("authenticationIris");
 }
 
-void LoginOptionsModule::initialize()
+void LoginOptionsModule::preInitialize(bool sync, FrameProxyInterface::PushType)
 {
     m_fingerModel = new FingerModel(this);
     m_fingerWorker = new FingerWorker(m_fingerModel);
@@ -36,6 +40,14 @@ void LoginOptionsModule::initialize()
     m_charaMangerWorker = new CharaMangerWorker(m_charaMangerModel);
     m_charaMangerModel->moveToThread(qApp->thread());
     m_charaMangerWorker->moveToThread(qApp->thread());
+
+    addChildPageTrans();
+    initSearchData();
+}
+
+void LoginOptionsModule::initialize()
+{
+
 }
 
 void LoginOptionsModule::reset()
@@ -70,6 +82,13 @@ void LoginOptionsModule::active()
     connect(m_loginOptionsWidget, &LoginOptionsWidget::requestShowFingerDetail, this, &LoginOptionsModule::showFingerPage);
     connect(m_loginOptionsWidget, &LoginOptionsWidget::requestShowFaceIdDetail, this, &LoginOptionsModule::showFaceidPage);
     connect(m_loginOptionsWidget, &LoginOptionsWidget::requestShowIrisDetail, this, &LoginOptionsModule::showIrisPage);
+    connect(m_loginOptionsWidget, &LoginOptionsWidget::requestUpdateSecondMenu, this, [=](bool needPop) {
+        if (m_pMainWindow->getcontentStack().size() >= 2 && needPop) {
+            m_frameProxy->popWidget(this);
+        }
+        m_loginOptionsWidget->showDefaultWidget();
+    });
+
     m_frameProxy->pushWidget(this, m_loginOptionsWidget);
     m_loginOptionsWidget->setVisible(true);
     m_loginOptionsWidget->showDefaultWidget();
@@ -77,7 +96,7 @@ void LoginOptionsModule::active()
 
 int LoginOptionsModule::load(const QString &path)
 {
-    if (m_loginOptionsWidget)
+    if (!m_loginOptionsWidget)
         active();
     return m_loginOptionsWidget->showPath(path);
 }
@@ -91,7 +110,12 @@ QStringList LoginOptionsModule::availPage() const
 
 void LoginOptionsModule::addChildPageTrans() const
 {
-    //todo(guoyao):请在此添加子页面菜单的翻译，参考其他模块
+    if (m_frameProxy != nullptr) {
+        //authentication
+        m_frameProxy->addChildPageTrans("Fingerprint", tr("Fingerprint"));
+        m_frameProxy->addChildPageTrans("Face", tr("Face"));
+        m_frameProxy->addChildPageTrans("Iris", tr("Iris"));
+    }
 }
 
 void LoginOptionsModule::showFingerPage()
@@ -123,7 +147,6 @@ void LoginOptionsModule::showFaceidPage()
 void LoginOptionsModule::showIrisPage()
 {
     IrisDetailWidget *w = new IrisDetailWidget(m_charaMangerModel);
-//    connect(w, &IrisDetailWidget::requestAddIris, this, &LoginOptionsModule::onShowAddIris);
     connect(w, &IrisDetailWidget::requestEntollStart, m_charaMangerWorker, &CharaMangerWorker::entollStart);
     connect(w, &IrisDetailWidget::requestStopEnroll, m_charaMangerWorker, &CharaMangerWorker::stopEnroll);
     connect(w, &IrisDetailWidget::requestDeleteIrisItem, m_charaMangerWorker, &CharaMangerWorker::deleteCharaItem);
@@ -169,5 +192,113 @@ void LoginOptionsModule::onSetMainWindowEnabled(const bool isEnabled)
 
 void LoginOptionsModule::initSearchData()
 {
-    //todo(guoyao):请在此添加三级页面的翻译，参考其他模块
+    const QString& module = displayName();
+    const QString& finger = tr("Fingerprint");
+    const QString& face = tr("Face");
+    const QString& iris = tr("Iris");
+
+    const QStringList& gsSecList {
+        "authenticationFinger",
+        "authenticationFace",
+        "authenticationIris"
+    };
+
+    const QStringList& gsThirdList {
+        "Fingerprint Password",
+        "Add Fingerprint",
+        "Manage Faces",
+        "Add Face",
+        "Manage Irises",
+        "Add Iris"
+    };
+
+    static QMap<QString, bool> gsettingsMap;
+    auto func_is_visible = [ = ] (const QString &gsettings, QString state = ""){
+        if (gsettings == "") {
+            return false;
+        }
+
+        bool ret = false;
+        if (state == "") {
+            ret = GSettingWatcher::instance()->get(gsettings).toBool();
+        } else {
+            ret = GSettingWatcher::instance()->get(gsettings).toString() != "Hidden";
+        }
+
+        gsettingsMap.insert(gsettings, ret);
+
+        return ret;
+    };
+
+    auto func_finger_changed = [ = ] () {
+        bool bFinger = func_is_visible("authenticationFinger");
+        m_frameProxy->setWidgetVisible(module, finger, bFinger);
+
+        bool bthirdFinger = m_fingerModel->isVaild();
+        m_frameProxy->setDetailVisible(module, finger, tr("Fingerprint Password"), bthirdFinger);
+        m_frameProxy->setDetailVisible(module, finger, tr("Add Fingerprint"), bthirdFinger);
+    };
+
+    auto func_face_changed = [ = ] () {
+        bool bFace = func_is_visible("authenticationFace");
+        m_frameProxy->setWidgetVisible(module, face, bFace);
+
+        bool bthirdFace = m_charaMangerModel->faceDriverVaild();
+        m_frameProxy->setDetailVisible(module, face, tr("Manage Faces"), bthirdFace);
+        m_frameProxy->setDetailVisible(module, face, tr("Add Face"), bthirdFace);
+    };
+
+    auto func_iris_changed = [ = ] () {
+        bool bIris = func_is_visible("authenticationIris");
+        m_frameProxy->setWidgetVisible(module, iris, bIris);
+
+        bool bthirdIris = m_charaMangerModel->irisDriverVaild();
+        m_frameProxy->setDetailVisible(module, iris, tr("Manage Irises"), bthirdIris);
+        m_frameProxy->setDetailVisible(module, iris, tr("Add Iris"), bthirdIris);
+    };
+
+    auto func_process_all = [ = ]() {
+        func_finger_changed();
+        func_face_changed();
+        func_iris_changed();
+    };
+
+    // 追踪设备是否存在
+    connect(m_fingerModel, &FingerModel::vaildChanged, [=](){
+        func_finger_changed();
+    });
+
+    connect(m_charaMangerModel, &CharaMangerModel::vaildFaceDriverChanged, [=](){
+        func_face_changed();
+    });
+
+    connect(m_charaMangerModel, &CharaMangerModel::vaildIrisDriverChanged, [=](){
+        func_iris_changed();
+    });
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+        if (state != ""  && (!gsettingsMap.contains(gsetting))) {
+            return;
+        }
+        bool bGsMap = gsettingsMap.value(gsetting);
+        if (gsSecList.contains(gsetting) && GSettingWatcher::instance()->get(gsetting).toBool() == bGsMap) {
+            return;
+        }
+
+        if (gsThirdList.contains(gsetting)  && ((state != "Hidden") == bGsMap)) {
+            return;
+        }
+
+        if ("Fingerprint" == gsetting) {
+            func_finger_changed();
+        } else if ("Face" == gsetting) {
+            func_face_changed();
+        } else if ("Iris" == gsetting){
+            func_iris_changed();
+        }
+
+
+        m_frameProxy->updateSearchData(module);
+    });
+    func_process_all();
 }
