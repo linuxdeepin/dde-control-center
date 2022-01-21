@@ -33,6 +33,7 @@
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QAction>
+#include <QDBusConnection>
 
 #include <networkcontroller.h>
 #include <networkdevicebase.h>
@@ -46,6 +47,8 @@
 #include <NetworkManagerQt/WirelessSecuritySetting>
 #include <NetworkManagerQt/WirelessSetting>
 
+#include <com_deepin_daemon_airplanemode.h>
+
 enum MenuItemKey : int {
     MenuSettings = 1,
     MenuEnable,
@@ -57,6 +60,8 @@ enum MenuItemKey : int {
 };
 
 NETWORKPLUGIN_USE_NAMESPACE
+
+using DBusAirplaneMode = com::deepin::daemon::AirplaneMode;
 
 NetworkPluginHelper::NetworkPluginHelper(NetworkDialog *networkDialog, QObject *parent)
     : QObject(parent)
@@ -258,11 +263,13 @@ void NetworkPluginHelper::invokeMenuItem(const QString &menuId)
     switch (menuId.toInt()) {
     case MenuItemKey::MenuEnable:
         setDeviceEnabled(DeviceType::Wired, true);
-        setDeviceEnabled(DeviceType::Wireless, true);
+        if (wirelessIsActive())
+            setDeviceEnabled(DeviceType::Wireless, true);
         break;
     case MenuItemKey::MenuDisable:
         setDeviceEnabled(DeviceType::Wired, false);
-        setDeviceEnabled(DeviceType::Wireless, false);
+        if (wirelessIsActive())
+            setDeviceEnabled(DeviceType::Wireless, false);
         break;
     case MenuItemKey::MenuWiredEnable:
         setDeviceEnabled(DeviceType::Wired, true);
@@ -271,10 +278,12 @@ void NetworkPluginHelper::invokeMenuItem(const QString &menuId)
         setDeviceEnabled(DeviceType::Wired, false);
         break;
     case MenuItemKey::MenuWirelessEnable:
-        setDeviceEnabled(DeviceType::Wireless, true);
+        if (wirelessIsActive())
+            setDeviceEnabled(DeviceType::Wireless, true);
         break;
     case MenuItemKey::MenuWirelessDisable:
-        setDeviceEnabled(DeviceType::Wireless, false);
+        if (wirelessIsActive())
+            setDeviceEnabled(DeviceType::Wireless, false);
         break;
     case MenuItemKey::MenuSettings:
         DDBusSender()
@@ -334,6 +343,12 @@ void NetworkPluginHelper::setDeviceEnabled(const DeviceType &deviceType, bool en
             device->setEnabled(enabeld);
 }
 
+bool NetworkPluginHelper::wirelessIsActive() const
+{
+    static DBusAirplaneMode airplaneMode("com.deepin.daemon.AirplaneMode", "/com/deepin/daemon/AirplaneMode", QDBusConnection::systemBus());
+    return (!airplaneMode.enabled());
+}
+
 const QString NetworkPluginHelper::contextMenu(bool hasSetting) const
 {
     int wiredCount = deviceCount(DeviceType::Wired);
@@ -364,7 +379,7 @@ const QString NetworkPluginHelper::contextMenu(bool hasSetting) const
             wirelessEnable["itemId"] = QString::number(MenuWirelessEnable);
         }
 
-        wirelessEnable["isActive"] = true;
+        wirelessEnable["isActive"] = wirelessIsActive();
         items.push_back(wirelessEnable);
     } else if (wiredCount || wirelessCount) {
         items.reserve(2);
@@ -377,7 +392,7 @@ const QString NetworkPluginHelper::contextMenu(bool hasSetting) const
             enable["itemText"] = tr("Enable network");
         }
 
-        enable["isActive"] = true;
+        enable["isActive"] = (wirelessCount > 0 ? wirelessIsActive() : true);
         items.push_back(enable);
     }
     if (hasSetting) {

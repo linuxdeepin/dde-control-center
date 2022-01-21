@@ -32,7 +32,6 @@
 
 DGUI_USE_NAMESPACE
 
-
 namespace dde {
 namespace network {
 enum class DeviceType;
@@ -77,6 +76,7 @@ private:
     void updateTooltips(); // 更新提示的内容
     bool deviceEnabled(const DeviceType &deviceType) const;
     void setDeviceEnabled(const DeviceType &deviceType, bool enabeld);
+    bool wirelessIsActive() const;
 
     int deviceCount(const DeviceType &devType) const;
     QList<QPair<QString, QStringList>> ipTipsMessage(const DeviceType &devType);
