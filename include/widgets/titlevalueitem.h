@@ -54,20 +54,28 @@ protected:
 };
 
 class TipsLabel;
+class ItemTitleTipsLabel;
+
 class TitleValueItem : public SettingsItem
 {
     Q_OBJECT
 
 public:
-    explicit TitleValueItem(QFrame *parent = 0);
+    explicit TitleValueItem(QFrame *parent = nullptr);
+    ~TitleValueItem() override;
     void setTitle(const QString& title);
     void setValue(const QString& value);
     void setWordWrap(const bool enable);
-    inline QString value() const { return m_value->text(); }
+    QString value() const;
+    void setValueAligment(const Qt::Alignment aligment);
+    void setValueBackground(bool showBackground);
+
+protected:
+    void resizeEvent(QResizeEvent *event) override;
 
 private:
     TipsLabel* m_title;
-    DTK_WIDGET_NAMESPACE::DTipLabel *m_value;
+    ItemTitleTipsLabel *m_value;
 };
 
 
@@ -92,6 +100,24 @@ private:
     TipsLabel* m_title;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_value;
     QPushButton *m_pActivatorBtn;
+};
+
+class ItemTitleTipsLabel : public DTK_WIDGET_NAMESPACE::DTipLabel
+{
+    Q_OBJECT
+
+public:
+    explicit ItemTitleTipsLabel(const QString &text = QString(), QWidget *parent = nullptr);
+    ~ItemTitleTipsLabel() override;
+    void addBackground();
+    void removeBackground();
+    bool hasBackground() const;
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+
+private:
+    bool m_hasBackground;
 };
 
 }
