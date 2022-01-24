@@ -194,19 +194,19 @@ void SyncWorker::getUUID(QString &uuid)
     uuid = retUUID.toString();
 }
 
-void SyncWorker::localBindCheck(const QString &uosid, const QString &uuid, QString &ubid, QString &errorTxt)
+void SyncWorker::asyncLocalBindCheck(const QString &uosid, const QString &uuid)
 {
-    QDBusReply<QString> retLocalBindCheck= m_syncHelperInter->call("LocalBindCheck", uosid, uuid);
-    if (!m_syncHelperInter->isValid()) {
-        qWarning() << "syncHelper interface invalid: (localBindCheck)" << m_syncHelperInter->lastError().message();
-        return;
-    }
-    if (retLocalBindCheck.error().message().isEmpty()) {
-        ubid = retLocalBindCheck.value();
-    } else {
-        qWarning() << "localBindCheck failed:" << retLocalBindCheck.error().message();
-        errorTxt = retLocalBindCheck.error().message();
-    }
+    QFutureWatcher<BindCheckResult> *watcher = new QFutureWatcher<BindCheckResult>(this);
+    connect(watcher, &QFutureWatcher<BindCheckResult>::finished, [this, watcher] {
+        BindCheckResult result = watcher->result();
+        if (result.error.isEmpty())
+            Q_EMIT ubid(result.ubid);
+        else
+            Q_EMIT resetPasswdError(result.error);
+        watcher->deleteLater();
+    });
+    QFuture<BindCheckResult> future = QtConcurrent::run(this, &SyncWorker::checkLocalBind, uosid, uuid);
+    watcher->setFuture(future);
 }
 
 void SyncWorker::getHostName(QString &hostName)
@@ -217,41 +217,36 @@ void SyncWorker::getHostName(QString &hostName)
     hostName = hostnameInter.staticHostname();
 }
 
-void SyncWorker::bindAccount(const QString &uuid, const QString &hostName, QString &ubid, QString &errorTxt)
+void SyncWorker::asynBindAccount(const QString &uuid, const QString &hostName)
 {
-    QDBusPendingReply<QString> retUBID = DDBusSender()
-                                         .service("com.deepin.deepinid")
-                                         .interface("com.deepin.deepinid")
-                                         .path("/com/deepin/deepinid")
-                                         .method("BindLocalUUid").arg(uuid).arg(hostName)
-                                         .call();
-    retUBID.waitForFinished();
-    if (retUBID.error().message().isEmpty()) {
-        ubid = retUBID.value();
-        qDebug() << "Bind success!";
-    } else {
-        qWarning() << "Bind failed:" << retUBID.error().message();
-        errorTxt = retUBID.error().message();
-    }
+    QFutureWatcher<BindCheckResult> *watcher = new QFutureWatcher<BindCheckResult>(this);
+    connect(watcher, &QFutureWatcher<BindCheckResult>::finished, [this, watcher] {
+        BindCheckResult result = watcher->result();
+        if (result.error.isEmpty())
+            Q_EMIT ubid(result.ubid);
+        else
+            Q_EMIT resetPasswdError(result.error);
+        watcher->deleteLater();
+    });
+    QFuture<BindCheckResult> future = QtConcurrent::run(this, &SyncWorker::bindAccount, uuid, hostName);
+    watcher->setFuture(future);
 }
 
-void SyncWorker::unBindAccount(const QString &ubid, bool &ret, QString &errorTxt)
+void SyncWorker::asynUnbindAccount(const QString &ubid)
 {
-    QDBusPendingReply<QString> retUnBoundle = DDBusSender()
-                                              .service("com.deepin.deepinid")
-                                              .interface("com.deepin.deepinid")
-                                              .path("/com/deepin/deepinid")
-                                              .method("UnBindLocalUUid").arg(ubid)
-                                              .call();
-    retUnBoundle.waitForFinished();
-    if (retUnBoundle.error().message().isEmpty()) {
-        qDebug() << "unBind success!";
-        ret = true;
-    } else {
-        qWarning() << "unBind failed:" << retUnBoundle.error().message();
-        errorTxt = retUnBoundle.error().message();
-        ret = false;
-    }
+    QFutureWatcher<BindCheckResult> *watcher = new QFutureWatcher<BindCheckResult>(this);
+    connect(watcher, &QFutureWatcher<BindCheckResult>::finished, [this, watcher] {
+        BindCheckResult result = watcher->result();
+        if (result.error.isEmpty())
+            Q_EMIT unBindRet(result.ret);
+        else
+            Q_EMIT resetPasswdError(result.error);
+        watcher->deleteLater();
+    });
+    QFuture<BindCheckResult> future = QtConcurrent::run(this, &SyncWorker::unBindAccount, ubid);
+    watcher->setFuture(future);
+
+
 }
 
 void SyncWorker::getLicenseState()
@@ -274,4 +269,62 @@ void SyncWorker::getLicenseState()
     quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
     qDebug() << "authorize result:" << reply;
     m_model->setActivation(reply >= 1 && reply <= 3);
+}
+
+BindCheckResult SyncWorker::checkLocalBind(const QString &uosid, const QString &uuid)
+{
+    BindCheckResult result;
+    QDBusReply<QString> retLocalBindCheck= m_syncHelperInter->call(QDBus::BlockWithGui, "LocalBindCheck", uosid, uuid);
+    if (!m_syncHelperInter->isValid()) {
+        qWarning() << "syncHelper interface invalid: (localBindCheck)" << m_syncHelperInter->lastError().message();
+        return result;
+    }
+    if (retLocalBindCheck.error().message().isEmpty()) {
+        result.ubid = retLocalBindCheck.value();
+    } else {
+        qWarning() << "localBindCheck failed:" << retLocalBindCheck.error().message();
+        result.error = retLocalBindCheck.error().message();
+    }
+    return result;
+}
+
+BindCheckResult SyncWorker::bindAccount(const QString &uuid, const QString &hostName)
+{
+    BindCheckResult result;
+    QDBusPendingReply<QString> retUBID = DDBusSender()
+                                         .service("com.deepin.deepinid")
+                                         .interface("com.deepin.deepinid")
+                                         .path("/com/deepin/deepinid")
+                                         .method("BindLocalUUid").arg(uuid).arg(hostName)
+                                         .call();
+    retUBID.waitForFinished();
+    if (retUBID.error().message().isEmpty()) {
+        qDebug() << "Bind success!";
+        result.ubid = retUBID.value();
+    } else {
+        qWarning() << "Bind failed:" << retUBID.error().message();
+        result.error = retUBID.error().message();
+    }
+    return result;
+}
+
+BindCheckResult SyncWorker::unBindAccount(const QString &ubid)
+{
+    BindCheckResult result;
+    QDBusPendingReply<QString> retUnBoundle = DDBusSender()
+                                              .service("com.deepin.deepinid")
+                                              .interface("com.deepin.deepinid")
+                                              .path("/com/deepin/deepinid")
+                                              .method("UnBindLocalUUid").arg(ubid)
+                                              .call();
+    retUnBoundle.waitForFinished();
+    if (retUnBoundle.error().message().isEmpty()) {
+        qDebug() << "unBind success!";
+        result.ret = true;
+    } else {
+        qWarning() << "unBind failed:" << retUnBoundle.error().message();
+        result.error = retUnBoundle.error().message();
+        result.ret = false;
+    }
+    return result;
 }

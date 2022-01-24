@@ -58,6 +58,12 @@ namespace accounts {
 
 class User;
 
+struct BindCheckResult {
+    QString ubid = "";
+    QString error = "";
+};
+
+
 class AccountsWorker : public QObject
 {
     Q_OBJECT
@@ -75,6 +81,8 @@ Q_SIGNALS:
     void accountCreationFinished(CreationResult *result) const;
     void accountFullNameChangeFinished() const;
     void requestMainWindowEnabled(const bool isEnabled) const;
+    void localBindUbid(const QString &ubid);
+    void localBindError(const QString &error);
 
 public Q_SLOTS:
     void randomUserIcon(User *user);
@@ -94,7 +102,7 @@ public Q_SLOTS:
     void loadUserList();
     void getUOSID(QString &uosid);
     void getUUID(QString &uuid);
-    void localBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid, QString &ubid);
+    void localBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid);
     void startResetPasswordExec(dcc::accounts::User *user);
 #ifdef DCC_ENABLE_ADDOMAIN
     void refreshADDomain();
@@ -119,6 +127,7 @@ private:
     AccountsUser *userInter(const QString &userName) const;
     CreationResult *createAccountInternal(const User *user);
     QString cryptUserPassword(const QString &password);
+    BindCheckResult checkLocalBind(const QString &uosid, const QString &uuid);
 
 private:
     Accounts *m_accountsInter;

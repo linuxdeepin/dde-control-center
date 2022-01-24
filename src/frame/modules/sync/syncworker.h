@@ -13,6 +13,13 @@ using DeepinId = com::deepin::deepinid;
 
 namespace dcc {
 namespace cloudsync {
+
+struct BindCheckResult {
+    QString ubid = "";
+    QString error = "";
+    bool ret = false;
+};
+
 class SyncWorker : public QObject, public ModuleWorker
 {
     Q_OBJECT
@@ -23,7 +30,10 @@ public:
     virtual void deactivate();
 
     void refreshSyncState();
-
+Q_SIGNALS:
+    void ubid(const QString &ubid);
+    void resetPasswdError(const QString &error);
+    void unBindRet(bool);
 public Q_SLOTS:
     void setSync(std::pair<SyncType, bool> state);
     void loginUser();
@@ -32,16 +42,18 @@ public Q_SLOTS:
     void licenseStateChangeSlot();
     void getUOSID(QString &uosid);
     void getUUID(QString &uuid);
-    void localBindCheck(const QString &uosid, const QString &uuid, QString &ubid, QString &errorTxt);
     void getHostName(QString &hostName);
-    void bindAccount(const QString &uuid, const QString &hostName, QString &ubid, QString &errorTxt);
-    void unBindAccount(const QString &ubid, bool &ret, QString &errorTxt);
+    void asyncLocalBindCheck(const QString &uosid, const QString &uuid);
+    void asynBindAccount(const QString &uuid, const QString &hostName);
+    void asynUnbindAccount(const QString &ubid);
 private:
     void onSyncModuleStateChanged(const QString& module, bool enable);
     void onStateChanged(const IntString& state);
     void onLastSyncTimeChanged(qlonglong lastSyncTime);
     void getLicenseState();
-
+    BindCheckResult checkLocalBind(const QString &uosid, const QString &uuid);
+    BindCheckResult bindAccount(const QString &uuid, const QString &hostName);
+    BindCheckResult unBindAccount(const QString &ubid);
 private:
     SyncModel *m_model;
     SyncInter *m_syncInter;

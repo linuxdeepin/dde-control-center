@@ -178,19 +178,19 @@ void AccountsWorker::getUUID(QString &uuid)
     uuid = retUUID.toString();
 }
 
-void AccountsWorker::localBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid, QString &ubid)
+void AccountsWorker::localBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid)
 {
-    if (!m_syncHelperInter->isValid()) {
-        qWarning() << "syncHelper interface invalid: (localBindCheck)" << m_syncHelperInter->lastError().message();
-        return;
-    }
-    QDBusReply<QString> retLocalBindCheck= m_syncHelperInter->call("LocalBindCheck", uosid, uuid);
-    if (retLocalBindCheck.error().message().isEmpty()) {
-        ubid = retLocalBindCheck.value();
-    } else {
-        qWarning() << "LocalBindCheck failed:" << retLocalBindCheck.error().message();
-        Q_EMIT user->checkBindFailed(retLocalBindCheck.error().message());
-    }
+    QFutureWatcher<BindCheckResult> *watcher = new QFutureWatcher<BindCheckResult>(this);
+    connect(watcher, &QFutureWatcher<BindCheckResult>::finished, [this, watcher] {
+        BindCheckResult result = watcher->result();
+        if (result.error.isEmpty())
+            Q_EMIT localBindUbid(result.ubid);
+        else
+            Q_EMIT localBindError(result.error);
+        watcher->deleteLater();
+    });
+    QFuture<BindCheckResult> future = QtConcurrent::run(this, &AccountsWorker::checkLocalBind, uosid, uuid);
+    watcher->setFuture(future);
 }
 
 void AccountsWorker::startResetPasswordExec(User *user)
@@ -780,4 +780,21 @@ QString AccountsWorker::cryptUserPassword(const QString &password)
     }
 
     return crypt(password.toUtf8().data(), salt);
+}
+
+BindCheckResult AccountsWorker::checkLocalBind(const QString &uosid, const QString &uuid)
+{
+    BindCheckResult result;
+    QDBusReply<QString> retLocalBindCheck= m_syncHelperInter->call(QDBus::BlockWithGui, "LocalBindCheck", uosid, uuid);
+    if (!m_syncHelperInter->isValid()) {
+        qWarning() << "syncHelper interface invalid: (localBindCheck)" << m_syncHelperInter->lastError().message();
+        return result;
+    }
+    if (retLocalBindCheck.error().message().isEmpty()) {
+        result.ubid = retLocalBindCheck.value();
+    } else {
+        qWarning() << "localBindCheck failed:" << retLocalBindCheck.error().message();
+        result.error = retLocalBindCheck.error().message();
+    }
+    return result;
 }

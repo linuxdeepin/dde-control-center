@@ -46,6 +46,9 @@ SyncWidget::SyncWidget(QWidget *parent)
     connect(m_indexPage, &IndexPage::requestBindAccount, this, &SyncWidget::requestBindAccount);
     connect(m_indexPage, &IndexPage::requestUnBindAccount, this, &SyncWidget::requestUnBindAccount);
     connect(m_cnonlyPage, &LogoutPage::requestLogout, this, &SyncWidget::requestLogoutUser);
+    connect(this, &SyncWidget::ubid, m_indexPage, &IndexPage::onUbid);
+    connect(this, &SyncWidget::resetPasswdError, m_indexPage, &IndexPage::onResetPasswdError);
+    connect(this, &SyncWidget::unBindRet, m_indexPage, &IndexPage::onUnBindRet);
 }
 
 void SyncWidget::setModel(dcc::cloudsync::SyncModel *model, MainWindow *pMainWindow)

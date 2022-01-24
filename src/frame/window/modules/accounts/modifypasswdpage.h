@@ -79,7 +79,6 @@ protected:
 private:
     void resetPasswordFinished(const QString &errorText);
     void onForgetPasswordBtnClicked();
-    void onCheckBindFailed(const QString &errorText);
     void onStartResetPasswordReplied(const QString &errorText);
 
 Q_SIGNALS:
@@ -89,8 +88,13 @@ Q_SIGNALS:
     void requestSetPasswordHint(dcc::accounts::User *, const QString &);
     void requestUOSID(QString &uosid);
     void requestUUID(QString &uuid);
-    void requestLocalBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid, QString &ubid);
+    void requestLocalBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid);
     void requestStartResetPasswordExec(dcc::accounts::User *user);
+
+public Q_SLOTS:
+    void onLocalBindCheckUbid(const QString &ubid);
+    void onLocalBindCheckError(const QString &error);
+
 private:
     dcc::accounts::User *m_curUser;
     DPasswordEdit *m_oldPasswordEdit;

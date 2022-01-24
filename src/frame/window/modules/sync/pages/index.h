@@ -70,10 +70,10 @@ Q_SIGNALS:
     void requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool> state);
     void requestUOSID(QString &uosid);
     void requestUUID(QString &uuid);
-    void requestLocalBindCheck(const QString &uosid, const QString &uuid, QString &ubid, QString &errorTxt);
+    void requestLocalBindCheck(const QString &uosid, const QString &uuid);
     void requestHostName(QString &hostName);
-    void requestBindAccount(const QString &uuid, const QString &hostName, QString &ubid, QString &errorTxt);
-    void requestUnBindAccount(const QString &ubid, bool &ret, QString &errorTxt);
+    void requestBindAccount(const QString &uuid, const QString &hostName);
+    void requestUnBindAccount(const QString &ubid);
 private:
     void onListViewClicked(const QModelIndex &index);
     void onStateChanged(const std::pair<qint32, QString> &state);
@@ -81,13 +81,16 @@ private:
     void onModuleStateChanged(std::pair<dcc::cloudsync::SyncType, bool> state);
     void onModuleItemSwitched(const bool checked);
     void onAutoSyncChanged(bool autoSync);
-    bool isUserAccountBinded();
+    void isUserAccountBinded();
     void onBindUserAccountChanged(bool checked);
-    bool bindUserAccount();
-    bool unbindUserAccount();
+    void bindUserAccount();
+    void unbindUserAccount();
+
 public Q_SLOTS:
     void SyncTimeLbl(bool checked);
-
+    void onUbid(const QString &ubid);
+    void onResetPasswdError(const QString &error);
+    void onUnBindRet(bool ok);
 private:
     QVBoxLayout *m_mainLayout;
     dcc::widgets::SwitchWidget *m_bindSwitch;

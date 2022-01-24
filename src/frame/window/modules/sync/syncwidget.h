@@ -58,10 +58,13 @@ Q_SIGNALS:
     void requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool> state);
     void requestUOSID(QString &uosid);
     void requestUUID(QString &uuid);
-    void requestLocalBindCheck(const QString &uosid, const QString &uuid, QString &ubid, QString &errorTxt);
+    void requestLocalBindCheck(const QString &uosid, const QString &uuid);
     void requestHostName(QString &hostName);
-    void requestBindAccount(const QString &uuid, const QString &hostName, QString &ubid, QString &errorTxt);
-    void requestUnBindAccount(const QString &ubid, bool &ret, QString &errorTxt);
+    void requestBindAccount(const QString &uuid, const QString &hostName);
+    void requestUnBindAccount(const QString &ubid);
+    void ubid(const QString &ubid);
+    void resetPasswdError(const QString &error);
+    void unBindRet(bool ret);
 private:
     void onUserInfoChanged(const QVariantMap &userInfo);
 

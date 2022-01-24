@@ -147,7 +147,6 @@ void ModifyPasswdPage::initWidget()
         m_oldPasswordEdit->setVisible(status != NO_PASSWORD);
     });
     connect(m_curUser, &User::passwordResetFinished, this, &ModifyPasswdPage::resetPasswordFinished);
-    connect(m_curUser, &User::checkBindFailed, this, &ModifyPasswdPage::onCheckBindFailed);
     connect(m_curUser, &User::startResetPasswordReplied, this, &ModifyPasswdPage::onStartResetPasswordReplied);
 
     connect(m_oldPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
@@ -429,32 +428,7 @@ void ModifyPasswdPage::onForgetPasswordBtnClicked()
         return;
     }
 
-    QString ubid;
-    Q_EMIT requestLocalBindCheck(m_curUser, uosid, uuid, ubid);
-    if (!ubid.isEmpty()) {
-        m_isBindCheckError = false;
-        Q_EMIT requestStartResetPasswordExec(m_curUser);
-    }
-    if (ubid.isEmpty() && !m_isBindCheckError) {
-        UnionIDBindReminderDialog dlg;
-        dlg.exec();
-    }
-}
-
-void ModifyPasswdPage::onCheckBindFailed(const QString &errorText)
-{
-    m_isBindCheckError = true;
-    QString tips;
-    if (errorText.contains("7500")) {
-        tips = tr("System error");
-    } else if (errorText.contains("7506")) {
-        tips = tr("Network error");
-    }
-    if (!tips.isEmpty()) {
-        DMessageManager::instance()->sendMessage(this,
-                                                 style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                                 tips);
-    }
+    Q_EMIT requestLocalBindCheck(m_curUser, uosid, uuid);
 }
 
 void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)
@@ -465,4 +439,32 @@ void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)
         m_enableBtnTimer.singleShot(5000, this, [this]{ m_forgetPasswordBtn->setEnabled(true); });
     }
     qDebug() << "Resetpassword reply:" << errorText;
+}
+
+void ModifyPasswdPage::onLocalBindCheckUbid(const QString &ubid)
+{
+    if (!ubid.isEmpty()) {
+        m_isBindCheckError = false;
+        Q_EMIT requestStartResetPasswordExec(m_curUser);
+    }
+    if (ubid.isEmpty() && !m_isBindCheckError) {
+        UnionIDBindReminderDialog dlg;
+        dlg.exec();
+    }
+}
+
+void ModifyPasswdPage::onLocalBindCheckError(const QString &error)
+{
+    m_isBindCheckError = true;
+    QString tips;
+    if (error.contains("7500")) {
+        tips = tr("System error");
+    } else if (error.contains("7506")) {
+        tips = tr("Network error");
+    }
+    if (!tips.isEmpty()) {
+        DMessageManager::instance()->sendMessage(this,
+                                                 style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                 tips);
+    }
 }

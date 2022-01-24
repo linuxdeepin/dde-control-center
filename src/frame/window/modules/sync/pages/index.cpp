@@ -164,7 +164,7 @@ IndexPage::IndexPage(QWidget *parent)
     connect(logoutBtn, &QPushButton::clicked, this, [this] {
         Q_EMIT IndexPage::requestLogout();
         if (m_bindSwitch->checked())
-            m_bindSwitch->setChecked(!unbindUserAccount());
+            unbindUserAccount();
     });
 }
 
@@ -229,7 +229,8 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
         Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->checked());
     }
     m_autoSyncSwitch->setEnabled(model->getActivation());
-    m_bindSwitch->setChecked(isUserAccountBinded());
+    m_bindSwitch->setChecked(true);
+    isUserAccountBinded();
     m_networkTip->setVisible(model->enableSync());
     m_listView->setVisible(model->enableSync());
     m_lastSyncTimeLbl->setVisible(model->enableSync() && model->lastSyncTime());
@@ -330,6 +331,12 @@ void IndexPage::SyncTimeLbl(bool checked)
     }
 }
 
+void IndexPage::onUbid(const QString &ubid)
+{
+    m_ubid = ubid;
+    m_bindSwitch->setChecked(!m_ubid.isEmpty());
+}
+
 void IndexPage::onLastSyncTimeChanged(const qlonglong lastSyncTime)
 {
     m_lastSyncTime = lastSyncTime;
@@ -359,40 +366,21 @@ void IndexPage::onAutoSyncChanged(bool autoSync)
     m_lastSyncTimeLbl->setVisible(!autoSync);
 }
 
-bool IndexPage::isUserAccountBinded()
+void IndexPage::isUserAccountBinded()
 {
     QString uosid;
     Q_EMIT requestUOSID(uosid);
     if (uosid.isEmpty()) {
-        return false;
+        return;
     }
 
     QString uuid;
     Q_EMIT requestUUID(uuid);
     if (uuid.isEmpty()) {
-        return false;
+        return;
     }
 
-    QString errorTxt;
-    Q_EMIT requestLocalBindCheck(uosid, uuid, m_ubid, errorTxt);
-    if (!errorTxt.isEmpty()) {
-        QString tips;
-        if (errorTxt.contains("7500")) {
-            tips = tr("System error");
-        } else if (errorTxt.contains("7506")) {
-            tips = tr("Network error");
-        }
-        if (!tips.isEmpty()) {
-            DMessageManager::instance()->sendMessage(this,
-                                                     style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                                     tips);
-        }
-    }
-    if(!m_ubid.isEmpty()) {
-        return true;
-    } else {
-        return false;
-    }
+    Q_EMIT requestLocalBindCheck(uosid, uuid);
 }
 
 void IndexPage::onBindUserAccountChanged(bool checked)
@@ -406,67 +394,50 @@ void IndexPage::onBindUserAccountChanged(bool checked)
         m_bindSwitch->setChecked(!checked);
         return;
     }
-
+    m_bindSwitch->setChecked(!checked);
     if (checked) {
-        m_bindSwitch->setChecked(bindUserAccount());
+        bindUserAccount();
     } else {
-        m_bindSwitch->setChecked(!unbindUserAccount());
+        unbindUserAccount();
     }
 }
 
-bool IndexPage::bindUserAccount()
+void IndexPage::bindUserAccount()
 {
     QString uuid;
     Q_EMIT requestUUID(uuid);
     if (uuid.isEmpty()) {
-        return false;
+        return;
     }
 
     QString hostName;
     Q_EMIT requestHostName(hostName);
     if (hostName.isEmpty()) {
-        return false;
+        return;
     }
 
-    QString errorTxt;
-    Q_EMIT requestBindAccount(uuid, hostName, m_ubid, errorTxt);
-
-    if (!errorTxt.isEmpty()) {
-        QString tips;
-        if (errorTxt.contains("7500")) {
-            tips = tr("System error");
-        } else if (errorTxt.contains("7506")) {
-            tips = tr("Network error");
-        } else if (errorTxt.contains("7502")) {
-            tips = tr("Login expired, please sign in to the Union ID again");
-        }
-        if (!tips.isEmpty()) {
-            DMessageManager::instance()->sendMessage(this,
-                                                     style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                                     tips);
-        }
-    }
-
-    return !m_ubid.isEmpty();
+    Q_EMIT requestBindAccount(uuid, hostName);
 }
 
-bool IndexPage::unbindUserAccount()
+void IndexPage::unbindUserAccount()
 {
     if (m_ubid.isEmpty()) {
         qWarning() << "ubid is empty";
-        return false;
+        return;
     }
 
-    bool ret = false;
-    QString errorTxt;
-    Q_EMIT requestUnBindAccount(m_ubid, ret, errorTxt);
-    if (!errorTxt.isEmpty()) {
+    Q_EMIT requestUnBindAccount(m_ubid);
+}
+
+void IndexPage::onResetPasswdError(const QString &error)
+{
+    if (!error.isEmpty()) {
         QString tips;
-        if (errorTxt.contains("7500")) {
+        if (error.contains("7500")) {
             tips = tr("System error");
-        } else if (errorTxt.contains("7506")) {
+        } else if (error.contains("7506")) {
             tips = tr("Network error");
-        } else if (errorTxt.contains("7502")) {
+        } else if (error.contains("7502")) {
             tips = tr("Login expired, please sign in to the Union ID again");
         }
         if (!tips.isEmpty()) {
@@ -475,7 +446,11 @@ bool IndexPage::unbindUserAccount()
                                                      tips);
         }
     }
-    return ret;
+}
+
+void IndexPage::onUnBindRet(bool ok)
+{
+    m_bindSwitch->setChecked(!ok);
 }
 
 }
