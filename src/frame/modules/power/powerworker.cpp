@@ -60,6 +60,8 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::BatterySleepDelayChanged, this, &PowerWorker::setSleepDelayToModelOnBattery);
     connect(m_powerInter, &PowerInter::BatteryLockDelayChanged, this, &PowerWorker::setResponseBatteryLockScreenDelay);
     connect(m_powerInter, &PowerInter::LinePowerLockDelayChanged, this, &PowerWorker::setResponsePowerLockScreenDelay);
+    connect(m_powerInter, &PowerInter::IsHighPerformanceSupportedChanged, this, &PowerWorker::setHighPerformanceSupported);
+
 #ifndef DCC_DISABLE_POWERSAVE
     connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeAutoChanged, m_powerModel, &PowerModel::setAutoPowerSaveMode);
     connect(m_sysPowerInter, &SysPowerInter::PowerSavingModeEnabledChanged, m_powerModel, &PowerModel::setPowerSaveMode);
@@ -81,7 +83,6 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::LowPowerAutoSleepThresholdChanged, m_powerModel, &PowerModel::setLowPowerAutoSleepThreshold);
     //-------------------------------------------------------
     connect(m_sysPowerInter, &SysPowerInter::ModeChanged, m_powerModel, &PowerModel::setPowerPlan);
-    connect(m_sysPowerInter, &SysPowerInter::IsHighPerformanceSupportedChanged, m_powerModel, &PowerModel::setHighPerformanceSupported);
 }
 
 void PowerWorker::active()
@@ -104,7 +105,8 @@ void PowerWorker::active()
     m_powerModel->setBatteryPressPowerBtnAction(m_powerInter->batteryPressPowerBtnAction());
     m_powerModel->setBatteryLidClosedAction(m_powerInter->batteryLidClosedAction());
     m_powerModel->setPowerPlan(m_sysPowerInter->mode());
-    m_powerModel->setHighPerformanceSupported(m_sysPowerInter->isHighPerformanceSupported());
+
+    setHighPerformanceSupported(m_powerInter->isHighPerformanceSupported());
 
     setScreenBlackDelayToModelOnPower(m_powerInter->linePowerScreenBlackDelay());
     setSleepDelayToModelOnPower(m_powerInter->linePowerSleepDelay());
@@ -223,6 +225,11 @@ void PowerWorker::setResponseBatteryLockScreenDelay(const int delay)
 void PowerWorker::setResponsePowerLockScreenDelay(const int delay)
 {
     m_powerModel->setPowerLockScreenDelay(converToDelayModel(delay));
+}
+
+void PowerWorker::setHighPerformanceSupported(bool state)
+{
+    m_powerModel->setHighPerformanceSupported(state);
 }
 
 void PowerWorker::setPowerSavingModeAutoWhenQuantifyLow(bool bLowBatteryAutoIntoSaveEnergyMode)

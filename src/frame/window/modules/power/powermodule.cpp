@@ -48,6 +48,7 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
     , m_work(nullptr)
     , m_timer(new QTimer(this))
     , m_widget(nullptr)
+    , m_powerSetting(nullptr)
 {
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
     GSettingWatcher::instance()->insertState("general");
@@ -335,8 +336,9 @@ void PowerModule::initSearchData()
         func_battary_Changed(state, m_model->lidPresent());
     });
 
-    connect(m_model, &PowerModel::highPerformaceChanged, this, [=] (const bool state) {
-        m_frameProxy->setDetailVisible(module, generalWidget, tr("High Performance"), state);
+    connect(m_model, &PowerModel::highPerformaceSupportChanged, this, [=] (const bool state) {
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("High Performance"), state && m_model->isHighPerformanceSupported());
+        m_frameProxy->updateSearchData(module);
     });
 
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {

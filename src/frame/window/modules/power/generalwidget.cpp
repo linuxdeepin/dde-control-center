@@ -271,7 +271,7 @@ void GeneralWidget::setModel(const PowerModel *model)
 #endif
     connect(model, &PowerModel::suspendChanged, m_wakeComputerNeedPassword, &SwitchWidget::setVisible);
 
-    connect(model, &PowerModel::highPerformaceChanged, this, &GeneralWidget::onHighPerformanceSupportChanged);
+    connect(model, &PowerModel::highPerformaceSupportChanged, this, &GeneralWidget::onHighPerformanceSupportChanged);
     onHighPerformanceSupportChanged(model->isHighPerformanceSupported());
 
     connect(model, &PowerModel::powerPlanChanged, this, &GeneralWidget::onCurPowerPlanChanged);
@@ -378,10 +378,15 @@ void GeneralWidget::onHighPerformanceSupportChanged(const bool isSupport)
 {
     int row_count = m_powerPlanModel->rowCount();
     if (!isSupport) {
+        int cur_place = m_powerplanListview->currentIndex().row();
         for (int i = 0; i < row_count; ++i) {
             QStandardItem *items = m_powerPlanModel->item(i, 0);
             if (items->data(PowerPlanRole).toString() == PERFORMANCE) {
                 m_powerPlanModel->removeRow(i);
+
+                if (cur_place == i || cur_place < 0) {
+                    m_powerplanListview->clicked(m_powerPlanModel->index(0, 0));
+                }
                 break;
             }
         }

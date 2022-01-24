@@ -179,7 +179,7 @@ Q_SIGNALS:
     //--------------------------------------------------------------
     void suspendChanged(bool suspendState);
     void powerPlanChanged(const QString &value);
-    void highPerformaceChanged(bool value);
+    void highPerformaceSupportChanged(bool value);
 
 private:
     bool m_lidPresent;//以此判断是否为笔记本

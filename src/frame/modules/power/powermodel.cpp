@@ -333,11 +333,11 @@ void PowerModel::setPowerPlan(const QString &powerPlan)
 
 void PowerModel::setHighPerformanceSupported(bool isHighSupport)
 {
-    if (m_isHighPerformanceSupported != isHighSupport) {
-        m_isHighPerformanceSupported = isHighSupport;
+    if (m_isHighPerformanceSupported == isHighSupport)
+        return;
 
-        Q_EMIT highPerformaceChanged(isHighSupport);
-    }
+    m_isHighPerformanceSupported = isHighSupport;
+    Q_EMIT highPerformaceSupportChanged(isHighSupport);
 }
 
 void PowerModel::setSuspend(bool suspend)
