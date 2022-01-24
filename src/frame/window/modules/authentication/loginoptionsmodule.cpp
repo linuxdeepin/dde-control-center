@@ -203,15 +203,6 @@ void LoginOptionsModule::initSearchData()
         "authenticationIris"
     };
 
-    const QStringList& gsThirdList {
-        "Fingerprint Password",
-        "Add Fingerprint",
-        "Manage Faces",
-        "Add Face",
-        "Manage Irises",
-        "Add Iris"
-    };
-
     static QMap<QString, bool> gsettingsMap;
     auto func_is_visible = [ = ] (const QString &gsettings, QString state = ""){
         if (gsettings == "") {
@@ -233,28 +224,16 @@ void LoginOptionsModule::initSearchData()
     auto func_finger_changed = [ = ] () {
         bool bFinger = func_is_visible("authenticationFinger");
         m_frameProxy->setWidgetVisible(module, finger, bFinger);
-
-        bool bthirdFinger = m_fingerModel->isVaild();
-        m_frameProxy->setDetailVisible(module, finger, tr("Fingerprint Password"), bthirdFinger);
-        m_frameProxy->setDetailVisible(module, finger, tr("Add Fingerprint"), bthirdFinger);
     };
 
     auto func_face_changed = [ = ] () {
         bool bFace = func_is_visible("authenticationFace");
         m_frameProxy->setWidgetVisible(module, face, bFace);
-
-        bool bthirdFace = m_charaMangerModel->faceDriverVaild();
-        m_frameProxy->setDetailVisible(module, face, tr("Manage Faces"), bthirdFace);
-        m_frameProxy->setDetailVisible(module, face, tr("Add Face"), bthirdFace);
     };
 
     auto func_iris_changed = [ = ] () {
         bool bIris = func_is_visible("authenticationIris");
         m_frameProxy->setWidgetVisible(module, iris, bIris);
-
-        bool bthirdIris = m_charaMangerModel->irisDriverVaild();
-        m_frameProxy->setDetailVisible(module, iris, tr("Manage Irises"), bthirdIris);
-        m_frameProxy->setDetailVisible(module, iris, tr("Add Iris"), bthirdIris);
     };
 
     auto func_process_all = [ = ]() {
@@ -282,10 +261,6 @@ void LoginOptionsModule::initSearchData()
         }
         bool bGsMap = gsettingsMap.value(gsetting);
         if (gsSecList.contains(gsetting) && GSettingWatcher::instance()->get(gsetting).toBool() == bGsMap) {
-            return;
-        }
-
-        if (gsThirdList.contains(gsetting)  && ((state != "Hidden") == bGsMap)) {
             return;
         }
 
