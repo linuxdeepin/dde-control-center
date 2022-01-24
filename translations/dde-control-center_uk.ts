@@ -2,92 +2,92 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="191"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="184"/>
         <source>Help</source>
         <translation>Довідка</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
         <source>Biometric Authentication</source>
         <translation>Біометричне розпізнавання</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Accounts</source>
         <translation>Облікові записи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
         <source>Display</source>
         <translation>Дисплей</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Touch Screen</source>
         <translation>Сенсорний екран</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
         <source>Default Applications</source>
         <translation>Типові програми</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Personalization</source>
         <translation>Персоналізація</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Notification</source>
         <translation>Сповіщення</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Sound</source>
         <translation>Звук</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Date and Time</source>
         <translation>Дата і час</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Power</source>
         <translation>Живлення</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>Mouse</source>
         <translation>Миша</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
         <source>Drawing Tablet</source>
         <translation>Планшет для малювання</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="357"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>Keyboard and Language</source>
         <translation>Клавіатура і мова</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="358"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
         <source>Updates</source>
         <translation>Оновлення</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="359"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <source>System Info</source>
         <translation>Дані щодо системи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="360"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
         <source>General Settings</source>
         <translation>Загальні параметри</translation>
     </message>
@@ -450,94 +450,94 @@
         <translation>Забули пароль?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="102"/>
         <source>New Password</source>
         <translation>Новий Пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="111"/>
         <source>Repeat Password</source>
         <translation>Повторіть Пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
         <source>Password Hint</source>
         <translation>Підказка щодо пароля</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="319"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="123"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="201"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="211"/>
         <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Рекомендуємо використати складніший пароль: понад 8 символів, такий, який містить 3 з чотирьох типів символів: малі літери, великі літери, цифри та знаки пунктуації</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="214"/>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>Під час спроби прочитати файли налаштувань правил паролів сталася помилка!</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="367"/>
         <source>Passwords do not match</source>
         <translation>Паролі не збігаються</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="224"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="226"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="229"/>
         <source>Required</source>
         <translation>Вимагається</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="231"/>
         <source>Optional</source>
         <translation>Необов&apos;язкове</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="245"/>
         <source>Password cannot be empty</source>
         <translation>Поле пароля не може бути порожнім</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="374"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Підказку буде показано усім користувачам. Не включайте до неї пароля.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
         <source>Wrong password</source>
         <translation>Невірний пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="288"/>
         <source>New password should differ from the current one</source>
         <translation>Новий пароль повинен відрізнятися від попереднього</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="318"/>
         <source>Go to Settings</source>
         <translation>Перейти до параметрів</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="449"/>
         <source>System error</source>
         <translation>Системна помилка</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="451"/>
         <source>Network error</source>
         <translation>Помилка мережі</translation>
     </message>
@@ -705,41 +705,37 @@
     <name>dccV20::authentication::FaceWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="24"/>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="81"/>
         <source>Edit</source>
         <translation>Змінити</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="41"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="38"/>
         <source>Manage Faces</source>
         <translation>Керування записами обличчя</translation>
-        <extra-child_page>Face</extra-child_page>
-        <extra-contents_path>/authentication/Face</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="42"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="39"/>
         <source>You can add up to 5 faces</source>
         <translation>Ви можете додавати до 5 записів обличчя</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="77"/>
         <source>Done</source>
         <translation>Виконано</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="104"/>
         <source>Add Face</source>
         <translation>Додати обличчя</translation>
-        <extra-child_page>Face</extra-child_page>
-        <extra-contents_path>/authentication/Face</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="146"/>
         <source>The name already exists</source>
         <translation>Таке ім&apos;я вже використано</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="176"/>
         <source>Faceprint</source>
         <translation>Ідентифікатор обличчя</translation>
     </message>
@@ -764,38 +760,34 @@
     <name>dccV20::authentication::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="47"/>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="92"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="50"/>
         <source>Fingerprint Password</source>
         <translation>Пароль відбитку пальців</translation>
-        <extra-child_page>Fingerprint</extra-child_page>
-        <extra-contents_path>/authentication/Fingerprint</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="51"/>
         <source>You can add up to 10 fingerprints</source>
         <translation>Ви можете додати до 10 відбитків</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="88"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="150"/>
         <source>The name already exists</source>
         <translation>Таке ім&apos;я вже існує</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="197"/>
         <source>Add Fingerprint</source>
         <translation>Додати відбиток пальця</translation>
-        <extra-child_page>Fingerprint</extra-child_page>
-        <extra-contents_path>/authentication/Fingerprint</extra-contents_path>
     </message>
 </context>
 <context>
@@ -810,41 +802,37 @@
     <name>dccV20::authentication::IrisWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="24"/>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="82"/>
         <source>Edit</source>
         <translation>Змінити</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="41"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="39"/>
         <source>Manage Irises</source>
         <translation>Керування записами райдужки</translation>
-        <extra-child_page>Iris</extra-child_page>
-        <extra-contents_path>/authentication/Iris</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="42"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="40"/>
         <source>You can add up to 5 irises</source>
         <translation>Ви можете додавати до 5 записів райдужки</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="78"/>
         <source>Done</source>
         <translation>Виконано</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="106"/>
         <source>Add Iris</source>
         <translation>Додати райдужку</translation>
-        <extra-child_page>Iris</extra-child_page>
-        <extra-contents_path>/authentication/Iris</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="147"/>
         <source>The name already exists</source>
         <translation>Таке ім&apos;я вже використано</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="177"/>
         <source>Iris</source>
         <translation>Райдужка</translation>
     </message>
@@ -874,56 +862,29 @@
         <source>Iris</source>
         <translation>Райдужка</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="238"/>
-        <source>Fingerprint Password</source>
-        <translation>Пароль відбитку пальців</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="239"/>
-        <source>Add Fingerprint</source>
-        <translation>Додати відбиток пальця</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="247"/>
-        <source>Manage Faces</source>
-        <translation>Керування записами обличчя</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="248"/>
-        <source>Add Face</source>
-        <translation>Додати обличчя</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="256"/>
-        <source>Manage Irises</source>
-        <translation>Керування записами райдужки</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="257"/>
-        <source>Add Iris</source>
-        <translation>Додати райдужку</translation>
-    </message>
 </context>
 <context>
     <name>dccV20::authentication::LoginOptionsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="61"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="134"/>
         <source>Fingerprint</source>
         <translation>Відбиток пальця</translation>
+        <extra-contents_path>/authentication/Fingerprint</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="65"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="136"/>
         <source>Face</source>
         <translation>Обличчя</translation>
+        <extra-contents_path>/authentication/Face</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="69"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="138"/>
         <source>Iris</source>
         <translation>Райдужка</translation>
+        <extra-contents_path>/authentication/Iris</extra-contents_path>
     </message>
 </context>
 <context>

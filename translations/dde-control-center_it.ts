@@ -2,92 +2,92 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="191"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="184"/>
         <source>Help</source>
         <translation>Aiuto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
         <source>Biometric Authentication</source>
         <translation>Autenticazione biometrica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Accounts</source>
         <translation>Account</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
         <source>Display</source>
         <translation>Schermo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Touch Screen</source>
         <translation>Touch Screen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
         <source>Default Applications</source>
         <translation>App predefinite</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Personalization</source>
         <translation>Personalizza</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Notification</source>
         <translation>Notifiche</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Sound</source>
         <translation>Audio</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Date and Time</source>
         <translation>Orologio</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Power</source>
         <translation>Alimentazione</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>Mouse</source>
         <translation>Mouse</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
         <source>Drawing Tablet</source>
         <translation>Tavoletta grafica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="357"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>Keyboard and Language</source>
         <translation>Tastiera e lingua</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="358"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
         <source>Updates</source>
         <translation>Aggiornamenti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="359"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <source>System Info</source>
         <translation>Sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="360"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
         <source>General Settings</source>
         <translation>Impostazioni generali</translation>
     </message>
@@ -450,94 +450,94 @@
         <translation>Password dimenticata?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="102"/>
         <source>New Password</source>
         <translation>Nuova password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="111"/>
         <source>Repeat Password</source>
         <translation>Ripeti Password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
         <source>Password Hint</source>
         <translation>Suggerimento password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="319"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="123"/>
         <source>Save</source>
         <translation>Salva</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="201"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="211"/>
         <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Si consiglia una password più complessa: più di 8 caratteri e contenga 3 dei quattro tipi di caratteri: lettere minuscole, lettere maiuscole, numeri e simboli</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="214"/>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>Si è verificato un errore durante la lettura dei file di configurazione delle regole della password!</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="367"/>
         <source>Passwords do not match</source>
         <translation>La password non corrisponde</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="224"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="226"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="229"/>
         <source>Required</source>
         <translation>Richiesta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="231"/>
         <source>Optional</source>
         <translation>Opzionale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="245"/>
         <source>Password cannot be empty</source>
         <translation>La password non può esser vuota</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="374"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Il suggerimento è visibile a tutti gli utenti. Non scrivere qui la password.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
         <source>Wrong password</source>
         <translation>Password errata</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="288"/>
         <source>New password should differ from the current one</source>
         <translation>La nuova password deve esser differente dall&apos;attuale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="318"/>
         <source>Go to Settings</source>
         <translation>Vai alle impostazioni</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="449"/>
         <source>System error</source>
         <translation>Errore di sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="451"/>
         <source>Network error</source>
         <translation>Errore rete</translation>
     </message>
@@ -705,41 +705,37 @@
     <name>dccV20::authentication::FaceWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="24"/>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="81"/>
         <source>Edit</source>
         <translation>Modifica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="41"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="38"/>
         <source>Manage Faces</source>
         <translation>Gestisci visi</translation>
-        <extra-child_page>Face</extra-child_page>
-        <extra-contents_path>/authentication/Face</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="42"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="39"/>
         <source>You can add up to 5 faces</source>
         <translation>Puoi aggiungere fino a 5 visi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="77"/>
         <source>Done</source>
         <translation>Fatto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="104"/>
         <source>Add Face</source>
         <translation>Aggiungi viso</translation>
-        <extra-child_page>Face</extra-child_page>
-        <extra-contents_path>/authentication/Face</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="146"/>
         <source>The name already exists</source>
         <translation>Questo nome esiste già</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="176"/>
         <source>Faceprint</source>
         <translation>Viso</translation>
     </message>
@@ -764,38 +760,34 @@
     <name>dccV20::authentication::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="47"/>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="92"/>
         <source>Edit</source>
         <translation>Modifica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="50"/>
         <source>Fingerprint Password</source>
         <translation>Password con impronta digitale</translation>
-        <extra-child_page>Fingerprint</extra-child_page>
-        <extra-contents_path>/authentication/Fingerprint</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="51"/>
         <source>You can add up to 10 fingerprints</source>
         <translation>Puoi aggiungere sino a 10 impronte digitali</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="88"/>
         <source>Done</source>
         <translation>Fatto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="150"/>
         <source>The name already exists</source>
         <translation>Questo nome esiste già</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="197"/>
         <source>Add Fingerprint</source>
         <translation>Aggiungi impronta digitale</translation>
-        <extra-child_page>Fingerprint</extra-child_page>
-        <extra-contents_path>/authentication/Fingerprint</extra-contents_path>
     </message>
 </context>
 <context>
@@ -810,41 +802,37 @@
     <name>dccV20::authentication::IrisWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="24"/>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="82"/>
         <source>Edit</source>
         <translation>Modifica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="41"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="39"/>
         <source>Manage Irises</source>
         <translation>Gestisci iride</translation>
-        <extra-child_page>Iris</extra-child_page>
-        <extra-contents_path>/authentication/Iris</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="42"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="40"/>
         <source>You can add up to 5 irises</source>
         <translation>Puoi aggiungere fino a 5 iridi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="78"/>
         <source>Done</source>
         <translation>Fatto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="106"/>
         <source>Add Iris</source>
         <translation>Aggiungi iride</translation>
-        <extra-child_page>Iris</extra-child_page>
-        <extra-contents_path>/authentication/Iris</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="147"/>
         <source>The name already exists</source>
         <translation>Questo nome esiste già</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="177"/>
         <source>Iris</source>
         <translation>Iride</translation>
     </message>
@@ -874,56 +862,29 @@
         <source>Iris</source>
         <translation>Iride</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="238"/>
-        <source>Fingerprint Password</source>
-        <translation>Password con impronta digitale</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="239"/>
-        <source>Add Fingerprint</source>
-        <translation>Aggiungi impronta digitale</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="247"/>
-        <source>Manage Faces</source>
-        <translation>Gestisci visi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="248"/>
-        <source>Add Face</source>
-        <translation>Aggiungi viso</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="256"/>
-        <source>Manage Irises</source>
-        <translation>Gestisci iride</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="257"/>
-        <source>Add Iris</source>
-        <translation>Aggiungi iride</translation>
-    </message>
 </context>
 <context>
     <name>dccV20::authentication::LoginOptionsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="61"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="134"/>
         <source>Fingerprint</source>
         <translation>Impronta digitale</translation>
+        <extra-contents_path>/authentication/Fingerprint</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="65"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="136"/>
         <source>Face</source>
         <translation>Viso</translation>
+        <extra-contents_path>/authentication/Face</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="69"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="138"/>
         <source>Iris</source>
         <translation>Iride</translation>
+        <extra-contents_path>/authentication/Iris</extra-contents_path>
     </message>
 </context>
 <context>
