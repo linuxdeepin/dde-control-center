@@ -705,37 +705,41 @@
     <name>dccV20::authentication::FaceWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="24"/>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="84"/>
         <source>Edit</source>
         <translation>تەھرىرلەش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="41"/>
         <source>Manage Faces</source>
         <translation>چىراي قۇلۇپى باشقۇرۇش</translation>
+        <extra-child_page>Face</extra-child_page>
+        <extra-contents_path>/authentication/Face</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="40"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="42"/>
         <source>You can add up to 5 faces</source>
         <translation>ئەڭ كۆپ بولغاندا بەش چىراي  قوشقىلى بولىدۇ </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="80"/>
         <source>Done</source>
         <translation>تامام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="109"/>
         <source>Add Face</source>
         <translation>چىراي  قوشۇش </translation>
+        <extra-child_page>Face</extra-child_page>
+        <extra-contents_path>/authentication/Face</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="151"/>
         <source>The name already exists</source>
         <translation>بۇ نام مەۋجۇت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="181"/>
         <source>Faceprint</source>
         <translation>چىراي سىزىقچىلىرى</translation>
     </message>
@@ -760,35 +764,38 @@
     <name>dccV20::authentication::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="47"/>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="94"/>
         <source>Edit</source>
         <translation>تەھرىرلەش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="52"/>
         <source>Fingerprint Password</source>
         <translation>بارماق ئىزى پارولى</translation>
-        <extra-contents_path>/accounts/Fingerprint Password</extra-contents_path>
+        <extra-child_page>Fingerprint</extra-child_page>
+        <extra-contents_path>/authentication/Fingerprint</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="53"/>
         <source>You can add up to 10 fingerprints</source>
         <translation>ئەڭ كۆپ بولغاندا 10 بارماق ئېزى كىرگۈزەلەيسىز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="90"/>
         <source>Done</source>
         <translation>تامام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="152"/>
         <source>The name already exists</source>
         <translation>بۇ ئىسىم ئاللىبۇرۇن مەۋجۇت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="201"/>
         <source>Add Fingerprint</source>
         <translation>بارماق ئىزى قوشۇش</translation>
+        <extra-child_page>Fingerprint</extra-child_page>
+        <extra-contents_path>/authentication/Fingerprint</extra-contents_path>
     </message>
 </context>
 <context>
@@ -803,37 +810,41 @@
     <name>dccV20::authentication::IrisWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="24"/>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="84"/>
         <source>Edit</source>
         <translation>تەھرىرلەش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="41"/>
         <source>Manage Irises</source>
         <translation>كۆز رەڭدار پەردىسى باشقۇرۇش</translation>
+        <extra-child_page>Iris</extra-child_page>
+        <extra-contents_path>/authentication/Iris</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="40"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="42"/>
         <source>You can add up to 5 irises</source>
         <translation>ئەڭ بولغاندا بەش كۆز رەڭدار پەردىسى قوشقىلى بولىدۇ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="80"/>
         <source>Done</source>
         <translation>تامام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="109"/>
         <source>Add Iris</source>
         <translation>كۆز رەڭدار پەردىسى تونۇشۇش-قوشۇش</translation>
+        <extra-child_page>Iris</extra-child_page>
+        <extra-contents_path>/authentication/Iris</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="150"/>
         <source>The name already exists</source>
         <translation>بۇ نام مەۋجۇت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="180"/>
         <source>Iris</source>
         <translation>كۆز رەڭدار پەردىسى</translation>
     </message>
@@ -841,30 +852,78 @@
 <context>
     <name>dccV20::authentication::LoginOptionsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="65"/>
         <source>Biometric Authentication</source>
         <translation>بىئولوگىيىلىك دەلىللەش</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="196"/>
+        <source>Fingerprint</source>
+        <translation>بارماق ئىزى</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="197"/>
+        <source>Face</source>
+        <translation>چىراي</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="198"/>
+        <source>Iris</source>
+        <translation>كۆز رەڭدار پەردىسى</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="238"/>
+        <source>Fingerprint Password</source>
+        <translation>بارماق ئىزى پارولى</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="239"/>
+        <source>Add Fingerprint</source>
+        <translation>بارماق ئىزى قوشۇش</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="247"/>
+        <source>Manage Faces</source>
+        <translation>چىراي قۇلۇپى باشقۇرۇش</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="248"/>
+        <source>Add Face</source>
+        <translation>چىراي  قوشۇش </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="256"/>
+        <source>Manage Irises</source>
+        <translation>كۆز رەڭدار پەردىسى باشقۇرۇش</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="257"/>
+        <source>Add Iris</source>
+        <translation>كۆز رەڭدار پەردىسى تونۇشۇش-قوشۇش</translation>
     </message>
 </context>
 <context>
     <name>dccV20::authentication::LoginOptionsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="133"/>
         <source>Fingerprint</source>
         <translation>بارماق ئىزى</translation>
-        <extra-contents_path>/authentication/Finger</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="134"/>
         <source>Face</source>
         <translation>چىراي</translation>
-        <extra-contents_path>/authentication/Face</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="135"/>
         <source>Iris</source>
         <translation>كۆز رەڭدار پەردىسى</translation>
-        <extra-contents_path>/authentication/Iris</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1380,6 +1439,16 @@
     </message>
 </context>
 <context>
+    <name>dccV20::datetime::Clock</name>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/clock.cpp" line="45"/>
+        <source>Add Application</source>
+        <translation>ئىلتىماس قوشۇش</translation>
+        <extra-child_page>Mail</extra-child_page>
+        <extra-contents_path>/defapp/Mail/Add Application</extra-contents_path>
+    </message>
+</context>
+<context>
     <name>dccV20::datetime::ClockItem</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="83"/>
@@ -1474,93 +1543,100 @@
 <context>
     <name>dccV20::datetime::DatetimeModule</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="58"/>
+        <source>Add Application</source>
+        <translation>ئىلتىماس قوشۇش</translation>
+        <extra-child_page>Picture</extra-child_page>
+        <extra-contents_path>/defapp/Picture/Add Application</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="97"/>
         <source>Date and Time</source>
         <translation>چېسلا ۋە ۋاقىت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="202"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="219"/>
         <source>Time Format</source>
         <translation>فورمات تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="203"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="218"/>
         <source>Timezone List</source>
         <translation>ۋاقىت رايونى تىزىملىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="204"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="217"/>
         <source>Time Settings</source>
         <translation>ۋاقىت تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="250"/>
         <source>Change System Timezone</source>
         <translation>سىستېما ۋاقىت رايونىنى ئۆزگەرتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="251"/>
         <source>System Timezone</source>
         <translation>سىستېما ۋاقىت رايونى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="247"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="325"/>
         <source>Add Timezone</source>
         <translation> ۋاقىت رايونى قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="263"/>
         <source>Date and Time Formats</source>
         <translation>ۋاقىت فورماتى تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="264"/>
         <source>Weeks</source>
         <translation>ھەپتە</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="265"/>
         <source>Short Date</source>
         <translation>قىسقا چېسلا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="266"/>
         <source>Long Date</source>
         <translation>ئۇزۇن چېسلا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="267"/>
         <source>Short Time</source>
         <translation>قىسقا ۋاقىت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="268"/>
         <source>Long Time</source>
         <translation>ئۇزۇن ۋاقىت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="269"/>
         <source>First Day of Week</source>
         <translation>ھەپتىنىڭ بىرىنچى كۈنى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="274"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="328"/>
         <source>Auto Sync</source>
         <translation>ئاپتوماتىك ماسقەدەملەش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="275"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="295"/>
         <source>Server</source>
         <translation>مۇلازىمىتېر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="284"/>
         <source>24-hour Time</source>
         <translation>24 سائەتلىك</translation>
     </message>
@@ -1568,22 +1644,29 @@
 <context>
     <name>dccV20::datetime::DatetimeWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="55"/>
+        <source>Add Application</source>
+        <translation>ئىلتىماس قوشۇش</translation>
+        <extra-child_page>Terminal</extra-child_page>
+        <extra-contents_path>/defapp/Terminal/Add Application</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="67"/>
         <source>Timezone List</source>
         <translation>ۋاقىت رايونى تىزىملىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="68"/>
         <source>Time Settings</source>
         <translation>ۋاقىت تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="69"/>
         <source>Time Format</source>
         <translation>فورمات تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="101"/>
         <source>24-hour Time</source>
         <translation>24 سائەتلىك</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
@@ -1775,7 +1858,7 @@
         <source>Change System Timezone</source>
         <translation>سىستېما ۋاقىت رايونىنى ئۆزگەرتىش</translation>
         <extra-child_page>Timezone List</extra-child_page>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="54"/>
@@ -1798,25 +1881,36 @@
         <source>Add Timezone</source>
         <translation>ۋاقىت رايونى قوشۇش</translation>
         <extra-child_page>Timezone List</extra-child_page>
-        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+        <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::datetimeCombox</name>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datetimecombox.cpp" line="32"/>
+        <source>Add Application</source>
+        <translation>ئىلتىماس قوشۇش</translation>
+        <extra-child_page>Music</extra-child_page>
+        <extra-contents_path>/defapp/Music/Add Application</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::defapp::DefappDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="77"/>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="79"/>
         <source>Add Application</source>
         <translation>ئىلتىماس قوشۇش</translation>
-        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+        <extra-child_page>Video</extra-child_page>
+        <extra-contents_path>/defapp/Video/Add Application</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="81"/>
         <source>Open Desktop file</source>
         <translation>ئۈستەل يۈزى ھۆججىتىنى ئېچىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="342"/>
         <source>Inactive</source>
         <translation>ئۈنۈملۈك بولمىدى</translation>
     </message>
@@ -1824,118 +1918,135 @@
 <context>
     <name>dccV20::defapp::DefaultAppsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="181"/>
+        <source>Add Application</source>
+        <translation>ئىلتىماس قوشۇش</translation>
+        <extra-child_page>Text</extra-child_page>
+        <extra-contents_path>/defapp/Text/Add Application</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="114"/>
         <source>Default Applications</source>
         <translation>سۈكۈتتىكى ئەپلەر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="153"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="168"/>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="233"/>
         <source>Webpage</source>
         <translation>تور بەت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="154"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="169"/>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="239"/>
         <source>Mail</source>
         <translation>ئېلخەت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="155"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="170"/>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="235"/>
         <source>Text</source>
         <translation>تېكىست</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="156"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="171"/>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="237"/>
         <source>Music</source>
         <translation>مۇزىكا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="157"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="172"/>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="196"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="241"/>
         <source>Video</source>
         <translation>سىن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="158"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="173"/>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="197"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="243"/>
         <source>Picture</source>
         <translation>سۈرەت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="159"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="174"/>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="198"/>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="245"/>
         <source>Terminal</source>
         <translation>تېرمىنال</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="166"/>
-        <source>Add Application</source>
-        <translation>ئىلتىماس قوشۇش</translation>
     </message>
 </context>
 <context>
     <name>dccV20::defapp::DefaultAppsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="54"/>
         <source>Webpage</source>
         <translation>تور بەت</translation>
+        <extra-child_page_hide>Webpage</extra-child_page_hide>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="57"/>
         <source>Mail</source>
         <translation>ئىلخەت</translation>
+        <extra-child_page_hide>Mail</extra-child_page_hide>
         <extra-contents_path>/defapp/Mail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="60"/>
         <source>Text</source>
         <translation>تېكىست</translation>
+        <extra-child_page_hide>Text</extra-child_page_hide>
         <extra-contents_path>/defapp/Text</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="63"/>
         <source>Music</source>
         <translation>مۇزىكا</translation>
+        <extra-child_page_hide>Music</extra-child_page_hide>
         <extra-contents_path>/defapp/Music</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="66"/>
         <source>Video</source>
         <translation>سىن</translation>
+        <extra-child_page_hide>Video</extra-child_page_hide>
         <extra-contents_path>/defapp/Video</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="69"/>
         <source>Picture</source>
         <translation>سۈرەت</translation>
+        <extra-child_page_hide>Picture</extra-child_page_hide>
         <extra-contents_path>/defapp/Picture</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="72"/>
         <source>Terminal</source>
         <translation>تېرمىنال</translation>
+        <extra-child_page_hide>Terminal</extra-child_page_hide>
         <extra-contents_path>/defapp/Terminal</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="77"/>
+        <source>Add Application</source>
+        <translation>ئىلتىماس قوشۇش</translation>
+        <extra-child_page>Webpage</extra-child_page>
+        <extra-contents_path>/defapp/Webpage/Add Application</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="147"/>
         <source>Default Applications</source>
         <translation>سۈكۈتتىكى ئەپلەر</translation>
     </message>
@@ -1997,87 +2108,87 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="512"/>
         <source>Brightness</source>
         <translation>يورۇقلۇقى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="508"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="580"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="582"/>
         <source>Auto Brightness</source>
         <translation>يورۇقلۇقنى ئاپتوماتىك تەڭشەش</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="512"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="584"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="514"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="586"/>
         <source>Color Temperature</source>
         <translation>رەڭ تېمپېراتۇرىسى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="189"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="513"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="585"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="515"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="587"/>
         <source>Night Shift</source>
         <translation>رەڭنى ئاپتوماتىك تەڭشەش</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="514"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="586"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="516"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="588"/>
         <source>Change Color Temperature</source>
         <translation>قولدا تەڭشەش</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="501"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="522"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="553"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="503"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="524"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="555"/>
         <source>Multiple Displays</source>
         <translation>كۆپ ئېكرانلىق كۆرسىتىش تەڭشىكى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="499"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="520"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="551"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="522"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="553"/>
         <source>Mode</source>
         <translation>ھالىتى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="500"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="521"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="552"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="502"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="523"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="554"/>
         <source>Main Screen</source>
         <translation>ئاساسىي ئېكران</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="524"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="555"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="526"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="557"/>
         <source>Refresh Rate</source>
         <translation>يىڭىلاش چاستوتىسى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="525"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="557"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="527"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
         <source>Resolution</source>
         <translation>ئېنىقلىق دەرىجىسى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="196"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="526"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="528"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="561"/>
         <source>Rotation</source>
         <translation>ئايلاندۇرۇش</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="197"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="527"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="561"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="563"/>
         <source>Display Scaling</source>
         <translation>چوڭايتىش نىسبىتى</translation>
     </message>
@@ -2153,29 +2264,29 @@
         <extra-contents_path>/display/Resize Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="269"/>
         <source>Default</source>
         <translation>سۈكۈتتىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="285"/>
         <source>Fit</source>
         <translation>ماسلاشتۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="301"/>
         <source>Stretch</source>
         <translation>سوزۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="317"/>
         <source>Center</source>
         <translation>ئوتتۇرىغا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="391"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="443"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="485"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="459"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="501"/>
         <source>Recommended</source>
         <translation>تەۋسىيە</translation>
     </message>
@@ -2239,7 +2350,7 @@
         <source>Add Custom Shortcut</source>
         <translation>سۈكۈتتىكى تىزلەتمە كۇنۇپكا قوشۇش</translation>
         <extra-child_page>Shortcuts</extra-child_page>
-        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+        <extra-contents_path>/keyboard/Shortcuts/Add Custom Shortcut</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="66"/>
@@ -2355,103 +2466,103 @@
 <context>
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="138"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="160"/>
         <source>General</source>
         <translation>ئورتاق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="139"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="162"/>
         <source>Shortcuts</source>
         <translation>تىزلەتمە كۇنۇپكىلار</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="149"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="195"/>
         <source>Keyboard Layout</source>
         <translation>كۇنۇپكا ئورۇنلاشتۇرۇلۇشى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="163"/>
         <source>System Language</source>
         <translation>سىستېما تىلى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="185"/>
         <source>Repeat Delay</source>
         <translation>تەكرار كۈتۈش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="186"/>
         <source>Test here</source>
         <translation>بۇ يەردە سىناق قىلىڭ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="187"/>
         <source>Repeat Rate</source>
         <translation>تەكرار باھالاش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="188"/>
         <source>Numeric Keypad</source>
         <translation>رەقەملىك كۇنۇپكا تاختىسى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="189"/>
         <source>Caps Lock Prompt</source>
         <translation>Caps Lock نى ئويغىتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="196"/>
         <source>Add Keyboard Layout</source>
         <translation>كۇنۇپكا تاختىسى ئورۇنلاشتۇرۇلۇشى قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="202"/>
         <source>Add Custom Shortcut</source>
         <translation>سۈكۈتتىكى تىزلەتمە كۇنۇپكا قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="398"/>
         <source>Custom Shortcut</source>
         <translation>سۈكۈتتىكى تىزلەتمە كۇنۇپكا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="204"/>
         <source>System</source>
         <translation>سېستىما</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="205"/>
         <source>Window</source>
         <translation>كۆزنەك</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="206"/>
         <source>Workspace</source>
         <translation>خىزمەت رايونى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="207"/>
         <source>Assistive Tools</source>
         <translation>ياردەمچى قوراللار</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="213"/>
         <source>Add System Language</source>
         <translation>سىستېما تىلى قوشۇڭ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="214"/>
         <source>Language List</source>
         <translation>تىل تىزىملىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="269"/>
         <source>Keyboard and Language</source>
         <translation>كۇنۇپكا تاختىسى ۋە تىل</translation>
     </message>
@@ -2465,16 +2576,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="161"/>
         <source>Keyboard Layout</source>
         <translation>كۇنۇپكا تاختىسى ئورۇنلاشتۇرۇلۇشى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="163"/>
         <source>System Language</source>
         <translation>سىستېما تىلى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="165"/>
         <source>Shortcuts</source>
         <translation>تىزلەتمە كۇنۇپكىلار</translation>
     </message>
@@ -2544,7 +2658,7 @@
         <source>Add System Language</source>
         <translation>سىستېما تىلى قوشۇڭ</translation>
         <extra-child_page>System Language</extra-child_page>
-        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+        <extra-contents_path>/keyboard/System Language/Add System Language</extra-contents_path>
     </message>
 </context>
 <context>
@@ -3735,14 +3849,14 @@
         <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="303"/>
         <source>Input Volume</source>
         <translation>مىكروفون ئاۋاز مىقدارى</translation>
         <extra-child_page>Input</extra-child_page>
         <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="349"/>
         <source>Input Level</source>
         <translation>قايتما ئاۋاز</translation>
         <extra-child_page>Input</extra-child_page>
@@ -4116,119 +4230,119 @@
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
         <source>OS Name</source>
         <translation> مەھسۇلات نامى</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>Version</source>
         <translation>نەشرى</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
         <source>Edition</source>
         <translation>نەشرى</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
         <source>Type</source>
         <translation>تىپى</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="212"/>
         <source>Authorization</source>
         <translation>نەشر ھوقۇقى:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="355"/>
         <source>To be activated</source>
         <translation>ئاكتىپلانمىغان</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="209"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="348"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="356"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="360"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="369"/>
         <source>Activate</source>
         <translation>ئاكتىپلاش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
         <source>Kernel</source>
         <translation> ئىچكى يادرو نەشىرى</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
         <source>Processor</source>
         <translation> بىر تەرەپ قىلغۇچ</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="237"/>
         <source>Memory</source>
         <translation> ئىچكى ساقلىغۇچ</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="335"/>
         <source>%1-bit</source>
         <translation>%1 خانە</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="351"/>
         <source>Activated</source>
         <translation>ئاكتىپلاندى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="344"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="352"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
         <source>View</source>
         <translation>كۆرۈش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="359"/>
         <source>Expired</source>
         <translation>ۋاقتى ئۆتتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="354"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
         <source>In trial period</source>
         <translation>سىناق ۋاقتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="367"/>
         <source>Trial expired</source>
         <translation>سىناق ۋاقتى ئۆتتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="428"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="429"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="487"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="488"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="441"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="442"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="500"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="501"/>
         <source>It cannot start or end with dashes</source>
         <translation>كومپيۇتېر نامى - بىلەن ئاياغلاشسا بولمايدۇ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="462"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="463"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="492"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="493"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="505"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="506"/>
         <source>1~63 characters please</source>
         <translation>كومپيۇتېر نامىنىڭ ئۇزۇنلۇقى چوقۇم 1 دىن 63 ھەرپ ئارىلىقىدا بولۇشى كېرەك</translation>
     </message>
@@ -5023,32 +5137,32 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="599"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="601"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>باش كومپيۇتېرىڭىز دائىرە مۇلازىمىتېرىدىن چېكىندى</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="600"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="602"/>
         <source>Your host joins the domain server successfully</source>
         <translation>باش كومپيۇتېرىڭىز دائىرە مۇلازىمىتېرىگە كىردى</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="628"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="630"/>
         <source>Your host failed to leave the domain server</source>
         <translation>باش كومپيۇتېرىڭىز دائىرە مۇلازىمىتېرىدىن چېكىنەلمىدى</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="629"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="631"/>
         <source>Your host failed to join the domain server</source>
         <translation>باش كومپيۇتېرىڭىز دائىرە مۇلازىمىتېرىگە كىرەلمىدى</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="632"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="634"/>
         <source>AD domain settings</source>
         <translation>AD دائىرە تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="701"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="703"/>
         <source>Password not match</source>
         <translation>پارول بىردەك ئەمەس</translation>
     </message>
@@ -5549,7 +5663,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
         <source>Add Keyboard Layout</source>
         <translation>كۇنۇپكا تاختىسى ئورۇنلاشتۇرۇلۇشى قوشۇش</translation>
         <extra-child_page>Keyboard Layout</extra-child_page>
-        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+        <extra-contents_path>/keyboard/Keyboard Layout/Add Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="73"/>
@@ -5737,12 +5851,12 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="380"/>
         <source>Copyright© 2011-%1 Deepin Community</source>
         <translation>Copyright © 2011-%1 Deepin مەھەللىسى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="382"/>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
         <translation>Copyright © 2019-%1 توڭشىن يۇمشاق دېتال تېخنىكا چەكلىك شىركىتى</translation>
     </message>
