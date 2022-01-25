@@ -60,8 +60,13 @@ void WirelessConnect::setSsid(const QString &ssid)
 
 bool WirelessConnect::passwordIsValid(const QString &password)
 {
-    WirelessSecuritySetting::Ptr wsSetting = m_connectionSettings->setting(Setting::SettingType::WirelessSecurity).staticCast<WirelessSecuritySetting>();
-    WirelessSecuritySetting::KeyMgmt keyMgmt = wsSetting->keyMgmt();
+    WirelessSecuritySetting::KeyMgmt keyMgmt = WirelessSecuritySetting::WpaPsk;
+    if (m_connectionSettings) {
+        WirelessSecuritySetting::Ptr wsSetting = m_connectionSettings->setting(Setting::SettingType::WirelessSecurity).staticCast<WirelessSecuritySetting>();
+        keyMgmt = wsSetting->keyMgmt();
+    } else {
+        keyMgmt = getKeyMgmtByAp(m_accessPoint);
+    }
     if (keyMgmt == WirelessSecuritySetting::KeyMgmt::Wep) {
         return wepKeyIsValid(password, WirelessSecuritySetting::WepKeyType::Passphrase);
     }

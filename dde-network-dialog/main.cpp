@@ -75,7 +75,7 @@ int main(int argc, char **argv)
         QString config = parser.value(showOption);
         LocalClient::instance()->showPosition(nullptr, config.toUtf8());
     }
-    if (parser.isSet(devOption)) {
+    if (parser.isSet(connectPathOption)) {
         QString dev = parser.value(devOption);
         QString ssid = parser.value(connectPathOption);
         LocalClient::instance()->waitPassword(dev, ssid, parser.isSet(waitOption));
