@@ -689,6 +689,14 @@ if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "mips64")
     )
 endif()
 
+# 龙芯5000LoongArch不支持启动菜单主题
+if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "loongarch64")
+    set(BUILD_MACRO
+        ${BUILD_MACRO}
+        DCC_DISABLE_GRUB_THEME
+    )
+endif()
+
 if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "aarch64")
     set(BUILD_MACRO
         ${BUILD_MACRO}
