@@ -56,6 +56,8 @@ public:
     static InsertPlugin *instance(QObject *obj = nullptr, FrameProxyInterface *interface = nullptr);
     // 初始化插件搜索数据
     void preInitialize(QString moduleName);
+    // 获取对应displayName的插件对象
+    ModuleInterface *pluginInterface(const QString &displayName);
 
 private:
     static QPointer<InsertPlugin> INSTANCE;

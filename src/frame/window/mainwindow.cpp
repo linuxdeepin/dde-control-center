@@ -882,8 +882,14 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
             m_widgetName = widgetFirst;
 
             //notify related module load widget
-//            QTimer::singleShot(0, this, [ = ] { //avoid default and load sequence in time
             auto errCode = m_modules[m_firstCount].first->load(widget);
+            // 添加插件load调用方法
+            if (InsertPlugin::instance()->updatePluginInfo(moduleName)) {
+                auto *plugin = InsertPlugin::instance()->pluginInterface(widgetFirst);
+                if (plugin) {
+                    errCode = plugin->load(widget);
+                }
+            }
             if (!errCode || m_widgetName == "") {
                 return;
             }
@@ -895,7 +901,6 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
             if (calledFromDBus()) {
                 sendErrorReply(QDBusError::InvalidArgs, errStr);
             }
-//            });
             break;
         }
     }

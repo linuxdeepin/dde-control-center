@@ -119,6 +119,16 @@ void InsertPlugin::preInitialize(QString moduleName)
     }
 }
 
+ModuleInterface *InsertPlugin::pluginInterface(const QString &displayName)
+{
+    for (const auto &plugin : m_currentPlugins) {
+        auto *module = qobject_cast<ModuleInterface *>(plugin.second.first);
+        if (module->displayName() == displayName)
+            return module;
+    }
+    return nullptr;
+}
+
 /**
  * @brief dccV20::InsertPlugin::pushPlugin 加载一级菜单插件
  * @param modules 一级菜单所有模块，将插件添加到其中
