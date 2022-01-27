@@ -54,6 +54,7 @@ public:
 Q_SIGNALS:
     void requestLoginUser() const;
     void requestLogoutUser() const;
+    void requestAsyncLogoutUser(const QString &ubid) const;
     void requestSetAutoSync(bool enable) const;
     void requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool> state);
     void requestUOSID(QString &uosid);

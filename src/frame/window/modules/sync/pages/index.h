@@ -66,7 +66,7 @@ public:
 
 Q_SIGNALS:
     void requestSetAutoSync(bool enable) const;
-    void requestLogout() const;
+    void requestLogout(const QString &ubid) const;
     void requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool> state);
     void requestUOSID(QString &uosid);
     void requestUUID(QString &uuid);
@@ -81,7 +81,7 @@ private:
     void onModuleStateChanged(std::pair<dcc::cloudsync::SyncType, bool> state);
     void onModuleItemSwitched(const bool checked);
     void onAutoSyncChanged(bool autoSync);
-    void isUserAccountBinded();
+    void updateUserBindStatus();
     void onBindUserAccountChanged(bool checked);
     void bindUserAccount();
     void unbindUserAccount();

@@ -50,6 +50,7 @@ IndexPage::IndexPage(QWidget *parent)
 {
     m_bindSwitch = new SwitchWidget(tr("Link to the user account"));
     m_bindSwitch->layout()->setContentsMargins(10, 0, 11, 0);
+    m_bindSwitch->setChecked(false);
     m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
     m_autoSyncSwitch->layout()->setContentsMargins(10, 6, 11, 6);
 
@@ -162,9 +163,7 @@ IndexPage::IndexPage(QWidget *parent)
     connect(m_autoSyncSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::SyncTimeLbl);
     connect(m_bindSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::onBindUserAccountChanged);
     connect(logoutBtn, &QPushButton::clicked, this, [this] {
-        Q_EMIT IndexPage::requestLogout();
-        if (m_bindSwitch->checked())
-            unbindUserAccount();
+        Q_EMIT IndexPage::requestLogout(m_bindSwitch->checked() ? m_ubid : "");
     });
 }
 
@@ -229,13 +228,13 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
         Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->checked());
     }
     m_autoSyncSwitch->setEnabled(model->getActivation());
-    m_bindSwitch->setChecked(true);
-    isUserAccountBinded();
+
     m_networkTip->setVisible(model->enableSync());
     m_listView->setVisible(model->enableSync());
     m_lastSyncTimeLbl->setVisible(model->enableSync() && model->lastSyncTime());
     onStateChanged(model->syncState());
     onLastSyncTimeChanged(model->lastSyncTime());
+    updateUserBindStatus();
 }
 
 IndexPage::~IndexPage()
@@ -366,7 +365,7 @@ void IndexPage::onAutoSyncChanged(bool autoSync)
     m_lastSyncTimeLbl->setVisible(!autoSync);
 }
 
-void IndexPage::isUserAccountBinded()
+void IndexPage::updateUserBindStatus()
 {
     QString uosid;
     Q_EMIT requestUOSID(uosid);

@@ -120,6 +120,25 @@ void SyncWorker::logoutUser()
     m_deepinId_inter->Logout();
 }
 
+void SyncWorker::asyncLogoutUser(const QString &ubid)
+{
+    if (ubid.isEmpty()) {
+        m_deepinId_inter->Logout();
+        return;
+    }
+    QFutureWatcher<BindCheckResult> *watcher = new QFutureWatcher<BindCheckResult>(this);
+    connect(watcher, &QFutureWatcher<BindCheckResult>::finished, [this, watcher] {
+        BindCheckResult result = watcher->result();
+        if (result.error.isEmpty())
+            Q_EMIT unBindRet(result.ret);
+        else
+            Q_EMIT resetPasswdError(result.error);
+        watcher->deleteLater();
+    });
+    QFuture<BindCheckResult> future = QtConcurrent::run(this, &SyncWorker::logout, ubid);
+    watcher->setFuture(future);
+}
+
 void SyncWorker::setAutoSync(bool autoSync)
 {
     m_syncInter->SwitcherSet("enabled", autoSync);
@@ -217,7 +236,7 @@ void SyncWorker::getHostName(QString &hostName)
     hostName = hostnameInter.staticHostname();
 }
 
-void SyncWorker::asynBindAccount(const QString &uuid, const QString &hostName)
+void SyncWorker::asyncBindAccount(const QString &uuid, const QString &hostName)
 {
     QFutureWatcher<BindCheckResult> *watcher = new QFutureWatcher<BindCheckResult>(this);
     connect(watcher, &QFutureWatcher<BindCheckResult>::finished, [this, watcher] {
@@ -232,7 +251,7 @@ void SyncWorker::asynBindAccount(const QString &uuid, const QString &hostName)
     watcher->setFuture(future);
 }
 
-void SyncWorker::asynUnbindAccount(const QString &ubid)
+void SyncWorker::asyncUnbindAccount(const QString &ubid)
 {
     QFutureWatcher<BindCheckResult> *watcher = new QFutureWatcher<BindCheckResult>(this);
     connect(watcher, &QFutureWatcher<BindCheckResult>::finished, [this, watcher] {
@@ -245,8 +264,6 @@ void SyncWorker::asynUnbindAccount(const QString &ubid)
     });
     QFuture<BindCheckResult> future = QtConcurrent::run(this, &SyncWorker::unBindAccount, ubid);
     watcher->setFuture(future);
-
-
 }
 
 void SyncWorker::getLicenseState()
@@ -269,6 +286,13 @@ void SyncWorker::getLicenseState()
     quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
     qDebug() << "authorize result:" << reply;
     m_model->setActivation(reply >= 1 && reply <= 3);
+}
+
+BindCheckResult SyncWorker::logout(const QString &ubid)
+{
+    BindCheckResult result = unBindAccount(ubid);
+    m_deepinId_inter->Logout();
+    return result;
 }
 
 BindCheckResult SyncWorker::checkLocalBind(const QString &uosid, const QString &uuid)
