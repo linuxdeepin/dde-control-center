@@ -181,6 +181,7 @@ void AccountsWidget::addUser(User *user, bool t1)
         } else {
             subTitleAction->setText(tr("Standard User"));
         }
+        m_userlistView->update(m_userItemModel->indexFromItem(item));
     });
 
     DViewItemAction *onlineFlag = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
