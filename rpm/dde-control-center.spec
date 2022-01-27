@@ -43,7 +43,6 @@ Requires:       dde-server-industry-config
 Requires:       deepin-pw-check
 Requires:       NetworkManager-l2tp
 Requires:       cracklib
-Requires:	    deepin-installer-timezones
 
 %description
 New control center for Linux Deepin.
