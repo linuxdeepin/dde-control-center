@@ -61,6 +61,7 @@ public:
 private:
     void runProcess(bool show = true);
     bool eventFilter(QObject *watched, QEvent *e) override;
+    void setVisible(bool visible);
 
 public Q_SLOTS:
     void runServer(bool start);
@@ -97,6 +98,7 @@ private:
     QLocalServer *m_server;
     QMap<QLocalSocket *, int> m_clients;
     QString m_serverName;
+    bool m_visible;
 };
 
 NETWORKPLUGIN_END_NAMESPACE

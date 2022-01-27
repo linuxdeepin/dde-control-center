@@ -63,6 +63,7 @@ NetworkDialog::NetworkDialog(QObject *parent)
     , m_focusWidget(nullptr)
     , m_saveMode(false)
     , m_serverName(NetworkDialogApp + QString::number(getuid()))
+    , m_visible(false)
 {
     m_server = new QLocalServer(this);
     connect(m_server, SIGNAL(newConnection()), this, SLOT(newConnectionHandler()));
@@ -79,6 +80,7 @@ NetworkDialog::~NetworkDialog()
 void NetworkDialog::finished(int, QProcess::ExitStatus)
 {
     freeFocus();
+    setVisible(false);
 }
 
 void NetworkDialog::show()
@@ -139,7 +141,7 @@ void NetworkDialog::runProcess(bool show)
 
 void NetworkDialog::setConnectWireless(const QString &dev, const QString &ssid)
 {
-    if(!m_server->isListening())
+    if (!m_server->isListening())
         return;
 
     m_connectDev = dev;
@@ -168,7 +170,7 @@ void NetworkDialog::setPosition(int x, int y, Dtk::Widget::DArrowRectangle::Arro
 
 bool NetworkDialog::isVisible() const
 {
-    return !m_clients.isEmpty();
+    return m_visible;
 }
 
 void NetworkDialog::runServer(bool start)
@@ -200,6 +202,7 @@ void NetworkDialog::newConnectionHandler()
     connect(socket, SIGNAL(readyRead()), this, SLOT(readyReadHandler()));
     connect(socket, SIGNAL(disconnected()), this, SLOT(disconnectedHandler()));
     m_clients.insert(socket, ClientType::Unknown);
+    setVisible(true);
 }
 
 void NetworkDialog::disconnectedHandler()
@@ -212,9 +215,21 @@ void NetworkDialog::disconnectedHandler()
     }
     if (m_clients.isEmpty()) {
         freeFocus();
+        setVisible(false);
     }
 }
 
+void NetworkDialog::setVisible(bool visible)
+{
+    if (visible) {
+        m_visible = true;
+    } else {
+        // 延时设置false
+        QTimer::singleShot(200, this, [ this ]() {
+            m_visible = false;
+        });
+    }
+}
 void NetworkDialog::readyReadHandler()
 {
     QLocalSocket *socket = static_cast<QLocalSocket *>(sender());

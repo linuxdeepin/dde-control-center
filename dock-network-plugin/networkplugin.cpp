@@ -150,7 +150,7 @@ QWidget *NetworkPlugin::itemPopupApplet(const QString &itemKey)
 {
     Q_UNUSED(itemKey);
     int msec = QTime::currentTime().msecsSinceStartOfDay();
-    if (!m_networkHelper->needShowControlCenter() && abs(msec - m_clickTime) > 200) {
+    if (!m_networkDialog->isVisible() && !m_networkHelper->needShowControlCenter() && abs(msec - m_clickTime) > 200) {
         m_clickTime = msec;
         emit signalShowNetworkDialog();
         m_networkDialog->show();
