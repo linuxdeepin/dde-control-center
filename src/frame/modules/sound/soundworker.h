@@ -114,7 +114,6 @@ private:
     QPointer<Meter> m_sourceMeter;
     QList<Sink*> m_sinks;
     QList<Source*> m_sources;
-    QGSettings *m_effectGsettings;
     SystemPowerInter *m_powerInter;
     QGSettings *m_dccSettings;
 
