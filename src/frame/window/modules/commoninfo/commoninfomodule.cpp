@@ -125,39 +125,7 @@ int CommonInfoModule::load(const QString &path)
         active();
     }
 
-    QListView *list = m_commonWidget->getCommonListView();
-    if (!list) {
-        return 0;
-    }
-
-    int indexRow = 0;
-    if (path == "Boot Menu") {
-        indexRow = 0;
-    }
-
-    if (!IsServerSystem) {
-        if (!IsCommunitySystem && (path == "Developer Mode")) {
-            // 为开发者模式的search预留
-            indexRow = 1;
-        } else if (!IsCommunitySystem && (path == "User Experience Program")) {
-            // 为用户体验计划的search预留
-            indexRow = 2;
-        } else if (path == "Tablet Mode") {
-            // 为平板模式的search预留
-            //indexRow = 3;
-        }
-    }
-
-#ifdef DCC_DISABLE_GRUB
-    indexRow ? indexRow-- : indexRow;
-    Q_ASSERT(indexRow >= 0);
-#endif
-
-    QModelIndex idx = list->model()->index(indexRow, 0);
-    list->setCurrentIndex(idx);
-    list->clicked(idx);
-
-    return 0;
+    return m_commonWidget->showPath(path);
 }
 
 QStringList CommonInfoModule::availPage() const
@@ -302,15 +270,15 @@ void CommonInfoModule::initSearchData()
 
     auto func_developerMode_changed = [ = ] {
         bool visible = func_is_visible("developerMode");
-        m_frameProxy->setWidgetVisible(module, developerMode, visible && !IsServerSystem
+        m_frameProxy->setWidgetVisible(module, developerMode, visible && !IsServerSystem && !IsCommunitySystem
             && !(DSysInfo::uosEditionType() == DSysInfo::UosEuler || DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC));
         m_frameProxy->setDetailVisible(module, developerMode, tr("Request Root Access"), visible);
     };
 
     auto func_userExperienceProgram_changed = [ = ] {
         bool visible = func_is_visible("userExperienceProgram");
-        m_frameProxy->setWidgetVisible(module, userExperienceProgram, visible && !IsServerSystem);
-        m_frameProxy->setDetailVisible(module, userExperienceProgram, experienceProgram, visible && !IsServerSystem);
+        m_frameProxy->setWidgetVisible(module, userExperienceProgram, visible && !IsServerSystem && !IsCommunitySystem);
+        m_frameProxy->setDetailVisible(module, userExperienceProgram, experienceProgram, visible && !IsServerSystem && !IsCommunitySystem);
     };
 
 

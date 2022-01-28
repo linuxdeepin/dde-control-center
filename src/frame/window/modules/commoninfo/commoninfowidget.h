@@ -56,6 +56,8 @@ public:
     virtual ~CommonInfoWidget() override;
     dcc::widgets::MultiSelectListView *getCommonListView();
     void showDefaultWidget();
+    int showPath(const QString& path);
+    void setCurrentIndex(const int index);
 
 Q_SIGNALS:
     void requestShowBootWidget();

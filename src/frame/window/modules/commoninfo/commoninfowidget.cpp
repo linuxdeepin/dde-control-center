@@ -164,3 +164,23 @@ void CommonInfoWidget::initData()
         }
     });
 }
+
+int CommonInfoWidget::showPath(const QString& path)
+{
+    qDebug() << "show path:" << path;
+    for (int i = 0; i < m_itemList.size(); ++i) {
+        auto menu = m_itemList[i];
+        if (tr(path.toStdString().c_str()) == menu.itemText) {
+            setCurrentIndex(i);
+            return 0;
+        }
+    }
+    return -1;
+}
+
+void CommonInfoWidget::setCurrentIndex(const int index)
+{
+    QModelIndex mindex = m_itemModel->index(index, 0);
+    m_listView->setCurrentIndex(mindex);
+    Q_EMIT m_listView->clicked(mindex);
+}
