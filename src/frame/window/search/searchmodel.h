@@ -64,9 +64,6 @@ class SearchModel : public QStandardItemModel {
 public:
     explicit SearchModel(QObject* parent = nullptr);
 
-private:
-    QString formatSearchData(QString data1, QString data2, QString data3 = "");
-
 public:
     int getDataNum(QString source, char value);
     bool jumpContentPathWidget(const QString &path);

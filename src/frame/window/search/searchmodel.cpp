@@ -52,20 +52,6 @@ SearchModel::SearchModel(QObject *parent)
     };
 }
 
-QString SearchModel::formatSearchData(QString data1, QString data2, QString data3)
-{
-    QString ret = "";
-
-    if (data3 != "") {
-        ret = QString("%1 --> %2 / %3").arg(data1).arg(data2).arg(data3);
-    } else {
-        ret = QString("%1 --> %2").arg(data1).arg(data2);
-    }
-
-    return ret;
-}
-
-
 int SearchModel::getDataNum(QString source, char value)
 {
     char *data = source.toLatin1().data();
@@ -523,16 +509,8 @@ void SearchModel::setLanguage(const QString &type)
         //解决历史遗留问题，适配已经存在的插件搜索数据(不需要翻译,只要第二个字符串不为空即可)
         m_transPlusData = {
             //plugin : input
-            { "Input Methods", "Input Methods" },
-            { "Manage Input Methods", "Manage Input Methods" },
+            { "Manage Input Methods", "Manage Input Methods" }
 
-            { "Backup and Restore", "Backup and Restore" },
-            { "Domain Management", "Domain Management" },
-
-            { "translation", "Translation" },
-            { "assistant", "Desktop AI Assistant" },
-            { "iat", "Speech to Text" },
-            { "tts", "Text to Speech" },
         };
 #if DEBUG_XML_SWITCH
         qDebug() << " [SearchWidget] " << Q_FUNC_INFO;
