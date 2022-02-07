@@ -189,8 +189,10 @@ void CommonInfoModule::initBootWidget()
     m_bootWidget = new BootWidget;
     m_bootWidget->setVisible(false);
 
+#ifndef DCC_DISABLE_GRUB
     connect(m_bootWidget, &BootWidget::bootdelay, m_commonWork, &CommonInfoWork::setBootDelay);
     connect(m_bootWidget, &BootWidget::enableTheme, m_commonWork, &CommonInfoWork::setEnableTheme);
+#endif//DCC_DISABLE_GRUB
     connect(m_bootWidget, &BootWidget::enableGrubEditAuth, m_commonWork, [this](bool value){
         if (value) {
             m_bootWidget->showGrubEditAuthPasswdDialog(false);
@@ -200,7 +202,9 @@ void CommonInfoModule::initBootWidget()
     });
     connect(m_bootWidget, &BootWidget::setGrubEditPasswd, m_commonWork, &CommonInfoWork::onSetGrubEditPasswd);
     connect(m_bootWidget, &BootWidget::defaultEntry, m_commonWork, &CommonInfoWork::setDefaultEntry);
+#ifndef DCC_DISABLE_GRUB
     connect(m_bootWidget, &BootWidget::requestSetBackground, m_commonWork, &CommonInfoWork::setBackground);
+#endif//DCC_DISABLE_GRUB
     connect(m_commonWork, &CommonInfoWork::grubEditAuthCancel, m_bootWidget, &BootWidget::onGrubEditAuthCancel);
     connect(m_commonWork, &CommonInfoWork::showGrubEditAuthChanged, m_bootWidget, &BootWidget::setGrubEditAuthVisible);
 

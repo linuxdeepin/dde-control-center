@@ -77,12 +77,11 @@ BootWidget::BootWidget(QWidget *parent)
     SettingsGroup *groupOther = new SettingsGroup;
     groupOther->getLayout()->setContentsMargins(0, 0, 0, 0);
 
-    m_background = new CommonBackgroundItem(this);
-
     m_listLayout = new QVBoxLayout;
     m_listLayout->addSpacing(List_Interval);
     m_listLayout->setMargin(0);
 
+#ifndef DCC_DISABLE_GRUB
     m_bootList = new DListView(this);
     m_bootList->setAccessibleName("List_bootlist");
     m_bootList->setAutoScroll(false);
@@ -111,6 +110,8 @@ BootWidget::BootWidget(QWidget *parent)
     dpLabel.setColor(DPalette::Text, QColor(255, 255, 255));
     DApplicationHelper::instance()->setPalette(m_updatingLabel, dpLabel);
     m_listLayout->addWidget(m_updatingLabel, 0, Qt::AlignHCenter | Qt::AlignBottom);
+
+    m_background = new CommonBackgroundItem(this);
     m_background->setLayout(m_listLayout);
 
     m_bootDelay = new SwitchWidget(this);
@@ -156,6 +157,7 @@ BootWidget::BootWidget(QWidget *parent)
 #ifndef DCC_DISABLE_GRUB_THEME
     layout->addWidget(m_themeLbl);
 #endif
+#endif//DCC_DISABLE_GRUB
     m_grubVerification = new SwitchWidget(this);
     //~ contents_path /commoninfo/Boot Menu
     //~ child_page Boot Menu
@@ -188,6 +190,7 @@ BootWidget::BootWidget(QWidget *parent)
     widget->setLayout(layout);
     m_scrollArea->setWidget(widget);
 
+#ifndef DCC_DISABLE_GRUB
     // 设置触摸屏手势识别
     QScroller::grabGesture(m_scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_scrollArea->viewport());
@@ -212,7 +215,6 @@ BootWidget::BootWidget(QWidget *parent)
     connect(m_bootList, &DListView::clicked, this ,&BootWidget::onCurrentItem);
     connect(m_background, &CommonBackgroundItem::requestEnableTheme, this, &BootWidget::enableTheme);
     connect(m_background, &CommonBackgroundItem::requestSetBackground, this, &BootWidget::requestSetBackground);
-    connect(m_grubVerification, &SwitchWidget::checkedChanged, this, &BootWidget::enableGrubEditAuth);
 
     GSettingWatcher::instance()->bind("commoninfoBootBootlist", m_bootList);
     GSettingWatcher::instance()->bind("commoninfoBootBootdelay", m_bootDelay);
@@ -224,7 +226,9 @@ BootWidget::BootWidget(QWidget *parent)
     backgroundLabel->setText(mapBackgroundMessage[m_isCommoninfoBootWallpaperConfigValid]);
     m_background->blockSignals(!m_isCommoninfoBootWallpaperConfigValid);
 #endif
+#endif//DCC_DISABLE_GRUB
     // 修改grub密码
+    connect(m_grubVerification, &SwitchWidget::checkedChanged, this, &BootWidget::enableGrubEditAuth);
     connect(m_grubModifyPasswdLink, &DCommandLinkButton::clicked, this, [this]{
         showGrubEditAuthPasswdDialog(true);
     });
@@ -232,12 +236,14 @@ BootWidget::BootWidget(QWidget *parent)
 
 BootWidget::~BootWidget()
 {
+#ifndef DCC_DISABLE_GRUB
     GSettingWatcher::instance()->erase("commoninfoBootBootlist", m_bootList);
     GSettingWatcher::instance()->erase("commoninfoBootBootdelay", m_bootDelay);
 #ifndef DCC_DISABLE_GRUB_THEME
     GSettingWatcher::instance()->erase("commoninfoBootTheme", m_theme);
     GSettingWatcher::instance()->erase("commoninfoBootTheme", m_themeLbl);
 #endif
+#endif//DCC_DISABLE_GRUB
 }
 
 void BootWidget::setDefaultEntry(const QString &value)
@@ -262,6 +268,7 @@ void BootWidget::setModel(CommonInfoModel *model)
 {
     m_commonInfoModel = model;
 
+#ifndef DCC_DISABLE_GRUB
     connect(model, &CommonInfoModel::bootDelayChanged, m_bootDelay, &SwitchWidget::setChecked);
 #ifndef DCC_DISABLE_GRUB_THEME
     connect(model, &CommonInfoModel::themeEnabledChanged, m_theme, &SwitchWidget::setChecked);
@@ -278,21 +285,9 @@ void BootWidget::setModel(CommonInfoModel *model)
         }
     });
     connect(model, &CommonInfoModel::backgroundChanged, m_background, &CommonBackgroundItem::updateBackground);
-    connect(model, &CommonInfoModel::grubEditAuthEnabledChanged, this, [&](const bool &value) {
-        // from CommonInfoWork::onEnabledUsersChanged
-        m_grubVerification->setChecked(value);
-        m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && value);
-    });
-
-    connect(m_grubVerification, &dcc::widgets::SwitchWidget::checkedChanged, this, [&](const bool &value){
-        Q_UNUSED(value);
-        m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && m_grubVerification->checked());
-    });
 
     // modified by wuchuanfei 20190909 for 8613
     m_bootDelay->setChecked(model->bootDelay());
-    m_grubVerification->setChecked(m_commonInfoModel->grubEditAuthEnabled());
-    m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && m_grubVerification->checked());
 
 #ifndef DCC_DISABLE_GRUB_THEME
     m_theme->setChecked(model->themeEnabled());
@@ -305,6 +300,19 @@ void BootWidget::setModel(CommonInfoModel *model)
 
     if(m_isCommoninfoBootWallpaperConfigValid)
         m_background->updateBackground(model->background());
+#endif//DCC_DISABLE_GRUB
+    m_grubVerification->setChecked(m_commonInfoModel->grubEditAuthEnabled());
+    m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && m_grubVerification->checked());
+    connect(model, &CommonInfoModel::grubEditAuthEnabledChanged, this, [&](const bool &value) {
+        // from CommonInfoWork::onEnabledUsersChanged
+        m_grubVerification->setChecked(value);
+        m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && value);
+    });
+
+    connect(m_grubVerification, &dcc::widgets::SwitchWidget::checkedChanged, this, [&](const bool &value){
+        Q_UNUSED(value);
+        m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && m_grubVerification->checked());
+    });
 }
 
 void BootWidget::setEntryList(const QStringList &list)
@@ -330,7 +338,9 @@ void BootWidget::setEntryList(const QStringList &list)
         }
     }
 
+#ifndef DCC_DISABLE_GRUB
     setBootList();
+#endif//DCC_DISABLE_GRUB
 }
 
 void BootWidget::setBootList()

@@ -100,10 +100,8 @@ void CommonInfoWidget::initWidget()
 
 void CommonInfoWidget::initData()
 {
-#ifndef DCC_DISABLE_GRUB
     m_itemList.append({"dcc_boot_menu", tr("Boot Menu"),
                        QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget), nullptr, "bootMenu"});
-#endif
 
     //以下模块只在非服务器版本使用
     if (!IsServerSystem && !IsCommunitySystem) {
