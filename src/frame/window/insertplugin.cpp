@@ -123,7 +123,7 @@ ModuleInterface *InsertPlugin::pluginInterface(const QString &displayName)
 {
     for (const auto &plugin : m_currentPlugins) {
         auto *module = qobject_cast<ModuleInterface *>(plugin.second.first);
-        if (module->displayName() == displayName)
+        if (module->name() == displayName)
             return module;
     }
     return nullptr;

@@ -126,15 +126,16 @@ bool SystemInfoWidget::configContent(const QString &configName)
 
 int SystemInfoWidget::showPath(const QString &path)
 {
+    QString tmpPath = path.split('/').first();
     for (int i = 0; i < m_itemList.size(); ++i) {
         auto menu = m_itemList[i];
-        if (tr(path.toStdString().c_str()) == menu.itemText) {
+        if (tr(tmpPath.toStdString().c_str()) == menu.itemText) {
             setCurrentIndex(i);
             return 0;
         }
     }
 
-    if (path == "Backup and Restore") {
+    if (tmpPath == "Backup and Restore") {
         setCurrentIndex(m_itemModel->rowCount() - 1);
         return 0;
     }

@@ -860,9 +860,12 @@ void MainWindow::resetNavList(bool isIconMode)
 
 void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
 {
-    QStringList widgetPages = widget.split(",");
-    QString widgetFirst = widgetPages[0];
-    qDebug() << Q_FUNC_INFO << " moduleName : " << moduleName << " , widget :" << widgetFirst;
+    QString widgetFirst = widget;
+    if (widget.contains(','))
+        widgetFirst = widget.split(',').first();
+    if (widget.contains('/'))
+        widgetFirst = widget.split('/').first();
+    qDebug() << Q_FUNC_INFO << " moduleName:" << moduleName << ", widget:" << widget << ", widgetFirst:" << widgetFirst;
 
     for (int firstCount = 0; firstCount < m_modules.count(); firstCount++) {
         //Compare moduleName and m_modules.second(module name)
