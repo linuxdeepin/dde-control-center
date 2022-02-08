@@ -375,8 +375,10 @@ void MicrophonePage::initSlider()
 
     refreshIcon();
     showDevice();
+#endif
 }
 
+#ifndef DCC_DISABLE_FEEDBACK
 void MicrophonePage::initCombox()
 {
     SettingsGroup *inputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
@@ -388,15 +390,18 @@ void MicrophonePage::initCombox()
     m_layout->addWidget(inputSoundsGrp);
     m_layout->setSpacing(10);
     m_layout->addStretch(10);
-#else
 }
-
+#else
 void MicrophonePage::initCombox()
 {
-#endif
+
+    m_noiseReductionsw->setVisible(false);
+    m_inputSoundCbx->setVisible(false);
     //放到宏外面修复sw架构下音频布局异常的问题
     m_layout->addStretch(10);
 }
+#endif
+
 
 void MicrophonePage::refreshIcon()
 {
