@@ -328,7 +328,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_sortDelayTimer->setInterval(100);
     m_sortDelayTimer->setSingleShot(true);
 
-    //~ contents_path /network/WirelessPage
+    //~ contents_path /network/Wireless Network
     QLabel *lblTitle = new QLabel(tr("Wireless Network Adapter"));              // 无线网卡
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_switch = new SwitchWidget(nullptr, lblTitle);
@@ -541,7 +541,9 @@ void WirelessPage::jumpByUuid(const QString &uuid)
     if (uuid.isEmpty()) return;
 
     QTimer::singleShot(50, this, [ = ] {
-        if (m_apItems.contains(connectionSsid(uuid)))
+        if (uuid == QString("Connect to hidden network"))
+            showConnectHidePage();
+        else if (m_apItems.contains(connectionSsid(uuid)))
             onApWidgetEditRequested("", uuid);
     });
 }
@@ -644,6 +646,8 @@ void WirelessPage::appendConnectHidden()
     if (finded)
         return;
 
+    //~ contents_path /network/Connect to hidden network
+    //~ child_page WirelessPage
     APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
     nonbc->setSignalStrength(-1);
     nonbc->setPath("");

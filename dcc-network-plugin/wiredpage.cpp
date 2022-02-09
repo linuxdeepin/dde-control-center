@@ -105,7 +105,8 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_createBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement, this);
     m_createBtn->setMinimumSize(QSize(47, 47));
 
-    // ~ contents_path /network/Wired Network/addWiredConnection
+    //~ contents_path /network/addWiredConnection
+    //~ child_page Wired Network
     m_createBtn->setToolTip(tr("Add Network Connection"));
     GSettingWatcher::instance()->bind("addConnection", m_createBtn);
 

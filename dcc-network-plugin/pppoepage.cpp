@@ -63,6 +63,8 @@ PppoePage::PppoePage(QWidget *parent)
 {
     setAccessibleName("PppoePage");
     m_createBtn->setMinimumSize(QSize(47, 47));
+    //~ contents_path /network/Create PPPoE Connection
+    //~ child_page DSL
     m_createBtn->setToolTip(tr("Create PPPoE Connection"));
     m_createBtn->setAccessibleName(tr("Create PPPoE Connection"));
     GSettingWatcher::instance()->bind("createPppoe", m_createBtn);

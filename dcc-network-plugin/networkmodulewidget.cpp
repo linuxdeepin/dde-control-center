@@ -91,6 +91,7 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     setLayout(m_centralLayout);
 
     //~ contents_path /network/DSL
+    //~ child_page_hide DSL
     DStandardItem *pppIt = new DStandardItem(tr("DSL"));
     pppIt->setData(QVariant::fromValue(PageType::DSLPage), SectionRole);
     pppIt->setIcon(QIcon::fromTheme("dcc_dsl"));
@@ -98,6 +99,7 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     GSettingWatcher::instance()->bind("networkDsl", m_lvnmpages, pppIt);
 
     //~ contents_path /network/VPN
+    //~ child_page_hide VPN
     DStandardItem *vpnit = new DStandardItem(tr("VPN"));
     vpnit->setData(QVariant::fromValue(PageType::VPNPage), SectionRole);
     vpnit->setIcon(QIcon::fromTheme("dcc_vpn"));
@@ -305,11 +307,16 @@ void NetworkModuleWidget::setLastDevicePath(const QString &path)
 
 void NetworkModuleWidget::initSetting(const int settingIndex, const QString &searchPath)
 {
+    QModelIndex curentIndex = m_modelpages->index(settingIndex, 0);
     if (!searchPath.isEmpty())
-        m_modelpages->itemFromIndex(m_modelpages->index(settingIndex, 0))->setData(searchPath, SearchPath);
+        m_modelpages->itemFromIndex(curentIndex)->setData(searchPath, SearchPath);
 
-    m_lvnmpages->setCurrentIndex(m_modelpages->index(settingIndex, 0));
-    m_lvnmpages->clicked(m_modelpages->index(settingIndex, 0));
+    if (m_lvnmpages->currentIndex() != curentIndex) {
+        m_lvnmpages->setCurrentIndex(curentIndex);
+        m_lvnmpages->clicked(m_modelpages->index(settingIndex, 0));
+    } else {
+        selectListIndex(curentIndex);
+    }
 }
 
 static PageType getPageTypeFromModelName(const QString &modelName)
@@ -359,14 +366,15 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
         type = PageType::AppProxyPage;
     } else if (path == QStringLiteral("System Proxy")) {
         type = PageType::SysProxyPage;
-    } else if (path == QStringLiteral("VPN")) {
+    } else if (path == QStringLiteral("VPN") || path == QStringLiteral("Create VPN") || path == QStringLiteral("Import VPN")) {
         type = PageType::VPNPage;
-    } else if (path == QStringLiteral("DSL")) {
+    } else if (path == QStringLiteral("DSL") || path.contains(QStringLiteral("PPPoE"))) {
         type = PageType::DSLPage;
-    } else if (path.contains("WirelessPage") || path.contains("Wireless Network")) {
+    } else if (path.contains("WirelessPage") || path.contains("Wireless Network")
+               || path.contains("Connect to hidden network")) {
         // 历史原因，WirelessPage可能也在使用中
         type = PageType::WirelessPage;
-    } else if (path.contains("Wired Network")) {
+    } else if (path.contains("Wired Network") || path.contains("addWiredConnection")) {
         type = PageType::WiredPage;
     } else if (path == QStringLiteral("Personal Hotspot")) {
         type = PageType::HotspotPage;
@@ -452,11 +460,13 @@ void NetworkModuleWidget::onDeviceChanged()
         NetworkDeviceBase *device = devices[i];
         DStandardItem *deviceItem = new DStandardItem(device->deviceName());
         if (device->deviceType() == DeviceType::Wireless) {
-             //~ contents_path /network/WirelessPage
+            //~ contents_path /network/WirelessPage
+            //~ child_page_hide WirelessPage
             deviceItem->setData(QVariant::fromValue(PageType::WirelessPage), SectionRole);
             deviceItem->setIcon(QIcon::fromTheme("dcc_wifi"));
         } else if (device->deviceType() == DeviceType::Wired){
-             //~ contents_path /network/Wired Network
+            //~ contents_path /network/Wired Network
+            //~ child_page_hide Wired Network
             deviceItem->setData(QVariant::fromValue(PageType::WiredPage), SectionRole);
             deviceItem->setIcon(QIcon::fromTheme("dcc_ethernet"));
         } else {
@@ -520,6 +530,7 @@ void NetworkModuleWidget::onDeviceChanged()
 
     if (supportHotspot) {
         //~ contents_path /network/Personal Hotspot
+        //~ child_page_hide Personal Hotspot
         DStandardItem *hotspotit = new DStandardItem(tr("Personal Hotspot"));
         hotspotit->setData(QVariant::fromValue(PageType::HotspotPage), SectionRole);
         hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));

@@ -214,6 +214,8 @@ int DCCNetworkModule::load(const QString &path)
     QString searchPath = "";
     if (pathList.count() > 1)
         searchPath = pathList[1];
+    else
+        searchPath = pathList[0];
 
     m_indexWidget->initSetting(index == -1 ? 0 : index, searchPath);
 
@@ -231,6 +233,11 @@ void DCCNetworkModule::addChildPageTrans() const
         m_frameProxy->addChildPageTrans("Network Details", tr("Network Details"));
         m_frameProxy->addChildPageTrans("Application Proxy", tr("Application Proxy"));
         m_frameProxy->addChildPageTrans("System Proxy", tr("System Proxy"));
+        m_frameProxy->addChildPageTrans("Create Hotspot", tr("Create Hotspot"));
+        m_frameProxy->addChildPageTrans("Create VPN", tr("Create VPN"));
+        m_frameProxy->addChildPageTrans("Import VPN", tr("Import VPN"));
+        m_frameProxy->addChildPageTrans("Create PPPoE Connection", tr("Create PPPoE Connection"));
+        m_frameProxy->addChildPageTrans("Connect to hidden network", tr("Connect to hidden network"));
     }
 }
 
@@ -297,7 +304,11 @@ void DCCNetworkModule::initSearchData()
     const QString& personalHost = tr("Personal Hotspot");
     const QString& networkDetail = tr("Network Details");
     const QString& systemProxy = tr("System Proxy");
+    //~ contents_path /network/Wired Network
+    //~ child_page_hide Wired Network
     const QString& wiredNetwork = tr("Wired Network");
+    //~ contents_path /network/Wireless Network
+    //~ child_page_hide Wireless Network
     const QString& wirelessNetwork = tr("Wireless Network");
     const QString& dsl = tr("DSL");
     const QString& vpn = tr("VPN");
@@ -332,6 +343,8 @@ void DCCNetworkModule::initSearchData()
         if (m_indexWidget)
             m_indexWidget->setModelVisible("networkWired", isVisible);
         m_frameProxy->setWidgetVisible(module, wiredNetwork, bWireNetwork);
+        //~ contents_path /network/Wired Network Adapter
+        //~ child_page_hide Wired Network Adapter
         m_frameProxy->setDetailVisible(module, wiredNetwork, tr("Wired Network Adapter"), bWireNetwork);
         m_frameProxy->setDetailVisible(module, wiredNetwork, tr("Add Network Connection"), bWireNetwork);
     };
@@ -342,7 +355,10 @@ void DCCNetworkModule::initSearchData()
         if (m_indexWidget)
             m_indexWidget->setModelVisible("networkWireless", configVisible);
         m_frameProxy->setWidgetVisible(module, wirelessNetwork, bWirelessNetwork);
+        //~ contents_path /network/Wireless Network Adapter
+        //~ child_page_hide Wireless Network Adapter
         m_frameProxy->setDetailVisible(module, wirelessNetwork, tr("Wireless Network Adapter"), bWirelessNetwork);
+        m_frameProxy->setDetailVisible(module, wirelessNetwork, tr("Connect to hidden network"), bWirelessNetwork);
     };
 
     auto func_perhotspot_visible = [ = ](bool visible) {
@@ -351,7 +367,10 @@ void DCCNetworkModule::initSearchData()
         if (m_indexWidget)
             m_indexWidget->setModelVisible("personalHotspot", bPersonalHost);
         m_frameProxy->setWidgetVisible(module, personalHost, bPersonalHost);
+        //~ contents_path /network/Hotspot
+        //~ child_page_hide Personal Hotspot
         m_frameProxy->setDetailVisible(module, personalHost, tr("Hotspot"), bPersonalHost);
+        m_frameProxy->setDetailVisible(module, personalHost, tr("Create Hotspot"), bPersonalHost);
     };
 
     auto func_appproxy_visible = [ = ] {
