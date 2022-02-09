@@ -254,6 +254,13 @@
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
+    <message>
+        <location filename="../dccnetworkmodule.cpp"/>
+        <source>Connect to hidden network</source>
+        <translation type="unfinished"/>
+        <extra-child_page>Wireless Network</extra-child_page>
+        <extra-contents_path>/network/Connect to hidden network</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>
@@ -592,12 +599,14 @@
         <location filename="../networkmodulewidget.cpp"/>
         <source>DSL</source>
         <translation>DSL</translation>
+        <extra-child_page_hide>DSL</extra-child_page_hide>
         <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>VPN</source>
         <translation>VPN</translation>
+        <extra-child_page_hide>VPN</extra-child_page_hide>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
@@ -647,19 +656,22 @@
         <location filename="../networkmodulewidget.cpp"/>
         <source>Personal Hotspot</source>
         <translation type="unfinished"/>
+        <extra-child_page_hide>Personal Hotspot</extra-child_page_hide>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wired Network</source>
         <translation>Azeṭṭa agatwan</translation>
+        <extra-child_page_hide>Wired Network</extra-child_page_hide>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wireless Network</source>
         <translation>Azeṭṭa war tinelli</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+        <extra-child_page_hide>Wireless Network</extra-child_page_hide>
+        <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
@@ -1658,13 +1670,15 @@
         <location filename="../vpnpage.cpp"/>
         <source>Create VPN</source>
         <translation>Rnu VPN</translation>
-        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
+        <extra-child_page>VPN</extra-child_page>
+        <extra-contents_path>/network/Create VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
         <source>Import VPN</source>
         <translation>Kter VPN</translation>
-        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
+        <extra-child_page>VPN</extra-child_page>
+        <extra-contents_path>/network/Import VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
@@ -2112,7 +2126,8 @@
         <location filename="../wiredpage.cpp"/>
         <source>Add Network Connection</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
+        <extra-child_page>Wired Network</extra-child_page>
+        <extra-contents_path>/network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <location filename="../wiredpage.cpp"/>
@@ -2126,6 +2141,8 @@
         <location filename="../wirelesspage.cpp"/>
         <source>Connect to hidden network</source>
         <translation type="unfinished"/>
+        <extra-child_page>WirelessPage</extra-child_page>
+        <extra-contents_path>/network/Connect to hidden network</extra-contents_path>
     </message>
     <message>
         <location filename="../wirelesspage.cpp"/>

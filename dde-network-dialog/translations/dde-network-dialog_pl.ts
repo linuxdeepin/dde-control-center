@@ -59,7 +59,7 @@
     </message>
     <message>
         <source>Security Type</source>
-        <translation>Rodzaj zabezpieczenia</translation>
+        <translation>Typ zabezpieczenia</translation>
     </message>
     <message>
         <source>Band</source>
@@ -114,7 +114,7 @@
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Połączono, ale brak dostępu do Internetu</translation>
+        <translation>Połączono, brak dostępu do Internetu</translation>
     </message>
     <message>
         <source>Not connected</source>
@@ -130,7 +130,7 @@
     </message>
     <message>
         <source>Authenticating</source>
-        <translation>Autoryzowanie</translation>
+        <translation>Uwierzytelnianie</translation>
     </message>
     <message>
         <source>Obtaining IP address</source>
