@@ -134,6 +134,13 @@ void NetworkPanel::initUi()
     m_applet->setFixedSize(PANELWIDTH, 0);
 
     setControlBackground();
+
+    // 支持在触摸屏上滚动
+    QScroller::grabGesture(m_netListView->window(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_netListView->window());
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
 }
 
 void NetworkPanel::initConnection()
