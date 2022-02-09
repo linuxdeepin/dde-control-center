@@ -203,11 +203,20 @@ void HotspotDeviceWidget::onDeviceRemoved()
 
 void HotspotDeviceWidget::onSwitchToggled(const bool checked)
 {
-    m_hotspotSwitch->setEnabled(false);
-    if (checked)
+    if (checked) {
         openHotspot();
-    else
+    } else {
+        // 显示热点的关闭状态
+        HotspotController *hotspotController = NetworkController::instance()->hotspotController();
+        QList<HotspotItem *> items = hotspotController->items(m_device);
+        for (int i = 0; i < m_modelprofiles->rowCount(); i++) {
+            ConnectionPageItem *item = static_cast<ConnectionPageItem *>(m_modelprofiles->item(i));
+            HotspotItem *hotspotItem = static_cast<HotspotItem *>(item->data(itemRole).value<void *>());
+            if (items.contains(hotspotItem))
+                item->setConnectionStatus(ConnectionStatus::Deactivated);
+        }
         closeHotspot();
+    }
 }
 
 void HotspotDeviceWidget::onConnWidgetSelected(const QModelIndex &idx)
