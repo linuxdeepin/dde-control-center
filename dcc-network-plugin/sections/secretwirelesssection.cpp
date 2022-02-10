@@ -164,11 +164,9 @@ void SecretWirelessSection::initStrMaps()
         { tr("None"), WirelessSecuritySetting::KeyMgmt::WpaNone },
         { tr("WEP"), WirelessSecuritySetting::KeyMgmt::Wep },
         { tr("WPA/WPA2 Personal"), WirelessSecuritySetting::KeyMgmt::WpaPsk },
-        { tr("WPA/WPA2 Enterprise"), WirelessSecuritySetting::KeyMgmt::WpaEap }
+        { tr("WPA/WPA2 Enterprise"), WirelessSecuritySetting::KeyMgmt::WpaEap },
+        { tr("WPA3 Personal"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaSae }
     };
-
-    if (supportWPA3())
-        KeyMgmtStrMap << qMakePair(tr("WPA3 Personal"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaSae);
 
     AuthAlgStrMap = {
         { tr("Shared key"), WirelessSecuritySetting::AuthAlg::Shared },
@@ -337,17 +335,4 @@ void SecretWirelessSection::onKeyMgmtChanged(WirelessSecuritySetting::KeyMgmt ke
 void SecretWirelessSection::saveUserInputPassword()
 {
     m_userInputPasswordMap.insert(m_currentKeyMgmt, m_passwdEdit->text());
-}
-
-bool SecretWirelessSection::supportWPA3()
-{
-    // 若当前连接的是隐藏网络，让显示该项目
-    if (m_parameter->getValue(ParametersContainer::ParamType::isHidden).toBool())
-        return true;
-
-    AccessPoint::Ptr nmAp = QSharedPointer<AccessPoint>(new AccessPoint(m_parameter->getValue(ParametersContainer::ParamType::AccessPath).toString()));
-    AccessPoint::WpaFlags rsn = nmAp->rsnFlags();
-    AccessPoint::WpaFlags wpa = nmAp->wpaFlags();
-    return (wpa.testFlag(NetworkManager::AccessPoint::WpaFlag::keyMgmtSae) ||
-            rsn.testFlag(NetworkManager::AccessPoint::WpaFlag::keyMgmtSae));
 }

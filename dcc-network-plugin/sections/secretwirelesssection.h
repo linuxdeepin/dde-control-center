@@ -44,7 +44,6 @@ private:
     void initConnection();
     void onKeyMgmtChanged(WirelessSecuritySetting::KeyMgmt);
     void saveUserInputPassword();
-    bool supportWPA3();
 
 private:
     QList<QPair<QString, WirelessSecuritySetting::KeyMgmt>> KeyMgmtStrMap;
