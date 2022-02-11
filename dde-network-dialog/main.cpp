@@ -49,10 +49,6 @@ int main(int argc, char **argv)
     app->setQuitOnLastWindowClosed(true);
     app->setAttribute(Qt::AA_UseHighDpiPixmaps);
 
-    QTranslator translator;
-    translator.load("/usr/share/dde-network-dialog/translations/dde-network-dialog_" + QLocale::system().name());
-    qApp->installTranslator(&translator);
-
     qApp->setApplicationDisplayName("NetworkDialog");
     qApp->setApplicationDescription("network dialog");
 

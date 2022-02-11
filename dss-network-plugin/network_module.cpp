@@ -32,6 +32,8 @@
 
 #include <networkcontroller.h>
 
+#include <com_deepin_daemon_accounts_user.h>
+
 #include <NetworkManagerQt/WirelessDevice>
 #include <NetworkManagerQt/WiredDevice>
 #include <NetworkManagerQt/Settings>
@@ -59,9 +61,14 @@ NetworkModule::NetworkModule(QObject *parent)
     m_networkDialog = new NetworkDialog(this);
     m_networkDialog->setRunReason(NetworkDialog::Lock);
     m_networkHelper = new NetworkPluginHelper(m_networkDialog, this);
-    if (!m_isLockModel) {
+    if (m_isLockModel) {
+        installTranslator(QLocale::system().name());
+    } else {
         m_networkDialog->setRunReason(NetworkDialog::Greeter);
         connect(m_networkHelper, &NetworkPluginHelper::addDevice, this, &NetworkModule::onAddDevice);
+        QDBusMessage lock = QDBusMessage::createMethodCall("com.deepin.dde.LockService", "/com/deepin/dde/LockService", "com.deepin.dde.LockService", "CurrentUser");
+        QDBusConnection::systemBus().callWithCallback(lock, this, SLOT(onUserChanged(QString)));
+        QDBusConnection::systemBus().connect("com.deepin.dde.LockService", "/com/deepin/dde/LockService", "com.deepin.dde.LockService", "UserChanged", this, SLOT(onUserChanged(QString)));
     }
     m_networkDialog->runServer(true);
 }
@@ -69,7 +76,7 @@ NetworkModule::NetworkModule(QObject *parent)
 QWidget *NetworkModule::content()
 {
     int msec = QTime::currentTime().msecsSinceStartOfDay();
-    if(abs(msec - m_clickTime) > 200) {
+    if (!m_networkDialog->isVisible() && abs(msec - m_clickTime) > 200) {
         m_clickTime = msec;
         emit signalShowNetworkDialog();
         m_networkDialog->show();
@@ -151,6 +158,32 @@ void NetworkModule::onAddDevice(const QString &devicePath)
             m_devicePaths.insert(devicePath);
         }
     }
+}
+
+void NetworkModule::onUserChanged(QString json)
+{
+    QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
+    if (!doc.isObject())
+        return;
+    int uid = doc.object().value("Uid").toInt();
+    com::deepin::daemon::accounts::User user("com.deepin.daemon.Accounts", QString("/com/deepin/daemon/Accounts/User%1").arg(uid), QDBusConnection::systemBus());
+    installTranslator(user.locale().split(".").first());
+}
+
+void NetworkModule::installTranslator(QString locale)
+{
+    static QTranslator translator;
+    static QString localTmp;
+    if (localTmp == locale) {
+        return;
+    }
+    localTmp = locale;
+    m_networkDialog->setLocale(locale);
+    QApplication::removeTranslator(&translator);
+    translator.load(QString("/usr/share/dss-network-plugin/translations/dss-network-plugin_%1.qm").arg(locale));
+    QApplication::installTranslator(&translator);
+    dde::network::NetworkController::instance()->retranslate();
+    m_networkHelper->updateTooltips();
 }
 
 const QString NetworkModule::connectionMatchName() const
@@ -253,7 +286,7 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
     if (!conn.isNull()) {
         m_lastConnection = conn->id();
         m_lastState = newstate;
-    } else if(m_lastState != oldstate || m_lastConnection.isEmpty()) {
+    } else if (m_lastState != oldstate || m_lastConnection.isEmpty()) {
         m_lastConnection.clear();
         return;
     }
@@ -267,7 +300,8 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
             case Device::Type::Wifi:
                 NotificationManager::NetworkNotify(NotificationManager::WirelessConnecting, m_lastConnection);
                 break;
-            default: break;
+            default:
+                break;
             }
         }
     } break;
@@ -279,7 +313,8 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
         case Device::Type::Wifi:
             NotificationManager::NetworkNotify(NotificationManager::WirelessConnected, m_lastConnection);
             break;
-        default: break;
+        default:
+            break;
         }
     } break;
     case Device::State::Failed:
@@ -313,7 +348,8 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
                 case Device::Type::Wifi:
                     NotificationManager::NetworkNotify(NotificationManager::WirelessDisconnected, m_lastConnection);
                     break;
-                default: break;
+                default:
+                    break;
                 }
             }
             break;
@@ -326,7 +362,8 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
             case Device::Type::Wifi:
                 NotificationManager::NetworkNotify(NotificationManager::WirelessUnableConnect, m_lastConnection);
                 break;
-            default: break;
+            default:
+                break;
             }
             break;
         case Device::StateChangeReason::AuthSupplicantDisconnectReason:
@@ -340,7 +377,8 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
                     emit signalShowNetworkDialog();
                     m_networkDialog->setConnectWireless(device->uni(), m_lastConnection);
                     break;
-                default: break;
+                default:
+                    break;
                 }
             }
             break;
@@ -362,7 +400,8 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
             break;
         }
     } break;
-    default: break;
+    default:
+        break;
     }
 }
 
@@ -408,9 +447,6 @@ void NetworkPlugin::initUI()
     if (m_network) {
         return;
     }
-    QTranslator *translator = new QTranslator(this);
-    translator->load(QString("/usr/share/dss-network-plugin/translations/dss-network-plugin_%1.qm").arg(QLocale::system().name()));
-    QCoreApplication::installTranslator(translator);
 
     m_network = new NetworkModule(this);
 }

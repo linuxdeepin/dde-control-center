@@ -69,11 +69,11 @@ public:
     QWidget *itemTips();
     PluginState getPluginState();
     void updatePluginState();
+    void updateTooltips(); // 更新提示的内容
 
 private:
     void initUi();
     void initConnection();
-    void updateTooltips(); // 更新提示的内容
     bool deviceEnabled(const DeviceType &deviceType) const;
     void setDeviceEnabled(const DeviceType &deviceType, bool enabeld);
     bool wirelessIsActive() const;

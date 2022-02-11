@@ -57,6 +57,7 @@ public:
     void setRunReason(RunReason reason);
     void setPosition(int x, int y, Dtk::Widget::DArrowRectangle::ArrowDirection position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowBottom);
     bool isVisible() const;
+    void setLocale(const QString &locale);
 
 private:
     void runProcess(bool show = true);
@@ -99,6 +100,7 @@ private:
     QMap<QLocalSocket *, int> m_clients;
     QString m_serverName;
     bool m_visible;
+    QString m_locale;
 };
 
 NETWORKPLUGIN_END_NAMESPACE

@@ -130,3 +130,7 @@ Connectivity NetworkController::connectivity()
     return m_processer->connectivity();
 }
 
+void NetworkController::retranslate()
+{
+    m_processer->retranslate();
+}

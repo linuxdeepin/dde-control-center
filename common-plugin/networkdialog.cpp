@@ -173,6 +173,11 @@ bool NetworkDialog::isVisible() const
     return m_visible;
 }
 
+void NetworkDialog::setLocale(const QString &locale)
+{
+    m_locale = locale;
+}
+
 void NetworkDialog::runServer(bool start)
 {
     if (!start)
@@ -258,6 +263,7 @@ QByteArray NetworkDialog::showConfig()
     json.insert("y", m_y);
     json.insert("reason", m_runReason);
     json.insert("position", m_position);
+    json.insert("locale", m_locale);
     QJsonDocument doc;
     doc.setObject(json);
     return doc.toJson(QJsonDocument::Compact);

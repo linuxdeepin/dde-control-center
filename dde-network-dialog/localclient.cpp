@@ -170,7 +170,15 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
         int y = obj.value("y").toInt();
         int reason = obj.value("reason").toInt();
         int position = obj.value("position").toInt();
+        QString locale = obj.value("locale").toString();
+        if (locale.isEmpty())
+            locale = QLocale::system().name();
 
+        if (!m_popopWindow) {
+            QTranslator *translator = new QTranslator;
+            translator->load("/usr/share/dde-network-dialog/translations/dde-network-dialog_" + locale);
+            qApp->installTranslator(translator);
+        }
         switch (reason) {
         case Greeter:
             dde::network::NetworkController::setServiceType(dde::network::ServiceLoadType::LoadFromManager);

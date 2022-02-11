@@ -63,6 +63,7 @@ public:
     QList<NetworkDetails *> networkDetails();                                    // 网络详情
     QList<NetworkDeviceBase *> devices() const;                                  // 当前网络设备列表
     Connectivity connectivity();                                                 // 获取网络连接状态
+    void retranslate();                                                          // 更新翻译
 
 Q_SIGNALS:
     void deviceAdded(QList<NetworkDeviceBase *>);                                 // 新增设备发出的信号

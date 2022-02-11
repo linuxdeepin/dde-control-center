@@ -62,11 +62,13 @@ public Q_SLOTS:
     void updateLockScreenStatus(bool visible);
     void onDeviceStatusChanged(NetworkManager::Device::State newstate, NetworkManager::Device::State oldstate, NetworkManager::Device::StateChangeReason reason);
     void onAddDevice(const QString &path);
+    void onUserChanged(QString json);
 
 private:
     void addFirstConnection(NetworkManager::WiredDevice *nmDevice);
     bool hasConnection(NetworkManager::WiredDevice *nmDevice, NetworkManager::Connection::List &unSaveDevices);
     const QString connectionMatchName() const;
+    void installTranslator(QString locale);
 
 public:
     NETWORKPLUGIN_NAMESPACE::NetworkPluginHelper *m_networkHelper;

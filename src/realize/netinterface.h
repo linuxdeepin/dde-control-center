@@ -58,6 +58,7 @@ public:
     virtual VPNController *vpnController();                                              // 返回VPN控制器
     virtual DSLController *dslController();                                              // DSL控制器
     virtual HotspotController *hotspotController();                                      // 个人热点控制器
+    virtual void retranslate();                                                          // 更新翻译
 
 protected:
     explicit NetworkProcesser(QObject *parent);

@@ -96,6 +96,11 @@ void NetworkProcesser::updateDeviceName()
     }
 }
 
+void NetworkProcesser::retranslate()
+{
+    updateDeviceName();
+}
+
 /**
  * @brief 设备接口基类,具体实现在子类中实现
  * @return
