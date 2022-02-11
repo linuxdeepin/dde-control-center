@@ -105,6 +105,7 @@ public:
 
 protected:
     void showEvent(QShowEvent *event);
+    void hideEvent(QHideEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
     bool eventFilter(QObject *o, QEvent *e);
@@ -158,6 +159,7 @@ private:
     QLocalSocket *m_client;
     bool m_verifyCodeSuccess;
     DDialog m_tipDialog;
+    bool m_isClose;
 };
 
 class Manager : public QObject

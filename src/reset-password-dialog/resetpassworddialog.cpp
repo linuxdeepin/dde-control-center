@@ -141,6 +141,7 @@ ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, const QString &us
     , m_codeTimer(new QTimer(this))
     , m_monitorTimer(new QTimer(this))
     , m_verifyCodeSuccess(false)
+    , m_isClose(true)
 {
     initWidget();
     initData();
@@ -151,6 +152,20 @@ void ResetPasswordDialog::showEvent(QShowEvent *event)
     DDialog::showEvent(event);
 
     move(m_screenGeometry.center() - rect().center());
+}
+
+void ResetPasswordDialog::hideEvent(QHideEvent *event)
+{
+    DDialog::hideEvent(event);
+    auto isWayland = qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland");
+    if (isWayland && m_isClose) {
+        if (m_appName == "greeter" || m_appName == "lock") {
+            m_client->write("close");
+            m_client->flush();
+        }
+        this->close();
+        qApp->quit();
+    }
 }
 
 void ResetPasswordDialog::mouseMoveEvent(QMouseEvent *event)
@@ -257,7 +272,12 @@ void ResetPasswordDialog::initWidget()
     m_tipDialog.setMessage(tr("Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance"));
     m_tipDialog.addButtons(QStringList() << tr("Cancel") << tr("Confirm and Reset"));
     m_tipDialog.setIcon(QIcon::fromTheme("dialog-warning"));
-    m_tipDialog.setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+    auto isWayland = qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland");
+    if (isWayland) {
+        m_tipDialog.setWindowFlags(Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+    } else {
+        m_tipDialog.setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+    }
     m_tipDialog.installEventFilter(this);
     m_tipDialog.setFixedSize(380, 189);
     m_tipDialog.setOnButtonClickedClose(false);
@@ -546,6 +566,7 @@ void ResetPasswordDialog::onResetPasswordBtnClicked()
         m_userInter->SetPasswordHint(m_passwordTipsEdit->text()).waitForFinished();
     }
 
+    m_isClose = false;
     updatePosition();
     m_tipDialog.show();
     this->hide();
