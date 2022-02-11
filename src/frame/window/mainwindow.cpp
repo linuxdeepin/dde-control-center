@@ -823,6 +823,7 @@ void MainWindow::resetNavList(bool isIconMode)
         DStyle::setFrameRadius(m_navView, 18);
         m_rightView->hide();
         m_backwardBtn->setEnabled(false);
+        m_moduleName.clear();
     } else {
         //The second page will Covered with fill blank areas
         m_navView->setViewportMargins(QMargins(10, 10, 10, 10));
