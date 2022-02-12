@@ -69,7 +69,6 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, QWidget *parent)
     listItemmargin.setLeft(2);
     m_lvprofiles->setItemMargins(listItemmargin);
 
-    //~ contents_path /network/Personal Hotspot
     QLabel *lblTitle = new QLabel(tr("Hotspot"));               // 个人热点
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_hotspotSwitch = new SwitchWidget(nullptr, lblTitle);
@@ -274,7 +273,6 @@ HotspotPage::HotspotPage(QWidget *parent)
 
     setLayout(m_mainLayout);
 
-    //~ contents_path /network/Personal Hotspot
     m_newprofile->setToolTip(tr("Create Hotspot"));
     GSettingWatcher::instance()->bind("createHotspot", m_newprofile);
 
@@ -315,6 +313,17 @@ HotspotPage::HotspotPage(QWidget *parent)
 HotspotPage::~HotspotPage()
 {
     GSettingWatcher::instance()->erase("createHotspot", m_newprofile);
+}
+
+void HotspotPage::jumpPath(const QString &path)
+{
+    if (path == QString("Create Hotspot")) {
+        if (m_listdevw.size() <= 0)
+            return;
+
+        HotspotDeviceWidget *deviceWidget = m_listdevw.at(0);
+        deviceWidget->openEditPage();
+    }
 }
 
 void HotspotPage::onAirplaneModeChanged(bool airplaneModeEnabled)

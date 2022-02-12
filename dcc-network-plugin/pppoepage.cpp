@@ -63,8 +63,6 @@ PppoePage::PppoePage(QWidget *parent)
 {
     setAccessibleName("PppoePage");
     m_createBtn->setMinimumSize(QSize(47, 47));
-    //~ contents_path /network/Create PPPoE Connection
-    //~ child_page DSL
     m_createBtn->setToolTip(tr("Create PPPoE Connection"));
     m_createBtn->setAccessibleName(tr("Create PPPoE Connection"));
     GSettingWatcher::instance()->bind("createPppoe", m_createBtn);
@@ -88,7 +86,6 @@ PppoePage::PppoePage(QWidget *parent)
     setContentsMargins(0, 10, 0, 10);   // 设置列表项与背景上下间距分别为10
     setContent(mainWidget);
     setTitle(tr("PPP"));
-    //~ contents_path /network/DSL/Create PPPoE Connection
     connect(m_createBtn, &QPushButton::clicked, this, &PppoePage::createPPPoEConnection);
     connect(m_lvsettings, &QListView::clicked, this, [ = ](const QModelIndex &idx) {
         QString uuid = idx.data(UuidRole).toString();

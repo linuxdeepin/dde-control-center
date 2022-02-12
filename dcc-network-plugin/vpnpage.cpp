@@ -141,8 +141,6 @@ VpnPage::VpnPage(QWidget *parent)
 
     DFloatingButton *createVpnBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement, this);
     createVpnBtn->setMinimumSize(QSize(47, 47));
-    //~ contents_path /network/Create VPN
-    //~ child_page VPN
     createVpnBtn->setToolTip(tr("Create VPN"));
     createVpnBtn->setAccessibleName(tr("Create VPN"));
     GSettingWatcher::instance()->bind("createVpn", createVpnBtn);
@@ -150,8 +148,6 @@ VpnPage::VpnPage(QWidget *parent)
 
     DFloatingButton *importVpnBtn = new DFloatingButton("\342\206\223", this);
     importVpnBtn->setMinimumSize(QSize(47, 47));
-    //~ contents_path /network/Import VPN
-    //~ child_page VPN
     importVpnBtn->setToolTip(tr("Import VPN"));
     importVpnBtn->setAccessibleName(tr("Import VPN"));
     GSettingWatcher::instance()->bind("importVpn", importVpnBtn);

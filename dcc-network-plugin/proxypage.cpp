@@ -78,6 +78,8 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_proxySwitch = new SwitchWidget(proxyTypeGroup);
     m_proxyTypeBox = new ComboxWidget(proxyTypeGroup);
     m_proxySwitch->setTitle(tr("System Proxy"));
+    //~ contents_path /network/System Proxy
+    //~ child_page System Proxy
     m_proxyTypeBox->setTitle(tr("Proxy Type"));
     // 如果扩展，addItem添加顺序必须与ProxyMethodList顺序一致
     m_proxyTypeBox->comboBox()->addItem(tr("Manual"));
@@ -134,6 +136,9 @@ ProxyPage::ProxyPage(QWidget *parent)
     SettingsGroup *autoGroup = new SettingsGroup(contentFrame);
     m_autoUrl = new LineEditWidget;
     m_autoUrl->setPlaceholderText(tr("Optional"));
+
+    //~ contents_path /network/System Proxy
+    //~ child_page System Proxy
     m_autoUrl->setTitle(tr("Configuration URL"));
     m_autoUrl->textEdit()->installEventFilter(this);
     autoGroup->appendItem(m_autoUrl);

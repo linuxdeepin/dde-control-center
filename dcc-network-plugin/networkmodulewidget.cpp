@@ -90,37 +90,30 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     m_centralLayout->setMargin(0);
     setLayout(m_centralLayout);
 
-    //~ contents_path /network/DSL
-    //~ child_page_hide DSL
     DStandardItem *pppIt = new DStandardItem(tr("DSL"));
     pppIt->setData(QVariant::fromValue(PageType::DSLPage), SectionRole);
     pppIt->setIcon(QIcon::fromTheme("dcc_dsl"));
     m_modelpages->appendRow(pppIt);
     GSettingWatcher::instance()->bind("networkDsl", m_lvnmpages, pppIt);
 
-    //~ contents_path /network/VPN
-    //~ child_page_hide VPN
     DStandardItem *vpnit = new DStandardItem(tr("VPN"));
     vpnit->setData(QVariant::fromValue(PageType::VPNPage), SectionRole);
     vpnit->setIcon(QIcon::fromTheme("dcc_vpn"));
     m_modelpages->appendRow(vpnit);
     GSettingWatcher::instance()->bind("networkVpn", m_lvnmpages, vpnit);
 
-    //~ contents_path /network/System Proxy
     DStandardItem *prxyit = new DStandardItem(tr("System Proxy"));
     prxyit->setData(QVariant::fromValue(PageType::SysProxyPage), SectionRole);
     prxyit->setIcon(QIcon::fromTheme("dcc_system_agent"));
     m_modelpages->appendRow(prxyit);
     GSettingWatcher::instance()->bind("systemProxy", m_lvnmpages, prxyit);
 
-    //~ contents_path /network/Application Proxy
     DStandardItem *aprxit = new DStandardItem(tr("Application Proxy"));
     aprxit->setData(QVariant::fromValue(PageType::AppProxyPage), SectionRole);
     aprxit->setIcon(QIcon::fromTheme("dcc_app_proxy"));
     m_modelpages->appendRow(aprxit);
     GSettingWatcher::instance()->bind("applicationProxy", m_lvnmpages, aprxit);
 
-    //~ contents_path /network/Network Details
     DStandardItem *infoit = new DStandardItem(tr("Network Details"));
     infoit->setData(QVariant::fromValue(PageType::NetworkInfoPage), SectionRole);
     infoit->setIcon(QIcon::fromTheme("dcc_network"));
@@ -203,7 +196,7 @@ void NetworkModuleWidget::selectListIndex(const QModelIndex &idx)
         Q_EMIT requestShowChainsPage();
         break;
     case PageType::HotspotPage:
-        Q_EMIT requestHotspotPage();
+        Q_EMIT requestHotspotPage(searchPath);
         break;
     case PageType::NetworkInfoPage:
         Q_EMIT requestShowInfomation();
@@ -529,8 +522,6 @@ void NetworkModuleWidget::onDeviceChanged()
     }
 
     if (supportHotspot) {
-        //~ contents_path /network/Personal Hotspot
-        //~ child_page_hide Personal Hotspot
         DStandardItem *hotspotit = new DStandardItem(tr("Personal Hotspot"));
         hotspotit->setData(QVariant::fromValue(PageType::HotspotPage), SectionRole);
         hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));

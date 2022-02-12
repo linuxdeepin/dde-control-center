@@ -95,7 +95,7 @@ Q_SIGNALS:
     void requestShowProxyPage() const;
     void requestShowInfomation() const;
     void requestShowChainsPage() const;
-    void requestHotspotPage() const;
+    void requestHotspotPage(const QString &path = "") const;
     void requestShowDeviceDetail(NetworkDeviceBase *device, const QString &path = "") const;
 
 private Q_SLOTS:

@@ -113,6 +113,7 @@ class HotspotPage : public QWidget
 public:
     explicit HotspotPage(QWidget *parent = nullptr);
     ~ HotspotPage();
+    void jumpPath(const QString &path);
 
 Q_SIGNALS:
     void requestNextPage(dcc::ContentWidget * const w) const;

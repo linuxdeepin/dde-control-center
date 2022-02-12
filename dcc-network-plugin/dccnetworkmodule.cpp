@@ -214,31 +214,10 @@ int DCCNetworkModule::load(const QString &path)
     QString searchPath = "";
     if (pathList.count() > 1)
         searchPath = pathList[1];
-    else
-        searchPath = pathList[0];
 
     m_indexWidget->initSetting(index == -1 ? 0 : index, searchPath);
 
     return index == -1 ? -1 : 0;
-}
-
-void DCCNetworkModule::addChildPageTrans() const
-{
-    if (m_frameProxy) {
-        m_frameProxy->addChildPageTrans("Personal Hotspot", tr("Personal Hotspot"));
-        m_frameProxy->addChildPageTrans("DSL", tr("DSL"));
-        m_frameProxy->addChildPageTrans("VPN", tr("VPN"));
-        m_frameProxy->addChildPageTrans("Wired Network", tr("Wired Network"));
-        m_frameProxy->addChildPageTrans("Wireless Network", tr("Wireless Network"));
-        m_frameProxy->addChildPageTrans("Network Details", tr("Network Details"));
-        m_frameProxy->addChildPageTrans("Application Proxy", tr("Application Proxy"));
-        m_frameProxy->addChildPageTrans("System Proxy", tr("System Proxy"));
-        m_frameProxy->addChildPageTrans("Create Hotspot", tr("Create Hotspot"));
-        m_frameProxy->addChildPageTrans("Create VPN", tr("Create VPN"));
-        m_frameProxy->addChildPageTrans("Import VPN", tr("Import VPN"));
-        m_frameProxy->addChildPageTrans("Create PPPoE Connection", tr("Create PPPoE Connection"));
-        m_frameProxy->addChildPageTrans("Connect to hidden network", tr("Connect to hidden network"));
-    }
 }
 
 void DCCNetworkModule::initListConfig()
@@ -304,13 +283,8 @@ void DCCNetworkModule::initSearchData()
     const QString& personalHost = tr("Personal Hotspot");
     const QString& networkDetail = tr("Network Details");
     const QString& systemProxy = tr("System Proxy");
-    //~ contents_path /network/Wired Network
-    //~ child_page_hide Wired Network
     const QString& wiredNetwork = tr("Wired Network");
-    //~ contents_path /network/Wireless Network
-    //~ child_page_hide Wireless Network
     const QString& wirelessNetwork = tr("Wireless Network");
-    const QString& dsl = tr("DSL");
     const QString& vpn = tr("VPN");
     const bool wiredVisible = hasModule(PageType::WiredPage);
     const bool wirelessVisible = hasModule(PageType::WirelessPage);
@@ -343,9 +317,11 @@ void DCCNetworkModule::initSearchData()
         if (m_indexWidget)
             m_indexWidget->setModelVisible("networkWired", isVisible);
         m_frameProxy->setWidgetVisible(module, wiredNetwork, bWireNetwork);
-        //~ contents_path /network/Wired Network Adapter
-        //~ child_page_hide Wired Network Adapter
+        //~ contents_path /network/Wired Network
+        //~ child_page Wired Network
         m_frameProxy->setDetailVisible(module, wiredNetwork, tr("Wired Network Adapter"), bWireNetwork);
+        //~ contents_path /network/Wired Network/addWiredConnection
+        //~ child_page Wired Network
         m_frameProxy->setDetailVisible(module, wiredNetwork, tr("Add Network Connection"), bWireNetwork);
     };
 
@@ -355,10 +331,74 @@ void DCCNetworkModule::initSearchData()
         if (m_indexWidget)
             m_indexWidget->setModelVisible("networkWireless", configVisible);
         m_frameProxy->setWidgetVisible(module, wirelessNetwork, bWirelessNetwork);
-        //~ contents_path /network/Wireless Network Adapter
-        //~ child_page_hide Wireless Network Adapter
+        //~ contents_path /network/Wireless Network
+        //~ child_page Wireless Network
         m_frameProxy->setDetailVisible(module, wirelessNetwork, tr("Wireless Network Adapter"), bWirelessNetwork);
+        //~ contents_path /network/Wireless Network/Connect to hidden network
+        //~ child_page Wireless Network
         m_frameProxy->setDetailVisible(module, wirelessNetwork, tr("Connect to hidden network"), bWirelessNetwork);
+    };
+
+    auto func_dsl_visible = [ = ](bool visible) {
+        bool dslVisible = func_is_visible("networkDsl") && visible;
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("networkDsl", dslVisible);
+        //~ contents_path /network/DSL
+        //~ child_page_hide DSL
+        const QString dsl = tr("DSL");
+        m_frameProxy->setWidgetVisible(module, dsl, dslVisible);
+        //~ contents_path /network/DSL/Create PPPoE Connection
+        //~ child_page DSL
+        m_frameProxy->setDetailVisible(module, dsl, tr("Create PPPoE Connection"), dslVisible);
+    };
+
+    auto func_vpn_visible = [ = ] {
+        bool bVPN = func_is_visible("networkVpn");
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("networkVpn", bVPN);
+        m_frameProxy->setWidgetVisible(module, vpn, bVPN);
+        //~ contents_path /network/VPN
+        //~ child_page VPN
+        m_frameProxy->setDetailVisible(module, vpn, tr("VPN Status"), bVPN);
+        //~ contents_path /network/VPN/Create VPN
+        //~ child_page VPN
+        m_frameProxy->setDetailVisible(module, vpn, tr("Create VPN"), bVPN);
+        //~ contents_path /network/VPN/Import VPN
+        //~ child_page VPN
+        m_frameProxy->setDetailVisible(module, vpn, tr("Import VPN"), bVPN);
+    };
+
+    auto func_sysproxy_visible = [ = ] {
+        bool bSystemProxy = func_is_visible("systemProxy");
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("systemProxy", bSystemProxy);
+        m_frameProxy->setWidgetVisible(module, systemProxy, bSystemProxy);
+        // 系统代理的搜索放到proxyType类中了，因为此处的Proxy Type与下面的应用代理的Proxy Type有冲突，导致搜索列表无法识别
+        m_frameProxy->setDetailVisible(module, systemProxy, tr("Proxy Type"), bSystemProxy);
+        m_frameProxy->setDetailVisible(module, systemProxy, tr("Configuration URL"), bSystemProxy);
+        m_frameProxy->setDetailVisible(module, systemProxy, systemProxy, bSystemProxy);
+    };
+
+    auto func_appproxy_visible = [ = ] {
+        bool bAppProxy = func_is_visible("applicationProxy");
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("applicationProxy", bAppProxy);
+        m_frameProxy->setWidgetVisible(module, applicationProxy, bAppProxy);
+        //~ contents_path /network/Application Proxy
+        //~ child_page Application Proxy
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Proxy Type"), bAppProxy);
+        //~ contents_path /network/Application Proxy
+        //~ child_page Application Proxy
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("IP Address"), bAppProxy);
+        //~ contents_path /network/Application Proxy
+        //~ child_page Application Proxy
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Port"), bAppProxy);
+        //~ contents_path /network/Application Proxy
+        //~ child_page Application Proxy
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Username"), bAppProxy);
+        //~ contents_path /network/Application Proxy
+        //~ child_page Application Proxy
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Password"), bAppProxy);
     };
 
     auto func_perhotspot_visible = [ = ](bool visible) {
@@ -367,22 +407,12 @@ void DCCNetworkModule::initSearchData()
         if (m_indexWidget)
             m_indexWidget->setModelVisible("personalHotspot", bPersonalHost);
         m_frameProxy->setWidgetVisible(module, personalHost, bPersonalHost);
-        //~ contents_path /network/Hotspot
-        //~ child_page_hide Personal Hotspot
+        //~ contents_path /network/Personal Hotspot
+        //~ child_page Personal Hotspot
         m_frameProxy->setDetailVisible(module, personalHost, tr("Hotspot"), bPersonalHost);
+        //~ contents_path /network/Personal Hotspot/Create Hotspot
+        //~ child_page Personal Hotspot
         m_frameProxy->setDetailVisible(module, personalHost, tr("Create Hotspot"), bPersonalHost);
-    };
-
-    auto func_appproxy_visible = [ = ] {
-        bool bAppProxy = func_is_visible("applicationProxy");
-        if (m_indexWidget)
-            m_indexWidget->setModelVisible("applicationProxy", bAppProxy);
-        m_frameProxy->setWidgetVisible(module, applicationProxy, bAppProxy);
-        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Proxy Type"), bAppProxy);
-        m_frameProxy->setDetailVisible(module, applicationProxy, tr("IP Address"), bAppProxy);
-        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Port"), bAppProxy);
-        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Username"), bAppProxy);
-        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Password"), bAppProxy);
     };
 
     auto func_netdetails_visible = [ = ] {
@@ -390,45 +420,39 @@ void DCCNetworkModule::initSearchData()
         if (m_indexWidget)
             m_indexWidget->setModelVisible("networkDetails", bNetworkDetail);
         m_frameProxy->setWidgetVisible(module, networkDetail, bNetworkDetail);
+        //~ contents_path /network/Network Details
+        //~ child_page Network Details
         m_frameProxy->setDetailVisible(module, networkDetail, tr("Interface"), bNetworkDetail);
+        //~ contents_path /network/Network Details
+        //~ child_page Network Details
         m_frameProxy->setDetailVisible(module, networkDetail, tr("MAC"), bNetworkDetail);
+        //~ contents_path /network/Network Details
+        //~ child_page Network Details
         m_frameProxy->setDetailVisible(module, networkDetail, tr("Band"), bNetworkDetail);
+        //~ contents_path /network/Network Details
+        //~ child_page Network Details
         m_frameProxy->setDetailVisible(module, networkDetail, tr("Port"), bNetworkDetail);
+        //~ contents_path /network/Network Details
+        //~ child_page Network Details
         m_frameProxy->setDetailVisible(module, networkDetail, tr("IPv4"), bNetworkDetail);
+        //~ contents_path /network/Network Details
+        //~ child_page Network Details
         m_frameProxy->setDetailVisible(module, networkDetail, tr("Gateway"), bNetworkDetail);
+        //~ contents_path /network/Network Details
+        //~ child_page Network Details
         m_frameProxy->setDetailVisible(module, networkDetail, tr("Primary DNS"), bNetworkDetail);
+        //~ contents_path /network/Network Details
+        //~ child_page Network Details
         m_frameProxy->setDetailVisible(module, networkDetail, tr("Netmask"), true);
+        //~ contents_path /network/Network Details
+        //~ child_page Network Details
         m_frameProxy->setDetailVisible(module, networkDetail, tr("IPv6"), true);
+        //~ contents_path /network/Network Details
+        //~ child_page Network Details
         m_frameProxy->setDetailVisible(module, networkDetail, tr("Prefix"), true);
+        //~ contents_path /network/Network Details
+        //~ child_page Network Details
         m_frameProxy->setDetailVisible(module, networkDetail, tr("Speed"), true);
-    };
-
-    auto func_dsl_visible = [ = ](bool visible) {
-        bool dslVisible = func_is_visible("networkDsl") && visible;
-        if (m_indexWidget)
-            m_indexWidget->setModelVisible("networkDsl", dslVisible);
-        m_frameProxy->setWidgetVisible(module, dsl, dslVisible);
-        m_frameProxy->setDetailVisible(module, dsl, tr("Create PPPoE Connection"), dslVisible);
-    };
-
-    auto func_sysproxy_visible = [ = ] {
-        bool bSystemProxy = func_is_visible("systemProxy");
-        if (m_indexWidget)
-            m_indexWidget->setModelVisible("systemProxy", bSystemProxy);
-        m_frameProxy->setWidgetVisible(module, systemProxy, bSystemProxy);
-        m_frameProxy->setDetailVisible(module, systemProxy, tr("Proxy Type"), bSystemProxy);
-        m_frameProxy->setDetailVisible(module, systemProxy, tr("Configuration URL"), bSystemProxy);
-        m_frameProxy->setDetailVisible(module, systemProxy, systemProxy, bSystemProxy);
-    };
-
-    auto func_vpn_visible = [ = ] {
-        bool bVPN = func_is_visible("networkVpn");
-        if (m_indexWidget)
-            m_indexWidget->setModelVisible("networkVpn", bVPN);
-        m_frameProxy->setWidgetVisible(module, vpn, bVPN);
-        m_frameProxy->setDetailVisible(module, vpn, tr("VPN Status"), bVPN);
-        m_frameProxy->setDetailVisible(module, vpn, tr("Create VPN"), bVPN);
-        m_frameProxy->setDetailVisible(module, vpn, tr("Import VPN"), bVPN);
     };
 
     auto func_process_all = [ = ] {
@@ -480,6 +504,20 @@ void DCCNetworkModule::initSearchData()
     });
 
     func_process_all();
+}
+
+void DCCNetworkModule::addChildPageTrans() const
+{
+    if (m_frameProxy) {
+        m_frameProxy->addChildPageTrans("Wired Network", tr("Wired Network"));
+        m_frameProxy->addChildPageTrans("Wireless Network", tr("Wireless Network"));
+        m_frameProxy->addChildPageTrans("DSL", tr("DSL"));
+        m_frameProxy->addChildPageTrans("VPN", tr("VPN"));
+        m_frameProxy->addChildPageTrans("System Proxy", tr("System Proxy"));
+        m_frameProxy->addChildPageTrans("Application Proxy", tr("Application Proxy"));
+        m_frameProxy->addChildPageTrans("Personal Hotspot", tr("Personal Hotspot"));
+        m_frameProxy->addChildPageTrans("Network Details", tr("Network Details"));
+    }
 }
 
 void DCCNetworkModule::removeConnEditPageByDevice(NetworkDeviceBase *dev)
@@ -612,7 +650,7 @@ void DCCNetworkModule::showProxyPage()
     proxy->setVisible(true);
 }
 
-void DCCNetworkModule::showHotspotPage()
+void DCCNetworkModule::showHotspotPage(const QString &searchPath)
 {
     HotspotPage *hotspot = new HotspotPage();
     hotspot->onAirplaneModeChanged(m_airplaneMode->enabled());
@@ -620,8 +658,8 @@ void DCCNetworkModule::showHotspotPage()
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
     });
     connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, hotspot, &HotspotPage::onAirplaneModeChanged);
-
     m_frameProxy->pushWidget(this, hotspot);
+    hotspot->jumpPath(searchPath);
 }
 
 void DCCNetworkModule::showDetailPage()

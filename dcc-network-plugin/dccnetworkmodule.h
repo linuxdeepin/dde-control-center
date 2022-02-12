@@ -113,7 +113,7 @@ private Q_SLOTS:
     void showDeviceDetailPage(NetworkDeviceBase *dev, const QString &searchPath = QString());
     void showChainsProxyPage();
     void showProxyPage();
-    void showHotspotPage();
+    void showHotspotPage(const QString &searchPath);
     void showDetailPage();
 
 private:
