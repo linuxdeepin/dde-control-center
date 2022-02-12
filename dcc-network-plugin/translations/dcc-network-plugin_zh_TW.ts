@@ -170,150 +170,192 @@
         <translation>網路</translation>
     </message>
     <message>
+        <source>Application Proxy</source>
+        <translation>應用程式代理伺服器</translation>
+    </message>
+    <message>
         <source>Personal Hotspot</source>
         <translation>個人熱點</translation>
-    </message>
-    <message>
-        <source>DSL</source>
-        <translation>DSL</translation>
-    </message>
-    <message>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <source>Wired Network</source>
-        <translation>有線網路</translation>
-        <extra-child_page_hide>Wired Network</extra-child_page_hide>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Wireless Network</source>
-        <translation>無線網路</translation>
-        <extra-child_page_hide>Wireless Network</extra-child_page_hide>
-        <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
         <translation>網路詳情</translation>
     </message>
     <message>
-        <source>Application Proxy</source>
-        <translation>應用程式代理伺服器</translation>
-    </message>
-    <message>
         <source>System Proxy</source>
         <translation>系統代理伺服器</translation>
     </message>
     <message>
-        <source>Create Hotspot</source>
-        <translation>建立熱點</translation>
+        <source>Wired Network</source>
+        <translation>有線網路</translation>
     </message>
     <message>
-        <source>Create VPN</source>
-        <translation>建立 VPN</translation>
+        <source>Wireless Network</source>
+        <translation>無線網路</translation>
     </message>
     <message>
-        <source>Import VPN</source>
-        <translation>加入 VPN</translation>
-    </message>
-    <message>
-        <source>Create PPPoE Connection</source>
-        <translation>建立 PPPoE 連線</translation>
-    </message>
-    <message>
-        <source>Connect to hidden network</source>
-        <translation>連線到隱藏網路</translation>
+        <source>VPN</source>
+        <translation>VPN</translation>
     </message>
     <message>
         <source>Wired Network Adapter</source>
         <translation>有線網路介面卡</translation>
-        <extra-child_page_hide>Wired Network Adapter</extra-child_page_hide>
-        <extra-contents_path>/network/Wired Network Adapter</extra-contents_path>
+        <extra-child_page>Wired Network</extra-child_page>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <source>Add Network Connection</source>
         <translation>新增網路連線</translation>
+        <extra-child_page>Wired Network</extra-child_page>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <source>Wireless Network Adapter</source>
         <translation>無線網路介面卡</translation>
-        <extra-child_page_hide>Wireless Network Adapter</extra-child_page_hide>
-        <extra-contents_path>/network/Wireless Network Adapter</extra-contents_path>
+        <extra-child_page>Wireless Network</extra-child_page>
+        <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
-        <source>Hotspot</source>
-        <translation>無線熱點</translation>
-        <extra-child_page_hide>Personal Hotspot</extra-child_page_hide>
-        <extra-contents_path>/network/Hotspot</extra-contents_path>
+        <source>Connect to hidden network</source>
+        <translation>連線到隱藏網路</translation>
+        <extra-child_page>Wireless Network</extra-child_page>
+        <extra-contents_path>/network/Wireless Network/Connect to hidden network</extra-contents_path>
+    </message>
+    <message>
+        <source>DSL</source>
+        <translation>DSL</translation>
+        <extra-child_page_hide>DSL</extra-child_page_hide>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <source>Create PPPoE Connection</source>
+        <translation>建立 PPPoE 連線</translation>
+        <extra-child_page>DSL</extra-child_page>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
+    </message>
+    <message>
+        <source>VPN Status</source>
+        <translation>VPN 狀態</translation>
+        <extra-child_page>VPN</extra-child_page>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Create VPN</source>
+        <translation>建立 VPN</translation>
+        <extra-child_page>VPN</extra-child_page>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import VPN</source>
+        <translation>加入 VPN</translation>
+        <extra-child_page>VPN</extra-child_page>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
         <source>Proxy Type</source>
         <translation>代理伺服器類型</translation>
-    </message>
-    <message>
-        <source>IP Address</source>
-        <translation>IP 位址</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>連線埠</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation>使用者名稱</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>密碼</translation>
-    </message>
-    <message>
-        <source>Interface</source>
-        <translation>界面</translation>
-    </message>
-    <message>
-        <source>MAC</source>
-        <translation>MAC 位址</translation>
-    </message>
-    <message>
-        <source>Band</source>
-        <translation>頻段</translation>
-    </message>
-    <message>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation>閘道器</translation>
-    </message>
-    <message>
-        <source>Primary DNS</source>
-        <translation>主要 DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>子網路遮罩</translation>
-    </message>
-    <message>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <source>Prefix</source>
-        <translation>前置詞</translation>
-    </message>
-    <message>
-        <source>Speed</source>
-        <translation>速度</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Configuration URL</source>
         <translation>設定 URL</translation>
     </message>
     <message>
-        <source>VPN Status</source>
-        <translation>VPN 狀態</translation>
+        <source>IP Address</source>
+        <translation>IP 位址</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>連線埠</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>使用者名稱</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>密碼</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Hotspot</source>
+        <translation>無線熱點</translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Create Hotspot</source>
+        <translation>建立熱點</translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
+        <extra-contents_path>/network/Personal Hotspot/Create Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation>界面</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation>MAC 位址</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>頻段</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation>閘道器</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation>主要 DNS</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation>子網路遮罩</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation>前置詞</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>速度</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
 </context>
 <context>
@@ -397,7 +439,6 @@
     <message>
         <source>Hotspot</source>
         <translation>無線熱點</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
         <source>Add Settings</source>
@@ -409,7 +450,6 @@
     <message>
         <source>Create Hotspot</source>
         <translation>建立熱點</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -591,29 +631,22 @@
     <message>
         <source>DSL</source>
         <translation>DSL</translation>
-        <extra-child_page_hide>DSL</extra-child_page_hide>
-        <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
         <source>VPN</source>
         <translation>VPN</translation>
-        <extra-child_page_hide>VPN</extra-child_page_hide>
-        <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
         <source>System Proxy</source>
         <translation>系統代理伺服器</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>Application Proxy</source>
         <translation>應用程式代理伺服器</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
         <translation>網路詳情</translation>
-        <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>Network</source>
@@ -642,8 +675,6 @@
     <message>
         <source>Personal Hotspot</source>
         <translation>個人熱點</translation>
-        <extra-child_page_hide>Personal Hotspot</extra-child_page_hide>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -737,8 +768,6 @@
     <message>
         <source>Create PPPoE Connection</source>
         <translation>建立 PPPoE 連線</translation>
-        <extra-child_page>DSL</extra-child_page>
-        <extra-contents_path>/network/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
         <source>PPP</source>
@@ -764,6 +793,8 @@
     <message>
         <source>Proxy Type</source>
         <translation>代理類型</translation>
+        <extra-child_page>System Proxy</extra-child_page>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>Manual</source>
@@ -804,6 +835,8 @@
     <message>
         <source>Configuration URL</source>
         <translation>設定 URL</translation>
+        <extra-child_page>System Proxy</extra-child_page>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1445,14 +1478,10 @@
     <message>
         <source>Create VPN</source>
         <translation>建立 VPN</translation>
-        <extra-child_page>VPN</extra-child_page>
-        <extra-contents_path>/network/Create VPN</extra-contents_path>
     </message>
     <message>
         <source>Import VPN</source>
         <translation>加入 VPN</translation>
-        <extra-child_page>VPN</extra-child_page>
-        <extra-contents_path>/network/Import VPN</extra-contents_path>
     </message>
     <message>
         <source>Import Error</source>
@@ -1816,8 +1845,6 @@
     <message>
         <source>Add Network Connection</source>
         <translation>新增網路連線</translation>
-        <extra-child_page>Wired Network</extra-child_page>
-        <extra-contents_path>/network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <source>Select Settings</source>

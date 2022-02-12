@@ -170,150 +170,192 @@
         <translation>ජාලය</translation>
     </message>
     <message>
+        <source>Application Proxy</source>
+        <translation>යෙදුම් ප්‍රොක්සිය</translation>
+    </message>
+    <message>
         <source>Personal Hotspot</source>
         <translation>පුද්ගලික හොට්ස්පොට්</translation>
-    </message>
-    <message>
-        <source>DSL</source>
-        <translation>DSL</translation>
-    </message>
-    <message>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <source>Wired Network</source>
-        <translation>රැහැන්ගත ජාලය</translation>
-        <extra-child_page_hide>Wired Network</extra-child_page_hide>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Wireless Network</source>
-        <translation>රැහැන් රහිත ජාලය</translation>
-        <extra-child_page_hide>Wireless Network</extra-child_page_hide>
-        <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
         <translation>ජාල විස්තර</translation>
     </message>
     <message>
-        <source>Application Proxy</source>
-        <translation>යෙදුම් ප්‍රොක්සිය</translation>
-    </message>
-    <message>
         <source>System Proxy</source>
         <translation>පද්ධති ප්‍රොක්සිය</translation>
     </message>
     <message>
-        <source>Create Hotspot</source>
-        <translation>හොට්ස්පොට් සාදන්න</translation>
+        <source>Wired Network</source>
+        <translation>රැහැන්ගත ජාලය</translation>
     </message>
     <message>
-        <source>Create VPN</source>
-        <translation>VPN සාදන්න</translation>
+        <source>Wireless Network</source>
+        <translation>රැහැන් රහිත ජාලය</translation>
     </message>
     <message>
-        <source>Import VPN</source>
-        <translation>VPN ආයාත කරන්න</translation>
-    </message>
-    <message>
-        <source>Create PPPoE Connection</source>
-        <translation>PPPoE සම්බන්ධතාවයක් සාදන්න</translation>
-    </message>
-    <message>
-        <source>Connect to hidden network</source>
-        <translation>සැඟවුණු ජාලයකට සම්බන්ධ වන්න</translation>
+        <source>VPN</source>
+        <translation>VPN</translation>
     </message>
     <message>
         <source>Wired Network Adapter</source>
         <translation>රැහැන්ගත ජාල ඇඩැප්ටරය</translation>
-        <extra-child_page_hide>Wired Network Adapter</extra-child_page_hide>
-        <extra-contents_path>/network/Wired Network Adapter</extra-contents_path>
+        <extra-child_page>Wired Network</extra-child_page>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <source>Add Network Connection</source>
         <translation>ජාල සම්බන්ධතාවයක් එක් කරන්න</translation>
+        <extra-child_page>Wired Network</extra-child_page>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <source>Wireless Network Adapter</source>
         <translation>රැහැන් රහිත ජාල ඇඩැප්ටරය</translation>
-        <extra-child_page_hide>Wireless Network Adapter</extra-child_page_hide>
-        <extra-contents_path>/network/Wireless Network Adapter</extra-contents_path>
+        <extra-child_page>Wireless Network</extra-child_page>
+        <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
-        <source>Hotspot</source>
-        <translation>හොට්ස්පොට්</translation>
-        <extra-child_page_hide>Personal Hotspot</extra-child_page_hide>
-        <extra-contents_path>/network/Hotspot</extra-contents_path>
+        <source>Connect to hidden network</source>
+        <translation>සැඟවුණු ජාලයකට සම්බන්ධ වන්න</translation>
+        <extra-child_page>Wireless Network</extra-child_page>
+        <extra-contents_path>/network/Wireless Network/Connect to hidden network</extra-contents_path>
+    </message>
+    <message>
+        <source>DSL</source>
+        <translation>DSL</translation>
+        <extra-child_page_hide>DSL</extra-child_page_hide>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <source>Create PPPoE Connection</source>
+        <translation>PPPoE සම්බන්ධතාවයක් සාදන්න</translation>
+        <extra-child_page>DSL</extra-child_page>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
+    </message>
+    <message>
+        <source>VPN Status</source>
+        <translation>VPN තත්වය</translation>
+        <extra-child_page>VPN</extra-child_page>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Create VPN</source>
+        <translation>VPN සාදන්න</translation>
+        <extra-child_page>VPN</extra-child_page>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import VPN</source>
+        <translation>VPN ආයාත කරන්න</translation>
+        <extra-child_page>VPN</extra-child_page>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
         <source>Proxy Type</source>
         <translation>ප්‍රොක්සි වර්ගය</translation>
-    </message>
-    <message>
-        <source>IP Address</source>
-        <translation>IP ලිපිනය</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>කෙවෙනිය</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation>පරිශීලක නාමය</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>මුර පදය</translation>
-    </message>
-    <message>
-        <source>Interface</source>
-        <translation>අතුරුමුහුණත</translation>
-    </message>
-    <message>
-        <source>MAC</source>
-        <translation>MAC</translation>
-    </message>
-    <message>
-        <source>Band</source>
-        <translation>කලාපය</translation>
-    </message>
-    <message>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation>දොරටුව-gateway</translation>
-    </message>
-    <message>
-        <source>Primary DNS</source>
-        <translation>ප්‍රාථමික DNS</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>නෙට්මාස්ක්</translation>
-    </message>
-    <message>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <source>Prefix</source>
-        <translation>උපසර්ගය</translation>
-    </message>
-    <message>
-        <source>Speed</source>
-        <translation>වේගය</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Configuration URL</source>
         <translation>වින්‍යාස URL</translation>
     </message>
     <message>
-        <source>VPN Status</source>
-        <translation>VPN තත්වය</translation>
+        <source>IP Address</source>
+        <translation>IP ලිපිනය</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>කෙවෙනිය</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>පරිශීලක නාමය</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>මුර පදය</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Hotspot</source>
+        <translation>හොට්ස්පොට්</translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Create Hotspot</source>
+        <translation>හොට්ස්පොට් සාදන්න</translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
+        <extra-contents_path>/network/Personal Hotspot/Create Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation>අතුරුමුහුණත</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation>MAC</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>කලාපය</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation>දොරටුව-gateway</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation>ප්‍රාථමික DNS</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation>නෙට්මාස්ක්</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation>උපසර්ගය</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>වේගය</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
 </context>
 <context>
@@ -397,7 +439,6 @@
     <message>
         <source>Hotspot</source>
         <translation>හොට්ස්පොට්</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
         <source>Add Settings</source>
@@ -409,7 +450,6 @@
     <message>
         <source>Create Hotspot</source>
         <translation>හොට්ස්පොට් සාදන්න</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -591,29 +631,22 @@
     <message>
         <source>DSL</source>
         <translation>DSL</translation>
-        <extra-child_page_hide>DSL</extra-child_page_hide>
-        <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
         <source>VPN</source>
         <translation>VPN</translation>
-        <extra-child_page_hide>VPN</extra-child_page_hide>
-        <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
         <source>System Proxy</source>
         <translation>පද්ධති ප්‍රොක්සිය</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>Application Proxy</source>
         <translation>යෙදුම් ප්‍රොක්සිය</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
         <translation>ජාල විස්තර</translation>
-        <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>Network</source>
@@ -642,8 +675,6 @@
     <message>
         <source>Personal Hotspot</source>
         <translation>පුද්ගලික හොට්ස්පොට්</translation>
-        <extra-child_page_hide>Personal Hotspot</extra-child_page_hide>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -737,8 +768,6 @@
     <message>
         <source>Create PPPoE Connection</source>
         <translation>PPPoE සම්බන්ධතාවයක් සාදන්න</translation>
-        <extra-child_page>DSL</extra-child_page>
-        <extra-contents_path>/network/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
         <source>PPP</source>
@@ -764,6 +793,8 @@
     <message>
         <source>Proxy Type</source>
         <translation>ප්‍රොක්සි වර්ගය</translation>
+        <extra-child_page>System Proxy</extra-child_page>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>Manual</source>
@@ -804,6 +835,8 @@
     <message>
         <source>Configuration URL</source>
         <translation>වින්‍යාස URL</translation>
+        <extra-child_page>System Proxy</extra-child_page>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1445,14 +1478,10 @@
     <message>
         <source>Create VPN</source>
         <translation>VPN සාදන්න</translation>
-        <extra-child_page>VPN</extra-child_page>
-        <extra-contents_path>/network/Create VPN</extra-contents_path>
     </message>
     <message>
         <source>Import VPN</source>
         <translation>VPN ආයාත කරන්න</translation>
-        <extra-child_page>VPN</extra-child_page>
-        <extra-contents_path>/network/Import VPN</extra-contents_path>
     </message>
     <message>
         <source>Import Error</source>
@@ -1816,8 +1845,6 @@
     <message>
         <source>Add Network Connection</source>
         <translation>ජාල සම්බන්ධතාවයක් එක් කරන්න</translation>
-        <extra-child_page>Wired Network</extra-child_page>
-        <extra-contents_path>/network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <source>Select Settings</source>

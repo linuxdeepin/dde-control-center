@@ -64,7 +64,7 @@
     </message>
     <message>
         <source>Security Type</source>
-        <translation>Tipo de Seguridad</translation>
+        <translation>Tipo de seguridad</translation>
     </message>
     <message>
         <source>Band</source>

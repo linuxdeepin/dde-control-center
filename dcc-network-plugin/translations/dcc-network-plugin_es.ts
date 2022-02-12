@@ -170,150 +170,192 @@
         <translation>Red</translation>
     </message>
     <message>
+        <source>Application Proxy</source>
+        <translation>Proxy de aplicación</translation>
+    </message>
+    <message>
         <source>Personal Hotspot</source>
         <translation>Compartir conexión personal</translation>
-    </message>
-    <message>
-        <source>DSL</source>
-        <translation>DSL</translation>
-    </message>
-    <message>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <source>Wired Network</source>
-        <translation>Red cableada</translation>
-        <extra-child_page_hide>Wired Network</extra-child_page_hide>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <source>Wireless Network</source>
-        <translation>Red inalámbrica</translation>
-        <extra-child_page_hide>Wireless Network</extra-child_page_hide>
-        <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
         <translation>Detalles de red</translation>
     </message>
     <message>
-        <source>Application Proxy</source>
-        <translation>Proxy de aplicación</translation>
-    </message>
-    <message>
         <source>System Proxy</source>
         <translation>Proxy del sistema</translation>
     </message>
     <message>
-        <source>Create Hotspot</source>
-        <translation>Crear conexión compartida</translation>
+        <source>Wired Network</source>
+        <translation>Red cableada</translation>
     </message>
     <message>
-        <source>Create VPN</source>
-        <translation>Crear VPN</translation>
+        <source>Wireless Network</source>
+        <translation>Red inalámbrica</translation>
     </message>
     <message>
-        <source>Import VPN</source>
-        <translation>Importar VPN</translation>
-    </message>
-    <message>
-        <source>Create PPPoE Connection</source>
-        <translation>Crear conexión PPPoE</translation>
-    </message>
-    <message>
-        <source>Connect to hidden network</source>
-        <translation>Conectar a red oculta</translation>
+        <source>VPN</source>
+        <translation>VPN</translation>
     </message>
     <message>
         <source>Wired Network Adapter</source>
         <translation>Tarjeta de red cableada</translation>
-        <extra-child_page_hide>Wired Network Adapter</extra-child_page_hide>
-        <extra-contents_path>/network/Wired Network Adapter</extra-contents_path>
+        <extra-child_page>Wired Network</extra-child_page>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <source>Add Network Connection</source>
         <translation>Añadir conexión de red</translation>
+        <extra-child_page>Wired Network</extra-child_page>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <source>Wireless Network Adapter</source>
         <translation>Tarjeta de red inalámbrica</translation>
-        <extra-child_page_hide>Wireless Network Adapter</extra-child_page_hide>
-        <extra-contents_path>/network/Wireless Network Adapter</extra-contents_path>
+        <extra-child_page>Wireless Network</extra-child_page>
+        <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
-        <source>Hotspot</source>
-        <translation>Compartir conexión</translation>
-        <extra-child_page_hide>Personal Hotspot</extra-child_page_hide>
-        <extra-contents_path>/network/Hotspot</extra-contents_path>
+        <source>Connect to hidden network</source>
+        <translation>Conectar a red oculta</translation>
+        <extra-child_page>Wireless Network</extra-child_page>
+        <extra-contents_path>/network/Wireless Network/Connect to hidden network</extra-contents_path>
+    </message>
+    <message>
+        <source>DSL</source>
+        <translation>DSL</translation>
+        <extra-child_page_hide>DSL</extra-child_page_hide>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <source>Create PPPoE Connection</source>
+        <translation>Crear conexión PPPoE</translation>
+        <extra-child_page>DSL</extra-child_page>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
+    </message>
+    <message>
+        <source>VPN Status</source>
+        <translation>Estado de la VPN</translation>
+        <extra-child_page>VPN</extra-child_page>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Create VPN</source>
+        <translation>Crear VPN</translation>
+        <extra-child_page>VPN</extra-child_page>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import VPN</source>
+        <translation>Importar VPN</translation>
+        <extra-child_page>VPN</extra-child_page>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
         <source>Proxy Type</source>
         <translation>Tipo de proxy</translation>
-    </message>
-    <message>
-        <source>IP Address</source>
-        <translation>Dirección IP</translation>
-    </message>
-    <message>
-        <source>Port</source>
-        <translation>Puerto</translation>
-    </message>
-    <message>
-        <source>Username</source>
-        <translation>Nombre de usuario</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Contraseña</translation>
-    </message>
-    <message>
-        <source>Interface</source>
-        <translation>Interfaz</translation>
-    </message>
-    <message>
-        <source>MAC</source>
-        <translation>MAC</translation>
-    </message>
-    <message>
-        <source>Band</source>
-        <translation>Banda</translation>
-    </message>
-    <message>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <source>Gateway</source>
-        <translation>Puerta de enlace</translation>
-    </message>
-    <message>
-        <source>Primary DNS</source>
-        <translation>DNS primario</translation>
-    </message>
-    <message>
-        <source>Netmask</source>
-        <translation>Máscara de red</translation>
-    </message>
-    <message>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <source>Prefix</source>
-        <translation>Prefijo</translation>
-    </message>
-    <message>
-        <source>Speed</source>
-        <translation>Velocidad</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Configuration URL</source>
         <translation>Configurar URL</translation>
     </message>
     <message>
-        <source>VPN Status</source>
-        <translation>Estado de la VPN</translation>
+        <source>IP Address</source>
+        <translation>Dirección IP</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation>Puerto</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Nombre de usuario</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Contraseña</translation>
+        <extra-child_page>Application Proxy</extra-child_page>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Hotspot</source>
+        <translation>Compartir conexión</translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Create Hotspot</source>
+        <translation>Crear conexión compartida</translation>
+        <extra-child_page>Personal Hotspot</extra-child_page>
+        <extra-contents_path>/network/Personal Hotspot/Create Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation>Interfaz</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation>MAC</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Banda</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation>Puerta de enlace</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation>DNS primario</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation>Máscara de red</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation>Prefijo</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation>Velocidad</translation>
+        <extra-child_page>Network Details</extra-child_page>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
 </context>
 <context>
@@ -397,7 +439,6 @@
     <message>
         <source>Hotspot</source>
         <translation>Punto de acceso</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
         <source>Add Settings</source>
@@ -409,7 +450,6 @@
     <message>
         <source>Create Hotspot</source>
         <translation>Crear conexión compartida</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -591,29 +631,22 @@
     <message>
         <source>DSL</source>
         <translation>DSL</translation>
-        <extra-child_page_hide>DSL</extra-child_page_hide>
-        <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
         <source>VPN</source>
         <translation>VPN</translation>
-        <extra-child_page_hide>VPN</extra-child_page_hide>
-        <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
         <source>System Proxy</source>
         <translation>Proxy del sistema</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>Application Proxy</source>
         <translation>Proxy de aplicación</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
         <translation>Detalles de red</translation>
-        <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>Network</source>
@@ -642,8 +675,6 @@
     <message>
         <source>Personal Hotspot</source>
         <translation>Compartir conexión personal</translation>
-        <extra-child_page_hide>Personal Hotspot</extra-child_page_hide>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -737,8 +768,6 @@
     <message>
         <source>Create PPPoE Connection</source>
         <translation>Crear conexión PPPoE</translation>
-        <extra-child_page>DSL</extra-child_page>
-        <extra-contents_path>/network/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
         <source>PPP</source>
@@ -764,6 +793,8 @@
     <message>
         <source>Proxy Type</source>
         <translation>Tipo de proxy</translation>
+        <extra-child_page>System Proxy</extra-child_page>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>Manual</source>
@@ -804,6 +835,8 @@
     <message>
         <source>Configuration URL</source>
         <translation>Configurar URL</translation>
+        <extra-child_page>System Proxy</extra-child_page>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
 </context>
 <context>
@@ -953,7 +986,7 @@
     </message>
     <message>
         <source>WPA3 Personal</source>
-        <translation type="unfinished"/>
+        <translation>WPA3 Personal</translation>
     </message>
     <message>
         <source>Security</source>
@@ -1003,7 +1036,7 @@
     </message>
     <message>
         <source>WPA3 Personal</source>
-        <translation type="unfinished"/>
+        <translation>WPA3 Personal</translation>
     </message>
     <message>
         <source>Shared key</source>
@@ -1445,14 +1478,10 @@
     <message>
         <source>Create VPN</source>
         <translation>Crear VPN</translation>
-        <extra-child_page>VPN</extra-child_page>
-        <extra-contents_path>/network/Create VPN</extra-contents_path>
     </message>
     <message>
         <source>Import VPN</source>
         <translation>Importar VPN</translation>
-        <extra-child_page>VPN</extra-child_page>
-        <extra-contents_path>/network/Import VPN</extra-contents_path>
     </message>
     <message>
         <source>Import Error</source>
@@ -1816,8 +1845,6 @@
     <message>
         <source>Add Network Connection</source>
         <translation>Añadir conexión de red</translation>
-        <extra-child_page>Wired Network</extra-child_page>
-        <extra-contents_path>/network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <source>Select Settings</source>
