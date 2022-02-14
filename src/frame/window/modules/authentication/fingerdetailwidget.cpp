@@ -20,6 +20,7 @@ FingerDetailWidget::FingerDetailWidget(QWidget *parent)
     : QWidget(parent)
     , m_model(nullptr)
     , m_fingerWidget(new FingerWidget)
+    , m_disclaimer(nullptr)
 {
 }
 
@@ -44,7 +45,7 @@ void FingerDetailWidget::initFingerUI()
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
 
     //指纹界面操作
-    connect(m_fingerWidget, &FingerWidget::requestAddThumbs, this, &FingerDetailWidget::showAddFingeDialog);
+    connect(m_fingerWidget, &FingerWidget::requestAddThumbs, this, &FingerDetailWidget::showFingeDisclaimer);
     connect(m_fingerWidget, &FingerWidget::requestDeleteFingerItem, this, &FingerDetailWidget::requestDeleteFingerItem);
     connect(m_fingerWidget, &FingerWidget::requestRenameFingerItem, this, &FingerDetailWidget::requestRenameFingerItem);
     connect(m_fingerWidget, &FingerWidget::noticeEnrollCompleted, this, &FingerDetailWidget::noticeEnrollCompleted);
@@ -69,7 +70,7 @@ void FingerDetailWidget::initNotFingerDevice()
     tip->setPalette(pal);
 
     connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
-        this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
+    this, [ = ](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
         Q_UNUSED(themeType);
         pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
 
@@ -112,18 +113,23 @@ void FingerDetailWidget::showDeviceStatus(bool hasDevice)
 
 void FingerDetailWidget::showAddFingeDialog(const QString &name, const QString &thumb)
 {
-    AddFingeDialog *dlg = new AddFingeDialog(thumb);
-    connect(dlg, &AddFingeDialog::requestEnrollThumb, this, [=] {
+    AddFingeDialog *dlg = new AddFingeDialog(thumb, (DAbstractDialog*)this);
+    connect(dlg, &AddFingeDialog::requestEnrollThumb, this, [ = ] {
         dlg->deleteLater();
         showAddFingeDialog(name, thumb);
     });
     connect(dlg, &AddFingeDialog::requestStopEnroll, this, &FingerDetailWidget::requestStopEnroll);
-    connect(dlg, &AddFingeDialog::requesetCloseDlg, dlg, [=](const QString &userName) {
+    connect(dlg, &AddFingeDialog::requesetCloseDlg, dlg, [ = ](const QString & userName) {
         Q_EMIT noticeEnrollCompleted(userName);
+        if (m_disclaimer != nullptr) {
+            m_disclaimer->close();
+            delete m_disclaimer;
+            m_disclaimer = nullptr;
+        }
         dlg->deleteLater();
     });
 
-    connect(m_model, &FingerModel::enrollResult, dlg, [=] (FingerModel::EnrollResult res) {
+    connect(m_model, &FingerModel::enrollResult, dlg, [ = ](FingerModel::EnrollResult res) {
         // 第一次tryEnroll进入时显示添加指纹对话框
         if (res == FingerModel::Enroll_Success) {
             m_model->resetProgress();
@@ -136,6 +142,11 @@ void FingerDetailWidget::showAddFingeDialog(const QString &name, const QString &
         } else if (res == FingerModel::Enroll_Failed) {
             qDebug() << "FingerModel::Enroll_Failed";
             Q_EMIT requestStopEnroll(name);
+            if (m_disclaimer != nullptr) {
+                m_disclaimer->close();
+                delete m_disclaimer;
+                m_disclaimer = nullptr;
+            }
             dlg->deleteLater();
         } else if (res == FingerModel::Enroll_AuthFailed) {
             qDebug() << "FingerModel::Enroll_AuthFailed";
@@ -155,4 +166,26 @@ void FingerDetailWidget::setFingerModel(FingerModel *model)
     m_fingerWidget->setFingerModel(model);
     connect(model, &FingerModel::vaildChanged, this, &FingerDetailWidget::showDeviceStatus);
     showDeviceStatus(model->isVaild());
+}
+
+void FingerDetailWidget::showFingeDisclaimer(const QString &name, const QString &thumb)
+{
+    if (m_disclaimer != nullptr) {
+        return;
+    }
+    m_disclaimer = new FingerDisclaimer(this);
+    m_disclaimer->setVisible(true);
+
+    connect(m_disclaimer, &FingerDisclaimer::requestShowFingeInfoDialog, this, [ = ] {
+        m_disclaimer->setVisible(false);
+        showAddFingeDialog(name, thumb);
+    });
+
+    connect(m_disclaimer, &FingerDisclaimer::requesetCloseDlg, this, [ = ] {
+        if (m_disclaimer != nullptr)
+        {
+            delete m_disclaimer;
+            m_disclaimer = nullptr;
+        }
+    });
 }

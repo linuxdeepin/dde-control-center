@@ -22,7 +22,7 @@ class DisclaimersItem : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
 public:
-    explicit DisclaimersItem(QWidget *parent = nullptr);
+    explicit DisclaimersItem(DisclaimersObj disobj, QWidget *parent = nullptr);
 
 public Q_SLOTS:
     void showDisclaimers();
@@ -34,8 +34,9 @@ Q_SIGNALS:
 
 private:
     QHBoxLayout *m_layout;
-    QCheckBox* m_acceptCheck;
-    DTK_WIDGET_NAMESPACE::DCommandLinkButton* m_disclaimersBtn; // 免责声明按钮
+    QCheckBox *m_acceptCheck;
+    DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_disclaimersBtn; // 免责声明按钮
+    DisclaimersObj m_state;
 };
 
 }

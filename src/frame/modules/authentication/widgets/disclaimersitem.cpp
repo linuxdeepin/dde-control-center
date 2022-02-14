@@ -17,10 +17,11 @@ using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::authentication;
 
-DisclaimersItem::DisclaimersItem(QWidget *parent)
+DisclaimersItem::DisclaimersItem(DisclaimersObj disobj, QWidget *parent)
     : SettingsItem(parent)
     , m_layout(new QHBoxLayout(this))
     , m_acceptCheck(new QCheckBox(this))
+    , m_state(disobj)
 {
     m_acceptCheck->setText(tr("I have read and agree to the"));
 
@@ -49,7 +50,7 @@ void DisclaimersItem::setAcceptState(const bool &state)
 
 void DisclaimersItem::showDisclaimers()
 {
-    DisclaimersDialog *disdlg = new dcc::authentication::DisclaimersDialog(DisclaimersObj::Faceid);
+    DisclaimersDialog *disdlg = new dcc::authentication::DisclaimersDialog(m_state);
     connect(disdlg, &DisclaimersDialog::requestClickStatus, this, &DisclaimersItem::setAcceptState);
     connect(disdlg, &DisclaimersDialog::requesetCloseDlg, this, &DisclaimersItem::requestSetWindowEnabled);
     disdlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);

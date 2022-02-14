@@ -40,6 +40,7 @@ namespace authentication {
 enum DisclaimersObj {
     Faceid,
     Iris,
+    Finge
 };
 
 // 免责声明对话框

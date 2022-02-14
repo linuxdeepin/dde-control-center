@@ -41,7 +41,7 @@ AddIrisInfoDialog::AddIrisInfoDialog(CharaMangerModel *model, QWidget *parent)
     , m_irisInfo(new IrisInfoWidget(this))
     , m_resultTips(new QLabel(this))
     , m_explainTips(new QLabel(this))
-    , m_disclaimersItem(new DisclaimersItem(this))
+    , m_disclaimersItem(new DisclaimersItem(DisclaimersObj::Faceid, this))
     , m_cancelBtn(new QPushButton(this))
     , m_acceptBtn(new DSuggestButton(this))
 {

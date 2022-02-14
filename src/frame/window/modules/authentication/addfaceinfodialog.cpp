@@ -100,7 +100,7 @@ void AddFaceInfoDialog::initWidget()
     tips->setContentsMargins(42, 10, 42, 10);
 
     // 免责声明
-    m_disclaimersItem = new DisclaimersItem(this);
+    m_disclaimersItem = new DisclaimersItem(DisclaimersObj::Faceid, this);
     m_disclaimersItem->show();
 
     // 下方按钮
