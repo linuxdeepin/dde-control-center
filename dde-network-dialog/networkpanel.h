@@ -68,7 +68,6 @@ protected:
 private:
     void setControlBackground();
     void initUi();
-    void initConnection();
     void updateItems();
     bool deviceEnabled(const DeviceType &deviceType) const;
     void setDeviceEnabled(const DeviceType &deviceType, bool enabeld);
@@ -79,6 +78,7 @@ private:
     NetItem *selectItem();
 
 private Q_SLOTS:
+    void initConnection();
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
     void onUpdatePlugView();
     void onEnabledClicked(const QModelIndex &index, const bool enabled);

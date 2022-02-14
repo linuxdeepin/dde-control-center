@@ -61,14 +61,19 @@ NetworkPanel::NetworkPanel(QObject *parent)
     , m_updateTimer(new QTimer(this))
 {
     initUi();
-    initConnection();
+    if (NetworkController::instance()->devices().isEmpty()) {
+        // 收到activeConnectionChange信号时数据才全准备好
+        connect(NetworkController::instance(), &NetworkController::activeConnectionChange, this, &NetworkPanel::initConnection);
+    } else {
+        initConnection();
+    }
 }
 
 NetworkPanel::~NetworkPanel()
 {
     NetItem *oldSelectItem = selectItem();
-    if(oldSelectItem) {
-        WirelessItem *item = static_cast<WirelessItem*>(oldSelectItem);
+    if (oldSelectItem) {
+        WirelessItem *item = static_cast<WirelessItem *>(oldSelectItem);
         item->onCancel();
     }
 }
@@ -149,6 +154,7 @@ void NetworkPanel::initConnection()
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &NetworkPanel::onUpdatePlugView);
 
     // 连接信号
+    disconnect(NetworkController::instance(), nullptr, this, nullptr);
     NetworkController *networkController = NetworkController::instance();
     connect(networkController, &NetworkController::deviceAdded, this, &NetworkPanel::onDeviceAdded);
     connect(networkController, &NetworkController::deviceRemoved, this, &NetworkPanel::onUpdatePlugView);
@@ -199,7 +205,7 @@ void NetworkPanel::onEnabledClicked(const QModelIndex &index, const bool enabled
         break;
     }
     case NetItemType::WiredControllViewItem:
-    case NetItemType::WirelessControllViewItem:{
+    case NetItemType::WirelessControllViewItem: {
         NetworkDeviceBase *device = index.data(DeviceDataRole).value<NetworkDeviceBase *>();
         if (device && device->isEnabled() != enabled)
             device->setEnabled(enabled);
@@ -427,7 +433,6 @@ void NetworkPanel::updateItems()
 void NetworkPanel::updateView()
 {
     updateItems();
-    //updateSize();
     refreshItems();
     passwordError(QString(), QString());
     if (m_items.isEmpty()) {
@@ -488,6 +493,9 @@ void NetworkPanel::refreshItems()
     m_netListView->setFixedSize(PANELWIDTH, totalHeight);
     m_centerWidget->setFixedSize(PANELWIDTH, totalHeight);
     m_applet->setFixedSize(PANELWIDTH, height);
+    if (height > 0)
+        m_applet->setObjectName("NetworkApplet");
+
     m_netListView->update();
 }
 
@@ -884,7 +892,8 @@ void NetworkDelegate::drawCheck(QPainter *painter, QRect &rect, QPen &pen, int r
     QPointF points[3] = {
         QPointF(rect.left() + radius / 100.0 * 32, rect.top() + radius / 100.0 * 57),
         QPointF(rect.left() + radius / 100.0 * 45, rect.top() + radius / 100.0 * 70),
-        QPointF(rect.left() + radius / 100.0 * 75, rect.top() + radius / 100.0 * 35)};
+        QPointF(rect.left() + radius / 100.0 * 75, rect.top() + radius / 100.0 * 35)
+    };
 
     painter->drawPolyline(points, 3);
 }
@@ -897,13 +906,15 @@ void NetworkDelegate::drawFork(QPainter *painter, QRect &rect, QPen &pen, int ra
 
     QPointF pointsl[2] = {
         QPointF(rect.left() + radius / 100.0 * 35, rect.top() + radius / 100.0 * 35),
-        QPointF(rect.left() + radius / 100.0 * 65, rect.top() + radius / 100.0 * 65)};
+        QPointF(rect.left() + radius / 100.0 * 65, rect.top() + radius / 100.0 * 65)
+    };
 
     painter->drawPolyline(pointsl, 2);
 
     QPointF pointsr[2] = {
         QPointF(rect.left() + radius / 100.0 * 65, rect.top() + radius / 100.0 * 35),
-        QPointF(rect.left() + radius / 100.0 * 35, rect.top() + radius / 100.0 * 65)};
+        QPointF(rect.left() + radius / 100.0 * 35, rect.top() + radius / 100.0 * 65)
+    };
 
     painter->drawPolyline(pointsr, 2);
 }
@@ -958,13 +969,14 @@ bool NetworkDelegate::switchIsEnabled(const QModelIndex &index) const
         return false;
     }
     case NetItemType::WiredControllViewItem:
-    case NetItemType::WirelessControllViewItem:{
+    case NetItemType::WirelessControllViewItem: {
         NetworkDeviceBase *device = index.data(NetItemRole::DeviceDataRole).value<NetworkDeviceBase *>();
         if (device)
             return device->isEnabled();
         break;
     }
-    default: break;
+    default:
+        break;
     }
     return false;
 }
@@ -1054,7 +1066,7 @@ bool NetworkDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
             // 以下三种情况可以点击按钮
             // 1: 飞行模式关闭 2: 当前是有线网卡 3: 当前是有线网卡总控
             if (!m_airplaneMode->enabled() || itemType == NetItemType::WiredControllViewItem
-                    || (itemType == NetItemType::DeviceControllViewItem && index.data(NetItemRole::DeviceTypeRole).value<DeviceType>() == DeviceType::Wired)) {
+                || (itemType == NetItemType::DeviceControllViewItem && index.data(NetItemRole::DeviceTypeRole).value<DeviceType>() == DeviceType::Wired)) {
                 QRect rctSwitch(option.rect.width() - SWITCH_WIDTH - 10,
                                 option.rect.top() + (option.rect.height() - SWITCH_HEIGHT) / 2,
                                 SWITCH_WIDTH, SWITCH_HEIGHT);

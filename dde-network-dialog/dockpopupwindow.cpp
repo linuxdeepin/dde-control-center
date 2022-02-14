@@ -41,7 +41,6 @@ DockPopupWindow::DockPopupWindow(QWidget *parent)
     : DArrowRectangle(ArrowBottom, parent)
     , m_model(false)
     , m_regionInter(new DRegionMonitor(this))
-    , m_showTimer(nullptr)
 {
     setProperty("_d_radius_force", true); // 无特效模式时，让窗口圆角
     setMargin(0);
@@ -83,6 +82,9 @@ void DockPopupWindow::setContent(QWidget *content)
     if (!content->objectName().trimmed().isEmpty())
         setAccessibleName(content->objectName() + "-popup");
 
+    connect(content,&QObject::objectNameChanged, this, [ this ] {
+        show(m_lastPoint, m_model);
+    });
     DArrowRectangle::setContent(content);
 }
 
@@ -107,19 +109,7 @@ void DockPopupWindow::show(const int x, const int y)
     // 无数据时不显示
     if (0 == getContent()->height()) {
         hide();
-        if (!m_showTimer) {
-            m_showTimer = new QTimer(this);
-            m_showTimer->setSingleShot(true);
-            connect(m_showTimer, &QTimer::timeout, this, [ this ] {
-                show(m_lastPoint, m_model);
-            });
-            m_showTimer->start(500);
-        }
     } else {
-        if (m_showTimer) {
-            m_showTimer->deleteLater();
-            m_showTimer = nullptr;
-        }
         DArrowRectangle::show(x, y);
         activateWindow(); //在显示窗口后激活此窗口
     }
