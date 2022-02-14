@@ -214,6 +214,7 @@ void CommonInfoWork::setEnableTheme(bool value)
         if (w->isError()) {
             Q_EMIT m_commomModel->themeEnabledChanged(m_commomModel->themeEnabled());
         }
+        onBackgroundChanged();
 
         w->deleteLater();
     });
