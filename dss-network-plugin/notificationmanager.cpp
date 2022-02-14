@@ -51,7 +51,9 @@ BubbleManager *NotificationManager::BubbleManagerinstance()
 }
 uint NotificationManager::Notify(const QString &icon, const QString &body)
 {
-    return BubbleManagerinstance()->Notify("dde-control-center", 0, icon, "", body);
+    static uint replacesId = 0;
+    replacesId = BubbleManagerinstance()->Notify("dde-control-center", replacesId, icon, "", body);
+    return replacesId;
 }
 
 uint NotificationManager::NetworkNotify(NetworkNotifyType type, const QString &name)

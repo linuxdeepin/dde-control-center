@@ -63,6 +63,16 @@ static const int ExpandAnimationTime = 100;
 static const int BubbleWindowHeight = 60;       // 窗口模式下气泡的高度
 static const int MaxBubbleButtonWidth = 180;    // 窗口模式下气泡按钮的最大宽度
 static const int BubbleStartPos = -(BubbleWindowHeight + ScreenPadding);  // 窗口模式下气泡起始Y位置
+static const int BubbleItemHeight = 90;         // 通知中心气泡默认高度
+static const int BubbleItemTitleHeight = 37;    // 通知中心气泡的标题高度
+static const int BubbleItemBodyHeight = BubbleItemHeight - BubbleItemTitleHeight;     // 通知中心气泡的内容默认高度
+static const int BubbleItemWidth = 380;         // 通知中心气泡默认宽度
+static const int BubbleAppBodyPaddingTop = 10;         // 通知气泡app body顶部间隔
+static const int BubbleAppBodyPaddingBottom = 10;     // 通知气泡app body低部间隔
+static const int BubbleAppBodyVerticalPadding = BubbleAppBodyPaddingTop + BubbleAppBodyPaddingBottom;     // 通知气泡app body上下间隔之和
+static const int BubbleTitleHeight = 50;        // 通知中心App名称默认高度
+static const int BubbleTitleWidth = 380;        // 通知中心App名称默认宽度
+
 static const QStringList Directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
 static const QString CachePath = Directory.first() + "/.cache/deepin/deepin-notifications/";
 

@@ -76,13 +76,13 @@ public Q_SLOTS:
     void setFixedGeometry(QRect rect);
 
 protected:
-    virtual void mousePressEvent(QMouseEvent *) Q_DECL_OVERRIDE;
-    virtual void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    virtual bool eventFilter(QObject *obj, QEvent *event) Q_DECL_OVERRIDE;
-    virtual void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
-    virtual void hideEvent(QHideEvent *event) Q_DECL_OVERRIDE;
-    virtual void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
-    virtual void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
+    virtual void mousePressEvent(QMouseEvent *) override;
+    virtual void mouseReleaseEvent(QMouseEvent *event) override;
+    virtual bool eventFilter(QObject *obj, QEvent *event) override;
+    virtual void showEvent(QShowEvent *event) override;
+    virtual void hideEvent(QHideEvent *event) override;
+    virtual void enterEvent(QEvent *event) override;
+    virtual void leaveEvent(QEvent *event) override;
 
 private Q_SLOTS:
     void onOutTimerTimeout();

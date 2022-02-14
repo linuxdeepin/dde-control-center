@@ -119,15 +119,15 @@ uint BubbleManager::Notify(const QString &appName, uint replacesId,
     EntityPtr notification = std::make_shared<NotificationEntity>(appName, QString(), appIcon,
                                                                   summary, strBody);
     notification->setTime(QString::number(QDateTime::currentMSecsSinceEpoch()));
-    notification->setReplacesId("0");
+    notification->setReplacesId(QString::number(replacesId));
     notification->setTimeout("-1");
 
     bool enablePreview = true;
 
     notification->setShowPreview(enablePreview);
     notification->setShowInNotifyCenter(false);
-    calcReplaceId(notification);
-    pushBubble(notification);
+    if (!calcReplaceId(notification))
+        pushBubble(notification);
 
     // If replaces_id is 0, the return value is a UINT32 that represent the notification.
     // If replaces_id is not 0, the returned value is the same value as replaces_id.
@@ -140,6 +140,8 @@ void BubbleManager::pushBubble(EntityPtr notify)
         return;
 
     Bubble *bubble = createBubble(notify);
+    if (!bubble)
+        return;
 
     if (m_bubbleList.size() == BubbleEntities + BubbleOverLap) {
         m_oldEntities.push_front(m_bubbleList.last()->entity());
@@ -165,7 +167,8 @@ void BubbleManager::refreshBubble()
     if (m_bubbleList.size() < BubbleEntities + BubbleOverLap + 1 && !m_oldEntities.isEmpty()) {
         auto notify = m_oldEntities.takeFirst();
         Bubble *bubble = createBubble(notify, BubbleEntities + BubbleOverLap - 1);
-        m_bubbleList.push_back(bubble);
+        if (bubble)
+            m_bubbleList.push_back(bubble);
     }
 }
 
@@ -199,12 +202,13 @@ void BubbleManager::popAnimation(Bubble *bubble)
     QRect startRect = getBubbleGeometry(index);
     QRect endRect = getBubbleGeometry(0);
 
-    bubble->startMove(startRect, endRect, true);// delete itself
+    if (bubble)
+        bubble->startMove(startRect, endRect, true); // delete itself
 
     while (index < m_bubbleList.size() - 1) {
         index ++;
-        QRect startRect = getBubbleGeometry(index);
-        QRect endRect = getBubbleGeometry(index - 1);
+        startRect = getBubbleGeometry(index);
+        endRect = getBubbleGeometry(index - 1);
         QPointer<Bubble> item = m_bubbleList.at(index);
         if (index == BubbleEntities + BubbleOverLap) {
             item->show();
@@ -233,14 +237,7 @@ QRect BubbleManager::getBubbleGeometry(int index)
 
     QRect rect;
     if (index >= 0 && index <= BubbleEntities - 1) {
-        int y = 0;
-        if (m_dockPos == OSD::Top) {
-            if (m_dockMode == OSD::DockModel::Fashion) {
-                y = m_currentDisplayRect.y() + m_currentDockRect.height() + OSD::DockMargin * 2;
-            } else {
-                y = m_currentDisplayRect.y() + m_currentDockRect.height();
-            }
-        }
+        int y = (m_dockPos == OSD::Top ? m_currentDockRect.bottom() : m_currentDisplayRect.y()); // 多屏时屏幕设置为上下错位，主屏的top可能不是0
         rect.setX(m_currentDisplayRect.x() + (m_currentDisplayRect.width() - OSD::BubbleWidth(OSD::BUBBLEWINDOW)) / 2);
         rect.setY(y + ScreenPadding + index * BubbleMargin + getBubbleHeightBefore(index));
         rect.setWidth(OSD::BubbleWidth(OSD::BUBBLEWINDOW));
@@ -381,15 +378,6 @@ void BubbleManager::initConnections()
     });
 }
 
-void BubbleManager::onPrepareForSleep(bool sleep)
-{
-    // workaround to avoid the "About to suspend..." notifications still
-    // hanging there on restoring from sleep confusing users.
-    if (!sleep) {
-        qApp->quit();
-    }
-}
-
 void BubbleManager::geometryChanged()
 {
     m_currentDisplayRect = calcDisplayRect();
@@ -409,9 +397,9 @@ bool BubbleManager::calcReplaceId(EntityPtr notify)
             if (bubble->entity()->replacesId() == notify->replacesId()
                     && bubble->entity()->appName() == notify->appName()) {
                 if (i != 0) {
-                    bubble->setEntity(m_bubbleList.at(0)->entity());
+                    bubble->setEntity(m_bubbleList.at(i)->entity());
                 }
-                m_bubbleList.at(0)->setEntity(notify);
+                m_bubbleList.at(i)->setEntity(notify);
                 find = true;
             }
         }
@@ -461,7 +449,7 @@ Bubble *BubbleManager::createBubble(EntityPtr notify, int index)
     } else {
         QRect endRect = getBubbleGeometry(0);
         QRect startRect = endRect;
-        startRect.setHeight(0);
+        startRect.setHeight(1);
 
         bubble->setProperty("geometry",0);
         bubble->show();

@@ -152,7 +152,6 @@ private Q_SLOTS:
      * \~chinese \brief 当屏幕或DOCK栏发生几何变化时,该函数被执行,更新通知中心的几何位置和大小
      */
     void geometryChanged();
-    void onPrepareForSleep(bool);
     /*!
      * \~chinese \name bubbleExpired
      * \~chinese \brief 当气泡超时时发出信号,执行该函数,产生移除动画,动画结束删除通知气泡

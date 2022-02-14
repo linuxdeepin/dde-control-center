@@ -32,17 +32,15 @@ DGUI_USE_NAMESPACE
 
 AppBody::AppBody(QWidget *parent)
     : QFrame(parent)
+    , m_titleLbl(new AppBodyLabel(this))
+    , m_bodyLbl(new AppBodyLabel(this))
     , m_showStyle(OSD::BUBBLEWINDOW)
 {
-    m_titleLbl = new AppBodyLabel;
-    m_bodyLbl = new AppBodyLabel;
-
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->setMargin(0);
-    layout->setSpacing(2);
+    layout->setContentsMargins(0, BubbleAppBodyPaddingTop, 0, BubbleAppBodyPaddingBottom);
+    layout->setSpacing(0);
     layout->addStretch();
     layout->addWidget(m_titleLbl, 0, Qt::AlignVCenter);
-    layout->addSpacing(4);
     layout->addWidget(m_bodyLbl, 0, Qt::AlignVCenter);
     layout->addStretch();
 
@@ -73,15 +71,16 @@ void AppBody::setStyle(OSD::ShowStyle style)
     refreshTheme();
 }
 
-int AppBody::resizeHintHeight(const int idealHeight)
+int AppBody::bubbleWidgetAppBodyHeight()
 {
-    //当sizeHint大于理想高度时，title和body的内容不得多于一行
-    while (sizeHint().height() > idealHeight) {
-        if (m_titleLbl->resizeHint(1) && m_bodyLbl->resizeHint(1))
-            break;
-    }
+    int titleLabelHeight = QFontMetrics(DFontSizeManager::instance()->t6()).height();
+    int bodyLabelHeight = QFontMetrics(DFontSizeManager::instance()->t7()).height();
+    return titleLabelHeight + bodyLabelHeight + BubbleAppBodyVerticalPadding;
+}
 
-    return qMax(sizeHint().height(), idealHeight);
+int AppBody::bubbleWindowAppBodyHeight()
+{
+    return fontMetrics().height() * 2 + BubbleAppBodyVerticalPadding;
 }
 
 void AppBody::refreshTheme()

@@ -40,13 +40,8 @@ public:
     void setTitle(const QString &title);
     void setText(const QString &text);
     void setStyle(OSD::ShowStyle style);
-
-    /**
-     * @brief AppBody::resizeHintHeight 重新计算高度，直到title和body的达到最小行数或者高度不大于设定的理想值
-     * @param idealHeight 理想高度
-     * @return 最终高度（idealHeight和sizeHint取较大值）
-     */
-    int resizeHintHeight(const int idealHeight);
+    static int bubbleWidgetAppBodyHeight();
+    int bubbleWindowAppBodyHeight();
 
 private:
     void refreshTheme();

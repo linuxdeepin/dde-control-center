@@ -130,6 +130,7 @@ void Bubble::mouseReleaseEvent(QMouseEvent *event)
 
     if (m_pressed && m_clickPos == event->pos()) {
         if (!m_defaultAction.isEmpty()) {
+            BubbleTool::actionInvoke(m_defaultAction, m_entity);
             Q_EMIT actionInvoked(this, m_defaultAction);
             m_defaultAction.clear();
         }
@@ -239,7 +240,7 @@ void Bubble::initUI()
 
     QHBoxLayout *layout = new QHBoxLayout;
     layout->setSpacing(BubbleSpacing);
-    layout->setMargin(BubblePadding);
+    layout->setContentsMargins(BubblePadding, 0, BubblePadding, 0);
     layout->addWidget(m_icon);
     layout->addWidget(m_body);
     layout->addWidget(m_actionButton);
@@ -285,7 +286,7 @@ void Bubble::updateContent()
         m_canClose = !m_entity->actions().isEmpty();
     }
 
-    setFixedHeight(m_body->resizeHintHeight(BubbleWindowHeight));
+    setFixedHeight(qMax(m_body->bubbleWindowAppBodyHeight(), BubbleWindowHeight));
 
     BubbleTool::processIconData(m_icon, m_entity);
 }
@@ -297,9 +298,9 @@ bool Bubble::containsMouse() const
 
 void Bubble::startMove(const QRect &startRect, const QRect &endRect, bool needDelete)
 {
-    QParallelAnimationGroup *group = new QParallelAnimationGroup(this);
+    QPointer<QParallelAnimationGroup> group = new QParallelAnimationGroup(this);
 
-    QPropertyAnimation *geometryAni = new QPropertyAnimation(this, "geometry", group);
+    QPropertyAnimation *geometryAni = new QPropertyAnimation(this, "geometry", this);
     geometryAni->setStartValue(startRect);
     geometryAni->setEndValue(endRect);
     geometryAni->setEasingCurve(QEasingCurve::Linear);
@@ -312,7 +313,7 @@ void Bubble::startMove(const QRect &startRect, const QRect &endRect, bool needDe
     group->addAnimation(geometryAni);
     // 需要删除时增加透明渐变效果
     if (needDelete) {
-        QPropertyAnimation *opacityAni = new QPropertyAnimation(this, "windowOpacity", group);
+        QPropertyAnimation *opacityAni = new QPropertyAnimation(this, "windowOpacity", this);
         opacityAni->setStartValue(1);
         opacityAni->setEndValue(0);
         opacityAni->setDuration(animationTime + int(-BubbleStartPos * 1.0 / 72 * AnimationTime));
@@ -321,22 +322,23 @@ void Bubble::startMove(const QRect &startRect, const QRect &endRect, bool needDe
 
     // 当需要更新位置，停止动画，直接刷新最终位置
     if (!needDelete) {
-        connect(this, &Bubble::resetGeometry, this, [&] {
-            group->stop();
-            setFixedGeometry(endRect);
+        connect(this, &Bubble::resetGeometry, this, [group, this] {
+            if (!group.isNull())
+                group->stop();
+            // 当接收到该信号，则表示已经geometry已经更新，直接使用即可
+            setFixedGeometry(geometry());
         });
     }
 
-    group->start(QAbstractAnimation::DeleteWhenStopped);
-
-    setEnabled(QSize(endRect.width(), endRect.height()) == OSD::BubbleSize(OSD::BUBBLEWINDOW));
-
     if (needDelete) {
-        QTimer::singleShot(group->duration(), this, [ = ] {
+        connect(group, &QParallelAnimationGroup::finished, this, [ this ] {
             hide();
             close();
         });
     }
+
+    setEnabled(QSize(endRect.width(), endRect.height()) == OSD::BubbleSize(OSD::BUBBLEWINDOW));
+    group->start(QAbstractAnimation::DeleteWhenStopped);
 }
 
 void Bubble::setBubbleIndex(int index)

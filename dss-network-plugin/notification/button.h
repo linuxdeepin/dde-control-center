@@ -58,8 +58,8 @@ private:
     const Qt::Alignment textAlignment() {return m_align;}
     void setTextAlignment(Qt::Alignment align);
 
-    virtual QSize sizeHint() const Q_DECL_OVERRIDE;
-    virtual QSize minimumSizeHint() const Q_DECL_OVERRIDE;
+    virtual QSize sizeHint() const override;
+    virtual QSize minimumSizeHint() const override;
 
 Q_SIGNALS:
     void clicked(bool checked = false);
@@ -76,9 +76,9 @@ private:
     void drawContent(QPainter *painter);
 
 protected:
-    virtual void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    virtual void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    virtual void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    virtual void mousePressEvent(QMouseEvent *event) override;
+    virtual void mouseReleaseEvent(QMouseEvent *event) override;
+    virtual void paintEvent(QPaintEvent *event) override;
 };
 
 /*!
@@ -94,16 +94,16 @@ class ButtonMenu : public DWidget
 private:
     explicit ButtonMenu(QWidget *parent = nullptr);
 
-    virtual QSize sizeHint() const Q_DECL_OVERRIDE;
-    virtual QSize minimumSizeHint() const Q_DECL_OVERRIDE;
+    virtual QSize sizeHint() const override;
+    virtual QSize minimumSizeHint() const override;
 
 Q_SIGNALS:
     void clicked();
 
 protected:
-    virtual void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    virtual void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
-    virtual void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    virtual void mousePressEvent(QMouseEvent *event) override;
+    virtual void mouseReleaseEvent(QMouseEvent *event) override;
+    virtual void paintEvent(QPaintEvent *event) override;
 };
 
 /*!
@@ -138,8 +138,8 @@ public:
     bool boverState() const {return m_hover;}
     void setHoverState(bool state);
 
-    virtual QSize sizeHint() const Q_DECL_OVERRIDE;
-    virtual QSize minimumSizeHint() const Q_DECL_OVERRIDE;
+    virtual QSize sizeHint() const override;
+    virtual QSize minimumSizeHint() const override;
 
 Q_SIGNALS:
     void clicked(bool checked = false);
@@ -160,10 +160,10 @@ private:
     void drawBackground(QPainter *painter);
 
 protected:
-    virtual void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
-    virtual void enterEvent(QEvent *event) Q_DECL_OVERRIDE;
-    virtual void leaveEvent(QEvent *event) Q_DECL_OVERRIDE;
-    virtual void focusInEvent(QFocusEvent *event) Q_DECL_OVERRIDE;          //当焦点移入或移出时背景发生变化
-    virtual void focusOutEvent(QFocusEvent *event) Q_DECL_OVERRIDE;
+    virtual void paintEvent(QPaintEvent *event) override;
+    virtual void enterEvent(QEvent *event) override;
+    virtual void leaveEvent(QEvent *event) override;
+    virtual void focusInEvent(QFocusEvent *event) override;          //当焦点移入或移出时背景发生变化
+    virtual void focusOutEvent(QFocusEvent *event) override;
 };
 #endif // BUTTON_H

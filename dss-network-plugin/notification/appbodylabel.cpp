@@ -45,13 +45,7 @@ void AppBodyLabel::setText(const QString &text)
 #endif
 
     m_text = text;
-    int oldLineCount = m_lineCount;
-
     updateLineCount();
-
-    if (oldLineCount != m_lineCount)
-        updateGeometry();
-
     update();
 }
 
@@ -128,15 +122,6 @@ QSize AppBodyLabel::minimumSizeHint() const
 void AppBodyLabel::setAlignment(Qt::Alignment alignment)
 {
     m_alignment = alignment;
-}
-
-bool AppBodyLabel::resizeHint(int minLineCount)
-{
-    if (m_lineCount > minLineCount) {
-        m_lineCount--;
-        updateGeometry();
-    }
-    return minLineCount >= m_lineCount;
 }
 
 const QString AppBodyLabel::holdTextInRect(const QFontMetrics &fm, const QString &text, const QRect &rect) const
