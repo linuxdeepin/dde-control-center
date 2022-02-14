@@ -76,7 +76,7 @@ void ModifyPasswdPage::initWidget()
     mainContentLayout->addWidget(titleLabel, 0, Qt::AlignHCenter);
     if (!m_isCurrent) {
         titleLabel->setText(tr("Reset Password"));
-        QLabel *label = new QLabel(tr("Resetting passwords do not change the login keyring. You can install seahorse to manage it."));
+        QLabel *label = new QLabel(tr("Resetting the password will clear the data stored in the keyring."));
         label->setWordWrap(true);
         mainContentLayout->addWidget(label, 0, Qt::AlignHCenter);
     }

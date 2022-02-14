@@ -436,8 +436,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
-        <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
-        <translation>پارولنى قايتا بەلگىلىسىڭىز «كىرىش» مەخپىي ئاچقۇچ ھالقىڭىزنىڭ پارولىنى قايتا بەلگىمىلەيدۇ، seahorse قاچىلاپ باشقۇرۇشقا بولىدۇ.</translation>
+        <source>Resetting the password will clear the data stored in the keyring.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
@@ -450,94 +450,94 @@
         <translation>پارول  قايتۇرۇش </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="101"/>
         <source>New Password</source>
         <translation>يىڭى پارول</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="110"/>
         <source>Repeat Password</source>
         <translation>پارولنى تەكرارلاڭ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="115"/>
         <source>Password Hint</source>
         <translation>پارول ئەسكەرتىشى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="317"/>
         <source>Cancel</source>
         <translation>بىكار قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
         <source>Save</source>
         <translation>ساقلاش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="202"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="209"/>
         <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>كۈچلۈك مەخپىي نومۇر ئۇسۇلىنى ئىشلىتىشنى تەۋسىيە قىلىمىز، سەككىز ھەرپتىن ئاشقان، تۆت خىل ھەرپ بەلگىلەردىن ئۈچىنى كىرگۈزسەك بولىدۇ، چوڭ-كىچىك يىزىش  ۋە ھەرپ-بەلگە بولسا بولىدۇ،مەسىلەن:Parol@123+</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="212"/>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>تەكشۈرەلمىدى،تورىڭىزنى تەكشۈرۈڭ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="295"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="365"/>
         <source>Passwords do not match</source>
         <translation>پارول ماس كەلمىدى</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="223"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="225"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="227"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="229"/>
         <source>Required</source>
         <translation>زۆرۈر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="229"/>
         <source>Optional</source>
         <translation>ئىختىيارىي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="243"/>
         <source>Password cannot be empty</source>
         <translation>پارول قۇرۇق قالسا بولمايدۇ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="372"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>پارول ئەسكەرتىشىنى ھەممە ئادەم كۆرەلەيدۇ، كونكرېت پارول ئۇچۇرلىرىنى كىرگۈزمەڭ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="280"/>
         <source>Wrong password</source>
         <translation>خاتا پارول</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="286"/>
         <source>New password should differ from the current one</source>
         <translation>يىڭى پارولىڭىز باشقا پاروللار بىلەن ئوخشاش بولمىسۇن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="316"/>
         <source>Go to Settings</source>
         <translation>تەڭشەكلەرگە بېرىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="449"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="460"/>
         <source>System error</source>
         <translation>سىستېما خاتالىقى </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="462"/>
         <source>Network error</source>
         <translation>تور خاتالىقى </translation>
     </message>
@@ -1009,113 +1009,113 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="106"/>
         <source>Updating...</source>
         <translation>يېڭىلاۋاتىدۇ...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="120"/>
         <source>Startup Delay</source>
         <translation>قوزغىلىشنى ساقلاش</translation>
         <extra-child_page>Boot Menu</extra-child_page>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="125"/>
         <source>Theme</source>
         <translation>ئۇسلۇب</translation>
         <extra-child_page>Boot Menu</extra-child_page>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="128"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>قوزغىتىش تىزىملىكىدىكى تاللاشنى چېكىپ ئۇنى تۇنجى قوزغىتىش قىلىپ تەڭشەڭ ، رەسىمنى سۆرەپ تاشلاپ تەگلىكنى ئۆزگەرتىڭ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="129"/>
         <source>Click the option in boot menu to set it as the first boot</source>
         <translation>تىزىملىكنى چېكىپ ئۇنىڭ قوزغىلىش تۈرىنى ئۆزگەرتەلەيسىز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="138"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>باشتېمىنى قوزغىتىپ ئۇنى قوزغىتىش تىزىملىكىدە كۆرۈش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="164"/>
         <source>GRUB Authentication</source>
         <translation>grubدەلىللەش</translation>
         <extra-child_page>Boot Menu</extra-child_page>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="169"/>
         <source>GRUB password is required to edit its configuration</source>
         <translation>ئاچقاندىن كېيىن grub غا كىرىپ تەھرىرلەش ئۈچۈن مەخپىي نومۇر كېتىدۇ. </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="176"/>
         <source>Change Password</source>
         <translation>قايتا پارول تەكشەش </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="182"/>
         <source>Boot Menu</source>
         <translation>قوزغىلىش تىزىملىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="391"/>
         <source>Change GRUB password</source>
         <translation>GRUP پارولىنى  ئۆزگەرتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="396"/>
         <source>Username:</source>
         <translation>ئىشلەتكۈچى نامى:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="397"/>
         <source>root</source>
         <translation>ROOT</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="398"/>
         <source>New password:</source>
         <translation>يېڭى پارول:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="389"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="399"/>
         <source>Repeat password:</source>
         <translation>پارولنى يەنە كىرگۈزۈڭ :</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="392"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
         <source>Required</source>
         <translation>زۆرۈر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="417"/>
         <source>Cancel</source>
         <comment>button</comment>
         <translation>بىكار قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="418"/>
         <source>Confirm</source>
         <comment>button</comment>
         <translation> جەزىملەشتۈرۈش </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="418"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="428"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="458"/>
         <source>Password cannot be empty</source>
         <translation>پارول قۇرۇق قالسا بولمايدۇ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="431"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="461"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="441"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="471"/>
         <source>Passwords do not match</source>
         <translation>پارول بىردەك ئەمەس</translation>
     </message>
@@ -1128,45 +1128,45 @@
         <translation>ئادەتتىكى تەڭشەكلەر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="232"/>
         <source>Boot Menu</source>
         <translation>قوزغىلىش تىزىملىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="236"/>
         <source>Developer Mode</source>
         <translation>ئاچقۇچى ھالىتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="181"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="238"/>
         <source>User Experience Program</source>
         <translation>ئىشلەتكۈچى تەسىرات پىلانى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="233"/>
         <source>Startup Delay</source>
         <translation>قوزغىلىشنى ساقلاش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="234"/>
         <source>Theme</source>
         <translation>ئۇسلۇب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="235"/>
         <source>GRUB Authentication</source>
         <translation>grubدەلىللەش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="237"/>
         <source>Join User Experience Program</source>
         <translation>ئىشلەتكۈچى تەجرىبە پروگراممىسىغا قوشۇلۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="279"/>
         <source>Request Root Access</source>
         <translation>يىلتىز زىيارەت قىلىشنى تەلەپ قىلىش</translation>
     </message>
@@ -1174,22 +1174,22 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="103"/>
         <source>Boot Menu</source>
         <translation>قوزغىلىش تىزىملىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="109"/>
         <source>Developer Mode</source>
         <translation>ئاچقۇچىلار ھالىتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="112"/>
         <source>User Experience Program</source>
         <translation>ئىشلەتكۈچى تەجرىبە پروگراممىسى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="116"/>
         <source>Tablet Mode</source>
         <translation>تاختا كومپيۇتېر ھالىتى</translation>
     </message>
@@ -4020,102 +4020,97 @@
         <translation>ھېسابات نۇمۇرىغا باغلاش </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="54"/>
         <source>Auto Sync</source>
         <translation>ئاپتوماتىك ماسقەدەملەش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="58"/>
         <source>The feature is not available at present, please activate your system first</source>
         <translation>سىستېما ئاكتىپلانمىغان، بۇ ئىقتىدارنى ئىشلەتكىلى بولمايدۇ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="61"/>
         <source>Syncing...</source>
         <translation>ماس قەدەملەۋاتىدۇ...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="120"/>
         <source>Sign Out</source>
         <translation>چېكىنىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
         <translation>تورنى ماس قەدەملەشنى ئاچسىڭىز WLAN پارولىڭىزنى ماس قەدەملەيدۇ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
         <source>Network Settings</source>
         <translation>تور</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
         <source>Sound Settings</source>
         <translation>ئاۋاز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
         <source>Mouse Settings</source>
         <translation>مائۇس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
         <source>Update Settings</source>
         <translation>يېڭىلانما تەڭشىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Dock</source>
         <translation>ۋەزىپە ئىستونى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Launcher</source>
         <translation>ئۈستەليۈزى قوزغاتقۇچ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
         <source>Wallpaper</source>
         <translation>تەگلىك</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
         <source>Theme</source>
         <translation>ئۇسلۇب</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
         <source>Power Settings</source>
         <translation>توك مەنبەسى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="347"/>
         <source>Last Sync: %1</source>
         <translation>ئالدىنقى ماس قەدەملىگەن ۋاقىت: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="349"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="381"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="437"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="436"/>
         <source>System error</source>
         <translation>سىستېما خاتالىقى </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="383"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="439"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="438"/>
         <source>Network error</source>
         <translation>تور خاتالىقى </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="441"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="470"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>تىزىملىتىشنىڭ ۋاقتى ئۆتكەن , Union IDغا قايتىدىن تىزىملىتىڭ </translation>
     </message>
@@ -4175,8 +4170,8 @@
         <translation>Union ID</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="105"/>
-        <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="117"/>
         <source>Sign In</source>
         <translation>كىرىش</translation>
     </message>

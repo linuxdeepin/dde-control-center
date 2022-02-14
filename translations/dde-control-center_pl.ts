@@ -152,7 +152,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="438"/>
         <source>Login Without Password</source>
-        <translation>Zaloguj się bez hasła</translation>
+        <translation>Logowanie bez hasła</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
@@ -215,7 +215,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="310"/>
         <source>Login Without Password</source>
-        <translation>Zaloguj się bez hasła</translation>
+        <translation>Logowanie bez podawania hasła</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="163"/>
@@ -312,7 +312,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="175"/>
         <source>Account Type</source>
-        <translation>Rodzaj konta</translation>
+        <translation>Typ konta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="180"/>
@@ -436,8 +436,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
-        <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
-        <translation>Resetowanie hasła nie zmienia login keyring. Zainstaluj seahorse, by nim zarządzać. </translation>
+        <source>Resetting the password will clear the data stored in the keyring.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
@@ -450,94 +450,94 @@
         <translation>Zapomniałeś hasła?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="101"/>
         <source>New Password</source>
         <translation>Nowe hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="110"/>
         <source>Repeat Password</source>
         <translation>Powtórz hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="115"/>
         <source>Password Hint</source>
         <translation>Wskazówka do hasła</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="317"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
         <source>Save</source>
         <translation>Zapisz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="202"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="209"/>
         <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>Zalecamy użycie silniejszego hasła: dłuższe niż 8 znaków, 3 z czterech typów znaków: o małych literach, wielkich literach, cyfrach i symbolach. </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="212"/>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>Nastąpił błąd podczas wczytywania pliku konfiguracyjnego zawierającego reguły haseł!</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="295"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="365"/>
         <source>Passwords do not match</source>
         <translation>Hasła nie pasują do siebie</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="223"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="225"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="227"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="229"/>
         <source>Required</source>
         <translation>Wymagane</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="229"/>
         <source>Optional</source>
         <translation>Opcjonalne</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="243"/>
         <source>Password cannot be empty</source>
         <translation>Hasło nie może być puste</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="372"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Wskazówka jest widoczna dla wszystkich użytkowników. Nie podawaj tutaj swojego hasła. </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="280"/>
         <source>Wrong password</source>
         <translation>Nieprawidłowe hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="286"/>
         <source>New password should differ from the current one</source>
         <translation>Nowe hasło powinno różnić się od bieżącego</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="316"/>
         <source>Go to Settings</source>
         <translation>Prowadź do ustawień</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="449"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="460"/>
         <source>System error</source>
         <translation>Błąd systemu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="462"/>
         <source>Network error</source>
         <translation>Błąd sieci</translation>
     </message>
@@ -1009,113 +1009,113 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="106"/>
         <source>Updating...</source>
         <translation>Aktualizowanie...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="120"/>
         <source>Startup Delay</source>
         <translation>Opóźnienie uruchamiania</translation>
         <extra-child_page>Boot Menu</extra-child_page>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="125"/>
         <source>Theme</source>
         <translation>Motyw</translation>
         <extra-child_page>Boot Menu</extra-child_page>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="128"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation>Kliknij opcję w menu rozruchu, aby ustawić ją jako pierwszy rozruch, a następnie przeciągnij i upuść obraz, aby zmienić tło</translation>
+        <translation>Kliknij opcję w menu rozruchu, aby ustawić ją jako domyślną, a następnie przeciągnij i upuść obraz, aby zmienić tło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="129"/>
         <source>Click the option in boot menu to set it as the first boot</source>
         <translation>Zaznacz opcję w menu rozruchu aby ustawić jako pierwszy wybór</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="138"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>Włącz motyw, aby wyświetlić go w menu startowym</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="164"/>
         <source>GRUB Authentication</source>
         <translation>Uwierzytelnienie GRUB</translation>
         <extra-child_page>Boot Menu</extra-child_page>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="169"/>
         <source>GRUB password is required to edit its configuration</source>
         <translation>Hasło GRUB jest wymagane, żeby móc edytować jego plik konfiguracyjny</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="176"/>
         <source>Change Password</source>
         <translation>Zmień hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="182"/>
         <source>Boot Menu</source>
         <translation>Menu rozruchu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="391"/>
         <source>Change GRUB password</source>
         <translation>Zmień hasło GRUB</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="396"/>
         <source>Username:</source>
         <translation>Nazwa użytkownika:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="397"/>
         <source>root</source>
         <translation>root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="398"/>
         <source>New password:</source>
         <translation>Nowe hasło:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="389"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="399"/>
         <source>Repeat password:</source>
         <translation>Powtórz hasło:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="392"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
         <source>Required</source>
         <translation>Wymagane</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="417"/>
         <source>Cancel</source>
         <comment>button</comment>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="418"/>
         <source>Confirm</source>
         <comment>button</comment>
         <translation>Potwierdź</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="418"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="428"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="458"/>
         <source>Password cannot be empty</source>
         <translation>Hasło nie może być puste</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="431"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="461"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="441"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="471"/>
         <source>Passwords do not match</source>
         <translation>Hasła nie pasują do siebie</translation>
     </message>
@@ -1128,45 +1128,45 @@
         <translation>Ustawienia Ogólne</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="179"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="232"/>
         <source>Boot Menu</source>
         <translation>Menu rozruchu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="236"/>
         <source>Developer Mode</source>
         <translation>Tryb dewelopera</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="181"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="238"/>
         <source>User Experience Program</source>
         <translation>Program doświadczeń użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="233"/>
         <source>Startup Delay</source>
         <translation>Opóźnienie uruchamiania</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="234"/>
         <source>Theme</source>
         <translation>Motyw</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="235"/>
         <source>GRUB Authentication</source>
         <translation>Uwierzytelnienie GRUB</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="237"/>
         <source>Join User Experience Program</source>
         <translation>Dołącz do programu doświadczeń użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="279"/>
         <source>Request Root Access</source>
         <translation>Poproś o dostęp do katalogu głównego</translation>
     </message>
@@ -1174,22 +1174,22 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="103"/>
         <source>Boot Menu</source>
         <translation>Menu rozruchu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="109"/>
         <source>Developer Mode</source>
         <translation>Tryb dewelopera</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="112"/>
         <source>User Experience Program</source>
         <translation>Program doświadczeń użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="116"/>
         <source>Tablet Mode</source>
         <translation>Tryb tabletu</translation>
     </message>
@@ -1428,7 +1428,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="82"/>
         <source>Auto Sync</source>
-        <translation>Auto synchronizacja</translation>
+        <translation>Automatyczna synchronizacja</translation>
         <extra-child_page>Time Settings</extra-child_page>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
@@ -1588,7 +1588,7 @@
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="279"/>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="328"/>
         <source>Auto Sync</source>
-        <translation>Auto synchronizacja</translation>
+        <translation>Automatyczna synchronizacja</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="280"/>
@@ -1599,7 +1599,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="284"/>
         <source>24-hour Time</source>
-        <translation>24-godzinny czas</translation>
+        <translation>Format 24-godzinny</translation>
     </message>
 </context>
 <context>
@@ -1629,7 +1629,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="101"/>
         <source>24-hour Time</source>
-        <translation>24-godzinny czas</translation>
+        <translation>Format 24-godzinny</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -2398,7 +2398,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="117"/>
         <source>Caps Lock Prompt</source>
-        <translation>Podpowiedź Caps Lock</translation>
+        <translation>Notyfikacja Caps Lock</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
@@ -2474,7 +2474,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="189"/>
         <source>Caps Lock Prompt</source>
-        <translation>Podpowiedź Caps Lock</translation>
+        <translation>Notyfikacja Caps Lock</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="196"/>
@@ -2648,7 +2648,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="51"/>
         <source>Left Hand</source>
-        <translation>Lewa ręka</translation>
+        <translation>Tryb dla leworęcznych</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
@@ -2720,7 +2720,7 @@
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="256"/>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="339"/>
         <source>Left Hand</source>
-        <translation>Lewa ręka</translation>
+        <translation>Tryb dla leworęcznych</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="257"/>
@@ -2743,7 +2743,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="265"/>
         <source>Mouse Acceleration</source>
-        <translation>Przyspieszenie myszki</translation>
+        <translation>Akceleracja myszki</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="266"/>
@@ -2754,7 +2754,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="273"/>
         <source>Tap to Click</source>
-        <translation>Stuknięcie, aby kliknąć</translation>
+        <translation>Klikaj przy użyciu stuknięcia</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="276"/>
@@ -2764,7 +2764,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="277"/>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Wyłącz touchpad, gdy mysz jest podłączona</translation>
+        <translation>Wyłącz touchpad gdy mysz jest podłączona</translation>
     </message>
 </context>
 <context>
@@ -2780,7 +2780,7 @@
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="48"/>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="49"/>
         <source>Mouse Acceleration</source>
-        <translation>Przyspieszenie myszki</translation>
+        <translation>Akceleracja myszki</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
@@ -2851,7 +2851,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="48"/>
         <source>Tap to Click</source>
-        <translation>Stuknięcie, aby kliknąć</translation>
+        <translation>Klikaj przy użyciu stuknięcia</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -3302,7 +3302,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="79"/>
         <source>Auto power saving on low battery</source>
-        <translation>Automatyczne oszczędzanie energii przy niskim poziomie naładowania baterii</translation>
+        <translation>Automatyczne oszczędzanie energii przy niskim poziomie naładowania</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
@@ -3323,14 +3323,14 @@
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="88"/>
         <source>Password is required to wake up the computer</source>
-        <translation>Hasło jest wymagane, aby wybudzić komputer</translation>
+        <translation>Wymagaj hasło po rozbudzeniu komputera</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="91"/>
         <source>Password is required to wake up the monitor</source>
-        <translation>Do wybudzenia monitora wymagane jest hasło</translation>
+        <translation>Wymagaj hasło po rozbudzeniu monitora</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
@@ -3365,7 +3365,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="202"/>
         <source>Wakeup Settings</source>
-        <translation>Ustawienia wybudzenia</translation>
+        <translation>Ustawienia wybudzania</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
@@ -3406,7 +3406,7 @@
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="292"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="357"/>
         <source>Auto power saving on low battery</source>
-        <translation>Automatyczne oszczędzanie energii przy niskim poziomie naładowania baterii</translation>
+        <translation>Automatyczne oszczędzanie energii przy niskim poziomie naładowania</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
@@ -3461,7 +3461,7 @@
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="365"/>
         <source>Auto suspend battery level</source>
-        <translation>Automatyczne zawieszanie poziomu baterii</translation>
+        <translation>Poziom baterii do automatycznego zawieszenia</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
@@ -3474,7 +3474,7 @@
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="328"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="364"/>
         <source>Computer will suspend after</source>
-        <translation>Komputer przejdzie w stan uśpienia po</translation>
+        <translation>Komputer zostanie wstrzymany po</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="309"/>
@@ -3531,12 +3531,12 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="322"/>
         <source>Wakeup Settings</source>
-        <translation>Ustawienia wybudzenia</translation>
+        <translation>Ustawienia wybudzania</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="406"/>
         <source>Battery low, please plug in</source>
-        <translation>Niski stan baterii, prosimy podłączyć do zasilania</translation>
+        <translation>Niski stan baterii, prosimy podłączyć komputer do zasilania</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="408"/>
@@ -3574,7 +3574,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="64"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="89"/>
         <source>Monitor will suspend after</source>
-        <translation>Monitor zostanie wstrzymany za</translation>
+        <translation>Monitor zostanie wstrzymany po</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -3582,7 +3582,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="67"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="102"/>
         <source>Computer will suspend after</source>
-        <translation>Komputer zostanie wstrzymany za</translation>
+        <translation>Komputer zostanie wstrzymany po</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -3625,7 +3625,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="85"/>
         <source>Auto suspend battery level</source>
-        <translation>Automatyczne zawieszanie poziomu baterii</translation>
+        <translation>Poziom baterii do automatycznego zawieszenia</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -3702,7 +3702,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="72"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="73"/>
         <source>Monitor will suspend after</source>
-        <translation>Monitor zostanie wstrzymany za</translation>
+        <translation>Monitor zostanie wstrzymany po</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
@@ -3710,7 +3710,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="85"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="86"/>
         <source>Computer will suspend after</source>
-        <translation>Komputer zostanie wstrzymany za</translation>
+        <translation>Komputer zostanie wstrzymany po</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
@@ -4020,103 +4020,98 @@
         <translation>Połącz z kontem użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="54"/>
         <source>Auto Sync</source>
-        <translation>Auto synchronizacja</translation>
+        <translation>Automatyczna synchronizacja</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="58"/>
         <source>The feature is not available at present, please activate your system first</source>
         <translation>Ta funkcja nie jest obecnie dostępna, najpierw aktywuj system</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="61"/>
         <source>Syncing...</source>
         <translation>Synchronizuję...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="120"/>
         <source>Sign Out</source>
         <translation>Wyloguj się</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
         <translation>Twoje hasło do sieci WLAN zostanie zsynchronizowane, jeśli włączone są Ustawienia sieciowe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
         <source>Network Settings</source>
         <translation>Ustawienia sieci</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
         <source>Sound Settings</source>
         <translation>Ustawienia dźwięku</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
         <source>Mouse Settings</source>
         <translation>Ustawienia myszy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
         <source>Update Settings</source>
         <translation>Ustawienia aktualizacji</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Dock</source>
         <translation>Dok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Launcher</source>
         <translation>Launcher</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
         <source>Wallpaper</source>
         <translation>Tapeta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
         <source>Theme</source>
         <translation>Motyw</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
         <source>Power Settings</source>
         <translation>Ustawienia zasilania</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="347"/>
         <source>Last Sync: %1</source>
         <translation>Ostatnia synchronizacja: %1
  </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="349"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="381"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="437"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="436"/>
         <source>System error</source>
         <translation>Błąd systemu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="383"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="439"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="438"/>
         <source>Network error</source>
         <translation>Błąd sieci</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="441"/>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="470"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>Sesja wygasła, proszę zalogować się ponownie do Union ID</translation>
     </message>
@@ -4176,8 +4171,8 @@
         <translation>Union ID</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="105"/>
-        <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="117"/>
         <source>Sign In</source>
         <translation>Zaloguj się</translation>
     </message>
@@ -4569,7 +4564,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="124"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>Ta aktualizacja może zająć dużo czasu, nie wyłączaj się ani nie uruchamiaj ponownie podczas procesu</translation>
+        <translation>Ta aktualizacja może zająć dużo czasu, nie wyłączaj komputera, ani nie uruchamiaj ponownie w trakcie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="139"/>
@@ -4589,7 +4584,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="167"/>
         <source>Update All</source>
-        <translation>Aktualizuj wszystko</translation>
+        <translation>Aktualizuj</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
@@ -4619,7 +4614,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="392"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation>Zainstalowano najnowszy system, uruchom ponownie aby zadziałał</translation>
+        <translation>Najnowsza wersja systemu została zainstalowana, uruchom ponownie, aby zastosować zmiany</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="403"/>
@@ -4695,7 +4690,7 @@
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="288"/>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="311"/>
         <source>Auto Download Updates</source>
-        <translation>Auto pobieranie aktualizacji</translation>
+        <translation>Automatyczne pobieranie aktualizacji</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="289"/>
@@ -4781,7 +4776,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="72"/>
         <source>Auto Download Updates</source>
-        <translation>Auto pobieranie aktualizacji</translation>
+        <translation>Automatyczne pobieranie aktualizacji</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -5779,7 +5774,7 @@ Dla lepszego rozpoznawania twarzą, zwróć uwagę na poniższe punkty podczas z
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="122"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="138"/>
         <source>Empty Trash</source>
-        <translation>Pusty kosz</translation>
+        <translation>Opróżnienie kosza</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
@@ -5849,7 +5844,7 @@ Dla lepszego rozpoznawania twarzą, zwróć uwagę na poniższe punkty podczas z
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="75"/>
         <source>Update successful</source>
-        <translation>Aktualizacja przeprowadzona pomyślnie</translation>
+        <translation>Zaktualizowano pomyślnie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="80"/>
@@ -5956,7 +5951,7 @@ Dla lepszego rozpoznawania twarzą, zwróć uwagę na poniższe punkty podczas z
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
         <source>Downloading </source>
-        <translation>Pobieranie</translation>
+        <translation>Pobieranie </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="60"/>
@@ -5966,12 +5961,12 @@ Dla lepszego rozpoznawania twarzą, zwróć uwagę na poniższe punkty podczas z
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="63"/>
         <source>Installing </source>
-        <translation>Instalowanie</translation>
+        <translation>Instalowanie </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="66"/>
         <source>Backing up </source>
-        <translation>Tworzenie kopii zapasowej</translation>
+        <translation>Tworzenie kopii zapasowej </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
@@ -6037,7 +6032,7 @@ Dla lepszego rozpoznawania twarzą, zwróć uwagę na poniższe punkty podczas z
     <message>
         <location filename="../src/frame/main.cpp" line="123"/>
         <source>Control Center provides the options for system settings.</source>
-        <translation>Centrum sterowania udostępnia opcje ustawień systemowych.</translation>
+        <translation>Centrum Kontroli umożliwia zmianę ustawień systemowych.</translation>
     </message>
 </context>
 </TS>
