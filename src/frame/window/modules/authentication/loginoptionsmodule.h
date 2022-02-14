@@ -59,7 +59,6 @@ public Q_SLOTS:
     void showFingerPage();
     void showFaceidPage();
     void showIrisPage();
-    void onShowAddIris(const QString &driverName, const int &charaType, const QString &charaName);
 
 private:
     ~LoginOptionsModule();

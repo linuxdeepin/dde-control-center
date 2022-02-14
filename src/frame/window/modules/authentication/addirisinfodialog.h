@@ -75,6 +75,7 @@ private:
 public Q_SLOTS:
     void refreshInfoStatusDisplay(dcc::authentication::CharaMangerModel::AddInfoState state);
     void onSetWindowEnabled(const bool isEnabled);
+    void refreshExplainTips(QString tips);
 
 private:
     dcc::authentication::CharaMangerModel *m_charaModel;
@@ -85,6 +86,7 @@ private:
     dcc::authentication::DisclaimersItem *m_disclaimersItem; // 免责声明
     QPushButton* m_cancelBtn; // 取消
     DTK_WIDGET_NAMESPACE::DSuggestButton* m_acceptBtn; // 下一步
+    dcc::authentication::CharaMangerModel::AddInfoState m_state;
 };
 
 }

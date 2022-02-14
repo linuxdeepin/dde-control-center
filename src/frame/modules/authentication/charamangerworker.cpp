@@ -253,7 +253,7 @@ void CharaMangerWorker::entollStart(const QString &driverName, const int &charaT
             m_model->setInputFaceFD(m_fileDescriptor->value().fileDescriptor());
 
         if (charaType & IRIS_CHARA)
-            Q_EMIT tryStartInputIris(CharaMangerModel::AddInfoState::Processing);
+            m_model->setInputIrisFD(CharaMangerModel::AddInfoState::Processing);
     }
 
 }

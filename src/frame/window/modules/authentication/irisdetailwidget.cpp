@@ -27,8 +27,7 @@ IrisDetailWidget::IrisDetailWidget(dcc::authentication::CharaMangerModel *model,
 
     initIrisShow();
 
-    //人脸操作
-    connect(m_irisWidget, &IrisWidget::requestAddIris, this, &IrisDetailWidget::requestAddIris);
+    connect(m_irisWidget, &IrisWidget::requestAddIris, this, &IrisDetailWidget::onShowAddIrisDialog);
     connect(m_irisWidget, &IrisWidget::requestDeleteIrisItem, this, &IrisDetailWidget::requestDeleteIrisItem);
     connect(m_irisWidget, &IrisWidget::requestRenameIrisItem, this, &IrisDetailWidget::requestRenameIrisItem);
     connect(m_irisWidget, &IrisWidget::noticeEnrollCompleted, this, &IrisDetailWidget::noticeEnrollCompleted);

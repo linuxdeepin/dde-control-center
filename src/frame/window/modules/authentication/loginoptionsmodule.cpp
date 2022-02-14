@@ -155,31 +155,6 @@ void LoginOptionsModule::showIrisPage()
     m_frameProxy->pushWidget(this, w);
 }
 
-void LoginOptionsModule::onShowAddIris(const QString &driverName, const int &charaType, const QString &charaName)
-{
-    // 第一次进入添加虹膜对话框
-    if (!m_pMainWindow->isEnabled())
-        return;
-
-    AddIrisInfoDialog *irisDlg = new AddIrisInfoDialog(m_charaMangerModel);
-    connect(m_charaMangerWorker, &CharaMangerWorker::tryStartInputIris, irisDlg, &AddIrisInfoDialog::refreshInfoStatusDisplay);
-
-    connect(irisDlg, &AddIrisInfoDialog::requestStopEnroll, m_charaMangerWorker, &CharaMangerWorker::stopEnroll);
-    connect(irisDlg, &AddIrisInfoDialog::requesetCloseDlg, irisDlg, [ = ] {
-        onSetMainWindowEnabled(true);
-        irisDlg->deleteLater();
-    });
-
-    // 点击下一步开始录入
-    connect(irisDlg, &AddIrisInfoDialog::requestInputIris, m_charaMangerWorker, [ = ]{
-        m_charaMangerWorker->entollStart(driverName, charaType, charaName);
-    });
-
-    onSetMainWindowEnabled(false);
-    irisDlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
-    irisDlg->exec();
-}
-
 LoginOptionsModule::~LoginOptionsModule()
 {
 }
