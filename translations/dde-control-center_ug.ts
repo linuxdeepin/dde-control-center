@@ -437,7 +437,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>پارولنى قايتا بېكىتسىڭىز مەخپىي ئاچقۇچ ھالقىسىدا ساقلانغان سانلىق مەلۇماتلار تازىلىنىدۇ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
@@ -751,9 +751,27 @@
 <context>
     <name>dccV20::authentication::FingerDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="63"/>
         <source>No supported devices found</source>
         <translation>قوللايدىغان ئۈسكۈنە تېپىلمىدى</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::FingerDisclaimer</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="63"/>
+        <source>Add Fingerprint</source>
+        <translation>بارماق ئىزى قوشۇش</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
+        <source>Cancel</source>
+        <translation>بىكار قىلىش</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="88"/>
+        <source>Next</source>
+        <translation>كېيىنكى </translation>
     </message>
 </context>
 <context>
@@ -5241,16 +5259,30 @@ For better face recognition, take notice of the following when enrolling your fa
 3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
 If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
 </source>
-        <translation>ئادەم يۈزىنى پەرقلەندۈرۈش قۇلۇپىنى ئېچىشتىن  بۇرۇن تۆۋەندىكى بىر قانچە نۇقتىغا دىققەت قىلىش كېرەك: 1. سىزنىڭ ئۈسكۈنىڭىز  سىرتقى كۆرۈنۈشى ياكى شەكلى سىزگە ئوخشاپ كېتىدىغان كىشىلەر تەرىپىدىن قۇلۇپتىن يېشىلىشى مۇمكىن. 2.  چىراي تونۇتۇپ قۇلۇپ  ئېچىش مەخپىي نومۇرنىڭ بىخەتەرلىكىگە يەتمەيدۇ. 3. ئەگەر يان يۈز كۆرۈنسە ،يۈز قىسمىڭىزدىكى بەش ئەزا  تولۇق  چىقمىسا، قاراڭغۇ، يورۇقلۇق يېتەرسىز مۇھىتتا  چىراي پەرقلەندۈرۈش نىسبىتى تۆۋەنلەپ كېتىدۇ. 4. ئۈسكۈنىلىرىڭىزنى باشقىلارغا بەرمەڭ، ئۇلارنىڭ يامان نىيەتتە چىراي  تونىتىۋېلىشىدىن ساقلىنىڭ. 5. ئۇنىڭدىن باشقا، چىراي تونۇشنىڭ نورمال ئىشلىتىلىشىگە تەسىر يەتكۈزۈش ئېھتىمالى بولغان باشقا ئامىللارغىمۇ دىققەت قىلىش كېرەك . 
-چىرايىنى تېخىمۇ ياخشى تونۇش ئۈچۈن تۆۋەندىكى بىر قانچە نۇقتىغا دىققەت قىلىش كېرەك: 1. نۇر يېتەرلىك چۈشسۇن، كۈن نۇرىدا  بەك يورۇق  ،  چاقناشتىن ساقلىنىڭ ،  ئۆزىڭىزنىڭلا چىراينى تەسۋىر  رايۇنىغا  تۇغۇرلاڭ  ،  باشقىلار تەسۋىر   دائىرىسىدە بولمىسۇن .2.  ئۆزىىڭزنىڭ تەقى-تۇرقىغا دىققەت قىلىپ  چاچ، بۆك، ئاپتاپ كۆزەينىكى، نىقاب ياكى قېنىق گىرىم بىلەن چىراينى ئۆلچەملىك تونۇشقا تەسىر يەتكۈزمەڭ  . 3. بېشىڭىزنى ئاستى-ئۈستىگە مىدىرلىتىپ، كۆزىڭىزنى ئوينىتىپ  ،  يان يۈزىڭىزنى چىقىرىڭ . سىزنىڭ چىرايىڭىز  ، بەش ئەزايىڭىزنىڭ  رەسىمدە ئېنىق ۋە مۇكەممەل چىقىشىغا كاپالەتلىك قىلىڭ . ئەگەر سىز بۇ باياناتقا قوشۇلۇپ ھەمدە  چىراي  ئارقىلىق تىزىمىلىتىشنى ئىشلەتسىڭىز (بىز سىزنىڭ چىراي ئۇچۇرىڭىزنى توپلىمايمىز، بۇ ئۇچۇرلار  يەرلىكتە شىفىرلاشتۇرۇلىدۇ ھەمدە سىزنىڭ ئۈسكۈنىڭىزدە ئايرىم ساقلىنىدۇ) ، ئادەم يۈزىنىڭ پەرقلەندۈرۈش （چىراي قۇلۇپى ）ئىقتىدارى قوزغىتىلىدۇ. سىز ‹ ‹ بىئولوگىيىلىك  دەلىللەش › › تىن  ‹ ‹ چىراي › › غا  كىرىپ تىزىمغا ئالدۇرغان ئادەم يۈزى سانلىق مەلۇماتىنى ئۆچۈرۈۋەتسىڭىز بولىدۇ.  </translation>
+        <translation>«بىئولوگىيەلىك دەلىللەش » بولسا تۇڭشىن يۇمشاق دېتال تېخنىكا چەكلىك شىركىتى تەمىنلىگەن بىر خىل ئابۇنىتلارنىڭ سالاھىيىتىنى دەلىللەش ئىقتىدارى. » بىئولوگىيەلىك دەلىللەش» ئارقىلىق توپلانغان بىئولوگىيەلىك پەرقلەندۈرۈش سانلىق مەلۇماتلىرى بىلەن ئۈسكۈنىدە ساقلانغان بىئولوگىيەلىك پەرقلەندۈرۈش سانلىق مەلۇماتلىرى سېلىشتۇرۇلىدۇھەمدە سېلىشتۇرۇش نەتىجىسىگە ئاساسەن ئابۇنىچىلارنىڭ سالاھىيىتى دەلىللىنىدۇ.
+دىققەت قىلىڭ، تۇڭشىن يۇمشاق دېتالى سىزنىڭ بىئولوگىيەلىك پەرقلەندۈرۈش ئۇچۇرىڭىزنى توپلىمايدۇ ياكى زىيارەت قىلمايدۇ. بۇتۈردىكى ئۇچۇرلار سىزنىڭ ئۈسكۈنىڭىزدە ساقلىنىدۇ. سىز پەقەت ئۆزىڭىزنىڭ شەخسىي ئۈسكۈنىڭىزدە بىئولوگىيەلىك پەرقلەندۈرۈش ئىقتىدارىنى قوزغىتالايسىز ھەمدە ئۆزىڭىزنىڭ بىئولوگىيەلىك پەرقلەندۈرۈش ئۇچۇرىنى ئىشلىتىپ مۇناسىۋەتلىك مەشغۇلاتلارنى قىلالايسىز. يەنە بۇ ئۈسكۈنىڭىزدە باشقىلارنىڭ بىئولوگىيەلىك پەرقلەندۈرۈش ئۇچۇرىنى ۋاقتىدا چەكلىشىڭىز ياكى تازىلىشىڭىز كېرەك بولمىسا بۇنىڭ سىزگە ئېلىپ كېلىدىغان خەۋپ-خەتىرىنى ئۆزىڭىز ئۈستىڭىزگە ئالىسىز.
+تۇڭشىن يۇمشاق دېتالى بىئولوگىيەلىك پەرقلەندۈرۈش ئىقتىدارىنىڭ بىخەتەرلىكى، ئېنىقلىقى ۋە مۇقىملىقىنى يۇقىرى كۆتۈرۈش جەھەتتە تەتقىقات ئېلىپ بارىدۇھەمدە سۈپىتىنى يۇقىرى كۆتىرىدۇ، لېكىن مۇھىت، ئۈسكۈنە، تېخنىكا قاتارلىق ئامىللار ۋە خەۋپ-خەتەرنى كونترول قىلىش قاتارلىق سەۋەبلەر بىلەن چەكلىنىپ قالسا، بىز ۋاقتىنچە سىزنىڭ بىئولوگىيەلىك پەرىقلەندۈرىشىڭىزگە كاپالەتلىك قىلالمايمىز، بىئولوگىيەلىك پەرقلەندۈرۈشنى تۇڭشىن مەشغۇلات سىستېمىسىغا كىرىشنىڭ بىردىنبىر يولى قىلىۋالماڭ. ئەگەر سىزبىئولوگىيەلىك پەرقلەندۈرۈشنى ئىشلەتكەندە ھەر قانداق مەسىلە ياكى تەكلىپنى ئوتتۇرىغا قويسىڭىز، سىستېما ئىچىدىكى »مۇلازىمەت ۋە قوللاش «ئارقىلىق ئىنكاس قايتۇرسىڭىز بولىدۇ.
+ </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="77"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+UnionTech Softeware is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+</source>
+        <translation>«بىئولوگىيەلىك دەلىللەش » بولسا تۇڭشىن يۇمشاق دېتال تېخنىكا چەكلىك شىركىتى تەمىنلىگەن بىر خىل ئابۇنىتلارنىڭ سالاھىيىتىنى دەلىللەش ئىقتىدارى. » بىئولوگىيەلىك دەلىللەش» ئارقىلىق توپلانغان بىئولوگىيەلىك پەرقلەندۈرۈش سانلىق مەلۇماتلىرى بىلەن ئۈسكۈنىدە ساقلانغان بىئولوگىيەلىك پەرقلەندۈرۈش سانلىق مەلۇماتلىرى سېلىشتۇرۇلىدۇھەمدە سېلىشتۇرۇش نەتىجىسىگە ئاساسەن ئابۇنىچىلارنىڭ سالاھىيىتى دەلىللىنىدۇ.
+
+دىققەت قىلىڭ، تۇڭشىن يۇمشاق دېتالى سىزنىڭ بىئولوگىيەلىك پەرقلەندۈرۈش ئۇچۇرىڭىزنى توپلىمايدۇ ياكى زىيارەت قىلمايدۇ. بۇتۈردىكى ئۇچۇرلار سىزنىڭ ئۈسكۈنىڭىزدە ساقلىنىدۇ. سىز پەقەت ئۆزىڭىزنىڭ شەخسىي ئۈسكۈنىڭىزدە بىئولوگىيەلىك پەرقلەندۈرۈش ئىقتىدارىنى قوزغىتالايسىز ھەمدە ئۆزىڭىزنىڭ بىئولوگىيەلىك پەرقلەندۈرۈش ئۇچۇرىنى ئىشلىتىپ مۇناسىۋەتلىك مەشغۇلاتلارنى قىلالايسىز. يەنە بۇ ئۈسكۈنىڭىزدە باشقىلارنىڭ بىئولوگىيەلىك پەرقلەندۈرۈش ئۇچۇرىنى ۋاقتىدا چەكلىشىڭىز ياكى تازىلىشىڭىز كېرەك بولمىسا بۇنىڭ سىزگە ئېلىپ كېلىدىغان خەۋپ-خەتىرىنى ئۆزىڭىز ئۈستىڭىزگە ئالىسىز.
+
+تۇڭشىن يۇمشاق دېتالى بىئولوگىيەلىك پەرقلەندۈرۈش ئىقتىدارىنىڭ بىخەتەرلىكى، ئېنىقلىقى ۋە مۇقىملىقىنى يۇقىرى كۆتۈرۈش جەھەتتە تەتقىقات ئېلىپ بارىدۇھەمدە سۈپىتىنى يۇقىرى كۆتىرىدۇ، لېكىن مۇھىت، ئۈسكۈنە، تېخنىكا قاتارلىق ئامىللار ۋە خەۋپ-خەتەرنى كونترول قىلىش قاتارلىق سەۋەبلەر بىلەن چەكلىنىپ قالسا، بىز ۋاقتىنچە سىزنىڭ بىئولوگىيەلىك پەرىقلەندۈرىشىڭىزگە كاپالەتلىك قىلالمايمىز، بىئولوگىيەلىك پەرقلەندۈرۈشنى تۇڭشىن مەشغۇلات سىستېمىسىغا كىرىشنىڭ بىردىنبىر يولى قىلىۋالماڭ. ئەگەر سىزبىئولوگىيەلىك پەرقلەندۈرۈشنى ئىشلەتكەندە ھەر قانداق مەسىلە ياكى تەكلىپنى ئوتتۇرىغا قويسىڭىز، سىستېما ئىچىدىكى »مۇلازىمەت ۋە قوللاش «ئارقىلىق ئىنكاس قايتۇرسىڭىز بولىدۇ.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="83"/>
         <source>Cancel</source>
         <translation>بىكار قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="78"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="84"/>
         <source>Next</source>
         <translation>كېيىنكى </translation>
     </message>
@@ -5258,12 +5290,12 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::authentication::DisclaimersItem</name>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="25"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="26"/>
         <source>I have read and agree to the</source>
         <translation>ئوقۇدۇم ھەمدە قوشۇلىمەن</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="27"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="28"/>
         <source>Disclaimer</source>
         <translation>«ئىشلەتكۈچى جاۋابكارلىق باياناتى»</translation>
     </message>

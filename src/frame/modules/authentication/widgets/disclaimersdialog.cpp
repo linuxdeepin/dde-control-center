@@ -52,7 +52,7 @@ void DisclaimersDialog::initWidget(DisclaimersObj state)
                              "2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.\n"
                              "3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.\n"
                              "If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to \"Biometric Authentication\" > \"Face\" to delete the enrolled facial data.\n"));
-    } else if (state == DisclaimersObj::Finge) {
+    } else if (state == DisclaimersObj::Finge || state == DisclaimersObj::Iris) {
         setFixedSize(QSize(382, 446));
         tipLabel->setText(tr("\"Biometric authentication\" is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through \"biometric authentication\", the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.\n"
                              "Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. \n"

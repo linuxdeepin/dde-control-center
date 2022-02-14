@@ -751,9 +751,27 @@
 <context>
     <name>dccV20::authentication::FingerDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="63"/>
         <source>No supported devices found</source>
         <translation>找不到可支持设备</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::FingerDisclaimer</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="63"/>
+        <source>Add Fingerprint</source>
+        <translation>添加指纹</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
+        <source>Cancel</source>
+        <translation>取 消</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="88"/>
+        <source>Next</source>
+        <translation>下一步</translation>
     </message>
 </context>
 <context>
@@ -5254,12 +5272,23 @@ If you agree to this statement and enroll your face (we will not collect your fa
 </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="77"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+UnionTech Softeware is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+</source>
+        <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
+请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
+统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
+</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="83"/>
         <source>Cancel</source>
         <translation>取 消</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="78"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="84"/>
         <source>Next</source>
         <translation>下一步</translation>
     </message>
@@ -5267,12 +5296,12 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::authentication::DisclaimersItem</name>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="25"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="26"/>
         <source>I have read and agree to the</source>
         <translation>我已阅读并同意</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="27"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="28"/>
         <source>Disclaimer</source>
         <translation>《用户免责声明》</translation>
     </message>

@@ -751,9 +751,27 @@
 <context>
     <name>dccV20::authentication::FingerDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="63"/>
         <source>No supported devices found</source>
         <translation>རྒྱབ་སྐྱོར་བྱེད་ཆོག་པའི་སྒྲིག་ཆས་མ་རྙེད།</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::FingerDisclaimer</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="63"/>
+        <source>Add Fingerprint</source>
+        <translation>མཛུབ་རིས་སྣོན་པ། </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
+        <source>Cancel</source>
+        <translation>འདོར་བ། </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="88"/>
+        <source>Next</source>
+        <translation>རྗེས་མ། </translation>
     </message>
 </context>
 <context>
@@ -5255,12 +5273,23 @@ If you agree to this statement and enroll your face (we will not collect your fa
 </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="77"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+UnionTech Softeware is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+</source>
+        <translation>“སྐྱེ་དངོས་ངོས་ལེན།དཔང་འདོན།” ནི་བསྡོམས་འཕྲིན་མཉེན་ཆས་ལག་རྩལ་ཚད་ཡོད་ཀུང་སིས་བཀོལ་མཁན་ལ་མཁོ་སྤྲོད་བྱས་པའི་ཐོབ་ཐང་ངོས་ལེན་བྱ་བའི་བྱེད་ལས་ཤིག་ཡིན། “སྐྱེ་དངོས་ངོས་ལེན”ལ་བརྒྱུད་ནས་སྐྱེ་དངོས་དབྱེ་འབྱེད་ཀྱི་གཞི་གྲངས་དང་སྒྲིག་ཆས་ནང་ཉར་ཚགས་བྱས་ཡོད་པའི་སྐྱེ་དངོས་དབྱེ་འབྱེད་ཀྱི་གཞི་གྲངས་ཕན་ཚུན་བསྡུར་བ་བཏང་བ་མ་ཟད། བསྡུར་ཟིན་པའི་འབྲས་བུས་བཀོལ་མཁན་གྱི་ཐོབ་ཐང་ར་སྤྲོད་བྱེད་པ་ཞིག་ཡིན། 
+སྐུ་ཉིད་ནས་ཡིད་འཇོག་བྱ་དགོས་པ་ཞིག་ལ། བསྡོམས་འཕྲིན་མཉེན་ཆས་ཀྱིས་ཁྱེད་ཀྱི་སྐྱེ་དངོས་ངོས་འཛིན་གྱི་བརྡ་འཕྲིན་འཚོལ་བསྡུ་དང་བཅར་འདྲི་བྱེད་མི་སྲིད་པ་དང་། འདིའི་རིགས་ཀྱི་ཆ་འཕྲིན་ནི་སྐུ་ཉིད་ཀྱི་ས་གནས་འདི་གའི་སྒྲིག་ཆས་ཁྲོད་ཉར་ཚགས་བྱ་རྒྱུ་ཡིན། ཁྱེད་ཀྱིས་རང་ཉིད་ཀྱི་སྒྲིག་ཆས་སྟེང་ནས་སྐྱེ་དངོས་ངོས་འཛིན་བྱེད་ལས་ཀྱི་སྒོ་འབྱེད་དགོས་པ་དང་ཆབས་ཅིག ཁྱེད་རང་ཉིད་ཀྱི་སྐྱེ་དངོས་ངོས་འཛིན་་ཆ་་འཕྲིན་སྤྱད་ནས་འབྲེལ་ཡོད་ཀྱི་ནང་དོན་ལག་བསྟར་བྱ་དགོས་པ་མ་ཟད། སྒྲིག་ཆས་འདིའི་སྟེང་མི་གཞན་གྱི་སྐྱེ་དངོས་ངོས་ལེན་བཆ་འཕྲིན་བཀག་འགོག་བྱས་པའམ་ཡང་ན་སུབ་ཆོག དེ་མིན་ཚེ།  སྐུ་ཉིད་ལ་ཆ་འཕྲིན་ལ་ཉེན་ཁ་བྱུང་ན་ རང་ཉིད་ཀྱིས་འགན་འཁུར་དགོས། 
+བསྡོམས་འཕྲིན་མཉེན་ཆས་ཀྱིས་སྐྱེ་དངོས་ངོས་ལེན་བྱེད་ལས་ཀྱི་བདེ་འཇགས་རང་བཞིན་དང་། གནད་ཁེལ་རང་བཞིན། བརྟན་འཇགས་རང་བཞིན་ལ་ཞིབ་འཇུག་དང་མཐོར་འདེགས་གཏོང་བའི་ཐད་ལ་ཤུགས་སྣོན་རྒྱག་མོད།  འོན་ཀྱང་།  ཁོར་ཡུག་དང་སྒྲིག་ཆས། ལག་རྩལ་སོགས་ཀྱི་ཚོད་འཛིན་ཐེབས་པའི་རྐྱེན་དང་ཉེན་ཁའི་ཚོད་འཛིན་བཅས་ཀྱི་རྒྱུ་རྐྱེན་ལས། ང་ཚོས་གནས་སྐབས་སུ་སྐུ་ཉིད་ནས་ངེས་པར་དུ་བདེ་བླག་ངང་སྐྱེ་དངོས་དཔང་འདོན་བརྒྱུད་ཐུབ་པརའགན་ལེན་བྱེད་དཀའ་བས། དེའི་ཕྱིར་ཁྱེད་ཀྱིས་སྐྱེ་དངོས་ངོས་ལེན་དེ་བསྡོམས་འཕྲིན་བཀོལ་སྤྱོད་རྒྱུད་ཁོངས་ལ་ཐོ་ཞུགས་བྱ་བའི་ཐབས་ལམ་གཅིག་པུ་དེ་མིན།གལ་ཏེ་སྐུ་ཉིད་ནས་སྐྱེ་དངོས་དཔང་འདོན་བཀོལ་སྐབས་གནད་དོན་དང་བསམ་འཆར་ཡོད་ཚེ།  མ་ལག་ནང་གི“ཞབས་ཞུ་དང་རྒྱབ་སྐྱོར”ལ་བརྒྱུད་ནས་དེ་ཕྱིར་ལྡོག་བྱས་ན་ཆོག
+</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="83"/>
         <source>Cancel</source>
         <translation>འདོར་བ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="78"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="84"/>
         <source>Next</source>
         <translation>རྗེས་མ།</translation>
     </message>
@@ -5268,12 +5297,12 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::authentication::DisclaimersItem</name>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="25"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="26"/>
         <source>I have read and agree to the</source>
         <translation>ངས་བཀླགས་ཟིན་པ་མ་ཟད་དེར་མོས་མཐུན་ཡོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="27"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="28"/>
         <source>Disclaimer</source>
         <translation>《སྤྱོད་མཁན་གྱི་འགན་མེད་གསལ་བསྒྲགས།》</translation>
     </message>

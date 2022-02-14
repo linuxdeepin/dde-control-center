@@ -751,9 +751,27 @@
 <context>
     <name>dccV20::authentication::FingerDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="63"/>
         <source>No supported devices found</source>
         <translation>S’u gjetën pajisje të mbuluara</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::FingerDisclaimer</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="63"/>
+        <source>Add Fingerprint</source>
+        <translation>Shtoni Shenja Gishtash</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
+        <source>Cancel</source>
+        <translation>Anuloje</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="88"/>
+        <source>Next</source>
+        <translation>Pasuesi</translation>
     </message>
 </context>
 <context>
@@ -5254,12 +5272,20 @@ Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (s’do të grumbullo
 </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="77"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+UnionTech Softeware is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="83"/>
         <source>Cancel</source>
         <translation>Anuloje</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="78"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="84"/>
         <source>Next</source>
         <translation>Pasueja</translation>
     </message>
@@ -5267,12 +5293,12 @@ Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (s’do të grumbullo
 <context>
     <name>dcc::authentication::DisclaimersItem</name>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="25"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="26"/>
         <source>I have read and agree to the</source>
         <translation>E kam lexuar dhe pajtohem me</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="27"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="28"/>
         <source>Disclaimer</source>
         <translation>Klauzolë</translation>
     </message>

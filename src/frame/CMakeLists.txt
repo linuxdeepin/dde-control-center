@@ -283,7 +283,8 @@ set(AUTHENTICATION_FILES
     window/modules/authentication/iriswidget.cpp
     window/modules/authentication/addirisinfodialog.cpp
     modules/authentication/widgets/irisinfowidget.cpp
-    window/modules/authentication/fingedisclaimer.cpp)
+    window/modules/authentication/fingedisclaimer.cpp
+)
 
 # load accounts
 set(ACCOUNTS_FILES
