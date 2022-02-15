@@ -5241,30 +5241,19 @@
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
-        <source>Before you set up face recognition, please pay attention to the following: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Face unlock is less secure than a password.
-3. Face recognition rates would reduce if showing a profile face, or in dark, bright, backlit environments.
-4. Do not hand over your device to others to avoid malicious use of face recognition.
-5. In addition, you should take care of other factors that may affect the normal use of face recognition.
-For better face recognition, take notice of the following when enrolling your face:
-1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
-2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
-3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>Yüz tanımayı kurmadan önce lütfen aşağıdakilere dikkat edin: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Yüzle kilit açma, paroladan daha az güvenlidir.
-3. Bir profil yüzü gösteriliyorsa veya karanlık, parlak, arkadan aydınlatmalı ortamlarda yüz tanıma oranları düşecektir.
-4. Yüz tanımanın kötü amaçlı kullanımından kaçınmak için cihazınızı başkalarına teslim etmeyin.
-5. Ayrıca yüz tanımanın normal kullanımını etkileyebilecek diğer faktörlere de dikkat etmelisiniz. 
-Daha iyi yüz tanıma için yüzünüzü kaydederken aşağıdakilere dikkat edin:
-1. Yeterli ışık sağlayın, doğrudan güneş ışığından kaçının ve diğer kişilerin çerçevede görünmesini önleyin.
-2. Kayıttan önce görünüşünüze dikkat edin. Yüzünüzü saçınız, şapkanız, güneş gözlüğünüz, maskeniz veya ağır makyajınız ile kapatmayın. 
-3. Başınızı kaldırmayın veya alçaltmayın, gözlerinizi kapatmayın veya profil yüzünüzü göstermeyin. Ön yüzünüzün çerçevede net ve eksiksiz göründüğünden emin olun. 
-Bu beyanı kabul ederseniz ve yüzünüzü kaydederseniz (yerel olarak şifrelenecek ve cihazınızda ayrı olarak saklanacak olan yüz bilgilerinizi toplamayacağız), yüz tanıma etkinleştirilecektir. Kayıtlı yüz verilerini silmek için &quot;Biyometrik Kimlik Doğrulama&quot; &gt; &quot;Yüz&quot; seçeneğine gidebilirsiniz. 
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>

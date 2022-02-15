@@ -5241,29 +5241,29 @@
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
-        <source>Before you set up face recognition, please pay attention to the following: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Face unlock is less secure than a password.
-3. Face recognition rates would reduce if showing a profile face, or in dark, bright, backlit environments.
-4. Do not hand over your device to others to avoid malicious use of face recognition.
-5. In addition, you should take care of other factors that may affect the normal use of face recognition.
-For better face recognition, take notice of the following when enrolling your face:
-1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
-2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
-3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>使用人臉識別功能前，請注意以下事項：
-1.您的電腦可能會被容貌、外形與您相近的人或物品解鎖。
-2.人臉識別的安全性低於數字密碼、混合密碼。
-3.在暗光、強光、逆光或角度過大等場景下，人臉識別的解鎖成功率會有所降低。
-4.請勿將裝置隨意交給他人使用，避免人臉識別功能被惡意利用。
-5.除以上場景外，您需注意其他可能影響人臉識別功能正常使用的情況。
-為更好使用人臉識別，輸入臉部資料時請注意以下事項：
-1.請保證光線充足，避免陽光直射並避免其他人出現在輸入的畫面中。
-2.請注意輸入資料時的臉部狀態，避免衣帽、頭髮、墨鏡、口罩、濃妝等遮擋臉部訊息。
-3.請避免仰頭、低頭、閉眼或僅露出側臉的情況，確保臉部正面清晰完整的出現在提示框內。
-若您同意本聲明並輸入臉部資料（我們不會收集您的面容訊息，該訊息將在您的裝置本機加密、單獨儲存），系統將會開啟人臉識別功能。您可前往“生物認證”&gt;&quot;人臉&quot;，刪除輸入的人臉資料。
+        <translation>在使用人臉辨識功能前，請注意以下事項：
+1.您的裝置可能會被容貌、外形與您相近的人或物品解鎖。
+2.人臉辨識的安全性低於數字密碼、混合密碼。
+3.在暗光、强光、逆光或角度過大等場景下，人臉辨識的解鎖成功率將降低。
+4.請勿將裝置隨意交給他人使用，避免人臉辨識功能被惡意利用。
+5.除上述場景外，您需注意其他可能影響人臉辨識功能正常使用的情况。
+
+為更好使用人臉辨識，錄人臉資料時請注意以下事項：
+1.請保證光線充足，避免陽光直射並避免其他人出現在錄入的畫面中。
+2.請注意錄入資料時的臉部狀態，避免衣帽、頭髮、墨鏡、口罩、濃妝等遮住臉部資訊。
+3.請避免仰頭、低頭、閉眼或僅露出側臉的情况，確保臉部正面清晰完整出現在提示框內。
 </translation>
     </message>
     <message>

@@ -5241,30 +5241,19 @@
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
-        <source>Before you set up face recognition, please pay attention to the following: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Face unlock is less secure than a password.
-3. Face recognition rates would reduce if showing a profile face, or in dark, bright, backlit environments.
-4. Do not hand over your device to others to avoid malicious use of face recognition.
-5. In addition, you should take care of other factors that may affect the normal use of face recognition.
-For better face recognition, take notice of the following when enrolling your face:
-1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
-2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
-3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>Üz tanınmasını quraşdırmadan əvvəl, lütfən, aşağıdakılara diqqət yetirin:
-1. Sizin cihazınızın kilidi oxşar üz quruluşuna və ya üz quruluşunuza oxşar obyektlərə malik olan şəxs tərəfindən açıla bilər.
-2. Üz tanınması ilə kiliddən çıxarmanın təhlükəsizliyi, şifrə ilə kiliddən çıxarmadan azdır.
-3. Qaranlıq, parlaq, arxa işıqlı mühitlərdə üz tanınması dərəcəsi zəifləyəcəkdir.
-4. Üz tanımadan sizin zərərinizə istifadə edilməməsi üçün cihazınızı başqalarına təhvil verməyin.
-5. Bundan əlavə, üz tanınmasının normal istifadəsinə təsir edə biləcək digər amillərə diqqət yetirməlisiniz.
-Daha yaxşı üzün tanınması üçün üzünüzü qeydiyyatdan keçirərkən aşağıdakılara diqqət yetirin:
-1. Kifayət qədər işıqlandırma ilə təmin olunan, birbaşa günəş işığı düşməyən və digər insanların kadrda görünməyəcəyi bir şəraitdə bunu edin.
-2. Qeydiyyatdan əvvəl xarici görünüşünüzə fikir verin. Üzünüzü saç, papaq, gün eynəyi, maska ​​və ya ağır makiyajla örtməyin.
-3. Başınızı qaldırmayın və ya aşağı salmayın, gözlərinizi yummayın və üzünüzün yan tərəfini göstərməyin. Üzünüzün ön tərəfdən çərçivədə aydın və tam göründüyünə əmin olun.
-Bu bəyanatla razılaşaraq üzünüzü qeydiyyatdan keçirsəniz (bütün bunlar cihazınızda yerli olaraq şifrələnəcək və cihazınızda ayrıca yerdə saxlanılacaq və üz məlumatlarınız tərəfimizdən toplanılmır), üz tanınması aktiv ediləcək. Qeydə alınmış üz məlumatını silmək üçün &quot;Biometrik Doğrulama&quot; &gt; &quot;Üz&quot; bölməsinə keçə bilərsiniz.
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>

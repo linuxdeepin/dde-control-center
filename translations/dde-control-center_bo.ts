@@ -5242,29 +5242,29 @@
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
-        <source>Before you set up face recognition, please pay attention to the following: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Face unlock is less secure than a password.
-3. Face recognition rates would reduce if showing a profile face, or in dark, bright, backlit environments.
-4. Do not hand over your device to others to avoid malicious use of face recognition.
-5. In addition, you should take care of other factors that may affect the normal use of face recognition.
-For better face recognition, take notice of the following when enrolling your face:
-1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
-2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
-3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>ངོ་གདོང་དབྱེ་འབྱེད་ནུས་པ་སྤྱོད་པའི་གོང་ལ་གཤམ་གསལ་དོན་ཚན་ལ་དོ་སྣང་བྱེད་དགོས་པ་སྟེ།
-1.ཁྱེད་ཀྱི་གློག་ཀླད་ཀྱིས་ཁྱེད་ཀྱི་ངོ་གདོང་དང་ཕྱི་ཚུལ་འདྲ་བའི་མི་དང་ཅ་དངོས་ཀྱིས་སྒོ་ལྕགས་ཕྱེ་སྲིད།
-2.ངོ་གདོང་དབྱེ་འབྱེད་ཀྱི་བདེ་འཇགས་རང་བཞིན་དེ་ཨང་ཀའི་གསང་ཨང་དང་མཉམ་བསྲེས་གསང་ཨང་ལས་དམའ་བ་ཡོད།
-3.འོད་གསལ་དྲགས་པའམ་ནག་དྲགས་པ། ལྡོག་འོད། དེ་བཞིན་མཐོང་རྒྱ་ཆེ་དྲགས་པའི་གནས་ཚུལ་འོག ངོ་གདོང་དབྱེ་འབྱེད་ཀྱིས་སྒོ་ལྕགས་ཕྱེ་བའི་ནུས་པ་ཅུང་ཞན་ཏུ་འགྲོ་སྲིད།
-4.སྒྲིག་ཆས་འདི་གང་འདོད་མི་གཞན་དུ་སྤྱོད་དུ་བཅུག་མི་རུང་། ངོ་གདོང་དབྱེ་འབྱེད་ཀྱི་ནུས་པ་འདི་མི་གཞན་གྱིས་གནག་སེམས་གཞན་སྤྱོད་བྱེད་སྲིད། 
-5.གོང་གི་གནས་ཚུལ་ཕུད། ཁྱེད་ཀྱིས་ད་དུང་ངོ་གདོང་དབྱེ་འབྱེད་ཀྱི་ནུས་པ་རྒྱུན་གཏན་ངང་སྤྱོད་པར་ཤུགས་རྐྱེན་ཐེབས་པའི་གནས་ཚུལ་གཞན་དག་ལ་དོ་སྣང་བྱེད་དགོས།
-ངོ་གདོང་དབྱེ་འབྱེད་སྔར་ལས་ལེགས་པ་སྤྱོད་ཆེད། ངོ་གདོང་གཞི་གྲངས་འཇུག་པའི་སྐབས་སུ་གཤམ་གསལ་དོན་ཚན་ལ་དོ་སྣང་བྱེད་དགོས། 
-1.འོད་མདངས་གསལ་པོ་ཡོད་དགོས་པ་མ་ཟད། ཉི་འོད་ཀྱིས་ཐད་ཀར་འཕྲོ་མི་རུང་། ནང་འཇུག་བྱེད་པའི་བཪྙན་ངོས་ནང་དུ་མི་གཞན་དག་མི་འཛུལ་བ་བྱེད་དགོས།
-2.གཞི་གྲངས་འཇུག་པའི་སྐབས་སུ་ངོ་གདོང་ལ་དོ་སྣང་བྱེད་དགོས། ཞྭ་མོ་དང་། སྐྲ། མིག་ཤེལ། ཁ་རས། མཛེས་འཆོས་སོགས་ཀྱིས་ངོ་གདོང་བཀབ་མི་ཆོག
-3.མགོ་བཏེགས་པ་དང་། མགོ་སྒུར་སྒུར། མིག་བཙུམ་པ། ཡང་ན་གདོང་ཕྱེད་ཀ་སོགས་པའི་གནས་དོན་མི་ཡོང་བ་བྱེད་ཅིང་། ངོ་གདོང་གསལ་ལ་ཆ་ཚང་བ་ཡོད་པར་ཁག་ཐེག་བྱེད་དགོས།
-ཁྱེད་ཀྱིས་གསལ་བསྒྲགས་འདི་ལ་མོས་མཐུན་ཡོད་པ་དང་། ངོ་གདོང་གཞི་གྲངས་ནང་འཇུག་བྱེད་ཚེ།（ང་ཚོས་ཁྱེད་ཀྱི་ངོ་གདོང་ཆ་འཕྲིན་བསྡུ་རུབ་བྱེད་མི་སྲིད། ཆ་འཕྲིན་འདི་ཁྱེད་ཀྱི་སྒྲིག་ཆས་ཐོག་གསང་སྣོན་བྱས་ཏེ་གཅིག་པུར་གསོག་ཉར་བྱེད་སྲིད་） མ་ལག་གིས་ངོ་གདོང་དབྱེ་འབྱེད་ཀྱི་ནུས་པ་སྤྱོད་འགོ་ཚུགས་སྲིད། ཁྱེད་ཀྱིས་“སྐྱེ་དངོས་ར་སྲོད་”&gt;&quot;ངོ་གདོང་&quot;ལ་བསྐྱོད་ནས་ནང་འཇུག་བྱས་པའི་ངོ་གདོང་གཞི་གྲངས་བསུབ་ཆོག
+        <translation>ངོ་རིས་ངོས་འཛིན་བྱེད་ལས་མ་བཀོལ་བའི་སྔོན་དུ།  གཤམ་གྱི་དོན་ཚན་འགའ་ལ་ཡིད་གཟབ་བྱེད་དགོས། 
+༡.ཁྱེད་ཀྱི་སྒྲིག་ཆས་དེ་ཕལ་ཆེར་ཁྱེད་རང་དང་འདྲ་བའི་མིའམ་དངོས་པོའི་རྣམ་པ་དང་ཕྱི་ཚུལ་གྱིས་ཁ་ཕྱེ་སྲིད།
+༢.ངོ་རིས་ངོས་འཛིན་གྱི་བདེ་འཇགས་རང་བཞིན་ནི་ཨང་ཀིའི་གསང་གྲངས་དང་།  གསང་གྲངས་འདྲེས་མ་ལས་དམའ་བ་ཡོད།
+༣.འོད་མུན། འོད་གསལ། ལྡོག་འོད། ཡང་ན་ཟུར་ཚད་ཆེ་དྲགས་པ་སོགས་ཀྱི་རྒྱབ་ལྗོངས་འོག་གི་ ངོ་རིས་ངོས་འཛིན་གྱིས་ཟྭ་འབྱེད་ཐུབ་པའི་ཚད་ཆེ་ཆེར་མར་ཆག་སྲིད།  
+༤.སྒྲིག་ཆས་གང་འདོད་ངང་མི་གཞན་ལ་སྤྲད་ནས་བེད་སྤྱོད་གཏོང་མི་ཆོག་སྟེ། ངོ་རིས་ངོས་འཛིན་བྱེད་ལས་ངན་ཕྱོགས་སུ་བཀོལ་བར་སྔོན་འགོག་བྱེད་དགོས། 
+༥.གོང་དུ་བཤད་པའི་བཟོ་ལྗོངས་ཕུད། སྐུ་ཉིད་ནས་ད་དུང་དེ་མིན་གྱི་ངོ་རིས་ངོས་འཛིན་བྱེད་ལས་གཞན་རྒྱུན་ལྡན་གྱིས་བཀོལ་བར་ཤུགས་རྐྱེན་བཟོ་སྲིད་པའི་གནས་ཚུལ་དག་ལ་ཡིད་གཟབ་བྱེད་དགོས། 
+
+ངོ་རིས་ངོས་འཛིན་ལེགས་པོར་བཀོལ་ཆེད། ངོ་རིས་ཀྱི་གཞི་གྲངས་བརྙན་ལེན་བྱེད་པའི་སྐབས་སུ་གཤམ་གྱི་དོན་ཚན་ལ་ཡིད་གཟབ་བྱེད་དགོས། 
+༡.འོད་མདངས་འདང་ངེས་ཡོད་པ་ཁས་ལེན་གནང་སྟེ་ཉི་འོད་གསལ་བོ་ཐད་ཀར་འཕྲོ་མི་ཆོག་པ་མ་ཟད། དེ་མིན་གྱི་ མི་གཞན་པར་ངོས་སུ་ཐོན་མི་ཆོག
+༢.གཞི་གྲངས་ཁྲོད་ཀྱི་ངོ་གདོང་རྣམ་པ ཕབ་འཇུག་བྱེད་པའི་སྐབས་ལ་ཡིད་གཟབ་བྱས་ཏེ།  ཞྭ་མོ་དང་སྐྲ། མིག་ཤེལ། ཁ་ཐུམ། མཛེས་འཆོས་སོགས་ཀྱིས་ངོ་རིས་ཆ་འཕྲིན་འགེབ་མི་ཆོག
+༣.མགོ་བོ་ལྟག་གར་དགྱེ་བ། མར་སྒུར་བ། མིག་བཙུམ་པའམ་ཡང་ན་ངོ་གདོང་ཕྱེད་ཀ་སྟོན་པ་སོགས་བྱས་མི་ཆོག་པས།ངོ་རིས་ཚང་མ་ཁ་གསལ་ཞིང་ཆ་ཚང་བ་དྲན་སྐུལ་སྒྲིམ་གཞིའི་ནང་འཇུག་དགོས།
 </translation>
     </message>
     <message>

@@ -5241,30 +5241,19 @@
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
-        <source>Before you set up face recognition, please pay attention to the following: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Face unlock is less secure than a password.
-3. Face recognition rates would reduce if showing a profile face, or in dark, bright, backlit environments.
-4. Do not hand over your device to others to avoid malicious use of face recognition.
-5. In addition, you should take care of other factors that may affect the normal use of face recognition.
-For better face recognition, take notice of the following when enrolling your face:
-1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
-2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
-3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>Abans de configurar el reconeixement facial, presteu atenció al següent:
-1. El dispositiu pot ser desbloquejat per algú amb un aspecte similar o objectes amb la vostra forma.
-2. El desbloqueig facial és menys segur que una contrasenya.
-3. Les taxes de reconeixement facial es reduirien si es mostrés una cara de perfil o en entorns foscos, brillants i retroil·luminats.
-4. No cediu el dispositiu a altres persones per evitar l&apos;ús maliciós del reconeixement facial.
-5. A més, cal tenir en compte altres factors que poden afectar l&apos;ús normal del reconeixement facial.
-Per obtenir un millor reconeixement facial, tingueu en compte el següent en registrar la vostra cara:
-1. Assegureu-vos de llum suficient, eviteu la llum solar directa i eviteu que altres persones apareguin al marc.
-2. Fixeu-vos en el vostre aspecte abans de la matrícula. No us cobriu la cara amb el cabell, un barret, ulleres de sol, una màscara o maquillatge pesat.
-3. No aixequeu ni abaixeu el cap, no tanqueu els ulls ni mostreu la cara de perfil. Assegureu-vos que la cara frontal aparegui clarament i completament al marc.
-Si accepteu aquesta declaració i registreu la vostra cara (no recopilarem la vostra informació facial, que es xifrarà localment i s&apos;emmagatzemarà per separat al vostre dispositiu), el reconeixement facial s&apos;habilitarà. Podeu anar a &quot;Autenticació biomètrica&quot;&gt; &quot;Cara&quot; per eliminar les dades facials registrades.
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>

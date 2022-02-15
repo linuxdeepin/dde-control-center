@@ -5242,22 +5242,30 @@
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
-        <source>Before you set up face recognition, please pay attention to the following: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Face unlock is less secure than a password.
-3. Face recognition rates would reduce if showing a profile face, or in dark, bright, backlit environments.
-4. Do not hand over your device to others to avoid malicious use of face recognition.
-5. In addition, you should take care of other factors that may affect the normal use of face recognition.
-For better face recognition, take notice of the following when enrolling your face:
-1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
-2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
-3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>«بىئولوگىيەلىك دەلىللەش » بولسا تۇڭشىن يۇمشاق دېتال تېخنىكا چەكلىك شىركىتى تەمىنلىگەن بىر خىل ئابۇنىتلارنىڭ سالاھىيىتىنى دەلىللەش ئىقتىدارى. » بىئولوگىيەلىك دەلىللەش» ئارقىلىق توپلانغان بىئولوگىيەلىك پەرقلەندۈرۈش سانلىق مەلۇماتلىرى بىلەن ئۈسكۈنىدە ساقلانغان بىئولوگىيەلىك پەرقلەندۈرۈش سانلىق مەلۇماتلىرى سېلىشتۇرۇلىدۇھەمدە سېلىشتۇرۇش نەتىجىسىگە ئاساسەن ئابۇنىچىلارنىڭ سالاھىيىتى دەلىللىنىدۇ.
-دىققەت قىلىڭ، تۇڭشىن يۇمشاق دېتالى سىزنىڭ بىئولوگىيەلىك پەرقلەندۈرۈش ئۇچۇرىڭىزنى توپلىمايدۇ ياكى زىيارەت قىلمايدۇ. بۇتۈردىكى ئۇچۇرلار سىزنىڭ ئۈسكۈنىڭىزدە ساقلىنىدۇ. سىز پەقەت ئۆزىڭىزنىڭ شەخسىي ئۈسكۈنىڭىزدە بىئولوگىيەلىك پەرقلەندۈرۈش ئىقتىدارىنى قوزغىتالايسىز ھەمدە ئۆزىڭىزنىڭ بىئولوگىيەلىك پەرقلەندۈرۈش ئۇچۇرىنى ئىشلىتىپ مۇناسىۋەتلىك مەشغۇلاتلارنى قىلالايسىز. يەنە بۇ ئۈسكۈنىڭىزدە باشقىلارنىڭ بىئولوگىيەلىك پەرقلەندۈرۈش ئۇچۇرىنى ۋاقتىدا چەكلىشىڭىز ياكى تازىلىشىڭىز كېرەك بولمىسا بۇنىڭ سىزگە ئېلىپ كېلىدىغان خەۋپ-خەتىرىنى ئۆزىڭىز ئۈستىڭىزگە ئالىسىز.
-تۇڭشىن يۇمشاق دېتالى بىئولوگىيەلىك پەرقلەندۈرۈش ئىقتىدارىنىڭ بىخەتەرلىكى، ئېنىقلىقى ۋە مۇقىملىقىنى يۇقىرى كۆتۈرۈش جەھەتتە تەتقىقات ئېلىپ بارىدۇھەمدە سۈپىتىنى يۇقىرى كۆتىرىدۇ، لېكىن مۇھىت، ئۈسكۈنە، تېخنىكا قاتارلىق ئامىللار ۋە خەۋپ-خەتەرنى كونترول قىلىش قاتارلىق سەۋەبلەر بىلەن چەكلىنىپ قالسا، بىز ۋاقتىنچە سىزنىڭ بىئولوگىيەلىك پەرىقلەندۈرىشىڭىزگە كاپالەتلىك قىلالمايمىز، بىئولوگىيەلىك پەرقلەندۈرۈشنى تۇڭشىن مەشغۇلات سىستېمىسىغا كىرىشنىڭ بىردىنبىر يولى قىلىۋالماڭ. ئەگەر سىزبىئولوگىيەلىك پەرقلەندۈرۈشنى ئىشلەتكەندە ھەر قانداق مەسىلە ياكى تەكلىپنى ئوتتۇرىغا قويسىڭىز، سىستېما ئىچىدىكى »مۇلازىمەت ۋە قوللاش «ئارقىلىق ئىنكاس قايتۇرسىڭىز بولىدۇ.
- </translation>
+        <translation>چىراينى پەرقلەندۈرۈش ئىقتىدارىنى ئىشلىتىشتىن بۇرۇن دىققەت قىلدىغان ئشلارتۆۋەندىكىچە:
+1.سىزنىڭ ئۈسكۈنىڭىز چىراي شەكلى، سىرتقى شەكىل ۋە سىزگە يېقىن كېلىدىغان ئادەم ياكى نەرسىلەر تەرىپىدىن قۇلۇپى ئېچىلىشى مۇمكىن.
+2.چىراينى پەرقلەندۈرۈش بىخەتەرلىكى رەقەملىك مەخپىي نومۇر، ئارىلاشما مەخپىي نومۇردىن تۆۋەن بولۇش.
+3. تۇتۇق نۇر، كۈچلۈك نۇر، تەتۈر نۇر ياكى بۇلۇڭلار زىيادە چوڭ بولغان ئەھۋالدا چىراينى پەرقلەندۈرۈشنىڭ قۇلۇپنى ئېچىش ئۈنۈمى تۆۋەنلەپ كېتىدۇ.
+4. ئۈسكۈنىلەرنى خالىغانچە باشقىلارنىڭ ئىشلىتىشىگە تاپشۇرۇپ بېرىش ، باشقىلارنڭ چىراي پەرقلەندۈرۈش ئىقتىدارىنى يامان غەرەزدە ئىشلىتىشتىن ساقلىنىش كېرەك.
+5. چىققان كۆرۈنۈشتىن باشقا، چىراي پەرقلەندۈرۈش ئىقتىدارىنىڭ نورمال ئىشلىتىلىشىگە تەسىر يەتكۈزۈش ئېھتىمالى بولغان باشقا ئەھۋاللارغا دىققەت قىلىشىڭىز كېرەك.
+
+چىراينى پەرقلەندۈرۈشنى تېخىمۇ ياخشى ئىشلىتىش ئۈچۈن سانلىق مەلۇماتىنى كىرگۈزگەندە تۆۋەندىكى ئىشلارغا دىققەت قىلىش كېرەك:
+1.كۈن نۇرىنىڭ تولۇق چۈشۈشىگە كاپالەتلىك قىلىپ، كۈن نۇرىنىڭ تىك چۈشۈشىدىن ھەمدە باشقا كىشىلەر كىرگەن كۆرۈنۈش پەيدا بولۇشىدىن ساقلىنىش كېرەك .
+2.سانلىق مەلۇماتلارنى كىرگۈزگەندىكى يۈز ھالىتىگە ،دىققەت قىلىش، كىيىم-كېچەك، چاچ، كۆزەينەك، ماسكا، قېنىق گىرىم قاتارلىقلارنڭ يۈز ئۇچۇرىنى توسۇۋېلىشتىن ساقلىنىش كېرەك.
+3. باشنى كۆتۈرۈۋېلىش ،باشنى تۆۋەن سېلىش، كۆزنى يۇمۇۋېلىش ياكى پەقەت يان يۈزلا كۆرۈنۈپ قالىدىغان ئەھۋاللاردىن ساقلىنىش. يۈز قىسمىنىڭ ئېنىق، مۇكەممەل ھالەتتە كۆرسەتمە رامكىسىدا بولۇشىغا كاپالەتلىك قىلىش.
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
