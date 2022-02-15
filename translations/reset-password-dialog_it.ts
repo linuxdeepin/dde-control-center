@@ -24,17 +24,17 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="103"/>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Non più di %1 caratteri palindromi per favore</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Non più di %1 caratteri monotoni per favore</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="105"/>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Non più di %1 caratteri ripetuti per favore</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="110"/>
@@ -117,12 +117,12 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="272"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
-        <translation type="unfinished"/>
+        <translation>La reimpostazione della password cancellerà i dati memorizzati nel portachiavi e dovresti accedere di nuovo, salva i file in anticipo</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="273"/>
         <source>Confirm and Reset</source>
-        <translation type="unfinished"/>
+        <translation>Conferma e ripristina</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="291"/>
@@ -188,12 +188,12 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="603"/>
         <source>You have reached the number limit to get the code today</source>
-        <translation type="unfinished"/>
+        <translation>Hai raggiunto il numero massimo di codici giornalieri</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="604"/>
         <source>The Union ID is not linked to a user account</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;Union ID non è collegato ad un account utente</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="623"/>

@@ -630,42 +630,37 @@
 <context>
     <name>dccV20::authentication::AddIrisInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="87"/>
         <source>Enroll Iris</source>
         <translation>Inscribir el iris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="92"/>
-        <source>Look at the iris scanner and make sure your eyes are inside the frame</source>
-        <translation>Mire el escáner de iris y asegúrese de que sus ojos están dentro del marco</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="110"/>
         <source>Next</source>
         <translation>Siguiente</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="165"/>
         <source>Iris enrolled</source>
         <translation>Iris inscrito</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="168"/>
         <source>Done</source>
         <translation>Hecho</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="177"/>
         <source>Failed to enroll your iris</source>
         <translation>No se ha podido inscribir el iris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="182"/>
         <source>Try Again</source>
         <translation>Inténtelo de nuevo</translation>
     </message>
@@ -759,17 +754,17 @@
 <context>
     <name>dccV20::authentication::FingerDisclaimer</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="84"/>
         <source>Add Fingerprint</source>
         <translation>Añadir huella dactilar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="107"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="109"/>
         <source>Next</source>
         <translation>Siguiente</translation>
     </message>
@@ -864,19 +859,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="171"/>
         <source>Fingerprint</source>
         <translation>Huella dactilar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="172"/>
         <source>Face</source>
         <translation>Cara</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="173"/>
         <source>Iris</source>
         <translation>Iris</translation>
     </message>
@@ -5274,7 +5269,7 @@ Si acepta esta declaración e inscribe su rostro (no recopilaremos su informaci�
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
-UnionTech Softeware is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation type="unfinished"/>
     </message>
