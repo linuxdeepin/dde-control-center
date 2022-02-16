@@ -161,9 +161,7 @@ void HotspotDeviceWidget::updateCreateButtonStatus(bool showcreatebtn)
 void HotspotDeviceWidget::closeHotspot()
 {
     HotspotController *hotspotController = NetworkController::instance()->hotspotController();
-    // 断开连接
-    hotspotController->disconnectItem();
-    // 同时禁用热点
+    // 关闭热点
     hotspotController->setEnabled(m_device, false);
 }
 
@@ -238,8 +236,8 @@ void HotspotDeviceWidget::onConnEditRequested(const QString &uuid)
     m_editPage->setLeftButtonEnable(true);
 
     connect(m_editPage, &ConnectionHotspotEditPage::requestNextPage, m_page, &HotspotPage::requestNextPage);
-    connect(m_editPage, &ConnectionHotspotEditPage::disconnect, this, [ ] {
-        NetworkController::instance()->hotspotController()->disconnectItem();
+    connect(m_editPage, &ConnectionHotspotEditPage::disconnect, this, [ this ] {
+        NetworkController::instance()->hotspotController()->disconnectItem(m_device);
     });
 
     Q_EMIT m_page->requestNextPage(m_editPage);

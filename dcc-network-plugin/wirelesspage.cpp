@@ -461,7 +461,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_closeHotspotBtn, &QPushButton::clicked, this, [ = ] {
         // 此处抛出这个信号是为了让外面记录当前关闭热点的设备，因为在关闭热点过程中，当前设备会移除一次，然后又会添加一次，相当于触发了两次信号，
         // 此时外面就会默认选中第一个设备而无法选中当前设备，因此在此处抛出信号是为了让外面能记住当前选择的设备
-        Q_EMIT closeHotspot(m_device);
         hotspotController->setEnabled(m_device, false);
     });
 }

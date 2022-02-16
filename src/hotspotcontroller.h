@@ -49,8 +49,8 @@ public:
     bool enabled(WirelessDevice *device);                                    // 设备的热点是否可用
     bool supportHotspot();                                                   // 是否支持个人热点
     void connectItem(HotspotItem *item);                                     // 连接到个人热点
-    void connectItem(WirelessDevice *device, const QString &uuid);                                   // 连接到个人热点
-    void disconnectItem();                                                   // 断开连接
+    void connectItem(WirelessDevice *device, const QString &uuid);           // 连接到个人热点
+    void disconnectItem(WirelessDevice *device);                             // 断开连接
     QList<HotspotItem *> items(WirelessDevice *device);                      // 返回列表
     QList<WirelessDevice *> devices();                                       // 获取支持热点的设备列表
 
@@ -72,8 +72,6 @@ protected:
     HotspotItem *findItem(WirelessDevice *device, const QJsonObject &json);
 
     void updateActiveConnection(const QJsonObject &activeConnections);
-    void updateActiveConnectionInfo(const QList<QJsonObject> &conns);
-    void updateActiveConnectionInfo();
 
     WirelessDevice *findDevice(const QString &path);
     bool isHotspotConnection(const QString &uuid);
@@ -82,11 +80,6 @@ private:
     QList<WirelessDevice *> m_devices;
     QList<HotspotItem *> m_hotspotItems;
     NetworkInter *m_networkInter;
-    QList<QJsonObject> m_activeconnection;
-    QMap<QString, bool> m_deviceEnableStatus;
-    QString m_activePath;
-    bool m_activeConnectionChanged;
-    QList<WirelessDevice *> m_activeDevices;
 };
 
 class HotspotItem : public ControllItems

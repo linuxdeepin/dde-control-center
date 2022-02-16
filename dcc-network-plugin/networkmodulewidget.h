@@ -85,7 +85,6 @@ public:
     void showDefaultWidget();
     int gotoSetting(const QString &path);
     void setIndexFromPath(const QString &path);
-    void setLastDevicePath(const QString &path);
     void initSetting(const int settingIndex, const QString &searchPath);
     void setModelVisible(const QString &modelName, const bool &visible);
 
@@ -119,7 +118,6 @@ private:
 
     FrameProxyInterface *m_frameProxy;
     bool m_isFirstEnter;
-    QString m_lastDevicePath;
     bool m_switchIndex;
 };
 

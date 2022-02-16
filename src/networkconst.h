@@ -110,14 +110,17 @@ class ControllItems
 {
 public:
     Connection *connection() const;
+    QString activeConnection() const;
 
 protected:
     ControllItems();
     virtual ~ControllItems();
     void setConnection(const QJsonObject &jsonObj);
+    void setActiveConnection(const QString &activeConnection);
 
 private:
     Connection *m_connection;
+    QString m_activeConnection;
 };
 
 /**

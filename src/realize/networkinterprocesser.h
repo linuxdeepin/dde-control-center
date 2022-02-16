@@ -61,7 +61,6 @@ protected:
     void updateDeviceConnectiveInfo();                                             // 更新设备信号连接强度信息
     void activeConnInfoChanged(const QString &conns);                              // 活动连接信息发生变化
     void updateDeviceHotpot();                                                     // 更新热点设备数据
-    void updateDeviceActiveHotpot();                                               // 更换当前活跃热点信息
 
     void updateNetworkDetails();                                                   // 更新网络连接信息
 

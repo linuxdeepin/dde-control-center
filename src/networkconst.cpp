@@ -47,11 +47,6 @@ void Connection::updateConnection(const QJsonObject &data)
     m_data = data;
 }
 
-Connection *ControllItems::connection() const
-{
-    return m_connection;
-}
-
 // 连接具体项的基类
 ControllItems::ControllItems()
     : m_connection(new Connection)
@@ -63,9 +58,24 @@ ControllItems::~ControllItems()
     delete m_connection;
 }
 
+Connection *ControllItems::connection() const
+{
+    return m_connection;
+}
+
+QString ControllItems::activeConnection() const
+{
+    return m_activeConnection;
+}
+
 void ControllItems::setConnection(const QJsonObject &jsonObj)
 {
     m_connection->updateConnection(jsonObj);
+}
+
+void ControllItems::setActiveConnection(const QString &activeConnection)
+{
+    m_activeConnection = activeConnection;
 }
 
 }

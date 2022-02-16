@@ -215,7 +215,7 @@ void NetworkHandler::onDeviceInput() const
                         ctrl->connectItem(item);
                     }
                 } else {
-                    ctrl->disconnectItem();
+                    ctrl->disconnectItem(device);
                 }
             }
         }

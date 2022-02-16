@@ -43,23 +43,23 @@ class DeviceInterRealize : public NetworkDeviceRealize
     friend class NetworkDeviceBase;
 
 public:
-    inline bool isEnabled() const { return m_enabled; }                                          // 当前的网卡是否启用
-    inline QString interface() const { return m_data.value("Interface").toString(); }            // 返回设备上的Interface
-    inline QString driver() const { return m_data.value("Driver").toString(); }                  // 驱动，对应于备上返回值的Driver
-    inline bool managed() const { return m_data.value("Managed").toBool(); }                     // 对应于设备上返回值的Managed
-    inline QString vendor() const { return m_data.value("Vendor").toString(); }                  // 对应于设备上返回值的Vendor
-    inline QString uniqueUuid() const { return m_data.value("UniqueUuid").toString(); }          // 网络设备的唯一的UUID，对应于设备上返回值的UniqueUuid
-    inline bool usbDevice() const { return m_data.value("UsbDevice").toBool(); }                 // 是否是USB设备，对应于设备上返回值的UsbDevice
-    inline QString path() const { return m_data.value("Path").toString(); }                      // 设备路径，对应于设备上返回值的Path
-    inline QString activeAp() const { return m_data.value("ActiveAp").toString(); }              // 对应于设备上返回值的ActiveAp
-    inline bool supportHotspot() const { return m_data.value("SupportHotspot").toBool(); }       // 是否支持热点,对应于设备上返回值的SupportHotspot
-    inline QString realHwAdr() const { return m_data.value("HwAddress").toString(); }            // mac地址
-    inline QString usingHwAdr() const { return m_data.value("ClonedAddress").toString(); }       // 正在使用的mac地址
-    QStringList ipv4() const;                                                                        // IPV4地址
-    QStringList ipv6() const;                                                                        // IPV6地址
-    QJsonObject activeConnectionInfo() const;                                                    // 获取当前活动连接的信息
-    void setEnabled(bool enabled);                                                               // 开启或禁用网卡
-    virtual void disconnectNetwork() = 0;                                                        // 断开网络连接，该方法是一个虚方法，具体在子类
+    inline bool isEnabled() const { return m_enabled; }                                             // 当前的网卡是否启用
+    inline QString interface() const { return m_data.value("Interface").toString(); }               // 返回设备上的Interface
+    inline QString driver() const { return m_data.value("Driver").toString(); }                     // 驱动，对应于备上返回值的Driver
+    inline bool managed() const { return m_data.value("Managed").toBool(); }                        // 对应于设备上返回值的Managed
+    inline QString vendor() const { return m_data.value("Vendor").toString(); }                     // 对应于设备上返回值的Vendor
+    inline QString uniqueUuid() const { return m_data.value("UniqueUuid").toString(); }             // 网络设备的唯一的UUID，对应于设备上返回值的UniqueUuid
+    inline bool usbDevice() const { return m_data.value("UsbDevice").toBool(); }                    // 是否是USB设备，对应于设备上返回值的UsbDevice
+    inline QString path() const { return m_data.value("Path").toString(); }                         // 设备路径，对应于设备上返回值的Path
+    inline QString activeAp() const { return m_data.value("ActiveAp").toString(); }                 // 对应于设备上返回值的ActiveAp
+    inline bool supportHotspot() const { return m_data.value("SupportHotspot").toBool(); }  // 是否支持热点,对应于设备上返回值的SupportHotspot
+    inline QString realHwAdr() const { return m_data.value("HwAddress").toString(); }               // mac地址
+    inline QString usingHwAdr() const { return m_data.value("ClonedAddress").toString(); }          // 正在使用的mac地址
+    QStringList ipv4() const;                                                                       // IPV4地址
+    QStringList ipv6() const;                                                                       // IPV6地址
+    QJsonObject activeConnectionInfo() const;                                                       // 获取当前活动连接的信息
+    void setEnabled(bool enabled);                                                                  // 开启或禁用网卡
+    virtual void disconnectNetwork() = 0;                                                           // 断开网络连接，该方法是一个虚方法，具体在子类
     Connectivity connectivity();
 
 protected:
@@ -68,12 +68,12 @@ protected:
     NetworkInter *networkInter();
     void updateDeviceInfo(const QJsonObject &info);
     void initDeviceInfo();
-    virtual bool isConnected() const = 0;                                                        // 当前网络的网络是否处于连接状态
+    virtual bool isConnected() const = 0;                                                           // 当前网络的网络是否处于连接状态
     virtual void updateConnection(const QJsonArray &info) = 0;
-    virtual QString deviceKey() = 0;                                                             // 返回设备对应的key值
+    virtual QString deviceKey() = 0;                                                                // 返回设备对应的key值
     virtual void setDeviceEnabledStatus(const bool &enabled);
-    virtual void updateActiveInfo(const QList<QJsonObject> &info);                               // 当前连接发生变化，例如从一个连接切换到另外一个连接
-    virtual void updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot);  // 当前连接发生变化后，获取设备的活动信息，例如IP等
+    virtual void updateActiveInfo(const QList<QJsonObject> &info);                                  // 当前连接发生变化，例如从一个连接切换到另外一个连接
+    virtual void updateActiveConnectionInfo(const QList<QJsonObject> &infos);                       // 当前连接发生变化后，获取设备的活动信息，例如IP等
 
 private:
     NetworkInter *m_networkInter;
@@ -147,7 +147,7 @@ protected:
     WirelessConnection *findConnectionByPath(const QString &path);
     void updateAccesspoint(const QJsonArray &json);
     void setDeviceEnabledStatus(const bool &enabled) override;
-    void updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot) override;
+    void updateActiveConnectionInfo(const QList<QJsonObject> &infos) override;
     bool hotspotEnabled() override;
 
     template<class T>

@@ -102,6 +102,9 @@ void NetworkInterProcesser::initConnection()
     connect(m_networkInter, &NetworkInter::DevicesChanged, this, &NetworkInterProcesser::onDevicesChanged);                            // 设备状态发生变化
     connect(m_networkInter, &NetworkInter::ConnectionsChanged, this, &NetworkInterProcesser::onConnectionListChanged);                 // 连接发生变化
     connect(m_networkInter, &NetworkInter::ActiveConnectionsChanged, this, &NetworkInterProcesser::onActiveConnectionsChanged);        // 当前活动连接发生变化
+    connect(m_networkInter, &NetworkInter::ActiveConnectionInfoChanged, this, [ this ] {
+        onActiveConnectionsChanged(m_networkInter->GetActiveConnectionInfo());
+    });
     connect(m_networkInter, &NetworkInter::WirelessAccessPointsChanged, this, &NetworkInterProcesser::onAccesspointChanged);           // 热点发生变化
     connect(m_networkInter, &NetworkInter::DeviceEnabled, this, &NetworkInterProcesser::onDeviceEnableChanged);                        // 关闭设备或启用设备
 
@@ -266,8 +269,6 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
 
         // 设备列表发生变化后，同时也需要更新设备热点的信息
         updateDeviceHotpot();
-        // 更新热点的活动连接信息
-        updateDeviceActiveHotpot();
 
         // 发送删除的设备列表信号，此时这些设备对象还未析构，外面调用来处理响应的操作，统一在一个线程中处理
         if (rmDevices.size() > 0) {
@@ -334,9 +335,6 @@ void NetworkInterProcesser::onConnectionListChanged(const QString &connections)
     // 更新热点的数据
     updateDeviceHotpot();
 
-    // 更新热点活动连接
-    updateDeviceActiveHotpot();
-
     // 向外抛出信号告知连接发生了变化
     Q_EMIT connectionChanged();
 }
@@ -376,20 +374,18 @@ void NetworkInterProcesser::activeConnInfoChanged(const QString &conns)
             NetworkDeviceBase *device = it.key();
             QList<QJsonObject> json = deviceInfoMap.values(device);
             DeviceInterRealize *deviceInter = static_cast<DeviceInterRealize *>(device->deviceRealize());
-            deviceInter->updateActiveConnectionInfo(json, !m_hotspotController);
+            deviceInter->updateActiveConnectionInfo(json);
         }
         // 对于没有发送的设备，直接让其显示空
         for (NetworkDeviceBase *device : m_devices) {
             if (!deviceInfoMap.contains(device)) {
                 DeviceInterRealize *deviceInter = static_cast<DeviceInterRealize *>(device->deviceRealize());
-                deviceInter->updateActiveConnectionInfo(QList<QJsonObject>(), !m_hotspotController);
+                deviceInter->updateActiveConnectionInfo(QList<QJsonObject>());
             }
         }
     } else {
         PRINT_DEBUG_MESSAGE(QString("receive error connection value: %1").arg(conns));
     }
-    // 要更新活动热点信息，是因为如果启用或者禁用热点的话，这个活动连接信息会有变化，通过这里来触发热点启用或禁用的信号
-    updateDeviceActiveHotpot();
     // 同时需要更新网络信息
     updateNetworkDetails();
 
@@ -551,24 +547,6 @@ void NetworkInterProcesser::updateDeviceHotpot()
     m_hotspotController->updateConnections(hotspots);
 }
 
-void NetworkInterProcesser::updateDeviceActiveHotpot()
-{
-    if (!m_hotspotController)
-        return;
-
-    QList<QJsonObject> conns;
-    for (const QJsonValue jsonValue : m_activeConnectionInfo) {
-        const QJsonObject json = jsonValue.toObject();
-        const QString connType = json.value("ConnectionType").toString();
-        if (connType == "wireless-hotspot")
-            conns << json;
-    }
-
-    // 更新活动连接信息
-    PRINT_INFO_MESSAGE("update active hotspot");
-    m_hotspotController->updateActiveConnectionInfo(conns);
-}
-
 void NetworkInterProcesser::updateNetworkDetails()
 {
     PRINT_INFO_MESSAGE("start");
@@ -679,7 +657,6 @@ HotspotController *NetworkInterProcesser::hotspotController()
     if (!m_hotspotController) {
         m_hotspotController = new HotspotController(m_networkInter, this);
         updateDeviceHotpot();
-        updateDeviceActiveHotpot();
         m_hotspotController->updateActiveConnection(m_activeConection);
     }
 

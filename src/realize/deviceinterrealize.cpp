@@ -142,10 +142,8 @@ void DeviceInterRealize::updateActiveInfo(const QList<QJsonObject> &info)
     }
 }
 
-void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot)
+void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &infos)
 {
-    Q_UNUSED(emitHotspot);
-
     PRINT_INFO_MESSAGE("receive Ip Data");
 
     const QStringList oldIpv4 = ipv4();
@@ -581,7 +579,7 @@ QList<WirelessConnection *> WirelessDeviceInterRealize::wirelessItems() const
     return m_connections;
 }
 
-void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot)
+void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &infos)
 {
     bool enabledHotspotOld = hotspotEnabled();
 
@@ -596,13 +594,11 @@ void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObj
         }
     }
 
-    if (emitHotspot) {
-        bool enabledHotspot = hotspotEnabled();
-        if (enabledHotspotOld != enabledHotspot)
-            Q_EMIT hotspotEnableChanged(enabledHotspot);
-    }
+    bool enabledHotspot = hotspotEnabled();
+    if (enabledHotspotOld != enabledHotspot)
+        Q_EMIT hotspotEnableChanged(enabledHotspot);
 
-    DeviceInterRealize::updateActiveConnectionInfo(infos, emitHotspot);
+    DeviceInterRealize::updateActiveConnectionInfo(infos);
 }
 
 bool dde::network::WirelessDeviceInterRealize::hotspotEnabled()

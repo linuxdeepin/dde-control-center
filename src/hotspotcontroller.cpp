@@ -32,7 +32,6 @@ using namespace NetworkManager;
 HotspotController::HotspotController(NetworkInter *networkInter, QObject *parent)
     : QObject(parent)
     , m_networkInter(networkInter)
-    , m_activeConnectionChanged(false)
 {
     Q_ASSERT(m_networkInter);
 }
@@ -57,27 +56,13 @@ void HotspotController::setEnabled(WirelessDevice *device, const bool enable)
            m_networkInter->ActivateConnection((*lastNode)->connection()->uuid(), QDBusObjectPath(device->path()));
     } else {
         // 在关闭热点的时候,找到当前已经连接的热点,并断开它的连接
-        for (HotspotItem *item : deviceHotsItem) {
-            if (item->status() == ConnectionStatus::Activated) {
-                m_networkInter->DeactivateConnection(item->connection()->uuid());
-                break;
-            }
-        }
-
-        // 关闭热点后，需要设置DeviceManaged
-        QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter->SetDeviceManaged(device->path(), false));
-        connect(w, &QDBusPendingCallWatcher::finished, [ = ]() {
-            m_networkInter->SetDeviceManaged(device->path(), true);
-        });
-
-        connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
+        disconnectItem(device);
     }
 }
 
 bool HotspotController::enabled(WirelessDevice *device)
 {
-    QString devicePath = device->path();
-    return m_deviceEnableStatus.contains(devicePath) ? m_deviceEnableStatus.value(devicePath) : false;
+    return device->hotspotEnabled();
 }
 
 bool HotspotController::supportHotspot()
@@ -101,10 +86,15 @@ void HotspotController::connectItem(WirelessDevice *device, const QString &uuid)
     }
 }
 
-void HotspotController::disconnectItem()
+void HotspotController::disconnectItem(WirelessDevice *device)
 {
-    if (!m_activePath.isEmpty())
-        deactivateConnection(m_activePath);
+    QList<HotspotItem *> deviceHotspotsItem = items(device);
+    for (HotspotItem *item : deviceHotspotsItem) {
+        if (item->status() == ConnectionStatus::Activated &&
+                !item->activeConnection().isEmpty()) {
+            deactivateConnection(item->activeConnection());
+        }
+    }
 }
 
 QList<HotspotItem *> HotspotController::items(WirelessDevice *device)
@@ -154,14 +144,12 @@ void HotspotController::updateActiveConnection(const QJsonObject &activeConnecti
     for (HotspotItem *item : m_hotspotItems) {
         allConnectionStatus[item->connection()->uuid()] = item->status();
         item->setConnectionStatus(ConnectionStatus::Deactivated);
+        item->setActiveConnection("");
     }
-
-    QString oldActivePath = m_activePath;
-    m_activePath.clear();
 
     // 在这里记录一个标记，用来表示是否发送活动连接发生变化的信号，
     // 因为这个连接更新后，紧接着会调用获取活动连接信息的信号，响应这个信号会调用下面的updateActiveConnectionInfo函数
-    bool activeConnectionChanged = false;
+    bool activeConnChanged = false;
 
     QStringList keys = activeConnections.keys();
     for (int i = 0; i < keys.size(); i++) {
@@ -184,52 +172,20 @@ void HotspotController::updateActiveConnection(const QJsonObject &activeConnecti
                 continue;
 
             hotspotItem->setConnectionStatus(state);
+            hotspotItem->setActiveConnection(path);
             if (!allConnectionStatus.contains(uuid))
                 continue;
 
             ConnectionStatus oldConnectionStatus = allConnectionStatus[uuid];
             if (oldConnectionStatus != hotspotItem->status()) {
-                activeConnectionChanged = true;
+                activeConnChanged = true;
                 if (!activeDevices.contains(device))
                     activeDevices << device;
             }
         }
-
-        if (state == ConnectionStatus::Activated)
-            m_activePath = path;
     }
-
-    if (!m_activeConnectionChanged && activeConnectionChanged) {
-        m_activeConnectionChanged = activeConnectionChanged;
-        m_activeDevices = activeDevices;
-    }
-}
-
-void HotspotController::updateActiveConnectionInfo()
-{
-    // 设备路径
-    QStringList devicePaths;
-    // 更新当前的活动连接
-    for (QJsonObject json : m_activeconnection)
-        devicePaths << json.value("Device").toString();
-
-    // 根据活动列表中是否有当前的活动连接来决定热点是否启用
-    for (WirelessDevice *device : m_devices) {
-        QString devicePath = device->path();
-        bool oldEnabled = (m_deviceEnableStatus.contains(devicePath) ? m_deviceEnableStatus.value(devicePath) : false);
-        bool newEnabled = (devicePaths.contains(device->path()));
-        m_deviceEnableStatus[devicePath] = newEnabled;
-        if (oldEnabled != newEnabled)
-            Q_EMIT device->hotspotEnableChanged(newEnabled);
-    }
-
-    // 如果连接信息发生了变化，则需要像外发送连接改变的信号
-    // 在信号发出去后，需要复位m_activeConnectionChanged标记，防止下次重新触发
-    if (m_activeConnectionChanged) {
-        Q_EMIT activeConnectionChanged(m_activeDevices);
-        m_activeConnectionChanged = false;
-        m_activeDevices.clear();
-    }
+    if (activeConnChanged)
+        Q_EMIT activeConnectionChanged(activeDevices);
 }
 
 WirelessDevice *HotspotController::findDevice(const QString &path)
@@ -240,13 +196,6 @@ WirelessDevice *HotspotController::findDevice(const QString &path)
     }
 
     return Q_NULLPTR;
-}
-
-void HotspotController::updateActiveConnectionInfo(const QList<QJsonObject> &conns)
-{
-    PRINT_INFO_MESSAGE(conns);
-    m_activeconnection = conns;
-    updateActiveConnectionInfo();
 }
 
 void HotspotController::updateDevices(const QList<NetworkDeviceBase *> &devices)

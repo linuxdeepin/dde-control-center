@@ -259,6 +259,16 @@ bool DCCNetworkModule::hasModule(const PageType &type)
         return false;
     };
 
+    auto supportHotspot = [ = ] {
+        QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
+        for (NetworkDeviceBase *device : devices) {
+            if (device->supportHotspot())
+                return true;
+        }
+
+        return false;
+    };
+
     switch (type) {
     case PageType::WiredPage:
     case PageType::DSLPage:
@@ -266,7 +276,7 @@ bool DCCNetworkModule::hasModule(const PageType &type)
     case PageType::WirelessPage:
         return deviceExist(DeviceType::Wireless);
     case PageType::HotspotPage:
-        return NetworkController::instance()->hotspotController()->supportHotspot();
+        return supportHotspot();
     default: break;
     }
 
@@ -606,9 +616,6 @@ void DCCNetworkModule::showDeviceDetailPage(NetworkDeviceBase *dev, const QStrin
         connect(wirelessPage, &WirelessPage::requestNextPage, this, [ = ](ContentWidget * const w) {
             m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
             wirelessPage->setVisible(true);
-        });
-        connect(wirelessPage, &WirelessPage::closeHotspot, this, [ = ](WirelessDevice *device) {
-            m_indexWidget->setLastDevicePath(device->path());
         });
         connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, wirelessPage, &WirelessPage::onAirplaneModeChanged);
         wirelessPage->onAirplaneModeChanged(m_airplaneMode->enabled());

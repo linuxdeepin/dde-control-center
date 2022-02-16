@@ -126,8 +126,6 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
 
     connect(m_lvnmpages->selectionModel(), &QItemSelectionModel::currentChanged, this, [ this ] (const QModelIndex &index) {
         selectListIndex(index);
-        if (!m_lastDevicePath.isEmpty())
-            m_lastDevicePath.clear();
     });
 
     NetworkController *pNetworkController = NetworkController::instance();
@@ -291,11 +289,6 @@ void NetworkModuleWidget::setIndexFromPath(const QString &path)
             return;
         }
     }
-}
-
-void NetworkModuleWidget::setLastDevicePath(const QString &path)
-{
-    m_lastDevicePath = path;
 }
 
 void NetworkModuleWidget::initSetting(const int settingIndex, const QString &searchPath)
@@ -508,19 +501,6 @@ void NetworkModuleWidget::onDeviceChanged()
             }
         }
     }
-    // 如果之前是通过调用关闭热点后，因为关闭热点会触发一次deviceRemove，然后再触发一次deviceAdd，导致这个函数会被调用两次，因此，此处需要判断
-    if (!m_lastDevicePath.isEmpty()) {
-        for (int i = 0; i < devices.size(); i++) {
-            NetworkDeviceBase *device = devices[i];
-            if (device->path() == m_lastDevicePath) {
-                newRowIndex = i;
-                m_lastDevicePath.clear();
-                m_switchIndex = true;
-                break;
-            }
-        }
-    }
-
     if (supportHotspot) {
         DStandardItem *hotspotit = new DStandardItem(tr("Personal Hotspot"));
         hotspotit->setData(QVariant::fromValue(PageType::HotspotPage), SectionRole);
