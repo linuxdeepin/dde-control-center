@@ -61,9 +61,9 @@ NetworkModule::NetworkModule(QObject *parent)
     m_networkDialog = new NetworkDialog(this);
     m_networkDialog->setRunReason(NetworkDialog::Lock);
     m_networkHelper = new NetworkPluginHelper(m_networkDialog, this);
-    if (m_isLockModel) {
-        installTranslator(QLocale::system().name());
-    } else {
+
+    installTranslator(QLocale::system().name());
+    if (!m_isLockModel) {
         m_networkDialog->setRunReason(NetworkDialog::Greeter);
         connect(m_networkHelper, &NetworkPluginHelper::addDevice, this, &NetworkModule::onAddDevice);
         QDBusMessage lock = QDBusMessage::createMethodCall("com.deepin.dde.LockService", "/com/deepin/dde/LockService", "com.deepin.dde.LockService", "CurrentUser");
