@@ -48,7 +48,6 @@ public:
 public slots:
     void show(const QPoint &pos, const bool model = false);
     void show(const int x, const int y);
-    void hide();
 
 signals:
     void accept() const;

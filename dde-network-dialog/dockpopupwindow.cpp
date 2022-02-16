@@ -82,7 +82,7 @@ void DockPopupWindow::setContent(QWidget *content)
     if (!content->objectName().trimmed().isEmpty())
         setAccessibleName(content->objectName() + "-popup");
 
-    connect(content,&QObject::objectNameChanged, this, [ this ] {
+    connect(content, &QObject::objectNameChanged, this, [ this ] {
         show(m_lastPoint, m_model);
     });
     DArrowRectangle::setContent(content);
@@ -90,17 +90,16 @@ void DockPopupWindow::setContent(QWidget *content)
 
 void DockPopupWindow::show(const QPoint &pos, const bool model)
 {
-    m_model = model;
+    if (m_model != model) {
+        m_model = model;
+        if (m_model) {
+            m_regionInter->registerRegion();
+        } else {
+            m_regionInter->unregisterRegion();
+        }
+    }
 
     show(pos.x(), pos.y());
-
-    if (m_regionInter->registered()) {
-        m_regionInter->unregisterRegion();
-    }
-
-    if (m_model) {
-        m_regionInter->registerRegion();
-    }
 }
 
 void DockPopupWindow::show(const int x, const int y)
@@ -113,13 +112,6 @@ void DockPopupWindow::show(const int x, const int y)
         DArrowRectangle::show(x, y);
         activateWindow(); //在显示窗口后激活此窗口
     }
-}
-
-void DockPopupWindow::hide()
-{
-    if (m_regionInter->registered())
-        m_regionInter->unregisterRegion();
-    DArrowRectangle::hide();
 }
 
 void DockPopupWindow::showEvent(QShowEvent *e)
@@ -162,7 +154,7 @@ void DockPopupWindow::onGlobMouseRelease(const QPoint &mousePos, const int flag)
 {
     Q_ASSERT(m_model);
 
-    if (!((flag == DRegionMonitor::WatchedFlags::Button_Left) || (flag == DRegionMonitor::WatchedFlags::Button_Right))) {
+    if (!isVisible() || !((flag == DRegionMonitor::WatchedFlags::Button_Left) || (flag == DRegionMonitor::WatchedFlags::Button_Right))) {
         return;
     }
 
@@ -171,9 +163,8 @@ void DockPopupWindow::onGlobMouseRelease(const QPoint &mousePos, const int flag)
         return;
 
     emit accept();
-    hide(); // 点击窗口以外先隐藏了，免得 unregisterRegion 之后一直关闭不了
-
-    m_regionInter->unregisterRegion();
+    hide(); // 点击窗口以外先隐藏
+    close();
 }
 
 void DockPopupWindow::compositeChanged()
