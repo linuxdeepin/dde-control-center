@@ -31,6 +31,7 @@
 #include <DArrowRectangle>
 
 #include <networkcontroller.h>
+#include <networkdevicebase.h>
 
 #include <com_deepin_daemon_accounts_user.h>
 
@@ -64,11 +65,15 @@ NetworkModule::NetworkModule(QObject *parent)
 
     installTranslator(QLocale::system().name());
     if (!m_isLockModel) {
-        m_networkDialog->setRunReason(NetworkDialog::Greeter);
-        connect(m_networkHelper, &NetworkPluginHelper::addDevice, this, &NetworkModule::onAddDevice);
         QDBusMessage lock = QDBusMessage::createMethodCall("com.deepin.dde.LockService", "/com/deepin/dde/LockService", "com.deepin.dde.LockService", "CurrentUser");
         QDBusConnection::systemBus().callWithCallback(lock, this, SLOT(onUserChanged(QString)));
         QDBusConnection::systemBus().connect("com.deepin.dde.LockService", "/com/deepin/dde/LockService", "com.deepin.dde.LockService", "UserChanged", this, SLOT(onUserChanged(QString)));
+
+        m_networkDialog->setRunReason(NetworkDialog::Greeter);
+        connect(m_networkHelper, &NetworkPluginHelper::addDevice, this, &NetworkModule::onAddDevice);
+        for (dde::network::NetworkDeviceBase *device : dde::network::NetworkController::instance()->devices()) {
+            onAddDevice(device->path());
+        }
     }
     m_networkDialog->runServer(true);
 }
@@ -152,6 +157,10 @@ void NetworkModule::onAddDevice(const QString &devicePath)
             NetworkManager::WiredDevice *wDevice = new NetworkManager::WiredDevice(devicePath, this);
             nmDevice = wDevice;
             addFirstConnection(wDevice);
+            connect(wDevice, &NetworkManager::WiredDevice::availableConnectionAppeared, this, [ this ] (const QString &) {
+                NetworkManager::WiredDevice *device = qobject_cast<NetworkManager::WiredDevice *>(sender());
+                addFirstConnection(device);
+            });
         }
         if (nmDevice) {
             connect(nmDevice, &NetworkManager::Device::stateChanged, this, &NetworkModule::onDeviceStatusChanged);
@@ -224,7 +233,7 @@ bool NetworkModule::hasConnection(NetworkManager::WiredDevice *nmDevice, Network
     for (NetworkManager::Connection::Ptr conn : connList) {
         WiredSetting::Ptr settings = conn->settings()->setting(Setting::Wired).staticCast<WiredSetting>();
         // 如果当前连接的MAC地址不为空且连接的MAC地址不等于当前设备的MAC地址，则认为不是当前的连接，跳过
-        if (settings.isNull() || (!settings->macAddress().isEmpty() && settings->macAddress() != nmDevice->hardwareAddress()))
+        if (settings.isNull() || (!settings->macAddress().isEmpty() && nmDevice->hardwareAddress().compare(settings->macAddress().toHex(':'), Qt::CaseInsensitive) != 0))
             continue;
 
         // 将未保存的连接放入到列表中，供外面调用删除
@@ -241,13 +250,6 @@ bool NetworkModule::hasConnection(NetworkManager::WiredDevice *nmDevice, Network
 
 void NetworkModule::addFirstConnection(NetworkManager::WiredDevice *nmDevice)
 {
-    static bool connectionCreated = false;
-    // 只要有一个新增的连接,就不继续新增连接了,因为这个新增的连接是所有网卡共享的
-    if (connectionCreated)
-        return;
-
-    connectionCreated = true;
-
     // 先查找当前的设备下是否存在有线连接，如果不存在，则直接新建一个，因为按照要求是至少要有一个有线连接
     NetworkManager::Connection::List unSaveConnections;
     bool findConnection = hasConnection(nmDevice, unSaveConnections);
@@ -256,6 +258,12 @@ void NetworkModule::addFirstConnection(NetworkManager::WiredDevice *nmDevice)
     for (NetworkManager::Connection::Ptr conn : unSaveConnections)
         conn->remove();
 
+    static bool connectionCreated = false;
+    // 只要有一个新增的连接,就不继续新增连接了,因为这个新增的连接是所有网卡共享的
+    if (connectionCreated)
+        return;
+
+    connectionCreated = true;
     auto autoCreateConnection = [ & ]() {
         // 如果发现当前的连接的数量为空,则自动创建以当前语言为基础的连接
         ConnectionSettings::Ptr conn(new ConnectionSettings);
