@@ -55,8 +55,8 @@ public:
     inline bool supportHotspot() const { return m_data.value("SupportHotspot").toBool(); }  // 是否支持热点,对应于设备上返回值的SupportHotspot
     inline QString realHwAdr() const { return m_data.value("HwAddress").toString(); }               // mac地址
     inline QString usingHwAdr() const { return m_data.value("ClonedAddress").toString(); }          // 正在使用的mac地址
-    QStringList ipv4() const;                                                                       // IPV4地址
-    QStringList ipv6() const;                                                                       // IPV6地址
+    const QStringList ipv4();                                                                       // IPV4地址
+    const QStringList ipv6();                                                                       // IPV6地址
     QJsonObject activeConnectionInfo() const;                                                       // 获取当前活动连接的信息
     void setEnabled(bool enabled);                                                                  // 开启或禁用网卡
     virtual void disconnectNetwork() = 0;                                                           // 断开网络连接，该方法是一个虚方法，具体在子类
@@ -68,6 +68,8 @@ protected:
     NetworkInter *networkInter();
     void updateDeviceInfo(const QJsonObject &info);
     void initDeviceInfo();
+    QStringList getValidIPV4(const QStringList &ipv4s);
+    bool isIpv4Address(const QString &ip) const;
     virtual bool isConnected() const = 0;                                                           // 当前网络的网络是否处于连接状态
     virtual void updateConnection(const QJsonArray &info) = 0;
     virtual QString deviceKey() = 0;                                                                // 返回设备对应的key值

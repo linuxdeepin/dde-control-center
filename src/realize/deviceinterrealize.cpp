@@ -23,9 +23,11 @@
 #include "wireddevice.h"
 #include "wirelessdevice.h"
 
+#include <QHostAddress>
+
 using namespace dde::network;
 
-QStringList DeviceInterRealize::ipv4() const
+const QStringList DeviceInterRealize::ipv4()
 {
     if (!isConnected() || !isEnabled())
         return QStringList();
@@ -40,6 +42,7 @@ QStringList DeviceInterRealize::ipv4() const
             ip = ip.remove("\"");
             ipv4s << ip;
         }
+        ipv4s = getValidIPV4(ipv4s);
         return ipv4s;
     }
 
@@ -49,7 +52,7 @@ QStringList DeviceInterRealize::ipv4() const
     return { objIpv4.value("Address").toString() };
 }
 
-QStringList DeviceInterRealize::ipv6() const
+const QStringList DeviceInterRealize::ipv6()
 {
     if (!isConnected() || !isEnabled() || !m_activeInfoData.contains("Ip6"))
         return QStringList();
@@ -76,6 +79,68 @@ QStringList DeviceInterRealize::ipv6() const
 QJsonObject DeviceInterRealize::activeConnectionInfo() const
 {
     return m_activeInfoData;
+}
+
+QStringList DeviceInterRealize::getValidIPV4(const QStringList &ipv4s)
+{
+    if (ipv4s.size() > 1)
+        return ipv4s;
+
+    // 检查IP列表，如果发现有IP为0.0.0.0，则让其重新获取一次，保证IP获取正确
+    // 这种情况一般发生在关闭热点后，因此在此处处理
+    if (isIpv4Address(ipv4s[0]))
+        return ipv4s;
+
+    QDBusPendingReply<QString> reply = m_networkInter->GetActiveConnectionInfo();
+    const QString activeConnInfo = reply.value();
+    QJsonParseError error;
+    QJsonDocument json = QJsonDocument::fromJson(activeConnInfo.toUtf8(), &error);
+    if (error.error != QJsonParseError::NoError)
+        return ipv4s;
+
+    if (!json.isArray())
+        return ipv4s;
+
+    QJsonArray infoArray = json.array();
+    for (const QJsonValue ipInfo : infoArray) {
+        const QJsonObject ipObject = ipInfo.toObject();
+        if (ipObject.value("Device").toString() != this->path())
+            continue;
+
+        if (!ipObject.contains("IPv4"))
+            return ipv4s;
+
+        QJsonObject ipV4Object = ipObject.value("IPv4").toObject();
+        if (!ipV4Object.contains("Addresses"))
+            return ipv4s;
+
+        QStringList ipAddresses;
+        QJsonArray ipv4Addresses = ipV4Object.value("Addresses").toArray();
+        for (const QJsonValue addr : ipv4Addresses) {
+            const QJsonObject addressObject = addr.toObject();
+            QString ip = addressObject.value("Address").toString();
+            if (isIpv4Address(ip))
+                ipAddresses << ip;
+        }
+        if (ipAddresses.size() > 0) {
+            m_activeInfoData = ipObject;
+            return ipAddresses;
+        }
+    }
+
+    return ipv4s;
+}
+
+bool DeviceInterRealize::isIpv4Address(const QString &ip) const
+{
+    QHostAddress ipAddr(ip);
+    if (ipAddr == QHostAddress(QHostAddress::Null) || ipAddr == QHostAddress(QHostAddress::AnyIPv4)
+            || ipAddr.protocol() != QAbstractSocket::NetworkLayerProtocol::IPv4Protocol) {
+        return false;
+    }
+
+    QRegExp regExpIP("((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])[\\.]){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])");
+    return regExpIP.exactMatch(ip);
 }
 
 void DeviceInterRealize::setEnabled(bool enabled)

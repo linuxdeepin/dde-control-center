@@ -102,9 +102,6 @@ void NetworkInterProcesser::initConnection()
     connect(m_networkInter, &NetworkInter::DevicesChanged, this, &NetworkInterProcesser::onDevicesChanged);                            // 设备状态发生变化
     connect(m_networkInter, &NetworkInter::ConnectionsChanged, this, &NetworkInterProcesser::onConnectionListChanged);                 // 连接发生变化
     connect(m_networkInter, &NetworkInter::ActiveConnectionsChanged, this, &NetworkInterProcesser::onActiveConnectionsChanged);        // 当前活动连接发生变化
-    connect(m_networkInter, &NetworkInter::ActiveConnectionInfoChanged, this, [ this ] {
-        onActiveConnectionsChanged(m_networkInter->GetActiveConnectionInfo());
-    });
     connect(m_networkInter, &NetworkInter::WirelessAccessPointsChanged, this, &NetworkInterProcesser::onAccesspointChanged);           // 热点发生变化
     connect(m_networkInter, &NetworkInter::DeviceEnabled, this, &NetworkInterProcesser::onDeviceEnableChanged);                        // 关闭设备或启用设备
 
