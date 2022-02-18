@@ -145,6 +145,10 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
 
     initIpConflictInfo(pNetworkController->devices());
     onDeviceChanged();
+    QTimer::singleShot(0, this, [ proxyController, this ] {
+        proxyController->querySysProxyData();
+        onProxyMethodChanged(proxyController->proxyMethod());
+    });
     if (NetworkController::instance()->devices().size() > 0)
         m_isFirstEnter = false;
 }
