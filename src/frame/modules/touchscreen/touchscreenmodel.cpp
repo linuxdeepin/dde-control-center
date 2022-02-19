@@ -52,7 +52,7 @@ void TouchscreenModel::monitorRemoved(Monitor *mon)
     Q_EMIT monitorListChanged();
 }
 
-void TouchscreenModel::setTouchscreenList(const TouchscreenInfoList &touchscreenList)
+void TouchscreenModel::setTouchscreenList(const TouchscreenInfoList_V2 &touchscreenList)
 {
     if (touchscreenList == m_touchscreenList)
         return;
