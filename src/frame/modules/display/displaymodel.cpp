@@ -151,7 +151,7 @@ void DisplayModel::setBrightnessMap(const BrightnessMap &brightnessMap)
     m_brightnessMap = brightnessMap;
 }
 
-void DisplayModel::setTouchscreenList(const TouchscreenInfoList &touchscreenList)
+void DisplayModel::setTouchscreenList(const TouchscreenInfoList_V2 &touchscreenList)
 {
     if (touchscreenList == m_touchscreenList)
         return;

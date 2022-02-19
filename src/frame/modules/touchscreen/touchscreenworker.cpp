@@ -35,7 +35,7 @@ TouchscreenWorker::TouchscreenWorker(TouchscreenModel *model, QObject *parent, b
     m_displayInter.setSync(isSync);
 
     connect(&m_displayInter, &DisplayInter::MonitorsChanged, this, &TouchscreenWorker::onMonitorListChanged);
-    connect(&m_displayInter, &DisplayInter::TouchscreensChanged, model, &TouchscreenModel::setTouchscreenList);
+    connect(&m_displayInter, &DisplayInter::TouchscreensV2Changed, model, &TouchscreenModel::setTouchscreenList);
     connect(&m_displayInter, &DisplayInter::TouchMapChanged, model, &TouchscreenModel::setTouchMap);
     connect(&m_displayInter, &DisplayInter::DisplayModeChanged, model, &TouchscreenModel::setDisplayMode);
 }
@@ -49,13 +49,13 @@ void TouchscreenWorker::active()
 {
     onMonitorListChanged(m_displayInter.monitors());
     m_model->setDisplayMode(m_displayInter.displayMode());
-    m_model->setTouchscreenList(m_displayInter.touchscreens());
+    m_model->setTouchscreenList(m_displayInter.touchscreensV2());
     m_model->setTouchMap(m_displayInter.touchMap());
 }
 
-void TouchscreenWorker::setTouchScreenAssociation(const QString &monitor, const QString &touchscreenSerial)
+void TouchscreenWorker::setTouchScreenAssociation(const QString &monitor, const QString &touchscreenUUID)
 {
-    m_displayInter.AssociateTouch(monitor, touchscreenSerial);
+    m_displayInter.AssociateTouchByUUID(monitor, touchscreenUUID);
 }
 
 void TouchscreenWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)

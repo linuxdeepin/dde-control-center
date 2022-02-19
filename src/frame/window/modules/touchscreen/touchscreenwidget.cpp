@@ -115,12 +115,12 @@ void TouchscreenWidget::onMonitorChanged()
     m_buttonTuple->rightButton()->setEnabled(false);
 
     TouchscreenMap touchMap = m_model->touchMap();
-    TouchscreenInfoList touchscreenList = m_model->touchscreenList();
+    TouchscreenInfoList_V2 touchscreenList = m_model->touchscreenList();
     QList<Monitor *> monitorList = m_model->monitorList();
     int idx = 0;
     int monitorMaxIdx = monitorList.count() - 1;
     for (const auto &i : touchscreenList) {
-        QString touchscreenUUID = i.uuid;
+        QString touchscreenUUID = i.UUID;
 
         auto title = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
         auto *label = new DLabel(title);
