@@ -22,7 +22,7 @@
 #ifndef TOUCHSCREENMODEL_H
 #define TOUCHSCREENMODEL_H
 
-#include "types/touchscreeninfolist.h"
+#include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
 
 #include <QObject>
@@ -46,8 +46,8 @@ public:
     inline int displayMode() const { return m_mode; }
     inline const QList<Monitor *> monitorList() const { return m_monitors; }
 
-    inline TouchscreenInfoList touchscreenList() const { return m_touchscreenList; }
-    void setTouchscreenList(const TouchscreenInfoList &touchscreenList);
+    inline TouchscreenInfoList_V2 touchscreenList() const { return m_touchscreenList; }
+    void setTouchscreenList(const TouchscreenInfoList_V2 &touchscreenList);
 
     inline TouchscreenMap touchMap() const { return m_touchMap; }
     void setTouchMap(const TouchscreenMap &touchMap);
@@ -66,7 +66,7 @@ private Q_SLOTS:
 private:
     int m_mode;
     QList<Monitor *> m_monitors;
-    TouchscreenInfoList m_touchscreenList;
+    TouchscreenInfoList_V2 m_touchscreenList;
     TouchscreenMap m_touchMap;
 };
 

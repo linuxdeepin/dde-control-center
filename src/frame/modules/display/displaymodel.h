@@ -30,7 +30,7 @@
 
 #include "monitor.h"
 #include "types/brightnessmap.h"
-#include "types/touchscreeninfolist.h"
+#include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
 
 #define CUSTOM_MODE 0
@@ -82,8 +82,8 @@ public:
     inline BrightnessMap brightnessMap() const { return m_brightnessMap; }
     void setBrightnessMap(const BrightnessMap &brightnessMap);
 
-    inline TouchscreenInfoList touchscreenList() const { return m_touchscreenList; }
-    void setTouchscreenList(const TouchscreenInfoList &touchscreenList);
+    inline TouchscreenInfoList_V2 touchscreenList() const { return m_touchscreenList; }
+    void setTouchscreenList(const TouchscreenInfoList_V2 &touchscreenList);
 
     inline TouchscreenMap touchMap() const { return m_touchMap; }
     void setTouchMap(const TouchscreenMap &touchMap);
@@ -153,7 +153,7 @@ private:
     bool m_resolutionRefreshEnable;
     bool m_brightnessEnable;
     BrightnessMap m_brightnessMap;
-    TouchscreenInfoList m_touchscreenList;
+    TouchscreenInfoList_V2 m_touchscreenList;
     TouchscreenMap m_touchMap;
     uint m_maxBacklightBrightness {0};
 };

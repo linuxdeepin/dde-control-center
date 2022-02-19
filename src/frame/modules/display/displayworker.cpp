@@ -67,7 +67,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     connect(&m_displayInter, &DisplayInter::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
     connect(&m_displayInter, &DisplayInter::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
     connect(&m_displayInter, &DisplayInter::BrightnessChanged, model, &DisplayModel::setBrightnessMap);
-    connect(&m_displayInter, &DisplayInter::TouchscreensChanged, model, &DisplayModel::setTouchscreenList);
+    connect(&m_displayInter, &DisplayInter::TouchscreensV2Changed, model, &DisplayModel::setTouchscreenList);
     connect(&m_displayInter, &DisplayInter::TouchMapChanged, model, &DisplayModel::setTouchMap);
     connect(&m_displayInter, &DisplayInter::ScreenHeightChanged, model, &DisplayModel::setScreenHeight);
     connect(&m_displayInter, &DisplayInter::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
@@ -111,7 +111,7 @@ void DisplayWorker::active()
     onMonitorListChanged(m_displayInter.monitors());
 
     m_model->setDisplayMode(m_displayInter.displayMode());
-    m_model->setTouchscreenList(m_displayInter.touchscreens());
+    m_model->setTouchscreenList(m_displayInter.touchscreensV2());
     m_model->setTouchMap(m_displayInter.touchMap());
     m_model->setPrimary(m_displayInter.primary());
     m_model->setScreenHeight(m_displayInter.screenHeight());

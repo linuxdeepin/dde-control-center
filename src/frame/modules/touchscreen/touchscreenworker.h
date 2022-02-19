@@ -45,7 +45,7 @@ public:
     void active();
 
 public Q_SLOTS:
-    void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenSerial);
+    void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenUUID);
 
 private Q_SLOTS:
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
