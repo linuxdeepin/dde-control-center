@@ -40,6 +40,7 @@
 #include <QComboBox>
 #include <QDesktopWidget>
 #include <QScreen>
+#include <QKeyEvent>
 
 using namespace dcc::widgets;
 using namespace dcc::display;

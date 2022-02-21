@@ -29,6 +29,7 @@
 #include <QDebug>
 #include <QPainter>
 #include <QDBusUnixFileDescriptor>
+#include <QPainterPath>
 
 #define Faceimg_SIZE 248
 
