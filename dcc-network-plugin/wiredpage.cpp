@@ -56,7 +56,7 @@ DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
 using namespace dde::network;
 
-WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
+WiredPage::WiredPage(dde::network::WiredDevice *dev, QWidget *parent)
     : ContentWidget(parent)
     , m_device(dev)
     , m_pNetworkController(NetworkController::instance())

@@ -68,7 +68,7 @@ class WiredPage : public dcc::ContentWidget
     Q_OBJECT
 
 public:
-    explicit WiredPage(WiredDevice *dev, QWidget *parent = nullptr);
+    explicit WiredPage(dde::network::WiredDevice *dev, QWidget *parent = nullptr);
     ~ WiredPage();
 
     void jumpPath(const QString &searchPath);
@@ -90,7 +90,7 @@ private Q_SLOTS:
     void onConnectionPropertyChanged(const QList<WiredConnection *> &changedConnection);
 
 private:
-    WiredDevice *m_device;
+    dde::network::WiredDevice *m_device;
     NetworkController *m_pNetworkController;                    // 网络硬件接口
     SwitchWidget *m_switch;
 
