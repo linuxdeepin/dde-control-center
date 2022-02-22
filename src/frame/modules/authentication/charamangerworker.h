@@ -53,6 +53,7 @@ private:
 Q_SIGNALS:
     void tryStartInputFace(const int &fd);
     void tryStartInputIris(CharaMangerModel::AddInfoState state);
+    void requestMainWindowEnabled(const bool isEnabled) const;
 
 public Q_SLOTS:
     void predefineDriverInfo(const QString &driverInfo);

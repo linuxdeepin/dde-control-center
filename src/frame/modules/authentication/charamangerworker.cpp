@@ -243,21 +243,25 @@ void CharaMangerWorker::entollStart(const QString &driverName, const int &charaT
 
     m_fileDescriptor = new QDBusPendingReply<QDBusUnixFileDescriptor>();
     *m_fileDescriptor = m_charaMangerInter->EnrollStart(driverName, charaType, charaName);
-    m_fileDescriptor->waitForFinished();
-    if (m_fileDescriptor->isError()) {
-        qDebug() << "get File Descriptor error! " << m_fileDescriptor->error();
-    } else {
-        m_stopTimer->start(1000 * INPUT_TIME);
 
-        if (charaType & FACE_CHARA)
-            m_model->setInputFaceFD(m_fileDescriptor->value().fileDescriptor());
+    Q_EMIT requestMainWindowEnabled(false);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(*m_fileDescriptor, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (m_fileDescriptor->isError()) {
+            qDebug() << "get File Descriptor error! " << m_fileDescriptor->error();
+        } else {
+            m_stopTimer->start(1000 * INPUT_TIME);
 
-        if (charaType & IRIS_CHARA)
-            m_model->setInputIrisFD(CharaMangerModel::AddInfoState::Processing);
-    }
+            if (charaType & FACE_CHARA)
+                m_model->setInputFaceFD(m_fileDescriptor->value().fileDescriptor());
 
+            if (charaType & IRIS_CHARA)
+                m_model->setInputIrisFD(CharaMangerModel::AddInfoState::Processing);
+        }
+        Q_EMIT requestMainWindowEnabled(true);
+        watcher->deleteLater();
+    });
 }
-
 
 void CharaMangerWorker::refreshUserEnrollStatus(const QString &senderid, const int &code, const QString &codeInfo)
 {
@@ -294,9 +298,11 @@ void CharaMangerWorker::stopEnroll()
 
 void CharaMangerWorker::deleteCharaItem(const int &charaType, const QString &charaName)
 {
+    Q_EMIT requestMainWindowEnabled(false);
     auto call = m_charaMangerInter->Delete(charaType, charaName);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [this]{
+        Q_EMIT requestMainWindowEnabled(true);
         sender()->deleteLater();
     });
 

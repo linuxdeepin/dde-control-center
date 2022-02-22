@@ -70,23 +70,30 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
 
 void FingerWorker::tryEnroll(const QString &name, const QString &thumb)
 {
+    Q_EMIT requestMainWindowEnabled(false);
     m_fingerPrintInter->setTimeout(1000 * 60 * 60);
     auto callClaim = m_fingerPrintInter->Claim(name, true);
     callClaim.waitForFinished();
+
     if (callClaim.isError()) {
         qDebug() << "call Claim Error : " << callClaim.error();
         m_model->refreshEnrollResult(FingerModel::EnrollResult::Enroll_ClaimFailed);
     } else {
         m_fingerPrintInter->setTimeout(-1);
         auto callEnroll =  m_fingerPrintInter->Enroll(thumb);
-        callEnroll.waitForFinished();
-        if (callEnroll.isError()) {
-            qDebug() << "call Enroll Error : " << callEnroll.error();
-            m_fingerPrintInter->Claim(name, false);
-            m_model->refreshEnrollResult(FingerModel::EnrollResult::Enroll_Failed);
-        } else {
-            m_model->refreshEnrollResult(FingerModel::EnrollResult::Enroll_Success);
-        }
+
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(callEnroll, this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+            if (callEnroll.isError()) {
+                qDebug() << "call Enroll Error : " << callEnroll.error();
+                m_fingerPrintInter->Claim(name, false);
+                m_model->refreshEnrollResult(FingerModel::EnrollResult::Enroll_Failed);
+            } else {
+                m_model->refreshEnrollResult(FingerModel::EnrollResult::Enroll_Success);
+            }
+            Q_EMIT requestMainWindowEnabled(true);
+            watcher->deleteLater();
+        });
     }
     m_fingerPrintInter->setTimeout(-1);
 }
@@ -122,11 +129,13 @@ void FingerWorker::stopEnroll(const QString& userName)
 
 void FingerWorker::deleteFingerItem(const QString& userName, const QString& finger)
 {
+    Q_EMIT requestMainWindowEnabled(false);
     auto call = m_fingerPrintInter->DeleteFinger(userName, finger);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
 
     QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [ this, userName ]() {
         refreshUserEnrollList(userName);
+        Q_EMIT requestMainWindowEnabled(true);
         sender()->deleteLater();
     });
 }

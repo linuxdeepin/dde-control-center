@@ -47,7 +47,8 @@ void LoginOptionsModule::preInitialize(bool sync, FrameProxyInterface::PushType)
 
 void LoginOptionsModule::initialize()
 {
-
+    connect(m_charaMangerWorker, &CharaMangerWorker::requestMainWindowEnabled, this, &LoginOptionsModule::onSetMainWindowEnabled);
+    connect(m_fingerWorker, &FingerWorker::requestMainWindowEnabled, this, &LoginOptionsModule::onSetMainWindowEnabled);
 }
 
 void LoginOptionsModule::reset()

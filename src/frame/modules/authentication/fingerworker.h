@@ -44,6 +44,9 @@ class FingerWorker : public QObject
 public:
     explicit FingerWorker(FingerModel *model, QObject *parent = nullptr);
 
+Q_SIGNALS:
+    void requestMainWindowEnabled(const bool isEnabled) const;
+
 public Q_SLOTS:
     void tryEnroll(const QString &name, const QString &thumb);
     void refreshUserEnrollList(const QString &id);
