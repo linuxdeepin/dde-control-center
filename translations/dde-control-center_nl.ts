@@ -437,7 +437,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Door het wachtwoord te herstellen, worden alle in de sleutelbos opgeslagen gegevens gewist.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
@@ -1078,57 +1078,57 @@
         <translation>Opstartmenu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="391"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="398"/>
         <source>Change GRUB password</source>
         <translation>GRUB-wachtwoord wijzigen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="396"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
         <source>Username:</source>
         <translation>Gebruikersnaam:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="404"/>
         <source>root</source>
         <translation>Beheerder</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="405"/>
         <source>New password:</source>
         <translation>Nieuw wachtwoord:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="399"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="406"/>
         <source>Repeat password:</source>
         <translation>Wachtwoord herhalen:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="402"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="410"/>
         <source>Required</source>
         <translation>Vereist</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="417"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="424"/>
         <source>Cancel</source>
         <comment>button</comment>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="425"/>
         <source>Confirm</source>
         <comment>button</comment>
         <translation>Oké</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="428"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="458"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="435"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="465"/>
         <source>Password cannot be empty</source>
         <translation>Voer een wachtwoord in</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="441"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="471"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="478"/>
         <source>Passwords do not match</source>
         <translation>De wachtwoorden komen niet overeen</translation>
     </message>
@@ -1241,17 +1241,17 @@
         <translation>De handtekeningverificatie is mislukt omdat er geen beheerderstoegang kan worden verkregen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="308"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Ik ga akkoord en neem deel aan het programma omtrent gebruikerservaringen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="372"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Vrijwaringsclausule omtrent ontwikkelaarsmodus</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="373"/>
         <source>Agree and Request Root Access</source>
         <translation>Ik ga akkoord en verzoek administratortoegang</translation>
     </message>
@@ -2170,35 +2170,35 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="72"/>
         <source>Multiple Displays</source>
         <translation>Meerdere beeldschermen</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="74"/>
         <source>Mode</source>
         <translation>Modus</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="76"/>
         <source>Main Screen</source>
         <translation>Hoofdscherm</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="342"/>
         <source>Duplicate</source>
         <translation>Klonen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="343"/>
         <source>Extend</source>
         <translation>Uitbreiden</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="349"/>
         <source>Only on %1</source>
         <translation>Alleen op %1</translation>
     </message>
@@ -4058,72 +4058,72 @@
         <translation>Als je de netwerkinstellingen inschakelt, wordt je draadloze netwerkwachtwoord gesynchroniseerd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Network Settings</source>
         <translation>Netwerkinstellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Sound Settings</source>
         <translation>Geluidsinstellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
         <source>Mouse Settings</source>
         <translation>Muisinstellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
         <source>Update Settings</source>
         <translation>Update-instellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
         <source>Dock</source>
         <translation>Dock</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="204"/>
         <source>Launcher</source>
         <translation>Programmastarter</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="205"/>
         <source>Wallpaper</source>
         <translation>Achtergrond</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="206"/>
         <source>Theme</source>
         <translation>Thema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="207"/>
         <source>Power Settings</source>
         <translation>Energie-instellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="351"/>
         <source>Last Sync: %1</source>
         <translation>Recentste synchronisatie: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="353"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>dd-MM-yyyy hh:mm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="436"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
         <source>System error</source>
         <translation>Systeemfout</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="442"/>
         <source>Network error</source>
         <translation>Netwerkfout</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="444"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>Je sessie is verlopen - log opnieuw in met je Union-id</translation>
     </message>
@@ -4766,6 +4766,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="83"/>
         <source>System</source>
         <translation>Systeem</translation>
         <extra-child_page>Update Settings</extra-child_page>
@@ -4800,77 +4801,77 @@
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="102"/>
         <source>Update Settings</source>
         <translation>Update-instellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="109"/>
         <source>Auto Check for Updates</source>
         <translation>Automatisch controleren op updates</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="135"/>
         <source>Clear Package Cache</source>
         <translation>Pakketcache legen</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="142"/>
         <source>Updates from Repositories</source>
         <translation>Updates uit pakketbronnen</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="160"/>
         <source>System Repository Detection</source>
         <translation>Systeempakketbrondetectie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="163"/>
         <source>Show a notification if system update repository has been modified</source>
         <translation>Melding tonen als een systeempakketbron is aangepast</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="172"/>
         <source>Smart Mirror Switch</source>
         <translation>Slimme spiegelserverschakelaar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="176"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation>Schakel in om automatisch de snelste spiegelserver te gebruiken</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="183"/>
         <source>Mirror List</source>
         <translation>Spiegelserverlijst</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="231"/>
         <source>System Updates</source>
         <translation>Systeemupdates</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="229"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="237"/>
         <source>Security Updates</source>
         <translation>Beveiligingsupdates</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="236"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="244"/>
         <source>Unknown Apps Updates</source>
         <translation>Onbekende programma-updates</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="248"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation>‘%1’ automatisch installeren als het downloaden is afgerond</translation>
     </message>
@@ -5253,7 +5254,8 @@ In order to better use of face recognition, please pay attention to the followin
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation type="unfinished"/>
+        <translation>Voordat je gezichtsherkenning instelt, is het belangrijk om het volgende in acht te nemen:&lt;br&gt;&lt;br&gt;1. Je apparaat kan worden ontgrendeld door iemand die op jou lijkt of door een foto van jou voor de webcam te houden;&lt;br&gt;&lt;br&gt;2. Gezichtsherkenning is minder veilig dan een wachtwoord;&lt;br&gt;&lt;br&gt;3. De herkenning is slechter in donkere, slecht belichte of overbelichte omgevingen;&lt;br&gt;&lt;br&gt;4. Deel je apparaat niet met anderen om misbruik te voorkomen;&lt;br&gt;&lt;br&gt;5. Let ook op de factoren die het gebruik kunnen belemmeren.&lt;br&gt;&lt;br&gt;Neem het volgende in acht om de gezichtsherkenning zo goed als mogelijk in te stellen:&lt;br&gt;&lt;br&gt;1. Zorg voor goede belichting, vermijd zonlicht en voorkom dat anderen in beeld komen;&lt;br&gt;&lt;br&gt;2. Let op je uiterlijk: laat je haar niet over je gezicht vallen, en draag geen hoed, zonnebril, masker of een dikke laag make-up;&lt;br&gt;&lt;br&gt;3. Kijk recht in de camera, houd je ogen open en zorg dat je hoofd volledig binnen het kader blijft.&lt;br&gt;&lt;br&gt;&lt;br&gt;
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
@@ -5261,7 +5263,10 @@ In order to better use of face recognition, please pay attention to the followin
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
-        <translation type="unfinished"/>
+        <translation>‘Biometrische authenticatie’ is een functie die de gebruiker authenticeert. Deze functie wordt aangeboden door UnionTech Software Technology Co., Ltd. De biometrische gegevens worden vergeleken met de lokale gegevens op het apparaat, waarna er al dan niet verificatie plaatsvindt.
+Let op: UnionTech Software verzamelt geen biometrische gegevens en heeft er ook geen toegang tot, aangezien alles lokaal wordt opgeslagen op je apparaat. Schakel biometrische authenticatie alléén in op je persoonlijke apparaat en gebruik het alleen voor authenticatiedoeleinden. Schakel de functie uit en/of verwijder de biometrische gegevens van anderen. 
+UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de functie, alsmede de juistheid en stabiliteit. Er is echter geen garantie dat de functie niet tijdelijk te omzeilen is. Zorg er dan ook voor dat je de functie naast andere inlogmethoden gebruikt op UnionTech OS. Heb je vragen of suggesties hieromtrent? Geef dan feedback via ‘Dienstverlening en ondersteuning’ op UnionTech OS. 
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="83"/>

@@ -1078,57 +1078,57 @@
         <translation>Menu Nisjesh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="391"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="398"/>
         <source>Change GRUB password</source>
         <translation>Ndryshoni fjalëkalim GRUB-i</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="396"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
         <source>Username:</source>
         <translation>Emër përdoruesi:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="404"/>
         <source>root</source>
         <translation>rrënjë</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="405"/>
         <source>New password:</source>
         <translation>Fjalëkalimi i ri:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="399"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="406"/>
         <source>Repeat password:</source>
         <translation>Përsëriteni fjalëkalimin:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="402"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="410"/>
         <source>Required</source>
         <translation>E domosdoshme</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="417"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="424"/>
         <source>Cancel</source>
         <comment>button</comment>
         <translation>Anuloje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="425"/>
         <source>Confirm</source>
         <comment>button</comment>
         <translation>Ripohojeni</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="428"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="458"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="435"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="465"/>
         <source>Password cannot be empty</source>
         <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="441"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="471"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="478"/>
         <source>Passwords do not match</source>
         <translation>Fjalëkalimet nuk përputhen</translation>
     </message>
@@ -1241,17 +1241,17 @@
         <translation>Verifikimi i nënshkrimit dështoi, s’arrihet të merret hyrje si rrënjë</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="308"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Shprehni Pajtimin dhe Merrni Pjesë Te programi “User Experience Program”</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="372"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Klauzola e Mënyrës Zhvillues</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="373"/>
         <source>Agree and Request Root Access</source>
         <translation>Shprehni Pajtimin dhe Kërkoni Hyrje Si Rrënjë</translation>
     </message>
@@ -1679,7 +1679,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="77"/>
         <source>Short Time</source>
-        <translation>Kohë e Shkurtër</translation>
+        <translation>Kohë e shkurtër</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
@@ -1744,17 +1744,17 @@
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="219"/>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="228"/>
         <source>April 5, 2020</source>
-        <translation>Prill 5, 2020</translation>
+        <translation>5 prill, 2020</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="222"/>
         <source>April 5, 2020, Sunday</source>
-        <translation>Prill 5, 2020, E diel</translation>
+        <translation>5 prill, 2020, E diel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="225"/>
         <source>Sunday, April 5, 2020</source>
-        <translation>E diel, 5 prill 2020</translation>
+        <translation>E diel, 5 prill, 2020</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="244"/>
@@ -2170,35 +2170,35 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="72"/>
         <source>Multiple Displays</source>
         <translation>Disa Ekrane</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="74"/>
         <source>Mode</source>
         <translation>Mënyrë</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="76"/>
         <source>Main Screen</source>
         <translation>Ekrani Kryesor</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="342"/>
         <source>Duplicate</source>
         <translation>Përsëdyte</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="343"/>
         <source>Extend</source>
         <translation>Zgjeroje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="349"/>
         <source>Only on %1</source>
         <translation>Vetëm në %1</translation>
     </message>
@@ -2404,14 +2404,14 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="110"/>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Tastierë Numerike</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="117"/>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>Kycja e kapakeve</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
@@ -4058,72 +4058,72 @@
         <translation>Fjalëkalimi juaj për WLAN do të njëkohësohet nëse Rregullime Rrjeti janë të aktivizuara</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Network Settings</source>
         <translation>Rregullime Rrjeti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Sound Settings</source>
         <translation>Rregullime Zëri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
         <source>Mouse Settings</source>
         <translation>Rregullime Miu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
         <source>Update Settings</source>
         <translation>Rregullime Përditësimi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
         <source>Dock</source>
         <translation>Panel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="204"/>
         <source>Launcher</source>
         <translation>Nisës</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="205"/>
         <source>Wallpaper</source>
         <translation>Sfond</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="206"/>
         <source>Theme</source>
         <translation>Temë</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="207"/>
         <source>Power Settings</source>
         <translation>Rregullime Energjie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="351"/>
         <source>Last Sync: %1</source>
         <translation>Njëkohësimi i Fundit Më: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="353"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>dd-MM-yyyy hh:mm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="436"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
         <source>System error</source>
         <translation>Gabim sistemi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="442"/>
         <source>Network error</source>
         <translation>Gabim rrjeti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="444"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>Hyrja skadoi, ju lutemi, rihyni te Union ID</translation>
     </message>
@@ -4766,6 +4766,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="83"/>
         <source>System</source>
         <translation>Sistem</translation>
         <extra-child_page>Update Settings</extra-child_page>
@@ -4800,77 +4801,77 @@
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="102"/>
         <source>Update Settings</source>
         <translation>Rregullime Përditësimi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="109"/>
         <source>Auto Check for Updates</source>
         <translation>Vetëkontrollo për Përditësime</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="135"/>
         <source>Clear Package Cache</source>
         <translation>Spastro Fshehtinë Paketash</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="142"/>
         <source>Updates from Repositories</source>
         <translation>Përditësime nga Depo</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="160"/>
         <source>System Repository Detection</source>
         <translation>Pikasje Depoje Sistemi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="163"/>
         <source>Show a notification if system update repository has been modified</source>
         <translation>Shfaq një njoftim, nëse është ndryshuar depo përditësimesh sistemi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="172"/>
         <source>Smart Mirror Switch</source>
         <translation>Ndërrim i Mençur Pasqyre</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="176"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation>Që të lidhet automatikisht me sajtin pasqyrë më të shpejtë, aktivizojeni</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="183"/>
         <source>Mirror List</source>
         <translation>Listë Pasqyrash</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="231"/>
         <source>System Updates</source>
         <translation>Përditësime Sistemi</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="229"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="237"/>
         <source>Security Updates</source>
         <translation>Përditësime Sigurie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="236"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="244"/>
         <source>Unknown Apps Updates</source>
         <translation>Përditësime të Panjohura Aplikacionesh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="248"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation>Instaloje “%1” automatikisht, kur të jetë plotësuar shkarkimi</translation>
     </message>
@@ -4895,7 +4896,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="127"/>
         <source>Return</source>
-        <translation type="unfinished"/>
+        <translation>kthehu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="174"/>
@@ -5253,7 +5254,18 @@ In order to better use of face recognition, please pay attention to the followin
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation type="unfinished"/>
+        <translation>Para se të përdorni njohje fytyrash, ju lutemi, kini parasysh se: 
+1. Pajisja juaj mund të shkyçet nga persona ose objekte që duken ose shfaqen të ngjashëm me ju.
+2. Njohja e fytyrave është më pak e sigurt se sa fjalëkalimet dixhitale dhe fjalëkalimet e përziera.
+3. Shkalla e suksesit në shkyçjen e pajisjes tuaj përmes njohjes së fytyrave do të ulet në rast ndriçimi të ulët, ndriçimi të lartë, ndriçimi nga pas, vendosje nën kënde të mëdhenj dhe raste të tjera.
+4. Ju lutemi, mos ua jepni pajisjen tuaj të tjerëve ku të jetë, që të shmangni përdorim dashakeq të njohjes së fytyrave.
+5. Përtej rasteve më sipër, duhet të bëni kujdes në situata të tjera që mund të kenë ndikim në përdorimin normak të njohjes së fytyrave.
+
+Me qëllim përdorimin më të mirë të njohjes së fytyrave, ju lutemi, bëni kujdes të ndiqni sa vijon, kur jepen të dhëna fytyre:
+1. Ju lutemi, qëndroni në një mjedis të ndriçuar mirë, shmangni dritën e drejtpërdrejtë të diellit dhe persona të tjerë që shfaqen në ekranin që po regjistrohet.
+2. Ju lutemi, bëni kujdes te fytyra, kur jepen të dhëna, dhe mos lini kapele, flokë, syze dielli, maska, grim të rëndë dhe faktorë të tjerë të mbulojnë fytyrën tuaj.
+3. Ju lutemi, shmangni animin ose uljen e kokës, mbylljen e syve, ose shfaqjen vetëm të njërës anë të fytyrës tuaj, dhe garantoni që pjesa ballore e fytyrës të shfaqet qartë dhe plotësisht te kuadrati i regjistrimit.
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
@@ -5261,7 +5273,9 @@ In order to better use of face recognition, please pay attention to the followin
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
-        <translation type="unfinished"/>
+        <translation>“Mirëfilltësimi biometrik” është një funksion për mirëfilltësim identiteti përdoruesi, i furnizuar nga UnionTech Software Technology Co., Ltd. Përmes “mirëfilltësimit biometrik”, të dhënat biometrike të grumbulluara do të krahasohen me ato të depozituara te pajisja dhe identiteti i përdoruesit do të verifikohet bazuar në përfundimin e dalë nga krahasimi.
+Ju lutemi, mbani parasysh se UnionTech Software s’do të grumbullojë ose hyjë në të dhënat tuaja biometrike, të cilat do të depozitohen në pajisjen tuaj vendore. Ju lutemi, mirëfilltësimin biometrik aktivizojeni vetëm te pajisja juaj personale dhe përdorini të dhënat tuaja biometrike për veprime përkatëse dhe çaktivizojeni menjëherë ose fshini të dhëna biometrike personash të tjerë në atë pajisje, përndryshe jeni përgjegjës për rrezikun e lindur prej kësaj. 
+UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të sigurisë, përpikërisë dhe qëndrueshmërisë së mirëfilltësimit biometrik. Sidoqoftë, për shkak faktorësh mjedisorë, pajisjesh, teknikë dhe të tjerë, si dhe kontroll rreziqesh, s’ka garanci se do ta kaloni mirëfilltësimin biometrik me sukses. Ndaj, ju lutemi, mos e mbani mirëfilltësimin biometrik si të vetmen mënyrë për bërjen e hyrjes në UnionTech OS. Nëse keni ndonjë pyetje apo sugjerim lidhur me përdorimin e mirëfilltësimit biometrik, mund të na i jepni përmes “Shërbim dhe Asistencë” te UnionTech OS.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="83"/>
