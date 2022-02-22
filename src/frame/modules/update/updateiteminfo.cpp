@@ -30,6 +30,7 @@ void UpdateItemInfo::setDownloadSize(qlonglong downloadSize)
 {
     if (downloadSize != m_downloadSize) {
         m_downloadSize = downloadSize;
+        Q_EMIT downloadSizeChanged(downloadSize);
     }
 }
 

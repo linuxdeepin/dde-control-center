@@ -58,6 +58,7 @@ public:
 Q_SIGNALS:
     void downloadProgressChanged(const double &progress);
     void installProgressChanged(const double &progress);
+    void downloadSizeChanged(const qlonglong &size);
 
 private:
     qlonglong m_downloadSize;

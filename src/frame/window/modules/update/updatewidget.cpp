@@ -26,6 +26,7 @@
 #include "updatesettings.h"
 #include "updatehistorybutton.h"
 #include "recenthistoryapplist.h"
+#include "window/utils.h"
 
 #include <types/appupdateinfolist.h>
 
@@ -56,12 +57,9 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     , m_topSwitchWidgetBtn(new DButtonBox)
     , m_mainLayout(new QStackedLayout)
 {
-    ;
-    //~ contents_path /update/Update
     DButtonBoxButton *btnUpdate = new DButtonBoxButton(QIcon::fromTheme("dcc_update_topupdate"), tr("Updates"));
     btnUpdate->setIconSize(QSize(24, 24));
     btnUpdate->setAccessibleName("UPDATE_CHECK");
-    //~ contents_path /update/Update Settings
     DButtonBoxButton *btnSetting = new DButtonBoxButton(QIcon::fromTheme("dcc_update_topsettings"), tr("Update Settings"));
     btnSetting->setIconSize(QSize(24, 24));
     btnSetting->setAccessibleName("UPDATE_SETTINGS");
@@ -81,6 +79,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     });
 
     m_mainLayout->setMargin(0);
+    m_layout->setMargin(0);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(0);
     m_layout->addSpacing(10);
@@ -162,18 +161,11 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     connect(updateSetting, &UpdateSettings::requestSetSourceCheck, m_work, &UpdateWorker::setSourceCheck);
 #endif
-    connect(updateSetting, &UpdateSettings::requestEnableSmartMirror, m_work, &UpdateWorker::setSmartMirror);
+    if(IsCommunitySystem){
+        connect(updateSetting, &UpdateSettings::requestEnableSmartMirror, m_work, &UpdateWorker::setSmartMirror);
+    }
 
-    QWidget *updateOutWidget = new QWidget;
-    updateOutWidget->setAccessibleName("updateOutWidget");
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->addStretch();
-    layout->addWidget(updateWidget, Qt::AlignTop);
-    updateWidget->setMinimumHeight(height());
-    layout->addStretch();
-    updateOutWidget->setLayout(layout);
-
-    m_mainLayout->addWidget(updateOutWidget);
+    m_mainLayout->addWidget(updateWidget);
     m_mainLayout->addWidget(updateSetting);
 }
 

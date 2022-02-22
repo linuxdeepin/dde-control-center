@@ -44,6 +44,9 @@ class updateControlPanel: public dcc::widgets::SettingsItem
 public:
     explicit updateControlPanel(QWidget *parent = nullptr);
 
+    void initUi();
+    void initConnect();
+
     ButtonStatus getButtonStatus() const;
     void setButtonStatus(const ButtonStatus &value);
 
@@ -63,10 +66,11 @@ public:
     void setShowMoreButtonVisible(bool visible);
     void setDetailLabelVisible(bool visible);
     void setVersionVisible(bool visible);
+    void setDatetimeVisible(bool  visible);
     void setUpdateButtonVisible(bool visible);
     void setUpdateButtonEnable(bool enable);
 
-    const QString getElidedText(QWidget* widget, QString data, Qt::TextElideMode mode = Qt::ElideRight, int width = 100, int flags = 0, int line = 0);
+    const QString getElidedText(QWidget *widget, QString data, Qt::TextElideMode mode = Qt::ElideRight, int width = 100, int flags = 0, int line = 0);
 
 
     UpdateDProgressType getProgressType() const;

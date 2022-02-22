@@ -27,6 +27,7 @@
 #include "modules/systeminfo/systeminfowork.h"
 #include "widgets/utils.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <QVBoxLayout>
 #include <QGSettings>
@@ -59,10 +60,9 @@ UpdateModule::~UpdateModule()
 
 void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
-    if (!DSysInfo::isDeepin()) {
+    if (!DSysInfo::isDeepin() || DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
         qInfo() << "module: " << displayName() << " is disable now!";
-        m_frameProxy->setModuleVisible(this, false);
-        setDeviceUnavailabel(true);
+        setAvailable(false);
         return;
     }
 
@@ -101,7 +101,7 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
     onUpdatablePackagesChanged(m_model->getUpdatablePackages());
     connect(m_model, &UpdateModel::updatablePackagesChanged, this, &UpdateModule::onUpdatablePackagesChanged);
 
-    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler && m_hideModuleName.contains("update")) {
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
         m_frameProxy->setModuleVisible(this, false);
         setDeviceUnavailabel(true);
     } else {
@@ -121,6 +121,7 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
 
     Q_EMIT m_work->requestInit();
     Q_EMIT m_work->requestActive();
+
 }
 
 void UpdateModule::initialize()

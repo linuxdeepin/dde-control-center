@@ -40,7 +40,11 @@ void UpdateSettingItem::initUi()
     widget->setLayout(vboxLay);
 
     QHBoxLayout *main = new QHBoxLayout;
+    main->setMargin(0);
+    main->setSpacing(0);
+    main->setContentsMargins(10, 10, 0, 0);
     m_settingsGroup->appendItem(m_controlWidget);
+    m_settingsGroup->setSpacing(0);
     main->addWidget(widget, 0, Qt::AlignTop);
     main->addWidget(m_settingsGroup, 0, Qt::AlignTop);
     setLayout(main);
@@ -94,7 +98,6 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
     }
 
     m_status = status;
-    Q_EMIT requestRefreshWidget();
     this->setVisible(true);
 
     switch (m_status) {
@@ -107,7 +110,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         setVisible(true);
         break;
     case UpdatesStatus::Downloading:
-    	m_controlWidget-> setButtonStatus(ButtonStatus::pause);
+        m_controlWidget-> setButtonStatus(ButtonStatus::pause);
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Download);
         setProgress(m_progressVlaue);
@@ -181,6 +184,11 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         qDebug() << "unknown status!!!";
         break;
     }
+
+    // 默认状态 不用刷新页面按钮
+    if (m_status != UpdatesStatus::Default) {
+        Q_EMIT requestRefreshWidget();
+    }
 }
 
 void UpdateSettingItem::setProgress(double value)
@@ -251,7 +259,11 @@ qlonglong UpdateSettingItem::updateSize() const
 
 void UpdateSettingItem::setUpdateSize(const qlonglong &updateSize)
 {
-    m_updateSize = updateSize;
+    if (m_updateSize != updateSize) {
+        m_updateSize = updateSize;
+        Q_EMIT requestRefreshSize();
+        Q_EMIT requestRefreshWidget();
+    }
 }
 
 void UpdateSettingItem::setLowBattery(bool lowBattery)

@@ -76,7 +76,6 @@ public:
     void getLicenseState();
 
     void setSysUpdateDownloadJobName(const QString &sysUpdateDownloadJobName);
-    void setAppUpdateDownloadJobName(const QString &appUpdateDownloadJobName);
     void setSafeUpdateDownloadJobName(const QString &safeUpdateDownloadJobName);
     void setUnknownUpdateDownloadJobName(const QString &unknownUpdateDownloadJobName);
 
@@ -119,6 +118,7 @@ public Q_SLOTS:
 
     void OnDownloadJobCtrl(ClassifyUpdateType type, int updateCtrlType);
     void onRequestOpenAppStore();
+    void onClassifiedUpdatablePackagesChanged(QMap<QString, QStringList> packages);
 
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
@@ -131,19 +131,18 @@ private Q_SLOTS:
     void onClassityInstallStatusChanged(const ClassifyUpdateType type, const QString &value);
 
     void onSysUpdateDownloadProgressChanged(double value);
-    void onAppUpdateDownloadProgressChanged(double value);
     void onSafeUpdateDownloadProgressChanged(double value);
     void onUnkonwnUpdateDownloadProgressChanged(double value);
 
     void onSysUpdateInstallProgressChanged(double value);
-    void onAppUpdateInstallProgressChanged(double value);
     void onSafeUpdateInstallProgressChanged(double value);
     void onUnkonwnUpdateInstallProgressChanged(double value);
 
 private:
     QMap<ClassifyUpdateType, UpdateItemInfo *> getAllUpdateInfo();
-    UpdateItemInfo *getItemInfo(QJsonValue jsonValue);
+    void getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo);
     void setUpdateInfo();
+    void setUpdateItemDownloadSize(UpdateItemInfo *updateItem, QStringList packages);
 
     inline bool checkDbusIsValid();
     void onSmartMirrorServiceIsValid(bool isvalid);
@@ -162,7 +161,6 @@ private:
     QPointer<JobInter> getDownloadJob(ClassifyUpdateType updateType);
     QPointer<JobInter> getInstallJob(ClassifyUpdateType updateType);
 
-    QString getAppName(int id);
     bool checkJobIsValid(QPointer<JobInter> dbusJob);
     void deleteJob(QPointer<JobInter> dbusJob);
     void deleteClassityDownloadJob(ClassifyUpdateType type);
@@ -177,17 +175,14 @@ private:
     QPointer<JobInter> m_checkUpdateJob;
 
     QPointer<JobInter> m_sysUpdateDownloadJob;
-    QPointer<JobInter> m_appUpdateDownloadJob;
     QPointer<JobInter> m_safeUpdateDownloadJob;
     QPointer<JobInter> m_unknownUpdateDownloadJob;
 
     QPointer<JobInter> m_sysUpdateInstallJob;
-    QPointer<JobInter> m_appUpdateInstallJob;
     QPointer<JobInter> m_safeUpdateInstallJob;
     QPointer<JobInter> m_unknownUpdateInstallJob;
 
     QString m_sysUpdateDownloadJobName;
-    QString m_appUpdateDownloadJobName;
     QString m_safeUpdateDownloadJobName;
     QString m_unknownUpdateDownloadJobName;
 
@@ -206,18 +201,13 @@ private:
     QList<QString> m_updatableApps;
     QList<QString> m_updatablePackages;
     QString m_jobPath;
-    double m_downloadProcess;
     qlonglong m_downloadSize;
     QString m_iconThemeState;
 
     QMap<QString, QStringList> m_updatePackages;
     QStringList m_systemPackages;
-    QStringList m_appPackages;
     QStringList m_safePackages;
     QStringList m_unknownPackages;
-
-    // 保存所有可以更新应用的应用名字
-    QMap<QString, QString> m_appUpdateName;
 
     // 当前备份状态
     BackupStatus m_backupStatus;

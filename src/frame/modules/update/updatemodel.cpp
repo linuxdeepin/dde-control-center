@@ -51,12 +51,10 @@ UpdateModel::UpdateModel(QObject *parent)
     : QObject(parent)
     , m_status(UpdatesStatus::Default)
     , m_systemUpdateStatus(UpdatesStatus::Default)
-    , m_appUpdateStatus(UpdatesStatus::Default)
     , m_safeUpdateStatus(UpdatesStatus::Default)
     , m_unkonowUpdateStatus(UpdatesStatus::Default)
     , m_downloadInfo(nullptr)
     , m_systemUpdateInfo(nullptr)
-    , m_appUpdateInfo(nullptr)
     , m_safeUpdateInfo(nullptr)
     , m_unknownUpdateInfo(nullptr)
     , m_updateProgress(0.0)
@@ -68,19 +66,25 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_netselectExist(false)
     , m_autoCleanCache(false)
     , m_autoDownloadUpdates(false)
+    , m_autoInstallUpdates(false)
+    , m_autoInstallUpdateType(0)
     , m_autoCheckUpdates(false)
+    , m_updateMode(0)
+    , m_autoCheckSecureUpdates(false)
+    , m_autoCheckSystemUpdates(false)
+    , m_autoCheckAppUpdates(false)
     , m_updateNotify(false)
     , m_smartMirrorSwitch(false)
-    , m_mirrorId("")
+    , m_mirrorId(QString())
     , m_bRecoverBackingUp(false)
     , m_bRecoverConfigValid(false)
     , m_bRecoverRestoring(false)
-    , m_systemVersionInfo("")
+    , m_systemVersionInfo(QString())
     , m_metaEnum(QMetaEnum::fromType<ModelUpdatesStatus>())
     , m_bSystemActivation(UiActiveState::Unknown)
+    , m_lastCheckUpdateTime(QString())
     , m_autoCheckUpdateCircle(0)
     , m_isUpdatablePackages(false)
-
 {
 
 }
@@ -88,7 +92,6 @@ UpdateModel::UpdateModel(QObject *parent)
 UpdateModel::~UpdateModel()
 {
     deleteUpdateInfo(m_systemUpdateInfo);
-    deleteUpdateInfo(m_appUpdateInfo);
     deleteUpdateInfo(m_safeUpdateInfo);
     deleteUpdateInfo(m_unknownUpdateInfo);
 
@@ -123,11 +126,6 @@ UpdateItemInfo *UpdateModel::systemDownloadInfo() const
     return m_systemUpdateInfo;
 }
 
-UpdateItemInfo *UpdateModel::appDownloadInfo() const
-{
-    return m_appUpdateInfo;
-}
-
 UpdateItemInfo *UpdateModel::safeDownloadInfo() const
 {
     return m_safeUpdateInfo;
@@ -160,18 +158,9 @@ void UpdateModel::setSystemDownloadInfo(UpdateItemInfo *updateItemInfo)
 
     m_systemUpdateInfo = updateItemInfo;
     connect(m_systemUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::systemUpdateProgressChanged);
+    connect(m_systemUpdateInfo, &UpdateItemInfo::downloadSizeChanged, this, &UpdateModel::systemUpdateDownloadSizeChanged);
 
     Q_EMIT systemUpdateInfoChanged(updateItemInfo);
-}
-
-void UpdateModel::setAppDownloadInfo(UpdateItemInfo *updateItemInfo)
-{
-    deleteUpdateInfo(m_appUpdateInfo);
-
-    m_appUpdateInfo = updateItemInfo;
-    connect(m_appUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::appUpdateProgressChanged);
-
-    Q_EMIT appUpdateInfoChanged(updateItemInfo);
 }
 
 void UpdateModel::setSafeDownloadInfo(UpdateItemInfo *updateItemInfo)
@@ -179,6 +168,7 @@ void UpdateModel::setSafeDownloadInfo(UpdateItemInfo *updateItemInfo)
     deleteUpdateInfo(m_safeUpdateInfo);
     m_safeUpdateInfo = updateItemInfo;
     connect(m_safeUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::safeUpdateProgressChanged);
+    connect(m_safeUpdateInfo, &UpdateItemInfo::downloadSizeChanged, this, &UpdateModel::safeUpdateDownloadSizeChanged);
 
     Q_EMIT safeUpdateInfoChanged(updateItemInfo);
 }
@@ -188,6 +178,7 @@ void UpdateModel::setUnknownDownloadInfo(UpdateItemInfo *updateItemInfo)
     deleteUpdateInfo(m_unknownUpdateInfo);
     m_unknownUpdateInfo = updateItemInfo;
     connect(m_unknownUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::unkonowUpdateProgressChanged);
+    connect(m_unknownUpdateInfo, &UpdateItemInfo::downloadSizeChanged, this, &UpdateModel::unkonowUpdateDownloadSizeChanged);
 
     Q_EMIT unknownUpdateInfoChanged(updateItemInfo);
 }
@@ -197,7 +188,6 @@ void UpdateModel::setAllDownloadInfo(QMap<ClassifyUpdateType, UpdateItemInfo *> 
     m_allUpdateInfos = allUpdateInfoInfo;
 
     setSystemDownloadInfo(allUpdateInfoInfo.value(ClassifyUpdateType::SystemUpdate));
-    setAppDownloadInfo(allUpdateInfoInfo.value(ClassifyUpdateType::AppStoreUpdate));
     setSafeDownloadInfo(allUpdateInfoInfo.value(ClassifyUpdateType::SecurityUpdate));
     setUnknownDownloadInfo(allUpdateInfoInfo.value(ClassifyUpdateType::UnknownUpdate));
 }
@@ -550,20 +540,6 @@ void UpdateModel::setSafeUpdateStatus(const UpdatesStatus &safeUpdateStatus)
     }
 }
 
-UpdatesStatus UpdateModel::getAppUpdateStatus() const
-{
-    return m_appUpdateStatus;
-}
-
-void UpdateModel::setAppUpdateStatus(const UpdatesStatus &appUpdateStatus)
-{
-
-    if (m_appUpdateStatus != appUpdateStatus) {
-        m_appUpdateStatus = appUpdateStatus;
-        Q_EMIT appUpdateStatusChanged(appUpdateStatus);
-    }
-}
-
 UpdatesStatus UpdateModel::getSystemUpdateStatus() const
 {
     return m_systemUpdateStatus;
@@ -584,9 +560,6 @@ void UpdateModel::setClassifyUpdateTypeStatus(ClassifyUpdateType type, UpdatesSt
     case ClassifyUpdateType::SystemUpdate:
         setSystemUpdateStatus(status);
         break;
-    case ClassifyUpdateType::AppStoreUpdate:
-        setAppUpdateStatus(status);
-        break;
     case ClassifyUpdateType::SecurityUpdate:
         setSafeUpdateStatus(status);
         break;
@@ -601,7 +574,6 @@ void UpdateModel::setClassifyUpdateTypeStatus(ClassifyUpdateType type, UpdatesSt
 void UpdateModel::setAllClassifyUpdateStatus(UpdatesStatus status)
 {
     setSystemUpdateStatus(status);
-    setAppUpdateStatus(status);
     setSafeUpdateStatus(status);
     setUnkonowUpdateStatus(status);
 }
@@ -610,7 +582,6 @@ void UpdateModel::deleteUpdateInfo(UpdateItemInfo *updateItemInfo)
 {
     if (updateItemInfo != nullptr) {
         updateItemInfo->deleteLater();
-        updateItemInfo = nullptr;
     }
 }
 
@@ -660,16 +631,6 @@ void UpdateModel::setSystemUpdateJobError(const UpdateJobErrorMessage &systemUpd
     m_systemUpdateJobError = systemUpdateJobError;
 }
 
-UpdateJobErrorMessage UpdateModel::getAppUpdateJobError() const
-{
-    return m_appUpdateJobError;
-}
-
-void UpdateModel::setAppUpdateJobError(const UpdateJobErrorMessage &appUpdateJobError)
-{
-    m_appUpdateJobError = appUpdateJobError;
-}
-
 UpdateJobErrorMessage UpdateModel::getSafeUpdateJobError() const
 {
     return m_safeUpdateJobError;
@@ -696,9 +657,6 @@ void UpdateModel::setClassityUpdateJonError(ClassifyUpdateType type, const Updat
     case ClassifyUpdateType::SystemUpdate:
         setSystemUpdateJobError(UnkonwUpdateJobError);
         break;
-    case ClassifyUpdateType::AppStoreUpdate:
-        setAppUpdateJobError(UnkonwUpdateJobError);
-        break;
     case ClassifyUpdateType::SecurityUpdate:
         setSafeUpdateJobError(UnkonwUpdateJobError);
         break;
@@ -718,9 +676,6 @@ UpdatesStatus UpdateModel::getClassifyUpdateStatus(ClassifyUpdateType type)
     switch (type) {
     case ClassifyUpdateType::SystemUpdate:
         status = getSystemUpdateStatus();
-        break;
-    case ClassifyUpdateType::AppStoreUpdate:
-        status = getAppUpdateStatus();
         break;
     case ClassifyUpdateType::SecurityUpdate:
         status = getSafeUpdateStatus();
