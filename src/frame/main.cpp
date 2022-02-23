@@ -153,7 +153,9 @@ int main(int argc, char *argv[])
     }
 
     if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
-        adaptor.Show();
+        QTimer::singleShot(0, [&adaptor]() {
+            adaptor.Show();
+        });
     }
 
 #ifdef QT_DEBUG
