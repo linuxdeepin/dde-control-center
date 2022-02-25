@@ -41,8 +41,13 @@ void LoginOptionsModule::preInitialize(bool sync, FrameProxyInterface::PushType)
     m_charaMangerModel->moveToThread(qApp->thread());
     m_charaMangerWorker->moveToThread(qApp->thread());
 
+    connect(m_fingerModel, &FingerModel::vaildChanged, this, &LoginOptionsModule::updateModuleVisible);
+    connect(m_charaMangerModel, &CharaMangerModel::vaildFaceDriverChanged, this, &LoginOptionsModule::updateModuleVisible);
+    connect(m_charaMangerModel, &CharaMangerModel::vaildIrisDriverChanged, this, &LoginOptionsModule::updateModuleVisible);
+
     addChildPageTrans();
     initSearchData();
+    updateModuleVisible();
 }
 
 void LoginOptionsModule::initialize()
@@ -92,6 +97,7 @@ void LoginOptionsModule::active()
 
     m_frameProxy->pushWidget(this, m_loginOptionsWidget);
     m_loginOptionsWidget->setVisible(true);
+    updateModuleVisible();
     m_loginOptionsWidget->showDefaultWidget();
 }
 
@@ -252,4 +258,16 @@ void LoginOptionsModule::initSearchData()
         m_frameProxy->updateSearchData(module);
     });
     func_process_all();
+}
+
+void LoginOptionsModule::updateModuleVisible()
+{
+    bool visible = m_charaMangerModel->irisDriverVaild() || m_charaMangerModel->faceDriverVaild() || m_fingerModel->isVaild();
+    m_frameProxy->setModuleVisible(this, visible);
+    setDeviceUnavailabel(!visible);
+    if (m_loginOptionsWidget) {
+        m_loginOptionsWidget->setIrisVisible(m_charaMangerModel->irisDriverVaild());
+        m_loginOptionsWidget->setFaceIdVisible(m_charaMangerModel->faceDriverVaild());
+        m_loginOptionsWidget->setFingerVisible(m_fingerModel->isVaild());
+    }
 }

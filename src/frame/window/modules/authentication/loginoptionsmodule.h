@@ -59,6 +59,7 @@ public Q_SLOTS:
     void showFingerPage();
     void showFaceidPage();
     void showIrisPage();
+    void updateModuleVisible();
 
 private:
     ~LoginOptionsModule();

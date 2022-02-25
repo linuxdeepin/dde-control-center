@@ -52,6 +52,10 @@ public:
     int showPath(const QString &path);
     void showDefaultWidget();
 
+    void setFingerVisible(const bool visible);
+    void setFaceIdVisible(const bool visible);
+    void setIrisVisible(const bool visible);
+
 public Q_SLOTS:
     void onItemClicked(const QModelIndex &index);
 
@@ -60,6 +64,7 @@ private:
     void initMembers();
     void initConnections();
     bool configContent(const QString & configName);
+    void setItemVisible(const int row, const bool visible);
 
 Q_SIGNALS:
     void requestShowFingerDetail();

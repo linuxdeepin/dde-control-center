@@ -183,3 +183,28 @@ bool LoginOptionsWidget::configContent(const QString &configName)
     }
     return false;
 }
+
+void LoginOptionsWidget::setItemVisible(const int row,const  bool visible)
+{
+    m_deviceListView->setRowHidden(row, !visible);
+    if (visible) {
+        GSettingWatcher::instance()->bind(m_itemList.at(row).gsettingsName, m_deviceListView, m_deviceItemModel->item(row));
+    } else {
+        GSettingWatcher::instance()->erase(m_itemList.at(row).gsettingsName);
+    }
+}
+
+void LoginOptionsWidget::setFingerVisible(const bool visible)
+{
+    setItemVisible(0, visible);
+}
+
+void LoginOptionsWidget::setFaceIdVisible(const bool visible)
+{
+    setItemVisible(1, visible);
+}
+
+void LoginOptionsWidget::setIrisVisible(const bool visible)
+{
+    setItemVisible(2, visible);
+}
