@@ -46,6 +46,7 @@ void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
 
     QList<DetailInfo> detailInfoList = updateItemInfo->detailInfos();
     if (detailInfoList.count() < 1) {
+        m_controlWidget->setShowMoreButtonVisible(false);
         return;
     }
 
@@ -54,6 +55,7 @@ void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
             m_settingsGroup->removeItem(item);
         }
 
+        m_controlWidget->setShowMoreButtonVisible(true);
         m_updateDetailItemList.clear();
     }
 
