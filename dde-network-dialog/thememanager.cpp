@@ -58,6 +58,7 @@ void ThemeManager::setThemeType(ThemeType type)
     if (type != m_themeType) {
         m_themeType = type;
         switch (m_themeType) {
+        case GreeterType:
         case LockType: {
             Dtk::Gui::DGuiApplicationHelper::instance()->setPaletteType(Dtk::Gui::DGuiApplicationHelper::ColorType::LightType);
 
@@ -65,16 +66,6 @@ void ThemeManager::setThemeType(ThemeType type)
 
             palette.setColor(DPalette::All, DPalette::BrightText, QColor(255, 255, 255));         // 文本颜色
             palette.setColor(DPalette::All, DPalette::Window, QColor(235, 235, 235, static_cast<int>(0.05 * 255))); // 背景颜色
-
-            Dtk::Gui::DGuiApplicationHelper::instance()->setApplicationPalette(palette);
-        } break;
-        case GreeterType: {
-            Dtk::Gui::DGuiApplicationHelper::instance()->setPaletteType(Dtk::Gui::DGuiApplicationHelper::ColorType::LightType);
-
-            DPalette palette = Dtk::Gui::DGuiApplicationHelper::instance()->applicationPalette();
-
-            palette.setColor(DPalette::All, DPalette::BrightText, QColor(255, 255, 255)); // 文本颜色
-            palette.setColor(DPalette::All, DPalette::Window, QColor(210, 210, 210));      // 背景颜色
 
             Dtk::Gui::DGuiApplicationHelper::instance()->setApplicationPalette(palette);
         } break;
@@ -87,14 +78,10 @@ void ThemeManager::setThemeType(ThemeType type)
 void ThemeManager::updateInputStyle(Dtk::Widget::DLineEdit *inputEdit)
 {
     switch (m_themeType) {
+    case GreeterType:
     case LockType: {
         QPalette editPalette = inputEdit->palette();
         editPalette.setColor(QPalette::Button, QColor(255, 255, 255, static_cast<int>(0.2 * 255)));
-        inputEdit->setPalette(editPalette);
-    } break;
-    case GreeterType: {
-        QPalette editPalette = inputEdit->palette();
-        editPalette.setColor(QPalette::Button, QColor(55, 55, 55, static_cast<int>(0.2 * 255)));
         inputEdit->setPalette(editPalette);
     } break;
     case DarkType: {
@@ -133,10 +120,9 @@ QColor ThemeManager::backgroundColor()
     switch (m_themeType) {
     case DarkType:
         return QColor(0, 0, 0, static_cast<int>(0.03 * 255));
+    case GreeterType:
     case LockType:
         return QColor(235, 235, 235, static_cast<int>(0.05 * 255));
-    case GreeterType:
-        return QColor(105, 105, 105);
     default:
         return QColor(255, 255, 255, static_cast<int>(0.03 * 255));
     }
@@ -163,10 +149,9 @@ QColor ThemeManager::itemBackgroundColor()
     switch (m_themeType) {
     case DarkType:
         return QColor(255, 255, 255, static_cast<int>(255 * 0.10));
+    case GreeterType:
     case LockType:
         return QColor(255, 255, 255, static_cast<int>(255 * 0.10));
-    case GreeterType:
-        return QColor(155, 155, 155);
     default:
         return QColor(0, 0, 0, static_cast<int>(255 * 0.10));
     }

@@ -26,7 +26,7 @@
 
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QCoreApplication>
+#include <QApplication>
 #include <QTimer>
 #include <QProcess>
 #include <QFile>
@@ -179,10 +179,13 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
             translator->load("/usr/share/dde-network-dialog/translations/dde-network-dialog_" + locale);
             qApp->installTranslator(translator);
         }
+        QPixmap pixmap;
         switch (reason) {
         case Greeter:
             dde::network::NetworkController::setServiceType(dde::network::ServiceLoadType::LoadFromManager);
             ThemeManager::instance()->setThemeType(ThemeManager::GreeterType);
+            if (!m_popopWindow)
+                pixmap = QPixmap::grabWindow(QApplication::desktop()->winId());
             break;
         case Lock:
             ThemeManager::instance()->setThemeType(ThemeManager::LockType);
@@ -191,6 +194,9 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
             break;
         }
         initWidget();
+        if (!pixmap.isNull()) {
+            m_popopWindow->setBackground(pixmap.toImage());
+        }
         if (reason != Dock) {
             m_popopWindow->setWindowFlag(Qt::Popup);
         }

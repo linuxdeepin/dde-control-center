@@ -44,6 +44,7 @@ public:
     bool model() const;
 
     void setContent(QWidget *content);
+    void setBackground(const QImage &image);
 
 public slots:
     void show(const QPoint &pos, const bool model = false);
@@ -63,6 +64,7 @@ protected:
     void hideEvent(QHideEvent *e);
     void enterEvent(QEvent *e);
     bool eventFilter(QObject *o, QEvent *e);
+    void paintEvent(QPaintEvent *event);
 
 private slots:
     void onGlobMouseRelease(const QPoint &mousePos, const int flag);
@@ -75,6 +77,8 @@ private:
 
     Dtk::Gui::DRegionMonitor *m_regionInter;
     Dtk::Gui::DWindowManagerHelper *m_wmHelper;
+
+    QImage *m_bgImage;
 };
 
 #endif // DOCKPOPUPWINDOW_H

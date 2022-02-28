@@ -34,6 +34,13 @@
 
 #include <iostream>
 
+QT_BEGIN_NAMESPACE
+extern Q_WIDGETS_EXPORT void qt_blurImage(QPainter *p, QImage &blurImage, qreal radius, bool quality, bool alphaOnly, int transposed = 0);
+QT_END_NAMESPACE
+
+#define DEFAULT_RADIUS (35)
+#define DEFAULT_OPACITY (0.6)
+
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 
@@ -41,6 +48,7 @@ DockPopupWindow::DockPopupWindow(QWidget *parent)
     : DArrowRectangle(ArrowBottom, parent)
     , m_model(false)
     , m_regionInter(new DRegionMonitor(this))
+    , m_bgImage(nullptr)
 {
     setProperty("_d_radius_force", true); // 无特效模式时，让窗口圆角
     setMargin(0);
@@ -62,6 +70,9 @@ DockPopupWindow::DockPopupWindow(QWidget *parent)
 
 DockPopupWindow::~DockPopupWindow()
 {
+    if (m_bgImage) {
+        delete m_bgImage;
+    }
 }
 
 bool DockPopupWindow::model() const
@@ -179,4 +190,52 @@ void DockPopupWindow::ensureRaised()
         raise();
         activateWindow(); // 只要需要显示就先 activate 确认可以获取到输入
     }
+}
+
+void DockPopupWindow::setBackground(const QImage &image)
+{
+    if (image.isNull())
+        return;
+    QImage img(image);
+    QImage blurred(img.size(), QImage::Format_ARGB32_Premultiplied);
+    QPainter pa(&blurred);
+    int radius = DEFAULT_RADIUS;
+    QColor maskColor = backgroundColor();
+    DBlurEffectWidget *blurBackground = findChild<DBlurEffectWidget *>();
+    if (blurBackground) {
+        radius = blurBackground->radius();
+        maskColor = blurBackground->maskColor();
+        blurBackground->hide();
+    }
+    qt_blurImage(&pa, img, radius * 2, false, false);
+    pa.setOpacity(DEFAULT_OPACITY);
+    pa.fillRect(img.rect(), maskColor);
+    pa.end();
+    m_bgImage = new QImage(blurred);
+
+    setBorderWidth(0);
+}
+
+void DockPopupWindow::paintEvent(QPaintEvent *event)
+{
+    if (m_bgImage) {
+        QRect rect = this->rect();
+        QPoint p = mapToGlobal(QPoint());
+        if (p.x() < 0) {
+            p.setX(-p.x());
+        } else {
+            rect.moveLeft(p.x());
+            p.setX(0);
+        }
+        if (p.y() < 0) {
+            p.setY(-p.y());
+        } else {
+            rect.moveTop(p.y());
+            p.setY(0);
+        }
+        QPainter pa(this);
+        pa.drawImage(p, *m_bgImage, rect);
+        pa.end();
+    }
+    Dtk::Widget::DArrowRectangle::paintEvent(event);
 }
