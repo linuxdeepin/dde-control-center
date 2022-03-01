@@ -245,7 +245,12 @@ QString UpdateSettings::getAutoInstallUpdateType(quint64 type)
         }
     }
 
-    text = QString(tr("Install \"%1\" automatically when the download is complete").arg(text));
+    if (DSysInfo::isCommunityEdition()) {
+        text = tr("Install updates automatically when the download is complete");
+    } else {
+        text = QString(tr("Install \"%1\" automatically when the download is complete").arg(text));
+    }
+
 
     return text;
 }
