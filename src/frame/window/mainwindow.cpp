@@ -380,9 +380,6 @@ void MainWindow::initAllModule(const QString &m)
         } else {
             item->setAccessibleText(it->second);
         }
-        if (it->first->name() == "authentication" && IsCommunitySystem) {
-            setModuleVisible(it->first, false);
-        }
 
         //目前只有"update"模块需要使用右上角的角标，其他模块还是使用旧的位置数据设置
         //若其他地方需要使用右上角的角标，可在下面if处使用“||”添加对应模块的name()值

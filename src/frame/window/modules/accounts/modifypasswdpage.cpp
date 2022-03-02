@@ -86,7 +86,7 @@ void ModifyPasswdPage::initWidget()
         QLabel *oldPasswdLabel = new QLabel(tr("Current Password") + ":");
         m_forgetPasswordBtn = new DCommandLinkButton(tr("Forgot password?"));
         DFontSizeManager::instance()->bind(m_forgetPasswordBtn, DFontSizeManager::T8);
-        m_forgetPasswordBtn->setVisible(!IsCommunitySystem || getuid() < 9999); // 如果当前账户是域账号,则屏蔽重置密码入口
+        m_forgetPasswordBtn->setVisible(!IsCommunitySystem && getuid() < 9999); // 如果当前账户是域账号,则屏蔽重置密码入口
         connect(m_forgetPasswordBtn, &QPushButton::clicked, this, &ModifyPasswdPage::onForgetPasswordBtnClicked);
         QHBoxLayout *hLayout = new QHBoxLayout;
         hLayout->addWidget(oldPasswdLabel);
