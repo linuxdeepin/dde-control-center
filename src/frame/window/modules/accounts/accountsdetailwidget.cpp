@@ -698,7 +698,7 @@ void AccountsDetailWidget::onEditingFinished(bool isValid, const QString &userFu
     if (!userFullName.isEmpty()) {
         if (isValid) {
             m_inputLineEdit->setAlert(true);
-            m_inputLineEdit->showAlertMessage(tr("The name already exists"), m_inputLineEdit, 2000);
+            m_inputLineEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_inputLineEdit, 2000);
             m_inputLineEdit->lineEdit()->selectAll();
             return;
         }
@@ -706,7 +706,7 @@ void AccountsDetailWidget::onEditingFinished(bool isValid, const QString &userFu
         for (User *user : userList) {
             if (userFullName == user->fullname() || userFullName == user->name()) {
                 m_inputLineEdit->setAlert(true);
-                m_inputLineEdit->showAlertMessage(tr("The name already exists"), m_inputLineEdit, 2000);
+                m_inputLineEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_inputLineEdit, 2000);
                 m_inputLineEdit->lineEdit()->selectAll();
                 return;
             }
@@ -715,7 +715,7 @@ void AccountsDetailWidget::onEditingFinished(bool isValid, const QString &userFu
         for (QString &group : groupList) {
             if (userFullName == group && userFullName != m_curUser->name()) {
                 m_inputLineEdit->setAlert(true);
-                m_inputLineEdit->showAlertMessage(tr("The name already exists"), m_inputLineEdit, 2000);
+                m_inputLineEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_inputLineEdit, 2000);
                 m_inputLineEdit->lineEdit()->selectAll();
                 return;
             }

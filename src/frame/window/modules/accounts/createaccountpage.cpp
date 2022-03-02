@@ -499,20 +499,18 @@ bool CreateAccountPage::checkName()
 
     if (!m_accountWorker->isUsernameValid(userName).argumentAt(0).toBool() && NAME_ALREADY == m_accountWorker->isUsernameValid(userName).argumentAt(2).toInt()) {
         m_nameEdit->setAlert(true);
-        m_nameEdit->showAlertMessage(tr("The name already exists"), m_nameEdit, 2000);
+        m_nameEdit->showAlertMessage(tr("The username has been used by other user accounts"), m_nameEdit, 2000);
         return false;
     }
 
-
-    /* 暂时先屏蔽用户名与用户全名的重复性检查 */
-    // QList<User *> userList = m_userModel->userList();
-    // for (User *user : userList) {
-    //     if (userName == user->fullname()) {
-    //         m_nameEdit->setAlert(true);
-    //         m_nameEdit->showAlertMessage(tr("The name already exists"), m_nameEdit, 2000);
-    //         return false;
-    //     }
-    // }
+     QList<User *> userList = m_userModel->userList();
+     for (User *user : userList) {
+         if (userName == user->fullname()) {
+             m_nameEdit->setAlert(true);
+             m_nameEdit->showAlertMessage(tr("The username has been used by other user accounts"), m_nameEdit, 2000);
+             return false;
+         }
+     }
 
     if (m_nameEdit->isAlert()) {
         m_nameEdit->setAlert(false);
@@ -536,7 +534,7 @@ bool CreateAccountPage::checkFullname()
     //vaild == false && code ==6 是用户名已存在
     if (!m_accountWorker->isUsernameValid(userFullName).argumentAt(0).toBool() && ErrCodeSystemUsed == m_accountWorker->isUsernameValid(userFullName).argumentAt(2).toInt()) {
         m_fullnameEdit->setAlert(true);
-        m_fullnameEdit->showAlertMessage(tr("The name already exists"), m_fullnameEdit, 2000);
+        m_fullnameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
         m_fullnameEdit->lineEdit()->selectAll();
         return false;
     }
@@ -547,7 +545,7 @@ bool CreateAccountPage::checkFullname()
         for (User *user : userList) {
             if (userFullName == user->fullname() || userFullName == user->name()) {
                 m_fullnameEdit->setAlert(true);
-                m_fullnameEdit->showAlertMessage(tr("The username already exists"), m_fullnameEdit, 2000);
+                m_fullnameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
                 m_fullnameEdit->lineEdit()->selectAll();
                 return false;
             }
@@ -556,7 +554,7 @@ bool CreateAccountPage::checkFullname()
         for (QString &group : groupList) {
             if (userFullName == group) {
                 m_fullnameEdit->setAlert(true);
-                m_fullnameEdit->showAlertMessage(tr("The name already exists"), m_fullnameEdit, 2000);
+                m_fullnameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
                 m_fullnameEdit->lineEdit()->selectAll();
                 return false;
             }
