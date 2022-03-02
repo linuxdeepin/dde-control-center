@@ -166,7 +166,7 @@ QString DeviceManagerRealize::usingHwAdr() const
     return QString();
 }
 
-QStringList DeviceManagerRealize::ipv4() const
+const QStringList DeviceManagerRealize::ipv4()
 {
     if (!device() || !device()->isConnected() || !isEnabled())
         return QStringList();
@@ -179,7 +179,7 @@ QStringList DeviceManagerRealize::ipv4() const
     return ipv4s;
 }
 
-QStringList DeviceManagerRealize::ipv6() const
+const QStringList DeviceManagerRealize::ipv6()
 {
     if (!device() || !device()->isConnected() || !isEnabled())
         return QStringList();

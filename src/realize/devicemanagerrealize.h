@@ -56,8 +56,8 @@ protected:
     bool supportHotspot() const override;                                                 // 是否支持热点,对应于设备上返回值的SupportHotspot
     QString realHwAdr() const override;                                                   // mac地址
     QString usingHwAdr() const override;                                                  // 正在使用的mac地址
-    QStringList ipv4() const override;                                                        // IPV4地址
-    QStringList ipv6() const override;                                                        // IPV6地址
+    const QStringList ipv4() override;                                                    // IPV4地址
+    const QStringList ipv6() override;                                                    // IPV6地址
     QJsonObject activeConnectionInfo() const override;                                    // 获取当前活动连接的信息
     void setEnabled(bool enabled) override;                                               // 开启或禁用网卡
     void disconnectNetwork() override;                                                    // 断开网络连接，该方法是一个虚方法，具体在子类

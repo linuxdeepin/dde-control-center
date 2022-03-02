@@ -44,6 +44,8 @@ class NetworkInterProcesser : public NetworkProcesser
 
     friend class NetworkController;
 
+    typedef void (NetworkInterProcesser::*changedFunction)(const QString &);
+
 protected:
     explicit NetworkInterProcesser(bool sync, bool ipCheck, QObject *parent);
     ~NetworkInterProcesser() override;
@@ -67,6 +69,12 @@ protected:
     void updateDSLData();                                                          // 更新DSL的数据
     void updateVPNActiveConnection();                                              // 更新VPN的活动连接信息
 
+    void doChangeConnectionList(const QString &connections);
+    void doChangeActiveConnections(const QString &activeConnections);
+    void doChangeAccesspoint(const QString &accessPoints);
+
+    void doChangedData(changedFunction func, const char *infoName);
+
 protected:
     ProxyController *proxyController() override;                                            // 返回代理控制管理器
     VPNController *vpnController() override;                                                // 返回VPN控制器
@@ -78,10 +86,7 @@ protected:
 
 protected Q_SLOTS:
     void onDevicesChanged(const QString &value);
-    void onConnectionListChanged(const QString &connections);
-    void onActiveConnectionsChanged(const QString &activeConnections);
-
-    void onAccesspointChanged(const QString &accessPoints);
+    void onConnectionInfoChanged();                                                         // 变化的网络连接的状态
     void onDeviceEnableChanged(const QString &devicePath, bool enabled);
     void onConnectivityChanged(uint conectivity);
 
@@ -98,6 +103,7 @@ private:
     QJsonObject m_activeConection;
     QList<NetworkDetails *> m_networkDetails;
     bool m_sync;
+    QTimer *m_changedTimer;
     IPConfilctChecker *m_ipChecker;
 };
 

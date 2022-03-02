@@ -180,12 +180,12 @@ QString NetworkDeviceRealize::usingHwAdr() const
     return QString();
 }
 
-QStringList NetworkDeviceRealize::ipv4() const
+const QStringList NetworkDeviceRealize::ipv4()
 {
     return QStringList();
 }
 
-QStringList NetworkDeviceRealize::ipv6() const
+const QStringList NetworkDeviceRealize::ipv6()
 {
     return QStringList();
 }

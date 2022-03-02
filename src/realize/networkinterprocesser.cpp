@@ -38,6 +38,10 @@ namespace network {
 const static QString networkService = "com.deepin.daemon.Network";
 const static QString networkPath = "/com/deepin/daemon/Network";
 
+#define CHANGE_CONNECTIONS "ConnectionsChanged"
+#define CHANGE_ACTIVECONNECTIONS "ActiveConnectionsChanged"
+#define CHANGE_WIRELESSACCESSPOINTS "WirelessAccessPointsChanged"
+
 NetworkInterProcesser::NetworkInterProcesser(bool sync, bool ipCheck, QObject *parent)
     : NetworkProcesser(parent)
     , m_proxyController(Q_NULLPTR)
@@ -47,6 +51,7 @@ NetworkInterProcesser::NetworkInterProcesser(bool sync, bool ipCheck, QObject *p
     , m_networkInter(new NetworkInter(networkService, networkPath, QDBusConnection::sessionBus(), this))
     , m_connectivity(Connectivity::Full)
     , m_sync(sync)
+    , m_changedTimer(new QTimer(this))
     , m_ipChecker(new IPConfilctChecker(this, ipCheck))
 {
     initConnection();
@@ -61,9 +66,9 @@ NetworkInterProcesser::~NetworkInterProcesser()
 void NetworkInterProcesser::initNetData(NetworkInter *networkInt)
 {
     onDevicesChanged(networkInt->devices());
-    onConnectionListChanged(networkInt->connections());
-    onAccesspointChanged(networkInt->wirelessAccessPoints());
-    onActiveConnectionsChanged(networkInt->activeConnections());
+    doChangeConnectionList(networkInt->connections());
+    doChangeAccesspoint(networkInt->wirelessAccessPoints());
+    doChangeActiveConnections(networkInt->activeConnections());
 }
 
 void NetworkInterProcesser::updateSync(const bool sync)
@@ -99,10 +104,30 @@ void NetworkInterProcesser::initDeviceService()
 
 void NetworkInterProcesser::initConnection()
 {
+    // 定为100毫秒内，基本上连接、活动连接和热点发生变化的时候都会在100毫秒内发出信号
+    // 这里需要用一个timer来执行，因为在实际情况中，ConnectionsChanged信号和ActiveConnectionsChanged信号发出的前后顺序
+    // 可能会乱，如果先发送ActiveConnectionsChanged，而此时ConnectionsChanged信号却还没有发出来，此时连接列表可能为空(初次启动)
+    // 导致后发出的ConnectionsChanged中的所有的连接获取到的连接状态可能是错误的，所以此处用一个定时器来接收，这样就算发送的顺序是乱的，
+    // 但是它们都能在100毫秒内全部返回，这样在定时器里按照顺序来处理这些信号的数据，保证数据的准确性
+    m_changedTimer->setInterval(100);
+    auto onDataChanged = [ this ](const char *infoName, const QString infoValue) {
+        PRINT_INFO_MESSAGE(infoName);
+        m_changedTimer->setProperty(infoName, infoValue);
+        if (!m_changedTimer->isActive())
+            m_changedTimer->start();
+    };
+
+    connect(m_changedTimer, &QTimer::timeout, this, &NetworkInterProcesser::onConnectionInfoChanged);
     connect(m_networkInter, &NetworkInter::DevicesChanged, this, &NetworkInterProcesser::onDevicesChanged);                            // 设备状态发生变化
-    connect(m_networkInter, &NetworkInter::ConnectionsChanged, this, &NetworkInterProcesser::onConnectionListChanged);                 // 连接发生变化
-    connect(m_networkInter, &NetworkInter::ActiveConnectionsChanged, this, &NetworkInterProcesser::onActiveConnectionsChanged);        // 当前活动连接发生变化
-    connect(m_networkInter, &NetworkInter::WirelessAccessPointsChanged, this, &NetworkInterProcesser::onAccesspointChanged);           // 热点发生变化
+    connect(m_networkInter, &NetworkInter::ConnectionsChanged, this, [ onDataChanged ](const QString &connections) {                            // 连接发生变化
+        onDataChanged(CHANGE_CONNECTIONS, connections);
+    });
+    connect(m_networkInter, &NetworkInter::ActiveConnectionsChanged, this, [ onDataChanged ](const QString &activeConnections) {                // 当前活动连接发生变化
+        onDataChanged(CHANGE_ACTIVECONNECTIONS, activeConnections);
+    });
+    connect(m_networkInter, &NetworkInter::WirelessAccessPointsChanged, this, [ onDataChanged ](const QString &accessPoints) {                  // 热点发生变化
+        onDataChanged(CHANGE_WIRELESSACCESSPOINTS, accessPoints);
+    });
     connect(m_networkInter, &NetworkInter::DeviceEnabled, this, &NetworkInterProcesser::onDeviceEnableChanged);                        // 关闭设备或启用设备
 
     connect(m_networkInter, &NetworkInter::ConnectivityChanged, this, &NetworkInterProcesser::onConnectivityChanged);                  // 网络状态发生变化
@@ -256,10 +281,10 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
             // 如果新增的设备中存在无线网卡，则同时需要更新wlan的信息，因为存在如下情况
             // 如果关闭热点的时候，会先移除设备，然后再新增设备，此时如果不更新wlan，这种情况下，新增的那个无线设备的wlan就会为空
             if (wirelessExist)
-                onAccesspointChanged(m_networkInter->wirelessAccessPoints());
+                doChangeAccesspoint(m_networkInter->wirelessAccessPoints());
         }
         // 设备列表发生变化的同时，需要同时更新网络连接状态
-        onActiveConnectionsChanged(m_networkInter->activeConnections());
+        doChangeActiveConnections(m_networkInter->activeConnections());
 
         // 设备列表发生变化的同时，需要同时更新DSL的相关的信息，因为DSL里面用到了设备的信息，需要获取设备路径等
         updateDSLData();
@@ -312,7 +337,28 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
     }
 }
 
-void NetworkInterProcesser::onConnectionListChanged(const QString &connections)
+void NetworkInterProcesser::doChangedData(changedFunction func, const char *infoName)
+{
+    const QString changeData = m_changedTimer->property(infoName).toString();
+    if (!changeData.isEmpty()) {
+        (this->*func)(changeData);
+        m_changedTimer->setProperty(infoName, "");
+    }
+}
+
+void NetworkInterProcesser::onConnectionInfoChanged()
+{
+    // 触发数据改变的顺序，1.无线网络 2.连接信息 3.活动连接信息，理由如下
+    // 连接信息中更新无线连接的时候，需要从无线网络中获取wlan数据进行同步，所以需要先同步无线网络(wlan)，
+    // 活动连接信息需要更新的是已经存在的连接，因此需要先同步连接信息，活动连接信息放到最后同步
+    doChangedData(&NetworkInterProcesser::doChangeAccesspoint, CHANGE_WIRELESSACCESSPOINTS);
+    doChangedData(&NetworkInterProcesser::doChangeConnectionList, CHANGE_CONNECTIONS);
+    doChangedData(&NetworkInterProcesser::doChangeActiveConnections, CHANGE_ACTIVECONNECTIONS);
+    if (m_changedTimer->isActive())
+        m_changedTimer->stop();
+}
+
+void NetworkInterProcesser::doChangeConnectionList(const QString &connections)
 {
     if (connections.isEmpty())
         return;
@@ -336,7 +382,7 @@ void NetworkInterProcesser::onConnectionListChanged(const QString &connections)
     Q_EMIT connectionChanged();
 }
 
-void NetworkInterProcesser::onActiveConnectionsChanged(const QString &activeConnections)
+void NetworkInterProcesser::doChangeActiveConnections(const QString &activeConnections)
 {
     PRINT_INFO_MESSAGE("Active Connections Changed");
     m_connectivity = connectivityValue(m_networkInter->connectivity());
@@ -389,7 +435,7 @@ void NetworkInterProcesser::activeConnInfoChanged(const QString &conns)
     Q_EMIT activeConnectionChange();
 }
 
-void NetworkInterProcesser::onAccesspointChanged(const QString &accessPoints)
+void NetworkInterProcesser::doChangeAccesspoint(const QString &accessPoints)
 {
     if (accessPoints.isEmpty())
         return;

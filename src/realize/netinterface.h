@@ -118,8 +118,8 @@ public:
     virtual bool supportHotspot() const;                                                 // 是否支持热点,对应于设备上返回值的SupportHotspot
     virtual QString realHwAdr() const;                                                   // mac地址
     virtual QString usingHwAdr() const;                                                  // 正在使用的mac地址
-    virtual QStringList ipv4() const;                                                        // IPV4地址
-    virtual QStringList ipv6() const;                                                        // IPV6地址
+    virtual const QStringList ipv4();                                                    // IPV4地址
+    virtual const QStringList ipv6();                                                    // IPV6地址
     virtual QJsonObject activeConnectionInfo() const;                                    // 获取当前活动连接的信息
     virtual void setEnabled(bool enabled);                                               // 开启或禁用网卡
     virtual void disconnectNetwork();                                                    // 断开网络连接，该方法是一个虚方法，具体在子类

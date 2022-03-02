@@ -324,7 +324,7 @@ void WiredDeviceInterRealize::updateConnection(const QJsonArray &info)
             conn = new WiredConnection;
             m_connections << conn;
             newWiredConnections << conn;
-            PRINT_DEBUG_MESSAGE(QString("new wifi: %1").arg(jsonObj.value("Ssid").toString()));
+            PRINT_DEBUG_MESSAGE(QString("new connection ssid: %1").arg(jsonObj.value("Ssid").toString()));
         } else {
             if (conn->connection()->id() != jsonObj.value("Id").toString()
                     || conn->connection()->ssid() != jsonObj.value("Ssid").toString())
