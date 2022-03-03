@@ -71,6 +71,21 @@ void ThemeManager::setThemeType(ThemeType type)
         } break;
         default: break;
         }
+        DPalette palette = Dtk::Gui::DGuiApplicationHelper::instance()->applicationPalette();
+        const DPalette::ColorRole paletteColorRole[] = {
+            DPalette::WindowText, DPalette::Button, DPalette::Light, DPalette::Midlight, DPalette::Dark, DPalette::Mid,
+            DPalette::Text, DPalette::BrightText, DPalette::ButtonText, DPalette::Base, DPalette::Window, DPalette::Shadow,
+            DPalette::Highlight, DPalette::HighlightedText,
+            DPalette::Link, DPalette::LinkVisited,
+            DPalette::AlternateBase,
+            DPalette::NoRole,
+            DPalette::ToolTipBase, DPalette::ToolTipText
+        };
+        for (auto role:paletteColorRole) {
+            palette.setColor(DPalette::All, role, palette.color(role));
+        }
+
+        Dtk::Gui::DGuiApplicationHelper::instance()->setApplicationPalette(palette);
         emit themeChanged(m_themeType);
     }
 }
