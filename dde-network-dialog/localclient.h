@@ -30,6 +30,7 @@ class DockPopupWindow;
 class NetworkPanel;
 
 class QTimer;
+class QTranslator;
 
 class LocalClient : public QObject
     , public Dtk::Core::DSingleton<LocalClient>
@@ -71,6 +72,7 @@ public:
     void receive(QLocalSocket *socket, const QByteArray &data);
     void connectNetwork(QLocalSocket *socket, const QByteArray &data);
     void receivePassword(QLocalSocket *socket, const QByteArray &data);
+    void updateTranslator(QString locale);
 
 private Q_SLOTS:
     void connectedHandler();
@@ -88,6 +90,9 @@ private:
 
     DockPopupWindow *m_popopWindow;
     NetworkPanel *m_panel;
+
+    QTranslator *m_translator;
+    QString m_locale;
 };
 
 #endif // LOCALCLIENT_H

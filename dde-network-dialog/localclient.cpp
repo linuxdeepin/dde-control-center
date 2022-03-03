@@ -48,6 +48,7 @@ LocalClient::LocalClient(QObject *parent)
     , m_exitTimer(new QTimer(this))
     , m_popopWindow(nullptr)
     , m_panel(nullptr)
+    , m_translator(nullptr)
 {
     m_clinet = new QLocalSocket(this);
     connect(m_clinet, SIGNAL(connected()), this, SLOT(connectedHandler()));
@@ -55,6 +56,7 @@ LocalClient::LocalClient(QObject *parent)
     connect(m_clinet, SIGNAL(readyRead()), this, SLOT(readyReadHandler()));
     connect(m_exitTimer, SIGNAL(timeout()), qApp, SLOT(quit()));
     ConnectToServer();
+    updateTranslator(QLocale::system().name());
 }
 
 LocalClient::~LocalClient()
@@ -160,6 +162,20 @@ void LocalClient::initWidget()
     }
 }
 
+void LocalClient::updateTranslator(QString locale)
+{
+    if (m_locale == locale)
+        return;
+    if (m_translator) {
+        QApplication::removeTranslator(m_translator);
+        m_translator->deleteLater();
+    }
+    m_locale = locale;
+    m_translator = new QTranslator;
+    m_translator->load("/usr/share/dde-network-dialog/translations/dde-network-dialog_" + m_locale);
+    QApplication::installTranslator(m_translator);
+}
+
 void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
 {
     Q_UNUSED(socket)
@@ -174,11 +190,8 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
         if (locale.isEmpty())
             locale = QLocale::system().name();
 
-        if (!m_popopWindow) {
-            QTranslator *translator = new QTranslator;
-            translator->load("/usr/share/dde-network-dialog/translations/dde-network-dialog_" + locale);
-            qApp->installTranslator(translator);
-        }
+        updateTranslator(locale);
+
         QPixmap pixmap;
         switch (reason) {
         case Greeter:
