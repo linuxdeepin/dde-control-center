@@ -207,8 +207,10 @@ void UpdateSettingItem::setData(UpdateItemInfo *updateItemInfo)
         return;
     }
 
-    m_controlWidget->setDate(tr("Release date: ") + updateItemInfo->updateTime());
-    m_controlWidget->setVersion(tr("Version") + ": " + updateItemInfo->availableVersion());
+    QString value = updateItemInfo->updateTime().isEmpty() ? "" : tr("Release date: ") + updateItemInfo->updateTime();
+    m_controlWidget->setDate(value);
+    value = updateItemInfo->availableVersion().isEmpty() ? "" : tr("Version") + ": " + updateItemInfo->availableVersion();
+    m_controlWidget->setVersion(value);
     m_controlWidget->setTitle(updateItemInfo->name());
     m_controlWidget->setDetail(updateItemInfo->explain());
 

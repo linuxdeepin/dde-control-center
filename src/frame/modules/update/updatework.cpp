@@ -114,6 +114,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_iconThemeState("")
     , m_backupStatus(BackupStatus::NoBackup)
     , m_backupingClassifyType(ClassifyUpdateType::Invalid)
+    , m_releaseNoteStatus("")
 {
 
 }
@@ -127,6 +128,7 @@ UpdateWorker::~UpdateWorker()
     deleteJob(m_unknownUpdateDownloadJob);
     deleteJob(m_unknownUpdateInstallJob);
     deleteJob(m_checkUpdateJob);
+	deleteJob(m_releaseNoteInstallJob);
 }
 
 void UpdateWorker::init()
@@ -257,8 +259,13 @@ void UpdateWorker::activate()
 
     const QList<QDBusObjectPath> jobs = m_managerInter->jobList();
     if (jobs.count() > 0) {
-        qDebug() << "UpdateWorker::activate, jobs.count() == " << jobs.count();
-        setUpdateInfo();
+        for (QDBusObjectPath dBusObjectPath : jobs) {
+            if (dBusObjectPath.path().contains("upgrade")) {
+                qDebug() << "UpdateWorker::activate, jobs.count() == " << jobs.count();
+                setUpdateInfo();
+                break;
+            }
+        }
     }
 
     onJobListChanged(m_managerInter->jobList());
@@ -363,6 +370,16 @@ void UpdateWorker::setUpdateInfo()
     m_updateInter->setSync(false);
     m_managerInter->setSync(false);
 
+    QFile logFile(ChangeLogFile);
+    bool hasReleaseNote = logFile.exists();
+    if ((m_systemPackages.contains("uos-release-note") || !hasReleaseNote)) {
+        qDebug() << "install uos-release-note";
+        QEventLoop eventLoop;
+        QTimer::singleShot(30000, &eventLoop, &QEventLoop::quit);
+        connect(this, &UpdateWorker::releaseNoteInstallCompleted, &eventLoop, &QEventLoop::quit);
+        eventLoop.exec();
+    }
+
     qDebug() << "systemUpdate packages:" <<  m_systemPackages;
     qDebug() << "safeUpdate packages:" <<  m_safePackages;
     qDebug() << "unkonowUpdate packages:" <<  m_unknownPackages;
@@ -423,6 +440,7 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
     if (m_systemPackages.count() > 0) {
         UpdateItemInfo *systemItemInfo = new UpdateItemInfo;
         systemItemInfo->setName(tr("System Updates"));
+        systemItemInfo->setExplain(tr("Fixed some known bugs and security vulnerabilities"));
         setUpdateItemDownloadSize(systemItemInfo, m_systemPackages);
         resultMap.insert(ClassifyUpdateType::SystemUpdate, systemItemInfo);
     }
@@ -430,6 +448,7 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
     if (m_safePackages.count() > 0) {
         UpdateItemInfo  *safeItemInfo = new UpdateItemInfo;
         safeItemInfo->setName(tr("Security Updates"));
+        safeItemInfo->setExplain(tr("Fixed some known bugs and security vulnerabilities"));
         setUpdateItemDownloadSize(safeItemInfo, m_safePackages);
         resultMap.insert(ClassifyUpdateType::SecurityUpdate, safeItemInfo);
     }
@@ -439,6 +458,11 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
         unkownItemInfo->setName(tr("Unknown Apps Updates"));
         setUpdateItemDownloadSize(unkownItemInfo, m_unknownPackages);
         resultMap.insert(ClassifyUpdateType::UnknownUpdate, unkownItemInfo);
+    }
+
+    if (m_releaseNoteStatus == "failed") {
+        qWarning() << "releaseNoteStatus = " << m_releaseNoteStatus;
+        return resultMap;
     }
 
     QFile logFile(ChangeLogFile);
@@ -932,6 +956,23 @@ void UpdateWorker::setDistUpgradeJob(const QString &jobPath, ClassifyUpdateType 
     job->ProgressChanged(job->progress());
 }
 
+void UpdateWorker::setReleaseNoteInstallJob(const QString &jobPath)
+{
+    m_releaseNoteInstallJob = new JobInter("com.deepin.lastore",
+                                           jobPath,
+                                           QDBusConnection::systemBus(), this);
+    connect(m_releaseNoteInstallJob, &__Job::StatusChanged, this, [ = ](const QString & status) {
+        qDebug() << "setReleaseNoteInstallJob-----status: " << status;
+        setReleaseNoteStatus(status);
+        if (status == "failed") {
+            m_managerInter->CleanJob(m_releaseNoteInstallJob->id());
+            deleteJob(m_releaseNoteInstallJob);
+        }
+    });
+
+    m_releaseNoteInstallJob->StatusChanged(m_releaseNoteInstallJob->status());
+}
+
 void UpdateWorker::setUpdateItemProgress(UpdateItemInfo *itemInfo, double value)
 {
     //异步加载数据,会导致下载信息还未获取就先取到了下载进度
@@ -1020,10 +1061,13 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
             setDownloadJob(m_jobPath, ClassifyUpdateType::UnknownUpdate);
         } else if (id == "system_upgrade" && m_sysUpdateInstallJob == nullptr) {
             setDistUpgradeJob(m_jobPath, ClassifyUpdateType::SystemUpdate);
-        }  else if (id == "security_upgrade" && m_safeUpdateInstallJob == nullptr) {
+        } else if (id == "security_upgrade" && m_safeUpdateInstallJob == nullptr) {
             setDistUpgradeJob(m_jobPath, ClassifyUpdateType::SecurityUpdate);
         } else if (id == "unknown_upgrade" && m_unknownUpdateInstallJob == nullptr) {
             setDistUpgradeJob(m_jobPath, ClassifyUpdateType::UnknownUpdate);
+        } else if (id.contains("install") && jobInter.packages().contains("uos-release-note")) {
+            qDebug() << "jobInter :uos-release-note status: " << jobInter.status();
+            setReleaseNoteInstallJob(m_jobPath);
         }
     }
 }
@@ -1483,6 +1527,19 @@ QString UpdateWorker::getClassityUpdateDownloadJobName(ClassifyUpdateType update
         break;
     }
     return  value;
+}
+
+QString UpdateWorker::getReleaseNoteStatus() const
+{
+    return m_releaseNoteStatus;
+}
+
+void UpdateWorker::setReleaseNoteStatus(const QString &releaseNoteStatus)
+{
+    m_releaseNoteStatus = releaseNoteStatus;
+    if (m_releaseNoteStatus == "success" || m_releaseNoteStatus == "succeed" || m_releaseNoteStatus == "failed") {
+        Q_EMIT releaseNoteInstallCompleted();
+    }
 }
 
 void UpdateWorker::onClassifiedUpdatablePackagesChanged(QMap<QString, QStringList> packages)
