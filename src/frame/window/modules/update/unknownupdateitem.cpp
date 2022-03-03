@@ -38,7 +38,7 @@ void UnknownUpdateItem::setData(UpdateItemInfo *updateItemInfo)
         return;
     }
 
-    m_controlWidget->setVersion(tr("Release date: ") + updateItemInfo->updateTime());
+    m_controlWidget->setVersion(updateItemInfo->updateTime().isEmpty() ? "" : tr("Release date: ") + updateItemInfo->updateTime());
     m_controlWidget->setTitle(updateItemInfo->name());
 
     setProgressVlaue(updateItemInfo->downloadProgress());

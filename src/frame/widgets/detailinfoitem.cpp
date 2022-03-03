@@ -95,6 +95,11 @@ void DetailInfoItem::initUi()
 
 void DetailInfoItem::setDate(QString date)
 {
+    if (date.isEmpty()) {
+        m_dateLabel->setVisible(false);
+        return;
+    }
+    m_dateLabel->setVisible(true);
     m_dateLabel->clear();
     m_dateLabel->setText(date);
 }
@@ -113,6 +118,11 @@ void DetailInfoItem::setExplaintTitle(QString title)
 
 void DetailInfoItem::setLinkData(QString data)
 {
+    if (data.isEmpty()) {
+        m_linkDataLabel->setVisible(false);
+        return;
+    }
+    m_linkDataLabel->setVisible(true);
     m_linkLable->clear();
     QString value = QString("<a href=\"%1\">%2").arg(data, data);
     m_linkLable->setText(value);
@@ -120,6 +130,11 @@ void DetailInfoItem::setLinkData(QString data)
 
 void DetailInfoItem::setDetailData(QString data)
 {
+    if (data.isEmpty()) {
+        m_dataLable->setVisible(false);
+        return;
+    }
+    m_dataLable->setVisible(true);
     m_dataLable->clear();
     m_dataLable->setText(data);
 }

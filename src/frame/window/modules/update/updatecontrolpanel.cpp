@@ -180,17 +180,26 @@ void updateControlPanel::setTitle(QString title)
 
 void updateControlPanel::setVersion(QString version)
 {
-    m_versionLabel->setText(version);
+    m_versionLabel->setVisible(!version.isEmpty());
+    if (!version.isEmpty()) {
+        m_versionLabel->setText(version);
+    }
 }
 
 void updateControlPanel::setDetail(QString detail)
 {
-    m_detailLabel->setText(detail);
+    m_detailLabel->setVisible(!detail.isEmpty());
+    if (!detail.isEmpty()) {
+        m_detailLabel->setText(detail);
+    }
 }
 
 void updateControlPanel::setDate(QString date)
 {
-    m_dateLabel->setText(date);
+    m_dateLabel->setVisible(!date.isEmpty());
+    if (!date.isEmpty()) {
+        m_dateLabel->setText(date);
+    }
 }
 
 void updateControlPanel::setProgressText(QString text)
@@ -316,7 +325,7 @@ void updateControlPanel::initUi()
     QVBoxLayout *ctrlButtonVlay = new QVBoxLayout;
     int progressHeight = m_progressLabel->height();
     ctrlButtonVlay->addSpacing(progressHeight - 24);
-    ctrlButtonVlay->addWidget(m_startButton);
+    ctrlButtonVlay->addWidget(m_startButton, 0, Qt::AlignTop);
     ctrlButtonVlay->addStretch();
     progressLay->addLayout(ctrlButtonVlay);
 

@@ -1,3 +1,4 @@
+#include <DFontSizeManager>
 #include "systemupdateitem.h"
 
 using namespace dcc;
@@ -43,6 +44,18 @@ void SystemUpdateItem::showMore()
 void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
 {
     UpdateSettingItem::setData(updateItemInfo);
+    if (updateItemInfo->currentVersion().isEmpty() && updateItemInfo->updateTime().isEmpty()) {
+        m_controlWidget->setDetailLabelVisible(false);
+        m_controlWidget->setDetailEnable(false);
+        m_controlWidget->setShowMoreButtonVisible(false);
+        m_controlWidget->setDatetimeVisible(false);
+        DLabel *vesrionLabel = m_controlWidget->findChild<DLabel *>("versionLabel");
+        vesrionLabel->setVisible(true);
+        vesrionLabel->setText(updateItemInfo->explain());
+        vesrionLabel->setContentsMargins(0, 4, 0, 0);
+        DFontSizeManager::instance()->bind(vesrionLabel, DFontSizeManager::T8);
+        vesrionLabel->setForegroundRole(DPalette::TextTips);
+    }
 
     QList<DetailInfo> detailInfoList = updateItemInfo->detailInfos();
     if (detailInfoList.count() < 1) {

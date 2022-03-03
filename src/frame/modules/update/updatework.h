@@ -61,7 +61,6 @@ struct CheckUpdateJobRet {
     QString jobDescription;
 };
 
-
 class UpdateWorker : public QObject
 {
     Q_OBJECT
@@ -79,10 +78,14 @@ public:
     void setSafeUpdateDownloadJobName(const QString &safeUpdateDownloadJobName);
     void setUnknownUpdateDownloadJobName(const QString &unknownUpdateDownloadJobName);
 
+    QString getReleaseNoteStatus() const;
+    void setReleaseNoteStatus(const QString &releaseNoteStatus);
+
 Q_SIGNALS:
     void requestInit();
     void requestActive();
     void requestRefreshLicenseState();
+    void releaseNoteInstallCompleted();
 
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     void requestRefreshMirrors();
@@ -154,6 +157,7 @@ private:
 
     void setDownloadJob(const QString &jobPath, ClassifyUpdateType updateType);
     void setDistUpgradeJob(const QString &jobPath, ClassifyUpdateType updateType);
+    void setReleaseNoteInstallJob(const QString &jobPath);
     void setUpdateItemProgress(UpdateItemInfo *itemInfo, double value);
     bool hasBackedUp();
     void onRecoveryFinshed(bool successed);
@@ -181,6 +185,8 @@ private:
     QPointer<JobInter> m_sysUpdateInstallJob;
     QPointer<JobInter> m_safeUpdateInstallJob;
     QPointer<JobInter> m_unknownUpdateInstallJob;
+
+    QPointer<JobInter> m_releaseNoteInstallJob;
 
     QString m_sysUpdateDownloadJobName;
     QString m_safeUpdateDownloadJobName;
@@ -213,6 +219,7 @@ private:
     BackupStatus m_backupStatus;
     // 当前正在备份的更新分类类型
     ClassifyUpdateType m_backupingClassifyType;
+    QString m_releaseNoteStatus;
 
     QMutex m_mutex;
     QMutex m_downloadMutex;
