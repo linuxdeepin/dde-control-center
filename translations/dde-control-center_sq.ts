@@ -437,7 +437,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Ricaktimi i fjalëkalimit do të spastrojë të dhënat e depozituara te vargu i kyçeve.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
@@ -630,42 +630,37 @@
 <context>
     <name>dccV20::authentication::AddIrisInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="87"/>
         <source>Enroll Iris</source>
         <translation>Jepni Bebe Syri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="92"/>
-        <source>Look at the iris scanner and make sure your eyes are inside the frame</source>
-        <translation>Shihni te skanuesi i bebes së syrit dhe sigurohuni se sytë tuaj janë brenda kuadrit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
         <source>Cancel</source>
         <translation>Anuloje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="110"/>
         <source>Next</source>
         <translation>Pasueja</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="165"/>
         <source>Iris enrolled</source>
         <translation>U dha bebe syri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="168"/>
         <source>Done</source>
         <translation>U bë</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="177"/>
         <source>Failed to enroll your iris</source>
         <translation>S’u arrit të merrej bebe syri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="182"/>
         <source>Try Again</source>
         <translation>Riprovoni</translation>
     </message>
@@ -759,17 +754,17 @@
 <context>
     <name>dccV20::authentication::FingerDisclaimer</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="84"/>
         <source>Add Fingerprint</source>
         <translation>Shtoni Shenja Gishtash</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="107"/>
         <source>Cancel</source>
         <translation>Anuloje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="109"/>
         <source>Next</source>
         <translation>Pasuesi</translation>
     </message>
@@ -864,19 +859,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="171"/>
         <source>Fingerprint</source>
         <translation>Shenja gishtash</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="172"/>
         <source>Face</source>
         <translation>Fytyrë</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="173"/>
         <source>Iris</source>
         <translation>Bebe Syri</translation>
     </message>
@@ -1684,7 +1679,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="77"/>
         <source>Short Time</source>
-        <translation>Kohë e Shkurtër</translation>
+        <translation>Kohë e shkurtër</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
@@ -1749,17 +1744,17 @@
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="219"/>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="228"/>
         <source>April 5, 2020</source>
-        <translation>Prill 5, 2020</translation>
+        <translation>5 prill, 2020</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="222"/>
         <source>April 5, 2020, Sunday</source>
-        <translation>Prill 5, 2020, E diel</translation>
+        <translation>5 prill, 2020, E diel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="225"/>
         <source>Sunday, April 5, 2020</source>
-        <translation>E diel, 5 prill 2020</translation>
+        <translation>E diel, 5 prill, 2020</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="244"/>
@@ -2409,7 +2404,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="110"/>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Tastierë Numerike</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
@@ -5246,36 +5241,36 @@
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
-        <source>Before you set up face recognition, please pay attention to the following: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Face unlock is less secure than a password.
-3. Face recognition rates would reduce if showing a profile face, or in dark, bright, backlit environments.
-4. Do not hand over your device to others to avoid malicious use of face recognition.
-5. In addition, you should take care of other factors that may affect the normal use of face recognition.
-For better face recognition, take notice of the following when enrolling your face:
-1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
-2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
-3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>Para se të ujdisni njohje fytyrash, ju lutemi, kushtojini vëmendje sa vijon: 
-1. Pajisja juaj mund të shkyçet nga dikush me pamje të ngjashme, ose objekte me formë si ju.
-2. Shkyçja me fytyrë është më pak e sigurt se ajo me fjalëkalim.
-3. Shkalla e suksesit të njohjes së fytyrave do të ulet, nëse përdoret një fytyrë në profil, ose në mjedise të errët, të ndritshëm, apo ndriçuar nga pas.
-4. Që të shmangni përdorim dashakeq të njohjes së fytyrave, mos ia jepni pajisjen tuaj të tjerëve.
-5. Veç këtyre, duhet të bëni kujdes me faktorë të tjerë që mund të prekin përdorimin normal të njohjes së fytyrave.
-Për njohje më të mirë të fytyrave, mbani parasysh sa vijon, kur jepni fytyrën tuaj:
-1. Garantoni ndriçim të mjaftueshëm, shmangni dritën drejtpërdrejt nga dielli dhe pengoni shfaqjen e personave të tjerë te kuadri.
-2. Bëni kujdes për pamjen tuaj para dhënies. Mos mbuloni fytyrën tuaj me flokë, apo kapele, syze dielli apo maskë, apo makijazh të tepruar.
-3. Mos ngrini ose ulni kokën, mos mbyllni sytë, mos jepni fytyrë në profil. Sigurohuni që pamja ballore e fytyrës tuaj shfaqet qartë dhe plotësisht te kuadri.
-Nëse pajtoheni me këtë deklarim dhe jepni fytyrën tuaj (s’do të grumbullojmë të dhëna të fytyrës tuaj, të cilat do të fshehtëzohen lokalisht dhe depozitohen ndaras në pajisjen tuaj), njohja e fytyrave do të aktivizohet. Që të fshini të dhëna të fytyrës së dhënë, mund të shkoni te “Mirëfilltësim Biometrik”&gt; “Fytyrë”.
+        <translation>Para se të përdorni njohje fytyrash, ju lutemi, kini parasysh se: 
+1. Pajisja juaj mund të shkyçet nga persona ose objekte që duken ose shfaqen të ngjashëm me ju.
+2. Njohja e fytyrave është më pak e sigurt se sa fjalëkalimet dixhitale dhe fjalëkalimet e përziera.
+3. Shkalla e suksesit në shkyçjen e pajisjes tuaj përmes njohjes së fytyrave do të ulet në rast ndriçimi të ulët, ndriçimi të lartë, ndriçimi nga pas, vendosje nën kënde të mëdhenj dhe raste të tjera.
+4. Ju lutemi, mos ua jepni pajisjen tuaj të tjerëve ku të jetë, që të shmangni përdorim dashakeq të njohjes së fytyrave.
+5. Përtej rasteve më sipër, duhet të bëni kujdes në situata të tjera që mund të kenë ndikim në përdorimin normak të njohjes së fytyrave.
+
+Me qëllim përdorimin më të mirë të njohjes së fytyrave, ju lutemi, bëni kujdes të ndiqni sa vijon, kur jepen të dhëna fytyre:
+1. Ju lutemi, qëndroni në një mjedis të ndriçuar mirë, shmangni dritën e drejtpërdrejtë të diellit dhe persona të tjerë që shfaqen në ekranin që po regjistrohet.
+2. Ju lutemi, bëni kujdes te fytyra, kur jepen të dhëna, dhe mos lini kapele, flokë, syze dielli, maska, grim të rëndë dhe faktorë të tjerë të mbulojnë fytyrën tuaj.
+3. Ju lutemi, shmangni animin ose uljen e kokës, mbylljen e syve, ose shfaqjen vetëm të njërës anë të fytyrës tuaj, dhe garantoni që pjesa ballore e fytyrës të shfaqet qartë dhe plotësisht te kuadrati i regjistrimit.
 </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
-UnionTech Softeware is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation type="unfinished"/>
     </message>
@@ -5928,7 +5923,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
         <translation>Datë hedhjeje në qarkullim: </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Version</source>
         <translation>Version</translation>
     </message>
@@ -5936,37 +5931,43 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
         <source>System Updates</source>
         <translation>Përditësime Sistemi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="432"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="443"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="451"/>
+        <source>Fixed some known bugs and security vulnerabilities</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
         <source>Security Updates</source>
         <translation>Përditësime Sigurie</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="439"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="458"/>
         <source>Unknown Apps Updates</source>
         <translation>Përditësime të Panjohura Aplikacionesh</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1451"/>
         <source>Network error</source>
         <translation>Gabim rrjeti</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1410"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1454"/>
         <source>Dependency error</source>
         <translation>Gabim varësish</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1413"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1457"/>
         <source>Insufficient disk space</source>
         <translation>Hapësirë e pamjaftueshme në disk</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1416"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1460"/>
         <source>Update failed</source>
         <translation>Përditësimi dështoi</translation>
     </message>
@@ -5975,7 +5976,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
     <name>dcc::update::updateControlPanel</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="240"/>
         <source>Downloading </source>
         <translation>Po shkarkohet </translation>
     </message>
@@ -5995,12 +5996,12 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
         <translation>Po kryhet kopjeruajtje </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="290"/>
         <source>Download and install</source>
         <translation>Shkarkojeni dhe instalojeni</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="357"/>
         <source>Learn more</source>
         <translation>Mësoni më tepër</translation>
     </message>

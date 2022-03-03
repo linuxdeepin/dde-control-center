@@ -437,7 +437,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Restablir la contrasenya esborrarà les dades emmagatzemades al clauer.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
@@ -630,42 +630,37 @@
 <context>
     <name>dccV20::authentication::AddIrisInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="87"/>
         <source>Enroll Iris</source>
         <translation>Apunteu-vos a l&apos;Iris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="92"/>
-        <source>Look at the iris scanner and make sure your eyes are inside the frame</source>
-        <translation>Mireu l&apos;escàner d&apos;iris i assegureu-vos que els ulls siguin dins del marc.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="110"/>
         <source>Next</source>
         <translation>Següent</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="165"/>
         <source>Iris enrolled</source>
         <translation>Apuntat a l&apos;Iris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="168"/>
         <source>Done</source>
         <translation>Fet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="177"/>
         <source>Failed to enroll your iris</source>
         <translation>No s&apos;ha pogut registrar l&apos;iris.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="182"/>
         <source>Try Again</source>
         <translation> Torneu-ho a provar</translation>
     </message>
@@ -759,17 +754,17 @@
 <context>
     <name>dccV20::authentication::FingerDisclaimer</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="84"/>
         <source>Add Fingerprint</source>
         <translation>Afegiu una empremta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="107"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="109"/>
         <source>Next</source>
         <translation>Següent</translation>
     </message>
@@ -864,19 +859,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="171"/>
         <source>Fingerprint</source>
         <translation>Empremta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="172"/>
         <source>Face</source>
         <translation>Cara</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="173"/>
         <source>Iris</source>
         <translation>Iris</translation>
     </message>
@@ -5246,38 +5241,40 @@
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
-        <source>Before you set up face recognition, please pay attention to the following: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Face unlock is less secure than a password.
-3. Face recognition rates would reduce if showing a profile face, or in dark, bright, backlit environments.
-4. Do not hand over your device to others to avoid malicious use of face recognition.
-5. In addition, you should take care of other factors that may affect the normal use of face recognition.
-For better face recognition, take notice of the following when enrolling your face:
-1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
-2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
-3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>Abans de configurar el reconeixement facial, presteu atenció al següent:
-1. El dispositiu pot ser desbloquejat per algú amb un aspecte similar o objectes amb la vostra forma.
-2. El desbloqueig facial és menys segur que una contrasenya.
-3. Les taxes de reconeixement facial es reduirien si es mostrés una cara de perfil o en entorns foscos, brillants i retroil·luminats.
-4. No cediu el dispositiu a altres persones per evitar l&apos;ús maliciós del reconeixement facial.
-5. A més, cal tenir en compte altres factors que poden afectar l&apos;ús normal del reconeixement facial.
-Per obtenir un millor reconeixement facial, tingueu en compte el següent en registrar la vostra cara:
-1. Assegureu-vos de llum suficient, eviteu la llum solar directa i eviteu que altres persones apareguin al marc.
-2. Fixeu-vos en el vostre aspecte abans de la matrícula. No us cobriu la cara amb el cabell, un barret, ulleres de sol, una màscara o maquillatge pesat.
-3. No aixequeu ni abaixeu el cap, no tanqueu els ulls ni mostreu la cara de perfil. Assegureu-vos que la cara frontal aparegui clarament i completament al marc.
-Si accepteu aquesta declaració i registreu la vostra cara (no recopilarem la vostra informació facial, que es xifrarà localment i s&apos;emmagatzemarà per separat al vostre dispositiu), el reconeixement facial s&apos;habilitarà. Podeu anar a &quot;Autenticació biomètrica&quot;&gt; &quot;Cara&quot; per eliminar les dades facials registrades.
-</translation>
+        <translation>Abans d&apos;usar el reconeixement facial, tingueu en compte el següent:
+1. El vostre dispositiu pot ser desbloquejat per persones o objectes que se us assemblin o semblin semblants.
+2. El reconeixement facial és menys segur que les contrasenyes digitals i les contrasenyes mixtes.
+3. La taxa d&apos;èxit de desbloquejar el dispositiu mitjançant el reconeixement facial es reduirà en un escenari amb poca llum, llum alta, retroil·luminació, un angle molt obert i altres.
+4. No doneu el dispositiu a altres persones de manera aleatòria, per evitar l&apos;ús maliciós del reconeixement facial.
+5. A més dels escenaris anteriors, hauríeu de prestar atenció a altres situacions que poden afectar l&apos;ús normal del reconeixement facial.
+
+Per tal d&apos;usar millor el reconeixement facial, presteu atenció als aspectes següents quan introduïu les dades facials:
+1. Si us plau, mantingueu-vos en un entorn ben il·luminat, eviteu la llum solar directa i que altres persones que apareguin a la pantalla que es grava.
+2. Si us plau, presteu atenció a l&apos;estat de la cara quan introduïu les dades i no deixeu que barrets, cabells, ulleres de sol, màscares, maquillatge pesat i altres factors us cobreixin els trets facials.
+3. Si us plau, eviteu inclinar o abaixar el cap, tancar els ulls o mostrar només un costat de la cara, i assegureu-vos que la cara frontal aparegui clarament i completament al quadre d&apos;indicacions.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
-UnionTech Softeware is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
-        <translation type="unfinished"/>
+        <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat de l&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà d&apos;acord amb el resultat de la comparació.
+Tingueu en compte que UnionTech Software no recopilarà ni accedirà a la vostra informació biomètrica, que s&apos;emmagatzemarà al vostre dispositiu local. Si us plau, habiliteu l&apos;autenticació biomètrica només al vostre dispositiu personal i useu la pròpia informació biomètrica per a les operacions relacionades, i desactiveu o suprimiu immediatament la informació biomètrica d&apos;altres persones en aquest dispositiu, en cas contrari assumeu el risc que se&apos;n derivi.
+UnionTech Software es compromet a investigar i millorar la seguretat, la precisió i l&apos;estabilitat de l&apos;autenticació biomètrica. No obstant això, a causa de factors ambientals, d&apos;equipaments, tècnics i altres, i de control de riscos, no hi ha cap garantia que passeu l&apos;autenticació biomètrica temporalment. Per tant, no useu l&apos;autenticació biomètrica com a única manera d&apos;iniciar sessió a UnionTech OS. Si teniu cap pregunta o suggeriment quan feu servir l&apos;autenticació biomètrica, podeu fer comentaris mitjançant el Servei i assistència del sistema operatiu UnionTech.
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="83"/>
@@ -5905,7 +5902,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="155"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation>S&apos;ha instal·lat el sistema més nou. Reinicieu-lo perquè els canvis facin efecte.</translation>
+        <translation>S&apos;ha instal·lat el sistema més nou. Reinicieu-lo perquè tingui efecte.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="160"/>
@@ -5928,7 +5925,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
         <translation>Data de publicació:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Version</source>
         <translation>Versió</translation>
     </message>
@@ -5936,37 +5933,43 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
         <source>System Updates</source>
         <translation>Actualitzacions del sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="432"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="443"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="451"/>
+        <source>Fixed some known bugs and security vulnerabilities</source>
+        <translation>S&apos;han corregit alguns errors coneguts i vulnerabilitats de seguretat.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
         <source>Security Updates</source>
         <translation>Actualitzacions de seguretat</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="439"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="458"/>
         <source>Unknown Apps Updates</source>
         <translation>Actualitzacions d&apos;aplicacions desconegudes</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1451"/>
         <source>Network error</source>
         <translation>Error de xarxa</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1410"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1454"/>
         <source>Dependency error</source>
         <translation>Error de dependència</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1413"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1457"/>
         <source>Insufficient disk space</source>
         <translation>Espai de disc insuficient</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1416"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1460"/>
         <source>Update failed</source>
         <translation>Ha fallat l&apos;actualització.</translation>
     </message>
@@ -5975,7 +5978,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
     <name>dcc::update::updateControlPanel</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="240"/>
         <source>Downloading </source>
         <translation>Es baixa</translation>
     </message>
@@ -5995,12 +5998,12 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
         <translation>Còpia de seguetat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="290"/>
         <source>Download and install</source>
         <translation>Baixa-les i instal·la-les</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="357"/>
         <source>Learn more</source>
         <translation>Més informació</translation>
     </message>

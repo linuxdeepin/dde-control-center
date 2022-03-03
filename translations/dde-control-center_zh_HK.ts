@@ -630,42 +630,37 @@
 <context>
     <name>dccV20::authentication::AddIrisInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="87"/>
         <source>Enroll Iris</source>
         <translation>添加虹膜數據</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="92"/>
-        <source>Look at the iris scanner and make sure your eyes are inside the frame</source>
-        <translation>請注視設備，確保雙眼在採集區域內</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
         <source>Cancel</source>
         <translation>取 消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="110"/>
         <source>Next</source>
         <translation>下一步</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="165"/>
         <source>Iris enrolled</source>
         <translation>虹膜錄入已完成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="168"/>
         <source>Done</source>
         <translation>完 成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="177"/>
         <source>Failed to enroll your iris</source>
         <translation>虹膜錄入失敗</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="182"/>
         <source>Try Again</source>
         <translation>重新錄入</translation>
     </message>
@@ -759,17 +754,17 @@
 <context>
     <name>dccV20::authentication::FingerDisclaimer</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="84"/>
         <source>Add Fingerprint</source>
         <translation>添加指紋</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="107"/>
         <source>Cancel</source>
         <translation>取 消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="109"/>
         <source>Next</source>
         <translation>下一步</translation>
     </message>
@@ -864,19 +859,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="171"/>
         <source>Fingerprint</source>
         <translation>指紋</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="172"/>
         <source>Face</source>
         <translation>人臉</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="173"/>
         <source>Iris</source>
         <translation>虹膜</translation>
     </message>
@@ -4858,7 +4853,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="225"/>
         <source>System Updates</source>
-        <translation>系統更新</translation>
+        <translation>檢查系統更新</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -4866,7 +4861,7 @@
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="229"/>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="231"/>
         <source>Security Updates</source>
-        <translation>安全更新</translation>
+        <translation>安全性更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="236"/>
@@ -5246,36 +5241,36 @@
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
-        <source>Before you set up face recognition, please pay attention to the following: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Face unlock is less secure than a password.
-3. Face recognition rates would reduce if showing a profile face, or in dark, bright, backlit environments.
-4. Do not hand over your device to others to avoid malicious use of face recognition.
-5. In addition, you should take care of other factors that may affect the normal use of face recognition.
-For better face recognition, take notice of the following when enrolling your face:
-1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
-2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
-3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>使用人臉識別功能前，請注意以下事項：
-1.您的電腦可能會被容貌、外形與您相近的人或物品解鎖。
+        <translation>在使用人臉識別功能前，請注意以下事項：
+1.閣下的裝置可能會被容貌、外形與閣下相近的人或物品解鎖。
 2.人臉識別的安全性低於數字密碼、混合密碼。
-3.在暗光、強光、逆光或角度過大等場景下，人臉識別的解鎖成功率會有所降低。
-4.請勿將設備隨意交給他人使用，避免人臉識別功能被惡意利用。
-5.除以上場景外，您需注意其他可能影響人臉識別功能正常使用的情況。
-為更好使用人臉識別，錄入面部數據時請注意以下事項：
-1.請保證光線充足，避免陽光直射並避免其他人出現在錄入的畫面中。
-2.請注意錄入數據時的面部狀態，避免衣帽、頭髮、墨鏡、口罩、濃妝等遮擋面部訊息。
-3.請避免仰頭、低頭、閉眼或僅露出側臉的情況，確保臉部正面清晰完整的出現在提示框內。
-若您同意本聲明並錄入面部數據（我們不會收集您的面容訊息，該訊息將在您的設備本地加密、單獨存儲），系統將會開啟人臉識別功能。您可前往“生物認證”&gt;&quot;人臉&quot;，刪除錄入的人臉數據。
+3.在暗光、強光、背光或角度過大等場景下，人臉識別的解鎖成功率會有所降低。
+4.請勿將裝置隨意交給他人使用，避免人臉識別功能被惡意利用。
+5.除以上場景外，閣下需注意其他可能影響人臉識別功能正常使用的情況。
+
+為更好使用人臉識別，錄入面部資料時請注意以下事項：
+1.請保證光綫充足，避免陽光直射並避免其他人出現在錄入的畫面中。
+2.請注意錄入資料時的面部狀態，避免衣帽、頭髮、太陽眼鏡、口罩、濃妝等遮擋面部資訊。
+3.請避免抬頭、低頭、閉眼或僅露出側臉的情況，確保臉部正面清晰完整的出現在提示框內。
 </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
-UnionTech Softeware is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation>「生物認證」是統信軟件技術有限公司提供的一種對用戶進行身份認證的功能。透過「生物認證」，將採集的生物識別資料與存儲在裝置本地的生物識別資料進行比對，並根據比對結果來驗證用戶身份。
 請閣下注意，統信軟件不會收集或訪問閣下的生物識別資訊，此類資訊將會存儲在閣下的本地裝置中。請閣下僅在閣下的個人裝置中啟用生物認證功能，並使用閣下本人的生物識別資訊進行相關操作，並及時在該裝置上禁止或刪除他人的生物識別資訊，否則由此給閣下帶來的風險將由閣下承擔。
@@ -5931,7 +5926,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
         <translation>發佈時間：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
@@ -5939,37 +5934,43 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
         <source>System Updates</source>
         <translation>系統更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="432"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="443"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="451"/>
+        <source>Fixed some known bugs and security vulnerabilities</source>
+        <translation>修復部分已知缺陷和安全漏洞</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
         <source>Security Updates</source>
         <translation>安全更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="439"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="458"/>
         <source>Unknown Apps Updates</source>
         <translation>未知來源應用更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1451"/>
         <source>Network error</source>
         <translation>網絡錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1410"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1454"/>
         <source>Dependency error</source>
         <translation>依賴錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1413"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1457"/>
         <source>Insufficient disk space</source>
         <translation>硬盤空間不足</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1416"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1460"/>
         <source>Update failed</source>
         <translation>更新失敗</translation>
     </message>
@@ -5978,7 +5979,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
     <name>dcc::update::updateControlPanel</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="240"/>
         <source>Downloading </source>
         <translation>下載中</translation>
     </message>
@@ -5998,12 +5999,12 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
         <translation>備份中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="290"/>
         <source>Download and install</source>
         <translation>下載並安裝</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="357"/>
         <source>Learn more</source>
         <translation>了解詳情</translation>
     </message>

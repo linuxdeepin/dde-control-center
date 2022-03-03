@@ -437,7 +437,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Door het wachtwoord te herstellen, worden alle in de sleutelbos opgeslagen gegevens gewist.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
@@ -630,42 +630,37 @@
 <context>
     <name>dccV20::authentication::AddIrisInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="87"/>
         <source>Enroll Iris</source>
         <translation>Irisherkenning</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="92"/>
-        <source>Look at the iris scanner and make sure your eyes are inside the frame</source>
-        <translation>Kijk naar de irisscanner er zorg dat je ogen binnen het kader blijven</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="110"/>
         <source>Next</source>
         <translation>Volgende</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="165"/>
         <source>Iris enrolled</source>
         <translation>Je iris is herkend</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="168"/>
         <source>Done</source>
         <translation>Klaar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="177"/>
         <source>Failed to enroll your iris</source>
         <translation>Je iris is niet herkend</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="182"/>
         <source>Try Again</source>
         <translation>Opnieuw proberen</translation>
     </message>
@@ -759,17 +754,17 @@
 <context>
     <name>dccV20::authentication::FingerDisclaimer</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="84"/>
         <source>Add Fingerprint</source>
         <translation>Vingerafdruk toevoegen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="107"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="109"/>
         <source>Next</source>
         <translation>Volgende</translation>
     </message>
@@ -864,19 +859,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="171"/>
         <source>Fingerprint</source>
         <translation>Vingerafdruk</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="172"/>
         <source>Face</source>
         <translation>Gezicht</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="173"/>
         <source>Iris</source>
         <translation>Iris</translation>
     </message>
@@ -5246,36 +5241,26 @@
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
-        <source>Before you set up face recognition, please pay attention to the following: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Face unlock is less secure than a password.
-3. Face recognition rates would reduce if showing a profile face, or in dark, bright, backlit environments.
-4. Do not hand over your device to others to avoid malicious use of face recognition.
-5. In addition, you should take care of other factors that may affect the normal use of face recognition.
-For better face recognition, take notice of the following when enrolling your face:
-1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
-2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
-3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>Voordat je gezichtsherkenning instelt, is het belangrijk om het volgende in acht te nemen: 
-1. Je apparaat kan worden ontgrendeld door iemand die op jou lijkt of door een foto van jou voor de webcam te houden;
-2. Gezichtsherkenning is minder veilig dan een wachtwoord;
-3. De herkenning is slechter in donkere, slecht belichte of overbelichte omgevingen;
-4. Deel je apparaat niet met anderen om misbruik te voorkomen;
-5. Let ook op de factoren die het gebruik kunnen belemmeren.
-Neem het volgende in acht om de gezichtsherkenning zo goed als mogelijk in te stellen:
-1. Zorg voor goede belichting, vermijd zonlicht en voorkom dat anderen in beeld komen;
-2. Let op je uiterlijk: laat je haar niet over je gezicht vallen, en draag geen hoed, zonnebril, masker of een dikke laag make-up;
-3. Kijk recht in de camera, houd je ogen open en zorg dat je hoofd volledig binnen het kader blijft.
-Als je dit alles gelezen hebt en hiermee doorgaat (we verzamelen geen informatie hieromtrent - deze wordt versleuteld opgeslagen op je apparaat), dan wordt de herkenning ingeschakeld. Ga naar ‘Biometrische verificatie’ --&gt; ‘Gezicht’ om gezichtsherkenning uit te schakelen.
+        <translation>Voordat je gezichtsherkenning instelt, is het belangrijk om het volgende in acht te nemen:&lt;br&gt;&lt;br&gt;1. Je apparaat kan worden ontgrendeld door iemand die op jou lijkt of door een foto van jou voor de webcam te houden;&lt;br&gt;&lt;br&gt;2. Gezichtsherkenning is minder veilig dan een wachtwoord;&lt;br&gt;&lt;br&gt;3. De herkenning is slechter in donkere, slecht belichte of overbelichte omgevingen;&lt;br&gt;&lt;br&gt;4. Deel je apparaat niet met anderen om misbruik te voorkomen;&lt;br&gt;&lt;br&gt;5. Let ook op de factoren die het gebruik kunnen belemmeren.&lt;br&gt;&lt;br&gt;Neem het volgende in acht om de gezichtsherkenning zo goed als mogelijk in te stellen:&lt;br&gt;&lt;br&gt;1. Zorg voor goede belichting, vermijd zonlicht en voorkom dat anderen in beeld komen;&lt;br&gt;&lt;br&gt;2. Let op je uiterlijk: laat je haar niet over je gezicht vallen, en draag geen hoed, zonnebril, masker of een dikke laag make-up;&lt;br&gt;&lt;br&gt;3. Kijk recht in de camera, houd je ogen open en zorg dat je hoofd volledig binnen het kader blijft.&lt;br&gt;&lt;br&gt;&lt;br&gt;
 </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
-UnionTech Softeware is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation type="unfinished"/>
     </message>
@@ -5928,7 +5913,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
         <translation>Uitgebracht op:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Version</source>
         <translation>Versie</translation>
     </message>
@@ -5936,37 +5921,43 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
         <source>System Updates</source>
         <translation>Systeemupdates</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="432"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="443"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="451"/>
+        <source>Fixed some known bugs and security vulnerabilities</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
         <source>Security Updates</source>
         <translation>Beveiligingsupdates</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="439"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="458"/>
         <source>Unknown Apps Updates</source>
         <translation>Onbekende programma-updates</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1451"/>
         <source>Network error</source>
         <translation>Netwerkfout</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1410"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1454"/>
         <source>Dependency error</source>
         <translation>Afhankelijkheidsfout</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1413"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1457"/>
         <source>Insufficient disk space</source>
         <translation>Onvoldoende vrije ruimte</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1416"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1460"/>
         <source>Update failed</source>
         <translation>Update mislukt</translation>
     </message>
@@ -5975,7 +5966,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
     <name>dcc::update::updateControlPanel</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="240"/>
         <source>Downloading </source>
         <translation>Bezig met downloaden…</translation>
     </message>
@@ -5995,12 +5986,12 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
         <translation>Bezig met back-uppen…</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="290"/>
         <source>Download and install</source>
         <translation>Downloaden en installeren</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="357"/>
         <source>Learn more</source>
         <translation>Meer informatie</translation>
     </message>

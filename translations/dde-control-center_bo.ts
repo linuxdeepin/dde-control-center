@@ -437,7 +437,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་བསྐྱར་བཟོ་བྱས་ན་གསང་ལྡེའི་གདུབ་ནང་ཉར་བའི་གཞི་གྲངས་སུབ་སྲིད།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
@@ -630,42 +630,37 @@
 <context>
     <name>dccV20::authentication::AddIrisInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="87"/>
         <source>Enroll Iris</source>
         <translation>མིག་འབྲས་གཞི་གྲངས་སྣོན་པ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="92"/>
-        <source>Look at the iris scanner and make sure your eyes are inside the frame</source>
-        <translation>སྒྲིག་ཆས་ལ་ཅེར་བལྟ་བྱས་ཏེ་མིག་གཉིས་འཚོལ་བསྡུ་ཁུལ་དུ་ཡོད་པར་འགན་ལེན་བྱེད་དགོས། </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
         <source>Cancel</source>
         <translation>འདོར་བ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="110"/>
         <source>Next</source>
         <translation>རྗེས་མ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="165"/>
         <source>Iris enrolled</source>
         <translation>མིག་འབྲས་ནང་འཇུག་བྱས་ཟིན། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="168"/>
         <source>Done</source>
         <translation>གྲུབ་ཟིན། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="177"/>
         <source>Failed to enroll your iris</source>
         <translation>མིག་འབྲས་ནང་འཇུག་མི་ཐུབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="182"/>
         <source>Try Again</source>
         <translation>ཡང་བསྐྱར་ནང་འཇུག་གནང་དང་།</translation>
     </message>
@@ -759,17 +754,17 @@
 <context>
     <name>dccV20::authentication::FingerDisclaimer</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="84"/>
         <source>Add Fingerprint</source>
         <translation>མཛུབ་རིས་སྣོན་པ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="107"/>
         <source>Cancel</source>
         <translation>འདོར་བ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="109"/>
         <source>Next</source>
         <translation>རྗེས་མ། </translation>
     </message>
@@ -864,19 +859,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="171"/>
         <source>Fingerprint</source>
         <translation>མཛུབ་རིས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="172"/>
         <source>Face</source>
         <translation>ངོ་གདོང་།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="173"/>
         <source>Iris</source>
         <translation>མིག་འབྲས། </translation>
     </message>
@@ -5247,41 +5242,38 @@
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
-        <source>Before you set up face recognition, please pay attention to the following: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Face unlock is less secure than a password.
-3. Face recognition rates would reduce if showing a profile face, or in dark, bright, backlit environments.
-4. Do not hand over your device to others to avoid malicious use of face recognition.
-5. In addition, you should take care of other factors that may affect the normal use of face recognition.
-For better face recognition, take notice of the following when enrolling your face:
-1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
-2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
-3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>ངོ་གདོང་དབྱེ་འབྱེད་ནུས་པ་སྤྱོད་པའི་གོང་ལ་གཤམ་གསལ་དོན་ཚན་ལ་དོ་སྣང་བྱེད་དགོས་པ་སྟེ།
-1.ཁྱེད་ཀྱི་གློག་ཀླད་ཀྱིས་ཁྱེད་ཀྱི་ངོ་གདོང་དང་ཕྱི་ཚུལ་འདྲ་བའི་མི་དང་ཅ་དངོས་ཀྱིས་སྒོ་ལྕགས་ཕྱེ་སྲིད།
-2.ངོ་གདོང་དབྱེ་འབྱེད་ཀྱི་བདེ་འཇགས་རང་བཞིན་དེ་ཨང་ཀའི་གསང་ཨང་དང་མཉམ་བསྲེས་གསང་ཨང་ལས་དམའ་བ་ཡོད།
-3.འོད་གསལ་དྲགས་པའམ་ནག་དྲགས་པ། ལྡོག་འོད། དེ་བཞིན་མཐོང་རྒྱ་ཆེ་དྲགས་པའི་གནས་ཚུལ་འོག ངོ་གདོང་དབྱེ་འབྱེད་ཀྱིས་སྒོ་ལྕགས་ཕྱེ་བའི་ནུས་པ་ཅུང་ཞན་ཏུ་འགྲོ་སྲིད།
-4.སྒྲིག་ཆས་འདི་གང་འདོད་མི་གཞན་དུ་སྤྱོད་དུ་བཅུག་མི་རུང་། ངོ་གདོང་དབྱེ་འབྱེད་ཀྱི་ནུས་པ་འདི་མི་གཞན་གྱིས་གནག་སེམས་གཞན་སྤྱོད་བྱེད་སྲིད། 
-5.གོང་གི་གནས་ཚུལ་ཕུད། ཁྱེད་ཀྱིས་ད་དུང་ངོ་གདོང་དབྱེ་འབྱེད་ཀྱི་ནུས་པ་རྒྱུན་གཏན་ངང་སྤྱོད་པར་ཤུགས་རྐྱེན་ཐེབས་པའི་གནས་ཚུལ་གཞན་དག་ལ་དོ་སྣང་བྱེད་དགོས།
-ངོ་གདོང་དབྱེ་འབྱེད་སྔར་ལས་ལེགས་པ་སྤྱོད་ཆེད། ངོ་གདོང་གཞི་གྲངས་འཇུག་པའི་སྐབས་སུ་གཤམ་གསལ་དོན་ཚན་ལ་དོ་སྣང་བྱེད་དགོས། 
-1.འོད་མདངས་གསལ་པོ་ཡོད་དགོས་པ་མ་ཟད། ཉི་འོད་ཀྱིས་ཐད་ཀར་འཕྲོ་མི་རུང་། ནང་འཇུག་བྱེད་པའི་བཪྙན་ངོས་ནང་དུ་མི་གཞན་དག་མི་འཛུལ་བ་བྱེད་དགོས།
-2.གཞི་གྲངས་འཇུག་པའི་སྐབས་སུ་ངོ་གདོང་ལ་དོ་སྣང་བྱེད་དགོས། ཞྭ་མོ་དང་། སྐྲ། མིག་ཤེལ། ཁ་རས། མཛེས་འཆོས་སོགས་ཀྱིས་ངོ་གདོང་བཀབ་མི་ཆོག
-3.མགོ་བཏེགས་པ་དང་། མགོ་སྒུར་སྒུར། མིག་བཙུམ་པ། ཡང་ན་གདོང་ཕྱེད་ཀ་སོགས་པའི་གནས་དོན་མི་ཡོང་བ་བྱེད་ཅིང་། ངོ་གདོང་གསལ་ལ་ཆ་ཚང་བ་ཡོད་པར་ཁག་ཐེག་བྱེད་དགོས།
-ཁྱེད་ཀྱིས་གསལ་བསྒྲགས་འདི་ལ་མོས་མཐུན་ཡོད་པ་དང་། ངོ་གདོང་གཞི་གྲངས་ནང་འཇུག་བྱེད་ཚེ།（ང་ཚོས་ཁྱེད་ཀྱི་ངོ་གདོང་ཆ་འཕྲིན་བསྡུ་རུབ་བྱེད་མི་སྲིད། ཆ་འཕྲིན་འདི་ཁྱེད་ཀྱི་སྒྲིག་ཆས་ཐོག་གསང་སྣོན་བྱས་ཏེ་གཅིག་པུར་གསོག་ཉར་བྱེད་སྲིད་） མ་ལག་གིས་ངོ་གདོང་དབྱེ་འབྱེད་ཀྱི་ནུས་པ་སྤྱོད་འགོ་ཚུགས་སྲིད། ཁྱེད་ཀྱིས་“སྐྱེ་དངོས་ར་སྲོད་”&gt;&quot;ངོ་གདོང་&quot;ལ་བསྐྱོད་ནས་ནང་འཇུག་བྱས་པའི་ངོ་གདོང་གཞི་གྲངས་བསུབ་ཆོག
+        <translation>ངོ་རིས་ངོས་འཛིན་བྱེད་ལས་མ་བཀོལ་བའི་སྔོན་དུ།  གཤམ་གྱི་དོན་ཚན་འགའ་ལ་ཡིད་གཟབ་བྱེད་དགོས། 
+༡.ཁྱེད་ཀྱི་སྒྲིག་ཆས་དེ་ཕལ་ཆེར་ཁྱེད་རང་དང་འདྲ་བའི་མིའམ་དངོས་པོའི་རྣམ་པ་དང་ཕྱི་ཚུལ་གྱིས་ཁ་ཕྱེ་སྲིད།
+༢.ངོ་རིས་ངོས་འཛིན་གྱི་བདེ་འཇགས་རང་བཞིན་ནི་ཨང་ཀིའི་གསང་གྲངས་དང་།  གསང་གྲངས་འདྲེས་མ་ལས་དམའ་བ་ཡོད།
+༣.འོད་མུན། འོད་གསལ། ལྡོག་འོད། ཡང་ན་ཟུར་ཚད་ཆེ་དྲགས་པ་སོགས་ཀྱི་རྒྱབ་ལྗོངས་འོག་གི་ ངོ་རིས་ངོས་འཛིན་གྱིས་ཟྭ་འབྱེད་ཐུབ་པའི་ཚད་ཆེ་ཆེར་མར་ཆག་སྲིད།  
+༤.སྒྲིག་ཆས་གང་འདོད་ངང་མི་གཞན་ལ་སྤྲད་ནས་བེད་སྤྱོད་གཏོང་མི་ཆོག་སྟེ། ངོ་རིས་ངོས་འཛིན་བྱེད་ལས་ངན་ཕྱོགས་སུ་བཀོལ་བར་སྔོན་འགོག་བྱེད་དགོས། 
+༥.གོང་དུ་བཤད་པའི་བཟོ་ལྗོངས་ཕུད། སྐུ་ཉིད་ནས་ད་དུང་དེ་མིན་གྱི་ངོ་རིས་ངོས་འཛིན་བྱེད་ལས་གཞན་རྒྱུན་ལྡན་གྱིས་བཀོལ་བར་ཤུགས་རྐྱེན་བཟོ་སྲིད་པའི་གནས་ཚུལ་དག་ལ་ཡིད་གཟབ་བྱེད་དགོས། 
+
+ངོ་རིས་ངོས་འཛིན་ལེགས་པོར་བཀོལ་ཆེད། ངོ་རིས་ཀྱི་གཞི་གྲངས་བརྙན་ལེན་བྱེད་པའི་སྐབས་སུ་གཤམ་གྱི་དོན་ཚན་ལ་ཡིད་གཟབ་བྱེད་དགོས། 
+༡.འོད་མདངས་འདང་ངེས་ཡོད་པ་ཁས་ལེན་གནང་སྟེ་ཉི་འོད་གསལ་བོ་ཐད་ཀར་འཕྲོ་མི་ཆོག་པ་མ་ཟད། དེ་མིན་གྱི་ མི་གཞན་པར་ངོས་སུ་ཐོན་མི་ཆོག
+༢.གཞི་གྲངས་ཁྲོད་ཀྱི་ངོ་གདོང་རྣམ་པ ཕབ་འཇུག་བྱེད་པའི་སྐབས་ལ་ཡིད་གཟབ་བྱས་ཏེ།  ཞྭ་མོ་དང་སྐྲ། མིག་ཤེལ། ཁ་ཐུམ། མཛེས་འཆོས་སོགས་ཀྱིས་ངོ་རིས་ཆ་འཕྲིན་འགེབ་མི་ཆོག
+༣.མགོ་བོ་ལྟག་གར་དགྱེ་བ། མར་སྒུར་བ། མིག་བཙུམ་པའམ་ཡང་ན་ངོ་གདོང་ཕྱེད་ཀ་སྟོན་པ་སོགས་བྱས་མི་ཆོག་པས།ངོ་རིས་ཚང་མ་ཁ་གསལ་ཞིང་ཆ་ཚང་བ་དྲན་སྐུལ་སྒྲིམ་གཞིའི་ནང་འཇུག་དགོས།
 </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
-UnionTech Softeware is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
-        <translation>“སྐྱེ་དངོས་ངོས་ལེན།དཔང་འདོན།” ནི་བསྡོམས་འཕྲིན་མཉེན་ཆས་ལག་རྩལ་ཚད་ཡོད་ཀུང་སིས་བཀོལ་མཁན་ལ་མཁོ་སྤྲོད་བྱས་པའི་ཐོབ་ཐང་ངོས་ལེན་བྱ་བའི་བྱེད་ལས་ཤིག་ཡིན། “སྐྱེ་དངོས་ངོས་ལེན”ལ་བརྒྱུད་ནས་སྐྱེ་དངོས་དབྱེ་འབྱེད་ཀྱི་གཞི་གྲངས་དང་སྒྲིག་ཆས་ནང་ཉར་ཚགས་བྱས་ཡོད་པའི་སྐྱེ་དངོས་དབྱེ་འབྱེད་ཀྱི་གཞི་གྲངས་ཕན་ཚུན་བསྡུར་བ་བཏང་བ་མ་ཟད། བསྡུར་ཟིན་པའི་འབྲས་བུས་བཀོལ་མཁན་གྱི་ཐོབ་ཐང་ར་སྤྲོད་བྱེད་པ་ཞིག་ཡིན། 
-སྐུ་ཉིད་ནས་ཡིད་འཇོག་བྱ་དགོས་པ་ཞིག་ལ། བསྡོམས་འཕྲིན་མཉེན་ཆས་ཀྱིས་ཁྱེད་ཀྱི་སྐྱེ་དངོས་ངོས་འཛིན་གྱི་བརྡ་འཕྲིན་འཚོལ་བསྡུ་དང་བཅར་འདྲི་བྱེད་མི་སྲིད་པ་དང་། འདིའི་རིགས་ཀྱི་ཆ་འཕྲིན་ནི་སྐུ་ཉིད་ཀྱི་ས་གནས་འདི་གའི་སྒྲིག་ཆས་ཁྲོད་ཉར་ཚགས་བྱ་རྒྱུ་ཡིན། ཁྱེད་ཀྱིས་རང་ཉིད་ཀྱི་སྒྲིག་ཆས་སྟེང་ནས་སྐྱེ་དངོས་ངོས་འཛིན་བྱེད་ལས་ཀྱི་སྒོ་འབྱེད་དགོས་པ་དང་ཆབས་ཅིག ཁྱེད་རང་ཉིད་ཀྱི་སྐྱེ་དངོས་ངོས་འཛིན་་ཆ་་འཕྲིན་སྤྱད་ནས་འབྲེལ་ཡོད་ཀྱི་ནང་དོན་ལག་བསྟར་བྱ་དགོས་པ་མ་ཟད། སྒྲིག་ཆས་འདིའི་སྟེང་མི་གཞན་གྱི་སྐྱེ་དངོས་ངོས་ལེན་བཆ་འཕྲིན་བཀག་འགོག་བྱས་པའམ་ཡང་ན་སུབ་ཆོག དེ་མིན་ཚེ།  སྐུ་ཉིད་ལ་ཆ་འཕྲིན་ལ་ཉེན་ཁ་བྱུང་ན་ རང་ཉིད་ཀྱིས་འགན་འཁུར་དགོས། 
-བསྡོམས་འཕྲིན་མཉེན་ཆས་ཀྱིས་སྐྱེ་དངོས་ངོས་ལེན་བྱེད་ལས་ཀྱི་བདེ་འཇགས་རང་བཞིན་དང་། གནད་ཁེལ་རང་བཞིན། བརྟན་འཇགས་རང་བཞིན་ལ་ཞིབ་འཇུག་དང་མཐོར་འདེགས་གཏོང་བའི་ཐད་ལ་ཤུགས་སྣོན་རྒྱག་མོད།  འོན་ཀྱང་།  ཁོར་ཡུག་དང་སྒྲིག་ཆས། ལག་རྩལ་སོགས་ཀྱི་ཚོད་འཛིན་ཐེབས་པའི་རྐྱེན་དང་ཉེན་ཁའི་ཚོད་འཛིན་བཅས་ཀྱི་རྒྱུ་རྐྱེན་ལས། ང་ཚོས་གནས་སྐབས་སུ་སྐུ་ཉིད་ནས་ངེས་པར་དུ་བདེ་བླག་ངང་སྐྱེ་དངོས་དཔང་འདོན་བརྒྱུད་ཐུབ་པརའགན་ལེན་བྱེད་དཀའ་བས། དེའི་ཕྱིར་ཁྱེད་ཀྱིས་སྐྱེ་དངོས་ངོས་ལེན་དེ་བསྡོམས་འཕྲིན་བཀོལ་སྤྱོད་རྒྱུད་ཁོངས་ལ་ཐོ་ཞུགས་བྱ་བའི་ཐབས་ལམ་གཅིག་པུ་དེ་མིན།གལ་ཏེ་སྐུ་ཉིད་ནས་སྐྱེ་དངོས་དཔང་འདོན་བཀོལ་སྐབས་གནད་དོན་དང་བསམ་འཆར་ཡོད་ཚེ།  མ་ལག་ནང་གི“ཞབས་ཞུ་དང་རྒྱབ་སྐྱོར”ལ་བརྒྱུད་ནས་དེ་ཕྱིར་ལྡོག་བྱས་ན་ཆོག
-</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="83"/>
@@ -5932,7 +5924,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
         <translation>ཁྲོམ་བསྒྲགས་དུས་ཚོད། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Version</source>
         <translation>པར་གཞི།</translation>
     </message>
@@ -5940,37 +5932,43 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
         <source>System Updates</source>
         <translation>རྒྱུད་ཁོངས་གསར་སྒྱུར།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="432"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="443"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="451"/>
+        <source>Fixed some known bugs and security vulnerabilities</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
         <source>Security Updates</source>
         <translation>བདེ་འཇགས་གསར་སྒྱུར་ཞིབ་བཤེར།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="439"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="458"/>
         <source>Unknown Apps Updates</source>
         <translation>ཡོང་ཁུངས་མི་ཤེས་པའི་ཉེར་སྤྱོད་གསར་སྒྱུར། </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1451"/>
         <source>Network error</source>
         <translation>དྲ་རྒྱ་ནོར་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1410"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1454"/>
         <source>Dependency error</source>
         <translation>རྟེན་གཞི་ནོར་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1413"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1457"/>
         <source>Insufficient disk space</source>
         <translation>སྡུད་སྡེར་བར་སྟོང་མི་འདང་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1416"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1460"/>
         <source>Update failed</source>
         <translation>གསར་སྒྱུར་མི་ཐུབ་པ། </translation>
     </message>
@@ -5979,7 +5977,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
     <name>dcc::update::updateControlPanel</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="240"/>
         <source>Downloading </source>
         <translation>ཕབ་བཞིན་པ།</translation>
     </message>
@@ -5999,12 +5997,12 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
         <translation>གྲབས་ཉར་བྱེད་བཞིན་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="290"/>
         <source>Download and install</source>
         <translation>ཕབ་ལེན་བྱས་རྗེས་སྒྲིག་འཇུག་བྱེད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="357"/>
         <source>Learn more</source>
         <translation>གནས་ཚུལ་རྒྱུས་ལོན།</translation>
     </message>

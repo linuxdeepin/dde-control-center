@@ -107,12 +107,12 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="215"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="312"/>
         <source>Full Name</source>
-        <translation>Pełne imię i nazwisko</translation>
+        <translation>Imię i nazwisko</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="274"/>
         <source>The full name is too long</source>
-        <translation>Pełna nazwa jest za długa</translation>
+        <translation>Wprowadzone imię i nazwisko jest za długie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="373"/>
@@ -322,7 +322,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="186"/>
         <source>Full Name</source>
-        <translation>Pełne imię i nazwisko</translation>
+        <translation>Imię i nazwisko</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="192"/>
@@ -343,7 +343,7 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="531"/>
         <source>The full name is too long</source>
-        <translation>Pełna nazwa jest za długa</translation>
+        <translation>Wprowadzone imię i nazwisko jest za długie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="285"/>
@@ -437,7 +437,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Zresetowanie hasła spowoduje usunięcie danych zapisanych w pęku kluczy.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
@@ -630,42 +630,37 @@
 <context>
     <name>dccV20::authentication::AddIrisInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="87"/>
         <source>Enroll Iris</source>
         <translation>Zapisz Tęczówkę</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="92"/>
-        <source>Look at the iris scanner and make sure your eyes are inside the frame</source>
-        <translation>Patrz się na skaner tęczówek i upewnij się, że twoje oczy są wewnątrz ramki</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="110"/>
         <source>Next</source>
         <translation>Dalej</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="165"/>
         <source>Iris enrolled</source>
         <translation>Tęczówka zapisana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="168"/>
         <source>Done</source>
         <translation>Gotowe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="177"/>
         <source>Failed to enroll your iris</source>
         <translation>Nie udało się zapisać twojej tęczówki </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="182"/>
         <source>Try Again</source>
         <translation>Spróbuj ponownie</translation>
     </message>
@@ -759,17 +754,17 @@
 <context>
     <name>dccV20::authentication::FingerDisclaimer</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="84"/>
         <source>Add Fingerprint</source>
         <translation>Dodaj odcisk palca</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="107"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="109"/>
         <source>Next</source>
         <translation>Następna</translation>
     </message>
@@ -864,19 +859,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="171"/>
         <source>Fingerprint</source>
         <translation>Odcisk palca</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="172"/>
         <source>Face</source>
         <translation>Twarz</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="173"/>
         <source>Iris</source>
         <translation>Tęczówka</translation>
     </message>
@@ -3206,7 +3201,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
         <source>Light</source>
-        <translation>Lekka</translation>
+        <translation>Jasny</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
@@ -4319,7 +4314,7 @@
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="505"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="506"/>
         <source>1~63 characters please</source>
-        <translation>1~63 znaki proszę</translation>
+        <translation>1~63 znaków proszę</translation>
     </message>
 </context>
 <context>
@@ -5247,35 +5242,36 @@
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
-        <source>Before you set up face recognition, please pay attention to the following: 
-1. Your device may be unlocked by someone with a similar appearance or objects shaped like you.
-2. Face unlock is less secure than a password.
-3. Face recognition rates would reduce if showing a profile face, or in dark, bright, backlit environments.
-4. Do not hand over your device to others to avoid malicious use of face recognition.
-5. In addition, you should take care of other factors that may affect the normal use of face recognition.
-For better face recognition, take notice of the following when enrolling your face:
-1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
-2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
-3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
+        <source>Before using face recognition, please note that: 
+1. Your device may be unlocked by people or objects that look or appear similar to you.
+2. Face recognition is less secure than digital passwords and mixed passwords.
+3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
+4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
+5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
+
+In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
+1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
+2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
+3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation>Przed ustawieniem rozpoznawania twarzy, proszę zwróć uwagę na punkty poniżej: 
-1. Twoje urządzenie może zostać odblokowane przez obiekt lub kogoś kto wygląda podobnie do ciebie.
-2. Odblokowywanie twarzą jest mniej bezpieczne od hasła.
-3. Prędkość rozpoznawania twarzy obniży się, jeśli będziesz pokazywać się z profilu, w ciemności, jaskrawych lub podświetlonych otoczeniach.
-4. Nie dawaj swojego urządzenia innym, aby uniknąć niechcianego użycia rozpoznawania twarzą.
-5. Dodatkowo powinieneś/powinnaś wziąć pod uwagę inne czynniki, które mogą wpłynąć na normalne korzystanie z identyfikacji twarzą. 
-Dla lepszego rozpoznawania twarzą, zwróć uwagę na poniższe punkty podczas zapisywania swojej twarzy:
-1. Zapewnij dobre oświetlenie, unikaj natężonego światła słonecznego i trzymaj innych z daleka od pojawiania się w ramce. 
-2. Zwróć uwagę na swój wygląd. Nie zakrywaj swojej twarzy włosami, kapeluszem, okularami, maską lub mocnym makijażem.
-3. Nie podnoś lub obniżaj swojej głowy, nie zamykaj oczu, ani pokazuj swojej twarzy z profilu. Upewnij się, że twoja twarz wyraźnie i całkowicie znajduje się wewnątrz ramki. Jeśli wyrażasz zgodę i zapiszesz swoją twarz (nie zbieramy żadnych informacji związanych z twoją twarzą, które będą zaszyfrowane lokalnie i przechowywane oddzielnie na urządzeniu), rozpoznawanie twarzą zostanie włączone. W każdej chwili możesz się udać do &quot;Uwierzytelnienie Biometryczne&quot; &gt; &quot;Twarz&quot; i usunąć zapisane dane.
+        <translation>Przed użyciem rozpoznawania twarzy pamiętaj, że:
+1. Twoje urządzenie może zostać odblokowane przez osoby lub przedmioty, które wyglądają lub wydają się do Ciebie podobne.
+2. Rozpoznawanie twarzy jest mniej bezpieczne niż hasła cyfrowe i hasła mieszane.
+3. Wskaźnik powodzenia odblokowania urządzenia za pomocą rozpoznawania twarzy zostanie zmniejszony w scenariuszach słabego oświetlenia, mocnego oświetlenia, podświetlenia, dużego kąta i innych scenariuszy.
+4. Proszę nie udostępniać swojego urządzenia innym osobom losowo, aby uniknąć złośliwego wykorzystania funkcji rozpoznawania twarzy.
+5. Oprócz powyższych scenariuszy należy zwrócić uwagę na inne sytuacje, które mogą mieć wpływ na normalne korzystanie z rozpoznawania twarzy.
+
+Aby lepiej wykorzystać rozpoznawanie twarzy, podczas wprowadzania danych twarzy należy zwrócić uwagę na następujące kwestie:
+1. Proszę pozostawać w dobrze oświetlonym miejscu, unikać bezpośredniego światła słonecznego oraz innych osób pojawiających się na nagranym ekranie.
+2. Podczas wprowadzania danych zwracaj uwagę na stan twarzy i nie pozwól, aby Twoje nakrycia głowy, włosy, okulary przeciwsłoneczne, maski, mocny makijaż i inne czynniki zakrywały rysy twarzy.
+3. Unikaj przechylania lub opuszczania głowy, zamykania oczu lub pokazywania tylko jednej strony twarzy i upewnij się, że przednia twarz jest wyraźnie i całkowicie widoczna w okienku podpowiedzi.
 </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
-UnionTech Softeware is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
+UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation type="unfinished"/>
     </message>
@@ -5928,7 +5924,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
         <translation>Data wydania:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Version</source>
         <translation>Wersja:</translation>
     </message>
@@ -5936,37 +5932,43 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
         <source>System Updates</source>
         <translation>Aktualizacje systemu</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="432"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="443"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="451"/>
+        <source>Fixed some known bugs and security vulnerabilities</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
         <source>Security Updates</source>
         <translation>Aktualizacje zabezpieczeń</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="439"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="458"/>
         <source>Unknown Apps Updates</source>
         <translation>Nieznane aktualizacje programów</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1451"/>
         <source>Network error</source>
         <translation>Błąd sieci</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1410"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1454"/>
         <source>Dependency error</source>
         <translation>Błąd zależności</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1413"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1457"/>
         <source>Insufficient disk space</source>
         <translation>Za mało miejsca na dysku</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1416"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1460"/>
         <source>Update failed</source>
         <translation>Niepowodzenie aktualizacji</translation>
     </message>
@@ -5975,7 +5977,7 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
     <name>dcc::update::updateControlPanel</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="240"/>
         <source>Downloading </source>
         <translation>Pobieranie </translation>
     </message>
@@ -5995,12 +5997,12 @@ UnionTech Softeware is committed to research and improve the security, accuracy 
         <translation>Tworzenie kopii zapasowej </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="290"/>
         <source>Download and install</source>
         <translation>Pobierz i zainstaluj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="357"/>
         <source>Learn more</source>
         <translation>Dowiedz się więcej</translation>
     </message>
