@@ -853,25 +853,25 @@
 <context>
     <name>dccV20::authentication::LoginOptionsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="71"/>
         <source>Biometric Authentication</source>
         <translation>Biometrické ověřování</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="178"/>
         <source>Fingerprint</source>
         <translation>Otisk prstu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="179"/>
         <source>Face</source>
         <translation>Obličej</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="180"/>
         <source>Iris</source>
         <translation>Duhovka</translation>
     </message>
@@ -3393,166 +3393,166 @@
 <context>
     <name>dccV20::power::PowerModule</name>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="88"/>
         <source>Power</source>
         <translation>Napájení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="280"/>
         <source>General</source>
         <translation>Obecné</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="196"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="282"/>
         <source>On Battery</source>
         <translation>Z akumulátoru</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="197"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="281"/>
         <source>Plugged In</source>
         <translation>Napájení z elektrické sítě</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="359"/>
         <source>Auto power saving on low battery</source>
         <translation>Automatické šetření energií při nízké úrovni nabití akumulátoru</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="357"/>
         <source>Auto power saving on battery</source>
         <translation>Automatické šetření energií při napájení z akumulátoru</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="369"/>
         <source>Display remaining using and charging time</source>
         <translation>Zobrazovat čas chodu a čas zbývající do nabití</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="295"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="371"/>
         <source>Maximum capacity</source>
         <translation>Nejvyšší kapacita</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="297"/>
         <source>Battery</source>
         <translation>Akumulátor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="298"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="380"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="383"/>
         <source>When the lid is closed</source>
         <translation>Při přiklopení víka obrazovky</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="301"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="325"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="377"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="380"/>
         <source>When pressing the power button</source>
         <translation>Při stisku tlačítka napájení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
         <source>Low Battery Notification</source>
         <translation>Upozornění na nízkou úroveň nabití akumulátoru</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
         <source>Low battery level</source>
         <translation>Nízký stav nabití akumulátoru</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="365"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="367"/>
         <source>Auto suspend battery level</source>
         <translation>Úroveň nabití akumulátoru, na kterou když poklesne, uspat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="328"/>
         <source>Monitor will suspend after</source>
         <translation>Obrazovka bude uspána po</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="328"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="366"/>
         <source>Computer will suspend after</source>
         <translation>Počítač bude uspán po</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="309"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="326"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="383"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="310"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="386"/>
         <source>Lock screen after</source>
         <translation>Uzamknout obrazovku po</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="314"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="315"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Pro probuzení obrazovky je požadováno heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="365"/>
         <source>Password is required to wake up the computer</source>
         <translation>Po probuzení počítače požadovat heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="316"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="361"/>
         <source>Decrease brightness</source>
         <translation>Snížit intenzitu podsvětlení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="318"/>
         <source>Balanced</source>
         <translation>Vyvážené</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="318"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="340"/>
         <source>High Performance</source>
         <translation>Vysoký výkon</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="320"/>
         <source>Power Saver</source>
         <translation>Úspora napájení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="320"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="363"/>
         <source>Power Plans</source>
         <translation>Profily napájení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="322"/>
         <source>Power Saving Settings</source>
         <translation>Nastavení šetření energií</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="323"/>
         <source>Wakeup Settings</source>
         <translation>Nastavení probouzení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="408"/>
         <source>Battery low, please plug in</source>
         <translation>Akumulátor je téměř vybitý – připojte počítač k napájení z elektrické sítě</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="410"/>
         <source>Battery critically low</source>
         <translation>Akumulátor téměř vybitý</translation>
     </message>
@@ -4871,7 +4871,12 @@
         <translation>Neznámé aktualizace aplikací</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="249"/>
+        <source>Install updates automatically when the download is complete</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="251"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation>Po dokončení stahování „%1“ automaticky nainstalovat</translation>
     </message>
@@ -5927,7 +5932,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
         <translation>Datum vydání:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Version</source>
         <translation>Verze</translation>
     </message>
@@ -5935,37 +5940,43 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="441"/>
         <source>System Updates</source>
         <translation>Aktualizace systému</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="432"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
+        <source>Fixed some known bugs and security vulnerabilities</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="449"/>
         <source>Security Updates</source>
         <translation>Aktualizace zabezpečení</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="439"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="457"/>
         <source>Unknown Apps Updates</source>
         <translation>Neznámé aktualizace aplikací</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1450"/>
         <source>Network error</source>
         <translation>Síťová chyba</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1410"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1453"/>
         <source>Dependency error</source>
         <translation>Chyba v závislostech</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1413"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1456"/>
         <source>Insufficient disk space</source>
         <translation>Nedostatek místa na disku</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1416"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1459"/>
         <source>Update failed</source>
         <translation>Aktualizace se nezdařila</translation>
     </message>
@@ -5974,7 +5985,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <name>dcc::update::updateControlPanel</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="240"/>
         <source>Downloading </source>
         <translation>Stahuje se </translation>
     </message>
@@ -5994,12 +6005,12 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
         <translation>Zálohuje se </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="290"/>
         <source>Download and install</source>
         <translation>Stáhnout a nainstalovat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="357"/>
         <source>Learn more</source>
         <translation>Zjistit více</translation>
     </message>

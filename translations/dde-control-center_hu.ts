@@ -853,25 +853,25 @@
 <context>
     <name>dccV20::authentication::LoginOptionsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="71"/>
         <source>Biometric Authentication</source>
         <translation>Biometrikus hitelesítés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="178"/>
         <source>Fingerprint</source>
         <translation>Ujjlenyomat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="179"/>
         <source>Face</source>
         <translation>Arc</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="180"/>
         <source>Iris</source>
         <translation>Írisz</translation>
     </message>
@@ -3402,168 +3402,168 @@ effektje</translation>
 <context>
     <name>dccV20::power::PowerModule</name>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="88"/>
         <source>Power</source>
         <translation>Energiaellátás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="280"/>
         <source>General</source>
         <translation>Általános</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="196"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="282"/>
         <source>On Battery</source>
         <translation>Akkumulátoros üzemmód</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="197"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="281"/>
         <source>Plugged In</source>
         <translation>Áramforráshoz csatlakoztatva</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="359"/>
         <source>Auto power saving on low battery</source>
         <translation>Automatikus energiatakarékosság alacsony akkumulátorszint mellett</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="357"/>
         <source>Auto power saving on battery</source>
         <translation>Automatikus energiatakarékosság akkumulátoros üzemmódban</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="369"/>
         <source>Display remaining using and charging time</source>
         <translation>A hátralévő használati idő, és a töltési idő megjelenítése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="295"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="371"/>
         <source>Maximum capacity</source>
         <translation>Akkumulátor maximális teljesítménye</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="297"/>
         <source>Battery</source>
         <translation>Akkumulátor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="298"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="380"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="383"/>
         <source>When the lid is closed</source>
         <translation>Képernyő
 lecsukásakor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="301"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="325"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="377"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="380"/>
         <source>When pressing the power button</source>
         <translation>Főkapcsoló
 megnyomásakor</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
         <source>Low Battery Notification</source>
         <translation>Alacsony töltöttségi szint értesítés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
         <source>Low battery level</source>
         <translation>Alacsony akkumulátor töltöttség értéke</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="365"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="367"/>
         <source>Auto suspend battery level</source>
         <translation>Automatikus alvó állapot az akkumulátor alábbi töltöttségi szintjén</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="328"/>
         <source>Monitor will suspend after</source>
         <translation>A monitor alvó állapotba kerül ennyi idő után: </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="328"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="366"/>
         <source>Computer will suspend after</source>
         <translation>A számítógép alvó állapotba kerül ennyi idő után: </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="309"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="326"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="383"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="310"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="386"/>
         <source>Lock screen after</source>
         <translation>Képernyő zárolása ennyi idő után: </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="314"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="315"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Jelszó szükséges a monitor felébresztéséhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="365"/>
         <source>Password is required to wake up the computer</source>
         <translation>Jelszó szükséges a számítógép felébresztéséhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="316"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="361"/>
         <source>Decrease brightness</source>
         <translation>Fényerősség csökkentése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="318"/>
         <source>Balanced</source>
         <translation>Kiegyensúlyozott</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="318"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="340"/>
         <source>High Performance</source>
         <translation>Nagy teljesítményű</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="320"/>
         <source>Power Saver</source>
         <translation>Energiatakarékos</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="320"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="363"/>
         <source>Power Plans</source>
         <translation>Energiagazdálkodási tervek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="322"/>
         <source>Power Saving Settings</source>
         <translation>Energiatakarékossági beállítások</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="323"/>
         <source>Wakeup Settings</source>
         <translation>Felébresztési beállítások</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="408"/>
         <source>Battery low, please plug in</source>
         <translation>Alacsony akkumulátor szint, kérjük csatlakoztassa a számítógépet a töltőre.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="410"/>
         <source>Battery critically low</source>
         <translation>Az akkumlátor töltöttsége kritikusan alacsony</translation>
     </message>
@@ -4886,7 +4886,12 @@ lecsukásakor</translation>
         <translation>Ismeretlen Alkalmazás frissítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="249"/>
+        <source>Install updates automatically when the download is complete</source>
+        <translation>A letöltés befejeztével automatikusan telepítse a frissítéseket </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="251"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation>A %1 automatikus telepítése a letöltés befejeztével</translation>
     </message>
@@ -5940,7 +5945,7 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
         <translation>Kiadási dátum:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Version</source>
         <translation>Verzió</translation>
     </message>
@@ -5948,37 +5953,43 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="441"/>
         <source>System Updates</source>
         <translation>Rendszer frissítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="432"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
+        <source>Fixed some known bugs and security vulnerabilities</source>
+        <translation>Kijavítottunk néhány ismert hibát és biztonsági rést </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="449"/>
         <source>Security Updates</source>
         <translation>Biztonsági frissítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="439"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="457"/>
         <source>Unknown Apps Updates</source>
         <translation>Ismeretlen Alkalmazás frissítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1450"/>
         <source>Network error</source>
         <translation>Hálózati hiba</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1410"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1453"/>
         <source>Dependency error</source>
         <translation>Függőségi hiba</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1413"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1456"/>
         <source>Insufficient disk space</source>
         <translation>Nincs elég lemezterület</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1416"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1459"/>
         <source>Update failed</source>
         <translation>A frissítés sikertelen</translation>
     </message>
@@ -5987,7 +5998,7 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     <name>dcc::update::updateControlPanel</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="240"/>
         <source>Downloading </source>
         <translation>Letöltés</translation>
     </message>
@@ -6007,12 +6018,12 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
         <translation>Biztonsági mentés folyamatban</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="290"/>
         <source>Download and install</source>
         <translation>Letöltés és telepítés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="357"/>
         <source>Learn more</source>
         <translation>Tudjon meg többet</translation>
     </message>

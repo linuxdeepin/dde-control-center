@@ -107,12 +107,12 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="215"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="312"/>
         <source>Full Name</source>
-        <translation>Pełne imię i nazwisko</translation>
+        <translation>Imię i nazwisko</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="274"/>
         <source>The full name is too long</source>
-        <translation>Pełna nazwa jest za długa</translation>
+        <translation>Wprowadzone imię i nazwisko jest za długie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="373"/>
@@ -322,7 +322,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="186"/>
         <source>Full Name</source>
-        <translation>Pełne imię i nazwisko</translation>
+        <translation>Imię i nazwisko</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="192"/>
@@ -343,7 +343,7 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="531"/>
         <source>The full name is too long</source>
-        <translation>Pełna nazwa jest za długa</translation>
+        <translation>Wprowadzone imię i nazwisko jest za długie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="285"/>
@@ -853,25 +853,25 @@
 <context>
     <name>dccV20::authentication::LoginOptionsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="71"/>
         <source>Biometric Authentication</source>
         <translation>Uwierzytelnienie Biometryczne</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="115"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="178"/>
         <source>Fingerprint</source>
         <translation>Odcisk palca</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="179"/>
         <source>Face</source>
         <translation>Twarz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="180"/>
         <source>Iris</source>
         <translation>Tęczówka</translation>
     </message>
@@ -3201,7 +3201,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
         <source>Light</source>
-        <translation>Lekka</translation>
+        <translation>Jasny</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
@@ -3393,166 +3393,166 @@
 <context>
     <name>dccV20::power::PowerModule</name>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="88"/>
         <source>Power</source>
         <translation>Zasilanie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="280"/>
         <source>General</source>
         <translation>Ogólne</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="196"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="282"/>
         <source>On Battery</source>
         <translation>Na baterii</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="197"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="281"/>
         <source>Plugged In</source>
         <translation>Podłączony</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="359"/>
         <source>Auto power saving on low battery</source>
         <translation>Automatyczne oszczędzanie energii przy niskim poziomie naładowania</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="357"/>
         <source>Auto power saving on battery</source>
         <translation>Automatyczne oszczędzanie energii na baterii</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="369"/>
         <source>Display remaining using and charging time</source>
         <translation>Wyświetl pozostały czas użytkowania i ładowania</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="295"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="371"/>
         <source>Maximum capacity</source>
         <translation>Maksymalna pojemność</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="297"/>
         <source>Battery</source>
         <translation>Bateria</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="298"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="380"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="383"/>
         <source>When the lid is closed</source>
         <translation>Kiedy pokrywa jest zamknięta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="301"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="325"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="377"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="380"/>
         <source>When pressing the power button</source>
         <translation>Po naciśnięciu przycisku zasilania</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
         <source>Low Battery Notification</source>
         <translation>Powiadomienie o niskim stanie baterii</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
         <source>Low battery level</source>
         <translation>Niski poziom baterii</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="365"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="367"/>
         <source>Auto suspend battery level</source>
         <translation>Poziom baterii do automatycznego zawieszenia</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="306"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="328"/>
         <source>Monitor will suspend after</source>
         <translation>Monitor zostanie wstrzymany za</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="328"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="366"/>
         <source>Computer will suspend after</source>
         <translation>Komputer zostanie wstrzymany po</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="309"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="326"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="383"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="310"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="386"/>
         <source>Lock screen after</source>
         <translation>Zablokuj ekran po</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="314"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="315"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Do wybudzenia monitora wymagane jest hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="365"/>
         <source>Password is required to wake up the computer</source>
         <translation>Do wybudzenia komputera wymagane jest hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="316"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="361"/>
         <source>Decrease brightness</source>
         <translation>Zmniejsz jasność</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="318"/>
         <source>Balanced</source>
         <translation>Zrównoważony</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="318"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="340"/>
         <source>High Performance</source>
         <translation>Wysoka wydajność</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="320"/>
         <source>Power Saver</source>
         <translation>Oszczędzanie energii</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="320"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="363"/>
         <source>Power Plans</source>
         <translation>Plany zasilania</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="322"/>
         <source>Power Saving Settings</source>
         <translation>Ustawienia oszczędzania energii</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="323"/>
         <source>Wakeup Settings</source>
         <translation>Ustawienia wybudzania</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="408"/>
         <source>Battery low, please plug in</source>
         <translation>Niski stan baterii, prosimy podłączyć komputer do zasilania</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="410"/>
         <source>Battery critically low</source>
         <translation>Krytycznie niski poziom baterii</translation>
     </message>
@@ -4872,7 +4872,12 @@
         <translation>Nieznane aktualizacje programów</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="249"/>
+        <source>Install updates automatically when the download is complete</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="251"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation>Zainstaluj &quot;%1&quot; automatycznie, jak tylko pobieranie zostanie zakończone</translation>
     </message>
@@ -5928,7 +5933,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę bezpieczeństwa
         <translation>Data wydania:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Version</source>
         <translation>Wersja:</translation>
     </message>
@@ -5936,37 +5941,43 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę bezpieczeństwa
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="441"/>
         <source>System Updates</source>
         <translation>Aktualizacje systemu</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="432"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
+        <source>Fixed some known bugs and security vulnerabilities</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="449"/>
         <source>Security Updates</source>
         <translation>Aktualizacje zabezpieczeń</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="439"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="457"/>
         <source>Unknown Apps Updates</source>
         <translation>Nieznane aktualizacje programów</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1407"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1450"/>
         <source>Network error</source>
         <translation>Błąd sieci</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1410"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1453"/>
         <source>Dependency error</source>
         <translation>Błąd zależności</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1413"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1456"/>
         <source>Insufficient disk space</source>
         <translation>Za mało miejsca na dysku</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1416"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1459"/>
         <source>Update failed</source>
         <translation>Niepowodzenie aktualizacji</translation>
     </message>
@@ -5975,7 +5986,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę bezpieczeństwa
     <name>dcc::update::updateControlPanel</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="240"/>
         <source>Downloading </source>
         <translation>Pobieranie </translation>
     </message>
@@ -5995,12 +6006,12 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę bezpieczeństwa
         <translation>Tworzenie kopii zapasowej </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="290"/>
         <source>Download and install</source>
         <translation>Pobierz i zainstaluj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="357"/>
         <source>Learn more</source>
         <translation>Dowiedz się więcej</translation>
     </message>
