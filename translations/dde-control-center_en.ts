@@ -185,8 +185,8 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="652"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="660"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="669"/>
-        <source>The name already exists</source>
-        <translation>The name already exists</translation>
+        <source>The full name has been used by other user accounts</source>
+        <translation>The full name has been used by other user accounts</translation>
     </message>
 </context>
 <context>
@@ -294,7 +294,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="98"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="610"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="608"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>
@@ -341,13 +341,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="531"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="529"/>
         <source>The full name is too long</source>
         <translation>The full name is too long</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="581"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="579"/>
         <source>Passwords do not match</source>
         <translation>Passwords do not match</translation>
     </message>
@@ -406,18 +406,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="502"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="539"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="559"/>
-        <source>The name already exists</source>
-        <translation>The name already exists</translation>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
+        <source>The username has been used by other user accounts</source>
+        <translation>The username has been used by other user accounts</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="550"/>
-        <source>The username already exists</source>
-        <translation>The username already exists</translation>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="537"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="548"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="557"/>
+        <source>The full name has been used by other user accounts</source>
+        <translation>The full name has been used by other user accounts</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="609"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="607"/>
         <source>Go to Settings</source>
         <translation>Go to Settings</translation>
     </message>
@@ -5940,43 +5941,43 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="441"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
         <source>System Updates</source>
         <translation>System Updates</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="443"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="451"/>
         <source>Fixed some known bugs and security vulnerabilities</source>
         <translation>Fixed some known bugs and security vulnerabilities</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="449"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
         <source>Security Updates</source>
         <translation>Security Updates</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="457"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="458"/>
         <source>Unknown Apps Updates</source>
         <translation>Unknown Apps Updates</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1450"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1451"/>
         <source>Network error</source>
         <translation>Network error</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1453"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1454"/>
         <source>Dependency error</source>
         <translation>Dependency error</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1456"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1457"/>
         <source>Insufficient disk space</source>
         <translation>Insufficient disk space</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1459"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1460"/>
         <source>Update failed</source>
         <translation>Update failed</translation>
     </message>

@@ -185,8 +185,8 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="652"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="660"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="669"/>
-        <source>The name already exists</source>
-        <translation>A név már létezik</translation>
+        <source>The full name has been used by other user accounts</source>
+        <translation>Ez a Teljes név már használatban van egy másik felhasználói fiók által</translation>
     </message>
 </context>
 <context>
@@ -294,7 +294,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="98"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="610"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="608"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
@@ -341,13 +341,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="531"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="529"/>
         <source>The full name is too long</source>
         <translation>A teljes név túl hosszú</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="581"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="579"/>
         <source>Passwords do not match</source>
         <translation>A jelszavak nem egyeznek</translation>
     </message>
@@ -406,18 +406,19 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="502"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="539"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="559"/>
-        <source>The name already exists</source>
-        <translation>A név már létezik</translation>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
+        <source>The username has been used by other user accounts</source>
+        <translation>Ez a felhasználónév már használatban van egy másik felhasználói fiók által</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="550"/>
-        <source>The username already exists</source>
-        <translation>A felhasználónév már létezik</translation>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="537"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="548"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="557"/>
+        <source>The full name has been used by other user accounts</source>
+        <translation>Ez a Teljes név már használatban van egy másik felhasználói fiók által</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="609"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="607"/>
         <source>Go to Settings</source>
         <translation>Ugrás a beállításokhoz</translation>
     </message>
@@ -5284,7 +5285,8 @@ In order to better use of face recognition, please pay attention to the followin
 Az arcfelismerés jobb kihasználása érdekében az arcadatok bevitelekor ügyeljen a következőkre:
 1. Kérjük maradjon jól megvilágított környezetben, kerülje a közvetlen napfényt és más személyek megjelenését a rögzített képernyőn.
 2. Kérjük az adatok bevitelekor ügyeljen az arc állapotára, és ne hagyja, hogy sapkája, haja, napszemüvege, maszkja, erős sminkje és egyéb tényezők eltakarják arcvonásait.
-3. Kérjük kerülje a fej megdöntését vagy lehajtását, a szemek becsukását vagy az arcának csak az egyik oldalának észlelését, és ügyeljen arra, hogy az elülső arca tisztán és teljesen megjelenjen a felszólító mezőben.</translation>
+3. Kérjük kerülje a fej megdöntését vagy lehajtását, a szemek becsukását vagy az arcának csak az egyik oldalának észlelését, és ügyeljen arra, hogy az elülső arca tisztán és teljesen megjelenjen a felszólító mezőben.
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
@@ -5953,43 +5955,43 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="441"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
         <source>System Updates</source>
         <translation>Rendszer frissítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="442"/>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="443"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="451"/>
         <source>Fixed some known bugs and security vulnerabilities</source>
         <translation>Kijavítottunk néhány ismert hibát és biztonsági rést </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="449"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
         <source>Security Updates</source>
         <translation>Biztonsági frissítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="457"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="458"/>
         <source>Unknown Apps Updates</source>
         <translation>Ismeretlen Alkalmazás frissítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1450"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1451"/>
         <source>Network error</source>
         <translation>Hálózati hiba</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1453"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1454"/>
         <source>Dependency error</source>
         <translation>Függőségi hiba</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1456"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1457"/>
         <source>Insufficient disk space</source>
         <translation>Nincs elég lemezterület</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="1459"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1460"/>
         <source>Update failed</source>
         <translation>A frissítés sikertelen</translation>
     </message>
