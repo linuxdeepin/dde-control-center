@@ -40,6 +40,7 @@
 using namespace DCC_NAMESPACE;
 
 const QString ChangeLogFile = "/usr/share/deepin/release-note/UpdateInfo.json";
+const QString ChangeLogDic = "/usr/share/deepin/";
 
 // 系统补丁标识
 const QString DDEId = "dde";
@@ -114,7 +115,9 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_iconThemeState("")
     , m_backupStatus(BackupStatus::NoBackup)
     , m_backupingClassifyType(ClassifyUpdateType::Invalid)
-    , m_releaseNoteStatus("")
+    , m_releaseNoteJobStatus("")
+    , m_releaseNoteUpdated(false)
+    , m_fileSystemWatcher(new QFileSystemWatcher(this))
 {
 
 }
@@ -128,7 +131,11 @@ UpdateWorker::~UpdateWorker()
     deleteJob(m_unknownUpdateDownloadJob);
     deleteJob(m_unknownUpdateInstallJob);
     deleteJob(m_checkUpdateJob);
-	deleteJob(m_releaseNoteInstallJob);
+    deleteJob(m_releaseNoteInstallJob);
+    if (m_fileSystemWatcher != nullptr) {
+        delete m_fileSystemWatcher;
+        m_fileSystemWatcher = nullptr;
+    }
 }
 
 void UpdateWorker::init()
@@ -370,15 +377,23 @@ void UpdateWorker::setUpdateInfo()
     m_updateInter->setSync(false);
     m_managerInter->setSync(false);
 
-    QFile logFile(ChangeLogFile);
-    bool hasReleaseNote = logFile.exists();
-    if ((m_systemPackages.contains("uos-release-note") || !hasReleaseNote)) {
+    bool hasReleaseNote = QFile::exists(ChangeLogFile);
+    if (m_systemPackages.contains("uos-release-note") || !hasReleaseNote) {
         qDebug() << "install uos-release-note";
         QEventLoop eventLoop;
+        m_releaseNoteUpdated = false;
         QTimer::singleShot(30000, &eventLoop, &QEventLoop::quit);
         connect(this, &UpdateWorker::releaseNoteInstallCompleted, &eventLoop, &QEventLoop::quit);
+        qDebug() << "ChangeLogFile" << ChangeLogFile;
         eventLoop.exec();
+    } else {
+        m_releaseNoteUpdated = true;
     }
+    if (m_fileSystemWatcher != nullptr) {
+        delete m_fileSystemWatcher;
+        m_fileSystemWatcher = nullptr;
+    }
+
 
     qDebug() << "systemUpdate packages:" <<  m_systemPackages;
     qDebug() << "safeUpdate packages:" <<  m_safePackages;
@@ -389,6 +404,7 @@ void UpdateWorker::setUpdateInfo()
         return;
     }
 
+    qDebug() << "uos-releasenote :" << getReleaseNoteStatus();
     int updateCount = m_systemPackages.count() + m_safePackages.count() + m_unknownPackages.count();
     if (updateCount < 1) {
         QFile file("/tmp/.dcc-update-successd");
@@ -460,8 +476,8 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
         resultMap.insert(ClassifyUpdateType::UnknownUpdate, unkownItemInfo);
     }
 
-    if (m_releaseNoteStatus == "failed") {
-        qWarning() << "releaseNoteStatus = " << m_releaseNoteStatus;
+    if (m_releaseNoteJobStatus == "failed") {
+        qWarning() << "releaseNoteStatus = " << m_releaseNoteJobStatus;
         return resultMap;
     }
 
@@ -968,6 +984,10 @@ void UpdateWorker::setReleaseNoteInstallJob(const QString &jobPath)
             m_managerInter->CleanJob(m_releaseNoteInstallJob->id());
             deleteJob(m_releaseNoteInstallJob);
         }
+
+        if (status == "ready") {
+            listenReleaseNoteFile();
+        }
     });
 
     m_releaseNoteInstallJob->StatusChanged(m_releaseNoteInstallJob->status());
@@ -1065,8 +1085,9 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
             setDistUpgradeJob(m_jobPath, ClassifyUpdateType::SecurityUpdate);
         } else if (id == "unknown_upgrade" && m_unknownUpdateInstallJob == nullptr) {
             setDistUpgradeJob(m_jobPath, ClassifyUpdateType::UnknownUpdate);
-        } else if (id.contains("install") && jobInter.packages().contains("uos-release-note")) {
+        } else if (id.contains("install") && jobInter.packages().at(0) == "uos-release-note") {
             qDebug() << "jobInter :uos-release-note status: " << jobInter.status();
+            qDebug() << "jobInter :uos-release-note packages: " << jobInter.packages();
             setReleaseNoteInstallJob(m_jobPath);
         }
     }
@@ -1529,15 +1550,57 @@ QString UpdateWorker::getClassityUpdateDownloadJobName(ClassifyUpdateType update
     return  value;
 }
 
+void UpdateWorker::listenReleaseNoteFile()
+{
+	if(m_fileSystemWatcher == nullptr){
+		m_fileSystemWatcher = new QFileSystemWatcher;
+	}
+    if (QFile::exists(ChangeLogFile)) {
+        m_fileSystemWatcher->addPath(ChangeLogFile);
+        connect(m_fileSystemWatcher, &QFileSystemWatcher::fileChanged, this, [ = ](const QString & path) {
+            qDebug() << "fileChanged    --" << path;
+            m_releaseNoteUpdated = true;
+            setReleaseNoteStatus(m_releaseNoteJobStatus);
+        });
+        return;
+    }
+
+    QDir dir(ChangeLogDic + "release-note");
+    QString listenDir = dir.exists() ? (ChangeLogDic + "release-note") : ChangeLogDic;
+    m_fileSystemWatcher->addPath(listenDir);
+    connect(m_fileSystemWatcher, &QFileSystemWatcher::directoryChanged, this, [ = ](const QString & path) {
+        qDebug() << "directoryChangedpath :" << path;
+        QDir dir(ChangeLogDic + "release-note");
+        if (dir.exists()) {
+            if (m_fileSystemWatcher->directories().contains(ChangeLogDic)) {
+                m_fileSystemWatcher->removePath(ChangeLogDic);
+            }
+            if (!m_fileSystemWatcher->directories().contains(ChangeLogDic + "release-note")) {
+                m_fileSystemWatcher->addPath(ChangeLogDic + "release-note");
+            }
+            if (QFile::exists(ChangeLogFile)) {
+                m_releaseNoteUpdated = true;
+                setReleaseNoteStatus(m_releaseNoteJobStatus);
+            }
+        }
+    });
+
+}
+
 QString UpdateWorker::getReleaseNoteStatus() const
 {
-    return m_releaseNoteStatus;
+    return m_releaseNoteJobStatus;
 }
 
 void UpdateWorker::setReleaseNoteStatus(const QString &releaseNoteStatus)
 {
-    m_releaseNoteStatus = releaseNoteStatus;
-    if (m_releaseNoteStatus == "success" || m_releaseNoteStatus == "succeed" || m_releaseNoteStatus == "failed") {
+    m_releaseNoteJobStatus = releaseNoteStatus;
+
+    if (m_releaseNoteJobStatus == "failed") {
+        Q_EMIT releaseNoteInstallCompleted();
+    }
+
+    if (m_releaseNoteUpdated && m_releaseNoteJobStatus == "end") {
         Q_EMIT releaseNoteInstallCompleted();
     }
 }

@@ -173,6 +173,7 @@ private:
     void cleanLastoreJob(QPointer<JobInter> dbusJob);
     UpdateJobErrorMessage analyzeJobErrorMessage(QString jobDescription);
     QString getClassityUpdateDownloadJobName(ClassifyUpdateType updateType);
+    void listenReleaseNoteFile();
 
 private:
     UpdateModel *m_model;
@@ -219,7 +220,9 @@ private:
     BackupStatus m_backupStatus;
     // 当前正在备份的更新分类类型
     ClassifyUpdateType m_backupingClassifyType;
-    QString m_releaseNoteStatus;
+    QString m_releaseNoteJobStatus;
+    bool m_releaseNoteUpdated;
+    QFileSystemWatcher *m_fileSystemWatcher;
 
     QMutex m_mutex;
     QMutex m_downloadMutex;
