@@ -29,6 +29,7 @@
 #include "modules/accounts/usermodel.h"
 #include "window/gsettingwatcher.h"
 #include "window/utils.h"
+#include "securityquestionspage.h"
 
 #include <DDialog>
 
@@ -177,6 +178,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
     connect(m_userModel, &UserModel::isCancelChanged, w, &AccountsDetailWidget::resetDelButtonState);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
+    connect(w, &AccountsDetailWidget::requestShowSecurityQuestionsSettings, this, &AccountsModule::onShowSecurityQuestionsPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::requestSetAdministrator, m_accountsWorker, &AccountsWorker::setAdministrator);
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
@@ -335,6 +337,17 @@ void AccountsModule::onShowPasswordPage(User *account)
     connect(w, &ModifyPasswdPage::requestStartResetPasswordExec, m_accountsWorker, &AccountsWorker::startResetPasswordExec);
     connect(m_accountsWorker, &AccountsWorker::localBindUbid, w, &ModifyPasswdPage::onLocalBindCheckUbid);
     connect(m_accountsWorker, &AccountsWorker::localBindError, w, &ModifyPasswdPage::onLocalBindCheckError);
+
+    m_frameProxy->pushWidget(this, w);
+    w->setVisible(true);
+}
+
+void AccountsModule::onShowSecurityQuestionsPage(User *account)
+{
+    SecurityQuestionsPage *w = new SecurityQuestionsPage(account);
+    w->setVisible(false);
+    connect(w, &SecurityQuestionsPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
+    connect(w, &SecurityQuestionsPage::requestSetSecurityQuestions, m_accountsWorker, &AccountsWorker::setSecurityQuestions);
 
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);

@@ -210,6 +210,15 @@ void AccountsWorker::setPasswordHint(User *user, const QString &passwordHint)
     userInter->SetPasswordHint(passwordHint);
 }
 
+void AccountsWorker::setSecurityQuestions(User *user, const QMap<int, QByteArray> &securityQuestions)
+{
+    AccountsUser *userInter = m_userInters.value(user);
+    auto reply = userInter->SetSecretQuestions(securityQuestions);
+    reply.waitForFinished();
+    if (reply.isError())
+        Q_EMIT user->setSecurityQuestionsReplied(reply.error().message());
+}
+
 void AccountsWorker::setGroups(User *user, const QStringList &usrGroups)
 {
     AccountsUser *userInter = m_userInters[user];

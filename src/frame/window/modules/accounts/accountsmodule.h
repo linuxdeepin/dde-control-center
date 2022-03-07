@@ -74,6 +74,7 @@ public Q_SLOTS:
     void onShowAccountsDetailWidget(dcc::accounts::User *account);
     void onShowCreateAccountPage();
     void onShowPasswordPage(dcc::accounts::User *account);
+    void onShowSecurityQuestionsPage(dcc::accounts::User *account);
     void onSetMainWindowEnabled(const bool isEnabled);
 
 private:

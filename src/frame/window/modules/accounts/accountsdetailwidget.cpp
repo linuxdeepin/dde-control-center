@@ -378,6 +378,25 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     validityDaysBox->setRange(1,99999);
     pwHLayout->addWidget(validityDaysBox,0, Qt::AlignRight);
 
+    // 设置安全问题
+    auto sqHLayout = new QHBoxLayout;
+    sqHLayout->setContentsMargins(10, 0, 10, 0);
+    auto securityQuestionsWidget = new SettingsItem;
+    loginGrp->appendItem(securityQuestionsWidget);
+    securityQuestionsWidget->setLayout(sqHLayout);
+
+    QLabel *securityQuestionsLabel= new QLabel(tr("Security Questions"));
+    sqHLayout->addWidget(securityQuestionsLabel, 0, Qt::AlignLeft);
+    auto securityQuestionsButton = new DToolButton(securityQuestionsWidget);
+    QStyleOption opt;
+    securityQuestionsButton->setIcon(DStyleHelper(this->style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
+    sqHLayout->addWidget(securityQuestionsButton, 0, Qt::AlignRight);
+    securityQuestionsWidget->setVisible(m_curUser->isCurrentUser());
+
+    connect(securityQuestionsButton, &QPushButton::clicked, this, [this] {
+        Q_EMIT requestShowSecurityQuestionsSettings(m_curUser);
+    });
+
     connect(validityDaysBox, qOverload<int>(&DSpinBox::valueChanged), this, [=](const int value) {
         validityDaysBox->setValue(value);
         validityDaysBox->setAlert(false);

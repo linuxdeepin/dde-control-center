@@ -112,6 +112,7 @@ public Q_SLOTS:
     void removeUser(const QString &userPath);
     void setGroups(User *user, const QStringList &usrGroups);
     void setPasswordHint(User *user, const QString &passwordHint);
+    void setSecurityQuestions(User *user, const QMap<int, QByteArray> &securityQuestions);
 
 private Q_SLOTS:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> &paths);

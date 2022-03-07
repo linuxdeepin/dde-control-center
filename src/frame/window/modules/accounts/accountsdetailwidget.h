@@ -96,6 +96,7 @@ public:
 
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
+    void requestShowSecurityQuestionsSettings(dcc::accounts::User *user);
     void requestSetAutoLogin(dcc::accounts::User *user, const bool autoLogin);
     void requestSetAdministrator(dcc::accounts::User *user, const bool asAdministrator);
     void requestNopasswdLogin(dcc::accounts::User *user, const bool nopasswdLogin);
