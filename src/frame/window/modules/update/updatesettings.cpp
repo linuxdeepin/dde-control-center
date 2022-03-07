@@ -66,6 +66,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_autoCheckAppUpdate = new SwitchWidget(tr("App installed in App Store"), this);
     //~ contents_path /update/Update Settings
     //~ child_page Update Settings
+    m_autoCheckThirdpartyUpdate = new SwitchWidget(tr("Third party warehouse"), this);
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
     m_updateNotify = new SwitchWidget(tr("Updates Notification"), this);
     //~ contents_path /update/Update Settings
     //~ child_page Update Settings
@@ -104,11 +107,41 @@ void UpdateSettings::initUi()
     TranslucentFrame *contentWidget = new TranslucentFrame(this); // 添加一层半透明框架
     QVBoxLayout *contentLayout = new QVBoxLayout(contentWidget);
 
+    contentLayout->addSpacing(20);
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    QLabel *autoUpdateSettingsLabel = new QLabel(tr("Updates from Repositories"), this);
+    DFontSizeManager::instance()->bind(autoUpdateSettingsLabel, DFontSizeManager::T5, QFont::DemiBold);
+    autoUpdateSettingsLabel->setContentsMargins(10, 0, 10, 0); // 左右边距为10
+    contentLayout->addWidget(autoUpdateSettingsLabel);
+    contentLayout->addSpacing(10);
+
+    SettingsGroup *updatesGrp = new SettingsGroup(contentWidget);
+    updatesGrp->appendItem(m_autoCheckUniontechUpdate);
+    updatesGrp->appendItem(m_autoCheckAppUpdate);
+    updatesGrp->appendItem(m_autoCheckSecureUpdate);
+    contentLayout->addWidget(updatesGrp);
+    m_autoCheckSecureUpdateTips->setWordWrap(true);
+    m_autoCheckSecureUpdateTips->setAlignment(Qt::AlignLeft);
+    m_autoCheckSecureUpdateTips->setContentsMargins(10, 0, 10, 0);
+    contentLayout->addWidget(m_autoCheckSecureUpdateTips);
+    contentLayout->addSpacing(10);
+    SettingsGroup *autoCheckThirdpartyGrp = new SettingsGroup(contentWidget);
+    autoCheckThirdpartyGrp->appendItem(m_autoCheckThirdpartyUpdate);
+    contentLayout->addWidget(autoCheckThirdpartyGrp);
+
+    contentLayout->addSpacing(20);
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    QLabel *otherSettingsLabel = new QLabel(tr("Other settings"), this);
+    DFontSizeManager::instance()->bind(otherSettingsLabel, DFontSizeManager::T5, QFont::DemiBold);
+    otherSettingsLabel->setContentsMargins(10, 0, 10, 0); // 左右边距为10
+    contentLayout->addWidget(otherSettingsLabel);
+    contentLayout->addSpacing(10);
+
     //~ contents_path /update/Update Settings
     //~ child_page Update Settings
     m_autoCheckUpdate->setTitle(tr("Auto Check for Updates"));
-
-    contentLayout->addSpacing(20);
     SettingsGroup *checkUpdatesGrp = new SettingsGroup;
     checkUpdatesGrp->appendItem(m_autoCheckUpdate);
     checkUpdatesGrp->appendItem(m_autoDownloadUpdate);
@@ -135,25 +168,6 @@ void UpdateSettings::initUi()
     m_autoCleanCache->setTitle(tr("Clear Package Cache"));
     updatesNotificationtGrp->appendItem(m_autoCleanCache);
     contentLayout->addWidget(updatesNotificationtGrp);
-    contentLayout->addSpacing(20);
-
-    //~ contents_path /update/Update Settings
-    //~ child_page Update Settings
-    QLabel *autoUpdateSettingsLabel = new QLabel(tr("Updates from Repositories"), this);
-    DFontSizeManager::instance()->bind(autoUpdateSettingsLabel, DFontSizeManager::T5, QFont::DemiBold);
-    autoUpdateSettingsLabel->setContentsMargins(10, 0, 10, 0); // 左右边距为10
-    contentLayout->addWidget(autoUpdateSettingsLabel);
-    contentLayout->addSpacing(10);
-
-    SettingsGroup *updatesGrp = new SettingsGroup;
-    updatesGrp->appendItem(m_autoCheckUniontechUpdate);
-    updatesGrp->appendItem(m_autoCheckAppUpdate);
-    updatesGrp->appendItem(m_autoCheckSecureUpdate);
-    contentLayout->addWidget(updatesGrp);
-    m_autoCheckSecureUpdateTips->setWordWrap(true);
-    m_autoCheckSecureUpdateTips->setAlignment(Qt::AlignLeft);
-    m_autoCheckSecureUpdateTips->setContentsMargins(10, 0, 10, 0);
-    contentLayout->addWidget(m_autoCheckSecureUpdateTips);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsEducationSystem && !IsDeepinDesktop) {
@@ -198,6 +212,7 @@ void UpdateSettings::initConnection()
     connect(m_autoCheckSecureUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::onAutoSecureUpdateCheckChanged);
     connect(m_autoCheckUniontechUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::onAutoUpdateCheckChanged);
     connect(m_autoCheckAppUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::onAutoUpdateCheckChanged);
+    connect(m_autoCheckThirdpartyUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::onAutoUpdateCheckChanged);
     connect(m_updateNotify, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetUpdateNotify);
     connect(m_autoDownloadUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoDownloadUpdates);
     connect(m_autoDownloadUpdate, &SwitchWidget::checkedChanged, this, [ = ](bool state) {
@@ -255,6 +270,16 @@ QString UpdateSettings::getAutoInstallUpdateType(quint64 type)
     return text;
 }
 
+void UpdateSettings::setAutoCheckEnable(bool enable)
+{
+    m_autoCheckUpdate->setEnabled(enable);
+    m_autoDownloadUpdate->setEnabled(enable);
+    m_autoDownloadUpdateTips->setEnabled(enable);
+    m_autoInstallUpdate->setEnabled(enable);
+    m_autoInstallUpdatesTips->setEnabled(enable);
+    m_updateNotify->setEnabled(enable);
+}
+
 void UpdateSettings::setModel(UpdateModel *model)
 {
     if (m_model == model)
@@ -263,9 +288,19 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_model = model;
 
     connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckUpdate, &SwitchWidget::setChecked);
-    connect(model, &UpdateModel::autoCheckSecureUpdatesChanged, m_autoCheckSecureUpdate, &SwitchWidget::setChecked);
-    connect(model, &UpdateModel::autoCheckSystemUpdatesChanged, m_autoCheckUniontechUpdate, &SwitchWidget::setChecked);
+    connect(model, &UpdateModel::autoCheckSecureUpdatesChanged, m_autoCheckSecureUpdate, [ = ](const bool status) {
+        m_autoCheckSecureUpdate->setChecked(status);
+        setAutoCheckEnable(m_autoCheckSecureUpdate->checked() || m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked());
+    });
+    connect(model, &UpdateModel::autoCheckSystemUpdatesChanged, m_autoCheckUniontechUpdate, [ = ](const bool status) {
+        m_autoCheckUniontechUpdate->setChecked(status);
+        setAutoCheckEnable(m_autoCheckSecureUpdate->checked() || m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked());
+    });
     connect(model, &UpdateModel::autoCheckAppUpdatesChanged, m_autoCheckAppUpdate, &SwitchWidget::setChecked);
+    connect(model, &UpdateModel::autoCheckThirdpartyUpdatesChanged, m_autoCheckThirdpartyUpdate, [ = ](const bool status) {
+        m_autoCheckThirdpartyUpdate->setChecked(status);
+        setAutoCheckEnable(m_autoCheckSecureUpdate->checked() || m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked());
+    });
     connect(model, &UpdateModel::updateNotifyChanged, m_updateNotify, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoDownloadUpdatesChanged, m_autoDownloadUpdate, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoDownloadUpdatesChanged, this, [ = ](bool state) {
@@ -282,6 +317,7 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_autoCheckSecureUpdate->setChecked(model->autoCheckSecureUpdates());
     m_autoCheckUniontechUpdate->setChecked(model->autoCheckSystemUpdates());
     m_autoCheckAppUpdate->setChecked(model->autoCheckAppUpdates());
+    m_autoCheckThirdpartyUpdate->setChecked(model->getAutoCheckThirdpartyUpdates());
     m_updateNotify->setChecked(model->updateNotify());
     m_autoDownloadUpdate->setChecked(model->autoDownloadUpdates());
     setCheckStatus(m_autoInstallUpdate, model->autoDownloadUpdates(), "updateAutoInstall");
@@ -308,6 +344,7 @@ void UpdateSettings::setModel(UpdateModel *model)
             setCheckStatus(m_autoInstallUpdatesTips, m_autoDownloadUpdate->checked(), "updateAutoInstall");
         }
     });
+    setAutoCheckEnable(m_autoCheckSecureUpdate->checked() || m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {
@@ -343,8 +380,11 @@ void UpdateSettings::setUpdateMode()
     quint64 updateMode = 0;
 
     updateMode = updateMode | m_autoCheckSecureUpdate->checked();
-    updateMode = (updateMode << 3) | m_autoCheckAppUpdate->checked();
+    updateMode = (updateMode << 1) | m_autoCheckThirdpartyUpdate->checked();
+    updateMode = (updateMode << 2) | m_autoCheckAppUpdate->checked();
     updateMode = (updateMode << 1) | m_autoCheckUniontechUpdate->checked();
+
+    setAutoCheckEnable(m_autoCheckSecureUpdate->checked() || m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked());
     requestSetUpdateMode(updateMode);
 }
 

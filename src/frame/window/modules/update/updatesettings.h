@@ -86,6 +86,7 @@ private:
     void initUi();
     void initConnection();
     QString getAutoInstallUpdateType(quint64 type);
+    void setAutoCheckEnable(bool enable);
 
 private:
     dcc::update::UpdateModel *m_model;
@@ -94,6 +95,7 @@ private:
     dcc::widgets::SwitchWidget *m_autoCheckSecureUpdate; // 检查安全更新
     dcc::widgets::SwitchWidget *m_autoCheckUniontechUpdate; // 检查系统更新
     dcc::widgets::SwitchWidget *m_autoCheckAppUpdate;    // 检查应用商店的应用更新
+    dcc::widgets::SwitchWidget *m_autoCheckThirdpartyUpdate; // 第三方仓库更新
     dcc::widgets::SwitchWidget *m_updateNotify;          // 更新提醒
     dcc::widgets::SwitchWidget *m_autoDownloadUpdate;    // 下载更新
     dcc::widgets::SwitchWidget *m_autoInstallUpdate;     // 安装更新

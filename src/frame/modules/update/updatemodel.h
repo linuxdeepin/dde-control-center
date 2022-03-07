@@ -231,6 +231,9 @@ public:
 
     void setClassityUpdateJonError(ClassifyUpdateType type, const UpdateJobErrorMessage &UnkonwUpdateJobError);
 
+    bool getAutoCheckThirdpartyUpdates() const;
+    void setAutoCheckThirdpartyUpdates(bool autoCheckThirdpartyUpdates);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void autoInstallUpdatesChanged(const bool &autoInstallUpdates);
@@ -275,6 +278,7 @@ Q_SIGNALS:
     void autoCheckSystemUpdatesChanged(const bool autoCheckSystemUpdate);
     void autoCheckAppUpdatesChanged(const bool autoCheckAppUpdate);
     void autoCheckSecureUpdatesChanged(const bool autoCheckSecureUpdate);
+    void autoCheckThirdpartyUpdatesChanged(const bool autoCheckThirdpartyUpdate);
     void recoverBackingUpChanged(bool recoverBackingUp);
     void recoverConfigValidChanged(bool recoverConfigValid);
     void recoverRestoringChanged(bool recoverRestoring);
@@ -318,6 +322,7 @@ private:
     bool m_autoCheckSecureUpdates;
     bool m_autoCheckSystemUpdates;
     bool m_autoCheckAppUpdates;
+    bool m_autoCheckThirdpartyUpdates;
     bool m_updateNotify;
     bool m_smartMirrorSwitch;
     QString m_mirrorId;

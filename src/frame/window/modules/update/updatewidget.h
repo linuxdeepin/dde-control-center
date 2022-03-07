@@ -90,6 +90,7 @@ private:
 Q_SIGNALS:
     void topListviewChanged(const QModelIndex &index);
     void pushMirrorsView();
+    void showUpdateCtrl();
 
 public Q_SLOTS:
     void onNotifyUpdateState(int state);

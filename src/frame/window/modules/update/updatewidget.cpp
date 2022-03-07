@@ -107,7 +107,6 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_recentHistoryApplist->setContentWidget(m_applistGroup);
 
     m_layout->addWidget(m_recentHistoryApplist);
-
     setLayout(m_layout);
 }
 
@@ -147,6 +146,7 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
     connect(updateWidget, &UpdateCtrlWidget::requestUpdates, m_work, &UpdateWorker::distUpgrade);
     connect(updateWidget, &UpdateCtrlWidget::requestUpdateCtrl, m_work, &UpdateWorker::OnDownloadJobCtrl);
     connect(updateWidget, &UpdateCtrlWidget::requestOpenAppStroe, m_work, &UpdateWorker::onRequestOpenAppStore);
+    connect(this, &UpdateWidget::showUpdateCtrl, updateWidget, &UpdateCtrlWidget::onShowUpdateCtrl);
     updateWidget->setSystemVersion(m_systemVersion);
 
     UpdateSettings *updateSetting = new UpdateSettings(m_model);
@@ -161,7 +161,7 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     connect(updateSetting, &UpdateSettings::requestSetSourceCheck, m_work, &UpdateWorker::setSourceCheck);
 #endif
-    if(IsCommunitySystem){
+    if (IsCommunitySystem) {
         connect(updateSetting, &UpdateSettings::requestEnableSmartMirror, m_work, &UpdateWorker::setSmartMirror);
     }
 
@@ -214,6 +214,7 @@ void UpdateWidget::showCheckUpdate()
         m_label->setVisible(true);
     }
     m_mainLayout->setCurrentIndex(0);
+    Q_EMIT showUpdateCtrl();
     // prohibit dde-offline-upgrader from showing while this page is showing.
     QDBusConnection::sessionBus().registerService(OfflineUpgraderService);
 }

@@ -80,6 +80,7 @@ public:
 
     QString getReleaseNoteStatus() const;
     void setReleaseNoteStatus(const QString &releaseNoteStatus);
+    bool hasRepositoriesUpdates();
 
 Q_SIGNALS:
     void requestInit();
@@ -174,6 +175,7 @@ private:
     UpdateJobErrorMessage analyzeJobErrorMessage(QString jobDescription);
     QString getClassityUpdateDownloadJobName(ClassifyUpdateType updateType);
     void listenReleaseNoteFile();
+    void checkUpdatablePackages(const QMap<QString, QStringList> &updatablePackages);
 
 private:
     UpdateModel *m_model;

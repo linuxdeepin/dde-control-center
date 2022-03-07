@@ -86,6 +86,9 @@ Q_SIGNALS:
     void requestUpdateCtrl(ClassifyUpdateType type, int ctrlType);
     void requestOpenAppStroe();
 
+public Q_SLOTS:
+    void onShowUpdateCtrl();
+
 private Q_SLOTS:
     void onFullUpdateClicked();
     void onRequestRefreshSize();

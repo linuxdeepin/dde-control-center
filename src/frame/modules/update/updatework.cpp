@@ -174,7 +174,13 @@ void UpdateWorker::init()
     connect(m_updateInter, &__Updater::AutoInstallUpdateTypeChanged, m_model, &UpdateModel::setAutoInstallUpdateType);
     connect(m_updateInter, &__Updater::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
     connect(m_updateInter, &UpdateInter::AutoCheckUpdatesChanged, m_model, &UpdateModel::setAutoCheckUpdates);
-    connect(m_managerInter, &ManagerInter::UpdateModeChanged, m_model, &UpdateModel::setUpdateMode);
+    connect(m_managerInter, &ManagerInter::UpdateModeChanged, m_model, [ = ](qulonglong value) {
+        m_model->setUpdateMode(value);
+        m_updateInter->setSync(true);
+        QMap<QString, QStringList> updatablePackages = m_updateInter->classifiedUpdatablePackages();
+        m_updateInter->setSync(false);
+        checkUpdatablePackages(updatablePackages);
+    });
     connect(m_updateInter, &UpdateInter::UpdateNotifyChanged, m_model, &UpdateModel::setUpdateNotify);
     connect(m_updateInter, &UpdateInter::ClassifiedUpdatablePackagesChanged, this, &UpdateWorker::onClassifiedUpdatablePackagesChanged);
 
@@ -289,25 +295,23 @@ void UpdateWorker::activate()
                                          "com.deepin.license.Info", "LicenseStateChange",
                                          this, SLOT(licenseStateChangeSlot()));
 
-    QFutureWatcher<QStringList> *packagesWatcher = new QFutureWatcher<QStringList>();
+    QFutureWatcher<QMap<QString, QStringList>> *packagesWatcher = new QFutureWatcher<QMap<QString, QStringList>>();
     connect(packagesWatcher, &QFutureWatcher<QStringList>::finished, this, [ = ] {
-        QStringList updatablePackages = std::move(packagesWatcher->result());
-        qDebug() << "UpdatablePackages = " << updatablePackages.count();
-        m_model->isUpdatablePackages(updatablePackages.count() > UPDATE_PACKAGE_SIZE);
+        QMap<QString, QStringList> updatablePackages = std::move(packagesWatcher->result());
+        checkUpdatablePackages(updatablePackages);
         packagesWatcher->deleteLater();
     });
 
-    packagesWatcher->setFuture(QtConcurrent::run([ = ]() -> QStringList {
-        QDBusInterface Interface("com.deepin.lastore", "/com/deepin/lastore",
-                                 "com.deepin.lastore.Updater",
-                                 QDBusConnection::systemBus());
-        if (!Interface.isValid())
-        {
-            qDebug() << "com.deepin.license error ," << Interface.lastError().name();
-            return {};
+    packagesWatcher->setFuture(QtConcurrent::run([ = ]() -> QMap<QString, QStringList> {
+        m_updateInter->setSync(true);
+        QMap<QString, QStringList> map;
+        if (!m_updateInter->isValid()) {
+            qDebug() << "com.deepin.license error ," << m_updateInter->lastError().name();
+            return map;
         }
-
-        return Interface.property("UpdatablePackages").toStringList();
+        map = m_updateInter->classifiedUpdatablePackages();
+        m_updateInter->setSync(false);
+        return map;
     }));
 
     QFutureWatcher<QString> *iconWatcher = new QFutureWatcher<QString>();
@@ -378,7 +382,7 @@ void UpdateWorker::setUpdateInfo()
     m_managerInter->setSync(false);
 
     bool hasReleaseNote = QFile::exists(ChangeLogFile);
-    if (m_systemPackages.contains("uos-release-note") || !hasReleaseNote) {
+    if ((m_systemPackages.contains("uos-release-note") || !hasReleaseNote) && hasRepositoriesUpdates()) {
         qDebug() << "install uos-release-note";
         QEventLoop eventLoop;
         m_releaseNoteUpdated = false;
@@ -453,7 +457,9 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
     updateDailyKeyMap.insert(ClassifyUpdateType::SecurityUpdate, "safeUpdateInfo");
     updateDailyKeyMap.insert(ClassifyUpdateType::UnknownUpdate, "otherUpdateInfo");
 
-    if (m_systemPackages.count() > 0) {
+    quint64 updateMode = m_model->updateMode();
+
+    if (m_systemPackages.count() > 0 && (updateMode & ClassifyUpdateType::SystemUpdate)) {
         UpdateItemInfo *systemItemInfo = new UpdateItemInfo;
         systemItemInfo->setName(tr("System Updates"));
         systemItemInfo->setExplain(tr("Fixed some known bugs and security vulnerabilities"));
@@ -461,7 +467,7 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
         resultMap.insert(ClassifyUpdateType::SystemUpdate, systemItemInfo);
     }
 
-    if (m_safePackages.count() > 0) {
+    if (m_safePackages.count() > 0 && (updateMode & ClassifyUpdateType::SecurityUpdate)) {
         UpdateItemInfo  *safeItemInfo = new UpdateItemInfo;
         safeItemInfo->setName(tr("Security Updates"));
         safeItemInfo->setExplain(tr("Fixed some known bugs and security vulnerabilities"));
@@ -469,7 +475,7 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
         resultMap.insert(ClassifyUpdateType::SecurityUpdate, safeItemInfo);
     }
 
-    if (m_unknownPackages.count() > 0) {
+    if (m_unknownPackages.count() > 0 && (updateMode & ClassifyUpdateType::UnknownUpdate)) {
         UpdateItemInfo *unkownItemInfo = new UpdateItemInfo;
         unkownItemInfo->setName(tr("Unknown Apps Updates"));
         setUpdateItemDownloadSize(unkownItemInfo, m_unknownPackages);
@@ -1048,6 +1054,9 @@ void UpdateWorker::setAutoCleanCache(const bool autoCleanCache)
 
 void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
 {
+    if (!hasRepositoriesUpdates()) {
+        return;
+    }
     for (const auto &job : jobs) {
         m_jobPath = job.path();
 
@@ -1552,9 +1561,9 @@ QString UpdateWorker::getClassityUpdateDownloadJobName(ClassifyUpdateType update
 
 void UpdateWorker::listenReleaseNoteFile()
 {
-	if(m_fileSystemWatcher == nullptr){
-		m_fileSystemWatcher = new QFileSystemWatcher;
-	}
+    if (m_fileSystemWatcher == nullptr) {
+        m_fileSystemWatcher = new QFileSystemWatcher;
+    }
     if (QFile::exists(ChangeLogFile)) {
         m_fileSystemWatcher->addPath(ChangeLogFile);
         connect(m_fileSystemWatcher, &QFileSystemWatcher::fileChanged, this, [ = ](const QString & path) {
@@ -1587,6 +1596,23 @@ void UpdateWorker::listenReleaseNoteFile()
 
 }
 
+void UpdateWorker::checkUpdatablePackages(const QMap<QString, QStringList> &updatablePackages)
+{
+    qDebug() << "UpdatablePackages = " << updatablePackages.count();
+    QMap<ClassifyUpdateType, QString> keyMap;
+    keyMap.insert(ClassifyUpdateType::SystemUpdate, SystemUpdateType);
+    keyMap.insert(ClassifyUpdateType::UnknownUpdate, UnknownUpdateType);
+    keyMap.insert(ClassifyUpdateType::SecurityUpdate, SecurityUpdateType);
+    bool showUpdateNotify = false;
+    for (auto item : keyMap.keys()) {
+        if ((m_model->updateMode() & static_cast<unsigned>(item)) && updatablePackages.value(keyMap.value(item)).count() > UPDATE_PACKAGE_SIZE) {
+            showUpdateNotify = true;
+            break;
+        }
+    }
+    m_model->isUpdatablePackages(showUpdateNotify);
+}
+
 QString UpdateWorker::getReleaseNoteStatus() const
 {
     return m_releaseNoteJobStatus;
@@ -1605,6 +1631,12 @@ void UpdateWorker::setReleaseNoteStatus(const QString &releaseNoteStatus)
     }
 }
 
+bool UpdateWorker::hasRepositoriesUpdates()
+{
+    quint64 mode = m_model->updateMode();
+    return (mode & ClassifyUpdateType::SystemUpdate) || (mode & ClassifyUpdateType::UnknownUpdate) || (mode & ClassifyUpdateType::SecurityUpdate);
+}
+
 void UpdateWorker::onClassifiedUpdatablePackagesChanged(QMap<QString, QStringList> packages)
 {
     m_systemPackages = packages.value(SystemUpdateType);
@@ -1619,6 +1651,7 @@ void UpdateWorker::onClassifiedUpdatablePackagesChanged(QMap<QString, QStringLis
     if (m_unknownPackages.count() == 0) {
         m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::UnknownUpdate, UpdatesStatus::Default);
     }
+    checkUpdatablePackages(packages);
 }
 
 void UpdateWorker::setUpdateItemDownloadSize(UpdateItemInfo *updateItem,  QStringList packages)

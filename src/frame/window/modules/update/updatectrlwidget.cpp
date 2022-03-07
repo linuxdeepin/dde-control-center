@@ -169,9 +169,9 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_fullUpdateBtn->setText(text);
     QFontMetrics fontMetrics(font());
     int fontWidth = fontMetrics.boundingRect(text).width();
-    if(FullUpdateBtnWidth < fontWidth){
+    if (FullUpdateBtnWidth < fontWidth) {
         m_fullUpdateBtn->setToolTip(text);
-        text = m_fullUpdateBtn->fontMetrics().elidedText(text, Qt::ElideRight, FullUpdateBtnWidth -10, 0);
+        text = m_fullUpdateBtn->fontMetrics().elidedText(text, Qt::ElideRight, FullUpdateBtnWidth - 10, 0);
         m_fullUpdateBtn->setText(text);
     }
 
@@ -790,6 +790,13 @@ void UpdateCtrlWidget::onClassityUpdateJonErrorChanged(ClassifyUpdateType type, 
         break;
     default:
         break;
+    }
+}
+
+void UpdateCtrlWidget::onShowUpdateCtrl()
+{
+    if (m_model->getUpdatablePackages() && m_model->status() == UpdatesStatus::Default) {
+        m_checkUpdateBtn->click();
     }
 }
 

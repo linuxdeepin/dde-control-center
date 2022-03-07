@@ -341,9 +341,10 @@ void UpdateModel::setUpdateMode(quint64 updateMode)
 
     m_updateMode = updateMode;
 
-    setAutoCheckSystemUpdates(m_updateMode & 0b0001);
-    setAutoCheckAppUpdates((m_updateMode & 0b0010) >> 1);
-    setAutoCheckSecureUpdates((m_updateMode & 16) >> 4);
+    setAutoCheckSystemUpdates(m_updateMode & ClassifyUpdateType::SystemUpdate);
+    setAutoCheckAppUpdates(m_updateMode & ClassifyUpdateType::AppStoreUpdate);
+    setAutoCheckSecureUpdates(m_updateMode & ClassifyUpdateType::SecurityUpdate);
+    setAutoCheckThirdpartyUpdates(m_updateMode & ClassifyUpdateType::UnknownUpdate);
 }
 
 void UpdateModel::setAutoCheckSecureUpdates(bool autoCheckSecureUpdates)
@@ -668,6 +669,20 @@ void UpdateModel::setClassityUpdateJonError(ClassifyUpdateType type, const Updat
     }
 
     Q_EMIT classityUpdateJobErrorChanged(type, UnkonwUpdateJobError.jobErrorMessage);
+}
+
+bool UpdateModel::getAutoCheckThirdpartyUpdates() const
+{
+    return m_autoCheckThirdpartyUpdates;
+}
+
+void UpdateModel::setAutoCheckThirdpartyUpdates(bool autoCheckThirdpartyUpdates)
+{
+    if(m_autoCheckThirdpartyUpdates != autoCheckThirdpartyUpdates) {
+        m_autoCheckThirdpartyUpdates = autoCheckThirdpartyUpdates;
+        Q_EMIT autoCheckThirdpartyUpdatesChanged(m_autoCheckThirdpartyUpdates);
+    }
+
 }
 
 UpdatesStatus UpdateModel::getClassifyUpdateStatus(ClassifyUpdateType type)
