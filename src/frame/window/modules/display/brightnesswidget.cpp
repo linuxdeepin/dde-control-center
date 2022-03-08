@@ -272,6 +272,7 @@ void BrightnessWidget::addSlider()
                 m_miniScales = 1;
             }
             double brightness = monList[i]->brightness();
+            slideritem->setValueLiteral(brightnessToTickInterval(brightness));
             slider->setRange(m_miniScales, maxBacklight);
             slider->setType(DCCSlider::Vernier);
             slider->setTickPosition(QSlider::TicksBelow);
@@ -299,6 +300,7 @@ void BrightnessWidget::addSlider()
 
             connect(monList[i], &Monitor::brightnessChanged, this, [=](const double rb) {
                 slider->blockSignals(true);
+                slideritem->setValueLiteral(brightnessToTickInterval(rb));
                 if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
                     slider->setValue(int((m_displayModel->minimumBrightnessScale() + DoubleZero) * maxBacklight));
                 } else {
