@@ -34,7 +34,6 @@ namespace widgets {
 DetailInfoItem::DetailInfoItem(QWidget *parent)
     : SettingsItem(parent)
     , m_dateLabel(new DLabel(this))
-    , m_explainTitle(new DLabel(this))
     , m_linkDataLabel(new DLabel(this))
     , m_dataLable(new DLabel(this))
     , m_linkLable(new DLabel(this))
@@ -47,7 +46,7 @@ void DetailInfoItem::initUi()
 {
     QVBoxLayout *mainlayout = new QVBoxLayout;
 
-    mainlayout->setSpacing(0);
+    mainlayout->setSpacing(5);
     mainlayout->setMargin(0);
 
     QHBoxLayout *hboxlayout = new QHBoxLayout;
@@ -85,10 +84,9 @@ void DetailInfoItem::initUi()
     bomboxlayout->addWidget(m_linkLable, 10, Qt::AlignLeft);
 
     mainlayout->addLayout(hboxlayout);
-    mainlayout->addSpacing(5);
     mainlayout->addWidget(m_dataLable);
-    mainlayout->addSpacing(5);
     mainlayout->addLayout(bomboxlayout);
+    mainlayout->addStretch();
 
     setLayout(mainlayout);
 }
@@ -110,18 +108,14 @@ void DetailInfoItem::setTitle(QString title)
     m_title->setText(title);
 }
 
-void DetailInfoItem::setExplaintTitle(QString title)
-{
-    m_explainTitle->clear();
-    m_explainTitle->setText(title);
-}
-
 void DetailInfoItem::setLinkData(QString data)
 {
     if (data.isEmpty()) {
         m_linkDataLabel->setVisible(false);
+        m_linkLable->setVisible(false);
         return;
     }
+    m_linkDataLabel->setVisible(true);
     m_linkDataLabel->setVisible(true);
     m_linkLable->clear();
     QString value = QString("<a href=\"%1\">%2").arg(data, data);

@@ -58,7 +58,6 @@ public:
 
     void setDate(QString date);
     void setTitle(QString title);
-    void setExplaintTitle(QString title);
     void setLinkData(QString data);
     void setDetailData(QString data);
 

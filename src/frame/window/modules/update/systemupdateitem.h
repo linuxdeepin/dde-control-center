@@ -18,6 +18,9 @@ public:
     explicit SystemUpdateItem(QWidget *parent = nullptr);
     void showMore() override;
     void setData(UpdateItemInfo *updateItemInfo) override;
+    char getLastNumForString(const QString &value);
+    double subVersion(const QString &firstVersion, const QString &secondVersion);
+    void createDetailInfoItem(const QList<DetailInfo> &detailInfoList, int index, int groupIndex = -1);
 
 private:
     QList<dcc::widgets::DetailInfoItem *> m_updateDetailItemList;

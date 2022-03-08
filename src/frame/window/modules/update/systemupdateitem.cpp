@@ -1,5 +1,8 @@
 #include <DFontSizeManager>
+#include <float.h>
+
 #include "systemupdateitem.h"
+#include "window/utils.h"
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -44,7 +47,7 @@ void SystemUpdateItem::showMore()
 void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
 {
     UpdateSettingItem::setData(updateItemInfo);
-    if (updateItemInfo->currentVersion().isEmpty() && updateItemInfo->updateTime().isEmpty()) {
+    if (updateItemInfo->availableVersion().isEmpty() && updateItemInfo->updateTime().isEmpty()) {
         m_controlWidget->setDetailLabelVisible(false);
         m_controlWidget->setDetailEnable(false);
         m_controlWidget->setShowMoreButtonVisible(false);
@@ -58,34 +61,86 @@ void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
     }
 
     QList<DetailInfo> detailInfoList = updateItemInfo->detailInfos();
-    if (detailInfoList.count() < 1) {
-        m_controlWidget->setShowMoreButtonVisible(false);
-        return;
-    }
 
-    if (m_updateDetailItemList.count() > 0) {
+    if (!m_updateDetailItemList.isEmpty()) {
         for (DetailInfoItem *item : m_updateDetailItemList) {
             m_settingsGroup->removeItem(item);
         }
-
-        m_controlWidget->setShowMoreButtonVisible(true);
+        qDeleteAll(m_updateDetailItemList);
         m_updateDetailItemList.clear();
     }
 
-    vector<double> systemVer = getNumListFromStr(Dtk::Core::DSysInfo::minorVersion());
+    int lastIndex = -1;
+
+
+    const QString systemVer = dccV20::IsCommunitySystem ? Dtk::Core::DSysInfo::deepinVersion() : Dtk::Core::DSysInfo::minorVersion();
     for (int i = 0; i < detailInfoList.count(); i++) {
-        DetailInfoItem *detailInfoItem = new DetailInfoItem(this);
-        DetailInfo item = detailInfoList.at(i);
-        vector<double> versionVec = getNumListFromStr(item.name);
-        if (versionVec.size() < 1 || systemVer.size() < 1 || versionVec.at(0) <= systemVer.at(0)) {
+        const QString currentVersion = detailInfoList.at(i).name;
+        if (subVersion(systemVer, currentVersion) > DBL_MIN || subVersion(currentVersion, updateItemInfo->availableVersion()) > DBL_MIN) {
             continue;
         }
-        detailInfoItem->setTitle(item.name);
-        detailInfoItem->setDate(item.updateTime);
-        detailInfoItem->setLinkData(item.link);
-        detailInfoItem->setDetailData(item.info);
-        detailInfoItem->setVisible(false);
+
+        if (dccV20::IsProfessionalSystem && getLastNumForString(currentVersion) != '0' && getLastNumForString(updateItemInfo->availableVersion()) != '0') {
+            if (lastIndex < 0 ||  subVersion(currentVersion, detailInfoList.at(lastIndex).name) > DBL_MIN) {
+                lastIndex = i;
+            }
+            continue;
+        }
+        createDetailInfoItem(detailInfoList, i);
+    }
+
+    if (lastIndex > -1) {
+        vector<double> firstVersionVec = getNumListFromStr(updateItemInfo->availableVersion());
+        vector<double> secondVersionVec = getNumListFromStr(detailInfoList.at(lastIndex).name);
+        // 当前版本是 1061的话 则不显示1051等类似的小版本
+        if (static_cast<int>(firstVersionVec.at(0) / 10) == static_cast<int>(secondVersionVec.at(0) / 10)) {
+            createDetailInfoItem(detailInfoList, lastIndex, 0);
+        }
+    }
+
+    m_controlWidget->setShowMoreButtonVisible(m_updateDetailItemList.count());
+}
+
+char SystemUpdateItem::getLastNumForString(const QString &value)
+{
+    QChar lastNum = QChar::Null;
+    for (QChar item : value) {
+        if (item.toLatin1() >= '0' && item.toLatin1() <= '9') {
+            lastNum = item;
+        }
+    }
+
+    return lastNum.toLatin1();
+}
+
+double SystemUpdateItem::subVersion(const QString &firstVersion, const QString &secondVersion)
+{
+    vector<double> firstVersionVec = getNumListFromStr(firstVersion);
+    vector<double> secondVersionVec = getNumListFromStr(secondVersion);
+    if (firstVersionVec.empty() || secondVersionVec.empty()) {
+        return -1;
+    }
+
+    return firstVersionVec.at(0) - secondVersionVec.at(0);
+}
+
+void SystemUpdateItem::createDetailInfoItem(const QList<DetailInfo> &detailInfoList, int index, int groupIndex)
+{
+    if (index >= detailInfoList.count() || index < 0) {
+        return;
+    }
+    DetailInfo item = detailInfoList.at(index);
+    DetailInfoItem *detailInfoItem = new DetailInfoItem(this);
+    detailInfoItem->setTitle(item.name);
+    detailInfoItem->setDate(item.updateTime);
+    detailInfoItem->setLinkData(item.link);
+    detailInfoItem->setDetailData(item.info);
+    detailInfoItem->setVisible(false);
+    if (groupIndex < 0) {
         m_updateDetailItemList.append(detailInfoItem);
         m_settingsGroup->appendItem(detailInfoItem);
+    } else {
+        m_updateDetailItemList.insert(groupIndex, detailInfoItem);
+        m_settingsGroup->insertItem(groupIndex + 2, detailInfoItem);
     }
 }
