@@ -20,11 +20,9 @@
  */
 
 #include "updatectrlwidget.h"
-#include "modules/update/updateitem.h"
 #include "widgets/translucentframe.h"
 #include "modules/update/updatemodel.h"
 #include "loadingitem.h"
-#include "widgets/labels/normallabel.h"
 #include "widgets/settingsgroup.h"
 #include "modules/update/summaryitem.h"
 #include "modules/update/downloadprogressbar.h"
@@ -89,6 +87,13 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
 {
     setAccessibleName("UpdateCtrlWidget");
     m_checkUpdateItem->setAccessibleName("checkUpdateItem");
+
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoError, { UpdateErrorType::NoError, "", "" });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoSpace, { UpdateErrorType::NoSpace, tr("Update failed: insufficient disk space"), tr("") });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::UnKnown, { UpdateErrorType::UnKnown, "", "" });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoNetwork, { UpdateErrorType::NoNetwork, tr("Dependency error, failed to detect the updates"), tr("") });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::DpkgInterrupted, { UpdateErrorType::DpkgInterrupted, "", "" });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::DeependenciesBrokenError, { UpdateErrorType::DeependenciesBrokenError, "", "" });
 
     m_updateList->setAccessibleName("updateList");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -256,6 +261,7 @@ void UpdateCtrlWidget::initConnect()
         connect(updateItem, &UpdateSettingItem::requestUpdateCtrl, this, &UpdateCtrlWidget::requestUpdateCtrl);
         connect(updateItem, &UpdateSettingItem::requestRefreshSize, this, &UpdateCtrlWidget::onRequestRefreshSize);
         connect(updateItem, &UpdateSettingItem::requestRefreshWidget, this, &UpdateCtrlWidget::onRequestRefreshWidget);
+        connect(updateItem, &UpdateSettingItem::requestFixError, this, &UpdateCtrlWidget::requestFixError);
     };
 
     initUpdateItemConnect(m_systemUpdateItem);
@@ -372,8 +378,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_reminderTip->setVisible(true);
         break;
     case UpdatesStatus::UpdateFailed:
-        m_resultItem->setVisible(true);
-        m_resultItem->setSuccess(ShowStatus::IsFailed);
+        setUpdateFailedInfo(updateJobErrorMessage());
         showCheckButton(tr("Check Again"));
         break;
     case UpdatesStatus::RecoveryBackupFailed:
@@ -390,24 +395,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::NeedRestart:
         m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setMessage(tr("The newest system installed, restart to take effect"));
-        break;
-    case UpdatesStatus::NoNetwork:
-        m_resultItem->setVisible(true);
-        m_resultItem->setSuccess(ShowStatus::IsFailed);
-        m_noNetworkTip->setVisible(true);
-        showCheckButton(tr("Check Again"));
-        break;
-    case UpdatesStatus::NoSpace:
-        m_resultItem->setVisible(true);
-        m_resultItem->setSuccess(ShowStatus::IsFailed);
-        m_resultItem->setMessage(tr("Update failed: insufficient disk space"));
-        showCheckButton(tr("Check Again"));
-        break;
-    case UpdatesStatus::DeependenciesBrokenError:
-        m_resultItem->setVisible(true);
-        m_resultItem->setSuccess(ShowStatus::IsFailed);
-        m_resultItem->setMessage(tr("Dependency error, failed to detect the updates"));
-        showCheckButton(tr("Check Again"));
         break;
     default:
         qDebug() << "unknown status!!!";
@@ -517,6 +504,8 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
 {
     m_model = model;
 
+    qRegisterMetaType<UpdateErrorType>("UpdateErrorType");
+
     connect(m_model, &UpdateModel::statusChanged, this, &UpdateCtrlWidget::setStatus);
 
     connect(m_model, &UpdateModel::systemUpdateStatusChanged, m_systemUpdateItem, &UpdateSettingItem::onUpdateStatuChanged);
@@ -555,9 +544,17 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     setSystemUpdateInfo(m_model->systemDownloadInfo());
     setSafeUpdateInfo(m_model->safeDownloadInfo());
     setUnkonowUpdateInfo(m_model->unknownDownloadInfo());
-    m_systemUpdateItem->setUpdateJobErrorMessage(m_model->getSystemUpdateJobError().jobErrorMessage);
-    m_safeUpdateItem->setUpdateJobErrorMessage(m_model->getSafeUpdateJobError().jobErrorMessage);
-    m_unknownUpdateItem->setUpdateJobErrorMessage(m_model->getUnkonwUpdateJobError().jobErrorMessage);
+
+    QMap<ClassifyUpdateType, UpdateErrorType> errorInfoMap = m_model->getUpdateErrorTypeMap();
+    for (ClassifyUpdateType type : m_updateingItemMap.keys()) {
+        if (errorInfoMap.contains(type)) {
+            m_updateingItemMap.value(type)->setUpdateJobErrorMessage(errorInfoMap.value(type));
+        }
+    }
+
+    if (errorInfoMap.contains(ClassifyUpdateType::Invalid) && errorInfoMap.contains(ClassifyUpdateType::Invalid)) {
+        setUpdateJobErrorMessage(errorInfoMap.value(ClassifyUpdateType::Invalid));
+    }
 
     qDebug() << "setModel" << m_model->status();
     qDebug() << "setModel" << "getSystemUpdateStatus" << m_model->getSystemUpdateStatus();
@@ -771,22 +768,46 @@ void UpdateCtrlWidget::showAllUpdate()
     m_fullUpdateBtn->setVisible(!m_isUpdateingAll);
 }
 
+UpdateErrorType UpdateCtrlWidget::updateJobErrorMessage() const
+{
+    return m_updateJobErrorMessage;
+}
+
+void UpdateCtrlWidget::setUpdateJobErrorMessage(const UpdateErrorType &updateJobErrorMessage)
+{
+    m_updateJobErrorMessage = updateJobErrorMessage;
+}
+
+void UpdateCtrlWidget::setUpdateFailedInfo(const UpdateErrorType &errorType)
+{
+    m_resultItem->setVisible(true);
+    m_resultItem->setSuccess(ShowStatus::IsFailed);
+    if (errorType == UpdateErrorType::NoNetwork) {
+        m_noNetworkTip->setVisible(true);
+        return;
+    }
+    m_resultItem->setMessage(m_UpdateErrorInfoMap.contains(errorType) ? m_UpdateErrorInfoMap.value(errorType).errorMessage : tr(""));
+}
+
 void UpdateCtrlWidget::initUpdateItem(UpdateSettingItem *updateItem)
 {
     updateItem->setIconVisible(true);
 }
 
-void UpdateCtrlWidget::onClassityUpdateJonErrorChanged(ClassifyUpdateType type, const QString &errorMessage)
+void UpdateCtrlWidget::onClassityUpdateJonErrorChanged(const ClassifyUpdateType &type, const UpdateErrorType &errorType)
 {
     switch (type) {
+    case ClassifyUpdateType::Invalid:
+        setUpdateJobErrorMessage(errorType);
+        break;
     case ClassifyUpdateType::SystemUpdate:
-        m_systemUpdateItem->setUpdateJobErrorMessage(errorMessage);
+        m_systemUpdateItem->setUpdateJobErrorMessage(errorType);
         break;
     case ClassifyUpdateType::SecurityUpdate:
-        m_safeUpdateItem->setUpdateJobErrorMessage(errorMessage);
+        m_safeUpdateItem->setUpdateJobErrorMessage(errorType);
         break;
     case ClassifyUpdateType::UnknownUpdate:
-        m_unknownUpdateItem->setUpdateJobErrorMessage(errorMessage);
+        m_unknownUpdateItem->setUpdateJobErrorMessage(errorType);
         break;
     default:
         break;

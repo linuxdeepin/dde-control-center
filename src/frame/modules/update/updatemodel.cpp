@@ -73,6 +73,7 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_autoCheckSecureUpdates(false)
     , m_autoCheckSystemUpdates(false)
     , m_autoCheckAppUpdates(false)
+    , m_autoCheckThirdpartyUpdates(false)
     , m_updateNotify(false)
     , m_smartMirrorSwitch(false)
     , m_mirrorId(QString())
@@ -652,23 +653,19 @@ void UpdateModel::setUnkonwUpdateJobError(const UpdateJobErrorMessage &UnkonwUpd
     m_UnkonwUpdateJobError = UnkonwUpdateJobError;
 }
 
-void UpdateModel::setClassityUpdateJonError(ClassifyUpdateType type, const UpdateJobErrorMessage &UnkonwUpdateJobError)
+void UpdateModel::setClassityUpdateJonError(ClassifyUpdateType type, UpdateErrorType errorType)
 {
-    switch (type) {
-    case ClassifyUpdateType::SystemUpdate:
-        setSystemUpdateJobError(UnkonwUpdateJobError);
-        break;
-    case ClassifyUpdateType::SecurityUpdate:
-        setSafeUpdateJobError(UnkonwUpdateJobError);
-        break;
-    case ClassifyUpdateType::UnknownUpdate:
-        setUnkonwUpdateJobError(UnkonwUpdateJobError);
-        break;
-    default:
-        break;
+    if (m_updateErrorTypeMap.contains(type)) {
+        m_updateErrorTypeMap.remove(type);
     }
+    m_updateErrorTypeMap.insert(type, errorType);
 
-    Q_EMIT classityUpdateJobErrorChanged(type, UnkonwUpdateJobError.jobErrorMessage);
+    Q_EMIT classityUpdateJobErrorChanged(type, errorType);
+}
+
+QMap<ClassifyUpdateType, UpdateErrorType> UpdateModel::getUpdateErrorTypeMap() const
+{
+    return m_updateErrorTypeMap;
 }
 
 bool UpdateModel::getAutoCheckThirdpartyUpdates() const
@@ -678,7 +675,7 @@ bool UpdateModel::getAutoCheckThirdpartyUpdates() const
 
 void UpdateModel::setAutoCheckThirdpartyUpdates(bool autoCheckThirdpartyUpdates)
 {
-    if(m_autoCheckThirdpartyUpdates != autoCheckThirdpartyUpdates) {
+    if (m_autoCheckThirdpartyUpdates != autoCheckThirdpartyUpdates) {
         m_autoCheckThirdpartyUpdates = autoCheckThirdpartyUpdates;
         Q_EMIT autoCheckThirdpartyUpdatesChanged(m_autoCheckThirdpartyUpdates);
     }

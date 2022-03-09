@@ -123,6 +123,7 @@ public Q_SLOTS:
     void OnDownloadJobCtrl(ClassifyUpdateType type, int updateCtrlType);
     void onRequestOpenAppStore();
     void onClassifiedUpdatablePackagesChanged(QMap<QString, QStringList> packages);
+    void onFixError(const ClassifyUpdateType &updateType, const QString &errorType);
 
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
@@ -172,7 +173,7 @@ private:
     void deleteClassityInstallJob(ClassifyUpdateType type);
     bool checkUpdateSuccessed();
     void cleanLastoreJob(QPointer<JobInter> dbusJob);
-    UpdateJobErrorMessage analyzeJobErrorMessage(QString jobDescription);
+    UpdateErrorType analyzeJobErrorMessage(QString jobDescription);
     QString getClassityUpdateDownloadJobName(ClassifyUpdateType updateType);
     void listenReleaseNoteFile();
     void checkUpdatablePackages(const QMap<QString, QStringList> &updatablePackages);
@@ -180,6 +181,7 @@ private:
 private:
     UpdateModel *m_model;
     QPointer<JobInter> m_checkUpdateJob;
+    QPointer<JobInter> m_fixErrorJob;
 
     QPointer<JobInter> m_sysUpdateDownloadJob;
     QPointer<JobInter> m_safeUpdateDownloadJob;
@@ -225,6 +227,7 @@ private:
     QString m_releaseNoteJobStatus;
     bool m_releaseNoteUpdated;
     QFileSystemWatcher *m_fileSystemWatcher;
+    QList<ClassifyUpdateType> m_fixErrorUpdate;
 
     QMutex m_mutex;
     QMutex m_downloadMutex;

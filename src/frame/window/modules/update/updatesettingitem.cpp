@@ -21,10 +21,17 @@ UpdateSettingItem::UpdateSettingItem(QWidget *parent)
     , m_status(UpdatesStatus::Default)
     , m_updateSize(0)
     , m_progressVlaue(0)
-    , m_updateJobErrorMessage("")
+    , m_updateJobErrorMessage(UpdateErrorType::NoError)
     , m_controlWidget(new updateControlPanel(this))
     , m_settingsGroup(new dcc::widgets::SettingsGroup(this, SettingsGroup::BackgroundStyle::NoneBackground))
 {
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoError, { UpdateErrorType::NoError, "", "" });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoSpace, { UpdateErrorType::NoSpace, tr("Insufficient disk space"), tr("Update failed: insufficient disk space") });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::UnKnown, { UpdateErrorType::UnKnown, tr("Update failed"), "" });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoNetwork, { UpdateErrorType::NoNetwork, tr("Network error"), tr("Network disconnected, please retry after connected") });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::DpkgInterrupted, { UpdateErrorType::DpkgInterrupted, tr("Packages error"), tr("Packages error, please try again") });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::DeependenciesBrokenError, { UpdateErrorType::DeependenciesBrokenError, tr("Dependency error"), tr("Dependency error, failed to detect the updates") });
+
     initUi();
     initConnect();
 }
@@ -146,7 +153,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::UpdateFailed:
         m_controlWidget->showUpdateProcess(true);
-        m_controlWidget->setProgressText(m_updateJobErrorMessage);
+        setUpdateFailedInfo();
         m_controlWidget->showButton(true);
         m_controlWidget->setCtrlButtonEnabled(true);
         m_controlWidget->setButtonStatus(ButtonStatus::retry);
@@ -230,14 +237,28 @@ void UpdateSettingItem::onUpdateProgressChanged(const double &value)
     setProgressVlaue(value);
 }
 
-QString UpdateSettingItem::getUpdateJobErrorMessage() const
+UpdateErrorType UpdateSettingItem::getUpdateJobErrorMessage() const
 {
     return m_updateJobErrorMessage;
 }
 
-void UpdateSettingItem::setUpdateJobErrorMessage(const QString &updateJobErrorMessage)
+void UpdateSettingItem::setUpdateJobErrorMessage(const UpdateErrorType &updateJobErrorMessage)
 {
     m_updateJobErrorMessage = updateJobErrorMessage;
+}
+
+void UpdateSettingItem::setUpdateFailedInfo()
+{
+    QString failedInfo = "";
+    QString failedTips = "";
+    UpdateErrorType errorType = getUpdateJobErrorMessage();
+    if (m_UpdateErrorInfoMap.contains(errorType)) {
+        Error_Info info = m_UpdateErrorInfoMap.value(errorType);
+        failedInfo = info.errorMessage;
+        failedTips = info.errorTips;
+    }
+
+    m_controlWidget->setProgressText(failedInfo, failedTips);
 }
 
 double UpdateSettingItem::getProgressVlaue() const
@@ -303,6 +324,17 @@ void UpdateSettingItem::onRetryUpdate()
 {
     m_controlWidget->setProgressType(UpdateDProgressType::InvalidType);
     setProgressVlaue(0);
-    m_controlWidget->showButton(false);
+    m_controlWidget->setButtonStatus(ButtonStatus::start);
+
+    if (m_updateJobErrorMessage == UpdateErrorType::DpkgInterrupted) {
+        Q_EMIT requestFixError(m_classifyUpdateType, "dpkgInterrupted");
+        return;
+    }
+
+    if (m_updateJobErrorMessage == UpdateErrorType::DeependenciesBrokenError) {
+        Q_EMIT requestFixError(m_classifyUpdateType, "dependenciesBroken");
+        return;
+    }
+
     onStartUpdate();
 }

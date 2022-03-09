@@ -229,7 +229,9 @@ public:
     UpdateJobErrorMessage getUnkonwUpdateJobError() const;
     void setUnkonwUpdateJobError(const UpdateJobErrorMessage &UnkonwUpdateJobError);
 
-    void setClassityUpdateJonError(ClassifyUpdateType type, const UpdateJobErrorMessage &UnkonwUpdateJobError);
+    void setClassityUpdateJonError(ClassifyUpdateType type, UpdateErrorType errorType);
+
+    QMap<ClassifyUpdateType, UpdateErrorType> getUpdateErrorTypeMap() const;
 
     bool getAutoCheckThirdpartyUpdates() const;
     void setAutoCheckThirdpartyUpdates(bool autoCheckThirdpartyUpdates);
@@ -264,7 +266,7 @@ Q_SIGNALS:
     void safeUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
     void unknownUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
 
-    void classityUpdateJobErrorChanged(ClassifyUpdateType type, const QString &errorMessage);
+    void classityUpdateJobErrorChanged(const ClassifyUpdateType &type, const UpdateErrorType &errorType);
 
     void systemUpdateProgressChanged(const double &updateProgress);
     void safeUpdateProgressChanged(const double &updateProgress);
@@ -339,6 +341,8 @@ private:
     QList<AppUpdateInfo> m_historyAppInfos; //历史更新应用列表
     int m_autoCheckUpdateCircle; //决定进入检查更新界面是否自动检查,单位：小时
     bool m_isUpdatablePackages;
+
+    QMap<ClassifyUpdateType, UpdateErrorType> m_updateErrorTypeMap;
 
     UpdateJobErrorMessage m_systemUpdateJobError;
     UpdateJobErrorMessage m_safeUpdateJobError;

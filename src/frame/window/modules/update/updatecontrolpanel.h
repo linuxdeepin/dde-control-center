@@ -54,7 +54,7 @@ public:
     void setVersion(QString version);
     void setDetail(QString detail);
     void setDate(QString date);
-    void setProgressText(QString text);
+    void setProgressText(const QString &text, const QString &toolTip = "");
     void setShowMoreButtomText(QString text);
 
     int getCurrentValue() const;

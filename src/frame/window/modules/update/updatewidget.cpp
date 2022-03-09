@@ -147,6 +147,7 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
     connect(updateWidget, &UpdateCtrlWidget::requestUpdateCtrl, m_work, &UpdateWorker::OnDownloadJobCtrl);
     connect(updateWidget, &UpdateCtrlWidget::requestOpenAppStroe, m_work, &UpdateWorker::onRequestOpenAppStore);
     connect(this, &UpdateWidget::showUpdateCtrl, updateWidget, &UpdateCtrlWidget::onShowUpdateCtrl);
+    connect(updateWidget, &UpdateCtrlWidget::requestFixError, m_work, &UpdateWorker::onFixError);
     updateWidget->setSystemVersion(m_systemVersion);
 
     UpdateSettings *updateSetting = new UpdateSettings(m_model);
@@ -282,9 +283,6 @@ void UpdateWidget::onNotifyUpdateState(int state)
     case Downloaded:
     case Installing:
     case UpdateFailed:
-    case NoNetwork:
-    case NoSpace:
-    case DeependenciesBrokenError:
         //now donothing
         break;
     default:

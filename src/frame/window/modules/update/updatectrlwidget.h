@@ -80,11 +80,16 @@ public:
     void setModel(UpdateModel *model);
     void setSystemVersion(const QString &version);
 
+    UpdateErrorType updateJobErrorMessage() const;
+    void setUpdateJobErrorMessage(const UpdateErrorType &updateJobErrorMessage);
+    void setUpdateFailedInfo(const UpdateErrorType &errorType);
+
 Q_SIGNALS:
     void notifyUpdateState(int);
     void requestUpdates(ClassifyUpdateType type);
     void requestUpdateCtrl(ClassifyUpdateType type, int ctrlType);
     void requestOpenAppStroe();
+    void requestFixError(const ClassifyUpdateType &updateType, const QString &error);
 
 public Q_SLOTS:
     void onShowUpdateCtrl();
@@ -93,7 +98,7 @@ private Q_SLOTS:
     void onFullUpdateClicked();
     void onRequestRefreshSize();
     void onRequestRefreshWidget();
-    void onClassityUpdateJonErrorChanged(ClassifyUpdateType type, const QString &errorMessage);
+    void onClassityUpdateJonErrorChanged(const ClassifyUpdateType &type, const UpdateErrorType &errorType);
 
 private:
     void setStatus(const UpdatesStatus &status);
@@ -172,6 +177,9 @@ private:
 
     QMap<ClassifyUpdateType, UpdateSettingItem *> m_updateingItemMap;
     dcc::widgets::SettingsGroup *m_updateSummaryGroup;
+
+    UpdateErrorType m_updateJobErrorMessage;
+    QMap<UpdateErrorType, Error_Info> m_UpdateErrorInfoMap;
 };
 
 }// namespace datetime

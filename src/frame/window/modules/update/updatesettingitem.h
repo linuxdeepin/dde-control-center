@@ -26,6 +26,12 @@
 namespace dcc {
 namespace update {
 
+struct Error_Info {
+    UpdateErrorType ErrorType;
+    QString errorMessage;
+    QString errorTips;
+};
+
 class UpdateSettingItem: public dcc::widgets::SettingsItem
 {
     Q_OBJECT
@@ -56,8 +62,10 @@ public:
     double getProgressVlaue() const;
     void setProgressVlaue(double progressVlaue);
 
-    QString getUpdateJobErrorMessage() const;
-    void setUpdateJobErrorMessage(const QString &updateJobErrorMessage);
+    UpdateErrorType getUpdateJobErrorMessage() const;
+    void setUpdateJobErrorMessage(const UpdateErrorType &updateJobErrorMessage);
+
+    void setUpdateFailedInfo();
 
 Q_SIGNALS:
     void UpdateSuccessed();
@@ -66,6 +74,7 @@ Q_SIGNALS:
     void recoveryBackupSuccessed();
     void requestRefreshSize();
     void requestRefreshWidget();
+    void requestFixError(const ClassifyUpdateType &updateType, const QString &error);
 
     void requestUpdate(ClassifyUpdateType type);
     void requestUpdateCtrl(ClassifyUpdateType type, int ctrlType);
@@ -87,7 +96,8 @@ private:
     ClassifyUpdateType m_classifyUpdateType;
     qlonglong m_updateSize;
     double m_progressVlaue;
-    QString m_updateJobErrorMessage;
+    UpdateErrorType m_updateJobErrorMessage;
+    QMap<UpdateErrorType, Error_Info> m_UpdateErrorInfoMap;
 
 protected:
     updateControlPanel *m_controlWidget;

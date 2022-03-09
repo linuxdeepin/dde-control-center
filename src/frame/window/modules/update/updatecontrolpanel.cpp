@@ -202,10 +202,10 @@ void updateControlPanel::setDate(QString date)
     }
 }
 
-void updateControlPanel::setProgressText(QString text)
+void updateControlPanel::setProgressText(const QString &text, const QString &toolTip)
 {
     m_progressLabel->setText(getElidedText(m_progressLabel, text, Qt::ElideRight, m_progressLabel->maximumWidth() - 10, 0, __LINE__));
-    m_progressLabel->setToolTip(text);
+    m_progressLabel->setToolTip(toolTip);
 }
 
 //used to display long string: "12345678" -> "12345..."

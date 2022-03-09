@@ -92,6 +92,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
     , m_checkUpdateJob(nullptr)
+    , m_fixErrorJob(nullptr)
     , m_sysUpdateDownloadJob(nullptr)
     , m_safeUpdateDownloadJob(nullptr)
     , m_unknownUpdateDownloadJob(nullptr)
@@ -132,6 +133,7 @@ UpdateWorker::~UpdateWorker()
     deleteJob(m_unknownUpdateInstallJob);
     deleteJob(m_checkUpdateJob);
     deleteJob(m_releaseNoteInstallJob);
+    deleteJob(m_fixErrorJob);
     if (m_fileSystemWatcher != nullptr) {
         delete m_fileSystemWatcher;
         m_fileSystemWatcher = nullptr;
@@ -477,7 +479,7 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
 
     if (m_unknownPackages.count() > 0 && (updateMode & ClassifyUpdateType::UnknownUpdate)) {
         UpdateItemInfo *unkownItemInfo = new UpdateItemInfo;
-        unkownItemInfo->setName(tr("Unknown Apps Updates"));
+        unkownItemInfo->setName(tr("Third-party Repositories"));
         setUpdateItemDownloadSize(unkownItemInfo, m_unknownPackages);
         resultMap.insert(ClassifyUpdateType::UnknownUpdate, unkownItemInfo);
     }
@@ -597,18 +599,9 @@ void UpdateWorker::onSmartMirrorServiceIsValid(bool isvalid)
 //处于以下状态时，就不能再去设置其他更新的状态了，直接显示对应错误提示
 bool UpdateWorker::getNotUpdateState()
 {
-    bool ret = true;
     UpdatesStatus state = m_model->status();
 
-    if (state == UpdatesStatus::NoSpace ||
-            state == UpdatesStatus::NoNetwork ||
-            state == UpdatesStatus::RecoveryBackupFailed ||
-            state == UpdatesStatus::DeependenciesBrokenError ||
-            state == UpdatesStatus::UpdateFailed) {
-        ret = false;
-    }
-
-    return ret;
+    return state != UpdatesStatus::RecoveryBackupFailed && state != UpdatesStatus::UpdateFailed;
 }
 
 void UpdateWorker::resetDownloadInfo(bool state)
@@ -1179,24 +1172,14 @@ void UpdateWorker::onCheckUpdateStatusChanged(const QString &value)
 
 void UpdateWorker::checkDiskSpace(const QString &jobDescription)
 {
-    UpdateJobErrorMessage errorMessage = analyzeJobErrorMessage(jobDescription);
     qDebug() << "job description: " << jobDescription;
 
-    if (errorMessage.jobErrorType == "unmetDependencies" ||
-            !m_lastoresessionHelper->IsDiskSpaceSufficient()) {
-        m_model->setStatus(UpdatesStatus::NoSpace, __LINE__);
-    } else if (errorMessage.jobErrorType == "fetchFailed") {
-        m_model->setStatus(UpdatesStatus::NoNetwork, __LINE__);
-    } else if (errorMessage.jobErrorType == "insufficientSpace") {
-        m_model->setStatus(UpdatesStatus::DeependenciesBrokenError, __LINE__);
-    } else {
-        m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
-        qDebug() << Q_FUNC_INFO << "UpdateFailed , jobDescription : " << jobDescription;
-    }
+    m_model->setClassityUpdateJonError(ClassifyUpdateType::Invalid, analyzeJobErrorMessage(jobDescription));
+    m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
+    qDebug() << Q_FUNC_INFO << "UpdateFailed , jobDescription : " << jobDescription;
+
     //以上错误均需重置更新信息
-    if (m_model->status() == UpdatesStatus::UpdateFailed) {
-        resetDownloadInfo();
-    }
+    resetDownloadInfo();
 }
 
 void UpdateWorker::setBatteryPercentage(const BatteryPercentageInfo &info)
@@ -1462,35 +1445,32 @@ void UpdateWorker::onRequestOpenAppStore()
     qDebug() << reply.errorMessage();
 }
 
-UpdateJobErrorMessage UpdateWorker::analyzeJobErrorMessage(QString jobDescription)
+UpdateErrorType UpdateWorker::analyzeJobErrorMessage(QString jobDescription)
 {
-    UpdateJobErrorMessage result;
-    result.jobErrorType = "InvalidJobType";
-    result.jobErrorMessage = "";
     QJsonParseError err_rpt;
     QJsonDocument jobErrorMessage = QJsonDocument::fromJson(jobDescription.toUtf8(), &err_rpt);
 
     if (err_rpt.error != QJsonParseError::NoError) {
-        qDebug() << "更新日志信息JSON格式错误";
-        return result;
+        qDebug() << "更新失败JSON格式错误";
+        return UpdateErrorType::NoError;
     }
     const QJsonObject &object = jobErrorMessage.object();
     QString errorType =  object.value("ErrType").toString();
     if (errorType.contains("fetchFailed", Qt::CaseInsensitive) || errorType.contains("IndexDownloadFailed", Qt::CaseInsensitive)) {
-        result.jobErrorType = "fetchFailed";
-        result.jobErrorMessage = tr("Network error");
-    } else if (errorType.contains("unmetDependencies", Qt::CaseInsensitive) || errorType.contains("dependenciesBroken", Qt::CaseInsensitive)) {
-        result.jobErrorType = "unmetDependencies";
-        result.jobErrorMessage = tr("Dependency error");
-    } else if (errorType.contains("insufficientSpace", Qt::CaseInsensitive)) {
-        result.jobErrorType = "insufficientSpace";
-        result.jobErrorMessage = tr("Insufficient disk space");
-    } else {
-        result.jobErrorType = "unknown";
-        result.jobErrorMessage = tr("Update failed");
+        return UpdateErrorType::NoNetwork;
+
+    }
+    if (errorType.contains("unmetDependencies", Qt::CaseInsensitive) || errorType.contains("dependenciesBroken", Qt::CaseInsensitive)) {
+        return UpdateErrorType::DeependenciesBrokenError;
+    }
+    if (errorType.contains("insufficientSpace", Qt::CaseInsensitive)) {
+        return UpdateErrorType::NoSpace;
+    }
+    if (errorType.contains("interrupted", Qt::CaseInsensitive)) {
+        return UpdateErrorType::DpkgInterrupted;
     }
 
-    return result;
+    return UpdateErrorType::UnKnown;
 }
 
 void UpdateWorker::onClassityDownloadStatusChanged(const ClassifyUpdateType type, const QString &value)
@@ -1652,6 +1632,40 @@ void UpdateWorker::onClassifiedUpdatablePackagesChanged(QMap<QString, QStringLis
         m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::UnknownUpdate, UpdatesStatus::Default);
     }
     checkUpdatablePackages(packages);
+}
+
+void UpdateWorker::onFixError(const ClassifyUpdateType &updateType, const QString &errorType)
+{
+    m_fixErrorUpdate.append(updateType);
+    if (m_fixErrorJob != nullptr) {
+        return;
+    }
+    QDBusInterface lastoreManager("com.deepin.lastore",
+                                  "/com/deepin/lastore",
+                                  "com.deepin.lastore.Manager",
+                                  QDBusConnection::systemBus());
+    if (!lastoreManager.isValid()) {
+        qDebug() << "com.deepin.license error ," << lastoreManager.lastError().name();
+        return;
+    }
+
+
+    QDBusReply<QDBusObjectPath> reply = lastoreManager.call("FixError", errorType);
+    if (reply.isValid()) {
+        QString path = reply.value().path();
+        m_fixErrorJob = new JobInter("com.deepin.lastore", path, QDBusConnection::systemBus());
+        connect(m_fixErrorJob, &JobInter::StatusChanged, this, [ = ](const QString status) {
+            if (status == "succeed" || status == "failed" || status == "end") {
+                qDebug() << "m_fixErrorJob ---status :" << status;
+                for (auto type : m_fixErrorUpdate) {
+                    distUpgrade(type);
+                }
+                m_fixErrorUpdate.clear();
+                deleteJob(m_fixErrorJob);
+            }
+        });
+    }
+
 }
 
 void UpdateWorker::setUpdateItemDownloadSize(UpdateItemInfo *updateItem,  QStringList packages)
