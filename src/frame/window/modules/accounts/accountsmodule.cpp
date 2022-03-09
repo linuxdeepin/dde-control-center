@@ -335,6 +335,7 @@ void AccountsModule::onShowPasswordPage(User *account)
     connect(w, &ModifyPasswdPage::requestUUID, m_accountsWorker, &AccountsWorker::getUUID);
     connect(w, &ModifyPasswdPage::requestLocalBindCheck, m_accountsWorker, &AccountsWorker::localBindCheck);
     connect(w, &ModifyPasswdPage::requestStartResetPasswordExec, m_accountsWorker, &AccountsWorker::startResetPasswordExec);
+    connect(w, &ModifyPasswdPage::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::securityQuestionsCheck);
     connect(m_accountsWorker, &AccountsWorker::localBindUbid, w, &ModifyPasswdPage::onLocalBindCheckUbid);
     connect(m_accountsWorker, &AccountsWorker::localBindError, w, &ModifyPasswdPage::onLocalBindCheckError);
 

@@ -63,6 +63,7 @@ namespace accounts {
 class ModifyPasswdPage : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit ModifyPasswdPage(dcc::accounts::User *user, bool isCurrent = true, QWidget *parent = nullptr);
     ~ModifyPasswdPage();
@@ -80,6 +81,7 @@ private:
     void resetPasswordFinished(const QString &errorText);
     void onForgetPasswordBtnClicked();
     void onStartResetPasswordReplied(const QString &errorText);
+    void onSecurityQuestionsCheckReplied(const QList<int> &questions);
 
 Q_SIGNALS:
     void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password, const QString &repeatPassword, const bool needResule = true);
@@ -90,6 +92,7 @@ Q_SIGNALS:
     void requestUUID(QString &uuid);
     void requestLocalBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid);
     void requestStartResetPasswordExec(dcc::accounts::User *user);
+    void requestSecurityQuestionsCheck(dcc::accounts::User *user);
 
 public Q_SLOTS:
     void onLocalBindCheckUbid(const QString &ubid);
@@ -104,6 +107,7 @@ private:
     DTK_WIDGET_NAMESPACE::DLineEdit *m_passwordTipsEdit;
     bool m_isCurrent;
     bool m_isBindCheckError;
+    bool m_isSecurityQuestionsExist;
     dcc::widgets::SecurityLevelItem *m_securityLevelItem;
     QTimer m_enableBtnTimer;
 };

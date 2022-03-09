@@ -208,17 +208,17 @@ void SecurityQuestionsPage::onQuestionCombobox3CurrentTextChanged(int index)
 
 void SecurityQuestionsPage::onAnswerEdit1CurrentTextChanged(const QString &)
 {
-    m_answerEdit1->setAlert(false);
+    hideAlert(m_answerEdit1);
 }
 
 void SecurityQuestionsPage::onAnswerEdit2CurrentTextChanged(const QString &)
 {
-    m_answerEdit2->setAlert(false);
+    hideAlert(m_answerEdit2);
 }
 
 void SecurityQuestionsPage::onAnswerEdit3CurrentTextChanged(const QString &)
 {
-    m_answerEdit3->setAlert(false);
+    hideAlert(m_answerEdit3);
 }
 
 void SecurityQuestionsPage::onSetSecurityQuestionsReplied(const QString &errorText)
@@ -318,6 +318,14 @@ void SecurityQuestionsPage::checkQuestionDuplicate(int id, int id1, int id2, QWi
         DAlertControl *control = new DAlertControl(w, this);
         control->setAlert(true);
         control->showAlertMessage(tr("Do not choose a duplicate question please"), w, 3000);
+    }
+}
+
+void SecurityQuestionsPage::hideAlert(DLineEdit *edit)
+{
+    if (edit->isAlert()) {
+        edit->hideAlertMessage();
+        edit->setAlert(false);
     }
 }
 

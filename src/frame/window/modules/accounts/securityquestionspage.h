@@ -70,6 +70,7 @@ private:
     bool isAllAnswersCharactersSizeRight();
     bool isAnswersCharactersSizeRight(DLineEdit *edit);
     void checkQuestionDuplicate(int id, int id1, int id2, QWidget* w);
+    void hideAlert(DLineEdit *edit);
 
 private:
     dcc::accounts::User *m_curUser;

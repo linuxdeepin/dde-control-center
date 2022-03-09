@@ -34,8 +34,19 @@ if(NOT DEFINED DISABLE_SYS_UPDATE)
 
 set(SRCS
         main.cpp
+        utils.h
+        pwqualitymanager.h
+        pwqualitymanager.cpp
         resetpassworddialog.h
         resetpassworddialog.cpp
+        securityquestionswidget.h
+        securityquestionswidget.cpp
+        unionidwidget.h
+        unionidwidget.cpp
+        passwordwidget.h
+        passwordwidget.cpp
+        resetpasswordworker.h
+        resetpasswordworker.cpp
 )
 set(QRC resetpassworddialog.qrc)
 # Find the library
@@ -43,6 +54,8 @@ find_package(PkgConfig REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5DBus REQUIRED)
 find_package(Qt5Network REQUIRED)
+find_package(Qt5Concurrent REQUIRED)
+
 find_package(DtkWidget REQUIRED)
 find_package(DtkGui REQUIRED)
 
@@ -62,6 +75,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${Qt5Widgets_LIBRARIES}
     ${Qt5Network_LIBRARIES}
     ${Qt5DBus_LIBRARIES}
+    ${Qt5Concurrent_LIBRARIES}
     ${DEEPIN_PW_CHECK}
     crypt
     ${LIBS}

@@ -202,6 +202,18 @@ void AccountsWorker::startResetPasswordExec(User *user)
     Q_EMIT user->startResetPasswordReplied(reply.error().message());
 }
 
+void AccountsWorker::securityQuestionsCheck(User *user)
+{
+    AccountsUser *userInter = m_userInters.value(user);
+    auto reply = userInter->GetSecretQuestions();
+    reply.waitForFinished();
+    if (reply.isError()) {
+        qWarning() << reply.error().message();
+    } else {
+        Q_EMIT user->startSecurityQuestionsCheckReplied(reply.value());
+    }
+}
+
 void AccountsWorker::setPasswordHint(User *user, const QString &passwordHint)
 {
     AccountsUser *userInter = m_userInters.value(user);

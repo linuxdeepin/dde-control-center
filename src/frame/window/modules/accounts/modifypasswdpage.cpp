@@ -55,6 +55,7 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     , m_passwordTipsEdit(new DLineEdit)
     , m_isCurrent(isCurrent)
     , m_isBindCheckError(false)
+    , m_isSecurityQuestionsExist(false)
     , m_securityLevelItem(new SecurityLevelItem(this))
 
 {
@@ -147,7 +148,7 @@ void ModifyPasswdPage::initWidget()
     });
     connect(m_curUser, &User::passwordResetFinished, this, &ModifyPasswdPage::resetPasswordFinished);
     connect(m_curUser, &User::startResetPasswordReplied, this, &ModifyPasswdPage::onStartResetPasswordReplied);
-
+    connect(m_curUser, &User::startSecurityQuestionsCheckReplied, this, &ModifyPasswdPage::onSecurityQuestionsCheckReplied);
     connect(m_oldPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
         if (m_oldPasswordEdit->isAlert())
         {
@@ -427,6 +428,7 @@ void ModifyPasswdPage::onForgetPasswordBtnClicked()
         return;
     }
 
+    Q_EMIT requestSecurityQuestionsCheck(m_curUser);
     Q_EMIT requestLocalBindCheck(m_curUser, uosid, uuid);
 }
 
@@ -440,13 +442,18 @@ void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)
     qDebug() << "Resetpassword reply:" << errorText;
 }
 
+void ModifyPasswdPage::onSecurityQuestionsCheckReplied(const QList<int> &questions)
+{
+    m_isSecurityQuestionsExist = !questions.isEmpty();
+    qDebug() << "IsSecurityQuestionsExist:" << m_isSecurityQuestionsExist;
+}
+
 void ModifyPasswdPage::onLocalBindCheckUbid(const QString &ubid)
 {
-    if (!ubid.isEmpty()) {
+    if (m_isSecurityQuestionsExist || !ubid.isEmpty()) {
         m_isBindCheckError = false;
         Q_EMIT requestStartResetPasswordExec(m_curUser);
-    }
-    if (ubid.isEmpty() && !m_isBindCheckError) {
+    } else if (!m_isBindCheckError) {
         UnionIDBindReminderDialog dlg;
         dlg.exec();
     }

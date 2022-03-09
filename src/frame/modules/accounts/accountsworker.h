@@ -104,6 +104,7 @@ public Q_SLOTS:
     void getUUID(QString &uuid);
     void localBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid);
     void startResetPasswordExec(dcc::accounts::User *user);
+    void securityQuestionsCheck(dcc::accounts::User *user);
 #ifdef DCC_ENABLE_ADDOMAIN
     void refreshADDomain();
     void ADDomainHandle(const QString &server, const QString &admin, const QString &password);

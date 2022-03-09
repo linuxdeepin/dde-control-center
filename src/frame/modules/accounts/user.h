@@ -127,6 +127,7 @@ Q_SIGNALS:
     void passwordResetFinished(const QString &errorText) const;
     void startResetPasswordReplied(const QString &errorText);
     void setSecurityQuestionsReplied(const QString &errorText);
+    void startSecurityQuestionsCheckReplied(const QList<int> &questios);
 
 private:
     bool m_isCurrentUser;
