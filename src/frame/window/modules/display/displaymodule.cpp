@@ -365,7 +365,8 @@ void DisplayModule::onRequestSetResolution(Monitor *monitor, const int mode)
 
         // 扩展模式调整分辨率时会再次调整显示屏位置，此时会调用两次applyChanges接口，
         // 修改分辨率调用applyChanges后任务栏会响应分辨率改变信号，然后调整大小，造成部分界面显示到第二个屏幕
-        if (m_displayModel->displayMode() != EXTEND_MODE)
+        // 只有一个屏幕时displayMode可能是EXTEND_MODE，同时需要判断显示数量
+        if (m_displayModel->displayMode() != EXTEND_MODE || m_displayModel->monitorList().size() < 2)
             m_displayWorker->applyChanges();
     };
 
