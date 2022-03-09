@@ -109,10 +109,22 @@ void WirelessConnect::initConnection()
     // 隐藏网络直接创建settings
     if (m_accessPoint) {
         NetworkManager::Connection::Ptr conn;
-        for (auto it : NetworkManager::activeConnections()) {
-            if (it->type() == ConnectionSettings::ConnectionType::Wireless && it->id() == m_ssid) {
-                conn = findConnectionByUuid(it->uuid());
-            }
+        for (ActiveConnection::Ptr con : NetworkManager::activeConnections()) {
+            if (con->type() != ConnectionSettings::ConnectionType::Wireless || con->id() != m_ssid)
+                continue;
+
+            NetworkManager::ConnectionSettings::Ptr connSettings = con->connection()->settings();
+            NetworkManager::WirelessSetting::Ptr wSetting = connSettings->setting(NetworkManager::Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>();
+            if (wSetting.isNull())
+                continue;
+
+            QString settingMacAddress = wSetting->macAddress().toHex().toUpper();
+            QString deviceMacAddress = m_device->realHwAdr().remove(":");
+            if (!settingMacAddress.isEmpty() && settingMacAddress != deviceMacAddress)
+                continue;
+
+            conn = findConnectionByUuid(con->uuid());
+            break;
         }
 
         if (conn.isNull()) {
@@ -228,11 +240,21 @@ void WirelessConnect::activateConnection()
     QString id = m_connectionSettings->id();
     ConnectionSettings::ConnectionType type = m_connectionSettings->connectionType();
     for (auto it : NetworkManager::listConnections()) {
-        if (type == it->settings()->connectionType() && id == it->name()) {
-            m_connectionSettings->setUuid(it->uuid());
-            conn = it;
-            break;
-        }
+        if (type != it->settings()->connectionType() || id != it->name())
+            continue;
+
+        NetworkManager::WirelessSetting::Ptr wSetting = it->settings()->setting(NetworkManager::Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>();
+        if (wSetting.isNull())
+            continue;
+
+        const QString setingMacAddress = wSetting->macAddress().toHex().toUpper();
+        const QString deviceMacAddress = m_device->realHwAdr().remove(":").toUpper();
+        if (!setingMacAddress.isEmpty() && setingMacAddress != deviceMacAddress)
+            continue;
+
+        m_connectionSettings->setUuid(it->uuid());
+        conn = it;
+        break;
     }
 
     QString accessPointPath;

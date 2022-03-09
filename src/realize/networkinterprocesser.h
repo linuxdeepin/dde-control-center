@@ -58,7 +58,6 @@ protected:
 
     NetworkDeviceBase *findDevices(const QString &path) const;                     // 根据设备path查找设备
     void updateConnectionsInfo(const QList<NetworkDeviceBase *> &devices);         // 更新设备连接信息
-    void asyncActiveConnectionInfo();                                              // 同步IP地址等信息
     void activeInfoChanged(const QString &conns);                                  // 更新活动连接信息
     void updateDeviceConnectiveInfo();                                             // 更新设备信号连接强度信息
     void activeConnInfoChanged(const QString &conns);                              // 活动连接信息发生变化

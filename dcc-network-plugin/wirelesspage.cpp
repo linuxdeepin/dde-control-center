@@ -62,10 +62,13 @@
 #include <hotspotcontroller.h>
 
 #include <networkmanagerqt/manager.h>
+#include <networkmanagerqt/wirelesssetting.h>
+#include <networkmanagerqt/setting.h>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
 using namespace dde::network;
+using namespace NetworkManager;
 
 APItem::APItem(const QString &text, QStyle *style, DListView *parent)
         : DStandardItem(text)
@@ -823,9 +826,20 @@ void WirelessPage::updateApStatus()
 QString WirelessPage::connectionUuid(const QString &ssid)
 {
     for (auto conn : NetworkManager::activeConnections()) {
-        if (conn->type() == ConnectionSettings::ConnectionType::Wireless &&  conn->id() == ssid) {
-            return conn->uuid();
-        }
+        if (conn->type() != ConnectionSettings::ConnectionType::Wireless || conn->id() != ssid)
+            continue;
+
+        NetworkManager::ConnectionSettings::Ptr connSettings = conn->connection()->settings();
+        NetworkManager::WirelessSetting::Ptr wSetting = connSettings->setting(NetworkManager::Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>();
+        if (wSetting.isNull())
+            continue;
+
+        QString settingMacAddress = wSetting->macAddress().toHex().toUpper();
+        QString deviceMacAddress = m_device->realHwAdr().remove(":");
+        if (!settingMacAddress.isEmpty() && settingMacAddress != deviceMacAddress)
+            continue;
+
+        return conn->uuid();
     }
     const QList<WirelessConnection *> lstConnections = m_device->items();
     for (auto item : lstConnections) {

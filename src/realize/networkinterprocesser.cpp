@@ -112,7 +112,13 @@ void NetworkInterProcesser::initConnection()
     m_changedTimer->setInterval(100);
     auto onDataChanged = [ this ](const char *infoName, const QString infoValue) {
         PRINT_INFO_MESSAGE(infoName);
-        m_changedTimer->setProperty(infoName, infoValue);
+        // 这里需要用QStringList来保存，因为对于ActiveConnectionsChanged信号来说，在多个网卡存在的情况下，这个信号会发送多次
+        // 每次的内容可能会不一样，例如断开连接，第一次发送的信号是第一个网卡的连接状态，第二次发送的信号是第二个网卡的连接状态，必须保证每个
+        // 信号都能被正确接收并处理，否则就会出现信号丢失引起状态不正确的问题
+        QStringList infoValues = m_changedTimer->property(infoName).toStringList();
+        infoValues << infoValue;
+        infoValues.removeDuplicates();
+        m_changedTimer->setProperty(infoName, infoValues);
         if (!m_changedTimer->isActive())
             m_changedTimer->start();
     };
@@ -339,10 +345,13 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
 
 void NetworkInterProcesser::doChangedData(changedFunction func, const char *infoName)
 {
-    const QString changeData = m_changedTimer->property(infoName).toString();
-    if (!changeData.isEmpty()) {
-        (this->*func)(changeData);
-        m_changedTimer->setProperty(infoName, "");
+    QStringList changeDatas = m_changedTimer->property(infoName).toStringList();
+    if (!changeDatas.isEmpty()) {
+        for (QString changeData : changeDatas)
+            (this->*func)(changeData);
+
+        changeDatas.clear();
+        m_changedTimer->setProperty(infoName, changeDatas);
     }
 }
 
@@ -385,10 +394,18 @@ void NetworkInterProcesser::doChangeConnectionList(const QString &connections)
 void NetworkInterProcesser::doChangeActiveConnections(const QString &activeConnections)
 {
     PRINT_INFO_MESSAGE("Active Connections Changed");
-    m_connectivity = connectivityValue(m_networkInter->connectivity());
     activeInfoChanged(activeConnections);
-    updateDeviceConnectiveInfo();
-    asyncActiveConnectionInfo();
+    // 同步IP地址等信息
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter->GetActiveConnectionInfo(), this);
+    connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
+    connect(w, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
+        QDBusPendingReply<QString> reply = *w;
+        QString activeConnectionInfo = reply.value();
+        PRINT_INFO_MESSAGE("receive value");
+        activeConnInfoChanged(activeConnectionInfo);
+        onConnectivityChanged(m_networkInter->connectivity());
+        updateDeviceConnectiveInfo();
+    });
 }
 
 void NetworkInterProcesser::updateDeviceConnectiveInfo()
@@ -504,19 +521,6 @@ void NetworkInterProcesser::updateConnectionsInfo(const QList<NetworkDeviceBase 
             }
         }
     }
-}
-
-void NetworkInterProcesser::asyncActiveConnectionInfo()
-{
-    PRINT_INFO_MESSAGE("start");
-    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter->GetActiveConnectionInfo(), this);
-    connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
-    connect(w, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
-        QDBusPendingReply<QString> reply = *w;
-        QString activeConnectionInfo = reply.value();
-        PRINT_INFO_MESSAGE("receive value");
-        activeConnInfoChanged(activeConnectionInfo);
-    });
 }
 
 void NetworkInterProcesser::activeInfoChanged(const QString &conns)
