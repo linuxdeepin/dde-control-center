@@ -72,11 +72,6 @@ void CommonBackgroundItem::paintEvent(QPaintEvent *e)
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing);
 
-    if (m_background.isNull()) {
-        painter.fillRect(this->rect(), Qt::black);
-        return;
-    }
-
     QPalette pa = DApplicationHelper::instance()->palette(this);
     painter.setPen(Qt::NoPen);
     painter.setBrush(QBrush(pa.color(QPalette::Window)));
@@ -91,7 +86,7 @@ void CommonBackgroundItem::paintEvent(QPaintEvent *e)
     path.addRoundedRect(pixRect, Radius, Radius);
     painter.setClipPath(path);
 
-    if (m_themeEnable) {
+    if (m_themeEnable && !m_background.isNull()) {
         painter.drawPixmap(m_background.rect(), m_background);
     } else {
         painter.setBrush(QBrush(Qt::black));
