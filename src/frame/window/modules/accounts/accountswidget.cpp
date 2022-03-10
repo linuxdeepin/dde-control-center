@@ -176,14 +176,14 @@ void AccountsWidget::addUser(User *user, bool t1)
         QString text = tr("Standard User");
         switch (lever) {
         case SecurityLever::Sysadm :
-            text = tr("System administrator");
+            text = tr("System Administrator");
             break;
         case SecurityLever::Secadm :
-            text = tr("Safety manager");
+            text = tr("Security Administrator");
             break;
         case SecurityLever::Audadm :
         case SecurityLever::Auditadm :
-            text = tr("Auditor");
+            text = tr("Audit Administrator");
             break;
         case SecurityLever::Standard :
             text = tr("Standard User");;
