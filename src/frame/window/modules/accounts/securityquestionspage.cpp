@@ -323,7 +323,7 @@ bool SecurityQuestionsPage::isAnswersCharactersSizeRight(DLineEdit *edit)
 {
     if (edit->text().size() > SECURITY_ANSWERS_CHARACTERS_MAX_SIZE) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Keep the answer under 10 characters"), edit, 2000);
+        edit->showAlertMessage(tr("Keep the answer under 30 characters"), edit, 2000);
     } else {
         edit->setAlert(false);
     }

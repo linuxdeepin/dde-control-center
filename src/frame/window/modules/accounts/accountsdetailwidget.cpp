@@ -104,7 +104,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     , m_gsettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
     , m_scrollArea(new QScrollArea)
     , m_curLoginUser(nullptr)
-    , m_bindStatusLabel(new QLabel(tr("Go to link"), this))
+    , m_bindStatusLabel(new QLabel(tr("Go to Settings"), this))
 {
     m_isServerSystem = IsServerSystem;
     //整体布局
