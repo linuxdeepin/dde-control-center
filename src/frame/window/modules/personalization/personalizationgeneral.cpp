@@ -183,6 +183,9 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         switem->setFixedHeight(SwitchWidgetHeight);
         switem->addBackground();
         switem->setLayout(swswitchLayout);
+        if (qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland")) {
+            switem->setVisible(false);
+        }
 
         //~ contents_path /personalization/General
         //~ child_page General
@@ -389,8 +392,8 @@ void PersonalizationGeneral::updateWMSwitcher(bool checked)
         m_wmSwitch->setChecked(m_model->is3DWm());
     }
     if (m_transparentSlider) {
-        m_transparentSlider->setVisible(checked);
-        m_cmbMiniEffect->setVisible(checked);
+        m_transparentSlider->setVisible(checked || qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland"));
+        m_cmbMiniEffect->setVisible(checked || qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland"));
     }
 }
 
