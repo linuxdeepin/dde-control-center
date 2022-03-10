@@ -125,18 +125,16 @@ void ResetPasswordDialog::initWidget(const QString &userName)
     connect(m_SecurityQuestionsWidget, &SecurityQuestionsWidget::requestSetPasswordHint, m_resetPasswordWorker, &ResetPasswordWorker::setPasswordHint);
     connect(m_SecurityQuestionsWidget, &SecurityQuestionsWidget::requestVerifySecretQuestions, m_resetPasswordWorker, &ResetPasswordWorker::verifySecretQuestions);
     connect(m_resetPasswordWorker, &ResetPasswordWorker::verifySecretQuestionsReplied, m_SecurityQuestionsWidget, &SecurityQuestionsWidget::onVerifySecretQuestionsReplied);
-    
+
     m_UnionIDWidget = new UnionIDWidget(m_userPath, userName, mainContentWidget);
     connect(m_UnionIDWidget, &UnionIDWidget::requestAsyncBindCheck, m_resetPasswordWorker, &ResetPasswordWorker::asyncBindCheck);
     connect(m_UnionIDWidget, &UnionIDWidget::requestAsyncVerficationCode, m_resetPasswordWorker, &ResetPasswordWorker::asyncRequestVerficationCode);
     connect(m_UnionIDWidget, &UnionIDWidget::requestVerifyVerficationCode, m_resetPasswordWorker, &ResetPasswordWorker::verifyVerficationCode);
-
-    connect(m_resetPasswordWorker, &ResetPasswordWorker::bindCheckUbidReplied, m_UnionIDWidget, &UnionIDWidget::onBindCheckUbidReplied);
-    connect(m_resetPasswordWorker, &ResetPasswordWorker::bindCheckReplied, m_UnionIDWidget, &UnionIDWidget::onBindCheckReplied);
-    connect(m_resetPasswordWorker, &ResetPasswordWorker::verficationCodeCountReplied, m_UnionIDWidget, &UnionIDWidget::onVerficationCodeCountReplied);
+    connect(m_resetPasswordWorker, &ResetPasswordWorker::requestBindCheckUbidReplied, m_UnionIDWidget, &UnionIDWidget::onBindCheckUbidReplied);
+    connect(m_resetPasswordWorker, &ResetPasswordWorker::requestBindCheckReplied, m_UnionIDWidget, &UnionIDWidget::onBindCheckReplied);
+    connect(m_resetPasswordWorker, &ResetPasswordWorker::requestVerficationCodeCountReplied, m_UnionIDWidget, &UnionIDWidget::onVerficationCodeCountReplied);
     connect(m_resetPasswordWorker, &ResetPasswordWorker::requestVerficationCodeReplied, m_UnionIDWidget, &UnionIDWidget::onRequestVerficationCodeReplied);
     connect(m_resetPasswordWorker, &ResetPasswordWorker::requestVerifyVerficationCodeReplied, m_UnionIDWidget, &UnionIDWidget::onRequestVerifyVerficationCodeReplied);
-
 
     m_stackedLayout->setSpacing(0);
     m_stackedLayout->setMargin(0);
@@ -155,6 +153,7 @@ void ResetPasswordDialog::initWidget(const QString &userName)
         this->addButton(tr("Reset"), true, ButtonRecommend);
         m_buttonBox->hide();
         m_stackedLayout->setCurrentIndex(1);
+        m_UnionIDWidget->loadPage();
     }
 
     m_tipDialog.setMessage(tr("Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance"));

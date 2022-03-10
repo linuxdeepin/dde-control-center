@@ -77,7 +77,7 @@ void ResetPasswordWorker::asyncBindCheck()
 {
     QFutureWatcher<int> *watcher = new QFutureWatcher<int>(this);
     connect(watcher, &QFutureWatcher<int>::finished, [this, watcher] {
-        Q_EMIT bindCheckReplied(watcher->result());
+        Q_EMIT requestBindCheckReplied(watcher->result());
         watcher->deleteLater();
     });
     QFuture<int> future = QtConcurrent::run(this, &ResetPasswordWorker::bindCheck);
@@ -126,7 +126,7 @@ int ResetPasswordWorker::bindCheck()
         return code;
     }
     m_ubid = retLocalBindCheck.value();
-    Q_EMIT bindCheckUbidReplied(m_ubid);
+    Q_EMIT requestBindCheckUbidReplied(m_ubid);
 
     return 0;
 }
@@ -139,7 +139,7 @@ int ResetPasswordWorker::requestVerficationCode(const QString &phoneEmail)
         int code = parseError(retResetCaptcha.error().message());
         return code;
     }
-    Q_EMIT verficationCodeCountReplied(retResetCaptcha.value());
+    Q_EMIT requestVerficationCodeCountReplied(retResetCaptcha.value());
     qDebug() << "SendResetCaptcha success:" << retResetCaptcha.value();
     return 0;
 }

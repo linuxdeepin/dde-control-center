@@ -200,7 +200,10 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
             w->onEditingFinished(false, userFullName);
         }
     });
+    connect(w, &AccountsDetailWidget::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::securityQuestionsCheck);
+
     m_frameProxy->pushWidget(this, w);
+    Q_EMIT w->requestSecurityQuestionsCheck(account);
     w->setVisible(true);
     m_isCreatePage = false;
     //当前页面为用户详情页面的时候允许跳转默认帐户，否则只响应用户点击。避免出现显示了创建账户页面，又被账户详情页面隐藏的问题。
@@ -348,9 +351,12 @@ void AccountsModule::onShowSecurityQuestionsPage(User *account)
     SecurityQuestionsPage *w = new SecurityQuestionsPage(account);
     w->setVisible(false);
     connect(w, &SecurityQuestionsPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
+    connect(w, &SecurityQuestionsPage::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::securityQuestionsCheck);
     connect(w, &SecurityQuestionsPage::requestSetSecurityQuestions, m_accountsWorker, &AccountsWorker::setSecurityQuestions);
 
     m_frameProxy->pushWidget(this, w);
+    Q_EMIT w->requestSecurityQuestionsCheck(account);
+
     w->setVisible(true);
 }
 

@@ -131,10 +131,6 @@ void SecurityQuestionsPage::initWidget()
 
     mainContentLayout->addLayout(buttonHLayout);
 
-    m_answerEdit1->setPlaceholderText(tr("Keep the answer under 10 characters"));
-    m_answerEdit2->setPlaceholderText(tr("Keep the answer under 10 characters"));
-    m_answerEdit3->setPlaceholderText(tr("Keep the answer under 10 characters"));
-
     addItems(m_questionCombobox1);
     addItems(m_questionCombobox2);
     addItems(m_questionCombobox3);
@@ -150,6 +146,7 @@ void SecurityQuestionsPage::initWidget()
     connect(m_answerEdit1, &DLineEdit::textChanged, this, &SecurityQuestionsPage::onAnswerEdit1CurrentTextChanged);
     connect(m_answerEdit2, &DLineEdit::textChanged, this, &SecurityQuestionsPage::onAnswerEdit2CurrentTextChanged);
     connect(m_answerEdit3, &DLineEdit::textChanged, this, &SecurityQuestionsPage::onAnswerEdit3CurrentTextChanged);
+    connect(m_curUser, &User::startSecurityQuestionsCheckReplied, this, &SecurityQuestionsPage::onSecurityQuestionsCheckReplied);
     connect(m_curUser, &User::setSecurityQuestionsReplied, this, &SecurityQuestionsPage::onSetSecurityQuestionsReplied);
 
     m_answerEdit1->setFocus();
@@ -157,6 +154,12 @@ void SecurityQuestionsPage::initWidget()
 
 void SecurityQuestionsPage::initData()
 {
+    m_answerEdit1->setEchoMode(QLineEdit::PasswordEchoOnEdit);
+    m_answerEdit2->setEchoMode(QLineEdit::PasswordEchoOnEdit);
+    m_answerEdit3->setEchoMode(QLineEdit::PasswordEchoOnEdit);
+    m_answerEdit1->setPlaceholderText(tr("Keep the answer under 30 characters"));
+    m_answerEdit2->setPlaceholderText(tr("Keep the answer under 30 characters"));
+    m_answerEdit3->setPlaceholderText(tr("Keep the answer under 30 characters"));
 }
 
 void SecurityQuestionsPage::onConfirmButtonClicked()
@@ -219,6 +222,22 @@ void SecurityQuestionsPage::onAnswerEdit2CurrentTextChanged(const QString &)
 void SecurityQuestionsPage::onAnswerEdit3CurrentTextChanged(const QString &)
 {
     hideAlert(m_answerEdit3);
+}
+
+void SecurityQuestionsPage::onSecurityQuestionsCheckReplied(const QList<int> &questions)
+{
+    for (int i = 0; i < questions.size(); ++i) {
+        if (i == 0) {
+            m_questionCombobox1->setCurrentIndex(questions.at(i));
+            m_answerEdit1->setText("security");
+        } else if (i == 1) {
+            m_questionCombobox2->setCurrentIndex(questions.at(i));
+            m_answerEdit2->setText("security");
+        } else if (i == 2) {
+            m_questionCombobox3->setCurrentIndex(questions.at(i));
+            m_answerEdit3->setText("security");
+        }
+    }
 }
 
 void SecurityQuestionsPage::onSetSecurityQuestionsReplied(const QString &errorText)

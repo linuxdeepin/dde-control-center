@@ -110,10 +110,12 @@ Q_SIGNALS:
     void requsetSetPassWordAge(dcc::accounts::User *user, const int age);
     void noticeEnrollCompleted(QString username);
     void editingFinished(const QString& userFullName);
+    void requestSecurityQuestionsCheck(dcc::accounts::User *user);
 
 public Q_SLOTS:
     void resetDelButtonState();
     void onEditingFinished(bool isValid, const QString& userFullName);
+    void onSecurityQuestionsCheckReplied(const QList<int> &questions);
 
 protected:
     void initUserInfo(QVBoxLayout *layout);
@@ -151,6 +153,7 @@ private:
     QScrollArea *m_scrollArea;
     QString m_groupName;
     dcc::accounts::User *m_curLoginUser;
+    QLabel *m_bindStatusLabel;
 };
 
 }   // namespace accounts

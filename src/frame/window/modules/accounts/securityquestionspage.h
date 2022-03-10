@@ -28,7 +28,7 @@
 #include <DComboBox>
 
 #define SECURITY_QUESTIONS_NUM 6
-#define SECURITY_ANSWERS_CHARACTERS_MAX_SIZE 8
+#define SECURITY_ANSWERS_CHARACTERS_MAX_SIZE 30
 
 DWIDGET_USE_NAMESPACE
 
@@ -45,6 +45,7 @@ public:
 Q_SIGNALS:
     void requestBack(DCC_NAMESPACE::accounts::AccountsWidget::ActionOption option = DCC_NAMESPACE::accounts::AccountsWidget::ClickCancel);
     void requestSetSecurityQuestions(dcc::accounts::User *userInter, const QMap<int, QByteArray> &securityQuestions);
+    void requestSecurityQuestionsCheck(dcc::accounts::User *userInter);
 
 public Q_SLOTS:
     void onConfirmButtonClicked();
@@ -54,6 +55,7 @@ public Q_SLOTS:
     void onAnswerEdit1CurrentTextChanged(const QString&);
     void onAnswerEdit2CurrentTextChanged(const QString&);
     void onAnswerEdit3CurrentTextChanged(const QString&);
+    void onSecurityQuestionsCheckReplied(const QList<int> &questions);
     void onSetSecurityQuestionsReplied(const QString &errorText);
 
 protected:

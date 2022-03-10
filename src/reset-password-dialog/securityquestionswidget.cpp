@@ -137,11 +137,11 @@ void SecurityQuestionsWidget::initData()
     m_securityQuestions = securityQuestions;
     for (int i = 0; i < m_questions.size(); ++i) {
         if (i == 0) {
-            m_questionEdit1->setText(tr("1. ") + m_securityQuestions.value(m_questions.at(i)));
+            m_questionEdit1->setText("1. " + m_securityQuestions.value(m_questions.at(i)));
         } else if (i == 1) {
-            m_questionEdit2->setText(tr("2. ") + m_securityQuestions.value(m_questions.at(i)));
+            m_questionEdit2->setText("2. " + m_securityQuestions.value(m_questions.at(i)));
         } else if (i == 2) {
-            m_questionEdit3->setText(tr("3. ") + m_securityQuestions.value(m_questions.at(i)));
+            m_questionEdit3->setText("3. " + m_securityQuestions.value(m_questions.at(i)));
         }
     }
     m_questionEdit1->lineEdit()->setCursorPosition(0);

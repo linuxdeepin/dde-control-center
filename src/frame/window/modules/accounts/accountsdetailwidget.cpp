@@ -104,6 +104,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     , m_gsettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
     , m_scrollArea(new QScrollArea)
     , m_curLoginUser(nullptr)
+    , m_bindStatusLabel(new QLabel(tr("Go to link"), this))
 {
     m_isServerSystem = IsServerSystem;
     //整体布局
@@ -394,6 +395,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     QLabel *securityQuestionsLabel= new QLabel(tr("Security Questions"));
     sqHLayout->addWidget(securityQuestionsLabel, 0, Qt::AlignLeft);
+    sqHLayout->addSpacing(108);
+    sqHLayout->addWidget(m_bindStatusLabel);
     auto securityQuestionsButton = new DToolButton(securityQuestionsWidget);
     QStyleOption opt;
     securityQuestionsButton->setIcon(DStyleHelper(this->style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
@@ -544,6 +547,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_asAdministrator, &SwitchWidget::checkedChanged, this, [ = ](const bool asAdministrator) {
         Q_EMIT requestSetAdministrator(m_curUser, asAdministrator);
     });
+    connect(m_curUser, &User::startSecurityQuestionsCheckReplied, this, &AccountsDetailWidget::onSecurityQuestionsCheckReplied);
+
 
 }
 
@@ -731,6 +736,11 @@ void AccountsDetailWidget::onEditingFinished(bool isValid, const QString &userFu
     }
 
     Q_EMIT requestSetFullname(m_curUser, m_inputLineEdit->text());
+}
+
+void AccountsDetailWidget::onSecurityQuestionsCheckReplied(const QList<int> &questions)
+{
+    m_bindStatusLabel->setVisible(questions.isEmpty());
 }
 
 void AccountsDetailWidget::setDeleteBtnStatus(const QString &key, const bool &status)

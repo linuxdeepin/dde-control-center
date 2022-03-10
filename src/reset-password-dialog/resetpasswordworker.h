@@ -38,9 +38,9 @@ public:
 Q_SIGNALS:
     void getSecurityQuestionsReplied(const QList<int> securityQuestions);
     void verifySecretQuestionsReplied(const QList<int> securityQuestions);
-    void bindCheckUbidReplied(const QString& ubid);
-    void bindCheckReplied(int result);
-    void verficationCodeCountReplied(int count);
+    void requestBindCheckUbidReplied(const QString& ubid);
+    void requestBindCheckReplied(int result);
+    void requestVerficationCodeCountReplied(int count);
     void requestVerficationCodeReplied(int result);
     void requestVerifyVerficationCodeReplied(int result);
 
