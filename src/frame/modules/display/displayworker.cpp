@@ -123,9 +123,14 @@ void DisplayWorker::active()
 
     //redshift 依赖X11，当前isXWindowPlatform返回不准确,所以先用环境变量判断
     auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
-    const bool isRedshiftValid =
-        !sessionType.contains("wayland") && QProcess::execute("which", QStringList() << "redshift") == 0;
-
+    bool isRedshiftValid = false;
+    QDBusInterface displayInter("com.deepin.daemon.Display","/com/deepin/daemon/Display",
+            "com.deepin.daemon.Display", QDBusConnection::sessionBus());
+    QDBusReply<bool> reply = displayInter.call("SupportSetColorTemperature");
+    if (QDBusError::NoError == reply.error().type())
+        isRedshiftValid = reply.value();
+    else
+        qWarning() << "Call SupportSetColorTemperature method failed: " << reply.error().message();
     m_model->setRedshiftIsValid(isRedshiftValid);
     m_model->setMinimumBrightnessScale(m_dccSettings->get(GSETTINGS_MINIMUM_BRIGHTNESS).toDouble());
     m_model->setResolutionRefreshEnable(m_dccSettings->get(GSETTINGS_SHOW_MUTILSCREEN).toBool());
