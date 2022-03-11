@@ -55,6 +55,9 @@ class NetworkPanel : public QObject
 {
     Q_OBJECT
 
+Q_SIGNALS:
+    void updateFinished();
+
 public:
     explicit NetworkPanel(QObject *parent = Q_NULLPTR);
     ~NetworkPanel() override;

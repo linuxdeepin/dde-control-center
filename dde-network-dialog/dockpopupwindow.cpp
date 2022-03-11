@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
  *
  * Author:     sbw <sbw@sbw.so>
@@ -93,9 +93,6 @@ void DockPopupWindow::setContent(QWidget *content)
     if (!content->objectName().trimmed().isEmpty())
         setAccessibleName(content->objectName() + "-popup");
 
-    connect(content, &QObject::objectNameChanged, this, [ this ] {
-        show(m_lastPoint, m_model);
-    });
     DArrowRectangle::setContent(content);
 }
 

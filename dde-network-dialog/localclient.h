@@ -74,6 +74,9 @@ public:
     void receivePassword(QLocalSocket *socket, const QByteArray &data);
     void updateTranslator(QString locale);
 
+private:
+    void showPopupWindow();
+
 private Q_SLOTS:
     void connectedHandler();
     void disConnectedHandler();
@@ -93,6 +96,7 @@ private:
 
     QTranslator *m_translator;
     QString m_locale;
+    bool m_popopNeedShow;
 };
 
 #endif // LOCALCLIENT_H

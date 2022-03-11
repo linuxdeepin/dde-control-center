@@ -49,6 +49,7 @@ LocalClient::LocalClient(QObject *parent)
     , m_popopWindow(nullptr)
     , m_panel(nullptr)
     , m_translator(nullptr)
+    , m_popopNeedShow(false)
 {
     m_clinet = new QLocalSocket(this);
     connect(m_clinet, SIGNAL(connected()), this, SLOT(connectedHandler()));
@@ -150,15 +151,30 @@ void LocalClient::showWidget()
     initWidget();
 }
 
+void LocalClient::showPopupWindow()
+{
+    static bool isShowing = false;
+    QPoint pt = m_popopWindow->property("localpos").toPoint();
+    if (pt.x() >= 0 && pt.y() >= 0 && m_popopNeedShow && !isShowing) {
+        m_popopWindow->show(pt, true);
+        isShowing = true;
+    }
+}
+
 void LocalClient::initWidget()
 {
     if (!m_popopWindow) {
         m_popopWindow = new DockPopupWindow();
+        m_popopWindow->setProperty("localpos", QPoint(-1, -1));
         m_panel = new NetworkPanel(m_popopWindow);
         m_popopWindow->setContent(m_panel->itemApplet());
         QObject::connect(qApp, &QCoreApplication::destroyed, m_popopWindow, &DockPopupWindow::deleteLater);
         QObject::connect(m_popopWindow, &DockPopupWindow::hideSignal, qApp, &QCoreApplication::quit);
         QObject::connect(m_popopWindow, &DockPopupWindow::hideSignal, m_popopWindow, &DockPopupWindow::deleteLater);
+        QObject::connect(m_panel, &NetworkPanel::updateFinished, this, [ this ] {
+            m_popopNeedShow = true;
+            showPopupWindow();
+        });
     }
 }
 
@@ -214,7 +230,8 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
             m_popopWindow->setWindowFlag(Qt::Popup);
         }
         m_popopWindow->setArrowDirection(static_cast<DArrowRectangle::ArrowDirection>(position));
-        m_popopWindow->show(QPoint(x, y), true);
+        m_popopWindow->setProperty("localpos", QPoint(x, y));
+        showPopupWindow();
     }
 }
 

@@ -393,6 +393,11 @@ void NetworkInterProcesser::doChangeConnectionList(const QString &connections)
 
 void NetworkInterProcesser::doChangeActiveConnections(const QString &activeConnections)
 {
+    // 初次进来的时候，活动连接内容为空，此时需要返回。
+    // 如果不判断这个的话，那么在初始化的时候就会向外部发送activeConnectionChange信号，引起网络列表的显示的问题
+    if (activeConnections.isEmpty())
+        return;
+
     PRINT_INFO_MESSAGE("Active Connections Changed");
     activeInfoChanged(activeConnections);
     // 同步IP地址等信息

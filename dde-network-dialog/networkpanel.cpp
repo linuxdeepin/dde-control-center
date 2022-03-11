@@ -442,6 +442,9 @@ void NetworkPanel::updateView()
                 qApp->quit();
         });
     }
+    // 只有当列表中的数量大于0的情况下，才抛出更新完成的信号,通知网络列表显示
+    if (m_model->rowCount() > 0)
+        Q_EMIT updateFinished();
 }
 
 void NetworkPanel::refreshItems()
@@ -493,8 +496,6 @@ void NetworkPanel::refreshItems()
     m_netListView->setFixedSize(PANELWIDTH, totalHeight);
     m_centerWidget->setFixedSize(PANELWIDTH, totalHeight);
     m_applet->setFixedSize(PANELWIDTH, height);
-    if (height > 0)
-        m_applet->setObjectName("NetworkApplet");
 
     m_netListView->update();
 }
