@@ -58,6 +58,7 @@ void UnionIDWidget::initWidget()
     QVBoxLayout *resetPasswordVLayout = new QVBoxLayout(resetPasswordWidget);
     resetPasswordVLayout->setSpacing(0);
     resetPasswordVLayout->setMargin(0);
+    resetPasswordVLayout->addSpacing(10);
 
     QLabel *phoneEmaillabel = new QLabel(tr("Phone/Email") + ":");
     resetPasswordVLayout->addWidget(phoneEmaillabel);
