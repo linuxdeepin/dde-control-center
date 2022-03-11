@@ -5,24 +5,24 @@
         "sketchMap": {
             "value": "Enabled",
             "serial": 0,
-            "flags": "",
+            "flags": [],
             "name": "Control-Center_Display_Multiscreen_sketch_map",
             "name[zh_CN]": "控制中心显示模块示意图设置",
             "description[zh_CN]": "此配置为对控制中心显示模块示意图配置是否显示，默认为启动：当配置为启动时，控制中心显示模块示意图配置在扩展模式可以调整，复制模式下正常显示；当配置为禁用时，控制中心显示模块示意图配置置灰展示；当配置为隐藏时，控制中心显示模块示意图配置隐藏；",
             "description": "",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "desktopDisplay": {
             "value": "Enabled",
             "serial": 0,
-            "flags": "",
+            "flags": [],
             "name": "Control-Center_Desktop_display",
             "name[zh_CN]": "控制中心显示模块桌面显示设置",
             "description[zh_CN]": "此配置为对显示模块桌面显示设置是否显示，默认为启用：当配置为启用时，桌面显示设置显示并可设置；当配置为禁用时，桌面显示设置置灰显示；当配置为隐藏时，桌面显示设置隐藏；",
             "description": "",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         }
     }
   }
