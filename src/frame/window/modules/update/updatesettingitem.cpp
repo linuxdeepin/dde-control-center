@@ -28,9 +28,9 @@ UpdateSettingItem::UpdateSettingItem(QWidget *parent)
     m_UpdateErrorInfoMap.insert(UpdateErrorType::NoError, { UpdateErrorType::NoError, "", "" });
     m_UpdateErrorInfoMap.insert(UpdateErrorType::NoSpace, { UpdateErrorType::NoSpace, tr("Insufficient disk space"), tr("Update failed: insufficient disk space") });
     m_UpdateErrorInfoMap.insert(UpdateErrorType::UnKnown, { UpdateErrorType::UnKnown, tr("Update failed"), "" });
-    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoNetwork, { UpdateErrorType::NoNetwork, tr("Network error"), tr("Network disconnected, please retry after connected") });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoNetwork, { UpdateErrorType::NoNetwork, tr("Network error"), tr("Network error, please check and try again") });
     m_UpdateErrorInfoMap.insert(UpdateErrorType::DpkgInterrupted, { UpdateErrorType::DpkgInterrupted, tr("Packages error"), tr("Packages error, please try again") });
-    m_UpdateErrorInfoMap.insert(UpdateErrorType::DeependenciesBrokenError, { UpdateErrorType::DeependenciesBrokenError, tr("Dependency error"), tr("Dependency error, failed to detect the updates") });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::DeependenciesBrokenError, { UpdateErrorType::DeependenciesBrokenError, tr("Dependency error"), tr("Unmet dependencies") });
 
     initUi();
     initConnect();

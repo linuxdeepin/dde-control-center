@@ -66,7 +66,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_autoCheckAppUpdate = new SwitchWidget(tr("App installed in App Store"), this);
     //~ contents_path /update/Update Settings
     //~ child_page Update Settings
-    m_autoCheckThirdpartyUpdate = new SwitchWidget(tr("Third party warehouse"), this);
+    m_autoCheckThirdpartyUpdate = new SwitchWidget(tr("Third-party Repositories"), this);
     //~ contents_path /update/Update Settings
     //~ child_page Update Settings
     m_updateNotify = new SwitchWidget(tr("Updates Notification"), this);
