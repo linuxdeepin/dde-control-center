@@ -80,12 +80,16 @@ void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
             continue;
         }
 
-        if (dccV20::IsProfessionalSystem && getLastNumForString(currentVersion) != '0' && getLastNumForString(updateItemInfo->availableVersion()) != '0') {
+        if (dccV20::IsProfessionalSystem && getLastNumForString(currentVersion) != '0') {
+            if (getLastNumForString(updateItemInfo->availableVersion()) == '0') {
+                continue;
+            }
             if (lastIndex < 0 ||  subVersion(currentVersion, detailInfoList.at(lastIndex).name) > DBL_MIN) {
                 lastIndex = i;
+                continue;
             }
-            continue;
         }
+
         createDetailInfoItem(detailInfoList, i);
     }
 
