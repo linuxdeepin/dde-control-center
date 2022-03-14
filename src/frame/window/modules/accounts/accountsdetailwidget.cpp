@@ -98,7 +98,6 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
     , m_avatarLayout(new QHBoxLayout)
-    , m_tipDialog(nullptr)
     , m_deleteAccount(new DWarningButton)
     , m_modifyPassword(new QPushButton)
     , m_gsettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
@@ -159,14 +158,14 @@ AccountsDetailWidget::~AccountsDetailWidget()
     GSettingWatcher::instance()->erase("accountUserFullnamebtn", m_fullNameBtn);
 }
 
-bool AccountsDetailWidget::getOtherUserAutoLogin()
+QString AccountsDetailWidget::getOtherUserAutoLogin()
 {
     for (auto user : m_userModel->userList()) {
         if (user->name() != m_curUser->name() && user->autoLogin()) {
-            return false;
+            return user->name();
         }
     }
-    return true;
+    return "";
 }
 
 //删除账户
@@ -503,29 +502,19 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_autoLogin, &SwitchWidget::checkedChanged,
     this, [ = ](const bool autoLogin) {
         if (autoLogin) {
-            if (getOtherUserAutoLogin()) {
+            const QString &existedAutoLoginUserName = getOtherUserAutoLogin();
+            if (existedAutoLoginUserName.isEmpty()) {
                 Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
             } else {
-                m_tipDialog = new DDialog(this);
-                m_tipDialog->setModal(true);
-                m_tipDialog->setAttribute(Qt::WA_DeleteOnClose);
-                m_tipDialog->setMessage(tr("Only one account can have \"Auto Login\" enabled. If proceeding,"\
-                                           " that option of other accounts will be disabled."));
-                m_tipDialog->addButton(tr("Cancel"), false, DDialog::ButtonRecommend);
-                m_tipDialog->addButton(tr("Enable"), true, DDialog::ButtonRecommend);
-                m_tipDialog->show();
-                connect(m_tipDialog, &DDialog::buttonClicked, this, [ = ](int index, const QString &text) {
-                    Q_UNUSED(text);
-                    if (!index) {
-                        m_tipDialog->close();
-                        m_autoLogin->setChecked(false);
-                    } else {
-                        Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
-                    }
-                });
-                connect(m_tipDialog, &DDialog::closed, this, [ = ] {
-                    m_autoLogin->setChecked(false);
-                });
+                DDialog *tipDialog = new DDialog(this);
+                tipDialog->setIcon(QIcon::fromTheme("dialog-warning"));
+                tipDialog->setModal(true);
+                tipDialog->setAttribute(Qt::WA_DeleteOnClose);
+                tipDialog->addButton(tr("OK"));
+                tipDialog->setMessage(tr("\"Auto Login\" can be enabled for only one account, please disable it for the account \"%1\" first").arg(existedAutoLoginUserName));
+                tipDialog->setFixedWidth(422);
+                tipDialog->show();
+                m_autoLogin->setChecked(false);
             }
         } else {
             Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);

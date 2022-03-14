@@ -32,7 +32,6 @@
 #include "widgets/titlelabel.h"
 
 #include <DLineEdit>
-#include <DDialog>
 #include <DWarningButton>
 #include <DToolButton>
 #include <DSpinBox>
@@ -90,7 +89,7 @@ public:
     void initBodyPart(QVBoxLayout *bodyLayout);
     void setAccountModel(dcc::accounts::UserModel *model);
     //获取其它用户是否开启自动登录开关
-    bool getOtherUserAutoLogin();
+    QString getOtherUserAutoLogin();
     void setDeleteBtnStatus(const QString &key, const bool &status);
     void setModifyPwdBtnStatus(const QString &key);
     bool isSystemAdmin(dcc::accounts::User *user);
@@ -146,7 +145,6 @@ private:
     dcc::widgets::SwitchWidget *m_asAdministrator;//作为管理员
     TitleLabel *m_accountSettingsTitle;//账户设置
     QHBoxLayout *m_avatarLayout;
-    DDialog *m_tipDialog;
     DWarningButton *m_deleteAccount;
     QPushButton *m_modifyPassword;
     QGSettings *m_gsettings;
