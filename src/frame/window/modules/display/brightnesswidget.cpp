@@ -152,8 +152,8 @@ void BrightnessWidget::setMode(DisplayModel *model)
         m_autoLightSpacerItem->changeSize(0, model->autoLightAdjustIsValid() ? 10 : 0);
         m_autoLightMode->setVisible(model->autoLightAdjustIsValid());
         m_autoLightMode->setChecked(model->isAudtoLightAdjust());
-        setColorTemperatureVisible(model->redshiftIsValid());
         setAdjustCCTmode(model->adjustCCTMode()); //0不调节色温  1  自动调节   2手动调节
+        setColorTemperatureVisible(model->redshiftIsValid());
     } else {
         setColorTemperatureVisible(false);
     }
