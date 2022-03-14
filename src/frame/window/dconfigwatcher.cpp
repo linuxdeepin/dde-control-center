@@ -47,8 +47,8 @@ DConfigWatcher::DConfigWatcher(QObject *parent)
     //通过模块枚举加载所有的文件，并从文件中获取所有的dconfig对象
     QMetaEnum metaEnum = QMetaEnum::fromType<ModuleType>();
     for (int i = 0; i <  metaEnum.keyCount(); i++) {
-        const QString fileName = QString("org.deepin.dcc.%1").arg(metaEnum.valueToKey(i));
-        DConfig *config = new DConfig(fileName);
+        const QString fileName = QString("org.deepin.dde.control-center.%1").arg(metaEnum.valueToKey(i));
+        DConfig *config = DConfig::create("org.deepin.dde.control-center", fileName);
         if (!config->isValid()) {
             qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(config->name(), config->subpath());
             continue;
