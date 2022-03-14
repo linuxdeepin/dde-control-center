@@ -1,0 +1,6 @@
+#define DCC_NAMESPACE dccV23
+
+#define DCC_USE_NAMESPACE using namespace DCC_NAMESPACE;
+
+#define DCC_BEGIN_NAMESPACE namespace DCC_NAMESPACE {
+#define DCC_END_NAMESPACE }

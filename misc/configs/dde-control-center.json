@@ -1,0 +1,28 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "width": {
+            "value": 800,
+            "serial": 0,
+            "flags": ["global"],
+            "name": "width",
+            "name[zh_CN]": "宽度",
+            "description": "config dde-control-center width",
+            "description[zh_CN]": "控制中心宽度配置",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "height": {
+            "value": 600,
+            "serial": 0,
+            "flags": ["global"],
+            "name": "height",
+            "name[zh_CN]": "高度",
+            "description": "config dde-control-center height",
+            "description[zh_CN]": "控制中心高度配置",
+            "permissions": "readwrite",
+            "visibility": "public"
+        }
+    }
+  }
