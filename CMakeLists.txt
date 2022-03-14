@@ -116,23 +116,25 @@ target_link_libraries(${Dcc_Widgets_Name} PRIVATE
 install(TARGETS ${Dcc_Widgets_Name} DESTINATION lib)
 
 #------------------------dccwidgets library test--------------------------
-set(UT_Dcc_Widgets_Name ut-dcc-widgets)
-file(GLOB_RECURSE UT_Dcc_Widgets_SRCS
-    "tests/widgets/*.cpp"
-)
-add_executable(${UT_Dcc_Widgets_Name}
-    ${Dcc_Widgets_SRCS}
-    ${UT_Dcc_Widgets_SRCS}
-)
-# 用于测试覆盖率的编译条件
-target_compile_options(${UT_Dcc_Widgets_Name} PRIVATE -fprofile-arcs -ftest-coverage)
-target_include_directories(${UT_Dcc_Widgets_Name} PUBLIC
-    ${Dcc_Widgets_Includes}
-)
-target_link_libraries(${UT_Dcc_Widgets_Name} PRIVATE
-    ${Dcc_Widgets_Libraries}
-    ${Test_Libraries}
-)
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(UT_Dcc_Widgets_Name ut-dcc-widgets)
+    file(GLOB_RECURSE UT_Dcc_Widgets_SRCS
+        "tests/widgets/*.cpp"
+    )
+    add_executable(${UT_Dcc_Widgets_Name}
+        ${Dcc_Widgets_SRCS}
+        ${UT_Dcc_Widgets_SRCS}
+    )
+    # 用于测试覆盖率的编译条件
+    target_compile_options(${UT_Dcc_Widgets_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+    target_include_directories(${UT_Dcc_Widgets_Name} PUBLIC
+        ${Dcc_Widgets_Includes}
+    )
+    target_link_libraries(${UT_Dcc_Widgets_Name} PRIVATE
+        ${Dcc_Widgets_Libraries}
+        ${Test_Libraries}
+    )
+endif()
 
 #--------------------------dde-control-center--------------------------
 set(Control_Center_Name dde-control-center)
@@ -204,77 +206,82 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
 
 #-------------------------ut-dcc-interface-------------------------
-set(UT_Interface_Name ut-dcc-interface)
-file(GLOB_RECURSE UT_Interface_SRCS
-    "tests/interface/*.cpp"
-)
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(UT_Interface_Name ut-dcc-interface)
+    file(GLOB_RECURSE UT_Interface_SRCS
+        "tests/interface/*.cpp"
+    )
 
-add_executable(${UT_Interface_Name}
-    ${Interface_SRCS}
-    ${UT_Interface_SRCS}
-)
+    add_executable(${UT_Interface_Name}
+        ${Interface_SRCS}
+        ${UT_Interface_SRCS}
+    )
 
-# 用于测试覆盖率的编译条件
-target_compile_options(${UT_Interface_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+    # 用于测试覆盖率的编译条件
+    target_compile_options(${UT_Interface_Name} PRIVATE -fprofile-arcs -ftest-coverage)
 
-target_include_directories(${UT_Interface_Name} PUBLIC
-    ${Interface_Includes}
-)
+    target_include_directories(${UT_Interface_Name} PUBLIC
+        ${Interface_Includes}
+    )
 
-target_link_libraries(${UT_Interface_Name} PRIVATE
-    ${Interface_Libraries}
-    ${Test_Libraries}
-)
-
+    target_link_libraries(${UT_Interface_Name} PRIVATE
+        ${Interface_Libraries}
+        ${Test_Libraries}
+    )
+endif()
 #-------------------------ut-dcc-frame-------------------------
-set(UT_Frame_Name ut-dcc-frame)
-file(GLOB_RECURSE UT_Frame_SRCS
-    "tests/frame/*.cpp"
-)
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(UT_Frame_Name ut-dcc-frame)
+    file(GLOB_RECURSE UT_Frame_SRCS
+        "tests/frame/*.cpp"
+    )
 
-add_executable(${UT_Frame_Name}
-    ${Control_Center_SRCS}
-    ${UT_Frame_SRCS}
-)
+    add_executable(${UT_Frame_Name}
+        ${Control_Center_SRCS}
+        ${UT_Frame_SRCS}
+    )
 
-# 用于测试覆盖率的编译条件
-target_compile_options(${UT_Frame_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+    # 用于测试覆盖率的编译条件
+    target_compile_options(${UT_Frame_Name} PRIVATE -fprofile-arcs -ftest-coverage)
 
-target_include_directories(${UT_Frame_Name} PUBLIC
-    ${Control_Center_Includes}
-)
+    target_include_directories(${UT_Frame_Name} PUBLIC
+        ${Control_Center_Includes}
+    )
 
-target_link_libraries(${UT_Frame_Name} PRIVATE
-    ${Control_Center_Libraries}
-    ${Test_Libraries}
-)
-
+    target_link_libraries(${UT_Frame_Name} PRIVATE
+        ${Control_Center_Libraries}
+        ${Test_Libraries}
+    )
+endif()
 #--------------------------plugin-test--------------------------
-set(Plugin_Test_Name plugin-test)
-file(GLOB_RECURSE Plugin_Test_SRCS
-    "src/plugin-test/*.h"
-    "src/plugin-test/*.cpp"
-)
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(Plugin_Test_Name plugin-test)
+    file(GLOB_RECURSE Plugin_Test_SRCS
+        "src/plugin-test/*.h"
+        "src/plugin-test/*.cpp"
+    )
 
-add_library(${Plugin_Test_Name} MODULE
-    ${Plugin_Test_SRCS}
-)
+    add_library(${Plugin_Test_Name} MODULE
+        ${Plugin_Test_SRCS}
+    )
 
-set(Plugin_Test_Includes
-    ${DtkWidget_INCLUDE_DIRS}
-    Qt5::Widgets
-    Qt5::DBus
-)
-set(Plugin_Test_Libraries
-    ${Interface_Name}
-    ${DtkWidget_LIBRARIES}
-    Qt5::Widgets
-    Qt5::DBus
-)
-target_include_directories(${Plugin_Test_Name} PUBLIC
-    ${Plugin_Test_Includes}
-)
+    set(Plugin_Test_Includes
+        ${DtkWidget_INCLUDE_DIRS}
+        Qt5::Widgets
+        Qt5::DBus
+    )
+    set(Plugin_Test_Libraries
+        ${Interface_Name}
+        ${DtkWidget_LIBRARIES}
+        Qt5::Widgets
+        Qt5::DBus
+    )
+    target_include_directories(${Plugin_Test_Name} PUBLIC
+        ${Plugin_Test_Includes}
+    )
 
-target_link_libraries(${Plugin_Test_Name} PRIVATE
-    ${Plugin_Test_Libraries}
-)
+    target_link_libraries(${Plugin_Test_Name} PRIVATE
+        ${Plugin_Test_Libraries}
+    )
+endif()
+

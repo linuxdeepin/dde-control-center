@@ -69,7 +69,7 @@ public:
      * @brief 每次获取均需生产新的QWidget
      * @return 当ChildType为Page/PageList时，需返回相应的页面
      */
-    virtual QWidget *page() const { return nullptr; }
+    virtual QWidget *page() { return nullptr; }
 
 
 Q_SIGNALS:

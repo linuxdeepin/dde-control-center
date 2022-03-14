@@ -21,7 +21,7 @@ class LabelModule : public ModuleObject
 public:
     LabelModule(QObject *parent = nullptr) : ModuleObject(parent) {}
     LabelModule(const QString &name, const QString &displayName = {}, QObject *parent = nullptr) : ModuleObject(name, displayName, parent) {}
-    virtual QWidget *page() const override;
+    virtual QWidget *page() override;
 
     void setText(const QString &text);
     inline QString text() const { return m_text; }

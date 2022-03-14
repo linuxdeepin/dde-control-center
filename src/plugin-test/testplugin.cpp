@@ -29,7 +29,7 @@ ModuleObject* Plugin::module()
     return moduleRoot;
 }
 
-QWidget *LabelModule::page() const
+QWidget *LabelModule::page()
 {
     return new QLabel(text());
 }
