@@ -153,6 +153,9 @@ void SecurityQuestionsWidget::initData()
 
 bool SecurityQuestionsWidget::checkAnswers()
 {
+    if (isAnswerEmpty())
+        return false;
+
     QMap<int, QString> answers;
     for (int i = 0; i < m_questions.size(); ++i) {
         if (i == 0) {
@@ -181,4 +184,9 @@ void SecurityQuestionsWidget::onVerifySecretQuestionsReplied(const QList<int> se
          }
     }
     m_bAnswersRight = securityQuestions.isEmpty();
+}
+
+bool SecurityQuestionsWidget::isAnswerEmpty()
+{
+    return isContentEmpty(m_answerEdit1) || isContentEmpty(m_answerEdit2) || isContentEmpty(m_answerEdit3);
 }

@@ -41,6 +41,7 @@ private:
     void initWidget();
     void initData();
     bool checkAnswers();
+    bool isAnswerEmpty();
 
 Q_SIGNALS:
     void answersRight();

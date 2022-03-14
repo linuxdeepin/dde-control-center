@@ -256,18 +256,6 @@ void PasswordWidget::updatePasswordStrengthLevelWidget(PASSWORD_LEVEL_TYPE level
     }
 }
 
-bool PasswordWidget::isContentEmpty(DLineEdit *edit)
-{
-    if (edit->text().isEmpty()) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("It cannot be empty"), edit, 2000);
-    } else {
-        edit->setAlert(false);
-    }
-
-    return edit->text().isEmpty();
-}
-
 void PasswordWidget::setPasswdLevelIconModePath(DGuiApplicationHelper::ColorType themeType)
 {
     switch (themeType) {

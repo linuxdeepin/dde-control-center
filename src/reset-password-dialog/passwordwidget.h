@@ -48,7 +48,6 @@ public:
 private:
     void initWidget(int margin);
     void initData();
-    bool isContentEmpty(DLineEdit *edit);
     void setPasswdLevelIconModePath(DGuiApplicationHelper::ColorType themeType);
     void hideAlert(DLineEdit *edit);
 

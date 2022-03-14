@@ -23,8 +23,13 @@
 #define UTILS_H
 
 #include <QString>
+#include <QObject>
+
 #include <unistd.h>
 #include <random>
+#include <DLineEdit>
+
+DWIDGET_USE_NAMESPACE
 
 #define PASSWORD_LEVEL_ICON_NUM 3
 #define PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH ":/icons/dcc_deepin_password_strength_unactive_light_mode.svg"
@@ -59,4 +64,15 @@ inline QString cryptUserPassword(const QString &password)
     return crypt(password.toUtf8().data(), salt);
 }
 
+inline bool isContentEmpty(DLineEdit *edit)
+{
+    if (edit->text().isEmpty()) {
+        edit->setAlert(true);
+        edit->showAlertMessage(QObject::tr("It cannot be empty"), edit, 2000);
+    } else {
+        edit->setAlert(false);
+    }
+
+    return edit->text().isEmpty();
+}
 #endif // V20_DISPLAY_UTILS_H
