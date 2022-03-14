@@ -35,7 +35,6 @@
 #include "fingerwidget.h"
 
 #include <DLineEdit>
-#include <DDialog>
 #include <DWarningButton>
 #include <DToolButton>
 #include <DSpinBox>
@@ -97,7 +96,7 @@ public:
     void setAccountModel(dcc::accounts::UserModel *model);
     void setFingerModel(dcc::accounts::FingerModel *model);
     //获取其它用户是否开启自动登录开关
-    bool getOtherUserAutoLogin();
+    QString getOtherUserAutoLogin();
     void setDeleteBtnStatus(const QString &key, const bool &status);
     void setModifyPwdBtnStatus(const QString &key);
 
@@ -152,7 +151,6 @@ private:
     dcc::widgets::SwitchWidget *m_autoLogin;
     dcc::widgets::SwitchWidget *m_nopasswdLogin;
     QHBoxLayout *m_avatarLayout;
-    DDialog *m_tipDialog;
     DWarningButton *m_deleteAccount;
     QPushButton *m_modifyPassword;
     QGSettings *m_gsettings;
