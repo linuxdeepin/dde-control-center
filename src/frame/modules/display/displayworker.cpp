@@ -121,9 +121,7 @@ void DisplayWorker::active()
     m_model->setmaxBacklightBrightness(m_displayInter.maxBacklightBrightness());
     m_model->setAutoLightAdjustIsValid(m_powerInter->hasAmbientLightSensor());
 
-    //redshift 依赖X11，当前isXWindowPlatform返回不准确,所以先用环境变量判断
-    auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
-    bool isRedshiftValid = false;
+    bool isRedshiftValid = true;
     QDBusInterface displayInter("com.deepin.daemon.Display","/com/deepin/daemon/Display",
             "com.deepin.daemon.Display", QDBusConnection::sessionBus());
     QDBusReply<bool> reply = displayInter.call("SupportSetColorTemperature");
