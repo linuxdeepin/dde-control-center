@@ -278,3 +278,68 @@ target_include_directories(${Plugin_Test_Name} PUBLIC
 target_link_libraries(${Plugin_Test_Name} PRIVATE
     ${Plugin_Test_Libraries}
 )
+
+#--------------------------plugin-systeminfo--------------------------
+set(SystemInfo_Name dcc-systeminfo-plugin)
+set(SYSTEMINFO_WINDOW_FILES
+    ${COMMON_WINDOW_FILES}
+    src/systeminfo/operation/systeminfomodel.cpp
+    src/systeminfo/operation/systeminfowork.cpp
+    src/systeminfo/window/logoitem.cpp
+    src/systeminfo/window/protocolfile.cpp
+    src/systeminfo/window/systeminfomodule.cpp
+    src/systeminfo/window/nativeinfowidget.cpp
+    src/systeminfo/window/versionprotocolwidget.cpp
+    src/systeminfo/window/userlicensewidget.cpp
+    src/systeminfo/window/privacypolicywidget.cpp
+    src/systeminfo/window/contentwidget.cpp
+)
+
+pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
+
+set(QRC_FILE
+        src/systeminfo/operation/qrc/systeminfo.qrc
+)
+
+file(GLOB_RECURSE SYSTEMINFO_SRCS
+    ${SYSTEMINFO_WINDOW_FILES}
+    ${QRC_FILE}
+)
+
+add_library(${SystemInfo_Name} MODULE
+    ${SYSTEMINFO_SRCS}
+)
+
+set(SystemInfo_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+)
+set(SystemInfo_Libraries
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+)
+
+
+target_include_directories(${SystemInfo_Name} PUBLIC
+    ${CMAKE_SOURCE_DIR}/include
+    ${SystemInfo_Includes}
+    ${DtkWidget_INCLUDE_DIRS}
+    ${DFrameworkDBus_INCLUDE_DIRS}
+    ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
+)
+
+target_link_libraries(${SystemInfo_Name} PRIVATE
+    dcc-widgets
+    ${SystemInfo_Libraries}
+    ${DFrameworkDBus_LIBRARIES}
+    ${DtkWidget_LIBRARIES}
+    ${Qt5Widgets_LIBRARIES}
+    ${Qt5Concurrent_LIBRARIES}
+    ${Qt5DBus_LIBRARIES}
+)
+
+
+add_definitions(-DWINDOW_MODE)
