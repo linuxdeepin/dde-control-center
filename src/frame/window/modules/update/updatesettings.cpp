@@ -254,9 +254,9 @@ QString UpdateSettings::getAutoInstallUpdateType(quint64 type)
     }
     if (type & ClassifyUpdateType::UnknownUpdate) {
         if (text.isEmpty()) {
-            text += tr("Unknown Apps Updates");
+            text += tr("Third-party Repositories");
         } else {
-            text = text + "," + tr("Unknown Apps Updates");
+            text = text + "," + tr("Third-party Repositories");
         }
     }
 
