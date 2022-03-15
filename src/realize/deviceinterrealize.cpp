@@ -25,7 +25,10 @@
 
 #include <QHostAddress>
 
+#include <NetworkManagerQt/WirelessDevice>
+
 using namespace dde::network;
+using namespace NetworkManager;
 
 const QStringList DeviceInterRealize::ipv4()
 {
@@ -436,12 +439,7 @@ bool WirelessDeviceInterRealize::isConnected() const
 
 QList<AccessPoints *> WirelessDeviceInterRealize::accessPointItems() const
 {
-    /* 理论上，如果网卡是禁用状态，这里应该直接返回空列表
-     * 但是由于在禁用网卡或者打开网卡的时候，后台的反应比较慢，控制中心无法实时获取，所以这里暂时让其先返回所有的网络列表，
-     * 等后台反应慢的问题改好后，再把注释打开
-     * if (!isEnabled())
-        return QList<UAccessPoints *>();*/
-    if (m_hotspotInfo.isEmpty())
+    if (needShowAccessPoints())
         return m_accessPoints;
 
     return QList<AccessPoints *>();
@@ -642,6 +640,20 @@ void WirelessDeviceInterRealize::updateActiveInfo()
 QList<WirelessConnection *> WirelessDeviceInterRealize::wirelessItems() const
 {
     return m_connections;
+}
+
+bool WirelessDeviceInterRealize::needShowAccessPoints() const
+{
+    NetworkManager::WirelessDevice::Ptr nmAp = QSharedPointer<NetworkManager::WirelessDevice>(new NetworkManager::WirelessDevice(path()));
+    if (nmAp.isNull())
+        return false;
+
+    // 如果当前设备是打开热点状态，则不显示网络列表
+    if (nmAp->mode() == NetworkManager::WirelessDevice::OperationMode::ApMode)
+        return false;
+
+    // 如果当前设备热点为空(关闭热点)，则让显示所有的网络列表
+    return m_hotspotInfo.isEmpty();
 }
 
 void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &infos)

@@ -139,6 +139,7 @@ private:
     void syncConnectionAccessPoints();
     void updateActiveInfo();
     QList<WirelessConnection *> wirelessItems() const override;                                             // 无线网络连接列表
+    bool needShowAccessPoints() const;                                                                      // 是否需要显示所有的无线网络，一般情况下，在开启热点后，不显示无线网络
 
 protected:
     void updateConnection(const QJsonArray &info) override;

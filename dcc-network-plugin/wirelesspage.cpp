@@ -355,7 +355,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, & WirelessDevice::enableChanged, this, [ this ] (const bool enabled) {
         m_switch->blockSignals(true);
-        m_switch->setChecked(enabled);
+        m_switch->setChecked(m_device->isEnabled());
         m_switch->blockSignals(false);
         if (m_lvAP) {
             onUpdateAPItem();
