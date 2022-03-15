@@ -346,12 +346,13 @@ void MainWindow::showModuleHSplit(ModuleObject *const module, QWidget *const par
     view->setSpacing(1);
     view->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    auto onClicked = [this, module, area] (const QModelIndex &index) {
+    auto onClicked = [this, module, area, view] (const QModelIndex &index) {
         const int row = index.row();
         if (module->childrens().size() <= row) {
             qWarning() << "activated not exist item!";
             return;
         }
+        view->setCurrentIndex(index);
         showModule(module->childrens()[row], area, 0);
     };
 
@@ -363,7 +364,6 @@ void MainWindow::showModuleHSplit(ModuleObject *const module, QWidget *const par
 
     if (index < 0)
         return;
-    view->setCurrentIndex(model->index(index, 0));
     Q_EMIT view->clicked(model->index(index, 0));
 }
 
@@ -394,12 +394,13 @@ void MainWindow::showModuleVSplit(ModuleObject *const module, QWidget *const par
         }
     });
 
-    auto onClicked = [this, module, area] (const QModelIndex &index) {
+    auto onClicked = [this, module, area, view] (const QModelIndex &index) {
         const int row = index.row();
         if (module->childrens().size() <= row) {
             qWarning() << "activated not exist item!";
             return;
         }
+        view->setCurrentIndex(index);
         showModule(module->childrens()[row], area, 0);
     };
 
@@ -410,7 +411,6 @@ void MainWindow::showModuleVSplit(ModuleObject *const module, QWidget *const par
     });
     if (index < 0)
         return;
-    view->setCurrentIndex(model->index(index, 0));
     Q_EMIT view->clicked(model->index(index, 0));
 }
 
