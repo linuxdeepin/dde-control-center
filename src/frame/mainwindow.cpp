@@ -305,10 +305,10 @@ void MainWindow::showModuleBox(ModuleObject *const module, QWidget *const parent
     };
 
     connect(view, &ListView::activated, view, &ListView::clicked);
-    connect(view, &ListView::clicked, this, onClicked, Qt::UniqueConnection);
+    connect(view, &ListView::clicked, view, onClicked);
     connect(module, &ModuleObject::activeChild, this , [onClicked, model] (const int index) {
         onClicked(model->index(index, 0));
-    }, Qt::UniqueConnection);
+    });
     if (index < 0)
         return;
     onClicked(model->index(index, 0));
@@ -356,10 +356,10 @@ void MainWindow::showModuleHSplit(ModuleObject *const module, QWidget *const par
     };
 
     connect(view, &ListView::activated, view, &ListView::clicked);
-    connect(view, &ListView::clicked, this, onClicked, Qt::UniqueConnection);
+    connect(view, &ListView::clicked, view, onClicked);
     connect(module, &ModuleObject::activeChild, view, [onClicked, model] (const int index) {
         onClicked(model->index(index, 0));
-    }, Qt::UniqueConnection);
+    });
 
     if (index < 0)
         return;
@@ -392,7 +392,7 @@ void MainWindow::showModuleVSplit(ModuleObject *const module, QWidget *const par
         if (module->findChild(currentModule()) >= 0) {
             toHome();
         }
-    }, Qt::UniqueConnection);
+    });
 
     auto onClicked = [this, module, area] (const QModelIndex &index) {
         const int row = index.row();
@@ -404,10 +404,10 @@ void MainWindow::showModuleVSplit(ModuleObject *const module, QWidget *const par
     };
 
     connect(view, &TabView::activated, view, &TabView::clicked);
-    connect(view, &TabView::clicked, this, onClicked, Qt::UniqueConnection);
+    connect(view, &TabView::clicked, this, onClicked);
     connect(module, &ModuleObject::activeChild, view, [onClicked, model] (const int index) {
         onClicked(model->index(index, 0));
-    }, Qt::UniqueConnection);
+    });
     if (index < 0)
         return;
     view->setCurrentIndex(model->index(index, 0));
@@ -430,7 +430,7 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
         m_pages << page;
         vlayout->addWidget(page);
 
-        connect(child, &ModuleObject::moduleDataChanged, this, [ = ] {
+        connect(child, &ModuleObject::moduleDataChanged, area, [ = ] {
             vlayout->removeWidget(page);
             const int index = m_pages.indexOf(page);
             m_pages.removeOne(page);
@@ -438,7 +438,7 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
             auto newPage = getPage(child->page(), child->moduleData()->DisplayName);
             m_pages.insert(index, newPage);
             vlayout->insertWidget(index, newPage);
-        }, Qt::UniqueConnection);
+        });
     }
     if (m_pages.count() > 1)
         vlayout->addStretch(0);
@@ -447,13 +447,13 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
 
     connect(module, &ModuleObject::activeChild, area, [this, area] (const int index) {
         area->verticalScrollBar()->setSliderPosition(getScrollPos(index));
-    }, Qt::UniqueConnection);
+    });
 
-    connect(module, &ModuleObject::removedChild, this, [this] (ModuleObject *const module) {
+    connect(module, &ModuleObject::removedChild, area, [this] (ModuleObject *const module) {
         if (module->findChild(currentModule()) >= 0) {
             toHome();
         }
-    }, Qt::UniqueConnection);
+    });
 }
 
 QWidget* MainWindow::getPage(QWidget *const widget, const QString &title)

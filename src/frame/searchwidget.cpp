@@ -316,10 +316,10 @@ void SearchWidget::configConnect(ModuleObject *const module)
 {
     connect(module, &ModuleObject::moduleDataChanged, this, [this, module] {
         replaceUrl(module);
-    }, Qt::UniqueConnection);
+    });
     connect(module, &ModuleObject::childrenSizeChanged, this, [this, module] {
         replaceUrl(module);
-    }, Qt::UniqueConnection);
+    });
     for (auto child : module->childrens()) {
         configConnect(child);
     }
