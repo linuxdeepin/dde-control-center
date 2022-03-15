@@ -185,6 +185,8 @@ void UpdateModule::active()
         m_mirrorsWidget->setVisible(true);
     });
 
+    connect(m_updateWidget, &UpdateWidget::requestLastoreHeartBeat, m_work.get(), &UpdateWorker::onRequestLastoreHeartBeat);
+
 #ifndef DISABLE_ACTIVATOR
     if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
         m_updateWidget->setSystemVersion(m_model->systemVersionInfo());

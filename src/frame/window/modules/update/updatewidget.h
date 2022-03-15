@@ -91,6 +91,7 @@ Q_SIGNALS:
     void topListviewChanged(const QModelIndex &index);
     void pushMirrorsView();
     void showUpdateCtrl();
+    void requestLastoreHeartBeat();
 
 public Q_SLOTS:
     void onNotifyUpdateState(int state);
@@ -111,6 +112,7 @@ private:
     DButtonBox *m_topSwitchWidgetBtn;
     QList<DButtonBoxButton *> m_btnlist;
     QStackedLayout *m_mainLayout;
+    QTimer *m_lastoreHeartBeatTimer;            // lastore-daemon 心跳信号，防止lastore-daemon自动退出
 };
 
 }// namespace datetime

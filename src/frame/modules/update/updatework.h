@@ -124,6 +124,7 @@ public Q_SLOTS:
     void onRequestOpenAppStore();
     void onClassifiedUpdatablePackagesChanged(QMap<QString, QStringList> packages);
     void onFixError(const ClassifyUpdateType &updateType, const QString &errorType);
+    void onRequestLastoreHeartBeat();
 
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);

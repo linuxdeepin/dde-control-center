@@ -1682,5 +1682,18 @@ void UpdateWorker::setUpdateItemDownloadSize(UpdateItemInfo *updateItem,  QStrin
     });
 }
 
+void UpdateWorker::onRequestLastoreHeartBeat()
+{
+    QDBusInterface lastoreManager("com.deepin.lastore",
+                                  "/com/deepin/lastore",
+                                  "com.deepin.lastore.Updater",
+                                  QDBusConnection::systemBus());
+    if (!lastoreManager.isValid()) {
+        qDebug() << "com.deepin.license error ," << lastoreManager.lastError().name();
+        return;
+    }
+    lastoreManager.asyncCall("GetCheckIntervalAndTime");
+}
+
 }
 }

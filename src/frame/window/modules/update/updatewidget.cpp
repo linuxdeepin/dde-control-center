@@ -56,6 +56,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     , m_recentHistoryApplist(new RecentHistoryApplist)
     , m_topSwitchWidgetBtn(new DButtonBox)
     , m_mainLayout(new QStackedLayout)
+    , m_lastoreHeartBeatTimer(new QTimer)
 {
     DButtonBoxButton *btnUpdate = new DButtonBoxButton(QIcon::fromTheme("dcc_update_topupdate"), tr("Check for Updates"));
     btnUpdate->setIconSize(QSize(24, 24));
@@ -108,12 +109,24 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
     m_layout->addWidget(m_recentHistoryApplist);
     setLayout(m_layout);
+
+    m_lastoreHeartBeatTimer->setInterval(60000);
+    m_lastoreHeartBeatTimer->start();
+    connect(m_lastoreHeartBeatTimer, &QTimer::timeout, this, &UpdateWidget::requestLastoreHeartBeat);
 }
 
 UpdateWidget::~UpdateWidget()
 {
     delete  m_centerLayout;
     m_centerLayout = nullptr;
+
+    if (m_lastoreHeartBeatTimer != nullptr) {
+        if (m_lastoreHeartBeatTimer->isActive()) {
+            m_lastoreHeartBeatTimer->stop();
+        }
+        delete m_lastoreHeartBeatTimer;
+        m_lastoreHeartBeatTimer = nullptr;
+    }
 }
 
 void UpdateWidget::initialize()
