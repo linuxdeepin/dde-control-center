@@ -136,6 +136,9 @@ void SecurityQuestionsPage::initWidget()
     addItems(m_questionCombobox3);
 
     connect(cancelButton, &QPushButton::clicked, this, [this] {
+        // 关闭当前界面时需要断开信号连接
+        disconnect(m_curUser, &User::startSecurityQuestionsCheckReplied, this, &SecurityQuestionsPage::onSecurityQuestionsCheckReplied);
+        disconnect(m_curUser, &User::setSecurityQuestionsReplied, this, &SecurityQuestionsPage::onSetSecurityQuestionsReplied);
         Q_EMIT requestBack();
     });
 
@@ -243,6 +246,9 @@ void SecurityQuestionsPage::onSecurityQuestionsCheckReplied(const QList<int> &qu
 void SecurityQuestionsPage::onSetSecurityQuestionsReplied(const QString &errorText)
 {
     if (errorText.isEmpty()) {
+        // 关闭当前界面时需要先断开信号连接
+        disconnect(m_curUser, &User::startSecurityQuestionsCheckReplied, this, &SecurityQuestionsPage::onSecurityQuestionsCheckReplied);
+        disconnect(m_curUser, &User::setSecurityQuestionsReplied, this, &SecurityQuestionsPage::onSetSecurityQuestionsReplied);
         Q_EMIT requestBack();
     } else {
         qWarning() << "SetSecurityQuestionsReplied:" << errorText;
