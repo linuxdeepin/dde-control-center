@@ -754,7 +754,7 @@ void AccountsDetailWidget::setModifyPwdBtnStatus(const QString &key)
         return;
 
     const QString btnStatus = m_gsettings->get(key).toString();
-
+    // 若选择当前登录的账户，则允许修改，选择其他账户，当前登录账户必需是管理员且其他账户未登录时才允许修改密码
     m_modifyPassword->setEnabled("Enabled" == btnStatus && ((!m_curUser->online() && isSystemAdmin(m_curLoginUser)) || m_curUser->isCurrentUser()));
 
     m_modifyPassword->setVisible("Hidden" != btnStatus);
@@ -762,11 +762,11 @@ void AccountsDetailWidget::setModifyPwdBtnStatus(const QString &key)
 
 bool AccountsDetailWidget::isSystemAdmin(User *user)
 {
-    if (user->userType() == User::UserType::Administrator) {
-        return m_curLoginUser->securityLever() == SecurityLever::Sysadm && !m_curUser->isCurrentUser();
-    }
+    // 本地管理员账户不一定是等保三级的管理员账户，要区分判断
+    if (m_userModel->getIsSecurityHighLever())
+        return m_curLoginUser->securityLever() == SecurityLever::Sysadm;
 
-    return false;
+    return m_curLoginUser->userType() == User::UserType::Administrator;
 }
 
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
