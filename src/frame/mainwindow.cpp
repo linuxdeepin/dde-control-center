@@ -357,7 +357,7 @@ void MainWindow::showModuleHSplit(ModuleObject *const module, QWidget *const par
 
     connect(view, &ListView::activated, view, &ListView::clicked);
     connect(view, &ListView::clicked, this, onClicked, Qt::UniqueConnection);
-    connect(module, &ModuleObject::activeChild, this , [onClicked, model] (const int index) {
+    connect(module, &ModuleObject::activeChild, view, [onClicked, model] (const int index) {
         onClicked(model->index(index, 0));
     }, Qt::UniqueConnection);
 
@@ -405,7 +405,7 @@ void MainWindow::showModuleVSplit(ModuleObject *const module, QWidget *const par
 
     connect(view, &TabView::activated, view, &TabView::clicked);
     connect(view, &TabView::clicked, this, onClicked, Qt::UniqueConnection);
-    connect(module, &ModuleObject::activeChild, this , [onClicked, model] (const int index) {
+    connect(module, &ModuleObject::activeChild, view, [onClicked, model] (const int index) {
         onClicked(model->index(index, 0));
     }, Qt::UniqueConnection);
     if (index < 0)
