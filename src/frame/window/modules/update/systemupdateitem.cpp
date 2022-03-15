@@ -72,7 +72,6 @@ void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
 
     int lastIndex = -1;
 
-
     const QString systemVer = dccV20::IsCommunitySystem ? Dtk::Core::DSysInfo::deepinVersion() : Dtk::Core::DSysInfo::minorVersion();
     for (int i = 0; i < detailInfoList.count(); i++) {
         const QString currentVersion = detailInfoList.at(i).name;
@@ -81,19 +80,16 @@ void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
         }
 
         if (dccV20::IsProfessionalSystem && getLastNumForString(currentVersion) != '0') {
-            if (getLastNumForString(updateItemInfo->availableVersion()) == '0') {
-                continue;
-            }
             if (lastIndex < 0 ||  subVersion(currentVersion, detailInfoList.at(lastIndex).name) > DBL_MIN) {
                 lastIndex = i;
-                continue;
             }
+            continue;
         }
 
         createDetailInfoItem(detailInfoList, i);
     }
 
-    if (lastIndex > -1) {
+    if (lastIndex > -1 && getLastNumForString(updateItemInfo->availableVersion()) != '0') {
         vector<double> firstVersionVec = getNumListFromStr(updateItemInfo->availableVersion());
         vector<double> secondVersionVec = getNumListFromStr(detailInfoList.at(lastIndex).name);
         // 当前版本是 1061的话 则不显示1051等类似的小版本
