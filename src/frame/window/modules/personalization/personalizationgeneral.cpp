@@ -399,7 +399,7 @@ void PersonalizationGeneral::updateWMSwitcher(bool checked)
 
 void PersonalizationGeneral::onCompositingAllowSwitchChanged(bool value)
 {
-    if (!m_bSystemIsServer && value) {
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || (!m_bSystemIsServer && value)) {
         m_switchWidget->setVisible(true);
         GSettingWatcher::instance()->bind("perssonalGeneralEffects", m_switchWidget);
     } else {
