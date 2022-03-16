@@ -208,6 +208,7 @@ void MainWindow::loadModules()
         m_pluginManager = new PluginManager;
         m_pluginManager->loadModules();
         m_rootModule = m_pluginManager->rootModule();
+        m_pluginManager->moveToThread(qApp->thread());
     });
     watcher->setFuture(future);
 }
@@ -246,6 +247,9 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, c
         return;
 
     qDebug() << QString("module name:%1, index:%2, children size:%3").arg(module->name()).arg(index).arg(module->childrens().size());
+    module->active();
+    clearPage(parent);
+
     switch (module->childType())
     {
     case ModuleObject::ChildType::Box:
@@ -269,7 +273,6 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, c
 
 void MainWindow::showModuleBox(ModuleObject *const module, QWidget *const parent, const int index)
 {
-    clearPage(parent);
     QVBoxLayout *vlayout = new QVBoxLayout(parent);
     parent->setLayout(vlayout);
 
@@ -309,6 +312,7 @@ void MainWindow::showModuleBox(ModuleObject *const module, QWidget *const parent
     connect(module, &ModuleObject::activeChild, this , [onClicked, model] (const int index) {
         onClicked(model->index(index, 0));
     });
+    connect(view, &ListView::destroyed, module, &ModuleObject::deactive);
     if (index < 0)
         return;
     onClicked(model->index(index, 0));
@@ -316,7 +320,6 @@ void MainWindow::showModuleBox(ModuleObject *const module, QWidget *const parent
 
 void MainWindow::showModuleHSplit(ModuleObject *const module, QWidget *const parent, const int index)
 {
-    clearPage(parent);
     QHBoxLayout *hlayout = new QHBoxLayout(parent);
     parent->setLayout(hlayout);
 
@@ -361,6 +364,7 @@ void MainWindow::showModuleHSplit(ModuleObject *const module, QWidget *const par
     connect(module, &ModuleObject::activeChild, view, [onClicked, model] (const int index) {
         onClicked(model->index(index, 0));
     });
+    connect(view, &ListView::destroyed, module, &ModuleObject::deactive);
 
     if (index < 0)
         return;
@@ -369,7 +373,6 @@ void MainWindow::showModuleHSplit(ModuleObject *const module, QWidget *const par
 
 void MainWindow::showModuleVSplit(ModuleObject *const module, QWidget *const parent, const int index)
 {
-    clearPage(parent);
     QVBoxLayout *vlayout = new QVBoxLayout(parent);
     parent->setLayout(vlayout);
 
@@ -409,6 +412,7 @@ void MainWindow::showModuleVSplit(ModuleObject *const module, QWidget *const par
     connect(module, &ModuleObject::activeChild, view, [onClicked, model] (const int index) {
         onClicked(model->index(index, 0));
     });
+    connect(view, &ListView::destroyed, module, &ModuleObject::deactive);
     if (index < 0)
         return;
     Q_EMIT view->clicked(model->index(index, 0));
@@ -416,7 +420,6 @@ void MainWindow::showModuleVSplit(ModuleObject *const module, QWidget *const par
 
 void MainWindow::showModulePage(ModuleObject *const module, QWidget *const parent, const int index)
 {
-    clearPage(parent);
     QScrollArea *area = qobject_cast<QScrollArea *>(parent);
 
     QWidget *areaWidget = new QWidget(area);
@@ -429,6 +432,7 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
         auto page = getPage(child->page(), child->moduleData()->DisplayName);
         m_pages << page;
         vlayout->addWidget(page);
+        child->active();
 
         connect(child, &ModuleObject::moduleDataChanged, area, [ = ] {
             vlayout->removeWidget(page);
@@ -453,6 +457,13 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
         if (module->findChild(currentModule()) >= 0) {
             toHome();
         }
+    });
+
+    connect(areaWidget, &QWidget::destroyed, module, [module] {
+        for (auto child : module->childrens()) {
+            child->deactive();
+        }
+        module->deactive();
     });
 }
 
