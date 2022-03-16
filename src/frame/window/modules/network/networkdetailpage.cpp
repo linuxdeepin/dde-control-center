@@ -199,7 +199,8 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         // band
         if (isHotspot) {
             const QString band = hotspotInfo.value("Band").toString();
-            appendInfo(grp, tr("Band"), band);
+            QString bandInfo = band == "a" ? "5G" : (band == "bg" ? "2.4G" : "automatic");
+            appendInfo(grp, tr("Band"), bandInfo);
         } else {
             // ipv4 info
             const auto ipv4 = info.value("Ip4").toObject();
