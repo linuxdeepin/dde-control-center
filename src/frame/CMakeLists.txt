@@ -740,6 +740,10 @@ target_link_libraries(${BIN_NAME} PRIVATE
 install(TARGETS ${BIN_NAME} DESTINATION bin)
 install(TARGETS dccwidgets LIBRARY DESTINATION lib)
 
+#dconfig
+dconfig_meta_files(APPID org.deepin.dde.control-center FILES ../../configs/org.deepin.dde.control-center.display.json)
+dconfig_meta_files(APPID org.deepin.dde.control-center FILES ../../configs/org.deepin.dde.control-center.update.json)
+
 find_package(Qt5 COMPONENTS
 Test
 REQUIRED)
