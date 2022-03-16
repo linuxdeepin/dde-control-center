@@ -156,6 +156,9 @@ bool SecurityQuestionsWidget::checkAnswers()
     if (isAnswerEmpty())
         return false;
 
+    if (!isAllAnswersSizeRight())
+        return false;
+
     QMap<int, QString> answers;
     for (int i = 0; i < m_questions.size(); ++i) {
         if (i == 0) {
@@ -189,4 +192,23 @@ void SecurityQuestionsWidget::onVerifySecretQuestionsReplied(const QList<int> se
 bool SecurityQuestionsWidget::isAnswerEmpty()
 {
     return isContentEmpty(m_answerEdit1) || isContentEmpty(m_answerEdit2) || isContentEmpty(m_answerEdit3);
+}
+
+bool SecurityQuestionsWidget::isAnswerSizeRight(DLineEdit *edit)
+{
+    if (edit->text().size() > SECURITY_ANSWERS_CHARACTERS_MAX_SIZE) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Keep the answer under 30 characters"), edit, 2000);
+    } else {
+        edit->setAlert(false);
+    }
+
+    return edit->text().size() <= SECURITY_ANSWERS_CHARACTERS_MAX_SIZE;
+}
+
+bool SecurityQuestionsWidget::isAllAnswersSizeRight()
+{
+    return isAnswerSizeRight(m_answerEdit1) &&
+           isAnswerSizeRight(m_answerEdit2) &&
+           isAnswerSizeRight(m_answerEdit3);
 }

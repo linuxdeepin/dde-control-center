@@ -26,6 +26,8 @@
 
 #include "passwordwidget.h"
 
+#define SECURITY_ANSWERS_CHARACTERS_MAX_SIZE 30
+
 class SecurityQuestionsWidget : public QWidget
 {
     Q_OBJECT
@@ -42,6 +44,8 @@ private:
     void initData();
     bool checkAnswers();
     bool isAnswerEmpty();
+    bool isAnswerSizeRight(DLineEdit *edit);
+    bool isAllAnswersSizeRight();
 
 Q_SIGNALS:
     void answersRight();
