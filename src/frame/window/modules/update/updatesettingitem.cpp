@@ -324,7 +324,7 @@ void UpdateSettingItem::onRetryUpdate()
 {
     m_controlWidget->setProgressType(UpdateDProgressType::InvalidType);
     setProgressVlaue(0);
-    m_controlWidget->setButtonStatus(ButtonStatus::start);
+    m_controlWidget->setButtonStatus(ButtonStatus::invalid);
 
     if (m_updateJobErrorMessage == UpdateErrorType::DpkgInterrupted) {
         Q_EMIT requestFixError(m_classifyUpdateType, "dpkgInterrupted");
