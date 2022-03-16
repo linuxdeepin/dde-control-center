@@ -232,7 +232,11 @@ void AccountsWorker::setSecurityQuestions(User *user, const QMap<int, QByteArray
     AccountsUser *userInter = m_userInters.value(user);
     auto reply = userInter->SetSecretQuestions(securityQuestions);
     reply.waitForFinished();
-    Q_EMIT user->setSecurityQuestionsReplied(reply.error().message());
+    if (reply.isError() && reply.error().message().isEmpty()) {
+        Q_EMIT user->setSecurityQuestionsReplied(reply.error().message() + "error");
+    } else {
+        Q_EMIT user->setSecurityQuestionsReplied(reply.error().message());
+    }
 }
 
 bool AccountsWorker::hasOpenSecurity()
