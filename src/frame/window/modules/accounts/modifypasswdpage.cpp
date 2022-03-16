@@ -429,7 +429,8 @@ void ModifyPasswdPage::onForgetPasswordBtnClicked()
     }
 
     Q_EMIT requestSecurityQuestionsCheck(m_curUser);
-    Q_EMIT requestLocalBindCheck(m_curUser, uosid, uuid);
+    if (!m_isSecurityQuestionsExist)
+        Q_EMIT requestLocalBindCheck(m_curUser, uosid, uuid);
 }
 
 void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)
@@ -445,12 +446,14 @@ void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)
 void ModifyPasswdPage::onSecurityQuestionsCheckReplied(const QList<int> &questions)
 {
     m_isSecurityQuestionsExist = !questions.isEmpty();
+    if (m_isSecurityQuestionsExist)
+        Q_EMIT requestStartResetPasswordExec(m_curUser);
     qDebug() << "IsSecurityQuestionsExist:" << m_isSecurityQuestionsExist;
 }
 
 void ModifyPasswdPage::onLocalBindCheckUbid(const QString &ubid)
 {
-    if (m_isSecurityQuestionsExist || !ubid.isEmpty()) {
+    if (!ubid.isEmpty()) {
         m_isBindCheckError = false;
         Q_EMIT requestStartResetPasswordExec(m_curUser);
     } else if (!m_isBindCheckError) {
@@ -462,6 +465,7 @@ void ModifyPasswdPage::onLocalBindCheckUbid(const QString &ubid)
 void ModifyPasswdPage::onLocalBindCheckError(const QString &error)
 {
     m_isBindCheckError = true;
+    m_forgetPasswordBtn->setEnabled(true);
     QString tips;
     if (error.contains("7500")) {
         tips = tr("System error");
