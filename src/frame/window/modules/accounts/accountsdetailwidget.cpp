@@ -764,9 +764,9 @@ bool AccountsDetailWidget::isSystemAdmin(User *user)
 {
     // 本地管理员账户不一定是等保三级的管理员账户，要区分判断
     if (m_userModel->getIsSecurityHighLever())
-        return m_curLoginUser->securityLever() == SecurityLever::Sysadm;
+        return user->securityLever() == SecurityLever::Sysadm;
 
-    return m_curLoginUser->userType() == User::UserType::Administrator;
+    return user->userType() == User::UserType::Administrator;
 }
 
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
