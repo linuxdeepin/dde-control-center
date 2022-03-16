@@ -18,7 +18,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#ifndef DISABLE_AUTHENTICATION
 #include "modules/authentication/loginoptionsmodule.h"
+#endif
 #include "modules/accounts/accountsmodule.h"
 #include "modules/bluetooth/bluetoothmodule.h"
 #include "modules/commoninfo/commoninfomodule.h"
@@ -308,7 +310,9 @@ void MainWindow::initAllModule(const QString &m)
         return;
 
     m_bInit = true;
+#ifndef DISABLE_AUTHENTICATION
     using namespace authentication;
+#endif
     using namespace sync;
     using namespace unionid;
     using namespace datetime;
@@ -333,7 +337,9 @@ void MainWindow::initAllModule(const QString &m)
         idType = "Deepin ID";
 
     m_modules = {
+    #ifndef DISABLE_AUTHENTICATION
         { new LoginOptionsModule (this), tr("Biometric Authentication")},
+    #endif
         { new AccountsModule(this), tr("Accounts")},
         // 原union ID 暂时隐藏
         // { new UnionidModule(this), "Union ID"},

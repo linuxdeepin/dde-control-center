@@ -33,6 +33,8 @@ if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
 endif ()
 
+option(DISABLE_AUTHENTICATION "disable authentication module" OFF)
+
 set(DEFINED_LIST
 DISABLE_OPACITY_ANIMATION
 DISABLE_CLOUD_SYNC
@@ -551,6 +553,10 @@ set(SRCS
         ${NOTIFICATION_FILES}
 )
 
+if (DEFINED DISABLE_AUTHENTICATION)
+    list(REMOVE_ITEM SRCS ${AUTHENTICATION_FILES})
+endif()
+
 set(QRC
         notify/images.qrc
         frame.qrc
@@ -575,6 +581,10 @@ set(QRC
         window/modules/datetime/datetime.qrc
         window/modules/update/dccv20update.qrc
 )
+
+if (DEFINED DISABLE_AUTHENTICATION)
+    list(REMOVE_ITEM QRC modules/authentication/authentication.qrc)
+endif()
 
 # Find the library
 find_package(PkgConfig REQUIRED)
@@ -616,7 +626,10 @@ file(GLOB DCONFIG_FILES "../../configs/dde.control-center*.json")
 dconfig_meta_files(APPID dde-control-center BASE ../../configs FILES ${DCONFIG_FILES})
 
 set(DEEPIN_PW_CHECK libdeepin_pw_check.so)
-set(SHMN_VIDEO libdareader.so)
+
+if (NOT DEFINED DISABLE_AUTHENTICATION)
+    set(SHMN_VIDEO libdareader.so)
+endif()
 
 function(add_build_macro macro)
     string(TOUPPER ${macro} macro)
