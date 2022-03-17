@@ -403,7 +403,7 @@ void ConnectionEditPage::createConnSettings()
         } else {
             connName = tr("Wireless Connection %1");
         }
-        m_connectionSettings->setting(Setting::Security8021x).staticCast<Security8021xSetting>()->setPasswordFlags(Setting::AgentOwned);
+        m_connectionSettings->setting(Setting::Security8021x).staticCast<Security8021xSetting>()->setPasswordFlags(Setting::None);
         break;
     }
     case ConnectionSettings::ConnectionType::Pppoe: {
