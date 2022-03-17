@@ -64,11 +64,6 @@
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>密碼規則配置檔案讀取錯誤</translation>
     </message>
-    <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="263"/>
-        <source>It cannot be empty</source>
-        <translation>內容不能為空</translation>
-    </message>
 </context>
 <context>
     <name>PwqualityManager</name>
@@ -133,6 +128,14 @@
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="97"/>
         <source>It does not meet password rules</source>
         <translation>密碼不符合安全要求</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../src/reset-password-dialog/utils.h" line="71"/>
+        <source>It cannot be empty</source>
+        <translation>內容不能為空</translation>
     </message>
 </context>
 <context>
@@ -236,96 +239,101 @@
         <translation>您的綽號是什麼？</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="180"/>
+        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="186"/>
         <source>Wrong answer</source>
         <translation>答案錯誤</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="201"/>
+        <source>Keep the answer under 30 characters</source>
+        <translation>答案請保持在30個字元以內</translation>
     </message>
 </context>
 <context>
     <name>UnionIDWidget</name>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="62"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="63"/>
         <source>Phone/Email</source>
         <translation>請輸入手機號碼/信箱</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="68"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="135"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="288"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="69"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="136"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="289"/>
         <source>Get Code</source>
         <translation>獲取驗證碼</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="88"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="89"/>
         <source>Connecting to the Internet...</source>
         <translation>網路連接中...</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="100"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="101"/>
         <source>The user account is not linked to Union ID</source>
         <translation>當前帳戶未綁定Union ID</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="113"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="114"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>網路斷開，請聯網後重試</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="133"/>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="134"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="135"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="169"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="184"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="170"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="185"/>
         <source>Phone/Email format is incorrect</source>
         <translation>手機號碼/信箱格式錯誤</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="238"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="239"/>
         <source>System error</source>
         <translation>系統錯誤</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="240"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="241"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>登入過期，請重新登入Union ID</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="242"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="243"/>
         <source>Network error</source>
         <translation>網路錯誤</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="244"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="245"/>
         <source>You have reached the number limit to get the code today</source>
         <translation>今日獲取驗證碼次數已達上限</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="245"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="246"/>
         <source>The Union ID is not linked to a user account</source>
         <translation>此Union ID未綁定本機帳戶</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="254"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="255"/>
         <source>It cannot be empty</source>
         <translation>內容不能為空</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="291"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="335"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="292"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="336"/>
         <source>Resend (%1s)</source>
         <translation>重新獲取 (%1s)</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="323"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="354"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="324"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="355"/>
         <source>Failed to get the code</source>
         <translation>獲取驗證碼失敗</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="377"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="378"/>
         <source>Wrong verification code</source>
         <translation>驗證碼錯誤</translation>
     </message>

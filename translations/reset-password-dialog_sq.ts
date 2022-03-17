@@ -64,11 +64,6 @@
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>Ndodhi një gabim teksa lexoheshin kartelat e formësimit të rregullave të fjalëkalimit!</translation>
     </message>
-    <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="263"/>
-        <source>It cannot be empty</source>
-        <translation>S’mund të jetë e zbrazët</translation>
-    </message>
 </context>
 <context>
     <name>PwqualityManager</name>
@@ -133,6 +128,14 @@
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="97"/>
         <source>It does not meet password rules</source>
         <translation>S’plotëson rregullat për fjalëkalime</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../src/reset-password-dialog/utils.h" line="71"/>
+        <source>It cannot be empty</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -236,96 +239,101 @@
         <translation>Cila është nofka juaj?</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="180"/>
+        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="186"/>
         <source>Wrong answer</source>
         <translation>Përgjigje e gabuar</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="201"/>
+        <source>Keep the answer under 30 characters</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>UnionIDWidget</name>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="62"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="63"/>
         <source>Phone/Email</source>
         <translation>Telefoni/Email</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="68"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="135"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="288"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="69"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="136"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="289"/>
         <source>Get Code</source>
         <translation>Merrni Kod</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="88"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="89"/>
         <source>Connecting to the Internet...</source>
         <translation>Po lidhet në Internet…</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="100"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="101"/>
         <source>The user account is not linked to Union ID</source>
         <translation>Llogaria e përdoruesit s’është e lidhur me Union ID</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="113"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="114"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Rrjeti u shkëput, ju lutemi, riprovoni pasi të jetë lidhur</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="133"/>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="134"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="135"/>
         <source>Required</source>
         <translation>E domosdoshme</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="169"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="184"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="170"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="185"/>
         <source>Phone/Email format is incorrect</source>
         <translation>Formati për Telefon/Email është i pasaktë</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="238"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="239"/>
         <source>System error</source>
         <translation>Gabim sistemi</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="240"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="241"/>
         <source>Login expired, please sign in to the Union ID again</source>
         <translation>Hyrja skadoi, ju lutemi, rihyni te Union ID</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="242"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="243"/>
         <source>Network error</source>
         <translation>Gabim rrjeti</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="244"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="245"/>
         <source>You have reached the number limit to get the code today</source>
         <translation>Keni mbërritur në kufirin e numrit për marrje kodesh për sot</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="245"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="246"/>
         <source>The Union ID is not linked to a user account</source>
         <translation>Llogaria e përdoruesit s’është e lidhur me Union ID</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="254"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="255"/>
         <source>It cannot be empty</source>
         <translation>S’mund të jetë e zbrazët</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="291"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="335"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="292"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="336"/>
         <source>Resend (%1s)</source>
         <translation>Ridërgoje (%1s)</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="323"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="354"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="324"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="355"/>
         <source>Failed to get the code</source>
         <translation>S’u arrit të merrej kod</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="377"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="378"/>
         <source>Wrong verification code</source>
         <translation>Kod i gabuar verifikimi</translation>
     </message>

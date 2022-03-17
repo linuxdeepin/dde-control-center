@@ -104,97 +104,92 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="106"/>
         <source>Go to Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ir para Definições</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="216"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="312"/>
         <source>Full Name</source>
         <translation>Nome completo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="274"/>
         <source>The full name is too long</source>
         <translation>O nome completo é muito comprido</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="380"/>
         <source>Validity Days</source>
         <translation>Dias de validade</translation>
         <extra-contents_path>/accounts/Validity Days</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="396"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="395"/>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>Perguntas de Segurança</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="444"/>
         <source>Account Settings</source>
         <translation>Definições de conta</translation>
         <extra-contents_path>/accounts/Account Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="460"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="459"/>
         <source>Change Password</source>
         <translation>Alterar palavra-passe</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="460"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="459"/>
         <source>Reset Password</source>
         <translation>Repor palavra-passe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="462"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="461"/>
         <source>Delete Account</source>
         <translation>Eliminar conta</translation>
         <extra-contents_path>/accounts/Delete Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="463"/>
         <source>Auto Login</source>
         <translation>Início de sessão automático</translation>
         <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="466"/>
         <source>Login Without Password</source>
         <translation>Iniciar sessão sem palavra-passe</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="470"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="469"/>
         <source>Administrator</source>
         <translation>Administrador</translation>
         <extra-contents_path>/accounts/Administrator</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="512"/>
-        <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
-        <translation>Apenas uma conta pode ter o &quot;Início de sessão automático&quot; ativado. Se continuar, essa opção de outras contas será desativada.</translation>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="513"/>
+        <source>OK</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="514"/>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="515"/>
-        <source>Enable</source>
-        <translation>Ativar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="658"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="647"/>
         <source>Group</source>
         <translation>Grupo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="706"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="714"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="723"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="695"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="703"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="712"/>
         <source>The full name has been used by other user accounts</source>
         <translation>O nome completo tem sido utilizado por outras contas de utilizador</translation>
     </message>
@@ -284,17 +279,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="179"/>
         <source>System Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrador de Sistema</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="182"/>
         <source>Security Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrador de Segurança</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="186"/>
         <source>Audit Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrador de Auditoria</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="201"/>
@@ -440,7 +435,7 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="548"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="557"/>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Nome completo já em uso em outra conta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="607"/>
@@ -463,7 +458,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Repor a palavra-passe limpará os dados armazenados no keyring.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="87"/>
@@ -558,12 +553,12 @@
         <translation>Ir para Definições</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="471"/>
         <source>System error</source>
         <translation>Erro do sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="469"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="473"/>
         <source>Network error</source>
         <translation>Erro de rede</translation>
     </message>
@@ -573,92 +568,92 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="70"/>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>Perguntas de Segurança</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="81"/>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Estas perguntas vão ajuda-lo a recuperar a sua palavra-passe caso a esqueça.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="100"/>
         <source>Security question 1</source>
-        <translation type="unfinished"/>
+        <translation>Pergunta de Segurança 1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="108"/>
         <source>Security question 2</source>
-        <translation type="unfinished"/>
+        <translation>Pergunta de Segurança 2</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="116"/>
         <source>Security question 3</source>
-        <translation type="unfinished"/>
+        <translation>Pergunta de Segurança 3</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="124"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="125"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="160"/>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="161"/>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="162"/>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="332"/>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>A resposta deve ter menos de 30 caracteres.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="178"/>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="345"/>
         <source>Do not choose a duplicate question please</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="254"/>
-        <source>Please select a question</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="255"/>
-        <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="256"/>
-        <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="257"/>
-        <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="258"/>
-        <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="259"/>
-        <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>Por favor não escolha uma pergunta em duplicado</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="260"/>
-        <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <source>Please select a question</source>
+        <translation>Por favor escolha uma pergunta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="273"/>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="261"/>
+        <source>What&apos;s the name of the city where you were born?</source>
+        <translation>Qual o nome da cidade onde nasceu?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="262"/>
+        <source>What&apos;s the name of the first school you attended?</source>
+        <translation>Qual o nome da primeira escola que frequentou?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="263"/>
+        <source>Who do you love the most in this world?</source>
+        <translation>O que ama mais neste mundo?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="264"/>
+        <source>What&apos;s your favorite animal?</source>
+        <translation>Qual o seu animal favorito?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="265"/>
+        <source>What&apos;s your favorite song?</source>
+        <translation>Qual a sua música favorita?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="266"/>
+        <source>What&apos;s your nickname?</source>
+        <translation>Qual a sua alcunha?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="291"/>
         <source>It cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Não pode estar em branco</translation>
     </message>
 </context>
 <context>
@@ -672,7 +667,7 @@
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="188"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation type="unfinished"/>
+        <translation>Certifique-se de que todas as partes do seu rosto não estejam cobertas por objetos e sejam claramente visíveis. Seu rosto também deve estar bem iluminado.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="108"/>
@@ -693,7 +688,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="203"/>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Use seu rosto para desbloquear o dispositivo e realizar configurações mais tarde</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
@@ -812,7 +807,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/faceinfodialog.cpp" line="74"/>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>Posicione a sua face na moldura</translation>
     </message>
 </context>
 <context>
@@ -831,7 +826,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="39"/>
         <source>You can add up to 5 faces</source>
-        <translation type="unfinished"/>
+        <translation>Pode adicionar até 5 faces</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="77"/>
@@ -941,12 +936,12 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="39"/>
         <source>Manage Irises</source>
-        <translation type="unfinished"/>
+        <translation>Gerir Íris</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="40"/>
         <source>You can add up to 5 irises</source>
-        <translation type="unfinished"/>
+        <translation>Pode adicionar até 5 íris</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="78"/>
@@ -1184,7 +1179,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="169"/>
         <source>GRUB password is required to edit its configuration</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe GRUB é necessária para editar esta configuração</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="176"/>
@@ -4239,7 +4234,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="444"/>
         <source>Login expired, please sign in to the Union ID again</source>
-        <translation type="unfinished"/>
+        <translation>A sua sessão expirou, por favor inicie sessão com Union ID novamente</translation>
     </message>
 </context>
 <context>
@@ -4791,67 +4786,67 @@
         <translation>Atualizações</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="246"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="267"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="286"/>
         <source>Check for Updates</source>
         <translation>Procurar por atualizações</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="247"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="270"/>
         <source>Update Settings</source>
         <translation>Definições de atualização</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="287"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="309"/>
-        <source>Auto Check for Updates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="288"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="311"/>
-        <source>Auto Download Updates</source>
-        <translation>Transferir atualizações automaticamente</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="289"/>
-        <source>Auto Install Updates</source>
-        <translation>Instalar atualizações automaticamente</translation>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="311"/>
+        <source>Auto Check for Updates</source>
+        <translation>Verificar por Atualizações Automaticamente</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="290"/>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="313"/>
+        <source>Auto Download Updates</source>
+        <translation>Transferir atualizações automaticamente</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="291"/>
+        <source>Auto Install Updates</source>
+        <translation>Instalar atualizações automaticamente</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="315"/>
         <source>Updates Notification</source>
         <translation>Notificação de atualizações</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="291"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="317"/>
         <source>Clear Package Cache</source>
         <translation>Limpar cache do pacote</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="294"/>
         <source>Updates from Repositories</source>
         <translation>Atualizações dos Repositórios</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="319"/>
         <source>App installed in App Store</source>
         <translation>Aplicação instalada na Loja de Aplicações</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="321"/>
         <source>System</source>
         <translation>Sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="295"/>
-        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="323"/>
         <source>Security Updates Only</source>
         <translation>Apenas atualizações de segurança</translation>
     </message>
@@ -4866,7 +4861,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
-        <translation type="unfinished"/>
+        <translation>Ative para apenas receber atualizações de vulnerabilidades de segurança e problemas de compatibilidade</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="60"/>
@@ -4892,8 +4887,10 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="259"/>
         <source>Third-party Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Repositórios de Terceiros</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -4933,14 +4930,14 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="136"/>
         <source>Other settings</source>
-        <translation type="unfinished"/>
+        <translation>Outras Definições</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="144"/>
         <source>Auto Check for Updates</source>
-        <translation type="unfinished"/>
+        <translation>Verificar Automaticamente por Atualizações</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -4990,52 +4987,46 @@
         <translation>Atualizações de segurança</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="257"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="259"/>
-        <source>Unknown Apps Updates</source>
-        <translation>Atualizações de aplicações desconhecidas</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="264"/>
         <source>Install updates automatically when the download is complete</source>
-        <translation type="unfinished"/>
+        <translation>Instalar atualizações automaticamente ao completar download</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="266"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
-        <translation type="unfinished"/>
+        <translation>Instalar &quot;%1&quot; automaticamente ao completar download</translation>
     </message>
 </context>
 <context>
     <name>dccV20::update::UpdateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="61"/>
         <source>Check for Updates</source>
         <translation>Procurar por atualizações</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="64"/>
         <source>Update Settings</source>
         <translation>Definições de atualização</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="76"/>
         <source>Last Update</source>
         <translation>Última atualização</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="139"/>
         <source>Return</source>
         <translation>Voltar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="175"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="194"/>
         <source>Current Edition</source>
         <translation>Edição atual</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="202"/>
         <source>Update History</source>
         <translation>Histórico de atualizações</translation>
     </message>
@@ -5134,17 +5125,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="82"/>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Não mais de %1 caracteres palíndroma por favor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="83"/>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Não mais de %1 caracteres mono tónicos por favor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="84"/>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Não mais de %1 caracteres repetidos por favor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="90"/>
@@ -5215,12 +5206,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="29"/>
         <source>The user account is not linked to Union ID</source>
-        <translation type="unfinished"/>
+        <translation>A conta de utilizador não está ligada ao Union ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="30"/>
         <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Para alterar palavras-passe primeiro precisa autenticar o seu Union ID. Clique em &quot;Ir para o endereço&quot; para finalizar as alterações.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="35"/>
@@ -5236,32 +5227,32 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="675"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="678"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>O seu host foi removido do servidor de domínio com sucesso</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="676"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="679"/>
         <source>Your host joins the domain server successfully</source>
         <translation>O seu host juntou-se ao servidor de domínio com sucesso</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="704"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="707"/>
         <source>Your host failed to leave the domain server</source>
         <translation>O seu host não deixou o servidor de domínio devido a uma falha</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="705"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="708"/>
         <source>Your host failed to join the domain server</source>
         <translation>O seu host não se juntou ao servidor de domínio devido a uma falha</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="708"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="711"/>
         <source>AD domain settings</source>
         <translation>Definições de domínio AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="777"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="780"/>
         <source>Password not match</source>
         <translation>A palavra-passe não coincide</translation>
     </message>
@@ -5299,7 +5290,7 @@
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="176"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="188"/>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>Posicione a sua face na moldura</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="109"/>
@@ -5311,7 +5302,7 @@
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="114"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="172"/>
         <source>Position a human face please</source>
-        <translation type="unfinished"/>
+        <translation>Use uma face humana por favor</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="122"/>
@@ -5328,17 +5319,17 @@
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="134"/>
         <source>Do not position multiple faces inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>Não posicione várias faces dentro da moldura</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="138"/>
         <source>Make sure the camera lens is clean</source>
-        <translation type="unfinished"/>
+        <translation>Certifique-se que a lente da câmara está limpa</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="142"/>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation type="unfinished"/>
+        <translation>Não usar em ambientes de iluminação reduzida ou excessiva</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="146"/>
@@ -5355,7 +5346,7 @@
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="153"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="195"/>
         <source>Device crashed, please scan again!</source>
-        <translation type="unfinished"/>
+        <translation>O dispositivo bloqueou, repita a captura por favor!</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="192"/>
@@ -5384,7 +5375,18 @@ In order to better use of face recognition, please pay attention to the followin
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation type="unfinished"/>
+        <translation>Antes de usar o reconhecimento facial, tenha em consideração que: 
+1. O seu dispositivo poderá ser desbloqueado por pessoas ou objetos com aparência similar à sua.
+2. O reconhecimento facial é menos seguro que palavras-passe digitais e palavras-passe mistas.
+3. O reconhecimento facial com o seu dispositivo será menos funcional em luz reduzida, excesso de luz, iluminação por trás de si, cenários de ângulo largo e outras situações diversas.
+4. Por favor não confie o seu dispositivo a terceiros, evitando assim o uso malicioso da função de reconhecimento facial.
+5. Em adição das situações acima referidas, tenha em consideração outras potenciais situações que limitem a funcionalidade de reconhecimento facial.
+
+Para um melhor uso da função de reconhecimento facial, tenha em consideração os seguintes pontos aquando do registo da sua face:
+1. Escolha um ambiente bem iluminado sem luz solar direta e sem outras pessoas  no ecrã de gravação. 
+2. Tenha especial atenção a elementos condicionantes ao reconhecimento quando introduzir os seus dados faciais, tais como chapéus, cabelo, óculos de sol, máscara facial, maquilhagem excessiva e outros elementos que possam ocultar caraterísticas faciais. 
+3. Por favor evite inclinar ou baixar a cabeça, fechar os olhos ou mostrar apenas um lado da face, e certifique-se que a face surge de frente completamente e nitidamente na caixa de gravação.
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="57"/>
@@ -5392,7 +5394,10 @@ In order to better use of face recognition, please pay attention to the followin
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
-        <translation type="unfinished"/>
+        <translation>A &quot;Autenticação Biométrica&quot; é uma função de autenticação de identidade fornecida pela UnionTech Software Technology Co., Ltd. Recorrendo a &quot;autenticação biométrica&quot;, os dados biométricos recebidos serão comparados com os guardados no dispositivo, sendo depois a identidade do utilizador validada com base nos resultados da sua comparação.
+Em caso algum a UnionTech Software irá aceder ou guardar em sua posse a sua informação biométrica que se encontra guardada no seu dispositivo local. Por favor utilize a autenticação biométrica exclusivamente num dispositivo da sua propriedade, e ativamente remova ou desative a autenticação biométrica de terceiros nesse mesmo dispositivo sendo quaisquer danos causado pelos mesmos terceiros da sua exclusiva responsabilidade. 
+A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, eficiência e estabilidade da autenticação biométrica. No entanto, por condições meteorológicas, equipamento, fatores técnicos e controlo de risco, não é garantido que consiga, dado estas mesmas condicionantes, aceder sempre via autenticação biométrica. Assim sendo, não considere a autenticação biométrica como a única forma de início de sessão no Sistema Operativo UnionTech. Se tiver quaisquer questões ou sugestões sobre a utilização da autenticação biométrica, por favor dê-nos feedback através do &quot;Serviço e Suporte&quot; no Sistema Operativo UnionTech.
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="83"/>
@@ -6020,12 +6025,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="29"/>
         <source>Insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Espaço em disco insuficiente</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="29"/>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Falha na atualização: espaço em disco insuficiente</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="30"/>
@@ -6035,32 +6040,32 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="31"/>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Erro de rede</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="31"/>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>Erro de rede, verifique e tente novamente</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="32"/>
         <source>Packages error</source>
-        <translation type="unfinished"/>
+        <translation>Erro nos pacotes</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="32"/>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
+        <translation>Erro nos pacotes, por favor tente novamente</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="33"/>
         <source>Dependency error</source>
-        <translation type="unfinished"/>
+        <translation>Erro de dependência</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="33"/>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
+        <translation>Faltam dependências</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="162"/>
@@ -6104,7 +6109,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <location filename="../src/frame/modules/update/updatework.cpp" line="467"/>
         <location filename="../src/frame/modules/update/updatework.cpp" line="475"/>
         <source>Fixed some known bugs and security vulnerabilities</source>
-        <translation type="unfinished"/>
+        <translation>Corrigidos alguns bugs conhecidos e vulnerabilidades de segurança</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="474"/>
@@ -6114,7 +6119,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="482"/>
         <source>Third-party Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Repositórios de Terceiros</translation>
     </message>
 </context>
 <context>
