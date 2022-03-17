@@ -63,6 +63,7 @@ struct BindCheckResult {
     QString error = "";
 };
 
+typedef QMap<int, QByteArray> SecurityQuestions;
 
 class AccountsWorker : public QObject
 {

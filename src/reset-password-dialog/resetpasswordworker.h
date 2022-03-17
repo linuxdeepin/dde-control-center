@@ -28,6 +28,8 @@
 using Accounts = com::deepin::daemon::Accounts;
 using AccountsUser = com::deepin::daemon::accounts::User;
 
+typedef QMap<int, QString> SecurityQuestionAnswers;
+
 class ResetPasswordWorker : public QObject
 {
     Q_OBJECT

@@ -69,6 +69,8 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     , m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager", QDBusConnection::systemBus(), this))
     , m_userModel(userList)
 {
+    qRegisterMetaType<SecurityQuestions>("SecurityQuestions");
+    qDBusRegisterMetaType<SecurityQuestions>();
     struct passwd *pws;
     pws = getpwuid(getuid());
     m_currentUserName = QString(pws->pw_name);
@@ -874,4 +876,3 @@ BindCheckResult AccountsWorker::checkLocalBind(const QString &uosid, const QStri
     }
     return result;
 }
-

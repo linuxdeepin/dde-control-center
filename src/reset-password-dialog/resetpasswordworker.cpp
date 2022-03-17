@@ -28,6 +28,9 @@ ResetPasswordWorker::ResetPasswordWorker(const QString& userName, QObject *paren
     , m_accountInter(new Accounts("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
     , m_syncHelperInter(new QDBusInterface("com.deepin.sync.Helper", "/com/deepin/sync/Helper", "com.deepin.sync.Helper", QDBusConnection::systemBus(), this))
 {
+    qRegisterMetaType<SecurityQuestionAnswers>("SecurityQuestionAnswers");
+    qDBusRegisterMetaType<SecurityQuestionAnswers>();
+
     auto reply = m_accountInter->FindUserByName(userName);
     reply.waitForFinished();
     if (reply.isError()) {
