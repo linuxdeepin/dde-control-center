@@ -40,7 +40,7 @@ PowerModule::PowerModule(QObject *parent)
     , m_useElectric(nullptr)
     , m_useBattery(nullptr)
 {
-    setChildType(ModuleObject::ChildType::VList);
+    setChildType(ModuleObject::ChildType::HList);
 
     m_model = new PowerModel(this);
     m_work = new PowerWorker(m_model, this);

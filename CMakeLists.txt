@@ -284,21 +284,12 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
         ${Plugin_Test_Libraries}
     )
 endif()
-
 #--------------------------plugin-systeminfo--------------------------
 set(SystemInfo_Name dcc-systeminfo-plugin)
-set(SYSTEMINFO_WINDOW_FILES
+file(GLOB_RECURSE SYSTEMINFO_SRCS
     "src/plugin-systeminfo/window/*.cpp"
     "src/plugin-systeminfo/operation/*.cpp"
-)
-
-set(QRC_FILE
-        src/plugin-systeminfo/operation/qrc/systeminfo.qrc
-)
-
-file(GLOB_RECURSE SYSTEMINFO_SRCS
-    ${SYSTEMINFO_WINDOW_FILES}
-    ${QRC_FILE}
+    "src/plugin-systeminfo/operation/qrc/systeminfo.qrc"
 )
 
 add_library(${SystemInfo_Name} MODULE
@@ -309,31 +300,25 @@ set(SystemInfo_Includes
     ${DtkWidget_INCLUDE_DIRS}
     Qt5::Widgets
     Qt5::DBus
+    Qt5::Concurrent
 )
 set(SystemInfo_Libraries
+    ${Dcc_Widgets_Name}
     ${Interface_Name}
     ${DtkWidget_LIBRARIES}
     Qt5::Widgets
     Qt5::DBus
+    Qt5::Concurrent
 )
 
 
 target_include_directories(${SystemInfo_Name} PUBLIC
-    ${CMAKE_SOURCE_DIR}/include
     ${SystemInfo_Includes}
-    ${DtkWidget_INCLUDE_DIRS}
-    ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
 )
 
 target_link_libraries(${SystemInfo_Name} PRIVATE
-    dcc-widgets
     ${SystemInfo_Libraries}
-    ${DtkWidget_LIBRARIES}
-    ${Qt5Widgets_LIBRARIES}
-    ${Qt5Concurrent_LIBRARIES}
-    ${Qt5DBus_LIBRARIES}
 )
-
 #--------------------------dcc-power-plugin--------------------------
 set(Power_Name dcc-power-plugin)
 file(GLOB_RECURSE Power_SRCS
@@ -369,4 +354,39 @@ target_include_directories(${Power_Name} PUBLIC
 
 target_link_libraries(${Power_Name} PRIVATE
     ${Power_Libraries}
+)
+#--------------------------plugin-mouse--------------------------
+set(Mouse_Name dcc-mouse-plugin)
+file(GLOB_RECURSE MOUSE_SRCS
+    "src/plugin-mouse/window/*.cpp"
+    "src/plugin-mouse/operation/*.cpp"
+    "src/plugin-mouse/operation/qrc/mouse.qrc"
+)
+
+add_library(${Mouse_Name} MODULE
+    ${MOUSE_SRCS}
+)
+
+set(Mouse_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+
+set(Mouse_Libraries
+    ${Dcc_Widgets_Name}
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+
+target_include_directories(${Mouse_Name} PUBLIC
+    ${Mouse_Includes}
+)
+
+target_link_libraries(${Mouse_Name} PRIVATE
+    ${Mouse_Libraries}
 )
