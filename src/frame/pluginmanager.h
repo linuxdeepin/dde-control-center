@@ -28,7 +28,6 @@ class QPluginLoader;
 
 namespace DCC_NAMESPACE
 {
-
 class ModuleObject;
 class PluginManager : public QObject
 {
@@ -42,6 +41,7 @@ public:
 private:
     bool compareVersion(const QString &targetVersion, const QString &baseVersion);
     void initModules();
+    void initModule(ModuleObject *const module);
 
 private:
     ModuleObject                *m_rootModule;

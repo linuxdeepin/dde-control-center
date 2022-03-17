@@ -12,6 +12,11 @@ DCC_USE_NAMESPACE
 
 const QString &PluginDirectory = QStringLiteral("/usr/lib/dde-control-center/modules");
 
+bool comparePluginLocation(const PluginInterface *target1, const PluginInterface *target2)
+{
+    return target1->location() < target2->location();
+}
+
 PluginManager::PluginManager(QObject *parent)
     : QObject(parent)
     , m_rootModule(new ModuleObject(this))
@@ -67,27 +72,29 @@ void PluginManager::loadModules()
 
 void PluginManager::initModules()
 {
-    QMap<QString, ModuleObject*> modules;
-    QList<QPluginLoader *> secondLoaders;
+    initModule(m_rootModule);
     for (auto loader : m_loaders) {
         auto *plugin = qobject_cast<PluginInterface *>(loader->instance());
-        if (plugin->follow().isEmpty()) {
-            modules[plugin->module()->name()] = plugin->module();
-            m_rootModule->appendChild(plugin->module());
-        } else {
-            secondLoaders.append(loader);
-        }
+        qWarning() << QString("can't find follow:%1, the plugin:%2 will unload!").arg(plugin->follow()).arg(plugin->name());
+        loader->unload();
     }
-    for (auto loader : secondLoaders) {
-        auto *plugin = qobject_cast<PluginInterface *>(loader->instance());
-        if (modules.contains(plugin->follow())) {
-            modules[plugin->follow()]->appendChild(plugin->module());
-        } else {
-            qWarning() << QString("can't find follow:%1, the plugin:%2 will unload!").arg(plugin->follow()).arg(plugin->name());
-            loader->unload();
-        }
-    }
+}
 
+void PluginManager::initModule(ModuleObject *const module)
+{
+    QList<PluginInterface*> plugins;
+    for (auto loader : m_loaders) {
+        auto *plugin = qobject_cast<PluginInterface *>(loader->instance());
+        if (plugin->follow() == module->name()) {
+            plugins.append(plugin);
+            m_loaders.removeOne(loader);
+            initModule(plugin->module());
+        }
+    }
+    std::sort(plugins.begin(), plugins.end(), comparePluginLocation);
+    for (auto plugin : plugins) {
+        module->appendChild(plugin->module());
+    }
 }
 
 bool PluginManager::compareVersion(const QString &targetVersion, const QString &baseVersion)

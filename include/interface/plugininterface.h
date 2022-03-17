@@ -36,12 +36,10 @@ public:
     virtual ~PluginInterface() {}
 
     /**
-     * @brief 插件必须知道其需要跟随的父插件 name ,默认为空则为一级插件
-     * @return 跟随的父插件 name
+     * @brief 插件最基本的元素由 ModuleObject 组成，所以最少有一个 ModuleObject
+     * @brief 插件子项列表
      */
-    virtual QString follow() const {
-        return QString();
-    }
+    virtual ModuleObject *module() = 0;
 
     /**
      * @brief 标识插件信息
@@ -52,10 +50,20 @@ public:
     }
 
     /**
-     * @brief 插件最基本的元素由 ModuleObject 组成，所以最少有一个 ModuleObject
-     * @brief 插件子项列表
+     * @brief 插件必须知道其需要跟随的父插件 name ,默认为空则为一级插件
+     * @return 跟随的父插件 name
      */
-    virtual ModuleObject *module() = 0;
+    virtual QString follow() const {
+        return QString();
+    }
+
+    /**
+     * @brief 插件位置索引，相同索引则按加载顺序进行排序，先加载的往后顺延，默认追加到最后
+     * @return 位置索引
+     */
+    virtual int location() const {
+        return -1;
+    }
 };
 
 } // namespace DCC_NAMESPACE
