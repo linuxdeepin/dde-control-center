@@ -48,6 +48,10 @@ public:
 protected:
     void enterEvent(QEvent *event) override;
     void leaveEvent(QEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
+
+Q_SIGNALS:
+    void mousePressed();
 
 private:
     DPalette m_currentpa;

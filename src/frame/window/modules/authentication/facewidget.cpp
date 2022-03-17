@@ -118,6 +118,9 @@ void FaceWidget::addFaceButton(const QString &newFaceName)
     connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestAddFace(m_model->faceDriverName(), m_model->faceCharaType(), newFaceName);
     });
+    connect(addfaceItem, &AuthenticationLinkButtonItem::mousePressed, this, [ = ] {
+        Q_EMIT requestAddFace(m_model->faceDriverName(), m_model->faceCharaType(), newFaceName);
+    });
 }
 
 void FaceWidget::onFaceidListChanged(const QStringList &facelist)

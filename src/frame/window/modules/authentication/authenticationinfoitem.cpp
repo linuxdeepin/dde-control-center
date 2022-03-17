@@ -234,3 +234,10 @@ void AuthenticationLinkButtonItem::leaveEvent(QEvent *event)
     DApplicationHelper::instance()->setPalette(this, m_currentpa);
     QFrame::leaveEvent(event);
 }
+
+void AuthenticationLinkButtonItem::mousePressEvent(QMouseEvent *event)
+{
+    dcc::widgets::SettingsItem::mousePressEvent(event);
+
+    Q_EMIT mousePressed();
+}
