@@ -113,7 +113,7 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
         drawDisplay(style, painter, opt, tipRect);
     }
 
-    drawEllipse(painter, opt, index.data(MessageNumRole).toInt());
+    drawEllipse(painter, opt, index.data(Dtk::RightActionListRole).toInt());
     drawFocus(style, painter, opt, opt.rect);
     // done
     painter->restore();

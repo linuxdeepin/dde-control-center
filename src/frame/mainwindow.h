@@ -79,9 +79,10 @@ private:
     int getScrollPos(const int index);
     void showPage(ModuleObject *const module, const QString &url, const UrlType &uType);
     void showModule(ModuleObject *const module, QWidget *const parent, const int index = -1);
-    void showModuleBox(ModuleObject *const module, QWidget *const parent, const int index = -1);
-    void showModuleHSplit(ModuleObject *const module, QWidget *const parent, const int index = -1);
-    void showModuleVSplit(ModuleObject *const module, QWidget *const parent, const int index = -1);
+    void showModuleMainIcon(ModuleObject *const module, QWidget *const parent, const int index = -1);
+    void showModuleMainList(ModuleObject *const module, QWidget *const parent, const int index = -1);
+    void showModuleHList(ModuleObject *const module, QWidget *const parent, const int index = -1);
+    void showModuleVList(ModuleObject *const module, QWidget *const parent, const int index = -1);
     void showModulePage(ModuleObject *const module, QWidget *const parent, const int index = -1);
     QWidget *getPage(QWidget *const widget, const QString &title);
 

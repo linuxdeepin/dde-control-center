@@ -27,7 +27,7 @@ TEST_F(Tst_ModuleObject, coverage)
 {
     ModuleData *dataRoot = new ModuleData("Name", "DisplayName", "Description", QIcon::fromTheme("preferences-system"), obj);
     obj->setModuleData(dataRoot);
-    obj->setChildType(ModuleObject::ChildType::VSplit);
+    obj->setChildType(ModuleObject::ChildType::HList);
 
     for (int i = 1; i < 4; i++) {
         ModuleObject *module = new ModuleObject(QString("menu%1").arg(i), QString("菜单%1").arg(i), QString("我是菜单%1").arg(i));

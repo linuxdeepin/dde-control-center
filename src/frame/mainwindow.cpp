@@ -35,6 +35,7 @@
 #include <DWidgetUtil>
 #include <DButtonBox>
 #include <DPushButton>
+#include <DListView>
 
 #include <QMenu>
 #include <QLayout>
@@ -63,14 +64,11 @@ const QString HeightConfig = QStringLiteral("height");
 const int NavViewMaximumWidth = QWIDGETSIZE_MAX;
 const int NavViewMinimumWidth = 188;
 
-const QMargins ZeroMargins(QMargins(0, 0, 0, 0));
-const QMargins TenMargins(QMargins(10, 10, 10, 10));
 const QSize ListViweItemIconSize_IconMode(84, 84);
 const QSize ListViweItemSize_IconMode(280, 84);
 const QSize ListViweItemIconSize_ListMode(32, 32);
 const QSize ListViweItemSize_ListMode(168, 48);
 
-const int ModuleRole = Qt::UserRole + 1;
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
@@ -215,7 +213,7 @@ void MainWindow::loadModules()
 
 void MainWindow::toHome()
 {
-    m_rootModule->setChildType(ModuleObject::ChildType::Box);
+    m_rootModule->setChildType(ModuleObject::ChildType::MainIcon);
     setCurrentModule(nullptr);
     showModule(m_rootModule, m_contentWidget);
 }
@@ -252,16 +250,20 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, c
 
     switch (module->childType())
     {
-    case ModuleObject::ChildType::Box:
-        showModuleBox(module, parent, index);
+    case ModuleObject::ChildType::MainIcon:
+        showModuleMainIcon(module, parent, index);
         break;
-    case ModuleObject::ChildType::HSplit:
+    case ModuleObject::ChildType::MainList:
         setCurrentModule(module);
-        showModuleHSplit(module, parent, index);
+        showModuleMainList(module, parent, index);
         break;
-    case ModuleObject::ChildType::VSplit:
+    case ModuleObject::ChildType::HList:
         setCurrentModule(module);
-        showModuleVSplit(module, parent, index);
+        showModuleHList(module, parent, index);
+        break;
+    case ModuleObject::ChildType::VList:
+        setCurrentModule(module);
+        showModuleVList(module, parent, index);
         break;
     case ModuleObject::ChildType::Page:
         setCurrentModule(module);
@@ -271,7 +273,7 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, c
     }
 }
 
-void MainWindow::showModuleBox(ModuleObject *const module, QWidget *const parent, const int index)
+void MainWindow::showModuleMainIcon(ModuleObject *const module, QWidget *const parent, const int index)
 {
     QVBoxLayout *vlayout = new QVBoxLayout(parent);
     parent->setLayout(vlayout);
@@ -302,7 +304,7 @@ void MainWindow::showModuleBox(ModuleObject *const module, QWidget *const parent
     m_backwardBtn->setEnabled(false);
 
     auto onClicked = [this, module, parent] (const QModelIndex &index) {
-        module->setChildType(ModuleObject::ChildType::HSplit);
+        module->setChildType(ModuleObject::ChildType::MainList);
         m_backwardBtn->setEnabled(true);
         showModule(module, parent, index.row());
     };
@@ -318,7 +320,7 @@ void MainWindow::showModuleBox(ModuleObject *const module, QWidget *const parent
     onClicked(model->index(index, 0));
 }
 
-void MainWindow::showModuleHSplit(ModuleObject *const module, QWidget *const parent, const int index)
+void MainWindow::showModuleMainList(ModuleObject *const module, QWidget *const parent, const int index)
 {
     QHBoxLayout *hlayout = new QHBoxLayout(parent);
     parent->setLayout(hlayout);
@@ -371,7 +373,7 @@ void MainWindow::showModuleHSplit(ModuleObject *const module, QWidget *const par
     Q_EMIT view->clicked(model->index(index, 0));
 }
 
-void MainWindow::showModuleVSplit(ModuleObject *const module, QWidget *const parent, const int index)
+void MainWindow::showModuleHList(ModuleObject *const module, QWidget *const parent, const int index)
 {
     QVBoxLayout *vlayout = new QVBoxLayout(parent);
     parent->setLayout(vlayout);
@@ -413,6 +415,58 @@ void MainWindow::showModuleVSplit(ModuleObject *const module, QWidget *const par
         onClicked(model->index(index, 0));
     });
     connect(view, &ListView::destroyed, module, &ModuleObject::deactive);
+    if (index < 0)
+        return;
+    Q_EMIT view->clicked(model->index(index, 0));
+}
+
+void MainWindow::showModuleVList(ModuleObject *const module, QWidget *const parent, const int index)
+{
+    QHBoxLayout *hlayout = new QHBoxLayout(parent);
+    parent->setLayout(hlayout);
+
+    ModuleDataModel *model = new ModuleDataModel(parent);
+    model->setData(module);
+    QScrollArea *area = new QScrollArea(parent);
+    area->setFrameShape(QFrame::NoFrame);
+    area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    area->setWidgetResizable(true);
+
+    DListView *view = new DListView(parent);
+    hlayout->addWidget(view, 1);
+    hlayout->addWidget(area, 5);
+
+    view->setModel(model);
+    view->setFrameShape(QFrame::Shape::NoFrame);
+    view->setAutoScroll(true);
+    view->setDragEnabled(false);
+    view->setMaximumWidth(NavViewMaximumWidth);
+    view->setMinimumWidth(NavViewMinimumWidth);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
+    view->setIconSize(ListViweItemIconSize_ListMode);
+    view->setItemSize(ListViweItemSize_ListMode);
+    view->setSpacing(0);
+    view->setItemSpacing(1);
+    view->setSelectionMode(QAbstractItemView::SingleSelection);
+
+    auto onClicked = [this, module, area, view] (const QModelIndex &index) {
+        const int row = index.row();
+        if (module->childrens().size() <= row) {
+            qWarning() << "activated not exist item!";
+            return;
+        }
+        view->setCurrentIndex(index);
+        showModule(module->childrens()[row], area, 0);
+    };
+
+    connect(view, &ListView::activated, view, &ListView::clicked);
+    connect(view, &ListView::clicked, view, onClicked);
+    connect(module, &ModuleObject::activeChild, view, [onClicked, model] (const int index) {
+        onClicked(model->index(index, 0));
+    });
+    connect(view, &ListView::destroyed, module, &ModuleObject::deactive);
+
     if (index < 0)
         return;
     Q_EMIT view->clicked(model->index(index, 0));

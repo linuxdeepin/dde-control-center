@@ -11,7 +11,7 @@ ModuleObject* Plugin::module()
 {
     ModuleObject *moduleRoot = new ModuleObject("firstmenu1", tr("主菜单1"), tr("我是主菜单1"), QIcon::fromTheme("preferences-system"), this);
     qDebug() << "name:" << moduleRoot->name();
-    moduleRoot->setChildType(ModuleObject::ChildType::VSplit);
+    moduleRoot->setChildType(ModuleObject::ChildType::HList);
 
     for (int i = 1; i < 4; i++) {
         ModuleObject *module = new ModuleObject(QString("menu%1").arg(i), tr("菜单%1").arg(i), this);

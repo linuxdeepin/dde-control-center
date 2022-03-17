@@ -30,6 +30,8 @@ build*/
 
 # clion tmp file
 .idea/
+# clangd tmp file
+.cache/
 
 .transifexrc
 lupdate.sh

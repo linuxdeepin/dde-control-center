@@ -20,7 +20,8 @@
 */
 #include "moduledatamodel.h"
 #include "interface/moduleobject.h"
-#include "listview.h"
+
+#include <dstyleoption.h>
 
 #include <QSignalMapper>
 
@@ -72,7 +73,7 @@ QVariant ModuleDataModel::data(const QModelIndex &index, int role) const
         return data->moduleData()->Icon;
     case Qt::StatusTipRole:
         return data->moduleData()->Description;
-    case MessageNumRole:
+    case Dtk::RightActionListRole:
         return 0;
     default:
         break;
@@ -127,3 +128,4 @@ void ModuleDataModel::setData(ModuleObject *const module)
     connect(m_data, &ModuleObject::insertedChild, this, &ModuleDataModel::onInsertChild);
     connect(m_data, &ModuleObject::removedChild, this, &ModuleDataModel::onInsertChild);
 }
+

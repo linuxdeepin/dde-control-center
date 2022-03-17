@@ -70,7 +70,7 @@ ModuleObject *SystemInfoPlugin::module()
     dataRoot->Description = tr("系统信息");
     dataRoot->Icon = QIcon::fromTheme("dcc_nav_systeminfo");
     moduleInterface->setModuleData(dataRoot);
-    moduleInterface->setChildType(ModuleObject::ChildType::VSplit);
+    moduleInterface->setChildType(ModuleObject::ChildType::HList);
 
     //二级菜单--关于本机
     ModuleObject *moduleAboutPc = new ModuleObject(tr("About This PC"), tr("About This PC"), QIcon::fromTheme("dcc_on_sel"), this);
@@ -82,7 +82,7 @@ ModuleObject *SystemInfoPlugin::module()
 
     //二级菜单--协议与隐私政策
     ModuleObject *moduleAgreement = new ModuleObject(tr("协议与隐私政策"), tr("协议与隐私政策"), QIcon::fromTheme("dcc_version"), this);
-    moduleAgreement->setChildType(ModuleObject::ChildType::HSplit);
+    moduleAgreement->setChildType(ModuleObject::ChildType::VList);
 
     //三级菜单--协议与隐私政策-版本协议
     ModuleObject *moduleEdition = new ModuleObject(tr("Edition License"), tr("Edition License"), QIcon::fromTheme("dcc_version"), moduleAgreement);

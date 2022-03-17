@@ -40,10 +40,11 @@ class ModuleObject : public QObject
     Q_PROPERTY(ModuleData* moduleData READ moduleData WRITE setModuleData NOTIFY moduleDataChanged)
 public:
     enum class ChildType{
-        Box,        //主菜单图标模式显示
-        Page,       //页面显示
-        HSplit,     //横向分割显示
-        VSplit      //纵向分割显示
+        MainIcon,  //主菜单图标模式显示
+        MainList,  //主菜单列表模式显示
+        HList,     //横向菜单列表显示
+        VList,     //纵向菜单列表显示
+        Page       //页面显示
     };
     ModuleObject(QObject *parent = nullptr);
     ModuleObject(const QString &name, const QString &displayName = {}, QObject *parent = nullptr);

@@ -25,7 +25,7 @@ DCC_USE_NAMESPACE
 ModuleObject::ModuleObject(QObject *parent)
     : QObject(parent)
     , m_moduleData(new ModuleData(this))
-    , m_childType(ChildType::Box)
+    , m_childType(ChildType::MainIcon)
 {
 }
 
@@ -62,7 +62,7 @@ ModuleObject::ModuleObject(const QString &name, const QString &displayName, cons
 ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QIcon &icon, QObject *parent)
     : QObject(parent)
     , m_moduleData(new ModuleData(name, displayName, description, contentText, icon, this))
-    , m_childType(ChildType::Box)
+    , m_childType(ChildType::MainIcon)
 {
 
 }

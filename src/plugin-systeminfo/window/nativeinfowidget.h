@@ -103,7 +103,7 @@ private:
     DTK_WIDGET_NAMESPACE::DLabel *m_hostNameTitleLabel;//计算机名标题
     DTK_WIDGET_NAMESPACE::DLabel *m_hostNameLabel;//计算机名显示
     DTK_WIDGET_NAMESPACE::DToolButton *m_hostNameBtn;//计算机名编辑按钮
-    HostNameEdit *m_hostNameLineEdit;//计算机名编辑框
+    HostNameEdit *m_hostNameLineEdit = nullptr;//计算机名编辑框
     TitleValueItem *m_productName;
     TitleValueItem *m_versionNumber;
     TitleValueItem *m_version;

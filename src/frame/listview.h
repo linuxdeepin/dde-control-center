@@ -24,7 +24,6 @@
 #include <QAbstractItemView>
 #include <DObject>
 
-#define MessageNumRole (Qt::UserRole + 1) // 消息数，大于０会显示为红点
 namespace DCC_NAMESPACE {
 
 class ListViewPrivate;
