@@ -197,7 +197,7 @@ int main(int argc, char *argv[])
     pid_t pid = getpid();
     qDebug() << QString("main window size: %1 * %2").arg(w).arg(h) << ", pid is:" << pid;
 
-    auto screen = app.primaryScreen();    
+    auto screen = app.screenAt(QCursor::pos());
 
     // 多屏情况下，当上一次保存的宽高比新的主屏大小还大，则用新屏幕的大小
     QRect screenRt = screen->geometry();
