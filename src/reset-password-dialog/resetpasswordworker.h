@@ -60,6 +60,7 @@ private:
 private:
     Accounts *m_accountInter;
     AccountsUser *m_userInter;
+    QDBusInterface *m_userQInter;
     QDBusInterface *m_syncHelperInter;
     QString m_ubid;
     QString m_userPath;

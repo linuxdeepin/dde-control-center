@@ -21,13 +21,12 @@
 
 #include "resetpasswordworker.h"
 #include <QtConcurrent>
-
+#include <unistd.h>
 
 ResetPasswordWorker::ResetPasswordWorker(const QString& userName, QObject *parent)
     : QObject (parent)
     , m_accountInter(new Accounts("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
     , m_syncHelperInter(new QDBusInterface("com.deepin.sync.Helper", "/com/deepin/sync/Helper", "com.deepin.sync.Helper", QDBusConnection::systemBus(), this))
-
 {
     auto reply = m_accountInter->FindUserByName(userName);
     reply.waitForFinished();
@@ -35,20 +34,21 @@ ResetPasswordWorker::ResetPasswordWorker(const QString& userName, QObject *paren
         qWarning() << QString("get user failed:") << reply.error();
     } else {
         m_userInter = new AccountsUser("com.deepin.daemon.Accounts", reply.value(), QDBusConnection::systemBus(), this);
+        m_userQInter = new QDBusInterface("com.deepin.daemon.Accounts", reply.value(),"com.deepin.daemon.Accounts.User", QDBusConnection::systemBus(), this);
     }
     m_userPath = reply.value();
 }
 
 void ResetPasswordWorker::getSecurityQuestions()
 {
-    auto reply = m_userInter->GetSecretQuestions();
-    reply.waitForFinished();
-    if (reply.isError()) {
+    QDBusReply<QList<int>> reply = m_userQInter->call("GetSecretQuestions");
+    if (reply.isValid()) {
+        Q_EMIT getSecurityQuestionsReplied(reply.value());
+    }
+    if (!reply.error().message().isEmpty()) {
         qWarning() << QString("GetSecretQuestions failed:") << reply.error();
-        return ;
     }
     qDebug() << "security questions" << reply.value();
-    Q_EMIT getSecurityQuestionsReplied(reply.value());
 }
 
 void ResetPasswordWorker::setPasswordHint(const QString &passwordHint)
@@ -63,14 +63,14 @@ void ResetPasswordWorker::setPasswordHint(const QString &passwordHint)
 
 void ResetPasswordWorker::verifySecretQuestions(const QMap<int, QString> &securityQuestions)
 {
-    auto reply = m_userInter->VerifySecretQuestions(securityQuestions);
-    reply.waitForFinished();
-    if (reply.isError()) {
+    QDBusReply<QList<int>> reply = m_userQInter->call("VerifySecretQuestions", QVariant::fromValue(securityQuestions));
+    if (reply.isValid()) {
+        Q_EMIT verifySecretQuestionsReplied(reply.value());
+    }
+    if (!reply.error().message().isEmpty()) {
         qWarning() << QString("VerifySecretQuestions failed:") << reply.error();
         return;
     }
-    qDebug() << "wrong security questions" << reply.value();
-    Q_EMIT verifySecretQuestionsReplied(reply.value());
 }
 
 void ResetPasswordWorker::asyncBindCheck()

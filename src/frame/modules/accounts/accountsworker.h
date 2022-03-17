@@ -136,6 +136,7 @@ private:
 private:
     Accounts *m_accountsInter;
     QDBusInterface *m_syncHelperInter;
+    QDBusInterface *m_userQInter;
     Fingerprint *m_fingerPrint;
 #ifdef DCC_ENABLE_ADDOMAIN
     Notifications *m_notifyInter;

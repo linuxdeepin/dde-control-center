@@ -61,6 +61,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
     , m_syncHelperInter(new QDBusInterface("com.deepin.sync.Helper", "/com/deepin/sync/Helper", "com.deepin.sync.Helper", QDBusConnection::systemBus(), this))
+    , m_userQInter(new QDBusInterface("com.deepin.daemon.Accounts", QString("/com/deepin/daemon/Accounts/User%1").arg(getuid()), "com.deepin.daemon.Accounts.User", QDBusConnection::systemBus(), this))
     , m_fingerPrint(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint", QDBusConnection::systemBus(), this))
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_notifyInter(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
@@ -209,13 +210,12 @@ void AccountsWorker::startResetPasswordExec(User *user)
 
 void AccountsWorker::securityQuestionsCheck(User *user)
 {
-    AccountsUser *userInter = m_userInters.value(user);
-    auto reply = userInter->GetSecretQuestions();
-    reply.waitForFinished();
-    if (reply.isError()) {
-        qWarning() << reply.error().message();
-    } else {
+    QDBusReply<QList<int>> reply = m_userQInter->call("GetSecretQuestions");
+    if (reply.isValid()) {
         Q_EMIT user->startSecurityQuestionsCheckReplied(reply.value());
+    }
+    if (!reply.error().message().isEmpty()) {
+        qWarning() << reply.error().message();
     }
 }
 
@@ -229,13 +229,12 @@ void AccountsWorker::setPasswordHint(User *user, const QString &passwordHint)
 
 void AccountsWorker::setSecurityQuestions(User *user, const QMap<int, QByteArray> &securityQuestions)
 {
-    AccountsUser *userInter = m_userInters.value(user);
-    auto reply = userInter->SetSecretQuestions(securityQuestions);
-    reply.waitForFinished();
-    if (reply.isError() && reply.error().message().isEmpty()) {
-        Q_EMIT user->setSecurityQuestionsReplied(reply.error().message() + "error");
-    } else {
+    QDBusReply<void> reply =  m_userQInter->call("SetSecretQuestions", QVariant::fromValue(securityQuestions));
+    if (reply.isValid()) {
         Q_EMIT user->setSecurityQuestionsReplied(reply.error().message());
+    }
+    if (!reply.error().message().isEmpty()) {
+        Q_EMIT user->setSecurityQuestionsReplied(reply.error().message() + "error");
     }
 }
 
@@ -875,3 +874,4 @@ BindCheckResult AccountsWorker::checkLocalBind(const QString &uosid, const QStri
     }
     return result;
 }
+
