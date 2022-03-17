@@ -210,4 +210,7 @@ void FingerWidget::addFingerButton(const QString &newFingerName)
     connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestAddThumbs(m_currentUserName, newFingerName);
     });
+    connect(addfingerItem, &AuthenticationLinkButtonItem::mousePressed, this, [ = ] {
+        Q_EMIT requestAddThumbs(m_currentUserName, newFingerName);
+    });
 }
