@@ -44,7 +44,7 @@ namespace DCC_NAMESPACE {
 class TabViewPrivate : public DObjectPrivate
 {
 public:
-    TabViewPrivate(TabView *TabView)
+    explicit TabViewPrivate(TabView *TabView)
         : DObjectPrivate(TabView)
         , m_spacing(20)
         , m_gridSize(280, 84)
@@ -98,52 +98,6 @@ public:
     void updateGeometries()
     {
         D_Q(TabView);
-#if 0
-        if (m_viewMode == TabView::IconMode) {
-            m_maxColumnCount = (q->viewport()->width() - m_spacing) / (m_gridSize.width() + m_spacing);
-            if (m_maxColumnCount <= 0)
-                m_maxColumnCount = 1;
-        } else {
-            m_maxColumnCount = 1;
-        }
-
-        int count = q->model() ? q->model()->rowCount() : 0;
-        if (count < m_maxColumnCount) {
-            m_maxColumnCount = count;
-        }
-
-        if (m_viewMode == TabView::IconMode) {
-            if (count == 0)
-                m_maxRowCount = 0;
-            else if (count <= m_maxColumnCount)
-                m_maxRowCount = 2;
-            else
-                m_maxRowCount = 1 + (count / m_maxColumnCount);
-        } else {
-            m_maxRowCount = (count <= m_maxColumnCount) ? 1 : count / m_maxColumnCount;
-        }
-
-        m_itemSize = (m_viewMode == TabView::IconMode) ? m_gridSize : QSize(q->viewport()->width() - marginsWidth(), m_gridSize.height());
-        int itemWidth = m_maxColumnCount * (m_itemSize.width() + m_spacing) - m_spacing;
-        int itemHeight = m_maxRowCount * (m_itemSize.height() + m_spacing) - m_spacing;
-
-        if (m_alignment & Qt::AlignRight) {
-            m_xOffset = q->viewport()->width() - itemWidth;
-        } else if (m_alignment & Qt::AlignHCenter) {
-            m_xOffset = (q->viewport()->width() - itemWidth) / 2;
-        } else {
-            m_xOffset = 0;
-        }
-        if (itemHeight > q->viewport()->height()) {
-            m_yOffset = 0;
-        } else if (m_alignment & Qt::AlignBottom) {
-            m_yOffset = q->viewport()->height() - itemHeight;
-        } else if (m_alignment & Qt::AlignVCenter) {
-            m_yOffset = (q->viewport()->height() - itemHeight) / 2;
-        } else {
-            m_yOffset = 0;
-        }
-#endif
         m_itemX.clear();
         int totalWidth = 0;
         int height = 0;
@@ -168,7 +122,6 @@ public:
         }
         height = emptySZ.height()-9;
         m_size = QSize(totalWidth,height);
-        qInfo()<<__FILE__<<__LINE__<<m_size<<model->rowCount();
         q->setFixedSize(m_size.width()+2,m_size.height()+2);
     }
     // item在窗口中位置(无滚动)
@@ -263,7 +216,7 @@ TabView::TabView(QWidget *parent)
     scheduleDelayedItemsLayout();
     setMouseTracking(true);
     setContentsMargins(0,0,0,0);
-//    setStyleSheet("{ border: none;}");
+    setFrameStyle(QFrame::NoFrame);
 }
 
 TabView::~TabView()
@@ -403,22 +356,11 @@ QModelIndex TabView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers
         currentRow++;
         break;
     case MovePageUp: {
-//        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing) / (d->m_itemSize.height() + d->m_spacing);
-//        for (int i = 0; i < pageItem; i++) {
-//            currentRow = moveup(currentRow, d->m_maxColumnCount);
-//        }
     } break;
     case MoveUp:
         currentRow = moveup(currentRow, d->m_maxColumnCount);
         break;
     case MovePageDown: {
-//        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing) / (d->m_itemSize.height() + d->m_spacing);
-//        for (int i = 0; i < pageItem; i++) {
-//            int row = movedown(currentRow, d->m_maxColumnCount);
-//            if (row >= maxRow)
-//                break;
-//            currentRow = row;
-//        }
     } break;
     case MoveDown:
         currentRow = movedown(currentRow, d->m_maxColumnCount);
@@ -509,16 +451,12 @@ void TabView::paintEvent(QPaintEvent *e)
     const QAbstractItemModel *itemModel = model();
     const QItemSelectionModel *selections = selectionModel();
     const bool focus = (hasFocus() || viewport()->hasFocus()) && current.isValid();
-    const bool alternate = alternatingRowColors();
     const QStyle::State state = option.state;
     const QAbstractItemView::State viewState = this->state();
     const bool enabled = (state & QStyle::State_Enabled) != 0;
     option.decorationAlignment = d->m_viewMode == IconMode ? Qt::AlignCenter : Qt::AlignLeft;
 
-    bool alternateBase = false;
-    int previousRow = -2;
-
-//    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setRenderHint(QPainter::Antialiasing);
     painter.fillRect(e->rect(), palette().color(QPalette::Window));
 
     QVector<QModelIndex>::const_iterator end = toBeRendered.constEnd();
@@ -545,25 +483,6 @@ void TabView::paintEvent(QPaintEvent *e)
                 option.state |= QStyle::State_Editing;
         }
         option.state.setFlag(QStyle::State_MouseOver, *it == hover);
-
-//        if (alternate) { //　交替色处理，未实现
-//            int row = (*it).row();
-//            if (row != previousRow + 1) {
-//                // adjust alternateBase according to rows in the "gap"
-//                alternateBase = (row & 1) != 0;
-//            }
-//            option.features.setFlag(QStyleOptionViewItem::Alternate, alternateBase);
-
-//            // draw background of the item (only alternate row). rest of the background
-//            // is provided by the delegate
-//            QStyle::State oldState = option.state;
-//            option.state &= ~QStyle::State_Selected;
-//            style()->drawPrimitive(QStyle::PE_PanelItemViewRow, &option, &painter, this);
-//            option.state = oldState;
-
-//            alternateBase = !alternateBase;
-//            previousRow = row;
-//        }
 
         itemDelegate(*it)->paint(&painter, option, *it);
     }

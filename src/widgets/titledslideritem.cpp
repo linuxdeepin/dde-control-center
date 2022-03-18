@@ -98,6 +98,16 @@ void TitledSliderItem::setValueLiteral(const QString &valueLiteral)
     }
 }
 
+QString TitledSliderItem::title() const
+{
+    return m_titleLabel->text();
+}
+
+void TitledSliderItem::setTitle(const QString &title)
+{
+    m_titleLabel->setText(title);
+}
+
 void TitledSliderItem::setLeftIcon(const QIcon &leftIcon)
 {
     m_slider->setLeftIcon(leftIcon);

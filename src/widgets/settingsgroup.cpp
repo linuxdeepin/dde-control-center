@@ -39,26 +39,10 @@ DCC_USE_NAMESPACE
 
 SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
     : QFrame(parent)
-    , m_layout(new QVBoxLayout)
+    , m_layout(nullptr)
     , m_headerItem(nullptr)
 {
-    m_layout->setSpacing(10);
-    m_layout->setContentsMargins(0, 0, 0, 0);
-
-    QVBoxLayout *vLayout = m_layout;
-    if (GroupBackground == bgStyle) {
-        vLayout = new QVBoxLayout;
-        m_bggroup = new DBackgroundGroup(m_layout);
-        m_bggroup->setAccessibleName("bggroup");
-        m_bggroup->setBackgroundRole(QPalette::Window);
-        m_bggroup->setItemSpacing(1);
-        m_bggroup->setUseWidgetBackground(false);
-        vLayout->addWidget(m_bggroup);
-        vLayout->setContentsMargins(0, 0, 0, 0);
-    }
-
-    m_bgStyle = bgStyle;
-    setLayout(vLayout);
+    setBackgroundStyle(bgStyle);
 }
 
 SettingsGroup::SettingsGroup(const QString &title, QFrame *parent)
@@ -175,4 +159,32 @@ SettingsItem *SettingsGroup::getItem(int index)
 void SettingsGroup::insertWidget(QWidget *widget)
 {
     m_layout->insertWidget(m_layout->count(), widget);
+}
+
+void SettingsGroup::setBackgroundStyle(BackgroundStyle bgStyle)
+{
+    if (m_layout)
+        delete m_layout;
+    if (layout())
+        delete layout();
+
+
+    m_layout = new QVBoxLayout;
+    m_layout->setSpacing(10);
+    m_layout->setContentsMargins(0, 0, 0, 0);
+
+    QVBoxLayout *vLayout = m_layout;
+    if (GroupBackground == bgStyle) {
+        vLayout = new QVBoxLayout;
+        m_bggroup = new DBackgroundGroup(m_layout);
+        m_bggroup->setAccessibleName("bggroup");
+        m_bggroup->setBackgroundRole(QPalette::Window);
+        m_bggroup->setItemSpacing(1);
+        m_bggroup->setUseWidgetBackground(false);
+        vLayout->addWidget(m_bggroup);
+        vLayout->setContentsMargins(0, 0, 0, 0);
+    }
+
+    setLayout(vLayout);
+    m_bgStyle = bgStyle;
 }

@@ -147,7 +147,7 @@ public:
      * @brief 子项，不可直接使用QList进行增删改操作，应使用appendChild、removeChild、insertChild
      * @return 子项列表
      */
-    inline QList<ModuleObject *> childrens() { return m_childrens; }
+    inline const QList<ModuleObject *> &childrens() { return m_childrens; }
     inline ModuleObject* children(const int index) const {
         if(index<0 || index >= m_childrens.size())
             return nullptr;

@@ -47,6 +47,9 @@ public:
     QString valueLiteral() const;
     void setValueLiteral(const QString &valueLiteral);
 
+    QString title() const;
+    void setTitle(const QString &title);
+
     void setLeftIcon(const QIcon &leftIcon);
     void setRightIcon(const QIcon &rightIcon);
     void setIconSize(const QSize &size);

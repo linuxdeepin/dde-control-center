@@ -71,6 +71,9 @@ public:
     void clear();
     QVBoxLayout *getLayout() const { return m_layout; }
 
+    void setBackgroundStyle(BackgroundStyle bgStyle);
+    BackgroundStyle backgroundStyle() const { return m_bgStyle; }
+
 private:
     BackgroundStyle m_bgStyle{ItemBackground};
     QVBoxLayout *m_layout;

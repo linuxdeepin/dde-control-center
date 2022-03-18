@@ -92,8 +92,6 @@ void TabItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
             displayRect = QRect(opt.rect.topLeft() + QPoint(decorationRect.width() + 18, (opt.rect.height() - fontHeight) / 2), QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
         }
     }
-    QString tipText;
-    QRect tipRect = displayRect.translated(0, opt.widget->fontMetrics().lineSpacing()+3);
 
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
     // draw the item
@@ -109,15 +107,6 @@ void TabItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     opt.displayAlignment = Qt::AlignCenter;
     drawDisplay(style, painter, opt, opt.rect);
 
-//    if (isIconMode || isBeginning) {
-//        painter->setPen(opt.palette.color(QPalette::Disabled, QPalette::Text));
-//        opt.text = index.data(Qt::StatusTipRole).toString();
-//        int fontSize = opt.font.pointSize();
-//        opt.font.setPointSize(fontSize - 3);
-//        drawDisplay(style, painter, opt, tipRect);
-//    }
-
-//    drawEllipse(painter, opt, index.data(MessageNumRole).toInt());
     drawFocus(style, painter, opt, opt.rect);
     // done
     painter->restore();

@@ -333,3 +333,40 @@ target_link_libraries(${SystemInfo_Name} PRIVATE
     ${Qt5Concurrent_LIBRARIES}
     ${Qt5DBus_LIBRARIES}
 )
+
+#--------------------------dcc-power-plugin--------------------------
+set(Power_Name dcc-power-plugin)
+file(GLOB_RECURSE Power_SRCS
+    "src/plugin-power/window/*.cpp"
+    "src/plugin-power/operation/*.cpp"
+    "src/plugin-power/operation/qrc/power.qrc"
+)
+
+add_library(${Power_Name} MODULE
+    ${Power_SRCS}
+)
+
+set(Power_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    include
+    src/plugin-power/window
+    src/plugin-power/operation
+)
+set(Power_Libraries
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    ${Dcc_Widgets_Name}
+)
+target_include_directories(${Power_Name} PUBLIC
+    ${Power_Includes}
+)
+
+target_link_libraries(${Power_Name} PRIVATE
+    ${Power_Libraries}
+)
