@@ -304,8 +304,6 @@ void UnionIDWidget::onBindCheckReplied(int ret)
         m_stackedLayout->setCurrentIndex(m_ubid.isEmpty() ? UNION_ID_STATUS_UNBIND : UNION_ID_STATUS_RESET_PASSWD);
     } else if (ret == UNION_ID_ERROR_USER_UNBIND) {
         m_stackedLayout->setCurrentIndex(UNION_ID_STATUS_UNBIND);
-        m_phoneEmailEdit->setAlert(true);
-        m_phoneEmailEdit->showAlertMessage(getErrorTips(UNION_ID_ERROR_USER_UNBIND), m_phoneEmailEdit, 2000);
     } else if (ret == UNION_ID_ERROR_REQUEST_REACHED) {
         DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
                                                  getErrorTips(UNION_ID_ERROR_REQUEST_REACHED));
@@ -320,8 +318,8 @@ void UnionIDWidget::onBindCheckReplied(int ret)
         DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
                                                  getErrorTips(UNION_ID_ERROR_NETWORK_ERROR));
     } else {
-        DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                                 tr("Failed to get the code"));
+        m_stackedLayout->setCurrentIndex(UNION_ID_STATUS_CONNECT_FAILED);
+        qWarning() << "onBindCheckReplied:" << ret;
     }
 }
 

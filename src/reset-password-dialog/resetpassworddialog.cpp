@@ -85,6 +85,13 @@ void ResetPasswordDialog::mousePressEvent(QMouseEvent *event)
     }
 }
 
+void ResetPasswordDialog::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape)
+        return;
+    DDialog::keyPressEvent(event);
+}
+
 bool ResetPasswordDialog::eventFilter(QObject *o, QEvent *e)
 {
     if (o == &m_tipDialog) {

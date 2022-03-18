@@ -56,6 +56,7 @@ protected:
     void hideEvent(QHideEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
+    void keyPressEvent(QKeyEvent *event);
     bool eventFilter(QObject *o, QEvent *e);
 
 private:
