@@ -35,19 +35,19 @@ using namespace DCC_NAMESPACE;
 namespace dcc {
 namespace widgets {
 
-ComboxWidget::ComboxWidget(QFrame *parent)
+ComboxWidget::ComboxWidget(QWidget *parent)
     : ComboxWidget(new NormalLabel, parent)
 {
 
 }
 
-ComboxWidget::ComboxWidget(const QString &title, QFrame *parent)
+ComboxWidget::ComboxWidget(const QString &title, QWidget *parent)
     : ComboxWidget(new NormalLabel(title), parent)
 {
 
 }
 
-ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
+ComboxWidget::ComboxWidget(QWidget *widget, QWidget *parent)
     : SettingsItem(parent)
     , m_leftWidget(widget)
     , m_switchComboBox(new AlertComboBox(this))

@@ -42,9 +42,9 @@ class ComboxWidget : public SettingsItem
     Q_OBJECT
 
 public:
-    explicit ComboxWidget(QFrame *parent = nullptr);
-    explicit ComboxWidget(const QString &title, QFrame *parent = nullptr);
-    explicit ComboxWidget(QWidget *widget, QFrame *parent = nullptr);
+    explicit ComboxWidget(QWidget *parent = nullptr);
+    explicit ComboxWidget(const QString &title, QWidget *parent = nullptr);
+    explicit ComboxWidget(QWidget *widget, QWidget *parent = nullptr);
 
     void setComboxOption(const QStringList &options);
     void setCurrentText(const QString &curText);

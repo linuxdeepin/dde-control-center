@@ -61,28 +61,28 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
 
     //~ contents_path /power/On Battery
     //~ child_page On Battery
-    m_monitorSleepOnBattery = new TitledSliderItem(tr("Monitor will suspend after"));
+    m_monitorSleepOnBattery = new TitledSliderItem(tr("Monitor will suspend after"), this);
     //~ contents_path /power/On Battery
     //~ child_page On Battery
-    m_computerSleepOnBattery = new TitledSliderItem(tr("Computer will suspend after"));
+    m_computerSleepOnBattery = new TitledSliderItem(tr("Computer will suspend after"), this);
     //~ contents_path /power/On Battery
     //~ child_page On Battery
-    m_autoLockScreen = new TitledSliderItem(tr("Lock screen after"));
+    m_autoLockScreen = new TitledSliderItem(tr("Lock screen after"), this);
     //~ contents_path /power/On Battery
     //~ child_page On Battery
-    m_cmbPowerBtn = new ComboxWidget(tr("When pressing the power button"));
+    m_cmbPowerBtn = new ComboxWidget(tr("When pressing the power button"), this);
     //~ contents_path /power/On Battery
     //~ child_page On Battery
-    m_cmbCloseLid = new ComboxWidget(tr("When the lid is closed"));
+    m_cmbCloseLid = new ComboxWidget(tr("When the lid is closed"), this);
     //~ contents_path /power/On Battery
     //~ child_page On Battery
-    m_swBatteryHint = new SwitchWidget(tr("Low Battery Notification"));
+    m_swBatteryHint = new SwitchWidget(tr("Low Battery Notification"), this);
     //~ contents_path /power/On Battery
     //~ child_page On Battery
-    m_sldLowBatteryHint = new TitledSliderItem(tr("Low battery level"));
+    m_sldLowBatteryHint = new TitledSliderItem(tr("Low battery level"), this);
     //~ contents_path /power/On Battery
     //~ child_page On Battery
-    m_sldAutoSuspend = new TitledSliderItem(tr("Auto suspend battery level"));
+    m_sldAutoSuspend = new TitledSliderItem(tr("Auto suspend battery level"), this);
     /*** 超时关闭显示器 ***/
     //~ contents_path /power/On Battery
     //~ child_page On Battery
@@ -175,9 +175,9 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
     m_layout->setContentsMargins(10, 10, 2, 5);
 
     //add scroll
-    ContentWidget *contentWgt = new ContentWidget;
+    ContentWidget *contentWgt = new ContentWidget(this);
     contentWgt->setAccessibleName("UseBatteryWidget_Content");
-    QWidget *mainWgt = new TranslucentFrame;
+    QWidget *mainWgt = new TranslucentFrame(contentWgt);
     mainWgt->setLayout(m_layout);
     contentWgt->setContent(mainWgt);
     QVBoxLayout *mainLayout = new QVBoxLayout;
