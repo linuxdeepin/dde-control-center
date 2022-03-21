@@ -36,6 +36,9 @@
 #include <DButtonBox>
 #include <DPushButton>
 #include <DListView>
+#include <DPaletteHelper>
+#include <DGuiApplicationHelper>
+#include <DPalette>
 
 #include <QMenu>
 #include <QLayout>
@@ -50,6 +53,7 @@
 #include <QScrollBar>
 #include <QShortcut>
 #include <QTimer>
+#include <QColor>
 
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -79,6 +83,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_rootModule(nullptr)
     , m_currentModule(nullptr)
     , m_pluginManager(nullptr)
+    , m_mainView(nullptr)
 {
     initUI();
     initConfig();
@@ -142,6 +147,14 @@ void MainWindow::showPage(ModuleObject *const module, const QString &url, const 
             return showPage(child, names.join('/'), uType);
         }
     }
+}
+
+void MainWindow::changeEvent(QEvent *event)
+{
+    if (event->type() == QEvent::PaletteChange) {
+        updateMainView();
+    }
+    return DMainWindow::changeEvent(event);
 }
 
 void MainWindow::initUI()
@@ -216,6 +229,24 @@ void MainWindow::toHome()
     m_rootModule->setChildType(ModuleObject::ChildType::MainIcon);
     setCurrentModule(nullptr);
     showModule(m_rootModule, m_contentWidget);
+}
+
+void MainWindow::updateMainView()
+{
+    if (!m_mainView)
+        return;
+    // set background
+    DPalette pa = DPaletteHelper::instance()->palette(m_mainView);
+    QColor baseColor = palette().base().color();
+    DGuiApplicationHelper::ColorType ct = DGuiApplicationHelper::toColorType(baseColor);
+    if (ct == DGuiApplicationHelper::LightType) {
+        pa.setBrush(DPalette::ItemBackground, palette().base());
+    }
+    else {
+        baseColor = DGuiApplicationHelper::adjustColor(baseColor, 0, 0, +5, 0, 0, 0, 0);
+        pa.setColor(DPalette::ItemBackground, baseColor);
+    }
+    DPaletteHelper::instance()->setPalette(m_mainView, pa);
 }
 
 void MainWindow::clearPage(QWidget *const widget)
@@ -300,6 +331,8 @@ void MainWindow::showModuleMainIcon(ModuleObject *const module, QWidget *const p
     view->setViewMode(ListView::IconMode);
     view->setAcceptDrops(false);
     view->setAlignment(Qt::AlignCenter);
+    m_mainView = view;
+    updateMainView();
 
     m_backwardBtn->setEnabled(false);
 

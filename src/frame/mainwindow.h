@@ -43,6 +43,7 @@ class QStandardItemModel;
 class QHBoxLayout;
 class QVBoxLayout;
 class QScrollArea;
+class QAbstractItemView;
 
 namespace DCC_NAMESPACE
 {
@@ -69,12 +70,16 @@ public:
      */
     void showPage(const QString &url, const UrlType &uType);
 
+protected:
+    void changeEvent(QEvent *event) override;
+
 private:
     void openManual();
     void initUI();
     void initConfig();
     void loadModules();
     void toHome();
+    void updateMainView();
     void clearPage(QWidget *const widget);
     int getScrollPos(const int index);
     void showPage(ModuleObject *const module, const QString &url, const UrlType &uType);
@@ -97,6 +102,7 @@ private:
     ModuleObject                        *m_rootModule;
     ModuleObject                        *m_currentModule;
     PluginManager                       *m_pluginManager;
+    QAbstractItemView                   *m_mainView;            //保存主菜单view, 方便改变背景
     QList<QWidget*>                     m_pages;                //保存终点的页面
 
 };
