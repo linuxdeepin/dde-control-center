@@ -67,11 +67,16 @@ public:
     virtual void deactive() {}
 
     /**
-     * @brief 每次获取均需生产新的QWidget
-     * @return 当ChildType为Page/PageList时，需返回相应的页面
+     * @brief 每次被调均需new新的QWidget。提供extraButton及父节点ChildType为Page的页面展示。
+     * @return 返回自定义页面
      */
     virtual QWidget *page() { return nullptr; }
 
+    /**
+     * @brief 扩展按钮，如垂直菜单或page下方的按钮，同page(),每次获取需new新的QWidget
+     * @return 当ChildType为VList/Page时，按需加载扩展按钮
+     */
+    virtual QWidget *extraButton() { return nullptr; }
 
 Q_SIGNALS:
     /**
@@ -99,6 +104,11 @@ Q_SIGNALS:
      * @brief 显示 child 可以发送此信号
      */
     void activeChild(const int index);
+
+    /**
+     * @brief 扩展按钮被点击信号，只有触发此信号才会显示page()
+     */
+    void extraButtonClicked();
 
 public:
     /**

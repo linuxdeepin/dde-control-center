@@ -90,6 +90,7 @@ private:
     void showModuleVList(ModuleObject *const module, QWidget *const parent, const int index = -1);
     void showModulePage(ModuleObject *const module, QWidget *const parent, const int index = -1);
     QWidget *getPage(QWidget *const widget, const QString &title);
+    QWidget *getExtraPage(QWidget *const widget);
 
     inline void setCurrentModule(ModuleObject *const module) { m_currentModule = module; }
     inline ModuleObject *currentModule() const { return m_currentModule; }

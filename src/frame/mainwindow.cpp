@@ -260,6 +260,7 @@ void MainWindow::clearPage(QWidget *const widget)
         {
             layout->removeWidget(child->widget());
             child->widget()->deleteLater();
+            layout->removeItem(child);
             delete child;
         }
         delete layout;
@@ -466,7 +467,13 @@ void MainWindow::showModuleVList(ModuleObject *const module, QWidget *const pare
     area->setWidgetResizable(true);
 
     DListView *view = new DListView(parent);
-    hlayout->addWidget(view, 1);
+    QWidget *widget = new QWidget(parent);
+    QVBoxLayout *vlayout = new QVBoxLayout;
+    widget->setLayout(vlayout);
+    vlayout->addWidget(view);
+    if (module->extraButton())
+        vlayout->addWidget(getExtraPage(module->extraButton()));
+    hlayout->addWidget(widget, 1);
     hlayout->addWidget(area, 5);
 
     view->setModel(model);
@@ -497,6 +504,11 @@ void MainWindow::showModuleVList(ModuleObject *const module, QWidget *const pare
     connect(view, &ListView::clicked, view, onClicked);
     connect(module, &ModuleObject::activeChild, view, [onClicked, model] (const int index) {
         onClicked(model->index(index, 0));
+    });
+    connect(module, &ModuleObject::extraButtonClicked, area, [this, area, module] {
+        clearPage(area);
+        setCurrentModule(nullptr);
+        area->setWidget(module->page());
     });
     connect(view, &ListView::destroyed, module, &ModuleObject::deactive);
 
@@ -532,8 +544,10 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
         });
     }
     if (m_pages.count() > 1)
-        vlayout->addStretch(0);
+        vlayout->addStretch(1);
 
+    if (module->extraButton())
+        vlayout->addWidget(getExtraPage(module->extraButton()), 0, Qt::AlignBottom);
     area->verticalScrollBar()->setSliderPosition(getScrollPos(index));
 
     connect(module, &ModuleObject::activeChild, area, [this, area] (const int index) {
@@ -560,12 +574,22 @@ QWidget* MainWindow::getPage(QWidget *const widget, const QString &title)
     QWidget *page = new QWidget(this);
     QVBoxLayout *vLayout = new QVBoxLayout(page);
     page->setLayout(vLayout);
-    vLayout->addWidget(titleLbl);
-    vLayout->addWidget(widget);
+    vLayout->addWidget(titleLbl, 0, Qt::AlignTop);
+    vLayout->addWidget(widget, 1, Qt::AlignTop);
     if (title.isEmpty()) {
         titleLbl->setVisible(false);
     }
     return page;
+}
+
+QWidget* MainWindow::getExtraPage(QWidget *const widget)
+{
+    QWidget *tmpWidget = new QWidget(this);
+    QVBoxLayout *vLayout = new QVBoxLayout(tmpWidget);
+    tmpWidget->setLayout(vLayout);
+    vLayout->addWidget(widget);
+    vLayout->setSpacing(0);
+    return tmpWidget;
 }
 
 void MainWindow::openManual()
