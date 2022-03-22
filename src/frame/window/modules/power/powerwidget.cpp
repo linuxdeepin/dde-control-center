@@ -135,7 +135,9 @@ void PowerWidget::initialize(bool hasBattery)
 {
     m_bhasBattery = hasBattery;
     m_batteryIndex = IsServerSystem ? 1 : 2;
-    m_listView->setRowHidden(m_batteryIndex, !hasBattery);
+    // 获取域管理中是否显示使用电池选项
+    bool showBattery = GSettingWatcher::instance()->get("onBattery").toBool();
+    m_listView->setRowHidden(m_batteryIndex, (!hasBattery || !showBattery));
 }
 
 void PowerWidget::setModel(const PowerModel *model)
@@ -176,7 +178,9 @@ void PowerWidget::onItemClicked(const QModelIndex &index)
 
 void PowerWidget::removeBattery(bool state)
 {
-    m_listView->setRowHidden(m_batteryIndex, !state);
+    // 获取域管理中是否显示使用电池选项
+    bool showBattery = GSettingWatcher::instance()->get("onBattery").toBool();
+    m_listView->setRowHidden(m_batteryIndex, !state || !showBattery);
     m_bhasBattery = state;
 
     /* 当电池被移除时，显示电池设置的上一个界面，如果电池在第一个，则显示电池界面移除后的第一个界面 */
