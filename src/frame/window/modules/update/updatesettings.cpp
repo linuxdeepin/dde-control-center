@@ -217,6 +217,7 @@ void UpdateSettings::initConnection()
     connect(m_autoDownloadUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoDownloadUpdates);
     connect(m_autoDownloadUpdate, &SwitchWidget::checkedChanged, this, [ = ](bool state) {
         setCheckStatus(m_autoInstallUpdate, state, "updateAutoInstall");
+        setCheckStatus(m_autoInstallUpdatesTips, state, "updateAutoInstall");
     });
 
     connect(m_autoInstallUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoInstall);
@@ -272,12 +273,21 @@ QString UpdateSettings::getAutoInstallUpdateType(quint64 type)
 
 void UpdateSettings::setAutoCheckEnable(bool enable)
 {
-    m_autoCheckUpdate->setEnabled(enable);
-    m_autoDownloadUpdate->setEnabled(enable);
-    m_autoDownloadUpdateTips->setEnabled(enable);
-    m_autoInstallUpdate->setEnabled(enable);
-    m_autoInstallUpdatesTips->setEnabled(enable);
-    m_updateNotify->setEnabled(enable);
+    auto setCheckEnable = [ = ](QWidget * widget, bool state, const QString & key, bool useDconfig) {
+        QString status = DConfigWatcher::instance()->getStatus(DConfigWatcher::ModuleType::update, key);
+        if (!useDconfig) {
+            status = GSettingWatcher::instance()->get(key).toString();
+        }
+
+        widget->setEnabled("Enabled" == status && enable);
+    };
+
+    setCheckEnable(m_autoCheckUpdate, enable, "updateAutoCheck", false);
+    setCheckEnable(m_autoDownloadUpdate, enable, "updateAutoDownlaod", false);
+    setCheckEnable(m_autoDownloadUpdateTips, enable, "updateAutoDownlaod", false);
+    setCheckEnable(m_updateNotify, enable, "updateUpdateNotify", false);
+    setCheckEnable(m_autoInstallUpdate, enable, "updateAutoInstall", true);
+    setCheckEnable(m_autoInstallUpdatesTips, enable, "updateAutoInstall", true);
 }
 
 void UpdateSettings::setModel(UpdateModel *model)
@@ -344,6 +354,22 @@ void UpdateSettings::setModel(UpdateModel *model)
             setCheckStatus(m_autoInstallUpdatesTips, m_autoDownloadUpdate->checked(), "updateAutoInstall");
         }
     });
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [ = ](const QString & gsetting, const QString & state) {
+        bool status = GSettingWatcher::instance()->get(gsetting).toString() == "Enabled" && (m_autoCheckSecureUpdate->checked() || m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked());
+        if (gsetting == "updateAutoCheck") {
+            m_autoCheckUpdate->setEnabled(status);
+        }
+
+        if (gsetting == "updateAutoDownlaod") {
+            m_autoDownloadUpdate->setEnabled(status);
+            m_autoDownloadUpdateTips->setEnabled(status);
+        }
+
+        if (gsetting == "updateUpdateNotify") {
+            m_updateNotify->setEnabled(status);
+        }
+    });
     setAutoCheckEnable(m_autoCheckSecureUpdate->checked() || m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
@@ -394,7 +420,7 @@ void UpdateSettings::setCheckStatus(QWidget *widget, bool state, const QString &
     const QString status = DConfigWatcher::instance()->getStatus(DConfigWatcher::ModuleType::update, key);
 
     if ("Enabled" == status) {
-        widget->setEnabled(true);
+        widget->setEnabled((m_autoCheckSecureUpdate->checked() || m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked()));
     } else if ("Disabled" == status) {
         widget->setEnabled(false);
     }
