@@ -59,6 +59,9 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     , m_settingsGroup(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
     , m_nightManual(new SwitchWidget(this))
     , m_cctItem(new TitledSliderItem(QString(), this))
+    , m_nightShiftSpacerItem(new QSpacerItem(0, 10))
+    , m_nightTipsSpacerItem(new QSpacerItem(0, 6))
+    , m_nightManualSpacerItem(new QSpacerItem(0, 20))
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(0);
@@ -84,7 +87,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     //~ contents_path /display/Night Shift
     m_nightShift->setTitle(tr("Night Shift"));
     m_nightShift->addBackground();
-    m_centralLayout->addSpacing(10);
+    m_centralLayout->addSpacerItem(m_nightShiftSpacerItem);
     m_centralLayout->addWidget(m_nightShift);
 
     m_nightTips = new DTipLabel(tr("The screen hue will be auto adjusted according to your location"), m_tempratureColorWidget);
@@ -95,7 +98,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_nightTips->adjustSize();
     m_nightTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     m_nightTips->setContentsMargins(10, 0, 0, 0);
-    m_centralLayout->addSpacing(6);
+    m_centralLayout->addSpacerItem(m_nightTipsSpacerItem);
     m_centralLayout->addWidget(m_nightTips);
 
     //~ contents_path /display/Change Color Temperature
@@ -103,7 +106,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_cctItem->setAnnotations({tr("Cool"), "", tr("Warm")});
     m_settingsGroup->appendItem(m_nightManual);
     m_settingsGroup->appendItem(m_cctItem);
-    m_centralLayout->addSpacing(20);
+    m_centralLayout->addSpacerItem(m_nightManualSpacerItem);
     m_centralLayout->addWidget(m_settingsGroup);
 
     m_tempratureColorWidget->setLayout(m_centralLayout);
@@ -163,6 +166,9 @@ void BrightnessWidget::setMode(DisplayModel *model)
 
 void BrightnessWidget::setColorTemperatureVisible(bool visible)
 {
+    m_nightShiftSpacerItem->changeSize(0, visible ? 10 : 0);
+    m_nightTipsSpacerItem->changeSize(0, visible ? 6 : 0);
+    m_nightManualSpacerItem->changeSize(0, visible ? 20 : 0);
     m_nightShift->setVisible(visible);
     m_tempratureColorTitle->setVisible(visible);
     m_tempratureColorWidget->setVisible(visible);
@@ -198,7 +204,8 @@ void BrightnessWidget::showBrightness(Monitor *monitor)
         }
     }
     m_brightnessTitle->setVisible(bTitle);
-    m_colorSpacerItem->changeSize(0, bTitle ? 20 : 0);
+    //色温模块不显示的时候 设置空白区域高度为0
+    m_colorSpacerItem->changeSize(0, bTitle && ("Hidden" != GSettingWatcher::instance()->getStatus("displayColorTemperature")) && m_displayModel->redshiftIsValid() ? 20 : 0);
 }
 
 void BrightnessWidget::addSlider()
