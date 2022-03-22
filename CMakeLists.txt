@@ -390,3 +390,40 @@ target_include_directories(${Mouse_Name} PUBLIC
 target_link_libraries(${Mouse_Name} PRIVATE
     ${Mouse_Libraries}
 )
+#--------------------------plugin-commoninfo--------------------------
+set(CommonInfo_Name dcc-commoninfo-plugin)
+set(DEEPIN_PW_CHECK libdeepin_pw_check.so)
+file(GLOB_RECURSE COMMONINFO_SRCS
+    "src/plugin-commoninfo/window/*.cpp"
+    "src/plugin-commoninfo/operation/*.cpp"
+    "src/plugin-commoninfo/operation/qrc/commoninfo.qrc"
+)
+
+add_library(${CommonInfo_Name} MODULE
+    ${COMMONINFO_SRCS}
+)
+set(CommonInfo_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+set(CommonInfo_Libraries
+    ${Dcc_Widgets_Name}
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    ${DEEPIN_PW_CHECK}
+    ${LIBS}
+)
+
+
+target_include_directories(${CommonInfo_Name} PUBLIC
+    ${CommonInfo_Includes}
+)
+
+target_link_libraries(${CommonInfo_Name} PRIVATE
+    ${CommonInfo_Libraries}
+)
