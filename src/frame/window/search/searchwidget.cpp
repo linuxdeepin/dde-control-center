@@ -98,11 +98,7 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_completer->installEventFilter(this);
     m_completer->setWidget(lineEdit());  //设置自动补全时弹出时相应位置的widget
 
-    m_forbidTextList << " " << " -" << " --" << " -->" << " --> "
-         << "-" << "--" << "-->" << "--> "
-         << "->" << "-> "
-         << ">" << "> "
-         << "/" << " /" << "/ " << " / ";
+    m_forbidTextList << "--" << "-" << "-->" << "->" << ">" << "/";
 
     connect(m_model, &SearchModel::notifyModuleSearch, this, &SearchWidget::notifyModuleSearch);
 
@@ -120,7 +116,9 @@ SearchWidget::SearchWidget(QWidget *parent)
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textChanged, this, &SearchWidget::onSearchTextChange);
 
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::returnPressed, this, [ = ] {
-        if (!text().isEmpty()) {
+        // 此处只做判空处理，无内容或特殊字符时不允许跳转，有跳转还是以原文跳转
+        const QString tmpStr = text().trimmed();
+        if (!tmpStr.isEmpty() && !m_forbidTextList.contains(tmpStr)) {
             //enter defalt set first
             if (!jumpContentPathWidget(text())) {
                 //m_completer未关联部件时，currentCompletion只会获取到第一个选项并且不会在Edit中补全内容，需要通过popup()获取当前选择项并手动补全edit内容
@@ -167,7 +165,7 @@ void SearchWidget::onCompleterActivated(const QString &value)
 
 void SearchWidget::onAutoComplete(const QString &text)
 {
-    //因为QLineEdit只有在触发textEdited信号时才会触发自动补全，而语音识别输入没有触发textEdited,所以需要在触发textChanged后手动触发下自动补全
+    // 因为QLineEdit只有在触发textEdited信号时才会触发自动补全，而语音识别输入没有触发textEdited,所以需要在触发textChanged后手动触发下自动补全
     auto *widget = m_completer->popup();
     if (widget && text.isEmpty()) {
         widget->hide();
@@ -179,13 +177,18 @@ void SearchWidget::onAutoComplete(const QString &text)
 
 void SearchWidget::onSearchTextChange(const QString &text)
 {
-    if (m_forbidTextList.contains(text)) {
+    // 此处判空则直接收起自动补全列表
+    const QString tmpStr = text.trimmed();
+
+    // 特殊字符不补全，并且收起自动补全列表
+    if (tmpStr.isEmpty() || m_forbidTextList.contains(tmpStr)) {
+        onAutoComplete("");
         return;
     }
 
-    //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
+    // 发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
     Q_EMIT focusChanged(true);
-    //实现自动补全
+    // 实现自动补全
     onAutoComplete(text);
 }
 
