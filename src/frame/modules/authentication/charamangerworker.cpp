@@ -252,11 +252,16 @@ void CharaMangerWorker::entollStart(const QString &driverName, const int &charaT
         } else {
             m_stopTimer->start(1000 * INPUT_TIME);
 
-            if (charaType & FACE_CHARA)
+            if (charaType & FACE_CHARA) {
+                Q_EMIT requestMainWindowEnabled(true);
                 m_model->setInputFaceFD(m_fileDescriptor->value().fileDescriptor());
+            }
 
-            if (charaType & IRIS_CHARA)
+            if (charaType & IRIS_CHARA) {
+                Q_EMIT requestMainWindowEnabled(true);
                 m_model->setInputIrisFD(CharaMangerModel::AddInfoState::Processing);
+            }
+
         }
         Q_EMIT requestMainWindowEnabled(true);
         watcher->deleteLater();
