@@ -93,8 +93,6 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::po
         powerSettingsGrp->appendItem(m_computerSleepOnPower);
     }
 
-    updatePowerButtonActionList();
-
     powerSettingsGrp->appendItem(m_autoLockScreen);
     powerSettingsGrp->appendItem(m_cmbCloseLid);
     powerSettingsGrp->appendItem(m_cmbPowerBtn);
@@ -143,20 +141,25 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::po
         setPowerBtn(model, model->linePowerPressPowerBtnAction());
         setCloseLid(model, model->linePowerLidClosedAction());
     });
+
+
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
-        if (!model->getSuspend()) {
-            if (!model->getHibernate()) {
-                Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 0 ? nIndex + 2 : nIndex);
-            } else {
-                Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 0 ? nIndex + 1 : nIndex);
-            }
-        } else {
-            if (!model->getHibernate()) {
-                Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 1 ? nIndex + 1 : nIndex);
-            } else {
-                Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex);
-            }
+        if (nIndex < 0) return;
+
+        int tmpIndex = nIndex;
+        if (!model->getShutdown()) {
+            tmpIndex += 1;
         }
+
+        if (!model->getSuspend() && tmpIndex >= 1) {
+            tmpIndex += 1;
+        }
+
+        if (!model->getHibernate() && tmpIndex >= 2) {
+            tmpIndex += 1;
+        }
+
+        Q_EMIT requestSetLinePowerPressPowerBtnAction(tmpIndex);
     });
 
     connect(m_cmbCloseLid->comboBox(), &AlertComboBox::clicked, this, [ = ]() {
@@ -165,19 +168,22 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::po
         setCloseLid(model, model->linePowerLidClosedAction());
     });
     connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
-        if (!model->getSuspend()) {
-            if (!model->getHibernate()) {
-                Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 3);
-            } else {
-                Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 2);
-            }
-        } else {
-            if (!model->getHibernate()) {
-                Q_EMIT requestSetLinePowerLidClosedAction(nIndex > 0 ? nIndex + 2 : nIndex + 1);
-            } else {
-                Q_EMIT requestSetLinePowerLidClosedAction(nIndex + 1);
-            }
+        if (nIndex < 0) return;
+
+        int tmpIndex = nIndex;
+        if (!model->getShutdown() && tmpIndex >= 0) {
+            tmpIndex += 1;
         }
+
+        if (!model->getSuspend() && tmpIndex >= 1) {
+            tmpIndex += 1;
+        }
+
+        if (!model->getHibernate() && tmpIndex >= 2) {
+            tmpIndex += 1;
+        }
+
+        Q_EMIT requestSetLinePowerLidClosedAction(tmpIndex);
     });
 
 }
@@ -194,19 +200,21 @@ UseElectricWidget::~UseElectricWidget()
 void UseElectricWidget::setModel(const PowerModel *model)
 {
     connect(model, &PowerModel::powerLockScreenDelayChanged, this, &UseElectricWidget::setLockScreenAfter);
-    connect(model, &PowerModel::hibernateChanged, this, [=] {
+    connect(model, &PowerModel::hibernateChanged, this, [ = ] {
         updatePowerButtonActionList();
         setPowerBtn(model, model->linePowerPressPowerBtnAction());
         setCloseLid(model, model->linePowerLidClosedAction());
     });
-    connect(model, &PowerModel::suspendChanged, this, [=] {
+    connect(model, &PowerModel::suspendChanged, this, [ = ] {
         updatePowerButtonActionList();
         setPowerBtn(model, model->linePowerPressPowerBtnAction());
         setCloseLid(model, model->linePowerLidClosedAction());
     });
 
-    connect(model, &PowerModel::shutdownChanged, this, [=] {
+    connect(model, &PowerModel::shutdownChanged, this, [ = ] {
         updatePowerButtonActionList();
+        setPowerBtn(model, model->linePowerPressPowerBtnAction());
+        setCloseLid(model, model->linePowerLidClosedAction());
     });
 
     if (!IsServerSystem) {
@@ -231,19 +239,17 @@ void UseElectricWidget::setModel(const PowerModel *model)
         m_cmbCloseLid->setVisible(value && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hidden");
     });
     m_cmbCloseLid->setVisible(model->lidPresent() && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hidden");
-    connect(model, &PowerModel::linePowerLidClosedActionChanged, this, [=](const int reply){
-        if (reply - 1 < m_cmbCloseLid->comboBox()->count()) {
-            setCloseLid(model, reply);
-        }
+    connect(model, &PowerModel::linePowerLidClosedActionChanged, this, [ = ] (const int reply) {
+         setCloseLid(model, reply);
     });
+    connect(model, &PowerModel::linePowerPressPowerBtnActionChanged, this, [ = ] (const int reply) {
+         setPowerBtn(model, reply);
+    });
+    //----------------------------------------
+
+    updatePowerButtonActionList();
     setCloseLid(model, model->linePowerLidClosedAction());
-    connect(model, &PowerModel::linePowerPressPowerBtnActionChanged, this, [=](const int reply){
-        if (reply - 1 < m_cmbPowerBtn->comboBox()->count()) {
-            setPowerBtn(model, reply);
-        }
-    });
     setPowerBtn(model, model->linePowerPressPowerBtnAction());
-    //--------------------------------------
 }
 
 void UseElectricWidget::setLidClose(bool state)
@@ -285,36 +291,66 @@ void UseElectricWidget::setAutoLockScreenOnPower(const int delay)
 
 void UseElectricWidget::setCloseLid(const dcc::power::PowerModel *model, int lidIndex)
 {
-    if (!model->getSuspend()) {
-        if (!model->getHibernate()) {
-            m_cmbCloseLid->setCurrentIndex(lidIndex - 3);
-        } else {
-            m_cmbCloseLid->setCurrentIndex(lidIndex - 2);
-        }
-    } else {
-        if (!model->getHibernate()) {
-            m_cmbCloseLid->setCurrentIndex(lidIndex > 2 ? lidIndex - 2 : lidIndex - 1);
-        } else {
-            m_cmbCloseLid->setCurrentIndex(lidIndex - 1);
-        }
+    Q_UNUSED(model);
+
+    int tmpIndex = lidIndex;
+
+    // 如果原来设置的关机，但是当前又不显示关机选项，则设置为无任何操作
+    if (!model->getShutdown() && lidIndex == 0) {
+        tmpIndex = m_cmbCloseLid->comboBox()->count() - 1;
     }
+
+    // 如果原来设置的待机，但是当前不显示待机选项，则设置为无任何操作
+    if (!model->getSuspend() && lidIndex == 1) {
+        tmpIndex = m_cmbCloseLid->comboBox()->count() - 1;
+    }
+
+    // 如果原来设置的休眠，但是当前不显示休眠选项，则设置为无任何操作
+    if (!model->getHibernate() && lidIndex == 2) {
+        tmpIndex = m_cmbCloseLid->comboBox()->count() - 1;
+    }
+
+    // 设置为关闭显示器或无任何操作
+    if (lidIndex == 3)
+        tmpIndex = m_cmbCloseLid->comboBox()->count() - 2;
+    else if (lidIndex == 4)
+        tmpIndex = m_cmbCloseLid->comboBox()->count() - 1;
+
+    if (tmpIndex < 0) return;
+
+    m_cmbCloseLid->setCurrentIndex(tmpIndex);
 }
 
 void UseElectricWidget::setPowerBtn(const dcc::power::PowerModel *model, int powIndex)
 {
-    if (!model->getSuspend()) {
-        if (!model->getHibernate()) {
-            m_cmbPowerBtn->setCurrentIndex(powIndex > 0 ? powIndex - 2 : powIndex);
-        } else {
-            m_cmbPowerBtn->setCurrentIndex(powIndex > 0 ? powIndex - 1 : powIndex);
-        }
-    } else {
-        if (!model->getHibernate()) {
-            m_cmbPowerBtn->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
-        } else {
-            m_cmbPowerBtn->setCurrentIndex(powIndex);
-        }
+    Q_UNUSED(model);
+
+    int tmpIndex = powIndex;
+
+    // 如果原来设置的关机，但是当前又不显示关机选项，则设置为无任何操作
+    if (!model->getShutdown() && powIndex == 0) {
+        tmpIndex = m_cmbPowerBtn->comboBox()->count() - 1;
     }
+
+    // 如果原来设置的待机，但是当前不显示待机选项，则设置为无任何操作
+    if (!model->getSuspend() && powIndex == 1) {
+        tmpIndex = m_cmbPowerBtn->comboBox()->count() - 1;
+    }
+
+    // 如果原来设置的休眠，但是当前不显示休眠选项，则设置为无任何操作
+    if (!model->getHibernate() && powIndex == 2) {
+        tmpIndex = m_cmbPowerBtn->comboBox()->count() - 1;
+    }
+
+    // 设置为关闭显示器或无任何操作
+    if (powIndex == 3)
+        tmpIndex = m_cmbPowerBtn->comboBox()->count() - 2;
+    else if (powIndex == 4)
+        tmpIndex = m_cmbPowerBtn->comboBox()->count() - 1;
+
+    if (tmpIndex < 0) return;
+
+    m_cmbPowerBtn->setCurrentIndex(tmpIndex);
 }
 
 void UseElectricWidget::updatePowerButtonActionList()
@@ -323,18 +359,17 @@ void UseElectricWidget::updatePowerButtonActionList()
     if (m_model->getShutdown()) {
         options << tr("Shut down");
     }
-    if (m_work->getCurCanSuspend())
-    {
+    if (m_model->getSuspend()) {
         options << tr("Suspend");
     }
-    if (m_work->getCurCanHibernate())
-    {
+    if (m_model->getHibernate()) {
         options << tr("Hibernate");
     }
     options << tr("Turn off the monitor") << tr("Do nothing");
     m_cmbPowerBtn->setComboxOption(options);
-    options.pop_front();
+    m_cmbPowerBtn->addBackground();
     m_cmbCloseLid->setComboxOption(options);
+    m_cmbCloseLid->addBackground();
 }
 
 QString UseElectricWidget::delayToLiteralString(const int delay) const
