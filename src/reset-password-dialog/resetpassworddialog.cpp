@@ -234,7 +234,7 @@ void ResetPasswordDialog::initData()
         m_monitorTimer->start(300);
         m_client = new QLocalSocket(this);
         m_client->abort();
-        m_client->connectToServer("GrabKeyboard_" + m_appName);
+        m_client->connectToServer("GrabKeyboard_" + m_appName + "_" + m_userName);
         if(!m_client->waitForConnected(1000)) {
             qWarning() << "connect failed, server: " << "GrabKeyboard_" + m_appName << ", error: " << m_client->errorString();
             return;
