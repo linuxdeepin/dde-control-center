@@ -27,6 +27,7 @@
 #include "tabview.h"
 #include "tabitemdelegate.h"
 #include "moduledatamodel.h"
+#include "widgets/utils.h"
 
 #include <DBackgroundGroup>
 #include <DIconButton>
@@ -39,6 +40,7 @@
 #include <DPaletteHelper>
 #include <DGuiApplicationHelper>
 #include <DPalette>
+#include <DFrame>
 
 #include <QMenu>
 #include <QLayout>
@@ -163,7 +165,11 @@ void MainWindow::initUI()
     m_contentWidget->setAccessibleName("contentwindow");
     m_contentWidget->setObjectName("contentwindow");
     setCentralWidget(m_contentWidget);
+
     layout()->setMargin(0);
+    layout()->setSpacing(0);
+    layout()->setContentsMargins(ZeroMargins);
+
 
     auto menu = titlebar()->menu();
     if (!menu) {
@@ -371,6 +377,8 @@ void MainWindow::showModuleMainList(ModuleObject *const module, QWidget *const p
     view->setItemDelegate(delegate);
     hlayout->addWidget(view, 1);
     hlayout->addWidget(area, 5);
+    hlayout->setMargin(0);
+    hlayout->setSpacing(0);
 
     view->setModel(model);
     view->setFrameShape(QFrame::Shape::NoFrame);
@@ -420,12 +428,14 @@ void MainWindow::showModuleHList(ModuleObject *const module, QWidget *const pare
     vlayout->addWidget(view, 1, Qt::AlignHCenter);
 
     QScrollArea *area = new QScrollArea(parent);
-    vlayout->addWidget(area, 6);
     area->setFrameShape(QFrame::NoFrame);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     area->setWidgetResizable(true);
+    area->setContentsMargins(ZeroMargins);
 
     model->setData(module);
+
+    DFrame *dframe = new DFrame(this);
 
     connect(module, &ModuleObject::removedChild, this, [this] (ModuleObject *const module) {
         if (module->findChild(currentModule()) >= 0) {
@@ -433,14 +443,28 @@ void MainWindow::showModuleHList(ModuleObject *const module, QWidget *const pare
         }
     });
 
-    auto onClicked = [this, module, area, view] (const QModelIndex &index) {
+    auto onClicked = [ = ] (const QModelIndex &index) {
         const int row = index.row();
         if (module->childrens().size() <= row) {
             qWarning() << "activated not exist item!";
             return;
         }
         view->setCurrentIndex(index);
-        showModule(module->childrens()[row], area, 0);
+
+        // 判断子项是否为垂直菜单，如果是则需要加上Frame
+        if (vlayout->count() >= 2)
+            vlayout->takeAt(vlayout->count() - 1);
+        if (module->childrens()[row]->childType() == ModuleObject::ChildType::VList) {
+            vlayout->addWidget(dframe, 6);
+            dframe->show();
+            area->hide();
+            showModule(module->childrens()[row], dframe, 0);
+        } else {
+            dframe->hide();
+            area->show();
+            vlayout->addWidget(area, 6);
+            showModule(module->childrens()[row], area, 0);
+        }
     };
 
     connect(view, &TabView::activated, view, &TabView::clicked);
@@ -473,11 +497,14 @@ void MainWindow::showModuleVList(ModuleObject *const module, QWidget *const pare
     vlayout->addWidget(view);
     if (module->extraButton())
         vlayout->addWidget(getExtraPage(module->extraButton()));
+    hlayout->setMargin(0);
+    hlayout->setSpacing(0);
     hlayout->addWidget(widget, 1);
+    hlayout->addWidget(new DVerticalLine);
     hlayout->addWidget(area, 5);
 
     view->setModel(model);
-    view->setFrameShape(QFrame::Shape::NoFrame);
+    view->setFrameShape(QFrame::NoFrame);
     view->setAutoScroll(true);
     view->setDragEnabled(false);
     view->setMaximumWidth(NavViewMaximumWidth);
