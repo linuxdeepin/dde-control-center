@@ -457,7 +457,7 @@ void TabView::paintEvent(QPaintEvent *e)
     option.decorationAlignment = d->m_viewMode == IconMode ? Qt::AlignCenter : Qt::AlignLeft;
 
     painter.setRenderHint(QPainter::Antialiasing);
-    painter.fillRect(e->rect(), palette().color(QPalette::Window));
+    painter.fillRect(e->rect(), palette().color(QPalette::Base));
 
     QVector<QModelIndex>::const_iterator end = toBeRendered.constEnd();
     for (QVector<QModelIndex>::const_iterator it = toBeRendered.constBegin(); it != end; ++it) {

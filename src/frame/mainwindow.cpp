@@ -420,12 +420,17 @@ void MainWindow::showModuleHList(ModuleObject *const module, QWidget *const pare
     QVBoxLayout *vlayout = new QVBoxLayout(parent);
     parent->setLayout(vlayout);
 
+    DFrame *dframeTab = new DFrame(parent);
+    QHBoxLayout *hlayout = new QHBoxLayout(dframeTab);
+    hlayout->setMargin(3);
+    hlayout->setSpacing(0);
     TabView *view = new TabView(parent);
+    hlayout->addWidget(view);
     ModuleDataModel *model = new ModuleDataModel(view);
     TabItemDelegate *delegate = new TabItemDelegate(view);
     view->setModel(model);
     view->setItemDelegate(delegate);
-    vlayout->addWidget(view, 1, Qt::AlignHCenter);
+    vlayout->addWidget(dframeTab, 1, Qt::AlignCenter);
 
     QScrollArea *area = new QScrollArea(parent);
     area->setFrameShape(QFrame::NoFrame);
@@ -435,7 +440,7 @@ void MainWindow::showModuleHList(ModuleObject *const module, QWidget *const pare
 
     model->setData(module);
 
-    DFrame *dframe = new DFrame(this);
+    DFrame *dframe = new DFrame(parent);
 
     connect(module, &ModuleObject::removedChild, this, [this] (ModuleObject *const module) {
         if (module->findChild(currentModule()) >= 0) {

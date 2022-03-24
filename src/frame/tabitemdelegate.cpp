@@ -96,7 +96,7 @@ void TabItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
     // draw the item
     if (opt.state & QStyle::State_Selected
-        || opt.state & QStyle::State_Active
+        //|| opt.state & QStyle::State_Active
         || opt.state & QStyle::State_MouseOver)
         drawBackground(style, painter, opt);
     // 图标的绘制用也可能会使用这些颜色
@@ -107,7 +107,7 @@ void TabItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     opt.displayAlignment = Qt::AlignCenter;
     drawDisplay(style, painter, opt, opt.rect);
 
-    drawFocus(style, painter, opt, opt.rect);
+    //drawFocus(style, painter, opt, opt.rect);
     // done
     painter->restore();
 }
