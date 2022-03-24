@@ -57,6 +57,7 @@ set(Test_Libraries
     -lpthread
     -lgcov
     -lgtest
+    Qt5::Test
 )
 
 #--------------------------interface--------------------------
@@ -319,6 +320,30 @@ target_include_directories(${SystemInfo_Name} PUBLIC
 target_link_libraries(${SystemInfo_Name} PRIVATE
     ${SystemInfo_Libraries}
 )
+#-------------------------ut-dcc-systeminfo-plugin-------------------------
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(UT_SystemInfo_Name ut-dcc-systeminfo-plugin)
+    file(GLOB_RECURSE UT_SYSTEMINFO_SRCS
+        "tests/plugin-systeminfo/*.cpp"
+    )
+
+    add_executable(${UT_SystemInfo_Name}
+        ${SYSTEMINFO_SRCS}
+        ${UT_SYSTEMINFO_SRCS}
+    )
+
+    # 用于测试覆盖率的编译条件
+    target_compile_options(${UT_SystemInfo_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+
+    target_include_directories(${UT_SystemInfo_Name} PUBLIC
+        ${SystemInfo_Includes}
+    )
+
+    target_link_libraries(${UT_SystemInfo_Name} PRIVATE
+        ${SystemInfo_Libraries}
+        ${Test_Libraries}
+    )
+endif()
 #--------------------------dcc-power-plugin--------------------------
 set(Power_Name dcc-power-plugin)
 file(GLOB_RECURSE Power_SRCS
