@@ -135,66 +135,66 @@
     <message>
         <location filename="../src/reset-password-dialog/utils.h" line="71"/>
         <source>It cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Não pode estar em branco</translation>
     </message>
 </context>
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="102"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="109"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
         <translation>Repor a palavra-passe limpará os dados armazenados no keyring.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="160"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="199"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="111"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="113"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="120"/>
         <source>Security Questions</source>
         <translation>Perguntas de Segurança</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="148"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="155"/>
         <source>Reset Password</source>
         <translation>Repor palavra-passe</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="149"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="184"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="187"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="156"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="191"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="194"/>
         <source>Next</source>
         <translation>Seguinte</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="152"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
         <source>Reset Password By Union ID</source>
         <translation>Usar Union ID para repor a Palavra-passe</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="153"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="184"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="187"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="195"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="160"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="191"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="194"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="202"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
         <source>Reset</source>
         <translation>Repor</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
         <translation>Repor a palavra-passe limpará os dados guardados no keyring e deverá iniciar sessão novamente. Por favor guarde os seus ficheiros antes de repor</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="160"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
         <source>Confirm and Reset</source>
         <translation>Confirmar e Repor</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="252"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="259"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Reposição bem sucedida. Por favor inicie sessão e use a nova palavra-passe</translation>
     </message>
@@ -246,7 +246,7 @@
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="201"/>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>A resposta deve ter menos de 30 caracteres.</translation>
     </message>
 </context>
 <context>
@@ -322,18 +322,17 @@
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="292"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="336"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="334"/>
         <source>Resend (%1s)</source>
         <translation>Reenviar (%1s)</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="324"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="355"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="353"/>
         <source>Failed to get the code</source>
         <translation>Falha ao obter código</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="378"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="376"/>
         <source>Wrong verification code</source>
         <translation>Código de verificação incorreto</translation>
     </message>
