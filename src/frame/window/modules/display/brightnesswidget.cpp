@@ -174,7 +174,7 @@ void BrightnessWidget::setColorTemperatureVisible(bool visible)
     m_tempratureColorWidget->setVisible(visible);
     m_nightTips->setVisible(visible);
     m_nightManual->setVisible(visible);
-    m_cctItem->setVisible(visible);
+    m_cctItem->setVisible(visible && m_displayModel->adjustCCTMode() == 2);
 }
 
 void BrightnessWidget::setAdjustCCTmode(int mode)
