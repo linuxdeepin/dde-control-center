@@ -23,15 +23,13 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "widgets/titlevalueitem.h"
-#include "contentwidget.h"
-#include "widgets/settingsgroup.h"
 #include "widgets/settingsitem.h"
-#include "src/plugin-systeminfo/operation/systeminfomodel.h"
+#include "widgets/titlevalueitem.h"
+#include "operation/systeminfomodel.h"
 
 #include <DLineEdit>
 
-#include <QWidget>
+#include <QFrame>
 
 DCC_USE_NAMESPACE
 
@@ -42,13 +40,15 @@ class DLabel;
 DWIDGET_END_NAMESPACE
 
 QT_BEGIN_NAMESPACE
-
+class QLabel;
 class QVBoxLayout;
 class QHBoxLayout;
 
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
+class SystemInfoModel;
+class TitleValueItem;
 
 class HostNameEdit : public DTK_WIDGET_NAMESPACE::DLineEdit
 {
@@ -59,7 +59,43 @@ public:
 protected:
     bool eventFilter(QObject *, QEvent *) override;
 };
-class NativeInfoWidget : public ContentWidget
+
+class HostNameItem : public SettingsItem
+{
+    Q_OBJECT
+public:
+    explicit HostNameItem(QWidget *parent = nullptr);
+
+    void setHostName(const QString &name);
+    void onSetError(const QString &error);
+
+Q_SIGNALS:
+    void hostNameChanged(const QString &name);
+
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+
+private:
+    void initUI();
+    QString getElidedText(const QString &string);
+
+    void onToolButtonButtonClicked();
+    void onFocusChanged(const bool onFocus);
+    void onTextEdited(const QString &hostName);
+    void onAlertChanged();
+    void onEditingFinished();
+
+private:
+    QLabel *m_hostNameTitleLabel;
+    Dtk::Widget::DLabel *m_hostNameLabel;
+    Dtk::Widget::DToolButton *m_hostNameBtn;
+    HostNameEdit *m_hostNameLineEdit;
+    QString m_alertMessage;
+    QString m_hostname;//保存计算机的全名
+    QString m_hostnameEdit;//保存编辑时的数据
+};
+
+class NativeInfoWidget : public QFrame
 {
     Q_OBJECT
 public:
@@ -69,53 +105,15 @@ public:
 private:
     void initWidget();
     const QString systemCopyright() const;
-    const QString systemLogo() const;
-    const QString getElidedText(QWidget* widget, QString data, Qt::TextElideMode mode = Qt::ElideRight, int width = 100, int flags = 0, int line = 0);
+    const QString typeStr(const QString &type) const;
 
-public Q_SLOTS:
-    void setProductName(const QString &edition);
-    void setVersionNumber(const QString &type);
-    void setEdition(const QString &edition);
-    void setType(const QString &type);
-    void setProcessor(const QString &processor);
-    void setMemory(const QString &memory);
-    void setLicenseState(DCC_NAMESPACE::ActiveState state);
-
-    void onToolButtonButtonClicked();
-    void onFocusChanged(const bool onFocus);
-    void onTextEdited(const QString &hostName);
-    void onAlertChanged();
-    void onEditingFinished();
-    void onHostNameChanged(const QString &hostName);
-    void onSetHostNameError(const QString &error);
+    void setLicenseState(TitleAuthorizedItem *const authorized, DCC_NAMESPACE::ActiveState state);
 
 Q_SIGNALS:
     void clickedActivator();
 
-protected:
-    void resizeEvent(QResizeEvent *event) override;
-
 private:
     SystemInfoModel *m_model;
-    QVBoxLayout *m_mainLayout;
-    QHBoxLayout *m_hostNameLayout;
-    SettingsItem *m_hostNameSettingItem;
-    DTK_WIDGET_NAMESPACE::DLabel *m_hostNameTitleLabel;//计算机名标题
-    DTK_WIDGET_NAMESPACE::DLabel *m_hostNameLabel;//计算机名显示
-    DTK_WIDGET_NAMESPACE::DToolButton *m_hostNameBtn;//计算机名编辑按钮
-    HostNameEdit *m_hostNameLineEdit = nullptr;//计算机名编辑框
-    TitleValueItem *m_productName;
-    TitleValueItem *m_versionNumber;
-    TitleValueItem *m_version;
-    TitleValueItem *m_type;
-    TitleAuthorizedItem *m_authorized;
-    TitleValueItem *m_kernel;
-    TitleValueItem *m_processor;
-    TitleValueItem *m_memory;
-    bool isContensServers;
-    QString m_alertMessage;
-    QString m_hostname;//保存计算机的全名
-    QString m_hostnameEdit;//保存编辑时的数据
 };
 
 }

@@ -123,13 +123,10 @@ void SystemInfoWork::activate()
 {
     qRegisterMetaType<ActiveState>("ActiveState");
 
-    if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
-            (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
-        QString productName = QString("%1").arg(DSysInfo::uosSystemName());
-        m_model->setProductName(productName);
-        QString versionNumber = QString("%1").arg(DSysInfo::majorVersion());
-        m_model->setVersionNumber(versionNumber);
-    }
+    QString productName = QString("%1").arg(DSysInfo::uosSystemName());
+    m_model->setProductName(productName);
+    QString versionNumber = QString("%1").arg(DSysInfo::majorVersion());
+    m_model->setVersionNumber(versionNumber);
     QString version;
     if (DSysInfo::uosType() == DSysInfo::UosServer || DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
         version = QString("%1%2").arg(DSysInfo::minorVersion())

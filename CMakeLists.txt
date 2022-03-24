@@ -298,6 +298,7 @@ add_library(${SystemInfo_Name} MODULE
 )
 
 set(SystemInfo_Includes
+    src/plugin-systeminfo
     ${DtkWidget_INCLUDE_DIRS}
     Qt5::Widgets
     Qt5::DBus
