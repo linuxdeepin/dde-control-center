@@ -415,6 +415,30 @@ target_include_directories(${Mouse_Name} PUBLIC
 target_link_libraries(${Mouse_Name} PRIVATE
     ${Mouse_Libraries}
 )
+#-------------------------ut-dcc-mouse-plugin-------------------------
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(UT_Mouse_Name ut-dcc-mouse-plugin)
+    file(GLOB_RECURSE UT_MOUSE_SRCS
+        "tests/plugin-mouse/*.cpp"
+    )
+
+    add_executable(${UT_Mouse_Name}
+        ${MOUSE_SRCS}
+        ${UT_MOUSE_SRCS}
+    )
+
+    # 用于测试覆盖率的编译条件
+    target_compile_options(${UT_Mouse_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+
+    target_include_directories(${UT_Mouse_Name} PUBLIC
+        ${Mouse_Includes}
+    )
+
+    target_link_libraries(${UT_Mouse_Name} PRIVATE
+        ${Mouse_Libraries}
+        ${Test_Libraries}
+    )
+endif()
 #--------------------------plugin-commoninfo--------------------------
 set(CommonInfo_Name dcc-commoninfo-plugin)
 set(DEEPIN_PW_CHECK libdeepin_pw_check.so)
