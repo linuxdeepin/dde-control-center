@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+* Copyright (C) 2021 ~ 2023 Deepin Technology Co., Ltd.
 *
 * Author:     caixiangrong <caixiangrong@uniontech.com>
 *
@@ -18,25 +18,26 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "titlemodule.h"
-#include "widgets/titlelabel.h"
+#ifndef BLUETOOTHPLUGIN_H
+#define BLUETOOTHPLUGIN_H
 
-#include <DFontSizeManager>
+#include "interface/moduleobject.h"
+#include "interface/plugininterface.h"
 
-DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
-
-TitleModule::TitleModule(const QString &name, const QString &title, QObject *parent)
-    : ModuleObject(parent)
+class BluetoothPlugin : public DCC_NAMESPACE::PluginInterface
 {
-    moduleData()->Name = name;
-    moduleData()->Description = title;
-    moduleData()->ContentText.append(title);
-}
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID PluginInterface_iid FILE "plugin-bluetooth.json")
+    Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
+public:
+    explicit BluetoothPlugin(QObject *parent = nullptr);
+    ~BluetoothPlugin();
 
-QWidget *TitleModule::page()
-{
-    TitleLabel *titleLabel = new TitleLabel(moduleData()->Description);
-    DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
-    return titleLabel;
-}
+    virtual QString name() const override;
+    virtual DCC_NAMESPACE::ModuleObject *module() override;
+
+private:
+    DCC_NAMESPACE::ModuleObject *m_moduleRoot;
+};
+
+#endif // BLUETOOTHPLUGIN_H

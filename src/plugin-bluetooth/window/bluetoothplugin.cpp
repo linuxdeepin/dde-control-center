@@ -1,5 +1,5 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+* Copyright (C) 2021 ~ 2023 Deepin Technology Co., Ltd.
 *
 * Author:     caixiangrong <caixiangrong@uniontech.com>
 *
@@ -18,25 +18,32 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "titlemodule.h"
-#include "widgets/titlelabel.h"
+#include "bluetoothplugin.h"
+#include "bluetoothmodule.h"
 
-#include <DFontSizeManager>
-
-DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
 
-TitleModule::TitleModule(const QString &name, const QString &title, QObject *parent)
-    : ModuleObject(parent)
+BluetoothPlugin::BluetoothPlugin(QObject *parent)
+    : PluginInterface(parent)
+    , m_moduleRoot(nullptr)
 {
-    moduleData()->Name = name;
-    moduleData()->Description = title;
-    moduleData()->ContentText.append(title);
 }
 
-QWidget *TitleModule::page()
+BluetoothPlugin::~BluetoothPlugin()
 {
-    TitleLabel *titleLabel = new TitleLabel(moduleData()->Description);
-    DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
-    return titleLabel;
+    m_moduleRoot = nullptr;
+}
+
+QString BluetoothPlugin::name() const
+{
+    return QStringLiteral("bluetooth");
+}
+
+ModuleObject *BluetoothPlugin::module()
+{
+    if (m_moduleRoot)
+        return m_moduleRoot;
+
+    m_moduleRoot = new BluetoothModule;
+    return m_moduleRoot;
 }

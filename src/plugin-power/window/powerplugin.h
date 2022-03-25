@@ -24,12 +24,11 @@
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
 
-DCC_USE_NAMESPACE
 class PowerModel;
 class PowerWorker;
 class GeneralModule;
 
-class PowerModule : public ModuleObject
+class PowerModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
@@ -44,23 +43,24 @@ private:
     PowerModel *m_model;
     PowerWorker *m_work;
     double m_nBatteryPercentage;
-    ModuleObject *m_useElectric;
-    ModuleObject *m_useBattery;
+    DCC_NAMESPACE::ModuleObject *m_useElectric;
+    DCC_NAMESPACE::ModuleObject *m_useBattery;
 };
 
-class PowerPlugin : public PluginInterface
+class PowerPlugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID PluginInterface_iid FILE "plugin-power.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
-    PowerPlugin();
+    explicit PowerPlugin(QObject *parent = nullptr);
+    ~PowerPlugin();
 
     virtual QString name() const override;
-    virtual ModuleObject *module() override;
+    virtual DCC_NAMESPACE::ModuleObject *module() override;
 
 private:
-    ModuleObject *m_moduleRoot;
+    DCC_NAMESPACE::ModuleObject *m_moduleRoot;
 };
 
 #endif // POWERPLUGIN_H

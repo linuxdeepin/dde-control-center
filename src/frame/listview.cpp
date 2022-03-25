@@ -40,7 +40,7 @@ namespace DCC_NAMESPACE {
 class ListViewPrivate : public DObjectPrivate
 {
 public:
-    ListViewPrivate(ListView *listview)
+    explicit ListViewPrivate(ListView *listview)
         : DObjectPrivate(listview)
         , m_spacing(20)
         , m_gridSize(280, 84)
@@ -436,6 +436,24 @@ void ListView::updateGeometries()
             verticalScrollBar()->setRange(0, height - viewport()->height());
         }
     }
+}
+
+void ListView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+{
+    QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
+    scheduleDelayedItemsLayout();
+}
+
+void ListView::rowsInserted(const QModelIndex &parent, int start, int end)
+{
+    scheduleDelayedItemsLayout();
+    QAbstractItemView::rowsInserted(parent, start, end);
+}
+
+void ListView::rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end)
+{
+    QAbstractItemView::rowsAboutToBeRemoved(parent, start, end);
+    scheduleDelayedItemsLayout();
 }
 
 bool ListView::isIndexHidden(const QModelIndex & /*index*/) const

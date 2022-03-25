@@ -150,9 +150,6 @@ private slots:
     void onPropertiesChanged(const QDBusMessage &message);
 
 private:
-    void init();
-
-private:
     QDBusInterface *m_powerInter;
     QDBusInterface *m_sysPowerInter;
     QDBusInterface *m_login1ManagerInter;

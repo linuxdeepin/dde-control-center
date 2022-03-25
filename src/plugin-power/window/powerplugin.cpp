@@ -28,6 +28,7 @@
 
 #include <QLabel>
 
+DCC_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 const QString gsetting_showSuspend = "showSuspend";
 const QString gsetting_showHiberante = "showHibernate";
@@ -129,9 +130,15 @@ void PowerModule::onBatteryPercentageChanged(const double value)
     }
 }
 
-PowerPlugin::PowerPlugin()
-    : m_moduleRoot(nullptr)
+PowerPlugin::PowerPlugin(QObject *parent)
+    : PluginInterface(parent)
+    , m_moduleRoot(nullptr)
 {
+}
+
+PowerPlugin::~PowerPlugin()
+{
+    m_moduleRoot = nullptr;
 }
 
 QString PowerPlugin::name() const

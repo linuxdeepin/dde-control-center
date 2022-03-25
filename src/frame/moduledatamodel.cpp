@@ -83,7 +83,7 @@ QVariant ModuleDataModel::data(const QModelIndex &index, int role) const
 
 void ModuleDataModel::onDataChanged(QObject *obj)
 {
-    int row = m_data->findChild(static_cast<ModuleObject *const>(obj));
+    int row = m_data->childrens().indexOf(static_cast<ModuleObject *const>(obj));
     if (row >= 0 && row < m_data->getChildrenNumber()) {
         QModelIndex i = index(row, 0);
         emit dataChanged(i, i);
@@ -92,7 +92,7 @@ void ModuleDataModel::onDataChanged(QObject *obj)
 
 void ModuleDataModel::onInsertChild(ModuleObject *const module)
 {
-    int row = m_data->findChild(module);
+    int row = m_data->childrens().indexOf(module);
     if (row >= 0 && row < m_data->getChildrenNumber()) {
         beginInsertRows(QModelIndex(), row, row);
         endInsertRows();
@@ -101,7 +101,7 @@ void ModuleDataModel::onInsertChild(ModuleObject *const module)
 
 void ModuleDataModel::onRemovedChild(ModuleObject *const module)
 {
-    int row = m_data->findChild(module);
+    int row = m_data->childrens().indexOf(module);
     if (row >= 0 && row < m_data->getChildrenNumber()) {
         beginRemoveRows(QModelIndex(), row, row);
         endRemoveRows();
@@ -126,6 +126,5 @@ void ModuleDataModel::setData(ModuleObject *const module)
 
     connect(m_data, &ModuleObject::appendedChild, this, &ModuleDataModel::onInsertChild);
     connect(m_data, &ModuleObject::insertedChild, this, &ModuleDataModel::onInsertChild);
-    connect(m_data, &ModuleObject::removedChild, this, &ModuleDataModel::onInsertChild);
+    connect(m_data, &ModuleObject::removedChild, this, &ModuleDataModel::onRemovedChild);
 }
-

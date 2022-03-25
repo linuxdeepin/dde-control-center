@@ -18,25 +18,15 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "titlemodule.h"
-#include "widgets/titlelabel.h"
+#include "widgetmodule.h"
 
-#include <DFontSizeManager>
-
-DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
-
-TitleModule::TitleModule(const QString &name, const QString &title, QObject *parent)
-    : ModuleObject(parent)
+WidgetModuleBase::WidgetModuleBase(const QString &name, const QString &displayName, QObject *parent)
+    : DCC_NAMESPACE::ModuleObject(name, QStringList({ displayName }), parent)
+    , m_widget(nullptr)
 {
-    moduleData()->Name = name;
-    moduleData()->Description = title;
-    moduleData()->ContentText.append(title);
 }
 
-QWidget *TitleModule::page()
+void WidgetModuleBase::onUpdateWidget(QWidget *widget)
 {
-    TitleLabel *titleLabel = new TitleLabel(moduleData()->Description);
-    DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
-    return titleLabel;
+    emit updateWidget(widget);
 }

@@ -408,6 +408,11 @@ void MainWindow::showModuleMainList(ModuleObject *const module, QWidget *const p
     connect(module, &ModuleObject::activeChild, view, [onClicked, model] (const int index) {
         onClicked(model->index(index, 0));
     });
+    connect(module, &ModuleObject::removedChild, area, [this](ModuleObject *const childModule) {
+        if (childModule->findChild(currentModule()) >= 0) {
+            toHome();
+        }
+    });
     connect(view, &ListView::destroyed, module, &ModuleObject::deactive);
 
     if (index < 0)
@@ -561,8 +566,10 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
     m_pages.clear();
     for (auto child : module->childrens()) {
         auto page = getPage(child->page(), child->moduleData()->DisplayName);
-        m_pages << page;
-        vlayout->addWidget(page);
+        if (page) {
+            m_pages << page;
+            vlayout->addWidget(page);
+        }
         child->active();
 
         connect(child, &ModuleObject::moduleDataChanged, area, [ = ] {
@@ -571,8 +578,10 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
             m_pages.removeOne(page);
             page->deleteLater();
             auto newPage = getPage(child->page(), child->moduleData()->DisplayName);
-            m_pages.insert(index, newPage);
-            vlayout->insertWidget(index, newPage);
+            if (newPage) {
+                m_pages.insert(index, newPage);
+                vlayout->insertWidget(index, newPage);
+            }
         });
     }
     if (m_pages.count() > 1)
@@ -586,11 +595,23 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
         area->verticalScrollBar()->setSliderPosition(getScrollPos(index));
     });
 
-    connect(module, &ModuleObject::removedChild, area, [this] (ModuleObject *const module) {
-        if (module->findChild(currentModule()) >= 0) {
-            toHome();
-        }
+    connect(module, &ModuleObject::removedChild, area, [this, module, vlayout](ModuleObject *const childModule) {
+        int index = module->childrens().indexOf(childModule);
+        QWidget *w = m_pages.at(index);
+        vlayout->removeWidget(w);
+        w->deleteLater();
+        m_pages.removeAt(index);
     });
+    auto addChild = [this, module, vlayout](ModuleObject *const childModule) {
+        int index = module->childrens().indexOf(childModule);
+        auto newPage = getPage(childModule->page(), childModule->moduleData()->DisplayName);
+        if (newPage) {
+            m_pages.insert(index, newPage);
+            vlayout->insertWidget(index, newPage);
+        }
+    };
+    connect(module, &ModuleObject::insertedChild, area, addChild);
+    connect(module, &ModuleObject::appendedChild, area, addChild);
 
     connect(areaWidget, &QWidget::destroyed, module, [module] {
         for (auto child : module->childrens()) {
@@ -602,6 +623,8 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
 
 QWidget* MainWindow::getPage(QWidget *const widget, const QString &title)
 {
+    if (!widget)
+        return nullptr;
     QLabel *titleLbl = new QLabel(title, this);
     QWidget *page = new QWidget(this);
     QVBoxLayout *vLayout = new QVBoxLayout(page);

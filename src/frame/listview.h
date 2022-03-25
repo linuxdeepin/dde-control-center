@@ -27,7 +27,8 @@
 namespace DCC_NAMESPACE {
 
 class ListViewPrivate;
-class ListView : public QAbstractItemView , public Dtk::Core::DObject
+class ListView : public QAbstractItemView
+    , public Dtk::Core::DObject
 {
     Q_OBJECT
     Q_PROPERTY(int spacing READ spacing WRITE setSpacing)
@@ -36,7 +37,8 @@ class ListView : public QAbstractItemView , public Dtk::Core::DObject
     Q_PROPERTY(Qt::Alignment alignment READ alignment WRITE setAlignment)
 
 public:
-    enum ViewMode { ListMode, IconMode };
+    enum ViewMode { ListMode,
+                    IconMode };
     Q_ENUM(ViewMode)
 
     explicit ListView(QWidget *parent = nullptr);
@@ -69,6 +71,10 @@ protected:
 
     void updateGeometries() override;
 
+    void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>()) override;
+    void rowsInserted(const QModelIndex &parent, int start, int end) override;
+    void rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end) override;
+
 protected:
     void paintEvent(QPaintEvent *e) override;
     void mouseMoveEvent(QMouseEvent *e) override;
@@ -79,6 +85,6 @@ private:
     Q_DISABLE_COPY(ListView)
 };
 
-}
+} // namespace DCC_NAMESPACE
 
 #endif // LISTVIEW_H

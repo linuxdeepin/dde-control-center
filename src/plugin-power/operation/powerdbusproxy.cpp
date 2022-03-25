@@ -46,23 +46,16 @@ const static QString PropertiesChanged = "PropertiesChanged";
 
 PowerDBusProxy::PowerDBusProxy(QObject *parent)
     : QObject(parent)
+    , m_powerInter(new QDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
+    , m_sysPowerInter ( new QDBusInterface(SysPowerService, SysPowerPath, SysPowerInterface, QDBusConnection::systemBus(), this))
+    , m_login1ManagerInter ( new QDBusInterface(Login1ManagerService, Login1ManagerPath, Login1ManagerInterface, QDBusConnection::systemBus(), this))
+    , m_powerManager ( new QDBusInterface(PowerManagerService, PowerManagerPath, PowerManagerInterface, QDBusConnection::systemBus(), this))
+
 {
-    init();
+    QDBusConnection::sessionBus().connect(PowerService, PowerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
+    QDBusConnection::systemBus().connect(SysPowerService, SysPowerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 }
 
-void PowerDBusProxy::init()
-{
-    m_powerInter = new QDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
-    m_sysPowerInter = new QDBusInterface(SysPowerService, SysPowerPath, SysPowerInterface, QDBusConnection::systemBus(), this);
-    m_login1ManagerInter = new QDBusInterface(Login1ManagerService, Login1ManagerPath, Login1ManagerInterface, QDBusConnection::systemBus(), this);
-    m_powerManager = new QDBusInterface(PowerManagerService, PowerManagerPath, PowerManagerInterface, QDBusConnection::systemBus(), this);
-
-    QDBusConnection dbusConnection = m_powerInter->connection();
-    dbusConnection.connect(PowerService, PowerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-
-    dbusConnection = m_sysPowerInter->connection();
-    dbusConnection.connect(SysPowerService, SysPowerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-}
 // power
 bool PowerDBusProxy::screenBlackLock()
 {

@@ -362,7 +362,6 @@ set(Power_Includes
     Qt5::Widgets
     Qt5::DBus
     Qt5::Concurrent
-    include
     src/plugin-power/window
     src/plugin-power/operation
 )
@@ -374,7 +373,7 @@ set(Power_Libraries
     Qt5::Concurrent
     ${Dcc_Widgets_Name}
 )
-target_include_directories(${Power_Name} PUBLIC
+target_include_directories(${Power_Name} PRIVATE
     ${Power_Includes}
 )
 
@@ -476,4 +475,40 @@ target_include_directories(${CommonInfo_Name} PUBLIC
 
 target_link_libraries(${CommonInfo_Name} PRIVATE
     ${CommonInfo_Libraries}
+)
+
+#--------------------------dcc-bluetooth-plugin--------------------------
+set(Bluetooth_Name dcc-bluetooth-plugin)
+file(GLOB_RECURSE Bluetooth_SRCS
+    "src/plugin-bluetooth/window/*.cpp"
+    "src/plugin-bluetooth/operation/*.cpp"
+    "src/plugin-bluetooth/operation/qrc/bluetooth.qrc"
+)
+
+add_library(${Bluetooth_Name} MODULE
+    ${Bluetooth_SRCS}
+)
+
+set(Bluetooth_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    src/plugin-bluetooth/window
+    src/plugin-bluetooth/operation
+)
+set(Bluetooth_Libraries
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    ${Dcc_Widgets_Name}
+)
+target_include_directories(${Bluetooth_Name} PRIVATE
+    ${Bluetooth_Includes}
+)
+
+target_link_libraries(${Bluetooth_Name} PRIVATE
+    ${Bluetooth_Libraries}
 )
