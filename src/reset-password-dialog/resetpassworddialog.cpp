@@ -285,12 +285,12 @@ void ResetPasswordDialog::onCancelBtnClicked()
 void ResetPasswordDialog::onResetPasswordBtnClicked()
 {
     bool success = false;
-    if (m_buttonBox && m_buttonBox->checkedId() == 0) {
+    if (m_stackedLayout->currentIndex() == 0) {
         success = m_SecurityQuestionsWidget->onResetPasswordBtnClicked();
     } else {
         success = m_UnionIDWidget->onResetPasswordBtnClicked();
     }
-    qWarning() << "onResetPassowrdBtnClicked:" << success;
+    qDebug() << "onResetPassowrdBtnClicked:" << success;
     if (success) {
         m_isClose = false;
         updatePosition();
