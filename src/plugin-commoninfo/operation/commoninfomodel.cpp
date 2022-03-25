@@ -108,7 +108,6 @@ bool CommonInfoModel::bootDelay() const
 
 void CommonInfoModel::setBootDelay(bool bootDelay)
 {
-    qDebug()<<" CommonInfoModel::setBootDelay   bootDelay =  "<< bootDelay;
     if (m_bootDelay != bootDelay) {
         m_bootDelay = bootDelay;
         Q_EMIT bootDelayChanged(bootDelay);

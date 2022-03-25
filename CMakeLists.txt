@@ -477,6 +477,31 @@ target_link_libraries(${CommonInfo_Name} PRIVATE
     ${CommonInfo_Libraries}
 )
 
+#-------------------------ut-dcc-commoninfo-plugin-------------------------
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(UT_CommonInfo_Name ut-dcc-commoninfo-plugin)
+    file(GLOB_RECURSE UT_COMMONINFO_SRCS
+        "tests/plugin-commoninfo/*.cpp"
+    )
+
+    add_executable(${UT_CommonInfo_Name}
+        ${COMMONINFO_SRCS}
+        ${UT_COMMONINFO_SRCS}
+    )
+
+    # 用于测试覆盖率的编译条件
+    target_compile_options(${UT_CommonInfo_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+
+    target_include_directories(${UT_CommonInfo_Name} PUBLIC
+        ${CommonInfo_Includes}
+    )
+
+    target_link_libraries(${UT_CommonInfo_Name} PRIVATE
+        ${CommonInfo_Libraries}
+        ${Test_Libraries}
+    )
+endif()
+
 #--------------------------dcc-bluetooth-plugin--------------------------
 set(Bluetooth_Name dcc-bluetooth-plugin)
 file(GLOB_RECURSE Bluetooth_SRCS

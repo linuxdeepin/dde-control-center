@@ -49,7 +49,7 @@ public:
     void setActivation(bool value);
 
 Q_SIGNALS:
-    void bootDelayChanged(const int timeout) const;
+    void bootDelayChanged(const bool enabled) const;
     void themeEnabledChanged(const bool enabled) const;
     void grubEditAuthEnabledChanged(const bool enabled) const;
     void entryListsChanged(const QStringList &list);

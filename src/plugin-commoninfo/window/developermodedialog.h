@@ -77,7 +77,7 @@ private:
 class DMIInfo
 {
 public:
-    DMIInfo();
+    DMIInfo(){}
 
     friend QDebug operator<<(QDebug debug, const DMIInfo &info)
     {
@@ -131,7 +131,7 @@ public:
 class HardwareInfo
 {
 public:
-    HardwareInfo();
+    HardwareInfo(){}
 
     friend QDebug operator<<(QDebug debug, const HardwareInfo &info)
     {
