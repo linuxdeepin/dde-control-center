@@ -25,6 +25,7 @@
 #include "modules/accounts/usermodel.h"
 #include "modules/accounts/removeuserdialog.h"
 #include "window/gsettingwatcher.h"
+#include "window/dconfigwatcher.h"
 
 #include <DIconButton>
 #include <DWarningButton>
@@ -400,7 +401,10 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     QStyleOption opt;
     securityQuestionsButton->setIcon(DStyleHelper(this->style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
     sqHLayout->addWidget(securityQuestionsButton, 0, Qt::AlignRight);
-    securityQuestionsWidget->setVisible(m_curUser->isCurrentUser());
+    securityQuestionsWidget->setVisible(false);
+
+    if (m_curUser->isCurrentUser())
+        DConfigWatcher::instance()->bind(DConfigWatcher::accounts, "securityQuestions", securityQuestionsWidget);
 
     connect(securityQuestionsButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestShowSecurityQuestionsSettings(m_curUser);

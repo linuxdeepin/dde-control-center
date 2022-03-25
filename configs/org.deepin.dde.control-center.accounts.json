@@ -1,0 +1,17 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "securityQuestions": {
+            "value": "Hidden",
+            "serial": 0,
+            "flags": [],
+            "name": "security_Questions",
+            "name[zh_CN]": "通过安全问题找回密码",
+            "description[zh_CN]": "通过回答设置的安全问题，重新设置密码；",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        }
+    }
+  }
