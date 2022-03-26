@@ -200,7 +200,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
             w->onEditingFinished(false, userFullName);
         }
     });
-    connect(w, &AccountsDetailWidget::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::securityQuestionsCheck);
+    connect(w, &AccountsDetailWidget::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::asyncSecurityQuestionsCheck);
 
     m_frameProxy->pushWidget(this, w);
     Q_EMIT w->requestSecurityQuestionsCheck(account);
@@ -338,7 +338,7 @@ void AccountsModule::onShowPasswordPage(User *account)
     connect(w, &ModifyPasswdPage::requestUUID, m_accountsWorker, &AccountsWorker::getUUID);
     connect(w, &ModifyPasswdPage::requestLocalBindCheck, m_accountsWorker, &AccountsWorker::localBindCheck);
     connect(w, &ModifyPasswdPage::requestStartResetPasswordExec, m_accountsWorker, &AccountsWorker::startResetPasswordExec);
-    connect(w, &ModifyPasswdPage::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::securityQuestionsCheck);
+    connect(w, &ModifyPasswdPage::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::asyncSecurityQuestionsCheck);
     connect(m_accountsWorker, &AccountsWorker::localBindUbid, w, &ModifyPasswdPage::onLocalBindCheckUbid);
     connect(m_accountsWorker, &AccountsWorker::localBindError, w, &ModifyPasswdPage::onLocalBindCheckError);
 
@@ -351,7 +351,7 @@ void AccountsModule::onShowSecurityQuestionsPage(User *account)
     SecurityQuestionsPage *w = new SecurityQuestionsPage(account);
     w->setVisible(false);
     connect(w, &SecurityQuestionsPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
-    connect(w, &SecurityQuestionsPage::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::securityQuestionsCheck);
+    connect(w, &SecurityQuestionsPage::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::asyncSecurityQuestionsCheck);
     connect(w, &SecurityQuestionsPage::requestSetSecurityQuestions, m_accountsWorker, &AccountsWorker::setSecurityQuestions);
 
     m_frameProxy->pushWidget(this, w);

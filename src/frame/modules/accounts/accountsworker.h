@@ -52,6 +52,7 @@ using Session = org::freedesktop::displaymanager::Session;
 #ifdef DCC_ENABLE_ADDOMAIN
 using Notifications = org::freedesktop::Notifications;
 #endif
+#define SECURITY_QUESTIONS_ERROR_COUNT 1
 
 namespace dcc {
 namespace accounts {
@@ -105,7 +106,7 @@ public Q_SLOTS:
     void getUUID(QString &uuid);
     void localBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid);
     void startResetPasswordExec(dcc::accounts::User *user);
-    void securityQuestionsCheck(dcc::accounts::User *user);
+    void asyncSecurityQuestionsCheck(dcc::accounts::User *user);
 #ifdef DCC_ENABLE_ADDOMAIN
     void refreshADDomain();
     void ADDomainHandle(const QString &server, const QString &admin, const QString &password);
@@ -133,6 +134,7 @@ private:
     CreationResult *createAccountInternal(const User *user);
     QString cryptUserPassword(const QString &password);
     BindCheckResult checkLocalBind(const QString &uosid, const QString &uuid);
+    QList<int> securityQuestionsCheck();
 
 private:
     Accounts *m_accountsInter;

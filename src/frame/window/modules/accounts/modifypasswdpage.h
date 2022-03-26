@@ -107,7 +107,6 @@ private:
     DTK_WIDGET_NAMESPACE::DLineEdit *m_passwordTipsEdit;
     bool m_isCurrent;
     bool m_isBindCheckError;
-    bool m_isSecurityQuestionsExist;
     dcc::widgets::SecurityLevelItem *m_securityLevelItem;
     QTimer m_enableBtnTimer;
 };

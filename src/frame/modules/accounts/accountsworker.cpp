@@ -210,15 +210,29 @@ void AccountsWorker::startResetPasswordExec(User *user)
     Q_EMIT user->startResetPasswordReplied(reply.error().message());
 }
 
-void AccountsWorker::securityQuestionsCheck(User *user)
+void AccountsWorker::asyncSecurityQuestionsCheck(User *user)
+{
+    QFutureWatcher<QList<int>> *watcher = new QFutureWatcher<QList<int>>(this);
+    connect(watcher, &QFutureWatcher<QList<int>>::finished, [user, watcher] {
+        QList<int> result = watcher->result();
+        if (result.size() != SECURITY_QUESTIONS_ERROR_COUNT)
+            Q_EMIT user->startSecurityQuestionsCheckReplied(result);
+        watcher->deleteLater();
+    });
+    QFuture<QList<int>> future = QtConcurrent::run(this, &AccountsWorker::securityQuestionsCheck);
+    watcher->setFuture(future);
+}
+
+QList<int> AccountsWorker::securityQuestionsCheck()
 {
     QDBusReply<QList<int>> reply = m_userQInter->call("GetSecretQuestions");
-    if (reply.isValid()) {
-        Q_EMIT user->startSecurityQuestionsCheckReplied(reply.value());
-    }
     if (!reply.error().message().isEmpty()) {
         qWarning() << reply.error().message();
     }
+    if (reply.isValid()) {
+        return reply.value();
+    }
+    return {-1};
 }
 
 void AccountsWorker::setPasswordHint(User *user, const QString &passwordHint)

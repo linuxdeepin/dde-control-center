@@ -55,9 +55,7 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     , m_passwordTipsEdit(new DLineEdit)
     , m_isCurrent(isCurrent)
     , m_isBindCheckError(false)
-    , m_isSecurityQuestionsExist(false)
     , m_securityLevelItem(new SecurityLevelItem(this))
-
 {
     initWidget();
 }
@@ -415,22 +413,7 @@ void ModifyPasswdPage::resetPasswordFinished(const QString &errorText)
 void ModifyPasswdPage::onForgetPasswordBtnClicked()
 {
     m_forgetPasswordBtn->setEnabled(false);
-
-    QString uosid;
-    Q_EMIT requestUOSID(uosid);
-    if (uosid.isEmpty()) {
-        return;
-    }
-
-    QString uuid;
-    Q_EMIT requestUUID(uuid);
-    if (uuid.isEmpty()) {
-        return;
-    }
-
     Q_EMIT requestSecurityQuestionsCheck(m_curUser);
-    if (!m_isSecurityQuestionsExist)
-        Q_EMIT requestLocalBindCheck(m_curUser, uosid, uuid);
 }
 
 void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)
@@ -445,10 +428,23 @@ void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)
 
 void ModifyPasswdPage::onSecurityQuestionsCheckReplied(const QList<int> &questions)
 {
-    m_isSecurityQuestionsExist = !questions.isEmpty();
-    if (m_isSecurityQuestionsExist)
+    if (!questions.isEmpty()) {
         Q_EMIT requestStartResetPasswordExec(m_curUser);
-    qDebug() << "IsSecurityQuestionsExist:" << m_isSecurityQuestionsExist;
+    } else {
+        QString uosid;
+        Q_EMIT requestUOSID(uosid);
+        if (uosid.isEmpty()) {
+            return;
+        }
+
+        QString uuid;
+        Q_EMIT requestUUID(uuid);
+        if (uuid.isEmpty()) {
+            return;
+        }
+        Q_EMIT requestLocalBindCheck(m_curUser, uosid, uuid);
+    }
+    qDebug() << "IsSecurityQuestionsExist:" << !questions.isEmpty();
 }
 
 void ModifyPasswdPage::onLocalBindCheckUbid(const QString &ubid)
