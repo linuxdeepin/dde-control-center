@@ -25,10 +25,12 @@
 
 #include <QHostAddress>
 
-#include <NetworkManagerQt/WirelessDevice>
-
 using namespace dde::network;
-using namespace NetworkManager;
+
+#define UNKNOW_MODE 0
+#define ADHOC_MODE  1
+#define INFRA_MODE 2
+#define AP_MODE 3
 
 const QStringList DeviceInterRealize::ipv4()
 {
@@ -242,6 +244,14 @@ void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &in
     }
     if (ipChanged)
         Q_EMIT ipV4Changed();
+}
+
+int DeviceInterRealize::mode() const
+{
+    if (m_data.contains("Mode"))
+        return m_data.value("Mode").toInt();
+
+    return UNKNOW_MODE;
 }
 
 /**
@@ -644,14 +654,9 @@ QList<WirelessConnection *> WirelessDeviceInterRealize::wirelessItems() const
 
 bool WirelessDeviceInterRealize::needShowAccessPoints() const
 {
-    NetworkManager::WirelessDevice::Ptr nmAp = QSharedPointer<NetworkManager::WirelessDevice>(new NetworkManager::WirelessDevice(path()));
-    if (nmAp.isNull())
+    // Mode=3表示开启热点
+    if (mode() == AP_MODE)
         return false;
-
-    // 如果当前设备是打开热点状态，则不显示网络列表
-    if (nmAp->mode() == NetworkManager::WirelessDevice::OperationMode::ApMode)
-        return false;
-
     // 如果当前设备热点为空(关闭热点)，则让显示所有的网络列表
     return m_hotspotInfo.isEmpty();
 }
