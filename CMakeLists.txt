@@ -512,3 +512,41 @@ target_include_directories(${Bluetooth_Name} PRIVATE
 target_link_libraries(${Bluetooth_Name} PRIVATE
     ${Bluetooth_Libraries}
 )
+
+
+#--------------------------dcc-defaultapp-plugin--------------------------
+set(DefaultApp_Name dcc-defaultapp-plugin)
+file(GLOB_RECURSE DefaultApp_SRCS
+    "src/plugin-defaultapp/window/*.cpp"
+    "src/plugin-defaultapp/window/widgets/*.cpp"
+    "src/plugin-defaultapp/operation/*.cpp"
+    "src/plugin-defaultapp/operation/qrc/defapp.qrc"
+)
+
+add_library(${DefaultApp_Name} MODULE
+    ${DefaultApp_SRCS}
+)
+
+set(DefaultApp_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    src/plugin-defaultapp/window/widgets
+    src/plugin-defaultapp/operation
+)
+set(DefaultApp_Libraries
+    ${Dcc_Widgets_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    ${Dcc_Widgets_Name}
+)
+target_include_directories(${DefaultApp_Name} PUBLIC
+    ${DefaultApp_Includes}
+)
+
+target_link_libraries(${DefaultApp_Name} PRIVATE
+    ${DefaultApp_Libraries}
+)
