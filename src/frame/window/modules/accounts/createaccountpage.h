@@ -59,6 +59,8 @@ QT_END_NAMESPACE
 namespace DCC_NAMESPACE {
 namespace accounts {
 
+const int PwdLimitLowestLevel = 1;
+
 //创建账户页面
 class CreateAccountPage : public QWidget
 {
@@ -108,7 +110,7 @@ protected:
 private Q_SLOTS:
     bool checkName();
     bool checkFullname();
-    bool checkPassword(DPasswordEdit *edit);
+    bool checkPassword(DPasswordEdit *edit, bool &needShowSafetyPage);
 
 private:
     dcc::accounts::User *m_newUser;
