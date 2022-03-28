@@ -391,12 +391,6 @@ void NativeInfoWidget::initWidget()
     memory->setValue(m_model->memory());
     infoGroup->appendItem(memory);
     connect(m_model, &SystemInfoModel::memoryChanged, memory, &TitleValueItem::setValue);
-
-    QScroller::grabGesture(window(), QScroller::LeftMouseButtonGesture);
-    QScroller *scroller = QScroller::scroller(window());
-    QScrollerProperties sp;
-    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
-    scroller->setScrollerProperties(sp);
 }
 
 void NativeInfoWidget::setLicenseState(TitleAuthorizedItem *const authorized, ActiveState state)

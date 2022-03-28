@@ -172,13 +172,6 @@ BootWidget::BootWidget(QWidget *parent)
     widget->setLayout(layout);
     m_scrollArea->setWidget(widget);
 
-    // 设置触摸屏手势识别
-    QScroller::grabGesture(m_scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
-    QScroller *scroller = QScroller::scroller(m_scrollArea->viewport());
-    QScrollerProperties sp;
-    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootWhenScrollable);
-    scroller->setScrollerProperties(sp);
-
     connect(m_theme, &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);
     connect(m_bootDelay, &SwitchWidget::checkedChanged, this, &BootWidget::bootdelay);
     connect(m_bootList, &DListView::clicked, this ,&BootWidget::onCurrentItem);
