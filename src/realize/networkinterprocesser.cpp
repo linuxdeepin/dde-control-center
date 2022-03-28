@@ -116,8 +116,10 @@ void NetworkInterProcesser::initConnection()
         // 每次的内容可能会不一样，例如断开连接，第一次发送的信号是第一个网卡的连接状态，第二次发送的信号是第二个网卡的连接状态，必须保证每个
         // 信号都能被正确接收并处理，否则就会出现信号丢失引起状态不正确的问题
         QStringList infoValues = m_changedTimer->property(infoName).toStringList();
+        // 移除重复的，不能调用QStringList的removeDuplicates方法，因为这样移除可能会导致将最新的给移除引起错误
+        if (infoValues.contains(infoValue))
+            infoValues.removeOne(infoValue);
         infoValues << infoValue;
-        infoValues.removeDuplicates();
         m_changedTimer->setProperty(infoName, infoValues);
         if (!m_changedTimer->isActive())
             m_changedTimer->start();
