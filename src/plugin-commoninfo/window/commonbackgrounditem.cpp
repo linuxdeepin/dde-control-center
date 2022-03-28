@@ -22,7 +22,7 @@
 #include "commonbackgrounditem.h"
 
 #include <DPalette>
-#include <DApplicationHelper>
+#include <DPaletteHelper>
 
 #include <QMimeDatabase>
 #include <QPainter>
@@ -73,7 +73,7 @@ void CommonBackgroundItem::paintEvent(QPaintEvent *e)
         return;
     }
 
-    QPalette pa = DApplicationHelper::instance()->palette(this);
+    QPalette pa = DPaletteHelper::instance()->palette(this);
     painter.setPen(Qt::NoPen);
     painter.setBrush(QBrush(pa.color(QPalette::Window)));
 

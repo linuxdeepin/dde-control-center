@@ -28,6 +28,7 @@
 
 #include <QFileInfo>
 #include <QObject>
+#include <QMap>
 
 #include "mimedbusproxy.h"
 #include "category.h"

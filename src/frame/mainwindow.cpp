@@ -292,6 +292,8 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, c
         showModuleMainIcon(module, parent, index);
         break;
     case ModuleObject::ChildType::MainList:
+        // 展开主菜单时，原来的主菜单被析构，需清空其指针
+        m_mainView = nullptr;
         setCurrentModule(module);
         showModuleMainList(module, parent, index);
         break;

@@ -74,15 +74,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
     connect(m_model,&SystemInfoModel::setHostNameChanged, this, &SystemInfoWork::onSetHostname);
 
-    QProcess process;
-    process.start("uname -r");
-    process.waitForFinished();
-    QByteArray output = process.readAllStandardOutput();
-    int idx = output.indexOf('\n');
-    if ( -1 != idx) {
-        output.remove(idx, 1);
-    }
-    m_model->setKernel(output);
+    m_model->setKernel(QSysInfo::kernelVersion());
     m_model->setProcessor(DSysInfo::cpuModelName());
 }
 

@@ -147,7 +147,11 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
             "Icon=application-default-icon\n"
             "Terminal=false\n"
             "Categories=" + mime + ";"
+#if (QT_VERSION < QT_VERSION_CHECK(5,15,0))
             << endl;
+#else
+            << Qt::endl;
+#endif
         out.flush();
         file.close();
 

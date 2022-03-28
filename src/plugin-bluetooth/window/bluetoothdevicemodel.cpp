@@ -28,14 +28,9 @@
 #include <QWidget>
 #include <QApplication>
 
-#include <DStyleOption>
-#include <DApplicationHelper>
 #include <DSpinner>
 
 DWIDGET_USE_NAMESPACE
-
-#define lightIcon ":/icons/deepin/builtin/light/buletooth_"
-#define darkIcon ":/icons/deepin/builtin/dark/buletooth_"
 
 struct ItemAction
 {
@@ -141,17 +136,10 @@ QVariant BluetoothDeviceModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
         return device->alias().isEmpty() ? device->name() : device->alias();
     case Qt::DecorationRole:
-        if (DApplicationHelper::instance()->themeType() == DApplicationHelper::LightType) {
-            if (!device->deviceType().isEmpty())
-                return QIcon(lightIcon + device->deviceType() + "_light.svg");
-            else
-                return QIcon(lightIcon + QString("other_light.svg"));
-        } else {
-            if (!device->deviceType().isEmpty())
-                return QIcon(darkIcon + device->deviceType() + "_dark.svg");
-            else
-                return QIcon(darkIcon + QString("other_dark.svg"));
-        }
+        if (!device->deviceType().isEmpty())
+            return QIcon::fromTheme(QString("buletooth_%1").arg(device->deviceType()));
+        else
+            return QIcon::fromTheme(QString("buletooth_other"));
     case Dtk::RightActionListRole:
         return QVariant::fromValue(m_data.at(row)->actionList);
 

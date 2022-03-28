@@ -12,15 +12,15 @@
 DWIDGET_USE_NAMESPACE
 
 struct DATE {
-    QString name = "";
-    QString displayName = "";
-    QString icon = "";
+    QString name;
+    QString displayName;
+    QString icon;
     DefAppWorker::DefaultAppsCategory category;
-    DATE(DefAppWorker::DefaultAppsCategory _category, const QString &_name, const QString &_displayName, const QString _icon)
-        : category(_category)
-        , name(_name)
+    DATE(const QString &_name, const QString &_displayName, const QString _icon, DefAppWorker::DefaultAppsCategory _category)
+        : name(_name)
         , displayName(_displayName)
         , icon(_icon)
+        , category(_category)
     {}
 };
 
@@ -32,13 +32,13 @@ QString DefAppPlugin::name() const
 ModuleObject *DefAppPlugin::module()
 {
     QList<DATE> moduleInfo = {
-        DATE(DefAppWorker::DefaultAppsCategory::Browser, "Webpage","Webpage", "dcc_browser"),
-        DATE(DefAppWorker::DefaultAppsCategory::Mail, "Mail","Mail", "dcc_mail"),
-        DATE(DefAppWorker::DefaultAppsCategory::Text, "Text","Text", "dcc_text"),
-        DATE(DefAppWorker::DefaultAppsCategory::Music, "Music","Music","dcc_music"),
-        DATE(DefAppWorker::DefaultAppsCategory::Video, "Video","Video","dcc_video"),
-        DATE(DefAppWorker::DefaultAppsCategory::Picture, "Picture","Picture","dcc_photo"),
-        DATE(DefAppWorker::DefaultAppsCategory::Terminal, "Terminal","Terminal", "dcc_terminal"),
+        DATE( "Webpage","Webpage", "dcc_browser", DefAppWorker::DefaultAppsCategory::Browser),
+        DATE("Mail","Mail", "dcc_mail", DefAppWorker::DefaultAppsCategory::Mail),
+        DATE("Text","Text", "dcc_text", DefAppWorker::DefaultAppsCategory::Text),
+        DATE("Music","Music","dcc_music", DefAppWorker::DefaultAppsCategory::Music),
+        DATE("Video","Video","dcc_video", DefAppWorker::DefaultAppsCategory::Video),
+        DATE("Picture","Picture","dcc_photo", DefAppWorker::DefaultAppsCategory::Picture),
+        DATE("Terminal","Terminal", "dcc_terminal", DefAppWorker::DefaultAppsCategory::Terminal),
     };
     // 一级页面
     DefAppModule *moduleRoot = new DefAppModule;

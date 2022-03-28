@@ -182,7 +182,7 @@ CommonInfoWork::~CommonInfoWork()
     qDebug() << "~CommonInfoWork";
     if (m_process) {
         //如果控制中心被强制关闭，需要用kill来杀掉没有被关闭的窗口
-        kill(static_cast<__pid_t>(m_process->pid()), 15);
+        kill(static_cast<__pid_t>(m_process->processId()), 15);
         m_process->deleteLater();
         m_process = nullptr;
     }
@@ -342,7 +342,7 @@ void CommonInfoWork::setUeProgram(bool enabled)
                                       QStringList() << "-t" << m_title << pathType << m_content << "-a" << allowContent);
         qDebug()<<" Deliver content QStringList() = "<<"dde-license-dialog"
                                                      << "-t" << m_title << pathType << m_content << "-a" << allowContent;
-        connect(m_process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [=](int result) {
+        connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, [=](int result) {
             if (96 == result) {
                 if (!m_commomModel->ueProgram()) {
                     m_commomModel->setUeProgram(enabled);
@@ -403,7 +403,7 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
     m_process = new QProcess(this);
     m_process->start("dde-license-dialog", QStringList() << "-t" << title << pathType << contentPath << "-a" << allowContent);
 
-    connect(m_process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [=](int result) {
+    connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, [=](int result) {
         if (96 == result) {
             m_dBusdeepinIdInter->call("UnlockDevice");
         } else {
