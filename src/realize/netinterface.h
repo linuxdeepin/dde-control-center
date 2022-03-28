@@ -147,7 +147,7 @@ protected:
     virtual QString statusStringDetail();
     virtual QString getStatusName();
     void enqueueStatus(const DeviceStatus &status);
-    void setDeviceStatus(const DeviceStatus &status);
+    virtual void setDeviceStatus(const DeviceStatus &status);
     void sortWiredItem(QList<WiredConnection *> &items);
 
 private Q_SLOTS:

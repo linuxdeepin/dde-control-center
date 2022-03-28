@@ -246,6 +246,16 @@ void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &in
         Q_EMIT ipV4Changed();
 }
 
+void DeviceInterRealize::setDeviceStatus(const DeviceStatus &status)
+{
+    // 如果是开启热点，就让其renweus断开的状态
+    DeviceStatus stat = status;
+    if (mode() == AP_MODE)
+        stat = DeviceStatus::Disconnected;
+
+    NetworkDeviceRealize::setDeviceStatus(stat);
+}
+
 int DeviceInterRealize::mode() const
 {
     if (m_data.contains("Mode"))

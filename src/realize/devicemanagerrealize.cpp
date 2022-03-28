@@ -729,6 +729,12 @@ ConnectionStatus DeviceManagerRealize::convertStatus(Device::State state)
 
 DeviceStatus DeviceManagerRealize::convertDeviceStatus(Device::State state)
 {
+    if (m_wDevice->type() == NetworkManager::Device::Wifi) {
+        // 如果当前网卡开启了热点，则认为它是连接断开的状态
+        NetworkManager::WirelessDevice::Ptr wirelessDevice = m_wDevice.staticCast<NetworkManager::WirelessDevice>();
+        if (wirelessDevice->mode() == NetworkManager::WirelessDevice::OperationMode::ApMode)
+            return DeviceStatus::Disconnected;
+    }
     switch (state) {
     case Device::State::Failed:
         return DeviceStatus::Failed;
