@@ -50,9 +50,11 @@ class DefAppModule : public ModuleObject
 public:
     explicit DefAppModule(QObject *parent = nullptr);
     ~DefAppModule() override;
-    virtual void active() override{}
     DefAppWorker *work() { return m_work; }
     DefAppModel *model() { return m_model; }
+
+protected:
+    virtual void active() override;
 
 private:
     DefAppModel *m_model;

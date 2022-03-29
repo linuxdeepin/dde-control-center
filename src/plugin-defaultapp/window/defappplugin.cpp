@@ -73,12 +73,16 @@ DefAppModule::DefAppModule(QObject *parent)
 {
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
-    m_work->onGetListApps();
 }
 
 DefAppModule::~DefAppModule() {
     m_model->deleteLater();
     m_work->deleteLater();
+}
+
+void DefAppModule::active()
+{
+    m_work->onGetListApps();
 }
 
 DefAppsButtonModule::DefAppsButtonModule(DefAppWorker::DefaultAppsCategory category, const QString &name, const QString &displayName, const QIcon &icon,  DefAppModel *model, DefAppWorker *work)

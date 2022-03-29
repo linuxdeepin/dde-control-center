@@ -12,9 +12,9 @@ DCC_USE_NAMESPACE
 
 const QString &PluginDirectory = QStringLiteral("/usr/lib/dde-control-center/modules");
 
-bool comparePluginLocation(const PluginInterface *target1, const PluginInterface *target2)
+bool comparePluginLocation(const QPair<PluginInterface*, ModuleObject *> target1, const QPair<PluginInterface*, ModuleObject *> target2)
 {
-    return target1->location() < target2->location();
+    return target1.first->location() < target2.first->location();
 }
 
 PluginManager::PluginManager(QObject *parent)
@@ -82,18 +82,22 @@ void PluginManager::initModules()
 
 void PluginManager::initModule(ModuleObject *const module)
 {
-    QList<PluginInterface*> plugins;
+    QList<QPair<PluginInterface*, ModuleObject *>> plugins;
     for (auto loader : m_loaders) {
         auto *plugin = qobject_cast<PluginInterface *>(loader->instance());
         if (plugin->follow() == module->name()) {
-            plugins.append(plugin);
+            auto child = plugin->module();
+            plugins.append(QPair<PluginInterface*, ModuleObject *>(plugin, child));
             m_loaders.removeOne(loader);
-            initModule(plugin->module());
+            initModule(child);
         }
     }
     std::sort(plugins.begin(), plugins.end(), comparePluginLocation);
     for (auto plugin : plugins) {
-        module->appendChild(plugin->module());
+        QElapsedTimer et;
+        et.start();
+        module->appendChild(plugin.second);
+        qInfo() << QString("init module:%1 using time: %2 ms").arg(plugin.first->name()).arg(et.elapsed());
     }
 }
 

@@ -45,7 +45,6 @@ SystemInfoModule::SystemInfoModule(QObject *parent)
     m_work = new SystemInfoWork(m_model);
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
-    m_work->activate();
 }
 
 SystemInfoModule::~SystemInfoModule()
@@ -54,6 +53,10 @@ SystemInfoModule::~SystemInfoModule()
     m_work->deleteLater();
 }
 
+void SystemInfoModule::active()
+{
+    m_work->activate();
+}
 
 QString SystemInfoPlugin::name() const
 {

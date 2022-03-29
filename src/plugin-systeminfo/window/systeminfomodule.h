@@ -61,6 +61,9 @@ public:
     SystemInfoWork *work() { return m_work; }
     SystemInfoModel *model() { return m_model; }
 
+protected:
+    virtual void active() override;
+
 private:
     SystemInfoWork *m_work;
     SystemInfoModel *m_model;
