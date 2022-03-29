@@ -178,8 +178,6 @@ void AdapterModule::initDeviceListView(DListView *deviceListView)
     m_myDeviceListView->setModel(model);
     m_myDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_myDeviceListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    m_myDeviceListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-    m_myDeviceListView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     m_myDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_myDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_myDeviceListView->setSelectionMode(QAbstractItemView::NoSelection);
@@ -257,8 +255,6 @@ void AdapterModule::initOtherDeviceListView(DTK_WIDGET_NAMESPACE::DListView *oth
     m_otherDeviceListView->setModel(model);
     m_otherDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_otherDeviceListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    m_otherDeviceListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-    m_otherDeviceListView->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     m_otherDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_otherDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_otherDeviceListView->setSelectionMode(QAbstractItemView::NoSelection);

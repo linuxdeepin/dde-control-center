@@ -273,6 +273,12 @@ void MainWindow::clearPage(QWidget *const widget)
     }
 }
 
+void MainWindow::configLayout(QBoxLayout *const layout)
+{
+    layout->setMargin(0);
+    layout->setSpacing(0);
+}
+
 void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, const int index)
 {
     if (!module || !parent)
@@ -292,8 +298,6 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, c
         showModuleMainIcon(module, parent, index);
         break;
     case ModuleObject::ChildType::MainList:
-        // 展开主菜单时，原来的主菜单被析构，需清空其指针
-        m_mainView = nullptr;
         setCurrentModule(module);
         showModuleMainList(module, parent, index);
         break;
@@ -316,6 +320,7 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, c
 void MainWindow::showModuleMainIcon(ModuleObject *const module, QWidget *const parent, const int index)
 {
     QVBoxLayout *vlayout = new QVBoxLayout(parent);
+    configLayout(vlayout);
     parent->setLayout(vlayout);
 
     ModuleDataModel *model = new ModuleDataModel(parent);
@@ -348,6 +353,9 @@ void MainWindow::showModuleMainIcon(ModuleObject *const module, QWidget *const p
     auto onClicked = [this, module, parent] (const QModelIndex &index) {
         module->setChildType(ModuleObject::ChildType::MainList);
         m_backwardBtn->setEnabled(true);
+        // 展开主菜单时，原来的主菜单被析构，需清空其指针
+        m_mainView->deleteLater();
+        m_mainView = nullptr;
         showModule(module, parent, index.row());
     };
 
@@ -365,22 +373,18 @@ void MainWindow::showModuleMainIcon(ModuleObject *const module, QWidget *const p
 void MainWindow::showModuleMainList(ModuleObject *const module, QWidget *const parent, const int index)
 {
     QHBoxLayout *hlayout = new QHBoxLayout(parent);
+    configLayout(hlayout);
     parent->setLayout(hlayout);
 
     ModuleDataModel *model = new ModuleDataModel(parent);
     model->setData(module);
-    QScrollArea *area = new QScrollArea(parent);
-    area->setFrameShape(QFrame::NoFrame);
-    area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    area->setWidgetResizable(true);
 
     ListView *view = new ListView(parent);
     ListItemDelegate *delegate = new ListItemDelegate(view);
     view->setItemDelegate(delegate);
+    QWidget *childWdiget = new QWidget(parent);
     hlayout->addWidget(view, 1);
-    hlayout->addWidget(area, 5);
-    hlayout->setMargin(0);
-    hlayout->setSpacing(0);
+    hlayout->addWidget(childWdiget, 5);
 
     view->setModel(model);
     view->setFrameShape(QFrame::Shape::NoFrame);
@@ -392,17 +396,17 @@ void MainWindow::showModuleMainList(ModuleObject *const module, QWidget *const p
     view->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     view->setIconSize(ListViweItemIconSize_ListMode);
     view->setGridSize(ListViweItemSize_ListMode);
-    view->setSpacing(1);
+    view->setSpacing(0);
     view->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    auto onClicked = [this, module, area, view] (const QModelIndex &index) {
+    auto onClicked = [ = ] (const QModelIndex &index) {
         const int row = index.row();
         if (module->childrens().size() <= row) {
             qWarning() << "activated not exist item!";
             return;
         }
         view->setCurrentIndex(index);
-        showModule(module->childrens()[row], area, 0);
+        showModule(module->childrens()[row], childWdiget, 0);
     };
 
     connect(view, &ListView::activated, view, &ListView::clicked);
@@ -410,13 +414,12 @@ void MainWindow::showModuleMainList(ModuleObject *const module, QWidget *const p
     connect(module, &ModuleObject::activeChild, view, [onClicked, model] (const int index) {
         onClicked(model->index(index, 0));
     });
-    connect(module, &ModuleObject::removedChild, area, [this](ModuleObject *const childModule) {
+    connect(view, &ListView::destroyed, module, &ModuleObject::deactive);
+    connect(module, &ModuleObject::removedChild, childWdiget, [this](ModuleObject *const childModule) {
         if (childModule->findChild(currentModule()) >= 0) {
             toHome();
         }
     });
-    connect(view, &ListView::destroyed, module, &ModuleObject::deactive);
-
     if (index < 0)
         return;
     Q_EMIT view->clicked(model->index(index, 0));
@@ -435,19 +438,13 @@ void MainWindow::showModuleHList(ModuleObject *const module, QWidget *const pare
     hlayout->addWidget(view);
     ModuleDataModel *model = new ModuleDataModel(view);
     TabItemDelegate *delegate = new TabItemDelegate(view);
+    model->setData(module);
     view->setModel(model);
     view->setItemDelegate(delegate);
     vlayout->addWidget(dframeTab, 1, Qt::AlignCenter);
 
-    QScrollArea *area = new QScrollArea(parent);
-    area->setFrameShape(QFrame::NoFrame);
-    area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    area->setWidgetResizable(true);
-    area->setContentsMargins(ZeroMargins);
-
-    model->setData(module);
-
-    DFrame *dframe = new DFrame(parent);
+    QWidget *childWdiget = new QWidget(parent);
+    DFrame *childFrame = new DFrame(parent);
 
     connect(module, &ModuleObject::removedChild, this, [this] (ModuleObject *const module) {
         if (module->findChild(currentModule()) >= 0) {
@@ -467,15 +464,15 @@ void MainWindow::showModuleHList(ModuleObject *const module, QWidget *const pare
         if (vlayout->count() >= 2)
             vlayout->takeAt(vlayout->count() - 1);
         if (module->childrens()[row]->childType() == ModuleObject::ChildType::VList) {
-            vlayout->addWidget(dframe, 6);
-            dframe->show();
-            area->hide();
-            showModule(module->childrens()[row], dframe, 0);
+            vlayout->addWidget(childFrame, 6);
+            childFrame->show();
+            childWdiget->hide();
+            showModule(module->childrens()[row], childFrame, 0);
         } else {
-            dframe->hide();
-            area->show();
-            vlayout->addWidget(area, 6);
-            showModule(module->childrens()[row], area, 0);
+            childFrame->hide();
+            childWdiget->show();
+            vlayout->addWidget(childWdiget, 6);
+            showModule(module->childrens()[row], childWdiget, 0);
         }
     };
 
@@ -493,15 +490,11 @@ void MainWindow::showModuleHList(ModuleObject *const module, QWidget *const pare
 void MainWindow::showModuleVList(ModuleObject *const module, QWidget *const parent, const int index)
 {
     QHBoxLayout *hlayout = new QHBoxLayout(parent);
+    configLayout(hlayout);
     parent->setLayout(hlayout);
 
     ModuleDataModel *model = new ModuleDataModel(parent);
     model->setData(module);
-    QScrollArea *area = new QScrollArea(parent);
-    area->setFrameShape(QFrame::NoFrame);
-    area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    area->setWidgetResizable(true);
-
     DListView *view = new DListView(parent);
     QWidget *widget = new QWidget(parent);
     QVBoxLayout *vlayout = new QVBoxLayout;
@@ -509,11 +502,11 @@ void MainWindow::showModuleVList(ModuleObject *const module, QWidget *const pare
     vlayout->addWidget(view);
     if (module->extraButton())
         vlayout->addWidget(getExtraPage(module->extraButton()));
-    hlayout->setMargin(0);
-    hlayout->setSpacing(0);
     hlayout->addWidget(widget, 1);
     hlayout->addWidget(new DVerticalLine);
-    hlayout->addWidget(area, 5);
+
+    QWidget *childWidget = new QWidget(parent);
+    hlayout->addWidget(childWidget, 5);
 
     view->setModel(model);
     view->setFrameShape(QFrame::NoFrame);
@@ -522,21 +515,20 @@ void MainWindow::showModuleVList(ModuleObject *const module, QWidget *const pare
     view->setMaximumWidth(NavViewMaximumWidth);
     view->setMinimumWidth(NavViewMinimumWidth);
     view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
     view->setIconSize(ListViweItemIconSize_ListMode);
     view->setItemSize(ListViweItemSize_ListMode);
     view->setSpacing(0);
-    view->setItemSpacing(1);
+    view->setItemSpacing(2);
     view->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    auto onClicked = [this, module, area, view] (const QModelIndex &index) {
+    auto onClicked = [this, module, childWidget, view] (const QModelIndex &index) {
         const int row = index.row();
         if (module->childrens().size() <= row) {
             qWarning() << "activated not exist item!";
             return;
         }
         view->setCurrentIndex(index);
-        showModule(module->childrens()[row], area, 0);
+        showModule(module->childrens()[row], childWidget, 0);
     };
 
     connect(view, &ListView::activated, view, &ListView::clicked);
@@ -544,10 +536,13 @@ void MainWindow::showModuleVList(ModuleObject *const module, QWidget *const pare
     connect(module, &ModuleObject::activeChild, view, [onClicked, model] (const int index) {
         onClicked(model->index(index, 0));
     });
-    connect(module, &ModuleObject::extraButtonClicked, area, [this, area, module] {
-        clearPage(area);
+    connect(module, &ModuleObject::extraButtonClicked, childWidget, [this, childWidget, module] {
+        clearPage(childWidget);
         setCurrentModule(nullptr);
-        area->setWidget(module->page());
+        QVBoxLayout *tempLayout = new QVBoxLayout;
+        configLayout(tempLayout);
+        childWidget->setLayout(tempLayout);
+        tempLayout->addWidget(module->page());
     });
     connect(view, &ListView::destroyed, module, &ModuleObject::deactive);
 
@@ -558,11 +553,20 @@ void MainWindow::showModuleVList(ModuleObject *const module, QWidget *const pare
 
 void MainWindow::showModulePage(ModuleObject *const module, QWidget *const parent, const int index)
 {
-    QScrollArea *area = qobject_cast<QScrollArea *>(parent);
+    QScrollArea *area = new QScrollArea(parent);
+    QHBoxLayout *hlayout = new QHBoxLayout;
+    configLayout(hlayout);
+    parent->setLayout(hlayout);
+    hlayout->addWidget(area);
+
+    area->setFrameShape(QFrame::NoFrame);
+    area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    area->setWidgetResizable(true);
 
     QWidget *areaWidget = new QWidget(area);
     area->setWidget(areaWidget);
     QVBoxLayout *vlayout = new QVBoxLayout(parent);
+    configLayout(vlayout);
     areaWidget->setLayout(vlayout);
 
     m_pages.clear();

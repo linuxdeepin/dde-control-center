@@ -77,7 +77,6 @@ BootWidget::BootWidget(QWidget *parent)
     m_bootList->verticalScrollBar()->setContextMenuPolicy(Qt::NoContextMenu);
     m_bootList->setSelectionMode(DListView::NoSelection);
     m_bootList->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_bootList->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     m_bootList->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_bootList->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_bootList->setMinimumWidth(240);
@@ -408,7 +407,6 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
             m_grubVerification->setChecked(false);
         }
     });
-    m_grubEditAuthDialog->setSizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
     m_grubEditAuthDialog->exec();
     m_grubEditAuthDialog->deleteLater();
     m_grubEditAuthDialog = nullptr;

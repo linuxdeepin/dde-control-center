@@ -126,7 +126,6 @@ void HostNameItem::resizeEvent(QResizeEvent *event)
 void HostNameItem::initUI()
 {
     // 添加主机名称
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     QHBoxLayout *hostNameLayout = new QHBoxLayout(this);
     setLayout(hostNameLayout);
     m_hostNameTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
@@ -313,8 +312,6 @@ void NativeInfoWidget::initWidget()
     // info 与 logo 两个分组
     SettingsGroup *infoGroup = new SettingsGroup(this);
     SettingsGroup *logoGroup = new SettingsGroup(this);
-    logoGroup->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    infoGroup->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     infoGroup->setSpacing(10);
     mainLayout->addWidget(logoGroup);
     mainLayout->addWidget(infoGroup);

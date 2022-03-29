@@ -48,17 +48,14 @@ DefappDetailWidget::DefappDetailWidget(DefAppWorker::DefaultAppsCategory categor
     , m_userAppCnt(0)
 {
     m_defApps->setAccessibleName("List_defapplist");
-    m_defApps->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_defApps->setEditTriggers(QListView::NoEditTriggers);
     m_defApps->setIconSize(QSize(32, 32));
-    m_defApps->setResizeMode(QListView::Adjust);
     m_defApps->setMovement(QListView::Static);
     m_defApps->setSelectionMode(QListView::NoSelection);
     m_defApps->setFrameShape(QFrame::NoFrame);
     m_defApps->setModel(m_model);
     m_defApps->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_defApps->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_defApps->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
 
     m_centralLayout->setMargin(0);
     m_centralLayout->addWidget(m_defApps, 1);

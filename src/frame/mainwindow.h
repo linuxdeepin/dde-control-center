@@ -40,8 +40,7 @@ class DListView;
 DWIDGET_END_NAMESPACE
 
 class QStandardItemModel;
-class QHBoxLayout;
-class QVBoxLayout;
+class QBoxLayout;
 class QScrollArea;
 class QAbstractItemView;
 
@@ -81,6 +80,7 @@ private:
     void toHome();
     void updateMainView();
     void clearPage(QWidget *const widget);
+    void configLayout(QBoxLayout *const layout);
     int getScrollPos(const int index);
     void showPage(ModuleObject *const module, const QString &url, const UrlType &uType);
     void showModule(ModuleObject *const module, QWidget *const parent, const int index = -1);

@@ -59,7 +59,6 @@ PrivacyPolicyWidget::PrivacyPolicyWidget(QWidget *parent)
 
     label->setTextFormat(Qt::RichText);
     label->setAlignment(Qt::AlignJustify | Qt::AlignLeft);
-    label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     label->setWordWrap(true);
     QObject::connect(label, &QLabel::linkActivated, this, &PrivacyPolicyWidget::onLinkActivated);
 

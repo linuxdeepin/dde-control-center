@@ -96,8 +96,6 @@ void SwitchWidget::init()
     m_mainLayout->addWidget(m_switchBtn, 0, Qt::AlignVCenter);
     setLayout(m_mainLayout);
 
-    m_leftWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-
     connect(m_switchBtn, &DSwitchButton::toggled, this, &SwitchWidget::checkedChanged);
 }
 

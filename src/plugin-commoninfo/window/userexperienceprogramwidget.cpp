@@ -64,7 +64,6 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
 
     label->setTextFormat(Qt::RichText);
     label->setAlignment(Qt::AlignJustify | Qt::AlignLeft);
-    label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     label->setWordWrap(true);
     connect(label, &QLabel::linkActivated, this, [](const QString &link) {
         QDesktopServices::openUrl(QUrl(link));
