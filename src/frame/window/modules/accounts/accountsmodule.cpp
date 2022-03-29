@@ -203,7 +203,9 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::asyncSecurityQuestionsCheck);
 
     m_frameProxy->pushWidget(this, w);
-    Q_EMIT w->requestSecurityQuestionsCheck(account);
+    if (account->isCurrentUser()) {
+        Q_EMIT w->requestSecurityQuestionsCheck(account);
+    }
     w->setVisible(true);
     m_isCreatePage = false;
     //当前页面为用户详情页面的时候允许跳转默认帐户，否则只响应用户点击。避免出现显示了创建账户页面，又被账户详情页面隐藏的问题。
