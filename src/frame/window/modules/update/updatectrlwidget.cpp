@@ -707,7 +707,7 @@ void UpdateCtrlWidget::onRequestRefreshSize()
     if (m_updateSize == 0) {
         m_CheckAgainBtn->setEnabled(false);
         m_upgradeWarningGroup->setVisible(false);
-    } else if ((static_cast<int>(m_updateSize) / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt()) {
+    } else if ((static_cast<int64_t>(m_updateSize) / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt()) {
         m_upgradeWarningGroup->setVisible(true);
     } else {
         m_upgradeWarningGroup->setVisible(false);
