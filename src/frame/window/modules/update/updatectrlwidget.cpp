@@ -695,10 +695,11 @@ void UpdateCtrlWidget::onRequestRefreshSize()
     m_updateSize = 0;
 
     for (UpdateSettingItem *updateItem : m_updateingItemMap.values()) {
-        if (updateItem->status() == UpdatesStatus::UpdatesAvailable
-                || updateItem->status() == UpdatesStatus::Downloading
-                || updateItem->status() == UpdatesStatus::DownloadPaused
-                || updateItem->status() == UpdatesStatus::UpdateFailed) {
+        if (updateItem->status() != UpdatesStatus::Default
+                && updateItem->status() != UpdatesStatus::Downloaded
+                && updateItem->status() != UpdatesStatus::AutoDownloaded
+                && updateItem->status() != UpdatesStatus::Installing
+                && updateItem->status() != UpdatesStatus::Updated) {
             m_updateSize += updateItem->updateSize();
         }
     }
