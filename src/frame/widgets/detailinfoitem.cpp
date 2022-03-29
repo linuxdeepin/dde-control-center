@@ -81,7 +81,11 @@ void DetailInfoItem::initUi()
     DFontSizeManager::instance()->bind(m_linkLable, DFontSizeManager::T8);
     m_linkLable->setForegroundRole(DPalette::LinkVisited);
     bomboxlayout->addWidget(m_linkDataLabel, 0, Qt::AlignLeft);
-    bomboxlayout->addWidget(m_linkLable, 10, Qt::AlignLeft);
+    bomboxlayout->addWidget(m_linkLable);
+    m_linkLable->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    m_linkLable->setScaledContents(true);
+    m_linkLable->adjustSize();
+    m_linkLable->setWordWrap(true);
 
     mainlayout->addLayout(hboxlayout);
     mainlayout->addWidget(m_dataLable);
@@ -116,7 +120,7 @@ void DetailInfoItem::setLinkData(QString data)
         return;
     }
     m_linkDataLabel->setVisible(true);
-    m_linkDataLabel->setVisible(true);
+    m_linkLable->setVisible(true);
     m_linkLable->clear();
     QString value = QString("<a href=\"%1\">%2").arg(data, data);
     m_linkLable->setText(value);
