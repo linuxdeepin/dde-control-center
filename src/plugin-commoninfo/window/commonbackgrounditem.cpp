@@ -53,11 +53,7 @@ CommonBackgroundItem::CommonBackgroundItem(QWidget *parent)
 
 void CommonBackgroundItem::setThemeEnable(const bool state)
 {
-#ifndef DCC_DISABLE_GRUB_THEME
     m_themeEnable = state;
-#else
-    m_themeEnable = false;
-#endif
     update();
 }
 

@@ -24,11 +24,9 @@
 
 #include <DListView>
 
-#include <QResizeEvent>
-
 class QVBoxLayout;
 class QLabel;
-class QScrollArea;
+class QResizeEvent;
 
 DWIDGET_BEGIN_NAMESPACE
 class DTipLabel;
@@ -70,12 +68,10 @@ public Q_SLOTS:
     void showGrubEditAuthPasswdDialog(bool isReset);
 
 private:
-    QString m_defaultEntry;                      // 默认启动项
+    QString m_defaultEntry;          // 默认启动项
     SwitchWidget *m_bootDelay;       // 延时启动功能
-#ifndef DCC_DISABLE_GRUB_THEME
     SwitchWidget *m_theme;           // 主题功能
     DTK_WIDGET_NAMESPACE::DTipLabel *m_themeLbl;    // 主题提示
-#endif
     SwitchWidget *m_grubVerification;    // grub 验证
     DTK_WIDGET_NAMESPACE::DTipLabel *m_grubVerifyLbl;  // grub 验证提示
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_grubModifyPasswdLink; // grub修改密码
@@ -88,8 +84,5 @@ private:
     QStandardItemModel *m_bootItemModel;
     CommonInfoModel *m_commonInfoModel = nullptr;
     bool m_isCommoninfoBootWallpaperConfigValid;
-    QScrollArea *m_scrollArea; // 添加滚动区域
 };
 } // namespace DCC_NAMESPACE
-
-Q_DECLARE_METATYPE(QMargins)

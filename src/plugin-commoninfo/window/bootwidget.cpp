@@ -42,8 +42,10 @@
 #include <QSizePolicy>
 #include <QScroller>
 #include <QVBoxLayout>
-#include <QScrollArea>
+#include <QResizeEvent>
 #include <QLabel>
+
+Q_DECLARE_METATYPE(QMargins)
 
 const QMargins ListViweItemMargin(10, 8, 10, 8);
 const QVariant VListViewItemMargin = QVariant::fromValue(ListViweItemMargin);
@@ -54,25 +56,9 @@ DTK_USE_NAMESPACE
 BootWidget::BootWidget(QWidget *parent)
     : QWidget(parent)
     , m_isCommoninfoBootWallpaperConfigValid(true)
-    , m_scrollArea(new QScrollArea(this))
 {
-    // 整体布局
-    QVBoxLayout *mainContentLayout = new QVBoxLayout;
-    mainContentLayout->setContentsMargins(0, 0, 0, 0);
-    mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
-
-    setLayout(mainContentLayout);
-    setFocusPolicy(Qt::FocusPolicy::ClickFocus);
-
-    m_scrollArea->setAccessibleName("scrollArea");
-    m_scrollArea->setWidgetResizable(true);
-    m_scrollArea->setFrameStyle(QFrame::NoFrame);
-    m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    m_scrollArea->setContentsMargins(0, 0, 0, 0);
-    m_scrollArea->setBackgroundRole(QPalette::Base);
-
     QVBoxLayout *layout = new QVBoxLayout;
+    setLayout(layout);
     SettingsGroup *groupOther = new SettingsGroup;
     groupOther->getLayout()->setContentsMargins(0, 0, 0, 0);
 
@@ -162,15 +148,6 @@ BootWidget::BootWidget(QWidget *parent)
     layout->addStretch();
     layout->setContentsMargins(10, 10, 10, 10);
     setWindowTitle(tr("Boot Menu"));
-
-    mainContentLayout->addWidget(m_scrollArea);
-    QWidget *widget = new QWidget(this);
-    widget->setAccessibleName("scrollAreaWidget");
-    widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    widget->setContentsMargins(0, 0, 0, 0);
-    widget->setMinimumWidth(330);   //设置滑轮区域最小宽度,避免整体窗口最小的时候,fullnamelable太长导致出现滑轮
-    widget->setLayout(layout);
-    m_scrollArea->setWidget(widget);
 
     connect(m_theme, &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);
     connect(m_bootDelay, &SwitchWidget::checkedChanged, this, &BootWidget::bootdelay);
