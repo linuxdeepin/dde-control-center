@@ -510,7 +510,16 @@ void DisplayModule::initSearchData()
     };
 
     auto func_brightnessEnable_changed = [ = ] {
-        bool isBrightnessEnable = func_is_visible("brightnessEnable", false);
+        // 是否有支持调节亮度的屏幕，如果没有则不显示亮度模块
+        bool haveMonitorCanBrightness = false;
+        for (auto monitor : m_displayModel->monitorList()) {
+            if (monitor->enable() && monitor->canBrightness()) {
+                haveMonitorCanBrightness = true;
+                break;
+            }
+        }
+
+        bool isBrightnessEnable = haveMonitorCanBrightness && func_is_visible("brightnessEnable", false);
         qDebug() << Q_FUNC_INFO << "autoLightAdjustIsValid:::" << m_displayModel->autoLightAdjustIsValid();
         m_frameProxy->setWidgetVisible(module, tr("Auto Brightness"), isBrightnessEnable && func_is_visible("displayLightLighting")
                                        && m_displayModel->autoLightAdjustIsValid() && !IsServerSystem);
@@ -519,6 +528,7 @@ void DisplayModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, tr("Color Temperature"), isBrightnessEnable && func_is_visible("displayColorTemperature")  && m_displayModel->redshiftIsValid());
         m_frameProxy->setWidgetVisible(module, tr("Night Shift"), isBrightnessEnable && func_is_visible("displayColorTemperature") && m_displayModel->redshiftIsValid());
         m_frameProxy->setWidgetVisible(module, tr("Change Color Temperature"), isBrightnessEnable && func_is_visible("displayColorTemperature") && m_displayModel->redshiftIsValid());
+        m_frameProxy->updateSearchData(module);
     };
 
     auto func_process_all = [ = ]() {
@@ -591,6 +601,9 @@ void DisplayModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, tr("Color Temperature"), func_is_visible("brightnessEnable", false) && func_is_visible("displayColorTemperature"));
         m_frameProxy->setWidgetVisible(module, tr("Night Shift"), func_is_visible("brightnessEnable", false) && func_is_visible("displayColorTemperature"));
         m_frameProxy->setWidgetVisible(module, tr("Change Color Temperature"), func_is_visible("brightnessEnable", false) && func_is_visible("displayColorTemperature"));
+    });
+    connect(m_displayModel, &DisplayModel::displayModeChanged, this, [ = ] {
+        func_brightnessEnable_changed();
     });
 
     func_process_all();
