@@ -455,6 +455,7 @@ void ModifyPasswdPage::onLocalBindCheckUbid(const QString &ubid)
     } else if (!m_isBindCheckError) {
         UnionIDBindReminderDialog dlg;
         dlg.exec();
+        m_forgetPasswordBtn->setEnabled(true);
     }
 }
 
