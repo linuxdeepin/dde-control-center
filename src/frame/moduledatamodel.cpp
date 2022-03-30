@@ -36,7 +36,7 @@ ModuleDataModel::ModuleDataModel(QObject *parent)
 
 QModelIndex ModuleDataModel::index(int row, int column, const QModelIndex &parent) const
 {
-    if (!m_data || row < 0 || row >= m_data->getChildrenNumber())
+    if (!m_data || row < 0 || row >= m_data->getChildrenSize())
         return QModelIndex();
     return createIndex(row, column, m_data->children(row));
 }
@@ -49,7 +49,7 @@ QModelIndex ModuleDataModel::parent(const QModelIndex &index) const
 int ModuleDataModel::rowCount(const QModelIndex &parent) const
 {
     if (m_data || !parent.isValid())
-        return m_data->getChildrenNumber();
+        return m_data->getChildrenSize();
 
     return 0;
 }
@@ -84,7 +84,7 @@ QVariant ModuleDataModel::data(const QModelIndex &index, int role) const
 void ModuleDataModel::onDataChanged(QObject *obj)
 {
     int row = m_data->childrens().indexOf(static_cast<ModuleObject *const>(obj));
-    if (row >= 0 && row < m_data->getChildrenNumber()) {
+    if (row >= 0 && row < m_data->getChildrenSize()) {
         QModelIndex i = index(row, 0);
         emit dataChanged(i, i);
     }
@@ -93,7 +93,7 @@ void ModuleDataModel::onDataChanged(QObject *obj)
 void ModuleDataModel::onInsertChild(ModuleObject *const module)
 {
     int row = m_data->childrens().indexOf(module);
-    if (row >= 0 && row < m_data->getChildrenNumber()) {
+    if (row >= 0 && row < m_data->getChildrenSize()) {
         beginInsertRows(QModelIndex(), row, row);
         endInsertRows();
     }
@@ -102,7 +102,7 @@ void ModuleDataModel::onInsertChild(ModuleObject *const module)
 void ModuleDataModel::onRemovedChild(ModuleObject *const module)
 {
     int row = m_data->childrens().indexOf(module);
-    if (row >= 0 && row < m_data->getChildrenNumber()) {
+    if (row >= 0 && row < m_data->getChildrenSize()) {
         beginRemoveRows(QModelIndex(), row, row);
         endRemoveRows();
     }

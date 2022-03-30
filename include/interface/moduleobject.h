@@ -163,7 +163,7 @@ public:
             return nullptr;
         return m_childrens.at(index);
     }
-    inline int getChildrenNumber() const { return m_childrens.size(); }
+    inline int getChildrenSize() const { return m_childrens.size(); }
 
     void appendChild(ModuleObject *const module);
     void removeChild(ModuleObject *const module);

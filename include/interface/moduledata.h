@@ -38,7 +38,7 @@ public:
     QString                 Name;           // 名称，作为每个模块的唯一标识，不可为空
     QString                 DisplayName;    // 显示名称，如菜单的名称，页面的标题等，为空则不显示
     QString                 Description;    // 描述，如主菜单的描述信息
-    QStringList             ContentText;    // 上下文数据，参与搜索：DisplayName -> ContentText(one of it)
+    QStringList             ContentText;    // 上下文数据，参与搜索，只可用于终结点：DisplayName -> ContentText(one of it)
     QIcon                   Icon;           // 图标，如主菜单的图标
     int                     Badge;          // 主菜单中的角标, 默认为0不显示，大于0显示
     ModuleData(QObject *parent = nullptr);
