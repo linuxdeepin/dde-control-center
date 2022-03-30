@@ -32,6 +32,8 @@
 #include <QJsonObject>
 #include <QJsonValue>
 #include <QThreadPool>
+#include <QGuiApplication>
+
 #include "shortcutitem.h"
 
 static const QStringList systemFilter = {"terminal",
@@ -182,6 +184,10 @@ void ShortcutModel::onParseInfo(const QString &info)
         systemShortKeys = systemFilterServer;
     } else {
         systemShortKeys = systemFilter;
+    }
+
+    if(QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)){
+        systemShortKeys.removeOne("wm-switcher");
     }
 #ifdef DISABLE_SCREEN_RECORDING
     QStringList systemFilterServer = systemShortKeys;
