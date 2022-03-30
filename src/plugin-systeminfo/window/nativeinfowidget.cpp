@@ -171,7 +171,6 @@ QString HostNameItem::getElidedText(const QString &string)
     int titleFontWidth = titleFontMetrics.boundingRect(titleText).width();
 
     int hostnameWidth = width() - titleFontWidth - m_hostNameBtn->width();
-    qDebug() << "hostnameWidth:" << hostnameWidth << "width:" << width();
     QString retTxt = string;
     if (retTxt.isEmpty())
         return retTxt;

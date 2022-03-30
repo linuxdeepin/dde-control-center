@@ -158,6 +158,8 @@ void CommonBackgroundItem::resizeEvent(QResizeEvent *e)
 
 void CommonBackgroundItem::updateBackground(const QPixmap &pixmap)
 {
+    if (pixmap.isNull())
+        return;
     qDebug() << pixmap;
     m_basePixmap = pixmap;
 

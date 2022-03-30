@@ -565,7 +565,7 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
 
     QWidget *areaWidget = new QWidget(area);
     area->setWidget(areaWidget);
-    QVBoxLayout *vlayout = new QVBoxLayout(parent);
+    QVBoxLayout *vlayout = new QVBoxLayout(areaWidget);
     configLayout(vlayout);
     areaWidget->setLayout(vlayout);
 
