@@ -334,8 +334,6 @@ void MainWindow::initAllModule(const QString &m)
     m_modules = {
         { new LoginOptionsModule(this), tr("Biometric Authentication")},
         { new AccountsModule(this), tr("Accounts")},
-        //~ contents_path /cloudsync/Cloud Sync
-        { new SyncModule(this), DSysInfo::isCommunityEdition() ? "Deepin ID" : "Union ID"},
         { new DisplayModule(this), tr("Display")},
         { new TouchscreenModule(this), tr("Touch Screen")},
         { new DefaultAppsModule(this), tr("Default Applications")},
@@ -352,7 +350,10 @@ void MainWindow::initAllModule(const QString &m)
         { new SystemInfoModule(this), tr("System Info")},
         { new CommonInfoModule(this), tr("General Settings")},
     };
-
+    // V20 对Deepinid 进行差异化处理  UnionID 走插件化
+    if (!IsProfessionalSystem) {
+         m_modules.insert(3, {new SyncModule(this), DSysInfo::isCommunityEdition() ? "Deepin ID" : "Union ID"});
+    }
     //读取加载一级菜单的插件
     if (InsertPlugin::instance(this, this)->updatePluginInfo("mainwindow"))
         InsertPlugin::instance()->pushPlugin(m_modules);
@@ -448,6 +449,7 @@ void MainWindow::updateModuleVisible()
 {
     m_hideModuleNames = m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();
     for (auto i : m_modules) {
+
         if (m_hideModuleNames.contains((i.first->name()))) {
             setModuleVisible(i.second, false);
         } else if (i.first->deviceUnavailabel()) {
