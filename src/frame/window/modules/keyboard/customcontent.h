@@ -21,6 +21,7 @@
 
 #pragma once
 #include "interface/namespace.h"
+#include "waylandgrab.h"
 
 #include <dfilechooseredit.h>
 
@@ -66,6 +67,12 @@ public Q_SLOTS:
     void keyEvent(bool press, const QString &shortcut);
     void updateKey();
 
+    void onGrab(dcc::keyboard::ShortcutInfo *info);
+
+protected:
+    void keyPressEvent(QKeyEvent *ke) override;
+    void keyReleaseEvent(QKeyEvent *ke) override;
+
 private:
     dcc::keyboard::KeyboardWorker *m_work;
     dcc::keyboard::CustomItem *m_shortcut;
@@ -75,6 +82,8 @@ private:
     dcc::keyboard::ShortcutInfo *m_conflict;
     dcc::keyboard::ShortcutModel *m_model;
     dcc::widgets::ButtonTuple *m_buttonTuple;
+
+    WaylandGrab *waylandGrab = nullptr;
 };
 }
 }

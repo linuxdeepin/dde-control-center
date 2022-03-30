@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.7)
-project(dde-control-center-unittest)
+project(dde-control-center-unittest C CXX)
 
 set(BLUETOOTH_NAME bluetooth-unittest)
 set(MOUSE_NAME mouse-unittest)
@@ -131,18 +131,21 @@ file(GLOB_RECURSE SYSTEMINFO_Tasks_SRCS
 file(GLOB_RECURSE KEYBOARD_SRCS "keyboard/*.cpp")
 
 # 头文件路径
-set(KEYBOARD_HEADER 
+set(KEYBOARD_HEADER
     ../../src/frame/window/modules/keyboard
     ../../src/frame/modules/keyboard
 )
 
 # 键盘测试依赖文件
-file(GLOB_RECURSE KEYBOARD_Tasks_SRCS 
+file(GLOB_RECURSE KEYBOARD_Tasks_SRCS
     ../../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp
     ../../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp
     ../../src/frame/window/modules/keyboard/systemlanguagewidget.cpp
     ../../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp
     ../../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp
+    ../../src/frame/window/modules/keyboard/wayland-xwayland-keyboard-grab-v1-client-protocol.h
+    ../../src/frame/window/modules/keyboard/wayland-xwayland-keyboard-grab-v1-protocol.c
+    ../../src/frame/window/modules/keyboard/waylandgrab.cpp
     ../../src/frame/modules/keyboard/keyboardmodel.cpp
     ../../src/frame/modules/keyboard/indexmodel.cpp
     ../../src/frame/modules/keyboard/shortcutmodel.cpp
@@ -160,9 +163,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -lgcov")
 
 # 查找依赖库
 find_package(PkgConfig REQUIRED)
-find_package(Qt5 COMPONENTS Widgets Test DBus REQUIRED Concurrent Svg)
+find_package(Qt5 COMPONENTS Widgets Test DBus WaylandClient REQUIRED Concurrent Svg)
 find_package(DtkWidget REQUIRED)
 find_package(GTest REQUIRED)
+find_package(KF5Wayland QUIET)
 
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
@@ -314,6 +318,9 @@ target_link_libraries(${SYSTEMINFO_NAME} PRIVATE
     -lpthread
 )
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(WaylandClient REQUIRED wayland-client)
+
 # 键盘模块链接库
 target_link_libraries(${KEYBOARD_NAME} PRIVATE
     dccwidgets
@@ -327,6 +334,9 @@ target_link_libraries(${KEYBOARD_NAME} PRIVATE
     ${DtkWidget_LIBRARIES}
     ${GTEST_LIBRARIES}
     -lpthread
+    KF5::WaylandClient
+    Qt5::WaylandClient
+    ${WaylandClient_LIBRARIES}
 )
 
 # 系统信息模块引用头文件
@@ -345,6 +355,7 @@ target_include_directories(${KEYBOARD_NAME} PUBLIC
     ${QGSettings_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
     ${DFrameworkDBus_INCLUDE_DIRS}
+    ${Qt5WaylandClient_PRIVATE_INCLUDE_DIRS}
 )
 
 add_custom_target(check

@@ -37,6 +37,8 @@
 #include "modules/keyboard/shortcutcontent.h"
 #include "window/mainwindow.h"
 
+#include <QGuiApplication>
+
 using namespace dcc;
 using namespace dcc::keyboard;
 using namespace DCC_NAMESPACE;
@@ -360,7 +362,7 @@ void KeyboardModule::onAddLocale(const QModelIndex &index)
 void KeyboardModule::showShortCutSetting()
 {
     m_work->refreshShortcut();
-    m_shortcutSettingWidget = new ShortCutSettingWidget(m_shortcutModel);
+    m_shortcutSettingWidget = new ShortCutSettingWidget(m_shortcutModel, m_pMainWindow);
     GSettingWatcher::instance()->bind("keyboardShortcut", m_shortcutSettingWidget);  // 使用GSettings来控制显示状态
     m_shortcutSettingWidget->setVisible(false);
     connect(m_shortcutSettingWidget, &ShortCutSettingWidget::customShortcut, this, &KeyboardModule::onPushCustomShortcut);
@@ -375,6 +377,11 @@ void KeyboardModule::showShortCutSetting()
     connect(m_work, &KeyboardWorker::removed, m_shortcutSettingWidget, &ShortCutSettingWidget::onRemoveItem);
     connect(m_work, &KeyboardWorker::searchChangd, m_shortcutSettingWidget, &ShortCutSettingWidget::onSearchInfo);
     connect(m_work, &KeyboardWorker::onResetFinished, m_shortcutSettingWidget, &ShortCutSettingWidget::onResetFinished);
+
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        connect(m_work, &KeyboardWorker::stareGrab, m_shortcutSettingWidget, &ShortCutSettingWidget::onGrab);
+        connect(m_shortcutSettingWidget, &ShortCutSettingWidget::changed, m_work, &KeyboardWorker::onShortcutChanged);
+    }
 
     m_frameProxy->pushWidget(this, m_shortcutSettingWidget);
     m_shortcutSettingWidget->setVisible(GSettingWatcher::instance()->getStatus("keyboardShortcut") != "Hidden");
@@ -393,13 +400,17 @@ void KeyboardModule::onPushSystemLanguageSetting()
 
 void KeyboardModule::onPushCustomShortcut()
 {
-    m_customContent = new CustomContent(m_shortcutModel);
+    m_customContent = new CustomContent(m_shortcutModel, m_pMainWindow);
     m_customContent->setVisible(false);
     m_customContent->setAccessibleName(tr("Custom Shortcut"));
     connect(m_customContent, &CustomContent::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
     connect(m_customContent, &CustomContent::requestAddKey, m_work, &KeyboardWorker::addCustomShortcut);
     connect(m_customContent, &CustomContent::requestForceSubs, m_work, &KeyboardWorker::onDisableShortcut);
     connect(m_customContent, &CustomContent::back, this, &KeyboardModule::showShortCutSetting);
+
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        connect(m_work, &KeyboardWorker::stareGrab, m_customContent, &CustomContent::onGrab);
+    }
 
     m_frameProxy->pushWidget(this, m_customContent);
     m_customContent->setVisible(true);

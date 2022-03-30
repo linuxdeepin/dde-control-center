@@ -141,6 +141,7 @@ void ShortcutItem::setShortcut(const QString &shortcut)
     accels = accels.replace("Control", "Ctrl");
 
     m_key->setTextList(accels.split("-"));
+    m_key->setFocus();
     QTimer::singleShot(0, this, &ShortcutItem::updateTitleSize);
 }
 
