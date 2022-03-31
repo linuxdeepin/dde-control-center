@@ -144,22 +144,17 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::po
 
 
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
-        if (nIndex < 0) return;
-
-        int tmpIndex = nIndex;
-        if (!model->getShutdown()) {
-            tmpIndex += 1;
+        if (nIndex < 0) {
+            return;
         }
 
-        if (!model->getSuspend() && tmpIndex >= 1) {
-            tmpIndex += 1;
+        int option = m_cmbPowerBtn->comboBox()->itemData(nIndex).toInt();
+
+        if (option < PowerModel::Shutdown || option > PowerModel::ShowSessionUI) {
+            return;
         }
 
-        if (!model->getHibernate() && tmpIndex >= 2) {
-            tmpIndex += 1;
-        }
-
-        Q_EMIT requestSetLinePowerPressPowerBtnAction(tmpIndex);
+        Q_EMIT requestSetLinePowerPressPowerBtnAction(option);
     });
 
     connect(m_cmbCloseLid->comboBox(), &AlertComboBox::clicked, this, [ = ]() {
@@ -168,22 +163,17 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::po
         setCloseLid(model, model->linePowerLidClosedAction());
     });
     connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
-        if (nIndex < 0) return;
-
-        int tmpIndex = nIndex;
-        if (!model->getShutdown() && tmpIndex >= 0) {
-            tmpIndex += 1;
+        if (nIndex < 0) {
+            return;
         }
 
-        if (!model->getSuspend() && tmpIndex >= 1) {
-            tmpIndex += 1;
+        int option = m_cmbCloseLid->comboBox()->itemData(nIndex).toInt();
+
+        if (option < PowerModel::Shutdown || option > PowerModel::ShowSessionUI) {
+            return;
         }
 
-        if (!model->getHibernate() && tmpIndex >= 2) {
-            tmpIndex += 1;
-        }
-
-        Q_EMIT requestSetLinePowerLidClosedAction(tmpIndex);
+        Q_EMIT requestSetLinePowerLidClosedAction(option);
     });
 
 }
@@ -289,86 +279,63 @@ void UseElectricWidget::setAutoLockScreenOnPower(const int delay)
     m_autoLockScreen->slider()->blockSignals(false);
 }
 
-void UseElectricWidget::setCloseLid(const dcc::power::PowerModel *model, int lidIndex)
+void UseElectricWidget::setCloseLid(const dcc::power::PowerModel *model, int option)
 {
     Q_UNUSED(model);
 
-    int tmpIndex = lidIndex;
+    int tmpIndex = m_cmbCloseLid->comboBox()->count() - 1;
 
-    // 如果原来设置的关机，但是当前又不显示关机选项，则设置为无任何操作
-    if (!model->getShutdown() && lidIndex == 0) {
-        tmpIndex = m_cmbCloseLid->comboBox()->count() - 1;
+    for (int i = 0; i < m_cmbCloseLid->comboBox()->count(); i++) {
+        if (option == m_cmbCloseLid->comboBox()->itemData(i).toInt()) {
+           tmpIndex = i;
+           break;
+        };
     }
-
-    // 如果原来设置的待机，但是当前不显示待机选项，则设置为无任何操作
-    if (!model->getSuspend() && lidIndex == 1) {
-        tmpIndex = m_cmbCloseLid->comboBox()->count() - 1;
-    }
-
-    // 如果原来设置的休眠，但是当前不显示休眠选项，则设置为无任何操作
-    if (!model->getHibernate() && lidIndex == 2) {
-        tmpIndex = m_cmbCloseLid->comboBox()->count() - 1;
-    }
-
-    // 设置为关闭显示器或无任何操作
-    if (lidIndex == 3)
-        tmpIndex = m_cmbCloseLid->comboBox()->count() - 2;
-    else if (lidIndex == 4)
-        tmpIndex = m_cmbCloseLid->comboBox()->count() - 1;
-
-    if (tmpIndex < 0) return;
 
     m_cmbCloseLid->setCurrentIndex(tmpIndex);
 }
 
-void UseElectricWidget::setPowerBtn(const dcc::power::PowerModel *model, int powIndex)
+void UseElectricWidget::setPowerBtn(const dcc::power::PowerModel *model, int option)
 {
     Q_UNUSED(model);
 
-    int tmpIndex = powIndex;
+    int tmpIndex = m_cmbPowerBtn->comboBox()->count() - 1;
 
-    // 如果原来设置的关机，但是当前又不显示关机选项，则设置为无任何操作
-    if (!model->getShutdown() && powIndex == 0) {
-        tmpIndex = m_cmbPowerBtn->comboBox()->count() - 1;
+    for (int i = 0; i < m_cmbPowerBtn->comboBox()->count(); i++) {
+        if (option == m_cmbPowerBtn->comboBox()->itemData(i).toInt()) {
+           tmpIndex = i;
+           break;
+        };
     }
-
-    // 如果原来设置的待机，但是当前不显示待机选项，则设置为无任何操作
-    if (!model->getSuspend() && powIndex == 1) {
-        tmpIndex = m_cmbPowerBtn->comboBox()->count() - 1;
-    }
-
-    // 如果原来设置的休眠，但是当前不显示休眠选项，则设置为无任何操作
-    if (!model->getHibernate() && powIndex == 2) {
-        tmpIndex = m_cmbPowerBtn->comboBox()->count() - 1;
-    }
-
-    // 设置为关闭显示器或无任何操作
-    if (powIndex == 3)
-        tmpIndex = m_cmbPowerBtn->comboBox()->count() - 2;
-    else if (powIndex == 4)
-        tmpIndex = m_cmbPowerBtn->comboBox()->count() - 1;
-
-    if (tmpIndex < 0) return;
 
     m_cmbPowerBtn->setCurrentIndex(tmpIndex);
 }
 
 void UseElectricWidget::updatePowerButtonActionList()
 {
-    QStringList options;
+    if (!m_model) {
+        return;
+    }
+
+    ActionList options;
     if (m_model->getShutdown()) {
-        options << tr("Shut down");
+        options.insert(PowerModel::Shutdown, tr("Shut down"));
     }
     if (m_model->getSuspend()) {
-        options << tr("Suspend");
+        options.insert(PowerModel::Suspend, tr("Suspend"));
     }
     if (m_model->getHibernate()) {
-        options << tr("Hibernate");
+        options.insert(PowerModel::Hibernate, tr("Hibernate"));
     }
-    options << tr("Turn off the monitor") << tr("Do nothing");
-    m_cmbPowerBtn->setComboxOption(options);
+    options.insert(PowerModel::TurnOffScreen, tr("Turn off the monitor"));
+    options.insert(PowerModel::ShowSessionUI, tr("Do nothing"));
+    setComboxOption(m_cmbPowerBtn, options);
     m_cmbPowerBtn->addBackground();
-    m_cmbCloseLid->setComboxOption(options);
+    // 合盖操作无关机选项
+    if (m_model->getShutdown()) {
+        options.remove(PowerModel::Shutdown);
+    }
+    setComboxOption(m_cmbCloseLid, options);
     m_cmbCloseLid->addBackground();
 }
 
@@ -404,4 +371,14 @@ QString UseElectricWidget::delayToLiteralString(const int delay) const
     }
 
     return strData;
+}
+
+void UseElectricWidget::setComboxOption(ComboxWidget *combox, const ActionList options)
+{
+    combox->comboBox()->blockSignals(true);
+    combox->comboBox()->clear();
+    for (int key : options.keys()) {
+        combox->comboBox()->addItem(options.value(key), key);
+    }
+    combox->comboBox()->blockSignals(false);
 }

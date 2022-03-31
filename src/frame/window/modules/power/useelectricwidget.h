@@ -47,6 +47,8 @@ class PowerWorker;
 namespace DCC_NAMESPACE {
 namespace power {
 
+typedef QMap<int, QString> ActionList;
+
 class UseElectricWidget : public QWidget
 {
     Q_OBJECT
@@ -70,12 +72,13 @@ public Q_SLOTS:
     void setSleepDelayOnPower(const int delay);
     void setAutoLockScreenOnPower(const int delay);
     void setLockScreenAfter(const int delay);
-    void setCloseLid(const dcc::power::PowerModel *model, int lidIndex);
-    void setPowerBtn(const dcc::power::PowerModel *model, int powIndex);
+    void setCloseLid(const dcc::power::PowerModel *model, int option);
+    void setPowerBtn(const dcc::power::PowerModel *model, int option);
     void updatePowerButtonActionList();
 
 private:
     QString delayToLiteralString(const int delay) const;
+    void setComboxOption(dcc::widgets::ComboxWidget *combox, const ActionList options);
 
 private:
     dcc::power::PowerModel *m_model;

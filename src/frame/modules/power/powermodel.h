@@ -39,6 +39,15 @@ class PowerModel : public QObject
     friend class PowerWorker;
 
 public:
+    enum ActionOption {
+        Shutdown = 0,
+        Suspend = 1,
+        Hibernate = 2,
+        TurnOffScreen = 3,
+        ShowSessionUI = 4
+    };
+
+public:
     explicit PowerModel(QObject *parent = 0);
 
     inline bool screenBlackLock() const { return m_screenBlackLock; }
