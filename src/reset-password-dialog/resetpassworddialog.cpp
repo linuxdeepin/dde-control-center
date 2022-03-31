@@ -268,8 +268,8 @@ void ResetPasswordDialog::quit()
 
 const QString ResetPasswordDialog::getPassword()
 {
-    return (m_buttonBox->checkedId() == 0) ? m_SecurityQuestionsWidget->getPassword():
-                                             m_UnionIDWidget->getPassword();
+    return (m_stackedLayout->currentIndex() == 0) ? m_SecurityQuestionsWidget->getPassword():
+                                                    m_UnionIDWidget->getPassword();
 }
 
 void ResetPasswordDialog::onCancelBtnClicked()

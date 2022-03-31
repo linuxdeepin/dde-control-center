@@ -595,7 +595,7 @@ set(Qt_LIBS
 )
 
 # dconfig
-file(GLOB DCONFIG_FILES "../../configs/dde.control-center*.json")
+file(GLOB DCONFIG_FILES "../../configs/org.deepin.dde.control-center*.json")
 dconfig_meta_files(APPID dde-control-center BASE ../../configs FILES ${DCONFIG_FILES})
 
 set(DEEPIN_PW_CHECK libdeepin_pw_check.so)
