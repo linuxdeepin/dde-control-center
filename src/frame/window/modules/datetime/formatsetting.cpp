@@ -385,10 +385,10 @@ void FormatSetting::setCururentShortTimeFormat(int type)
 
 void FormatSetting::setCururentWeekStartDayFormat(int type)
 {
-    if (m_shortimeCbx && m_shortimeCbx->comboBox()->count() > type) {
-        m_shortimeCbx->blockSignals(true);
-        m_shortimeCbx->comboBox()->setCurrentIndex(type);
-        m_shortimeCbx->blockSignals(false);
+    if (m_weekStartDayCbx && m_weekStartDayCbx->comboBox()->count() > type) {
+        m_weekStartDayCbx->blockSignals(true);
+        m_weekStartDayCbx->comboBox()->setCurrentIndex(type);
+        m_weekStartDayCbx->blockSignals(false);
     }
 }
 
