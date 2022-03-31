@@ -154,7 +154,6 @@ void PowerModel::setPowerLockScreenDelay(const int value)
     }
 }
 
-#ifndef DCC_DISABLE_POWERSAVE
 void PowerModel::setAutoPowerSaveMode(bool autoPowerSavingMode)
 {
     if (m_autoPowerSaveMode == autoPowerSavingMode)
@@ -174,7 +173,6 @@ void PowerModel::setPowerSaveMode(bool powerSaveMode)
 
     Q_EMIT powerSaveModeChanged(powerSaveMode);
 }
-#endif
 
 void PowerModel::setHaveBettary(bool haveBettary)
 {

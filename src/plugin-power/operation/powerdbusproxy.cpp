@@ -25,31 +25,33 @@
 #include <QDBusInterface>
 #include <QDBusPendingReply>
 
-const static QString PowerService = "com.deepin.daemon.Power";
-const static QString PowerPath = "/com/deepin/daemon/Power";
-const static QString PowerInterface = "com.deepin.daemon.Power";
+#include <QFile>
 
-const static QString SysPowerService = "com.deepin.system.Power";
-const static QString SysPowerPath = "/com/deepin/system/Power";
-const static QString SysPowerInterface = "com.deepin.system.Power";
+const QString PowerService = QStringLiteral("com.deepin.daemon.Power");
+const QString PowerPath = QStringLiteral("/com/deepin/daemon/Power");
+const QString PowerInterface = QStringLiteral("com.deepin.daemon.Power");
 
-const static QString Login1ManagerService = "org.freedesktop.login1";
-const static QString Login1ManagerPath = "/org/freedesktop/login1";
-const static QString Login1ManagerInterface = "org.freedesktop.login1.Manager";
+const QString SysPowerService = QStringLiteral("com.deepin.system.Power");
+const QString SysPowerPath = QStringLiteral("/com/deepin/system/Power");
+const QString SysPowerInterface = QStringLiteral("com.deepin.system.Power");
 
-const static QString PowerManagerService = "com.deepin.daemon.PowerManager";
-const static QString PowerManagerPath = "/com/deepin/daemon/PowerManager";
-const static QString PowerManagerInterface = "com.deepin.daemon.PowerManager";
+const QString Login1ManagerService = QStringLiteral("org.freedesktop.login1");
+const QString Login1ManagerPath = QStringLiteral("/org/freedesktop/login1");
+const QString Login1ManagerInterface = QStringLiteral("org.freedesktop.login1.Manager");
 
-const static QString PropertiesInterface = "org.freedesktop.DBus.Properties";
-const static QString PropertiesChanged = "PropertiesChanged";
+const QString UPowerService = QStringLiteral("org.freedesktop.UPower");
+const QString UPowerPath = QStringLiteral("/org/freedesktop/UPower");
+const QString UPowerInterface = QStringLiteral("org.freedesktop.UPower");
+
+const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
+const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 PowerDBusProxy::PowerDBusProxy(QObject *parent)
     : QObject(parent)
     , m_powerInter(new QDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
-    , m_sysPowerInter ( new QDBusInterface(SysPowerService, SysPowerPath, SysPowerInterface, QDBusConnection::systemBus(), this))
-    , m_login1ManagerInter ( new QDBusInterface(Login1ManagerService, Login1ManagerPath, Login1ManagerInterface, QDBusConnection::systemBus(), this))
-    , m_powerManager ( new QDBusInterface(PowerManagerService, PowerManagerPath, PowerManagerInterface, QDBusConnection::systemBus(), this))
+    , m_sysPowerInter(new QDBusInterface(SysPowerService, SysPowerPath, SysPowerInterface, QDBusConnection::systemBus(), this))
+    , m_login1ManagerInter(new QDBusInterface(Login1ManagerService, Login1ManagerPath, Login1ManagerInterface, QDBusConnection::systemBus(), this))
+    , m_upowerInter(new QDBusInterface(UPowerService, UPowerPath, UPowerInterface, QDBusConnection::systemBus(), this))
 
 {
     QDBusConnection::sessionBus().connect(PowerService, PowerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
@@ -300,14 +302,15 @@ void PowerDBusProxy::SetMode(const QString &mode)
 
 bool PowerDBusProxy::CanSuspend()
 {
-    QList<QVariant> argumentList;
-    return QDBusPendingReply<bool>(m_powerManager->asyncCallWithArgumentList(QStringLiteral("CanSuspend"), argumentList));
+    if (!QFile("/sys/power/mem_sleep").exists())
+        return false;
+
+    return login1ManagerCanSuspend();
 }
 
 bool PowerDBusProxy::CanHibernate()
 {
-    QList<QVariant> argumentList;
-    return QDBusPendingReply<bool>(m_powerManager->asyncCallWithArgumentList(QStringLiteral("CanHibernate"), argumentList));
+    return login1ManagerCanHibernate();
 }
 
 bool PowerDBusProxy::login1ManagerCanSuspend()
@@ -329,7 +332,7 @@ bool PowerDBusProxy::login1ManagerCanHibernate()
 void PowerDBusProxy::onPropertiesChanged(const QDBusMessage &message)
 {
     QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
-    for (QVariantMap::const_iterator it = changedProps.begin(); it != changedProps.end(); ++it) {
+    for (QVariantMap::const_iterator it = changedProps.cbegin(); it != changedProps.cend(); ++it) {
         QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
     }
 }

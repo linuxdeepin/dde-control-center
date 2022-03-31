@@ -153,7 +153,7 @@ private:
     QDBusInterface *m_powerInter;
     QDBusInterface *m_sysPowerInter;
     QDBusInterface *m_login1ManagerInter;
-    QDBusInterface *m_powerManager;
+    QDBusInterface *m_upowerInter;
 };
 
 #endif // POWERDBUSPROXY_H

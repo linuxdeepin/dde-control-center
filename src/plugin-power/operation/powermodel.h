@@ -74,7 +74,6 @@ public:
     inline int getPowerLockScreenDelay() const { return m_powerLockScreenDelay; }
     void setPowerLockScreenDelay(const int value);
 
-#ifndef DCC_DISABLE_POWERSAVE
     inline bool autoPowerSaveMode() const
     {
         return m_autoPowerSaveMode;
@@ -83,7 +82,6 @@ public:
 
     inline bool powerSaveMode() const { return m_powerSaveMode; }
     void setPowerSaveMode(bool powerSaveMode);
-#endif
 
     inline bool haveBettary() const
     {
@@ -158,10 +156,10 @@ Q_SIGNALS:
     void canHibernateChanged(const bool canHibernate);
     void hibernateChanged(const bool hibernate);
     void shutdownChanged(const bool shutdown);
-#ifndef DCC_DISABLE_POWERSAVE
+
     void autoPowerSavingModeChanged(bool autoPowerSaveMode);
     void powerSaveModeChanged(bool powerSaveMode);
-#endif
+
     void haveBettaryChanged(bool haveBettary);
     void batteryLockScreenDelayChanged(const int batteryLockScreenTime);
     void powerLockScreenDelayChanged(const int powerLockScreenTime);
@@ -196,10 +194,10 @@ private:
     int m_sleepDelayOnPower;
     int m_screenBlackDelayOnBattery;
     int m_sleepDelayOnBattery;
-#ifndef DCC_DISABLE_POWERSAVE
+
     bool m_autoPowerSaveMode { false };
     bool m_powerSaveMode { false };
-#endif
+
     bool m_haveBettary;
     int m_batteryLockScreenDelay;
     int m_powerLockScreenDelay;

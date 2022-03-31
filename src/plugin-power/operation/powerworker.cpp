@@ -56,10 +56,9 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerDBusProxy, &PowerDBusProxy::LinePowerLockDelayChanged, this, &PowerWorker::setResponsePowerLockScreenDelay);
     connect(m_powerDBusProxy, &PowerDBusProxy::IsHighPerformanceSupportedChanged, this, &PowerWorker::setHighPerformanceSupported);
 
-#ifndef DCC_DISABLE_POWERSAVE
     connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeAutoChanged, m_powerModel, &PowerModel::setAutoPowerSaveMode);
     connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeEnabledChanged, m_powerModel, &PowerModel::setPowerSaveMode);
-#endif
+
     connect(m_powerDBusProxy, &PowerDBusProxy::HasBatteryChanged, m_powerModel, &PowerModel::setHaveBettary);
     connect(m_powerDBusProxy, &PowerDBusProxy::BatteryPercentageChanged, m_powerModel, &PowerModel::setBatteryPercentage);
 
@@ -110,10 +109,8 @@ void PowerWorker::active()
     setResponseBatteryLockScreenDelay(m_powerDBusProxy->batteryLockDelay());
     setResponsePowerLockScreenDelay(m_powerDBusProxy->linePowerLockDelay());
 
-#ifndef DCC_DISABLE_POWERSAVE
     m_powerModel->setAutoPowerSaveMode(m_powerDBusProxy->powerSavingModeAuto());
     m_powerModel->setPowerSaveMode(m_powerDBusProxy->powerSavingModeEnabled());
-#endif
 
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     const bool confVal = valueByQSettings<bool>(DCC_CONFIG_FILES, "Power", "sleep", true);
@@ -308,7 +305,6 @@ void PowerWorker::setLockScreenDelayOnPower(const int delay)
     m_powerDBusProxy->setLinePowerLockDelay(converToDelayDBus(delay));
 }
 
-#ifndef DCC_DISABLE_POWERSAVE
 void PowerWorker::setEnablePowerSave(const bool isEnable)
 {
     m_powerDBusProxy->setPowerSavingModeEnabled(isEnable);
@@ -318,7 +314,6 @@ void PowerWorker::setAutoEnablePowerSave(const bool isEnable)
 {
     m_powerDBusProxy->setPowerSavingModeAuto(isEnable);
 }
-#endif
 
 double PowerWorker::getBatteryCapacity()
 {

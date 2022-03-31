@@ -162,7 +162,6 @@ void SystemInfoWork::licenseStateChangeSlot()
     watcher->setFuture(future);
 }
 
-#ifndef DISABLE_ACTIVATOR
 void SystemInfoWork::getLicenseState()
 {
     QDBusInterface licenseInfo("com.deepin.license",
@@ -179,6 +178,5 @@ void SystemInfoWork::getLicenseState()
     qDebug() << "authorize result:" << reply;
     m_model->setLicenseState(reply);
 }
-#endif
 
 }

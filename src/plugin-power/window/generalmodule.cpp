@@ -56,11 +56,9 @@ GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *pare
     connect(this, &GeneralModule::requestSetWakeDisplay, m_work, &PowerWorker::setScreenBlackLock);
     connect(this, &GeneralModule::requestSetWakeComputer, m_work, &PowerWorker::setSleepLock);
 
-#ifndef DCC_DISABLE_POWERSAVE
     connect(this, &GeneralModule::requestSetPowerSavingModeAuto, m_work, &PowerWorker::setAutoEnablePowerSave);
     connect(this, &GeneralModule::requestSetLowBatteryMode, m_work, &PowerWorker::setEnablePowerSave);
     connect(this, &GeneralModule::requestSetPowerSaveMode, m_work, &PowerWorker::setEnablePowerSave);
-#endif
 
     connect(this, &GeneralModule::requestSetPowerSavingModeAutoWhenQuantifyLow, m_work, &PowerWorker::setPowerSavingModeAutoWhenQuantifyLow);
     connect(this, &GeneralModule::requestSetPowerSavingModeAuto, m_work, &PowerWorker::setPowerSavingModeAuto);
@@ -159,11 +157,11 @@ void GeneralModule::initPowerSavingSettings(SettingsGroup *energySavingGrp)
     bool bStatus = m_model->haveBettary();
     m_swLowPowerAutoIntoSaveEnergyMode->setVisible(bStatus);
     m_autoIntoSaveEnergyMode->setVisible(bStatus);
-#ifndef DCC_DISABLE_POWERSAVE
+
     m_autoIntoSaveEnergyMode->setChecked(m_model->autoPowerSaveMode());
 
     connect(m_model, &PowerModel::autoPowerSavingModeChanged, m_autoIntoSaveEnergyMode, &SwitchWidget::setChecked);
-#endif
+
     connect(m_model, &PowerModel::haveBettaryChanged, m_swLowPowerAutoIntoSaveEnergyMode, &SwitchWidget::setVisible);
     connect(m_model, &PowerModel::haveBettaryChanged, m_autoIntoSaveEnergyMode, &SwitchWidget::setVisible);
     auto slotfunc1 = [=](int pos) {

@@ -74,10 +74,8 @@ public Q_SLOTS:
     bool getCurCanSuspend();
     bool getCurCanHibernate();
 
-#ifndef DCC_DISABLE_POWERSAVE
     void setEnablePowerSave(const bool isEnable);
     void setAutoEnablePowerSave(const bool isEnable);
-#endif
 
     double getBatteryCapacity();
     int getMaxBacklightBrightness();

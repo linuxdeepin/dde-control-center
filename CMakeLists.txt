@@ -184,10 +184,6 @@ install(FILES ${QM_FILES} DESTINATION share/${PROJECT_NAME}/translations)
 #desktop
 install(FILES misc/dde-control-center.desktop DESTINATION share/applications)
 
-#dconfig
-file(GLOB DCONFIG_FILES "misc/configs/dde.control-center*.json")
-install(FILES ${DCONFIG_FILES} DESTINATION /usr/share/dsg/apps/${PROJECT_NAME}/configs)
-
 #service
 install(FILES misc/com.deepin.dde.ControlCenter.service DESTINATION share/dbus-1/services)
 
