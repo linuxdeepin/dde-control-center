@@ -167,7 +167,6 @@ void LocalClient::initWidget()
         m_popopWindow = new DockPopupWindow();
         m_popopWindow->setProperty("localpos", QPoint(-1, -1));
         m_panel = new NetworkPanel(m_popopWindow);
-        m_popopWindow->setContent(m_panel->itemApplet());
         QObject::connect(qApp, &QCoreApplication::destroyed, m_popopWindow, &DockPopupWindow::deleteLater);
         QObject::connect(m_popopWindow, &DockPopupWindow::hideSignal, qApp, &QCoreApplication::quit);
         QObject::connect(m_popopWindow, &DockPopupWindow::hideSignal, m_popopWindow, &DockPopupWindow::deleteLater);
@@ -231,6 +230,7 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
         }
         m_popopWindow->setArrowDirection(static_cast<DArrowRectangle::ArrowDirection>(position));
         m_popopWindow->setProperty("localpos", QPoint(x, y));
+        m_popopWindow->setContent(m_panel->itemApplet());
         showPopupWindow();
     }
 }
