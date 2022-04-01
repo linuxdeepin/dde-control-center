@@ -93,7 +93,7 @@ Q_SIGNALS:
 protected:
     int connectionSuffixNum(const QString &matchConnName);
     void addHeaderButton(QPushButton *button);
-    virtual void prepareConnection();
+    void prepareConnection();
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
@@ -106,6 +106,7 @@ private:
     void saveConnSettings();
     void updateConnection();
     void createConnSettings();
+    bool isConnected();
 
     NMVariantMapMap secretsMapMapBySettingType(Setting::SettingType settingType);
     // T means a Setting subclass, like WirelessSecuritySetting

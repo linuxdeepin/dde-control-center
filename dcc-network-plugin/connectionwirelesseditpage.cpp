@@ -22,9 +22,11 @@
 #include "connectionwirelesseditpage.h"
 #include "settings/wirelesssettings.h"
 
+#include <networkmanagerqt/wirelessdevice.h>
 #include <networkmanagerqt/wirelesssetting.h>
 #include <networkmanagerqt/wirelesssecuritysetting.h>
 #include <networkmanagerqt/settings.h>
+#include <networkmanagerqt/connectionsettings.h>
 
 #include <QDebug>
 #include <QVBoxLayout>
@@ -105,19 +107,4 @@ void ConnectionWirelessEditPage::initApSecretType(AccessPoint::Ptr nmAp)
     }
 
     wirelessSecuritySetting->setKeyMgmt(keyMgmt);
-}
-
-void ConnectionWirelessEditPage::prepareConnection()
-{
-    QString id = m_connectionSettings->id();
-    for (auto it : NetworkManager::listConnections()) {
-        if (m_connectionSettings->connectionType() == it->settings()->connectionType() && id == it->name()) {
-            m_connectionSettings->setUuid(it->uuid());
-            m_connection = it;
-            m_connectionUuid = it->uuid();
-            m_isNewConnection = false;
-            break;
-        }
-    }
-    ConnectionEditPage::prepareConnection();
 }

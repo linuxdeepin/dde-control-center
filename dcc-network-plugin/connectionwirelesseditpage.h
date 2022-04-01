@@ -39,7 +39,6 @@ public:
 
 private:
     void initApSecretType(AccessPoint::Ptr nmAp);
-    virtual void prepareConnection() Q_DECL_OVERRIDE;
 };
 
 #endif /* CONNECTIONWIRELESSEDITPAGE_H */

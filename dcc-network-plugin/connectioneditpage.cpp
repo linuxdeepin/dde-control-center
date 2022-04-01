@@ -139,19 +139,33 @@ void ConnectionEditPage::initUI()
     setMinimumWidth(380);
 }
 
+bool ConnectionEditPage::isConnected()
+{
+    NetworkManager::Device::Ptr device(new NetworkManager::Device(DevicePath));
+    if (device->type() == Device::Type::Wifi || device->type() == Device::Type::Ethernet) {
+        // 如果是有线网络或者无线网络
+        NetworkManager::ActiveConnection::Ptr activeConn = device->activeConnection();
+        return (!activeConn.isNull() && (activeConn->uuid() == m_connection->uuid()));
+    }
+
+    for (auto conn : activeConnections()) {
+        if (conn->uuid() == m_connection->uuid())
+            return true;
+    }
+
+    return false;
+}
+
 void ConnectionEditPage::initHeaderButtons()
 {
     if (m_isNewConnection) {
         return;
     }
 
-    for (auto conn : activeConnections()) {
-        if (conn->uuid() == m_connection->uuid()) {
-            m_disconnectBtn->setVisible(true);
-            m_disconnectBtn->setProperty("activeConnectionPath", conn->path());
-            m_disconnectBtn->setProperty("connectionUuid", conn->uuid());
-            break;
-        }
+    if (isConnected()) {
+        m_disconnectBtn->setVisible(true);
+        m_disconnectBtn->setProperty("activeConnectionPath", m_connection->path());
+        m_disconnectBtn->setProperty("connectionUuid", m_connection->uuid());
     }
 
     m_removeBtn->setVisible(true);
