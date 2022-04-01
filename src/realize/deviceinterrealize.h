@@ -73,7 +73,7 @@ protected:
     virtual void updateConnection(const QJsonArray &info) = 0;
     virtual QString deviceKey() = 0;                                                                        // 返回设备对应的key值
     virtual void setDeviceEnabledStatus(const bool &enabled);
-    virtual void updateActiveInfo(const QList<QJsonObject> &info);                                          // 当前连接发生变化，例如从一个连接切换到另外一个连接
+    virtual void updateActiveInfo(const QList<QJsonObject> &) {}                                        // 当前连接发生变化，例如从一个连接切换到另外一个连接
     virtual void updateActiveConnectionInfo(const QList<QJsonObject> &infos);                               // 当前连接发生变化后，获取设备的活动信息，例如IP等
     void setDeviceStatus(const DeviceStatus &status) override;
     int mode() const;

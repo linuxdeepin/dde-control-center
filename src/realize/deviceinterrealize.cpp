@@ -32,6 +32,11 @@ using namespace dde::network;
 #define INFRA_MODE 2
 #define AP_MODE 3
 
+#define ACTIVATING 1
+#define ACTIVATED 2
+#define DEACTIVATING 3
+#define DEACTIVATED 4
+
 const QStringList DeviceInterRealize::ipv4()
 {
     if (!isConnected() || !isEnabled())
@@ -196,20 +201,6 @@ void DeviceInterRealize::setDeviceEnabledStatus(const bool &enabled)
 {
     m_enabled = enabled;
     Q_EMIT enableChanged(enabled);
-}
-
-void DeviceInterRealize::updateActiveInfo(const QList<QJsonObject> &info)
-{
-    // 更新活动连接信息，查找当前的设备的最新的状态
-    // 这里无需向外发送connectionChanged()信号，因为连接发生变化后，紧接着会获取IP地址等信息，
-    // 获取IP地址信息是一个异步过程，所以它将会最后发送
-    for (const QJsonObject &activeInfo : info) {
-        int activeStatus = activeInfo.value("State").toInt();
-        if (activeStatus == static_cast<int>(ConnectionStatus::Activated)) {
-            setDeviceStatus(DeviceStatus::Activated);
-            break;
-        }
-    }
 }
 
 void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &infos)
@@ -397,16 +388,16 @@ WiredConnection *WiredDeviceInterRealize::findWiredConnectionByUuid(const QStrin
 
 static ConnectionStatus convertStatus(int status)
 {
-    if (status == 1)
+    if (status == ACTIVATING)
         return ConnectionStatus::Activating;
 
-    if (status == 2)
+    if (status == ACTIVATED)
         return ConnectionStatus::Activated;
 
-    if (status == 3)
+    if (status == DEACTIVATING)
         return ConnectionStatus::Deactivating;
 
-    if (status == 4)
+    if (status == DEACTIVATED)
         return ConnectionStatus::Deactivated;
 
     return ConnectionStatus::Unknown;
