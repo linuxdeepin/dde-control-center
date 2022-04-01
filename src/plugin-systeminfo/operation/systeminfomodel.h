@@ -72,7 +72,6 @@ Q_SIGNALS:
     void kernelChanged(const QString& kernel);
     void licenseStateChanged(ActiveState state);
     void hostNameChanged(const QString& hostName);
-    void setHostNameChanged(const QString& hostName);
     void setHostNameError(const QString& error);
 
 public Q_SLOTS:

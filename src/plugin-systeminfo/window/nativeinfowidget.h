@@ -111,6 +111,7 @@ private:
 
 Q_SIGNALS:
     void clickedActivator();
+    void requestSetHostname(const QString &name);
 
 private:
     SystemInfoModel *m_model;

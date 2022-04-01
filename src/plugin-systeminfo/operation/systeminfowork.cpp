@@ -26,94 +26,37 @@
 
 #include "systeminfowork.h"
 #include "systeminfomodel.h"
+#include "systeminfodbusproxy.h"
 
 #include <DSysInfo>
-
-#include <QApplication>
-#include <QFutureWatcher>
-#include <QtConcurrent>
-#include <QDBusConnection>
-#include <QDBusInterface>
-#include <QDBusPendingCall>
-#include <QDBusArgument>
-#include <QDBusReply>
 
 DCORE_USE_NAMESPACE
 namespace DCC_NAMESPACE{
 
 SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
-    :QObject(parent),
-      m_model(model)
+    : QObject(parent)
+    , m_model(model)
+    , m_systemInfDBusProxy(new SystemInfoDBusProxy(this))
 {
-    //获取主机名
-    QDBusInterface Interface("org.freedesktop.hostname1",
-                                 "/org/freedesktop/hostname1",
-                                "org.freedesktop.DBus.Properties",
-                                QDBusConnection::systemBus());
-
-    QDBusMessage reply = Interface.call("Get","org.freedesktop.hostname1","StaticHostname");
-    QList<QVariant> outArgs = reply.arguments();
-    QString hostName = outArgs.at(0).value<QDBusVariant>().variant().toString();
-    m_model->setHostName(hostName);
-
-
-    if (DSysInfo::isDeepin()) {
-        QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
-                                             "com.deepin.license.Info", "LicenseStateChange",
-                                             this, SLOT(licenseStateChangeSlot()));
-        licenseStateChangeSlot();
-    }
-
-    //监控dbus上的属性改变信号
-    QDBusConnection::systemBus().connect("org.freedesktop.hostname1",
-                                          "/org/freedesktop/hostname1",
-                                          "org.freedesktop.DBus.Properties",
-                                          "PropertiesChanged",
-                                          "sa{sv}as",
-                                          this, SLOT(handleDbusSignal(QDBusMessage)));
-
-    connect(m_model,&SystemInfoModel::setHostNameChanged, this, &SystemInfoWork::onSetHostname);
-
-    m_model->setKernel(QSysInfo::kernelVersion());
-    m_model->setProcessor(DSysInfo::cpuModelName());
-}
-
-void SystemInfoWork::handleDbusSignal(QDBusMessage meg)
-{
-    QList<QVariant> arguments = meg.arguments();
-    if (3 != arguments.count()) {
-        return;
-    }
-    QString interfaceName = meg.arguments().at(0).toString();
-    if (interfaceName == "org.freedesktop.hostname1") {
-        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
-        QStringList keys = changedProps.keys();
-        for (int i = 0; i < keys.size(); i++) {
-            if (keys.at(i) == "StaticHostname") {
-                QString hostName = changedProps.value(keys.at(i)).toString();
-                m_model->setHostName(hostName);
-            }
-        }
-    }
-}
-
-void SystemInfoWork::onSetHostname(QString hostname)
-{
-    QDBusInterface Interface("org.freedesktop.hostname1",
-                                 "/org/freedesktop/hostname1",
-                                "org.freedesktop.hostname1",
-                                QDBusConnection::systemBus());
-
-     QDBusPendingCall async = Interface.asyncCall("SetStaticHostname", hostname, true);
-     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
-     QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [=](QDBusPendingCallWatcher* watcher){
-        watcher->deleteLater();
-     });
+    qRegisterMetaType<ActiveState>("ActiveState");
+    connect(m_systemInfDBusProxy, &SystemInfoDBusProxy::StaticHostnameChanged, m_model, &SystemInfoModel::setHostName);
+    connect(m_systemInfDBusProxy, &SystemInfoDBusProxy::AuthorizationStateChanged, m_model, [this] (const int state) {
+        m_model->setLicenseState(static_cast<ActiveState>(state));
+    });
 }
 
 void SystemInfoWork::activate()
 {
-    qRegisterMetaType<ActiveState>("ActiveState");
+    //获取主机名
+    m_model->setHostName(m_systemInfDBusProxy->staticHostname());
+
+
+    if (DSysInfo::isDeepin()) {
+        m_model->setLicenseState(static_cast<ActiveState>(m_systemInfDBusProxy->authorizationState()));
+    }
+
+    m_model->setKernel(QSysInfo::kernelVersion());
+    m_model->setProcessor(DSysInfo::cpuModelName());
 
     QString productName = QString("%1").arg(DSysInfo::uosSystemName());
     m_model->setProductName(productName);
@@ -121,14 +64,11 @@ void SystemInfoWork::activate()
     m_model->setVersionNumber(versionNumber);
     QString version;
     if (DSysInfo::uosType() == DSysInfo::UosServer || DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
-        version = QString("%1%2").arg(DSysInfo::minorVersion())
-                                  .arg(DSysInfo::uosEditionName());
+        version = QString("%1%2").arg(DSysInfo::minorVersion(), DSysInfo::uosEditionName());
     } else if (DSysInfo::isDeepin()) {
-        version = QString("%1 (%2)").arg(DSysInfo::uosEditionName())
-                                  .arg(DSysInfo::minorVersion());
+        version = QString("%1 (%2)").arg(DSysInfo::uosEditionName(), DSysInfo::minorVersion());
     } else {
-        version = QString("%1 %2").arg(DSysInfo::productVersion())
-                                  .arg(DSysInfo::productTypeString());
+        version = QString("%1 %2").arg(DSysInfo::productVersion(), DSysInfo::productTypeString());
     }
 
     m_model->setVersion(version);
@@ -144,39 +84,12 @@ void SystemInfoWork::deactivate()
 
 void SystemInfoWork::showActivatorDialog()
 {
-    qDebug() << "SASASASASASA";
-    QDBusInterface activator("com.deepin.license.activator",
-                             "/com/deepin/license/activator",
-                             "com.deepin.license.activator",
-                             QDBusConnection::sessionBus());
-    activator.call(QDBus::AutoDetect, "Show");
+    m_systemInfDBusProxy->Show();
 }
 
-void SystemInfoWork::licenseStateChangeSlot()
+void SystemInfoWork::onSetHostname(const QString &hostname)
 {
-    QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
-    connect(watcher, &QFutureWatcher<void>::finished, watcher,
-            &QFutureWatcher<void>::deleteLater);
-
-    QFuture<void> future = QtConcurrent::run(this, &SystemInfoWork::getLicenseState);
-    watcher->setFuture(future);
-}
-
-void SystemInfoWork::getLicenseState()
-{
-    QDBusInterface licenseInfo("com.deepin.license",
-                               "/com/deepin/license/Info",
-                               "com.deepin.license.Info",
-                               QDBusConnection::systemBus());
-
-    if (!licenseInfo.isValid()) {
-        qDebug() << "com.deepin.license error ," << licenseInfo.lastError().name();
-        return;
-    }
-
-    ActiveState reply = licenseInfo.property("AuthorizationState").value<ActiveState>();
-    qDebug() << "authorize result:" << reply;
-    m_model->setLicenseState(reply);
+    m_systemInfDBusProxy->setStaticHostname(hostname);
 }
 
 }

@@ -124,6 +124,7 @@ QWidget *NativeInfoModule::page()
 {
     NativeInfoWidget *w = new NativeInfoWidget(this->m_model);
     connect(w, &NativeInfoWidget::clickedActivator, this->m_work, &SystemInfoWork::showActivatorDialog);
+    connect(w, &NativeInfoWidget::requestSetHostname, this->m_work, &SystemInfoWork::onSetHostname);
     return w;
 }
 

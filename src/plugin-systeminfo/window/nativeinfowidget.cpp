@@ -330,7 +330,7 @@ void NativeInfoWidget::initWidget()
     });
     connect(m_model, &SystemInfoModel::hostNameChanged, hostName, &HostNameItem::setHostName);
     connect(m_model, &SystemInfoModel::setHostNameError, hostName, &HostNameItem::onSetError);
-    connect(hostName, &HostNameItem::hostNameChanged, m_model, &SystemInfoModel::setHostNameChanged);
+    connect(hostName, &HostNameItem::hostNameChanged, this, &NativeInfoWidget::requestSetHostname);
     infoGroup->appendItem(hostName);
 
     if (DSysInfo::isDeepin()) {

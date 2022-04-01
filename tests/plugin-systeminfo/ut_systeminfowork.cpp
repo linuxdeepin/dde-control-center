@@ -37,18 +37,8 @@ void Test_SystemInfoWork::TearDown()
     m_model = nullptr;
 }
 
-TEST_F(Test_SystemInfoWork, modeltest)
-{
-    QSignalSpy spy1(m_model, SIGNAL(setHostNameChanged(const QString&)));
-    m_model->setHostNameChanged("test");
-    EXPECT_EQ(spy1.count(), 1);
-}
 
 TEST_F(Test_SystemInfoWork, full)
 {
-//    EXPECT_NO_THROW(m_work->showActivatorDialog());
-    EXPECT_NO_THROW(m_work->licenseStateChangeSlot());
-    EXPECT_NO_THROW(m_work->getLicenseState());
-
     EXPECT_NO_THROW(m_work->activate());
 }

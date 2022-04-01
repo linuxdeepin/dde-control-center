@@ -31,6 +31,7 @@
 #include <QObject>
 #include <QDBusMessage>
 
+class SystemInfoDBusProxy;
 namespace DCC_NAMESPACE{
 
 class SystemInfoModel;
@@ -50,15 +51,14 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void showActivatorDialog();
-    void licenseStateChangeSlot();
-    void handleDbusSignal(QDBusMessage meg);
-    void onSetHostname(QString hostname);
+    void onSetHostname(const QString &hostname);
 
 private:
     void getLicenseState();
 
 private:
-    SystemInfoModel* m_model;
+    SystemInfoModel *m_model;
+    SystemInfoDBusProxy *m_systemInfDBusProxy;
 };
 
 }
