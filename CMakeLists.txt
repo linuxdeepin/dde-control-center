@@ -317,6 +317,9 @@ target_include_directories(${SystemInfo_Name} PUBLIC
 target_link_libraries(${SystemInfo_Name} PRIVATE
     ${SystemInfo_Libraries}
 )
+
+install(TARGETS ${SystemInfo_Name} DESTINATION lib/dde-control-center/modules)
+
 #-------------------------ut-dcc-systeminfo-plugin-------------------------
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(UT_SystemInfo_Name ut-dcc-systeminfo-plugin)
@@ -376,6 +379,8 @@ target_include_directories(${Power_Name} PRIVATE
 target_link_libraries(${Power_Name} PRIVATE
     ${Power_Libraries}
 )
+
+install(TARGETS ${Power_Name} DESTINATION lib/dde-control-center/modules)
 #--------------------------plugin-mouse--------------------------
 set(Mouse_Name dcc-mouse-plugin)
 file(GLOB_RECURSE MOUSE_SRCS
@@ -411,6 +416,8 @@ target_include_directories(${Mouse_Name} PUBLIC
 target_link_libraries(${Mouse_Name} PRIVATE
     ${Mouse_Libraries}
 )
+
+install(TARGETS ${Mouse_Name} DESTINATION lib/dde-control-center/modules)
 #-------------------------ut-dcc-mouse-plugin-------------------------
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(UT_Mouse_Name ut-dcc-mouse-plugin)
@@ -473,6 +480,7 @@ target_link_libraries(${CommonInfo_Name} PRIVATE
     ${CommonInfo_Libraries}
 )
 
+install(TARGETS ${CommonInfo_Name} DESTINATION lib/dde-control-center/modules)
 #-------------------------ut-dcc-commoninfo-plugin-------------------------
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(UT_CommonInfo_Name ut-dcc-commoninfo-plugin)
@@ -534,6 +542,7 @@ target_link_libraries(${Bluetooth_Name} PRIVATE
     ${Bluetooth_Libraries}
 )
 
+install(TARGETS ${Bluetooth_Name} DESTINATION lib/dde-control-center/modules)
 
 #--------------------------dcc-defaultapp-plugin--------------------------
 set(DefaultApp_Name dcc-defaultapp-plugin)
@@ -571,3 +580,5 @@ target_include_directories(${DefaultApp_Name} PUBLIC
 target_link_libraries(${DefaultApp_Name} PRIVATE
     ${DefaultApp_Libraries}
 )
+
+install(TARGETS ${DefaultApp_Name} DESTINATION lib/dde-control-center/modules)

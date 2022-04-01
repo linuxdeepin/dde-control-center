@@ -1,4 +1,4 @@
 usr/bin/
-usr/lib/libdcc-interface.so
-usr/lib/libdcc-widgets.so
+usr/lib/*.so
+usr/lib/dde-control-center/modules/*.so
 usr/share/
