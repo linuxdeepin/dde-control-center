@@ -76,6 +76,11 @@ NetworkPanel::~NetworkPanel()
         WirelessItem *item = static_cast<WirelessItem *>(oldSelectItem);
         item->onCancel();
     }
+
+    for (NetItem *item : m_items)
+        delete item;
+
+    m_items.clear();
 }
 
 void NetworkPanel::initUi()

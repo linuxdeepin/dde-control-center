@@ -279,7 +279,7 @@ void WiredItem::initUi()
                                                        QSize(20, 20), QSize(20, 20), false);
 
     m_connectionIconAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
-                                                 QSize(20, 20), QSize(20, 20), false);
+                                                 QSize(20, 20), QSize(8, 20), false);
 
     standardItem()->setActionList(Qt::LeftEdge, { emptyAction, m_connectionIconAction });
     updateView();
@@ -394,7 +394,7 @@ void WirelessItem::initUi(QWidget *parent)
     m_securityAction = new DViewItemAction(Qt::AlignLeft , QSize(20, 35), QSize(20, 35), false);
     updateSrcirityIcon();
     // 绘制WiFi图标
-    m_wifiLabel = new DViewItemAction(Qt::AlignLeft , QSize(20, 35), QSize(20, 35), false);
+    m_wifiLabel = new DViewItemAction(Qt::AlignLeft , QSize(20, 35), QSize(8, 35), false);
     updateWifiIcon();
 
     standardItem()->setSizeHint(QSize(-1, 36));

@@ -55,7 +55,10 @@ LocalClient::LocalClient(QObject *parent)
     connect(m_clinet, SIGNAL(connected()), this, SLOT(connectedHandler()));
     connect(m_clinet, SIGNAL(disconnected()), this, SLOT(disConnectedHandler()));
     connect(m_clinet, SIGNAL(readyRead()), this, SLOT(readyReadHandler()));
-    connect(m_exitTimer, SIGNAL(timeout()), qApp, SLOT(quit()));
+    connect(m_exitTimer, &QTimer::timeout, this, [ this ] {
+        delete this;
+        qApp->quit();
+    });
     ConnectToServer();
     updateTranslator(QLocale::system().name());
 }
@@ -64,6 +67,8 @@ LocalClient::~LocalClient()
 {
     m_clinet->disconnectFromServer();
     delete m_clinet;
+    if (m_panel)
+        delete m_panel;
 }
 
 void LocalClient::connectedHandler()
@@ -168,7 +173,10 @@ void LocalClient::initWidget()
         m_popopWindow->setProperty("localpos", QPoint(-1, -1));
         m_panel = new NetworkPanel(m_popopWindow);
         QObject::connect(qApp, &QCoreApplication::destroyed, m_popopWindow, &DockPopupWindow::deleteLater);
-        QObject::connect(m_popopWindow, &DockPopupWindow::hideSignal, qApp, &QCoreApplication::quit);
+        QObject::connect(m_popopWindow, &DockPopupWindow::hideSignal, this, [ this ] {
+            delete this;
+            qApp->quit();
+        });
         QObject::connect(m_popopWindow, &DockPopupWindow::hideSignal, m_popopWindow, &DockPopupWindow::deleteLater);
         QObject::connect(m_panel, &NetworkPanel::updateFinished, this, [ this ] {
             m_popopNeedShow = true;
@@ -259,12 +267,13 @@ void LocalClient::receivePassword(QLocalSocket *socket, const QByteArray &data)
             if (!file.open(stdout, QFile::WriteOnly)) {
                 qInfo() << "open STDOUT failed";
                 qApp->exit(-4);
+            } else {
+                file.write("\npassword:" + data + "\n");
+                file.flush();
+                file.close();
+                m_ssid.clear();
+                qApp->exit(doc.object().value("input").toBool() ? 0 : 1);
             }
-            file.write("\npassword:" + data + "\n");
-            file.flush();
-            file.close();
-            m_ssid.clear();
-            qApp->exit(doc.object().value("input").toBool() ? 0 : 1);
         }
     }
 }
