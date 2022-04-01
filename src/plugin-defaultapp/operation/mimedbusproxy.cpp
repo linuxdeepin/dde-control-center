@@ -5,15 +5,15 @@
 #include <QDBusInterface>
 #include <QDBusPendingReply>
 
-const static QString MimeService = "com.deepin.daemon.Mime";
-const static QString MimePath = "/com/deepin/daemon/Mime";
-const static QString MimeInterface = "com.deepin.daemon.Mime";
+const QString MimeService = QStringLiteral("com.deepin.daemon.Mime");
+const QString MimePath = QStringLiteral("/com/deepin/daemon/Mime");
+const QString MimeInterface = QStringLiteral("com.deepin.daemon.Mime");
 
 MimeDBusProxy::MimeDBusProxy(QObject *parent)
     : QObject(parent)
+    , m_mimeInter(new QDBusInterface(MimeService, MimePath, MimeInterface, QDBusConnection::sessionBus(), this))
 {
-    m_mimeInter = new QDBusInterface(MimeService, MimePath, MimeInterface, QDBusConnection::sessionBus(), this);
-    connect(m_mimeInter,SIGNAL(Change()),this,SIGNAL(Change()),Qt::QueuedConnection);
+    connect(m_mimeInter, SIGNAL(Change()), this, SIGNAL(Change()), Qt::QueuedConnection);
 }
 
 void MimeDBusProxy::SetDefaultApp(const QStringList &mimeTypes, const QString &desktopId)
@@ -40,17 +40,17 @@ void MimeDBusProxy::AddUserApp(const QStringList &mimeTypes, const QString &desk
 
 QString MimeDBusProxy::GetDefaultApp(const QString &mimeType)
 {
-    return QDBusPendingReply<QString>(m_mimeInter->asyncCall("GetDefaultApp",mimeType));
+    return QDBusPendingReply<QString>(m_mimeInter->asyncCall("GetDefaultApp", mimeType));
 }
 
 QString MimeDBusProxy::ListApps(const QString &mimeType)
 {
-    return QDBusPendingReply<QString>(m_mimeInter->asyncCall("ListApps",mimeType));
+    return QDBusPendingReply<QString>(m_mimeInter->asyncCall("ListApps", mimeType));
 }
 
 QString MimeDBusProxy::ListUserApps(const QString &mimeType)
 {
-    return QDBusPendingReply<QString>(m_mimeInter->asyncCall("ListUserApps",mimeType));
+    return QDBusPendingReply<QString>(m_mimeInter->asyncCall("ListUserApps", mimeType));
 }
 
 

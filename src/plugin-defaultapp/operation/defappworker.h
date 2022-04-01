@@ -26,12 +26,13 @@
 #ifndef DEFAPPWORKER_H
 #define DEFAPPWORKER_H
 
-#include <QFileInfo>
 #include <QObject>
 #include <QMap>
 
 #include "mimedbusproxy.h"
 #include "category.h"
+
+class QFileInfo;
 
 class DefAppModel;
 class Category;
