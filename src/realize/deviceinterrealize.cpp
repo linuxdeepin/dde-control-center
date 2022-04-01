@@ -93,7 +93,7 @@ QJsonObject DeviceInterRealize::activeConnectionInfo() const
 
 QStringList DeviceInterRealize::getValidIPV4(const QStringList &ipv4s)
 {
-    if (ipv4s.size() > 1)
+    if (ipv4s.size() > 1 || ipv4s.size() == 0)
         return ipv4s;
 
     // 检查IP列表，如果发现有IP为0.0.0.0，则让其重新获取一次，保证IP获取正确

@@ -435,6 +435,9 @@ void NetworkPluginHelper::onActiveConnectionChanged()
         if (!conn->id().isEmpty() && conn->devices().contains(wirelessPath)) {
             NetworkManager::ConnectionSettings::Ptr connSettings = conn->connection()->settings();
             NetworkManager::WirelessSetting::Ptr wSetting = connSettings->setting(NetworkManager::Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>();
+            if (wSetting.isNull())
+                continue;
+
             const QString settingMacAddress = wSetting->macAddress().toHex().toUpper();
             const QString deviceMacAddress = wireless->realHwAdr().remove(":");
             if (!settingMacAddress.isEmpty() && settingMacAddress != deviceMacAddress)
