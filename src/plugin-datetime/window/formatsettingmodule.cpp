@@ -21,7 +21,7 @@
 #include "formatsettingmodule.h"
 #include "datetimemodel.h"
 #include "datetimeworker.h"
-#include "widgetmodule.h"
+#include "widgets/widgetmodule.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/comboxwidget.h"

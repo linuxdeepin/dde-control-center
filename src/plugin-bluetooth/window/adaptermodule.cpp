@@ -19,9 +19,9 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "adaptermodule.h"
-#include "widgetmodule.h"
 #include "bluetoothdevicemodel.h"
 #include "bluetoothworker.h"
+#include "widgets/widgetmodule.h"
 #include "widgets/settingsgroup.h"
 
 #include <DIconButton>

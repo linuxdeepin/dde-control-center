@@ -19,10 +19,10 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "generalmodule.h"
-#include "widgetmodule.h"
 #include "powermodel.h"
 #include "powerworker.h"
 #include "titlemodule.h"
+#include "widgets/widgetmodule.h"
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
 #include "widgets/settingsgroup.h"
