@@ -55,16 +55,20 @@ LocalClient::LocalClient(QObject *parent)
     connect(m_clinet, SIGNAL(connected()), this, SLOT(connectedHandler()));
     connect(m_clinet, SIGNAL(disconnected()), this, SLOT(disConnectedHandler()));
     connect(m_clinet, SIGNAL(readyRead()), this, SLOT(readyReadHandler()));
-    connect(m_exitTimer, &QTimer::timeout, this, [ this ] {
-        delete this;
+    connect(m_exitTimer, &QTimer::timeout, this, [] {
         qApp->quit();
     });
     ConnectToServer();
     updateTranslator(QLocale::system().name());
+
+    connect(qApp, &QApplication::aboutToQuit, this, [ this ] {
+        delete this;
+    });
 }
 
 LocalClient::~LocalClient()
 {
+    changePassword("","",false);
     m_clinet->disconnectFromServer();
     delete m_clinet;
     if (m_panel)
@@ -173,8 +177,7 @@ void LocalClient::initWidget()
         m_popopWindow->setProperty("localpos", QPoint(-1, -1));
         m_panel = new NetworkPanel(m_popopWindow);
         QObject::connect(qApp, &QCoreApplication::destroyed, m_popopWindow, &DockPopupWindow::deleteLater);
-        QObject::connect(m_popopWindow, &DockPopupWindow::hideSignal, this, [ this ] {
-            delete this;
+        QObject::connect(m_popopWindow, &DockPopupWindow::hideSignal, this, [] {
             qApp->quit();
         });
         QObject::connect(m_popopWindow, &DockPopupWindow::hideSignal, m_popopWindow, &DockPopupWindow::deleteLater);
@@ -263,17 +266,18 @@ void LocalClient::receivePassword(QLocalSocket *socket, const QByteArray &data)
     if (m_wait == WaitClient::Self) {
         QJsonDocument doc = QJsonDocument::fromJson(data);
         if (doc.isObject()) {
+            int exitCode = -4;
             QFile file;
-            if (!file.open(stdout, QFile::WriteOnly)) {
-                qInfo() << "open STDOUT failed";
-                qApp->exit(-4);
-            } else {
+            if (file.open(stdout, QFile::WriteOnly)) {
                 file.write("\npassword:" + data + "\n");
                 file.flush();
                 file.close();
                 m_ssid.clear();
-                qApp->exit(doc.object().value("input").toBool() ? 0 : 1);
+                exitCode = (doc.object().value("input").toBool() ? 0 : 1);
+            } else {
+                qInfo() << "open STDOUT failed";
             }
+            qApp->exit(exitCode);
         }
     }
 }

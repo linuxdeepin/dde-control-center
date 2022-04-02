@@ -479,13 +479,15 @@ void WirelessItem::expandWidget(ExpandWidget type, bool autoDisconnect)
 {
     switch (type) {
     case ExpandWidget::Hide:
-        m_expandItem->setVisible(false);
-        m_topItem->setVisible(false);
-        standardItem()->setSizeHint(QSize(-1, 36));
-        if (m_accessPoint) {
-            LocalClient::instance()->changePassword(m_accessPoint->ssid(), QString(), false);
-            if(autoDisconnect && m_accessPoint->status() == ConnectionStatus::Activating) {
-                m_device->disconnectNetwork();
+        if(m_expandItem->isVisible()) {
+            m_expandItem->setVisible(false);
+            m_topItem->setVisible(false);
+            standardItem()->setSizeHint(QSize(-1, 36));
+            if (m_accessPoint) {
+                LocalClient::instance()->changePassword(m_accessPoint->ssid(), QString(), false);
+                if(autoDisconnect && m_accessPoint->status() == ConnectionStatus::Activating) {
+                    m_device->disconnectNetwork();
+                }
             }
         }
         break;

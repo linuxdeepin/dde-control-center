@@ -74,7 +74,13 @@ NetworkPanel::~NetworkPanel()
     NetItem *oldSelectItem = selectItem();
     if (oldSelectItem) {
         WirelessItem *item = static_cast<WirelessItem *>(oldSelectItem);
-        item->onCancel();
+        if (item) {
+            const AccessPoints *ap = item->accessPoint();
+            if (ap && ap->status() == ConnectionStatus::Activating) {
+                WirelessDevice *device = (const_cast<WirelessDevice *>(item->wirelessDevice()));
+                device->disconnectNetwork();
+            }
+        }
     }
 
     for (NetItem *item : m_items)
