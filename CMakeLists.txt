@@ -9,6 +9,10 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_FLAGS "-g -Wall")
 
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(UNITTEST ON)
+endif()
+set(UNITTEST OFF)
 # 增加安全编译参数
 ADD_DEFINITIONS("-fstack-protector-strong -D_FORTITY_SOURCE=1 -z noexecstack -pie -fPIC -z lazy")
 
@@ -117,7 +121,7 @@ target_link_libraries(${Dcc_Widgets_Name} PRIVATE
 install(TARGETS ${Dcc_Widgets_Name} DESTINATION lib)
 
 #------------------------dccwidgets library test--------------------------
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+if (UNITTEST)
     set(UT_Dcc_Widgets_Name ut-dcc-widgets)
     file(GLOB_RECURSE UT_Dcc_Widgets_SRCS
         "tests/widgets/*.cpp"
@@ -203,7 +207,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
 
 #-------------------------ut-dcc-interface-------------------------
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+if (UNITTEST)
     set(UT_Interface_Name ut-dcc-interface)
     file(GLOB_RECURSE UT_Interface_SRCS
         "tests/interface/*.cpp"
@@ -227,7 +231,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     )
 endif()
 #-------------------------ut-dcc-frame-------------------------
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+if (UNITTEST)
     set(UT_Frame_Name ut-dcc-frame)
     file(GLOB_RECURSE UT_Frame_SRCS
         "tests/frame/*.cpp"
@@ -251,7 +255,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     )
 endif()
 #--------------------------plugin-test--------------------------
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+if (UNITTEST)
     set(Plugin_Test_Name plugin-test)
     file(GLOB_RECURSE Plugin_Test_SRCS
         "src/plugin-test/*.h"
@@ -321,7 +325,7 @@ target_link_libraries(${SystemInfo_Name} PRIVATE
 install(TARGETS ${SystemInfo_Name} DESTINATION lib/dde-control-center/modules)
 
 #-------------------------ut-dcc-systeminfo-plugin-------------------------
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+if (UNITTEST)
     set(UT_SystemInfo_Name ut-dcc-systeminfo-plugin)
     file(GLOB_RECURSE UT_SYSTEMINFO_SRCS
         "tests/plugin-systeminfo/*.cpp"
@@ -419,7 +423,7 @@ target_link_libraries(${Mouse_Name} PRIVATE
 
 install(TARGETS ${Mouse_Name} DESTINATION lib/dde-control-center/modules)
 #-------------------------ut-dcc-mouse-plugin-------------------------
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+if (UNITTEST)
     set(UT_Mouse_Name ut-dcc-mouse-plugin)
     file(GLOB_RECURSE UT_MOUSE_SRCS
         "tests/plugin-mouse/*.cpp"
@@ -482,7 +486,7 @@ target_link_libraries(${CommonInfo_Name} PRIVATE
 
 install(TARGETS ${CommonInfo_Name} DESTINATION lib/dde-control-center/modules)
 #-------------------------ut-dcc-commoninfo-plugin-------------------------
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+if (UNITTEST)
     set(UT_CommonInfo_Name ut-dcc-commoninfo-plugin)
     file(GLOB_RECURSE UT_COMMONINFO_SRCS
         "tests/plugin-commoninfo/*.cpp"
@@ -582,3 +586,42 @@ target_link_libraries(${DefaultApp_Name} PRIVATE
 )
 
 install(TARGETS ${DefaultApp_Name} DESTINATION lib/dde-control-center/modules)
+
+#--------------------------dcc-datetime-plugin--------------------------
+set(Datetime_Name dcc-datetime-plugin)
+file(GLOB_RECURSE Datetime_SRCS
+    "src/plugin-datetime/window/*.cpp"
+    "src/plugin-datetime/operation/*.cpp"
+    "src/plugin-datetime/operation/qrc/datetime.qrc"
+)
+
+add_library(${Datetime_Name} MODULE
+    ${Datetime_SRCS}
+)
+
+set(Datetime_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    src/plugin-datetime/window
+    src/plugin-datetime/window/widgets
+    src/plugin-datetime/operation
+)
+set(Datetime_Libraries
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    ${Dcc_Widgets_Name}
+)
+target_include_directories(${Datetime_Name} PRIVATE
+    ${Datetime_Includes}
+)
+
+target_link_libraries(${Datetime_Name} PRIVATE
+    ${Datetime_Libraries}
+)
+
+install(TARGETS ${Datetime_Name} DESTINATION lib/dde-control-center/modules)
