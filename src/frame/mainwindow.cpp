@@ -554,10 +554,10 @@ void MainWindow::showModuleVList(ModuleObject *const module, QWidget *const pare
 void MainWindow::showModulePage(ModuleObject *const module, QWidget *const parent, const int index)
 {
     QScrollArea *area = new QScrollArea(parent);
-    QHBoxLayout *hlayout = new QHBoxLayout;
-    configLayout(hlayout);
-    parent->setLayout(hlayout);
-    hlayout->addWidget(area);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    configLayout(mainLayout);
+    parent->setLayout(mainLayout);
+    mainLayout->addWidget(area);
 
     area->setFrameShape(QFrame::NoFrame);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -594,7 +594,7 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
         vlayout->addStretch(1);
 
     if (module->extraButton())
-        vlayout->addWidget(getExtraPage(module->extraButton()), 0, Qt::AlignBottom);
+        mainLayout->addWidget(getExtraPage(module->extraButton()), 0, Qt::AlignBottom);
     area->verticalScrollBar()->setSliderPosition(getScrollPos(index));
 
     connect(module, &ModuleObject::activeChild, area, [this, area] (const int index) {

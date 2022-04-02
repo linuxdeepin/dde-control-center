@@ -472,7 +472,6 @@ set(CommonInfo_Libraries
     Qt5::DBus
     Qt5::Concurrent
     ${DEEPIN_PW_CHECK}
-    ${LIBS}
 )
 
 
@@ -608,6 +607,7 @@ set(Datetime_Includes
     src/plugin-datetime/window/widgets
     src/plugin-datetime/operation
 )
+
 set(Datetime_Libraries
     ${Interface_Name}
     ${DtkWidget_LIBRARIES}
@@ -616,6 +616,7 @@ set(Datetime_Libraries
     Qt5::Concurrent
     ${Dcc_Widgets_Name}
 )
+
 target_include_directories(${Datetime_Name} PRIVATE
     ${Datetime_Includes}
 )
@@ -625,3 +626,38 @@ target_link_libraries(${Datetime_Name} PRIVATE
 )
 
 install(TARGETS ${Datetime_Name} DESTINATION lib/dde-control-center/modules)
+#--------------------------plugin-keyboard--------------------------
+set(KeyBoard_Name dcc-keyboard-plugin)
+file(GLOB_RECURSE KEYBOARD_SRCS
+    "src/plugin-keyboard/window/*.cpp"
+    "src/plugin-keyboard/operation/*.cpp"
+    "src/plugin-keyboard/operation/qrc/keyboard.qrc"
+)
+
+add_library(${KeyBoard_Name} MODULE
+    ${KEYBOARD_SRCS}
+)
+set(KeyBoard_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+set(KeyBoard_Libraries
+    ${Dcc_Widgets_Name}
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+
+target_include_directories(${KeyBoard_Name} PUBLIC
+    ${KeyBoard_Includes}
+)
+
+target_link_libraries(${KeyBoard_Name} PRIVATE
+    ${KeyBoard_Libraries}
+)
+
+install(TARGETS ${KeyBoard_Name} DESTINATION lib/dde-control-center/modules)
