@@ -43,6 +43,8 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 
+const QString gsetting_systemSuspend = "systemSuspend";
+
 UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::power::PowerWorker *worker)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
@@ -129,7 +131,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
     GSettingWatcher::instance()->bind("powerPressPowerbtn", m_cmbPowerBtn);
     GSettingWatcher::instance()->bind("powerAutoLockscreen", m_autoLockScreen);
     GSettingWatcher::instance()->bind("powerMonitorConfigure", m_monitorSleepOnBattery);
-    GSettingWatcher::instance()->bind("systemSuspend", m_computerSleepOnBattery);
+    GSettingWatcher::instance()->bind(gsetting_systemSuspend, m_computerSleepOnBattery);
 
     /*** 低电量设置 ***/
     SettingsGroup *lowBatteryGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
@@ -165,7 +167,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
     m_sldAutoSuspend->slider()->setTickPosition(QSlider::NoTicks);
     m_sldAutoSuspend->addBackground();
     m_layout->addWidget(m_sldAutoSuspend);
-    GSettingWatcher::instance()->bind("systemSuspend", m_sldAutoSuspend);
+    GSettingWatcher::instance()->bind(gsetting_systemSuspend, m_sldAutoSuspend);
 
     /*********************/
     m_layout->setAlignment(Qt::AlignTop);
@@ -235,8 +237,8 @@ UseBatteryWidget::~UseBatteryWidget()
     GSettingWatcher::instance()->erase("powerPressPowerbtn", m_cmbPowerBtn);
     GSettingWatcher::instance()->erase("powerAutoLockscreen", m_autoLockScreen);
     GSettingWatcher::instance()->erase("powerMonitorConfigure", m_monitorSleepOnBattery);
-    GSettingWatcher::instance()->erase("systemSuspend", m_computerSleepOnBattery);
-    GSettingWatcher::instance()->erase("systemSuspend", m_sldAutoSuspend);
+    GSettingWatcher::instance()->erase(gsetting_systemSuspend, m_computerSleepOnBattery);
+    GSettingWatcher::instance()->erase(gsetting_systemSuspend, m_sldAutoSuspend);
 }
 
 void UseBatteryWidget::setModel(const PowerModel *model)
@@ -274,9 +276,33 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 
     setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
 
-    m_computerSleepOnBattery->setVisible(model->canSuspend() && model->getSuspend()
-                                                           && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
-    m_sldAutoSuspend->setVisible(model->getSuspend() && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
+    // 是否允许待机的条件已经在model的中处理，包括硬件和gsetting配置，这里只需要读取getSuspend
+    // systemSuspend配置中不止设置是否显示，还设置是否可用，需要同时判断处理
+    connect(model, &PowerModel::suspendChanged, this, [ = ] (bool suspend) {
+        m_computerSleepOnBattery->setEnabled(GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) == "Enabled");
+        m_computerSleepOnBattery->setVisible(suspend && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden");
+        m_sldAutoSuspend->setEnabled(GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) == "Enabled");
+        m_sldAutoSuspend->setVisible(suspend && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden");
+    });
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [ = ] (const QString &key, const QString &value) {
+        if (key == gsetting_systemSuspend && !value.isEmpty()) {
+            m_computerSleepOnBattery->setEnabled(value == "Enabled");
+            m_computerSleepOnBattery->setVisible(model->getSuspend() && value != "Hidden");
+
+            m_sldAutoSuspend->setEnabled(value == "Enabled");
+            m_sldAutoSuspend->setVisible(model->getSuspend() && value != "Hidden");
+
+            updatePowerButtonActionList();
+            setPowerBtn(model, model->batteryPressPowerBtnAction());
+            setCloseLid(model, model->batteryLidClosedAction());
+        }
+    });
+
+    m_computerSleepOnBattery->setEnabled(GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) == "Enabled");
+    m_computerSleepOnBattery->setVisible(model->getSuspend() && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden");
+    m_sldAutoSuspend->setEnabled(GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) == "Enabled");
+    m_sldAutoSuspend->setVisible(model->getSuspend() && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden");
 
     //--------------sp2 add-----------------
     connect(model, &PowerModel::lidPresentChanged, this, [ = ](bool value) {
@@ -408,7 +434,7 @@ void UseBatteryWidget::updatePowerButtonActionList()
     if (m_model->getShutdown()) {
         options.insert(PowerModel::Shutdown, tr("Shut down"));
     }
-    if (m_model->getSuspend()) {
+    if (m_model->getSuspend() && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden") {
         options.insert(PowerModel::Suspend, tr("Suspend"));
     }
     if (m_model->getHibernate()) {

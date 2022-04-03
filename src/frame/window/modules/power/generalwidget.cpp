@@ -51,6 +51,8 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 
+const QString gsetting_systemSuspend = "systemSuspend";
+
 static QGSettings *GSettings()
 {
     static QGSettings settings("com.deepin.dde.dock.module.power");
@@ -116,7 +118,7 @@ GeneralWidget::~GeneralWidget()
     GSettingWatcher::instance()->erase("powerLowerBrightness");
     GSettingWatcher::instance()->erase("powerShowtimeTofull");
     GSettingWatcher::instance()->erase("powerShowtimeTofulltips");
-    GSettingWatcher::instance()->erase("systemSuspend", m_wakeComputerNeedPassword);
+    GSettingWatcher::instance()->erase(gsetting_systemSuspend, m_wakeComputerNeedPassword);
 }
 
 void GeneralWidget::initUi()
@@ -206,7 +208,7 @@ void GeneralWidget::initUi()
 
     wakeupSettingsGrp->appendItem(m_wakeComputerNeedPassword);
     wakeupSettingsGrp->appendItem(m_wakeDisplayNeedPassword);
-    GSettingWatcher::instance()->bind("systemSuspend", m_wakeComputerNeedPassword);  // 使用GSettings来控制显示状态
+    GSettingWatcher::instance()->bind(gsetting_systemSuspend, m_wakeComputerNeedPassword);  // 使用GSettings来控制显示状态
 
     wakeupLabel->setContentsMargins(10, 0, 10, 0);
     wakeupLayout->addWidget(wakeupLabel);           // 添加唤醒设置label
@@ -271,6 +273,12 @@ void GeneralWidget::setModel(const PowerModel *model)
 #endif
     connect(model, &PowerModel::suspendChanged, m_wakeComputerNeedPassword, &SwitchWidget::setVisible);
 
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [ = ] (const QString &key, const QString &value) {
+        if (key == gsetting_systemSuspend && !value.isEmpty()) {
+            m_wakeComputerNeedPassword->setVisible(model->getSuspend() && value != "Hidden");
+        }
+    });
+
     connect(model, &PowerModel::highPerformaceSupportChanged, this, &GeneralWidget::onHighPerformanceSupportChanged);
     onHighPerformanceSupportChanged(model->isHighPerformanceSupported());
 
@@ -287,8 +295,7 @@ void GeneralWidget::setModel(const PowerModel *model)
     m_autoIntoSaveEnergyMode->setChecked(model->autoPowerSaveMode());
 #endif
 
-    m_wakeComputerNeedPassword->setVisible(model->canSuspend() && model->getSuspend()
-                                                             && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
+    m_wakeComputerNeedPassword->setVisible(model->getSuspend() && (GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden"));
 
     //-------------sp2 add-------------------------
     m_swLowPowerAutoIntoSaveEnergyMode->setChecked(model->powerSavingModeAutoWhenQuantifyLow());

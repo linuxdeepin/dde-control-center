@@ -145,16 +145,16 @@ void PowerWorker::active()
         canHibernateWatcher->deleteLater();
     });
 
+    // 使用PowerManager接口，此接口中有是否虚拟机判断
     canSleepWatcher->setFuture(QtConcurrent::run([=] {
-        QDBusPendingReply<QString> reply = m_login1ManagerInter->CanSuspend();
-        reply.waitForFinished();
-        return reply.value().contains("yes");
+        bool reply = m_powerManager->CanSuspend();
+        return reply;
     }));
 
+    // 使用PowerManager接口，此接口中有是否虚拟机判断
     canHibernateWatcher->setFuture(QtConcurrent::run([=] {
-        QDBusPendingReply<QString> reply = m_login1ManagerInter->CanHibernate();
-        reply.waitForFinished();
-        return reply.value().contains("yes");
+        bool reply = m_powerManager->CanHibernate();
+        return reply;
     }));
 }
 

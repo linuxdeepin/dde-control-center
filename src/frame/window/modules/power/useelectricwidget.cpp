@@ -44,6 +44,8 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 
+const QString gsetting_systemSuspend = "systemSuspend";
+
 UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::power::PowerWorker *work)
     : QWidget(parent)
     , m_model(model)
@@ -101,7 +103,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::po
     GSettingWatcher::instance()->bind("powerPressPowerbtn", m_cmbPowerBtn);
     GSettingWatcher::instance()->bind("powerAutoLockscreen", m_autoLockScreen);
     GSettingWatcher::instance()->bind("powerMonitorConfigure", m_monitorSleepOnPower);
-    GSettingWatcher::instance()->bind("systemSuspend", m_computerSleepOnPower);
+    GSettingWatcher::instance()->bind(gsetting_systemSuspend, m_computerSleepOnPower);
 
     m_layout->setContentsMargins(10, 10, 2, 5);
     m_layout->addWidget(powerSettingsGrp);
@@ -184,7 +186,7 @@ UseElectricWidget::~UseElectricWidget()
     GSettingWatcher::instance()->erase("powerPressPowerbtn", m_cmbPowerBtn);
     GSettingWatcher::instance()->erase("powerAutoLockscreen", m_autoLockScreen);
     GSettingWatcher::instance()->erase("powerMonitorConfigure", m_monitorSleepOnPower);
-    GSettingWatcher::instance()->erase("systemSuspend", m_computerSleepOnPower);
+    GSettingWatcher::instance()->erase(gsetting_systemSuspend, m_computerSleepOnPower);
 }
 
 void UseElectricWidget::setModel(const PowerModel *model)
@@ -219,9 +221,27 @@ void UseElectricWidget::setModel(const PowerModel *model)
         setScreenBlackDelayOnPower(model->screenBlackDelayOnPower());
     }
 
+    // 是否允许待机的条件已经在model的中处理，包括硬件和gsetting配置，这里只需要读取getSuspend
+    // systemSuspend配置中不止设置是否显示，还设置是否可用，需要同时判断处理
     if (m_computerSleepOnPower) {
-        m_computerSleepOnPower->setVisible(model->canSuspend() && model->getSuspend()
-                                                             && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
+        connect(model, &PowerModel::suspendChanged, this, [ = ] (bool suspend) {
+            m_computerSleepOnPower->setEnabled(GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) == "Enabled");
+            m_computerSleepOnPower->setVisible(suspend && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden");
+        });
+
+        connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [ = ] (const QString &key, const QString &value) {
+            if (key == gsetting_systemSuspend && !value.isEmpty()) {
+                m_computerSleepOnPower->setEnabled(value == "Enabled");
+                m_computerSleepOnPower->setVisible(model->getSuspend() && value != "Hidden");
+
+                updatePowerButtonActionList();
+                setPowerBtn(model, model->linePowerPressPowerBtnAction());
+                setCloseLid(model, model->linePowerLidClosedAction());
+            }
+        });
+
+        m_computerSleepOnPower->setEnabled(GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) == "Enabled");
+        m_computerSleepOnPower->setVisible(model->getSuspend() && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden");
     }
 
     //--------------sp2 add-----------------
@@ -321,7 +341,7 @@ void UseElectricWidget::updatePowerButtonActionList()
     if (m_model->getShutdown()) {
         options.insert(PowerModel::Shutdown, tr("Shut down"));
     }
-    if (m_model->getSuspend()) {
+    if (m_model->getSuspend() && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden") {
         options.insert(PowerModel::Suspend, tr("Suspend"));
     }
     if (m_model->getHibernate()) {
