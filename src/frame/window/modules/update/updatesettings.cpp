@@ -346,6 +346,9 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_autoCheckAppUpdate->setVisible(false);
 
     m_dconfig = DConfigWatcher::instance()->getModulesConfig(DConfigWatcher::update);
+    if (m_dconfig && !m_dconfig->isValid()) {
+        return;
+    }
     DConfigWatcher::instance()->bind(DConfigWatcher::update, "updateSafety", m_autoCheckSecureUpdate);
     DConfigWatcher::instance()->bind(DConfigWatcher::update, "updateSafety", m_autoCheckSecureUpdateTips);
     connect(m_dconfig, &DConfig::valueChanged, this, [ = ](const QString key) {
