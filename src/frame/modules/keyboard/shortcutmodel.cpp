@@ -356,6 +356,9 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
         info->id      = obj["Id"].toString();
         info->command = obj["Exec"].toString();
 
+        if ((info->id == "wm-switcher") && (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive))) {
+            continue;
+        }
         if (type != MEDIAKEY) {
             if (systemFilter.contains(info->id)) {
                 systemInfoList << info;
