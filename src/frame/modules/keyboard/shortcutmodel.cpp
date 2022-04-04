@@ -348,6 +348,9 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
     QJsonArray array = QJsonDocument::fromJson(searchResult.toStdString().c_str()).array();
     for (auto value : array) {
         QJsonObject obj  = value.toObject();
+        if ((obj["Id"].toString() == "wm-switcher") && (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive))) {
+            continue;
+        }
         int         type = obj["Type"].toInt();
         ShortcutInfo *info = new ShortcutInfo();
         info->type         = type;
@@ -356,9 +359,6 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
         info->id      = obj["Id"].toString();
         info->command = obj["Exec"].toString();
 
-        if ((info->id == "wm-switcher") && (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive))) {
-            continue;
-        }
         if (type != MEDIAKEY) {
             if (systemFilter.contains(info->id)) {
                 systemInfoList << info;
