@@ -105,6 +105,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent)
     m_password->setPlaceholderText(tr("Optional"));
     m_password->textEdit()->setEchoMode(QLineEdit::Password);
     m_password->textEdit()->installEventFilter(this);
+    m_password->textEdit()->setValidator(new QRegExpValidator(QRegExp("^\\S+$"), this));
 
     grp->appendItem(m_proxyType);
     grp->appendItem(m_addr);
