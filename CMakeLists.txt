@@ -41,7 +41,7 @@ endif ()
 # Find the library
 find_package(PkgConfig REQUIRED)
 find_package(DtkWidget REQUIRED)
-find_package(Qt5 COMPONENTS Widgets DBus Concurrent Svg Test REQUIRED)
+find_package(Qt5 COMPONENTS Widgets DBus Concurrent Multimedia Svg Test REQUIRED)
 
 # pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
@@ -661,3 +661,39 @@ target_link_libraries(${KeyBoard_Name} PRIVATE
 )
 
 install(TARGETS ${KeyBoard_Name} DESTINATION lib/dde-control-center/modules)
+#--------------------------plugin-sound--------------------------
+set(Sound_Name dcc-sound-plugin)
+file(GLOB_RECURSE Sound_SRCS
+    "src/plugin-sound/window/*.cpp"
+    "src/plugin-sound/operation/*.cpp"
+    "src/plugin-sound/operation/qrc/sound.qrc"
+)
+
+add_library(${Sound_Name} MODULE
+    ${Sound_SRCS}
+)
+
+set(Sound_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    src/plugin-sound/operation
+    src/plugin-sound/window
+)
+set(Sound_Libraries
+    ${Dcc_Widgets_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    ${Qt5Multimedia_LIBRARIES}
+    ${Dcc_Widgets_Name}
+)
+target_include_directories(${Sound_Name} PUBLIC
+    ${Sound_Includes}
+)
+
+target_link_libraries(${Sound_Name} PRIVATE
+    ${Sound_Libraries}
+)

@@ -82,7 +82,6 @@ void KeyboardDBusProxy::init()
     connect(m_dBusKeybingdingInter,SIGNAL(KeyEvent(bool,QString)), this, SIGNAL(KeyEvent(bool,QString)));
 }
 
-
 void KeyboardDBusProxy::langSelectorStartServiceProcess()
 {
     if (m_dBusLangSelectorInter->isValid())
