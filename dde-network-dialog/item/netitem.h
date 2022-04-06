@@ -29,7 +29,6 @@
 #include <QJsonObject>
 #include <QStyledItemDelegate>
 
-
 class NetworkDevice;
 class NetItem;
 class WirelessConnect;
@@ -44,6 +43,7 @@ namespace dde {
         class WirelessDevice;
         class AccessPoints;
         class WiredConnection;
+        class WirelessConnection;
         enum class DeviceType;
     } // namespace network
 } // namespace dde
@@ -228,6 +228,7 @@ private:
     void createPasswordEdit();
     void createSsidEdit();
     void initExpandUi();
+    const QDateTime timeStamp(WirelessConnection *connection) const;
 
 private Q_SLOTS:
     void onConnection();

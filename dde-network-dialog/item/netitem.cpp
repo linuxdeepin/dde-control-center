@@ -671,10 +671,35 @@ bool WirelessItem::expandVisible()
     return m_expandItem->isVisible();
 }
 
+const QDateTime WirelessItem::timeStamp(WirelessConnection *connection) const
+{
+    NetworkManager::Connection::Ptr connect(new NetworkManager::Connection(connection->connection()->path()));
+    return connect->settings()->timestamp();
+}
+
 void WirelessItem::onCancel()
 {
     if (m_accessPoint && m_accessPoint->status() == ConnectionStatus::Activating) {
         m_device->disconnectNetwork();
+        QList<WirelessConnection *> connections = m_device->items();
+        // 断开连接后，找到最后一次连接的热点
+        WirelessConnection *lastConnection = nullptr;
+        for (WirelessConnection *conn : connections) {
+            if (conn->accessPoints() == m_accessPoint)
+                continue;
+
+            QDateTime ts = timeStamp(conn);
+            if (!ts.isValid())
+                continue;
+
+            if (!lastConnection || timeStamp(lastConnection) < ts)
+                lastConnection = conn;
+        }
+
+        if (lastConnection)
+            m_device->connectNetwork(lastConnection->accessPoints());
+
     }
+
     this->expandWidget(ExpandWidget::Hide);
 }

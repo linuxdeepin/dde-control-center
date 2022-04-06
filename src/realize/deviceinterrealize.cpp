@@ -554,6 +554,9 @@ AccessPoints *WirelessDeviceInterRealize::findAccessPoint(const QString &ssid)
 
 WirelessConnection *WirelessDeviceInterRealize::findConnectionByAccessPoint(const AccessPoints *accessPoint)
 {
+    if (!accessPoint)
+        return Q_NULLPTR;
+
     for (WirelessConnection *connection : m_connections) {
         if (connection->accessPoints() == accessPoint)
             return connection;
