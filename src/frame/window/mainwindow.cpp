@@ -440,7 +440,7 @@ void MainWindow::updateWinsize(QRect rect)
         this->setGeometry(x(), y(), WidgetMinimumWidth, height());
     if (height() > WidgetMinimumHeight)
         this->setGeometry(x(), y(), width(), WidgetMinimumHeight);
-
+    this->titlebar()->updateGeometry();
     move(QPoint(m_primaryScreen->geometry().left() + (m_primaryScreen->geometry().width() - this->geometry().width()) / 2,
                 m_primaryScreen->geometry().top() + (m_primaryScreen->geometry().height() - this->geometry().height()) / 2));
 }
