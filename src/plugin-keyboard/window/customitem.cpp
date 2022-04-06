@@ -120,11 +120,11 @@ void CustomItem::mouseReleaseEvent(QMouseEvent *e)
 void CustomItem::paintEvent(QPaintEvent *event)
 {
     QPainter p(this);
-    float Radius = 15.0f;
     if (isAlert) {
         p.setPen(Qt::NoPen);
         p.setBrush(QColor(241, 57, 50, qRound(0.15 * 255)));
-        p.drawRoundRect(rect(), int(Radius / rect().width() * 100), int(Radius / rect().height() * 100));
+        const float Radius = 15.0f;
+        p.drawRoundedRect(rect(), int(Radius / rect().width() * 100), int(Radius / rect().height() * 100));
     }
     QWidget::paintEvent(event);
 }

@@ -174,7 +174,7 @@ void ShortcutItem::updateTitleSize()
         v = width() - m_key->width() - 32;
     else
         v = width() - m_shortcutEdit->width() - 32;
-    if (m_title->fontMetrics().width(m_info->name) > v) {
+    if (m_title->fontMetrics().horizontalAdvance(m_info->name) > v) {
         QFontMetrics fontWidth(m_title->font());
         QString elideNote = fontWidth.elidedText(m_info->name, Qt::ElideRight, v);
         m_title->setText(elideNote);
@@ -210,7 +210,7 @@ void ShortcutItem::resizeEvent(QResizeEvent *event)
 
     int v = width() - m_key->width() - 32;
     // 参与计算的是实际文本长度
-    if (m_title->fontMetrics().width(m_info->name) <= v) {
+    if (m_title->fontMetrics().horizontalAdvance(m_info->name) <= v) {
         m_title->setText(m_info->name);
         m_title->setToolTip("");
     } else {

@@ -86,7 +86,7 @@ void PopupMenu::setStringList(const QStringList& strings) {
   int item_width = kMenuViewMinimumWidth;
   const QFontMetrics metrics(menu_view_->font());
   for (const QString& str : strings) {
-    const int curr_width = metrics.width(str);
+    const int curr_width = metrics.horizontalAdvance(str);
     item_width = (curr_width > item_width) ? curr_width : item_width;
   }
   // Add margin to list view.

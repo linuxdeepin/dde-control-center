@@ -68,7 +68,7 @@ void Clock::paintEvent(QPaintEvent *event)
     QDateTime datetime(QDateTime::currentDateTime());
     const QTime time(datetime.time());
     QPainter painter(this);
-    painter.setRenderHints(QPainter::HighQualityAntialiasing | QPainter::SmoothPixmapTransform);
+    painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
     do {
         const bool nightMode = !(time.hour() >= 6 && time.hour() < 18);

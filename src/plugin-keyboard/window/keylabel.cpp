@@ -51,7 +51,7 @@ KeyLabel::KeyLabel(const QString &text, QWidget *parent)
     QFont font = qApp->font();
     QFontMetrics fm(font);
 
-    setMinimumWidth(fm.width(t) + 18);
+    setMinimumWidth(fm.horizontalAdvance(t) + 18);
 }
 
 void KeyLabel::setEnter(const bool enter)

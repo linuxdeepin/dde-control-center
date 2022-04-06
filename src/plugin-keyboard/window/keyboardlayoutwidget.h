@@ -30,7 +30,6 @@
 #include "widgets/buttontuple.h"
 #include "src/plugin-keyboard/window/indexmodel.h"
 #include "src/plugin-keyboard/window/indexview.h"
-#include "src/plugin-keyboard/window/indexframe.h"
 #include "src/plugin-keyboard/window/searchinput.h"
 
 #include <DGraphicsClipEffect>

@@ -235,19 +235,19 @@ void ShortcutModel::onParseInfo(const QString &info)
         }
     }
 
-    qSort(m_systemInfos.begin(), m_systemInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    std::sort(m_systemInfos.begin(), m_systemInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
         return systemShortKeys.indexOf(s1->id) < systemShortKeys.indexOf(s2->id);
     });
 
-    qSort(m_windowInfos.begin(), m_windowInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    std::sort(m_windowInfos.begin(), m_windowInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
         return windowFilter.indexOf(s1->id) < windowFilter.indexOf(s2->id);
     });
 
-    qSort(m_workspaceInfos.begin(), m_workspaceInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    std::sort(m_workspaceInfos.begin(), m_workspaceInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
         return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
     });
 
-    qSort(m_assistiveToolsInfos.begin(), m_assistiveToolsInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    std::sort(m_assistiveToolsInfos.begin(), m_assistiveToolsInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
         return assistiveToolsFilter.indexOf(s1->id) < assistiveToolsFilter.indexOf(s2->id);
     });
 
@@ -382,13 +382,13 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
         }
     }
 
-    qSort(systemInfoList.begin(), systemInfoList.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    std::sort(systemInfoList.begin(), systemInfoList.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
         return systemFilter.indexOf(s1->id) < systemFilter.indexOf(s2->id);
     });
-    qSort(windowInfoList.begin(), windowInfoList.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    std::sort(windowInfoList.begin(), windowInfoList.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
         return windowFilter.indexOf(s1->id) < windowFilter.indexOf(s2->id);
     });
-    qSort(workspaceInfoList.begin(), workspaceInfoList.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    std::sort(workspaceInfoList.begin(), workspaceInfoList.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
         return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
     });
     m_searchList.append(systemInfoList);

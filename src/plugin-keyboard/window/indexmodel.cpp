@@ -102,8 +102,7 @@ bool MetaData::operator >(const MetaData &md) const
 
 QDebug &operator<<(QDebug dbg, const MetaData &md)
 {
-    dbg.nospace() << "key: " << md.key() << endl;
-    dbg.nospace() << "text: " << md.text() << endl;
+    dbg.nospace() << QString("key: %1, text: %2").arg(md.key(), md.text());
     return dbg.maybeSpace();
 }
 

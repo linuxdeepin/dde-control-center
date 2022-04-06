@@ -114,7 +114,7 @@ void TooltipPin::paintEvent(QPaintEvent* event) {
     QFont label_font;
     label_font.setPixelSize(12);
     const QFontMetrics label_font_metrics(label_font);
-    const int label_length = label_font_metrics.width(this->text());
+    const int label_length = label_font_metrics.horizontalAdvance(this->text());
     painter.setPen(QPen(Qt::black));
     painter.setFont(label_font);
     // Set text alignment to center

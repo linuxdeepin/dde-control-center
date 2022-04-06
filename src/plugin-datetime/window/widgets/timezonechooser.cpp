@@ -30,7 +30,7 @@
 
 #include <dplatformwindowhandle.h>
 #include <DDialogCloseButton>
-#include <DApplicationHelper>
+#include <DPaletteHelper>
 
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -72,9 +72,9 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent)
     m_confirmBtn->setMinimumSize(200, 36);
     m_confirmBtn->setEnabled(false);
 
-    DPalette pa = DApplicationHelper::instance()->palette(m_title);
+    DPalette pa = DPaletteHelper::instance()->palette(m_title);
     pa.setBrush(QPalette::WindowText, pa.windowText());
-    DApplicationHelper::instance()->setPalette(m_title, pa);
+    DPaletteHelper::instance()->setPalette(m_title, pa);
 
     DPlatformWindowHandle handle(this);
     handle.setWindowRadius(18);
@@ -281,8 +281,7 @@ void TimeZoneChooser::mouseMoveEvent(QMouseEvent *event)
 
 QSize TimeZoneChooser::getFitSize() const
 {
-    const QDesktopWidget *desktop = QApplication::desktop();
-    const QRect primaryRect = desktop->availableGeometry(desktop->primaryScreen());
+    const QRect &primaryRect = QGuiApplication::primaryScreen()->availableGeometry();
 
     double width = primaryRect.width() - 360 /* dcc */ - 20 * 2;
     double height = primaryRect.height() - 70 /* dock */ - 20 * 2;
@@ -293,8 +292,7 @@ QSize TimeZoneChooser::getFitSize() const
 int TimeZoneChooser::getFontSize() const
 {
     //根据屏幕大小设置标题字体大小，不至于因为屏幕太小时，字段显得太大
-    const QDesktopWidget *desktop = QApplication::desktop();
-    const QRect primaryRect = desktop->availableGeometry(desktop->primaryScreen());
+    const QRect &primaryRect = QGuiApplication::primaryScreen()->availableGeometry();
 
     if (primaryRect.width() <= 1024) {
         return 24;

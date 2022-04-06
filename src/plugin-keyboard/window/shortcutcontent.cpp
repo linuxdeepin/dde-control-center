@@ -146,18 +146,6 @@ void ShortcutContent::keyEvent(bool press, const QString &shortcut)
 
         // check conflict
         ShortcutInfo *info = m_model->getInfo(shortcut);
-        int a = 10;
-        if(info) {
-            a = 11;
-        }
-        if(info != m_info) {
-            a = 12;
-        }
-
-        if(info->accels != m_info->accels) {
-            a = 13;
-        }
-
 
         if (info && info != m_info && info->accels != m_info->accels) {
             m_shortcutItem->setShortcut(info->accels);

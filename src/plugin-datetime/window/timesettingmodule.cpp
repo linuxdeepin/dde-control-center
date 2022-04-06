@@ -132,7 +132,8 @@ void TimeSettingModule::initAutoSyncTime(SettingsGroup *ntpGroup)
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, m_work, &DatetimeWorker::setNTP);
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &TimeSettingModule::setControlVisible);
 
-    connect(m_ntpServerList->comboBox(), QOverload<const QString &>::of(&QComboBox::currentIndexChanged), this, [this](const QString &text) {
+    connect(m_ntpServerList->comboBox(), QOverload<const int>::of(&QComboBox::currentIndexChanged), this, [this](const int index) {
+        const QString &text = m_ntpServerList->comboBox()->itemText(index);
         m_customizeAddress->setVisible(m_ntpServerList->isVisible() && text == tr("Customize"));
         isUserOperate();
         if (m_autoSyncTimeSwitch->checked()) {

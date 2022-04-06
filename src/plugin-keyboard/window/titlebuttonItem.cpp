@@ -62,6 +62,6 @@ void TitleButtonItem::setValue(const QString &value)
 void TitleButtonItem::updateTitleSize()
 {
     int v = width() - m_button->width() - 32;
-    if (m_title->fontMetrics().width(m_title->text()) > v)
+    if (m_title->fontMetrics().horizontalAdvance(m_title->text()) > v)
         m_title->setFixedWidth(v);
 }

@@ -430,7 +430,7 @@ void KeyboardWorker::onLocalListsFinished(QDBusPendingCallWatcher *watch)
         m_datas.append(md);
     }
 
-    qSort(m_datas.begin(), m_datas.end(), caseInsensitiveLessThan);
+    std::sort(m_datas.begin(), m_datas.end(), caseInsensitiveLessThan);
 
     m_model->setLocaleList(m_datas);
 
@@ -538,7 +538,7 @@ void KeyboardWorker::onPinyin()
             m_metaDatas.insert(i, MetaData(ch, true));
         }
     } else {
-        qSort(m_metaDatas.begin(), m_metaDatas.end(), caseInsensitiveLessThan);
+        std::sort(m_metaDatas.begin(), m_metaDatas.end(), caseInsensitiveLessThan);
     }
 
     Q_EMIT onDatasChanged(m_metaDatas);
