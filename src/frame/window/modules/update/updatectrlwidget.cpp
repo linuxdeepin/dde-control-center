@@ -818,7 +818,7 @@ void UpdateCtrlWidget::onClassityUpdateJonErrorChanged(const ClassifyUpdateType 
 void UpdateCtrlWidget::onShowUpdateCtrl()
 {
     if (m_model->getUpdatablePackages() && m_model->status() == UpdatesStatus::Default) {
-        m_checkUpdateBtn->click();
+        Q_EMIT m_model->beginCheckUpdate();
     }
 }
 
