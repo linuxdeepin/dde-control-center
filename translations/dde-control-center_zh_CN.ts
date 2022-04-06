@@ -2868,8 +2868,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="175"/>
-        <source>WPA2/WPA3 Personal</source>
-        <translation>WPA2/WPA3个人版</translation>
+        <source>WPA3 Personal</source>
+        <translation>WPA3个人版</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="179"/>

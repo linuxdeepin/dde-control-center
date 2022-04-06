@@ -172,7 +172,7 @@ void SecretWirelessSection::initStrMaps()
         {tr("WEP"), NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep},
         {tr("WPA/WPA2 Personal"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk},
         {tr("WPA/WPA2 Enterprise"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap},
-        {tr("WPA2/WPA3 Personal"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaSae}
+        {tr("WPA3 Personal"), NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaSae}
     };
 
     AuthAlgStrMap = {
