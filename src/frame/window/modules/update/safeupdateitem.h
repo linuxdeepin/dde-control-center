@@ -14,6 +14,8 @@ public:
     explicit SafeUpdateItem(QWidget *parent = nullptr);
 
     void init();
+
+    void setData(UpdateItemInfo *updateItemInfo) override;
 };
 
 }
