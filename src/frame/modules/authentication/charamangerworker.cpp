@@ -56,8 +56,22 @@ CharaMangerWorker::CharaMangerWorker(CharaMangerModel *model, QObject *parent)
     connect(m_charaMangerInter, &CharaManger::DriverInfoChanged, this, &CharaMangerWorker::predefineDriverInfo);
     connect(m_charaMangerInter, &CharaManger::DriverChanged, this, &CharaMangerWorker::refreshDriverInfo);
 
-    auto driverInfo = m_charaMangerInter->driverInfo();
-    predefineDriverInfo(driverInfo);
+    // 获取DeviceInfo属性
+    QDBusInterface charaManagerInter("com.deepin.daemon.Authenticate",
+                             "/com/deepin/daemon/Authenticate/CharaManger",
+                             "org.freedesktop.DBus.Properties",
+                             QDBusConnection::systemBus());
+    QDBusPendingCall call = charaManagerInter.asyncCall("Get", "com.deepin.daemon.Authenticate.CharaManger", "DriverInfo");
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call, watcher] {
+        if (!call.isError()) {
+            QDBusReply<QDBusVariant> reply = call.reply();
+            predefineDriverInfo(reply.value().variant().toString());
+        } else {
+            qWarning() << "Failed to get driver info: " << call.error().message();
+        }
+        watcher->deleteLater();
+    });
 
     // 录入时间超时 停止录入
     connect(m_stopTimer, &QTimer::timeout, [this] {
