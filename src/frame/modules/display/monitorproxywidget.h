@@ -57,6 +57,8 @@ public:
 
     inline QPointF getPreCenter() { return m_preCenter; }
     inline void setPreCenter(QPointF p) { m_preCenter = p; }
+    inline bool getReSplicing() { return m_reSplicing; }
+    inline void setReSplicing(bool value) { m_reSplicing = value; }
 
     QRectF boundingRect() const override;
     QRectF bufferboundingRect() const;
@@ -115,6 +117,8 @@ private:
 
     bool m_selected;
     bool m_isMoving; //表示item被移动了
+
+    bool m_reSplicing; //重新拼接
 };
 
 } // namespace display
