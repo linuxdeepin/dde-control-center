@@ -654,6 +654,7 @@ void Secret8021xSection::saveCommonItems()
     m_secretSetting->setIdentity(m_identity->text());
 
     if (m_currentEapMethod == NetworkManager::Security8021xSetting::EapMethodTls) {
+        m_secretSetting->setPasswordFlags(m_currentPasswordType);
         m_secretSetting->setPrivateKeyPasswordFlags(m_currentPasswordType);
         if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
             m_secretSetting->setPrivateKeyPassword(m_password->text());
