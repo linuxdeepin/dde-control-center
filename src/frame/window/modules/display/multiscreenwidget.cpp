@@ -136,7 +136,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
 //    DConfigWatcher::instance()->bind(DConfigWatcher::display,"multiscreenMode", m_modeSettingsItem);
 
     QDesktopWidget *desktopwidget = QApplication::desktop();
-    connect(desktopwidget,SIGNAL(resized(int)),this,SLOT(onResetSecondaryScreenDlg()));
+    connect(desktopwidget,SIGNAL(workAreaResized(int)),this,SLOT(onResetSecondaryScreenDlg()));
 
     m_resetSecondaryScreenDlgTimer->setSingleShot(true);
     m_resetSecondaryScreenDlgTimer->setInterval(100);
