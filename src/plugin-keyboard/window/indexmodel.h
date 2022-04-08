@@ -26,6 +26,7 @@
 #ifndef INDEXMODEL_H
 #define INDEXMODEL_H
 #include "interface/namespace.h"
+#include "operation/metadata.h"
 
 #include <DListView>
 
@@ -37,39 +38,6 @@
 DWIDGET_USE_NAMESPACE
 
 namespace DCC_NAMESPACE {
-
-class MetaData
-{
-public:
-    MetaData(const QString &text = QString(), bool section = false);
-
-    void setPinyin(const QString &py);
-    QString pinyin() const;
-
-    void setText(const QString &text);
-    QString text() const;
-
-    void setKey(const QString &key);
-    QString key() const;
-
-    void setSection(bool section);
-    bool section() const;
-
-    void setSelected(bool selected);
-    bool selected() const;
-
-    bool operator ==(const MetaData &md) const;
-    bool operator >(const MetaData &md) const;
-private:
-    QString m_key;
-    QString m_text;
-    QString m_pinyin;
-    bool m_section;
-    bool m_selected;
-    friend QDebug &operator<<(QDebug dbg, const MetaData &md);
-};
-
-QDebug &operator<<(QDebug dbg, const MetaData &md);
 
 class IndexModel : public QStandardItemModel
 {
@@ -98,6 +66,4 @@ public:
 };
 
 }
-Q_DECLARE_METATYPE(DCC_NAMESPACE::MetaData)
-
 #endif // INDEXMODEL_H

@@ -24,7 +24,7 @@
  */
 
 #include "shortcutitem.h"
-#include "shortcutmodel.h"
+#include "operation/shortcutmodel.h"
 #include "keylabel.h"
 
 #include <DStyle>

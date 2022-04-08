@@ -23,88 +23,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-
 #include "indexmodel.h"
 #include <DStandardItem>
 
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
-
-MetaData::MetaData(const QString &text, bool section)
-    : m_text(text)
-    , m_pinyin(QString())
-    , m_section(section)
-    , m_selected(false)
-{
-
-}
-
-void MetaData::setPinyin(const QString &py)
-{
-    m_pinyin = py;
-}
-
-QString MetaData::pinyin() const
-{
-    return m_pinyin == QString() ? m_text : m_pinyin;
-}
-
-void MetaData::setText(const QString &text)
-{
-    m_text = text;
-}
-
-QString MetaData::text() const
-{
-    return m_text;
-}
-
-void MetaData::setKey(const QString &key)
-{
-    m_key = key;
-}
-
-QString MetaData::key() const
-{
-    return m_key;
-}
-
-void MetaData::setSection(bool section)
-{
-    m_section = section;
-}
-
-bool MetaData::section() const
-{
-    return m_section;
-}
-
-void MetaData::setSelected(bool selected)
-{
-    m_selected = selected;
-}
-
-bool MetaData::selected() const
-{
-    return m_selected;
-}
-
-bool MetaData::operator ==(const MetaData &md) const
-{
-    return m_text == md.m_text;
-}
-
-bool MetaData::operator >(const MetaData &md) const
-{
-    int x = QString::compare(m_pinyin, md.m_pinyin, Qt::CaseInsensitive);
-    return x > 0;
-}
-
-QDebug &operator<<(QDebug dbg, const MetaData &md)
-{
-    dbg.nospace() << QString("key: %1, text: %2").arg(md.key(), md.text());
-    return dbg.maybeSpace();
-}
 
 IndexModel::IndexModel(QObject *parent)
     : QStandardItemModel(parent)

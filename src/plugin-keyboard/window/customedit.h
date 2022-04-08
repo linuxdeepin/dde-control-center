@@ -30,7 +30,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/lineeditwidget.h"
 #include "shortcutitem.h"
-#include "shortcutmodel.h"
+#include "operation/shortcutmodel.h"
 #include <QObject>
 
 namespace DCC_NAMESPACE {

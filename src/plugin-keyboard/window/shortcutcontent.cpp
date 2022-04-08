@@ -24,7 +24,7 @@
  */
 
 #include "shortcutcontent.h"
-#include "shortcutmodel.h"
+#include "operation/shortcutmodel.h"
 #include "shortcutitem.h"
 
 #include <DTitlebar>

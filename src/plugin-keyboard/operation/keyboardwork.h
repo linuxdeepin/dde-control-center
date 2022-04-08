@@ -27,14 +27,14 @@
 #define KEYBOARDWORK_H
 
 #include "interface/namespace.h"
-#include "src/plugin-keyboard/window/indexmodel.h"
-#include "src/plugin-keyboard/window/shortcutmodel.h"
+#include "operation/metadata.h"
+#include "shortcutmodel.h"
 #include "keyboardmodel.h"
 #include "keyboarddbusproxy.h"
 
 #include <QObject>
-#include <QDBusPendingCallWatcher>
-#include <QDBusInterface>
+
+class QDBusPendingCallWatcher;
 
 namespace DCC_NAMESPACE {
 class KeyboardWorker : public QObject

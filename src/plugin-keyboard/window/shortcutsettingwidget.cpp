@@ -20,12 +20,12 @@
  */
 
 #include "shortcutsettingwidget.h"
-#include "src/plugin-keyboard/window/shortcutmodel.h"
-#include "src/plugin-keyboard/window/shortcutitem.h"
+#include "operation/shortcutmodel.h"
+#include "shortcutitem.h"
 #include "widgets/settingshead.h"
 #include "widgets/settingsheaderitem.h"
 #include "widgets/settingsgroup.h"
-#include "src/plugin-keyboard/window/searchinput.h"
+#include "searchinput.h"
 
 #include <DAnchors>
 #include <DSysInfo>

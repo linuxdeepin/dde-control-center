@@ -22,7 +22,7 @@
 #define SHORTCUTSETTINGWIDGET_H
 
 #include "interface/namespace.h"
-#include "src/plugin-keyboard/window/shortcutmodel.h"
+#include "operation/shortcutmodel.h"
 
 #include <DFloatingButton>
 

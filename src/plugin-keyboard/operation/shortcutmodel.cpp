@@ -24,7 +24,6 @@
  */
 
 #include "shortcutmodel.h"
-#include "shortcutitem.h"
 
 #include <DSysInfo>
 #include <QDBusInterface>
@@ -34,42 +33,51 @@
 #include <QJsonObject>
 #include <QJsonValue>
 #include <QThreadPool>
+#include <QApplication>
 
-static const QStringList systemFilter = {"terminal",
-                                         "terminal-quake",
-                                         "global-search",
-                                         "screenshot",
-                                         "screenshot-delayed",
-                                         "screenshot-fullscreen",
-                                         "screenshot-window",
-                                         "screenshot-scroll",
-                                         "screenshot-ocr",
-                                         "deepin-screen-recorder",
-                                         "switch-group",
-                                         "switch-group-backward",
-                                         "preview-workspace",
-                                         "expose-windows",
-                                         "expose-all-windows",
-                                         "launcher",
-                                         "switch-applications",
-                                         "switch-applications-backward",
-                                         "show-desktop",
-                                         "file-manager",
-                                         "lock-screen",
-                                         "logout",
-                                         "wm-switcher",
-                                         "system-monitor",
-                                         "color-picker",
-                                         "clipboard"};
+QStringList systemFilter = {"terminal",
+                            "terminal-quake",
+                            "global-search",
+                            "screenshot",
+                            "screenshot-delayed",
+                            "screenshot-fullscreen",
+                            "screenshot-window",
+                            "screenshot-scroll",
+                            "screenshot-ocr",
+                            "deepin-screen-recorder",
+                            "switch-group",
+                            "switch-group-backward",
+                            "preview-workspace",
+                            "expose-windows",
+                            "expose-all-windows",
+                            "launcher",
+                            "switch-applications",
+                            "switch-applications-backward",
+                            "show-desktop",
+                            "file-manager",
+                            "lock-screen",
+                            "logout",
+                            "wm-switcher",
+                            "system-monitor",
+                            "color-picker",
+                            "clipboard"};
 
-static QStringList windowFilter = {"maximize", "unmaximize", "minimize", "begin-move", "begin-resize", "close"};
+const QStringList &windowFilter = {"maximize",
+                                   "unmaximize",
+                                   "minimize",
+                                   "begin-move",
+                                   "begin-resize",
+                                   "close"};
 
-static QStringList workspaceFilter = {"switch-to-workspace-left",
-                               "switch-to-workspace-right",
-                               "move-to-workspace-left",
-                               "move-to-workspace-right"};
+const QStringList &workspaceFilter = {"switch-to-workspace-left",
+                                      "switch-to-workspace-right",
+                                      "move-to-workspace-left",
+                                      "move-to-workspace-right"};
 
-static QStringList assistiveToolsFilter = {"ai-assistant", "text-to-speech", "speech-to-text", "translation"};
+const QStringList &assistiveToolsFilter = {"ai-assistant",
+                                           "text-to-speech",
+                                           "speech-to-text",
+                                           "translation"};
 
 DCC_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -77,34 +85,8 @@ ShortcutModel::ShortcutModel(QObject *parent)
     : QObject(parent)
     , m_windowSwitchState(false)
 {
-    if (/*m_dis.monitorList().size() > 1*/ true) {
-        static const QStringList systemFilter = {"terminal",
-                                                 "terminal-quake",
-                                                 "screenshot",
-                                                 "screenshot-delayed",
-                                                 "screenshot-fullscreen",
-                                                 "screenshot-window",
-                                                 "screenshot-scroll",
-                                                 "screenshot-ocr",
-                                                 "deepin-screen-recorder",
-                                                 "switch-group",
-                                                 "switch-group-backward",
-                                                 "preview-workspace",
-                                                 "expose-windows",
-                                                 "expose-all-windows",
-                                                 "launcher",
-                                                 "switch-applications",
-                                                 "switch-applications-backward",
-                                                 "show-desktop",
-                                                 "file-manager",
-                                                 "lock-screen",
-                                                 "logout",
-                                                 "wm-switcher",
-                                                 "system-monitor",
-                                                 "color-picker",
-                                                 "clipboard",
-                                                 "switch-monitors"
-                                                };
+    if (qApp->screens().count() > 1) {
+        systemFilter.append("switch-monitors");
     }
 }
 

@@ -24,8 +24,6 @@
  */
 
 #include "keyboardwork.h"
-#include "src/plugin-keyboard/window/shortcutitem.h"
-#include "keyboardmodel.h"
 
 #include <QTimer>
 #include <QDebug>
@@ -36,9 +34,19 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <QDBusInterface>
+#include <QDBusPendingCallWatcher>
 
 DCC_USE_NAMESPACE
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2);
+
+const QMap<QString, QString> &ModelKeycode = {{"minus", "-"}, {"equal", "="}, {"backslash", "\\"}, {"question", "?/"}, {"exclam", "1"}, {"numbersign", "3"},
+    {"semicolon", ";"}, {"apostrophe", "'"}, {"less", ",<"}, {"period", ">."}, {"slash", "?/"}, {"parenleft", "9"}, {"bracketleft", "["},
+    {"parenright", "0"}, {"bracketright", "]"}, {"quotedbl", "'"}, {"space", " "}, {"dollar", "$"}, {"plus", "+"}, {"asterisk", "*"},
+    {"underscore", "_"}, {"bar", "|"}, {"grave", "`"}, {"at", "2"}, {"percent", "5"}, {"greater", ">."}, {"asciicircum", "6"},
+    {"braceleft", "["}, {"colon", ":"}, {"comma", ",<"}, {"asciitilde", "~"}, {"ampersand", "7"}, {"braceright", "]"}, {"Escape", "Esc"}
+};
+
 
 KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
     : QObject(parent)

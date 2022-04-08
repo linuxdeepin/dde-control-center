@@ -24,7 +24,6 @@
 #include "interface/namespace.h"
 #include "widgets/buttontuple.h"
 #include "src/plugin-keyboard/window/searchinput.h"
-#include "src/plugin-keyboard/window/indexmodel.h"
 
 #include <DGraphicsClipEffect>
 #include <DListView>

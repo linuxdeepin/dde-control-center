@@ -28,11 +28,11 @@
 #include "systemlanguagewidget.h"
 #include "systemlanguagesettingwidget.h"
 #include "widgets/settingshead.h"
-#include "src/plugin-keyboard/operation/keyboardwork.h"
-#include "src/plugin-keyboard/operation/keyboardmodel.h"
-#include "src/plugin-keyboard/window/shortcutmodel.h"
-#include "src/plugin-keyboard/window/customedit.h"
-#include "src/plugin-keyboard/window/shortcutcontent.h"
+#include "operation/keyboardwork.h"
+#include "operation/keyboardmodel.h"
+#include "operation/shortcutmodel.h"
+#include "customedit.h"
+#include "shortcutcontent.h"
 
 #include <DFloatingButton>
 

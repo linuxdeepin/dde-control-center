@@ -20,10 +20,10 @@
  */
 
 #include "customcontentdialog.h"
-#include "src/plugin-keyboard/operation/keyboardwork.h"
-#include "src/plugin-keyboard/window/shortcutmodel.h"
-#include "src/plugin-keyboard/operation/keyboardmodel.h"
-#include "src/plugin-keyboard/window/customitem.h"
+#include "operation/keyboardwork.h"
+#include "operation/shortcutmodel.h"
+#include "operation/keyboardmodel.h"
+#include "customitem.h"
 #include "widgets/buttontuple.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/settingsgroup.h"
@@ -32,6 +32,7 @@
 
 #include <DLineEdit>
 #include <DTitlebar>
+#include <DFontSizeManager>
 
 #include <QMap>
 #include <QHBoxLayout>

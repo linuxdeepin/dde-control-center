@@ -642,6 +642,7 @@ set(KeyBoard_Includes
     Qt5::Widgets
     Qt5::DBus
     Qt5::Concurrent
+    src/plugin-keyboard
 )
 set(KeyBoard_Libraries
     ${Dcc_Widgets_Name}

@@ -35,7 +35,6 @@
 DWIDGET_USE_NAMESPACE
 namespace DCC_NAMESPACE {
 class KeyboardModel;
-class MetaData;
 class SearchInput;
 class ComboxWidget;
 
