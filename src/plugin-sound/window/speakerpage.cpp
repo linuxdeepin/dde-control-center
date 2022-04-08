@@ -300,7 +300,7 @@ void SpeakerPage::initSlider()
     m_volumeBtn->setFixedSize(ICON_SIZE, ICON_SIZE);
     m_volumeBtn->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
     //从DStyle 中获取标准图标
-    auto icon_high = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeHighElement);
+    auto icon_high = DStyle::standardIcon(style(), DStyle::SP_MediaVolumeHighElement);
     m_outputSlider->setRightIcon(icon_high);
     m_outputSlider->setIconSize(QSize(24, 24));
 
@@ -440,9 +440,9 @@ void SpeakerPage::initCombox()
 void SpeakerPage::refreshIcon()
 {
     if (m_mute) {
-        m_volumeBtn->setIcon(qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeMutedElement));
+        m_volumeBtn->setIcon(DStyle::standardIcon(style(), DStyle::SP_MediaVolumeMutedElement));
     } else {
-        m_volumeBtn->setIcon(qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLowElement));
+        m_volumeBtn->setIcon(DStyle::standardIcon(style(), DStyle::SP_MediaVolumeLowElement));
     }
 }
 

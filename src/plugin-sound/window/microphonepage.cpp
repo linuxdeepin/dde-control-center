@@ -298,7 +298,7 @@ void MicrophonePage::initSlider()
     slider->setRange(0, 100);
     slider->setType(DCCSlider::Vernier);
     slider->setTickPosition(QSlider::NoTicks);
-    auto icon_high = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeHighElement);
+    auto icon_high = DStyle::standardIcon(style(), DStyle::SP_MediaVolumeHighElement);
     slider->setRightIcon(icon_high);
     slider->setIconSize(QSize(24, 24));
     slider->setTickInterval(1);
@@ -384,9 +384,9 @@ void MicrophonePage::initCombox()
 void MicrophonePage::refreshIcon()
 {
     if (m_mute) {
-        m_volumeBtn->setIcon(qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeMutedElement));
+        m_volumeBtn->setIcon(DStyle::standardIcon(style(), DStyle::SP_MediaVolumeMutedElement));
     } else {
-        m_volumeBtn->setIcon(qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLowElement));
+        m_volumeBtn->setIcon(DStyle::standardIcon(style(), DStyle::SP_MediaVolumeLowElement));
     }
 }
 

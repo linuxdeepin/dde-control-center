@@ -166,7 +166,7 @@ void SoundEffectsPage::initList()
             }
             auto action = items->actionList(Qt::Edge::RightEdge)[1];
             auto checkstatus = enable ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
-            auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
+            auto icon = DStyle::standardIcon(style(), checkstatus);
             action->setIcon(icon);
             m_effectList->update(items->index());
             break;
@@ -181,7 +181,7 @@ void SoundEffectsPage::initList()
             item->setFontSize(DFontSizeManager::T8);
             auto action = new DViewItemAction(Qt::AlignVCenter, size, size, true);
             auto checkstatus = m_model->queryEffectData(se.second) ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
-            auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
+            auto icon = DStyle::standardIcon(style(), checkstatus);
             action->setIcon(icon);
             auto aniAction = new DViewItemAction(Qt::AlignVCenter, size, size);
             aniAction->setVisible(false);
