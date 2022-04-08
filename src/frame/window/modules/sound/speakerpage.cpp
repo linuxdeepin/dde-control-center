@@ -264,6 +264,9 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
             // 若端口可用 且没有添加
             if (isEnable && (index == -1) && pi) {
                 m_outputModel->appendRow(pi);
+                if (port == m_currentPort) {
+                    refreshActivePortShow(m_currentPort);
+                }
                 showDevice();
             }
 
