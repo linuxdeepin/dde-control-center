@@ -606,6 +606,11 @@ void DisplayModule::initSearchData()
         func_brightnessEnable_changed();
     });
 
+    // 在多个屏幕选择仅单屏显示时，切换单屏不触发displayModeChanged，故增加判断主屏变换信号
+    connect(m_displayModel, &DisplayModel::primaryScreenChanged, this, [ = ] {
+        func_brightnessEnable_changed();
+    });
+
     func_process_all();
 }
 
