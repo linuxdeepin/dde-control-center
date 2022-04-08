@@ -133,6 +133,17 @@ bool SwitchWidget::checked() const
     return m_switchBtn->isChecked();
 }
 
+void SwitchWidget::setLeftWidget(QWidget *widget)
+{
+    if (!widget)
+        return;
+    QLayout *lableLayout = m_mainLayout->itemAt(0)->layout();
+    lableLayout->removeWidget(m_leftWidget);
+    m_leftWidget->deleteLater();
+    m_leftWidget = widget;
+    lableLayout->addWidget(m_leftWidget);
+}
+
 void SwitchWidget::mouseReleaseEvent(QMouseEvent *event)
 {
     if (!m_switchBtn->geometry().contains(event->pos())) {

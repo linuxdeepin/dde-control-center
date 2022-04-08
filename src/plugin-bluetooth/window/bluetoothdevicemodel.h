@@ -71,7 +71,6 @@ private:
     bool m_paired;
     QList<ItemAction *> m_allData;
     QList<ItemAction *> m_data;
-    QMap<const BluetoothDevice *, Dtk::Widget::DViewItemActionList> m_mapActionlist;
     const BluetoothAdapter *m_adapter;
     QWidget *m_parent;
     bool m_showAnonymous;

@@ -69,6 +69,7 @@ public:
     void setTitle(const QString &title);
     bool checked() const;
 
+    void setLeftWidget(QWidget *widget);
     QWidget *leftWidget() const { return m_leftWidget; }
     QHBoxLayout* getMainLayout() { return m_mainLayout; }
 
