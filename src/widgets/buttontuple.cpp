@@ -38,7 +38,7 @@ DCC_USE_NAMESPACE
 ButtonTuple::ButtonTuple(ButtonType type, QWidget *parent)
     : QWidget(parent)
     , m_leftButton(new QPushButton(this))
-    , m_rightButton(new QPushButton(this))
+    , m_rightButton(nullptr)
 {
     setAccessibleName("ButtonTuple");
     initUI();
@@ -47,8 +47,12 @@ ButtonTuple::ButtonTuple(ButtonType type, QWidget *parent)
 
 void ButtonTuple::setButtonType(const ButtonType type)
 {
-    if (m_rightButton)
+    if (m_rightButton) {
+        layout()->removeWidget(m_rightButton);
+        m_rightButton->setVisible(false);
+        m_rightButton->setParent(nullptr);
         m_rightButton->deleteLater();
+    }
     switch (type) {
     case Save:
         m_rightButton = new DSuggestButton(this);
@@ -93,7 +97,7 @@ void ButtonTuple::initUI()
     layout->setSpacing(0);
     layout->addWidget(m_leftButton);
     layout->addSpacing(10);
-    layout->addWidget(m_rightButton);
+    // m_rightButton在setButtonType中初始化
     setLayout(layout);
 
     connect(m_leftButton, &QPushButton::clicked, this, &ButtonTuple::leftButtonClicked);
