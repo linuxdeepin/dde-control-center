@@ -125,6 +125,23 @@ AccessPoints *TrayIcon::getStrongestAp()
     return maxAps;
 }
 
+AccessPoints *TrayIcon::getConnectedAp() const
+{
+    AccessPoints *connectedAp = nullptr;
+    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
+    for (NetworkDeviceBase *device : devices) {
+        if (device->deviceType() != DeviceType::Wireless)
+            continue;
+
+        WirelessDevice *dev = static_cast<WirelessDevice *>(device);
+        AccessPoints *ap = dev->activeAccessPoints();
+        if (ap && ap->connected() && (!connectedAp || connectedAp->strength() < ap->strength()))
+            connectedAp = ap;
+    }
+
+    return connectedAp;
+}
+
 bool TrayIcon::isDarkIcon() const
 {
     // 如果是登陆或者锁屏界面，始终显示白色图标
@@ -177,7 +194,7 @@ void TrayIcon::refreshIcon()
         } else {
             iconString = QString("wireless-%1-symbolic").arg(stateString);
         }
-        }
+    }
         break;
     case PluginState::WiredConnected:
         stateString = "online";
@@ -240,8 +257,20 @@ void TrayIcon::refreshIcon()
     case PluginState::ConnectNoInternet:
     case PluginState::WirelessConnectNoInternet: {
         // 无线已连接但无法访问互联网 offline
+        bool isWlan6 = false;
+        AccessPoints *connectedAp = getConnectedAp();
+        if (connectedAp) {
+            strength = connectedAp->strength();
+            isWlan6 = (connectedAp->type() == AccessPoints::WlanType::wlan6);
+        }
+
         stateString = "offline";
-        iconString = QString("network-wireless-%1-symbolic").arg(stateString);
+        if (isWlan6) {
+            localPath = QString(":/wireless6/resources/wireless6/");
+            iconString = QString("wireless6-%1-symbolic").arg(stateString);
+        } else {
+            iconString = QString("network-wireless-%1-symbolic").arg(stateString);
+        }
         break;
     }
     case PluginState::WiredConnectNoInternet: {

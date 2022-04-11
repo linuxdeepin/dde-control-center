@@ -60,5 +60,9 @@
         <file>resources/wireless6/wireless6-60-symbolic.svg</file>
         <file>resources/wireless6/wireless6-80-symbolic-dark.svg</file>
         <file>resources/wireless6/wireless6-80-symbolic.svg</file>
+        <file>resources/wireless6/wireless6-offline-symbolic.svg</file>
+        <file>resources/wireless6/wireless6-offline-symbolic-dark.svg</file>
+        <file>resources/wireless6/wireless6-warning-symbolic.svg</file>
+        <file>resources/wireless6/wireless6-warning-symbolic-dark.svg</file>
     </qresource>
 </RCC>

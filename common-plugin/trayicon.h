@@ -59,6 +59,7 @@ protected:
     void resizeEvent(QResizeEvent *e);
     QString getStrengthStateString(int strength) const;
     AccessPoints *getStrongestAp();
+    AccessPoints *getConnectedAp() const;
     bool isDarkIcon() const;
 
 public Q_SLOTS:
