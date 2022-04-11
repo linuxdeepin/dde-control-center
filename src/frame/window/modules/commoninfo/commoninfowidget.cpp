@@ -106,8 +106,14 @@ void CommonInfoWidget::initData()
     //以下模块只在非服务器版本使用
     if (!IsServerSystem && !IsCommunitySystem) {
         if (DSysInfo::uosEditionType() != DSysInfo::UosEuler || DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC) {
-            m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
-                               QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget), nullptr, "developerMode"});
+            if (!DisableDeveloperMode) {
+                m_itemList.append({ "dcc_developer_mode",
+                                    tr("Developer Mode"),
+                                    QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget),
+                                    nullptr,
+                                    "developerMode"
+                                  });
+            }
         }
         m_itemList.append({"dcc_ue_plan", tr("User Experience Program"),
                            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget), nullptr, "userExperienceProgram"});

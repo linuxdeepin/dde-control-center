@@ -70,7 +70,13 @@ const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//�
 const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
 const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition); // 是否是教育版
 const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
-
+const bool DisableDeveloperMode = {
+#ifdef DISABLE_DEVELOPER_MODE
+  true
+#else
+  false
+#endif
+};
 const QMap<uint32_t, QString> WaylandkeyMap = { {Qt::Key_A, "A"}, {Qt::Key_B, "B"}, {Qt::Key_C, "C"}, {Qt::Key_D, "D"}, {Qt::Key_E, "E"},
     {Qt::Key_F, "F"}, {Qt::Key_G, "G"}, {Qt::Key_H, "H"}, {Qt::Key_I, "I"}, {Qt::Key_J, "J"}, {Qt::Key_K, "K"}, {Qt::Key_L, "L"}, {Qt::Key_M, "M"},
     {Qt::Key_N, "N"}, {Qt::Key_O, "O"}, {Qt::Key_P, "P"}, {Qt::Key_Q, "Q"}, {Qt::Key_R, "R"}, {Qt::Key_S, "S"}, {Qt::Key_T, "T"}, {Qt::Key_U, "U"},
