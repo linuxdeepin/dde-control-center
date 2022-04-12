@@ -100,6 +100,7 @@ Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);
     void requestBack(DCC_NAMESPACE::accounts::AccountsWidget::ActionOption option = DCC_NAMESPACE::accounts::AccountsWidget::ClickCancel);
     void requestSetPasswordHint(dcc::accounts::User *, const QString &);
+    void requestCheckPwdLimitLevel();
 
 public Q_SLOTS:
     void setCreationResult(dcc::accounts::CreationResult *result);

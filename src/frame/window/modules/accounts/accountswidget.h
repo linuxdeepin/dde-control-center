@@ -83,6 +83,7 @@ public Q_SLOTS:
     void removeUser(dcc::accounts::User *user);
     void onItemClicked(const QModelIndex &index);
     void onFullNameEnableChanged(const QString &key);
+    void onShowSafetyPage(const QString &errorTips);
 
 Q_SIGNALS:
     void requestShowAccountsDetail(dcc::accounts::User *account);

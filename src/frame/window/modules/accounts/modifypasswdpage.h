@@ -93,6 +93,7 @@ Q_SIGNALS:
     void requestLocalBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid);
     void requestStartResetPasswordExec(dcc::accounts::User *user);
     void requestSecurityQuestionsCheck(dcc::accounts::User *user);
+    void requestCheckPwdLimitLevel();
 
 public Q_SLOTS:
     void onLocalBindCheckUbid(const QString &ubid);

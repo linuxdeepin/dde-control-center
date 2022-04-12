@@ -85,6 +85,7 @@ Q_SIGNALS:
     void requestMainWindowEnabled(const bool isEnabled) const;
     void localBindUbid(const QString &ubid);
     void localBindError(const QString &error);
+    void showSafeyPage(const QString &errorTips);
 
 public Q_SLOTS:
     void randomUserIcon(User *user);
@@ -119,6 +120,7 @@ public Q_SLOTS:
 
     bool hasOpenSecurity();
     SecurityLever getSecUserLeverbyname(QString userName);
+    void checkPwdLimitLevel();
 private Q_SLOTS:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> &paths);
     void getAllGroups();

@@ -112,6 +112,7 @@ void AccountsModule::active()
     });
     connect(m_accountsWidget, &AccountsWidget::requestLoadUserList, m_accountsWorker, &AccountsWorker::loadUserList);
     connect(m_accountsWidget, &AccountsWidget::requestUpdatGroupList, m_accountsWorker, &AccountsWorker::updateGroupinfo);
+    connect(m_accountsWorker, &AccountsWorker::showSafeyPage, m_accountsWidget, &AccountsWidget::onShowSafetyPage);
     m_frameProxy->pushWidget(this, m_accountsWidget);
     m_accountsWidget->setVisible(true);
     m_accountsWidget->showDefaultAccountInfo();
@@ -223,6 +224,7 @@ void AccountsModule::onShowCreateAccountPage()
     User *newUser = new User(this);
     w->setModel(m_userModel, newUser);
     connect(w, &CreateAccountPage::requestCreateUser, m_accountsWorker, &AccountsWorker::createAccount);
+    connect(w, &CreateAccountPage::requestCheckPwdLimitLevel, m_accountsWorker, &AccountsWorker::checkPwdLimitLevel);
     connect(m_accountsWorker, &AccountsWorker::accountCreationFinished, w, &CreateAccountPage::setCreationResult);
     connect(w, &CreateAccountPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
     m_frameProxy->pushWidget(this, w);
@@ -341,6 +343,7 @@ void AccountsModule::onShowPasswordPage(User *account)
     connect(w, &ModifyPasswdPage::requestLocalBindCheck, m_accountsWorker, &AccountsWorker::localBindCheck);
     connect(w, &ModifyPasswdPage::requestStartResetPasswordExec, m_accountsWorker, &AccountsWorker::startResetPasswordExec);
     connect(w, &ModifyPasswdPage::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::asyncSecurityQuestionsCheck);
+    connect(w, &ModifyPasswdPage::requestCheckPwdLimitLevel, m_accountsWorker, &AccountsWorker::checkPwdLimitLevel);
     connect(m_accountsWorker, &AccountsWorker::localBindUbid, w, &ModifyPasswdPage::onLocalBindCheckUbid);
     connect(m_accountsWorker, &AccountsWorker::localBindError, w, &ModifyPasswdPage::onLocalBindCheckError);
 

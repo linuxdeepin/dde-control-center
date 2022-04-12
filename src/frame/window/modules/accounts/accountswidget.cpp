@@ -44,6 +44,8 @@
 #include <QPainterPath>
 #include <QScroller>
 #include <QScrollBar>
+#include <DDBusSender>
+#include <DDialog>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -412,4 +414,25 @@ void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)
 void AccountsWidget::setShowDefaultAccountInfo(bool showDefaultAccountInfo)
 {
     m_showDefaultAccountInfo = showDefaultAccountInfo;
+}
+
+void AccountsWidget::onShowSafetyPage(const QString &errorTips)
+{
+    DDialog dlg("", errorTips, this);
+    dlg.setIcon(QIcon::fromTheme("preferences-system"));
+    dlg.addButton(tr("Go to Settings"));
+    dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
+    connect(&dlg, &DDialog::buttonClicked, this, [=](int idx) {
+        if (idx == 0) {
+            DDBusSender()
+                .service("com.deepin.defender.hmiscreen")
+                .interface("com.deepin.defender.hmiscreen")
+                .path("/com/deepin/defender/hmiscreen")
+                .method(QString("ShowPage"))
+                .arg(QString("securitytools"))
+                .arg(QString("login-safety"))
+                .call();
+        }
+    });
+    dlg.exec();
 }

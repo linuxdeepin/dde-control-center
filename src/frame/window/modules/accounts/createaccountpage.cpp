@@ -399,34 +399,7 @@ void CreateAccountPage::createUser()
 
     if (check) {
         if (needShowSafetyPage) {
-            QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
-                                         QStringLiteral("/com/deepin/defender/daemonservice"),
-                                         QStringLiteral("com.deepin.defender.daemonservice"));
-            if (!interface.isValid()) {
-                return;
-            }
-
-            QDBusReply<int> level = interface.call("GetPwdLimitLevel");
-            if (level != PwdLimitLowestLevel) {
-                QDBusReply<QString> errorTips = interface.call("GetPwdError");
-                DDialog dlg("", errorTips, this);
-                dlg.setIcon(QIcon::fromTheme("preferences-system"));
-                dlg.addButton(tr("Go to Settings"));
-                dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
-                connect(&dlg, &DDialog::buttonClicked, this, [ = ](int idx) {
-                    if (idx == 0) {
-                        DDBusSender()
-                        .service("com.deepin.defender.hmiscreen")
-                        .interface("com.deepin.defender.hmiscreen")
-                        .path("/com/deepin/defender/hmiscreen")
-                        .method(QString("ShowPage"))
-                        .arg(QString("securitytools"))
-                        .arg(QString("login-safety"))
-                        .call();
-                    }
-                });
-                dlg.exec();
-            }
+            Q_EMIT requestCheckPwdLimitLevel();
         }
         return;
     }

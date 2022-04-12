@@ -890,3 +890,19 @@ BindCheckResult AccountsWorker::checkLocalBind(const QString &uosid, const QStri
     }
     return result;
 }
+
+void AccountsWorker::checkPwdLimitLevel()
+{
+    // 密码校验失败并且安全中心密码安全等级不为低，弹出跳转到安全中心的对话框，低、中、高等级分别对应的值为1、2、3
+    QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
+                             QStringLiteral("/com/deepin/defender/daemonservice"),
+                             QStringLiteral("com.deepin.defender.daemonservice"));
+    if (!interface.isValid()) {
+        return;
+    }
+    QDBusReply<int> level = interface.call("GetPwdLimitLevel");
+    if (level.error().type() == QDBusError::NoError && level != 1) {
+        QDBusReply<QString> errorTips = interface.call("GetPwdError");
+        Q_EMIT showSafeyPage(errorTips);
+    }
+}
