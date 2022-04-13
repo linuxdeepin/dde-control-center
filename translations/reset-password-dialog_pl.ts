@@ -85,7 +85,7 @@
     <message>
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="79"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>Hasło może zawierać tylko angielskie litery (z uwzględnieniem wielkości liter), cyfry lub symbole specjalne  (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+        <translation>Hasło musi zawierać tylko litery angielskie (z rozróżnieniem wielkich i małych), cyfry lub symbole specjalne (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="80"/>
@@ -194,7 +194,7 @@
         <translation>Potwierdź i Uruchom ponownie</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="259"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Hasło zostało zresetowane pomyślnie, proszę zaloguj się przy użyciu nowego hasła. </translation>
     </message>

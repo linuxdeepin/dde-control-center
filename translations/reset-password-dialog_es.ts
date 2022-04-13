@@ -143,7 +143,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="109"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
-        <translation type="unfinished"/>
+        <translation>Restablecer la contraseña borrará los datos almacenados en el llavero.</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="111"/>
@@ -194,7 +194,7 @@
         <translation>Confirmar y restaurar</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="259"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Reinicio exitoso, por favor inicie sesión y desbloquee con la nueva contraseña</translation>
     </message>

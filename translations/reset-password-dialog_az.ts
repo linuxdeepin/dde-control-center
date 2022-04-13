@@ -194,7 +194,7 @@
         <translation>Təsdiqlətyin və sıfırlayın</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="259"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Uğurla dəyişdirildi, yeni şifrə ilə yenidən daxil olun və ya kiliddən çıxarın</translation>
     </message>

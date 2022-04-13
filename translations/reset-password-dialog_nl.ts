@@ -194,7 +194,7 @@
         <translation>Bevestigen en herstellen</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="259"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Het herstellen is voltooid - meld af en weer aan met het nieuwe wachtwoord</translation>
     </message>

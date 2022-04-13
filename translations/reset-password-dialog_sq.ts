@@ -194,7 +194,7 @@
         <translation>Ripohojeni dhe Kryeni Ricaktimin</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="259"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>U ricaktua me sukses, ju lutemi, bëni hyrjen dhe shkyçeni me fjalëkalimin e ri</translation>
     </message>

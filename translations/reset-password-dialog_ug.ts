@@ -194,7 +194,7 @@
         <translation>قايتا بېكىتشىنى جەزملەش</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="259"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>پارول قايتا بېكىتىلدى، يېڭى پارولدا كىرىڭ</translation>
     </message>

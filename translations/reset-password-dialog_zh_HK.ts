@@ -194,7 +194,7 @@
         <translation>確認重置</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="259"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>重置密碼成功，請使用新密碼登錄/解鎖</translation>
     </message>

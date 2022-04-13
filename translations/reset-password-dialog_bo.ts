@@ -194,7 +194,7 @@
         <translation>བསྐྱར་སྒྲིག་བྱ་རྒྱུ་གཏན་ཁེལ།</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="259"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>གསང་ཨང་བསྐྱར་སྒྲིག་ཐུབ་སོང་། གསང་ཨང་གསར་པ་སྤྱད་ནས་ཐོ་འགོད་/ཟྭ་ཕྱེ་བ་གནང་དང་།</translation>
     </message>

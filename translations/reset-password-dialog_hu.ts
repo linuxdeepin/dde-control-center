@@ -194,7 +194,7 @@
         <translation>Megerősítés és Visszaállítás</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="259"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Sikeres visszaállítás, kérjük jelentkezzen be, és oldja fel az új jelszóval!</translation>
     </message>

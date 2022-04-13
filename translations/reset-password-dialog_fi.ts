@@ -194,7 +194,7 @@
         <translation>Vahvista ja nollaa</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="259"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Nollaus onnistui, kirjaudu sisään ja avaa lukitus uudella salasanalla</translation>
     </message>

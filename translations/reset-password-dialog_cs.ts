@@ -143,7 +143,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="109"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
-        <translation type="unfinished"/>
+        <translation>Resetování hesla vymaže údaje uložené v klíčence</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="111"/>
@@ -155,7 +155,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="120"/>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>Bezpečnostní otázky</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="155"/>
@@ -172,7 +172,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
         <source>Reset Password By Union ID</source>
-        <translation type="unfinished"/>
+        <translation>Resetovat heslo prostřednictvím Union ID</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="160"/>
@@ -194,7 +194,7 @@
         <translation>Potvrdit a resetovat</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="259"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Úspěšně vyresetováno, přihlaste se a odemkněte pomocí nového hesla</translation>
     </message>
@@ -211,42 +211,42 @@
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="131"/>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>Jaký je název města, ve kterém jste se narodili?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="132"/>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>Jaký je název první školy, kterou jste navštěvovali?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="133"/>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>Koho máte na světě nejraději?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="134"/>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>Jaké je vaše oblíbené zvíře?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="135"/>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>Jaká je vaše oblíbená skladba?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="136"/>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>Jaká je vaše přezdívka?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="186"/>
         <source>Wrong answer</source>
-        <translation type="unfinished"/>
+        <translation>Nesprávná odpověď</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="201"/>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>Odpověď může být nejvýše 30 znaků dlouhá</translation>
     </message>
 </context>
 <context>
@@ -266,7 +266,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="89"/>
         <source>Connecting to the Internet...</source>
-        <translation type="unfinished"/>
+        <translation>Připojování k Internetu…</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="101"/>
