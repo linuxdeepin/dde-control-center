@@ -100,7 +100,12 @@ ContentWidget::ContentWidget(QWidget *parent)
     centralLayout->setContentsMargins(0, 0, 0, 0);
     centralLayout->setSpacing(0);
 
-    connect(m_backBtn, &dcc::widgets::BackButton::clicked, this, &ContentWidget::back);
+    connect(m_backBtn, &dcc::widgets::BackButton::clicked, this, [this]{
+        if (this->parentWidget()) {
+            this->parentWidget()->setFocus();
+        }
+        Q_EMIT ContentWidget::back();
+    });
 
     setLayout(centralLayout);
     setObjectName("ContentWidget");

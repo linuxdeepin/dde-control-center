@@ -337,7 +337,6 @@ void KeyboardModule::showKBLayoutSetting()
 
     m_frameProxy->pushWidget(this, m_kbLayoutSettingWidget);
     m_kbLayoutSettingWidget->setVisible(true);
-    m_kbLayoutSettingWidget->setFocus();
 }
 
 void KeyboardModule::showSystemLanguageSetting()
@@ -385,15 +384,19 @@ void KeyboardModule::showShortCutSetting()
 
     m_frameProxy->pushWidget(this, m_shortcutSettingWidget);
     m_shortcutSettingWidget->setVisible(GSettingWatcher::instance()->getStatus("keyboardShortcut") != "Hidden");
-    m_shortcutSettingWidget->setFocus();
 }
 
 void KeyboardModule::onPushSystemLanguageSetting()
 {
-    m_systemLanguageSettingWidget = new SystemLanguageSettingWidget(m_model);
+    m_systemLanguageSettingWidget = new SystemLanguageSettingWidget(m_model, m_systemLanguageWidget);
     m_systemLanguageSettingWidget->setVisible(false);
     connect(m_systemLanguageSettingWidget, &SystemLanguageSettingWidget::click, this, &KeyboardModule::onAddLocale);
-    connect(m_systemLanguageSettingWidget, &SystemLanguageSettingWidget::back, this, &KeyboardModule::showSystemLanguageSetting);
+    connect(m_systemLanguageSettingWidget, &SystemLanguageSettingWidget::back, this, [this]{
+        if (m_systemLanguageSettingWidget->parentWidget()) {
+            m_systemLanguageSettingWidget->parentWidget()->setFocus();
+        }
+        Q_EMIT KeyboardModule::showSystemLanguageSetting();
+    });
     m_frameProxy->pushWidget(this, m_systemLanguageSettingWidget);
     m_systemLanguageSettingWidget->setVisible(true);
 }
@@ -414,12 +417,11 @@ void KeyboardModule::onPushCustomShortcut()
 
     m_frameProxy->pushWidget(this, m_customContent);
     m_customContent->setVisible(true);
-    m_customContent->setFocus();
 }
 
 void KeyboardModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
 {
-    m_scContent = new ShortcutContent(m_shortcutModel);
+    m_scContent = new ShortcutContent(m_shortcutModel, m_shortcutSettingWidget);
     m_scContent->setVisible(false);
 
     connect(m_scContent, &ShortcutContent::requestSaveShortcut, m_work, &KeyboardWorker::modifyShortcutEdit);
@@ -438,7 +440,7 @@ void KeyboardModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
 
 void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
 {
-    m_customEdit = new CustomEdit(m_shortcutModel);
+    m_customEdit = new CustomEdit(m_shortcutModel, m_shortcutSettingWidget);
     m_customEdit->setVisible(false);
     m_customEdit->setShortcut(info);
 

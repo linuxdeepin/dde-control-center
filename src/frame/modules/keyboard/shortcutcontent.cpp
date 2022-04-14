@@ -77,8 +77,16 @@ ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
 
     setContent(widget);
 
-    connect(ok, &QPushButton::clicked, this, &ShortcutContent::onReplace);
-    connect(cancel, &QPushButton::clicked, this, &ShortcutContent::back);
+    connect(ok, &QPushButton::clicked, this, [this]{
+        if (parentWidget())
+            this->parentWidget()->setFocus();
+        Q_EMIT onReplace();
+    });
+    connect(cancel, &QPushButton::clicked, this, [this]{
+        if (parentWidget())
+            this->parentWidget()->setFocus();
+        Q_EMIT back();
+    });
     connect(m_shortcutItem, &ShortcutItem::requestUpdateKey, this, &ShortcutContent::onUpdateKey);
     connect(model, &ShortcutModel::keyEvent, this, &ShortcutContent::keyEvent);
 }
