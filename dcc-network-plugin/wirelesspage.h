@@ -148,6 +148,8 @@ Q_SIGNALS:
 public Q_SLOTS:
     void onAirplaneModeChanged(bool airplaneModeEnabled);
 
+    void setIsAirplaneMode(bool isAirplaneMode);
+
 private Q_SLOTS:
     void onHotspotEnableChanged(const bool enabled);
     void onCloseHotspotClicked();
@@ -193,6 +195,8 @@ private:
     QMap<QString, APItem *> m_apItems;
     QString m_autoConnectHideSsid;
     QTimer *m_wirelessScanTimer;
+
+    bool m_isAirplaneMode;
 };
 
 Q_DECLARE_METATYPE(APSortInfo)

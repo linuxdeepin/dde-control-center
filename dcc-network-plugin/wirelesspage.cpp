@@ -309,6 +309,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         , m_sortDelayTimer(new QTimer(this))
         , m_autoConnectHideSsid("")
         , m_wirelessScanTimer(new QTimer(this))
+        , m_isAirplaneMode(false)
 {
     setAccessibleName("WirelessPage");
     qRegisterMetaType<APSortInfo>();
@@ -355,11 +356,11 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, & WirelessDevice::enableChanged, this, [ this ] (const bool enabled) {
         m_switch->blockSignals(true);
-        m_switch->setChecked(m_device->isEnabled());
+        m_switch->setChecked(m_device->isEnabled() && !m_isAirplaneMode);
         m_switch->blockSignals(false);
         if (m_lvAP) {
             onUpdateAPItem();
-            m_lvAP->setVisible(enabled && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hidden");
+            m_lvAP->setVisible(enabled && !m_isAirplaneMode && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hidden");
             updateLayout(!m_lvAP->isHidden());
         }
         if (!enabled)
@@ -514,8 +515,8 @@ void WirelessPage::onDeviceStatusChanged(const DeviceStatus &stat)
 
     WifiStatus curWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
     if (curWifiStatus != m_preWifiStatus && stat > DeviceStatus::Disconnected) {
-        m_switch->setChecked(!unavailable);
-        onNetworkAdapterChanged(!unavailable);
+        m_switch->setChecked(!unavailable && !m_isAirplaneMode);
+        onNetworkAdapterChanged(!unavailable && !m_isAirplaneMode);
         m_preWifiStatus = curWifiStatus;
     }
 
@@ -582,6 +583,7 @@ void WirelessPage::onUpdateAccessPointInfo(const QList<AccessPoints *> &changeAp
 void WirelessPage::onAirplaneModeChanged(bool airplaneModeEnabled)
 {
     setDisabled(airplaneModeEnabled);
+    setIsAirplaneMode(airplaneModeEnabled);
 }
 
 void WirelessPage::onUpdateAPItem()
@@ -657,6 +659,14 @@ void WirelessPage::appendConnectHidden()
     nonbc->setIsLastRow(true);
     connect(nonbc->action(), &QAction::triggered, this, &WirelessPage::showConnectHidePage);
     m_modelAP->appendRow(nonbc);
+}
+
+void WirelessPage::setIsAirplaneMode(bool isAirplaneMode)
+{
+    if(m_isAirplaneMode != isAirplaneMode){
+        m_switch->setChecked(m_device->isEnabled() && !isAirplaneMode);
+    }
+    m_isAirplaneMode = isAirplaneMode;
 }
 
 void WirelessPage::onHotspotEnableChanged(const bool enabled)

@@ -980,11 +980,16 @@ bool NetworkDelegate::switchIsEnabled(const QModelIndex &index) const
         }
         return false;
     }
-    case NetItemType::WiredControllViewItem:
-    case NetItemType::WirelessControllViewItem: {
+    case NetItemType::WiredControllViewItem:{
         NetworkDeviceBase *device = index.data(NetItemRole::DeviceDataRole).value<NetworkDeviceBase *>();
         if (device)
             return device->isEnabled();
+        break;
+    }
+    case NetItemType::WirelessControllViewItem: {
+        NetworkDeviceBase *device = index.data(NetItemRole::DeviceDataRole).value<NetworkDeviceBase *>();
+        if (device)
+            return device->isEnabled() && !m_airplaneMode->enabled();
         break;
     }
     default:
