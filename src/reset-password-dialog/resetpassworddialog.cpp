@@ -29,6 +29,7 @@
 #include <QScreen>
 #include <QDebug>
 #include <QCloseEvent>
+#include <QWindow>
 
 #include <DButtonBox>
 #include <DMessageManager>
@@ -168,15 +169,18 @@ void ResetPasswordDialog::initWidget(const QString &userName)
     m_tipDialog.setIcon(QIcon::fromTheme("dialog-warning"));
     auto isWayland = qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland");
     if (isWayland) {
+        m_tipDialog.windowHandle()->setProperty("_d_dwayland_window-type", "onScreenDisplay");
         m_tipDialog.setWindowFlags(Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+        create();
+        windowHandle()->setProperty("_d_dwayland_window-type", "onScreenDisplay");
+        setWindowFlags(Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
     } else {
         m_tipDialog.setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+        setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
     }
     m_tipDialog.installEventFilter(this);
     m_tipDialog.setFixedSize(380, 189);
     m_tipDialog.setOnButtonClickedClose(false);
-
-    setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
 }
 
 void ResetPasswordDialog::initData()
