@@ -472,15 +472,18 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //~ contents_path /accounts/Administrator
     m_asAdministrator->setTitle(tr("Administrator"));
     m_asAdministrator->setChecked(isSystemAdmin(m_curUser));
-    //开启等保3级后如果当前登陆的账户不是sysadm_u，则用户只能操作当前自己登陆用户的界面
-    if (m_userModel->getIsSecurityHighLever() && m_curLoginUser->securityLever() != SecurityLever::Sysadm && !isCurUser) {
-        validityDaysBox->setEnabled(false);
-        m_fullNameBtn->setEnabled(false);
-        m_deleteAccount->setEnabled(false);
-        m_modifyPassword->setEnabled(false);
-        m_autoLogin->switchButton()->setEnabled(false);
-        m_nopasswdLogin->switchButton()->setEnabled(false);
+    if (m_userModel->getIsSecurityHighLever()) {
         m_asAdministrator->setEnabled(false);
+
+        // 开启等保3级后如果当前登录的账户不是sysadm_u，则用户只能操作当前自己登录用户的界面
+        if (m_curLoginUser->securityLever() != SecurityLever::Sysadm && !isCurUser) {
+            validityDaysBox->setEnabled(false);
+            m_fullNameBtn->setEnabled(false);
+            m_deleteAccount->setEnabled(false);
+            m_modifyPassword->setEnabled(false);
+            m_autoLogin->switchButton()->setEnabled(false);
+            m_nopasswdLogin->switchButton()->setEnabled(false);
+        }
     }
     //修改密码状态判断
     connect(m_gsettings, &QGSettings::changed, this, &AccountsDetailWidget::setModifyPwdBtnStatus);
