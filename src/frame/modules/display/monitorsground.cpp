@@ -211,11 +211,11 @@ void MonitorsGround::onCurrentModeChanged()
           }
     }
 
-    executemultiScreenAlgo(false, false);
+   executemultiScreenAlgo(false);
 }
 
 
-void MonitorsGround::executemultiScreenAlgo(const bool isRebound, bool delay)
+void MonitorsGround::executemultiScreenAlgo(const bool isRebound)
 {
     if (m_isSingleDisplay)
         return;
@@ -236,18 +236,9 @@ void MonitorsGround::executemultiScreenAlgo(const bool isRebound, bool delay)
     onResize();
     updateConnectedState();
 
-    if (delay) {
-        //显示设置生效倒计时提示框
-        Q_EMIT setEffectiveReminderVisible(true, m_nEffectiveTime);
-        m_effectiveTimer->start();
-    } else {
-        for (auto mon : m_model->monitorList()) {
-            disconnect(mon, &Monitor::geometryChanged, this, &MonitorsGround::onGeometryChanged);
-        }
-
-        applySettings();
-        Q_EMIT requestMonitorRelease(m_monitors[m_movingItem]);
-    }
+    //显示设置生效倒计时提示框
+    Q_EMIT setEffectiveReminderVisible(true, m_nEffectiveTime);
+    m_effectiveTimer->start();
 }
 
 void MonitorsGround::onRequestMonitorRelease()

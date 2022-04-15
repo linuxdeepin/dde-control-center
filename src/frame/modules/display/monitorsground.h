@@ -79,7 +79,7 @@ private:
     void onResize();
     void resetMonitorsView();
     void centeredMonitorsView();
-    void executemultiScreenAlgo(const bool isRebound, bool delay = true);
+    void executemultiScreenAlgo(const bool isRebound);
 
     /*1050-5401*/
     QPointF multiScreenSortAlgo(bool &isRestore, const bool isRebound = true);//排序算法 返回值为计算之后需要移动的XY值
