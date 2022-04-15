@@ -258,6 +258,8 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
                 m_fullIndication->move(screen->geometry().topLeft());
                 m_fullIndication->setVisible(true);
                 QTimer::singleShot(1000, this, [=] { m_fullIndication->setVisible(false); });
+                m_brightnessSpacerItem->changeSize(0, monitor->canBrightness() ? 20 : 0);
+                m_brightnessWidget->setVisible(monitor->canBrightness());
                 break;
             }
         }
@@ -269,8 +271,9 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
         onGSettingsChanged("displayMultipleDisplays", GSettingWatcher::instance()->getStatus("displayMultipleDisplays"));
     });
     connect(m_model, &DisplayModel::brightnessEnableChanged, this, [=](const bool enable) {
-        m_brightnessSpacerItem->changeSize(0, enable ? 20 : 0);
-        m_brightnessWidget->setVisible(enable);
+        const bool visible = enable && m_model->primaryMonitor() && m_model->primaryMonitor()->canBrightness();
+        m_brightnessSpacerItem->changeSize(0, visible ? 20 : 0);
+        m_brightnessWidget->setVisible(visible);
     });
 
     connect(m_monitorControlWidget, &MonitorControlWidget::requestMonitorPress, this, &MultiScreenWidget::onMonitorPress);
@@ -313,8 +316,9 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
 
     m_brightnessWidget->setMode(m_model);
     m_brightnessWidget->showBrightness(m_model->displayMode() == MERGE_MODE ? nullptr : m_model->primaryMonitor());
-    m_brightnessWidget->setVisible(m_model->brightnessEnable());
-    m_brightnessSpacerItem->changeSize(0, m_model->brightnessEnable() ? 20 : 0);
+    const bool brightnessIsEnabled = m_model->brightnessEnable() && m_model->primaryMonitor() && m_model->primaryMonitor()->canBrightness();
+    m_brightnessWidget->setVisible(brightnessIsEnabled);
+    m_brightnessSpacerItem->changeSize(0, brightnessIsEnabled ? 20 : 0);
     m_scalingWidget->setModel(m_model);
     m_resolutionWidget->setModel(m_model, m_model->primaryMonitor());
     m_refreshRateWidget->setModel(m_model, m_model->primaryMonitor());

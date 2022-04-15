@@ -209,13 +209,14 @@ void DisplayModule::showSingleScreenWidget()
     BrightnessWidget *brightnessWidget = new BrightnessWidget(singleScreenWidget);
     brightnessWidget->setMode(m_displayModel);
     contentLayout->addWidget(brightnessWidget);
-    brightnessWidget->setVisible(m_displayModel->brightnessEnable());
+    const bool brightnessIsEnabled = m_displayModel->brightnessEnable() && m_displayModel->primaryMonitor() && m_displayModel->primaryMonitor()->canBrightness();
+    brightnessWidget->setVisible(brightnessIsEnabled);
     connect(brightnessWidget, &BrightnessWidget::requestSetColorTemperature, m_displayWorker, &DisplayWorker::setColorTemperature);
     connect(brightnessWidget, &BrightnessWidget::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
     connect(brightnessWidget, &BrightnessWidget::requestAmbientLightAdjustBrightness, m_displayWorker, &DisplayWorker::setAmbientLightAdjustBrightness);
     connect(brightnessWidget, &BrightnessWidget::requestSetMethodAdjustCCT, m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
 
-    QSpacerItem *scalingSpacerItem = new QSpacerItem(0, m_displayModel->brightnessEnable() ? 20 : 0);
+    QSpacerItem *scalingSpacerItem = new QSpacerItem(0, brightnessIsEnabled? 20 : 0);
     contentLayout->addSpacerItem(scalingSpacerItem);
 
     ScalingWidget *scalingWidget = new ScalingWidget(singleScreenWidget);
@@ -258,9 +259,10 @@ void DisplayModule::showSingleScreenWidget()
     singleScreenWidget->setLayout(contentLayout);
     m_displayWidget->setContent(singleScreenWidget);
 
-    connect(m_displayModel, &DisplayModel::brightnessEnableChanged, this, [brightnessWidget, scalingSpacerItem](const bool enable) {
-        scalingSpacerItem->changeSize(0, enable ? 20 : 0);
-        brightnessWidget->setVisible(enable);
+    connect(m_displayModel, &DisplayModel::brightnessEnableChanged, this, [brightnessWidget, scalingSpacerItem, this](const bool enable) {
+        const bool visible = enable && m_displayModel->primaryMonitor() && m_displayModel->primaryMonitor()->canBrightness();
+        scalingSpacerItem->changeSize(0, visible ? 20 : 0);
+        brightnessWidget->setVisible(visible);
     });
 }
 
