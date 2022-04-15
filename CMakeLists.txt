@@ -698,3 +698,42 @@ target_include_directories(${Sound_Name} PUBLIC
 target_link_libraries(${Sound_Name} PRIVATE
     ${Sound_Libraries}
 )
+
+#--------------------------plugin-authentication--------------------------
+set(Authentication_Name dcc-authentication-plugin)
+set(DAREADER_VIDEO libdareader.so)
+
+file(GLOB_RECURSE Authentication_SRCS
+    "src/plugin-authentication/window/*.cpp"
+    "src/plugin-authentication/operation/*.cpp"
+    "src/plugin-authentication/operation/qrc/authentication.qrc"
+)
+
+add_library(${Authentication_Name} MODULE
+    ${Authentication_SRCS}
+)
+
+set(Authentication_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    src/plugin-authentication/operation
+    src/plugin-authentication/window
+)
+set(Authentication_Libraries
+    ${Dcc_Widgets_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    ${Dcc_Widgets_Name}
+    ${DAREADER_VIDEO}
+)
+target_include_directories(${Authentication_Name} PUBLIC
+    ${Authentication_Includes}
+)
+
+target_link_libraries(${Authentication_Name} PRIVATE
+    ${Authentication_Libraries}
+)

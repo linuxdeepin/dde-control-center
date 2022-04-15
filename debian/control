@@ -10,6 +10,7 @@ Build-Depends:
  libdtkwidget-dev,
  libdtkcore5-bin,
  qtmultimedia5-dev,
+ libdareader-dev,
  libdeepin-pw-check-dev,
 Standards-Version: 4.5.0
 Homepage: https://github.com/linuxdeepin/dde-control-center
