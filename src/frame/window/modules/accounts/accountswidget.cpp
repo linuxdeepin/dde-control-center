@@ -169,6 +169,9 @@ void AccountsWidget::setShowFirstUserInfo(bool show)
 
 void AccountsWidget::addUser(User *user, bool t1)
 {
+    //过滤掉 用户名空的异常账户数据
+    if(user == nullptr || user->name().isEmpty())
+        return;
     //active
     m_userList << user;
     DStandardItem *item = new DStandardItem;

@@ -769,6 +769,10 @@ void AccountsDetailWidget::setModifyPwdBtnStatus(const QString &key)
 
 bool AccountsDetailWidget::isSystemAdmin(User *user)
 {
+    // 在关闭等保3级的时候如果有secadm为自动登陆情况下，用户可以自动登陆进来,导致找不到当前登陆用户，故这里需要判断下当前登陆用户是否为空
+    if(user == nullptr)
+        return false;
+
     // 本地管理员账户不一定是等保三级的管理员账户，要区分判断
     if (m_userModel->getIsSecurityHighLever())
         return user->securityLever() == SecurityLever::Sysadm;
