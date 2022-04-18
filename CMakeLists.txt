@@ -699,9 +699,11 @@ target_link_libraries(${Sound_Name} PRIVATE
     ${Sound_Libraries}
 )
 
+install(TARGETS ${Sound_Name} DESTINATION lib/dde-control-center/modules)
+
 #--------------------------plugin-authentication--------------------------
 set(Authentication_Name dcc-authentication-plugin)
-set(DAREADER_VIDEO libdareader.so)
+pkg_check_modules(DaReader dareader)
 
 file(GLOB_RECURSE Authentication_SRCS
     "src/plugin-authentication/window/*.cpp"
@@ -718,6 +720,7 @@ set(Authentication_Includes
     Qt5::Widgets
     Qt5::DBus
     Qt5::Concurrent
+    ${DaReader_INCLUDE_DIRS}
     src/plugin-authentication/operation
     src/plugin-authentication/window
 )
@@ -728,7 +731,7 @@ set(Authentication_Libraries
     Qt5::DBus
     Qt5::Concurrent
     ${Dcc_Widgets_Name}
-    ${DAREADER_VIDEO}
+    ${DaReader_LIBRARIES}
 )
 target_include_directories(${Authentication_Name} PUBLIC
     ${Authentication_Includes}
@@ -737,3 +740,5 @@ target_include_directories(${Authentication_Name} PUBLIC
 target_link_libraries(${Authentication_Name} PRIVATE
     ${Authentication_Libraries}
 )
+
+install(TARGETS ${Authentication_Name} DESTINATION lib/dde-control-center/modules)
