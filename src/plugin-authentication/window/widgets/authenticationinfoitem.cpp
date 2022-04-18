@@ -96,8 +96,8 @@ AuthenticationInfoItem::AuthenticationInfoItem(QWidget *parent)
     connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
         this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
         Q_UNUSED(themeType);
-        DApplicationHelper::instance()->resetPalette(this);
-        m_currentpa = DApplicationHelper::instance()->palette(this);
+        DPaletteHelper::instance()->resetPalette(this);
+        m_currentpa = DPaletteHelper::instance()->palette(this);
     });
 }
 
@@ -175,7 +175,7 @@ void AuthenticationInfoItem::showAlertMessage(const QString &errMsg)
 
 void AuthenticationInfoItem::enterEvent(QEvent *event)
 {
-    DPalette pa = DApplicationHelper::instance()->palette(this);
+    DPalette pa = DPaletteHelper::instance()->palette(this);
     DStyleHelper styleHelper;
     styleHelper = DStyleHelper(this->style());
 
@@ -185,7 +185,7 @@ void AuthenticationInfoItem::enterEvent(QEvent *event)
     }
     pa.setBrush(DPalette::Window, Qt::transparent);
     pa.setBrush(DPalette::ItemBackground, brush);
-    DApplicationHelper::instance()->setPalette(this, pa);
+    DPaletteHelper::instance()->setPalette(this, pa);
 
     if (m_editTitle->isVisible())
         m_editBtn->hide();
@@ -197,28 +197,28 @@ void AuthenticationInfoItem::enterEvent(QEvent *event)
 
 void AuthenticationInfoItem::leaveEvent(QEvent *event)
 {
-    DApplicationHelper::instance()->setPalette(this, m_currentpa);
+    DPaletteHelper::instance()->setPalette(this, m_currentpa);
     m_editBtn->hide();
     QFrame::leaveEvent(event);
 }
 
 AuthenticationLinkButtonItem::AuthenticationLinkButtonItem(QWidget *parent)
     : SettingsItem(parent)
-    , m_currentpa(DApplicationHelper::instance()->palette(this))
+    , m_currentpa(DPaletteHelper::instance()->palette(this))
 {
     setFixedHeight(36);
 
     connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
         this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
         Q_UNUSED(themeType);
-        DApplicationHelper::instance()->resetPalette(this);
-        m_currentpa = DApplicationHelper::instance()->palette(this);
+        DPaletteHelper::instance()->resetPalette(this);
+        m_currentpa = DPaletteHelper::instance()->palette(this);
     });
 }
 
 void AuthenticationLinkButtonItem::enterEvent(QEvent *event)
 {
-    DPalette pa = DApplicationHelper::instance()->palette(this);
+    DPalette pa = DPaletteHelper::instance()->palette(this);
     DStyleHelper styleHelper;
     styleHelper = DStyleHelper(this->style());
 
@@ -228,14 +228,14 @@ void AuthenticationLinkButtonItem::enterEvent(QEvent *event)
     }
     pa.setBrush(DPalette::Window, Qt::transparent);
     pa.setBrush(DPalette::ItemBackground, brush);
-    DApplicationHelper::instance()->setPalette(this, pa);
+    DPaletteHelper::instance()->setPalette(this, pa);
 
     QFrame::enterEvent(event);
 }
 
 void AuthenticationLinkButtonItem::leaveEvent(QEvent *event)
 {
-    DApplicationHelper::instance()->setPalette(this, m_currentpa);
+    DPaletteHelper::instance()->setPalette(this, m_currentpa);
     QFrame::leaveEvent(event);
 }
 

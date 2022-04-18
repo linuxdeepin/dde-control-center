@@ -73,7 +73,7 @@ void DisclaimersDialog::initWidget(DisclaimersObj state)
     scrollArea->setWidget(tipLabel);
     scrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);
     QPalette pa = scrollArea->palette();
-    pa.setColor(QPalette::Background, Qt::transparent);
+    pa.setColor(QPalette::Window, Qt::transparent);
     scrollArea->setPalette(pa);
 
     // 下方按钮

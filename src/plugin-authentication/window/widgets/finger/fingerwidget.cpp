@@ -204,7 +204,7 @@ void FingerWidget::addFingerButton(const QString &newFingerName)
 
     DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T7);
     QFontMetrics fontMetrics(font());
-    int nFontWidth = fontMetrics.width(strAddFinger);
+    int nFontWidth = fontMetrics.horizontalAdvance(strAddFinger);
     addBtn->setMinimumWidth(nFontWidth);
     connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestAddThumbs(m_currentUserName, newFingerName);

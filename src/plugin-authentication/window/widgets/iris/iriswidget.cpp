@@ -111,7 +111,7 @@ void IrisWidget::addIrisButton(const QString &newIrisName)
 
     DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T7);
     QFontMetrics fontMetrics(font());
-    int nFontWidth = fontMetrics.width(strAddIris);
+    int nFontWidth = fontMetrics.horizontalAdvance(strAddIris);
     addBtn->setMinimumWidth(nFontWidth);
     connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestAddIris(m_model->irisDriverName(), m_model->irisCharaType(), newIrisName);

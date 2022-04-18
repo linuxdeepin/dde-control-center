@@ -110,7 +110,7 @@ void FaceWidget::addFaceButton(const QString &newFaceName)
 
     DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T7);
     QFontMetrics fontMetrics(font());
-    int nFontWidth = fontMetrics.width(strAddFace);
+    int nFontWidth = fontMetrics.horizontalAdvance(strAddFace);
     addBtn->setMinimumWidth(nFontWidth);
     connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestAddFace(m_model->faceDriverName(), m_model->faceCharaType(), newFaceName);
