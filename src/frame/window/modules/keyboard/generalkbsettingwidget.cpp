@@ -41,8 +41,6 @@ using namespace dcc;
 using namespace dcc::keyboard;
 using namespace dcc::widgets;
 
-#define GSETTINGS_NUMLOCK_ENABLE "keyboardGeneralNumlockEnable"
-
 GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *parent)
     : dcc::ContentWidget(parent)
     , m_model(model)
@@ -149,6 +147,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_numLock->setChecked(m_model->numLock());
 
     GSettingWatcher::instance()->bind(GSETTINGS_NUMLOCK_ENABLE, m_numLock);
+    GSettingWatcher::instance()->bind(GSETTINGS_CAPPSLOCK_ENABLE, m_upper);
 }
 
 void GeneralKBSettingWidget::setDelayValue(uint value)

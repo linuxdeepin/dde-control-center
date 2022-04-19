@@ -224,6 +224,9 @@ void KeyboardModule::initSearchData()
         func_shortcuts_changed();
 
         func_syslanguage_changed();
+
+        m_frameProxy->setDetailVisible(module, general, tr("Numeric Keypad"), func_is_visible(GSETTINGS_NUMLOCK_ENABLE, false));
+        m_frameProxy->setDetailVisible(module, general, tr("Caps Lock Prompt"), func_is_visible(GSETTINGS_CAPPSLOCK_ENABLE, false));
     };
     //keyboardGeneral, keyboardLayout,keyboardLanguage,keyboardShortcuts
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
@@ -249,6 +252,10 @@ void KeyboardModule::initSearchData()
             func_syslanguage_changed();
         } else if ("keyboardShortcuts" == gsetting || "keyboardShortcut" == gsetting) {
             func_shortcuts_changed();
+        } else if(GSETTINGS_NUMLOCK_ENABLE == gsetting ){
+            m_frameProxy->setDetailVisible(module, general, tr("Numeric Keypad"),state != "Hidden");
+        } else if(GSETTINGS_CAPPSLOCK_ENABLE == gsetting){
+            m_frameProxy->setDetailVisible(module, general, tr("Caps Lock Prompt"),state != "Hidden");
         } else {
             qWarning() << " not contains the gsettings : " << gsetting << state;
             return;
