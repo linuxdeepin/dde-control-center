@@ -220,7 +220,7 @@ void SearchWidget::setModuleObject(ModuleObject *const module)
 
 void SearchWidget::refreshModel()
 {
-    for (auto data : m_searchData) {
+    for (auto &&data : m_searchData) {
         auto res = std::find_if(m_rootModule->childrens().cbegin(), m_rootModule->childrens().cend()
             , [data] (ModuleObject *child) ->bool {
             return child->moduleData()->DisplayName == data.Url.split('/').first();
@@ -265,11 +265,15 @@ void SearchWidget::addUrl(ModuleObject * module, const QString &prefix, QList<Mo
         return;
     }
     if (!tempStr.isEmpty()) {
-        m_searchData.insert(m_insertIndex++, SearchData(tempStr, convertUrl(tempStr), convertUrl(convertPinyin(tempStr)), moduleUrl));
+        auto &&data = SearchData(tempStr, convertUrl(tempStr), convertUrl(convertPinyin(tempStr)), moduleUrl);
+        if (!m_searchData.contains(data))
+            m_searchData.insert(m_insertIndex++, data);
     }
-    for (const QString &text : module->moduleData()->ContentText) {
+    for (auto &&text : module->moduleData()->ContentText) {
         tempStr = tempStr + '/' + text;
-        m_searchData.insert(m_insertIndex++, SearchData(tempStr, convertUrl(tempStr), convertUrl(convertPinyin(tempStr)), moduleUrl));
+        auto &&data = SearchData(tempStr, convertUrl(tempStr), convertUrl(convertPinyin(tempStr)), moduleUrl);
+        if (!m_searchData.contains(data))
+            m_searchData.insert(m_insertIndex++, data);
     }
 }
 
@@ -277,7 +281,7 @@ void SearchWidget::replaceUrl(ModuleObject *const module)
 {
     int urlIndex = -1;
     QString prefix;
-    for (auto data : m_searchData) {
+    for (auto &&data : m_searchData) {
         if (!data.ModuleUrl.contains(module))
             return;
         if (urlIndex < 0)
