@@ -78,6 +78,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     //~ contents_path /display/Auto Brightness
     m_autoLightMode->setTitle(tr("Auto Brightness"));
     m_autoLightMode->addBackground();
+    m_autoLightMode->setVisible(false);
     m_centralLayout->addWidget(m_autoLightMode);
 
     m_centralLayout->addSpacerItem(m_colorSpacerItem);
