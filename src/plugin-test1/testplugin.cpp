@@ -9,7 +9,7 @@
 
 QString Plugin::name() const
 {
-    return QStringLiteral("plugin1");
+    return QStringLiteral("plugin-test1");
 }
 
 ModuleObject* Plugin::module()
@@ -19,7 +19,7 @@ ModuleObject* Plugin::module()
     moduleRoot->setChildType(ModuleObject::ChildType::HList);
 
     //-----------正常树构建----------
-    for (int i = 1; i < 4; i++) {
+    for (int i = 1; i < 3; i++) {
         ModuleObject *module = new ModuleObject(QString("menu%1").arg(i), tr("菜单%1").arg(i), this);
         module->setChildType(ModuleObject::ChildType::Page);
 
@@ -59,7 +59,7 @@ ModuleObject* Plugin::module()
     lstModule2->appendChild(labelModule2);
 
     connect(module, &ButtonModule::onButtonClicked, module, [module] {
-        module->activeChild(0);
+        emit module->activeChild(0);
     });
 
     return moduleRoot;

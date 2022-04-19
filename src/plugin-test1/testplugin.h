@@ -2,10 +2,6 @@
 
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
-#include <qobject.h>
-#include <qobjectdefs.h>
-#include <qpushbutton.h>
-#include <qwidget.h>
 
 DCC_USE_NAMESPACE
 

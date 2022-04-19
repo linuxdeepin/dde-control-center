@@ -41,7 +41,9 @@ public:
 private:
     bool compareVersion(const QString &targetVersion, const QString &baseVersion);
     void initModules();
-    void initModule(ModuleObject *const module);
+    void initRootModule();
+    void initOtherModule();
+    ModuleObject *findModule(ModuleObject *module, const QString &name);
 
 private:
     ModuleObject                *m_rootModule;

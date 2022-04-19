@@ -254,37 +254,66 @@ if (UNITTEST)
         ${Test_Libraries}
     )
 endif()
-#--------------------------plugin-test--------------------------
+#--------------------------plugin-test1--------------------------
 if (UNITTEST)
-    set(Plugin_Test_Name plugin-test)
-    file(GLOB_RECURSE Plugin_Test_SRCS
-        "src/plugin-test/*.h"
-        "src/plugin-test/*.cpp"
+    set(Plugin_Test1_Name plugin-test1)
+    file(GLOB_RECURSE Plugin_Test1_SRCS
+        "src/plugin-test1/*.h"
+        "src/plugin-test1/*.cpp"
     )
 
-    add_library(${Plugin_Test_Name} MODULE
-        ${Plugin_Test_SRCS}
+    add_library(${Plugin_Test1_Name} MODULE
+        ${Plugin_Test1_SRCS}
     )
 
-    set(Plugin_Test_Includes
-        ${DtkWidget_INCLUDE_DIRS}
+    set(Plugin_Test1_Includes
         Qt5::Widgets
         Qt5::DBus
     )
-    set(Plugin_Test_Libraries
+    set(Plugin_Test1_Libraries
         ${Interface_Name}
-        ${DtkWidget_LIBRARIES}
         Qt5::Widgets
         Qt5::DBus
     )
-    target_include_directories(${Plugin_Test_Name} PUBLIC
-        ${Plugin_Test_Includes}
+    target_include_directories(${Plugin_Test1_Name} PUBLIC
+        ${Plugin_Test1_Includes}
     )
 
-    target_link_libraries(${Plugin_Test_Name} PRIVATE
-        ${Plugin_Test_Libraries}
+    target_link_libraries(${Plugin_Test1_Name} PRIVATE
+        ${Plugin_Test1_Libraries}
     )
 endif()
+
+#--------------------------plugin-test2--------------------------
+if (UNITTEST)
+    set(Plugin_Test2_Name plugin-test2)
+    file(GLOB_RECURSE Plugin_Test2_SRCS
+        "src/plugin-test2/*.h"
+        "src/plugin-test2/*.cpp"
+    )
+
+    add_library(${Plugin_Test2_Name} MODULE
+        ${Plugin_Test2_SRCS}
+    )
+
+    set(Plugin_Test2_Includes
+        Qt5::Widgets
+        Qt5::DBus
+    )
+    set(Plugin_Test2_Libraries
+        ${Interface_Name}
+        Qt5::Widgets
+        Qt5::DBus
+    )
+    target_include_directories(${Plugin_Test2_Name} PUBLIC
+        ${Plugin_Test2_Includes}
+    )
+
+    target_link_libraries(${Plugin_Test2_Name} PRIVATE
+        ${Plugin_Test2_Libraries}
+    )
+endif()
+
 #--------------------------plugin-systeminfo--------------------------
 set(SystemInfo_Name dcc-systeminfo-plugin)
 file(GLOB_RECURSE SYSTEMINFO_SRCS

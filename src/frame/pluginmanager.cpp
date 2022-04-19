@@ -7,6 +7,7 @@
 #include <QElapsedTimer>
 #include <QPluginLoader>
 #include <QCoreApplication>
+#include <queue>
 
 DCC_USE_NAMESPACE
 
@@ -36,7 +37,7 @@ void PluginManager::loadModules()
     }
 
     const auto &pluginList = pluginDir.entryInfoList();
-    for (auto pluginName : pluginList) {
+    for (auto &&pluginName : pluginList) {
         QString path = pluginName.absoluteFilePath();
 
         if (!QLibrary::isLibrary(path))
@@ -48,7 +49,7 @@ void PluginManager::loadModules()
         et.start();
         QPluginLoader *loader = new QPluginLoader(path, this);
         if (!loader->load()) {
-            qWarning() << QString("The plugin: %1 load failed! error message: %2").arg(path).arg(loader->errorString());
+            qWarning() << QString("The plugin: %1 load failed! error message: %2").arg(path, loader->errorString());
         }
         const QJsonObject &meta = loader->metaData().value("MetaData").toObject();
         if (!compareVersion(meta.value("api").toString(), "1.0.0")) {
@@ -72,33 +73,64 @@ void PluginManager::loadModules()
 
 void PluginManager::initModules()
 {
-    initModule(m_rootModule);
-    for (auto loader : m_loaders) {
+    initRootModule();
+    initOtherModule();
+    for (auto &&loader : m_loaders) {
         auto *plugin = qobject_cast<PluginInterface *>(loader->instance());
-        qWarning() << QString("can't find follow:%1, the plugin:%2 will unload!").arg(plugin->follow()).arg(plugin->name());
+        qWarning() << QString("can't find follow:%1, the plugin:%2 will unload!").arg(plugin->follow(), plugin->name());
         loader->unload();
     }
 }
 
-void PluginManager::initModule(ModuleObject *const module)
+void PluginManager::initRootModule()
 {
     QList<QPair<PluginInterface*, ModuleObject *>> plugins;
-    for (auto loader : m_loaders) {
+    for (auto &&loader : m_loaders) {
         auto *plugin = qobject_cast<PluginInterface *>(loader->instance());
-        if (plugin->follow() == module->name()) {
+        if (plugin->follow().isEmpty()) {
             auto child = plugin->module();
             plugins.append(QPair<PluginInterface*, ModuleObject *>(plugin, child));
             m_loaders.removeOne(loader);
-            initModule(child);
         }
     }
     std::sort(plugins.begin(), plugins.end(), comparePluginLocation);
     for (auto plugin : plugins) {
         QElapsedTimer et;
         et.start();
-        module->appendChild(plugin.second);
+        m_rootModule->appendChild(plugin.second);
         qInfo() << QString("init module:%1 using time: %2 ms").arg(plugin.first->name()).arg(et.elapsed());
     }
+}
+
+void PluginManager::initOtherModule()
+{
+    for (auto &&loader : m_loaders) {
+        auto *plugin = qobject_cast<PluginInterface *>(loader->instance());
+        auto *module = findModule(m_rootModule, plugin->follow());
+        if (module) {
+            module->insertChild(plugin->location(), plugin->module());
+            m_loaders.removeOne(loader);
+        }
+    }
+}
+
+ModuleObject *PluginManager::findModule(ModuleObject *module, const QString &name)
+{
+    if (!module)
+        return nullptr;
+
+    std::queue<ModuleObject*> qbfs;
+    qbfs.push(module);
+    while (!qbfs.empty()) {
+        if (qbfs.front()->name() == name)
+            return qbfs.front();
+        for (auto &&child : qbfs.front()->childrens()) {
+            qbfs.push(child);
+        }
+        qbfs.pop();
+    }
+
+    return nullptr;
 }
 
 bool PluginManager::compareVersion(const QString &targetVersion, const QString &baseVersion)
