@@ -283,13 +283,13 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, c
 {
     if (!module || !parent)
         return;
+    module->active();
     if (module->childrens().isEmpty())
         return;
     if (module->findChild(currentModule()) >= 0)
         return;
 
     qDebug() << QString("module name:%1, index:%2, children size:%3").arg(module->name()).arg(index).arg(module->childrens().size());
-    module->active();
     clearPage(parent);
 
     switch (module->childType())
@@ -500,8 +500,9 @@ void MainWindow::showModuleVList(ModuleObject *const module, QWidget *const pare
     QVBoxLayout *vlayout = new QVBoxLayout;
     widget->setLayout(vlayout);
     vlayout->addWidget(view);
-    if (module->extraButton())
-        vlayout->addWidget(getExtraPage(module->extraButton()));
+    QWidget *extraButton = module->extraButton();
+    if (extraButton)
+        vlayout->addWidget(getExtraPage(extraButton));
     hlayout->addWidget(widget, 1);
     hlayout->addWidget(new DVerticalLine);
 
@@ -593,8 +594,9 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
     if (m_pages.count() > 1)
         vlayout->addStretch(1);
 
-    if (module->extraButton())
-        mainLayout->addWidget(getExtraPage(module->extraButton()), 0, Qt::AlignBottom);
+    QWidget *extraButton = module->extraButton();
+    if (extraButton)
+        vlayout->addWidget(getExtraPage(extraButton), 0, Qt::AlignBottom);
     area->verticalScrollBar()->setSliderPosition(getScrollPos(index));
 
     connect(module, &ModuleObject::activeChild, area, [this, area] (const int index) {
