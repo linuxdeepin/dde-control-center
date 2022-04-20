@@ -103,6 +103,12 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 
     connect(m_editBtn, &DIconButton::clicked, this, &ShortcutItem::onShortcutEdit);
     connect(m_delBtn, &DIconButton::clicked, this, &ShortcutItem::onRemoveClick);
+    connect(m_shortcutEdit, &QLineEdit::editingFinished, this, [ this ] {
+        if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+            m_shortcutEdit->hide();
+            m_key->show();
+        }
+    });
 }
 
 ShortcutItem::~ShortcutItem()
