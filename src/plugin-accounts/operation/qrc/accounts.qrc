@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/icons/deepin/builtin">
+        <file>icons/dcc_nav_accounts_42px.svg</file>
+        <file>icons/dcc_nav_accounts_84px.svg</file>
+        <file>icons/dcc_avatar_12px.svg</file>
+    </qresource>
+    <qresource prefix="/accounts">
+        <file>icons/dcc_deepin_password_strength_high.svg</file>
+        <file>icons/dcc_deepin_password_strength_low.svg</file>
+        <file>icons/dcc_deepin_password_strength_middle.svg</file>
+        <file>icons/dcc_deepin_password_strength_unactive_deep_mode.svg</file>
+        <file>icons/dcc_deepin_password_strength_unactive_light_mode.svg</file>
+    </qresource>
+</RCC>

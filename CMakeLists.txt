@@ -477,7 +477,7 @@ if (UNITTEST)
 endif()
 #--------------------------plugin-commoninfo--------------------------
 set(CommonInfo_Name dcc-commoninfo-plugin)
-set(DEEPIN_PW_CHECK libdeepin_pw_check.so)
+pkg_check_modules(DEEPIN_PW_CHECK deepin_pw_check)
 file(GLOB_RECURSE COMMONINFO_SRCS
     "src/plugin-commoninfo/window/*.cpp"
     "src/plugin-commoninfo/operation/*.cpp"
@@ -489,6 +489,7 @@ add_library(${CommonInfo_Name} MODULE
 )
 set(CommonInfo_Includes
     ${DtkWidget_INCLUDE_DIRS}
+    ${DEEPIN_PW_CHECK_INCLUDE_DIRS}
     Qt5::Widgets
     Qt5::DBus
     Qt5::Concurrent
@@ -497,10 +498,10 @@ set(CommonInfo_Libraries
     ${Dcc_Widgets_Name}
     ${Interface_Name}
     ${DtkWidget_LIBRARIES}
+    ${DEEPIN_PW_CHECK_LIBRARIES}
     Qt5::Widgets
     Qt5::DBus
     Qt5::Concurrent
-    ${DEEPIN_PW_CHECK}
 )
 
 
@@ -771,3 +772,46 @@ target_link_libraries(${Authentication_Name} PRIVATE
 )
 
 install(TARGETS ${Authentication_Name} DESTINATION lib/dde-control-center/modules)
+
+#--------------------------plugin-accounts--------------------------
+find_package(PolkitQt5-1)
+set(Accounts_Name dcc-accounts-plugin)
+pkg_check_modules(DEEPIN_PW_CHECK deepin_pw_check)
+file(GLOB_RECURSE ACCOUNTS_SRCS
+    "src/plugin-accounts/window/*.cpp"
+    "src/plugin-accounts/operation/*.cpp"
+    "src/plugin-accounts/operation/qrc/accounts.qrc"
+)
+
+add_library(${Accounts_Name} MODULE
+    ${ACCOUNTS_SRCS}
+)
+set(Accounts_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    ${DEEPIN_PW_CHECK_INCLUDE_DIRS}
+    Qt5::Svg
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+set(Accounts_Libraries
+    ${Dcc_Widgets_Name}
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    ${DEEPIN_PW_CHECK_LIBRARIES}
+    Qt5::Svg
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    PolkitQt5-1::Agent
+)
+
+target_include_directories(${Accounts_Name} PUBLIC
+    ${Accounts_Includes}
+)
+
+target_link_libraries(${Accounts_Name} PRIVATE
+    ${Accounts_Libraries}
+)
+
+install(TARGETS ${Accounts_Name} DESTINATION lib/dde-control-center/modules)
