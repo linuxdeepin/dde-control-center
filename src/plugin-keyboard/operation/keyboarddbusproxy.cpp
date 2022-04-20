@@ -76,9 +76,9 @@ void KeyboardDBusProxy::init()
     dbusConnection.connect(KeybingdingService, KeybingdingPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 
     connect(m_dBusWMInter,SIGNAL(compositingEnabledChanged(bool)), this, SIGNAL(compositingEnabledChanged(bool)));
-    connect(m_dBusKeybingdingInter,SIGNAL(Added(bool,QString)), this, SIGNAL(Added(QString,int)));
-    connect(m_dBusKeybingdingInter,SIGNAL(Changed(bool,QString)), this, SIGNAL(Changed(QString,int)));
-    connect(m_dBusKeybingdingInter,SIGNAL(Deleted(bool,QString)), this, SIGNAL(Deleted(QString,int)));
+    connect(m_dBusKeybingdingInter,SIGNAL(Added(QString,int)), this, SIGNAL(Added(QString,int)));
+    connect(m_dBusKeybingdingInter,SIGNAL(Changed(QString,int)), this, SIGNAL(Changed(QString,int)));
+    connect(m_dBusKeybingdingInter,SIGNAL(Deleted(QString,int)), this, SIGNAL(Deleted(QString,int)));
     connect(m_dBusKeybingdingInter,SIGNAL(KeyEvent(bool,QString)), this, SIGNAL(KeyEvent(bool,QString)));
 }
 

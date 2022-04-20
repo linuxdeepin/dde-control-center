@@ -23,8 +23,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef KEYBOARDLAYOUTWIDGET_H
-#define KEYBOARDLAYOUTWIDGET_H
+#ifndef KEYBOARDLAYOUTDIALOG_H
+#define KEYBOARDLAYOUTDIALOG_H
 
 #include "interface/namespace.h"
 #include "widgets/buttontuple.h"
@@ -43,13 +43,13 @@ class QLineEdit;
 DWIDGET_USE_NAMESPACE
 namespace DCC_NAMESPACE{
 
-class KeyboardLayoutWidget : public DAbstractDialog
+class KeyboardLayoutDialog : public DAbstractDialog
 {
     Q_OBJECT
 
 public:
-    explicit KeyboardLayoutWidget(QWidget *parent = nullptr);
-    ~KeyboardLayoutWidget();
+    explicit KeyboardLayoutDialog(QWidget *parent = nullptr);
+    ~KeyboardLayoutDialog();
 
     void setDataModel(IndexModel *model, QModelIndex &selectedIndex, const QModelIndex &index);
     void setMetaData(const QList<MetaData>& datas);
@@ -82,4 +82,4 @@ private:
     QModelIndex m_selectSearchIndex;
 };
 }
-#endif // KEYBOARDLAYOUTWIDGET_H
+#endif // KEYBOARDLAYOUTDIALOG_H

@@ -23,8 +23,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef SHORTCUTCONTENT_H
-#define SHORTCUTCONTENT_H
+#ifndef SHORTCUTCONTENTDIALOG_H
+#define SHORTCUTCONTENTDIALOG_H
 
 #include "interface/namespace.h"
 #include "widgets/settingsgroup.h"
@@ -41,11 +41,11 @@ class ShortcutModel;
 struct ShortcutInfo;
 class KeyboardControl;
 class ShortcutItem;
-class ShortcutContent  : public DAbstractDialog
+class ShortcutContentDialog  : public DAbstractDialog
 {
     Q_OBJECT
 public:
-    explicit ShortcutContent(ShortcutModel *model, QWidget *parent = nullptr);
+    explicit ShortcutContentDialog(ShortcutModel *model, QWidget *parent = nullptr);
     void setBottomTip(ShortcutInfo *conflict);
     void setInfo(ShortcutInfo *info);
     void setShortcut(const QString &shortcut);
@@ -75,4 +75,4 @@ private:
     QString m_shortcut;
 };
 }
-#endif // SHORTCUTCONTENT_H
+#endif // SHORTCUTCONTENTDIALOG_H

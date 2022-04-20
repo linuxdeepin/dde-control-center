@@ -23,7 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "shortcutcontent.h"
+#include "shortcutcontentdialog.h"
 #include "operation/shortcutmodel.h"
 #include "shortcutitem.h"
 
@@ -32,10 +32,11 @@
 #include <QVBoxLayout>
 
 DCC_USE_NAMESPACE
-ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
+ShortcutContentDialog::ShortcutContentDialog(ShortcutModel *model, QWidget *parent)
     : DAbstractDialog(parent)
     , m_model(model)
     , m_conflict(nullptr)
+    , m_info(nullptr)
     , m_shortcutItem(new ShortcutItem)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
 {
@@ -85,13 +86,13 @@ ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
     setLayout(mainVLayout);
     setContentsMargins(0, 0, 0, 0);
 
-    connect(ok, &QPushButton::clicked, this, &ShortcutContent::onReplace);
-    connect(cancel, &QPushButton::clicked, this, &ShortcutContent::close);
-    connect(m_shortcutItem, &ShortcutItem::requestUpdateKey, this, &ShortcutContent::onUpdateKey);
-    connect(model, &ShortcutModel::keyEvent, this, &ShortcutContent::keyEvent);
+    connect(ok, &QPushButton::clicked, this, &ShortcutContentDialog::onReplace);
+    connect(cancel, &QPushButton::clicked, this, &ShortcutContentDialog::close);
+    connect(m_shortcutItem, &ShortcutItem::requestUpdateKey, this, &ShortcutContentDialog::onUpdateKey);
+    connect(m_model, &ShortcutModel::keyEvent, this, &ShortcutContentDialog::keyEvent);
 }
 
-void ShortcutContent::setBottomTip(ShortcutInfo *conflict)
+void ShortcutContentDialog::setBottomTip(ShortcutInfo *conflict)
 {
     m_conflict = conflict;
 
@@ -115,19 +116,19 @@ void ShortcutContent::setBottomTip(ShortcutInfo *conflict)
     }
 }
 
-void ShortcutContent::setInfo(ShortcutInfo *info)
+void ShortcutContentDialog::setInfo(ShortcutInfo *info)
 {
     m_info = info;
     m_shortcutItem->setShortcutInfo(info);
 }
 
-void ShortcutContent::setShortcut(const QString &shortcut)
+void ShortcutContentDialog::setShortcut(const QString &shortcut)
 {
     m_shortcut = shortcut;
     m_shortcutItem->setShortcut(shortcut);
 }
 
-void ShortcutContent::keyEvent(bool press, const QString &shortcut)
+void ShortcutContentDialog::keyEvent(bool press, const QString &shortcut)
 {
     if (!press) {
 
@@ -147,6 +148,9 @@ void ShortcutContent::keyEvent(bool press, const QString &shortcut)
         // check conflict
         ShortcutInfo *info = m_model->getInfo(shortcut);
 
+        qInfo() << info;
+        qInfo() << m_info;
+
         if (info && info != m_info && info->accels != m_info->accels) {
             m_shortcutItem->setShortcut(info->accels);
             setBottomTip(info);
@@ -157,7 +161,7 @@ void ShortcutContent::keyEvent(bool press, const QString &shortcut)
     }
 }
 
-void ShortcutContent::onReplace()
+void ShortcutContentDialog::onReplace()
 {
     if (m_info->accels != m_shortcut) {
         if (m_shortcut.isEmpty()) {
@@ -167,14 +171,15 @@ void ShortcutContent::onReplace()
             Q_EMIT requestSaveShortcut(m_info);
         }
     }
+    this->close();
 }
 
-void ShortcutContent::onUpdateKey()
+void ShortcutContentDialog::onUpdateKey()
 {
     Q_EMIT requestUpdateKey(nullptr);
 }
 
-void ShortcutContent::closeEvent(QCloseEvent *event)
+void ShortcutContentDialog::closeEvent(QCloseEvent *event)
 {
     Q_EMIT requestCloseDlg();
     QDialog::closeEvent(event);

@@ -18,8 +18,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef SYSTEMLANGUAGESETTINGWIDGET_H
-#define SYSTEMLANGUAGESETTINGWIDGET_H
+#ifndef SYSTEMLANGUAGESETTINGDIALOG_H
+#define SYSTEMLANGUAGESETTINGDIALOG_H
 
 #include "interface/namespace.h"
 #include "widgets/buttontuple.h"
@@ -44,12 +44,12 @@ class MetaData;
 class IndexModel;
 class IndexView;
 
-class SystemLanguageSettingWidget : public DAbstractDialog
+class SystemLanguageSettingDialog : public DAbstractDialog
 {
     Q_OBJECT
 public:
-    explicit SystemLanguageSettingWidget(KeyboardModel *model, QWidget *parent = nullptr);
-    ~SystemLanguageSettingWidget();
+    explicit SystemLanguageSettingDialog(KeyboardModel *model, QWidget *parent = nullptr);
+    ~SystemLanguageSettingDialog();
 
     void updateDataModel(QStandardItemModel *model, QModelIndex &selectedIndex, const QModelIndex &index);
 
@@ -85,4 +85,4 @@ private:
     QModelIndex m_searchModelIndex;
 };
 }
-#endif // SYSTEMLANGUAGESETTINGWIDGET_H
+#endif // SYSTEMLANGUAGESETTINGDIALOG_H

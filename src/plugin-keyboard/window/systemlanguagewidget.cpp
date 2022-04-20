@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "systemlanguagewidget.h"
-#include "systemlanguagesettingwidget.h"
+#include "systemlanguagesettingdialog.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/settingshead.h"
 #include "widgets/comboxwidget.h"

@@ -23,7 +23,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "keyboardlayoutwidget.h"
+#include "keyboardlayoutdialog.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsitem.h"
 
@@ -37,7 +37,7 @@
 #include <DTitlebar>
 
 DCC_USE_NAMESPACE
-KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
+KeyboardLayoutDialog::KeyboardLayoutDialog(QWidget *parent)
     : DAbstractDialog(parent)
     , textLength(0)
     , searchStatus(false)
@@ -101,18 +101,18 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     installEventFilter(this);
 
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
-    connect(cancel, &QPushButton::clicked, this, &KeyboardLayoutWidget::close);
-    connect(ok, &QPushButton::clicked, this, &KeyboardLayoutWidget::onAddKBLayout);
-    connect(m_view, &IndexView::clicked, this, &KeyboardLayoutWidget::onKBLayoutSelect);
+    connect(cancel, &QPushButton::clicked, this, &KeyboardLayoutDialog::close);
+    connect(ok, &QPushButton::clicked, this, &KeyboardLayoutDialog::onAddKBLayout);
+    connect(m_view, &IndexView::clicked, this, &KeyboardLayoutDialog::onKBLayoutSelect);
 }
 
-KeyboardLayoutWidget::~KeyboardLayoutWidget()
+KeyboardLayoutDialog::~KeyboardLayoutDialog()
 {
     m_searchModel->deleteLater();
     m_model->deleteLater();
 }
 
-void KeyboardLayoutWidget::onAddKBLayout()
+void KeyboardLayoutDialog::onAddKBLayout()
 {
     QVariant var;
     MetaData md;
@@ -134,7 +134,7 @@ void KeyboardLayoutWidget::onAddKBLayout()
     Q_EMIT layoutSelected(md.text());
 }
 
-void KeyboardLayoutWidget::onKBLayoutSelect(const QModelIndex &index)
+void KeyboardLayoutDialog::onKBLayoutSelect(const QModelIndex &index)
 {
     if (searchStatus) {
         setDataModel(m_searchModel, m_selectSearchIndex, index);
@@ -143,7 +143,7 @@ void KeyboardLayoutWidget::onKBLayoutSelect(const QModelIndex &index)
     }
 }
 
-void KeyboardLayoutWidget::setDataModel(IndexModel *model, QModelIndex &selectedIndex, const QModelIndex &index) {
+void KeyboardLayoutDialog::setDataModel(IndexModel *model, QModelIndex &selectedIndex, const QModelIndex &index) {
 
     if (selectedIndex.isValid()) {
         model->itemFromIndex(selectedIndex)->setCheckState(Qt::Unchecked);
@@ -165,7 +165,7 @@ void KeyboardLayoutWidget::setDataModel(IndexModel *model, QModelIndex &selected
     }
 }
 
-void KeyboardLayoutWidget::setMetaData(const QList<MetaData> &datas)
+void KeyboardLayoutDialog::setMetaData(const QList<MetaData> &datas)
 {
     int count = datas.count();
     m_data.clear();
@@ -186,7 +186,7 @@ void KeyboardLayoutWidget::setMetaData(const QList<MetaData> &datas)
     m_view->setModel(m_model);
 }
 
-void KeyboardLayoutWidget::setLetters(QList<QString> letters)
+void KeyboardLayoutDialog::setLetters(QList<QString> letters)
 {
     QLocale locale;
     if (locale.language() == QLocale::Chinese) {
@@ -207,13 +207,13 @@ void KeyboardLayoutWidget::setLetters(QList<QString> letters)
     }
 }
 
-void KeyboardLayoutWidget::closeEvent(QCloseEvent *event)
+void KeyboardLayoutDialog::closeEvent(QCloseEvent *event)
 {
     Q_EMIT requestCloseDlg();
     QDialog::closeEvent(event);
 }
 
-void KeyboardLayoutWidget::onSearch(const QString &text)
+void KeyboardLayoutDialog::onSearch(const QString &text)
 {
     if (text.length() == 0) {
         searchStatus = false;
@@ -237,7 +237,7 @@ void KeyboardLayoutWidget::onSearch(const QString &text)
     }
 }
 
-void KeyboardLayoutWidget::onItemClicked(const QModelIndex &index)
+void KeyboardLayoutDialog::onItemClicked(const QModelIndex &index)
 {
     QVariant var = index.data(IndexModel::KBLayoutRole);
     MetaData md = var.value<MetaData>();
@@ -250,7 +250,7 @@ void KeyboardLayoutWidget::onItemClicked(const QModelIndex &index)
     Q_EMIT layoutSelected(md.text());
 }
 
-bool KeyboardLayoutWidget::eventFilter(QObject *watched, QEvent *event)
+bool KeyboardLayoutDialog::eventFilter(QObject *watched, QEvent *event)
 {
     Q_UNUSED(watched)
 

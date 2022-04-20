@@ -23,16 +23,16 @@
 #include "customcontentdialog.h"
 #include "generalkbsettingwidget.h"
 #include "kblayoutsettingwidget.h"
-#include "keyboardlayoutwidget.h"
+#include "keyboardlayoutdialog.h"
 #include "shortcutsettingwidget.h"
 #include "systemlanguagewidget.h"
-#include "systemlanguagesettingwidget.h"
+#include "systemlanguagesettingdialog.h"
 #include "widgets/settingshead.h"
 #include "operation/keyboardwork.h"
 #include "operation/keyboardmodel.h"
 #include "operation/shortcutmodel.h"
 #include "customedit.h"
-#include "shortcutcontent.h"
+#include "shortcutcontentdialog.h"
 
 #include <DFloatingButton>
 
@@ -143,7 +143,7 @@ QWidget *GeneralSettingModule::page()
 void KBLayoutSettingModule::onPushKeyboard(const QStringList &kblist)
 {
     m_worker->onPinyin();
-    KeyboardLayoutWidget *kbLayoutWidget = new KeyboardLayoutWidget();
+    KeyboardLayoutDialog *kbLayoutDialog = new KeyboardLayoutDialog();
     auto dataControll = [ = ](QList<MetaData> datas) {
         for (auto it(datas.begin()); it != datas.end();) {
             const MetaData &data = *it;
@@ -153,21 +153,22 @@ void KBLayoutSettingModule::onPushKeyboard(const QStringList &kblist)
                 ++it;
         }
 
-        kbLayoutWidget->setMetaData(datas);
+        kbLayoutDialog->setMetaData(datas);
     };
 
-    connect(m_worker, &KeyboardWorker::onDatasChanged, kbLayoutWidget, dataControll);
-    connect(m_worker, &KeyboardWorker::onLettersChanged, kbLayoutWidget, &KeyboardLayoutWidget::setLetters);
+    connect(m_worker, &KeyboardWorker::onDatasChanged, kbLayoutDialog, dataControll);
+    connect(m_worker, &KeyboardWorker::onLettersChanged, kbLayoutDialog, &KeyboardLayoutDialog::setLetters);
 
     dataControll(m_worker->getDatas());
-    kbLayoutWidget->setLetters(m_worker->getLetters());
+    kbLayoutDialog->setLetters(m_worker->getLetters());
 
-    connect(kbLayoutWidget, &KeyboardLayoutWidget::layoutSelected, m_worker, &KeyboardWorker::addUserLayout);
-    connect(kbLayoutWidget, &KeyboardLayoutWidget::requestCloseDlg, m_worker, &KeyboardWorker::onRefreshKBLayout);
-    kbLayoutWidget->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
-    kbLayoutWidget->setFocus();
-    kbLayoutWidget->activateWindow();
-    kbLayoutWidget->show();
+    connect(kbLayoutDialog, &KeyboardLayoutDialog::layoutSelected, m_worker, &KeyboardWorker::addUserLayout);
+    connect(kbLayoutDialog, &KeyboardLayoutDialog::requestCloseDlg, m_worker, &KeyboardWorker::onRefreshKBLayout);
+    kbLayoutDialog->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+    kbLayoutDialog->setAttribute(Qt::WA_DeleteOnClose);
+    kbLayoutDialog->setFocus();
+    kbLayoutDialog->activateWindow();
+    kbLayoutDialog->show();
 }
 
 void KBLayoutSettingModule::setCurrentLayout(const QString &value)
@@ -202,18 +203,19 @@ QWidget *SystemLanguageSettingModule::page()
 
 void SystemLanguageSettingModule::onPushSystemLanguageSetting()
 {
-    SystemLanguageSettingWidget *systemLanguageSettingWidget = new SystemLanguageSettingWidget(m_model);
-    connect(systemLanguageSettingWidget, &SystemLanguageSettingWidget::click, this, &SystemLanguageSettingModule::onAddLocale);
-    connect(systemLanguageSettingWidget, &SystemLanguageSettingWidget::requestCloseDlg, m_worker, &KeyboardWorker::refreshLang);
-    systemLanguageSettingWidget->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
-    systemLanguageSettingWidget->setFocus();
-    systemLanguageSettingWidget->activateWindow();
-    systemLanguageSettingWidget->show();
+    SystemLanguageSettingDialog *systemLanguageSettingDialog = new SystemLanguageSettingDialog(m_model);
+    connect(systemLanguageSettingDialog, &SystemLanguageSettingDialog::click, this, &SystemLanguageSettingModule::onAddLocale);
+    connect(systemLanguageSettingDialog, &SystemLanguageSettingDialog::requestCloseDlg, m_worker, &KeyboardWorker::refreshLang);
+    systemLanguageSettingDialog->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+    systemLanguageSettingDialog->setAttribute(Qt::WA_DeleteOnClose);
+    systemLanguageSettingDialog->setFocus();
+    systemLanguageSettingDialog->activateWindow();
+    systemLanguageSettingDialog->show();
 }
 
 void SystemLanguageSettingModule::onAddLocale(const QModelIndex &index)
 {
-    QVariant var = index.data(SystemLanguageSettingWidget::KeyRole);
+    QVariant var = index.data(SystemLanguageSettingDialog::KeyRole);
     m_worker->addLang(var.toString());
 }
 
@@ -244,6 +246,7 @@ void ShortCutSettingModule::onPushCustomShortcut()
     connect(content, &CustomContentDialog::requestForceSubs, m_worker, &KeyboardWorker::onDisableShortcut);
     connect(content, &CustomContentDialog::requestCloseDlg, m_worker, &KeyboardWorker::refreshShortcut);
     content->setWindowFlags(Qt::Dialog);
+    content->setAttribute(Qt::WA_DeleteOnClose);
     content->setFocus();
     content->activateWindow();
     content->show();
@@ -251,20 +254,22 @@ void ShortCutSettingModule::onPushCustomShortcut()
 
 void ShortCutSettingModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
 {
-   ShortcutContent *scContent = new ShortcutContent(m_shortcutModel);
-    connect(scContent, &ShortcutContent::requestSaveShortcut, m_worker, &KeyboardWorker::modifyShortcutEdit);
-    connect(scContent, &ShortcutContent::requestUpdateKey, m_worker, &KeyboardWorker::updateKey);
-    connect(scContent, &ShortcutContent::requestDisableShortcut, m_worker, &KeyboardWorker::onDisableShortcut);
-    connect(scContent, &ShortcutContent::requestCloseDlg, m_worker, &KeyboardWorker::refreshShortcut);
+   ShortcutContentDialog *scContentDialog = new ShortcutContentDialog(m_shortcutModel);
 
-    scContent->setInfo(info);
-    scContent->setShortcut(shortcut);
-    scContent->setBottomTip(m_shortcutModel->getInfo(shortcut));
+    scContentDialog->setInfo(info);
+    scContentDialog->setShortcut(shortcut);
+    scContentDialog->setBottomTip(m_shortcutModel->getInfo(shortcut));
 
-    scContent->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
-    scContent->setFocus();
-    scContent->activateWindow();
-    scContent->show();
+    connect(scContentDialog, &ShortcutContentDialog::requestSaveShortcut, m_worker, &KeyboardWorker::modifyShortcutEdit);
+    connect(scContentDialog, &ShortcutContentDialog::requestUpdateKey, m_worker, &KeyboardWorker::updateKey);
+    connect(scContentDialog, &ShortcutContentDialog::requestDisableShortcut, m_worker, &KeyboardWorker::onDisableShortcut);
+    connect(scContentDialog, &ShortcutContentDialog::requestCloseDlg, m_worker, &KeyboardWorker::refreshShortcut);
+
+    scContentDialog->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+    scContentDialog->setAttribute(Qt::WA_DeleteOnClose);
+    scContentDialog->setFocus();
+    scContentDialog->activateWindow();
+    scContentDialog->show();
 }
 
 void ShortCutSettingModule::onShortcutEdit(ShortcutInfo *info)
@@ -280,8 +285,6 @@ void ShortCutSettingModule::onShortcutEdit(ShortcutInfo *info)
     connect(customEdit, &CustomEdit::requestSaveShortcut, head, &SettingsHead::toCancel);
     connect(customEdit, &CustomEdit::requestSaveShortcut, m_worker, &KeyboardWorker::modifyCustomShortcut);
 
-    //返回方式的确认
-    //connect(customEdit, &CustomEdit::back, this, &KeyboardModule::showShortCutSetting);
     customEdit->setVisible(true);
     customEdit->setFocus();
 }

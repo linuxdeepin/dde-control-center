@@ -19,14 +19,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "systemlanguagesettingwidget.h"
+#include "systemlanguagesettingdialog.h"
 #include "src/plugin-keyboard/operation/keyboardmodel.h"
 #include "src/plugin-keyboard/window/indexview.h"
 
 #include <DTitlebar>
 
 DCC_USE_NAMESPACE
-SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, QWidget *parent)
+SystemLanguageSettingDialog::SystemLanguageSettingDialog(KeyboardModel *model, QWidget *parent)
     : DAbstractDialog(parent)
     , m_searchStatus(false)
     , m_keyboardModel(model)
@@ -86,20 +86,20 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
 
     installEventFilter(this);
 
-    connect(m_search, &SearchInput::textChanged, this, &SystemLanguageSettingWidget::onSearch);
-    connect(m_keyboardModel, &KeyboardModel::langChanged, this, &SystemLanguageSettingWidget::setModelData);
-    connect(cancel, &QPushButton::clicked, this, &SystemLanguageSettingWidget::close);
-    connect(ok, &QPushButton::clicked, this, &SystemLanguageSettingWidget::onAddLanguage);
-    connect(m_view, &DListView::clicked, this, &SystemLanguageSettingWidget::onLangSelect);
+    connect(m_search, &SearchInput::textChanged, this, &SystemLanguageSettingDialog::onSearch);
+    connect(m_keyboardModel, &KeyboardModel::langChanged, this, &SystemLanguageSettingDialog::setModelData);
+    connect(cancel, &QPushButton::clicked, this, &SystemLanguageSettingDialog::close);
+    connect(ok, &QPushButton::clicked, this, &SystemLanguageSettingDialog::onAddLanguage);
+    connect(m_view, &DListView::clicked, this, &SystemLanguageSettingDialog::onLangSelect);
 
     setModelData(m_keyboardModel->langLists());
 }
 
-SystemLanguageSettingWidget::~SystemLanguageSettingWidget()
+SystemLanguageSettingDialog::~SystemLanguageSettingDialog()
 {
 }
 
-void SystemLanguageSettingWidget::onSearch(const QString &text)
+void SystemLanguageSettingDialog::onSearch(const QString &text)
 {
     if (text.length() == 0) {
         m_searchStatus = false;
@@ -122,7 +122,7 @@ void SystemLanguageSettingWidget::onSearch(const QString &text)
     }
 }
 
-void SystemLanguageSettingWidget::onAddLanguage()
+void SystemLanguageSettingDialog::onAddLanguage()
 {
     if(m_searchStatus) {
         Q_EMIT click(m_searchModelIndex);
@@ -131,7 +131,7 @@ void SystemLanguageSettingWidget::onAddLanguage()
     }
 }
 
-void SystemLanguageSettingWidget::onLangSelect(const QModelIndex &index)
+void SystemLanguageSettingDialog::onLangSelect(const QModelIndex &index)
 {
     if(m_searchStatus) {
         updateDataModel(m_searchModel, m_searchModelIndex, index);
@@ -140,7 +140,7 @@ void SystemLanguageSettingWidget::onLangSelect(const QModelIndex &index)
     }
 }
 
-void SystemLanguageSettingWidget::updateDataModel(QStandardItemModel *model, QModelIndex &selectedIndex, const QModelIndex &index) {
+void SystemLanguageSettingDialog::updateDataModel(QStandardItemModel *model, QModelIndex &selectedIndex, const QModelIndex &index) {
 
     if (selectedIndex.isValid()) {
         model->itemFromIndex(selectedIndex)->setCheckState(Qt::Unchecked);
@@ -154,7 +154,7 @@ void SystemLanguageSettingWidget::updateDataModel(QStandardItemModel *model, QMo
     }
 }
 
-void SystemLanguageSettingWidget::setModelData(const QList<MetaData> &datas)
+void SystemLanguageSettingDialog::setModelData(const QList<MetaData> &datas)
 {
     m_datas = datas;
     QStringList removeLangList = m_keyboardModel->localLang();
@@ -176,7 +176,7 @@ void SystemLanguageSettingWidget::setModelData(const QList<MetaData> &datas)
     m_view->setModel(m_model);
 }
 
-bool SystemLanguageSettingWidget::eventFilter(QObject *watched, QEvent *event)
+bool SystemLanguageSettingDialog::eventFilter(QObject *watched, QEvent *event)
 {
     Q_UNUSED(watched)
 
@@ -194,7 +194,7 @@ bool SystemLanguageSettingWidget::eventFilter(QObject *watched, QEvent *event)
     return false;
 }
 
-void SystemLanguageSettingWidget::closeEvent(QCloseEvent *event)
+void SystemLanguageSettingDialog::closeEvent(QCloseEvent *event)
 {
     Q_EMIT requestCloseDlg();
     QDialog::closeEvent(event);
