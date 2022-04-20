@@ -24,6 +24,7 @@
 #include "soundmodel.h"
 #include "widgets/switchwidget.h"
 #include "widgets/titlelabel.h"
+#include "widgets/dcclistview.h"
 
 #include <DIconButton>
 #include <DListView>
@@ -44,7 +45,7 @@ const int AnimationDuration = 5000;
 SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
-    , m_effectList(new DListView)
+    , m_effectList(new DCCListView(this))
     , m_sound(nullptr)
 {
     m_layout->setContentsMargins(10, 0, 10, 10);

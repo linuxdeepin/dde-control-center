@@ -28,6 +28,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
 #include "widgets/titlevalueitem.h"
+#include "widgets/dcclistview.h"
 
 #include <DListView>
 
@@ -75,7 +76,7 @@ GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *pare
 
     //　性能设置
     appendChild(new TitleModule("powerPlansLabel", tr("Power Plans")));
-    appendChild(new WidgetModule<DListView>("powerPlans", tr("Power Plans"), this, &GeneralModule::initPowerPlans));
+    appendChild(new WidgetModule<DCCListView>("powerPlans", tr("Power Plans"), this, &GeneralModule::initPowerPlans));
     //　节能设置
     appendChild(new TitleModule("powerLowerBrightnessLabel", tr("Power Saving Settings")));
     appendChild(new WidgetModule<SettingsGroup>("powerLowerBrightness", tr("Power Saving Settings"), this, &GeneralModule::initPowerSavingSettings));
@@ -108,7 +109,7 @@ void GeneralModule::setModel(PowerModel *model)
     connect(m_model, &PowerModel::powerPlanChanged, this, &GeneralModule::onCurPowerPlanChanged);
     onCurPowerPlanChanged(m_model->getPowerPlan());
 }
-void GeneralModule::initPowerPlans(Dtk::Widget::DListView *view)
+void GeneralModule::initPowerPlans(DCCListView *view)
 {
     m_powerplanListview = view;
     m_powerplanListview->setAccessibleName("powerplanListview");

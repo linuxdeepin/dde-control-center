@@ -28,6 +28,7 @@
 namespace DCC_NAMESPACE {
 class SettingsGroup;
 class TitledSliderItem;
+class DCCListView;
 }
 class PowerModel;
 class PowerWorker;
@@ -41,7 +42,7 @@ public:
     void deactive() override;
 
     void setModel(PowerModel *model);
-    void initPowerPlans(Dtk::Widget::DListView *view);                           // 性能设置
+    void initPowerPlans(DCC_NAMESPACE::DCCListView *view);                       // 性能设置
     void initPowerSavingSettings(DCC_NAMESPACE::SettingsGroup *energySavingGrp); // 节能设置
     void initWakeupSettings(DCC_NAMESPACE::SettingsGroup *wakeupSettingsGrp);    // 唤醒设置
     void initBatterySettings(DCC_NAMESPACE::SettingsGroup *batterySettingsGrp);  // 电池设置
