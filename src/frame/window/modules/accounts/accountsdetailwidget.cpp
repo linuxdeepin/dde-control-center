@@ -360,7 +360,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         ageEdit->lineEdit()->setPlaceholderText(tr("Always"));
         ageEdit->setText(m_curUser->passwordAge() >= 99999 ? tr("Always") : QString::number(m_curUser->passwordAge()));
         ageEdit->setClearButtonEnabled(false);
-        ageEdit->lineEdit()->setValidator(new QIntValidator(1, 99999));
+        ageEdit->lineEdit()->setValidator(new QRegularExpressionValidator(QRegularExpression("[1-9]\\d{0,4}/^[1-9]\\d*$/"), ageEdit->lineEdit()));
         pwHLayout->addWidget(ageEdit, 0, Qt::AlignRight);
 
         connect(ageEdit, &DLineEdit::textChanged, this, [ageEdit]() {
