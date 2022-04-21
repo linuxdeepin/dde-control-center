@@ -376,13 +376,13 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     auto checkstatus = m_curUser->autoLogin() ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked;
     auto checkIcon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
-    DViewItemAction *autoLoginAction = new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), true);
+    DViewItemAction *autoLoginAction = new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), false);
     autoLoginAction->setIcon(checkIcon);
     autoLoginAction->setEnabled(m_curUser->isCurrentUser());
     m_autoLoginItem->setActionList(Qt::Edge::RightEdge, {autoLoginAction});
     m_viewModel->appendRow(m_autoLoginItem);
 
-    DViewItemAction *nopasswdLoginAction = new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), true);
+    DViewItemAction *nopasswdLoginAction = new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), false);
     checkstatus = m_curUser->nopasswdLogin() ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked;
     checkIcon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
     nopasswdLoginAction->setIcon(checkIcon);
@@ -513,32 +513,35 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_curUser, &User::nopasswdLoginChanged, this, [=](const bool checked) {
         updateItemCheckStatus(m_nopasswdLoginItem, checked);
     });
-    connect(m_autoLoginItem->actionList(Qt::Edge::RightEdge).first(), &DViewItemAction::triggered,
-    this, [ = ] {
-        bool autoLogin = !m_curUser->autoLogin();
-        updateItemCheckStatus(m_autoLoginItem, autoLogin);
-        if (autoLogin) {
-            const QString &existedAutoLoginUserName = getOtherUserAutoLogin();
-            if (existedAutoLoginUserName.isEmpty()) {
-                Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
+
+    connect(m_view, &DListView::clicked, this, [ = ](const QModelIndex &index){
+        if (m_viewModel->itemFromIndex(index) == m_autoLoginItem) {
+            bool autoLogin = !m_curUser->autoLogin();
+            updateItemCheckStatus(m_autoLoginItem, autoLogin);
+            if (autoLogin) {
+                const QString &existedAutoLoginUserName = getOtherUserAutoLogin();
+                if (existedAutoLoginUserName.isEmpty()) {
+                    Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
+                } else {
+                    DDialog *tipDialog = new DDialog(this);
+                    tipDialog->setIcon(QIcon::fromTheme("dialog-warning"));
+                    tipDialog->setModal(true);
+                    tipDialog->setAttribute(Qt::WA_DeleteOnClose);
+                    tipDialog->addButton(tr("OK"));
+                    tipDialog->setMessage(tr("\"Auto Login\" can be enabled for only one account, please disable it for the account \"%1\" first").arg(existedAutoLoginUserName));
+                    tipDialog->setFixedWidth(422);
+                    tipDialog->show();
+                    updateItemCheckStatus(m_autoLoginItem, false);
+                }
             } else {
-                DDialog *tipDialog = new DDialog(this);
-                tipDialog->setIcon(QIcon::fromTheme("dialog-warning"));
-                tipDialog->setModal(true);
-                tipDialog->setAttribute(Qt::WA_DeleteOnClose);
-                tipDialog->addButton(tr("OK"));
-                tipDialog->setMessage(tr("\"Auto Login\" can be enabled for only one account, please disable it for the account \"%1\" first").arg(existedAutoLoginUserName));
-                tipDialog->setFixedWidth(422);
-                tipDialog->show();
-                updateItemCheckStatus(m_autoLoginItem, false);
+                Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
             }
-        } else {
-            Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
         }
-    });
-    connect(m_nopasswdLoginItem->actionList(Qt::Edge::RightEdge).first(), &DViewItemAction::triggered, this, [ = ] {
-        updateItemCheckStatus(m_nopasswdLoginItem, !m_curUser->nopasswdLogin());
-        Q_EMIT requestNopasswdLogin(m_curUser, !m_curUser->nopasswdLogin());
+
+        if (m_viewModel->itemFromIndex(index) == m_nopasswdLoginItem) {
+            updateItemCheckStatus(m_nopasswdLoginItem, !m_curUser->nopasswdLogin());
+            Q_EMIT requestNopasswdLogin(m_curUser, !m_curUser->nopasswdLogin());
+        }
     });
 
     //图像列表操作
