@@ -80,7 +80,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                              "/com/deepin/daemon/SystemInfo",
                              "org.freedesktop.DBus.Properties",
                              QDBusConnection::sessionBus());
-    QDBusMessage reply = Interface.call("Get", "com.deepin.daemon.SystemInfo", "CPUMaxMHz");
+    QDBusMessage reply = Interface.call("Get", "com.deepin.daemon.SystemInfo", "CurrentSpeed");
     QList<QVariant> outArgs = reply.arguments();
     double cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
     if (DSysInfo::cpuModelName().contains("Hz")) {
