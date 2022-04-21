@@ -30,6 +30,7 @@ CharaMangerDBusProxy::CharaMangerDBusProxy(QObject *parent)
 {
     QDBusConnection::systemBus().connect(CharaMangerService, CharaMangerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
     QDBusConnection::systemBus().connect(CharaMangerService, FingerprintPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(SessionManagerService, SessionManagerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 
     connect(m_charaMangerInter, SIGNAL(EnrollStatus(const QString &, int , const QString &)),this,SIGNAL(EnrollStatusCharaManger(const QString &, int , const QString &)));
     connect(m_charaMangerInter, SIGNAL(CharaUpdated(const QString &, int)), this, SIGNAL(CharaUpdated(const QString &, int)));
@@ -37,8 +38,6 @@ CharaMangerDBusProxy::CharaMangerDBusProxy(QObject *parent)
 
     connect(m_fingerprintInter, SIGNAL(EnrollStatus(const QString &, int , const QString &)),this,SIGNAL(EnrollStatusFingerprint(const QString &, int , const QString &)));
     connect(m_fingerprintInter, SIGNAL(Touch(const QString &, bool )),this,SIGNAL(Touch(const QString &, bool )));
-
-    connect(m_SMInter, SIGNAL(LockedChanged(bool)),this,SIGNAL(LockedChanged(bool)));
 }
 
 void CharaMangerDBusProxy::setFingerprintInterTimeout(int timeout)

@@ -74,7 +74,7 @@ QVariant ModuleDataModel::data(const QModelIndex &index, int role) const
     case Qt::StatusTipRole:
         return data->moduleData()->Description;
     case Dtk::RightActionListRole:
-        return 0;
+        return data->moduleData()->Badge;
     default:
         break;
     }
