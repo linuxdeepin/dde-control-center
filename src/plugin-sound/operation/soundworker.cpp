@@ -68,7 +68,10 @@ void SoundWorker::initConnect()
 
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_soundDBusInter) m_soundDBusInter->Tick(); });
     connect(m_soundDBusInter, &SoundDBusProxy::HasBatteryChanged, m_model, &SoundModel::setIsLaptop);
+}
 
+void SoundWorker::activate()
+{
     m_model->setDefaultSink(m_soundDBusInter->defaultSink());
     m_model->setDefaultSource(m_soundDBusInter->defaultSource());
     m_model->setAudioCards(m_soundDBusInter->cardsWithoutUnavailable());
@@ -80,10 +83,7 @@ void SoundWorker::initConnect()
     m_model->setCurrentBluetoothAudioMode(m_soundDBusInter->bluetoothAudioMode());
     m_model->setEnableSoundEffect(m_soundDBusInter->enabled());
     m_model->setWaitSoundReceiptTime(m_waitSoundPortReceipt);
-}
 
-void SoundWorker::activate()
-{
     m_pingTimer->start();
     m_soundDBusInter->blockSignals(false);
 

@@ -46,7 +46,6 @@ PowerModule::PowerModule(QObject *parent)
     m_model = new PowerModel(this);
     m_work = new PowerWorker(m_model, this);
 
-    m_work->active(); //refresh data
 #if 0                 // gsettings 待改为dconfig
     QGSettings *m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
 
@@ -94,6 +93,7 @@ PowerModule::PowerModule(QObject *parent)
 
 void PowerModule::active()
 {
+    m_work->active(); //refresh data
 }
 
 void PowerModule::onBatteryChanged(const bool &state)

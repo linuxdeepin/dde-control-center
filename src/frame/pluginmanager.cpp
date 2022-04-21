@@ -88,17 +88,17 @@ void PluginManager::initRootModule()
     for (auto &&loader : m_loaders) {
         auto *plugin = qobject_cast<PluginInterface *>(loader->instance());
         if (plugin->follow().isEmpty()) {
+            QElapsedTimer et;
+            et.start();
             auto child = plugin->module();
             plugins.append(QPair<PluginInterface*, ModuleObject *>(plugin, child));
             m_loaders.removeOne(loader);
+            qInfo() << QString("init module:%1 using time: %2 ms").arg(plugin->name()).arg(et.elapsed());
         }
     }
     std::sort(plugins.begin(), plugins.end(), comparePluginLocation);
     for (auto plugin : plugins) {
-        QElapsedTimer et;
-        et.start();
         m_rootModule->appendChild(plugin.second);
-        qInfo() << QString("init module:%1 using time: %2 ms").arg(plugin.first->name()).arg(et.elapsed());
     }
 }
 
@@ -108,8 +108,11 @@ void PluginManager::initOtherModule()
         auto *plugin = qobject_cast<PluginInterface *>(loader->instance());
         auto *module = findModule(m_rootModule, plugin->follow());
         if (module) {
+            QElapsedTimer et;
+            et.start();
             module->insertChild(plugin->location(), plugin->module());
             m_loaders.removeOne(loader);
+            qInfo() << QString("init module:%1 using time: %2 ms").arg(plugin->name()).arg(et.elapsed());
         }
     }
 }
