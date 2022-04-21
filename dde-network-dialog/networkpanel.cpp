@@ -691,7 +691,7 @@ void NetworkPanel::expandPasswordInput()
             WirelessItem *wirelessItem = static_cast<WirelessItem *>(item);
             if (wirelessItem->accessPoint()
                 && (m_reconnectDev.isEmpty() || wirelessItem->wirelessDevice()->path() == m_reconnectDev)
-                && (wirelessItem->standardItem()->text() == m_reconnectSsid)) {
+                && (wirelessItem->accessPoint()->ssid() == m_reconnectSsid)) {
                 if (item != oldSelectItem) {
                     if (oldSelectItem) {
                         WirelessItem *selectItem = static_cast<WirelessItem *>(oldSelectItem);
