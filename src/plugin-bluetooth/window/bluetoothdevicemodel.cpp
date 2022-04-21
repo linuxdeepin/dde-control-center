@@ -32,37 +32,62 @@
 
 DWIDGET_USE_NAMESPACE
 
-struct ItemAction
+struct BluetoothDeviceItemAction
 {
     const BluetoothDevice *device;
-    DViewItemAction *loadingAction;
+    DViewItemAction *spinnerAction;
     DViewItemAction *textAction;
     DViewItemAction *spaceAction;
     DViewItemAction *iconAction;
     DSpinner *loadingIndicator;
     DViewItemActionList actionList;
-    explicit ItemAction(const BluetoothDevice *_device)
+    explicit BluetoothDeviceItemAction(const BluetoothDevice *_device)
         : device(_device)
-        , loadingAction(new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false))
+        , spinnerAction(new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false))
         , textAction(new DViewItemAction(Qt::AlignLeft, QSize(), QSize(), true))
         , spaceAction(new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), false))
         , iconAction(new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true))
         , loadingIndicator(nullptr)
     {
         iconAction->setData(static_cast<const void *>(device));
-        actionList.append(loadingAction);
         actionList.append(textAction);
         actionList.append(spaceAction);
         actionList.append(iconAction);
+        spinnerAction->setVisible(false);
     }
-    ~ItemAction()
+    ~BluetoothDeviceItemAction()
     {
-        delete loadingAction;
+        delete spinnerAction;
         delete textAction;
         delete iconAction;
         delete spaceAction;
+        if (loadingIndicator)
+            delete loadingIndicator;
     }
-    Q_DISABLE_COPY(ItemAction)
+    void setLoading(bool isLoading, QWidget *parentView)
+    {
+        if (spinnerAction->isVisible() == isLoading)
+            return;
+        if (isLoading) {
+            QAbstractItemView *view = qobject_cast<QAbstractItemView *>(parentView);
+            QWidget *parentWidget = view ? view->viewport() : parentView;
+            if (!loadingIndicator) {
+                loadingIndicator = new DSpinner(parentWidget);
+                loadingIndicator->setFixedSize(24, 24);
+                spinnerAction->setWidget(loadingIndicator);
+                loadingIndicator->connect(loadingIndicator, &QWidget::destroyed, loadingIndicator, [this]() { loadingIndicator = nullptr; });
+            }
+            loadingIndicator->setParent(parentWidget);
+            loadingIndicator->start();
+        } else if (loadingIndicator) {
+            loadingIndicator->stop();
+            loadingIndicator->setVisible(false);
+        }
+        spinnerAction->setVisible(isLoading);
+        textAction->setVisible(!isLoading);
+        actionList[0] = isLoading ? spinnerAction : textAction;
+    }
+    Q_DISABLE_COPY(BluetoothDeviceItemAction)
 };
 
 BluetoothDeviceModel::BluetoothDeviceModel(const BluetoothAdapter *adapter, bool paired, QWidget *parent)
@@ -192,7 +217,7 @@ void BluetoothDeviceModel::addDevice(const BluetoothDevice *device)
     connect(device, &BluetoothDevice::trustedChanged, this, &BluetoothDeviceModel::updateData, Qt::UniqueConnection);
     connect(device, &BluetoothDevice::connectingChanged, this, &BluetoothDeviceModel::updateData, Qt::UniqueConnection);
 
-    ItemAction *item = new ItemAction(device);
+    BluetoothDeviceItemAction *item = new BluetoothDeviceItemAction(device);
     updateItem(item);
     connect(item->iconAction, &DViewItemAction::triggered, this, [this]() {
         DViewItemAction *action = qobject_cast<DViewItemAction *>(sender());
@@ -240,7 +265,7 @@ void BluetoothDeviceModel::removeDevice(const QString &deviceId)
 {
     for (auto it = m_allData.begin(); it != m_allData.end(); ++it) {
         if ((*it)->device->id() == deviceId) {
-            ItemAction *item = *it;
+            BluetoothDeviceItemAction *item = *it;
             m_allData.removeOne(item);
             int row = m_data.indexOf(item);
             if (row != -1) {
@@ -254,41 +279,23 @@ void BluetoothDeviceModel::removeDevice(const QString &deviceId)
     }
 }
 
-void BluetoothDeviceModel::updateItem(ItemAction *item)
+void BluetoothDeviceModel::updateItem(BluetoothDeviceItemAction *item)
 {
     const BluetoothDevice *device = item->device;
     if (device->state() == BluetoothDevice::StateAvailable) {
-        if (!item->loadingIndicator) {
-            item->loadingIndicator = new DSpinner(m_parent);
-            item->loadingIndicator->setFixedSize(24, 24);
-            item->loadingAction->setWidget(item->loadingIndicator);
-        }
-        item->loadingIndicator->start();
-        item->loadingIndicator->setVisible(true);
-        item->loadingAction->setVisible(true);
-        item->textAction->setVisible(false);
+        item->setLoading(true, m_parent);
     } else {
         switch (device->state()) {
         case BluetoothDevice::StateConnected:
             if (device->connectState()) {
                 item->textAction->setText(tr("Connected"));
-                if (item->loadingIndicator) {
-                    item->loadingIndicator->stop();
-                    item->loadingIndicator->hide();
-                    item->loadingAction->setVisible(false);
-                    item->textAction->setVisible(true);
-                }
+                item->setLoading(false, m_parent);
             }
             break;
         case BluetoothDevice::StateUnavailable:
         case BluetoothDevice::StateDisconnecting: {
             item->textAction->setText(tr("Not connected"));
-            if (item->loadingIndicator) {
-                item->loadingIndicator->stop();
-                item->loadingIndicator->hide();
-                item->loadingAction->setVisible(false);
-                item->textAction->setVisible(true);
-            }
+            item->setLoading(false, m_parent);
         } break;
         default:
             break;

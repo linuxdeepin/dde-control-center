@@ -33,7 +33,7 @@ DCC_USE_NAMESPACE
 
 BluetoothModule::BluetoothModule(QObject *parent)
     : ModuleObject("bluetooth", tr("Bluetooth"), tr("Bluetooth"), QIcon::fromTheme("dcc_nav_bluetooth"), parent)
-    , index(0)
+    , m_index(0)
     , m_parent(nullptr)
 {
     setChildType(ModuleObject::ChildType::Page);
@@ -59,9 +59,6 @@ BluetoothModule::BluetoothModule(QObject *parent)
 
 void BluetoothModule::deactive()
 {
-    for (auto it : m_valueMap) {
-        it->deactive();
-    }
 }
 
 bool BluetoothModule::hasDevice()
@@ -98,27 +95,24 @@ AdapterModule *BluetoothModule::getAdapter(const BluetoothAdapter *adapter)
     connect(adpWidget, &AdapterModule::requestConnectDevice, this, &BluetoothModule::requestConnectDevice);
     connect(adpWidget, &AdapterModule::requestDisconnectDevice, this, &BluetoothModule::requestDisconnectDevice);
     connect(adpWidget, &AdapterModule::requestSetAlias, this, &BluetoothModule::requestSetAlias);
-    connect(adpWidget, &AdapterModule::requestSetDevAlias, m_work, &BluetoothWorker::setDeviceAlias);
     connect(adpWidget, &AdapterModule::requestRefresh, this, &BluetoothModule::requestRefresh);
     connect(adpWidget, &AdapterModule::requestDiscoverable, this, &BluetoothModule::requestDiscoverable);
     connect(adpWidget, &AdapterModule::requestDiscoverable, this, &BluetoothModule::requestDiscoverable);
+    connect(adpWidget, &AdapterModule::visibleChanged, this, &BluetoothModule::updateVisible);
+    connect(adpWidget, &AdapterModule::requestSetDevAlias, m_work, &BluetoothWorker::setDeviceAlias);
     connect(adpWidget, &AdapterModule::requestSetDisplaySwitch, m_work, &BluetoothWorker::setDisplaySwitch);
     connect(adpWidget, &AdapterModule::requestIgnoreDevice, m_work, &BluetoothWorker::ignoreDevice);
 
     m_work->setAdapterDiscovering(path, true);
-    m_valueMap[adapter] = adpWidget;
     return adpWidget;
 }
 
 void BluetoothModule::addAdapter(const BluetoothAdapter *adapter)
 {
     if (!m_valueMap.contains(adapter)) {
-        AdapterModule *adpModule = getAdapter(adapter);
-        const QList<DCC_NAMESPACE::ModuleObject *> &list = adpModule->ModuleList();
-        for (DCC_NAMESPACE::ModuleObject *obj : list) {
-            appendChild(obj);
-        }
+        m_valueMap[adapter] = getAdapter(adapter);
         setVisibleState();
+        updateVisible();
         updateWidget();
     }
 }
@@ -126,9 +120,8 @@ void BluetoothModule::removeAdapter(const BluetoothAdapter *adapter)
 {
     if (m_valueMap.contains(adapter)) {
         AdapterModule *adpModule = m_valueMap.take(adapter);
-        const QList<DCC_NAMESPACE::ModuleObject *> &list = adpModule->ModuleList();
-        for (DCC_NAMESPACE::ModuleObject *obj : list) {
-            removeChild(obj);
+        for (auto &&obj : adpModule->ModuleList()) {
+            removeChild(obj.first);
         }
         adpModule->setParent(nullptr);
         adpModule->deleteLater();
@@ -142,18 +135,34 @@ void BluetoothModule::requestRefresh(const BluetoothAdapter *adapter)
     m_work->setAdapterDiscoverable(adapter->id());
 }
 
+void BluetoothModule::updateVisible()
+{
+    int row = 0;
+    for (const BluetoothAdapter *adapter : m_model->adapters()) {
+        auto &&adpModule = m_valueMap.value(adapter,nullptr);
+        if(adpModule) {
+            for (auto &&module : adpModule->ModuleList()) {
+                if (module.second)
+                    insertChild(row++, module.first);
+                else
+                    removeChild(module.first);
+            }
+        }
+    }
+}
+
 void BluetoothModule::updateWidget()
 {
     if (!m_parent)
         return;
     if (m_valueMap.isEmpty()) {
         if (m_parent->findChild(this) != -1) {
-            index = m_parent->childrens().indexOf(this);
+            m_index = m_parent->childrens().indexOf(this);
             m_parent->removeChild(this);
         }
     } else {
         if (m_parent->findChild(this) == -1) {
-            m_parent->insertChild(index, this);
+            m_parent->insertChild(m_index, this);
         }
     }
 }
@@ -169,5 +178,5 @@ bool BluetoothModule::event(QEvent *ev)
 
 void BluetoothModule::setVisibleState()
 {
-    Q_EMIT requestModuleVisible(m_valueMap.size());
+    Q_EMIT requestModuleVisible(!m_valueMap.isEmpty());
 }

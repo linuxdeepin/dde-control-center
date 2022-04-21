@@ -30,7 +30,7 @@ class QStyleOptionViewItem;
 class QModelIndex;
 class BluetoothDevice;
 class BluetoothAdapter;
-struct ItemAction;
+struct BluetoothDeviceItemAction;
 
 class BluetoothDeviceModel : public QAbstractItemModel
 {
@@ -65,12 +65,12 @@ private Q_SLOTS:
     void onPairedChanged(const bool &paired);
 
 private:
-    void updateItem(ItemAction *item);
+    void updateItem(BluetoothDeviceItemAction *item);
 
 private:
     bool m_paired;
-    QList<ItemAction *> m_allData;
-    QList<ItemAction *> m_data;
+    QList<BluetoothDeviceItemAction *> m_allData;
+    QList<BluetoothDeviceItemAction *> m_data;
     const BluetoothAdapter *m_adapter;
     QWidget *m_parent;
     bool m_showAnonymous;

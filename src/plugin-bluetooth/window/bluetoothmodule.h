@@ -38,7 +38,7 @@ class BluetoothModule : public DCC_NAMESPACE::ModuleObject
     Q_OBJECT
 public:
     explicit BluetoothModule(QObject *parent = nullptr);
-    ~BluetoothModule() override { }
+    ~BluetoothModule() override {}
     void deactive() override;
     bool hasDevice();
 
@@ -59,6 +59,7 @@ public Q_SLOTS:
     void addAdapter(const BluetoothAdapter *adapter);
     void removeAdapter(const BluetoothAdapter *adapter);
     void requestRefresh(const BluetoothAdapter *adapter);
+    void updateVisible();
 
 protected:
     bool event(QEvent *ev) override;
@@ -73,7 +74,7 @@ private:
     BluetoothWorker *m_work;
     QMap<const BluetoothAdapter *, AdapterModule *> m_valueMap;
     QMap<QDBusObjectPath, PinCodeDialog *> m_dialogs;
-    int index;
+    int m_index;
     DCC_NAMESPACE::ModuleObject *m_parent;
 };
 

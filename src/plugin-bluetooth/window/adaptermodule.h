@@ -50,8 +50,7 @@ class AdapterModule : public QObject
 public:
     explicit AdapterModule(const BluetoothAdapter *adapter, BluetoothModel *model, BluetoothWorker *work, QObject *parent = nullptr);
     virtual ~AdapterModule();
-    const QList<DCC_NAMESPACE::ModuleObject *> &ModuleList() const;
-    void deactive();
+    const QList<QPair<DCC_NAMESPACE::ModuleObject *, bool>> &ModuleList() const;
 
 public Q_SLOTS:
     void initBluetoothTitle(DCC_NAMESPACE::SettingsGroup *settingsGrp);
@@ -59,6 +58,7 @@ public Q_SLOTS:
     void initAnonymousCheckBox(QWidget *w);
     void initOtherDeviceListView(DCC_NAMESPACE::DCCListView *otherDeviceListView);
     void toggleDiscoverableSwitch(const bool checked);
+    void updateVisible(bool bPower, bool bDiscovering);
 
 Q_SIGNALS:
     void requestSetToggleAdapter(const BluetoothAdapter *adapter, const bool &toggled);
@@ -66,42 +66,31 @@ Q_SIGNALS:
     void requestDisconnectDevice(const BluetoothDevice *device);
     void requestSetAlias(const BluetoothAdapter *adapter, const QString &alias);
     void requestSetDevAlias(const BluetoothDevice *device, const QString &devAlias);
-    void notifyLoadFinished();
     void notifyRemoveDevice();
     void requestRefresh(const BluetoothAdapter *adapter);
     void requestDiscoverable(const BluetoothAdapter *adapter, const bool &discoverable);
     void requestSetDisplaySwitch(const bool &on);
     void requestIgnoreDevice(const BluetoothAdapter *adapter, const BluetoothDevice *device);
+    void visibleChanged();
 
 private Q_SLOTS:
-    void onPowerStatus(bool bPower, bool bDiscovering);
-
-    void contextMenu(const BluetoothAdapter *adapter, const BluetoothDevice *device);
+    void contextMenu(const BluetoothAdapter *adapter, const BluetoothDevice *device, DCC_NAMESPACE::DCCListView *view);
+    void deviceChanged();
 
 private:
     void setAdapter(const BluetoothAdapter *adapter);
     bool getSwitchState();
 
 protected:
-    QList<DCC_NAMESPACE::ModuleObject *> m_moduleList;
+    QList<QPair<DCC_NAMESPACE::ModuleObject *, bool>> m_moduleList;
+    QSet<const BluetoothDevice *> m_devices;
 
-    QLabel *m_tip;
     DCC_NAMESPACE::TitleEdit *m_titleEdit;
     const BluetoothAdapter *m_adapter;
+    bool m_hasPaired;
 
     BluetoothModel *m_model;
     BluetoothWorker *m_work;
-
-    DCC_NAMESPACE::SwitchWidget *m_powerSwitch;
-    QCheckBox *m_showAnonymousCheckBox;
-    DCC_NAMESPACE::TitleLabel *m_myDevicesTitle;
-    DTK_WIDGET_NAMESPACE::DListView *m_myDeviceListView;
-    DCC_NAMESPACE::TitleLabel *m_otherDevicesTitle;
-    DTK_WIDGET_NAMESPACE::DSpinner *m_spinner;
-    QPointer<DTK_WIDGET_NAMESPACE::DSpinner> m_spinnerBtn;
-    DTK_WIDGET_NAMESPACE::DListView *m_otherDeviceListView;
-    DTK_WIDGET_NAMESPACE::DIconButton *m_refreshBtn;
-    DCC_NAMESPACE::SwitchWidget *m_discoverySwitch;
 };
 
 #endif // ADAPTERMODULE_H

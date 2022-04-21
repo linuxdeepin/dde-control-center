@@ -46,41 +46,30 @@ DWIDGET_USE_NAMESPACE
 AdapterModule::AdapterModule(const BluetoothAdapter *adapter, BluetoothModel *model, BluetoothWorker *work, QObject *parent)
     : QObject(parent)
     , m_adapter(adapter)
+    , m_hasPaired(false)
     , m_model(model)
     , m_work(work)
-    , m_powerSwitch(nullptr)
-    , m_showAnonymousCheckBox(nullptr)
-    , m_myDeviceListView(nullptr)
-    , m_spinner(nullptr)
-    , m_otherDeviceListView(nullptr)
-    , m_refreshBtn(nullptr)
-    , m_discoverySwitch(nullptr)
 {
-    deactive();
-    m_moduleList.append(new WidgetModule<SettingsGroup>("bluetoothTitle", tr("Allow other Bluetooth devices to find this device"), this, &AdapterModule::initBluetoothTitle));
-    m_moduleList.append(new WidgetModule<QLabel>("bluetoothTitle", tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"), [this](QLabel *w) {
-        m_tip = w;
-        m_tip->setText(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
-        m_tip->setWordWrap(true);
-        m_tip->setContentsMargins(16, 0, 10, 0);
-        m_tip->setVisible(!m_adapter->powered());
-    }));
-    m_moduleList.append(new WidgetModule<TitleLabel>("DevicesGroup", tr("My Devices"), [this](TitleLabel *w) {
-        m_myDevicesTitle = w;
-        w->setText(tr("My Devices"));
-        DFontSizeManager::instance()->bind(w, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
-        w->setVisible(m_adapter->powered());
-    }));
-    m_moduleList.append(new WidgetModule<DCCListView>("List_mydevicelist", tr("My Devices"), this, &AdapterModule::initDeviceListView));
-    m_moduleList.append(new WidgetModule<TitleLabel>("Other Devices", tr("Other Devices"), [this](TitleLabel *w) {
-        m_otherDevicesTitle = w;
-        w->setText(tr("Other Devices"));
-        DFontSizeManager::instance()->bind(w, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
-        w->setVisible(m_adapter->powered());
-        connect(m_adapter, &BluetoothAdapter::poweredChanged, w, &TitleLabel::setVisible, Qt::QueuedConnection);
-    }));
-    m_moduleList.append(new WidgetModule<QWidget>("AnonymousCheckBox", tr("Other Devices"), this, &AdapterModule::initAnonymousCheckBox));
-    m_moduleList.append(new WidgetModule<DCCListView>("List_otherdevicelist", "", this, &AdapterModule::initOtherDeviceListView));
+    m_moduleList.append({ new WidgetModule<SettingsGroup>("bluetoothTitleGroup", tr("Allow other Bluetooth devices to find this device"), this, &AdapterModule::initBluetoothTitle), true });
+    m_moduleList.append({ new WidgetModule<QLabel>("bluetoothTitle", tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"), [](QLabel *tip) {
+                              tip->setText(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
+                              tip->setWordWrap(true);
+                              tip->setContentsMargins(16, 0, 10, 0);
+                          }),
+                          true });
+    m_moduleList.append({ new WidgetModule<TitleLabel>("DevicesTitle", tr("My Devices"), [](TitleLabel *title) {
+                              title->setText(tr("My Devices"));
+                              DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
+                          }),
+                          true });
+    m_moduleList.append({ new WidgetModule<DCCListView>("List_mydevicelist", tr("My Devices"), this, &AdapterModule::initDeviceListView), true });
+    m_moduleList.append({ new WidgetModule<TitleLabel>("OtherDevices", tr("Other Devices"), [](TitleLabel *title) {
+                              title->setText(tr("Other Devices"));
+                              DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
+                          }),
+                          true });
+    m_moduleList.append({ new WidgetModule<QWidget>("AnonymousCheckBox", tr("Other Devices"), this, &AdapterModule::initAnonymousCheckBox), true });
+    m_moduleList.append({ new WidgetModule<DCCListView>("List_otherdevicelist", "", this, &AdapterModule::initOtherDeviceListView), true });
 
     setAdapter(m_adapter);
 }
@@ -89,20 +78,7 @@ AdapterModule::~AdapterModule()
 {
 }
 
-void AdapterModule::deactive()
-{
-    m_powerSwitch = nullptr;
-    m_showAnonymousCheckBox = nullptr;
-    m_myDeviceListView = nullptr;
-    m_spinner = nullptr;
-    m_otherDeviceListView = nullptr;
-    m_refreshBtn = nullptr;
-    m_discoverySwitch = nullptr;
-    m_myDevicesTitle = nullptr;
-    m_otherDevicesTitle = nullptr;
-}
-
-const QList<DCC_NAMESPACE::ModuleObject *> &AdapterModule::ModuleList() const
+const QList<QPair<DCC_NAMESPACE::ModuleObject *, bool>> &AdapterModule::ModuleList() const
 {
     return m_moduleList;
 }
@@ -111,127 +87,134 @@ void AdapterModule::initBluetoothTitle(DCC_NAMESPACE::SettingsGroup *settingsGrp
 {
     m_titleEdit = new TitleEdit;
     m_titleEdit->setTitle(m_adapter->name());
-    m_spinnerBtn = new DSpinner(m_titleEdit);
-    m_spinnerBtn->setFixedSize(24, 24);
-    m_spinnerBtn->start();
-    m_spinnerBtn->hide();
+    DSpinner *spinnerBtn = new DSpinner(m_titleEdit);
+    spinnerBtn->setFixedSize(24, 24);
+    spinnerBtn->start();
+    spinnerBtn->hide();
     m_titleEdit->setMinimumWidth(10);
-    m_powerSwitch = new SwitchWidget(nullptr, m_titleEdit);
+    SwitchWidget *powerSwitch = new SwitchWidget(nullptr, m_titleEdit);
     //把动画按钮放在蓝牙开关前面
-    m_powerSwitch->getMainLayout()->insertWidget(1, m_spinnerBtn, Qt::AlignVCenter);
-    m_powerSwitch->setObjectName("powerSwitch");
+    powerSwitch->getMainLayout()->insertWidget(1, spinnerBtn, Qt::AlignVCenter);
+    powerSwitch->setObjectName("powerSwitch");
 
-    m_powerSwitch->setFixedHeight(36);
-    m_powerSwitch->setContentsMargins(0, 0, 0, 0);
+    powerSwitch->setFixedHeight(36);
+    powerSwitch->setContentsMargins(0, 0, 0, 0);
+    powerSwitch->setChecked(m_adapter->powered());
 
-    m_discoverySwitch = new SwitchWidget(tr("Allow other Bluetooth devices to find this device"));
-    m_discoverySwitch->leftWidget()->setMinimumWidth(10);
-    m_discoverySwitch->setContentsMargins(0, 0, 0, 0);
-    m_discoverySwitch->setFixedHeight(36);
-    m_discoverySwitch->setObjectName("discoverySwitch");
-    m_discoverySwitch->setChecked(m_adapter->discoverabled());
+    SwitchWidget *discoverySwitch = new SwitchWidget(tr("Allow other Bluetooth devices to find this device"));
+    discoverySwitch->leftWidget()->setMinimumWidth(10);
+    discoverySwitch->setContentsMargins(0, 0, 0, 0);
+    discoverySwitch->setFixedHeight(36);
+    discoverySwitch->setObjectName("discoverySwitch");
+    discoverySwitch->setChecked(m_adapter->discoverabled());
 
     settingsGrp->setBackgroundStyle(SettingsGroup::GroupBackground);
     settingsGrp->setContentsMargins(0, 0, 0, 0);
     settingsGrp->layout()->setMargin(0);
     settingsGrp->setSpacing(1);
 
-    settingsGrp->appendItem(m_powerSwitch);
-    settingsGrp->appendItem(m_discoverySwitch);
-    m_discoverySwitch->setChecked(m_adapter->discoverabled());
+    settingsGrp->appendItem(powerSwitch);
+    settingsGrp->appendItem(discoverySwitch);
+    discoverySwitch->setChecked(m_adapter->discoverabled());
+    discoverySwitch->setVisible(m_adapter->powered());
 
     connect(m_titleEdit, &TitleEdit::requestSetBluetoothName, this, [=](const QString &alias) {
         Q_EMIT requestSetAlias(m_adapter, alias);
     });
     connect(m_adapter, &BluetoothAdapter::nameChanged, m_titleEdit, &TitleEdit::setTitle, Qt::QueuedConnection);
-    connect(m_powerSwitch, &SwitchWidget::checkedChanged, this, [=](const bool check) {
+    connect(powerSwitch, &SwitchWidget::checkedChanged, this, [this, powerSwitch, discoverySwitch](const bool check) {
         //关闭蓝牙的时候,直接隐藏列表
         if (!check) {
-            onPowerStatus(false, false);
+            discoverySwitch->setVisible(false);
+            updateVisible(false, false);
             if (m_adapter) {
                 Q_EMIT m_adapter->closeDetailPage();
             }
         }
-        m_powerSwitch->switchButton()->setEnabled(false);
+        powerSwitch->switchButton()->setEnabled(false);
         Q_EMIT requestSetToggleAdapter(m_adapter, check);
     });
-    connect(m_adapter,&BluetoothAdapter::poweredChanged,m_powerSwitch, [=] {
-        m_powerSwitch->switchButton()->setEnabled(true);
-        m_spinnerBtn->hide();
+    connect(m_adapter, &BluetoothAdapter::poweredChanged, powerSwitch, [powerSwitch, spinnerBtn] {
+        powerSwitch->switchButton()->setEnabled(true);
+        spinnerBtn->hide();
     });
-    connect(m_adapter, &BluetoothAdapter::loadStatus, m_powerSwitch, [=] {
-        m_powerSwitch->switchButton()->setEnabled(false);
-        m_spinnerBtn->show();
+    connect(m_adapter, &BluetoothAdapter::loadStatus, powerSwitch, [powerSwitch, spinnerBtn] {
+        powerSwitch->switchButton()->setEnabled(false);
+        spinnerBtn->show();
     });
-    connect(m_discoverySwitch, &SwitchWidget::checkedChanged, this, &AdapterModule::toggleDiscoverableSwitch);
-    connect(m_adapter, &BluetoothAdapter::discoverableChanged, m_discoverySwitch, [=] {
-        m_discoverySwitch->setChecked(m_adapter->discoverabled());
+    connect(discoverySwitch, &SwitchWidget::checkedChanged, this, &AdapterModule::toggleDiscoverableSwitch);
+    connect(m_adapter, &BluetoothAdapter::discoverableChanged, discoverySwitch, [this, discoverySwitch] {
+        discoverySwitch->setChecked(m_adapter->discoverabled());
+    });
+    connect(m_adapter, &BluetoothAdapter::poweredChanged, powerSwitch, [powerSwitch, discoverySwitch](bool bPower, bool) {
+        powerSwitch->setEnabled(true);
+        powerSwitch->setChecked(bPower);
+        powerSwitch->setVisible(true);
+        discoverySwitch->setEnabled(true);
+        discoverySwitch->setVisible(bPower);
     });
 }
 
 void AdapterModule::initDeviceListView(DCCListView *deviceListView)
 {
-    m_myDeviceListView = deviceListView;
-    m_myDeviceListView->setAccessibleName("List_mydevicelist");
-    m_myDeviceListView->setObjectName("myDeviceListView");
-    m_myDeviceListView->setFrameShape(QFrame::NoFrame);
-    BluetoothDeviceModel *model = new BluetoothDeviceModel(m_adapter, true, m_myDeviceListView);
-    m_myDeviceListView->setModel(model);
-    m_myDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_myDeviceListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    m_myDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_myDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_myDeviceListView->setSelectionMode(QAbstractItemView::NoSelection);
-    m_myDeviceListView->setViewportMargins(0, 0, 0, 0);
+    deviceListView->setAccessibleName("List_mydevicelist");
+    deviceListView->setObjectName("myDeviceListView");
+    deviceListView->setFrameShape(QFrame::NoFrame);
+    BluetoothDeviceModel *model = new BluetoothDeviceModel(m_adapter, true, deviceListView);
+    deviceListView->setModel(model);
+    deviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    deviceListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    deviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    deviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    deviceListView->setSelectionMode(QAbstractItemView::NoSelection);
+    deviceListView->setViewportMargins(0, 0, 0, 0);
 
-    m_myDeviceListView->setVisible(m_adapter->powered());
-    connect(m_model, &BluetoothModel::notifyMyDeviceVisibleChanged, m_myDeviceListView, &DListView::setVisible, Qt::QueuedConnection);
     connect(model, &BluetoothDeviceModel::requestSetDevAlias, this, &AdapterModule::requestSetDevAlias);
-    connect(model, &BluetoothDeviceModel::detailClick, this, [this](const BluetoothDevice *device) {
-        contextMenu(m_adapter, device);
+    connect(model, &BluetoothDeviceModel::detailClick, this, [this, deviceListView](const BluetoothDevice *device) {
+        contextMenu(m_adapter, device, deviceListView);
     });
-    connect(m_myDeviceListView, &DListView::clicked, this, [this](const QModelIndex &idx) {
-        m_otherDeviceListView->clearSelection();
+    connect(deviceListView, &DListView::clicked, this, [this](const QModelIndex &idx) {
         const BluetoothDevice *device = static_cast<const BluetoothDevice *>(idx.internalPointer());
         if (device->state() != BluetoothDevice::StateConnected) {
             Q_EMIT requestConnectDevice(device, m_adapter);
         }
     });
 
-    connect(m_myDeviceListView, &DListView::activated, m_myDeviceListView, &DListView::clicked);
+    connect(deviceListView, &DListView::activated, deviceListView, &DListView::clicked);
 }
 
 void AdapterModule::initAnonymousCheckBox(QWidget *w)
 {
-    m_showAnonymousCheckBox = new QCheckBox(w);
-    m_showAnonymousCheckBox->setAccessibleName("AnonymousCheckBox");
-    m_showAnonymousCheckBox->setChecked(m_model->displaySwitch());
+    QCheckBox *showAnonymousCheckBox = new QCheckBox(w);
+    showAnonymousCheckBox->setAccessibleName("AnonymousCheckBox");
+    showAnonymousCheckBox->setChecked(m_model->displaySwitch());
 
-    m_showAnonymousCheckBox->setText(tr("Show Bluetooth devices without names"));
+    showAnonymousCheckBox->setText(tr("Show Bluetooth devices without names"));
 
-    m_showAnonymousCheckBox->setFixedHeight(36);
-    m_showAnonymousCheckBox->setMinimumWidth(10);
+    showAnonymousCheckBox->setFixedHeight(36);
+    showAnonymousCheckBox->setMinimumWidth(10);
 
-    m_spinner = new DSpinner(w);
-    m_spinner->setFixedSize(24, 24);
-    m_spinner->start();
-    m_spinner->setVisible(false);
+    DSpinner *spinner = new DSpinner(w);
+    spinner->setFixedSize(24, 24);
+    spinner->start();
+    spinner->setVisible(m_adapter->discovering());
 
-    m_refreshBtn = new DIconButton(w);
-    m_refreshBtn->setFixedSize(36, 36);
-    m_refreshBtn->setIcon(QIcon::fromTheme("dcc_refresh"));
+    DIconButton *refreshBtn = new DIconButton(w);
+    refreshBtn->setFixedSize(36, 36);
+    refreshBtn->setIcon(QIcon::fromTheme("dcc_refresh"));
+    refreshBtn->setVisible(!m_adapter->discovering());
 
     QHBoxLayout *phlayoutShowAnonymous = new QHBoxLayout;
-    phlayoutShowAnonymous->addWidget(m_showAnonymousCheckBox);
+    phlayoutShowAnonymous->addWidget(showAnonymousCheckBox);
     phlayoutShowAnonymous->addStretch();
-    phlayoutShowAnonymous->addWidget(m_spinner);
-    phlayoutShowAnonymous->addWidget(m_refreshBtn);
+    phlayoutShowAnonymous->addWidget(spinner);
+    phlayoutShowAnonymous->addWidget(refreshBtn);
 
-    connect(m_refreshBtn, &DIconButton::clicked, this, [=] {
+    connect(refreshBtn, &DIconButton::clicked, this, [=] {
         Q_EMIT requestRefresh(m_adapter);
     });
-    connect(m_model, &BluetoothModel::displaySwitchChanged, m_showAnonymousCheckBox, &QCheckBox::setChecked);
-    connect(m_showAnonymousCheckBox, &QCheckBox::stateChanged, this, [=](int state) {
+    connect(m_model, &BluetoothModel::displaySwitchChanged, showAnonymousCheckBox, &QCheckBox::setChecked);
+    connect(showAnonymousCheckBox, &QCheckBox::stateChanged, this, [=](int state) {
         if (state == Qt::CheckState::Unchecked) {
             if (m_model->displaySwitch()) {
                 Q_EMIT requestSetDisplaySwitch(false);
@@ -242,67 +225,46 @@ void AdapterModule::initAnonymousCheckBox(QWidget *w)
             }
         }
     });
-
+    connect(m_adapter, &BluetoothAdapter::poweredChanged, spinner, [spinner, refreshBtn](bool bPower, bool bDiscovering) {
+        spinner->setVisible(bPower && bDiscovering);
+        refreshBtn->setVisible(bPower && !bDiscovering);
+    });
     w->setLayout(phlayoutShowAnonymous);
 }
 
 void AdapterModule::initOtherDeviceListView(DCCListView *otherDeviceListView)
 {
-    m_otherDeviceListView = otherDeviceListView;
-    m_otherDeviceListView->setAccessibleName("List_otherdevicelist");
-    m_otherDeviceListView->setObjectName("otherDeviceListView");
-    m_otherDeviceListView->setFrameShape(QFrame::NoFrame);
-    BluetoothDeviceModel *model = new BluetoothDeviceModel(m_adapter, false, m_otherDeviceListView);
-    m_otherDeviceListView->setModel(model);
-    m_otherDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_otherDeviceListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    m_otherDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_otherDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_otherDeviceListView->setSelectionMode(QAbstractItemView::NoSelection);
-    m_otherDeviceListView->setViewportMargins(0, 0, 0, 0);
+    otherDeviceListView->setAccessibleName("List_otherdevicelist");
+    otherDeviceListView->setObjectName("otherDeviceListView");
+    otherDeviceListView->setFrameShape(QFrame::NoFrame);
+    BluetoothDeviceModel *model = new BluetoothDeviceModel(m_adapter, false, otherDeviceListView);
+    otherDeviceListView->setModel(model);
+    otherDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    otherDeviceListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    otherDeviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    otherDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    otherDeviceListView->setSelectionMode(QAbstractItemView::NoSelection);
+    otherDeviceListView->setViewportMargins(0, 0, 0, 0);
 
-    m_otherDeviceListView->setVisible(m_adapter->powered());
     connect(m_model, &BluetoothModel::displaySwitchChanged, model, &BluetoothDeviceModel::showAnonymous);
-    connect(m_model, &BluetoothModel::notifyOtherDeviceVisibleChanged, m_otherDeviceListView, &DListView::setVisible, Qt::QueuedConnection);
 
-    connect(m_otherDeviceListView, &DListView::clicked, this, [this](const QModelIndex &idx) {
-        m_myDeviceListView->clearSelection();
+    connect(otherDeviceListView, &DListView::clicked, this, [this](const QModelIndex &idx) {
         const BluetoothDevice *device = static_cast<const BluetoothDevice *>(idx.internalPointer());
         if (device->state() != BluetoothDevice::StateConnected) {
             Q_EMIT requestConnectDevice(device, m_adapter);
         }
     });
 
-    connect(m_otherDeviceListView, &DListView::activated, m_otherDeviceListView, &DListView::clicked);
-    onPowerStatus(m_adapter->powered(), m_adapter->discovering());
+    connect(otherDeviceListView, &DListView::activated, otherDeviceListView, &DListView::clicked);
 }
 
 void AdapterModule::setAdapter(const BluetoothAdapter *adapter)
 {
-    connect(adapter, &BluetoothAdapter::poweredChanged, this, &AdapterModule::onPowerStatus, Qt::QueuedConnection);
-    onPowerStatus(adapter->powered(), adapter->discovering());
-}
-
-void AdapterModule::onPowerStatus(bool bPower, bool bDiscovering)
-{
-    Q_EMIT notifyLoadFinished();
-    if (!m_powerSwitch || !m_discoverySwitch || !m_tip || !m_showAnonymousCheckBox
-        || !m_spinner || !m_refreshBtn || !m_myDeviceListView || !m_otherDeviceListView)
-        return;
-    m_powerSwitch->setEnabled(true);
-    m_powerSwitch->setChecked(bPower);
-    m_powerSwitch->setVisible(true);
-    m_discoverySwitch->setEnabled(true);
-    m_discoverySwitch->setVisible(bPower);
-    m_tip->setVisible(!bPower);
-
-    m_showAnonymousCheckBox->setVisible(bPower);
-    m_spinner->setVisible(bPower && bDiscovering);
-    m_refreshBtn->setVisible(bPower && !bDiscovering);
-    m_myDeviceListView->setVisible(bPower);
-    m_myDevicesTitle->setVisible(bPower);
-    m_otherDeviceListView->setVisible(bPower);
-    m_otherDevicesTitle->setVisible(bPower);
+    connect(adapter, &BluetoothAdapter::poweredChanged, this, &AdapterModule::updateVisible, Qt::QueuedConnection);
+    connect(adapter, &BluetoothAdapter::deviceAdded, this, &AdapterModule::deviceChanged, Qt::QueuedConnection);
+    connect(adapter, &BluetoothAdapter::deviceRemoved, this, &AdapterModule::deviceChanged, Qt::QueuedConnection);
+    deviceChanged();
+    updateVisible(adapter->powered(), adapter->discovering());
 }
 
 bool AdapterModule::getSwitchState()
@@ -315,9 +277,26 @@ void AdapterModule::toggleDiscoverableSwitch(const bool checked)
     Q_EMIT requestDiscoverable(m_adapter, checked);
 }
 
-void AdapterModule::contextMenu(const BluetoothAdapter *adapter, const BluetoothDevice *device)
+void AdapterModule::updateVisible(bool bPower, bool bDiscovering)
 {
-    QMenu *menu = new QMenu(m_myDeviceListView);
+    Q_UNUSED(bDiscovering)
+    for (auto &&module : m_moduleList) {
+        if (module.first->name() == "bluetoothTitle")
+            module.second = !bPower;
+        else if (module.first->name() == "OtherDevices"
+                 || module.first->name() == "AnonymousCheckBox"
+                 || module.first->name() == "List_otherdevicelist")
+            module.second = bPower;
+        else if (module.first->name() == "DevicesTitle"
+                 || module.first->name() == "List_mydevicelist")
+            module.second = bPower && m_hasPaired;
+    }
+    Q_EMIT visibleChanged();
+}
+
+void AdapterModule::contextMenu(const BluetoothAdapter *adapter, const BluetoothDevice *device, DCCListView *view)
+{
+    QMenu *menu = new QMenu(view);
     menu->setAccessibleName("DetailMenu");
     QAction *connectAction = menu->addAction(tr("Connect"));
     QAction *disconnectAction = menu->addAction(tr("Disconnect"));
@@ -351,6 +330,8 @@ void AdapterModule::contextMenu(const BluetoothAdapter *adapter, const Bluetooth
         menu->removeAction(transfileAction);
         break;
     }
+    if (!device->canSendFile())
+        menu->removeAction(transfileAction);
     QAction *action = menu->exec(QCursor::pos());
     if (action == nullptr) {
         // 没有不处理，但要先判断
@@ -359,10 +340,10 @@ void AdapterModule::contextMenu(const BluetoothAdapter *adapter, const Bluetooth
     } else if (action == disconnectAction) {
         Q_EMIT requestDisconnectDevice(device);
     } else if (action == renameAction) {
-        BluetoothDeviceModel *model = qobject_cast<BluetoothDeviceModel *>(m_myDeviceListView->model());
-        m_myDeviceListView->edit(model->index(device));
+        BluetoothDeviceModel *model = qobject_cast<BluetoothDeviceModel *>(view->model());
+        view->edit(model->index(device));
     } else if (action == transfileAction) {
-        QFileDialog *transFile = new QFileDialog(m_myDeviceListView);
+        QFileDialog *transFile = new QFileDialog(view);
         transFile->setModal(true);
         transFile->setFileMode(QFileDialog::ExistingFiles);
         transFile->setAcceptMode(QFileDialog::AcceptOpen);
@@ -381,4 +362,23 @@ void AdapterModule::contextMenu(const BluetoothAdapter *adapter, const Bluetooth
         Q_EMIT requestIgnoreDevice(adapter, device);
     }
     menu->deleteLater();
+}
+
+void AdapterModule::deviceChanged()
+{
+    bool hasPaired = false;
+    for (auto &&dev : m_adapter->devices()) {
+        hasPaired |= dev->paired();
+        if (!m_devices.contains(dev)) {
+            connect(dev, &BluetoothDevice::pairedChanged, this, &AdapterModule::deviceChanged, Qt::QueuedConnection);
+            connect(dev, &BluetoothDevice::destroyed, this, [this]() {
+                m_devices.remove(qobject_cast<const BluetoothDevice *>(sender()));
+            });
+            m_devices.insert(dev);
+        }
+    }
+    if (hasPaired != m_hasPaired) {
+        m_hasPaired = hasPaired;
+        updateVisible(m_adapter->powered(), m_adapter->discovering());
+    }
 }
