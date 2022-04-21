@@ -84,7 +84,6 @@ public:
     virtual QWidget *page() override;
 
 protected:
-    bool eventFilter(QObject *o, QEvent *e) override;
     void deactive() override;
 private:
     AccountsDetailWidget* updateAccountsDetailWidget(User *account);

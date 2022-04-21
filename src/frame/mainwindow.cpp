@@ -631,18 +631,20 @@ void MainWindow::showModulePage(ModuleObject *const module, QWidget *const paren
 
 QWidget* MainWindow::getPage(QWidget *const widget, const QString &title)
 {
-    if (!widget)
-        return nullptr;
-    QLabel *titleLbl = new QLabel(title, this);
-    QWidget *page = new QWidget(this);
-    QVBoxLayout *vLayout = new QVBoxLayout(page);
-    page->setLayout(vLayout);
-    vLayout->addWidget(titleLbl, 0, Qt::AlignTop);
-    vLayout->addWidget(widget, 1, Qt::AlignTop);
-    if (title.isEmpty()) {
-        titleLbl->setVisible(false);
-    }
-    return page;
+//    if (!widget)
+//        return nullptr;
+//    QLabel *titleLbl = new QLabel(title, this);
+//    QWidget *page = new QWidget(this);
+//    QVBoxLayout *vLayout = new QVBoxLayout(page);
+//    page->setLayout(vLayout);
+//    vLayout->addWidget(titleLbl, 0, Qt::AlignTop);
+//    vLayout->addWidget(widget, 1, Qt::AlignTop);
+//    if (title.isEmpty()) {
+//        titleLbl->setVisible(false);
+//    }
+    //todo：此处会造成listview显示不全，待解决
+    Q_UNUSED(title)
+    return widget;
 }
 
 QWidget* MainWindow::getExtraPage(QWidget *const widget)

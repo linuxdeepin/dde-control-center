@@ -477,7 +477,7 @@ if (UNITTEST)
 endif()
 #--------------------------plugin-commoninfo--------------------------
 set(CommonInfo_Name dcc-commoninfo-plugin)
-pkg_check_modules(DEEPIN_PW_CHECK deepin_pw_check)
+pkg_check_modules(DEEPIN_PW_CHECK libdeepin_pw_check)
 file(GLOB_RECURSE COMMONINFO_SRCS
     "src/plugin-commoninfo/window/*.cpp"
     "src/plugin-commoninfo/operation/*.cpp"
@@ -776,7 +776,7 @@ install(TARGETS ${Authentication_Name} DESTINATION lib/dde-control-center/module
 #--------------------------plugin-accounts--------------------------
 find_package(PolkitQt5-1)
 set(Accounts_Name dcc-accounts-plugin)
-pkg_check_modules(DEEPIN_PW_CHECK deepin_pw_check)
+pkg_check_modules(DEEPIN_PW_CHECK libdeepin_pw_check)
 file(GLOB_RECURSE ACCOUNTS_SRCS
     "src/plugin-accounts/window/*.cpp"
     "src/plugin-accounts/operation/*.cpp"
