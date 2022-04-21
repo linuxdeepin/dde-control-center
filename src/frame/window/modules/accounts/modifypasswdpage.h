@@ -93,6 +93,7 @@ Q_SIGNALS:
     void requestLocalBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid);
     void requestStartResetPasswordExec(dcc::accounts::User *user);
     void requestSecurityQuestionsCheck(dcc::accounts::User *user);
+    void requestCheckPwdLimitLevel();
 
 public Q_SLOTS:
     void onLocalBindCheckUbid(const QString &ubid);
@@ -107,7 +108,6 @@ private:
     DTK_WIDGET_NAMESPACE::DLineEdit *m_passwordTipsEdit;
     bool m_isCurrent;
     bool m_isBindCheckError;
-    bool m_isSecurityQuestionsExist;
     dcc::widgets::SecurityLevelItem *m_securityLevelItem;
     QTimer m_enableBtnTimer;
 };

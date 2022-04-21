@@ -86,10 +86,20 @@ keyboard::CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
 
     setContent(widget);
 
-    connect(cancelButton, &QPushButton::clicked, this, &CustomEdit::back);
+    connect(cancelButton, &QPushButton::clicked, this, [this]{
+        if (this->parentWidget()) {
+            this->parentWidget()->setFocus();
+        }
+        Q_EMIT CustomEdit::back();
+    });
     connect(pushbutton, &DIconButton::clicked, this, &CustomEdit::onOpenFile);
     connect(m_short, &CustomItem::requestUpdateKey, this, &CustomEdit::onUpdateKey);
-    connect(okButton, &QPushButton::clicked, this, &CustomEdit::onSaveAccels);
+    connect(okButton, &QPushButton::clicked, this, [this]{
+        if (this->parentWidget()) {
+            this->parentWidget()->setFocus();
+        }
+        Q_EMIT CustomEdit::onSaveAccels();
+    });
 
     connect(model, &ShortcutModel::keyEvent, this, &CustomEdit::keyEvent);
 }

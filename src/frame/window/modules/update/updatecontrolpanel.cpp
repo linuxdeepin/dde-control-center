@@ -238,6 +238,9 @@ void updateControlPanel::onButtonClicked()
 {
     int value = m_Progess->value();
     QString text = tr("Downloading ") + QString("%1%").arg(value);
+    if (value <= 0 || value >= 100) {
+        text = "";
+    }
 
     ButtonStatus status = ButtonStatus::invalid;
     switch (m_buttonStatus) {
@@ -252,7 +255,7 @@ void updateControlPanel::onButtonClicked()
         Q_EMIT PauseDownload();
         break;
     case ButtonStatus::retry:
-        status = ButtonStatus::pause;
+        status = ButtonStatus::invalid;
         setProgressText("");
         Q_EMIT RetryUpdate();
         break;

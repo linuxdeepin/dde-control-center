@@ -43,6 +43,8 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 
+const QString gsetting_systemSuspend = "systemSuspend";
+
 UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::power::PowerWorker *worker)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
@@ -122,8 +124,6 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
     m_autoLockScreen->addBackground();
     m_layout->addWidget(m_autoLockScreen);
 
-    updatePowerButtonActionList();
-
     m_layout->addWidget(m_cmbCloseLid);
     m_layout->addWidget(m_cmbPowerBtn);
     // 使用GSettings来控制显示状态
@@ -131,7 +131,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
     GSettingWatcher::instance()->bind("powerPressPowerbtn", m_cmbPowerBtn);
     GSettingWatcher::instance()->bind("powerAutoLockscreen", m_autoLockScreen);
     GSettingWatcher::instance()->bind("powerMonitorConfigure", m_monitorSleepOnBattery);
-    GSettingWatcher::instance()->bind("systemSuspend", m_computerSleepOnBattery);
+    GSettingWatcher::instance()->bind(gsetting_systemSuspend, m_computerSleepOnBattery);
 
     /*** 低电量设置 ***/
     SettingsGroup *lowBatteryGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
@@ -167,7 +167,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
     m_sldAutoSuspend->slider()->setTickPosition(QSlider::NoTicks);
     m_sldAutoSuspend->addBackground();
     m_layout->addWidget(m_sldAutoSuspend);
-    GSettingWatcher::instance()->bind("systemSuspend", m_sldAutoSuspend);
+    GSettingWatcher::instance()->bind(gsetting_systemSuspend, m_sldAutoSuspend);
 
     /*********************/
     m_layout->setAlignment(Qt::AlignTop);
@@ -198,19 +198,17 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
     });
 
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
-        if (!model->getSuspend()) {
-            if (!model->getHibernate()) {
-                Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex > 0 ? nIndex + 2 : nIndex);
-            } else {
-                Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex > 0 ? nIndex + 1 : nIndex);
-            }
-        } else {
-            if (!model->getHibernate()) {
-                Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex > 1 ? nIndex + 1 : nIndex);
-            } else {
-                Q_EMIT requestSetBatteryPressPowerBtnAction(nIndex);
-            }
+        if (nIndex < 0) {
+            return;
         }
+
+        int option = m_cmbPowerBtn->comboBox()->itemData(nIndex).toInt();
+
+        if (option < 0 || option > 4) {
+            return;
+        }
+
+        Q_EMIT requestSetBatteryPressPowerBtnAction(option);
     });
 
     connect(m_cmbCloseLid->comboBox(), &AlertComboBox::clicked, this, [ = ]() {
@@ -219,19 +217,17 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
         setCloseLid(model, model->batteryLidClosedAction());
     });
     connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
-        if (!model->getSuspend()) {
-            if (!model->getHibernate()) {
-                Q_EMIT requestSetBatteryLidClosedAction(nIndex + 3);
-            } else {
-                Q_EMIT requestSetBatteryLidClosedAction(nIndex + 2);
-            }
-        } else {
-            if (!model->getHibernate()) {
-                Q_EMIT requestSetBatteryLidClosedAction(nIndex > 0 ? nIndex + 2 : nIndex + 1);
-            } else {
-                Q_EMIT requestSetBatteryLidClosedAction(nIndex + 1);
-            }
+        if (nIndex < 0) {
+            return;
         }
+
+        int option = m_cmbCloseLid->comboBox()->itemData(nIndex).toInt();
+
+        if (option < PowerModel::Shutdown || option > PowerModel::ShowSessionUI) {
+            return;
+        }
+
+        Q_EMIT requestSetBatteryLidClosedAction(option);
     });
 }
 
@@ -241,16 +237,32 @@ UseBatteryWidget::~UseBatteryWidget()
     GSettingWatcher::instance()->erase("powerPressPowerbtn", m_cmbPowerBtn);
     GSettingWatcher::instance()->erase("powerAutoLockscreen", m_autoLockScreen);
     GSettingWatcher::instance()->erase("powerMonitorConfigure", m_monitorSleepOnBattery);
-    GSettingWatcher::instance()->erase("systemSuspend", m_computerSleepOnBattery);
-    GSettingWatcher::instance()->erase("systemSuspend", m_sldAutoSuspend);
+    GSettingWatcher::instance()->erase(gsetting_systemSuspend, m_computerSleepOnBattery);
+    GSettingWatcher::instance()->erase(gsetting_systemSuspend, m_sldAutoSuspend);
 }
 
 void UseBatteryWidget::setModel(const PowerModel *model)
 {
     connect(model, &PowerModel::sleepDelayChangedOnBattery, this, &UseBatteryWidget::setSleepDelayOnBattery);
     connect(model, &PowerModel::screenBlackDelayChangedOnBattery, this, &UseBatteryWidget::setScreenBlackDelayOnBattery);
-//    connect(model, &PowerModel::sleepOnLidOnBatteryCloseChanged, m_suspendOnLidClose, &SwitchWidget::setChecked);
     connect(model, &PowerModel::batteryLockScreenDelayChanged, this, &UseBatteryWidget::setAutoLockScreenOnBattery);
+
+    connect(model, &PowerModel::hibernateChanged, this, [ = ] {
+        updatePowerButtonActionList();
+        setPowerBtn(model, model->batteryPressPowerBtnAction());
+        setCloseLid(model, model->batteryLidClosedAction());
+    });
+    connect(model, &PowerModel::suspendChanged, this, [ = ] {
+        updatePowerButtonActionList();
+        setPowerBtn(model, model->batteryPressPowerBtnAction());
+        setCloseLid(model, model->batteryLidClosedAction());
+    });
+
+    connect(model, &PowerModel::shutdownChanged, this, [ = ] {
+        updatePowerButtonActionList();
+        setPowerBtn(model, model->batteryPressPowerBtnAction());
+        setCloseLid(model, model->batteryLidClosedAction());
+    });
 
     setScreenBlackDelayOnBattery(model->screenBlackDelayOnBattery());
     setSleepDelayOnBattery(model->sleepDelayOnBattery());
@@ -262,29 +274,48 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 
     Q_EMIT m_swBatteryHint->checkedChanged(model->lowPowerNotifyEnable());
 
-//    m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
     setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
 
-    m_computerSleepOnBattery->setVisible(model->canSuspend() && model->getSuspend()
-                                                           && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
-    m_sldAutoSuspend->setVisible(model->getSuspend() && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
-//    m_suspendOnLidClose->setVisible(model->canSuspend());
+    // 是否允许待机的条件已经在model的中处理，包括硬件和gsetting配置，这里只需要读取getSuspend
+    // systemSuspend配置中不止设置是否显示，还设置是否可用，需要同时判断处理
+    connect(model, &PowerModel::suspendChanged, this, [ = ] (bool suspend) {
+        m_computerSleepOnBattery->setEnabled(GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) == "Enabled");
+        m_computerSleepOnBattery->setVisible(suspend && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden");
+        m_sldAutoSuspend->setEnabled(GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) == "Enabled");
+        m_sldAutoSuspend->setVisible(suspend && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden");
+    });
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [ = ] (const QString &key, const QString &value) {
+        if (key == gsetting_systemSuspend && !value.isEmpty()) {
+            m_computerSleepOnBattery->setEnabled(value == "Enabled");
+            m_computerSleepOnBattery->setVisible(model->getSuspend() && value != "Hidden");
+
+            m_sldAutoSuspend->setEnabled(value == "Enabled");
+            m_sldAutoSuspend->setVisible(model->getSuspend() && value != "Hidden");
+
+            updatePowerButtonActionList();
+            setPowerBtn(model, model->batteryPressPowerBtnAction());
+            setCloseLid(model, model->batteryLidClosedAction());
+        }
+    });
+
+    m_computerSleepOnBattery->setEnabled(GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) == "Enabled");
+    m_computerSleepOnBattery->setVisible(model->getSuspend() && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden");
+    m_sldAutoSuspend->setEnabled(GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) == "Enabled");
+    m_sldAutoSuspend->setVisible(model->getSuspend() && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden");
 
     //--------------sp2 add-----------------
+    connect(model, &PowerModel::lidPresentChanged, this, [ = ](bool value) {
+        m_cmbCloseLid->setVisible(value && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hidden");
+    });
     m_cmbCloseLid->setVisible(model->lidPresent() && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hidden");
 
     connect(model, &PowerModel::batteryLidClosedActionChanged, this, [ = ](const int reply) {
-        if (reply - 1 < m_cmbCloseLid->comboBox()->count() && reply >= 1) {
-            setCloseLid(model, reply);
-        }
+        setCloseLid(model, reply);
     });
-    setCloseLid(model, model->batteryLidClosedAction());
     connect(model, &PowerModel::batteryPressPowerBtnActionChanged, this, [ = ](const int reply) {
-        if (reply - 1 < m_cmbPowerBtn->comboBox()->count()) {
-            setPowerBtn(model, reply);
-        }
+        setPowerBtn(model, reply);
     });
-    setPowerBtn(model, model->batteryPressPowerBtnAction());
 
     m_swBatteryHint->setChecked(model->lowPowerNotifyEnable());
     connect(model, &PowerModel::lowPowerNotifyEnableChanged, m_swBatteryHint, &SwitchWidget::setChecked);
@@ -293,16 +324,20 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     connect(model, &PowerModel::lowPowerNotifyThresholdChanged, this, &UseBatteryWidget::onLowPowerNotifyThreshold);
     connect(m_sldLowBatteryHint->slider(), &DCCSlider::valueChanged, this, [ = ](int value) {
         if (m_sldLowBatteryMap.contains(value)) {
-            Q_EMIT  requestSetLowPowerNotifyThreshold(m_sldLowBatteryMap[value]);
+            Q_EMIT requestSetLowPowerNotifyThreshold(m_sldLowBatteryMap[value]);
         }
     });
 
     onLowPowerAutoSleepThreshold(model->lowPowerAutoSleepThreshold());
     connect(model, &PowerModel::lowPowerAutoSleepThresholdChanged, this, &UseBatteryWidget::onLowPowerAutoSleepThreshold);
     connect(m_sldAutoSuspend->slider(), &DCCSlider::valueChanged, this, [ = ](int value) {
-        Q_EMIT  requestSetLowPowerAutoSleepThreshold(value);
+        Q_EMIT requestSetLowPowerAutoSleepThreshold(value);
     });
     //--------------------------------------
+
+    updatePowerButtonActionList();
+    setPowerBtn(model, model->batteryPressPowerBtnAction());
+    setCloseLid(model, model->batteryLidClosedAction());
 }
 
 void UseBatteryWidget::setScreenBlackDelayOnBattery(const int delay)
@@ -357,38 +392,36 @@ void UseBatteryWidget::onLowPowerAutoSleepThreshold(const int value)
     m_sldAutoSuspend->slider()->blockSignals(false);
 }
 
-void UseBatteryWidget::setCloseLid(const dcc::power::PowerModel *model, int lidIndex)
+void UseBatteryWidget::setCloseLid(const dcc::power::PowerModel *model, int option)
 {
-    if (!model->getSuspend()) {
-        if (!model->getHibernate()) {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(lidIndex - 3);
-        } else {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(lidIndex - 2);
-        }
-    } else {
-        if (!model->getHibernate()) {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(lidIndex > 2 ? lidIndex - 2 : lidIndex - 1);
-        } else {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(lidIndex - 1);
-        }
+    Q_UNUSED(model);
+
+    int tmpIndex = m_cmbCloseLid->comboBox()->count() - 1;
+
+    for (int i = 0; i < m_cmbCloseLid->comboBox()->count(); i++) {
+        if (option == m_cmbCloseLid->comboBox()->itemData(i).toInt()) {
+           tmpIndex = i;
+           break;
+        };
     }
+
+    m_cmbCloseLid->setCurrentIndex(tmpIndex);
 }
 
-void UseBatteryWidget::setPowerBtn(const dcc::power::PowerModel *model, int powIndex)
+void UseBatteryWidget::setPowerBtn(const dcc::power::PowerModel *model, int option)
 {
-    if (!model->getSuspend()) {
-        if (!model->getHibernate()) {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 2 : powIndex);
-        } else {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 1 : powIndex);
-        }
-    } else {
-        if (!model->getHibernate()) {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
-        } else {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(model->batteryPressPowerBtnAction());
-        }
+    Q_UNUSED(model);
+
+    int tmpIndex = m_cmbPowerBtn->comboBox()->count() - 1;
+
+    for (int i = 0; i < m_cmbPowerBtn->comboBox()->count(); i++) {
+        if (option == m_cmbPowerBtn->comboBox()->itemData(i).toInt()) {
+           tmpIndex = i;
+           break;
+        };
     }
+
+    m_cmbPowerBtn->setCurrentIndex(tmpIndex);
 }
 
 void UseBatteryWidget::updatePowerButtonActionList()
@@ -397,22 +430,25 @@ void UseBatteryWidget::updatePowerButtonActionList()
         return;
     }
 
-    QStringList options;
-    /*** 笔记本合盖功能与按电源按钮功能 ***/
+    ActionList options;
     if (m_model->getShutdown()) {
-        options << tr("Shut down");
+        options.insert(PowerModel::Shutdown, tr("Shut down"));
     }
-    if (m_work->getCurCanSuspend()) {
-        options << tr("Suspend");
+    if (m_model->getSuspend() && GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden") {
+        options.insert(PowerModel::Suspend, tr("Suspend"));
     }
-    if (m_work->getCurCanHibernate()) {
-        options << tr("Hibernate");
+    if (m_model->getHibernate()) {
+        options.insert(PowerModel::Hibernate, tr("Hibernate"));
     }
-    options << tr("Turn off the monitor") << tr("Do nothing");
-    m_cmbPowerBtn->setComboxOption(options);
+    options.insert(PowerModel::TurnOffScreen, tr("Turn off the monitor"));
+    options.insert(PowerModel::ShowSessionUI, tr("Do nothing"));
+    setComboxOption(m_cmbPowerBtn, options);
     m_cmbPowerBtn->addBackground();
-    options.pop_front();
-    m_cmbCloseLid->setComboxOption(options);
+    // 合盖操作无关机选项
+    if (m_model->getShutdown()) {
+        options.remove(PowerModel::Shutdown);
+    }
+    setComboxOption(m_cmbCloseLid, options);
     m_cmbCloseLid->addBackground();
 }
 
@@ -448,4 +484,14 @@ QString UseBatteryWidget::delayToLiteralString(const int delay) const
     }
 
     return strData;
+}
+
+void UseBatteryWidget::setComboxOption(ComboxWidget *combox, ActionList options)
+{
+    combox->comboBox()->blockSignals(true);
+    combox->comboBox()->clear();
+    for (int key : options.keys()) {
+        combox->comboBox()->addItem(options.value(key), key);
+    }
+    combox->comboBox()->blockSignals(false);
 }

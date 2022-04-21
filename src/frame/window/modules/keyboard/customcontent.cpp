@@ -29,6 +29,7 @@
 #include "widgets/buttontuple.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/settingsgroup.h"
+#include "window/utils.h"
 
 #include <dfilechooseredit.h>
 
@@ -39,6 +40,7 @@
 #include <QVBoxLayout>
 #include <QFileDialog>
 #include <QPushButton>
+#include <QGuiApplication>
 
 DWIDGET_USE_NAMESPACE
 
@@ -53,6 +55,10 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     , m_model(model)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
 {
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        waylandGrab = new WaylandGrab(this->parent());
+    }
+
     QVBoxLayout *mainLayout = new QVBoxLayout();
     mainLayout->setContentsMargins(10, 35, 10, 0);
     //~ contents_path /keyboard/Shortcuts/Add Custom Shortcut
@@ -207,4 +213,47 @@ void CustomContent::keyEvent(bool press, const QString &shortcut)
 void CustomContent::updateKey()
 {
     Q_EMIT requestUpdateKey(nullptr);
+}
+
+void CustomContent::onGrab(ShortcutInfo *info)
+{
+    waylandGrab->onGrab(info);
+}
+
+void CustomContent::keyPressEvent(QKeyEvent *ke)
+{
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm()) {
+        return;
+    }
+    waylandGrab->setKeyValue(WaylandkeyMap[ke->key()]);
+    QString lastKey = waylandGrab->getLastKey();
+    QString keyValue = waylandGrab->getKeyValue();
+
+    keyEvent(true, waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
+    waylandGrab->setRecordState(true);
+    if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L) {
+        lastKey += ("<" + keyValue.remove(keyValue.indexOf("_"), 2) + ">");
+        waylandGrab->setLastKey(lastKey);
+    }
+    return QWidget::keyPressEvent(ke);
+}
+
+void CustomContent::keyReleaseEvent(QKeyEvent *ke)
+{
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm()) {
+        return;
+    }
+    QString lastKey = waylandGrab->getLastKey();
+    QString keyValue = waylandGrab->getKeyValue();
+    if (!lastKey.isEmpty()) {
+        if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L) {
+            keyEvent(false, "");
+        } else {
+            keyEvent(false, lastKey + keyValue);
+        }
+    }
+    waylandGrab->setLastKey("");
+    waylandGrab->setRecordState(false);
+    waylandGrab->onUnGrab();
+    return QWidget::keyReleaseEvent(ke);
 }

@@ -29,6 +29,7 @@
 #include <QScreen>
 #include <QDebug>
 #include <QCloseEvent>
+#include <QWindow>
 
 #include <DButtonBox>
 #include <DMessageManager>
@@ -83,6 +84,13 @@ void ResetPasswordDialog::mousePressEvent(QMouseEvent *event)
     if (this->geometry().contains(event->globalPos())) {
         DDialog::mousePressEvent(event);
     }
+}
+
+void ResetPasswordDialog::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape)
+        return;
+    DDialog::keyPressEvent(event);
 }
 
 bool ResetPasswordDialog::eventFilter(QObject *o, QEvent *e)
@@ -161,15 +169,18 @@ void ResetPasswordDialog::initWidget(const QString &userName)
     m_tipDialog.setIcon(QIcon::fromTheme("dialog-warning"));
     auto isWayland = qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland");
     if (isWayland) {
+        m_tipDialog.windowHandle()->setProperty("_d_dwayland_window-type", "onScreenDisplay");
         m_tipDialog.setWindowFlags(Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+        create();
+        windowHandle()->setProperty("_d_dwayland_window-type", "onScreenDisplay");
+        setWindowFlags(Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
     } else {
         m_tipDialog.setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+        setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
     }
     m_tipDialog.installEventFilter(this);
     m_tipDialog.setFixedSize(380, 189);
     m_tipDialog.setOnButtonClickedClose(false);
-
-    setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
 }
 
 void ResetPasswordDialog::initData()
@@ -227,9 +238,10 @@ void ResetPasswordDialog::initData()
         m_monitorTimer->start(300);
         m_client = new QLocalSocket(this);
         m_client->abort();
-        m_client->connectToServer("GrabKeyboard");
+        const QString &server = "GrabKeyboard_" + (m_appName == "lock" ? m_appName + "_" + m_userName : m_appName);
+        m_client->connectToServer(server);
         if(!m_client->waitForConnected(1000)) {
-            qWarning() << "connect failed!" << m_client->errorString();
+            qWarning() << "connect failed, server: " << "GrabKeyboard_" + m_appName << ", error: " << m_client->errorString();
             return;
         }
     }
@@ -260,8 +272,8 @@ void ResetPasswordDialog::quit()
 
 const QString ResetPasswordDialog::getPassword()
 {
-    return (m_buttonBox->checkedId() == 0) ? m_SecurityQuestionsWidget->getPassword():
-                                             m_UnionIDWidget->getPassword();
+    return (m_stackedLayout->currentIndex() == 0) ? m_SecurityQuestionsWidget->getPassword():
+                                                    m_UnionIDWidget->getPassword();
 }
 
 void ResetPasswordDialog::onCancelBtnClicked()
@@ -277,12 +289,12 @@ void ResetPasswordDialog::onCancelBtnClicked()
 void ResetPasswordDialog::onResetPasswordBtnClicked()
 {
     bool success = false;
-    if (m_buttonBox && m_buttonBox->checkedId() == 0) {
+    if (m_stackedLayout->currentIndex() == 0) {
         success = m_SecurityQuestionsWidget->onResetPasswordBtnClicked();
     } else {
         success = m_UnionIDWidget->onResetPasswordBtnClicked();
     }
-    qWarning() << "onResetPassowrdBtnClicked:" << success;
+    qDebug() << "onResetPassowrdBtnClicked:" << success;
     if (success) {
         m_isClose = false;
         updatePosition();

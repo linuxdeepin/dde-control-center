@@ -39,6 +39,7 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 const QString gsetting_showSuspend = "showSuspend";
 const QString gsetting_showHiberante = "showHibernate";
+const QString gsetting_systemSuspend = "systemSuspend";
 const QString gsetting_showShutdown = "showShutdown";
 
 PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *parent)
@@ -70,6 +71,43 @@ void PowerModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
     m_model->moveToThread(qApp->thread());
     m_work->active(); //refresh data
 
+    // 初始化时需要读取配置，确定设备是否支持待机和休眠，以确定是否显示或隐藏待机休眠相关搜索数据
+    m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+
+    auto get_suspendSetting = [ = ] {
+        return m_powerSetting->get(gsetting_showSuspend).toBool();
+    };
+
+    auto get_hibernateSetting = [ = ] {
+        return m_powerSetting->get(gsetting_showHiberante).toBool();
+    };
+
+    // 读取硬件是否支持待机，再读取gsetting的show-suspend配置
+    m_model->setSuspend(!IsServerSystem && get_suspendSetting() && m_model->canSuspend());
+    connect(m_model, &PowerModel::suspendChanged, this, [ = ](const bool &value) {
+        m_model->setSuspend(!IsServerSystem && get_suspendSetting() && m_model->canSuspend());
+    });
+
+    m_model->setHibernate(!IsServerSystem && get_hibernateSetting() && m_model->canHibernate());
+    connect(m_model, &PowerModel::canHibernateChanged, this, [ = ](const bool &value) {
+        m_model->setHibernate(!IsServerSystem && get_hibernateSetting() && value);
+    });
+
+    m_model->setShutdown(m_powerSetting->get(gsetting_showShutdown).toBool());
+
+    // 监听gsetting配置的是否显示待机，然后汇总其他是否显示待机条件
+    connect(m_powerSetting, &QGSettings::changed, this, [ = ](const QString &key) {
+        if (key == gsetting_showSuspend) {
+            m_model->setSuspend(!IsServerSystem && get_suspendSetting() && m_model->canSuspend());
+        } else if (key == gsetting_showHiberante) {
+            m_model->setHibernate(!IsServerSystem && get_hibernateSetting() && m_model->canHibernate());
+        } else if (key == gsetting_showShutdown) {
+            m_model->setShutdown(m_powerSetting->get(gsetting_showShutdown).toBool());
+        } else {
+            qWarning() << " not contains the key : " << key;
+        }
+    });
+
     addChildPageTrans();
     initSearchData();
 }
@@ -92,32 +130,6 @@ void PowerModule::active()
 {
     m_widget = new PowerWidget;
     m_widget->setVisible(false);
-
-    m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-
-    m_model->setSuspend(!IsServerSystem && m_powerSetting->get(gsetting_showSuspend).toBool() && m_model->canSuspend());
-    connect(m_model, &PowerModel::suspendChanged, this, [=](const bool &value) {
-        m_model->setSuspend(!IsServerSystem && m_powerSetting->get(gsetting_showSuspend).toBool() && value);
-    });
-
-    m_model->setHibernate(!IsServerSystem && m_powerSetting->get(gsetting_showHiberante).toBool() && m_model->canHibernate());
-    connect(m_model, &PowerModel::canHibernateChanged, this, [=](const bool &value) {
-        m_model->setHibernate(!IsServerSystem && m_powerSetting->get(gsetting_showHiberante).toBool() && value);
-    });
-
-    m_model->setShutdown(m_powerSetting->get(gsetting_showShutdown).toBool());
-
-    connect(m_powerSetting, &QGSettings::changed, this, [=](const QString &key) {
-        if (key == gsetting_showSuspend) {
-            m_model->setSuspend(!IsServerSystem &&  m_powerSetting->get(gsetting_showSuspend).toBool() && m_model->canSuspend());
-        } else if (key == gsetting_showHiberante) {
-            m_model->setHibernate(!IsServerSystem &&  m_powerSetting->get(gsetting_showHiberante).toBool() && m_model->canHibernate());
-        } else if (key == gsetting_showShutdown) {
-            m_model->setShutdown(m_powerSetting->get(gsetting_showShutdown).toBool());
-        } else {
-            qWarning() << " not contains the key : " << key;
-        }
-    });
 
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::removeBattery);
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
@@ -284,9 +296,9 @@ void PowerModule::initSearchData()
     static QMap<QString, QString> gsettingsMap;
 
     auto func_is_visible = [=](const QString &gsettings, QString value = "Hidden") {
-        const QString& status = GSettingWatcher::instance()->getStatus(gsettings);
-        gsettingsMap.insert(gsettings, status);
-        return status != value;
+         const QString& status = GSettingWatcher::instance()->getStatus(gsettings);
+         gsettingsMap.insert(gsettings, status);
+         return status != value;
     };
 
     auto func_battary_Changed = [=](bool haveBettary, bool haveLib) {
@@ -294,25 +306,25 @@ void PowerModule::initSearchData()
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Auto power saving on battery"), haveBettary && func_is_visible("powerAutointoSaveenergy"));
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Display remaining using and charging time"), haveBettary && func_is_visible("powerShowtimeTofull"));
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Maximum capacity"), haveBettary && func_is_visible("powerShowtimeTofulltips"));
-        m_frameProxy->setDetailVisible(module, generalWidget, tr("Battery"), haveBettary);
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("Battery"), haveBettary && func_is_visible("onBattery", "false"));
 
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("When the lid is closed"), haveBettary && haveLib && func_is_visible("powerLidPresent"));
 
-        m_frameProxy->setWidgetVisible(module, onBatteayWidget, haveBettary && func_is_visible("onBattery"));
+        m_frameProxy->setWidgetVisible(module, onBatteayWidget, haveBettary && func_is_visible("onBattery", "false"));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("When pressing the power button"), haveBettary && func_is_visible("powerPressPowerbtn"));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("When the lid is closed"), haveLib && haveBettary && func_is_visible("powerLidPresent"));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Low Battery Notification"), haveBettary);
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Low battery level"), haveBettary);
-        m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Auto suspend battery level"), haveBettary && func_is_visible("systemSuspend") && m_model->getSuspend());
+        m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Auto suspend battery level"), haveBettary && m_model->getSuspend() && func_is_visible(gsetting_systemSuspend));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Monitor will suspend after"), haveBettary);
-        m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Computer will suspend after"), haveBettary && func_is_visible("systemSuspend") && m_model->getSuspend());
+        m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Computer will suspend after"), haveBettary && m_model->getSuspend() && func_is_visible(gsetting_systemSuspend));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Lock screen after"), haveBettary && func_is_visible("powerAutoLockscreen"));
     };
 
     auto func_process_all = [=](bool battaty, bool haveLib) {
         m_frameProxy->setWidgetVisible(module, generalWidget, func_is_visible("general") && !IsServerSystem);
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the monitor"), true);
-        m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the computer"), func_is_visible("systemSuspend") && m_model->getSuspend());
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the computer"), m_model->getSuspend() && func_is_visible(gsetting_systemSuspend));
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Decrease brightness"), func_is_visible("powerLowerBrightness"));
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Balanced"), true);
         m_frameProxy->setDetailVisible(module, generalWidget, tr("High Performance"), m_model->isHighPerformanceSupported());
@@ -321,11 +333,11 @@ void PowerModule::initSearchData()
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Saving Settings"), true);
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Wakeup Settings"), true);
 
-        m_frameProxy->setWidgetVisible(module, pluggedInWidget, func_is_visible("pluggedIn"));
+        m_frameProxy->setWidgetVisible(module, pluggedInWidget, func_is_visible("pluggedIn", "false"));
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("When pressing the power button"), func_is_visible("powerPressPowerbtn"));
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Lock screen after"), func_is_visible("powerAutoLockscreen"));
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Monitor will suspend after"), true);
-        m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Computer will suspend after"), func_is_visible("systemSuspend") && m_model->getSuspend());
+        m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Computer will suspend after"), m_model->getSuspend() && func_is_visible(gsetting_systemSuspend));
 
         func_battary_Changed(battaty, haveLib);
     };
@@ -346,10 +358,9 @@ void PowerModule::initSearchData()
         }
         const QString& status = GSettingWatcher::instance()->getStatus(gsetting);
         if (gsettingsMap.value(gsetting) == status) {
-            return;
+           return;
         }
-
-        bool isVisible = status != "Hidden";
+        bool isVisible = (status != "false" && status != "Hidden");
 
         if ("powerAutointoSaveenergy" == gsetting) {
             m_frameProxy->setDetailVisible(module, generalWidget, tr("Auto power saving on battery"), m_model->haveBettary() && isVisible);
@@ -359,10 +370,13 @@ void PowerModule::initSearchData()
             m_frameProxy->setDetailVisible(module, generalWidget, tr("Decrease brightness"), isVisible);
         } else if ("powerPlansLabel" == gsetting) {
             m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Plans"), isVisible);
-        } else if ("systemSuspend" == gsetting) {
-            m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the computer"), isVisible && m_model->getSuspend());
-            m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Computer will suspend after"), isVisible && m_model->getSuspend());
-            m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Auto suspend battery level"), isVisible && m_model->getSuspend());
+        } else if (gsetting_systemSuspend == gsetting || gsetting_showSuspend == gsetting) {
+            m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the computer"), m_model->getSuspend() && func_is_visible(gsetting_systemSuspend));
+            m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Computer will suspend after"), m_model->getSuspend() && func_is_visible(gsetting_systemSuspend));
+            m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Auto suspend battery level"), m_model->getSuspend() && func_is_visible(gsetting_systemSuspend));
+
+            m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Computer will suspend after"), m_model->haveBettary() && m_model->getSuspend() && func_is_visible(gsetting_systemSuspend) && func_is_visible("onBattery", "false"));
+            m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Auto suspend battery level"), m_model->haveBettary() && m_model->getSuspend() && func_is_visible(gsetting_systemSuspend) && func_is_visible("onBattery", "false"));
         } else if ("powerShowtimeTofull" == gsetting) {
             m_frameProxy->setDetailVisible(module, generalWidget, tr("Display remaining using and charging time"), isVisible);
         } else if ("powerShowtimeTofulltips" == gsetting) {
@@ -371,8 +385,14 @@ void PowerModule::initSearchData()
             m_frameProxy->setWidgetVisible(module, generalWidget, isVisible);
         } else if ("pluggedIn" == gsetting) {
             m_frameProxy->setWidgetVisible(module, pluggedInWidget, isVisible);
+            m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("When pressing the power button"), isVisible && func_is_visible("powerPressPowerbtn"));
+            m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Lock screen after"), isVisible && func_is_visible("powerAutoLockscreen"));
+            m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("When the lid is closed"), isVisible && m_model->lidPresent() && func_is_visible("powerLidPresent"));
         } else if ("onBattery" == gsetting) {
             m_frameProxy->setWidgetVisible(module, onBatteayWidget, isVisible);
+            m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("When pressing the power button"), isVisible && m_model->haveBettary() && func_is_visible("powerPressPowerbtn"));
+            m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("When the lid is closed"), isVisible && m_model->haveBettary() && m_model->lidPresent() && func_is_visible("powerLidPresent"));
+            m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Lock screen after"), isVisible && m_model->haveBettary() && func_is_visible("powerAutoLockscreen"));
         } else if ("powerPressPowerbtn" == gsetting) {
             m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("When pressing the power button"), m_model->haveBettary() && func_is_visible("powerPressPowerbtn"));
             m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("When pressing the power button"), func_is_visible("powerPressPowerbtn"));
@@ -387,15 +407,19 @@ void PowerModule::initSearchData()
             return;
         }
 
-        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << status;
+        qInfo() << " [notifyGSettingsChanged] gsetting, state :" << gsetting << status;
         m_frameProxy->updateSearchData(module);
     });
 
-
     connect(m_model, &PowerModel::suspendChanged, this, [ = ] (bool suspend) {
-        m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Auto suspend battery level"), m_model->haveBettary() && func_is_visible("systemSuspend") && m_model->getSuspend());
-        m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Computer will suspend after"), m_model->haveBettary() && func_is_visible("systemSuspend") && m_model->getSuspend());
-        m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the computer"), func_is_visible("systemSuspend") && m_model->getSuspend());
+        Q_UNUSED(suspend);
+        m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Auto suspend battery level"), suspend);
+        m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Computer will suspend after"), suspend);
+
+        m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Auto suspend battery level"), suspend && m_model->haveBettary() && func_is_visible("onBatteay", "false"));
+        m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Computer will suspend after"), suspend && m_model->haveBettary() && func_is_visible("onBatteay", "false"));
+
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the computer"), suspend);
         m_frameProxy->updateSearchData(module);
     });
 

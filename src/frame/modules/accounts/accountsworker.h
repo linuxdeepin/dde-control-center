@@ -52,6 +52,7 @@ using Session = org::freedesktop::displaymanager::Session;
 #ifdef DCC_ENABLE_ADDOMAIN
 using Notifications = org::freedesktop::Notifications;
 #endif
+#define SECURITY_QUESTIONS_ERROR_COUNT 1
 
 namespace dcc {
 namespace accounts {
@@ -63,6 +64,7 @@ struct BindCheckResult {
     QString error = "";
 };
 
+typedef QMap<int, QByteArray> SecurityQuestions;
 
 class AccountsWorker : public QObject
 {
@@ -83,6 +85,7 @@ Q_SIGNALS:
     void requestMainWindowEnabled(const bool isEnabled) const;
     void localBindUbid(const QString &ubid);
     void localBindError(const QString &error);
+    void showSafeyPage(const QString &errorTips);
 
 public Q_SLOTS:
     void randomUserIcon(User *user);
@@ -104,7 +107,7 @@ public Q_SLOTS:
     void getUUID(QString &uuid);
     void localBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid);
     void startResetPasswordExec(dcc::accounts::User *user);
-    void securityQuestionsCheck(dcc::accounts::User *user);
+    void asyncSecurityQuestionsCheck(dcc::accounts::User *user);
 #ifdef DCC_ENABLE_ADDOMAIN
     void refreshADDomain();
     void ADDomainHandle(const QString &server, const QString &admin, const QString &password);
@@ -117,6 +120,7 @@ public Q_SLOTS:
 
     bool hasOpenSecurity();
     SecurityLever getSecUserLeverbyname(QString userName);
+    void checkPwdLimitLevel();
 private Q_SLOTS:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> &paths);
     void getAllGroups();
@@ -132,10 +136,12 @@ private:
     CreationResult *createAccountInternal(const User *user);
     QString cryptUserPassword(const QString &password);
     BindCheckResult checkLocalBind(const QString &uosid, const QString &uuid);
+    QList<int> securityQuestionsCheck();
 
 private:
     Accounts *m_accountsInter;
     QDBusInterface *m_syncHelperInter;
+    QDBusInterface *m_userQInter;
     Fingerprint *m_fingerPrint;
 #ifdef DCC_ENABLE_ADDOMAIN
     Notifications *m_notifyInter;

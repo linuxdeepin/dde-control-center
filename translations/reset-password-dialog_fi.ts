@@ -135,66 +135,66 @@
     <message>
         <location filename="../src/reset-password-dialog/utils.h" line="71"/>
         <source>It cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Se ei voi olla tyhjä</translation>
     </message>
 </context>
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="102"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="109"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
         <translation>Salasanan nollaus tyhjentää avaimeen tallennetut tiedot</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="160"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="199"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="111"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="113"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="120"/>
         <source>Security Questions</source>
         <translation>Turvakysymykset</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="148"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="155"/>
         <source>Reset Password</source>
         <translation>Nollaa salasana</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="149"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="184"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="187"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="156"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="191"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="194"/>
         <source>Next</source>
         <translation>Seuraava</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="152"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
         <source>Reset Password By Union ID</source>
         <translation>Palauta salasana Union ID:llä</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="153"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="184"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="187"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="195"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="160"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="191"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="194"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="202"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
         <source>Reset</source>
         <translation>Nollaa</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
         <translation>Salasanan nollaaminen tyhjentää avaimenperään tallennetut tiedot ja sinun tulee kirjautua sisään uudelleen. Tallenna tiedostot etukäteen</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="160"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
         <source>Confirm and Reset</source>
         <translation>Vahvista ja nollaa</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="252"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Nollaus onnistui, kirjaudu sisään ja avaa lukitus uudella salasanalla</translation>
     </message>
@@ -246,7 +246,7 @@
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="201"/>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>Pidä vastaus alle 30 merkin pituisena</translation>
     </message>
 </context>
 <context>
@@ -322,18 +322,17 @@
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="292"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="336"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="334"/>
         <source>Resend (%1s)</source>
         <translation>Lähetä uudelleen (%1s)</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="324"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="355"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="353"/>
         <source>Failed to get the code</source>
         <translation>Koodin saaminen epäonnistui</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="378"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="376"/>
         <source>Wrong verification code</source>
         <translation>Väärä vahvistuskoodi</translation>
     </message>

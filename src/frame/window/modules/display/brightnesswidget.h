@@ -94,6 +94,9 @@ private:
     dcc::widgets::SettingsGroup *m_settingsGroup;
     dcc::widgets::SwitchWidget *m_nightManual;
     dcc::widgets::TitledSliderItem *m_cctItem;
+    QSpacerItem *m_nightShiftSpacerItem;
+    QSpacerItem *m_nightTipsSpacerItem;
+    QSpacerItem *m_nightManualSpacerItem;
 
     int m_miniScales = 0;
     QMap<dcc::display::Monitor *, QWidget *> m_monitorBrightnessMap;

@@ -70,6 +70,25 @@ const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//�
 const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
 const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition); // 是否是教育版
 const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
+const bool DisableDeveloperMode = {
+#ifdef DISABLE_DEVELOPER_MODE
+  true
+#else
+  false
+#endif
+};
+const QMap<uint32_t, QString> WaylandkeyMap = { {Qt::Key_A, "A"}, {Qt::Key_B, "B"}, {Qt::Key_C, "C"}, {Qt::Key_D, "D"}, {Qt::Key_E, "E"},
+    {Qt::Key_F, "F"}, {Qt::Key_G, "G"}, {Qt::Key_H, "H"}, {Qt::Key_I, "I"}, {Qt::Key_J, "J"}, {Qt::Key_K, "K"}, {Qt::Key_L, "L"}, {Qt::Key_M, "M"},
+    {Qt::Key_N, "N"}, {Qt::Key_O, "O"}, {Qt::Key_P, "P"}, {Qt::Key_Q, "Q"}, {Qt::Key_R, "R"}, {Qt::Key_S, "S"}, {Qt::Key_T, "T"}, {Qt::Key_U, "U"},
+    {Qt::Key_V, "V"}, {Qt::Key_W, "W"}, {Qt::Key_X, "X"}, {Qt::Key_Y, "Y"}, {Qt::Key_Z, "Z"}, {Qt::Key_Escape, "Escape"}, {Qt::Key_Tab, "Tab"},
+    {Qt::Key_Backtab, "Tab"}, {Qt::Key_Backspace, "Backspace"}, {Qt::Key_Return, "Return"}, {Qt::Key_Enter, "Enter"}, {Qt::Key_Insert, "Insert"},
+    {Qt::Key_Delete, "Delete"}, {Qt::Key_Pause, "Pause"}, {Qt::Key_Print, "Print"}, {Qt::Key_SysReq, "SysReq"}, {Qt::Key_Clear, "Clear"}, {Qt::Key_Home, "Home"},
+    {Qt::Key_End, "End"}, {Qt::Key_Left, "←"}, {Qt::Key_Up, "↑"}, {Qt::Key_Right, "→"}, {Qt::Key_Down, "↓"}, {Qt::Key_PageUp, "PageUp"},
+    {Qt::Key_PageDown, "PageDown"}, {Qt::Key_Shift, "Shift_L"}, {Qt::Key_Control, "Control_L"}, {Qt::Key_Super_L, "Super_L"}, {Qt::Key_Alt, "Alt_L"},
+    {Qt::Key_CapsLock, "CapLock"}, {Qt::Key_NumLock, "NumLock"}, {Qt::Key_ScrollLock, "ScrollLock"}, {Qt::Key_F1, "F1"}, {Qt::Key_F2, "F2"}, {Qt::Key_F3, "F3"},
+    {Qt::Key_F4, "F4"}, {Qt::Key_F5, "F5"}, {Qt::Key_F6, "F6"}, {Qt::Key_F7, "F7"}, {Qt::Key_F8, "F8"}, {Qt::Key_F9, "F9"},
+    {Qt::Key_F10, "F10"}, {Qt::Key_F11, "F11"}, {Qt::Key_F12, "F12"}, {Qt::Key_Space, "Space"}, {Qt::Key_AsciiTilde, "~"}
+};
 
 struct ListSubItem {
     ListSubItem();

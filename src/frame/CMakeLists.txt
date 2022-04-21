@@ -22,9 +22,6 @@ endif()
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pie")
 
-# disable qt keywords, cause gio have signals member;
-ADD_DEFINITIONS(-DQT_NO_KEYWORDS)
-
 if (DEFINED ENABLE_MIEEE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mieee")
 endif()
@@ -55,6 +52,7 @@ DISABLE_SYS_UPDATE_SOURCE_CHECK
 DISABLE_SYS_UPDATE_MIRRORS
 DISABLE_MAIN_PAGE
 DISABLE_RECOVERY
+DISABLE_DEVELOPER_MODE
 DCC_ENABLE_ADDOMAIN
 DCC_DISABLE_KBLAYOUT
 DCC_DISABLE_LANGUAGE
@@ -394,6 +392,9 @@ set(KEYBOARD_FILES
                 window/modules/keyboard/systemlanguagesettingwidget.cpp
                 window/modules/keyboard/shortcutsettingwidget.cpp
                 window/modules/keyboard/systemlanguagewidget.cpp
+                window/modules/keyboard/wayland-xwayland-keyboard-grab-v1-protocol.c
+                window/modules/keyboard/wayland-xwayland-keyboard-grab-v1-client-protocol.h
+                window/modules/keyboard/waylandgrab.cpp
 )
 
 # load mouse
@@ -573,7 +574,10 @@ find_package(Qt5 COMPONENTS
     DBus
     Multimedia
     Svg
+    WaylandClient
 REQUIRED)
+find_package(KF5Wayland QUIET)
+pkg_check_modules(WaylandClient REQUIRED wayland-client)
 
 pkg_check_modules(XCB_EWMH REQUIRED xcb-ewmh x11 xext)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
@@ -592,10 +596,11 @@ set(Qt_LIBS
     Qt5::Widgets
     Qt5::X11Extras
     Qt5::Multimedia
+    Qt5::WaylandClient
 )
 
 # dconfig
-file(GLOB DCONFIG_FILES "../../configs/dde.control-center*.json")
+file(GLOB DCONFIG_FILES "../../configs/org.deepin.dde.control-center*.json")
 dconfig_meta_files(APPID dde-control-center BASE ../../configs FILES ${DCONFIG_FILES})
 
 set(DEEPIN_PW_CHECK libdeepin_pw_check.so)
@@ -698,11 +703,15 @@ target_include_directories(dccwidgets PUBLIC
     ${CMAKE_SOURCE_DIR}/include
     ${DtkWidget_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
+    ${Qt5WaylandClient_PRIVATE_INCLUDE_DIRS}
 )
 target_link_libraries(dccwidgets PRIVATE
     ${DtkWidget_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
     ${Qt5Svg_LIBRARIES}
+    KF5::WaylandClient
+    Qt5::WaylandClient
+    ${WaylandClient_LIBRARIES}
 )
 
 add_executable(${BIN_NAME} ${SRCS} ${QRC})
@@ -736,11 +745,18 @@ target_link_libraries(${BIN_NAME} PRIVATE
     crypt
     ${LIBS}
     PolkitQt5-1::Agent
+    KF5::WaylandClient
+    Qt5::WaylandClient
+    ${WaylandClient_LIBRARIES}
 )
 
 # bin
 install(TARGETS ${BIN_NAME} DESTINATION bin)
 install(TARGETS dccwidgets LIBRARY DESTINATION lib)
+
+#dconfig
+dconfig_meta_files(APPID org.deepin.dde.control-center FILES ../../configs/org.deepin.dde.control-center.display.json)
+dconfig_meta_files(APPID org.deepin.dde.control-center FILES ../../configs/org.deepin.dde.control-center.update.json)
 
 find_package(Qt5 COMPONENTS
 Test

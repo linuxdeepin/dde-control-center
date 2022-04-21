@@ -232,13 +232,10 @@ void SecurityQuestionsPage::onSecurityQuestionsCheckReplied(const QList<int> &qu
     for (int i = 0; i < questions.size(); ++i) {
         if (i == 0) {
             m_questionCombobox1->setCurrentIndex(questions.at(i));
-            m_answerEdit1->setText("security");
         } else if (i == 1) {
             m_questionCombobox2->setCurrentIndex(questions.at(i));
-            m_answerEdit2->setText("security");
         } else if (i == 2) {
             m_questionCombobox3->setCurrentIndex(questions.at(i));
-            m_answerEdit3->setText("security");
         }
     }
 }

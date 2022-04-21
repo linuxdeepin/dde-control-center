@@ -96,14 +96,6 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
 {
     qDebug() << "UpdateSettingItem::setStatus: " << status;
 
-    if (status == UpdatesStatus::RecoveryBackingSuccessed && m_status != UpdatesStatus::RecoveryBackingup && m_status != UpdatesStatus::WaitRecoveryBackup) {
-        return;
-    }
-
-    if (status == UpdatesStatus::RecoveryBackupFailed && m_status != UpdatesStatus::RecoveryBackingup) {
-        return;
-    }
-
     m_status = status;
     this->setVisible(true);
 
@@ -324,7 +316,7 @@ void UpdateSettingItem::onRetryUpdate()
 {
     m_controlWidget->setProgressType(UpdateDProgressType::InvalidType);
     setProgressVlaue(0);
-    m_controlWidget->setButtonStatus(ButtonStatus::start);
+    m_controlWidget->setButtonStatus(ButtonStatus::invalid);
 
     if (m_updateJobErrorMessage == UpdateErrorType::DpkgInterrupted) {
         Q_EMIT requestFixError(m_classifyUpdateType, "dpkgInterrupted");

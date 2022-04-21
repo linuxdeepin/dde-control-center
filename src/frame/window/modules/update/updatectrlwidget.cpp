@@ -695,10 +695,11 @@ void UpdateCtrlWidget::onRequestRefreshSize()
     m_updateSize = 0;
 
     for (UpdateSettingItem *updateItem : m_updateingItemMap.values()) {
-        if (updateItem->status() == UpdatesStatus::UpdatesAvailable
-                || updateItem->status() == UpdatesStatus::Downloading
-                || updateItem->status() == UpdatesStatus::DownloadPaused
-                || updateItem->status() == UpdatesStatus::UpdateFailed) {
+        if (updateItem->status() != UpdatesStatus::Default
+                && updateItem->status() != UpdatesStatus::Downloaded
+                && updateItem->status() != UpdatesStatus::AutoDownloaded
+                && updateItem->status() != UpdatesStatus::Installing
+                && updateItem->status() != UpdatesStatus::Updated) {
             m_updateSize += updateItem->updateSize();
         }
     }
@@ -706,7 +707,7 @@ void UpdateCtrlWidget::onRequestRefreshSize()
     if (m_updateSize == 0) {
         m_CheckAgainBtn->setEnabled(false);
         m_upgradeWarningGroup->setVisible(false);
-    } else if ((static_cast<int>(m_updateSize) / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt()) {
+    } else if ((static_cast<int64_t>(m_updateSize) / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt()) {
         m_upgradeWarningGroup->setVisible(true);
     } else {
         m_upgradeWarningGroup->setVisible(false);
@@ -817,7 +818,7 @@ void UpdateCtrlWidget::onClassityUpdateJonErrorChanged(const ClassifyUpdateType 
 void UpdateCtrlWidget::onShowUpdateCtrl()
 {
     if (m_model->getUpdatablePackages() && m_model->status() == UpdatesStatus::Default) {
-        m_checkUpdateBtn->click();
+        Q_EMIT m_model->beginCheckUpdate();
     }
 }
 

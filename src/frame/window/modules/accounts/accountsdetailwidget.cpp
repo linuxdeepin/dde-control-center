@@ -25,6 +25,7 @@
 #include "modules/accounts/usermodel.h"
 #include "modules/accounts/removeuserdialog.h"
 #include "window/gsettingwatcher.h"
+#include "window/dconfigwatcher.h"
 
 #include <DIconButton>
 #include <DWarningButton>
@@ -400,7 +401,10 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     QStyleOption opt;
     securityQuestionsButton->setIcon(DStyleHelper(this->style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
     sqHLayout->addWidget(securityQuestionsButton, 0, Qt::AlignRight);
-    securityQuestionsWidget->setVisible(m_curUser->isCurrentUser());
+    securityQuestionsWidget->setVisible(false);
+
+    if (m_curUser->isCurrentUser())
+        DConfigWatcher::instance()->bind(DConfigWatcher::accounts, "securityQuestions", securityQuestionsWidget);
 
     connect(securityQuestionsButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestShowSecurityQuestionsSettings(m_curUser);
@@ -468,15 +472,18 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //~ contents_path /accounts/Administrator
     m_asAdministrator->setTitle(tr("Administrator"));
     m_asAdministrator->setChecked(isSystemAdmin(m_curUser));
-    //开启等保3级后如果当前登陆的账户不是sysadm_u，则用户只能操作当前自己登陆用户的界面
-    if (m_userModel->getIsSecurityHighLever() && m_curLoginUser->securityLever() != SecurityLever::Sysadm && !isCurUser) {
-        validityDaysBox->setEnabled(false);
-        m_fullNameBtn->setEnabled(false);
-        m_deleteAccount->setEnabled(false);
-        m_modifyPassword->setEnabled(false);
-        m_autoLogin->switchButton()->setEnabled(false);
-        m_nopasswdLogin->switchButton()->setEnabled(false);
+    if (m_userModel->getIsSecurityHighLever()) {
         m_asAdministrator->setEnabled(false);
+
+        // 开启等保3级后如果当前登录的账户不是sysadm_u，则用户只能操作当前自己登录用户的界面
+        if (m_curLoginUser->securityLever() != SecurityLever::Sysadm && !isCurUser) {
+            validityDaysBox->setEnabled(false);
+            m_fullNameBtn->setEnabled(false);
+            m_deleteAccount->setEnabled(false);
+            m_modifyPassword->setEnabled(false);
+            m_autoLogin->switchButton()->setEnabled(false);
+            m_nopasswdLogin->switchButton()->setEnabled(false);
+        }
     }
     //修改密码状态判断
     connect(m_gsettings, &QGSettings::changed, this, &AccountsDetailWidget::setModifyPwdBtnStatus);
@@ -762,6 +769,10 @@ void AccountsDetailWidget::setModifyPwdBtnStatus(const QString &key)
 
 bool AccountsDetailWidget::isSystemAdmin(User *user)
 {
+    // 在关闭等保3级的时候如果有secadm为自动登陆情况下，用户可以自动登陆进来,导致找不到当前登陆用户，故这里需要判断下当前登陆用户是否为空
+    if(user == nullptr)
+        return false;
+
     // 本地管理员账户不一定是等保三级的管理员账户，要区分判断
     if (m_userModel->getIsSecurityHighLever())
         return user->securityLever() == SecurityLever::Sysadm;

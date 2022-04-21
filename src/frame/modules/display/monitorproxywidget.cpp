@@ -41,6 +41,7 @@ MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, DisplayModel *model)
     , m_preCenter(QPointF(0,0))
     , m_selected(false)
     , m_isMoving(false)
+    , m_reSplicing(false)
 {
     setFlags(QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsMovable | QGraphicsItem::ItemIsFocusable);
 }

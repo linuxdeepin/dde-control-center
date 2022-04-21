@@ -41,6 +41,10 @@ class GLineEdit;
 
 namespace DCC_NAMESPACE {
 namespace keyboard {
+
+#define GSETTINGS_NUMLOCK_ENABLE "keyboardGeneralNumlockEnable"
+#define GSETTINGS_CAPPSLOCK_ENABLE "keyboardGeneralCapslockEnable"
+
 class GeneralKBSettingWidget : public dcc::ContentWidget
 {
     Q_OBJECT

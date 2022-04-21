@@ -39,6 +39,15 @@ class PowerModel : public QObject
     friend class PowerWorker;
 
 public:
+    enum ActionOption {
+        Shutdown = 0,
+        Suspend = 1,
+        Hibernate = 2,
+        TurnOffScreen = 3,
+        ShowSessionUI = 4
+    };
+
+public:
     explicit PowerModel(QObject *parent = 0);
 
     inline bool screenBlackLock() const { return m_screenBlackLock; }
@@ -122,7 +131,7 @@ public:
     inline int lowPowerAutoSleepThreshold() const { return m_dLowPowerAutoSleepThreshold; }
     void setLowPowerAutoSleepThreshold(int dLowPowerAutoSleepThreshold);
 
-    //-----------------------------------------------
+    // 是否允许待机的条件最终汇总到此
     inline bool getSuspend() const { return m_isSuspend; }
     void setSuspend(bool suspend);
 

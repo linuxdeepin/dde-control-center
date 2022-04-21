@@ -55,9 +55,7 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     , m_passwordTipsEdit(new DLineEdit)
     , m_isCurrent(isCurrent)
     , m_isBindCheckError(false)
-    , m_isSecurityQuestionsExist(false)
     , m_securityLevelItem(new SecurityLevelItem(this))
-
 {
     initWidget();
 }
@@ -302,34 +300,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
         if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise) || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC))
             return;
 
-        // 密码校验失败并且安全中心密码安全等级不为低，弹出跳转到安全中心的对话框，低、中、高等级分别对应的值为1、2、3
-        QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
-                                     QStringLiteral("/com/deepin/defender/daemonservice"),
-                                     QStringLiteral("com.deepin.defender.daemonservice"));
-        QDBusReply<int> level = interface.call("GetPwdLimitLevel");
-        if (!interface.isValid()) {
-            return;
-        }
-        if (level != 1) {
-            QDBusReply<QString> errorTips = interface.call("GetPwdError");
-            DDialog dlg("", errorTips, this);
-            dlg.setIcon(QIcon::fromTheme("preferences-system"));
-            dlg.addButton(tr("Go to Settings"));
-            dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
-            connect(&dlg, &DDialog::buttonClicked, this, [ = ](int idx) {
-                if (idx == 0) {
-                    DDBusSender()
-                    .service("com.deepin.defender.hmiscreen")
-                    .interface("com.deepin.defender.hmiscreen")
-                    .path("/com/deepin/defender/hmiscreen")
-                    .method(QString("ShowPage"))
-                    .arg(QString("securitytools"))
-                    .arg(QString("login-safety"))
-                    .call();
-                }
-            });
-            dlg.exec();
-        }
+        Q_EMIT requestCheckPwdLimitLevel();
     } else if (error != PW_NO_ERR) {
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
@@ -354,7 +325,6 @@ void ModifyPasswdPage::resetPassword(const QString &password, const QString &rep
     bool check = false;
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
                                                                                       password);
-
     if (error != PW_NO_ERR) {
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
@@ -375,8 +345,18 @@ void ModifyPasswdPage::resetPassword(const QString &password, const QString &rep
         }
     }
 
-    if (check)
+    if (check){
+        // 企业版控制中心修改密码屏蔽安全中心登录安全的接口需求
+        if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise)
+            || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC)) {
+            return;
+        }
+
+        if(error != PW_NO_ERR){
+            Q_EMIT requestCheckPwdLimitLevel();
+        }
         return;
+    }
 
     if (!m_passwordTipsEdit->text().simplified().isEmpty())
         requestSetPasswordHint(m_curUser, m_passwordTipsEdit->text());
@@ -415,22 +395,7 @@ void ModifyPasswdPage::resetPasswordFinished(const QString &errorText)
 void ModifyPasswdPage::onForgetPasswordBtnClicked()
 {
     m_forgetPasswordBtn->setEnabled(false);
-
-    QString uosid;
-    Q_EMIT requestUOSID(uosid);
-    if (uosid.isEmpty()) {
-        return;
-    }
-
-    QString uuid;
-    Q_EMIT requestUUID(uuid);
-    if (uuid.isEmpty()) {
-        return;
-    }
-
     Q_EMIT requestSecurityQuestionsCheck(m_curUser);
-    if (!m_isSecurityQuestionsExist)
-        Q_EMIT requestLocalBindCheck(m_curUser, uosid, uuid);
 }
 
 void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)
@@ -445,10 +410,23 @@ void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)
 
 void ModifyPasswdPage::onSecurityQuestionsCheckReplied(const QList<int> &questions)
 {
-    m_isSecurityQuestionsExist = !questions.isEmpty();
-    if (m_isSecurityQuestionsExist)
+    if (!questions.isEmpty()) {
         Q_EMIT requestStartResetPasswordExec(m_curUser);
-    qDebug() << "IsSecurityQuestionsExist:" << m_isSecurityQuestionsExist;
+    } else {
+        QString uosid;
+        Q_EMIT requestUOSID(uosid);
+        if (uosid.isEmpty()) {
+            return;
+        }
+
+        QString uuid;
+        Q_EMIT requestUUID(uuid);
+        if (uuid.isEmpty()) {
+            return;
+        }
+        Q_EMIT requestLocalBindCheck(m_curUser, uosid, uuid);
+    }
+    qDebug() << "IsSecurityQuestionsExist:" << !questions.isEmpty();
 }
 
 void ModifyPasswdPage::onLocalBindCheckUbid(const QString &ubid)
@@ -459,6 +437,7 @@ void ModifyPasswdPage::onLocalBindCheckUbid(const QString &ubid)
     } else if (!m_isBindCheckError) {
         UnionIDBindReminderDialog dlg;
         dlg.exec();
+        m_forgetPasswordBtn->setEnabled(true);
     }
 }
 

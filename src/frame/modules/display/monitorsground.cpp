@@ -197,9 +197,9 @@ void MonitorsGround::onRotateChanged()
 
 //当方向改变时 当分辨率改变时
 void MonitorsGround::onCurrentModeChanged()
-{
+{    
     onResize();
-    if (m_setMergeMode)
+    if (m_setMergeMode || m_isSingleDisplay)
         return;
 
     Monitor *mon = qobject_cast<Monitor*>(sender());
@@ -222,6 +222,13 @@ void MonitorsGround::executemultiScreenAlgo(const bool isRebound)
 
     bool isRestore = false;
     multiScreenSortAlgo(isRestore, isRebound);
+
+    //需要重新拼接
+    if(m_movingItem->getReSplicing()) {
+        m_movingItem->setReSplicing(false);
+        multiScreenSortAlgo(isRestore, true);
+    }
+
     if (isRestore == true)
         return;
 
@@ -523,12 +530,23 @@ QPointF MonitorsGround::multiScreenSortAlgo(bool &isRestore, const bool isReboun
     });
 
     //自动回弹的触发条件: 1. 一个屏幕完全包含另一个屏的时候 2. 一个屏幕剩下的屏幕集合所包围
-    if (lstShelterItems.size() > 0 && isRebound) {
+    if (lstShelterItems.size() > 0) {
         if (isMove) {
-            autoRebound();
-            qDebug() << "自动回弹流程触发! == " << lstShelterItems.size();
-            isRestore = true;
-            return QPointF(0.0,0.0);
+
+            if (isRebound) {
+                autoRebound();
+                qDebug() << "自动回弹流程触发! == " << lstShelterItems.size();
+                isRestore = true;
+                return QPointF(0.0,0.0);
+            }
+            else {
+                //当改变方向时出现覆盖多个块的情况，会触发自动会弹流程，但是改变方向的上一个操作状态不存在或者说回弹到上一个状态没有意义，会导致屏幕重叠现象
+                //如果是由于方向改变导致的重叠，那就将此块移动到items外接矩形的左下角再重新执行拼接算法。
+                m_movingItem->moveBy(scene()->itemsBoundingRect().right() - m_movingItem->mapToScene(m_movingItem->boundingRect().bottomLeft()).x(),
+                                     scene()->itemsBoundingRect().bottom() - m_movingItem->mapToScene(m_movingItem->boundingRect().topLeft()).y());
+                m_movingItem->setReSplicing(true);
+                return QPointF(0.0,0.0);
+            }
         }
     }
     else { //没有完全重合的情况处理逻辑

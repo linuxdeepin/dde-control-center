@@ -34,6 +34,7 @@
 #include <DAnchors>
 
 #include <QLineEdit>
+#include <QGuiApplication>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::keyboard;
@@ -46,6 +47,10 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     , m_assistiveToolsGroup(nullptr)
     , m_model(model)
 {
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        waylandGrab = new WaylandGrab(this->parent());
+    }
+
     setAccessibleName("ShortCutSettingWidget");
     m_searchDelayTimer = new QTimer(this);
     m_searchDelayTimer->setInterval(300);
@@ -523,3 +528,46 @@ void ShortCutSettingWidget::onResetFinished()
     m_bIsResting = false;
 }
 
+void ShortCutSettingWidget::onGrab(ShortcutInfo *info)
+{
+    waylandGrab->onGrab(info);
+}
+
+void ShortCutSettingWidget::keyPressEvent(QKeyEvent *ke)
+{
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm()) {
+        return;
+    }
+    waylandGrab->setKeyValue(WaylandkeyMap[ke->key()]);
+    QString lastKey = waylandGrab->getLastKey();
+    QString keyValue = waylandGrab->getKeyValue();
+
+    onKeyEvent(true, waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
+    waylandGrab->setRecordState(true);
+    if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L) {
+        lastKey += ("<" + keyValue.remove(keyValue.indexOf("_"), 2) + ">");
+        waylandGrab->setLastKey(lastKey);
+    }
+    QWidget::keyPressEvent(ke);
+}
+
+void ShortCutSettingWidget::keyReleaseEvent(QKeyEvent *ke)
+{
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm()) {
+        return;
+    }
+    QString lastKey = waylandGrab->getLastKey();
+    QString keyValue = waylandGrab->getKeyValue();
+    if (!lastKey.isEmpty()) {
+        if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L) {
+            onKeyEvent(false, "");
+        } else {
+            onKeyEvent(false, lastKey + keyValue);
+        }
+    }
+    waylandGrab->setLastKey("");
+    waylandGrab->setRecordState(false);
+    Q_EMIT changed(waylandGrab->getInfo()->id, waylandGrab->getInfo()->type);
+    waylandGrab->onUnGrab();
+    QWidget::keyReleaseEvent(ke);
+}

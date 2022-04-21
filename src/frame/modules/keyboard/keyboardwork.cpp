@@ -31,6 +31,7 @@
 #include <QLocale>
 #include <QCollator>
 #include <QCoreApplication>
+#include <QGuiApplication>
 
 namespace dcc {
 namespace keyboard{
@@ -628,8 +629,11 @@ void KeyboardWorker::updateKey(ShortcutInfo *info)
 {
     if (m_shortcutModel)
         m_shortcutModel->setCurrentInfo(info);
-
-    m_keybindInter->SelectKeystroke();
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        Q_EMIT stareGrab(info);
+    } else {
+        m_keybindInter->SelectKeystroke();
+    }
 }
 
 void KeyboardWorker::cleanShortcutSlef(const QString &id, const int type, const QString &shortcut)

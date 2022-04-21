@@ -209,13 +209,14 @@ void DisplayModule::showSingleScreenWidget()
     BrightnessWidget *brightnessWidget = new BrightnessWidget(singleScreenWidget);
     brightnessWidget->setMode(m_displayModel);
     contentLayout->addWidget(brightnessWidget);
-    brightnessWidget->setVisible(m_displayModel->brightnessEnable());
+    const bool brightnessIsEnabled = m_displayModel->brightnessEnable() && m_displayModel->primaryMonitor() && m_displayModel->primaryMonitor()->canBrightness();
+    brightnessWidget->setVisible(brightnessIsEnabled);
     connect(brightnessWidget, &BrightnessWidget::requestSetColorTemperature, m_displayWorker, &DisplayWorker::setColorTemperature);
     connect(brightnessWidget, &BrightnessWidget::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
     connect(brightnessWidget, &BrightnessWidget::requestAmbientLightAdjustBrightness, m_displayWorker, &DisplayWorker::setAmbientLightAdjustBrightness);
     connect(brightnessWidget, &BrightnessWidget::requestSetMethodAdjustCCT, m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
 
-    QSpacerItem *scalingSpacerItem = new QSpacerItem(0, m_displayModel->brightnessEnable() ? 20 : 0);
+    QSpacerItem *scalingSpacerItem = new QSpacerItem(0, brightnessIsEnabled? 20 : 0);
     contentLayout->addSpacerItem(scalingSpacerItem);
 
     ScalingWidget *scalingWidget = new ScalingWidget(singleScreenWidget);
@@ -258,9 +259,10 @@ void DisplayModule::showSingleScreenWidget()
     singleScreenWidget->setLayout(contentLayout);
     m_displayWidget->setContent(singleScreenWidget);
 
-    connect(m_displayModel, &DisplayModel::brightnessEnableChanged, this, [brightnessWidget, scalingSpacerItem](const bool enable) {
-        scalingSpacerItem->changeSize(0, enable ? 20 : 0);
-        brightnessWidget->setVisible(enable);
+    connect(m_displayModel, &DisplayModel::brightnessEnableChanged, this, [brightnessWidget, scalingSpacerItem, this](const bool enable) {
+        const bool visible = enable && m_displayModel->primaryMonitor() && m_displayModel->primaryMonitor()->canBrightness();
+        scalingSpacerItem->changeSize(0, visible ? 20 : 0);
+        brightnessWidget->setVisible(visible);
     });
 }
 
@@ -510,7 +512,16 @@ void DisplayModule::initSearchData()
     };
 
     auto func_brightnessEnable_changed = [ = ] {
-        bool isBrightnessEnable = func_is_visible("brightnessEnable", false);
+        // 是否有支持调节亮度的屏幕，如果没有则不显示亮度模块
+        bool haveMonitorCanBrightness = false;
+        for (auto monitor : m_displayModel->monitorList()) {
+            if (monitor->enable() && monitor->canBrightness()) {
+                haveMonitorCanBrightness = true;
+                break;
+            }
+        }
+
+        bool isBrightnessEnable = haveMonitorCanBrightness && func_is_visible("brightnessEnable", false);
         qDebug() << Q_FUNC_INFO << "autoLightAdjustIsValid:::" << m_displayModel->autoLightAdjustIsValid();
         m_frameProxy->setWidgetVisible(module, tr("Auto Brightness"), isBrightnessEnable && func_is_visible("displayLightLighting")
                                        && m_displayModel->autoLightAdjustIsValid() && !IsServerSystem);
@@ -519,6 +530,7 @@ void DisplayModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, tr("Color Temperature"), isBrightnessEnable && func_is_visible("displayColorTemperature")  && m_displayModel->redshiftIsValid());
         m_frameProxy->setWidgetVisible(module, tr("Night Shift"), isBrightnessEnable && func_is_visible("displayColorTemperature") && m_displayModel->redshiftIsValid());
         m_frameProxy->setWidgetVisible(module, tr("Change Color Temperature"), isBrightnessEnable && func_is_visible("displayColorTemperature") && m_displayModel->redshiftIsValid());
+        m_frameProxy->updateSearchData(module);
     };
 
     auto func_process_all = [ = ]() {
@@ -591,6 +603,14 @@ void DisplayModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, tr("Color Temperature"), func_is_visible("brightnessEnable", false) && func_is_visible("displayColorTemperature"));
         m_frameProxy->setWidgetVisible(module, tr("Night Shift"), func_is_visible("brightnessEnable", false) && func_is_visible("displayColorTemperature"));
         m_frameProxy->setWidgetVisible(module, tr("Change Color Temperature"), func_is_visible("brightnessEnable", false) && func_is_visible("displayColorTemperature"));
+    });
+    connect(m_displayModel, &DisplayModel::displayModeChanged, this, [ = ] {
+        func_brightnessEnable_changed();
+    });
+
+    // 在多个屏幕选择仅单屏显示时，切换单屏不触发displayModeChanged，故增加判断主屏变换信号
+    connect(m_displayModel, &DisplayModel::primaryScreenChanged, this, [ = ] {
+        func_brightnessEnable_changed();
     });
 
     func_process_all();

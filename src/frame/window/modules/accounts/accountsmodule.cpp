@@ -112,6 +112,7 @@ void AccountsModule::active()
     });
     connect(m_accountsWidget, &AccountsWidget::requestLoadUserList, m_accountsWorker, &AccountsWorker::loadUserList);
     connect(m_accountsWidget, &AccountsWidget::requestUpdatGroupList, m_accountsWorker, &AccountsWorker::updateGroupinfo);
+    connect(m_accountsWorker, &AccountsWorker::showSafeyPage, m_accountsWidget, &AccountsWidget::onShowSafetyPage);
     m_frameProxy->pushWidget(this, m_accountsWidget);
     m_accountsWidget->setVisible(true);
     m_accountsWidget->showDefaultAccountInfo();
@@ -200,10 +201,12 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
             w->onEditingFinished(false, userFullName);
         }
     });
-    connect(w, &AccountsDetailWidget::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::securityQuestionsCheck);
+    connect(w, &AccountsDetailWidget::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::asyncSecurityQuestionsCheck);
 
     m_frameProxy->pushWidget(this, w);
-    Q_EMIT w->requestSecurityQuestionsCheck(account);
+    if (account->isCurrentUser()) {
+        Q_EMIT w->requestSecurityQuestionsCheck(account);
+    }
     w->setVisible(true);
     m_isCreatePage = false;
     //当前页面为用户详情页面的时候允许跳转默认帐户，否则只响应用户点击。避免出现显示了创建账户页面，又被账户详情页面隐藏的问题。
@@ -221,6 +224,7 @@ void AccountsModule::onShowCreateAccountPage()
     User *newUser = new User(this);
     w->setModel(m_userModel, newUser);
     connect(w, &CreateAccountPage::requestCreateUser, m_accountsWorker, &AccountsWorker::createAccount);
+    connect(w, &CreateAccountPage::requestCheckPwdLimitLevel, m_accountsWorker, &AccountsWorker::checkPwdLimitLevel);
     connect(m_accountsWorker, &AccountsWorker::accountCreationFinished, w, &CreateAccountPage::setCreationResult);
     connect(w, &CreateAccountPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
     m_frameProxy->pushWidget(this, w);
@@ -338,7 +342,8 @@ void AccountsModule::onShowPasswordPage(User *account)
     connect(w, &ModifyPasswdPage::requestUUID, m_accountsWorker, &AccountsWorker::getUUID);
     connect(w, &ModifyPasswdPage::requestLocalBindCheck, m_accountsWorker, &AccountsWorker::localBindCheck);
     connect(w, &ModifyPasswdPage::requestStartResetPasswordExec, m_accountsWorker, &AccountsWorker::startResetPasswordExec);
-    connect(w, &ModifyPasswdPage::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::securityQuestionsCheck);
+    connect(w, &ModifyPasswdPage::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::asyncSecurityQuestionsCheck);
+    connect(w, &ModifyPasswdPage::requestCheckPwdLimitLevel, m_accountsWorker, &AccountsWorker::checkPwdLimitLevel);
     connect(m_accountsWorker, &AccountsWorker::localBindUbid, w, &ModifyPasswdPage::onLocalBindCheckUbid);
     connect(m_accountsWorker, &AccountsWorker::localBindError, w, &ModifyPasswdPage::onLocalBindCheckError);
 
@@ -351,7 +356,7 @@ void AccountsModule::onShowSecurityQuestionsPage(User *account)
     SecurityQuestionsPage *w = new SecurityQuestionsPage(account);
     w->setVisible(false);
     connect(w, &SecurityQuestionsPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
-    connect(w, &SecurityQuestionsPage::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::securityQuestionsCheck);
+    connect(w, &SecurityQuestionsPage::requestSecurityQuestionsCheck, m_accountsWorker, &AccountsWorker::asyncSecurityQuestionsCheck);
     connect(w, &SecurityQuestionsPage::requestSetSecurityQuestions, m_accountsWorker, &AccountsWorker::setSecurityQuestions);
 
     m_frameProxy->pushWidget(this, w);

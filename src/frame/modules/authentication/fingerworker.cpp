@@ -89,6 +89,7 @@ void FingerWorker::tryEnroll(const QString &name, const QString &thumb)
                 m_fingerPrintInter->Claim(name, false);
                 m_model->refreshEnrollResult(FingerModel::EnrollResult::Enroll_Failed);
             } else {
+                Q_EMIT requestMainWindowEnabled(true);
                 m_model->refreshEnrollResult(FingerModel::EnrollResult::Enroll_Success);
             }
             Q_EMIT requestMainWindowEnabled(true);

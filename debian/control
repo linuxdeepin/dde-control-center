@@ -29,7 +29,10 @@ Build-Depends:
  libgtest-dev,
  libdeepin-pw-check-dev,
  libpolkit-qt5-1-dev,
- libdareader-dev
+ libdareader-dev,
+ libqt5waylandclient5-dev,
+ qtwayland5-private-dev,
+ libkf5wayland-dev
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
 
@@ -59,7 +62,8 @@ Recommends:
  deepin-ab-recovery,
  deepin-user-experience-daemon,
  deepin-recovery-plugin,
- dcc-network-plugin
+ dcc-network-plugin,
+ dcc-deepinid-plugin
 Suggests: redshift
 Conflicts:
  dde-control-center-plugin-weather,

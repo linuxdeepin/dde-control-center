@@ -19,4 +19,11 @@ void SafeUpdateItem::init()
     m_controlWidget->setVersionVisible(false);
 }
 
+void SafeUpdateItem::setData(UpdateItemInfo *updateItemInfo)
+{
+    UpdateSettingItem::setData(updateItemInfo);
+
+    m_controlWidget->setDatetimeVisible(false);
+}
+
 

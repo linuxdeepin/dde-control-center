@@ -103,6 +103,12 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 
     connect(m_editBtn, &DIconButton::clicked, this, &ShortcutItem::onShortcutEdit);
     connect(m_delBtn, &DIconButton::clicked, this, &ShortcutItem::onRemoveClick);
+    connect(m_shortcutEdit, &QLineEdit::editingFinished, this, [ this ] {
+        if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+            m_shortcutEdit->hide();
+            m_key->show();
+        }
+    });
 }
 
 ShortcutItem::~ShortcutItem()
@@ -141,6 +147,7 @@ void ShortcutItem::setShortcut(const QString &shortcut)
     accels = accels.replace("Control", "Ctrl");
 
     m_key->setTextList(accels.split("-"));
+    m_key->setFocus();
     QTimer::singleShot(0, this, &ShortcutItem::updateTitleSize);
 }
 

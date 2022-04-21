@@ -119,6 +119,9 @@ void IrisWidget::addIrisButton(const QString &newIrisName)
     connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestAddIris(m_model->irisDriverName(), m_model->irisCharaType(), newIrisName);
     });
+    connect(addItem, &AuthenticationLinkButtonItem::mousePressed, this, [ = ] {
+        Q_EMIT requestAddIris(m_model->irisDriverName(), m_model->irisCharaType(), newIrisName);
+    });
 }
 
 void IrisWidget::onIrisListChanged(const QStringList &irislist)

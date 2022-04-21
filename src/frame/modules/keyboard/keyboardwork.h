@@ -104,6 +104,8 @@ Q_SIGNALS:
     // 快捷键恢复默认完成
     void onResetFinished();
 
+    void stareGrab(ShortcutInfo *info);
+
 public Q_SLOTS:
 #ifndef DCC_DISABLE_LANGUAGE
     void setLang(const QString &value);

@@ -24,6 +24,7 @@
 #include "interface/namespace.h"
 #include "widgets/contentwidget.h"
 #include "modules/keyboard/shortcutmodel.h"
+#include "waylandgrab.h"
 
 #include <DFloatingButton>
 #include <com_deepin_daemon_search.h>
@@ -75,6 +76,8 @@ Q_SIGNALS:
     void requestReset();
     void requestSearch(const QString &key);
 
+    void changed(const QString &in0, int in1);
+
 public Q_SLOTS:
     void onSearchTextChanged(const QString &text);
     void onCustomAdded(dcc::keyboard::ShortcutInfo *info);
@@ -86,6 +89,12 @@ public Q_SLOTS:
     void onShortcutChanged(dcc::keyboard::ShortcutInfo *info);
     void onKeyEvent(bool press, const QString &shortcut);
     void onResetFinished();
+
+    void onGrab(dcc::keyboard::ShortcutInfo *info);
+
+protected:
+    void keyPressEvent(QKeyEvent *ke) override;
+    void keyReleaseEvent(QKeyEvent *ke) override;
 
 private:
     QWidget *m_searchWidget;
@@ -120,6 +129,8 @@ private:
     QList<dcc::keyboard::ShortcutItem *> m_customList;
     QStringList m_assistiveToolsIdList;
     QStringList m_workspaceIdList;
+
+    WaylandGrab *waylandGrab;
 };
 }
 }

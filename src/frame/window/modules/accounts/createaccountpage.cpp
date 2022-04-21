@@ -388,16 +388,19 @@ void CreateAccountPage::createUser()
         check = true;
     }
 
-    if (!checkPassword(m_repeatpasswdEdit)) {
+    bool needShowSafetyPage = false;
+    if (!checkPassword(m_repeatpasswdEdit, needShowSafetyPage)) {
         check = true;
     }
 
-    if (!checkPassword(m_passwdEdit)) {
+    if (!checkPassword(m_passwdEdit, needShowSafetyPage)) {
         check = true;
     }
-
 
     if (check) {
+        if (needShowSafetyPage) {
+            Q_EMIT requestCheckPwdLimitLevel();
+        }
         return;
     }
 
@@ -441,7 +444,7 @@ void CreateAccountPage::createUser()
 void CreateAccountPage::setCreationResult(CreationResult *result)
 {
     switch (result->type()) {
-    case CreationResult::NoError:      
+    case CreationResult::NoError:
         Q_EMIT requestBack(AccountsWidget::CreateUserSuccess);
         break;
     case CreationResult::UserNameError:
@@ -571,7 +574,7 @@ bool CreateAccountPage::checkFullname()
     return true;
 }
 
-bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
+bool CreateAccountPage::checkPassword(DPasswordEdit *edit, bool &needShowSafetyPage)
 {
     if (edit == m_repeatpasswdEdit) {
         if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
@@ -592,34 +595,7 @@ bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
         if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise) || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC))
             return false;
 
-        QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
-                                                QStringLiteral("/com/deepin/defender/daemonservice"),
-                                                QStringLiteral("com.deepin.defender.daemonservice"));
-        if (!interface.isValid()) {
-            return false;
-        }
-
-        QDBusReply<int> level = interface.call("GetPwdLimitLevel");
-        if (level != 1) {
-            QDBusReply<QString> errorTips = interface.call("GetPwdError");
-            DDialog dlg("", errorTips, this);
-            dlg.setIcon(QIcon::fromTheme("preferences-system"));
-            dlg.addButton(tr("Go to Settings"));
-            dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
-            connect(&dlg, &DDialog::buttonClicked, this, [ = ] (int idx) {
-                if (idx == 0) {
-                    DDBusSender()
-                    .service("com.deepin.defender.hmiscreen")
-                    .interface("com.deepin.defender.hmiscreen")
-                    .path("/com/deepin/defender/hmiscreen")
-                    .method(QString("ShowPage"))
-                    .arg(QString("securitytools"))
-                    .arg(QString("login-safety"))
-                    .call();
-                }
-            });
-            dlg.exec();
-        }
+        needShowSafetyPage = true;
 
         return false;
     } else {

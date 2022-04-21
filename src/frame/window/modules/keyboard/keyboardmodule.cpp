@@ -37,6 +37,8 @@
 #include "modules/keyboard/shortcutcontent.h"
 #include "window/mainwindow.h"
 
+#include <QGuiApplication>
+
 using namespace dcc;
 using namespace dcc::keyboard;
 using namespace DCC_NAMESPACE;
@@ -222,6 +224,9 @@ void KeyboardModule::initSearchData()
         func_shortcuts_changed();
 
         func_syslanguage_changed();
+
+        m_frameProxy->setDetailVisible(module, general, tr("Numeric Keypad"), func_is_visible(GSETTINGS_NUMLOCK_ENABLE, false));
+        m_frameProxy->setDetailVisible(module, general, tr("Caps Lock Prompt"), func_is_visible(GSETTINGS_CAPPSLOCK_ENABLE, false));
     };
     //keyboardGeneral, keyboardLayout,keyboardLanguage,keyboardShortcuts
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
@@ -247,6 +252,10 @@ void KeyboardModule::initSearchData()
             func_syslanguage_changed();
         } else if ("keyboardShortcuts" == gsetting || "keyboardShortcut" == gsetting) {
             func_shortcuts_changed();
+        } else if(GSETTINGS_NUMLOCK_ENABLE == gsetting ){
+            m_frameProxy->setDetailVisible(module, general, tr("Numeric Keypad"),state != "Hidden");
+        } else if(GSETTINGS_CAPPSLOCK_ENABLE == gsetting){
+            m_frameProxy->setDetailVisible(module, general, tr("Caps Lock Prompt"),state != "Hidden");
         } else {
             qWarning() << " not contains the gsettings : " << gsetting << state;
             return;
@@ -335,7 +344,6 @@ void KeyboardModule::showKBLayoutSetting()
 
     m_frameProxy->pushWidget(this, m_kbLayoutSettingWidget);
     m_kbLayoutSettingWidget->setVisible(true);
-    m_kbLayoutSettingWidget->setFocus();
 }
 
 void KeyboardModule::showSystemLanguageSetting()
@@ -360,7 +368,7 @@ void KeyboardModule::onAddLocale(const QModelIndex &index)
 void KeyboardModule::showShortCutSetting()
 {
     m_work->refreshShortcut();
-    m_shortcutSettingWidget = new ShortCutSettingWidget(m_shortcutModel);
+    m_shortcutSettingWidget = new ShortCutSettingWidget(m_shortcutModel, m_pMainWindow);
     GSettingWatcher::instance()->bind("keyboardShortcut", m_shortcutSettingWidget);  // 使用GSettings来控制显示状态
     m_shortcutSettingWidget->setVisible(false);
     connect(m_shortcutSettingWidget, &ShortCutSettingWidget::customShortcut, this, &KeyboardModule::onPushCustomShortcut);
@@ -376,24 +384,33 @@ void KeyboardModule::showShortCutSetting()
     connect(m_work, &KeyboardWorker::searchChangd, m_shortcutSettingWidget, &ShortCutSettingWidget::onSearchInfo);
     connect(m_work, &KeyboardWorker::onResetFinished, m_shortcutSettingWidget, &ShortCutSettingWidget::onResetFinished);
 
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        connect(m_work, &KeyboardWorker::stareGrab, m_shortcutSettingWidget, &ShortCutSettingWidget::onGrab);
+        connect(m_shortcutSettingWidget, &ShortCutSettingWidget::changed, m_work, &KeyboardWorker::onShortcutChanged);
+    }
+
     m_frameProxy->pushWidget(this, m_shortcutSettingWidget);
     m_shortcutSettingWidget->setVisible(GSettingWatcher::instance()->getStatus("keyboardShortcut") != "Hidden");
-    m_shortcutSettingWidget->setFocus();
 }
 
 void KeyboardModule::onPushSystemLanguageSetting()
 {
-    m_systemLanguageSettingWidget = new SystemLanguageSettingWidget(m_model);
+    m_systemLanguageSettingWidget = new SystemLanguageSettingWidget(m_model, m_systemLanguageWidget);
     m_systemLanguageSettingWidget->setVisible(false);
     connect(m_systemLanguageSettingWidget, &SystemLanguageSettingWidget::click, this, &KeyboardModule::onAddLocale);
-    connect(m_systemLanguageSettingWidget, &SystemLanguageSettingWidget::back, this, &KeyboardModule::showSystemLanguageSetting);
+    connect(m_systemLanguageSettingWidget, &SystemLanguageSettingWidget::back, this, [this]{
+        if (m_systemLanguageSettingWidget->parentWidget()) {
+            m_systemLanguageSettingWidget->parentWidget()->setFocus();
+        }
+        Q_EMIT KeyboardModule::showSystemLanguageSetting();
+    });
     m_frameProxy->pushWidget(this, m_systemLanguageSettingWidget);
     m_systemLanguageSettingWidget->setVisible(true);
 }
 
 void KeyboardModule::onPushCustomShortcut()
 {
-    m_customContent = new CustomContent(m_shortcutModel);
+    m_customContent = new CustomContent(m_shortcutModel, m_pMainWindow);
     m_customContent->setVisible(false);
     m_customContent->setAccessibleName(tr("Custom Shortcut"));
     connect(m_customContent, &CustomContent::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
@@ -401,14 +418,17 @@ void KeyboardModule::onPushCustomShortcut()
     connect(m_customContent, &CustomContent::requestForceSubs, m_work, &KeyboardWorker::onDisableShortcut);
     connect(m_customContent, &CustomContent::back, this, &KeyboardModule::showShortCutSetting);
 
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        connect(m_work, &KeyboardWorker::stareGrab, m_customContent, &CustomContent::onGrab);
+    }
+
     m_frameProxy->pushWidget(this, m_customContent);
     m_customContent->setVisible(true);
-    m_customContent->setFocus();
 }
 
 void KeyboardModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
 {
-    m_scContent = new ShortcutContent(m_shortcutModel);
+    m_scContent = new ShortcutContent(m_shortcutModel, m_shortcutSettingWidget);
     m_scContent->setVisible(false);
 
     connect(m_scContent, &ShortcutContent::requestSaveShortcut, m_work, &KeyboardWorker::modifyShortcutEdit);
@@ -427,7 +447,7 @@ void KeyboardModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
 
 void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
 {
-    m_customEdit = new CustomEdit(m_shortcutModel);
+    m_customEdit = new CustomEdit(m_shortcutModel, m_shortcutSettingWidget);
     m_customEdit->setVisible(false);
     m_customEdit->setShortcut(info);
 

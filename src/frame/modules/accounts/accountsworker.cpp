@@ -61,6 +61,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
     , m_syncHelperInter(new QDBusInterface("com.deepin.sync.Helper", "/com/deepin/sync/Helper", "com.deepin.sync.Helper", QDBusConnection::systemBus(), this))
+    , m_userQInter(new QDBusInterface("com.deepin.daemon.Accounts", QString("/com/deepin/daemon/Accounts/User%1").arg(getuid()), "com.deepin.daemon.Accounts.User", QDBusConnection::systemBus(), this))
     , m_fingerPrint(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint", QDBusConnection::systemBus(), this))
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_notifyInter(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
@@ -68,6 +69,8 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     , m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager", QDBusConnection::systemBus(), this))
     , m_userModel(userList)
 {
+    qRegisterMetaType<SecurityQuestions>("SecurityQuestions");
+    qDBusRegisterMetaType<SecurityQuestions>();
     struct passwd *pws;
     pws = getpwuid(getuid());
     m_currentUserName = QString(pws->pw_name);
@@ -207,16 +210,29 @@ void AccountsWorker::startResetPasswordExec(User *user)
     Q_EMIT user->startResetPasswordReplied(reply.error().message());
 }
 
-void AccountsWorker::securityQuestionsCheck(User *user)
+void AccountsWorker::asyncSecurityQuestionsCheck(User *user)
 {
-    AccountsUser *userInter = m_userInters.value(user);
-    auto reply = userInter->GetSecretQuestions();
-    reply.waitForFinished();
-    if (reply.isError()) {
+    QFutureWatcher<QList<int>> *watcher = new QFutureWatcher<QList<int>>(this);
+    connect(watcher, &QFutureWatcher<QList<int>>::finished, [user, watcher] {
+        QList<int> result = watcher->result();
+        if (result.size() != SECURITY_QUESTIONS_ERROR_COUNT)
+            Q_EMIT user->startSecurityQuestionsCheckReplied(result);
+        watcher->deleteLater();
+    });
+    QFuture<QList<int>> future = QtConcurrent::run(this, &AccountsWorker::securityQuestionsCheck);
+    watcher->setFuture(future);
+}
+
+QList<int> AccountsWorker::securityQuestionsCheck()
+{
+    QDBusReply<QList<int>> reply = m_userQInter->call("GetSecretQuestions");
+    if (!reply.error().message().isEmpty()) {
         qWarning() << reply.error().message();
-    } else {
-        Q_EMIT user->startSecurityQuestionsCheckReplied(reply.value());
     }
+    if (reply.isValid()) {
+        return reply.value();
+    }
+    return {-1};
 }
 
 void AccountsWorker::setPasswordHint(User *user, const QString &passwordHint)
@@ -229,13 +245,12 @@ void AccountsWorker::setPasswordHint(User *user, const QString &passwordHint)
 
 void AccountsWorker::setSecurityQuestions(User *user, const QMap<int, QByteArray> &securityQuestions)
 {
-    AccountsUser *userInter = m_userInters.value(user);
-    auto reply = userInter->SetSecretQuestions(securityQuestions);
-    reply.waitForFinished();
-    if (reply.isError() && reply.error().message().isEmpty()) {
-        Q_EMIT user->setSecurityQuestionsReplied(reply.error().message() + "error");
-    } else {
+    QDBusReply<void> reply =  m_userQInter->call("SetSecretQuestions", QVariant::fromValue(securityQuestions));
+    if (reply.isValid()) {
         Q_EMIT user->setSecurityQuestionsReplied(reply.error().message());
+    }
+    if (!reply.error().message().isEmpty()) {
+        Q_EMIT user->setSecurityQuestionsReplied(reply.error().message() + "error");
     }
 }
 
@@ -874,4 +889,20 @@ BindCheckResult AccountsWorker::checkLocalBind(const QString &uosid, const QStri
         result.error = retLocalBindCheck.error().message();
     }
     return result;
+}
+
+void AccountsWorker::checkPwdLimitLevel()
+{
+    // 密码校验失败并且安全中心密码安全等级不为低，弹出跳转到安全中心的对话框，低、中、高等级分别对应的值为1、2、3
+    QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
+                             QStringLiteral("/com/deepin/defender/daemonservice"),
+                             QStringLiteral("com.deepin.defender.daemonservice"));
+    if (!interface.isValid()) {
+        return;
+    }
+    QDBusReply<int> level = interface.call("GetPwdLimitLevel");
+    if (level.error().type() == QDBusError::NoError && level != 1) {
+        QDBusReply<QString> errorTips = interface.call("GetPwdError");
+        Q_EMIT showSafeyPage(errorTips);
+    }
 }

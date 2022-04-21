@@ -255,6 +255,10 @@
             <default>'Enabled'</default>
             <summary>keyboard general numlock item is visible</summary>
         </key>
+        <key name="keyboard-general-capslock-enable" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>keyboard general capslock item is visible</summary>
+        </key>
         <key name="mouse-left-hand" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary>change mouse left hand status</summary>

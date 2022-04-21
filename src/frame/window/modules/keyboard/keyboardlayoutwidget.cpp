@@ -108,8 +108,16 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     m_mainWidget->setAttribute(Qt::WA_TranslucentBackground);
 
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
-    connect(cancel, &QPushButton::clicked, this, &KeyboardLayoutWidget::back);
-    connect(ok, &QPushButton::clicked, this, &KeyboardLayoutWidget::onAddKBLayout);
+    connect(cancel, &QPushButton::clicked, this, [this] {
+        if (parentWidget())
+            parentWidget()->setFocus();
+        Q_EMIT KeyboardLayoutWidget::back();
+    });
+    connect(ok, &QPushButton::clicked, this, [this]{
+        if (parentWidget())
+            parentWidget()->setFocus();
+        Q_EMIT KeyboardLayoutWidget::onAddKBLayout();
+    });
     connect(m_view, &IndexView::clicked, this, &KeyboardLayoutWidget::onKBLayoutSelect);
 }
 
