@@ -23,6 +23,7 @@
 #include "bluetoothworker.h"
 #include "widgets/widgetmodule.h"
 #include "widgets/settingsgroup.h"
+#include "widgets/dcclistview.h"
 
 #include <DIconButton>
 #include <DListView>
@@ -70,7 +71,7 @@ AdapterModule::AdapterModule(const BluetoothAdapter *adapter, BluetoothModel *mo
         DFontSizeManager::instance()->bind(w, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
         w->setVisible(m_adapter->powered());
     }));
-    m_moduleList.append(new WidgetModule<DListView>("List_mydevicelist", tr("My Devices"), this, &AdapterModule::initDeviceListView));
+    m_moduleList.append(new WidgetModule<DCCListView>("List_mydevicelist", tr("My Devices"), this, &AdapterModule::initDeviceListView));
     m_moduleList.append(new WidgetModule<TitleLabel>("Other Devices", tr("Other Devices"), [this](TitleLabel *w) {
         m_otherDevicesTitle = w;
         w->setText(tr("Other Devices"));
@@ -79,7 +80,7 @@ AdapterModule::AdapterModule(const BluetoothAdapter *adapter, BluetoothModel *mo
         connect(m_adapter, &BluetoothAdapter::poweredChanged, w, &TitleLabel::setVisible, Qt::QueuedConnection);
     }));
     m_moduleList.append(new WidgetModule<QWidget>("AnonymousCheckBox", tr("Other Devices"), this, &AdapterModule::initAnonymousCheckBox));
-    m_moduleList.append(new WidgetModule<DListView>("List_otherdevicelist", "", this, &AdapterModule::initOtherDeviceListView));
+    m_moduleList.append(new WidgetModule<DCCListView>("List_otherdevicelist", "", this, &AdapterModule::initOtherDeviceListView));
 
     setAdapter(m_adapter);
 }
@@ -168,7 +169,7 @@ void AdapterModule::initBluetoothTitle(DCC_NAMESPACE::SettingsGroup *settingsGrp
     });
 }
 
-void AdapterModule::initDeviceListView(DListView *deviceListView)
+void AdapterModule::initDeviceListView(DCCListView *deviceListView)
 {
     m_myDeviceListView = deviceListView;
     m_myDeviceListView->setAccessibleName("List_mydevicelist");
@@ -245,7 +246,7 @@ void AdapterModule::initAnonymousCheckBox(QWidget *w)
     w->setLayout(phlayoutShowAnonymous);
 }
 
-void AdapterModule::initOtherDeviceListView(DTK_WIDGET_NAMESPACE::DListView *otherDeviceListView)
+void AdapterModule::initOtherDeviceListView(DCCListView *otherDeviceListView)
 {
     m_otherDeviceListView = otherDeviceListView;
     m_otherDeviceListView->setAccessibleName("List_otherdevicelist");

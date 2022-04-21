@@ -31,5 +31,6 @@ void DCCListView::updateGeometries()
 {
     DListView::updateGeometries();
     QRect r = rectForIndex(model()->index(model()->rowCount() - 1, 0));
-    setFixedHeight(r.y() + r.height());
+    QMargins margins = viewportMargins();
+    setFixedHeight(r.y() + r.height() + margins.top() + margins.bottom());
 }

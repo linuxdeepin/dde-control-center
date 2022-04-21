@@ -23,6 +23,7 @@
 #include "groupitem.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/comboxwidget.h"
+#include "widgets/dcclistview.h"
 #include "src/plugin-accounts/operation/usermodel.h"
 #include "src/plugin-accounts/window/removeuserdialog.h"
 
@@ -105,7 +106,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     , m_scrollArea(new QScrollArea)
     , m_curLoginUser(nullptr)
     , m_bindStatusLabel(new QLabel(tr("Go to Settings"), this))
-    , m_view(new DListView)
+    , m_view(new DCCListView)
     , m_viewModel(new QStandardItemModel(this))
 {
     m_isServerSystem = (DSysInfo::UosServer == DSysInfo::uosType());
@@ -660,7 +661,7 @@ void AccountsDetailWidget::setAccountModel(UserModel *model)
 void AccountsDetailWidget::initGroups(QVBoxLayout *layout)
 {
     QStringList userGroup = m_curUser->groups();
-    m_groupListView = new DListView(this);
+    m_groupListView = new DCCListView(this);
     m_groupItemModel = new QStandardItemModel(this);
     m_groupListView->setModel(m_groupItemModel);
     m_groupListView->setEditTriggers(QAbstractItemView::NoEditTriggers);

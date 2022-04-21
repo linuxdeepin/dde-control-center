@@ -38,6 +38,7 @@ DWIDGET_END_NAMESPACE
 
 DCC_BEGIN_NAMESPACE
 class SettingsGroup;
+class DCCListView;
 DCC_END_NAMESPACE
 
 class BluetoothWorker;
@@ -54,9 +55,9 @@ public:
 
 public Q_SLOTS:
     void initBluetoothTitle(DCC_NAMESPACE::SettingsGroup *settingsGrp);
-    void initDeviceListView(DTK_WIDGET_NAMESPACE::DListView *deviceListView);
+    void initDeviceListView(DCC_NAMESPACE::DCCListView *deviceListView);
     void initAnonymousCheckBox(QWidget *w);
-    void initOtherDeviceListView(DTK_WIDGET_NAMESPACE::DListView *otherDeviceListView);
+    void initOtherDeviceListView(DCC_NAMESPACE::DCCListView *otherDeviceListView);
     void toggleDiscoverableSwitch(const bool checked);
 
 Q_SIGNALS:

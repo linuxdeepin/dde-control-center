@@ -21,6 +21,7 @@
 
 #include "createaccountpage.h"
 #include "widgets/titlelabel.h"
+#include "widgets/dcclistview.h"
 #include "groupitem.h"
 #include "pwqualitymanager.h"
 
@@ -68,7 +69,7 @@ CreateAccountPage::CreateAccountPage(AccountsWorker *accountsWorker, QWidget *pa
     m_repeatpasswdEdit->setCopyEnabled(false);
     m_repeatpasswdEdit->setCutEnabled(false);
 
-    m_groupListView = new DListView(this);
+    m_groupListView = new DCCListView(this);
     m_isServerSystem = DSysInfo::UosServer == DSysInfo::uosType();
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);

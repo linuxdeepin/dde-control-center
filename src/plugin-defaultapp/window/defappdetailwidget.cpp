@@ -20,6 +20,7 @@
  */
 
 #include <interface/moduleobject.h>
+#include "widgets/dcclistview.h"
 
 #include "defappdetailwidget.h"
 #include "defappmodel.h"
@@ -40,7 +41,7 @@ DWIDGET_USE_NAMESPACE
 DefappDetailWidget::DefappDetailWidget(DefAppWorker::DefaultAppsCategory category, QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout)
-    , m_defApps(new DTK_WIDGET_NAMESPACE::DListView)
+    , m_defApps(new DCC_NAMESPACE::DCCListView)
     , m_model(new QStandardItemModel(this))
     , m_categoryValue(category)
     , m_category(nullptr)
