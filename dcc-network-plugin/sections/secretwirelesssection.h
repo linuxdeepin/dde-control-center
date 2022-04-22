@@ -44,6 +44,7 @@ private:
     void initConnection();
     void onKeyMgmtChanged(WirelessSecuritySetting::KeyMgmt);
     void saveUserInputPassword();
+    void setPasswordEditText(const QString &password);
 
 private:
     QList<QPair<QString, WirelessSecuritySetting::KeyMgmt>> KeyMgmtStrMap;
