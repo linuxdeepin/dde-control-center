@@ -425,6 +425,9 @@ void MainWindow::updateWinsize(QRect rect)
     if (!qApp->screens().contains(m_primaryScreen))
         return;
 
+    if(this->isMaximized())
+        return;
+
     int w = m_primaryScreen->geometry().width();
     int h = m_primaryScreen->geometry().height();
     if (rect.width() && rect.height()) {
