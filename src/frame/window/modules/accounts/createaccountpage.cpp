@@ -270,16 +270,6 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         checkFullname();
     });
 
-    //失焦后就提示
-    connect(m_passwdEdit, &DLineEdit::editingFinished, this, [ = ] {
-        PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(),
-                                                                                          m_passwdEdit->lineEdit()->text());
-        if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
-            m_passwdEdit->setAlert(true);
-            m_passwdEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_passwdEdit, 2000);
-        }
-    });
-
     //失焦后就提示，只检查密码一致性
     connect(m_repeatpasswdEdit, &DLineEdit::editingFinished, this, [ = ] {
         if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
@@ -287,7 +277,6 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
             m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), m_repeatpasswdEdit, 2000);
         }
     });
-
 
     connect(m_passwdEdit, &DPasswordEdit::textEdited, this, [ = ] {
         if (m_passwdEdit->isAlert()) {
