@@ -38,17 +38,19 @@ CommonInfoModule::CommonInfoModule(QObject *parent)
     , m_worker(nullptr)
     , m_model(nullptr)
 {
-    m_model = new CommonInfoModel();
-    m_worker = new CommonInfoWork(m_model);
-
-    m_worker->moveToThread(qApp->thread());
-    m_model->moveToThread(qApp->thread());
+    m_model = new CommonInfoModel(this);
+    m_worker = new CommonInfoWork(m_model, this);
 }
 
 CommonInfoModule::~CommonInfoModule()
 {
     m_model->deleteLater();
     m_worker->deleteLater();
+}
+
+void CommonInfoModule::active()
+{
+    m_worker->active();
 }
 
 QString CommonInfoPlugin::name() const
@@ -107,18 +109,12 @@ QWidget *UserExperienceProgramModule::page()
 {
     UserExperienceProgramWidget *w = new UserExperienceProgramWidget();
     w->setModel(m_model);
-    if (DSysInfo::uosEditionType() != DSysInfo::UosCommunity) {
-        bool isEnabled = m_worker->defaultUeProgram();
-        w->setDefaultUeProgram(isEnabled);
-    }
-
     connect(w, &UserExperienceProgramWidget::enableUeProgram, m_worker, &CommonInfoWork::setUeProgram);
     return w;
 }
 
 QWidget *BootModule::page()
 {
-    m_worker->loadGrubSettings();
     BootWidget *w = new BootWidget();
     w->setModel(m_model);
     connect(w, &BootWidget::bootdelay, m_worker, &CommonInfoWork::setBootDelay);
@@ -133,8 +129,6 @@ QWidget *BootModule::page()
     connect(w, &BootWidget::setGrubEditPasswd, m_worker, &CommonInfoWork::onSetGrubEditPasswd);
     connect(w, &BootWidget::defaultEntry, m_worker, &CommonInfoWork::setDefaultEntry);
     connect(w, &BootWidget::requestSetBackground, m_worker, &CommonInfoWork::setBackground);
-    connect(m_worker, &CommonInfoWork::grubEditAuthCancel, w, &BootWidget::onGrubEditAuthCancel);
-    connect(m_worker, &CommonInfoWork::showGrubEditAuthChanged, w, &BootWidget::setGrubEditAuthVisible);
 
     w->setGrubEditAuthVisible(m_model->isShowGrubEditAuth());
     return w;

@@ -47,6 +47,8 @@ class CommonInfoModule : public ModuleObject
 public:
     explicit CommonInfoModule(QObject *parent = nullptr);
     ~CommonInfoModule();
+    virtual void active() override;
+
     CommonInfoWork *worker() { return m_worker; }
     CommonInfoModel *model() { return m_model; }
 

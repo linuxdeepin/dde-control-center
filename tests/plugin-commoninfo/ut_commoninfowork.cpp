@@ -59,8 +59,5 @@ TEST_F(Test_CommonInfoWork, setDefaultEntrySignal)
 TEST_F(Test_CommonInfoWork, full)
 {
     EXPECT_NO_THROW(m_work->disableGrubEditAuth());
-    EXPECT_NO_THROW(m_work->getLicenseState());
-    EXPECT_NO_THROW(m_work->defaultUeProgram());
-    EXPECT_NO_THROW(m_work->loadGrubSettings());
-    EXPECT_NO_THROW(m_work->getEntryTitles());
+    EXPECT_NO_THROW(m_work->active());
 }

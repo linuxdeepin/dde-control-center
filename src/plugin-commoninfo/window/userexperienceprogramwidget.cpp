@@ -88,6 +88,7 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
 
 void UserExperienceProgramWidget::setModel(CommonInfoModel *model)
 {
+    setDefaultUeProgram(model->ueProgram());
     connect(model, &CommonInfoModel::ueProgramChanged, m_joinUeProgram, &SwitchWidget::setChecked);
 }
 
