@@ -67,7 +67,6 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     m_switchComboBox->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Fixed);
     mainLayout->setContentsMargins(10, 0, 10, 0);
 
-    m_leftWidget->setFixedWidth(ComboxTitleWidth);
     m_leftWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     setLayout(mainLayout);
 
