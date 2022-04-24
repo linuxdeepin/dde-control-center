@@ -97,7 +97,7 @@ void MonitorControlWidget::setScreensMerged(const int mode)
 
 void MonitorControlWidget::onSetEffectiveReminderVisible(bool visible, int nEffectiveTime)
 {
-    if(visible)
+    if(visible && nEffectiveTime != 0)
         m_effectiveReminder->setText(tr("Screen rearrangement will take effect in %1s after changes").arg(nEffectiveTime));
     else
         m_effectiveReminder->setText("");
