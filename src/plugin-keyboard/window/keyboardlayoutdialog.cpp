@@ -248,6 +248,8 @@ void KeyboardLayoutDialog::onItemClicked(const QModelIndex &index)
     }
 
     Q_EMIT layoutSelected(md.text());
+
+    close();
 }
 
 bool KeyboardLayoutDialog::eventFilter(QObject *watched, QEvent *event)

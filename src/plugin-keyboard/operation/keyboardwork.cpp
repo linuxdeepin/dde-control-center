@@ -291,7 +291,7 @@ void KeyboardWorker::setRepeatDelay(uint value)
     m_keyboardDBusProxy->setRepeatDelay(converToDBusDelay(value));
 }
 
-void KeyboardWorker::setRepeatInterval(int value)
+void KeyboardWorker::setRepeatInterval(uint value)
 {
     m_keyboardDBusProxy->setRepeatInterval(static_cast<uint>(converToDBusInterval(value)));
 }

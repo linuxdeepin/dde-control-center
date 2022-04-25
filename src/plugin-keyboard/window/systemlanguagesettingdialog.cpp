@@ -129,6 +129,8 @@ void SystemLanguageSettingDialog::onAddLanguage()
     } else{
         Q_EMIT click(m_modelIndex);
     }
+
+    close();
 }
 
 void SystemLanguageSettingDialog::onLangSelect(const QModelIndex &index)

@@ -69,7 +69,7 @@ public:
     void delShortcut(ShortcutInfo *info);
 
     void setRepeatDelay(uint value);
-    void setRepeatInterval(int value);
+    void setRepeatInterval(uint value);
     void setModelRepeatDelay(uint value);
     void setModelRepeatInterval(uint value);
 
@@ -112,10 +112,6 @@ public Q_SLOTS:
     void onSearchShortcuts(const QString &searchKey);
     void onSearchFinished(QDBusPendingCallWatcher *watch);
     void append(const MetaData& md);
-    void onKeyboardPropertiesChanged(QDBusMessage msg);
-    void onLangSelectorPropertiesChanged(QDBusMessage msg);
-    void onKeybingdingPropertiesChanged(QDBusMessage msg);
-    void onWMPropertiesChanged(QDBusMessage msg);
     void onLangSelectorServiceFinished();
     void onShortcutChanged(const QString &id, int type);
     void onGetShortcutFinished(QDBusPendingCallWatcher *watch);

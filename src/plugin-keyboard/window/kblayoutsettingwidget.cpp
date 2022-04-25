@@ -68,6 +68,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 
     //add btn
     DCommandLinkButton *btn = new DCommandLinkButton("添加键盘布局...",m_kbLayoutListView->viewport());
+    btn->setObjectName("AddLayout");
     m_addLayoutAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter, QSize(10, 10), QSize(10, 10), false);
     m_addLayoutAction->setWidget(btn);
     btn->setMaximumHeight(16);

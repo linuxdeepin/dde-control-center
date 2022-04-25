@@ -693,6 +693,31 @@ target_link_libraries(${KeyBoard_Name} PRIVATE
 )
 
 install(TARGETS ${KeyBoard_Name} DESTINATION lib/dde-control-center/modules)
+
+#-------------------------ut-dcc-keyboard-plugin-------------------------
+if (UNITTEST)
+    set(UT_KeyBoard_Name ut-dcc-keyboard-plugin)
+    file(GLOB_RECURSE UT_KEYBOARD_SRCS
+        "tests/plugin-keyboard/*.cpp"
+    )
+
+    add_executable(${UT_KeyBoard_Name}
+        ${KEYBOARD_SRCS}
+        ${UT_KEYBOARD_SRCS}
+    )
+
+    # 用于测试覆盖率的编译条件
+    target_compile_options(${UT_KeyBoard_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+
+    target_include_directories(${UT_KeyBoard_Name} PUBLIC
+        ${KeyBoard_Includes}
+    )
+
+    target_link_libraries(${UT_KeyBoard_Name} PRIVATE
+        ${KeyBoard_Libraries}
+        ${Test_Libraries}
+    )
+endif()
 #--------------------------plugin-sound--------------------------
 set(Sound_Name dcc-sound-plugin)
 file(GLOB_RECURSE Sound_SRCS
