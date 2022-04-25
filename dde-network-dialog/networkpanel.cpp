@@ -174,8 +174,8 @@ void NetworkPanel::initConnection()
     // 点击列表的信号
     connect(m_netListView, &DListView::pressed, this, &NetworkPanel::onClickListView);
 
-    int wirelessScanInterval = Utils::SettingValue("com.deepin.dde.dock", QByteArray(), "wireless-scan-interval", 10).toInt() * 1000;
-    m_wirelessScanTimer->setInterval(wirelessScanInterval);
+    m_wirelessScanInterval = Utils::SettingValue("com.deepin.dde.dock", QByteArray(), "wireless-scan-interval", 10).toInt();
+    m_wirelessScanTimer->setInterval(m_wirelessScanInterval * 1000);
     const QGSettings *gsetting = Utils::SettingsPtr("com.deepin.dde.dock", QByteArray(), this);
     if (gsetting)
         connect(gsetting, &QGSettings::changed, [ & ](const QString &key) {
@@ -516,8 +516,9 @@ bool NetworkPanel::eventFilter(QObject *obj, QEvent *event)
     if (obj == m_applet) {
         switch (event->type()) {
         case QEvent::Show: {
+            scanNetwork();
             if (!m_wirelessScanTimer->isActive())
-                m_wirelessScanTimer->start();
+                m_wirelessScanTimer->start(m_wirelessScanInterval * 1000);
             break;
         }
         case QEvent::Hide: {
@@ -721,6 +722,17 @@ NetItem *NetworkPanel::selectItem()
         }
     }
     return nullptr;
+}
+
+void NetworkPanel::scanNetwork()
+{
+    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
+    for (NetworkDeviceBase *device : devices) {
+        if (device->deviceType() == DeviceType::Wireless) {
+            WirelessDevice *wirelessDevice = static_cast<WirelessDevice *>(device);
+            wirelessDevice->scanNetwork();
+        }
+    }
 }
 
 // 用于绘制分割线

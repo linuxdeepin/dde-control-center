@@ -299,17 +299,19 @@ void APItem::setIsLastRow(const bool lastRow)
 }
 
 WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
-        : ContentWidget(parent)
-        , m_device(dev)
-        , m_pNetworkController(NetworkController::instance())
-        , m_closeHotspotBtn(new QPushButton)
-        , m_lvAP(new DListView(this))
-        , m_clickedItem(nullptr)
-        , m_modelAP(new QStandardItemModel(m_lvAP))
-        , m_sortDelayTimer(new QTimer(this))
-        , m_autoConnectHideSsid("")
-        , m_wirelessScanTimer(new QTimer(this))
-        , m_isAirplaneMode(false)
+    : ContentWidget(parent)
+    , m_device(dev)
+    , m_pNetworkController(NetworkController::instance())
+    , m_closeHotspotBtn(new QPushButton)
+    , m_lvAP(new DListView(this))
+    , m_clickedItem(nullptr)
+    , m_modelAP(new QStandardItemModel(m_lvAP))
+    , m_sortDelayTimer(new QTimer(this))
+    , m_autoConnectHideSsid("")
+    , m_wirelessScanTimer(new QTimer(this))
+    , m_dconfig(new DConfig("org.deepin.dde.control-center.network"))
+    , m_isAirplaneMode(false)
+    , m_wirelessScanIntervalIndex(0)
 {
     setAccessibleName("WirelessPage");
     qRegisterMetaType<APSortInfo>();
@@ -433,21 +435,27 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         onUpdateAPItem();
 
     QGSettings *gsetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    m_wirelessScanInterval = gsetting->get("wireless-scan-interval").toInt();
     connect(gsetting, &QGSettings::changed, this, [&](const QString &key) {
-        if (key == "wireless-scan-interval")
-            m_wirelessScanTimer->setInterval(gsetting->get("wireless-scan-interval").toInt());
+        if (key == "wireless-scan-interval") {
+            m_wirelessScanInterval = gsetting->get("wireless-scan-interval").toInt();
+            m_wirelessScanTimer->setInterval(m_wirelessScanInterval * 1000);
+        }
     });
 
     connect(m_device, &WirelessDevice::destroyed, this, [ this ] {
        this->m_device = nullptr;
     });
 
-    connect(m_wirelessScanTimer, &QTimer::timeout, this, [ this ] {
+    connect(m_wirelessScanTimer, &QTimer::timeout, this, [this] {
+        m_wirelessScanIntervalIndex = m_wirelessScanIntervalIndex > 6 ? m_wirelessScanIntervalIndex : m_wirelessScanIntervalIndex + 1;
+        m_wirelessScanInterval = m_wirelessScanIntervalList.at(m_wirelessScanIntervalIndex);
+        m_wirelessScanTimer->setInterval(m_wirelessScanInterval * 1000);
         if (m_device)
             m_device->scanNetwork();
     });
 
-    m_wirelessScanTimer->start(gsetting->get("wireless-scan-interval").toInt() * 1000);
+    m_wirelessScanTimer->start(m_wirelessScanInterval * 1000);
 
     QTimer::singleShot(100, this, [ = ] {
         if (m_device)
@@ -462,11 +470,22 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     HotspotController *hotspotController = NetworkController::instance()->hotspotController();
     onHotspotEnableChanged(m_device->isEnabled() && hotspotController->enabled(m_device));
-    connect(m_closeHotspotBtn, &QPushButton::clicked, this, [ = ] {
+    connect(m_closeHotspotBtn, &QPushButton::clicked, this, [=] {
         // 此处抛出这个信号是为了让外面记录当前关闭热点的设备，因为在关闭热点过程中，当前设备会移除一次，然后又会添加一次，相当于触发了两次信号，
         // 此时外面就会默认选中第一个设备而无法选中当前设备，因此在此处抛出信号是为了让外面能记住当前选择的设备
         hotspotController->setEnabled(m_device, false);
     });
+
+    if (m_dconfig->isValid() && m_dconfig->keyList().contains("WiFiScanInterval")) {
+        QList<QVariant> list = m_dconfig->value("WiFiScanInterval").toList();
+        for (auto l : list) {
+            m_wirelessScanIntervalList.push_back(l.toInt());
+        }
+    } else {
+        for (int i = 0; i < 8; i++) {
+            m_wirelessScanIntervalList.push_back(m_wirelessScanInterval);
+        }
+    }
 }
 
 WirelessPage::~WirelessPage()
@@ -875,4 +894,31 @@ QString WirelessPage::connectionSsid(const QString &uuid)
     }
 
     return QString();
+}
+
+void WirelessPage::scanNetwork(const bool isConnected)
+{
+    if (isConnected) {
+        m_wirelessScanTimer->stop();
+    } else {
+        m_wirelessScanTimer->start(m_wirelessScanInterval * 1000);
+    }
+}
+
+void WirelessPage::showEvent(QShowEvent *event)
+{
+    m_device->scanNetwork();
+
+    m_wirelessScanIntervalIndex = 0;
+    m_wirelessScanInterval = m_wirelessScanIntervalList.at(m_wirelessScanIntervalIndex);
+    m_wirelessScanTimer->start(m_wirelessScanInterval * 1000);
+
+    QWidget::showEvent(event);
+}
+
+void WirelessPage::hideEvent(QHideEvent *event)
+{
+    scanNetwork(m_device->isConnected());
+
+    QWidget::hideEvent(event);
 }
