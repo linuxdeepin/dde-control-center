@@ -209,7 +209,12 @@ void DisplayModule::showSingleScreenWidget()
     BrightnessWidget *brightnessWidget = new BrightnessWidget(singleScreenWidget);
     brightnessWidget->setMode(m_displayModel);
     contentLayout->addWidget(brightnessWidget);
-    const bool brightnessIsEnabled = m_displayModel->brightnessEnable() && m_displayModel->primaryMonitor() && m_displayModel->primaryMonitor()->canBrightness();
+    bool canBrightness = std::any_of(m_displayModel->monitorList().begin(), m_displayModel->monitorList().end(), [](Monitor* moi){
+        if(moi->enable()){
+            return moi->canBrightness();
+        }
+    });
+    const bool brightnessIsEnabled = m_displayModel->brightnessEnable() && canBrightness;
     brightnessWidget->setVisible(brightnessIsEnabled);
     connect(brightnessWidget, &BrightnessWidget::requestSetColorTemperature, m_displayWorker, &DisplayWorker::setColorTemperature);
     connect(brightnessWidget, &BrightnessWidget::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
@@ -260,7 +265,13 @@ void DisplayModule::showSingleScreenWidget()
     m_displayWidget->setContent(singleScreenWidget);
 
     connect(m_displayModel, &DisplayModel::brightnessEnableChanged, this, [brightnessWidget, scalingSpacerItem, this](const bool enable) {
-        const bool visible = enable && m_displayModel->primaryMonitor() && m_displayModel->primaryMonitor()->canBrightness();
+        bool canBrightness = std::any_of(m_displayModel->monitorList().begin(), m_displayModel->monitorList().end(), [](Monitor* moi){
+            if(moi->enable()){
+                return moi->canBrightness();
+            }
+        });
+
+        const bool visible = enable && canBrightness;
         scalingSpacerItem->changeSize(0, visible ? 20 : 0);
         brightnessWidget->setVisible(visible);
     });
