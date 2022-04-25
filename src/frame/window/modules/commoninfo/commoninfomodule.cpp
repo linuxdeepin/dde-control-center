@@ -30,6 +30,7 @@
 #include "window/utils.h"
 #include "window/mainwindow.h"
 #include "window/gsettingwatcher.h"
+#include "window/insertplugin.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::commoninfo;
@@ -124,8 +125,13 @@ int CommonInfoModule::load(const QString &path)
     if (!m_commonWidget) {
         active();
     }
-
-    return m_commonWidget->showPath(path);
+    const QStringList &page = availPage();
+    int i = page.indexOf(path);
+    if (i != -1) {
+        m_commonWidget->setCurrentIndex(i);
+        return 0;
+    }
+    return -1;
 }
 
 QStringList CommonInfoModule::availPage() const
@@ -136,7 +142,7 @@ QStringList CommonInfoModule::availPage() const
     if (!IsServerSystem && !IsCommunitySystem) {
         sl << "User Experience Program" << "Developer Mode";
     }
-
+    sl.append(InsertPlugin::instance()->availPages(name()));
     return sl;
 }
 
