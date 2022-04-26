@@ -384,6 +384,7 @@ void AccountsWorker::setAvatar(User *user, const QString &iconPath)
 
 void AccountsWorker::setFullname(User *user, const QString &fullname)
 {
+    qDebug() << Q_FUNC_INFO << fullname;
     AccountsUser *ui = m_userInters[user];
     Q_ASSERT(ui);
 
@@ -393,6 +394,7 @@ void AccountsWorker::setFullname(User *user, const QString &fullname)
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (!call.isError()) {
+            qDebug() << Q_FUNC_INFO << "accountFullNameChangeFinished";
             Q_EMIT accountFullNameChangeFinished();
         }
 
