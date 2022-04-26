@@ -45,6 +45,7 @@ public:
     TitledSliderItem(QString title = QString(), QWidget *parent = nullptr);
 
     DCCSlider *slider() const;
+    bool isSliderPressed() const;
     void setAnnotations(const QStringList &annotations);
 
     QString valueLiteral() const;
@@ -61,6 +62,7 @@ private:
     DCCSlider *m_slider;
     QString m_valueLiteral;
     QHBoxLayout *m_bottomLayout;
+    bool    m_sliderPressed;
 };
 
 } // namespace widgets

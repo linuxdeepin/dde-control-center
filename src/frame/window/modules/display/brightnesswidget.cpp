@@ -251,13 +251,15 @@ void BrightnessWidget::addSlider()
 
             connect(monList[i], &Monitor::brightnessChanged, this, [=](const double rb) {
                 slider->blockSignals(true);
+                int iValue = 0;
                 if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
-                    slideritem->setValueLiteral(QString("%1%").arg(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale)));
-                    slider->setValue(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale));
+                    iValue = qRound(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
                 } else {
-                    slideritem->setValueLiteral(QString("%1%").arg(int(rb * BrightnessMaxScale)));
-                    slider->setValue(int(rb * BrightnessMaxScale));
+                    iValue = qRound(rb * BrightnessMaxScale);
                 }
+                slideritem->setValueLiteral(QString("%1%").arg(iValue));
+                if (!slideritem->isSliderPressed())
+                    slider->setValue(iValue);
                 slider->blockSignals(false);
             });
 
