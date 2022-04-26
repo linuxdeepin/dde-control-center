@@ -120,7 +120,15 @@ void NetworkDialog::freeFocus()
 
 bool NetworkDialog::eventFilter(QObject *watched, QEvent *e)
 {
-    if (e->type() == QEvent::WindowDeactivate) {
+    if (e->type() == QEvent::MouseButtonPress) {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(e);
+        QString data = QString("\nclick:{\"x\":%1,\"y\":%2}\n").arg(mouseEvent->x()).arg(mouseEvent->y());
+        QByteArray bdata = data.toUtf8();
+        for (auto it = m_clients.begin(); it != m_clients.end(); it++)
+            it.key()->write(bdata);
+    }
+
+    if (watched == m_focusWidget && e->type() == QEvent::WindowDeactivate) {
         return true;
     }
     return QObject::eventFilter(watched, e);

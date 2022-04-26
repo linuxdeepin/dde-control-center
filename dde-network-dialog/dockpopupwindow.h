@@ -49,6 +49,7 @@ public:
 public slots:
     void show(const QPoint &pos, const bool model = false);
     void show(const int x, const int y);
+    void onGlobMouseRelease(const QPoint &mousePos, const int flag);
 
 signals:
     void accept() const;
@@ -67,7 +68,6 @@ protected:
     void paintEvent(QPaintEvent *event);
 
 private slots:
-    void onGlobMouseRelease(const QPoint &mousePos, const int flag);
     void compositeChanged();
     void ensureRaised();
 

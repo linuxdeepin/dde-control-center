@@ -32,13 +32,17 @@
 #include <QFile>
 
 #include <networkcontroller.h>
+#include <DRegionMonitor>
+
+DGUI_USE_NAMESPACE
 
 const QString NetworkDialogApp = "dde-network-dialog"; //网络列表执行文件
 static QMap<QString, void (LocalClient::*)(QLocalSocket *, const QByteArray &)> s_FunMap = {
     { "showPosition", &LocalClient::showPosition },
     { "connect", &LocalClient::connectNetwork },
     { "password", &LocalClient::receivePassword },
-    { "receive", &LocalClient::receive }
+    { "receive", &LocalClient::receive },
+    { "click", &LocalClient::onClick}
 };
 
 LocalClient::LocalClient(QObject *parent)
@@ -236,9 +240,6 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
         if (!pixmap.isNull()) {
             m_popopWindow->setBackground(pixmap.toImage());
         }
-        if (reason != Dock) {
-            m_popopWindow->setWindowFlag(Qt::Popup);
-        }
         m_popopWindow->setArrowDirection(static_cast<DArrowRectangle::ArrowDirection>(position));
         m_popopWindow->setProperty("localpos", QPoint(x, y));
         m_popopWindow->setContent(m_panel->itemApplet());
@@ -293,6 +294,20 @@ void LocalClient::receive(QLocalSocket *socket, const QByteArray &data)
             m_timer->stop();
         }
     }
+}
+
+void LocalClient::onClick(QLocalSocket *socket, const QByteArray &data)
+{
+    Q_UNUSED(socket);
+    if (!m_popopWindow)
+        return;
+
+    QJsonDocument json = QJsonDocument::fromJson(data);
+    QJsonObject clickPos = json.object();
+    int x = clickPos.value("x").toInt();
+    int y = clickPos.value("y").toInt();
+
+    m_popopWindow->onGlobMouseRelease(QPoint(x, y), DRegionMonitor::WatchedFlags::Button_Left);
 }
 
 bool LocalClient::changePassword(QString key, QString password, bool input)

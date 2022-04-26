@@ -70,6 +70,7 @@ public:
 public:
     void showPosition(QLocalSocket *socket, const QByteArray &data);
     void receive(QLocalSocket *socket, const QByteArray &data);
+    void onClick(QLocalSocket *socket, const QByteArray &data);
     void connectNetwork(QLocalSocket *socket, const QByteArray &data);
     void receivePassword(QLocalSocket *socket, const QByteArray &data);
     void updateTranslator(QString locale);
