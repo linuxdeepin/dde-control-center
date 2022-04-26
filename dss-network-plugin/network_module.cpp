@@ -93,6 +93,7 @@ QWidget *NetworkModule::itemWidget() const
 {
     TrayIcon *trayIcon = new TrayIcon(m_networkHelper);
     trayIcon->setGreeterStyle(true);
+    trayIcon->installEventFilter(m_networkDialog);
     connect(this, &NetworkModule::signalShowNetworkDialog, trayIcon, &TrayIcon::showNetworkDialog);
     connect(trayIcon, &TrayIcon::signalShowNetworkDialog, this, &NetworkModule::showNetworkDialog);
     connect(m_networkDialog, &NetworkDialog::requestPosition, trayIcon, &TrayIcon::showNetworkDialog);

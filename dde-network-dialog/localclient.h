@@ -76,7 +76,7 @@ public:
     void updateTranslator(QString locale);
 
 private:
-    void showPopupWindow();
+    void showPopupWindow(bool forceShowDialog = false);
 
 private Q_SLOTS:
     void connectedHandler();

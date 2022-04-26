@@ -20,6 +20,7 @@
  */
 
 #include "networkdialog.h"
+#include "trayicon.h"
 
 #include <QApplication>
 #include <QDebug>
@@ -120,6 +121,18 @@ void NetworkDialog::freeFocus()
 
 bool NetworkDialog::eventFilter(QObject *watched, QEvent *e)
 {
+    if (qobject_cast<TrayIcon *>(watched)) {
+        switch (e->type()) {
+        case QEvent::Show:
+        case QEvent::Hide:
+            for (auto it = m_clients.begin(); it != m_clients.end(); it++)
+                forceShowDialog(it.key());
+            break;
+        default:
+            break;
+        }
+    }
+
     if (e->type() == QEvent::MouseButtonPress) {
         QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(e);
         QString data = QString("\nclick:{\"x\":%1,\"y\":%2}\n").arg(mouseEvent->x()).arg(mouseEvent->y());
@@ -283,6 +296,25 @@ void NetworkDialog::showDialog(QLocalSocket *socket, const QByteArray &)
     requestFocus();
     m_clients[socket] = ClientType::Show;
     socket->write("\nshowPosition:" + showConfig() + "\n");
+}
+
+void NetworkDialog::forceShowDialog(QLocalSocket *socket)
+{
+    emit requestPosition();
+    requestFocus();
+    m_clients[socket] = ClientType::Show;
+
+    QJsonObject json;
+    json.insert("x", m_x);
+    json.insert("y", m_y);
+    json.insert("reason", m_runReason);
+    json.insert("position", m_position);
+    json.insert("locale", m_locale);
+    json.insert("force", true);
+    QJsonDocument doc;
+    doc.setObject(json);
+    QByteArray data = doc.toJson(QJsonDocument::Compact);
+    socket->write("\nshowPosition:" + data + "\n");
 }
 
 void NetworkDialog::connectNetwork(QLocalSocket *socket, const QByteArray &data)

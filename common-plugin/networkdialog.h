@@ -63,6 +63,7 @@ private:
     void runProcess(bool show = true);
     bool eventFilter(QObject *watched, QEvent *e) override;
     void setVisible(bool visible);
+    void forceShowDialog(QLocalSocket *socket);
 
 public Q_SLOTS:
     void runServer(bool start);

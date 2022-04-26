@@ -164,11 +164,11 @@ void LocalClient::showWidget()
     initWidget();
 }
 
-void LocalClient::showPopupWindow()
+void LocalClient::showPopupWindow(bool forceShowDialog)
 {
     static bool isShowing = false;
     QPoint pt = m_popopWindow->property("localpos").toPoint();
-    if (pt.x() >= 0 && pt.y() >= 0 && m_popopNeedShow && !isShowing) {
+    if (pt.x() >= 0 && pt.y() >= 0 && m_popopNeedShow && (!isShowing || forceShowDialog)) {
         m_popopWindow->show(pt, true);
         isShowing = true;
     }
@@ -240,10 +240,14 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
         if (!pixmap.isNull()) {
             m_popopWindow->setBackground(pixmap.toImage());
         }
+        bool forceShowDialog = false;
+        if (obj.contains("force"))
+            forceShowDialog = obj.value("force").toBool();
+
         m_popopWindow->setArrowDirection(static_cast<DArrowRectangle::ArrowDirection>(position));
         m_popopWindow->setProperty("localpos", QPoint(x, y));
         m_popopWindow->setContent(m_panel->itemApplet());
-        showPopupWindow();
+        showPopupWindow(forceShowDialog);
     }
 }
 
