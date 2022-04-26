@@ -705,7 +705,7 @@ void AccountsDetailWidget::onEditingFinished(bool isValid, const QString &userFu
         }
         QList<User *> userList = m_userModel->userList();
         for (User *user : userList) {
-            if (userFullName == user->fullname() || userFullName == user->name()) {
+            if ((userFullName == user->fullname() || userFullName == user->name()) && user != m_curUser) {
                 m_inputLineEdit->setAlert(true);
                 m_inputLineEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_inputLineEdit, 2000);
                 m_inputLineEdit->lineEdit()->selectAll();
