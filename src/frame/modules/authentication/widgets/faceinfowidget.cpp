@@ -36,6 +36,8 @@
 using namespace dcc;
 using namespace dcc::authentication;
 
+bool FaceInfoWidget::EnableRecvImage = true;
+
 FaceInfoWidget::FaceInfoWidget(QWidget *parent)
     : QLabel (parent)
     , m_faceLable(new QLabel(this))
@@ -48,13 +50,14 @@ FaceInfoWidget::FaceInfoWidget(QWidget *parent)
 
     connect(m_startTimer, &QTimer::timeout, this, &FaceInfoWidget::onUpdateProgressbar);
     m_startTimer->start(100);
+    EnableRecvImage = true;
 }
 
 FaceInfoWidget::~FaceInfoWidget()
 {
     if (m_startTimer)
         m_startTimer->stop();
-    m_faceLable = nullptr;
+    EnableRecvImage = false;
 }
 
 void FaceInfoWidget::initWidget()
@@ -83,7 +86,7 @@ void FaceInfoWidget::onUpdateProgressbar()
 
 void FaceInfoWidget::recvCamara(void *const context, const DA_img *const img)
 {
-    if (!context)
+    if (!context || !EnableRecvImage)
         return;
 
     QLabel *label_ptr = static_cast<QLabel *>(context);
