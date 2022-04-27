@@ -79,6 +79,7 @@ private:
     Dtk::Gui::DWindowManagerHelper *m_wmHelper;
 
     QImage *m_bgImage;
+    QImage *m_srcImage;
 };
 
 #endif // DOCKPOPUPWINDOW_H

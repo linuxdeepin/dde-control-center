@@ -40,6 +40,8 @@ QT_END_NAMESPACE
 
 #define DEFAULT_RADIUS (35)
 #define DEFAULT_OPACITY (0.6)
+// DArrowRectangle圆角半径，无窗管时圆角设置需比实际小点
+#define ARROWRECTANGLE_RADIUS (6)
 
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
@@ -49,6 +51,7 @@ DockPopupWindow::DockPopupWindow(QWidget *parent)
     , m_model(false)
     , m_regionInter(new DRegionMonitor(this))
     , m_bgImage(nullptr)
+    , m_srcImage(nullptr)
 {
     setProperty("_d_radius_force", true); // 无特效模式时，让窗口圆角
     setMargin(0);
@@ -58,7 +61,7 @@ DockPopupWindow::DockPopupWindow(QWidget *parent)
     setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
 
     setShadowBlurRadius(20);
-    setRadius(6);
+    setRadius(ARROWRECTANGLE_RADIUS);
     setShadowYOffset(2);
     setShadowXOffset(0);
     setArrowWidth(18);
@@ -72,6 +75,9 @@ DockPopupWindow::~DockPopupWindow()
 {
     if (m_bgImage) {
         delete m_bgImage;
+    }
+    if (m_srcImage) {
+        delete m_srcImage;
     }
 }
 
@@ -193,6 +199,7 @@ void DockPopupWindow::setBackground(const QImage &image)
 {
     if (image.isNull())
         return;
+    m_srcImage = new QImage(image.copy());
     QImage img(image);
     QImage blurred(img.size(), QImage::Format_ARGB32_Premultiplied);
     QPainter pa(&blurred);
@@ -209,7 +216,7 @@ void DockPopupWindow::setBackground(const QImage &image)
     pa.fillRect(img.rect(), maskColor);
     pa.end();
     m_bgImage = new QImage(blurred);
-
+    setRadius(ARROWRECTANGLE_RADIUS - 1);
     setBorderWidth(0);
 }
 
@@ -231,6 +238,14 @@ void DockPopupWindow::paintEvent(QPaintEvent *event)
             p.setY(0);
         }
         QPainter pa(this);
+        pa.drawImage(p, *m_srcImage, rect);
+        int r = ARROWRECTANGLE_RADIUS + 1;
+        QPainterPath path;
+        path.addRoundedRect(0, 0, rect.width(), rect.height() - arrowHeight(), r, r);
+        path.addRect(r, this->height() - arrowHeight(), this->width() - r * 2, arrowHeight());
+        pa.setRenderHint(QPainter::Antialiasing);
+        pa.setClipPath(path);
+
         pa.drawImage(p, *m_bgImage, rect);
         pa.end();
     }
