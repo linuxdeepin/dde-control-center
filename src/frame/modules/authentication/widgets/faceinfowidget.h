@@ -57,6 +57,7 @@ private:
     QLabel *m_faceLable;
     QTimer *m_startTimer;
     QColor m_themeColor;
+    static bool EnableRecvImage;
 
     int m_persent; // 记录进度
     int m_rotateAngle;//旋转角度
