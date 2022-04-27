@@ -39,7 +39,7 @@ FaceidDetailWidget::FaceidDetailWidget(dcc::authentication::CharaMangerModel *mo
 
 FaceidDetailWidget::~FaceidDetailWidget()
 {
-
+    emit requestStopEnroll();
 }
 
 void FaceidDetailWidget::initFaceidShow()
