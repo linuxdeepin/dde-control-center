@@ -271,6 +271,7 @@ void DeveloperModeDialog::setLogin()
         m_enterDev = true;
         btn->clearFocus();
         Q_EMIT requestLogin();
+        hide();
         connect(model, &CommonInfoModel::isLoginChenged, this, [requestDev, this](bool log) {
             if (!log || !m_enterDev)
                 return;
