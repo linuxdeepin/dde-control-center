@@ -77,6 +77,8 @@ MonitorsGround::MonitorsGround(int activateHeight, QWidget *parent)
     m_effectiveTimer->setInterval(m_nEffectiveTime*1000);
     m_effectiveTimer->setSingleShot(true);
     connect(m_effectiveTimer, &QTimer::timeout, this, [=]() {
+        m_nEffectiveTime = 2;
+        m_effectiveTimer->setInterval(m_nEffectiveTime*1000);
         Q_EMIT setEffectiveReminderVisible(false, m_nEffectiveTime);
         for (auto mon : m_model->monitorList()) {
             disconnect(mon, &Monitor::geometryChanged, this, &MonitorsGround::onGeometryChanged);
@@ -84,7 +86,6 @@ MonitorsGround::MonitorsGround(int activateHeight, QWidget *parent)
 
         applySettings();
         Q_EMIT requestMonitorRelease(m_monitors[m_movingItem]);
-        m_effectiveTimer->setInterval(m_nEffectiveTime*1000);
     });
 
     DConfigWatcher::instance()->bind(DConfigWatcher::display,"sketchMap", this);
@@ -140,7 +141,7 @@ void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
     QTimer::singleShot(1, this, [=](){
         if (!m_isSingleDisplay) {
             updateScale();
-        }    
+        }
         resetMonitorsView();
     });
 }
@@ -199,8 +200,6 @@ void MonitorsGround::onRotateChanged()
 //当方向改变时 当分辨率改变时
 void MonitorsGround::onCurrentModeChanged()
 {
-    m_nEffectiveTime = 0;
-    m_effectiveTimer->setInterval(m_nEffectiveTime);
     onResize();
     if (m_setMergeMode || m_isSingleDisplay)
         return;
@@ -214,6 +213,8 @@ void MonitorsGround::onCurrentModeChanged()
           }
     }
 
+    m_nEffectiveTime = 0;
+    m_effectiveTimer->setInterval(m_nEffectiveTime);
     executemultiScreenAlgo(false);
 }
 
