@@ -240,7 +240,7 @@ void DockPopupWindow::paintEvent(QPaintEvent *event)
         }
         QPainter pa(this);
         pa.drawImage(p, *m_srcImage, rect);
-        int r = ARROWRECTANGLE_RADIUS + 1;
+        int r = ARROWRECTANGLE_RADIUS;
         QPainterPath path;
         path.addRoundedRect(0, 0, rect.width(), rect.height() - arrowHeight(), r, r);
         path.addRect(r, this->height() - arrowHeight(), this->width() - r * 2, arrowHeight());
