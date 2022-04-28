@@ -213,8 +213,6 @@ void MonitorsGround::onCurrentModeChanged()
           }
     }
 
-    m_nEffectiveTime = 0;
-    m_effectiveTimer->setInterval(m_nEffectiveTime);
     executemultiScreenAlgo(false);
 }
 
@@ -241,6 +239,8 @@ void MonitorsGround::executemultiScreenAlgo(const bool isRebound)
     updateConnectedState();
 
     //显示设置生效倒计时提示框
+    m_nEffectiveTime = isRebound ? 2 : 0;
+    m_effectiveTimer->setInterval(m_nEffectiveTime * 1000);
     Q_EMIT setEffectiveReminderVisible(true, m_nEffectiveTime);
     m_effectiveTimer->start();
 }
@@ -1348,6 +1348,8 @@ void MonitorsGround::onRequestKeyPress(MonitorProxyWidget *pw, int keyValue)
     updateConnectedState();
     onResize();
 
+    m_nEffectiveTime = 2;
+    m_effectiveTimer->setInterval(m_nEffectiveTime * 1000);
     Q_EMIT setEffectiveReminderVisible(true, m_nEffectiveTime);
     m_effectiveTimer->start();
 }
