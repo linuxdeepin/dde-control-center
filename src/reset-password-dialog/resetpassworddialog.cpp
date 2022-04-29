@@ -23,6 +23,7 @@
 #include "securityquestionswidget.h"
 #include "unionidwidget.h"
 #include "resetpasswordworker.h"
+#include "resetpassworddialog.h"
 
 #include <QApplication>
 #include <QDesktopWidget>
@@ -45,6 +46,7 @@ ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, const QString &us
     , m_appName(appName)
     , m_fd(fd)
     , m_monitorTimer(new QTimer(this))
+    , m_localServer(new QLocalServer(this))
     , m_isClose(true)
     , m_stackedLayout(new QStackedLayout)
     , m_resetPasswordWorker(new ResetPasswordWorker(userName, this))
@@ -176,7 +178,11 @@ void ResetPasswordDialog::initWidget(const QString &userName)
         setWindowFlags(Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
     } else {
         m_tipDialog.setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
-        setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+        if (m_appName == "greeter" || m_appName == "lock") {
+            setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+        } else {
+            setWindowFlags(Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+        }
     }
     m_tipDialog.installEventFilter(this);
     m_tipDialog.setFixedSize(380, 189);
@@ -244,7 +250,31 @@ void ResetPasswordDialog::initData()
             qWarning() << "connect failed, server: " << "GrabKeyboard_" + m_appName << ", error: " << m_client->errorString();
             return;
         }
+    } else {
+        m_dccClient = new QLocalSocket(this);
+        m_dccClient->abort();
+        const QString &server = "EnableForgotButton";
+        m_dccClient->connectToServer(server);
+        if(!m_dccClient->waitForConnected(1000)) {
+            qWarning() << "connect failed, server: " << "EnableForgotButton" << ", error: " << m_dccClient->errorString();
+            return;
+        }
     }
+
+    m_localServer->setMaxPendingConnections(1);
+    m_localServer->setSocketOptions(QLocalServer::WorldAccessOption);
+    static bool once = false;
+    if (!once) {
+        QString serverName = QString("ResetpasswordRunning");
+        QLocalServer::removeServer(serverName);
+        if (!m_localServer->listen(serverName)) { // 监听特定的连接
+            qWarning() << "listen failed!" << m_localServer->errorString();
+        } else {
+            qDebug() << "listen success!";
+        }
+    }
+    once = true;
+    connect(m_localServer, &QLocalServer::newConnection, this, &ResetPasswordDialog::onNewConnection);
 }
 
 QRect ResetPasswordDialog::screenGeometry() const
@@ -281,6 +311,9 @@ void ResetPasswordDialog::onCancelBtnClicked()
     if (m_appName == "greeter" || m_appName == "lock") {
         m_client->write("close");
         m_client->flush();
+    } else {
+        m_dccClient->write("close");
+        m_dccClient->flush();
     }
     this->close();
     qApp->quit();
@@ -315,6 +348,24 @@ void ResetPasswordDialog::onReadFromServerChanged(int fd)
         quit();
     } else {
         DMessageManager::instance()->sendMessage(this, QIcon::fromTheme("dialog-warning"), content);
+    }
+}
+
+void ResetPasswordDialog::onNewConnection()
+{
+    if (m_localServer->hasPendingConnections()) {
+        QLocalSocket *socket = m_localServer->nextPendingConnection();
+        connect(socket, &QLocalSocket::readyRead, this, [socket, this] {
+            auto content = socket->readAll();
+            if (content == "reconnect") {
+                const QString &server = "EnableForgotButton";
+                m_dccClient->connectToServer(server);
+                if(!m_dccClient->waitForConnected(1000)) {
+                    qWarning() << "connect failed, server: " << "EnableForgotButton" << ", error: " << m_dccClient->errorString();
+                    return;
+                }
+            }
+        });
     }
 }
 

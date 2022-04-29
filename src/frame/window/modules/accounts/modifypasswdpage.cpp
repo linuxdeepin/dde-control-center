@@ -37,6 +37,8 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QSettings>
+#include <QLocalServer>
+#include <QLocalSocket>
 #include <QDebug>
 
 #include <unistd.h>
@@ -56,6 +58,7 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     , m_isCurrent(isCurrent)
     , m_isBindCheckError(false)
     , m_securityLevelItem(new SecurityLevelItem(this))
+    , m_localServer(new QLocalServer(this))
 {
     initWidget();
 }
@@ -233,6 +236,29 @@ void ModifyPasswdPage::initWidget()
     DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5);
 
     setFocusPolicy(Qt::StrongFocus);
+
+    m_localServer->setMaxPendingConnections(1);
+    m_localServer->setSocketOptions(QLocalServer::WorldAccessOption);
+    QString serverName = QString("EnableForgotButton");
+    QLocalServer::removeServer(serverName);
+    if (!m_localServer->listen(serverName)) { // 监听特定的连接
+        qWarning() << "listen failed!" << m_localServer->errorString();
+    } else {
+        qDebug() << "listen success!";
+    }
+    connect(m_localServer, &QLocalServer::newConnection, this, &ModifyPasswdPage::onNewConnection);
+
+    m_client = new QLocalSocket(this);
+    m_client->abort();
+    const QString &server = "ResetpasswordRunning";
+    m_client->connectToServer(server);
+    if(!m_client->waitForConnected(1000)) {
+        qDebug() << "connect failed, server: " << "ResetpasswordRunning " << m_client->errorString();
+        m_forgetPasswordBtn->setEnabled(true);
+    } else {
+        m_client->write("reconnect");
+        m_forgetPasswordBtn->setEnabled(false);
+    }
 }
 
 bool ModifyPasswdPage::judgeTextEmpty(DPasswordEdit *edit)
@@ -402,8 +428,6 @@ void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)
 {
     if (!errorText.isEmpty()) {
         m_forgetPasswordBtn->setEnabled(true);
-    } else {
-        m_enableBtnTimer.singleShot(5000, this, [this]{ m_forgetPasswordBtn->setEnabled(true); });
     }
     qDebug() << "Resetpassword reply:" << errorText;
 }
@@ -455,5 +479,18 @@ void ModifyPasswdPage::onLocalBindCheckError(const QString &error)
         DMessageManager::instance()->sendMessage(this,
                                                  style()->standardIcon(QStyle::SP_MessageBoxWarning),
                                                  tips);
+    }
+}
+
+void ModifyPasswdPage::onNewConnection()
+{
+    if (m_localServer->hasPendingConnections()) {
+        QLocalSocket *socket = m_localServer->nextPendingConnection();
+        connect(socket, &QLocalSocket::readyRead, this, [socket, this] {
+            auto content = socket->readAll();
+            if (content == "close") {
+                m_forgetPasswordBtn->setEnabled(true);
+            }
+        });
     }
 }

@@ -48,6 +48,8 @@ class QVBoxLayout;
 class QHBoxLayout;
 class QPushButton;
 class QLabel;
+class QLocalServer;
+class QLocalSocket;
 QT_END_NAMESPACE
 
 
@@ -98,6 +100,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void onLocalBindCheckUbid(const QString &ubid);
     void onLocalBindCheckError(const QString &error);
+    void onNewConnection();
 
 private:
     dcc::accounts::User *m_curUser;
@@ -110,6 +113,8 @@ private:
     bool m_isBindCheckError;
     dcc::widgets::SecurityLevelItem *m_securityLevelItem;
     QTimer m_enableBtnTimer;
+    QLocalServer *m_localServer;
+    QLocalSocket *m_client;
 };
 }
 }
