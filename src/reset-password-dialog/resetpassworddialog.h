@@ -23,6 +23,7 @@
 #define RESETPASSWORDDIALOG_H
 
 #include <QLocalSocket>
+#include <QLocalServer>
 #include <QStackedLayout>
 
 #include <DDialog>
@@ -79,6 +80,7 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void onReadFromServerChanged(int);
+    void onNewConnection();
 
 private:
     DButtonBox *m_buttonBox = nullptr;
@@ -94,7 +96,8 @@ private:
     QString m_appName;
     int m_fd;
     QTimer *m_monitorTimer;
-    QLocalSocket *m_client;
+    QLocalSocket *m_client, *m_dccClient;
+    QLocalServer *m_localServer;
     DDialog m_tipDialog;
     bool m_isClose;
     QStackedLayout *m_stackedLayout;
