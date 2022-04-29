@@ -99,6 +99,11 @@ void CharaMangerModel::setInputIrisFD(CharaMangerModel::AddInfoState state)
     Q_EMIT tryStartInputIris(state);
 }
 
+void CharaMangerModel::setAddButtonStatus(const bool buttStatus)
+{
+    Q_EMIT addButtonStatusChange(buttStatus);
+}
+
 void CharaMangerModel::onEnrollStatusChanged(int code, const QString &msg)
 {
      // TODO： 处理所有录入状态提示信息

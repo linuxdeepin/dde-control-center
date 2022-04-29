@@ -59,6 +59,7 @@ AddFaceInfoDialog::~AddFaceInfoDialog()
 void AddFaceInfoDialog::closeEvent(QCloseEvent *event)
 {
     Q_EMIT requesetCloseDlg();
+    m_faceModel->setAddButtonStatus(true);
     QDialog::closeEvent(event);
 }
 
@@ -141,7 +142,11 @@ void AddFaceInfoDialog::initConnect()
     connect(m_disclaimersItem, &DisclaimersItem::requestSetWindowEnabled, this, &AddFaceInfoDialog::onSetWindowEnabled);
     connect(m_disclaimersItem, &DisclaimersItem::requestStateChange, m_acceptBtn, &QPushButton::setDisabled);
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddFaceInfoDialog::close);
-    connect(m_acceptBtn, &QPushButton::clicked, this, &AddFaceInfoDialog::requestShowFaceInfoDialog, Qt::UniqueConnection);
+    connect(m_acceptBtn, &QPushButton::clicked, this, [this](){
+        m_faceModel->setAddButtonStatus(false);
+        Q_EMIT requestShowFaceInfoDialog();
+    });
+
 }
 
 QString AddFaceInfoDialog::getFacePicture()

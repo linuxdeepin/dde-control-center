@@ -93,6 +93,7 @@ void FaceInfoDialog::refreshExplainTips(QString tips)
 void FaceInfoDialog::closeEvent(QCloseEvent *event)
 {
     Q_EMIT requestCloseDlg();
+    m_faceModel->setAddButtonStatus(true);
     QDialog::closeEvent(event);
 }
 

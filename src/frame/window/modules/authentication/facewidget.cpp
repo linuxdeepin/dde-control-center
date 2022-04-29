@@ -22,6 +22,8 @@ FaceWidget::FaceWidget(dcc::authentication::CharaMangerModel *model, QWidget *pa
     , m_model(model)
     , m_listGrp(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
     , m_clearBtn(new DCommandLinkButton(tr("Edit"), this))
+    , m_addfaceItem(nullptr)
+    , m_addBtn(nullptr)
 {
     initUI();
     initConnect();
@@ -93,6 +95,12 @@ void FaceWidget::initConnect()
     connect(m_model, &CharaMangerModel::enrollInfoState, this, [this](){
         Q_EMIT noticeEnrollCompleted(m_model->faceDriverName(), m_model->faceCharaType());
     });
+    connect(m_model, &CharaMangerModel::addButtonStatusChange, this, [this](bool enabled){
+        if (m_model->facesList().size() >= FACEID_NUM)
+            return;
+        if (m_addBtn) m_addBtn->setEnabled(enabled);
+        if (m_addfaceItem) m_addfaceItem->setEnabled(enabled);
+    });
     connect(m_model, &CharaMangerModel::facesListChanged, this, &FaceWidget::onFaceidListChanged);
     onFaceidListChanged(m_model->facesList());
 
@@ -100,27 +108,39 @@ void FaceWidget::initConnect()
 
 void FaceWidget::addFaceButton(const QString &newFaceName)
 {
-    AuthenticationLinkButtonItem* addfaceItem = new AuthenticationLinkButtonItem(this);
+    if(m_addfaceItem) {
+        m_addfaceItem->deleteLater();
+        m_addfaceItem = nullptr;
+    }
+    if(m_addBtn){
+        m_addBtn->deleteLater();
+        m_addBtn = nullptr;
+    }
+
+    m_addfaceItem = new AuthenticationLinkButtonItem(this);
     QString strAddFace = tr("Add Face");
-    DCommandLinkButton *addBtn = new DCommandLinkButton(strAddFace);
+    m_addBtn = new DCommandLinkButton(strAddFace, this);
     QHBoxLayout *faceLayout = new QHBoxLayout();
-    faceLayout->addWidget(addBtn, 0, Qt::AlignLeft);
+    faceLayout->addWidget(m_addBtn, 0, Qt::AlignLeft);
     // DCommandLinkButton 本身有2px 的间距 按ui要求上下保持一致
     faceLayout->setContentsMargins(3, 5, 0, 5);
-    addfaceItem->setLayout(faceLayout);
-    m_listGrp->insertItem(m_listGrp->itemCount(), addfaceItem);
-    addfaceItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_addfaceItem->setLayout(faceLayout);
+    m_listGrp->insertItem(m_listGrp->itemCount(), m_addfaceItem);
+    m_addfaceItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
-    DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T7);
+    DFontSizeManager::instance()->bind(m_addBtn, DFontSizeManager::T7);
     QFontMetrics fontMetrics(font());
     int nFontWidth = fontMetrics.width(strAddFace);
-    addBtn->setMinimumWidth(nFontWidth);
-    connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
+    m_addBtn->setMinimumWidth(nFontWidth);
+    connect(m_addBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestAddFace(m_model->faceDriverName(), m_model->faceCharaType(), newFaceName);
+        m_model->setAddButtonStatus(false);
     });
-    connect(addfaceItem, &AuthenticationLinkButtonItem::mousePressed, this, [ = ] {
+    connect(m_addfaceItem, &AuthenticationLinkButtonItem::mousePressed, this, [ = ] {
         Q_EMIT requestAddFace(m_model->faceDriverName(), m_model->faceCharaType(), newFaceName);
+        m_model->setAddButtonStatus(false);
     });
+
 }
 
 void FaceWidget::onFaceidListChanged(const QStringList &facelist)
