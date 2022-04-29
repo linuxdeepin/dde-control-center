@@ -283,7 +283,11 @@ void DeveloperModeDialog::setLogin()
     }
 }
 
-void DeveloperModeDialog::showEvent(QShowEvent *)
+void DeveloperModeDialog::showEvent(QShowEvent *e)
 {
+    // FIX wayland DeveloperModeDialog postion not set
+    // DAbstractDialog showEvent 中会设置默认居中位置...
+    // kwayland-shell 插件中会根据 testAttribute(Qt::WA_Moved) 调整位置
+    DAbstractDialog::showEvent(e);
     setFocus();
 }
