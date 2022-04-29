@@ -122,6 +122,8 @@ public:
     void setInputFaceFD(const int &fd);
     void setInputIrisFD(CharaMangerModel::AddInfoState state);
 
+    void setAddButtonStatus(const bool buttStatus);
+
 Q_SIGNALS:
     void vaildFaceDriverChanged(const bool isVaild);
     void vaildIrisDriverChanged(const bool isVaild);
@@ -152,6 +154,7 @@ Q_SIGNALS:
     void tryStartInputFace(const int &fd);
     void tryStartInputIris(CharaMangerModel::AddInfoState state);
 
+    void addButtonStatusChange(const bool enabled);
 private:
     // 人脸
     QString m_faceDriverName;
