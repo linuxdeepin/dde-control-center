@@ -49,6 +49,8 @@ private:
     dcc::widgets::SettingsGroup *m_listGrp;
     DCommandLinkButton *m_clearBtn;
     QVector<AuthenticationInfoItem*> m_vecItem;
+    AuthenticationLinkButtonItem* m_addfaceItem;
+    DCommandLinkButton *m_addBtn;
 };
 
 }
