@@ -24,6 +24,7 @@
  */
 
 #include "widgets/filechoosewidget.h"
+#include "window/utils.h"
 
 #include <dfilechooseredit.h>
 
@@ -34,6 +35,7 @@
 #include <QFileDialog>
 
 using namespace dcc::widgets;
+using namespace DCC_NAMESPACE;
 
 DWIDGET_USE_NAMESPACE
 
@@ -46,11 +48,11 @@ FileChooseWidget::FileChooseWidget(QWidget *parent)
     , m_title(new QLabel)
 {
     m_fileChooserEdit = new DFileChooserEdit(this);
-    m_title->setFixedWidth(110);
+    m_title->setMinimumWidth(LeftTitleWitdh);
     QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->addWidget(m_title);
+    mainLayout->addWidget(m_title, 3, Qt::AlignVCenter);
     m_fileChooserEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    mainLayout->addWidget(m_fileChooserEdit);
+    mainLayout->addWidget(m_fileChooserEdit, 7, Qt::AlignVCenter);
     setLayout(mainLayout);
     setObjectName("FileChooseWidget");
 }

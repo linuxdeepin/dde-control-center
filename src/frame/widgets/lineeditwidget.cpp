@@ -24,11 +24,13 @@
  */
 
 #include "widgets/lineeditwidget.h"
+#include "window/utils.h"
 
 #include <dpasswordedit.h>
 
 #include <QVBoxLayout>
 
+using namespace DCC_NAMESPACE;
 namespace dcc {
 namespace widgets {
 
@@ -76,13 +78,13 @@ LineEditWidget::LineEditWidget(QFrame *parent)
 {
 
     m_title->setAccessibleName("title");
-    m_title->setFixedWidth(110);
+    m_title->setMinimumWidth(LeftTitleWitdh);
     m_edit->setContextMenuPolicy(Qt::NoContextMenu);
     m_edit->setAccessibleName("LineEditWidget");
 
     m_mainLayout = new QHBoxLayout;
-    m_mainLayout->addWidget(m_title, 0, Qt::AlignVCenter);
-    m_mainLayout->addWidget(m_edit, 0, Qt::AlignVCenter);
+    m_mainLayout->addWidget(m_title, 3, Qt::AlignVCenter);
+    m_mainLayout->addWidget(m_edit, 7, Qt::AlignVCenter);
 
     setLayout(m_mainLayout);
     setObjectName("LineEditWidget");
@@ -102,12 +104,12 @@ LineEditWidget::LineEditWidget(bool isPasswordMode, QWidget *parent)
     } else {
         m_edit = new DLineEdit;
     }
-    m_title->setFixedWidth(110);
+    m_title->setMinimumWidth(LeftTitleWitdh);
     m_edit->setContextMenuPolicy(Qt::NoContextMenu);
 
     m_mainLayout = new QHBoxLayout;
-    m_mainLayout->addWidget(m_title, 0, Qt::AlignVCenter);
-    m_mainLayout->addWidget(m_edit, 0, Qt::AlignVCenter);
+    m_mainLayout->addWidget(m_title, 3, Qt::AlignVCenter);
+    m_mainLayout->addWidget(m_edit, 7, Qt::AlignVCenter);
 
     setLayout(m_mainLayout);
     setObjectName("LineEditWidget");

@@ -60,13 +60,12 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     if (m_titleLabel) {
         m_str = m_titleLabel->text();
     }
-    mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
-    mainLayout->setStretchFactor(m_leftWidget,3);
-    mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
-    mainLayout->setStretchFactor(m_switchComboBox,7);
+    mainLayout->addWidget(m_leftWidget, 3, Qt::AlignVCenter);
+    mainLayout->addWidget(m_switchComboBox, 7, Qt::AlignVCenter);
     m_switchComboBox->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Fixed);
     mainLayout->setContentsMargins(10, 0, 10, 0);
 
+    m_leftWidget->setMinimumWidth(LeftTitleWitdh);
     m_leftWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setLayout(mainLayout);
 
