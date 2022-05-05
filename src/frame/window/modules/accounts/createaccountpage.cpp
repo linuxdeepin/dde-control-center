@@ -266,7 +266,9 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         }
     });
 
-    connect(m_fullnameEdit, &DLineEdit::editingFinished, this, &CreateAccountPage::checkFullname);
+    connect(m_fullnameEdit, &DLineEdit::editingFinished, this, [ = ]{
+        checkFullname();
+    });
 
     //失焦后就提示
     connect(m_passwdEdit, &DLineEdit::editingFinished, this, [ = ] {
@@ -378,26 +380,27 @@ void CreateAccountPage::showEvent(QShowEvent *event)
 
 void CreateAccountPage::createUser()
 {
-    bool check = false;
+    bool checkResult = true;
     //校验输入的用户名和密码
     if (!checkName()) {
-        check = true;
+        checkResult = false;
     }
 
-    if (!checkFullname()) {
-        check = true;
+    if (!checkFullname(checkResult)) {
+        checkResult = false;
     }
 
     bool needShowSafetyPage = false;
-    if (!checkPassword(m_repeatpasswdEdit, needShowSafetyPage)) {
-        check = true;
+    if (!checkPassword(m_repeatpasswdEdit, needShowSafetyPage, checkResult)) {
+        checkResult = false;
     }
 
-    if (!checkPassword(m_passwdEdit, needShowSafetyPage)) {
-        check = true;
+    if (!checkPassword(m_passwdEdit, needShowSafetyPage, checkResult)) {
+        checkResult = false;
     }
 
-    if (check) {
+
+    if (!checkResult) {
         if (needShowSafetyPage) {
             Q_EMIT requestCheckPwdLimitLevel();
         }
@@ -523,13 +526,14 @@ bool CreateAccountPage::checkName()
     return true;
 }
 
-bool CreateAccountPage::checkFullname()
+bool CreateAccountPage::checkFullname(bool showTips)
 {
     QString userFullName = m_fullnameEdit->lineEdit()->text();
 
     if (userFullName.size() > 32) {
         m_fullnameEdit->setAlert(true);
-        m_fullnameEdit->showAlertMessage(tr("The full name is too long"), m_fullnameEdit, 2000);
+        if(showTips)
+            m_fullnameEdit->showAlertMessage(tr("The full name is too long"), m_fullnameEdit, 2000);
         return false;
     }
 
@@ -537,8 +541,11 @@ bool CreateAccountPage::checkFullname()
     //vaild == false && code ==6 是用户名已存在
     if (!m_accountWorker->isUsernameValid(userFullName).argumentAt(0).toBool() && ErrCodeSystemUsed == m_accountWorker->isUsernameValid(userFullName).argumentAt(2).toInt()) {
         m_fullnameEdit->setAlert(true);
-        m_fullnameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
-        m_fullnameEdit->lineEdit()->selectAll();
+        if(showTips){
+            m_fullnameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
+            m_fullnameEdit->lineEdit()->selectAll();
+        }
+
         return false;
     }
 
@@ -548,8 +555,11 @@ bool CreateAccountPage::checkFullname()
         for (User *user : userList) {
             if (userFullName == user->fullname() || userFullName == user->name()) {
                 m_fullnameEdit->setAlert(true);
-                m_fullnameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
-                m_fullnameEdit->lineEdit()->selectAll();
+                if(showTips){
+                    m_fullnameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
+                    m_fullnameEdit->lineEdit()->selectAll();
+                }
+
                 return false;
             }
         }
@@ -557,8 +567,11 @@ bool CreateAccountPage::checkFullname()
         for (QString &group : groupList) {
             if (userFullName == group) {
                 m_fullnameEdit->setAlert(true);
-                m_fullnameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
-                m_fullnameEdit->lineEdit()->selectAll();
+                if(showTips){
+                    m_fullnameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
+                    m_fullnameEdit->lineEdit()->selectAll();
+                }
+
                 return false;
             }
         }
@@ -574,12 +587,13 @@ bool CreateAccountPage::checkFullname()
     return true;
 }
 
-bool CreateAccountPage::checkPassword(DPasswordEdit *edit, bool &needShowSafetyPage)
+bool CreateAccountPage::checkPassword(DPasswordEdit *edit, bool &needShowSafetyPage, bool showTips)
 {
     if (edit == m_repeatpasswdEdit) {
         if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
             m_repeatpasswdEdit->setAlert(true);
-            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), this->parentWidget(), 2000);
+            if(showTips)
+                m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), this->parentWidget(), 2000);
             return false;
         }
     }
@@ -589,7 +603,8 @@ bool CreateAccountPage::checkPassword(DPasswordEdit *edit, bool &needShowSafetyP
 
     if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
         m_passwdEdit->setAlert(true);
-        m_passwdEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_passwdEdit, 2000);
+        if(showTips)
+            m_passwdEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_passwdEdit, 2000);
 
         // 企业版控制中心用户创建屏蔽安全中心登录安全的接口需求
         if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise) || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC))

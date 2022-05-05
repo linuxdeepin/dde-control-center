@@ -110,8 +110,8 @@ protected:
 
 private Q_SLOTS:
     bool checkName();
-    bool checkFullname();
-    bool checkPassword(DPasswordEdit *edit, bool &needShowSafetyPage);
+    bool checkFullname(bool showTips = true);
+    bool checkPassword(DPasswordEdit *edit, bool &needShowSafetyPage, bool showTips = true);
 
 private:
     dcc::accounts::User *m_newUser;
