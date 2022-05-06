@@ -137,7 +137,8 @@ SearchWidget::SearchWidget(QWidget *parent)
                 //中文遍历一遍,若没有匹配再遍历将拼音转化为中文再遍历
                 //解决输入拼音时,有配置数据后,直接回车无法进入第一个匹配数据页面的问题
                 if (!jumpContentPathWidget(currentCompletion)) {
-                    jumpContentPathWidget(m_model->transPinyinToChinese(currentCompletion));
+                    currentCompletion = m_model->transPinyinToChinese(currentCompletion);
+                    jumpContentPathWidget(currentCompletion);
                 }
 
                 //根据匹配的信息补全DSearchEdit的内容，block信号避免重新触发自动补全
