@@ -353,9 +353,6 @@ void DateSettings::setNtpServerAddress(QString address)
 //认证选择“取消”，需要将服务器地址设置为旧的地址
 void DateSettings::setLastServerAddress(QString address)
 {
-    if (m_ntpServerList->currentText() == tr("Customize")) {
-        return;
-    }
     m_addressContent->setText(address);
     int i = 0;
     for (; i < m_ntpServerList->count(); i++) {
@@ -370,6 +367,7 @@ void DateSettings::setLastServerAddress(QString address)
         onProcessComboBox(--i);
         m_ntpServerList->setCurrentIndex(i);
     }
+    setButtonShowState(m_autoSyncTimeSwitch->checked());
 }
 
 QSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
