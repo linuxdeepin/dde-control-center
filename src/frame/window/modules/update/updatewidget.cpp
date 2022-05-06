@@ -113,6 +113,8 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_lastoreHeartBeatTimer->setInterval(60000);
     m_lastoreHeartBeatTimer->start();
     connect(m_lastoreHeartBeatTimer, &QTimer::timeout, this, &UpdateWidget::requestLastoreHeartBeat);
+
+    setFocusPolicy(Qt::FocusPolicy::ClickFocus);
 }
 
 UpdateWidget::~UpdateWidget()
