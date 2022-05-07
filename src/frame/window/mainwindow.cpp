@@ -638,6 +638,8 @@ void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDispla
             m_pair.first->setVisible(bIsDisplay);
             if (bIsDisplay) {
                 m_navModel->item(index, 0)->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
+                if(m_hideModuleNames.contains(module))
+                    m_navView->setRowHidden(index, true);
             } else {
                 m_navModel->item(index, 0)->setData(QVariant::fromValue(QMargins(0, 0, 0, 0)), Dtk::MarginsRole);
             }
