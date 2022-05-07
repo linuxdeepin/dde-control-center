@@ -72,7 +72,8 @@ enum class PageType {
     SysProxyPage,
     AppProxyPage,
     HotspotPage,
-    NetworkInfoPage
+    NetworkInfoPage,
+    AirplaneModepage
 };
 
 class NetworkModuleWidget : public QWidget
@@ -96,6 +97,7 @@ Q_SIGNALS:
     void requestShowChainsPage() const;
     void requestHotspotPage(const QString &path = "") const;
     void requestShowDeviceDetail(NetworkDeviceBase *device, const QString &path = "") const;
+    void requestShowAirplanePage() const;
 
 private Q_SLOTS:
     void onDeviceStatusChanged();

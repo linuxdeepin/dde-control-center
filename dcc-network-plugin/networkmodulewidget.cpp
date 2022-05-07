@@ -90,6 +90,17 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     m_centralLayout->setMargin(0);
     setLayout(m_centralLayout);
 
+    //判断当前的机器是否为盘古v，如果为盘古v则不需要飞行模式功能
+    QString productName = qEnvironmentVariable("SYS_PRODUCT_NAME");
+    if (!productName.contains("PGUV")) {
+        qDebug() << "This machine is not PanguV";
+        //~ contents_path /network/Airplane
+        DStandardItem *airplanemode = new DStandardItem(tr("Airplane Mode"));
+        airplanemode->setData(QVariant::fromValue(PageType::AirplaneModepage), SectionRole);
+        airplanemode->setIcon(QIcon::fromTheme("dcc_airplane_mode"));
+        m_modelpages->appendRow(airplanemode);
+    }
+
     DStandardItem *pppIt = new DStandardItem(tr("DSL"));
     pppIt->setData(QVariant::fromValue(PageType::DSLPage), SectionRole);
     pppIt->setIcon(QIcon::fromTheme("dcc_dsl"));
@@ -206,6 +217,9 @@ void NetworkModuleWidget::selectListIndex(const QModelIndex &idx)
     case PageType::WiredPage:
     case PageType::WirelessPage:
         Q_EMIT requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDeviceBase *>(), searchPath);
+        break;
+    case PageType::AirplaneModepage:
+        Q_EMIT requestShowAirplanePage();
         break;
     default:
         break;
@@ -335,6 +349,9 @@ static PageType getPageTypeFromModelName(const QString &modelName)
     if (modelName == "networkVpn")
         return PageType::VPNPage;
 
+    if (modelName == "networkAirplane")
+        return PageType::AirplaneModepage;
+
     return PageType::NonePage;
 }
 
@@ -368,6 +385,8 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
         type = PageType::WiredPage;
     } else if (path == QStringLiteral("Personal Hotspot")) {
         type = PageType::HotspotPage;
+    } else if (path == QStringLiteral("Airplane Mode")) {
+        type = PageType::AirplaneModepage;
     }
     int index = -1;
     for (int i = 0; i < m_modelpages->rowCount(); ++i) {

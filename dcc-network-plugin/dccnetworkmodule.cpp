@@ -33,6 +33,7 @@
 #include "wiredpage.h"
 #include "wirelesspage.h"
 #include "window/gsettingwatcher.h"
+#include "airplanemodepage.h"
 
 #include <QLayout>
 
@@ -48,6 +49,7 @@
 using namespace dde::network;
 using namespace dccV20;
 using namespace dcc;
+using namespace DCC_NAMESPACE::network;
 
 DCCNetworkModule::DCCNetworkModule()
     : QObject()
@@ -80,6 +82,7 @@ void DCCNetworkModule::preInitialize(bool sync, FrameProxyInterface::PushType)
 
     GSettingWatcher::instance()->insertState("networkWireless");
     GSettingWatcher::instance()->insertState("networkWired");
+    GSettingWatcher::instance()->insertState("networkAirplane");
     GSettingWatcher::instance()->insertState("networkDsl");
     GSettingWatcher::instance()->insertState("networkVpn");
     GSettingWatcher::instance()->insertState("systemProxy");
@@ -121,6 +124,7 @@ void DCCNetworkModule::active()
     connect(m_indexWidget, &NetworkModuleWidget::destroyed, [ this ] {
         m_indexWidget = nullptr;
     });
+    connect(m_indexWidget, &NetworkModuleWidget::requestShowAirplanePage, this, &DCCNetworkModule::showAirplanePage);
 
     m_frameProxy->pushWidget(this, m_indexWidget);
     m_indexWidget->setVisible(true);
@@ -134,7 +138,7 @@ QStringList DCCNetworkModule::availPage() const
     list << "DSL" << "DSL/Create PPPoE Connection" << "VPN" << "VPN/Create VPN" << "VPN/Import VPN"
          << "System Proxy" << "Application Proxy" << "Network Details"
          << "Wired Network" << "Wired Network/addWiredConnection"
-         << "Wireless Network" << "WirelessPage" << "Personal Hotspot";
+         << "Wireless Network" << "WirelessPage" << "Personal Hotspot" << "Airplane Mode";
 
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
     for (NetworkDeviceBase *dev: devices)
@@ -242,6 +246,7 @@ void DCCNetworkModule::initListConfig()
     setModulVisible("networkDsl", hasModule(PageType::DSLPage));
     setModulVisible("systemProxy");
     setModulVisible("networkVpn");
+    setModulVisible("networkAirplane");
 }
 
 bool DCCNetworkModule::hasModule(const PageType &type)
@@ -296,6 +301,7 @@ void DCCNetworkModule::initSearchData()
     const QString& wiredNetwork = tr("Wired Network");
     const QString& wirelessNetwork = tr("Wireless Network");
     const QString& vpn = tr("VPN");
+    const QString& airplaneMode = tr("Airplane Mode");
     const bool wiredVisible = hasModule(PageType::WiredPage);
     const bool wirelessVisible = hasModule(PageType::WirelessPage);
     const bool hotspotsVisible = hasModule(PageType::HotspotPage);
@@ -320,6 +326,7 @@ void DCCNetworkModule::initSearchData()
         , "networkDsl"
         , "systemProxy"
         , "networkVpn"
+        , "networkAirplane"
     };
     auto func_wired_visible = [ = ](bool visible) {
         bool isVisible = func_is_visible("networkWired");
@@ -376,6 +383,16 @@ void DCCNetworkModule::initSearchData()
         //~ contents_path /network/VPN/Import VPN
         //~ child_page VPN
         m_frameProxy->setDetailVisible(module, vpn, tr("Import VPN"), bVPN);
+    };
+
+    auto func_airplane_visible = [ = ] {
+        bool bAirplane = func_is_visible("networkAirplane");
+        if (m_indexWidget)
+            m_indexWidget->setModelVisible("networkAirplane", bAirplane);
+        m_frameProxy->setWidgetVisible(module, airplaneMode, bAirplane);
+        //~ contents_path /network/Airplane Mode
+        //~ child_page Airplane Mode
+        m_frameProxy->setDetailVisible(module, airplaneMode, tr("Airplane Mode"), bAirplane);
     };
 
     auto func_sysproxy_visible = [ = ] {
@@ -474,6 +491,7 @@ void DCCNetworkModule::initSearchData()
         func_wired_visible(wiredVisible);
         func_wireless_visible(wirelessVisible);
         func_perhotspot_visible(hotspotsVisible);
+        func_airplane_visible();
      };
 
     connect(this, &DCCNetworkModule::deviceChanged, this, [ = ] {
@@ -504,6 +522,8 @@ void DCCNetworkModule::initSearchData()
             func_wired_visible(wiredVisible);
             func_wireless_visible(wirelessVisible);
             func_perhotspot_visible(hotspotsVisible);
+        } else if("networkAirplane" == gsetting) {
+            func_airplane_visible();
         } else {
             qWarning() << " not contains the gsettings : " << gsetting << state;
             return;
@@ -527,6 +547,7 @@ void DCCNetworkModule::addChildPageTrans() const
         m_frameProxy->addChildPageTrans("Application Proxy", tr("Application Proxy"));
         m_frameProxy->addChildPageTrans("Personal Hotspot", tr("Personal Hotspot"));
         m_frameProxy->addChildPageTrans("Network Details", tr("Network Details"));
+        m_frameProxy->addChildPageTrans("Airplane Mode", tr("Airplane Mode"));
     }
 }
 
@@ -676,4 +697,10 @@ void DCCNetworkModule::showDetailPage()
 
     m_frameProxy->pushWidget(this, detailPage);
     detailPage->setVisible(true);
+}
+
+void DCCNetworkModule::showAirplanePage()
+{
+    AirplaneModepage *p = new AirplaneModepage();
+    m_frameProxy->pushWidget(this, p);
 }

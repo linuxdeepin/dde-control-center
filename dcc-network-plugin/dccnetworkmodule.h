@@ -115,6 +115,7 @@ private Q_SLOTS:
     void showProxyPage();
     void showHotspotPage(const QString &searchPath);
     void showDetailPage();
+    void showAirplanePage();
 
 private:
     NetworkModuleWidget *m_indexWidget;
