@@ -853,3 +853,40 @@ target_link_libraries(${Display_Name} PRIVATE
 )
 
 install(TARGETS ${Display_Name} DESTINATION lib/dde-control-center/modules)
+
+#--------------------------dcc-personalization-plugin--------------------------
+set(Personalization_Name dcc-personalization-plugin)
+file(GLOB_RECURSE Personalization_SRCS
+    "src/plugin-personalization/window/*.cpp"
+    "src/plugin-personalization/operation/*.cpp"
+    "src/plugin-personalization/operation/qrc/personalization.qrc"
+)
+
+add_library(${Personalization_Name} MODULE
+    ${Personalization_SRCS}
+)
+set(Personalization_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    src/plugin-personalization/window
+    src/plugin-personalization/operation
+)
+set(Personalization_Libraries
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    ${Dcc_Widgets_Name}
+)
+target_include_directories(${Personalization_Name} PRIVATE
+    ${Personalization_Includes}
+)
+
+target_link_libraries(${Personalization_Name} PRIVATE
+    ${Personalization_Libraries}
+)
+
+install(TARGETS ${Personalization_Name} DESTINATION lib/dde-control-center/modules)
