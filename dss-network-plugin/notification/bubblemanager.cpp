@@ -53,6 +53,7 @@ BubbleManager::BubbleManager(QObject *parent)
                                       , QDBusConnection::systemBus()
                                       , this))
     , m_trickTimer(new QTimer(this))
+    , m_parentWidget(QApplication::allWidgets().first()->window())
 {
     m_trickTimer->setInterval(300);
     m_trickTimer->setSingleShot(true);
@@ -70,11 +71,6 @@ BubbleManager::~BubbleManager()
 
 void BubbleManager::CloseNotification(uint id)
 {
-#if defined (QT_DEBUG) && !defined (GTEST)
-    QDBusReply<uint> reply = connection().interface()->servicePid(message().service());
-    qDebug() << "PID:" << reply.value();//关闭通知的进程
-#endif
-
     QString str_id = QString::number(id);
     foreach (auto bubble, m_bubbleList) {
         if (bubble->entity()->replacesId() == str_id) {
@@ -284,12 +280,6 @@ QRect BubbleManager::getLastStableRect(int index)
     return rect;
 }
 
-QRect BubbleManager::calcDisplayRect()
-{
-    QDesktopWidget *desktopWidget = qApp->desktop();
-    return desktopWidget->screenGeometry(desktopWidget->primaryScreen());
-}
-
 void BubbleManager::RemoveRecord(const QString &id)
 {
     QFile file(CachePath + id + ".png");
@@ -362,6 +352,11 @@ void BubbleManager::bubbleActionInvoked(Bubble *bubble, QString actionId)
 void BubbleManager::updateGeometry()
 {
     foreach (auto item, m_bubbleList) {
+        if (item->parentWidget() != m_parentWidget) {
+            bool visible = item->isVisible();
+            item->setParent(m_parentWidget);
+            item->setVisible(visible);
+        }
         item->setGeometry(getBubbleGeometry(item->bubbleIndex()));
         item->updateGeometry();
     }
@@ -380,7 +375,8 @@ void BubbleManager::initConnections()
 
 void BubbleManager::geometryChanged()
 {
-    m_currentDisplayRect = calcDisplayRect();
+    if(m_parentWidget)
+        m_currentDisplayRect = m_parentWidget->rect();
     updateGeometry();
 }
 
@@ -415,28 +411,21 @@ bool BubbleManager::calcReplaceId(EntityPtr notify)
     return find;
 }
 
-QWidget *BubbleManager::parentWidget()
+bool BubbleManager::eventFilter(QObject *watched, QEvent *e)
 {
-    // 获取主屏中窗口最大的窗口作为父窗口
-    QDesktopWidget *desktopWidget = qApp->desktop();
-    int primaryScreen = qApp->desktop()->primaryScreen();
-
-    QWidget *topWidget = nullptr;
-    QRect rect;
-    for (QWidget *w : qApp->topLevelWidgets()) {
-        if(primaryScreen != desktopWidget->screenNumber(w))
-            continue;
-        if(rect.isEmpty() || w->rect().contains(rect)) {
-            topWidget = w;
-            rect = w->rect();
+    if (e->type() == QEvent::Show) {
+        QWidget *w = qobject_cast<QWidget *>(watched);
+        if (w) {
+            m_parentWidget = w->window();
+            geometryChanged();
         }
     }
-    return topWidget;
+    return QObject::eventFilter(watched, e);
 }
 
 Bubble *BubbleManager::createBubble(EntityPtr notify, int index)
 {
-    Bubble *bubble = new Bubble(parentWidget(), notify);
+    Bubble *bubble = new Bubble(m_parentWidget, notify);
     connect(bubble, &Bubble::expired, this, &BubbleManager::bubbleExpired);
     connect(bubble, &Bubble::dismissed, this, &BubbleManager::bubbleDismissed);
     connect(bubble, &Bubble::actionInvoked, this, &BubbleManager::bubbleActionInvoked);

@@ -86,3 +86,8 @@ uint NotificationManager::NetworkNotify(NetworkNotifyType type, const QString &n
     }
     return 0;
 }
+
+void NotificationManager::InstallEventFilter(QObject *obj)
+{
+    obj->installEventFilter(NotificationManager::BubbleManagerinstance());
+}
