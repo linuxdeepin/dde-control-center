@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/icons/deepin/builtin">
+        <file>icons/dcc_nav_display_42px.svg</file>
+        <file>icons/dcc_nav_display_84px.svg</file>
+    </qresource>
+    <qresource prefix="/display">
+        <file>icons/dark/icons/dark/Center.svg</file>
+        <file>icons/dark/icons/dark/Fit.svg</file>
+        <file>icons/dark/icons/dark/Stretch.svg</file>
+        <file>icons/dark/icons/white/Center.svg</file>
+        <file>icons/dark/icons/white/Fit.svg</file>
+        <file>icons/dark/icons/white/Stretch.svg</file>
+        <file>icons/dark/icons/hover/Center.svg</file>
+        <file>icons/dark/icons/hover/Fit.svg</file>
+        <file>icons/dark/icons/hover/Stretch.svg</file>
+        <file>icons/light/icon/black/Center.svg</file>
+        <file>icons/light/icon/black/Fit.svg</file>
+        <file>icons/light/icon/black/Stretch.svg</file>
+        <file>icons/light/icon/light/Center.svg</file>
+        <file>icons/light/icon/light/Fit.svg</file>
+        <file>icons/light/icon/light/Stretch.svg</file>
+        <file>icons/light/icon/white/Center.svg</file>
+        <file>icons/light/icon/white/Fit.svg</file>
+        <file>icons/light/icon/white/Stretch.svg</file>
+        <file>icons/light/icon/hover/Center.svg</file>
+        <file>icons/light/icon/hover/Fit.svg</file>
+        <file>icons/light/icon/hover/Stretch.svg</file>
+        <file>icons/dark/icons/dark/Default.svg</file>
+        <file>icons/dark/icons/hover/Default.svg</file>
+        <file>icons/dark/icons/white/Default.svg</file>
+        <file>icons/light/icon/black/Default.svg</file>
+        <file>icons/light/icon/hover/Default.svg</file>
+        <file>icons/light/icon/light/Default.svg</file>
+        <file>icons/light/icon/white/Default.svg</file>
+    </qresource>
+</RCC>

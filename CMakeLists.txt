@@ -815,3 +815,41 @@ target_link_libraries(${Accounts_Name} PRIVATE
 )
 
 install(TARGETS ${Accounts_Name} DESTINATION lib/dde-control-center/modules)
+
+#--------------------------plugin-display--------------------------
+set(Display_Name dcc-display-plugin)
+file(GLOB_RECURSE DISPLAY_SRCS
+    "src/plugin-display/window/*.cpp"
+    "src/plugin-display/operation/*.cpp"
+    "src/plugin-display/operation/qrc/display.qrc"
+)
+
+add_library(${Display_Name} MODULE
+    ${DISPLAY_SRCS}
+)
+set(Display_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Svg
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+set(Display_Libraries
+    ${Dcc_Widgets_Name}
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Svg
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+
+target_include_directories(${Display_Name} PUBLIC
+    ${Display_Includes}
+)
+
+target_link_libraries(${Display_Name} PRIVATE
+    ${Display_Libraries}
+)
+
+install(TARGETS ${Display_Name} DESTINATION lib/dde-control-center/modules)
