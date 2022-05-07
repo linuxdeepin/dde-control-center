@@ -157,7 +157,8 @@ void DefaultAppsWidget::setCurrentIndex(int row)
     if (row > m_defAppCatView->model()->rowCount())
         row = 0;
 
-    m_defAppCatView->setCurrentIndex(qobject_cast<QStandardItemModel *>(m_defAppCatView->model())->index(row, 0));
+    m_lastIndex = qobject_cast<QStandardItemModel *>(m_defAppCatView->model())->index(row, 0);
+    m_defAppCatView->setCurrentIndex(m_lastIndex);
 }
 
 void DefaultAppsWidget::onCategoryClicked(const QModelIndex &index) {
