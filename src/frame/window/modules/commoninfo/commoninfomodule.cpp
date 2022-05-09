@@ -271,8 +271,12 @@ void CommonInfoModule::initSearchData()
         bool visible = false;
         visible = func_is_visible("bootMenu");
         m_frameProxy->setWidgetVisible(module, bootMenu, visible);
+#ifndef DCC_DISABLE_GRUB
         m_frameProxy->setDetailVisible(module, bootMenu, startupDelay, visible && func_is_visible("commoninfoBootBootdelay", true));
+#ifndef DCC_DISABLE_GRUB_THEME
         m_frameProxy->setDetailVisible(module, bootMenu, theme, visible && func_is_visible("commoninfoBootTheme", true));
+#endif
+#endif
         m_frameProxy->setDetailVisible(module, bootMenu, auth, visible && (m_commonModel ? m_commonModel->isShowGrubEditAuth() : true));
     };
 

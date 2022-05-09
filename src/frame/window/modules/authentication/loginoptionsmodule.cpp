@@ -205,16 +205,19 @@ void LoginOptionsModule::initSearchData()
 
     auto func_finger_changed = [ = ] () {
         bool bFinger = func_is_visible("authenticationFinger");
+        bFinger &= m_fingerModel->isVaild();
         m_frameProxy->setWidgetVisible(module, finger, bFinger);
     };
 
     auto func_face_changed = [ = ] () {
         bool bFace = func_is_visible("authenticationFace");
+        bFace &= m_charaMangerModel->faceDriverVaild();
         m_frameProxy->setWidgetVisible(module, face, bFace);
     };
 
     auto func_iris_changed = [ = ] () {
         bool bIris = func_is_visible("authenticationIris");
+        bIris &= m_charaMangerModel->irisDriverVaild();
         m_frameProxy->setWidgetVisible(module, iris, bIris);
     };
 
