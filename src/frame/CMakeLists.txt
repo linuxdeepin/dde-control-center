@@ -576,9 +576,13 @@ find_package(Qt5 COMPONENTS
     Svg
     WaylandClient
 REQUIRED)
+if(${Qt5_VERSION} VERSION_GREATER "5.15.1")
+    find_package(Qt5 COMPONENTS
+        XkbCommonSupport
+        REQUIRED)
+endif()
 find_package(KF5Wayland QUIET)
 pkg_check_modules(WaylandClient REQUIRED wayland-client)
-
 pkg_check_modules(XCB_EWMH REQUIRED xcb-ewmh x11 xext)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
@@ -705,6 +709,13 @@ target_include_directories(dccwidgets PUBLIC
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
     ${Qt5WaylandClient_PRIVATE_INCLUDE_DIRS}
 )
+
+if(${Qt5_VERSION} VERSION_GREATER "5.15.1")
+        target_include_directories(dccwidgets PUBLIC
+                ${Qt5XkbCommonSupport_PRIVATE_INCLUDE_DIRS}
+        )
+endif()
+
 target_link_libraries(dccwidgets PRIVATE
     ${DtkWidget_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
@@ -713,6 +724,7 @@ target_link_libraries(dccwidgets PRIVATE
     Qt5::WaylandClient
     ${WaylandClient_LIBRARIES}
 )
+
 
 add_executable(${BIN_NAME} ${SRCS} ${QRC})
 target_include_directories(${BIN_NAME} PUBLIC
@@ -749,7 +761,6 @@ target_link_libraries(${BIN_NAME} PRIVATE
     Qt5::WaylandClient
     ${WaylandClient_LIBRARIES}
 )
-
 # bin
 install(TARGETS ${BIN_NAME} DESTINATION bin)
 install(TARGETS dccwidgets LIBRARY DESTINATION lib)
