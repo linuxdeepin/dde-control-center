@@ -13,8 +13,6 @@ set(CMAKE_AUTORCC ON)
 file(GLOB_RECURSE SRCS "*.h"
     "*.cpp"
     "icons/*"
-    "../src/*.h"
-    "../src/*.cpp"
     "icons/dcc-network-plugin.qrc"
     "translations/translations.qrc"
     "icons/actions/*.svg"
@@ -56,8 +54,6 @@ add_library(${PLUGIN_NAME} SHARED ${SRCS})
 # 变量 ${DtkWidget_INCLUDE_DIRS} 是在前面执行 find_package 命令时引入的
 # 当出现编译失败提示找不到某些库的头文件时应该检查此处是否将所有需要的头文件都包含了
 target_include_directories(${PLUGIN_NAME} PUBLIC
-    ../src
-    ../src/realize
     ${Qt5Widgets_INCLUDE_DIRS}
     ${DtkWidget_INCLUDE_DIRS}
     ${DdeControlCenter_INCLUDE_DIR}
@@ -66,7 +62,7 @@ target_include_directories(${PLUGIN_NAME} PUBLIC
     ${Qt5DBus_INCLUDE_DIRS}
     ${KF5_QT_INCLUDE_DIRS}
     ${Qt5Network_INCLUDE_DIRS}
-#    ${DDE-Network-Core_INCLUDE_DIRS}
+    ${DDE-Network-Core_INCLUDE_DIRS}
 )
 
 # 设置目标要使用的链接库
@@ -81,7 +77,7 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE
     ${Qt5DBus_LIBRARIES}
     ${KF5_QT_LIBRARIES}
     ${Qt5Network_LIBRARIES}
-#    ${DDE-Network-Core_LIBRARIES}
+    ${DDE-Network-Core_LIBRARIES}
 )
 
 # 设置安装路径的前缀(默认为"/usr/local")

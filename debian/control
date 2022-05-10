@@ -29,30 +29,30 @@ Description: the library of network
 
 Package: libdde-network-core-dev
 Architecture: any
-Depends: ${misc:Depends},${shlibs:Depends},
+Depends: ${misc:Depends},${shlibs:Depends},libdde-network-core (= ${binary:Version})
 Description: the interface of networkcode,used for developers
  libdde-network-core-dev module
 
 Package: dcc-network-plugin
 Architecture: any
-Depends: ${misc:Depends},${shlibs:Depends},
+Depends: ${misc:Depends},${shlibs:Depends},libdde-network-core (= ${binary:Version})
 Description: the plugin of network for dde control center
  dcc-network-plugin module
 
 Package: dock-network-plugin
 Architecture: any
-Depends: ${misc:Depends},${shlibs:Depends},
+Depends: ${misc:Depends},${shlibs:Depends},libdde-network-core (= ${binary:Version})
 Description: the plugin of network for dde-dock
  dock-plugin module
 
 Package: dde-network-dialog
 Architecture: any
-Depends: ${misc:Depends},${shlibs:Depends},
+Depends: ${misc:Depends},${shlibs:Depends},libdde-network-core (= ${binary:Version})
 Description: the executable of network
  dde-network-dialog module
 
 Package: dss-network-plugin
 Architecture: any
-Depends: ${misc:Depends},${shlibs:Depends},
+Depends: ${misc:Depends},${shlibs:Depends},libdde-network-core (= ${binary:Version})
 Description: the plugin of network for dde-lock
  dss-network-plugin module

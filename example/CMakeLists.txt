@@ -16,8 +16,6 @@ aux_source_directory(../dcc-network-plugin/sections/vpn DCCPLUGINSECTIONSVPN)
 aux_source_directory(../dcc-network-plugin/settings DCCPLUGINSETTINGS)
 aux_source_directory(../dcc-network-plugin/settings/vpn DCCPLUGINVPNSETTINGS)
 aux_source_directory(../dcc-network-plugin/themes DCCPLUGINTHEMES)
-aux_source_directory(../src NETWORKDIR)
-aux_source_directory(../src/realize REALIZEDIR)
 
 file(GLOB_RECURSE QRCFILE "./example.qrc"
     "../dcc-network-plugin/icons/dcc-network-plugin.qrc"
@@ -69,8 +67,6 @@ IMPORTED_LOCATION_NOCONFIG
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
-    ../src
-    ../src/realize
     ../dcc-network-plugin
     ${DdeControlCenter_INCLUDE_DIR}
     ${DtkWidget_INCLUDE_DIRS}
@@ -81,7 +77,9 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     ${QGSettings_INCLUDE_DIRS}
     ${LibNM_INCLUDE_DIRS}
     ${Qt5Network_INCLUDE_DIRS}
-    ${KF5_QT_INCLUDE_DIRS})
+    ${KF5_QT_INCLUDE_DIRS}
+    ${DDE-Network-Core_INCLUDE_DIRS}
+)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     ${DdeControlCenter_LIBRARIES}
@@ -93,7 +91,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     ${Qt5DBus_LIBRARIES}
     ${Qt5Network_LIBRARIES}
     ${QGSettings_LIBRARIES}
-    ${KF5_QT_LIBRARIES})
+    ${KF5_QT_LIBRARIES}
+    ${DDE-Network-Core_LIBRARIES}
+)
 
 add_custom_command(
     OUTPUT path.pb.cc path.pb.h

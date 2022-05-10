@@ -29,6 +29,8 @@
 #include <QJsonObject>
 #include <QStyledItemDelegate>
 
+#include <networkdevicebase.h>
+
 class NetworkDevice;
 class NetItem;
 class WirelessConnect;

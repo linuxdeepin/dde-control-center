@@ -19,8 +19,6 @@ aux_source_directory(../dock-network-plugin DOCKPLUGINDIR)
 aux_source_directory(../common-plugin COMMONPLUGINS)
 aux_source_directory(../common-plugin/widgets COMMONPLUGINWIDGET)
 aux_source_directory(../common-plugin/item COMMONPLUGINITEM)
-aux_source_directory(../src NETWORKDIR)
-aux_source_directory(../src/realize REALIZEDIR)
 aux_source_directory(. COMPILEFILES)
 file(GLOB_RECURSE QRCFILES "../common-plugin/network.qrc"
     "../common-plugin/resources/common/*.svg"
@@ -32,12 +30,10 @@ get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_
 
 add_executable(${PROJECT_NAME}
     ${COMPILEFILES}
-    ${NETWORKDIR}
     ${DOCKPLUGINDIR}
     ${COMMONPLUGINS}
     ${COMMONPLUGINWIDGET}
     ${COMMONPLUGINITEM}
-    ${REALIZEDIR}
     ${QRCFILES})
 
 get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
@@ -58,8 +54,6 @@ IMPORTED_LOCATION_NOCONFIG
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
-    ../src
-    ../src/realize
     ../dock-network-plugin
     ../common-plugin
     ../common-plugin/widgets
@@ -77,7 +71,9 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     ${QGSettings_INCLUDE_DIRS}
     ${LibNM_INCLUDE_DIRS}
     ${Qt5Network_INCLUDE_DIRS}
-    ${KF5_QT_INCLUDE_DIRS})
+    ${KF5_QT_INCLUDE_DIRS}
+    ${DDE-Network-Core_INCLUDE_DIRS}
+)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     ${DdeControlCenter_LIBRARIES}
@@ -91,7 +87,9 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     ${Qt5DBus_LIBRARIES}
     ${Qt5Network_LIBRARIES}
     ${QGSettings_LIBRARIES}
-    ${KF5_QT_LIBRARIES})
+    ${KF5_QT_LIBRARIES}
+    ${DDE-Network-Core_LIBRARIES}
+)
 
 add_custom_command(
     OUTPUT path.pb.cc path.pb.h

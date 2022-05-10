@@ -39,10 +39,8 @@ IMPORTED_LOCATION_NOCONFIG
 )
 
 aux_source_directory(. FILES)
-aux_source_directory(../src NETWORKDIR)
-aux_source_directory(../src/realize REALIZEDIR)
 
-add_executable(${PROJECT_NAME} ${FILES} ${NETWORKDIR} ${REALIZEDIR})
+add_executable(${PROJECT_NAME} ${FILES})
 
 target_include_directories(${PROJECT_NAME} PUBLIC
     ${DFrameworkDBus_INCLUDE_DIRS}
@@ -66,4 +64,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     ${QGSettings_LIBRARIES}
     ${KF5_QT_LIBRARIES}
     -lpthread
-    -lm)
+    -lm
+    dde-network-core
+)
