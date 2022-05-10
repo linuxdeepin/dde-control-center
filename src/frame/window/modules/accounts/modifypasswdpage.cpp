@@ -54,6 +54,7 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     , m_oldPasswordEdit(new DPasswordEdit)
     , m_newPasswordEdit(new DPasswordEdit)
     , m_repeatPasswordEdit(new DPasswordEdit)
+    , m_forgetPasswordBtn(new DCommandLinkButton(tr("Forgot password?"), this))
     , m_passwordTipsEdit(new DLineEdit)
     , m_isCurrent(isCurrent)
     , m_isBindCheckError(false)
@@ -84,9 +85,10 @@ void ModifyPasswdPage::initWidget()
     }
     mainContentLayout->addSpacing(40);
 
+    m_forgetPasswordBtn->setVisible(false);
     if (m_isCurrent) {
         QLabel *oldPasswdLabel = new QLabel(tr("Current Password") + ":");
-        m_forgetPasswordBtn = new DCommandLinkButton(tr("Forgot password?"));
+        m_forgetPasswordBtn->setVisible(true);
         DFontSizeManager::instance()->bind(m_forgetPasswordBtn, DFontSizeManager::T8);
         m_forgetPasswordBtn->setVisible(!IsCommunitySystem && getuid() < 9999); // 如果当前账户是域账号,则屏蔽重置密码入口
         connect(m_forgetPasswordBtn, &QPushButton::clicked, this, &ModifyPasswdPage::onForgetPasswordBtnClicked);
@@ -237,27 +239,29 @@ void ModifyPasswdPage::initWidget()
 
     setFocusPolicy(Qt::StrongFocus);
 
-    m_localServer->setMaxPendingConnections(1);
-    m_localServer->setSocketOptions(QLocalServer::WorldAccessOption);
-    QString serverName = QString("EnableForgotButton");
-    QLocalServer::removeServer(serverName);
-    if (!m_localServer->listen(serverName)) { // 监听特定的连接
-        qWarning() << "listen failed!" << m_localServer->errorString();
-    } else {
-        qDebug() << "listen success!";
-    }
-    connect(m_localServer, &QLocalServer::newConnection, this, &ModifyPasswdPage::onNewConnection);
+    if (m_isCurrent) {
+        m_localServer->setMaxPendingConnections(1);
+        m_localServer->setSocketOptions(QLocalServer::WorldAccessOption);
+        QString serverName = QString("EnableForgotButton");
+        QLocalServer::removeServer(serverName);
+        if (!m_localServer->listen(serverName)) { // 监听特定的连接
+            qWarning() << "listen failed!" << m_localServer->errorString();
+        } else {
+            qDebug() << "listen success!";
+        }
+        connect(m_localServer, &QLocalServer::newConnection, this, &ModifyPasswdPage::onNewConnection);
 
-    m_client = new QLocalSocket(this);
-    m_client->abort();
-    const QString &server = "ResetpasswordRunning";
-    m_client->connectToServer(server);
-    if(!m_client->waitForConnected(1000)) {
-        qDebug() << "connect failed, server: " << "ResetpasswordRunning " << m_client->errorString();
-        m_forgetPasswordBtn->setEnabled(true);
-    } else {
-        m_client->write("reconnect");
-        m_forgetPasswordBtn->setEnabled(false);
+        m_client = new QLocalSocket(this);
+        m_client->abort();
+        const QString &server = "ResetpasswordRunning";
+        m_client->connectToServer(server);
+        if(!m_client->waitForConnected(1000)) {
+            qDebug() << "connect failed, server: " << "ResetpasswordRunning " << m_client->errorString();
+            m_forgetPasswordBtn->setEnabled(true);
+        } else {
+            m_client->write("reconnect");
+            m_forgetPasswordBtn->setEnabled(false);
+        }
     }
 }
 
