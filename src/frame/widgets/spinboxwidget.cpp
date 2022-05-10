@@ -24,6 +24,7 @@
  */
 
 #include "widgets/spinboxwidget.h"
+#include "window/utils.h"
 
 #include <QSpinBox>
 #include <QLabel>
@@ -48,14 +49,18 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
     m_spinBox->setContextMenuPolicy(Qt::NoContextMenu);
     m_spinBox->setButtonSymbols(QAbstractSpinBox::PlusMinus);
 
-    QHBoxLayout *mainLayout = new QHBoxLayout;
-    mainLayout->addWidget(m_title);
-    m_title->setFixedWidth(110);
-    mainLayout->addWidget(m_spinBox);
+    m_title->setMinimumWidth(DCC_NAMESPACE::LeftTitleWitdh);
     m_resetBtn->setIcon(QIcon::fromTheme("dcc_reset"));
     m_resetBtn->setIconSize(QSize(16, 16));
     m_resetBtn->setFixedSize(36, 36);
-    mainLayout->addWidget(m_resetBtn);
+
+    QHBoxLayout *rightLayout = new QHBoxLayout;
+    rightLayout->addWidget(m_spinBox, 0);
+    rightLayout->addWidget(m_resetBtn, 0);
+
+    QHBoxLayout *mainLayout = new QHBoxLayout;
+    mainLayout->addWidget(m_title, 3);
+    mainLayout->addLayout(rightLayout, 7);
 
     connect(m_resetBtn, &DIconButton::clicked, [this] {
         m_spinBox->setValue(m_defaultVal);

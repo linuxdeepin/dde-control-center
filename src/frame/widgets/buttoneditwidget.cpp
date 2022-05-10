@@ -21,6 +21,7 @@
 
 #include "widgets/buttoneditwidget.h"
 #include "widgets/lineeditwidget.h"
+#include "window/utils.h"
 
 #include <dpasswordedit.h>
 #include <QVBoxLayout>
@@ -38,7 +39,7 @@ ButtonEditWidget::ButtonEditWidget(QFrame *parent)
     , m_addBtn(new DIconButton(DStyle::SP_AddButton, this))
     , m_reduceBtn(new DIconButton(DStyle::SP_DeleteButton, this))
 {
-    m_title->setFixedWidth(110);
+    m_title->setMinimumWidth(DCC_NAMESPACE::LeftTitleWitdh);
     m_edit->setContextMenuPolicy(Qt::NoContextMenu);
 
     m_addBtn->setFixedSize(QSize(19, 19));
@@ -47,12 +48,14 @@ ButtonEditWidget::ButtonEditWidget(QFrame *parent)
     m_reduceBtn->setFixedSize(QSize(19, 19));
     m_reduceBtn->setIconSize(QSize(17, 17));
 
-    m_mainLayout = new QHBoxLayout;
+    QHBoxLayout *rightLayout = new QHBoxLayout;
+    rightLayout->addWidget(m_edit, 0, Qt::AlignVCenter);
+    rightLayout->addWidget(m_addBtn, 0, Qt::AlignVCenter);
+    rightLayout->addWidget(m_reduceBtn, 0, Qt::AlignVCenter);
 
-    m_mainLayout->addWidget(m_title, 0, Qt::AlignVCenter);
-    m_mainLayout->addWidget(m_edit, 0, Qt::AlignVCenter);
-    m_mainLayout->addWidget(m_addBtn, 0, Qt::AlignVCenter);
-    m_mainLayout->addWidget(m_reduceBtn, 0, Qt::AlignVCenter);
+    m_mainLayout = new QHBoxLayout;
+    m_mainLayout->addWidget(m_title, 3, Qt::AlignVCenter);
+    m_mainLayout->addLayout(rightLayout, 7);
 
     setLayout(m_mainLayout);
     setObjectName("ButtonEditWidget");
