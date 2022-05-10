@@ -107,6 +107,8 @@ ShortcutItem::ShortcutItem(QFrame *parent)
         if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
             m_shortcutEdit->hide();
             m_key->show();
+            Q_EMIT waylandEditKeyFinshed();
+            QTimer::singleShot(0, this, &ShortcutItem::updateTitleSize);
         }
     });
 }

@@ -64,6 +64,7 @@ Q_SIGNALS:
     void shortcutEditChanged(ShortcutInfo *info);
     void requestUpdateKey(ShortcutInfo *info);
     void requestRemove(ShortcutInfo *info);
+    void waylandEditKeyFinshed();
 
 public Q_SLOTS:
     void onEditMode(bool value);

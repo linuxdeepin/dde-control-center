@@ -257,6 +257,12 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
         ShortcutItem *item = new ShortcutItem();
         item->setAccessibleName(info->name);
         connect(item, &ShortcutItem::requestUpdateKey, this, &ShortCutSettingWidget::requestUpdateKey);
+        if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+            connect(item, &ShortcutItem::waylandEditKeyFinshed, this, [ this ]{
+                if(waylandGrab != nullptr && !waylandGrab->getRecordState())
+                    waylandGrab->onUnGrab();
+            });
+        }
         item->setShortcutInfo(info);
         item->setTitle(info->name);
         info->item = item;
@@ -542,8 +548,8 @@ void ShortCutSettingWidget::keyPressEvent(QKeyEvent *ke)
     QString lastKey = waylandGrab->getLastKey();
     QString keyValue = waylandGrab->getKeyValue();
 
-    onKeyEvent(true, waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
     waylandGrab->setRecordState(true);
+    onKeyEvent(true, waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
     if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L) {
         lastKey += ("<" + keyValue.remove(keyValue.indexOf("_"), 2) + ">");
         waylandGrab->setLastKey(lastKey);
