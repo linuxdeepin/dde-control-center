@@ -309,7 +309,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_sortDelayTimer(new QTimer(this))
     , m_autoConnectHideSsid("")
     , m_wirelessScanTimer(new QTimer(this))
-    , m_dconfig(new DConfig("org.deepin.dde.control-center.network"))
+    , m_dconfig(new DConfig("org.deepin.dde.network"))
     , m_isAirplaneMode(false)
     , m_wirelessScanIntervalIndex(0)
 {
@@ -476,8 +476,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         hotspotController->setEnabled(m_device, false);
     });
 
-    if (m_dconfig->isValid() && m_dconfig->keyList().contains("WiFiScanInterval")) {
-        QList<QVariant> list = m_dconfig->value("WiFiScanInterval").toList();
+    if (m_dconfig->isValid() && m_dconfig->keyList().contains("wireless_scan_interval")) {
+        QList<QVariant> list = m_dconfig->value("wireless_scan_interval").toList();
         for (auto l : list) {
             m_wirelessScanIntervalList.push_back(l.toInt());
         }
