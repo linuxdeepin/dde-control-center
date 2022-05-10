@@ -1,0 +1,1334 @@
+/*
+ * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ *
+ * Author:     sbw <sbw@sbw.so>
+ *             kirigaya <kirigaya@mkacg.com>
+ *             Hualet <mr.asianwang@gmail.com>
+ *
+ * Maintainer: sbw <sbw@sbw.so>
+ *             kirigaya <kirigaya@mkacg.com>
+ *             Hualet <mr.asianwang@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#include "updatework.h"
+#include "widgets/utils.h"
+#include <QtConcurrent>
+#include <QFuture>
+#include <QFutureWatcher>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QApplication>
+#include <QMutexLocker>
+#include <vector>
+
+#define MIN_NM_ACTIVE 50
+#define UPDATE_PACKAGE_SIZE 0
+
+const QString ChangeLogFile = "/usr/share/deepin/release-note/UpdateInfo.json";
+const QString ChangeLogDic = "/usr/share/deepin/";
+
+UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
+    : QObject(parent)
+    , m_model(model)
+    , m_checkUpdateJob(nullptr)
+    , m_fixErrorJob(nullptr)
+    , m_sysUpdateDownloadJob(nullptr)
+    , m_safeUpdateDownloadJob(nullptr)
+    , m_unknownUpdateDownloadJob(nullptr)
+    , m_sysUpdateInstallJob(nullptr)
+    , m_safeUpdateInstallJob(nullptr)
+    , m_unknownUpdateInstallJob(nullptr)
+    , m_updateInter(new UpdateDBusProxy(this))
+    , m_onBattery(true)
+    , m_batteryPercentage(0.0)
+    , m_batterySystemPercentage(0.0)
+    , m_jobPath("")
+    , m_downloadSize(0)
+    , m_backupStatus(BackupStatus::NoBackup)
+    , m_backupingClassifyType(ClassifyUpdateType::Invalid)
+    , m_releaseNoteJobStatus("")
+    , m_releaseNoteUpdated(false)
+    , m_fileSystemWatcher(new QFileSystemWatcher(this))
+{
+
+}
+
+UpdateWorker::~UpdateWorker()
+{
+    deleteJob(m_sysUpdateDownloadJob);
+    deleteJob(m_sysUpdateInstallJob);
+    deleteJob(m_safeUpdateDownloadJob);
+    deleteJob(m_safeUpdateInstallJob);
+    deleteJob(m_unknownUpdateDownloadJob);
+    deleteJob(m_unknownUpdateInstallJob);
+    deleteJob(m_checkUpdateJob);
+    deleteJob(m_releaseNoteInstallJob);
+    deleteJob(m_fixErrorJob);
+    if (m_fileSystemWatcher != nullptr) {
+        delete m_fileSystemWatcher;
+        m_fileSystemWatcher = nullptr;
+    }
+}
+
+void UpdateWorker::preInitialize()
+{
+    // 是否开启更新提示
+    connect(m_updateInter, &UpdateDBusProxy::UpdateNotifyChanged, m_model, &UpdateModel::setUpdateNotify);
+    m_model->setUpdateMode(m_updateInter->updateMode());
+    m_model->setUpdateNotify(m_updateInter->updateNotify());
+
+    QFutureWatcher<QMap<QString, QStringList>> *packagesWatcher = new QFutureWatcher<QMap<QString, QStringList>>(this);
+    connect(packagesWatcher, &QFutureWatcher<QStringList>::finished, this, [ = ] {
+        QMap<QString, QStringList> updatablePackages = std::move(packagesWatcher->result());
+        checkUpdatablePackages(updatablePackages);
+        packagesWatcher->deleteLater();
+    });
+
+    packagesWatcher->setFuture(QtConcurrent::run([ = ]() -> QMap<QString, QStringList> {
+        QMap<QString, QStringList> map;
+        map = m_updateInter->classifiedUpdatablePackages();
+        return map;
+    }));
+}
+
+void UpdateWorker::init()
+{
+    qRegisterMetaType<UpdatesStatus>("UpdatesStatus");
+    qRegisterMetaType<UiActiveState>("UiActiveState");
+
+    QString sVersion = QString("%1 %2").arg(DSysInfo::uosProductTypeName()).arg(DSysInfo::majorVersion());
+    if (!IsServerSystem)
+        sVersion.append(" " + DSysInfo::uosEditionName());
+    m_model->setSystemVersionInfo(sVersion);
+
+    connect(m_updateInter, &UpdateDBusProxy::JobListChanged, this, &UpdateWorker::onJobListChanged);
+    connect(m_updateInter, &UpdateDBusProxy::AutoCleanChanged, m_model, &UpdateModel::setAutoCleanCache);
+
+    connect(m_updateInter, &UpdateDBusProxy::AutoDownloadUpdatesChanged, m_model, &UpdateModel::setAutoDownloadUpdates);
+    connect(m_updateInter, &UpdateDBusProxy::AutoInstallUpdatesChanged, m_model, &UpdateModel::setAutoInstallUpdates);
+    connect(m_updateInter, &UpdateDBusProxy::AutoInstallUpdateTypeChanged, m_model, &UpdateModel::setAutoInstallUpdateType);
+    connect(m_updateInter, &UpdateDBusProxy::AutoCheckUpdatesChanged, m_model, &UpdateModel::setAutoCheckUpdates);
+    connect(m_updateInter, &UpdateDBusProxy::UpdateModeChanged, m_model, [ = ](qulonglong value) {
+        m_model->setUpdateMode(value);
+        QMap<QString, QStringList> updatablePackages = m_updateInter->classifiedUpdatablePackages();
+        checkUpdatablePackages(updatablePackages);
+    });
+    connect(m_updateInter, &UpdateDBusProxy::ClassifiedUpdatablePackagesChanged, this, &UpdateWorker::onClassifiedUpdatablePackagesChanged);
+
+    connect(m_updateInter, &UpdateDBusProxy::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
+    connect(m_updateInter, &UpdateDBusProxy::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
+}
+
+void UpdateWorker::licenseStateChangeSlot()
+{
+    QFutureWatcher<void> *watcher = new QFutureWatcher<void>();
+    connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
+
+    QFuture<void> future = QtConcurrent::run(this, &UpdateWorker::getLicenseState);
+    watcher->setFuture(future);
+}
+
+void UpdateWorker::getLicenseState()
+{
+    if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
+        m_model->setSystemActivation(UiActiveState::Authorized);
+        return;
+    }
+    QDBusInterface licenseInfo("com.deepin.license",
+                               "/com/deepin/license/Info",
+                               "com.deepin.license.Info",
+                               QDBusConnection::systemBus());
+    if (!licenseInfo.isValid()) {
+        qDebug() << "com.deepin.license error ," << licenseInfo.lastError().name();
+        return;
+    }
+    UiActiveState reply = static_cast<UiActiveState>(licenseInfo.property("AuthorizationState").toInt());
+    qDebug() << "Authorization State:" << reply;
+    m_model->setSystemActivation(reply);
+}
+
+void UpdateWorker::activate()
+{
+    QString checkTime;
+    double interval = m_updateInter->GetCheckIntervalAndTime(checkTime);
+    m_model->setLastCheckUpdateTime(checkTime);
+    m_model->setAutoCheckUpdateCircle(static_cast<int>(interval));
+
+    m_model->setAutoCleanCache(m_updateInter->autoClean());
+    m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
+    m_model->setAutoInstallUpdates(m_updateInter->autoInstallUpdates());
+    m_model->setAutoInstallUpdateType(m_updateInter->autoInstallUpdateType());
+    m_model->setAutoCheckUpdates(m_updateInter->autoCheckUpdates());
+    m_model->setUpdateMode(m_updateInter->updateMode());
+    m_model->setUpdateNotify(m_updateInter->updateNotify());
+
+    setOnBattery(m_updateInter->onBattery());
+    setBatteryPercentage(m_updateInter->batteryPercentage());
+
+    const QList<QDBusObjectPath> jobs = m_updateInter->jobList();
+    if (jobs.count() > 0) {
+        for (QDBusObjectPath dBusObjectPath : jobs) {
+            if (dBusObjectPath.path().contains("upgrade")) {
+                qDebug() << "UpdateWorker::activate, jobs.count() == " << jobs.count();
+                setUpdateInfo();
+                break;
+            }
+        }
+    }
+
+    onJobListChanged(m_updateInter->jobList());
+
+    licenseStateChangeSlot();
+
+    QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
+                                         "com.deepin.license.Info", "LicenseStateChange",
+                                         this, SLOT(licenseStateChangeSlot()));
+}
+
+void UpdateWorker::deactivate()
+{
+
+}
+
+void UpdateWorker::checkForUpdates()
+{
+    if (checkDbusIsValid()) {
+        qDebug() << " checkDbusIsValid . do nothing";
+        return;
+    }
+
+    QDBusPendingCall call = m_updateInter->UpdateSource();
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
+        if (!call.isError())
+        {
+            QDBusReply<QDBusObjectPath> reply = call.reply();
+            const QString jobPath = reply.value().path();
+            setCheckUpdatesJob(jobPath);
+        } else
+        {
+            m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
+            resetDownloadInfo();
+            if (!m_checkUpdateJob.isNull()) {
+                m_updateInter->CleanJob(m_checkUpdateJob->id());
+            }
+            qDebug() << "UpdateFailed, check for updates error: " << call.error().message();
+        }
+    });
+}
+
+
+void UpdateWorker::setUpdateInfo()
+{
+    m_updatePackages.clear();
+    m_systemPackages.clear();
+    m_safePackages.clear();
+    m_unknownPackages.clear();
+
+    qDebug() << " UpdateWorker::setUpdateInfo() ";
+    m_updatePackages = m_updateInter->classifiedUpdatablePackages();
+    m_systemPackages = m_updatePackages.value(SystemUpdateType);
+    m_safePackages = m_updatePackages.value(SecurityUpdateType);
+    m_unknownPackages = m_updatePackages.value(UnknownUpdateType);
+
+    bool hasReleaseNote = QFile::exists(ChangeLogFile);
+    if ((m_systemPackages.contains("uos-release-note") || !hasReleaseNote) && hasRepositoriesUpdates()) {
+        qDebug() << "install uos-release-note";
+        QEventLoop eventLoop;
+        m_releaseNoteUpdated = false;
+        QTimer::singleShot(30000, &eventLoop, &QEventLoop::quit);
+        connect(this, &UpdateWorker::releaseNoteInstallCompleted, &eventLoop, &QEventLoop::quit);
+        qDebug() << "ChangeLogFile" << ChangeLogFile;
+        eventLoop.exec();
+    } else {
+        m_releaseNoteUpdated = true;
+    }
+    if (m_fileSystemWatcher != nullptr) {
+        delete m_fileSystemWatcher;
+        m_fileSystemWatcher = nullptr;
+    }
+
+
+    qDebug() << "systemUpdate packages:" <<  m_systemPackages;
+    qDebug() << "safeUpdate packages:" <<  m_safePackages;
+    qDebug() << "unkonowUpdate packages:" <<  m_unknownPackages;
+
+    if (m_model->status() == UpdatesStatus::UpdateFailed) {
+        qDebug() << " [UpdateWork] The status is error. Current status : " << m_model->status();
+        return;
+    }
+
+    qDebug() << "uos-releasenote :" << getReleaseNoteStatus();
+    int updateCount = m_systemPackages.count() + m_safePackages.count() + m_unknownPackages.count();
+    if (updateCount < 1) {
+        QFile file("/tmp/.dcc-update-successd");
+        if (file.exists()) {
+            m_model->setStatus(UpdatesStatus::NeedRestart, __LINE__);
+            return;
+        }
+    }
+
+    QMap<ClassifyUpdateType, UpdateItemInfo *> updateInfoMap = getAllUpdateInfo();
+    m_model->setAllDownloadInfo(updateInfoMap);
+
+    qDebug() << " UpdateWorker::setUpdateInfo: updateInfoMap.count()" << updateInfoMap.count();
+
+    if (updateInfoMap.count() == 0) {
+        m_model->setStatus(UpdatesStatus::Updated, __LINE__);
+    } else {
+        qDebug() << "UpdateWorker::setAppUpdateInfo: downloadSize = " << m_downloadSize;
+        m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
+        for (uint type = ClassifyUpdateType::SystemUpdate; type <= ClassifyUpdateType::SecurityUpdate; type++) {
+            ClassifyUpdateType classifyType = uintToclassifyUpdateType(type);
+            if (updateInfoMap.contains(classifyType)) {
+                if (updateInfoMap.value(classifyType) != nullptr) {
+                    m_downloadSize += updateInfoMap.value(classifyType) ->downloadSize();
+                    if (m_model->getClassifyUpdateStatus(classifyType) != UpdatesStatus::Downloading
+                            && m_model->getClassifyUpdateStatus(classifyType) != UpdatesStatus::DownloadPaused
+                            && m_model->getClassifyUpdateStatus(classifyType) != UpdatesStatus::Downloaded
+                            && m_model->getClassifyUpdateStatus(classifyType) != UpdatesStatus::Installing) {
+                        m_model->setClassifyUpdateTypeStatus(classifyType, UpdatesStatus::UpdatesAvailable);
+                    }
+                }
+            } else {
+                m_model->setClassifyUpdateTypeStatus(classifyType, UpdatesStatus::Default);
+            }
+        }
+    }
+}
+
+QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
+{
+    qDebug() << "getAllUpdateInfo";
+    QMap<ClassifyUpdateType, UpdateItemInfo *> resultMap;
+
+    QMap<ClassifyUpdateType, QString> updateDailyKeyMap;
+    updateDailyKeyMap.insert(ClassifyUpdateType::SystemUpdate, "systemUpdateInfo");
+    updateDailyKeyMap.insert(ClassifyUpdateType::SecurityUpdate, "safeUpdateInfo");
+    updateDailyKeyMap.insert(ClassifyUpdateType::UnknownUpdate, "otherUpdateInfo");
+
+    quint64 updateMode = m_model->updateMode();
+
+    if (m_systemPackages.count() > 0 && (updateMode & ClassifyUpdateType::SystemUpdate)) {
+        UpdateItemInfo *systemItemInfo = new UpdateItemInfo;
+        systemItemInfo->setName(tr("System Updates"));
+        systemItemInfo->setExplain(tr("Fixed some known bugs and security vulnerabilities"));
+        setUpdateItemDownloadSize(systemItemInfo, m_systemPackages);
+        resultMap.insert(ClassifyUpdateType::SystemUpdate, systemItemInfo);
+    }
+
+    if (m_safePackages.count() > 0 && (updateMode & ClassifyUpdateType::SecurityUpdate)) {
+        UpdateItemInfo  *safeItemInfo = new UpdateItemInfo;
+        safeItemInfo->setName(tr("Security Updates"));
+        safeItemInfo->setExplain(tr("Fixed some known bugs and security vulnerabilities"));
+        setUpdateItemDownloadSize(safeItemInfo, m_safePackages);
+        resultMap.insert(ClassifyUpdateType::SecurityUpdate, safeItemInfo);
+    }
+
+    if (m_unknownPackages.count() > 0 && (updateMode & ClassifyUpdateType::UnknownUpdate)) {
+        UpdateItemInfo *unkownItemInfo = new UpdateItemInfo;
+        unkownItemInfo->setName(tr("Third-party Repositories"));
+        setUpdateItemDownloadSize(unkownItemInfo, m_unknownPackages);
+        resultMap.insert(ClassifyUpdateType::UnknownUpdate, unkownItemInfo);
+    }
+
+    if (m_releaseNoteJobStatus == "failed") {
+        qWarning() << "releaseNoteStatus = " << m_releaseNoteJobStatus;
+        return resultMap;
+    }
+
+    QFile logFile(ChangeLogFile);
+    if (!logFile.open(QFile::ReadOnly)) {
+        qDebug() << "can not find update file:" << ChangeLogFile;
+        return resultMap;
+    }
+
+    QJsonParseError err_rpt;
+    QJsonDocument updateInfoDoc = QJsonDocument::fromJson(logFile.readAll(), &err_rpt);
+    if (err_rpt.error != QJsonParseError::NoError) {
+        qDebug() << "更新日志信息JSON格式错误";
+        return resultMap;
+    }
+    const QJsonObject &object = updateInfoDoc.object();
+    for (ClassifyUpdateType type : resultMap.keys()) {
+        getItemInfo(object.value(updateDailyKeyMap.value(type)), resultMap.value(type));
+        qDebug() << "getAllUpdateInfo: " << updateDailyKeyMap.value(type) << " = " << object.value("otherUpdateInfo").toString();
+    }
+
+    return  resultMap;
+}
+
+void UpdateWorker::getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo)
+{
+    if (jsonValue.isNull() || itemInfo == nullptr) {
+        return ;
+    }
+
+    QStringList language = QLocale::system().name().split('_');
+    QString languageType = "CN";
+    if (language.count() > 1) {
+        languageType = language.value(1);
+        if (languageType == "CN"
+                || languageType == "TW"
+                || languageType == "HK") {
+            languageType = "CN";
+        } else {
+            languageType = "US";
+        }
+    }
+
+    QJsonObject jsonObject = jsonValue.toObject();
+
+    itemInfo->setPackageId(jsonObject.value("package_id").toString());
+    itemInfo->setCurrentVersion(jsonObject.value("current_version_" + languageType).toString());
+    itemInfo->setAvailableVersion(jsonObject.value("available_version_" + languageType).toString());
+    itemInfo->setExplain(jsonObject.value("update_explain_" + languageType).toString());
+
+    if (jsonObject.contains("update_time_" + languageType)) {
+        itemInfo->setUpdateTime(jsonValue.toObject().value("update_time_" + languageType).toString());
+    } else {
+        itemInfo->setUpdateTime(jsonValue.toObject().value("update_time").toString());
+    }
+
+    qDebug() << "UpdateWorker::getItemInfo  itemInfo->name() == " << itemInfo->name();
+
+    QJsonValue dataValue = jsonValue.toObject().value("data_info");
+    if (dataValue.isArray()) {
+        QJsonArray array = dataValue.toArray();
+        QList<DetailInfo> itemList ;
+        int count = array.count();
+        for (int i = 0; i < count; ++i) {
+            DetailInfo detailInfo;
+            detailInfo.name = array.at(i).toObject().value("name_" + languageType).toString().trimmed();
+            detailInfo.updateTime = array.at(i).toObject().value("update_time").toString().trimmed();
+            detailInfo.info = array.at(i).toObject().value("detail_info_" + languageType).toString().trimmed();
+            detailInfo.link = array.at(i).toObject().value("link").toString().trimmed();
+            if (detailInfo.name.isEmpty()
+                    && detailInfo.updateTime.isEmpty()
+                    && detailInfo.info.isEmpty()
+                    && detailInfo.link.isEmpty()) {
+                continue;
+            }
+            itemList.append(detailInfo);
+        }
+
+        if (itemList.count() > 0) {
+            itemInfo->setDetailInfos(itemList);
+        }
+    }
+}
+
+bool UpdateWorker::checkDbusIsValid()
+{
+
+    if (!checkJobIsValid(m_checkUpdateJob)
+            || !checkJobIsValid(m_sysUpdateDownloadJob)
+            || !checkJobIsValid(m_sysUpdateInstallJob)
+            || !checkJobIsValid(m_safeUpdateDownloadJob)
+            || !checkJobIsValid(m_safeUpdateInstallJob)
+            || !checkJobIsValid(m_unknownUpdateDownloadJob)
+            || !checkJobIsValid(m_unknownUpdateInstallJob)) {
+
+        return false;
+    }
+
+    return  true;
+}
+
+//处于以下状态时，就不能再去设置其他更新的状态了，直接显示对应错误提示
+bool UpdateWorker::getNotUpdateState()
+{
+    UpdatesStatus state = m_model->status();
+
+    return state != UpdatesStatus::RecoveryBackupFailed && state != UpdatesStatus::UpdateFailed;
+}
+
+void UpdateWorker::resetDownloadInfo(bool state)
+{
+    m_downloadSize = 0;
+    m_updatableApps.clear();
+    m_updatablePackages.clear();
+
+    m_updatePackages.clear();
+    m_systemPackages.clear();
+    m_safePackages.clear();
+    m_unknownPackages.clear();
+
+    if (!state) {
+        deleteJob(m_sysUpdateDownloadJob);
+        deleteJob(m_sysUpdateInstallJob);
+        deleteJob(m_safeUpdateDownloadJob);
+        deleteJob(m_safeUpdateInstallJob);
+        deleteJob(m_unknownUpdateDownloadJob);
+        deleteJob(m_unknownUpdateInstallJob);
+        deleteJob(m_checkUpdateJob);
+    }
+}
+
+CheckUpdateJobRet UpdateWorker::createCheckUpdateJob(const QString &jobPath)
+{
+    CheckUpdateJobRet ret;
+    ret.status = "failed";
+    if (m_checkUpdateJob != nullptr) {
+        return ret;
+    }
+
+    m_checkUpdateJob = new UpdateJobDBusProxy(jobPath, this);
+
+    connect(m_checkUpdateJob, &UpdateJobDBusProxy::StatusChanged, this, &UpdateWorker::onCheckUpdateStatusChanged);
+    connect(qApp, &QApplication::aboutToQuit, this, [ = ] {
+        if (m_checkUpdateJob)
+        {
+            delete m_checkUpdateJob.data();
+        }
+    });
+
+    connect(m_checkUpdateJob, &UpdateJobDBusProxy::ProgressChanged, m_model, &UpdateModel::setUpdateProgress, Qt::QueuedConnection);
+    m_checkUpdateJob->ProgressChanged(m_checkUpdateJob->progress());
+    m_checkUpdateJob->StatusChanged(m_checkUpdateJob->status());
+    ret.jobID = m_checkUpdateJob->id();
+    ret.jobDescription = m_checkUpdateJob->description();
+    qDebug() << " Get Job: " << ret.jobID << ret.jobDescription << m_checkUpdateJob->progress() << m_checkUpdateJob->status();
+    return  ret;
+}
+
+void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
+{
+    UpdatesStatus status = m_model->getClassifyUpdateStatus(updateType);
+
+    if (m_backupStatus == BackupStatus::Backingup) {
+        QPointer<UpdateJobDBusProxy> job = getDownloadJob(updateType);
+        if (job != nullptr) {
+            m_updateInter->CleanJob(job->id());
+            deleteJob(job);
+        }
+        m_model->setClassifyUpdateTypeStatus(updateType, UpdatesStatus::WaitRecoveryBackup);
+        return;
+
+    }
+    if (m_backupStatus == BackupStatus::Backuped) {
+        downloadAndInstallUpdates(updateType);
+        return;
+    }
+
+    m_backupStatus = BackupStatus::Backuped;
+    m_backupingClassifyType = ClassifyUpdateType::Invalid;
+    downloadAndInstallUpdates(updateType);
+    return;
+
+    if (status == UpdatesStatus::Downloading) {
+        QPointer<UpdateJobDBusProxy> job = getDownloadJob(updateType);
+        if (job != nullptr) {
+            m_updateInter->CleanJob(job->id());
+            deleteJob(job);
+        }
+    }
+
+    m_backupStatus = BackupStatus::Backingup;
+    m_backupingClassifyType = updateType;
+}
+
+
+void UpdateWorker::setAutoCheckUpdates(const bool autoCheckUpdates)
+{
+    m_updateInter->SetAutoCheckUpdates(autoCheckUpdates);
+}
+
+void UpdateWorker::setUpdateMode(const quint64 updateMode)
+{
+    qDebug() << Q_FUNC_INFO << "set UpdateMode to dbus:" << updateMode;
+
+    m_updateInter->setUpdateMode(updateMode);
+}
+
+void UpdateWorker::setAutoDownloadUpdates(const bool &autoDownload)
+{
+    m_updateInter->SetAutoDownloadUpdates(autoDownload);
+    if (autoDownload == false) {
+        m_updateInter->setAutoInstallUpdates(false);
+    }
+}
+
+void UpdateWorker::setAutoInstallUpdates(const bool &autoInstall)
+{
+    m_updateInter->setAutoInstallUpdates(autoInstall);
+}
+
+
+void UpdateWorker::checkNetselect()
+{
+    QProcess *process = new QProcess;
+    process->start("netselect", QStringList() << "127.0.0.1");
+    connect(process, &QProcess::errorOccurred, this, [this, process](QProcess::ProcessError error) {
+        if ((error == QProcess::FailedToStart) || (error == QProcess::Crashed)) {
+            m_model->setNetselectExist(false);
+            process->deleteLater();
+        }
+    });
+    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [this, process](int result) {
+        bool isNetselectExist = 0 == result;
+        if (!isNetselectExist) {
+            qDebug() << "[wubw UpdateWorker] netselect 127.0.0.1 : " << isNetselectExist;
+        }
+        m_model->setNetselectExist(isNetselectExist);
+        process->deleteLater();
+    });
+}
+
+void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
+{
+    qDebug() << "[setCheckUpdatesJob] start status : " << m_model->status();
+    UpdatesStatus state = m_model->status();
+    if (UpdatesStatus::Downloading != state && UpdatesStatus::DownloadPaused != state && UpdatesStatus::Installing != state) {
+        m_model->setStatus(UpdatesStatus::Checking, __LINE__);
+    } else if (UpdatesStatus::UpdateFailed == state) {
+        resetDownloadInfo();
+    }
+
+    createCheckUpdateJob(jobPath);
+}
+
+void UpdateWorker::setDownloadJob(const QString &jobPath, ClassifyUpdateType updateType)
+{
+    QMutexLocker locker(&m_downloadMutex);
+    if (m_model->status() == UpdatesStatus::Default || m_model->status() == UpdatesStatus::Checking) {
+        setUpdateInfo();
+    }
+
+    m_model->setStatus(UpdatesStatus::Updateing, __LINE__);
+    QPointer<UpdateJobDBusProxy> job = new UpdateJobDBusProxy(jobPath, this);
+    switch (updateType) {
+    case ClassifyUpdateType::SystemUpdate:
+        m_sysUpdateDownloadJob = job;
+        connect(m_sysUpdateDownloadJob, &UpdateJobDBusProxy::ProgressChanged, this, &UpdateWorker::onSysUpdateDownloadProgressChanged);
+        connect(m_sysUpdateDownloadJob, &UpdateJobDBusProxy::NameChanged, this, &UpdateWorker::setSysUpdateDownloadJobName);
+        break;
+
+    case ClassifyUpdateType::SecurityUpdate:
+        m_safeUpdateDownloadJob = job;
+        connect(m_safeUpdateDownloadJob, &UpdateJobDBusProxy::ProgressChanged, this, &UpdateWorker::onSafeUpdateDownloadProgressChanged);
+        connect(m_safeUpdateDownloadJob, &UpdateJobDBusProxy::NameChanged, this, &UpdateWorker::setSafeUpdateDownloadJobName);
+        break;
+
+    case ClassifyUpdateType::UnknownUpdate:
+        m_unknownUpdateDownloadJob = job;
+        connect(m_unknownUpdateDownloadJob, &UpdateJobDBusProxy::ProgressChanged, this, &UpdateWorker::onUnkonwnUpdateDownloadProgressChanged);
+        connect(m_unknownUpdateDownloadJob, &UpdateJobDBusProxy::NameChanged, this, &UpdateWorker::setUnknownUpdateDownloadJobName);
+        break;
+
+    default:
+        break;
+    }
+
+    connect(job, &UpdateJobDBusProxy::StatusChanged, this, [ = ](QString status) {
+        onClassityDownloadStatusChanged(updateType, status);
+    });
+
+    job->StatusChanged(job->status());
+    job->ProgressChanged(job->progress());
+    job->NameChanged(job->name());
+}
+
+void UpdateWorker::setDistUpgradeJob(const QString &jobPath, ClassifyUpdateType updateType)
+{
+    QMutexLocker locker(&m_mutex);
+    m_model->setStatus(UpdatesStatus::Updateing, __LINE__);
+    QPointer<UpdateJobDBusProxy> job = new UpdateJobDBusProxy(jobPath, this);
+    switch (updateType) {
+    case ClassifyUpdateType::SystemUpdate:
+        m_sysUpdateInstallJob = job;
+        connect(m_sysUpdateInstallJob, &UpdateJobDBusProxy::ProgressChanged, this, &UpdateWorker::onSysUpdateInstallProgressChanged);
+        break;
+    case ClassifyUpdateType::SecurityUpdate:
+        m_safeUpdateInstallJob = job;
+        connect(m_safeUpdateInstallJob, &UpdateJobDBusProxy::ProgressChanged, this, &UpdateWorker::onSafeUpdateInstallProgressChanged);
+        break;
+    case ClassifyUpdateType::UnknownUpdate:
+        m_unknownUpdateInstallJob = job;
+        connect(m_unknownUpdateInstallJob, &UpdateJobDBusProxy::ProgressChanged, this, &UpdateWorker::onUnkonwnUpdateInstallProgressChanged);
+        break;
+    default:
+        break;
+    }
+
+    connect(job, &UpdateJobDBusProxy::StatusChanged, this, [ = ](QString status) {
+        onClassityInstallStatusChanged(updateType, status);
+    });
+
+    job->StatusChanged(job->status());
+    job->ProgressChanged(job->progress());
+}
+
+void UpdateWorker::setReleaseNoteInstallJob(const QString &jobPath)
+{
+    m_releaseNoteInstallJob = new UpdateJobDBusProxy(jobPath, this);
+    connect(m_releaseNoteInstallJob, &UpdateJobDBusProxy::StatusChanged, this, [ = ](const QString & status) {
+        qDebug() << "setReleaseNoteInstallJob-----status: " << status;
+        setReleaseNoteStatus(status);
+        if (status == "failed") {
+            m_updateInter->CleanJob(m_releaseNoteInstallJob->id());
+            deleteJob(m_releaseNoteInstallJob);
+        }
+
+        if (status == "ready") {
+            listenReleaseNoteFile();
+        }
+    });
+
+    m_releaseNoteInstallJob->StatusChanged(m_releaseNoteInstallJob->status());
+}
+
+void UpdateWorker::setUpdateItemProgress(UpdateItemInfo *itemInfo, double value)
+{
+    //异步加载数据,会导致下载信息还未获取就先取到了下载进度
+    if (itemInfo) {
+        if (!getNotUpdateState()) {
+            qDebug() << " Now can't to update continue...";
+            resetDownloadInfo();
+            return;
+        }
+        itemInfo->setDownloadProgress(value);
+
+    } else {
+        //等待下载信息加载后,再通过 onNotifyDownloadInfoChanged() 设置"UpdatesStatus::Downloading"状态
+        qDebug() << "[wubw download] DownloadInfo is nullptr , waitfor download info";
+    }
+}
+
+
+void UpdateWorker::setAutoCleanCache(const bool autoCleanCache)
+{
+    m_updateInter->SetAutoClean(autoCleanCache);
+}
+
+void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
+{
+    if (!hasRepositoriesUpdates()) {
+        return;
+    }
+    for (const auto &job : jobs) {
+        m_jobPath = job.path();
+
+        UpdateJobDBusProxy jobInter(m_jobPath, this);
+
+        // id maybe scrapped
+        const QString &id = jobInter.id();
+        // 防止刚打开控制中心的时候获取joblist的时候job还存在，由于构建jobInter可能会花销一定时间导致构建完成后job已经完成，这个时候需要设置对应的更新状态为更新成功
+        if (id.isEmpty() && !m_jobPath.isEmpty()) {
+            if (m_jobPath.contains("system_upgrade")) {
+                m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::SystemUpdate, UpdatesStatus::UpdateSucceeded);
+            } else if (m_jobPath.contains("security_upgrade")) {
+                m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::SecurityUpdate, UpdatesStatus::UpdateSucceeded);
+            } else if (m_jobPath.contains("unknown_upgrade")) {
+                m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::UnknownUpdate, UpdatesStatus::UpdateSucceeded);
+            }
+            continue;
+        }
+
+        if (!jobInter.isValid())
+            continue;
+
+        qDebug() << "[wubw] onJobListChanged, id : " << id << " , m_jobPath : " << m_jobPath;
+        if ((id == "update_source" || id == "custom_update") && m_checkUpdateJob == nullptr) {
+            setCheckUpdatesJob(m_jobPath);
+        } else if (id == "prepare_system_upgrade" && m_sysUpdateDownloadJob == nullptr) {
+            setDownloadJob(m_jobPath, ClassifyUpdateType::SystemUpdate);
+        } else if (id == "prepare_security_upgrade" && m_safeUpdateDownloadJob == nullptr) {
+            setDownloadJob(m_jobPath, ClassifyUpdateType::SecurityUpdate);
+        } else if (id == "prepare_unknown_upgrade" && m_unknownUpdateDownloadJob == nullptr) {
+            setDownloadJob(m_jobPath, ClassifyUpdateType::UnknownUpdate);
+        } else if (id == "system_upgrade" && m_sysUpdateInstallJob == nullptr) {
+            setDistUpgradeJob(m_jobPath, ClassifyUpdateType::SystemUpdate);
+        } else if (id == "security_upgrade" && m_safeUpdateInstallJob == nullptr) {
+            setDistUpgradeJob(m_jobPath, ClassifyUpdateType::SecurityUpdate);
+        } else if (id == "unknown_upgrade" && m_unknownUpdateInstallJob == nullptr) {
+            setDistUpgradeJob(m_jobPath, ClassifyUpdateType::UnknownUpdate);
+        } else if (id.contains("install") && jobInter.packages().at(0) == "uos-release-note") {
+            qDebug() << "jobInter :uos-release-note status: " << jobInter.status();
+            qDebug() << "jobInter :uos-release-note packages: " << jobInter.packages();
+            setReleaseNoteInstallJob(m_jobPath);
+        }
+    }
+}
+
+void UpdateWorker::onSysUpdateDownloadProgressChanged(double value)
+{
+    UpdateItemInfo *itemInfo = m_model->systemDownloadInfo();
+    setUpdateItemProgress(itemInfo, value);
+}
+
+void UpdateWorker::onSafeUpdateDownloadProgressChanged(double value)
+{
+    UpdateItemInfo *itemInfo = m_model->safeDownloadInfo();
+
+    setUpdateItemProgress(itemInfo, value);
+}
+
+void UpdateWorker::onUnkonwnUpdateDownloadProgressChanged(double value)
+{
+    UpdateItemInfo *itemInfo = m_model->unknownDownloadInfo();
+
+    setUpdateItemProgress(itemInfo, value);
+
+}
+
+void UpdateWorker::onSysUpdateInstallProgressChanged(double value)
+{
+    UpdateItemInfo *itemInfo = m_model->systemDownloadInfo();
+    if (itemInfo == nullptr || qFuzzyIsNull(value)) {
+        return;
+    }
+
+    setUpdateItemProgress(itemInfo, value);
+
+}
+
+void UpdateWorker::onSafeUpdateInstallProgressChanged(double value)
+{
+    UpdateItemInfo *itemInfo = m_model->safeDownloadInfo();
+    if (itemInfo == nullptr || qFuzzyIsNull(value)) {
+        return;
+    }
+
+    setUpdateItemProgress(itemInfo, value);
+}
+
+void UpdateWorker::onUnkonwnUpdateInstallProgressChanged(double value)
+{
+    UpdateItemInfo *itemInfo = m_model->unknownDownloadInfo();
+    if (itemInfo == nullptr || qFuzzyIsNull(value)) {
+        return;
+    }
+
+    qDebug() << "onUnkonwnUpdateInstallProgressChanged : " << value;
+    setUpdateItemProgress(itemInfo, value);
+}
+
+void UpdateWorker::onCheckUpdateStatusChanged(const QString &value)
+{
+    qDebug() << "[setCheckUpdatesJob]status is: " << value;
+    if (value == "failed" || value.isEmpty()) {
+        qWarning() << "check for updates job failed";
+        if (m_checkUpdateJob != nullptr) {
+            m_updateInter->CleanJob(m_checkUpdateJob->id());
+            checkDiskSpace(m_checkUpdateJob->description());
+            deleteJob(m_checkUpdateJob);
+        }
+    } else if (value == "success" || value == "succeed") {
+        setUpdateInfo();
+    } else if (value == "end") {
+        deleteJob(m_checkUpdateJob);
+    }
+}
+
+void UpdateWorker::checkDiskSpace(const QString &jobDescription)
+{
+    qDebug() << "job description: " << jobDescription;
+
+    m_model->setClassityUpdateJonError(ClassifyUpdateType::Invalid, analyzeJobErrorMessage(jobDescription));
+    m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
+    qDebug() << Q_FUNC_INFO << "UpdateFailed , jobDescription : " << jobDescription;
+
+    //以上错误均需重置更新信息
+    resetDownloadInfo();
+}
+
+void UpdateWorker::setBatteryPercentage(const BatteryPercentageInfo &info)
+{
+    m_batteryPercentage = info.value("Display", 0);
+    const bool low = m_onBattery && m_batteryPercentage < 50;
+    m_model->setLowBattery(low);
+}
+
+//Now D-Bus only in system power have BatteryPercentage data
+void UpdateWorker::setSystemBatteryPercentage(const double &value)
+{
+    m_batterySystemPercentage = value;
+    const bool low = m_onBattery && m_batterySystemPercentage < 50;
+    m_model->setLowBattery(low);
+}
+
+void UpdateWorker::setOnBattery(bool onBattery)
+{
+    m_onBattery = onBattery;
+    const bool low = m_onBattery && m_batteryPercentage < 50;
+    // const bool low = m_onBattery ? m_batterySystemPercentage < 50 : false;
+    m_model->setLowBattery(low);
+}
+
+void UpdateWorker::refreshLastTimeAndCheckCircle()
+{
+    QString checkTime;
+    double interval = m_updateInter->GetCheckIntervalAndTime(checkTime);
+
+    m_model->setAutoCheckUpdateCircle(static_cast<int>(interval));
+    m_model->setLastCheckUpdateTime(checkTime);
+}
+
+void UpdateWorker::setUpdateNotify(const bool notify)
+{
+    m_updateInter->SetUpdateNotify(notify);
+}
+
+void UpdateWorker::OnDownloadJobCtrl(ClassifyUpdateType type, int updateCtrlType)
+{
+    QPointer<UpdateJobDBusProxy> job = getDownloadJob(type);
+
+    if (job == nullptr) {
+        return;
+    }
+
+    switch (updateCtrlType) {
+    case UpdateCtrlType::Start:
+        m_updateInter->StartJob(job->id());
+        break;
+    case UpdateCtrlType::Pause:
+        m_updateInter->PauseJob(job->id());
+        break;
+    }
+}
+
+void UpdateWorker::downloadAndInstallUpdates(ClassifyUpdateType updateType)
+{
+    uint64_t type = (uint64_t)updateType;
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_updateInter->ClassifiedUpgrade(type), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher, updateType] {
+        if (!watcher->isError())
+        {
+            watcher->reply().path();
+            QDBusPendingReply<QList<QDBusObjectPath> > reply = watcher->reply();
+            QList<QDBusObjectPath>  data = reply.value();
+            if (data.count() < 1) {
+                qDebug() << "UpdateFailed, download updates error: " << watcher->error().message();
+                return;
+            }
+            setDownloadJob(reply.value().at(0).path(), updateType);
+        } else
+        {
+            m_model->setClassifyUpdateTypeStatus(updateType, UpdatesStatus::UpdateFailed);
+            resetDownloadInfo();
+            QPointer<UpdateJobDBusProxy>  job = getDownloadJob(updateType);
+            if (!job.isNull()) {
+                m_updateInter->CleanJob(job->id());
+            }
+
+            job = getInstallJob(updateType);
+            if (!job.isNull()) {
+                m_updateInter->CleanJob(job->id());
+            }
+            qDebug() << "UpdateFailed, download updates error: " << watcher->error().message();
+        }
+    });
+}
+
+QPointer<UpdateJobDBusProxy> UpdateWorker::getDownloadJob(ClassifyUpdateType updateType)
+{
+    QPointer<UpdateJobDBusProxy> job;
+    switch (updateType) {
+    case ClassifyUpdateType::SystemUpdate:
+        job = m_sysUpdateDownloadJob;
+        break;
+    case ClassifyUpdateType::SecurityUpdate:
+        job = m_safeUpdateDownloadJob;
+        break;
+    case ClassifyUpdateType::UnknownUpdate:
+        job = m_unknownUpdateDownloadJob;
+        break;
+    default:
+        job = nullptr;
+        break;
+    }
+
+    return job;
+}
+
+QPointer<UpdateJobDBusProxy> UpdateWorker::getInstallJob(ClassifyUpdateType updateType)
+{
+    QPointer<UpdateJobDBusProxy> job;
+    switch (updateType) {
+    case ClassifyUpdateType::SystemUpdate:
+        job = m_sysUpdateInstallJob;
+        break;
+    case ClassifyUpdateType::SecurityUpdate:
+        job = m_safeUpdateInstallJob;
+        break;
+    case ClassifyUpdateType::UnknownUpdate:
+        job = m_unknownUpdateInstallJob;
+        break;
+    default:
+        job = nullptr;
+        break;
+    }
+
+    return job;
+}
+
+bool UpdateWorker::checkJobIsValid(QPointer<UpdateJobDBusProxy> dbusJob)
+{
+    if (!dbusJob.isNull()) {
+        if (dbusJob->isValid() && getNotUpdateState()) {
+            return true;
+        } else {
+            dbusJob->deleteLater();
+            return  false;
+        }
+    }
+
+    return  false;
+}
+
+void UpdateWorker::deleteJob(QPointer<UpdateJobDBusProxy> dbusJob)
+{
+    if (!dbusJob.isNull()) {
+        dbusJob->deleteLater();
+        dbusJob = nullptr;
+    }
+}
+
+void UpdateWorker::deleteClassityDownloadJob(ClassifyUpdateType type)
+{
+    switch (type) {
+    case ClassifyUpdateType::SystemUpdate:
+        deleteJob(m_sysUpdateDownloadJob);
+        break;
+    case ClassifyUpdateType::SecurityUpdate:
+        deleteJob(m_safeUpdateDownloadJob);
+        break;
+    case ClassifyUpdateType::UnknownUpdate:
+        deleteJob(m_unknownUpdateDownloadJob);
+        break;
+    default:
+        break;
+    }
+}
+
+void UpdateWorker::deleteClassityInstallJob(ClassifyUpdateType type)
+{
+    switch (type) {
+    case ClassifyUpdateType::SystemUpdate:
+        deleteJob(m_sysUpdateInstallJob);
+        break;
+    case ClassifyUpdateType::SecurityUpdate:
+        deleteJob(m_safeUpdateInstallJob);
+        break;
+    case ClassifyUpdateType::UnknownUpdate:
+        deleteJob(m_unknownUpdateInstallJob);
+        break;
+    default:
+        break;
+    }
+}
+
+bool UpdateWorker::checkUpdateSuccessed()
+{
+    if ((m_model->getSystemUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getSystemUpdateStatus() == UpdatesStatus::Default)
+            && (m_model->getSafeUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getSafeUpdateStatus() == UpdatesStatus::Default)
+            && (m_model->getUnkonowUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getUnkonowUpdateStatus() == UpdatesStatus::Default)) {
+        QFile file("/tmp/.dcc-update-successd");
+        if (file.exists())
+            return true;
+        file.open(QIODevice::WriteOnly);
+        file.close();
+        return  true;
+    }
+
+    return  false;
+}
+
+void UpdateWorker::cleanLastoreJob(QPointer<UpdateJobDBusProxy> dbusJob)
+{
+    if (dbusJob != nullptr) {
+        m_updateInter->CleanJob(dbusJob->id());
+        deleteJob(dbusJob);
+    }
+}
+
+void UpdateWorker::setUnknownUpdateDownloadJobName(const QString &unknownUpdateDownloadJobName)
+{
+    m_unknownUpdateDownloadJobName = unknownUpdateDownloadJobName;
+}
+
+
+void UpdateWorker::setSafeUpdateDownloadJobName(const QString &safeUpdateDownloadJobName)
+{
+    m_safeUpdateDownloadJobName = safeUpdateDownloadJobName;
+}
+
+void UpdateWorker::setSysUpdateDownloadJobName(const QString &sysUpdateDownloadJobName)
+{
+    m_sysUpdateDownloadJobName = sysUpdateDownloadJobName;
+}
+
+void UpdateWorker::onRequestOpenAppStore()
+{
+    QDBusInterface appStore("com.home.appstore.client",
+                            "/com/home/appstore/client",
+                            "com.home.appstore.client",
+                            QDBusConnection::sessionBus());
+    QVariant value = "tab/update";
+    QDBusMessage reply = appStore.call("openBusinessUri", value);
+    qDebug() << reply.errorMessage();
+}
+
+UpdateErrorType UpdateWorker::analyzeJobErrorMessage(QString jobDescription)
+{
+    QJsonParseError err_rpt;
+    QJsonDocument jobErrorMessage = QJsonDocument::fromJson(jobDescription.toUtf8(), &err_rpt);
+
+    if (err_rpt.error != QJsonParseError::NoError) {
+        qDebug() << "更新失败JSON格式错误";
+        return UpdateErrorType::NoError;
+    }
+    const QJsonObject &object = jobErrorMessage.object();
+    QString errorType =  object.value("ErrType").toString();
+    if (errorType.contains("fetchFailed", Qt::CaseInsensitive) || errorType.contains("IndexDownloadFailed", Qt::CaseInsensitive)) {
+        return UpdateErrorType::NoNetwork;
+
+    }
+    if (errorType.contains("unmetDependencies", Qt::CaseInsensitive) || errorType.contains("dependenciesBroken", Qt::CaseInsensitive)) {
+        return UpdateErrorType::DeependenciesBrokenError;
+    }
+    if (errorType.contains("insufficientSpace", Qt::CaseInsensitive)) {
+        return UpdateErrorType::NoSpace;
+    }
+    if (errorType.contains("interrupted", Qt::CaseInsensitive)) {
+        return UpdateErrorType::DpkgInterrupted;
+    }
+
+    return UpdateErrorType::UnKnown;
+}
+
+void UpdateWorker::onClassityDownloadStatusChanged(const ClassifyUpdateType type, const QString &value)
+{
+    qDebug() << "onClassityDownloadStatusChanged ::" << type << "status :: " << value;
+    if (value == "running" || value == "ready") {
+        m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::Downloading);
+    } else if (value == "failed") {
+        QPointer<UpdateJobDBusProxy> job = getDownloadJob(type);
+        qDebug() << "onClassityDownloadStatusChanged ::" << type << "job->description() :: " << job->description();
+        m_model->setClassityUpdateJonError(type, analyzeJobErrorMessage(job->description()));
+        m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::UpdateFailed);
+        cleanLastoreJob(job);
+    } else if (value == "succeed") {
+        if (getClassityUpdateDownloadJobName(type).contains("OnlyDownload")) {
+            m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::AutoDownloaded);
+        } else {
+            m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::Downloaded);
+        }
+    } else if (value == "paused") {
+        m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::DownloadPaused);
+    } else if (value == "end") {
+        deleteClassityDownloadJob(type);
+    }
+}
+
+void UpdateWorker::onClassityInstallStatusChanged(const ClassifyUpdateType type, const QString &value)
+{
+    qDebug() << "onClassityInstallStatusChanged ::" << type << "status :: " << value;
+    if (value == "ready") {
+        m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::Downloaded);
+    } else if (value == "running") {
+        m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::Installing);
+    } else if (value == "failed") {
+        QPointer<UpdateJobDBusProxy> job = getInstallJob(type);
+        qDebug() << "onClassityInstallStatusChanged ::" << type << "job->description() :: " << job->description();
+        m_model->setClassityUpdateJonError(type, analyzeJobErrorMessage(job->description()));
+        m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::UpdateFailed);
+        cleanLastoreJob(job);
+    } else if (value == "succeed") {
+        m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::UpdateSucceeded);
+    } else if (value == "end") {
+        if (checkUpdateSuccessed()) {
+            m_model->setStatus(UpdatesStatus::UpdateSucceeded);
+        }
+        deleteClassityInstallJob(type);
+    }
+}
+
+QString UpdateWorker::getClassityUpdateDownloadJobName(ClassifyUpdateType updateType)
+{
+    QString value = "";
+    switch (updateType) {
+    case ClassifyUpdateType::SystemUpdate:
+        value = m_sysUpdateDownloadJobName;
+        break;
+    case ClassifyUpdateType::SecurityUpdate:
+        value = m_safeUpdateDownloadJobName;
+        break;
+    case ClassifyUpdateType::UnknownUpdate:
+        value = m_unknownUpdateDownloadJobName;
+        break;
+    default:
+        break;
+    }
+    return  value;
+}
+
+void UpdateWorker::listenReleaseNoteFile()
+{
+    if (m_fileSystemWatcher == nullptr) {
+        m_fileSystemWatcher = new QFileSystemWatcher;
+    }
+    if (QFile::exists(ChangeLogFile)) {
+        m_fileSystemWatcher->addPath(ChangeLogFile);
+        connect(m_fileSystemWatcher, &QFileSystemWatcher::fileChanged, this, [ = ](const QString & path) {
+            qDebug() << "fileChanged    --" << path;
+            m_releaseNoteUpdated = true;
+            setReleaseNoteStatus(m_releaseNoteJobStatus);
+        });
+        return;
+    }
+
+    QDir dir(ChangeLogDic + "release-note");
+    QString listenDir = dir.exists() ? (ChangeLogDic + "release-note") : ChangeLogDic;
+    m_fileSystemWatcher->addPath(listenDir);
+    connect(m_fileSystemWatcher, &QFileSystemWatcher::directoryChanged, this, [ = ](const QString & path) {
+        qDebug() << "directoryChangedpath :" << path;
+        QDir dir(ChangeLogDic + "release-note");
+        if (dir.exists()) {
+            if (m_fileSystemWatcher->directories().contains(ChangeLogDic)) {
+                m_fileSystemWatcher->removePath(ChangeLogDic);
+            }
+            if (!m_fileSystemWatcher->directories().contains(ChangeLogDic + "release-note")) {
+                m_fileSystemWatcher->addPath(ChangeLogDic + "release-note");
+            }
+            if (QFile::exists(ChangeLogFile)) {
+                m_releaseNoteUpdated = true;
+                setReleaseNoteStatus(m_releaseNoteJobStatus);
+            }
+        }
+    });
+
+}
+
+void UpdateWorker::checkUpdatablePackages(const QMap<QString, QStringList> &updatablePackages)
+{
+    qDebug() << " ---- UpdatablePackages = " << updatablePackages.count();
+    QMap<ClassifyUpdateType, QString> keyMap;
+    keyMap.insert(ClassifyUpdateType::SystemUpdate, SystemUpdateType);
+    keyMap.insert(ClassifyUpdateType::UnknownUpdate, UnknownUpdateType);
+    keyMap.insert(ClassifyUpdateType::SecurityUpdate, SecurityUpdateType);
+    bool showUpdateNotify = false;
+    for (auto item : keyMap.keys()) {
+        if ((m_model->updateMode() & static_cast<unsigned>(item)) && updatablePackages.value(keyMap.value(item)).count() > UPDATE_PACKAGE_SIZE) {
+            showUpdateNotify = true;
+            break;
+        }
+    }
+    m_model->isUpdatablePackages(showUpdateNotify);
+}
+
+QString UpdateWorker::getReleaseNoteStatus() const
+{
+    return m_releaseNoteJobStatus;
+}
+
+void UpdateWorker::setReleaseNoteStatus(const QString &releaseNoteStatus)
+{
+    m_releaseNoteJobStatus = releaseNoteStatus;
+
+    if (m_releaseNoteJobStatus == "failed") {
+        Q_EMIT releaseNoteInstallCompleted();
+    }
+
+    if (m_releaseNoteUpdated && m_releaseNoteJobStatus == "end") {
+        Q_EMIT releaseNoteInstallCompleted();
+    }
+}
+
+bool UpdateWorker::hasRepositoriesUpdates()
+{
+    quint64 mode = m_model->updateMode();
+    return (mode & ClassifyUpdateType::SystemUpdate) || (mode & ClassifyUpdateType::UnknownUpdate) || (mode & ClassifyUpdateType::SecurityUpdate);
+}
+
+void UpdateWorker::onClassifiedUpdatablePackagesChanged(QMap<QString, QStringList> packages)
+{
+    m_systemPackages = packages.value(SystemUpdateType);
+    if (m_systemPackages.count() == 0) {
+        m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::SystemUpdate, UpdatesStatus::Default);
+    }
+    m_safePackages = packages.value(SecurityUpdateType);
+    if (m_safePackages.count() == 0) {
+        m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::SecurityUpdate, UpdatesStatus::Default);
+    }
+    m_unknownPackages = packages.value(UnknownUpdateType);
+    if (m_unknownPackages.count() == 0) {
+        m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::UnknownUpdate, UpdatesStatus::Default);
+    }
+    checkUpdatablePackages(packages);
+}
+
+void UpdateWorker::onFixError(const ClassifyUpdateType &updateType, const QString &errorType)
+{
+    m_fixErrorUpdate.append(updateType);
+    if (m_fixErrorJob != nullptr) {
+        return;
+    }
+    QDBusInterface lastoreManager("com.deepin.lastore",
+                                  "/com/deepin/lastore",
+                                  "com.deepin.lastore.Manager",
+                                  QDBusConnection::systemBus());
+    if (!lastoreManager.isValid()) {
+        qDebug() << "com.deepin.license error ," << lastoreManager.lastError().name();
+        return;
+    }
+
+
+    QDBusReply<QDBusObjectPath> reply = lastoreManager.call("FixError", errorType);
+    if (reply.isValid()) {
+        QString path = reply.value().path();
+        m_fixErrorJob = new UpdateJobDBusProxy(path, this);
+        connect(m_fixErrorJob, &UpdateJobDBusProxy::StatusChanged, this, [ = ](const QString status) {
+            if (status == "succeed" || status == "failed" || status == "end") {
+                qDebug() << "m_fixErrorJob ---status :" << status;
+                for (auto type : m_fixErrorUpdate) {
+                    distUpgrade(type);
+                }
+                m_fixErrorUpdate.clear();
+                deleteJob(m_fixErrorJob);
+            }
+        });
+    }
+
+}
+
+void UpdateWorker::setUpdateItemDownloadSize(UpdateItemInfo *updateItem,  QStringList packages)
+{
+    QDBusPendingCall call = m_updateInter->PackagesDownloadSize(packages);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, updateItem, call] {
+        if (!call.isError())
+        {
+            QDBusReply<qlonglong> reply = call.reply();
+            qlonglong value = reply.value();
+            updateItem->setDownloadSize(value);
+        }
+    });
+}
+
+void UpdateWorker::onRequestLastoreHeartBeat()
+{
+    QDBusInterface lastoreManager("com.deepin.lastore",
+                                  "/com/deepin/lastore",
+                                  "com.deepin.lastore.Updater",
+                                  QDBusConnection::systemBus());
+    if (!lastoreManager.isValid()) {
+        qDebug() << "com.deepin.license error ," << lastoreManager.lastError().name();
+        return;
+    }
+    lastoreManager.asyncCall("GetCheckIntervalAndTime");
+}

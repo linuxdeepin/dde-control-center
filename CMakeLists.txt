@@ -890,3 +890,42 @@ target_link_libraries(${Personalization_Name} PRIVATE
 )
 
 install(TARGETS ${Personalization_Name} DESTINATION lib/dde-control-center/modules)
+
+#--------------------------plugin-Update--------------------------
+set(Update_Name dcc-update-plugin)
+file(GLOB_RECURSE Update_SRCS
+    "src/plugin-update/window/*.cpp"
+    "src/plugin-update/operation/*.cpp"
+    "src/plugin-update/operation/qrc/update.qrc"
+)
+
+add_library(${Update_Name} MODULE
+    ${Update_SRCS}
+)
+
+set(Update_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    src/plugin-update/operation
+    src/plugin-update/window
+)
+set(Update_Libraries
+    ${Dcc_Widgets_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    ${Dcc_Widgets_Name}
+    ${Qt5Multimedia_LIBRARIES}
+)
+target_include_directories(${Update_Name} PUBLIC
+    ${Update_Includes}
+)
+
+target_link_libraries(${Update_Name} PRIVATE
+    ${Update_Libraries}
+)
+
+install(TARGETS ${Update_Name} DESTINATION lib/dde-control-center/modules)
