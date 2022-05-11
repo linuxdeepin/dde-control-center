@@ -33,7 +33,7 @@ UpdateDBusProxy::UpdateDBusProxy(QObject *parent)
     qRegisterMetaType<LastoreUpdatePackagesInfo>("LastoreUpdatePackagesInfo");
     qDBusRegisterMetaType<LastoreUpdatePackagesInfo>();
 
-    qRegisterMetaType<BatteryPercentageInfo>("LastoreUpdatePackagesInfo");
+    qRegisterMetaType<BatteryPercentageInfo>("BatteryPercentageInfo");
     qDBusRegisterMetaType<BatteryPercentageInfo>();
 
     QDBusConnection::systemBus().connect(UpdaterService, UpdaterPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));

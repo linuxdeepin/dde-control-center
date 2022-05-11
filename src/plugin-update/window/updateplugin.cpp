@@ -83,12 +83,9 @@ void UpdateModule::active()
 
 void UpdateModule::syncUpdatablePackagesChanged(const bool isUpdatablePackages)
 {
-    qDebug() << " ------- " << isUpdatablePackages << " ====== " << m_model->updateNotify();
-    if (isUpdatablePackages && m_model->updateNotify()) {
-        ModuleData *dataRoot = const_cast<ModuleData *>(moduleData());
-        dataRoot->Badge = isUpdatablePackages;
-        this->setModuleData(dataRoot);
-    }
+    ModuleData *dataRoot = const_cast<ModuleData *>(moduleData());
+    dataRoot->Badge = (isUpdatablePackages && m_model->updateNotify());
+    this->setModuleData(dataRoot);
 }
 
 QWidget *checkUpdateModule::page()
