@@ -451,7 +451,7 @@ bool IpvxSection::ipv4InputIsValid()
         NetworkInter inter("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus());
         inter.RequestIPConflictCheck(ip, "");
         connect(&inter, &NetworkInter::IPConflict, this, [&strCurrentIP,&isIPConflict] (const QString &strIP, const QString &strMac) {
-            if (!strMac.isEmpty() && strIP == strCurrentIP) {
+            if (!strMac.isEmpty() && strIP == strCurrentIP && !isIPConflict) {
                 Notifications notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus());
                 notifications.Notify("dde-control-center", static_cast<uint>(QDateTime::currentMSecsSinceEpoch()), "preferences-system", tr("Network"), tr("IP conflict"), QStringList(), QVariantMap(), 3000);
             }
