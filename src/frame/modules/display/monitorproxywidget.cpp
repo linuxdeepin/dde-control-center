@@ -189,7 +189,11 @@ void MonitorProxyWidget::keyPressEvent(QKeyEvent *event)
     QGraphicsItem::keyPressEvent(event);
 
    if (m_model->displayMode() == EXTEND_MODE) {
-        Q_EMIT requestKeyPress(this, event->key());
+        int keyValue = event->key();
+        if (keyValue != Qt::Key_Up && keyValue != Qt::Key_Down && keyValue != Qt::Key_Left && keyValue != Qt::Key_Right) {
+            return;
+        }
+        Q_EMIT requestKeyPress(this, keyValue);
    }
 }
 
