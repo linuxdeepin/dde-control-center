@@ -155,6 +155,18 @@ set(WINDOW_FILES
     window/modules/commoninfo/developermodedialog.cpp
 )
 
+if (DEFINED DISABLE_SYS_UPDATE)
+  list(REMOVE_ITEM WINDOW_FILES "window/modules/update/updatemodule.cpp")
+  list(REMOVE_ITEM WINDOW_FILES "window/modules/update/updatewidget.cpp")
+  list(REMOVE_ITEM WINDOW_FILES "window/modules/update/updatectrlwidget.cpp")
+  list(REMOVE_ITEM WINDOW_FILES "window/modules/update/updatesettings.cpp")
+  list(REMOVE_ITEM WINDOW_FILES "window/modules/update/loadingitem.cpp")
+  list(REMOVE_ITEM WINDOW_FILES "window/modules/update/updatehistorybutton.cpp")
+  list(REMOVE_ITEM WINDOW_FILES "window/modules/update/recenthistoryapplist.cpp")
+  list(REMOVE_ITEM WINDOW_FILES "window/modules/update/mirrorswidget.cpp")
+  list(REMOVE_ITEM WINDOW_FILES "window/modules/update/mirrorsourceitem.cpp")
+endif()
+
 # load interfaces
 set(INTERFACES_FILES
                 ../../include/interface/moduleinterface.h
@@ -476,6 +488,7 @@ set(SYSTEMINFO_FILES
 )
 
 # load update
+if (NOT DISABLE_SYS_UPDATE)
 set(UPDATE_FILES
                 modules/update/loadingitem.cpp
                 modules/update/resultitem.cpp
@@ -493,6 +506,7 @@ set(UPDATE_FILES
                 window/modules/update/safeupdateitem.cpp
                 window/modules/update/unknownupdateitem.cpp
 )
+endif()
 
 # load wacom
 set(WACOM_FILES
