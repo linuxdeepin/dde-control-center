@@ -177,11 +177,13 @@ void ResetPasswordDialog::initWidget(const QString &userName)
         windowHandle()->setProperty("_d_dwayland_window-type", "onScreenDisplay");
         setWindowFlags(Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
     } else {
-        m_tipDialog.setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
         if (m_appName == "greeter" || m_appName == "lock") {
+            m_tipDialog.setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
             setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
         } else {
+            m_tipDialog.setWindowFlags(Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
             setWindowFlags(Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+
         }
     }
     m_tipDialog.installEventFilter(this);
@@ -345,6 +347,8 @@ void ResetPasswordDialog::onReadFromServerChanged(int fd)
     buffer[n]='\0';
     QString content = buffer;
     if (content.startsWith("success")) {
+        m_dccClient->write("close");
+        m_dccClient->flush();
         quit();
     } else {
         DMessageManager::instance()->sendMessage(this, QIcon::fromTheme("dialog-warning"), content);
