@@ -417,8 +417,12 @@ bool BubbleManager::eventFilter(QObject *watched, QEvent *e)
         QWidget *w = qobject_cast<QWidget *>(watched);
         if (w) {
             m_parentWidget = w->window();
+            if (m_parentWidget)
+                m_parentWidget->installEventFilter(this);
             geometryChanged();
         }
+    } else if (e->type() == QEvent::Resize) {
+        geometryChanged();
     }
     return QObject::eventFilter(watched, e);
 }
