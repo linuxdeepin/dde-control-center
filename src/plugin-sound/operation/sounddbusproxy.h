@@ -1,13 +1,17 @@
 #ifndef SOUNDDBUSPROXY_H
 #define SOUNDDBUSPROXY_H
 
+#include "interface/namespace.h"
 #include "audioport.h"
 #include <QDBusObjectPath>
 #include <QObject>
 
-typedef QMap<QString, bool>  SoundEffectQuestions;
+typedef QMap<QString, bool> SoundEffectQuestions;
 
-class QDBusInterface;
+DCC_BEGIN_NAMESPACE
+class DCCDBusInterface;
+DCC_END_NAMESPACE
+
 class QDBusMessage;
 class SoundDBusProxy : public QObject
 {
@@ -18,19 +22,6 @@ public:
     // Audio
     bool isServiceRegistered();
 
-    QDBusObjectPath defaultSink();
-    QDBusObjectPath defaultSource();
-    QString cardsWithoutUnavailable();
-    QStringList bluetoothAudioModeOpts();
-    QString bluetoothAudioMode();
-    double maxUIVolume();
-
-    bool increaseVolume();
-    void setIncreaseVolume(bool value);
-
-    bool reduceNoise();
-    void setReduceNoise(bool value);
-
     void SetPortEnabled(uint in0, const QString &in1, bool in2);
 
     void SetPort(uint in0, const QString &in1, int in2);
@@ -38,103 +29,140 @@ public:
     void SetBluetoothAudioMode(const QString &in0);
 
     // SoundEffect
-    bool enabled();
-    void setEnabled(bool value);
     void GetSoundEnabledMap();
     void EnableSound(const QString &name, bool enabled);
     QString GetSoundFile(const QString &name);
 
     // Power
-    bool hasBattery();
-
 
     // Sink
     void setSinkDevicePath(const QString &path);
 
-    bool muteSink();
-    void SetSinkMute(bool in0);
+    void SetMuteSink(bool in0);
 
-    double balanceSink();
     void SetBalanceSink(double in0, bool in1);
 
-    double volumeSink();
     void SetVolumeSink(double in0, bool in1);
-
-    AudioPort activePortSink();
-    uint cardSink();
 
     // Source
     void setSourceDevicePath(const QString &path);
 
-    bool muteSource();
     void SetSourceMute(bool in0);
 
-    double volumeSource();
     void SetSourceVolume(double in0, bool in1);
-
-    AudioPort activeSourcePort();
-    uint cardSource();
 
     QDBusObjectPath GetMeter();
 
     // SourceMeter
     void setMeterDevicePath(const QString &path);
-    double volumeSourceMeter();
     void Tick();
+
+    // Audio
+    Q_PROPERTY(double MaxUIVolume READ maxUIVolume NOTIFY MaxUIVolumeChanged)
+    double maxUIVolume();
+    Q_PROPERTY(bool IncreaseVolume READ increaseVolume WRITE setIncreaseVolume NOTIFY IncreaseVolumeChanged)
+    bool increaseVolume();
+    void setIncreaseVolume(bool value);
+    Q_PROPERTY(bool ReduceNoise READ reduceNoise WRITE setReduceNoise NOTIFY ReduceNoiseChanged)
+    bool reduceNoise();
+    void setReduceNoise(bool value);
+    Q_PROPERTY(QString BluetoothAudioMode READ bluetoothAudioMode NOTIFY BluetoothAudioModeChanged)
+    QString bluetoothAudioMode();
+    Q_PROPERTY(QStringList BluetoothAudioModeOpts READ bluetoothAudioModeOpts NOTIFY BluetoothAudioModeOptsChanged)
+    QStringList bluetoothAudioModeOpts();
+    Q_PROPERTY(QString CardsWithoutUnavailable READ cardsWithoutUnavailable NOTIFY CardsWithoutUnavailableChanged)
+    QString cardsWithoutUnavailable();
+    Q_PROPERTY(QDBusObjectPath DefaultSource READ defaultSource NOTIFY DefaultSourceChanged)
+    QDBusObjectPath defaultSource();
+    Q_PROPERTY(QDBusObjectPath DefaultSink READ defaultSink NOTIFY DefaultSinkChanged)
+    QDBusObjectPath defaultSink();
+    Q_PROPERTY(QList<QDBusObjectPath> SinkInputs READ sinkInputs NOTIFY SinkInputsChanged)
+    QList<QDBusObjectPath> sinkInputs();
+    Q_PROPERTY(QList<QDBusObjectPath> Sinks READ sinks NOTIFY SinksChanged)
+    QList<QDBusObjectPath> sinks();
+    Q_PROPERTY(QList<QDBusObjectPath> Sources READ sources NOTIFY SourcesChanged)
+    QList<QDBusObjectPath> sources();
+    // Sink
+    Q_PROPERTY(bool MuteSink READ muteSink NOTIFY MuteSinkChanged)
+    bool muteSink();
+    Q_PROPERTY(double BalanceSink READ balanceSink NOTIFY BalanceSinkChanged)
+    double balanceSink();
+    Q_PROPERTY(double BaseVolumeSink READ baseVolumeSink NOTIFY BaseVolumeSinkChanged)
+    double baseVolumeSink();
+    Q_PROPERTY(uint CardSink READ cardSink NOTIFY CardSinkChanged)
+    uint cardSink();
+    Q_PROPERTY(double VolumeSink READ volumeSink NOTIFY VolumeSinkChanged)
+    double volumeSink();
+    Q_PROPERTY(AudioPort ActivePortSink READ activePortSink NOTIFY ActivePortSinkChanged)
+    AudioPort activePortSink();
+    // Source
+    Q_PROPERTY(bool MuteSource READ muteSource NOTIFY MuteSourceChanged)
+    bool muteSource();
+    Q_PROPERTY(uint CardSource READ cardSource NOTIFY CardSourceChanged)
+    uint cardSource();
+    Q_PROPERTY(double VolumeSource READ volumeSource NOTIFY VolumeSourceChanged)
+    double volumeSource();
+    Q_PROPERTY(AudioPort ActivePortSource READ activePortSource NOTIFY ActivePortSourceChanged)
+    AudioPort activePortSource();
+    // Power
+    Q_PROPERTY(bool HasBattery READ hasBattery NOTIFY HasBatteryChanged)
+    bool hasBattery();
+    // SoundEffect
+    Q_PROPERTY(bool Enabled READ enabled WRITE setEnabled NOTIFY EnabledChanged)
+    bool enabled();
+    void setEnabled(bool value);
+    // Audio.Meter
+    Q_PROPERTY(double VolumeMeter READ volumeMeter NOTIFY VolumeMeterChanged)
+    double volumeMeter();
 
 Q_SIGNALS:
     // Audio SIGNALS
     void PortEnabledChanged(uint in0, const QString &in1, bool in2);
-    void BluetoothAudioModeChanged(const QString & value) const;
-    void BluetoothAudioModeOptsChanged(const QStringList & value) const;
-    void CardsChanged(const QString & value) const;
-    void CardsWithoutUnavailableChanged(const QString & value) const;
-    void DefaultSinkChanged(const QDBusObjectPath & value) const;
-    void DefaultSourceChanged(const QDBusObjectPath & value) const;
-    void IncreaseVolumeChanged(bool  value) const;
-    void MaxUIVolumeChanged(double  value) const;
-    void ReduceNoiseChanged(bool  value) const;
-    void SinkInputsChanged(const QList<QDBusObjectPath> & value) const;
-    void SinksChanged(const QList<QDBusObjectPath> & value) const;
-    void SourcesChanged(const QList<QDBusObjectPath> & value) const;
+    void BluetoothAudioModeChanged(const QString &value) const;
+    void BluetoothAudioModeOptsChanged(const QStringList &value) const;
+    void CardsChanged(const QString &value) const;
+    void CardsWithoutUnavailableChanged(const QString &value) const;
+    void DefaultSinkChanged(const QDBusObjectPath &value) const;
+    void DefaultSourceChanged(const QDBusObjectPath &value) const;
+    void IncreaseVolumeChanged(bool value) const;
+    void MaxUIVolumeChanged(double value) const;
+    void ReduceNoiseChanged(bool value) const;
+    void SinkInputsChanged(const QList<QDBusObjectPath> &value) const;
+    void SinksChanged(const QList<QDBusObjectPath> &value) const;
+    void SourcesChanged(const QList<QDBusObjectPath> &value) const;
 
     // SoundEffect SIGNALS
     void EnabledChanged(bool value) const;
     void pendingCallWatcherFinished(QMap<QString, bool> map);
 
     // Power SIGNALS
-    void HasBatteryChanged(bool  value) const;
+    void HasBatteryChanged(bool value) const;
 
     // Sink SIGNALS
-    void MuteChangedSink(bool  value) const;
-    void CardChangedSink(uint  value) const;
-    void VolumeChangedSink(double  value) const;
-    void ActivePortChangedSink(AudioPort  value) const;
-    void BalanceChangedSink(double  value) const;
+    void MuteSinkChanged(bool value) const;
+    void BalanceSinkChanged(double value) const;
+    void BaseVolumeSinkChanged(double value) const;
+    void CardSinkChanged(uint value) const;
+    void VolumeSinkChanged(double value) const;
+    void ActivePortSinkChanged(AudioPort value) const;
 
     // Source SIGNALS
-    void MuteChangedSource(bool  value) const;
-    void VolumeChangedSource(double  value) const;
-    void ActivePortChangedSource(AudioPort  value) const;
-    void CardChangedSource(uint  value) const;
+    void MuteSourceChanged(bool value) const;
+    void VolumeSourceChanged(double value) const;
+    void ActivePortSourceChanged(AudioPort value) const;
+    void CardSourceChanged(uint value) const;
 
     // Meter SIGNALS
-    void VolumeChangedMeter(double  value) const;
-
-private slots:
-    void onPropertiesChanged(const QDBusMessage &message);
-    void onSinkPropertiesChanged(const QDBusMessage &message);
-    void onSourcePropertiesChanged(const QDBusMessage &message);
-    void onMeterPropertiesChanged(const QDBusMessage &message);
+    void VolumeMeterChanged(double value) const;
 
 private:
-    QDBusInterface *m_audioInter;
-    QDBusInterface *m_soundEffectInter;
-    QDBusInterface *m_powerInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_audioInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_soundEffectInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_powerInter;
 
-    QDBusInterface *m_defaultSink;
-    QDBusInterface *m_defaultSource;
-    QDBusInterface *m_sourceMeter;
+    DCC_NAMESPACE::DCCDBusInterface *m_defaultSink;
+    DCC_NAMESPACE::DCCDBusInterface *m_defaultSource;
+    DCC_NAMESPACE::DCCDBusInterface *m_sourceMeter;
 };
 
 #endif // SOUNDDBUSPROXY_H

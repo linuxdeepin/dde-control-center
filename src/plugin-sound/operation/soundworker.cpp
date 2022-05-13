@@ -107,7 +107,7 @@ void SoundWorker::refreshSoundEffect()
 
 void SoundWorker::switchSpeaker(bool on)
 {
-    m_soundDBusInter->SetSinkMute(!on);
+    m_soundDBusInter->SetMuteSink(!on);
 }
 
 void SoundWorker::switchMicrophone(bool on)
@@ -144,9 +144,9 @@ void SoundWorker::setSinkVolume(double volume)
 void SoundWorker::setSinkMute(bool flag)
 {
     if (flag) {
-        m_soundDBusInter->SetSinkMute(!m_soundDBusInter->muteSink());
+        m_soundDBusInter->SetMuteSink(!m_soundDBusInter->muteSink());
     } else if (m_soundDBusInter->muteSink()) {
-        m_soundDBusInter->SetSinkMute(false);
+        m_soundDBusInter->SetMuteSink(false);
     }
 }
 
@@ -200,11 +200,11 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 
 
     m_soundDBusInter->setSinkDevicePath(path.path());
-    connect(m_soundDBusInter, &SoundDBusProxy::MuteChangedSink, [this](bool mute) { m_model->setSpeakerOn(mute);});
-    connect(m_soundDBusInter, &SoundDBusProxy::BalanceChangedSink, m_model, &SoundModel::setSpeakerBalance);
-    connect(m_soundDBusInter, &SoundDBusProxy::VolumeChangedSink, m_model, &SoundModel::setSpeakerVolume);
-    connect(m_soundDBusInter, &SoundDBusProxy::ActivePortChangedSink, this, &SoundWorker::activeSinkPortChanged);
-    connect(m_soundDBusInter, &SoundDBusProxy::CardChangedSink, this, &SoundWorker::onSinkCardChanged);
+    connect(m_soundDBusInter, &SoundDBusProxy::MuteSinkChanged, [this](bool mute) { m_model->setSpeakerOn(mute);});
+    connect(m_soundDBusInter, &SoundDBusProxy::BalanceSinkChanged, m_model, &SoundModel::setSpeakerBalance);
+    connect(m_soundDBusInter, &SoundDBusProxy::VolumeSinkChanged, m_model, &SoundModel::setSpeakerVolume);
+    connect(m_soundDBusInter, &SoundDBusProxy::ActivePortSinkChanged, this, &SoundWorker::activeSinkPortChanged);
+    connect(m_soundDBusInter, &SoundDBusProxy::CardSinkChanged, this, &SoundWorker::onSinkCardChanged);
 
     m_model->setSpeakerOn(m_soundDBusInter->muteSink());
     m_model->setSpeakerBalance(m_soundDBusInter->balanceSink());
@@ -220,21 +220,21 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 
     m_soundDBusInter->setSourceDevicePath(path.path());
 
-    connect(m_soundDBusInter, &SoundDBusProxy::MuteChangedSource, [this](bool mute) { m_model->setMicrophoneOn(mute); });
-    connect(m_soundDBusInter, &SoundDBusProxy::VolumeChangedSource, m_model, &SoundModel::setMicrophoneVolume);
-    connect(m_soundDBusInter, &SoundDBusProxy::ActivePortChangedSource, this, &SoundWorker::activeSourcePortChanged);
-    connect(m_soundDBusInter, &SoundDBusProxy::CardChangedSource, this, &SoundWorker::onSourceCardChanged);
+    connect(m_soundDBusInter, &SoundDBusProxy::MuteSourceChanged, [this](bool mute) { m_model->setMicrophoneOn(mute); });
+    connect(m_soundDBusInter, &SoundDBusProxy::VolumeSourceChanged, m_model, &SoundModel::setMicrophoneVolume);
+    connect(m_soundDBusInter, &SoundDBusProxy::ActivePortSourceChanged, this, &SoundWorker::activeSourcePortChanged);
+    connect(m_soundDBusInter, &SoundDBusProxy::CardSourceChanged, this, &SoundWorker::onSourceCardChanged);
 
     m_model->setMicrophoneOn(m_soundDBusInter->muteSource());
     m_model->setMicrophoneVolume(m_soundDBusInter->volumeSource());
-    activeSourcePortChanged(m_soundDBusInter->activeSourcePort());
+    activeSourcePortChanged(m_soundDBusInter->activePortSource());
     onSourceCardChanged(m_soundDBusInter->cardSource());
 
 #ifndef DCC_DISABLE_FEEDBACK
     QDBusObjectPath meter = m_soundDBusInter->GetMeter();
     m_soundDBusInter->setMeterDevicePath(meter.path());
-    connect(m_soundDBusInter, &SoundDBusProxy::VolumeChangedMeter, m_model, &SoundModel::setMicrophoneFeedback);
-    m_model->setMicrophoneFeedback(m_soundDBusInter->volumeSourceMeter());
+    connect(m_soundDBusInter, &SoundDBusProxy::VolumeMeterChanged, m_model, &SoundModel::setMicrophoneFeedback);
+    m_model->setMicrophoneFeedback(m_soundDBusInter->volumeMeter());
 
 #endif
 }

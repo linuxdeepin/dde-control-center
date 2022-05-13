@@ -109,6 +109,7 @@ set(Dcc_Widgets_Libraries
     ${DtkWidget_LIBRARIES}
     Qt5::Widgets
     Qt5::Svg
+    Qt5::DBus
 )
 target_include_directories(${Dcc_Widgets_Name} PUBLIC
     ${Dcc_Widgets_Includes}
