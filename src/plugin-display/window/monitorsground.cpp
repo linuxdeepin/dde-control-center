@@ -284,7 +284,7 @@ void MonitorsGround::adjustAll()
         pw->setPos(pw->pos() + dPos);
     }
 
-    resetMatrix();
+    resetTransform();
     this->scale(scale, scale);
 }
 
@@ -354,7 +354,7 @@ void MonitorsGround::singleScreenAdjest()
 
     QPointF dPos = sceneRect().center() - scene()->itemsBoundingRect().center();
     m_monitors.keys().last()->setPos(m_monitors.keys().last()->pos() + dPos);
-    resetMatrix();
+    resetTransform();
     this->scale(scale, scale);
     setEnabled(false);
 }
@@ -1500,7 +1500,7 @@ void MonitorsGround::updateScale()
     double wScale = rectView.height() / 1.2 / screenHeight;
     m_scale = std::min(hScale,wScale);
 
-    resetMatrix();
+    resetTransform();
     scale(m_scale, m_scale);
 }
 

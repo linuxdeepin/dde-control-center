@@ -324,7 +324,7 @@ void DisplayModule::showMultiScreenWidget()
     m_displayWidget->layout()->addWidget(multiScreenWidget);
 }
 
-void DisplayModule::onRequestSetResolution(Monitor *monitor, const int mode)
+void DisplayModule::onRequestSetResolution(Monitor *monitor, const uint mode)
 {
     Resolution lastRes = monitor->currentMode();
     Resolution firstRes;
@@ -449,7 +449,6 @@ void DisplayModule::pushScreenWidget()
 
 int DisplayModule::showTimeoutDialog(Monitor *monitor, const bool isFillMode)
 {
-    QDesktopWidget *desktopwidget = QApplication::desktop();
     TimeoutDialog *timeoutDialog = new TimeoutDialog(15);
     qreal radio = qApp->devicePixelRatio();
     QRectF rt(monitor->x(), monitor->y(), monitor->w() / radio, monitor->h() / radio);
@@ -459,7 +458,7 @@ int DisplayModule::showTimeoutDialog(Monitor *monitor, const bool isFillMode)
         connect(monitor, &Monitor::currentRotateModeChanged, timeoutDialog, &TimeoutDialog::close);
     }
 
-    connect(desktopwidget, &QDesktopWidget::resized, timeoutDialog, [=] {
+    connect(monitor, &Monitor::geometryChanged, timeoutDialog, [=] {
         if (timeoutDialog) {
             QRectF rt(monitor->x(), monitor->y(), monitor->w() / radio, monitor->h() / radio);
             timeoutDialog->moveToCenterByRect(rt.toRect());

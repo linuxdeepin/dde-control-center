@@ -116,7 +116,7 @@ void DisplayModel::monitorAdded(Monitor *mon)
 {
     m_monitors.append(mon);
     //  按照名称排序，显示的时候VGA在前，HDMI在后
-    qSort(m_monitors.begin(), m_monitors.end(), [=](const Monitor *m1, const Monitor *m2){
+    std::sort(m_monitors.begin(), m_monitors.end(), [=](const Monitor *m1, const Monitor *m2){
         return m1->name() > m2->name();
     });
     checkAllSupportFillModes();

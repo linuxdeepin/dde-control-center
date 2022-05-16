@@ -604,7 +604,7 @@ void AccountsWorker::setMaxPasswordAge(User *user, const int maxAge)
 void AccountsWorker::refreshADDomain()
 {
     QProcess *process = new QProcess(this);
-    process->start("/opt/pbis/bin/enum-users");
+    process->start("/opt/pbis/bin/enum-users", QStringList());
 
     connect(process, &QProcess::readyReadStandardOutput, this, [=] {
         QRegularExpression re("Name:\\s+(\\w+)");
@@ -612,7 +612,7 @@ void AccountsWorker::refreshADDomain()
         m_userModel->setIsJoinADDomain(match.hasMatch());
     });
 
-    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), process, &QProcess::deleteLater);
+    connect(process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), process, &QProcess::deleteLater);
 }
 
 void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin, const QString &password)

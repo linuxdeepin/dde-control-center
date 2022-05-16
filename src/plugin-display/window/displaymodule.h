@@ -60,7 +60,7 @@ protected:
     virtual void deactive() override;
 
 private Q_SLOTS:
-    void onRequestSetResolution(Monitor *monitor, const int mode);
+    void onRequestSetResolution(Monitor *monitor, const uint mode);
     void onRequestSetRotate(Monitor *monitor, const int rotate);
     void onRequestSetFillMode(Monitor *monitor, const QString fillMode);
     void showSingleScreenWidget();

@@ -63,7 +63,7 @@ void RecognizeWidget::paintEvent(QPaintEvent *event)
     const QFontMetrics fm(font);
 
     QPainterPath path;
-    path.addText((m_rect.width() - fm.width(m_text)) / 2, m_rect.height() - VerticalMargin - fm.height() / 4, font, m_text);
+    path.addText((m_rect.width() - fm.horizontalAdvance(m_text)) / 2, m_rect.height() - VerticalMargin - fm.height() / 4, font, m_text);
 
     QPalette palette;
     QColor brushCorlor;
@@ -84,7 +84,7 @@ void RecognizeWidget::onScreenRectChanged()
     font.setStyle(QFont::StyleNormal);
     font.setPixelSize(FontSize);
     const QFontMetrics fm(font);
-    int width = fm.width(m_text) + 2 * HorizentalMargin > MiniWidth ? fm.width(m_text) + 2 * HorizentalMargin : MiniWidth;
+    int width = fm.horizontalAdvance(m_text) + 2 * HorizentalMargin > MiniWidth ? fm.horizontalAdvance(m_text) + 2 * HorizentalMargin : MiniWidth;
     int height = fm.height() + 2 * VerticalMargin;
 
     const int x = displayRect.center().x() - width / 2;

@@ -38,6 +38,7 @@
 #include <QFileDialog>
 #include <QStandardPaths>
 #include <QDateTime>
+#include <QRandomGenerator>
 
 const int MaxAvatarSize = 14;
 
@@ -266,8 +267,7 @@ QString AvatarListWidget::getUserAddedCustomPicPath(const QString& usrName)
 
 QString AvatarListWidget::getAvatarPath() const
 {
-    qsrand(static_cast<uint>(QDateTime::currentDateTime().toTime_t()));
-    auto index = qrand() % 14;
+    auto index = QRandomGenerator::global()->bounded(14);
     if (m_currentSelectIndex.isValid())
         index = m_currentSelectIndex.row();
 

@@ -222,7 +222,7 @@ const QString updateControlPanel::getElidedText(QWidget *widget, QString data, Q
         return retTxt;
 
     QFontMetrics fontMetrics(font());
-    int fontWidth = fontMetrics.width(data);
+    int fontWidth = fontMetrics.horizontalAdvance(data);
 
     qInfo() << Q_FUNC_INFO << " [Enter], data, width, fontWidth : " << data << width << fontWidth << line;
 

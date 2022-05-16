@@ -197,7 +197,7 @@ void Monitor::setModeList(const ResolutionList &modeList)
             m_modeList.append(m);
         }
     }
-    qSort(m_modeList.begin(), m_modeList.end(), compareResolution);
+    std::sort(m_modeList.begin(), m_modeList.end(), compareResolution);
 
     Q_EMIT modelListChanged(m_modeList);
 }

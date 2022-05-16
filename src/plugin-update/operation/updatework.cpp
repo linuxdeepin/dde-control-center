@@ -578,7 +578,7 @@ void UpdateWorker::checkNetselect()
             process->deleteLater();
         }
     });
-    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [this, process](int result) {
+    connect(process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, [this, process](int result, QProcess::ExitStatus) {
         bool isNetselectExist = 0 == result;
         if (!isNetselectExist) {
             qDebug() << "[wubw UpdateWorker] netselect 127.0.0.1 : " << isNetselectExist;

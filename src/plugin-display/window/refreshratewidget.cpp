@@ -110,7 +110,7 @@ void RefreshRateWidget::OnCurrentModeChanged(const Resolution &mode)
 
     for (int idx = 0; idx < m_refreshItemModel->rowCount(); ++idx) {
         auto item = m_refreshItemModel->item(idx);
-        if (item->data(IdRole).toInt() == mode.id()) {
+        if (item->data(IdRole).toUInt() == mode.id()) {
             m_refreshCombox->setCurrentIndex(item->row());
             break;
         }
@@ -175,7 +175,7 @@ void RefreshRateWidget::initRefreshRate()
 
     connect(m_refreshCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
         auto item = m_refreshItemModel->item(idx);
-        auto r = item->data(IdRole).toInt();
+        auto r = item->data(IdRole).toUInt();
         if (m_monitor->currentMode().id() != r) {
             Q_EMIT requestSetResolution(m_monitor, r);
         }

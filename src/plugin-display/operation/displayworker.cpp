@@ -303,10 +303,7 @@ void DisplayWorker::setNightMode(const bool nightmode)
         serverCmd = "disable";
     }
 
-    connect(process, static_cast<void (QProcess::*)(int exitCode)>(&QProcess::finished), this, [=] {
-        process->close();
-        process->deleteLater();
-    });
+    connect(process, static_cast<void (QProcess::*)(int exitCode, QProcess::ExitStatus)>(&QProcess::finished), process, &QProcess::deleteLater);
 
     process->start("bash", QStringList() << "-c" << QString("systemctl --user %1 redshift.service && systemctl --user %2 redshift.service").arg(serverCmd).arg(cmd));
 }
