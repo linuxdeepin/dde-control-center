@@ -82,7 +82,7 @@ void ThemeManager::setThemeType(ThemeType type)
             DPalette::ToolTipBase, DPalette::ToolTipText
         };
         for (auto role:paletteColorRole) {
-            palette.setColor(DPalette::All, role, palette.color(role));
+            palette.setColor(DPalette::Inactive, role, palette.color(role));
         }
 
         Dtk::Gui::DGuiApplicationHelper::instance()->setApplicationPalette(palette);
