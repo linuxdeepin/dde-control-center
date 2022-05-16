@@ -408,7 +408,7 @@ void MultiScreenWidget::initSecondaryScreenDialog()
 
         if (!qgetenv("WAYLAND_DISPLAY").isEmpty()) {
             m_resetSecondaryScreenDlgTimer->start();
-            QTimer::singleShot(0, this, [=] {
+            QTimer::singleShot(10, this, [=] {
                 for (auto dlg : m_secondaryScreenDlgList) {
                     dlg->setWindowFlags(Qt::CoverWindow);
                     dlg->show();
