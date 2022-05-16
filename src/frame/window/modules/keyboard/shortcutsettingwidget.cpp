@@ -291,6 +291,7 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
             break;
         case ShortcutModel::Custom:
             connect(m_head, &SettingsHead::editChanged, item, &ShortcutItem::onEditMode);
+            qDebug() << Q_FUNC_INFO << item->curInfo()->name;
             m_customGroup->appendItem(item);
             m_customList.append(item);
 
@@ -388,25 +389,34 @@ void ShortCutSettingWidget::onSearchTextChanged(const QString &text)
 
 void ShortCutSettingWidget::onCustomAdded(ShortcutInfo *info)
 {
-    if (info) {
-        ShortcutItem *item = new ShortcutItem();
-        connect(item, &ShortcutItem::requestUpdateKey, this, &ShortCutSettingWidget::requestUpdateKey);
-        item->setShortcutInfo(info);
-        item->setTitle(info->name);
-        info->item = item;
+    if(info == nullptr)
+        return;
 
-        m_searchInfos[info->toString()] = info;
-
-        m_allList << item;
-
-        m_head->setVisible(true);
-        connect(m_head, &SettingsHead::editChanged, item, &ShortcutItem::onEditMode);
-        m_customGroup->appendItem(item);
-        m_customList.append(item);
-
-        connect(item, &ShortcutItem::requestRemove, this, &ShortCutSettingWidget::onDestroyItem);
-        connect(item, &ShortcutItem::shortcutEditChanged, this, &ShortCutSettingWidget::shortcutEditChanged);
+    // 防止自定义快捷键添加两次
+    for (auto item : m_customList) {
+        if(item->curInfo()->name == info->name){
+            return;
+        }
     }
+
+    qDebug() << Q_FUNC_INFO << info->name;
+    ShortcutItem *item = new ShortcutItem();
+    connect(item, &ShortcutItem::requestUpdateKey, this, &ShortCutSettingWidget::requestUpdateKey);
+    item->setShortcutInfo(info);
+    item->setTitle(info->name);
+    info->item = item;
+
+    m_searchInfos[info->toString()] = info;
+
+    m_allList << item;
+
+    m_head->setVisible(true);
+    connect(m_head, &SettingsHead::editChanged, item, &ShortcutItem::onEditMode);
+    m_customGroup->appendItem(item);
+    m_customList.append(item);
+
+    connect(item, &ShortcutItem::requestRemove, this, &ShortCutSettingWidget::onDestroyItem);
+    connect(item, &ShortcutItem::shortcutEditChanged, this, &ShortCutSettingWidget::shortcutEditChanged);
 }
 
 void ShortCutSettingWidget::onDestroyItem(ShortcutInfo *info)
