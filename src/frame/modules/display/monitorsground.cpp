@@ -494,8 +494,12 @@ QPointF MonitorsGround::multiScreenSortAlgo(bool &isRestore, const bool isReboun
             QRectF rect = moveItemIntersect.intersected(m_lstSortItems[i]->mapRectToScene(m_lstSortItems[i]->boundingRect()));
             intersectedArea += rect.width()*rect.height();
 
-            //移动块完全覆盖一个块
-            if (moveItemRect.contains(m_lstSortItems[i]->mapRectToScene(m_lstSortItems[i]->boundingRect()))) {
+            qInfo() << "rect" << rect << "moveItemRect" << moveItemRect << "moveItemIntersect" << moveItemIntersect;
+
+            //1、移动块完全覆盖一个块 2、移动块与另外一个块十字相交时 执行自动回弹操作
+            if (moveItemRect.contains(m_lstSortItems[i]->mapRectToScene(m_lstSortItems[i]->boundingRect()))
+                    || (rect.top() < moveItemIntersect.top() && rect.bottom() > moveItemIntersect.bottom() && qFuzzyCompare(rect.left(), moveItemIntersect.left()) && qFuzzyCompare(rect.right(), moveItemIntersect.right()))
+                    || (rect.right() < moveItemIntersect.right() && rect.left() > moveItemIntersect.left() && qFuzzyCompare(rect.top(), moveItemIntersect.top()) && qFuzzyCompare(rect.bottom(), moveItemIntersect.bottom()))) {
                 lstShelterItems.append(m_lstSortItems[i]);
             }
 
