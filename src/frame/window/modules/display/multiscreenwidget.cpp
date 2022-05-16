@@ -197,7 +197,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
             for (int idx = 0; idx < monitorList.size(); ++idx) {
                 auto monitor = monitorList[idx];
                 if (monitor->enable()) {
-                    m_modeCombox->setCurrentIndex(idx + 2);
+                    setModeCurrentIndex(monitor->name());
                     m_monitorControlWidget->setModel(m_model, monitor);
                     break;
                 }
@@ -233,7 +233,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
             for (int idx = 0; idx < monitorList.size(); ++idx) {
                 auto monitor = monitorList[idx];
                 if (monitor->enable()) {
-                    m_modeCombox->setCurrentIndex(idx + 2);
+                    setModeCurrentIndex(monitor->name());
                     break;
                 }
             }
@@ -343,21 +343,32 @@ void MultiScreenWidget::onGSettingsChanged(const QString &gsettingsName, const Q
 
 void MultiScreenWidget::initModeList()
 {
-    m_modeCombox->addItem(tr("Duplicate"));
-    m_modeCombox->addItem(tr("Extend"));
+    m_modeCombox->addItem(tr("Duplicate"), "Duplicate");
+    m_modeCombox->addItem(tr("Extend"), "Extend");
 
     auto monitorList = m_model->monitorList();
     for (int idx = 0; idx < monitorList.size(); ++idx) {
         auto monitor = monitorList[idx];
+        connect(monitor, &Monitor::enableChanged, this, [ this ](bool enable){
+            if(m_model->displayMode() == SINGLE_MODE){
+                for (auto moni : m_model->monitorList()) {
+                    if(moni->enable()){
+                        setModeCurrentIndex(moni->name());
+                    }
+                    break;
+                }
+            }
+        });
+
         if(monitorList.size() <= 2)
-            m_modeCombox->addItem(tr("Only on %1").arg(monitor->name()));
+            m_modeCombox->addItem(tr("Only on %1").arg(monitor->name()), monitor->name());
 
         if (m_model->displayMode() == MERGE_MODE) {
             m_modeCombox->setCurrentIndex(0);
         } else if (m_model->displayMode() == EXTEND_MODE) {
             m_modeCombox->setCurrentIndex(1);
         } else if (m_model->displayMode() == SINGLE_MODE && monitor->enable()) {
-            m_modeCombox->setCurrentIndex(idx + 2);
+            setModeCurrentIndex(monitor->name());
         }
     }
 }
@@ -557,4 +568,15 @@ void MultiScreenWidget::keyPressEvent(QKeyEvent *e)
     }
 
     QWidget::keyPressEvent(e);
+}
+
+void MultiScreenWidget::setModeCurrentIndex(const QString &monitorName)
+{
+    if(monitorName.isEmpty())
+        return;
+
+    qDebug() << Q_FUNC_INFO << monitorName;
+    int index = m_modeCombox->findData(monitorName);
+    if(index != -1)
+        m_modeCombox->setCurrentIndex(index);
 }

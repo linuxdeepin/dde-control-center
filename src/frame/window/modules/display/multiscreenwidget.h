@@ -90,6 +90,7 @@ private:
     void initModeList();
     void initPrimaryList();
     void initSecondaryScreenDialog();
+    void setModeCurrentIndex(const QString &monitorName);
 
 private Q_SLOTS:
     void onGatherWindows(const QPoint cursor);
