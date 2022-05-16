@@ -74,7 +74,6 @@ QWidget *DisplayModule::page()
     return m_displayWidget;
 }
 
-
 DisplayModule::DisplayModule(QObject *parent)
     : ModuleObject(parent)
     , m_model(nullptr)

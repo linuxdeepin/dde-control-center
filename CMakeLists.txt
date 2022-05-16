@@ -955,3 +955,41 @@ target_link_libraries(${Update_Name} PRIVATE
 )
 
 install(TARGETS ${Update_Name} DESTINATION lib/dde-control-center/modules)
+
+#--------------------------plugin-notification--------------------------
+set(Notification_Name dcc-notification-plugin)
+file(GLOB_RECURSE NOTIFICATION_SRCS
+    "src/plugin-notification/window/*.cpp"
+    "src/plugin-notification/operation/*.cpp"
+    "src/plugin-notification/operation/qrc/notification.qrc"
+)
+
+add_library(${Notification_Name} MODULE
+    ${NOTIFICATION_SRCS}
+)
+set(Notification_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Svg
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+set(Notification_Libraries
+    ${Dcc_Widgets_Name}
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Svg
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+
+target_include_directories(${Notification_Name} PUBLIC
+    ${Notification_Includes}
+)
+
+target_link_libraries(${Notification_Name} PRIVATE
+    ${Notification_Libraries}
+)
+
+install(TARGETS ${Notification_Name} DESTINATION lib/dde-control-center/modules)
