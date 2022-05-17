@@ -23,7 +23,11 @@
 DCC_USE_NAMESPACE
 
 ModuleData::ModuleData(QObject *parent)
-    : QObject(parent) {}
+    : QObject(parent)
+    , Badge(0)
+{
+
+}
 
 ModuleData::ModuleData(const QString &name, const QString &displayName, QObject *parent)
     : ModuleData(name, displayName, QStringList(), parent)
