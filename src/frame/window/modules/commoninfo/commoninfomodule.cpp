@@ -166,7 +166,7 @@ void CommonInfoModule::onShowBootWidget()
 
 void CommonInfoModule::onShowDeveloperWidget()
 {
-    DeveloperModeWidget *pWidget = new DeveloperModeWidget;
+    DeveloperModeWidget *pWidget = new DeveloperModeWidget(m_pMainWindow);
     pWidget->setVisible(false);
     pWidget->setModel(m_commonModel);
     connect(pWidget, &DeveloperModeWidget::requestLogin, m_commonWork, &CommonInfoWork::login);
