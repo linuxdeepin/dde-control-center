@@ -1036,3 +1036,27 @@ target_link_libraries(${UosID_Name} PRIVATE
 )
 
 install(TARGETS ${UosID_Name} DESTINATION lib/dde-control-center/modules)
+#-------------------------ut-dcc-notification-plugin-------------------------
+if (UNITTEST)
+    set(UT_Notification_Name ut-dcc-notification-plugin)
+    file(GLOB_RECURSE UT_NOTIFICATION_SRCS
+        "tests/plugin-notification/*.cpp"
+    )
+
+    add_executable(${UT_Notification_Name}
+        ${NOTIFICATION_SRCS}
+        ${UT_NOTIFICATION_SRCS}
+    )
+
+    # 用于测试覆盖率的编译条件
+    target_compile_options(${UT_Notification_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+
+    target_include_directories(${UT_Notification_Name} PUBLIC
+        ${Notification_Includes}
+    )
+
+    target_link_libraries(${UT_Notification_Name} PRIVATE
+        ${Notification_Libraries}
+        ${Test_Libraries}
+    )
+endif()
