@@ -993,3 +993,46 @@ target_link_libraries(${Notification_Name} PRIVATE
 )
 
 install(TARGETS ${Notification_Name} DESTINATION lib/dde-control-center/modules)
+
+#--------------------------plugin-uosid--------------------------
+set(UosID_Name dcc-uosid-plugin)
+find_package(PolkitQt5-1)
+file(GLOB_RECURSE UosID_SRCS
+    "src/plugin-uosid/window/*.cpp"
+    "src/plugin-uosid/operation/*.cpp"
+    "src/plugin-uosid/operation/qrc/uosid.qrc"
+)
+
+add_library(${UosID_Name} MODULE
+    ${UosID_SRCS}
+)
+
+set(UosID_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    src/plugin-uosid/operation
+    src/plugin-uosid/window
+)
+
+set(UosID_Libraries
+    ${Dcc_Widgets_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    ${Dcc_Widgets_Name}
+    ${Qt5Multimedia_LIBRARIES}
+    PolkitQt5-1::Agent
+)
+
+target_include_directories(${UosID_Name} PUBLIC
+    ${UosID_Includes}
+)
+
+target_link_libraries(${UosID_Name} PRIVATE
+    ${UosID_Libraries}
+)
+
+install(TARGETS ${UosID_Name} DESTINATION lib/dde-control-center/modules)

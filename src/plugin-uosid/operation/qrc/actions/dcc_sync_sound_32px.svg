@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <path id="sync_sound_32px-b" d="M7.33850989,4.67082407 L9.95676808,2.17199508 C10.3417466,1.80457696 11,2.06479745 11,2.58440514 L11,15.4155949 C11,15.9352025 10.3417466,16.195423 9.95676808,15.8280049 L7.33850989,13.3291759 C6.78045526,12.7965764 6.03868269,12.4994154 5.26726371,12.4994154 L2,12.4994154 C0.8954305,12.4994154 9.42821832e-14,11.6039849 0,10.4994154 L0,7.50058462 C-2.9223114e-14,6.39601512 0.8954305,5.50058462 2,5.50058462 L5.26726371,5.50058462 C6.03868269,5.50058462 6.78045526,5.20342361 7.33850989,4.67082407 Z"/>
+    <filter id="sync_sound_32px-a" width="136.4%" height="128.6%" x="-9.1%" y="-7.1%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.41176792   0 0 0 0 1  0 0 0 0.2 0"/>
+    </filter>
+    <path id="sync_sound_32px-d" d="M19,0.594648167 C19,0.266233053 19.2238576,0 19.5,0 C19.7761424,0 20,0.266233053 20,0.594648167 L20,17.4053518 C20,17.7337669 19.7761424,18 19.5,18 C19.2238576,18 19,17.7337669 19,17.4053518 L19,0.594648167 Z"/>
+    <filter id="sync_sound_32px-c" width="500%" height="122.2%" x="-100%" y="-5.6%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.41176792   0 0 0 0 1  0 0 0 0.2 0"/>
+    </filter>
+    <path id="sync_sound_32px-f" d="M16,2.61140711 C16,2.27373629 16.2238576,2 16.5,2 C16.7761424,2 17,2.27373629 17,2.61140711 L17,15.3885929 C17,15.7262637 16.7761424,16 16.5,16 C16.2238576,16 16,15.7262637 16,15.3885929 L16,2.61140711 Z"/>
+    <filter id="sync_sound_32px-e" width="500%" height="128.6%" x="-100%" y="-7.1%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.41176792   0 0 0 0 1  0 0 0 0.2 0"/>
+    </filter>
+    <path id="sync_sound_32px-h" d="M13,4.57959815 C13,4.25949493 13.2238576,4 13.5,4 C13.7761424,4 14,4.25949493 14,4.57959815 L14,12.4204019 C14,12.7405051 13.7761424,13 13.5,13 C13.2238576,13 13,12.7405051 13,12.4204019 L13,4.57959815 Z"/>
+    <filter id="sync_sound_32px-g" width="500%" height="144.4%" x="-100%" y="-11.1%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.41176792   0 0 0 0 1  0 0 0 0.2 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(6 7)">
+    <use fill="#000" filter="url(#sync_sound_32px-a)" xlink:href="#sync_sound_32px-b"/>
+    <path fill="#E1DFB6" stroke="#4F89CA" stroke-linejoin="square" d="M7.68371759,5.03253065 C7.03265385,5.65389677 6.16725252,6.00058462 5.26726371,6.00058462 L2,6.00058462 C1.17157288,6.00058462 0.5,6.6721575 0.5,7.50058462 L0.5,10.4994154 C0.5,11.3278425 1.17157288,11.9994154 2,11.9994154 L5.26726371,11.9994154 C6.16725252,11.9994154 7.03265385,12.3461032 7.68371759,12.9674694 L10.3019758,15.4662983 C10.3749258,15.5359208 10.5,15.4864765 10.5,15.4155949 L10.5,2.58440514 C10.5,2.51352347 10.3749258,2.46407918 10.3019758,2.53370166 L7.68371759,5.03253065 Z"/>
+    <use fill="#000" filter="url(#sync_sound_32px-c)" xlink:href="#sync_sound_32px-d"/>
+    <use fill="#4663FF" xlink:href="#sync_sound_32px-d"/>
+    <use fill="#000" filter="url(#sync_sound_32px-e)" xlink:href="#sync_sound_32px-f"/>
+    <use fill="#4663FF" xlink:href="#sync_sound_32px-f"/>
+    <use fill="#000" filter="url(#sync_sound_32px-g)" xlink:href="#sync_sound_32px-h"/>
+    <use fill="#4663FF" xlink:href="#sync_sound_32px-h"/>
+  </g>
+</svg>

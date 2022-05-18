@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="110" height="90" viewBox="0 0 110 90">
+  <defs>
+    <linearGradient id="union-id-a" x1="50%" x2="50%" y1="0%" y2="96.184%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#C2E0FD"/>
+    </linearGradient>
+    <path id="union-id-b" d="M54.9818182,0 C68.4793569,0 79.6928596,9.91783152 81.9237436,22.9598965 C90.134411,25.9813302 96,33.9626247 96,43.3333333 C96,55.2995029 86.4351742,65 74.6363636,65 C67.242006,65 31.9218526,65 23.3636364,65 C11.5648258,65 2,55.2995029 2,43.3333333 C2,31.3671638 11.5648258,21.6666667 23.3636364,21.6666667 C25.0187837,21.6666667 26.6299691,21.85756 28.1769554,22.2188226 C30.698357,9.54397888 41.741118,0 54.9818182,0 Z"/>
+    <filter id="union-id-c" width="118.1%" height="126.2%" x="-9%" y="-13.1%" filterUnits="objectBoundingBox">
+      <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="7.5"/>
+      <feOffset dy="-2" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.0641111344   0 0 0 0 0.254066875   0 0 0 0 0.844068878  0 0 0 0.3 0"/>
+    </filter>
+    <filter id="union-id-d" width="167.5%" height="167.5%" x="-33.8%" y="-33.8%" filterUnits="objectBoundingBox">
+      <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="3"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="union-id-e" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#3E71F2"/>
+      <stop offset="100%" stop-color="#000FC3"/>
+    </linearGradient>
+    <linearGradient id="union-id-f" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAC800"/>
+      <stop offset="100%" stop-color="#F49700"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(6 6)">
+      <use fill="url(#union-id-a)" xlink:href="#union-id-b"/>
+      <use fill="#000" filter="url(#union-id-c)" xlink:href="#union-id-b"/>
+      <ellipse cx="52" cy="81" fill="#00193D" opacity=".1" rx="52" ry="3"/>
+    </g>
+    <g fill-rule="nonzero" filter="url(#union-id-d)" transform="translate(66 33)">
+      <path fill="url(#union-id-e)" d="M4.95080851,6.76427841 C11.5028081,-0.69319413 22.5495958,-2.1795323 30.8396973,3.28094507 L30.8396973,3.28094507 L20.8396973,13.280945 C19.6058296,14.520708 19.6058296,16.5245154 20.8396973,17.7642784 L20.8396973,17.7642784 L35.4230307,32.380945 C32.0809794,36.5448432 27.2058713,39.1910983 21.8934002,39.7249572 C16.5809291,40.2588162 11.2767641,38.635493 7.17303073,35.2198339 L7.17303073,35.2198339 L15.7841418,26.6087228 L16.3841418,27.2087228 C17.6313848,28.4513635 19.6498344,28.4476325 20.8924751,27.2003895 C22.1351158,25.9531464 22.1313848,23.9346968 20.8841418,22.6920562 L20.8841418,22.6920562 Z M1.50080851,12.3031673 L11.2896973,22.0920562 L2.99525295,30.3920562 C-0.381085459,24.9530188 -0.937133697,18.2225613 1.50080851,12.3031673 L1.50080851,12.3031673 Z"/>
+      <path fill="url(#union-id-f)" d="M35.5896973,7.63094507 L27.5841418,15.5420562 L38.6952529,26.5531673 C40.9689732,20.1442162 39.8056439,13.0175142 35.6119196,7.66427841 L35.5896973,7.63094507 Z"/>
+    </g>
+  </g>
+</svg>

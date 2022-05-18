@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <rect id="sync_wallpaper_32px-b" width="22" height="16" x="5" y="8" rx="2"/>
+    <filter id="sync_wallpaper_32px-a" width="118.2%" height="125%" x="-4.5%" y="-6.2%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.41176792   0 0 0 0 1  0 0 0 0.2 0"/>
+    </filter>
+    <path id="sync_wallpaper_32px-d" d="M7.5,22 C9.16666667,18 10.5,16 11.5,16 C11.8333333,16 13.1666667,17 15.5,19 L18.5,16 L24.5,22 L7.5,22 Z"/>
+    <filter id="sync_wallpaper_32px-c" width="127.3%" height="181.8%" x="-6.1%" y="-18.2%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.486177885   0 0 0 0 1  0 0 0 0.3 0"/>
+    </filter>
+    <circle id="sync_wallpaper_32px-f" cx="21" cy="12" r="1"/>
+    <filter id="sync_wallpaper_32px-e" width="300%" height="300%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.486177885   0 0 0 0 1  0 0 0 0.3 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <use fill="#000" filter="url(#sync_wallpaper_32px-a)" xlink:href="#sync_wallpaper_32px-b"/>
+    <rect width="20.909" height="14.909" x="5.545" y="8.545" fill="#E1DFB6" stroke="#4F89CA" stroke-linejoin="square" stroke-width="1.091" rx="2"/>
+    <use fill="#000" filter="url(#sync_wallpaper_32px-c)" xlink:href="#sync_wallpaper_32px-d"/>
+    <use fill="#4663FF" xlink:href="#sync_wallpaper_32px-d"/>
+    <use fill="#000" filter="url(#sync_wallpaper_32px-e)" xlink:href="#sync_wallpaper_32px-f"/>
+    <use fill="#4663FF" xlink:href="#sync_wallpaper_32px-f"/>
+  </g>
+</svg>

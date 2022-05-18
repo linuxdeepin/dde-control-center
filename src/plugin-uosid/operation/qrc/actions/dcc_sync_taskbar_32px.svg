@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <rect id="sync_taskbar_32px-b" width="22" height="16" x="5" y="8" rx="2"/>
+    <filter id="sync_taskbar_32px-a" width="118.2%" height="125%" x="-4.5%" y="-6.2%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.41176792   0 0 0 0 1  0 0 0 0.2 0"/>
+    </filter>
+    <path id="sync_taskbar_32px-d" d="M8.5,19 L23.5,19 C24.3284271,19 25,19.6715729 25,20.5 C25,21.3284271 24.3284271,22 23.5,22 L8.5,22 C7.67157288,22 7,21.3284271 7,20.5 C7,19.6715729 7.67157288,19 8.5,19 Z M8,20 L9,20 L9,21 L8,21 L8,20 Z M18,20 L19,20 L19,21 L18,21 L18,20 Z M14,20 L15,20 L15,21 L14,21 L14,20 Z M16,20 L17,20 L17,21 L16,21 L16,20 Z M23,20 L24,20 L24,21 L23,21 L23,20 Z M21,20 L22,20 L22,21 L21,21 L21,20 Z"/>
+    <filter id="sync_taskbar_32px-c" width="122.2%" height="233.3%" x="-5.6%" y="-33.3%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.486177885   0 0 0 0 1  0 0 0 0.3 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <use fill="#000" filter="url(#sync_taskbar_32px-a)" xlink:href="#sync_taskbar_32px-b"/>
+    <rect width="20.909" height="14.909" x="5.545" y="8.545" fill="#E1DFB6" stroke="#4F89CA" stroke-linejoin="square" stroke-width="1.091" rx="2"/>
+    <use fill="#000" filter="url(#sync_taskbar_32px-c)" xlink:href="#sync_taskbar_32px-d"/>
+    <use fill="#4663FF" xlink:href="#sync_taskbar_32px-d"/>
+  </g>
+</svg>

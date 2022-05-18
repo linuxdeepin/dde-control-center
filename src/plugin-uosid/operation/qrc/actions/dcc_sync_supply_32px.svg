@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <path id="sync_supply_32px-b" d="M7,17 L22,17 C23.1045695,17 24,17.8954305 24,19 L24,23 C24,24.1045695 23.1045695,25 22,25 L7,25 C5.8954305,25 5,24.1045695 5,23 L5,19 C5,17.8954305 5.8954305,17 7,17 Z M25,19 L26,19 C26.5522847,19 27,19.4477153 27,20 L27,22 C27,22.5522847 26.5522847,23 26,23 L25,23 L25,19 Z"/>
+    <filter id="sync_supply_32px-a" width="118.2%" height="150%" x="-4.5%" y="-12.5%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.41176792   0 0 0 0 1  0 0 0 0.2 0"/>
+    </filter>
+    <path id="sync_supply_32px-d" d="M8,7 L18,7 L18,9 C18,11.7614237 15.7614237,14 13,14 C10.2385763,14 8,11.7614237 8,9 L8,7 Z M10,4 L12,4 L12,6 L10,6 L10,4 Z M14,4 L16,4 L16,6 L14,6 L14,4 Z"/>
+    <filter id="sync_supply_32px-c" width="140%" height="140%" x="-10%" y="-10%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.486177885   0 0 0 0 1  0 0 0 0.3 0"/>
+    </filter>
+    <path id="sync_supply_32px-f" d="M11.2597279,19 C11.3154362,20.6448933 11.6863693,21.9856904 12.3931671,23 L7,23 L7,19 L11.2597279,19 Z"/>
+    <filter id="sync_supply_32px-e" width="174.2%" height="200%" x="-18.5%" y="-25%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.486177885   0 0 0 0 1  0 0 0 0.3 0"/>
+    </filter>
+    <path id="sync_supply_32px-h" d="M12.4812826,15.8837742 C11.8438426,19.9474542 12.5167131,22.5968821 14.6645898,23.6708204 C15.7890774,24.2330642 16.3422154,25.633414 16.2400511,27.9540598 C16.214322,28.5384919 17.7148145,28.6116064 17.7396188,27.9382349 C17.8443326,25.0955336 17.0719419,23.1974455 15.3354102,22.3291796 C13.9277313,21.6253402 13.4154167,19.6081013 13.9631619,16.1162258 C14.0273516,15.7070162 13.7476577,15.3232501 13.338448,15.2590604 C12.9292384,15.1948706 12.5454723,15.4745645 12.4812826,15.8837742 Z"/>
+    <filter id="sync_supply_32px-g" width="172.8%" height="130.4%" x="-18.2%" y="-7.6%" filterUnits="objectBoundingBox">
+      <feOffset dx="2" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0.486177885   0 0 0 0 1  0 0 0 0.3 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <use fill="#000" filter="url(#sync_supply_32px-a)" xlink:href="#sync_supply_32px-b"/>
+    <path fill="#E1DFB6" stroke="#4F89CA" stroke-linejoin="square" stroke-width="1.091" d="M7,17.5454545 C6.19667673,17.5454545 5.54545455,18.1966767 5.54545455,19 L5.54545455,23 C5.54545455,23.8033233 6.19667673,24.4545455 7,24.4545455 L22,24.4545455 C22.8033233,24.4545455 23.4545455,23.8033233 23.4545455,23 L23.4545455,19 C23.4545455,18.1966767 22.8033233,17.5454545 22,17.5454545 L7,17.5454545 Z M25.5454545,19.5454545 L25.5454545,22.4545455 L26,22.4545455 C26.2510385,22.4545455 26.4545455,22.2510385 26.4545455,22 L26.4545455,20 C26.4545455,19.7489615 26.2510385,19.5454545 26,19.5454545 L25.5454545,19.5454545 Z"/>
+    <use fill="#000" filter="url(#sync_supply_32px-c)" xlink:href="#sync_supply_32px-d"/>
+    <use fill="#4663FF" xlink:href="#sync_supply_32px-d"/>
+    <use fill="#000" filter="url(#sync_supply_32px-e)" xlink:href="#sync_supply_32px-f"/>
+    <use fill="#4663FF" xlink:href="#sync_supply_32px-f"/>
+    <use fill="#000" filter="url(#sync_supply_32px-g)" xlink:href="#sync_supply_32px-h"/>
+    <use fill="#4663FF" xlink:href="#sync_supply_32px-h"/>
+  </g>
+</svg>
