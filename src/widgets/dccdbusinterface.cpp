@@ -31,6 +31,9 @@ const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Propert
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 const static char *PropertyName = "propname";
 
+#define STR_VALUE_(x) #x
+#define STR_VALUE(x) STR_VALUE_(x)
+
 #define D_D(classname) classname##Private *d = property(#classname "Private").value<classname##Private *>();
 #define BIND_PRIVATE_CLASS(classname, object) setProperty(#classname "Private", QVariant::fromValue(object));
 
@@ -105,7 +108,7 @@ DCCDBusInterface::DCCDBusInterface(const QString &service, const QString &path, 
             int i = parentMeta->indexOfSignal(QMetaObject::normalizedSignature(signal.toLatin1()));
             if (i != -1) {
                 const QMetaMethod &parentMethod = parentMeta->method(i);
-                this->connection().connect(service, path, interface, parentMethod.name(), parent, "2" + parentMethod.methodSignature());
+                this->connection().connect(service, path, interface, parentMethod.name(), parent, STR_VALUE(QSIGNAL_CODE) + parentMethod.methodSignature());
             }
         }
     }
