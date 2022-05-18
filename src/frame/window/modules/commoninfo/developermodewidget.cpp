@@ -143,6 +143,7 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
 DeveloperModeWidget::~DeveloperModeWidget()
 {
     if (m_developerDialog) {
+        m_developerDialog->setVisible(false);
         m_developerDialog->shutdown();  // 若存在可显示对话框，则需强制关闭
         m_developerDialog->deleteLater();
     }

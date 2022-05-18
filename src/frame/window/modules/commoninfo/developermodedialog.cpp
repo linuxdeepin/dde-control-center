@@ -49,6 +49,7 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
     , m_importFile(new QFileDialog(this))
     , m_exportFile(new QFileDialog(this))
 {
+    setWindowFlags(Qt::Popup | windowFlags());
     setAccessibleName("DeveloperModeDialog");
     setMinimumSize(QSize(350, 380));
     //总布局
