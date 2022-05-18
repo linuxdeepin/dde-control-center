@@ -1513,12 +1513,12 @@ void MonitorsGround::updateScale()
 
 void MonitorsGround::autoRebound()
 {
-
     for (auto pw : m_monitors.keys()) {
         //设置位置
         pw->setPos(pw->getPreCenter());
         pw->update();
     }
+    onResize();
 }
 
 //屏幕示意图平移居中
