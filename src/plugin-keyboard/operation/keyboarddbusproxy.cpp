@@ -19,6 +19,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "keyboarddbusproxy.h"
+#include "widgets/dccdbusinterface.h"
 
 #include <QMetaObject>
 #include <QDBusConnection>
@@ -43,9 +44,6 @@ const static QString WMService = "com.deepin.wm";
 const static QString WMPath = "/com/deepin/wm";
 const static QString WMInterface = "com.deepin.wm";
 
-const static QString PropertiesInterface = "org.freedesktop.DBus.Properties";
-const static QString PropertiesChanged = "PropertiesChanged";
-
 KeyboardDBusProxy::KeyboardDBusProxy(QObject *parent)
     : QObject(parent)
 {
@@ -63,23 +61,10 @@ KeyboardDBusProxy::KeyboardDBusProxy(QObject *parent)
 
 void KeyboardDBusProxy::init()
 {
-    m_dBusLangSelectorInter = new QDBusInterface(LangSelectorService, LangSelectorPath, LangSelectorInterface, QDBusConnection::sessionBus(), this);
-    m_dBusKeyboardInter = new QDBusInterface(KeyboardService, KeyboardPath, KeyboardInterface, QDBusConnection::sessionBus(), this);
-    m_dBusKeybingdingInter = new QDBusInterface(KeybingdingService, KeybingdingPath, KeybingdingInterface, QDBusConnection::sessionBus(), this);
-    m_dBusWMInter = new QDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
-
-    QDBusConnection dbusConnection = m_dBusKeyboardInter->connection();
-    dbusConnection.connect(KeyboardService, KeyboardPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    dbusConnection = m_dBusLangSelectorInter->connection();
-    dbusConnection.connect(LangSelectorService, LangSelectorPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    dbusConnection = m_dBusKeybingdingInter->connection();
-    dbusConnection.connect(KeybingdingService, KeybingdingPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-
-    connect(m_dBusWMInter,SIGNAL(compositingEnabledChanged(bool)), this, SIGNAL(compositingEnabledChanged(bool)));
-    connect(m_dBusKeybingdingInter,SIGNAL(Added(QString,int)), this, SIGNAL(Added(QString,int)));
-    connect(m_dBusKeybingdingInter,SIGNAL(Changed(QString,int)), this, SIGNAL(Changed(QString,int)));
-    connect(m_dBusKeybingdingInter,SIGNAL(Deleted(QString,int)), this, SIGNAL(Deleted(QString,int)));
-    connect(m_dBusKeybingdingInter,SIGNAL(KeyEvent(bool,QString)), this, SIGNAL(KeyEvent(bool,QString)));
+    m_dBusLangSelectorInter = new DCC_NAMESPACE::DCCDBusInterface(LangSelectorService, LangSelectorPath, LangSelectorInterface, QDBusConnection::sessionBus(), this);
+    m_dBusKeyboardInter = new DCC_NAMESPACE::DCCDBusInterface(KeyboardService, KeyboardPath, KeyboardInterface, QDBusConnection::sessionBus(), this);
+    m_dBusKeybingdingInter = new DCC_NAMESPACE::DCCDBusInterface(KeybingdingService, KeybingdingPath, KeybingdingInterface, QDBusConnection::sessionBus(), this);
+    m_dBusWMInter = new DCC_NAMESPACE::DCCDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
 }
 
 void KeyboardDBusProxy::langSelectorStartServiceProcess()
@@ -377,12 +362,4 @@ QDBusPendingReply<LocaleList> KeyboardDBusProxy::GetLocaleList()
 {
     QList<QVariant> argumentList;
     return m_dBusLangSelectorInter->asyncCallWithArgumentList(QStringLiteral("GetLocaleList"), argumentList);
-}
-
-void KeyboardDBusProxy::onPropertiesChanged(const QDBusMessage &message)
-{
-    QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
-    for (QVariantMap::const_iterator it = changedProps.begin(); it != changedProps.end(); ++it) {
-        QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
-    }
 }

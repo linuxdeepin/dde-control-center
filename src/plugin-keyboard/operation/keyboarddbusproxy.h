@@ -21,6 +21,7 @@
 #ifndef KEYBOARDDBUSPROXY_H
 #define KEYBOARDDBUSPROXY_H
 
+#include "interface/namespace.h"
 #include <QObject>
 #include <QDBusPendingReply>
 
@@ -73,6 +74,9 @@ public:
 };
 
 typedef QList<LocaleInfo> LocaleList;
+DCC_BEGIN_NAMESPACE
+class DCCDBusInterface;
+DCC_END_NAMESPACE
 
 class KeyboardDBusProxy : public QObject
 {
@@ -196,16 +200,15 @@ public slots:
     QDBusPendingReply<LocaleList> GetLocaleList();
 
 private slots:
-    void onPropertiesChanged(const QDBusMessage &message);
     void onLangSelectorStartServiceProcessFinished(QDBusPendingCallWatcher *w);
 private:
     void init();
 
 private:
-    QDBusInterface *m_dBusLangSelectorInter;
-    QDBusInterface *m_dBusKeyboardInter;
-    QDBusInterface *m_dBusKeybingdingInter;
-    QDBusInterface *m_dBusWMInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_dBusLangSelectorInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_dBusKeyboardInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_dBusKeybingdingInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_dBusWMInter;
 };
 
 Q_DECLARE_METATYPE(KeyboardLayoutList)

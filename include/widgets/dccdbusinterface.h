@@ -33,7 +33,7 @@ class DCCDBusInterface : public QDBusAbstractInterface
 public:
     explicit DCCDBusInterface(const QString &service, const QString &path, const QString &interface = QString(),
                               const QDBusConnection &connection = QDBusConnection::sessionBus(), QObject *parent = nullptr);
-    virtual ~DCCDBusInterface();
+    virtual ~DCCDBusInterface() override;
 
     QString suffix() const;
     void setSuffix(const QString &suffix);

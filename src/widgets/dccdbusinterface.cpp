@@ -22,6 +22,7 @@
 #include <QMetaObject>
 #include <qmetaobject.h>
 #include <QDBusConnection>
+#include <QDBusInterface>
 #include <QDBusMetaType>
 #include <QDBusPendingReply>
 #include <QDebug>
@@ -90,6 +91,23 @@ DCCDBusInterface::DCCDBusInterface(const QString &service, const QString &path, 
         QStringList argumentMatch;
         argumentMatch << interface;
         this->connection().connect(service, path, PropertiesInterface, PropertiesChanged, argumentMatch, QString(), this, SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
+        QStringList signalList;
+        QDBusInterface inter(service, path, interface, connection);
+        const QMetaObject *meta = inter.metaObject();
+        for (int i = meta->methodOffset(); i < meta->methodCount(); ++i) {
+            const QMetaMethod &method = meta->method(i);
+            if (method.methodType() == QMetaMethod::Signal) {
+                signalList << method.methodSignature();
+            }
+        }
+        const QMetaObject *parentMeta = parent->metaObject();
+        for (const QString &signal : signalList) {
+            int i = parentMeta->indexOfSignal(QMetaObject::normalizedSignature(signal.toLatin1()));
+            if (i != -1) {
+                const QMetaMethod &parentMethod = parentMeta->method(i);
+                this->connection().connect(service, path, interface, parentMethod.name(), parent, "2" + parentMethod.methodSignature());
+            }
+        }
     }
 }
 
