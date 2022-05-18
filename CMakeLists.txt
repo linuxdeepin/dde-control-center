@@ -917,6 +917,41 @@ target_link_libraries(${Personalization_Name} PRIVATE
 
 install(TARGETS ${Personalization_Name} DESTINATION lib/dde-control-center/modules)
 
+#--------------------------dcc-personalization-dock-plugin--------------------------
+set(Plugin_Personalization_Dock_Name dcc-personalization-dock-plugin)
+file(GLOB_RECURSE Plugin_Personalization_Dock_SRCS
+    "src/plugin-personalization-dock/window/*.cpp"
+    "src/plugin-personalization-dock/operation/*.cpp"
+    "src/plugin-personalization-dock/operation/qrc/resources.qrc"
+)
+
+add_library(${Plugin_Personalization_Dock_Name} MODULE
+    ${Plugin_Personalization_Dock_SRCS}
+)
+
+set(Plugin_Personalization_Dock_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    src/plugin-personalization-dock/operation
+)
+set(Plugin_Personalization_Dock_Libraries
+    ${DtkWidget_INCLUDE_DIRS}
+    ${Dcc_Widgets_Name}
+    ${Interface_Name}
+    Qt5::Widgets
+    Qt5::DBus
+)
+target_include_directories(${Plugin_Personalization_Dock_Name} PUBLIC
+    ${Plugin_Personalization_Dock_Includes}
+)
+
+target_link_libraries(${Plugin_Personalization_Dock_Name} PRIVATE
+    ${Plugin_Personalization_Dock_Libraries}
+)
+
+install(TARGETS ${Plugin_Personalization_Dock_Name} DESTINATION lib/dde-control-center/modules)
+
 #--------------------------plugin-Update--------------------------
 set(Update_Name dcc-update-plugin)
 file(GLOB_RECURSE Update_SRCS
