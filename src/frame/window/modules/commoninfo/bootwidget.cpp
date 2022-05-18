@@ -396,6 +396,8 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
         return;
     }
     m_grubEditAuthDialog = new DDialog(tr("Change GRUB password"), nullptr, nullptr);
+    m_grubEditAuthDialog->setWindowFlags(Qt::WindowStaysOnTopHint | windowFlags());
+    m_grubEditAuthDialog->setAttribute(Qt::WA_ShowModal, true);
     m_grubEditAuthDialog->setIcon(DStyle().standardIcon(DStyle::SP_MessageBoxWarning));
     // 需要重新布局
     DWidget *widget = new DWidget;
