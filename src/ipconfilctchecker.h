@@ -57,6 +57,7 @@ public:
     void setDeviceInfo(const QStringList &ipv4, const QString &macAddress);
     void handlerIpConflict();
     QStringList ipV4();
+    bool ipConflicted();
 
 private:
     NetworkDeviceBase *m_device;
@@ -65,6 +66,7 @@ private:
     QString m_macAddress;
     int m_conflictCount;
     int m_clearCount;
+    int m_count;
     bool m_ipConflicted;
     QList<QStringList> m_changeIpv4s;
 };

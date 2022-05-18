@@ -393,7 +393,10 @@ void NetworkDeviceRealize::onConflictStatusChanged(NetworkDeviceBase *device, co
     if (device != m_device)
         return;
 
-    m_ipConflicted = confilcted;
+    if (m_ipConflicted != confilcted) {
+        m_ipConflicted = confilcted;
+        Q_EMIT deviceStatusChanged(deviceStatus());
+    }
 }
 
 }

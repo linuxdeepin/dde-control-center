@@ -139,9 +139,6 @@ void NetworkInterProcesser::initConnection()
     connect(m_networkInter, &NetworkInter::DeviceEnabled, this, &NetworkInterProcesser::onDeviceEnableChanged);                        // 关闭设备或启用设备
 
     connect(m_networkInter, &NetworkInter::ConnectivityChanged, this, &NetworkInterProcesser::onConnectivityChanged);                  // 网络状态发生变化
-    connect(m_ipChecker, &IPConfilctChecker::conflictStatusChanged, this, [ ] (NetworkDeviceBase *device, const bool confilct) {
-        Q_EMIT device->deviceStatusChanged(confilct ? DeviceStatus::IpConfilct : device->deviceStatus());
-    });
 }
 
 NetworkDeviceBase *NetworkInterProcesser::findDevices(const QString &path) const
