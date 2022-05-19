@@ -1645,7 +1645,7 @@ UpdateErrorType UpdateWorker::analyzeJobErrorMessage(QString jobDescription)
 
     if (err_rpt.error != QJsonParseError::NoError) {
         qDebug() << "更新失败JSON格式错误";
-        return UpdateErrorType::NoError;
+        return UpdateErrorType::UnKnown;
     }
     const QJsonObject &object = jobErrorMessage.object();
     QString errorType =  object.value("ErrType").toString();
