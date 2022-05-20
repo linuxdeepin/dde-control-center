@@ -88,15 +88,19 @@ void ControlCenterDBusAdaptor::Show()
 void ControlCenterDBusAdaptor::ShowHome()
 {
     parent()->showPage("", MainWindow::UrlType::Name);
+    Show();
 }
 
 
 void ControlCenterDBusAdaptor::ShowPage(const QString &url)
 {
     parent()->showPage(url, MainWindow::UrlType::Name);
+    Show();
 }
 
 void ControlCenterDBusAdaptor::Toggle()
 {
     parent()->setVisible(!parent()->isVisible());
+    if (parent()->isVisible())
+        parent()->activateWindow();
 }
