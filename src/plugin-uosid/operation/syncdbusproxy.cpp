@@ -51,7 +51,8 @@ QString SyncDBusProxy::SwitcherDump()
     QDBusPendingReply<QString> reply = m_syncInter->asyncCall(QStringLiteral("SwitcherDump"));
     reply.waitForFinished();
     if (reply.isError()) {
-        qDebug() << " GET syncdeamon SwitcherDump Error!";
+        qInfo() << " GET syncdeamon SwitcherDump Error!";
+        return QString();
     } else {
         return reply.value();
     }
@@ -93,7 +94,8 @@ QString SyncDBusProxy::UOSID()
     QDBusPendingReply<QString> reply = m_syncHelperInter->asyncCall(QStringLiteral("UOSID"));
     reply.waitForFinished();
     if (reply.isError()) {
-        qDebug() << " GET syncdeamon SwitcherDump Error!";
+        qInfo() << " GET syncdeamon SwitcherDump Error!";
+        return QString();
     } else {
         return reply.value();
     }

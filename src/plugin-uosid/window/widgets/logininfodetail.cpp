@@ -328,7 +328,7 @@ void LoginInfoDetailPage::onStateChanged(const std::pair<qint32, QString> &state
         return;
     }
 
-    SyncState syncState;
+    SyncState syncState = SyncState::Succeed;
 
     do {
         // check is sync succeed
