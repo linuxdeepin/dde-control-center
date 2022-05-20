@@ -122,8 +122,11 @@ void DockPlugin::initMode(ComboxWidget *widget)
 {
     if (m_dbusProxy.isNull())
         m_dbusProxy.reset(new DBusProxy);
+
     static QMap<QString, int> g_modeMap = {{tr("Fashion mode"), Fashion}
                                            , {tr("Efficient mode"), Efficient}};
+    widget->setAccessibleName("Mode");
+    widget->comboBox()->setAccessibleName("ModeCombox");
     widget->addBackground();
     widget->setTitle(tr("Mode"));
     widget->setComboxOption(QStringList() << tr("Fashion mode") << tr("Efficient mode"));
@@ -151,6 +154,8 @@ void DockPlugin::initPosition(ComboxWidget *widget)
                                                , {tr("Bottom"), Bottom}
                                                , {tr("Left"), Left}
                                                , {tr("Right"), Right}};
+    widget->setAccessibleName("Location");
+    widget->comboBox()->setAccessibleName("LocationCombox");
     widget->addBackground();
     widget->setTitle(tr("Location"));
     widget->setComboxOption(QStringList() << tr("Top") << tr("Bottom") << tr("Left") << tr("Right"));
@@ -176,6 +181,8 @@ void DockPlugin::initStatus(ComboxWidget *widget)
     const QMap<QString, int> g_stateMap = {{tr("Keep shown"), KeepShowing}
                                             , {tr("Keep hidden"), KeepHidden}
                                             , {tr("Smart hide"), SmartHide}};
+    widget->setAccessibleName("Status");
+    widget->comboBox()->setAccessibleName("StatusCombox");
     widget->addBackground();
     widget->setTitle(tr("Status"));
     widget->setComboxOption(QStringList() << tr("Keep shown") << tr("Keep hidden") << tr("Smart hide"));
@@ -197,6 +204,7 @@ void DockPlugin::initSizeSlider(TitledSliderItem *slider)
     if (m_dbusProxy.isNull())
         m_dbusProxy.reset(new DBusProxy);
 
+    slider->setAccessibleName("Slider");
     slider->addBackground();
     slider->slider()->setRange(40, 100);
     QStringList ranges;
@@ -242,6 +250,7 @@ void DockPlugin::initSizeSlider(TitledSliderItem *slider)
 
 void DockPlugin::initScreenTitle(TitleLabel *label)
 {
+    label->setAccessibleName("MultipleDisplays");
     label->setText(tr("Multiple Displays"));
 
     connect(qApp, &QApplication::screenAdded, this, [ = ] {
@@ -259,6 +268,8 @@ void DockPlugin::initScreen(ComboxWidget *widget)
 
     const QMap<QString, bool> g_screenSettingMap = {{tr("On screen where the cursor is"), false}
                                                      , {tr("Only on main screen"), true}};
+    widget->setAccessibleName("ShowDock");
+    widget->comboBox()->setAccessibleName("ShowDockCombox");
     widget->setTitle(tr("Show Dock"));
     widget->addBackground();
     widget->setComboxOption(QStringList() << tr("On screen where the cursor is") << tr("Only on main screen"));
@@ -286,11 +297,13 @@ void DockPlugin::initScreen(ComboxWidget *widget)
 
 void DockPlugin::initPluginTitle(TitleLabel *label)
 {
+    label->setAccessibleName("PluginArea");
     label->setText(tr("Plugin Area"));
 }
 
 void DockPlugin::initPluginTips(DTipLabel *label)
 {
+    label->setAccessibleName("PluginTips");
     label->setText(tr("Select which icons appear in the Dock"));
     label->adjustSize();
     label->setWordWrap(true);
@@ -316,6 +329,7 @@ void DockPlugin::initPluginView(DListView *view)
                                                    , {"grand-search",   "dcc_dock_grandsearch"}
                                                    , {"trash",          "dcc_dock_trash"}};
 
+    view->setAccessibleName("PluginList");
     view->setAccessibleName("pluginList");
     view->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
