@@ -69,7 +69,7 @@ void KeyboardModule::preInitialize(bool sync, FrameProxyInterface::PushType)
         delete m_model;
     }
     m_model = new KeyboardModel();
-    m_shortcutModel = new ShortcutModel();
+    m_shortcutModel = new ShortcutModel(this);
     m_work = new KeyboardWorker(m_model);
 
     addChildPageTrans();
