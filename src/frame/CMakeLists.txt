@@ -678,7 +678,6 @@ if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "aarch64")
         ${BUILD_MACRO}
         DISABLE_POWER
         DISABLE_CLOUD_SYNC
-        DCC_DISABLE_GRUB
     )
 endif()
 
