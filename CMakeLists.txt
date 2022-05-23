@@ -50,7 +50,7 @@ if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "sw_64")
 endif()
 
 # dconfig
-file(GLOB DCONFIG_FILES "misc/configs/dde.control-center*.json")
+file(GLOB DCONFIG_FILES "misc/configs/*.json")
 dconfig_meta_files(APPID dde-control-center BASE misc/configs FILES ${DCONFIG_FILES})
 
 include_directories(

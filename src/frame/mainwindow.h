@@ -21,6 +21,7 @@
 #pragma once
 
 #include "interface/namespace.h"
+#include "layoutbase.h"
 
 #include <dtkcore_global.h>
 #include <DMainWindow>
@@ -34,6 +35,7 @@ class DConfig;
 DCORE_END_NAMESPACE
 
 DWIDGET_BEGIN_NAMESPACE
+class LayoutBase;
 class DBackgroundGroup;
 class DIconButton;
 class DListView;
@@ -50,6 +52,11 @@ namespace DCC_NAMESPACE
 class ModuleObject;
 class PluginManager;
 class SearchWidget;
+struct WidgetData {
+    ModuleObject *module;
+    QWidget *w;
+    DCC_NAMESPACE::LayoutBase *layout;
+};
 /**************forward declaring end*****************/
 
 class MainWindow : public Dtk::Widget::DMainWindow, protected QDBusContext
@@ -81,19 +88,13 @@ private:
     void updateMainView();
     void clearPage(QWidget *const widget);
     void configLayout(QBoxLayout *const layout);
-    int getScrollPos(const int index);
     void showPage(ModuleObject *const module, const QString &url, const UrlType &uType);
     void showModule(ModuleObject *const module, QWidget *const parent, const int index = -1);
-    void showModuleMainIcon(ModuleObject *const module, QWidget *const parent, const int index = -1);
-    void showModuleMainList(ModuleObject *const module, QWidget *const parent, const int index = -1);
-    void showModuleHList(ModuleObject *const module, QWidget *const parent, const int index = -1);
-    void showModuleVList(ModuleObject *const module, QWidget *const parent, const int index = -1);
-    void showModulePage(ModuleObject *const module, QWidget *const parent, const int index = -1);
-    QWidget *getPage(QWidget *const widget, const QString &title);
-    QWidget *getExtraPage(QWidget *const widget);
 
-    inline void setCurrentModule(ModuleObject *const module) { m_currentModule = module; }
-    inline ModuleObject *currentModule() const { return m_currentModule; }
+private Q_SLOTS:
+    void onAddModule(ModuleObject *const module);
+    void onRemoveModule(ModuleObject *const module);
+    void onTriggered();
 
 private:
     QWidget                             *m_contentWidget;
@@ -101,11 +102,13 @@ private:
     Dtk::Core::DConfig                  *m_dconfig;             //配置
     SearchWidget                        *m_searchWidget;        //搜索框
     ModuleObject                        *m_rootModule;
-    ModuleObject                        *m_currentModule;
+    QList<WidgetData>                   m_currentModule;
     PluginManager                       *m_pluginManager;
-    QAbstractItemView                   *m_mainView;            //保存主菜单view, 方便改变背景
-    QList<QWidget*>                     m_pages;                //保存终点的页面
+//    QAbstractItemView                   *m_mainView;            //保存主菜单view, 方便改变背景
+//    QList<QWidget*>                     m_pages;                //保存终点的页面
 
+    QSet<QString> m_hideModule;
+    QSet<QString> m_disableModule;
 };
 
 } // namespace DCC_NAMESPACE

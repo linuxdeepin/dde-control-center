@@ -20,54 +20,76 @@
 */
 #include "interface/moduleobject.h"
 
+#define DCC_VISIBLE 0x80000000
+#define DCC_ENABLED 0x40000000
+
 DCC_USE_NAMESPACE
 
 ModuleObject::ModuleObject(QObject *parent)
-    : QObject(parent)
-    , m_moduleData(new ModuleData(this))
-    , m_childType(ChildType::MainIcon)
+    : ModuleObject(QString(), QString(), parent)
 {
 }
 
 ModuleObject::ModuleObject(const QString &name, const QString &displayName, QObject *parent)
     : ModuleObject(name, displayName, QStringList(), parent)
 {
-
 }
 
 ModuleObject::ModuleObject(const QString &name, const QStringList &contentText, QObject *parent)
     : ModuleObject(name, {}, contentText, parent)
 {
-
 }
 
 ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent)
     : ModuleObject(name, displayName, {}, contentText, QIcon(), parent)
 {
-
 }
 
 ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QIcon &icon, QObject *parent)
     : ModuleObject(name, displayName, {}, icon, parent)
 {
-
 }
 
 ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent)
     : ModuleObject(name, displayName, description, {}, icon, parent)
 {
-
 }
 
 ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QIcon &icon, QObject *parent)
     : QObject(parent)
     , m_moduleData(new ModuleData(name, displayName, description, contentText, icon, this))
     , m_childType(ChildType::MainIcon)
+    , m_flags(0)
 {
-
 }
 
-void ModuleObject::setModuleData(ModuleData *data) {
+bool ModuleObject::isVisible() const
+{
+    return getFlagState(DCC_VISIBLE);
+}
+
+bool ModuleObject::isEnabled() const
+{
+    return getFlagState(DCC_ENABLED);
+}
+
+void ModuleObject::setVisible(bool visible)
+{
+    setFlagState(DCC_VISIBLE, visible);
+}
+
+void ModuleObject::setEnabled(bool enabled)
+{
+    setFlagState(DCC_ENABLED, enabled);
+}
+
+void ModuleObject::trigger()
+{
+    Q_EMIT triggered();
+}
+
+void ModuleObject::setModuleData(ModuleData *data)
+{
     if (m_moduleData != data) {
         m_moduleData->deleteLater();
     }
@@ -76,7 +98,8 @@ void ModuleObject::setModuleData(ModuleData *data) {
     Q_EMIT moduleDataChanged(data);
 }
 
-void ModuleObject::appendChild(ModuleObject *const module) {
+void ModuleObject::appendChild(ModuleObject *const module)
+{
     if (m_childrens.contains(module))
         return;
     m_childrens.append(module);
@@ -85,7 +108,8 @@ void ModuleObject::appendChild(ModuleObject *const module) {
     Q_EMIT childrenSizeChanged(m_childrens.size());
 }
 
-void ModuleObject::removeChild(ModuleObject *const module) {
+void ModuleObject::removeChild(ModuleObject *const module)
+{
     if (!m_childrens.contains(module))
         return;
     Q_EMIT removedChild(module);
@@ -102,7 +126,8 @@ void ModuleObject::removeChild(const int index)
     Q_EMIT childrenSizeChanged(m_childrens.size());
 }
 
-void ModuleObject::insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module) {
+void ModuleObject::insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module)
+{
     if (m_childrens.contains(module))
         return;
     m_childrens.insert(before, module);
@@ -119,6 +144,17 @@ void ModuleObject::insertChild(const int index, ModuleObject *const module)
     module->setParent(this);
     Q_EMIT insertedChild(module);
     Q_EMIT childrenSizeChanged(m_childrens.size());
+}
+
+void ModuleObject::setFlagState(uint32_t flag, bool state)
+{
+    if (getFlagState(flag) != state) {
+        if (state)
+            m_flags |= flag;
+        else
+            m_flags &= (~flag);
+        Q_EMIT stateChanged(flag, state);
+    }
 }
 
 int ModuleObject::findChild(ModuleObject *const child)

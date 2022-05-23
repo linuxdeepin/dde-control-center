@@ -37,14 +37,16 @@ namespace DCC_NAMESPACE
 class ModuleObject : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(ModuleData* moduleData READ moduleData WRITE setModuleData NOTIFY moduleDataChanged)
+    Q_PROPERTY(ModuleData *moduleData READ moduleData WRITE setModuleData NOTIFY moduleDataChanged)
+    Q_PROPERTY(bool visible READ isVisible WRITE setVisible NOTIFY stateChanged)
+    Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY stateChanged)
 public:
-    enum class ChildType{
-        MainIcon,  //主菜单图标模式显示
-        MainList,  //主菜单列表模式显示
-        HList,     //横向菜单列表显示
-        VList,     //纵向菜单列表显示
-        Page       //页面显示
+    enum class ChildType {
+        MainIcon, //主菜单图标模式显示
+        MainList, //主菜单列表模式显示
+        HList,    //横向菜单列表显示
+        VList,    //纵向菜单列表显示
+        Page      //页面显示
     };
     ModuleObject(QObject *parent = nullptr);
     ModuleObject(const QString &name, const QString &displayName = {}, QObject *parent = nullptr);
@@ -78,6 +80,14 @@ public:
      */
     virtual QWidget *extraButton() { return nullptr; }
 
+    bool isVisible() const;
+    bool isEnabled() const;
+
+public Q_SLOTS:
+    void setVisible(bool visible);
+    void setEnabled(bool enabled);
+    void trigger();
+
 Q_SIGNALS:
     /**
      * @brief ModuleData 改变后必须发送此信号
@@ -105,17 +115,20 @@ Q_SIGNALS:
      */
     void activeChild(const int index);
 
+    void triggered();
     /**
      * @brief 扩展按钮被点击信号，只有触发此信号才会显示page()
      */
     void extraButtonClicked();
+    void stateChanged(uint32_t flag, bool state);
 
 public:
     /**
      * @brief 元数据封装，方便调用
      * @return 元数据的Name
      */
-    inline QString name() const {
+    inline QString name() const
+    {
         return moduleData()->Name;
     }
 
@@ -136,7 +149,8 @@ public:
     /**
      * @brief 设置子项类型
      */
-    inline void setChildType(const ChildType &t) {
+    inline void setChildType(const ChildType &t)
+    {
         m_childType = t;
     }
     /**
@@ -158,8 +172,9 @@ public:
      * @return 子项列表
      */
     inline const QList<ModuleObject *> &childrens() { return m_childrens; }
-    inline ModuleObject* children(const int index) const {
-        if(index<0 || index >= m_childrens.size())
+    inline ModuleObject *children(const int index) const
+    {
+        if (index < 0 || index >= m_childrens.size())
             return nullptr;
         return m_childrens.at(index);
     }
@@ -171,13 +186,28 @@ public:
     void insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module);
     void insertChild(const int index, ModuleObject *const module);
 
+    /**
+     * @brief 获取状态标志
+     * @return 对应状态位是否
+     */
+    inline bool getFlagState(uint32_t flag) const { return (m_flags & flag); }
+    inline uint32_t getFlag() const { return m_flags; }
+
+    /**
+     * @brief setFlagState 设置状态标志，状态标志共32位，高16位为预留，低16位可根据需要设置
+     * @param flag 需要设置的状态位
+     * @param state true 置位 false 复位
+     */
+    void setFlagState(uint32_t flag, bool state);
+
 private:
     static int findChild(ModuleObject *const module, ModuleObject *const child, const int num);
 
 private:
-    ModuleData              *m_moduleData;
-    QList<ModuleObject*> m_childrens;
-    ChildType               m_childType;
+    ModuleData *m_moduleData;
+    QList<ModuleObject *> m_childrens;
+    ChildType m_childType;
+    uint32_t m_flags;
 };
 
 } // namespace DCC_NAMESPACE

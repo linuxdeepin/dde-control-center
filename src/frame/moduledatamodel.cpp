@@ -128,3 +128,18 @@ void ModuleDataModel::setData(ModuleObject *const module)
     connect(m_data, &ModuleObject::insertedChild, this, &ModuleDataModel::onInsertChild);
     connect(m_data, &ModuleObject::removedChild, this, &ModuleDataModel::onRemovedChild);
 }
+
+QModelIndex ModuleDataModel::index(ModuleObject *module) const
+{
+    if(!module)
+        return QModelIndex();
+    int i=rowCount();
+    QModelIndex idx;
+    while (--i>=0) {
+        idx=index(i,0);
+        if(idx.internalPointer() == module){
+            return idx;
+        }
+    }
+    return QModelIndex();
+}
