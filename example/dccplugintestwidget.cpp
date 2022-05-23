@@ -184,6 +184,10 @@ DccPluginTestWidget::DccPluginTestWidget(QWidget *parent)
 DccPluginTestWidget::~DccPluginTestWidget()
 {
     delete m_module;
+    if(m_translator){
+        delete m_translator;
+        m_translator = nullptr;
+    }
 }
 
 void DccPluginTestWidget::pushWidget(ModuleInterface * const inter, QWidget * const w, FrameProxyInterface::PushType type)

@@ -77,6 +77,11 @@ LocalClient::~LocalClient()
     delete m_clinet;
     if (m_panel)
         delete m_panel;
+    if(m_translator){
+        delete m_translator;
+        m_translator = nullptr;
+    }
+
 }
 
 void LocalClient::connectedHandler()

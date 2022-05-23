@@ -266,6 +266,10 @@ WiredDeviceInterRealize::WiredDeviceInterRealize(IPConfilctChecker *ipChecker, N
 
 WiredDeviceInterRealize::~WiredDeviceInterRealize()
 {
+    for (auto item : m_connections) {
+        delete item;
+    }
+    m_connections.clear();
 }
 
 bool WiredDeviceInterRealize::connectNetwork(WiredConnection *connection)
