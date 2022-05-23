@@ -33,6 +33,8 @@ namespace dcc {
   }
 }
 
+class PasswdLineEditWidget;
+
 using namespace NetworkManager;
 using namespace dcc::widgets;
 
@@ -120,7 +122,7 @@ private:
 
     ComboxWidget *m_eapMethmodChooser;
     LineEditWidget *m_identity;
-    LineEditWidget *m_password;
+    PasswdLineEditWidget *m_password;
     Secret8021xEnableWatcher *m_enableWatcher;
 
     Security8021xSetting::EapMethod m_currentEapMethod;

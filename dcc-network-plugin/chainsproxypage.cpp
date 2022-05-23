@@ -28,6 +28,7 @@
 
 #include "networkcontroller.h"
 #include "proxycontroller.h"
+#include "widgets/passwdlineeditwidget.h"
 
 #include <DTipLabel>
 
@@ -100,7 +101,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent)
     m_username->setPlaceholderText(tr("Optional"));
     m_username->textEdit()->installEventFilter(this);
 
-    m_password = new LineEditWidget(grp);
+    m_password = new PasswdLineEditWidget(grp);
     m_password->setTitle(tr("Password"));
     m_password->setPlaceholderText(tr("Optional"));
     m_password->textEdit()->setEchoMode(QLineEdit::Password);

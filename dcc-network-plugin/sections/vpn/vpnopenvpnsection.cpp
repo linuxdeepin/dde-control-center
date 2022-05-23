@@ -21,6 +21,7 @@
 
 #include "vpnopenvpnsection.h"
 #include "widgets/switchwidget.h"
+#include "../../widgets/passwdlineeditwidget.h"
 
 #include <QComboBox>
 #include <QHostAddress>
@@ -201,7 +202,7 @@ void VpnOpenVPNSection::initTLSItems()
     }
     certPasswordFlagsChooser->setCurrentText(curCertPasswordOption);
 
-    LineEditWidget *priKeyPassword = new LineEditWidget(true, this);
+    PasswdLineEditWidget *priKeyPassword = new PasswdLineEditWidget(this);
     priKeyPassword->setTitle(tr("Private Pwd"));
     priKeyPassword->setText(m_secretMap.value("cert-pass"));
     priKeyPassword->setPlaceholderText(tr("Required"));
@@ -250,7 +251,7 @@ void VpnOpenVPNSection::initPasswordItems()
     }
     passwordFlagsChooser->setCurrentText(curPasswordOption);
 
-    LineEditWidget *password = new LineEditWidget(true, this);
+    LineEditWidget *password = new PasswdLineEditWidget(this);
     password->setTitle(tr("Password"));
     password->setText(m_secretMap.value("password"));
     password->setPlaceholderText(tr("Required"));

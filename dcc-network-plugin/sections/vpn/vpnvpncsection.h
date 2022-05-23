@@ -34,6 +34,7 @@ namespace dcc {
     class FileChooseWidget;
   }
 }
+class PasswdLineEditWidget;
 
 using namespace NetworkManager;
 
@@ -69,11 +70,11 @@ private:
     LineEditWidget *m_gateway;
     LineEditWidget *m_userName;
     ComboxWidget *m_passwordFlagsChooser;
-    LineEditWidget *m_password;
+    PasswdLineEditWidget *m_password;
 
     LineEditWidget *m_groupName;
     ComboxWidget *m_groupPasswordFlagsChooser;
-    LineEditWidget *m_groupPassword;
+    PasswdLineEditWidget *m_groupPassword;
     SwitchWidget *m_userHybrid;
     FileChooseWidget *m_caFile;
 };

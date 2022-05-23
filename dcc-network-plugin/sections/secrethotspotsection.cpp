@@ -23,6 +23,7 @@
 #include "widgets/contentwidget.h"
 #include "widgets/comboxwidget.h"
 #include "widgets/lineeditwidget.h"
+#include "../widgets/passwdlineeditwidget.h"
 
 #include <networkmanagerqt/utils.h>
 
@@ -40,7 +41,7 @@ static const QList<WirelessSecuritySetting::KeyMgmt> KeyMgmtList {
 SecretHotspotSection::SecretHotspotSection(WirelessSecuritySetting::Ptr wsSeting, QFrame *parent)
     : AbstractSection(parent)
     , m_keyMgmtChooser(new ComboxWidget(this))
-    , m_passwdEdit(new LineEditWidget(true))
+    , m_passwdEdit(new PasswdLineEditWidget())
     , m_currentKeyMgmt(WirelessSecuritySetting::KeyMgmt::WpaNone)
     , m_wsSetting(wsSeting)
 {

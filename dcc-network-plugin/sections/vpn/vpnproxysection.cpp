@@ -20,6 +20,7 @@
  */
 
 #include "vpnproxysection.h"
+#include "../../widgets/passwdlineeditwidget.h"
 
 #include <DSpinBox>
 
@@ -44,7 +45,7 @@ VpnProxySection::VpnProxySection(VpnSetting::Ptr vpnSetting, QFrame *parent)
     , m_port(new SpinBoxWidget(this))
     , m_retry(new SwitchWidget(this))
     , m_userName(new LineEditWidget(this))
-    , m_password(new LineEditWidget(true, this))
+    , m_password(new PasswdLineEditWidget(this))
 {
     initStrMaps();
     initUI();

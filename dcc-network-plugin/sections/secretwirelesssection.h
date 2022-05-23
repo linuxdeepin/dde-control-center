@@ -27,6 +27,8 @@
 
 #include <networkmanagerqt/wirelesssecuritysetting.h>
 
+class PasswdLineEditWidget;
+
 class SecretWirelessSection : public Secret8021xSection
 {
     Q_OBJECT
@@ -44,14 +46,13 @@ private:
     void initConnection();
     void onKeyMgmtChanged(WirelessSecuritySetting::KeyMgmt);
     void saveUserInputPassword();
-    void setPasswordEditText(const QString &password);
 
 private:
     QList<QPair<QString, WirelessSecuritySetting::KeyMgmt>> KeyMgmtStrMap;
     QList<QPair<QString, WirelessSecuritySetting::AuthAlg>> AuthAlgStrMap;
 
     ComboxWidget *m_keyMgmtChooser;
-    LineEditWidget *m_passwdEdit;
+    PasswdLineEditWidget *m_passwdEdit;
     Secret8021xEnableWatcher *m_enableWatcher;
     ComboxWidget *m_authAlgChooser;
 

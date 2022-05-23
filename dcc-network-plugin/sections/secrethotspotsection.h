@@ -32,6 +32,7 @@ namespace dcc {
     class LineEditWidget;
   }
 }
+class PasswdLineEditWidget;
 
 using namespace NetworkManager;
 
@@ -58,7 +59,7 @@ private:
     QMap<QString, WirelessSecuritySetting::KeyMgmt> KeyMgmtStrMap;
 
     ComboxWidget *m_keyMgmtChooser;
-    LineEditWidget *m_passwdEdit;
+    PasswdLineEditWidget *m_passwdEdit;
 
     WirelessSecuritySetting::KeyMgmt m_currentKeyMgmt;
 

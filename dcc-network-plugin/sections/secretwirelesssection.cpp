@@ -20,6 +20,7 @@
  */
 
 #include "secretwirelesssection.h"
+#include "../widgets/passwdlineeditwidget.h"
 
 #include <QComboBox>
 
@@ -36,7 +37,7 @@ using namespace NetworkManager;
 SecretWirelessSection::SecretWirelessSection(WirelessSecuritySetting::Ptr wsSeting, Security8021xSetting::Ptr sSetting, ParametersContainer::Ptr parameter, QFrame *parent)
     : Secret8021xSection(sSetting, parent)
     , m_keyMgmtChooser(new ComboxWidget(this))
-    , m_passwdEdit(new LineEditWidget(true, this))
+    , m_passwdEdit(new PasswdLineEditWidget(this))
     , m_enableWatcher(new Secret8021xEnableWatcher(this))
     , m_authAlgChooser(new ComboxWidget(this))
     , m_currentKeyMgmt(WirelessSecuritySetting::KeyMgmt::WpaNone)
@@ -251,14 +252,14 @@ void SecretWirelessSection::initConnection()
             break;
         }
         case WirelessSecuritySetting::KeyMgmt::Wep: {
-            setPasswordEditText(m_wsSetting->wepKey0());
+            m_passwdEdit->setText(m_wsSetting->wepKey0());
             m_passwdEdit->setTitle(tr("Key"));
             m_passwdEdit->setVisible(enabled);
             break;
         }
         case WirelessSecuritySetting::KeyMgmt::WpaPsk:
         case WirelessSecuritySetting::KeyMgmt::WpaSae:{
-            setPasswordEditText(m_wsSetting->psk());
+            m_passwdEdit->setText(m_wsSetting->psk());
             m_passwdEdit->setTitle(tr("Password"));
             m_passwdEdit->setVisible(enabled);
             break;
@@ -287,7 +288,7 @@ void SecretWirelessSection::onKeyMgmtChanged(WirelessSecuritySetting::KeyMgmt ke
     }
     case WirelessSecuritySetting::KeyMgmt::Wep: {
         if (m_currentPasswordType != Setting::NotSaved) {
-            setPasswordEditText(m_wsSetting->wepKey0());
+            m_passwdEdit->setText(m_wsSetting->wepKey0());
             m_passwdEdit->setTitle(tr("Key"));
             m_passwdEdit->setVisible(true);
         } else {
@@ -300,7 +301,7 @@ void SecretWirelessSection::onKeyMgmtChanged(WirelessSecuritySetting::KeyMgmt ke
     }
     case WirelessSecuritySetting::KeyMgmt::WpaPsk: {
         if (m_currentPasswordType != Setting::NotSaved) {
-            setPasswordEditText(m_wsSetting->psk());
+            m_passwdEdit->setText(m_wsSetting->psk());
             m_passwdEdit->setTitle(tr("Password"));
             m_passwdEdit->setVisible(true);
         } else {
@@ -319,7 +320,7 @@ void SecretWirelessSection::onKeyMgmtChanged(WirelessSecuritySetting::KeyMgmt ke
     }
     case WirelessSecuritySetting::KeyMgmt::WpaSae: {
         if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
-            setPasswordEditText(m_wsSetting->psk());
+            m_passwdEdit->setText(m_wsSetting->psk());
             m_passwdEdit->setTitle(tr("Password"));
             m_passwdEdit->setVisible(true);
         } else {
@@ -335,16 +336,10 @@ void SecretWirelessSection::onKeyMgmtChanged(WirelessSecuritySetting::KeyMgmt ke
     }
 
     if (m_userInputPasswordMap.contains(m_currentKeyMgmt))
-        setPasswordEditText(m_userInputPasswordMap.value(m_currentKeyMgmt));
+        m_passwdEdit->setText(m_userInputPasswordMap.value(m_currentKeyMgmt));
 }
 
 void SecretWirelessSection::saveUserInputPassword()
 {
     m_userInputPasswordMap.insert(m_currentKeyMgmt, m_passwdEdit->text());
-}
-
-void SecretWirelessSection::setPasswordEditText(const QString &password)
-{
-    m_passwdEdit->setText(password);
-    static_cast<DPasswordEdit*>(m_passwdEdit->dTextEdit())->setEchoButtonIsVisible(password.isEmpty());
 }

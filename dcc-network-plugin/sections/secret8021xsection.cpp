@@ -21,6 +21,7 @@
 
 #include "secret8021xsection.h"
 #include "../window/gsettingwatcher.h"
+#include "../widgets/passwdlineeditwidget.h"
 
 #include <DPasswordEdit>
 
@@ -41,7 +42,7 @@ Secret8021xSection::Secret8021xSection(Security8021xSetting::Ptr sSetting, QFram
     , m_currentPasswordType(Setting::AgentOwned)
     , m_eapMethmodChooser(new ComboxWidget(this))
     , m_identity(new LineEditWidget(this))
-    , m_password(new LineEditWidget(true, this))
+    , m_password(new PasswdLineEditWidget(this))
     , m_enableWatcher(nullptr)
     , m_secretSetting(sSetting)
 {

@@ -16,6 +16,7 @@ aux_source_directory(../dcc-network-plugin/sections/vpn DCCPLUGINSECTIONSVPN)
 aux_source_directory(../dcc-network-plugin/settings DCCPLUGINSETTINGS)
 aux_source_directory(../dcc-network-plugin/settings/vpn DCCPLUGINVPNSETTINGS)
 aux_source_directory(../dcc-network-plugin/themes DCCPLUGINTHEMES)
+aux_source_directory(../dcc-network-plugin/widgets DCCPLUGINWIDGETS)
 
 file(GLOB_RECURSE QRCFILE "./example.qrc"
     "../dcc-network-plugin/icons/dcc-network-plugin.qrc"
@@ -41,6 +42,7 @@ add_executable(${PROJECT_NAME}
     ${DCCPLUGINSETTINGS}
     ${DCCPLUGINVPNSETTINGS}
     ${DCCPLUGINTHEMES}
+    ${DCCPLUGINWIDGETS}
     ${REALIZEDIR}
     ${QRCFILE})
 

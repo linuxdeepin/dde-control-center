@@ -34,6 +34,7 @@ namespace dcc {
     class SpinBoxWidget;
   }
 }
+class PasswdLineEditWidget;
 
 using namespace NetworkManager;
 
@@ -67,7 +68,7 @@ private:
     SpinBoxWidget *m_port;
     SwitchWidget *m_retry;
     LineEditWidget *m_userName;
-    LineEditWidget *m_password;
+    PasswdLineEditWidget *m_password;
 
     QString m_currentProxyType;
 };

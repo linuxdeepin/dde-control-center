@@ -50,6 +50,8 @@ using namespace dcc::widgets;
 
 class QComboBox;
 
+class PasswdLineEditWidget;
+
 class ChainsProxyPage : public dcc::ContentWidget
 {
     Q_OBJECT
@@ -75,7 +77,7 @@ private:
     LineEditWidget *m_addr;
     LineEditWidget *m_port;
     LineEditWidget *m_username;
-    LineEditWidget *m_password;
+    PasswdLineEditWidget *m_password;
     QComboBox *m_comboBox;
     ButtonTuple *m_btns;
 };

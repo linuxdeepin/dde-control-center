@@ -32,6 +32,7 @@ namespace dcc {
     class SpinBoxWidget;
   }
 }
+class PasswdLineEditWidget;
 
 using namespace NetworkManager;
 
@@ -58,7 +59,7 @@ private:
     LineEditWidget *m_server;
     SpinBoxWidget *m_port;
     LineEditWidget *m_userName;
-    LineEditWidget *m_password;
+    PasswdLineEditWidget *m_password;
 };
 
 #endif /* VPNSSTPPROXYSECTION_H */

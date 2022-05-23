@@ -31,6 +31,7 @@ namespace dcc {
     class LineEditWidget;
   }
 }
+class PasswdLineEditWidget;
 
 using namespace NetworkManager;
 using namespace dcc::widgets;
@@ -56,7 +57,7 @@ private:
 
     LineEditWidget *m_userName;
     LineEditWidget *m_service;
-    LineEditWidget *m_password;
+    PasswdLineEditWidget *m_password;
 };
 
 #endif /* PPPOESECTION_H */

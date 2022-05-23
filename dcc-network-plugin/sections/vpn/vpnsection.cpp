@@ -20,6 +20,7 @@
  */
 
 #include "vpnsection.h"
+#include "../../widgets/passwdlineeditwidget.h"
 
 #include <widgets/contentwidget.h>
 #include <widgets/lineeditwidget.h>
@@ -36,7 +37,7 @@ VpnSection::VpnSection(VpnSetting::Ptr vpnSetting, QFrame *parent)
     , m_gateway(new LineEditWidget(this))
     , m_userName(new LineEditWidget(this))
     , m_passwordFlagsChooser(new ComboxWidget(this))
-    , m_password(new LineEditWidget(true, this))
+    , m_password(new PasswdLineEditWidget(this))
     , m_domain(new LineEditWidget(this))
 {
     setAccessibleName("VpnSection");

@@ -32,6 +32,7 @@ namespace dcc {
     class ComboxWidget;
   }
 }
+class PasswdLineEditWidget;
 
 using namespace NetworkManager;
 
@@ -65,7 +66,7 @@ private:
     LineEditWidget *m_gateway;
     LineEditWidget *m_userName;
     ComboxWidget *m_passwordFlagsChooser;
-    LineEditWidget *m_password;
+    PasswdLineEditWidget *m_password;
     LineEditWidget *m_domain;
 };
 

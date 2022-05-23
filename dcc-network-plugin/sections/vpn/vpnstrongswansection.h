@@ -34,6 +34,7 @@ namespace dcc {
     class SwitchWidget;
   }
 }
+class PasswdLineEditWidget;
 
 using namespace NetworkManager;
 
@@ -71,7 +72,7 @@ private:
     FileChooseWidget *m_userCert;
     FileChooseWidget *m_userKey;
     LineEditWidget *m_userName;
-    LineEditWidget *m_password;
+    PasswdLineEditWidget *m_password;
 
     SwitchWidget *m_requestInnerIp;
     SwitchWidget *m_enforceUDP;
