@@ -25,6 +25,7 @@
 #include "../../utils.h"
 #include "createaccountpage.h"
 #include "widgets/securitylevelitem.h"
+#include  "securitylevelitembinder.h"
 
 #include "deepin_pw_check.h"
 #include "unionidbindreminderdialog.h"
@@ -58,7 +59,6 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     , m_passwordTipsEdit(new DLineEdit)
     , m_isCurrent(isCurrent)
     , m_isBindCheckError(false)
-    , m_securityLevelItem(new SecurityLevelItem(this))
     , m_localServer(new QLocalServer(this))
 {
     initWidget();
@@ -106,10 +106,12 @@ void ModifyPasswdPage::initWidget()
     newPasswdLayout->addWidget(newPasswdLabel);
     newPasswdLayout->addSpacing(80);
 
-    newPasswdLayout->addWidget(m_securityLevelItem);
+    SecurityLevelItem *securityLevelItem = new SecurityLevelItem(this);
+    newPasswdLayout->addWidget(securityLevelItem);
     mainContentLayout->addSpacing(6);
     mainContentLayout->addLayout(newPasswdLayout);
     mainContentLayout->addWidget(m_newPasswordEdit);
+    SecurityLevelItemBinder::bind(securityLevelItem, m_newPasswordEdit);
 
     QLabel *repeatPasswdLabel = new QLabel(tr("Repeat Password") + ":");
     mainContentLayout->addSpacing(6);
@@ -172,25 +174,6 @@ void ModifyPasswdPage::initWidget()
             DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
         } else if (m_passwordTipsEdit->isAlert()) {
             m_passwordTipsEdit->setAlert(false);
-        }
-    });
-    connect(m_newPasswordEdit, &DPasswordEdit::textChanged, this, [ = ]() {
-        if (m_newPasswordEdit->text().isEmpty()) {
-            m_securityLevelItem->setLevel(SecurityLevelItem::NoneLevel);
-            m_newPasswordEdit->setAlert(false);
-            m_newPasswordEdit->hideAlertMessage();
-            return ;
-        }
-        PASSWORD_LEVEL_TYPE m_level = PwqualityManager::instance()->GetNewPassWdLevel(m_newPasswordEdit->text());
-
-        if (m_level == PASSWORD_STRENGTH_LEVEL_HIGH) {
-            m_securityLevelItem->setLevel(SecurityLevelItem::HighLevel);
-        } else if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
-            m_securityLevelItem->setLevel(SecurityLevelItem::MidLevel);
-        } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
-            m_securityLevelItem->setLevel(SecurityLevelItem::LowLevel);
-        } else {
-            m_newPasswordEdit->showAlertMessage(tr("Error occurred when reading the configuration files of password rules!"));
         }
     });
 

@@ -20,7 +20,6 @@
  */
 
 #include "securityquestionswidget.h"
-#include "pwqualitymanager.h"
 
 #include <QApplication>
 #include <QDesktopWidget>

@@ -24,6 +24,8 @@
 #include "window/utils.h"
 #include "groupitem.h"
 #include "pwqualitymanager.h"
+#include "widgets/securitylevelitem.h"
+#include "securitylevelitembinder.h"
 
 #include <DFontSizeManager>
 #include <DDesktopServices>
@@ -191,7 +193,14 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
 
     QLabel *passwdLabel = new QLabel(tr("Password") + ':');
     m_passwdEdit->setAccessibleName("passwd_edit");
-    layout->addWidget(passwdLabel);
+    SecurityLevelItem *securityLevelItem  = new SecurityLevelItem(this);
+    SecurityLevelItemBinder::bind(securityLevelItem, m_passwdEdit);
+
+    QHBoxLayout *newPasswdLayout = new QHBoxLayout;
+    newPasswdLayout->addWidget(passwdLabel);
+    newPasswdLayout->addSpacing(80);
+    newPasswdLayout->addWidget(securityLevelItem);
+    layout->addLayout(newPasswdLayout);
     layout->addWidget(m_passwdEdit);
     layout->addSpacing(7);
 

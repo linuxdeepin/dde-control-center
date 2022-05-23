@@ -52,13 +52,6 @@ class QLocalServer;
 class QLocalSocket;
 QT_END_NAMESPACE
 
-
-namespace dcc {
-namespace widgets {
-class SecurityLevelItem;
-}
-}
-
 namespace DCC_NAMESPACE {
 namespace accounts {
 //修改密码页面
@@ -111,7 +104,6 @@ private:
     DTK_WIDGET_NAMESPACE::DLineEdit *m_passwordTipsEdit;
     bool m_isCurrent;
     bool m_isBindCheckError;
-    dcc::widgets::SecurityLevelItem *m_securityLevelItem;
     QTimer m_enableBtnTimer;
     QLocalServer *m_localServer;
     QLocalSocket *m_client;

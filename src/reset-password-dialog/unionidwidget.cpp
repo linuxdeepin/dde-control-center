@@ -20,7 +20,6 @@
  */
 
 #include "unionidwidget.h"
-#include "pwqualitymanager.h"
 
 #include <QtConcurrent>
 

@@ -48,15 +48,10 @@ public:
 private:
     void initWidget(int margin);
     void initData();
-    void setPasswdLevelIconModePath(DGuiApplicationHelper::ColorType themeType);
     void hideAlert(DLineEdit *edit);
 
 Q_SIGNALS:
     void requestSetPasswordHint(const QString &);
-
-private Q_SLOTS:
-    void onNewPasswordLineEditChanged(const QString&);
-    void updatePasswordStrengthLevelWidget(PASSWORD_LEVEL_TYPE level);
 
 private:
     QString m_userName;
@@ -64,9 +59,6 @@ private:
     DPasswordEdit *m_repeatPasswordEdit;
     DLineEdit *m_passwordTipsEdit;
     QLabel *m_newPasswdLevelText;
-    QLabel *m_newPasswdLevelIcons[PASSWORD_LEVEL_ICON_NUM];
-    PASSWORD_LEVEL_TYPE m_level;
-    QString m_newPasswdLevelIconModePath;
 };
 
 #endif // REMINDERDDIALOG_H
