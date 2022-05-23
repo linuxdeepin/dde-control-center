@@ -284,7 +284,12 @@ void DisplayModule::showMultiScreenWidget()
         windowUpdate();
     });
 
-    MultiScreenWidget *multiScreenWidget = new MultiScreenWidget(m_pMainWindow);
+    MultiScreenWidget *multiScreenWidget = new MultiScreenWidget();
+    //wayland情况下这里设置父窗口会影响窗口最大化/还原的问题，详见bug 125867
+    if(!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)){
+        multiScreenWidget->setParent(m_pMainWindow);
+    }
+
     multiScreenWidget->setModel(m_displayModel);
     connect(multiScreenWidget, &MultiScreenWidget::requestSwitchMode, m_displayWorker, &DisplayWorker::switchMode);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMonitorPosition, m_displayWorker, &DisplayWorker::setMonitorPosition);
