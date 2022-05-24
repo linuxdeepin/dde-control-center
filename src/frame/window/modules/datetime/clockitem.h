@@ -24,6 +24,7 @@
 #include "widgets/settingsitem.h"
 
 #include <com_deepin_daemon_timedate.h>
+#include <com_deepin_daemon_appearance.h>
 
 #include <QDateTime>
 #include <QHBoxLayout>
@@ -31,6 +32,7 @@
 #include <types/zoneinfo.h>
 
 using Timedate = com::deepin::daemon::Timedate;
+using Appearance = com::deepin::daemon::Appearance;
 
 namespace dcc {
 namespace widgets {
@@ -80,10 +82,12 @@ private:
     bool m_bIsEnglishType;
     bool m_weekStartMonType;
     Timedate *m_timedateInter;
+    Appearance *m_appearanceInter;
     QString m_weekdayFormat;
     QString m_shortDateFormat;
     QString m_longTimeFormat;
     QHBoxLayout *m_timeLayout;
+    double m_labelTimeFontSize;
 };
 
 } // namespace datetime

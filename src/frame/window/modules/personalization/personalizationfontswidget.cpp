@@ -174,7 +174,11 @@ void PersonalizationFontsWidget::setFontSize(int size)
     m_fontSizeSlider->blockSignals(false);
     QTimer::singleShot(100, this, [&, size] {
         QList<int> FontSizeList {11, 12, 13, 14, 15, 16, 18, 20};
-        setCommboxItemFontSize(FontSizeList[size]);
+        if (size >= 0 && size < FontSizeList.count()) {
+            setCommboxItemFontSize(FontSizeList[size]);
+        } else {
+            qWarning() << __FUNCTION__ << " out range of font size. ";
+        }
     });
 }
 

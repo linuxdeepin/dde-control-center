@@ -44,10 +44,12 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     , m_bIs24HourType(false)
     , m_bIsEnglishType(false)
     , m_timedateInter(new Timedate("com.deepin.daemon.Timedate", "/com/deepin/daemon/Timedate", QDBusConnection::sessionBus(), this))
+    , m_appearanceInter(new Appearance("com.deepin.daemon.Appearance", "/com/deepin/daemon/Appearance", QDBusConnection::sessionBus(), this))
     , m_weekdayFormat("dddd")
     , m_shortDateFormat("yyyy-MM-dd")
     , m_longTimeFormat("HH:mm:ss")
     , m_timeLayout(new QHBoxLayout)
+    , m_labelTimeFontSize(m_appearanceInter->fontSize())
 {
     m_clock->setAccessibleName("ClockItem_clock");
     m_clock->setMinimumSize(210, 210);
@@ -129,6 +131,11 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     connect(m_timedateInter, &Timedate::WeekdayFormatChanged, this, &ClockItem::setWeekdayFormatType);
     connect(m_timedateInter, &Timedate::ShortDateFormatChanged, this, &ClockItem::setShortDateFormat);
     connect(m_timedateInter, &Timedate::LongTimeFormatChanged, this, &ClockItem::setLongTimeFormat);
+    connect(m_appearanceInter, &Appearance::FontSizeChanged, this, [this](double value) {
+        if (!qFuzzyCompare(m_labelTimeFontSize, value)) {
+            m_labelTimeFontSize = value;
+        }
+    });
 }
 
 ClockItem::~ClockItem()
@@ -191,7 +198,12 @@ void ClockItem::translateHourType()
         QStringList strList(QFontDatabase::applicationFontFamilies(nIndex));
         if (strList.count() > 0) {
             QFont fontThis(strList.at(0));
-            fontThis.setPointSize(28);
+            int fontSize = 28;
+            //10.5在控制中心字体对应14，230表示字体20时依旧能显示最小的二级页面宽度
+            if (m_labelTimeFontSize - 10.5 > 0.0 && width() <= 230) {
+                fontSize = 24;
+            }
+            fontThis.setPointSize(fontSize);
             m_labelTime->setFont(fontThis);
         }
     }
