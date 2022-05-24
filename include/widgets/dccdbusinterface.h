@@ -23,11 +23,13 @@
 
 #include "interface/namespace.h"
 #include <QDBusAbstractInterface>
+#include <DObject>
 
 class QDBusPendingCallWatcher;
 
 DCC_BEGIN_NAMESPACE
-class DCCDBusInterface : public QDBusAbstractInterface
+class DCCDBusInterfacePrivate;
+class DCCDBusInterface : public QDBusAbstractInterface, public DTK_CORE_NAMESPACE::DObject
 {
     Q_OBJECT
 public:
@@ -46,6 +48,7 @@ private Q_SLOTS:
     void onAsyncPropertyFinished(QDBusPendingCallWatcher *w);
 
 private:
+    D_DECLARE_PRIVATE(DCCDBusInterface)
     Q_DISABLE_COPY(DCCDBusInterface)
 };
 DCC_END_NAMESPACE

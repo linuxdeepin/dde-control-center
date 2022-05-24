@@ -27,6 +27,8 @@
 #include <QDBusPendingReply>
 #include <QDebug>
 
+#include <DObjectPrivate>
+
 const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 const static char *PropertyName = "propname";
@@ -34,15 +36,15 @@ const static char *PropertyName = "propname";
 #define STR_VALUE_(x) #x
 #define STR_VALUE(x) STR_VALUE_(x)
 
-#define D_D(classname) classname##Private *d = property(#classname "Private").value<classname##Private *>();
-#define BIND_PRIVATE_CLASS(classname, object) setProperty(#classname "Private", QVariant::fromValue(object));
-
+DCORE_USE_NAMESPACE
 DCC_USE_NAMESPACE
-class DCCDBusInterfacePrivate
+
+DCC_BEGIN_NAMESPACE
+class DCCDBusInterfacePrivate : public DObjectPrivate
 {
 public:
     explicit DCCDBusInterfacePrivate(DCCDBusInterface *interface, QObject *parent)
-        : m_p(interface)
+        : DObjectPrivate(interface)
         , m_parent(parent)
     {
     }
@@ -77,19 +79,16 @@ public:
     }
 
 public:
-    DCCDBusInterface *m_p;
     QObject *m_parent;
     QString m_suffix;
     QVariantMap m_propertyMap;
 };
-
-Q_DECLARE_METATYPE(DCCDBusInterfacePrivate *)
-Q_DECLARE_METATYPE(const DCCDBusInterfacePrivate *)
+DCC_END_NAMESPACE
 
 DCCDBusInterface::DCCDBusInterface(const QString &service, const QString &path, const QString &interface, const QDBusConnection &connection, QObject *parent)
     : QDBusAbstractInterface(service, path, interface.toLatin1(), connection, parent)
+    , DObject(*new DCCDBusInterfacePrivate(this, parent), this)
 {
-    BIND_PRIVATE_CLASS(DCCDBusInterface, new DCCDBusInterfacePrivate(this, parent));
     if (parent) {
         QStringList argumentMatch;
         argumentMatch << interface;
@@ -116,8 +115,6 @@ DCCDBusInterface::DCCDBusInterface(const QString &service, const QString &path, 
 
 DCCDBusInterface::~DCCDBusInterface()
 {
-    D_D(DCCDBusInterface);
-    delete d;
 }
 
 QString DCCDBusInterface::suffix() const
