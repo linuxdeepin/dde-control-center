@@ -25,6 +25,10 @@ AddButtonWidget::AddButtonWidget(DefAppWorker::DefaultAppsCategory category, QWi
     m_addBtn->setToolTip(tr("Add Application"));
     m_createFile->setModal(true);
     m_createFile->setWindowTitle(tr("Open Desktop file"));
+    QStringList screen;
+    screen << tr("Apps (*.desktop)")
+           << tr("All files (*)");
+    m_createFile->setNameFilters(screen);
     m_createFile->setAcceptMode(QFileDialog::AcceptOpen);
     QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
     if (!directory.isEmpty())
