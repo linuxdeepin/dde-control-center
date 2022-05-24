@@ -147,6 +147,8 @@ void FingerWorker::renameFingerItem(const QString& userName, const QString& fing
     call.waitForFinished();
     if (call.isError()) {
         qDebug() << "call RenameFinger Error : " << call.error();
+        Q_EMIT m_model->thumbsListChanged(m_model->thumbsList());
+        return;
     }
     refreshUserEnrollList(userName);
 }
