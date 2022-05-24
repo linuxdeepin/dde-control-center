@@ -21,32 +21,37 @@
 
 #pragma once
 
-#include "moduledata.h"
+#include "namespace.h"
 
 #include <QIcon>
-#include <QWidget>
-#include <QPointer>
 #include <QDebug>
+#include <DObject>
 
-namespace DCC_NAMESPACE
-{
-
+using DCC_LAYOUT_TYPE = uint32_t;
+namespace DCC_NAMESPACE {
+class ModuleObjectPrivate;
 /**
  * @brief ModuleObject作为规范每个Module的接口，每个Module必须提供其基本的信息
  */
-class ModuleObject : public QObject
+class ModuleObject : public QObject, public DTK_CORE_NAMESPACE::DObject
 {
     Q_OBJECT
-    Q_PROPERTY(ModuleData *moduleData READ moduleData WRITE setModuleData NOTIFY moduleDataChanged)
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY moduleDataChanged)
+    Q_PROPERTY(QString displayName READ displayName WRITE setDisplayName NOTIFY moduleDataChanged)
+    Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY moduleDataChanged)
+    Q_PROPERTY(QStringList contentText READ contentText WRITE setContentText NOTIFY moduleDataChanged)
+    Q_PROPERTY(QIcon icon READ icon WRITE setIcon NOTIFY moduleDataChanged)
+    Q_PROPERTY(int badge READ badge WRITE setBadge NOTIFY moduleDataChanged)
+
     Q_PROPERTY(bool visible READ isVisible WRITE setVisible NOTIFY stateChanged)
     Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY stateChanged)
+
 public:
-    enum class ChildType {
-        MainIcon, //主菜单图标模式显示
-        MainList, //主菜单列表模式显示
-        HList,    //横向菜单列表显示
-        VList,    //纵向菜单列表显示
-        Page      //页面显示
+    enum : DCC_LAYOUT_TYPE {
+        Main = 0x01000000,  //主菜单显示
+        HList = 0x02000000, //横向菜单列表显示
+        VList = 0x03000000, //纵向菜单列表显示
+        Page = 0x04000000   //页面显示
     };
     ModuleObject(QObject *parent = nullptr);
     ModuleObject(const QString &name, const QString &displayName = {}, QObject *parent = nullptr);
@@ -74,25 +79,45 @@ public:
      */
     virtual QWidget *page() { return nullptr; }
 
-    /**
-     * @brief 扩展按钮，如垂直菜单或page下方的按钮，同page(),每次获取需new新的QWidget
-     * @return 当ChildType为VList/Page时，按需加载扩展按钮
-     */
-    virtual QWidget *extraButton() { return nullptr; }
+public:
+    QString name() const;
+    QString displayName() const;
+    QString description() const;
+    QStringList contentText() const;
+    QIcon icon() const;
+    int badge() const;
 
     bool isVisible() const;
     bool isEnabled() const;
+
+    //! Returns current ModuleObject version
+    static unsigned GetCurrentVersion();
 
 public Q_SLOTS:
     void setVisible(bool visible);
     void setEnabled(bool enabled);
     void trigger();
 
+    // 名称，作为每个模块的唯一标识，不可为空
+    void setName(const QString &name);
+    // 显示名称，如菜单的名称，页面的标题等，为空则不显示
+    void setDisplayName(const QString &displayName);
+    // 描述，如主菜单的描述信息
+    void setDescription(const QString &description);
+    // 上下文数据，参与搜索，只可用于终结点：DisplayName -> ContentText(one of it)
+    void setContentText(const QStringList &contentText);
+    void addContentText(const QString &contentText);
+    void addContentText(const QStringList &contentText);
+    // 图标，如主菜单的图标
+    void setIcon(const QIcon &icon);
+    // 主菜单中的角标, 默认为0不显示，大于0显示
+    void setBadge(int badge);
+
 Q_SIGNALS:
     /**
      * @brief ModuleData 改变后必须发送此信号
      */
-    void moduleDataChanged(ModuleData *);
+    void moduleDataChanged();
 
     /**
      * @brief 添加child后触发
@@ -124,15 +149,6 @@ Q_SIGNALS:
 
 public:
     /**
-     * @brief 元数据封装，方便调用
-     * @return 元数据的Name
-     */
-    inline QString name() const
-    {
-        return moduleData()->Name;
-    }
-
-    /**
      * @brief 搜索子项，使用广度搜索
      * @param child 子项
      * @return 子项所在的层数，返回0表示module自己，-1表示未搜索到
@@ -144,41 +160,21 @@ public:
     /**
      * @brief 子项类型，由类型决定view显示效果
      */
-    inline ChildType childType() const { return m_childType; }
+    DCC_LAYOUT_TYPE childType() const;
 
     /**
      * @brief 设置子项类型
      */
-    inline void setChildType(const ChildType &t)
-    {
-        m_childType = t;
-    }
-    /**
-     * @brief 模块元数据，基本信息
-     * @return 数据内容
-     */
-    inline ModuleData *moduleData() const { return m_moduleData; }
-
-    /**
-     * @brief 设置模块元数据
-     * @param data 元数据
-     */
-    void setModuleData(ModuleData *data);
-
+    void setChildType(const DCC_LAYOUT_TYPE &t);
     inline bool hasChildrens() { return !childrens().isEmpty(); }
 
     /**
      * @brief 子项，不可直接使用QList进行增删改操作，应使用appendChild、removeChild、insertChild
      * @return 子项列表
      */
-    inline const QList<ModuleObject *> &childrens() { return m_childrens; }
-    inline ModuleObject *children(const int index) const
-    {
-        if (index < 0 || index >= m_childrens.size())
-            return nullptr;
-        return m_childrens.at(index);
-    }
-    inline int getChildrenSize() const { return m_childrens.size(); }
+    const QList<ModuleObject *> &childrens();
+    ModuleObject *children(const int index) const;
+    int getChildrenSize() const;
 
     void appendChild(ModuleObject *const module);
     void removeChild(ModuleObject *const module);
@@ -190,8 +186,8 @@ public:
      * @brief 获取状态标志
      * @return 对应状态位是否
      */
-    inline bool getFlagState(uint32_t flag) const { return (m_flags & flag); }
-    inline uint32_t getFlag() const { return m_flags; }
+    bool getFlagState(uint32_t flag) const;
+    uint32_t getFlag() const;
 
     /**
      * @brief setFlagState 设置状态标志，状态标志共32位，高16位为预留，低16位可根据需要设置
@@ -204,10 +200,8 @@ private:
     static int findChild(ModuleObject *const module, ModuleObject *const child, const int num);
 
 private:
-    ModuleData *m_moduleData;
-    QList<ModuleObject *> m_childrens;
-    ChildType m_childType;
-    uint32_t m_flags;
+    D_DECLARE_PRIVATE(ModuleObject)
+    Q_DISABLE_COPY(ModuleObject)
 };
 
 } // namespace DCC_NAMESPACE

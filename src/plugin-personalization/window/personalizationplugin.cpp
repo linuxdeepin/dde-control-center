@@ -40,7 +40,7 @@ PersonalizationModule::PersonalizationModule(QObject *parent)
     , m_useElectric(nullptr)
     , m_useBattery(nullptr)
 {
-    setChildType(ModuleObject::ChildType::HList);
+    setChildType(ModuleObject::HList);
 
     m_model = new PersonalizationModel(this);
     m_work = new PersonalizationWorker(m_model, this);
@@ -48,18 +48,14 @@ PersonalizationModule::PersonalizationModule(QObject *parent)
     appendChild(new PersonalizationGeneralModule(m_model, m_work, this));
 //    "personalizationIconTheme", tr("Icon Theme"), QIcon::fromTheme("dcc_Icon_theme"),
     ModuleObject *obj =new PersonalizationThemeModule(m_model->getIconModel(), m_work, this);
-    ModuleData * data = obj->moduleData();
-    data->Name = "personalizationIconTheme";
-    data->Icon = QIcon::fromTheme("dcc_Icon_theme");
-    data->DisplayName = tr("Icon Theme");
-    obj->setModuleData(data);
+    obj->setName("personalizationIconTheme");
+    obj->setIcon(QIcon::fromTheme("dcc_Icon_theme"));
+    obj->setDisplayName(tr("Icon Theme"));
     appendChild(obj);
     obj =new PersonalizationThemeModule(m_model->getMouseModel(), m_work, this);
-    data = obj->moduleData();
-    data->Name = "personalizationCursorTheme";
-    data->Icon = QIcon::fromTheme("dcc_cursor_theme");
-    data->DisplayName = tr("Cursor Theme");
-    obj->setModuleData(data);
+    obj->setName("personalizationCursorTheme");
+    obj->setIcon(QIcon::fromTheme("dcc_cursor_theme"));
+    obj->setDisplayName(tr("Cursor Theme"));
     appendChild(obj);
     appendChild(new PersonalizationFontsModule(m_model, m_work, this));
 }

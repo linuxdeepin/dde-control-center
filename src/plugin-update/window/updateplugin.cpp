@@ -25,11 +25,11 @@ ModuleObject *UpdatePlugin::module()
     }
     // 一级页面
     UpdateModule *updateInterface = new UpdateModule;
-    updateInterface->setChildType(ModuleObject::ChildType::HList);
+    updateInterface->setChildType(ModuleObject::HList);
 
     // 检查更新
     ModuleObject *moduleUpdate = new ModuleObject(tr("Check for Updates"), tr("Check for Updates"), this);
-    moduleUpdate->setChildType(ModuleObject::ChildType::Page);
+    moduleUpdate->setChildType(ModuleObject::Page);
     checkUpdateModule *checkUpdatePage = new checkUpdateModule(updateInterface->model(), updateInterface->work(), moduleUpdate);
     moduleUpdate->appendChild(checkUpdatePage);
     updateInterface->appendChild(moduleUpdate);
@@ -88,9 +88,7 @@ void UpdateModule::active()
 
 void UpdateModule::syncUpdatablePackagesChanged(const bool isUpdatablePackages)
 {
-    ModuleData *dataRoot = const_cast<ModuleData *>(moduleData());
-    dataRoot->Badge = (isUpdatablePackages && m_model->updateNotify());
-    this->setModuleData(dataRoot);
+    setBadge(isUpdatablePackages && m_model->updateNotify());
 }
 
 QWidget *checkUpdateModule::page()
@@ -129,13 +127,13 @@ QWidget *checkUpdateModule::page()
 UpdateTitleModule::UpdateTitleModule(const QString &name, const QString &title, QObject *parent)
     : ModuleObject(parent)
 {
-    moduleData()->Name = name;
-    moduleData()->Description = title;
-    moduleData()->ContentText.append(title);
+    setName(name);
+    setDescription(title);
+    addContentText(title);
 }
 QWidget *UpdateTitleModule::page()
 {
-    TitleLabel *titleLabel = new TitleLabel(moduleData()->Description);
+    TitleLabel *titleLabel = new TitleLabel(description());
     DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
     return titleLabel;
 }
@@ -143,14 +141,14 @@ QWidget *UpdateTitleModule::page()
 SwitchWidgetModule::SwitchWidgetModule(const QString &name, const QString &title, QObject *parent)
     : ModuleObject(parent)
 {
-    moduleData()->Name = name;
-    moduleData()->Description = title;
-    moduleData()->ContentText.append(title);
+    setName(name);
+    setDescription(title);
+    addContentText(title);
 }
 
 QWidget *SwitchWidgetModule::page()
 {
-    SwitchWidget *sw_widget = new SwitchWidget(moduleData()->Description);
+    SwitchWidget *sw_widget = new SwitchWidget(description());
     return sw_widget;
 }
 

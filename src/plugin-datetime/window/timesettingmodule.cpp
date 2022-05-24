@@ -65,7 +65,7 @@ TimeSettingModule::TimeSettingModule(DatetimeModel *model, DatetimeWorker *work,
     , m_work(work)
 {
     deactive();
-    setChildType(ModuleObject::ChildType::Page);
+    setChildType(ModuleObject::Page);
     appendChild(new WidgetModule<Clock>("time", tr("Time")));
     appendChild(new WidgetModule<SettingsGroup>("ntp server", tr("ntp server"), this, &TimeSettingModule::initAutoSyncTime));
     appendChild(new WidgetModule<SettingsGroup>("time", tr("Time setting"), this, &TimeSettingModule::initTimeSetting));

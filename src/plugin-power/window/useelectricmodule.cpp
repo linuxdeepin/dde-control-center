@@ -37,7 +37,7 @@ UseElectricModule::UseElectricModule(PowerModel *model, PowerWorker *work, QObje
     , m_model(model)
     , m_work(work)
 {
-    setChildType(ModuleObject::ChildType::Page);
+    setChildType(ModuleObject::Page);
     deactive();
     connect(this, &UseElectricModule::requestSetScreenBlackDelayOnPower, m_work, &PowerWorker::setScreenBlackDelayOnPower);
     connect(this, &UseElectricModule::requestSetSleepDelayOnPower, m_work, &PowerWorker::setSleepDelayOnPower);

@@ -37,11 +37,6 @@ VListLayout::VListLayout()
 {
 }
 
-int VListLayout::layoutType() const
-{
-    return 3;
-}
-
 void VListLayout::setCurrent(ModuleObject *const child)
 {
     if (m_view && m_model) {

@@ -18,25 +18,22 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef VLISTLAYOUT_H
-#define VLISTLAYOUT_H
-#include "layoutbase.h"
+#ifndef LAYOUTMANAGER_H
+#define LAYOUTMANAGER_H
+#include "interface/layoutbase.h"
 
-#include <DListView>
 DCC_BEGIN_NAMESPACE
-class ModuleDataModel;
-class VListLayout : public LayoutBase
+class LayoutManager
 {
 public:
-    VListLayout();
-
-    int layoutType() const override;
-    void setCurrent(DCC_NAMESPACE::ModuleObject *const child) override;
-    QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const int index) override;
+    LayoutManager();
+    LayoutBase *createLayout(DCC_LAYOUT_TYPE type);
+    bool registerLayout(LayoutFactoryBase *factory);
+    void registerLayout(QList<LayoutFactoryBase *> factories);
 
 private:
-    DTK_WIDGET_NAMESPACE::DListView *m_view;
-    ModuleDataModel *m_model;
+    QMap<DCC_LAYOUT_TYPE, LayoutFactoryBase *> m_mapFactory;
 };
 DCC_END_NAMESPACE
-#endif // VLISTLAYOUT_H
+
+#endif // LAYOUTMANAGER_H

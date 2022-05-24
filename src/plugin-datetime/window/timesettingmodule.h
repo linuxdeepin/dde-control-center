@@ -46,7 +46,7 @@ public:
     void initTimeSetting(DCC_NAMESPACE::SettingsGroup *datetimeGroup);
     void initDigitalClock(QWidget *w);
 
-    QWidget *extraButton() override;
+    QWidget *extraButton();
     virtual void deactive() override;
 Q_SIGNALS:
     void requestSetAutoSyncdate(const bool &state);

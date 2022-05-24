@@ -49,7 +49,7 @@ GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *pare
     , m_batterySettings(nullptr)
 {
     deactive();
-    setChildType(ModuleObject::ChildType::Page);
+    setChildType(ModuleObject::Page);
     m_powerPlanMap.insert(BALANCE, tr("Balanced"));
     m_powerPlanMap.insert(PERFORMANCE, tr("High Performance"));
     m_powerPlanMap.insert(POWERSAVE, tr("Power Saver"));

@@ -22,6 +22,8 @@
 #define PERSONALIZATIONGENERALMODULE_H
 #include "interface/moduleobject.h"
 
+#include <QWidget>
+
 DCC_BEGIN_NAMESPACE
 class SwitchWidget;
 class TitledSliderItem;

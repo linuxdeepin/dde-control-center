@@ -76,7 +76,7 @@ QString DockPlugin::name() const
 ModuleObject* DockPlugin::module()
 {
     ModuleObject *moduleRoot = new ModuleObject("dock", tr("Dock"), tr("Dock plugin"));
-    moduleRoot->setChildType(ModuleObject::ChildType::Page);
+    moduleRoot->setChildType(ModuleObject::Page);
 
     moduleRoot->appendChild(new WidgetModule<ComboxWidget>("Mode", tr("Mode"), this, &DockPlugin::initMode));
     moduleRoot->appendChild(new WidgetModule<ComboxWidget>("Position", tr("Position"), this, &DockPlugin::initPosition));

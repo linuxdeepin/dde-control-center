@@ -68,13 +68,13 @@ QVariant ModuleDataModel::data(const QModelIndex &index, int role) const
     ModuleObject *data = m_data->children(row);
     switch (role) {
     case Qt::DisplayRole:
-        return data->moduleData()->DisplayName;
+        return data->displayName();
     case Qt::DecorationRole:
-        return data->moduleData()->Icon;
+        return data->icon();
     case Qt::StatusTipRole:
-        return data->moduleData()->Description;
+        return data->description();
     case Dtk::RightActionListRole:
-        return data->moduleData()->Badge;
+        return data->badge();
     default:
         break;
     }
@@ -119,7 +119,7 @@ void ModuleDataModel::setData(ModuleObject *const module)
     m_signalMapper = new QSignalMapper(this);
     QList<ModuleObject *> datas = m_data->childrens();
     for (ModuleObject *data : datas) {
-        connect(data, SIGNAL(moduleDataChanged(ModuleData *)), m_signalMapper, SLOT(map()));
+        connect(data, SIGNAL(moduleDataChanged()), m_signalMapper, SLOT(map()));
         m_signalMapper->setMapping(data, data);
     }
     connect(m_signalMapper, SIGNAL(mapped(QObject *)), this, SLOT(onDataChanged(QObject *)));

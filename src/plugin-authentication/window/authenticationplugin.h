@@ -32,7 +32,7 @@ class CharaMangerModel;
 class AuthenticationPlugin : public PluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID PluginInterface_iid FILE "authentication.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Authentication" FILE "authentication.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)public:
 public:
     explicit AuthenticationPlugin() {}

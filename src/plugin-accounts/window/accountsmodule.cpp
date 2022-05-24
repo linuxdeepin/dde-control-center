@@ -57,13 +57,11 @@ ModuleObject *AccountsPlugin::module()
 {
     //一级菜单--账户
     AccountsModule *moduleInterface = new AccountsModule(this);
-    ModuleData *dataRoot = new ModuleData(this);
-    dataRoot->Name = tr("Accounts");
-    dataRoot->DisplayName = tr("Accounts");
-    dataRoot->Description = tr("系统账号管理");
-    dataRoot->Icon = QIcon::fromTheme("dcc_nav_accounts");
-    moduleInterface->setModuleData(dataRoot);
-    moduleInterface->setChildType(ModuleObject::ChildType::Page);
+    moduleInterface->setName("Accounts");
+    moduleInterface->setDisplayName(tr("Accounts"));
+    moduleInterface->setDescription(tr("Accounts"));
+    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_accounts"));
+    moduleInterface->setChildType(ModuleObject::Page);
 
     AccountsPageModule *accountsPageModule = new AccountsPageModule(moduleInterface->model(), moduleInterface->work(), moduleInterface);
     moduleInterface->appendChild(accountsPageModule);

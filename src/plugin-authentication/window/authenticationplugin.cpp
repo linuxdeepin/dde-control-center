@@ -15,25 +15,25 @@ ModuleObject *AuthenticationPlugin::module()
 {
     // 一级
     AuthenticationModule *authenticationInterface = new AuthenticationModule;
-    authenticationInterface->setChildType(ModuleObject::ChildType::HList);
+    authenticationInterface->setChildType(ModuleObject::HList);
 
     // 二级 -- 指纹
     ModuleObject *moduleFinger = new ModuleObject(tr("Fingerprint"), tr("Fingerprint"), this);
-    moduleFinger->setChildType(ModuleObject::ChildType::Page);
+    moduleFinger->setChildType(ModuleObject::Page);
     FingerModule *fingerPage = new FingerModule(authenticationInterface->model(), authenticationInterface->work());
     moduleFinger->appendChild(fingerPage);
     authenticationInterface->appendChild(moduleFinger);
 
     // 二级 -- 人脸
     ModuleObject *moduleFace = new ModuleObject(tr("Face"), tr("Face"), this);
-    moduleFace->setChildType(ModuleObject::ChildType::Page);
+    moduleFace->setChildType(ModuleObject::Page);
     FaceModule *facePage = new FaceModule(authenticationInterface->model(), authenticationInterface->work());
     moduleFace->appendChild(facePage);
     authenticationInterface->appendChild(moduleFace);
 
     // 二级 -- 虹膜
     ModuleObject *moduleIris= new ModuleObject(tr("Iris"), tr("Iris"), this);
-    moduleIris->setChildType(ModuleObject::ChildType::Page);
+    moduleIris->setChildType(ModuleObject::Page);
     IrisModule *irisPage = new IrisModule(authenticationInterface->model(), authenticationInterface->work());
     moduleIris->appendChild(irisPage);
     authenticationInterface->appendChild(moduleIris);

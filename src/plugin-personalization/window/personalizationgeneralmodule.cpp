@@ -123,7 +123,7 @@ PersonalizationGeneralModule::PersonalizationGeneralModule(PersonalizationModel 
     , m_model(model)
     , m_work(work)
 {
-    setChildType(ModuleObject::ChildType::Page);
+    setChildType(ModuleObject::Page);
     m_modules.append(new WidgetModule<TitleLabel>("personalizationThemeTitle", tr("Theme"), [](TitleLabel *title) {
         DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold);
         title->setText(tr("Theme"));

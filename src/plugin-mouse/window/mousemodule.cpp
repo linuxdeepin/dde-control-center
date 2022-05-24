@@ -64,17 +64,15 @@ ModuleObject *MousePlugin::module()
 {
     //一级菜单--鼠标与触摸板
     MouseModule *moduleInterface = new MouseModule(this);
-    ModuleData *dataRoot = new ModuleData(this);
-    dataRoot->Name = tr("Mouse");
-    dataRoot->DisplayName = tr("Mouse");
-    dataRoot->Description = tr("鼠标");
-    dataRoot->Icon = QIcon::fromTheme("dcc_nav_mouse");
-    moduleInterface->setModuleData(dataRoot);
-    moduleInterface->setChildType(ModuleObject::ChildType::HList);
+    moduleInterface->setName("mouse");
+    moduleInterface->setDisplayName(tr("Mouse"));
+    moduleInterface->setDescription(tr("Mouse"));
+    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_mouse"));
+    moduleInterface->setChildType(ModuleObject::HList);
 
     //二级菜单--通用
     ModuleObject *moduleGeneral = new ModuleObject(tr("General"), tr("General"), this);
-    moduleGeneral->setChildType(ModuleObject::ChildType::Page);
+    moduleGeneral->setChildType(ModuleObject::Page);
     GeneralSettingModule *generalSettingModule = new GeneralSettingModule(moduleInterface->model(), moduleInterface->work(), moduleGeneral);
     moduleGeneral->appendChild(generalSettingModule);
     moduleInterface->appendChild(moduleGeneral);
@@ -82,21 +80,21 @@ ModuleObject *MousePlugin::module()
 
     //二级菜单--鼠标
     ModuleObject *moduleMouse = new ModuleObject(tr("Mouse"), tr("Mouse"), this);
-    moduleMouse->setChildType(ModuleObject::ChildType::Page);
+    moduleMouse->setChildType(ModuleObject::Page);
     MouseSettingModule *mouseSettingModule = new MouseSettingModule(moduleInterface->model(), moduleInterface->work(), moduleMouse);
     moduleMouse->appendChild(mouseSettingModule);
     moduleInterface->appendChild(moduleMouse);
 
     //二级菜单--触摸板
     ModuleObject *moduleTouchpad = new ModuleObject(tr("Touchpad"), tr("Touchpad"), this);
-    moduleTouchpad->setChildType(ModuleObject::ChildType::Page);
+    moduleTouchpad->setChildType(ModuleObject::Page);
     TouchPadSettingModule *touchPadSettingModule = new TouchPadSettingModule(moduleInterface->model(), moduleInterface->work(), moduleTouchpad);
     moduleTouchpad->appendChild(touchPadSettingModule);
     moduleInterface->appendChild(moduleTouchpad);
 
     //二级菜单--指点杆
     ModuleObject *moduleTrackPoint = new ModuleObject(tr("TrackPoint"), tr("TrackPoint"), this);
-    moduleTrackPoint->setChildType(ModuleObject::ChildType::Page);
+    moduleTrackPoint->setChildType(ModuleObject::Page);
     TrackPointSettingModule *trackPointSettingModule = new TrackPointSettingModule(moduleInterface->model(), moduleInterface->work(), moduleTrackPoint);
     moduleTrackPoint->appendChild(trackPointSettingModule);
     moduleInterface->appendChild(moduleTrackPoint);

@@ -18,12 +18,12 @@ ModuleObject* Plugin::module()
     QThread::sleep(2);
     //-----------创建根节点----------
     ModuleObject *moduleRoot = new ModuleObject("firstmenu", tr("主菜单"), tr("我是主菜单"), QIcon::fromTheme("preferences-system"), this);
-    moduleRoot->setChildType(ModuleObject::ChildType::HList);
+    moduleRoot->setChildType(ModuleObject::HList);
 
     //-----------正常树构建----------
     for (int i = 1; i < 3; i++) {
         ModuleObject *module = new ModuleObject(QString("menu%1").arg(i), tr("菜单%1").arg(i), this);
-        module->setChildType(ModuleObject::ChildType::Page);
+        module->setChildType(ModuleObject::Page);
 
         for (int j = 0; j < 4; j++) {
             LabelModule *labelModule = new LabelModule(QString("main%1menu%2").arg(i).arg(j), QString("具体页面%1的第%2个page的标题").arg(i).arg(j), module);
@@ -36,13 +36,13 @@ ModuleObject* Plugin::module()
 
     //-------特殊按钮及多及嵌套示例-----------
     ButtonModule *module = new ButtonModule(QString("menu%1").arg(4), tr("菜单%1").arg(4), moduleRoot);
-    module->setChildType(ModuleObject::ChildType::VList);
+    module->setChildType(ModuleObject::VList);
     module->setText("测试按钮");
     moduleRoot->appendChild(module);// 主菜单添加带有附加按钮的菜单，需实现其extraButton虚函数
 
     // 添加VList子项，先添加一个正常子项
     ModuleObject *lstModule1 =new ModuleObject(QString("menuSpeci1"), tr("特殊菜单1"), module);
-    lstModule1->setChildType(ModuleObject::ChildType::Page);
+    lstModule1->setChildType(ModuleObject::Page);
     module->appendChild(lstModule1);
 
     // 正常子项的Page
@@ -52,7 +52,7 @@ ModuleObject* Plugin::module()
 
     // 添加VList子项，再添加一个带有附加按钮的子项
     ButtonModule *lstModule2 = new ButtonModule("menuSpeci2", "特殊菜单2", module);
-    lstModule2->setChildType(ModuleObject::ChildType::Page);
+    lstModule2->setChildType(ModuleObject::Page);
     lstModule2->setText("Page中的测试按钮");
     module->appendChild(lstModule2);
 

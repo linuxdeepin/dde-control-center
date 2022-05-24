@@ -35,11 +35,6 @@ class LayoutBase
 {
 public:
     /**
-     * @brief layoutType
-     * @return 布局类型
-     */
-    virtual int layoutType() const = 0;
-    /**
      * @brief autoExpand 自动展开项
      * @param module 当前ModuleObject
      * @param child 子项 nullptr 未指定具体项
@@ -60,5 +55,21 @@ public:
      */
     virtual QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const int index) = 0;
 };
+
+class LayoutFactoryBase
+{
+public:
+    virtual DCC_LAYOUT_TYPE type() = 0;
+    virtual LayoutBase *createLayout() = 0;
+};
+
+template<DCC_LAYOUT_TYPE TYPE, typename T>
+class LayoutFactory : public LayoutFactoryBase
+{
+public:
+    virtual DCC_LAYOUT_TYPE type() { return TYPE; }
+    virtual LayoutBase *createLayout() { return new T(); }
+};
+
 DCC_END_NAMESPACE
 #endif // LAYOUTBASE_H

@@ -18,25 +18,10 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef HLISTLAYOUT_H
-#define HLISTLAYOUT_H
-#include "layoutbase.h"
+#include "interface/layoutbase.h"
+DCC_USE_NAMESPACE
 
-DCC_BEGIN_NAMESPACE
-class TabView;
-class ModuleDataModel;
-class HListLayout : public LayoutBase
+ModuleObject *LayoutBase::autoExpand(ModuleObject *const module, ModuleObject *const child)
 {
-public:
-    HListLayout();
-
-    int layoutType() const override;
-    void setCurrent(DCC_NAMESPACE::ModuleObject *const child) override;
-    QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const int index) override;
-
-private:
-    TabView *m_view;
-    ModuleDataModel *m_model;
-};
-DCC_END_NAMESPACE
-#endif // HLISTLAYOUT_H
+    return child ? child : module->children(0);
+}

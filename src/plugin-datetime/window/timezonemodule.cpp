@@ -42,7 +42,7 @@ TimezoneModule::TimezoneModule(DatetimeModel *model, DatetimeWorker *work, QObje
     , m_timezoneGroup(nullptr)
 {
     deactive();
-    setChildType(ModuleObject::ChildType::Page);
+    setChildType(ModuleObject::Page);
     connect(this, &TimezoneModule::requestRemoveUserTimeZone, m_work, &DatetimeWorker::removeUserTimeZone);
 
     appendChild(new WidgetModule<SettingsHead>("System Timezone", tr("System Timezone"), [this](SettingsHead *w) {

@@ -18,25 +18,24 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef MAINLAYOUT_H
-#define MAINLAYOUT_H
-#include "layoutbase.h"
+#ifndef HLISTLAYOUT_H
+#define HLISTLAYOUT_H
+#include "interface/layoutbase.h"
+
 DCC_BEGIN_NAMESPACE
-class ListView;
+class TabView;
 class ModuleDataModel;
-class MainLayout : public LayoutBase
+class HListLayout : public LayoutBase
 {
 public:
-    MainLayout();
+    HListLayout();
 
-    int layoutType() const override;
-    DCC_NAMESPACE::ModuleObject *autoExpand(DCC_NAMESPACE::ModuleObject *const module, DCC_NAMESPACE::ModuleObject *const child) override;
     void setCurrent(DCC_NAMESPACE::ModuleObject *const child) override;
     QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const int index) override;
 
 private:
-    ListView *m_view;
+    TabView *m_view;
     ModuleDataModel *m_model;
 };
 DCC_END_NAMESPACE
-#endif // MAINLAYOUT_H
+#endif // HLISTLAYOUT_H

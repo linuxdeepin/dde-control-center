@@ -40,7 +40,7 @@ PersonalizationThemeModule::PersonalizationThemeModule(ThemeModel *model, Person
   , m_model(model)
   , m_work(work)
 {
-    setChildType(ModuleObject::ChildType::Page);
+    setChildType(ModuleObject::Page);
     appendChild(new WidgetModule<DCCListView>("List_perssonalizationthemelist", tr("Theme List"), this, &PersonalizationThemeModule::initThemeListView));
     appendChild(new WidgetModule<QWidget>());
 

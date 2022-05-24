@@ -47,13 +47,11 @@ ModuleObject * DisplayPlugin::module()
 {
     //一级菜单--显示
     ModuleObject *moduleInterface = new ModuleObject(this);
-    ModuleData *dataRoot = new ModuleData(this);
-    dataRoot->Name = tr("Display");
-    dataRoot->DisplayName = tr("Display");
-    dataRoot->Description = tr("Display");
-    dataRoot->Icon = QIcon::fromTheme("dcc_nav_display");
-    moduleInterface->setModuleData(dataRoot);
-    moduleInterface->setChildType(ModuleObject::ChildType::Page);
+    moduleInterface->setName("Display");
+    moduleInterface->setDisplayName(tr("Display"));
+    moduleInterface->setDescription(tr("Display"));
+    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_display"));
+    moduleInterface->setChildType(ModuleObject::Page);
 
     DisplayModule *displayModule = new DisplayModule(moduleInterface);
     moduleInterface->appendChild(displayModule);

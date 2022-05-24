@@ -38,7 +38,7 @@ class DisplayWorker;
 class DisplayPlugin : public PluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID PluginInterface_iid FILE "DisplayPlugin.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Display" FILE "DisplayPlugin.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
     virtual QString name() const override;

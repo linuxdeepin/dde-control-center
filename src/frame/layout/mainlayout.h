@@ -18,28 +18,24 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef PAGELAYOUT_H
-#define PAGELAYOUT_H
-#include "layoutbase.h"
-class QVBoxLayout;
+#ifndef MAINLAYOUT_H
+#define MAINLAYOUT_H
+#include "interface/layoutbase.h"
 DCC_BEGIN_NAMESPACE
-class PageLayout : public LayoutBase
+class ListView;
+class ModuleDataModel;
+class MainLayout : public LayoutBase
 {
 public:
-    PageLayout();
+    MainLayout();
 
-    int layoutType() const override;
     DCC_NAMESPACE::ModuleObject *autoExpand(DCC_NAMESPACE::ModuleObject *const module, DCC_NAMESPACE::ModuleObject *const child) override;
     void setCurrent(DCC_NAMESPACE::ModuleObject *const child) override;
     QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const int index) override;
 
 private:
-    QWidget *getPage(QWidget *const widget, const QString &title);
-    int getScrollPos(ModuleObject *child);
-
-private:
-    QVBoxLayout *m_vlayout;
-    QList<QPair<ModuleObject *, QWidget *>> m_mapWidget;
+    ListView *m_view;
+    ModuleDataModel *m_model;
 };
 DCC_END_NAMESPACE
-#endif // PAGELAYOUT_H
+#endif // MAINLAYOUT_H

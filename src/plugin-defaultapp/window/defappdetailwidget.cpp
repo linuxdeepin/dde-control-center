@@ -35,6 +35,7 @@
 #include <QStandardItemModel>
 #include <QIcon>
 #include <QMimeDatabase>
+#include <QPointer>
 
 DWIDGET_USE_NAMESPACE
 

@@ -47,7 +47,7 @@ PersonalizationFontsModule::PersonalizationFontsModule(PersonalizationModel *mod
     , m_model(model)
     , m_work(work)
 {
-    setChildType(ModuleObject::ChildType::Page);
+    setChildType(ModuleObject::Page);
 
     setStandList(m_model->getStandFontModel()->getFontList());
     connect(m_model->getStandFontModel(), &FontModel::listChanged, this, &PersonalizationFontsModule::setStandList);

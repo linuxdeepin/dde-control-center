@@ -50,42 +50,41 @@ ModuleObject *KeyboardPlugin::module()
 {
     //一级菜单--键盘与语言
     KeyboardModule *moduleInterface = new KeyboardModule(this);
-    ModuleData *dataRoot = new ModuleData(this);
-    dataRoot->Name = tr("keyboard");
-    dataRoot->DisplayName = tr("Keyboard and Language");
-    dataRoot->Description = tr("键盘和语言");
-    dataRoot->Icon = QIcon::fromTheme("dcc_nav_keyboard");
-    moduleInterface->setModuleData(dataRoot);
-    moduleInterface->setChildType(ModuleObject::ChildType::HList);
+    moduleInterface->setName("keyboard");
+    moduleInterface->setDisplayName(tr("Keyboard and Language"));
+    moduleInterface->setDescription(tr("键盘和语言"));
+    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_keyboard"));
+    moduleInterface->setChildType(ModuleObject::HList);
 
     //二级菜单--键盘
     ModuleObject *moduleKeyBoard = new ModuleObject(tr("键盘"), tr("键盘"), this);
-    moduleKeyBoard->setChildType(ModuleObject::ChildType::Page);
+    moduleKeyBoard->setChildType(ModuleObject::Page);
 
     //为二级菜单-键盘添加children
     GeneralSettingModule *generalSettingModule = new GeneralSettingModule(moduleInterface->model(), moduleInterface->worker());
-    generalSettingModule->moduleData()->Name = tr("键盘设置");
-    generalSettingModule->moduleData()->Description = tr("键盘设置");
-    generalSettingModule->moduleData()->ContentText.append(tr("键盘设置"));
+    generalSettingModule->setName("键盘设置");
+    generalSettingModule->setDescription(tr("键盘设置"));
+    generalSettingModule->addContentText(tr("键盘设置"));
     moduleKeyBoard->appendChild(generalSettingModule);
     //键盘布局
     KBLayoutSettingModule *kBLayoutSettingModule = new KBLayoutSettingModule(moduleInterface->model(), moduleInterface->worker());
-    kBLayoutSettingModule->moduleData()->Name = tr("键盘布局");
-    kBLayoutSettingModule->moduleData()->Description = tr("键盘布局");
-    kBLayoutSettingModule->moduleData()->ContentText.append(tr("键盘布局"));
+    kBLayoutSettingModule->setName("键盘布局");
+    kBLayoutSettingModule->setDescription(tr("键盘布局"));
+    kBLayoutSettingModule->addContentText(tr("键盘布局"));
+
     moduleKeyBoard->appendChild(kBLayoutSettingModule);
     moduleInterface->appendChild(moduleKeyBoard);
 
     //二级菜单--系统语言
     ModuleObject *moduleSystemLanguageSetting = new ModuleObject(tr("系统语言"), tr("系统语言"), this);
-    moduleSystemLanguageSetting->setChildType(ModuleObject::ChildType::Page);
+    moduleSystemLanguageSetting->setChildType(ModuleObject::Page);
     SystemLanguageSettingModule *systemLanguageSettingModule = new SystemLanguageSettingModule(moduleInterface->model(), moduleInterface->worker());
     moduleSystemLanguageSetting->appendChild(systemLanguageSettingModule);
     moduleInterface->appendChild(moduleSystemLanguageSetting);
 
     //二级菜单--快捷键
     ShortCutSettingMenuModule *moduleShortCutSetting = new ShortCutSettingMenuModule(tr("快捷键"), tr("快捷键"), this);
-    moduleShortCutSetting->setChildType(ModuleObject::ChildType::Page);
+    moduleShortCutSetting->setChildType(ModuleObject::Page);
     ShortCutSettingModule *shortCutSettingModule = new ShortCutSettingModule(moduleInterface->model(), moduleInterface->worker(), moduleInterface->shortcutModel());
     moduleShortCutSetting->appendChild(shortCutSettingModule);
     moduleInterface->appendChild(moduleShortCutSetting);

@@ -29,14 +29,14 @@ DCC_USE_NAMESPACE
 TitleModule::TitleModule(const QString &name, const QString &title, QObject *parent)
     : ModuleObject(parent)
 {
-    moduleData()->Name = name;
-    moduleData()->Description = title;
-    moduleData()->ContentText.append(title);
+    setName(name);
+    setDescription(title);
+    addContentText(title);
 }
 
 QWidget *TitleModule::page()
 {
-    TitleLabel *titleLabel = new TitleLabel(moduleData()->Description);
+    TitleLabel *titleLabel = new TitleLabel(description());
     DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
     return titleLabel;
 }

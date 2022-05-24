@@ -40,11 +40,6 @@ MainLayout::MainLayout()
 {
 }
 
-int MainLayout::layoutType() const
-{
-    return 0;
-}
-
 ModuleObject *MainLayout::autoExpand(ModuleObject *const module, ModuleObject *const child)
 {
     return child;

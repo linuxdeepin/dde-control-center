@@ -67,17 +67,15 @@ ModuleObject *SystemInfoPlugin::module()
 {
     //一级菜单--系统信息
     SystemInfoModule *moduleInterface = new SystemInfoModule(this);
-    ModuleData *dataRoot = new ModuleData(this);
-    dataRoot->Name = tr("System Info");
-    dataRoot->DisplayName = tr("System Info");;
-    dataRoot->Description = tr("系统信息");
-    dataRoot->Icon = QIcon::fromTheme("dcc_nav_systeminfo");
-    moduleInterface->setModuleData(dataRoot);
-    moduleInterface->setChildType(ModuleObject::ChildType::HList);
+    moduleInterface->setName("System Info");
+    moduleInterface->setDisplayName(tr("System Info"));
+    moduleInterface->setDescription(tr("System Info"));
+    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_systeminfo"));
+    moduleInterface->setChildType(ModuleObject::HList);
 
     //二级菜单--关于本机
     ModuleObject *moduleAboutPc = new ModuleObject(tr("About This PC"), tr("About This PC"), QIcon::fromTheme("dcc_on_sel"), this);
-    moduleAboutPc->setChildType(ModuleObject::ChildType::Page);
+    moduleAboutPc->setChildType(ModuleObject::Page);
     NativeInfoModule *nativeInfoModule = new NativeInfoModule(moduleInterface->model(), moduleInterface->work(), moduleAboutPc);
     moduleAboutPc->appendChild(nativeInfoModule);
     moduleInterface->appendChild(moduleAboutPc);
@@ -85,25 +83,25 @@ ModuleObject *SystemInfoPlugin::module()
 
     //二级菜单--协议与隐私政策
     ModuleObject *moduleAgreement = new ModuleObject(tr("协议与隐私政策"), tr("协议与隐私政策"), QIcon::fromTheme("dcc_version"), this);
-    moduleAgreement->setChildType(ModuleObject::ChildType::VList);
+    moduleAgreement->setChildType(ModuleObject::VList);
 
     //三级菜单--协议与隐私政策-版本协议
     ModuleObject *moduleEdition = new ModuleObject(tr("Edition License"), tr("Edition License"), QIcon::fromTheme("dcc_version"), moduleAgreement);
-    moduleEdition->setChildType(ModuleObject::ChildType::Page);
+    moduleEdition->setChildType(ModuleObject::Page);
     VersionProtocolModule *versionProtocolModule = new VersionProtocolModule(moduleEdition);
     moduleEdition->appendChild(versionProtocolModule);
     moduleAgreement->appendChild(moduleEdition);
 
     //三级菜单--协议与隐私政策-最终用户许可协议
     ModuleObject *moduleUserAgreement = new ModuleObject(tr("End User License Agreement"), tr("End User License Agreement"), QIcon::fromTheme("dcc_protocol"), moduleAgreement);
-    moduleUserAgreement->setChildType(ModuleObject::ChildType::Page);
+    moduleUserAgreement->setChildType(ModuleObject::Page);
     UserLicenseModule *userLicenseModule = new UserLicenseModule(moduleUserAgreement);
     moduleUserAgreement->appendChild(userLicenseModule);
     moduleAgreement->appendChild(moduleUserAgreement);
 
     //三级菜单--协议与隐私政策-隐私政策
     ModuleObject *modulePolicy = new ModuleObject(tr("Privacy Policy"), tr("Privacy Policy"), QIcon::fromTheme("dcc_privacy_policy"), moduleAgreement);
-    modulePolicy->setChildType(ModuleObject::ChildType::Page);
+    modulePolicy->setChildType(ModuleObject::Page);
     PrivacyPolicyModule *privacyPolicyModule = new PrivacyPolicyModule(modulePolicy);
     modulePolicy->appendChild(privacyPolicyModule);
     moduleAgreement->appendChild(modulePolicy);

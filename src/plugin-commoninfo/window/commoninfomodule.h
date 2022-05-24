@@ -34,7 +34,7 @@ class CommonInfoWork;
 class CommonInfoPlugin : public PluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID PluginInterface_iid FILE "CommonInfoPlugin.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.CommonInfo" FILE "CommonInfoPlugin.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
     virtual QString name() const override;

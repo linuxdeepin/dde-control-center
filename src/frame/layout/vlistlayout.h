@@ -18,27 +18,24 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef BLUETOOTHPLUGIN_H
-#define BLUETOOTHPLUGIN_H
+#ifndef VLISTLAYOUT_H
+#define VLISTLAYOUT_H
+#include "interface/layoutbase.h"
 
-#include "interface/moduleobject.h"
-#include "interface/plugininterface.h"
-
-class BluetoothPlugin : public DCC_NAMESPACE::PluginInterface
+#include <DListView>
+DCC_BEGIN_NAMESPACE
+class ModuleDataModel;
+class VListLayout : public LayoutBase
 {
-    Q_OBJECT
-    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Bluetooth" FILE "plugin-bluetooth.json")
-    Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
-    explicit BluetoothPlugin(QObject *parent = nullptr);
-    ~BluetoothPlugin();
+    VListLayout();
 
-    virtual QString name() const override;
-    virtual DCC_NAMESPACE::ModuleObject *module() override;
-    virtual int location() const override;
+    void setCurrent(DCC_NAMESPACE::ModuleObject *const child) override;
+    QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const int index) override;
 
 private:
-    DCC_NAMESPACE::ModuleObject *m_moduleRoot;
+    DTK_WIDGET_NAMESPACE::DListView *m_view;
+    ModuleDataModel *m_model;
 };
-
-#endif // BLUETOOTHPLUGIN_H
+DCC_END_NAMESPACE
+#endif // VLISTLAYOUT_H

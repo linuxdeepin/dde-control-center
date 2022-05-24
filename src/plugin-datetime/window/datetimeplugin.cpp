@@ -31,7 +31,7 @@ DatetimeModule::DatetimeModule(QObject *parent)
     : ModuleObject("Datetime", tr("Datetime"), tr("Datetime"), QIcon::fromTheme("dcc_nav_datetime"), parent)
     , m_model(nullptr)
 {
-    setChildType(ModuleObject::ChildType::HList);
+    setChildType(ModuleObject::HList);
 
     m_model = new DatetimeModel(this);
     m_work = new DatetimeWorker(m_model, this);

@@ -1,9 +1,9 @@
 #include "gtest/gtest.h"
 
 #include "src/frame/mainwindow.h"
-#include "src/frame/listitemdelegate.h"
-#include "src/frame/listview.h"
-#include "src/frame/moduledatamodel.h"
+#include "src/frame/layout/listitemdelegate.h"
+#include "src/frame/layout/listview.h"
+#include "src/frame/layout/moduledatamodel.h"
 #include "interface/moduleobject.h"
 
 DCC_USE_NAMESPACE
@@ -209,12 +209,10 @@ TEST_F(Tst_ListView, coverage)
     ModuleObject *module = new ModuleObject();
     for (int i = 0; i < 17; i++) {
         ModuleObject *modulechild = new ModuleObject();
-        ModuleData *data = new ModuleData;
-        data->Name = QString("firstmenu%1").arg(i);
-        data->DisplayName = QString("主菜单%1").arg(i);
-        data->Description = QString("我是主菜单%1").arg(i);
-        data->Icon = QIcon::fromTheme(G_icons[i]);
-        modulechild->setModuleData(data);
+        module->setName(QString("firstmenu%1").arg(i));
+        module->setDisplayName(QString("主菜单%1").arg(i));
+        module->setDescription(QString("我是主菜单%1").arg(i));
+        module->setIcon(QIcon::fromTheme(G_icons[i]));
         module->appendChild(modulechild);
     }
     model->setData(module);

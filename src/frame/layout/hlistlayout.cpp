@@ -35,11 +35,6 @@ HListLayout::HListLayout()
 {
 }
 
-int HListLayout::layoutType() const
-{
-    return 2;
-}
-
 void HListLayout::setCurrent(ModuleObject *const child)
 {
     if (m_view && m_model) {

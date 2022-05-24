@@ -39,7 +39,7 @@ class ModifyPasswdPage;
 class AccountsPlugin : public PluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID PluginInterface_iid FILE "AccountsPlugin.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Accounts" FILE "AccountsPlugin.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
     virtual QString name() const override;

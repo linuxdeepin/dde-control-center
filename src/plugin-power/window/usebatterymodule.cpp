@@ -42,7 +42,7 @@ UseBatteryModule::UseBatteryModule(PowerModel *model, PowerWorker *work, QObject
     , m_work(work)
     , m_annos({ "1m", "5m", "10m", "15m", "30m", "1h", tr("Never") })
 {
-    setChildType(ModuleObject::ChildType::Page);
+    setChildType(ModuleObject::Page);
     deactive();
 
     connect(this, &UseBatteryModule::requestSetScreenBlackDelayOnBattery, m_work, &PowerWorker::setScreenBlackDelayOnBattery);

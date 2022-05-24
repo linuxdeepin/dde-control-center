@@ -37,11 +37,6 @@ PageLayout::PageLayout()
 {
 }
 
-int PageLayout::layoutType() const
-{
-    return 3;
-}
-
 ModuleObject *PageLayout::autoExpand(ModuleObject *const module, ModuleObject *const child)
 {
     return nullptr;
@@ -106,7 +101,7 @@ QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
 
     for (auto child : module->childrens()) {
         QString url = currentPath + child->name();
-        auto page = getPage(child->page(), child->moduleData()->DisplayName);
+        auto page = getPage(child->page(), child->displayName());
         if (page) {
             m_vlayout->addWidget(page, 0, Qt::AlignTop);
             m_mapWidget.append({ child, page });
@@ -123,7 +118,7 @@ QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
     });
     auto addChild = [this, module](ModuleObject *const childModule) {
         int index = module->childrens().indexOf(childModule);
-        auto newPage = getPage(childModule->page(), childModule->moduleData()->DisplayName);
+        auto newPage = getPage(childModule->page(), childModule->displayName());
         if (newPage) {
             m_vlayout->insertWidget(index, newPage);
         }

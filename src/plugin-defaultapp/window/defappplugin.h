@@ -33,7 +33,7 @@ class DefAppWorker;
 class DefAppPlugin : public PluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID PluginInterface_iid FILE "defaultapp.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.DefApp" FILE "defaultapp.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
     explicit DefAppPlugin() {}
@@ -75,7 +75,7 @@ public:
     ~DefAppsButtonModule();
 
     virtual QWidget *page() override;
-    virtual QWidget *extraButton() override;
+    virtual QWidget *extraButton();
 
 Q_SIGNALS:
     void onButtonClicked();

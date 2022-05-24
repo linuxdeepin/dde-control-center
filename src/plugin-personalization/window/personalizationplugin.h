@@ -50,7 +50,7 @@ private:
 class PersonalizationPlugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID PluginInterface_iid FILE "plugin-personalization.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Personalization" FILE "plugin-personalization.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
     explicit PersonalizationPlugin(QObject *parent = nullptr);

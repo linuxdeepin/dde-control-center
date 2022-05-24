@@ -42,7 +42,7 @@ ModuleObject *DefAppPlugin::module()
     };
     // 一级页面
     DefAppModule *moduleRoot = new DefAppModule;
-    moduleRoot->setChildType(ModuleObject::ChildType::VList);
+    moduleRoot->setChildType(ModuleObject::VList);
 
     for (DATE iter : moduleInfo) {
         // 二级按钮页
@@ -50,11 +50,11 @@ ModuleObject *DefAppPlugin::module()
                                                                          QIcon::fromTheme(QString(iter.icon)),
                                                                          moduleRoot->model(), moduleRoot->work());
 
-        moduleDefaultApps->setChildType(ModuleObject::ChildType::Page);
+        moduleDefaultApps->setChildType(ModuleObject::Page);
 
         // 三级页面
         DefappDetailModule *defappDetail = new DefappDetailModule(iter.category, moduleRoot->model(), moduleRoot->work());
-        defappDetail->setChildType(ModuleObject::ChildType::Page);
+        defappDetail->setChildType(ModuleObject::Page);
         moduleDefaultApps->appendChild(defappDetail);
 
         connect(moduleDefaultApps, &DefAppsButtonModule::onButtonClicked, moduleDefaultApps, [moduleDefaultApps] {

@@ -40,6 +40,7 @@ endif ()
 
 # Find the library
 find_package(PkgConfig REQUIRED)
+find_package(DtkCore REQUIRED)
 find_package(DtkWidget REQUIRED)
 find_package(Qt5 COMPONENTS Widgets DBus Concurrent Multimedia Svg Test REQUIRED)
 
@@ -76,9 +77,11 @@ add_library(${Interface_Name} SHARED
 
 set(Interface_Includes
     Qt5::Widgets
+    ${DtkCore_INCLUDE_DIRS}
 )
 set(Interface_Libraries
     Qt5::Widgets
+    ${DtkCore_LIBRARIES}
 )
 target_include_directories(${Interface_Name} PUBLIC
     ${Interface_Includes}

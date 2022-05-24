@@ -25,23 +25,23 @@ public:
 
 TEST_F(Tst_ModuleObject, coverage)
 {
-    ModuleData *dataRoot = new ModuleData("Name", "DisplayName", "Description", QIcon::fromTheme("preferences-system"), obj);
-    obj->setModuleData(dataRoot);
-    obj->setChildType(ModuleObject::ChildType::HList);
+    obj->setName("Name");
+    obj->setDisplayName("DisplayName");
+    obj->setDescription("Description");
+    obj->setIcon(QIcon::fromTheme("preferences-system"));
+    obj->setChildType(ModuleObject::HList);
 
     for (int i = 1; i < 4; i++) {
         ModuleObject *module = new ModuleObject(QString("menu%1").arg(i), QString("菜单%1").arg(i), QString("我是菜单%1").arg(i));
-        module->setChildType(ModuleObject::ChildType::Page);
+        module->setChildType(ModuleObject::Page);
 
         obj->appendChild(module);
     }
 
     ModuleObject *module = new ModuleObject;
-    ModuleData *data = new ModuleData;
-    data->Name = QString("action1");
-    data->DisplayName = QString("选项1");
-    data->Description = QString("我是选项1");
-    module->setModuleData(data);
+    module->setName("action1");
+    module->setDisplayName("选项1");
+    module->setDescription("我是选项1");
 
     obj->childrens().last()->insertChild(1, module);
 

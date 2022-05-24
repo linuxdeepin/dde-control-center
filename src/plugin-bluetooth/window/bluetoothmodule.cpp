@@ -36,7 +36,7 @@ BluetoothModule::BluetoothModule(QObject *parent)
     , m_index(0)
     , m_parent(nullptr)
 {
-    setChildType(ModuleObject::ChildType::Page);
+    setChildType(ModuleObject::Page);
 
     m_model = new BluetoothModel(this);
     m_work = new BluetoothWorker(m_model, this);

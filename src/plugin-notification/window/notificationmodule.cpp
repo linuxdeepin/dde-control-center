@@ -40,13 +40,11 @@ ModuleObject *NotificationPlugin::module()
 {
     //一级菜单--通知
     ModuleObject *moduleInterface = new ModuleObject(this);
-    ModuleData *dataRoot = new ModuleData(this);
-    dataRoot->Name = tr("Notification");
-    dataRoot->DisplayName = tr("Notification");
-    dataRoot->Description = tr("Notification");
-    dataRoot->Icon = QIcon::fromTheme("dcc_nav_notification");
-    moduleInterface->setModuleData(dataRoot);
-    moduleInterface->setChildType(ModuleObject::ChildType::Page);
+    moduleInterface->setName("Notification");
+    moduleInterface->setDisplayName(tr("Notification"));
+    moduleInterface->setDescription(tr("Notification"));
+    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_notification"));
+    moduleInterface->setChildType(ModuleObject::Page);
 
     NotificationModule *displayModule = new NotificationModule(moduleInterface);
     moduleInterface->appendChild(displayModule);

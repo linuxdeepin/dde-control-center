@@ -42,32 +42,32 @@ ModuleObject *SoundPlugin::module()
 {
     // 一级页面
     SoundModule *soundInterface = new SoundModule;
-    soundInterface->setChildType(ModuleObject::ChildType::HList);
+    soundInterface->setChildType(ModuleObject::HList);
 
     // 二级 -- 输出
     ModuleObject *moduleOutput = new ModuleObject(tr("Output"), tr("Output"), this);
-    moduleOutput->setChildType(ModuleObject::ChildType::Page);
+    moduleOutput->setChildType(ModuleObject::Page);
     OutputModule *outputPage = new OutputModule(soundInterface->model(), soundInterface->work(), moduleOutput);
     moduleOutput->appendChild(outputPage);
     soundInterface->appendChild(moduleOutput);
 
     // 二级 -- 输入
     ModuleObject *moduleInput = new ModuleObject(tr("Input"), tr("Input"), this);
-    moduleInput->setChildType(ModuleObject::ChildType::Page);
+    moduleInput->setChildType(ModuleObject::Page);
     InputModule *inputPage = new InputModule(soundInterface->model(), soundInterface->work(), moduleInput);
     moduleInput->appendChild(inputPage);
     soundInterface->appendChild(moduleInput);
 
     // 二级 -- 系统音效
     ModuleObject *moduleSoundEffects = new ModuleObject(tr("Sound Effects"), tr("Sound Effects"), this);
-    moduleSoundEffects->setChildType(ModuleObject::ChildType::Page);
+    moduleSoundEffects->setChildType(ModuleObject::Page);
     SoundEffectsModule *effectsPage = new SoundEffectsModule(soundInterface->model(), soundInterface->work(), moduleSoundEffects);
     moduleSoundEffects->appendChild(effectsPage);
     soundInterface->appendChild(moduleSoundEffects);
 
     // 二级 -- 设备管理
     ModuleObject *moduleDevices = new ModuleObject(tr("Devices"), tr("Devices"), this);
-    moduleDevices->setChildType(ModuleObject::ChildType::Page);
+    moduleDevices->setChildType(ModuleObject::Page);
 
     DeviceTitleModule *inputTitle = new DeviceTitleModule(tr("Input Devices"), tr("Input Devices"), moduleDevices);
     moduleDevices->appendChild(inputTitle);
@@ -166,14 +166,14 @@ QWidget *OutputDeviceModule::page()
 
 DeviceTitleModule::DeviceTitleModule(const QString &name, const QString &title, QObject *parent)
 {
-    moduleData()->Name = name;
-    moduleData()->Description = title;
-    moduleData()->ContentText.append(title);
+    setName(name);
+    setDescription(title);
+    addContentText(title);
 }
 
 QWidget *DeviceTitleModule::page()
 {
-    TitleLabel *titleLabel = new TitleLabel(moduleData()->Description);
+    TitleLabel *titleLabel = new TitleLabel(description());
     DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
     return titleLabel;
 }

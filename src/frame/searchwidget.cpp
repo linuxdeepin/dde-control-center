@@ -223,24 +223,24 @@ void SearchWidget::refreshModel()
     for (auto &&data : m_searchData) {
         auto res = std::find_if(m_rootModule->childrens().cbegin(), m_rootModule->childrens().cend()
             , [data] (ModuleObject *child) ->bool {
-            return child->moduleData()->DisplayName == data.Url.split('/').first();
+            return child->displayName() == data.Url.split('/').first();
         });
 
         if (res != m_rootModule->childrens().cend()) {
             QStandardItem *item1 = new QStandardItem;
-            item1->setIcon((*res)->moduleData()->Icon);
+            item1->setIcon((*res)->icon());
             item1->setText(data.SearchUrl);
-            item1->setData((*res)->moduleData()->Icon.name(), Qt::UserRole + 1);
+            item1->setData((*res)->icon().name(), Qt::UserRole + 1);
             if (m_bIsChinese) {
                 item1->setData(data.SearchUrl, Qt::UserRole);
             }
             m_model->appendRow(item1);
             if (m_bIsChinese) {// 中文环境添加拼音数据
                 QStandardItem *item2 = new QStandardItem;
-                item2->setIcon((*res)->moduleData()->Icon);
+                item2->setIcon((*res)->icon());
                 item2->setText(data.SearchUrl);
                 item2->setData(data.PinYin, Qt::UserRole);
-                item2->setData((*res)->moduleData()->Icon.name(), Qt::UserRole + 1);
+                item2->setData((*res)->icon().name(), Qt::UserRole + 1);
                 m_model->appendRow(item2);
             }
         }
@@ -253,8 +253,8 @@ void SearchWidget::addUrl(ModuleObject * module, const QString &prefix, QList<Mo
     QStringList strlist;
     if (!prefix.isEmpty())
         strlist.append(prefix);
-    if (!module->moduleData()->DisplayName.isEmpty())
-        strlist.append(module->moduleData()->DisplayName);
+    if (!module->displayName().isEmpty())
+        strlist.append(module->displayName());
     if (!strlist.isEmpty())
         tempStr = strlist.join('/');
     moduleUrl.append(module);
@@ -269,7 +269,7 @@ void SearchWidget::addUrl(ModuleObject * module, const QString &prefix, QList<Mo
         if (!m_searchData.contains(data))
             m_searchData.insert(m_insertIndex++, data);
     }
-    for (auto &&text : module->moduleData()->ContentText) {
+    for (auto &&text : module->contentText()) {
         tempStr = tempStr + '/' + text;
         auto &&data = SearchData(tempStr, convertUrl(tempStr), convertUrl(convertPinyin(tempStr)), moduleUrl);
         if (!m_searchData.contains(data))
@@ -304,8 +304,8 @@ QString SearchWidget::getPrefix(ModuleObject *const module, ModuleObject *const 
     QStringList strlist;
     if (!prefix.isEmpty())
         strlist.append(prefix);
-    if (!module->moduleData()->DisplayName.isEmpty())
-        strlist.append(module->moduleData()->DisplayName);
+    if (!module->displayName().isEmpty())
+        strlist.append(module->displayName());
     if (!strlist.isEmpty())
         tempStr = strlist.join('/');
     for (auto ch : child->childrens()) {

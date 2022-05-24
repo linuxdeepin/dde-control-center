@@ -21,7 +21,6 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "layoutbase.h"
 
 #include <dtkcore_global.h>
 #include <DMainWindow>
@@ -35,7 +34,6 @@ class DConfig;
 DCORE_END_NAMESPACE
 
 DWIDGET_BEGIN_NAMESPACE
-class LayoutBase;
 class DBackgroundGroup;
 class DIconButton;
 class DListView;
@@ -49,13 +47,15 @@ class QAbstractItemView;
 namespace DCC_NAMESPACE
 {
 
+class LayoutBase;
+class LayoutManager;
 class ModuleObject;
 class PluginManager;
 class SearchWidget;
 struct WidgetData {
     ModuleObject *module;
     QWidget *w;
-    DCC_NAMESPACE::LayoutBase *layout;
+    LayoutBase *layout;
 };
 /**************forward declaring end*****************/
 
@@ -102,6 +102,7 @@ private:
     Dtk::Core::DConfig                  *m_dconfig;             //配置
     SearchWidget                        *m_searchWidget;        //搜索框
     ModuleObject                        *m_rootModule;
+    DCC_NAMESPACE::LayoutManager        *m_layoutManager;
     QList<WidgetData>                   m_currentModule;
     PluginManager                       *m_pluginManager;
 //    QAbstractItemView                   *m_mainView;            //保存主菜单view, 方便改变背景

@@ -40,7 +40,7 @@ FormatSettingModule::FormatSettingModule(DatetimeModel *model, DatetimeWorker *w
     , m_weekStartWithDay({ tr("Monday"), tr("Tuesday"), tr("Wednesday"), tr("Thursday"), tr("Friday"), tr("Saturday"), tr("Sunday") })
 {
     deactive();
-    setChildType(ModuleObject::ChildType::Page);
+    setChildType(ModuleObject::Page);
 
     appendChild(new WidgetModule<SwitchWidget>("24-hour Time", tr("24-hour Time"), [this](SwitchWidget *hourTypeSwitch) {
         hourTypeSwitch->setTitle(tr("24-hour Time"));

@@ -43,9 +43,9 @@ UpdateSettingsModule::UpdateSettingsModule(UpdateModel *model, UpdateWorker *wor
     , m_model(model)
     , m_work(work)
 {
-    moduleData()->Name = "Update Settings";
-    moduleData()->DisplayName = tr("Update Settings");
-    setChildType(ModuleObject::ChildType::Page);
+    setName("Update Settings");
+    setDisplayName(tr("Update Settings"));
+    setChildType(ModuleObject::Page);
 
     initConnection();
     initModuleList();

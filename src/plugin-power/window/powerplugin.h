@@ -50,7 +50,7 @@ private:
 class PowerPlugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID PluginInterface_iid FILE "plugin-power.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Power" FILE "plugin-power.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
     explicit PowerPlugin(QObject *parent = nullptr);

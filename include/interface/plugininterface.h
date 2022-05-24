@@ -23,16 +23,17 @@
 #include "namespace.h"
 #include <QObject>
 
-namespace DCC_NAMESPACE
-{
+namespace DCC_NAMESPACE {
 
 class ModuleObject;
+class LayoutFactoryBase;
 
 class PluginInterface : public QObject
 {
     Q_OBJECT
 public:
-    PluginInterface(QObject *parent = nullptr) : QObject(parent) {}
+    PluginInterface(QObject *parent = nullptr)
+        : QObject(parent) {}
     virtual ~PluginInterface() {}
 
     /**
@@ -45,15 +46,17 @@ public:
      * @brief 标识插件信息
      * @return 插件名称
      */
-    virtual QString name() const {
+    virtual QString name() const
+    {
         return QString();
     }
 
     /**
-     * @brief 插件必须知道其需要跟随的父插件 name ,默认为空则为一级插件
-     * @return 跟随的父插件 name
+     * @brief 插件必须知道其需要跟随的父ModuleObject的url ,默认为空则为一级插件
+     * @return 跟随的父ModuleObject的url
      */
-    virtual QString follow() const {
+    virtual QString follow() const
+    {
         return QString();
     }
 
@@ -61,13 +64,18 @@ public:
      * @brief 插件位置索引，相同索引则按加载顺序进行排序，先加载的往后顺延，默认追加到最后
      * @return 位置索引
      */
-    virtual int location() const {
+    virtual int location() const
+    {
         return -1;
     }
+
+    /**
+     * @brief layoutFactory 自定义布局工厂类，实现自定义布局
+     * @return
+     */
+    virtual QList<LayoutFactoryBase *> layoutFactory() { return {}; }
 };
 
 } // namespace DCC_NAMESPACE
 
-
-#define PluginInterface_iid "com.deepin.dde.ControlCenter.Plugin/1.0"
-Q_DECLARE_INTERFACE(DCC_NAMESPACE::PluginInterface, PluginInterface_iid)
+Q_DECLARE_INTERFACE(DCC_NAMESPACE::PluginInterface, "com.deepin.dde.ControlCenter.Plugin/1.0")

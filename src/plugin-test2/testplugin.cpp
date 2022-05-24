@@ -16,7 +16,7 @@ ModuleObject* Plugin::module()
 {
     //-----------创建根节点----------
     ModuleObject *moduleRoot = new ModuleObject("menu3", tr("菜单3"), tr("我是菜单3"), QIcon::fromTheme("preferences-system"), this);
-    moduleRoot->setChildType(ModuleObject::ChildType::Page);
+    moduleRoot->setChildType(ModuleObject::Page);
 
     for (int j = 0; j < 4; j++) {
         LabelModule *labelModule = new LabelModule(QString("main%1menu%2").arg(3).arg(j), QString("具体页面%1的第%2个page的标题").arg(3).arg(j), moduleRoot);

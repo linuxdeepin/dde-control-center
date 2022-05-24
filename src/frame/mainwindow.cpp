@@ -22,11 +22,6 @@
 #include "interface/moduleobject.h"
 #include "pluginmanager.h"
 #include "searchwidget.h"
-#include "listview.h"
-#include "listitemdelegate.h"
-#include "tabview.h"
-#include "tabitemdelegate.h"
-#include "moduledatamodel.h"
 #include "widgets/utils.h"
 
 #include <DBackgroundGroup>
@@ -56,10 +51,7 @@
 #include <QTimer>
 #include <QColor>
 
-#include "hlistlayout.h"
-#include "mainlayout.h"
-#include "pagelayout.h"
-#include "vlistlayout.h"
+#include "layout/layoutmanager.h"
 
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -80,6 +72,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_dconfig(DConfig::create("org.deepin.dde.control-center", ControlCenterConfig, QString(), this))
     , m_searchWidget(new SearchWidget(this))
     , m_rootModule(new ModuleObject(this))
+    , m_layoutManager(new LayoutManager())
     , m_pluginManager(new PluginManager(this))
 {
     initUI();
@@ -125,8 +118,8 @@ void MainWindow::showPage(ModuleObject *const module, const QString &url, const 
             if (uType == UrlType::Name)
                 childName = child->name();
             if (uType == UrlType::DisplayName)
-                childName = child->moduleData()->DisplayName;
-            if (childName == name || child->moduleData()->ContentText.contains(name)) {
+                childName = child->displayName();
+            if (childName == name || child->contentText().contains(name)) {
                 obj = child;
             }
         }
@@ -228,12 +221,12 @@ void MainWindow::loadModules()
 
 void MainWindow::toHome()
 {
-    m_rootModule->setChildType(ModuleObject::ChildType::MainIcon);
     showModule(m_rootModule, m_contentWidget);
 }
 
 void MainWindow::updateMainView()
 {
+// 在布局中，待实现
 //    if (!m_mainView)
 //        return;
 //    // set background
@@ -353,30 +346,10 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, c
         if (!obj)
             return;
         obj->active();
-        if (obj->childrens().isEmpty())
-            return;
         int idx = modules.isEmpty() ? -1 : obj->childrens().indexOf(modules.first());
         clearPage(widget);
 
-        LayoutBase *layout = nullptr;
-
-        switch (obj->childType()) {
-        case ModuleObject::ChildType::MainIcon:
-        case ModuleObject::ChildType::MainList: {
-            layout = new MainLayout;
-        } break;
-        case ModuleObject::ChildType::HList: {
-            layout = new HListLayout;
-        } break;
-        case ModuleObject::ChildType::VList: {
-            layout = new VListLayout;
-        } break;
-        case ModuleObject::ChildType::Page: {
-            layout = new PageLayout;
-        } break;
-        default:
-            break;
-        }
+        LayoutBase *layout = m_layoutManager->createLayout(obj->childType());
         WidgetData data;
         data.w = widget;
         data.module = obj;
@@ -393,15 +366,28 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, c
 
 void MainWindow::onAddModule(ModuleObject *const module)
 {
-    connect(module, &ModuleObject::appendedChild, this, &MainWindow::onAddModule);
-    connect(module, &ModuleObject::insertedChild, this, &MainWindow::onAddModule);
-    connect(module, &ModuleObject::removedChild, this, &MainWindow::onRemoveModule);
-    connect(module, &ModuleObject::triggered, this, &MainWindow::onTriggered);
+    QList<ModuleObject*> modules;
+    modules.append(module);
+    while (!modules.isEmpty()) {
+        ModuleObject *obj=modules.takeFirst();
+        connect(obj, &ModuleObject::appendedChild, this, &MainWindow::onAddModule);
+        connect(obj, &ModuleObject::insertedChild, this, &MainWindow::onAddModule);
+        connect(obj, &ModuleObject::removedChild, this, &MainWindow::onRemoveModule);
+        connect(obj, &ModuleObject::triggered, this, &MainWindow::onTriggered);
+        modules.append(obj->childrens());
+
+    }
 }
 
 void MainWindow::onRemoveModule(ModuleObject *const module)
 {
-    disconnect(module, nullptr, this, nullptr);
+    QList<ModuleObject*> modules;
+    modules.append(module);
+    while (!modules.isEmpty()) {
+        ModuleObject *obj=modules.takeFirst();
+        disconnect(obj, nullptr, this, nullptr);
+        modules.append(obj->childrens());
+    }
 }
 
 void MainWindow::onTriggered()

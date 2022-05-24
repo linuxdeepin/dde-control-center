@@ -25,6 +25,7 @@
 #include "interface/plugininterface.h"
 
 #include <QObject>
+#include <QPointer>
 
 class QHBoxLayout;
 
@@ -39,7 +40,7 @@ class SystemNotifyWidget;
 class NotificationPlugin : public PluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID PluginInterface_iid FILE "NotificationPlugin.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Notification" FILE "NotificationPlugin.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
     virtual QString name() const override;

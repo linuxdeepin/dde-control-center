@@ -8,7 +8,7 @@ DCC_USE_NAMESPACE
 class Plugin : public PluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID PluginInterface_iid FILE "plugin-test.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Plugin_test" FILE "plugin-test.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
     virtual QString name() const override;
@@ -37,7 +37,7 @@ public:
     ButtonModule(QObject *parent = nullptr) : ModuleObject(parent) {}
     ButtonModule(const QString &name, const QString &displayName = {}, QObject *parent =nullptr) : ModuleObject(name, displayName, parent) {}
     virtual QWidget *page() override;
-    virtual QWidget *extraButton() override;
+    virtual QWidget *extraButton();
 
     void setText(const QString &text);
     inline QString text() const { return m_text; }
