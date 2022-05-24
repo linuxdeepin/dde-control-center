@@ -41,6 +41,11 @@ ModuleObject *UpdatePlugin::module()
     return updateInterface;
 }
 
+int UpdatePlugin::location() const
+{
+    return 13;
+}
+
 UpdateModule::UpdateModule(QObject *parent)
     : ModuleObject(tr("update"),tr("update"),tr("update"),QIcon::fromTheme("dcc_nav_update"),parent)
     , m_model(new UpdateModel(this))

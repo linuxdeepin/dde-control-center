@@ -22,6 +22,11 @@ ModuleObject *UosIDPlugin::module()
     return uosidInterface;
 }
 
+int UosIDPlugin::location() const
+{
+    return 0;
+}
+
 UosIDModule::UosIDModule(QObject *parent)
     : ModuleObject("UOSID", tr("UOSID"), tr("UOSID"), QIcon::fromTheme("dcc_nav_cloudsync"), parent)
     , m_model(new SyncModel(this))

@@ -53,6 +53,11 @@ ModuleObject *NotificationPlugin::module()
     return moduleInterface;
 }
 
+int NotificationPlugin::location() const
+{
+    return 7;
+}
+
 
 NotificationModule::NotificationModule(QObject *parent)
     : ModuleObject(parent)

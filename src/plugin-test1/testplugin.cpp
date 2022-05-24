@@ -6,6 +6,7 @@
 #include <qlabel.h>
 #include <qpushbutton.h>
 #include <qwidget.h>
+#include <QThread>
 
 QString Plugin::name() const
 {
@@ -14,6 +15,7 @@ QString Plugin::name() const
 
 ModuleObject* Plugin::module()
 {
+    QThread::sleep(2);
     //-----------创建根节点----------
     ModuleObject *moduleRoot = new ModuleObject("firstmenu", tr("主菜单"), tr("我是主菜单"), QIcon::fromTheme("preferences-system"), this);
     moduleRoot->setChildType(ModuleObject::ChildType::HList);

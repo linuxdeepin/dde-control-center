@@ -65,6 +65,11 @@ ModuleObject *DefAppPlugin::module()
     return moduleRoot;
 }
 
+int DefAppPlugin::location() const
+{
+    return 4;
+}
+
 DefAppModule::DefAppModule(QObject *parent)
     : ModuleObject("defapp", tr("Default Applications"), tr("Default Applications"), QIcon::fromTheme("dcc_nav_defapp"), parent)
     , m_model(new DefAppModel(this))

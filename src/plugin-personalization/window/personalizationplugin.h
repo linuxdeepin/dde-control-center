@@ -58,6 +58,7 @@ public:
 
     virtual QString name() const override;
     virtual DCC_NAMESPACE::ModuleObject *module() override;
+    virtual int location() const override;
 
 private:
     DCC_NAMESPACE::ModuleObject *m_moduleRoot;

@@ -103,3 +103,8 @@ ModuleObject *PersonalizationPlugin::module()
     m_moduleRoot = new PersonalizationModule;
     return m_moduleRoot;
 }
+
+int PersonalizationPlugin::location() const
+{
+    return 5;
+}

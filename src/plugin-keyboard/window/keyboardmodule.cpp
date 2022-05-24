@@ -95,6 +95,11 @@ ModuleObject *KeyboardPlugin::module()
     return moduleInterface;
 }
 
+int KeyboardPlugin::location() const
+{
+    return 15;
+}
+
 KeyboardModule::KeyboardModule(QObject *parent)
     : ModuleObject(parent)
     , m_model(nullptr)

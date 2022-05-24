@@ -47,7 +47,6 @@
 #include <QStandardItemModel>
 #include <QDBusInterface>
 #include <QDBusConnection>
-#include <QtConcurrent>
 #include <QFuture>
 #include <QFutureWatcher>
 #include <QScrollArea>
@@ -82,9 +81,9 @@ MainWindow::MainWindow(QWidget *parent)
     , m_backwardBtn(new DIconButton(QStyle::SP_ArrowBack, this))
     , m_dconfig(new DConfig(ControlCenterConfig, QString(), this))
     , m_searchWidget(new SearchWidget(this))
-    , m_rootModule(nullptr)
+    , m_rootModule(new ModuleObject(this))
     , m_currentModule(nullptr)
-    , m_pluginManager(nullptr)
+    , m_pluginManager(new PluginManager(this))
     , m_mainView(nullptr)
 {
     initUI();
@@ -102,9 +101,6 @@ MainWindow::~MainWindow()
     if (m_dconfig->isValid()) {
         m_dconfig->setValue(WidthConfig, width());
         m_dconfig->setValue(HeightConfig, height());
-    }
-    if (m_pluginManager) {
-        m_pluginManager->deleteLater();
     }
 }
 
@@ -213,21 +209,9 @@ void MainWindow::initConfig()
 
 void MainWindow::loadModules()
 {
-    QFutureWatcher<void> *watcher= new QFutureWatcher<void>(this);
-    connect(watcher, &QFutureWatcher<void>::finished, this, [this] {
-        showModule(m_rootModule, m_contentWidget);
-        m_searchWidget->setModuleObject(m_rootModule);
-    });
-
-    QFuture<void> future = QtConcurrent::run([this] {
-        if (m_pluginManager)
-            m_pluginManager->deleteLater();
-        m_pluginManager = new PluginManager;
-        m_pluginManager->loadModules();
-        m_rootModule = m_pluginManager->rootModule();
-        m_pluginManager->moveToThread(qApp->thread());
-    });
-    watcher->setFuture(future);
+    m_pluginManager->loadModules(m_rootModule);
+    showModule(m_rootModule, m_contentWidget);
+    m_searchWidget->setModuleObject(m_rootModule);
 }
 
 void MainWindow::toHome()
@@ -284,8 +268,8 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, c
     if (!module || !parent)
         return;
     module->active();
-    if (module->childrens().isEmpty())
-        return;
+//    if (module->childrens().isEmpty())
+//        return;
     if (module->findChild(currentModule()) >= 0)
         return;
 

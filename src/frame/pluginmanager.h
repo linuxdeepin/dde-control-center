@@ -26,29 +26,38 @@
 
 class QPluginLoader;
 
+DCC_BEGIN_NAMESPACE
+class ModuleObject;
+class PluginInterface;
+DCC_END_NAMESPACE
+
+struct PluginData
+{
+    QString Follow;
+    int Location;
+    DCC_NAMESPACE::ModuleObject *Module;
+};
+
+Q_DECLARE_METATYPE(PluginData)
+
 namespace DCC_NAMESPACE
 {
-class ModuleObject;
 class PluginManager : public QObject
 {
     Q_OBJECT
 public:
     explicit PluginManager(QObject *parent = nullptr);
-    void loadModules();
+    void loadModules(ModuleObject *root);
 
-    inline ModuleObject *rootModule() const { return m_rootModule; }
+Q_SIGNALS:
+    void loadedModule(const PluginData &data);
 
 private:
-    bool compareVersion(const QString &targetVersion, const QString &baseVersion);
-    void initModules();
-    void initRootModule();
-    void initOtherModule();
     ModuleObject *findModule(ModuleObject *module, const QString &name);
+    void initModules(const PluginData &data);
 
-private:
-    ModuleObject                *m_rootModule;
-    QList<QPluginLoader *>      m_loaders;
-
+    QList<PluginData> m_datas;      //cache for other plugin
+    ModuleObject *m_rootModule;     //root module from MainWindow
 };
 
 } // namespace DCC_NAMESPACE

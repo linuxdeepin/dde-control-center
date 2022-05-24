@@ -40,6 +40,7 @@ class SystemInfoPlugin : public PluginInterface
 public:
     virtual QString name() const override;
     virtual ModuleObject *module() override;
+    virtual int location() const override;
 };
 
 class SystemInfoModule : public ModuleObject

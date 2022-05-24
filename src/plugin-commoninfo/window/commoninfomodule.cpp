@@ -94,6 +94,11 @@ ModuleObject *CommonInfoPlugin::module()
     return moduleInterface;
 }
 
+int CommonInfoPlugin::location() const
+{
+    return 22;
+}
+
 QWidget *DeveloperModeModule::page()
 {
     DeveloperModeWidget *w = new DeveloperModeWidget;

@@ -104,6 +104,11 @@ ModuleObject *MousePlugin::module()
     return moduleInterface;
 }
 
+int MousePlugin::location() const
+{
+    return 11;
+}
+
 
 //三级菜单
 QWidget *GeneralSettingModule::page()

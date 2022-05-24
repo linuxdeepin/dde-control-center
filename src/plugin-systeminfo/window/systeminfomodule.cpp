@@ -113,6 +113,11 @@ ModuleObject *SystemInfoPlugin::module()
     return moduleInterface;
 }
 
+int SystemInfoPlugin::location() const
+{
+    return 21;
+}
+
 NativeInfoModule::NativeInfoModule(SystemInfoModel *model, SystemInfoWork *work, QObject *parent)
     : ModuleObject(parent)
 {

@@ -60,6 +60,11 @@ ModuleObject * DisplayPlugin::module()
     return moduleInterface;
 }
 
+int DisplayPlugin::location() const
+{
+    return 2;
+}
+
 QWidget *DisplayModule::page()
 {
     m_displayWidget = new QWidget();

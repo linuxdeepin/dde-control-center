@@ -47,3 +47,8 @@ ModuleObject *BluetoothPlugin::module()
     m_moduleRoot = new BluetoothModule;
     return m_moduleRoot;
 }
+
+int BluetoothPlugin::location() const
+{
+    return 8;
+}

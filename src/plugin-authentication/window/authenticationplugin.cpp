@@ -41,6 +41,11 @@ ModuleObject *AuthenticationPlugin::module()
     return authenticationInterface;
 }
 
+int AuthenticationPlugin::location() const
+{
+    return 3;
+}
+
 AuthenticationModule::AuthenticationModule(QObject *parent)
     : ModuleObject("authentication", tr("Biometric Authentication"), tr("Biometric Authentication"), QIcon::fromTheme("dcc_nav_authentication"), parent)
     , m_model(new CharaMangerModel(this))

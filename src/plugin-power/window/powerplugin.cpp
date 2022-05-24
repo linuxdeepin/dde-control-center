@@ -154,3 +154,8 @@ ModuleObject *PowerPlugin::module()
     m_moduleRoot = new PowerModule;
     return m_moduleRoot;
 }
+
+int PowerPlugin::location() const
+{
+    return 10;
+}

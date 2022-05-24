@@ -71,6 +71,11 @@ ModuleObject *AccountsPlugin::module()
     return moduleInterface;
 }
 
+int AccountsPlugin::location() const
+{
+    return 1;
+}
+
 AccountsModule::AccountsModule(QObject *parent)
     : ModuleObject(parent)
     , m_model(nullptr)

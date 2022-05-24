@@ -70,3 +70,8 @@ ModuleObject *DatetimePlugin::module()
     m_moduleRoot = new DatetimeModule;
     return m_moduleRoot;
 }
+
+int DatetimePlugin::location() const
+{
+    return 12;
+}

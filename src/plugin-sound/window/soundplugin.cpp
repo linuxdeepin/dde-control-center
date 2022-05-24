@@ -83,6 +83,11 @@ ModuleObject *SoundPlugin::module()
     return soundInterface;
 }
 
+int SoundPlugin::location() const
+{
+    return 9;
+}
+
 SoundModule::SoundModule(QObject *parent)
     : ModuleObject("sound", tr("sound"), tr("sound"), QIcon::fromTheme("dcc_nav_sound"), parent)
     , m_model(new SoundModel(this))
