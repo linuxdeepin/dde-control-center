@@ -223,19 +223,24 @@ void AccountsWidget::addUser(User *user, bool t1)
     onlineFlag->setWidget(onlineIcon);
     item->setActionList(Qt::Edge::RightEdge, {onlineFlag});
     onlineFlag->setVisible(user->online());
-    if (onlineFlag->widget()) {
-        onlineFlag->widget()->setVisible(onlineFlag->isVisible());
-    }
+
     connect(user, &User::onlineChanged, this, [ = ](const bool &online) {
         onlineFlag->setVisible(online);
+        auto rect = m_userlistView->rect();
+        auto itemRect = m_userlistView->visualRect(item->index());
         if (onlineFlag->widget()) {
-            onlineFlag->widget()->setVisible(onlineFlag->isVisible());
+            onlineFlag->widget()->setVisible(onlineFlag->isVisible() && (rect.y() + rect.height() > itemRect.y()));
         }
         m_userlistView->update();
     });
 
     m_userItemModel->appendRow(item);
     connectUserWithItem(user);
+    auto rect = m_userlistView->rect();
+    auto itemRect = m_userlistView->visualRect(item->index());
+    if (onlineFlag->widget()) {
+        onlineFlag->widget()->setVisible(onlineFlag->isVisible() && (rect.y() + rect.height() > itemRect.y()));
+    }
 
     connect(user, &User::isCurrentUserChanged, this, [ = ](bool isCurrentUser) {
         if (isCurrentUser) {
