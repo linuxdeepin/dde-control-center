@@ -425,6 +425,7 @@ void KeyboardModule::onPushCustomShortcut()
 
     m_frameProxy->pushWidget(this, m_customContent);
     m_customContent->setVisible(true);
+    m_customContent->setFocus();
 }
 
 void KeyboardModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)

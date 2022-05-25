@@ -171,6 +171,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     vlayout->addLayout(btnLayout);
     vlayout->setContentsMargins(10, 10, 0, 5);
     setLayout(vlayout);
+    setFocusPolicy(Qt::FocusPolicy::ClickFocus);
 
     connect(m_addCustomShortcut, &DFloatingButton::clicked, this, &ShortCutSettingWidget::customShortcut);
 

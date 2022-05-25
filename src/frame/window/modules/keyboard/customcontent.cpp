@@ -146,8 +146,16 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     mainLayout->addWidget(m_bottomTip);
     setLayout(mainLayout);
 
-    connect(cancel, &QPushButton::clicked, this, &CustomContent::back);
-    connect(ok, &QPushButton::clicked, this, &CustomContent::onShortcut);
+    connect(cancel, &QPushButton::clicked, this, [ this ] {
+        if (parentWidget())
+            this->parentWidget()->setFocus();
+        Q_EMIT back();
+    });
+    connect(ok, &QPushButton::clicked, this, [ this ] {
+        if (parentWidget())
+            this->parentWidget()->setFocus();
+        Q_EMIT onShortcut();
+    });
     connect(m_shortcut, &CustomItem::requestUpdateKey, this, &CustomContent::updateKey);
     connect(model, &ShortcutModel::keyEvent, this, &CustomContent::keyEvent);
     connect(m_shortcut, &CustomItem::changeAlert, this, [this] {
