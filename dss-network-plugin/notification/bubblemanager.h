@@ -223,7 +223,7 @@ private:
     int m_slideWidth;
     GestureInter *m_gestureInter;
     QTimer* m_trickTimer; // 防止300ms内重复按键
-    QWidget *m_parentWidget; // 父窗口，取图标按钮的父窗口
+    QPointer<QWidget> m_parentWidget; // 父窗口，取图标按钮的父窗口
 };
 
 #endif // BUBBLEMANAGER_H
