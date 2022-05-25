@@ -324,6 +324,7 @@ void KeyboardModule::onPushKeyboard(const QStringList &kblist)
 
     m_frameProxy->pushWidget(this, m_kbLayoutWidget);
     m_kbLayoutWidget->setVisible(true);
+    m_kbLayoutWidget->setFocus();
 }
 
 void KeyboardModule::setCurrentLayout(const QString &value)

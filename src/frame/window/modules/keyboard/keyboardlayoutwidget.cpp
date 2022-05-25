@@ -107,6 +107,9 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
 
     m_mainWidget->setAttribute(Qt::WA_TranslucentBackground);
 
+    setFocusPolicy(Qt::FocusPolicy::ClickFocus);
+    setFocusProxy(m_search);
+
     connect(m_search, SIGNAL(textChanged(QString)), this, SLOT(onSearch(QString)));
     connect(cancel, &QPushButton::clicked, this, [this] {
         if (parentWidget())
@@ -285,6 +288,5 @@ bool KeyboardLayoutWidget::eventFilter(QObject *watched, QEvent *event)
 
     return false;
 }
-
 }
 }
