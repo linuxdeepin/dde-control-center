@@ -16,11 +16,12 @@ class AddButtonWidget : public QWidget
 {
     Q_OBJECT
 public:
-    AddButtonWidget(DefAppWorker::DefaultAppsCategory category, QWidget *parent = nullptr);
+    AddButtonWidget(DefAppWorker::DefaultAppsCategory category = DefAppWorker::Browser, QWidget *parent = nullptr);
     ~AddButtonWidget();
 
     void setModel(DefAppModel *const model);
     void setCategory(Category *const category);
+    void setDefaultAppsCategory(DefAppWorker::DefaultAppsCategory category);
 
 Q_SIGNALS:
     void requestFrameAutoHide(const bool autoHide) const;

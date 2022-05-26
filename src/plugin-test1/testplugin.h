@@ -37,7 +37,6 @@ public:
     ButtonModule(QObject *parent = nullptr) : ModuleObject(parent) {}
     ButtonModule(const QString &name, const QString &displayName = {}, QObject *parent =nullptr) : ModuleObject(name, displayName, parent) {}
     virtual QWidget *page() override;
-    virtual QWidget *extraButton();
 
     void setText(const QString &text);
     inline QString text() const { return m_text; }

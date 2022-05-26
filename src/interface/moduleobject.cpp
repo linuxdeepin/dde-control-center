@@ -22,8 +22,8 @@
 
 #include <DObjectPrivate>
 
-#define DCC_VISIBLE 0x80000000
-#define DCC_ENABLED 0x40000000
+#define DCC_HIDDEN 0x80000000
+#define DCC_DISABLED 0x40000000
 
 /** Versions:
     V1.0 - 2022/05/24 - create
@@ -100,6 +100,11 @@ ModuleObject::ModuleObject(const QString &name, const QString &displayName, cons
     d->m_icon = icon;
 }
 
+ModuleObject::~ModuleObject()
+{
+    deactive();
+}
+
 QString ModuleObject::name() const
 {
     D_D(const ModuleObject);
@@ -133,12 +138,12 @@ int ModuleObject::badge() const
 
 bool ModuleObject::isVisible() const
 {
-    return getFlagState(DCC_VISIBLE);
+    return !getFlagState(DCC_HIDDEN);
 }
 
 bool ModuleObject::isEnabled() const
 {
-    return getFlagState(DCC_ENABLED);
+    return !getFlagState(DCC_DISABLED);
 }
 
 unsigned ModuleObject::GetCurrentVersion()
@@ -148,12 +153,12 @@ unsigned ModuleObject::GetCurrentVersion()
 
 void ModuleObject::setVisible(bool visible)
 {
-    setFlagState(DCC_VISIBLE, visible);
+    setFlagState(DCC_HIDDEN, !visible);
 }
 
 void ModuleObject::setEnabled(bool enabled)
 {
-    setFlagState(DCC_ENABLED, enabled);
+    setFlagState(DCC_DISABLED, !enabled);
 }
 
 void ModuleObject::trigger()
@@ -197,14 +202,14 @@ void ModuleObject::setContentText(const QStringList &contentText)
 void ModuleObject::addContentText(const QString &contentText)
 {
     D_D(ModuleObject);
-    d->m_contentText<< contentText;
+    d->m_contentText << contentText;
     Q_EMIT moduleDataChanged();
 }
 
 void ModuleObject::addContentText(const QStringList &contentText)
 {
     D_D(ModuleObject);
-    d->m_contentText<< contentText;
+    d->m_contentText << contentText;
     Q_EMIT moduleDataChanged();
 }
 
@@ -300,6 +305,11 @@ void ModuleObject::setFlagState(uint32_t flag, bool state)
     }
 }
 
+ModuleObject *ModuleObject::getParent()
+{
+    return dynamic_cast<ModuleObject *>(parent());
+}
+
 int ModuleObject::findChild(ModuleObject *const child)
 {
     if (!child)
@@ -339,7 +349,7 @@ const QList<ModuleObject *> &ModuleObject::childrens()
 ModuleObject *ModuleObject::children(const int index) const
 {
     D_D(const ModuleObject);
-    if(index<0 || index >= d->m_childrens.size())
+    if (index < 0 || index >= d->m_childrens.size())
         return nullptr;
     return d->m_childrens.at(index);
 }

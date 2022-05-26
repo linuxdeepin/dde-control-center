@@ -27,6 +27,11 @@
 #include <QDebug>
 #include <DObject>
 
+// 扩展按钮，在VList和Page布局中放在最下面，横向排列
+#define DCC_EXTRA 0x00800000
+#define setExtra() setFlagState(DCC_EXTRA, true)
+#define extra() getFlagState(DCC_EXTRA)
+
 using DCC_LAYOUT_TYPE = uint32_t;
 namespace DCC_NAMESPACE {
 class ModuleObjectPrivate;
@@ -61,23 +66,29 @@ public:
     ModuleObject(const QString &name, const QString &displayName, const QString &description, const QIcon &icon = QIcon(), QObject *parent = nullptr);
     ModuleObject(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QIcon &icon = QIcon(), QObject *parent = nullptr);
 
-    virtual ~ModuleObject() { deactive(); }
+    virtual ~ModuleObject();
 
+    /**
+     * @brief 子项类型，由类型决定view显示效果
+     */
+    DCC_LAYOUT_TYPE childType() const;
+    /**
+     * @brief 设置子项类型
+     */
+    void setChildType(const DCC_LAYOUT_TYPE &t);
     /**
      * @brief 当进入模块时，active会被调用，如无需通知则可不实现
      */
     virtual void active() {}
-
+    /**
+     * @brief 每次被调均需new新的QWidget
+     * @return 返回自定义页面
+     */
+    virtual QWidget *page() { return nullptr; }
     /**
      * @brief 当离开模块时，deactive会被调用，如无需通知则可不实现
      */
     virtual void deactive() {}
-
-    /**
-     * @brief 每次被调均需new新的QWidget。提供extraButton及父节点ChildType为Page的页面展示。
-     * @return 返回自定义页面
-     */
-    virtual QWidget *page() { return nullptr; }
 
 public:
     QString name() const;
@@ -89,9 +100,19 @@ public:
 
     bool isVisible() const;
     bool isEnabled() const;
+    /**
+     * @brief 获取状态标志
+     * @return 对应状态位是否
+     */
+    bool getFlagState(uint32_t flag) const;
+    uint32_t getFlag() const;
 
-    //! Returns current ModuleObject version
-    static unsigned GetCurrentVersion();
+    /**
+     * @brief setFlagState 设置状态标志，状态标志共32位，高16位为预留，低16位可根据需要设置
+     * @param flag 需要设置的状态位
+     * @param state true 置位 false 复位
+     */
+    void setFlagState(uint32_t flag, bool state);
 
 public Q_SLOTS:
     void setVisible(bool visible);
@@ -115,9 +136,15 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     /**
-     * @brief ModuleData 改变后必须发送此信号
+     * @brief 基本信息改变后发送此信号
      */
     void moduleDataChanged();
+    /**
+     * @brief stateChanged 状态标志变化 (可见、禁用等)
+     * @param flag
+     * @param state
+     */
+    void stateChanged(uint32_t flag, bool state);
 
     /**
      * @brief 添加child后触发
@@ -138,16 +165,12 @@ Q_SIGNALS:
     /**
      * @brief 显示 child 可以发送此信号
      */
-    void activeChild(const int index);
+//    void activeChild(const int index);
 
     void triggered();
-    /**
-     * @brief 扩展按钮被点击信号，只有触发此信号才会显示page()
-     */
-    void extraButtonClicked();
-    void stateChanged(uint32_t flag, bool state);
 
 public:
+    ModuleObject *getParent();
     /**
      * @brief 搜索子项，使用广度搜索
      * @param child 子项
@@ -157,15 +180,6 @@ public:
 
     static int findChild(ModuleObject *const module, ModuleObject *const child);
 
-    /**
-     * @brief 子项类型，由类型决定view显示效果
-     */
-    DCC_LAYOUT_TYPE childType() const;
-
-    /**
-     * @brief 设置子项类型
-     */
-    void setChildType(const DCC_LAYOUT_TYPE &t);
     inline bool hasChildrens() { return !childrens().isEmpty(); }
 
     /**
@@ -182,19 +196,8 @@ public:
     void insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module);
     void insertChild(const int index, ModuleObject *const module);
 
-    /**
-     * @brief 获取状态标志
-     * @return 对应状态位是否
-     */
-    bool getFlagState(uint32_t flag) const;
-    uint32_t getFlag() const;
-
-    /**
-     * @brief setFlagState 设置状态标志，状态标志共32位，高16位为预留，低16位可根据需要设置
-     * @param flag 需要设置的状态位
-     * @param state true 置位 false 复位
-     */
-    void setFlagState(uint32_t flag, bool state);
+    //! Returns current ModuleObject version
+    static unsigned GetCurrentVersion();
 
 private:
     static int findChild(ModuleObject *const module, ModuleObject *const child, const int num);

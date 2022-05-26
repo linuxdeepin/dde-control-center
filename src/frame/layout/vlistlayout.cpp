@@ -54,8 +54,10 @@ QWidget *VListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *
     m_view = new DListView(parent);
     QWidget *widget = new QWidget(parent);
     QVBoxLayout *vlayout = new QVBoxLayout;
+    QHBoxLayout *m_hlayout = new QHBoxLayout;
     widget->setLayout(vlayout);
     vlayout->addWidget(m_view);
+    vlayout->addLayout(m_hlayout);
     hlayout->addWidget(widget, 1);
     hlayout->addWidget(new DVerticalLine);
 
@@ -71,6 +73,16 @@ QWidget *VListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *
     m_view->setItemSpacing(2);
     m_view->setSelectionMode(QAbstractItemView::SingleSelection);
     m_view->setCurrentIndex(m_model->index(index == -1 ? 0 : index, 0));
+
+    for (auto child : module->childrens()) {
+        auto page = child->page();
+        if (page) {
+            if (child->extra())
+                m_hlayout->addWidget(page);
+        }
+        child->active();
+    }
+
     auto onClicked = [](const QModelIndex &index) {
         ModuleObject *obj = static_cast<ModuleObject *>(index.internalPointer());
         if (obj)

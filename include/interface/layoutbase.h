@@ -54,6 +54,18 @@ public:
      * @return 子项的QWidget
      */
     virtual QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const int index) = 0;
+    /**
+     * @brief IsVisible 返回module是否显示，判断了配置项和程序设置项
+     * @param module
+     * @return
+     */
+    static bool IsVisible(DCC_NAMESPACE::ModuleObject *const module);
+    /**
+     * @brief IsEnabled 返回module是否可用，判断了配置项和程序设置项
+     * @param module
+     * @return
+     */
+    static bool IsEnabled(DCC_NAMESPACE::ModuleObject *const module);
 };
 
 class LayoutFactoryBase

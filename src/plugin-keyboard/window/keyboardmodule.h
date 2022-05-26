@@ -128,7 +128,6 @@ class ShortCutSettingMenuModule : public ModuleObject
 public:
     explicit ShortCutSettingMenuModule(const QString &name, const QString &displayName = {}, QObject *parent = nullptr)
         : ModuleObject(name, displayName, parent) {}
-    virtual QWidget *extraButton();
 };
 
 class ShortCutSettingModule : public ModuleObject

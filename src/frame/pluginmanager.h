@@ -29,6 +29,8 @@ class QPluginLoader;
 DCC_BEGIN_NAMESPACE
 class ModuleObject;
 class PluginInterface;
+class LayoutFactoryBase;
+class LayoutManager;
 DCC_END_NAMESPACE
 
 struct PluginData
@@ -36,6 +38,7 @@ struct PluginData
     QString Follow;
     int Location;
     DCC_NAMESPACE::ModuleObject *Module;
+    QList<DCC_NAMESPACE::LayoutFactoryBase *> layoutFactory;
 };
 
 Q_DECLARE_METATYPE(PluginData)
@@ -47,7 +50,7 @@ class PluginManager : public QObject
     Q_OBJECT
 public:
     explicit PluginManager(QObject *parent = nullptr);
-    void loadModules(ModuleObject *root);
+    void loadModules(ModuleObject *root, LayoutManager *layoutManager);
 
 Q_SIGNALS:
     void loadedModule(const PluginData &data);
@@ -58,6 +61,7 @@ private:
 
     QList<PluginData> m_datas;      //cache for other plugin
     ModuleObject *m_rootModule;     //root module from MainWindow
+    LayoutManager *m_layoutManager; //layoutManager from MainWindow
 };
 
 } // namespace DCC_NAMESPACE

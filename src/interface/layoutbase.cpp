@@ -20,8 +20,22 @@
 */
 #include "interface/layoutbase.h"
 DCC_USE_NAMESPACE
+// 0xA0000000 = 0x80000000|0x20000000 0x80000000为用户设置位 0x20000000为配置设置位
+// 0x50000000 = 0x40000000|0x10000000 0x4000000为用户设置位 0x10000000为配置设置位
+#define DCC_CONFIG_HIDDEN 0xA0000000
+#define DCC_CONFIG_DISABLED 0x50000000
 
 ModuleObject *LayoutBase::autoExpand(ModuleObject *const module, ModuleObject *const child)
 {
     return child ? child : module->children(0);
+}
+
+bool LayoutBase::IsVisible(ModuleObject *const module)
+{
+    return module ? !module->getFlagState(DCC_CONFIG_HIDDEN) : false;
+}
+
+bool LayoutBase::IsEnabled(ModuleObject *const module)
+{
+    return module ? !module->getFlagState(DCC_CONFIG_DISABLED) : false;
 }

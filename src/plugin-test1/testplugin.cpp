@@ -38,7 +38,7 @@ ModuleObject* Plugin::module()
     ButtonModule *module = new ButtonModule(QString("menu%1").arg(4), tr("菜单%1").arg(4), moduleRoot);
     module->setChildType(ModuleObject::VList);
     module->setText("测试按钮");
-    moduleRoot->appendChild(module);// 主菜单添加带有附加按钮的菜单，需实现其extraButton虚函数
+    moduleRoot->appendChild(module);// 主菜单添加带有附加按钮的菜单
 
     // 添加VList子项，先添加一个正常子项
     ModuleObject *lstModule1 =new ModuleObject(QString("menuSpeci1"), tr("特殊菜单1"), module);
@@ -56,13 +56,35 @@ ModuleObject* Plugin::module()
     lstModule2->setText("Page中的测试按钮");
     module->appendChild(lstModule2);
 
-    LabelModule *labelModule2 = new LabelModule(QString("pageSpeci2"), QString("特殊页面2"), lstModule2);
-    labelModule2->setText("特殊页面内容2");
-    lstModule2->appendChild(labelModule2);
 
-    connect(module, &ButtonModule::onButtonClicked, module, [module] {
-        emit module->activeChild(0);
-    });
+    LabelModule *module2_1 = new LabelModule(QString("pageSpeci2"), QString("特殊页面2"), lstModule2);
+    module2_1->setText("特殊页面内容2");
+    lstModule2->appendChild(module2_1);
+
+    ButtonModule *module2_2 = new ButtonModule(QString("pageSpeci2"), QString("特殊页面2"), lstModule2);
+    module2_2->setText("Page中的测试按钮");
+    module2_2->setExtra();
+    lstModule2->appendChild(module2_2);
+
+
+    ButtonModule *ButtonModule3 = new ButtonModule(QString("pageSpeci3"), QString("特殊页面3"), lstModule2);
+    ButtonModule3->setChildType(ModuleObject::Page);
+    ButtonModule3->setText("测试按钮");
+    ButtonModule3->setExtra();
+    module->appendChild(ButtonModule3);
+    connect(ButtonModule3, &ButtonModule::onButtonClicked, ButtonModule3, &ModuleObject::triggered);
+
+
+    ButtonModule *module3_1 = new ButtonModule("testPage", "测试页面", module);
+    module3_1->setText("附加按钮测试页面");
+    ButtonModule3->appendChild(module3_1);
+
+    ButtonModule *module3_2 = new ButtonModule("buttonClose", "关闭", module);
+    module3_2->setText("关闭");
+    module3_2->setExtra();
+    ButtonModule3->appendChild(module3_2);
+    connect(module3_2, &ButtonModule::onButtonClicked, lstModule1, &ModuleObject::triggered);
+
 
     return moduleRoot;
 }
@@ -80,23 +102,12 @@ void LabelModule::setText(const QString &text)
 
 QWidget *ButtonModule::page()
 {
-    QWidget *page = new QWidget;
-    QVBoxLayout *vlayout = new QVBoxLayout(page);
-    page->setLayout(vlayout);
-    QLabel *label = new QLabel("附加按钮测试页面");
-    QPushButton *closeButton = new QPushButton("关闭");
-    closeButton->setText("关闭");
-    vlayout->addWidget(label, 0);
-    vlayout->addWidget(closeButton, 1);
-
-    connect(closeButton, &QPushButton::clicked, this, &ButtonModule::onButtonClicked);
-    return page;
-}
-
-QWidget *ButtonModule::extraButton()
-{
     QPushButton *button = new QPushButton(text());
-    connect(button, &QPushButton::clicked, this, &ButtonModule::extraButtonClicked);
+    button->setMaximumWidth(200);
+    connect(button, &QPushButton::clicked, this, &ButtonModule::onButtonClicked);
+    connect(button, &QPushButton::clicked, this, [this](){
+        qDebug()<<__FILE__<<__LINE__<<"QPushButton::clicked"<<text()<<name();
+    });
     return button;
 }
 

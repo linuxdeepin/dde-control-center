@@ -45,13 +45,16 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    virtual Qt::ItemFlags flags(const QModelIndex &index) const override;
+
 public slots:
     void onDataChanged(QObject *obj);
     void onInsertChild(ModuleObject *const module);
     void onRemovedChild(ModuleObject *const module);
 
 private:
-    ModuleObject *m_data;
+    QList<ModuleObject *> m_data;
+    ModuleObject *m_parentObject;
     QSignalMapper *m_signalMapper;
 };
 DCC_END_NAMESPACE

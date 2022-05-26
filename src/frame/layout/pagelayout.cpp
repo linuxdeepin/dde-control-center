@@ -37,11 +37,6 @@ PageLayout::PageLayout()
 {
 }
 
-ModuleObject *PageLayout::autoExpand(ModuleObject *const module, ModuleObject *const child)
-{
-    return nullptr;
-}
-
 void PageLayout::setCurrent(ModuleObject *const child)
 {
     // 滚动到child
@@ -82,7 +77,8 @@ QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
     QVBoxLayout *mainLayout = new QVBoxLayout;
     parent->setLayout(mainLayout);
     mainLayout->addWidget(area);
-
+    QHBoxLayout *m_hlayout = new QHBoxLayout();
+    mainLayout->addLayout(m_hlayout);
     area->setFrameShape(QFrame::NoFrame);
     area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     area->setWidgetResizable(true);
@@ -92,19 +88,18 @@ QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
     m_vlayout = new QVBoxLayout(areaWidget);
     areaWidget->setLayout(m_vlayout);
 
-    QString currentPath;
-    ModuleObject *m = module;
-    do {
-        currentPath = m->name() + "/" + currentPath;
-        m = dynamic_cast<ModuleObject *const>(m->parent());
-    } while (m && !m->name().isEmpty());
-
     for (auto child : module->childrens()) {
-        QString url = currentPath + child->name();
+        if (!LayoutBase::IsVisible(child))
+            continue;
         auto page = getPage(child->page(), child->displayName());
         if (page) {
-            m_vlayout->addWidget(page, 0, Qt::AlignTop);
-            m_mapWidget.append({ child, page });
+            if (child->extra())
+                m_hlayout->addWidget(page);
+            else {
+                m_vlayout->addWidget(page, 0, Qt::AlignTop);
+                m_mapWidget.append({ child, page });
+            }
+            page->setEnabled(LayoutBase::IsEnabled(child));
         }
         child->active();
     }
@@ -113,9 +108,6 @@ QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
 
     area->verticalScrollBar()->setSliderPosition(getScrollPos(module->children(index)));
 
-    QObject::connect(module, &ModuleObject::removedChild, area, [this, module](ModuleObject *const childModule) {
-        int index = module->childrens().indexOf(childModule);
-    });
     auto addChild = [this, module](ModuleObject *const childModule) {
         int index = module->childrens().indexOf(childModule);
         auto newPage = getPage(childModule->page(), childModule->displayName());

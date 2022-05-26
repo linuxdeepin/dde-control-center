@@ -33,6 +33,7 @@
 #include "operation/shortcutmodel.h"
 #include "customedit.h"
 #include "shortcutcontentdialog.h"
+#include "widgets/widgetmodule.h"
 
 #include <DFloatingButton>
 
@@ -40,6 +41,13 @@
 
 DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
+
+class FloatingButton : public DFloatingButton
+{
+public:
+    explicit FloatingButton()
+        : DFloatingButton(nullptr) {}
+};
 
 QString KeyboardPlugin::name() const
 {
@@ -87,9 +95,14 @@ ModuleObject *KeyboardPlugin::module()
     moduleShortCutSetting->setChildType(ModuleObject::Page);
     ShortCutSettingModule *shortCutSettingModule = new ShortCutSettingModule(moduleInterface->model(), moduleInterface->worker(), moduleInterface->shortcutModel());
     moduleShortCutSetting->appendChild(shortCutSettingModule);
+    ModuleObject *customShortcutModule = new WidgetModule<FloatingButton>("AddCustomShortCut","AddCustomShortCut",[shortCutSettingModule](FloatingButton *customShortcut){
+        customShortcut->setIcon(DStyle::SP_IncreaseElement);
+        customShortcut->setObjectName("AddCustomShortCut");
+        connect(customShortcut, &DFloatingButton::clicked, shortCutSettingModule, &ShortCutSettingModule::onPushCustomShortcut);
+    });
+    customShortcutModule->setExtra();
+    moduleShortCutSetting->appendChild(customShortcutModule);
     moduleInterface->appendChild(moduleShortCutSetting);
-
-    connect(moduleShortCutSetting, &ShortCutSettingMenuModule::extraButtonClicked, shortCutSettingModule, &ShortCutSettingModule::onPushCustomShortcut);
 
     return moduleInterface;
 }
@@ -293,19 +306,3 @@ void ShortCutSettingModule::onShortcutEdit(ShortcutInfo *info)
     customEdit->setFocus();
 }
 
-
-QWidget *ShortCutSettingMenuModule::extraButton()
-{
-    QWidget *page = new QWidget;
-    QHBoxLayout *layout = new QHBoxLayout(page);
-    layout->setMargin(0);
-    layout->setSpacing(0);
-    page->setLayout(layout);
-
-    DFloatingButton *customShortcut = new DFloatingButton(DStyle::SP_IncreaseElement, page);
-    customShortcut->setObjectName("AddCustomShortCut");
-    layout->addWidget(customShortcut, 0, Qt::AlignCenter);
-    connect(customShortcut, &DFloatingButton::clicked, this, &ShortCutSettingMenuModule::extraButtonClicked);
-
-    return page;
-}

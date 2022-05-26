@@ -71,6 +71,20 @@ TimeSettingModule::TimeSettingModule(DatetimeModel *model, DatetimeWorker *work,
     appendChild(new WidgetModule<SettingsGroup>("time", tr("Time setting"), this, &TimeSettingModule::initTimeSetting));
     appendChild(new WidgetModule<QWidget>("datetime", tr("datetime"), this, &TimeSettingModule::initDigitalClock));
 
+    ModuleObject *saveButton = new WidgetModule<ButtonTuple>("save","",[this](ButtonTuple *buttonTuple){
+        m_buttonTuple = buttonTuple;
+        m_buttonTuple->setButtonType(ButtonTuple::Save);
+        QPushButton *cancelButton = m_buttonTuple->leftButton();
+        QPushButton *confirmButton = m_buttonTuple->rightButton();
+        cancelButton->setText(tr("Cancel"));
+        confirmButton->setText(tr("Confirm"));
+        connect(cancelButton, &QPushButton::clicked, this, &TimeSettingModule::onCancelButtonClicked);
+        connect(confirmButton, &QPushButton::clicked, this, &TimeSettingModule::onConfirmButtonClicked);
+        setButtonShowState(m_model->nTP());
+    });
+    saveButton->setExtra();
+    appendChild(saveButton);
+
     connect(this, &TimeSettingModule::requestNTPServer, m_work, &DatetimeWorker::setNtpServer);
     connect(this, &TimeSettingModule::requestSetTime, m_work, &DatetimeWorker::setDatetime);
 }
@@ -311,19 +325,6 @@ void TimeSettingModule::initDigitalClock(QWidget *w)
     connect(timer, &QTimer::timeout, w, updateTime);
     timer->start(1000);
     updateTime();
-}
-
-QWidget *TimeSettingModule::extraButton()
-{
-    m_buttonTuple = new ButtonTuple(ButtonTuple::Save);
-    QPushButton *cancelButton = m_buttonTuple->leftButton();
-    QPushButton *confirmButton = m_buttonTuple->rightButton();
-    cancelButton->setText(tr("Cancel"));
-    confirmButton->setText(tr("Confirm"));
-    connect(cancelButton, &QPushButton::clicked, this, &TimeSettingModule::onCancelButtonClicked);
-    connect(confirmButton, &QPushButton::clicked, this, &TimeSettingModule::onConfirmButtonClicked);
-    setButtonShowState(m_model->nTP());
-    return m_buttonTuple;
 }
 
 void TimeSettingModule::setButtonShowState(bool state)

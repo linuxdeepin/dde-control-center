@@ -3,6 +3,8 @@
 #include "defappmodel.h"
 #include "defappworker.h"
 #include "addbuttonwidget.h"
+#include "widgets/widgetmodule.h"
+
 #include <QApplication>
 
 #include <DFloatingButton>
@@ -57,8 +59,16 @@ ModuleObject *DefAppPlugin::module()
         defappDetail->setChildType(ModuleObject::Page);
         moduleDefaultApps->appendChild(defappDetail);
 
+        ModuleObject *addButton = new WidgetModule<AddButtonWidget>("addDefApp","addDefApp",[iter,moduleRoot](AddButtonWidget *button){
+            button->setDefaultAppsCategory(iter.category);
+            button->setModel(moduleRoot->model());
+            connect(button, &AddButtonWidget::requestCreateFile, moduleRoot->work(), &DefAppWorker::onCreateFile);
+        });
+        addButton->setExtra();
+        moduleDefaultApps->appendChild(addButton);
+
         connect(moduleDefaultApps, &DefAppsButtonModule::onButtonClicked, moduleDefaultApps, [moduleDefaultApps] {
-            moduleDefaultApps->activeChild(0);
+            moduleDefaultApps->children(0)->trigger();
         });
         moduleRoot->appendChild(moduleDefaultApps);
     }
@@ -109,15 +119,6 @@ QWidget *DefAppsButtonModule::page(){
 
     return defDetail;
 }
-
-QWidget *DefAppsButtonModule::extraButton()
-{
-    AddButtonWidget *button = new AddButtonWidget(m_category);
-    button->setModel(m_model);
-    connect(button, &AddButtonWidget::requestCreateFile, m_work, &DefAppWorker::onCreateFile);
-    return button;
-}
-
 
 // 三级页面
 DefappDetailModule::DefappDetailModule(DefAppWorker::DefaultAppsCategory category, DefAppModel *model, DefAppWorker *work)

@@ -89,7 +89,7 @@ private:
     void clearPage(QWidget *const widget);
     void configLayout(QBoxLayout *const layout);
     void showPage(ModuleObject *const module, const QString &url, const UrlType &uType);
-    void showModule(ModuleObject *const module, QWidget *const parent, const int index = -1);
+    void showModule(ModuleObject *const module, QWidget *const parent);
 
 private Q_SLOTS:
     void onAddModule(ModuleObject *const module);

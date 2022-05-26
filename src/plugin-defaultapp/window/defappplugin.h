@@ -75,7 +75,6 @@ public:
     ~DefAppsButtonModule();
 
     virtual QWidget *page() override;
-    virtual QWidget *extraButton();
 
 Q_SIGNALS:
     void onButtonClicked();

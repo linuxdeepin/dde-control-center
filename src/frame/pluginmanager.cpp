@@ -1,4 +1,5 @@
 #include "pluginmanager.h"
+#include "layout/layoutmanager.h"
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
 
@@ -72,6 +73,7 @@ PluginData loadModule(const QPair<PluginManager*,QString> &pair)
     data.Module = plugin->module();
     data.Follow = plugin->follow();
     data.Location = plugin->location();
+    data.layoutFactory = plugin->layoutFactory();
 
     data.Module->setParent(nullptr);
     data.Module->moveToThread(qApp->thread());
@@ -88,11 +90,12 @@ PluginManager::PluginManager(QObject *parent)
     qRegisterMetaType<PluginData>("PluginData");
 }
 
-void PluginManager::loadModules(ModuleObject *root)
+void PluginManager::loadModules(ModuleObject *root, LayoutManager *layoutManager)
 {
-    if (!root)
+    if (!root || !layoutManager)
         return;
     m_rootModule = root;
+    m_layoutManager = layoutManager;
 
     connect(this, &PluginManager::loadedModule, root, [this] (const PluginData &data) {
         initModules(data);
@@ -172,4 +175,5 @@ void PluginManager::initModules(const PluginData &data)
     } else {    // other plugin
         m_datas.append(data);
     }
+    m_layoutManager->registerLayout(data.layoutFactory);
 }

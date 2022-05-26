@@ -89,6 +89,11 @@ void AddButtonWidget::setCategory(Category * const category)
     setCategoryName(m_category->getName());
 }
 
+void AddButtonWidget::setDefaultAppsCategory(DefAppWorker::DefaultAppsCategory category)
+{
+    m_categoryValue = category;
+}
+
 void AddButtonWidget::setCategoryName(const QString &name)
 {
     m_categoryName = name;

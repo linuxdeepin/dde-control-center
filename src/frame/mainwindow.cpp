@@ -57,6 +57,11 @@ DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
 
+#define DCC_CONFIG_HIDDEN 0xA0000000
+#define DCC_CONFIG_DISABLED 0x50000000
+#define setConfigHidden(hide) setFlagState(DCC_CONFIG_HIDDEN, hide)
+#define setConfigDisabled(disabled) setFlagState(DCC_CONFIG_DISABLED, disabled)
+
 const QSize MainWindowMininumSize(QSize(800, 600));
 
 const QString ControlCenterConfig = QStringLiteral("org.deepin.dde.control-center");
@@ -214,7 +219,7 @@ void MainWindow::initConfig()
 void MainWindow::loadModules()
 {
     onAddModule(m_rootModule);
-    m_pluginManager->loadModules(m_rootModule);
+    m_pluginManager->loadModules(m_rootModule, m_layoutManager);
     showModule(m_rootModule, m_contentWidget);
     m_searchWidget->setModuleObject(m_rootModule);
 }
@@ -265,7 +270,7 @@ void MainWindow::configLayout(QBoxLayout *const layout)
     layout->setSpacing(0);
 }
 
-void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, const int index)
+void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
 {
     QList<ModuleObject *> modules;
     ModuleObject *obj = module;
@@ -366,25 +371,31 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent, c
 
 void MainWindow::onAddModule(ModuleObject *const module)
 {
-    QList<ModuleObject*> modules;
+    QStringList nameList;
+    ModuleObject *obj = module;
+    while (obj) {
+        nameList.prepend(obj->name());
+        obj = obj->getParent();
+    }
+
+    QList<ModuleObject *> modules;
     modules.append(module);
     while (!modules.isEmpty()) {
-        ModuleObject *obj=modules.takeFirst();
+        ModuleObject *obj = modules.takeFirst();
         connect(obj, &ModuleObject::appendedChild, this, &MainWindow::onAddModule);
         connect(obj, &ModuleObject::insertedChild, this, &MainWindow::onAddModule);
         connect(obj, &ModuleObject::removedChild, this, &MainWindow::onRemoveModule);
         connect(obj, &ModuleObject::triggered, this, &MainWindow::onTriggered);
         modules.append(obj->childrens());
-
     }
 }
 
 void MainWindow::onRemoveModule(ModuleObject *const module)
 {
-    QList<ModuleObject*> modules;
+    QList<ModuleObject *> modules;
     modules.append(module);
     while (!modules.isEmpty()) {
-        ModuleObject *obj=modules.takeFirst();
+        ModuleObject *obj = modules.takeFirst();
         disconnect(obj, nullptr, this, nullptr);
         modules.append(obj->childrens());
     }
