@@ -146,6 +146,7 @@ void AddFingeDialog::enrollCompleted()
     m_cancelBtn->setEnabled(false);
     m_spaceWidget->setVisible(false);
     m_timer->stop();
+    m_addBtn->setFocus();
     Q_EMIT requestStopEnroll(m_username);
 }
 
@@ -173,7 +174,6 @@ void AddFingeDialog::enrollFailed(QString title, QString msg)
     m_addBtn->setEnabled(true);
     m_spaceWidget->setVisible(true);
     m_timer->stop();
-
     Q_EMIT requestStopEnroll(m_username);
 }
 void AddFingeDialog::enrollDisconnected()
@@ -187,7 +187,6 @@ void AddFingeDialog::enrollDisconnected()
     m_addBtn->setEnabled(true);
     m_spaceWidget->setVisible(false);
     m_timer->stop();
-
     //会出现末知情况，需要与后端确认中断时是否可以停止
     Q_EMIT requestStopEnroll(m_username);
 }

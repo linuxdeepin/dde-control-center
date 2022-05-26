@@ -49,6 +49,8 @@ AddFaceInfoDialog::AddFaceInfoDialog(dcc::authentication::CharaMangerModel *mode
     initWidget();
     initConnect();
     QWidget::installEventFilter(this);
+    setAttribute(Qt::WA_ShowModal, true);
+    setFocusProxy(m_acceptBtn);
 }
 
 AddFaceInfoDialog::~AddFaceInfoDialog()
@@ -198,6 +200,7 @@ void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState s
         m_acceptBtn->setText(tr("Next"));
         m_acceptBtn->setDisabled(true);
         m_acceptBtn->show();
+        m_acceptBtn->setFocus();
         return;
     }
 

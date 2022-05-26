@@ -43,7 +43,7 @@ FaceInfoDialog::FaceInfoDialog(dcc::authentication::CharaMangerModel *model, QWi
     , m_mainLayout(new QVBoxLayout(this))
 {
     initWidget();
-
+    setAttribute(Qt::WA_ShowModal, true);
     connect(m_faceModel, &CharaMangerModel::enrollInfoState, this, &FaceInfoDialog::close);
     connect(m_faceModel, &CharaMangerModel::enrollStatusTips, this, &FaceInfoDialog::refreshExplainTips);
 
