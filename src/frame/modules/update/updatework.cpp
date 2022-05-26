@@ -34,11 +34,15 @@
 #include <QApplication>
 #include <QMutexLocker>
 #include <vector>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QDesktopServices>
 
 #define MIN_NM_ACTIVE 50
 #define UPDATE_PACKAGE_SIZE 0
 using namespace DCC_NAMESPACE;
 
+const QString TestingChannelPackage = "deepin-unstable-source";
 const QString ChangeLogFile = "/usr/share/deepin/release-note/UpdateInfo.json";
 const QString ChangeLogDic = "/usr/share/deepin/";
 
@@ -167,6 +171,16 @@ void UpdateWorker::init()
     if (!IsServerSystem)
         sVersion.append(" " + DSysInfo::uosEditionName());
     m_model->setSystemVersionInfo(sVersion);
+
+    const auto server = valueByQSettings<QString>(DCC_CONFIG_FILES, "Testing", "Server", "");
+    if (!server.isEmpty()) {
+        m_model->setTestingChannelServer(server);
+        if (m_managerInter->PackageExists(TestingChannelPackage)) {
+            m_model->setTestingChannelStatus(UpdateModel::TestingChannelStatus::Joined);
+        } else {
+            m_model->setTestingChannelStatus(UpdateModel::TestingChannelStatus::NotJoined);
+        }
+    }
 
     connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWorker::onJobListChanged);
     connect(m_managerInter, &ManagerInter::AutoCleanChanged, m_model, &UpdateModel::setAutoCleanCache);
@@ -733,6 +747,185 @@ void UpdateWorker::setAutoInstallUpdates(const bool &autoInstall)
 void UpdateWorker::setMirrorSource(const MirrorInfo &mirror)
 {
     m_updateInter->SetMirrorSource(mirror.m_id);
+}
+
+void UpdateWorker::checkTestingChannelStatus()
+{
+    qDebug() << "Testing:" << "check testing join status";
+    const auto server = m_model->getTestingChannelServer();
+    const auto machineID = m_model->getMachineID();
+    auto http = new QNetworkAccessManager(this);
+    QNetworkRequest request;
+    request.setUrl(QUrl(server + QString("/api/v2/public/testing/machine/status/") + machineID));
+    request.setRawHeader("content-type", "application/json");
+    connect(http, &QNetworkAccessManager::finished, this, [ = ](QNetworkReply *reply){
+        reply->deleteLater();
+        http->deleteLater();
+
+        if (reply->error() != QNetworkReply::NoError) {
+            qDebug() << "Testing:" << "Network Error" << reply->errorString();
+            return;
+        }
+        auto data = reply->readAll();
+        qDebug() << "Testing:" << "machine status body" << data;
+        auto doc = QJsonDocument::fromJson(data);
+        auto obj = doc.object();
+        auto status = obj["data"].toObject()["status"].toString();
+        // Exit the loop if switch status is disable
+        if (m_model->getTestingChannelStatus() != UpdateModel::TestingChannelStatus::WaitJoined) {
+            return;
+        }
+        // If user has joined then install testing source package;
+        if (status == "joined") {
+            m_model->setTestingChannelStatus(UpdateModel::TestingChannelStatus::Joined);
+            qDebug() << "Testing:" << "Install testing channel package";
+            m_managerInter->InstallPackage("testing channel", TestingChannelPackage);
+            return;
+        }
+        // Run again after sleep
+        QTimer::singleShot(5000, this,  &UpdateWorker::checkTestingChannelStatus);
+    });
+    http->get(request);
+}
+
+
+
+void UpdateWorker::setTestingChannelEnable(const bool &enable)
+{
+    qDebug() << "Testing:" << "TestingChannelEnableChange" << enable;
+    if (enable) {
+        m_model->setTestingChannelStatus(UpdateModel::TestingChannelStatus::WaitJoined);
+    } else {
+        m_model->setTestingChannelStatus(UpdateModel::TestingChannelStatus::NotJoined);
+    }
+
+    const auto server = m_model->getTestingChannelServer();
+    const auto machineID = m_model->getMachineID();
+
+    /* Disable Testing Channel */
+    if (!enable) {
+        // Uninstall testing source package if it is installed
+        if (m_managerInter->PackageExists(TestingChannelPackage)) {
+            qDebug() << "Testing:" << "Uninstall testing channel package";
+            m_managerInter->RemovePackage("testing channel", TestingChannelPackage);
+        }
+        // Send status to server
+        auto http = new QNetworkAccessManager(this);
+        QNetworkRequest request;
+        request.setUrl(QUrl(server + QString("/api/v2/public/testing/machine/") + machineID));
+        request.setRawHeader("content-type", "application/json");
+        connect(http, &QNetworkAccessManager::finished, this, [ = ](QNetworkReply *reply){
+            reply->deleteLater();
+            http->deleteLater();
+        });
+        http->deleteResource(request);
+        return;
+    }
+
+    /* Enable Testing Channel */
+    auto u = m_model->getTestingChannelJoinURL();
+    qDebug() << "Testing:" << "open join page" << u.toString();
+    QDesktopServices::openUrl(u);
+
+    // Loop to check if user hava joined
+    QTimer::singleShot(1000, this,  &UpdateWorker::checkTestingChannelStatus);
+}
+
+QString UpdateWorker::getTestingChannelSource()
+{
+    auto sourceFile = QString("/etc/apt/sources.list.d/%1.list").arg(TestingChannelPackage);
+    qDebug() << "sourceFile" << sourceFile;
+    QFile f(sourceFile);
+    if (!f.open(QFile::ReadOnly | QFile::Text)) {
+        return "";
+    }
+    QTextStream in(&f);
+    while (!in.atEnd()) {
+        auto line = in.readLine();
+        if (line.startsWith("deb"))
+        {
+            auto fields = line.split(" ", QString::SkipEmptyParts);
+            if (fields.length() >= 2)
+            {
+                auto sourceURL = fields[1];
+                if (sourceURL.endsWith("/"))
+                {
+                    sourceURL.truncate(sourceURL.length() - 1);
+                }
+                return sourceURL;
+            }
+        }
+    }
+    return "";
+}
+// get all sources of the package
+QStringList UpdateWorker::getSourcesOfPackage(const QString pkg, const QString version)
+{
+    QStringList sources;
+    QProcess aptCacheProcess;
+    QStringList args;
+    args.append("madison");
+    args.append(pkg);
+    // exec apt-cache madison $pkg
+    aptCacheProcess.start("apt-cache", args);
+    aptCacheProcess.waitForFinished();
+    while (aptCacheProcess.canReadLine()) {
+        QString line(aptCacheProcess.readLine());
+        auto fields = line.split("|", QString::SkipEmptyParts);
+        for (QString &field : fields) {
+            field = field.trimmed();
+        }
+        if (fields.length() <= 2) {
+            continue;
+        }
+        auto p = fields[0], ver = fields[1], src = fields[2];
+        src.truncate(fields[2].indexOf(" "));
+        if (p == pkg) {
+            if (version.length() == 0 || version == ver) {
+                sources.append(src);
+            }
+        }
+    }
+    return sources.toSet().toList();
+}
+
+// checkCanExitTestingChannel check if the current env can exit internal test channel
+void UpdateWorker::checkCanExitTestingChannel()
+{
+    auto testingChannelSource = getTestingChannelSource();
+    QProcess dpkgProcess;
+    // exec dpkg -l
+    dpkgProcess.start("dpkg", QStringList("-l"));
+    dpkgProcess.waitForStarted();
+    // read stdout by line
+    while (dpkgProcess.state() == QProcess::Running) {
+        dpkgProcess.waitForReadyRead();
+        while (dpkgProcess.canReadLine()) {
+            QString line(dpkgProcess.readLine());
+            // skip uninstalled
+            if (!line.startsWith("ii")) {
+                continue;
+            }
+            auto field = line.split(" ", QString::SkipEmptyParts);
+            // skip unknown format line
+            if (field.length() <= 2) {
+                continue;
+            }
+            auto pkg = field[1], version = field[2];
+            // skip non system software
+            if (!pkg.contains("dde") && !pkg.contains("deepin") && !pkg.contains("dtk") && !pkg.contains("uos")) {
+                continue;
+            }
+            // Does the package exists only in the internal test source
+            auto sources = getSourcesOfPackage(pkg, version);
+            if (sources.length() == 1 && sources[0].contains(testingChannelSource)) {
+                m_model->setCanExitTestingChannel(false);
+                return;
+            }
+        }
+    }
+    m_model->setCanExitTestingChannel(true);
+    return;
 }
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK

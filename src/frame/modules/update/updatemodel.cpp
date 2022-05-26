@@ -23,7 +23,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <org_freedesktop_hostname1.h>
+
 #include "updatemodel.h"
+#include "window/utils.h"
 #include "modules/systeminfo/systeminfomodel.h"
 
 namespace dcc {
@@ -85,9 +88,11 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_bSystemActivation(UiActiveState::Unknown)
     , m_lastCheckUpdateTime(QString())
     , m_autoCheckUpdateCircle(0)
+    , m_testingChannelServer(QString())
+    , m_testingChannelStatus(TestingChannelStatus::Hidden)
     , m_isUpdatablePackages(false)
 {
-
+    qRegisterMetaType<TestingChannelStatus>("TestingChannelStatus");
 }
 
 UpdateModel::~UpdateModel()
@@ -700,6 +705,69 @@ UpdatesStatus UpdateModel::getClassifyUpdateStatus(ClassifyUpdateType type)
 
     }
     return status;
+}
+
+QString UpdateModel::getHostName() const
+{
+    org::freedesktop::hostname1 hostnameInter("org.freedesktop.hostname1",
+                                              "/org/freedesktop/hostname1",
+                                              QDBusConnection::systemBus());
+
+    return hostnameInter.staticHostname();
+}
+
+QString UpdateModel::getMachineID() const
+{
+    QProcess process;
+    auto args = QStringList();
+    args.append("-c");
+    args.append("eval `apt-config shell Token Acquire::SmartMirrors::Token`; echo $Token");
+    process.start("sh", args);
+    process.waitForFinished();
+    const auto token = QString(process.readAllStandardOutput());
+    const auto list = token.split(";");
+    for (const auto &line: list) {
+        const auto key = line.section("=", 0, 0);
+        if (key == "i"){
+            const auto value = line.section("=", 1);
+            return value;
+        }
+    }
+    return "";
+}
+
+UpdateModel::TestingChannelStatus UpdateModel::getTestingChannelStatus() const
+{
+    return m_testingChannelStatus;
+}
+void UpdateModel::setTestingChannelStatus(const TestingChannelStatus status)
+{
+    m_testingChannelStatus = status;
+    Q_EMIT testingChannelStatusChanged(m_testingChannelStatus);
+}
+
+QString UpdateModel::getTestingChannelServer() const
+{
+    return m_testingChannelServer;
+}
+void UpdateModel::setTestingChannelServer(const QString server)
+{
+    m_testingChannelServer = server;
+}
+
+QUrl UpdateModel::getTestingChannelJoinURL() const
+{
+    auto u = QUrl(getTestingChannelServer() + "/internal-testing");
+    auto query = QUrlQuery(u.query());
+    query.addQueryItem("h", getHostName());
+    query.addQueryItem("m", getMachineID());
+    query.addQueryItem("v", DSysInfo::minorVersion());
+    u.setQuery(query);
+    return u;
+}
+void UpdateModel::setCanExitTestingChannel(const bool can)
+{
+    Q_EMIT canExitTestingChannelChanged(can);
 }
 
 }

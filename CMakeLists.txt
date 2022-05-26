@@ -40,6 +40,7 @@ endif()
 set(STRONG_PASSWORD false)
 set(AllowEnableMultiScaleRatio false)
 set(AllowCloudSync true)
+set(TESTING_SERVER "https://insider.deepin.org")
 
 configure_file(files/dde-control-center.conf.in files/dde-control-center.conf @ONLY)
 

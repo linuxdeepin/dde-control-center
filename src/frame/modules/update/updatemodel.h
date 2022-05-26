@@ -94,6 +94,14 @@ public:
     };
     Q_ENUM(ModelUpdatesStatus)
 
+    enum TestingChannelStatus {
+        Hidden,
+        NotJoined,
+        WaitJoined,
+        Joined,
+    };
+    Q_ENUM(TestingChannelStatus);
+
     void setMirrorInfos(const MirrorInfoList &list);
     MirrorInfoList mirrorInfos() const { return m_mirrorList;}
 
@@ -236,6 +244,16 @@ public:
     bool getAutoCheckThirdpartyUpdates() const;
     void setAutoCheckThirdpartyUpdates(bool autoCheckThirdpartyUpdates);
 
+    QString getHostName() const;
+    QString getMachineID() const;
+
+    void setTestingChannelStatus(const TestingChannelStatus status);
+    TestingChannelStatus getTestingChannelStatus() const;
+    QString getTestingChannelServer() const;
+    void setTestingChannelServer(const QString server);
+    QUrl getTestingChannelJoinURL() const;
+    void setCanExitTestingChannel(const bool can);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void autoInstallUpdatesChanged(const bool &autoInstallUpdates);
@@ -291,7 +309,8 @@ Q_SIGNALS:
     void updateHistoryAppInfos();
     void updateNotifyChanged(const bool notify);
     void updatablePackagesChanged(const bool isUpdatablePackages);
-
+    void testingChannelStatusChanged(const TestingChannelStatus status);
+    void canExitTestingChannelChanged(const bool can);
 private:
     UpdatesStatus m_status;
 
@@ -327,6 +346,7 @@ private:
     bool m_autoCheckThirdpartyUpdates;
     bool m_updateNotify;
     bool m_smartMirrorSwitch;
+
     QString m_mirrorId;
     MirrorInfoList m_mirrorList;
     QMap<QString, int> m_mirrorSpeedInfo;
@@ -340,13 +360,16 @@ private:
     QString m_lastCheckUpdateTime; //上次检查更新时间
     QList<AppUpdateInfo> m_historyAppInfos; //历史更新应用列表
     int m_autoCheckUpdateCircle; //决定进入检查更新界面是否自动检查,单位：小时
-    bool m_isUpdatablePackages;
 
     QMap<ClassifyUpdateType, UpdateErrorType> m_updateErrorTypeMap;
 
     UpdateJobErrorMessage m_systemUpdateJobError;
     UpdateJobErrorMessage m_safeUpdateJobError;
     UpdateJobErrorMessage m_UnkonwUpdateJobError;
+
+    QString m_testingChannelServer;
+    TestingChannelStatus m_testingChannelStatus;
+    bool m_isUpdatablePackages;
 };
 
 }
