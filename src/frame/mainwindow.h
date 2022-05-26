@@ -83,6 +83,7 @@ private:
     void openManual();
     void initUI();
     void initConfig();
+    void configModule(QString url,ModuleObject *module);
     void loadModules();
     void toHome();
     void updateMainView();
@@ -90,11 +91,14 @@ private:
     void configLayout(QBoxLayout *const layout);
     void showPage(ModuleObject *const module, const QString &url, const UrlType &uType);
     void showModule(ModuleObject *const module, QWidget *const parent);
+    ModuleObject *getModuleByUrl(ModuleObject *const root, const QString &url, const UrlType &uType);
+    QString getUrlByModule(ModuleObject *const module);
 
 private Q_SLOTS:
     void onAddModule(ModuleObject *const module);
     void onRemoveModule(ModuleObject *const module);
     void onTriggered();
+    void updateModuleConfig(const QString &key);
 
 private:
     QWidget                             *m_contentWidget;

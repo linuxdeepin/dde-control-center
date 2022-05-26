@@ -42,10 +42,10 @@
 DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
-class FloatingButton : public DFloatingButton
+class KeyboardFloatingButton : public DFloatingButton
 {
 public:
-    explicit FloatingButton()
+    explicit KeyboardFloatingButton()
         : DFloatingButton(nullptr) {}
 };
 
@@ -95,7 +95,7 @@ ModuleObject *KeyboardPlugin::module()
     moduleShortCutSetting->setChildType(ModuleObject::Page);
     ShortCutSettingModule *shortCutSettingModule = new ShortCutSettingModule(moduleInterface->model(), moduleInterface->worker(), moduleInterface->shortcutModel());
     moduleShortCutSetting->appendChild(shortCutSettingModule);
-    ModuleObject *customShortcutModule = new WidgetModule<FloatingButton>("AddCustomShortCut","AddCustomShortCut",[shortCutSettingModule](FloatingButton *customShortcut){
+    ModuleObject *customShortcutModule = new WidgetModule<KeyboardFloatingButton>("AddCustomShortCut","AddCustomShortCut",[shortCutSettingModule](KeyboardFloatingButton *customShortcut){
         customShortcut->setIcon(DStyle::SP_IncreaseElement);
         customShortcut->setObjectName("AddCustomShortCut");
         connect(customShortcut, &DFloatingButton::clicked, shortCutSettingModule, &ShortCutSettingModule::onPushCustomShortcut);

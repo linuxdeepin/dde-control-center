@@ -191,29 +191,65 @@ void MainWindow::initConfig()
     resize(w, h);
     Dtk::Widget::moveToCenter(this);
 
-    QString hidelist = m_dconfig->value(HideConfig).toString();
-    QString disablelist = m_dconfig->value(DisableConfig).toString();
-    auto updateModuleConfig = [](QString config, QSet<QString> &moduleConfig) {
-        config.remove('[');
-        config.remove(']');
-        config.remove('\"');
-        QStringList list = config.split(",");
-        moduleConfig.clear();
-        for (auto &&key : list) {
-            moduleConfig.insert(key.trimmed());
+    updateModuleConfig(HideConfig);
+    updateModuleConfig(DisableConfig);
+    connect(m_dconfig, &DConfig::valueChanged, this, &MainWindow::updateModuleConfig);
+}
+
+void MainWindow::configModule(QString url, ModuleObject *module)
+{
+    module->setFlagState(DCC_CONFIG_HIDDEN, m_hideModule.contains(url));
+    module->setFlagState(DCC_CONFIG_DISABLED, m_disableModule.contains(url));
+}
+
+QSet<QString> findAddItems(QSet<QString> *oldSet, QSet<QString> *newSet)
+{
+    QSet<QString> addSet;
+    for (auto &&key : *newSet) {
+        if (!oldSet->contains(key)) {
+            addSet.insert(key);
         }
-    };
-    updateModuleConfig(hidelist, m_hideModule);
-    updateModuleConfig(disablelist, m_disableModule);
-    connect(m_dconfig, &DConfig::valueChanged, this, [this, &updateModuleConfig](const QString &key) {
-        if (key == HideConfig) {
-            QString hidelist = m_dconfig->value(HideConfig).toString();
-            updateModuleConfig(hidelist, m_hideModule);
-        } else if (key == DisableConfig) {
-            QString disablelist = m_dconfig->value(DisableConfig).toString();
-            updateModuleConfig(disablelist, m_disableModule);
+    }
+    return addSet;
+}
+
+void MainWindow::updateModuleConfig(const QString &key)
+{
+    QSet<QString> oldModuleConfig;
+    QSet<QString> *newModuleConfig = nullptr;
+    DCC_LAYOUT_TYPE type = DCC_CONFIG_HIDDEN;
+    if (key == HideConfig) {
+        type = DCC_CONFIG_HIDDEN;
+        oldModuleConfig = m_hideModule;
+        newModuleConfig = &m_hideModule;
+    } else if (key == DisableConfig) {
+        type = DCC_CONFIG_DISABLED;
+        oldModuleConfig = m_disableModule;
+        newModuleConfig = &m_disableModule;
+    }
+    if (!newModuleConfig)
+        return;
+
+    QString configValue = m_dconfig->value(key).toString();
+    configValue.remove('[');
+    configValue.remove(']');
+    configValue.remove('\"');
+    *newModuleConfig = QSet<QString>::fromList(configValue.split(",", QString::SkipEmptyParts));
+
+    if (newModuleConfig) {
+        QSet<QString> addModuleConfig = findAddItems(&oldModuleConfig, newModuleConfig);
+        QSet<QString> removeModuleConfig = findAddItems(newModuleConfig, &oldModuleConfig);
+        for (auto &&url : addModuleConfig) {
+            ModuleObject *obj = getModuleByUrl(m_rootModule, url, UrlType::Name);
+            if (obj)
+                obj->setFlagState(type, true);
         }
-    });
+        for (auto &&url : removeModuleConfig) {
+            ModuleObject *obj = getModuleByUrl(m_rootModule, url, UrlType::Name);
+            if (obj)
+                obj->setFlagState(type, false);
+        }
+    }
 }
 
 void MainWindow::loadModules()
@@ -231,20 +267,20 @@ void MainWindow::toHome()
 
 void MainWindow::updateMainView()
 {
-// 在布局中，待实现
-//    if (!m_mainView)
-//        return;
-//    // set background
-//    DPalette pa = DPaletteHelper::instance()->palette(m_mainView);
-//    QColor baseColor = palette().base().color();
-//    DGuiApplicationHelper::ColorType ct = DGuiApplicationHelper::toColorType(baseColor);
-//    if (ct == DGuiApplicationHelper::LightType) {
-//        pa.setBrush(DPalette::ItemBackground, palette().base());
-//    } else {
-//        baseColor = DGuiApplicationHelper::adjustColor(baseColor, 0, 0, +5, 0, 0, 0, 0);
-//        pa.setColor(DPalette::ItemBackground, baseColor);
-//    }
-//    DPaletteHelper::instance()->setPalette(m_mainView, pa);
+    // 在布局中，待实现
+    //    if (!m_mainView)
+    //        return;
+    //    // set background
+    //    DPalette pa = DPaletteHelper::instance()->palette(m_mainView);
+    //    QColor baseColor = palette().base().color();
+    //    DGuiApplicationHelper::ColorType ct = DGuiApplicationHelper::toColorType(baseColor);
+    //    if (ct == DGuiApplicationHelper::LightType) {
+    //        pa.setBrush(DPalette::ItemBackground, palette().base());
+    //    } else {
+    //        baseColor = DGuiApplicationHelper::adjustColor(baseColor, 0, 0, +5, 0, 0, 0, 0);
+    //        pa.setColor(DPalette::ItemBackground, baseColor);
+    //    }
+    //    DPaletteHelper::instance()->setPalette(m_mainView, pa);
 }
 
 void MainWindow::clearPage(QWidget *const widget)
@@ -369,24 +405,62 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
     }
 }
 
-void MainWindow::onAddModule(ModuleObject *const module)
+ModuleObject *MainWindow::getModuleByUrl(ModuleObject *const root, const QString &url, const MainWindow::UrlType &uType)
 {
-    QStringList nameList;
+    ModuleObject *obj = root;
+    ModuleObject *parent = nullptr;
+    QStringList names = url.split('/');
+    while (!names.isEmpty() && obj) {
+        const QString &name = names.takeFirst();
+        QString childName;
+        parent = obj;
+        obj = nullptr;
+        for (auto child : parent->childrens()) {
+            switch (uType) {
+            case UrlType::Name:
+                if (child->name() == name)
+                    obj = child;
+                break;
+            case UrlType::DisplayName:
+                if (child->displayName() == name || child->contentText().contains(name))
+                    obj = child;
+                break;
+            }
+            if (obj)
+                break;
+        }
+    }
+    return names.isEmpty() ? obj : nullptr;
+}
+
+QString MainWindow::getUrlByModule(ModuleObject *const module)
+{
+    QStringList url;
     ModuleObject *obj = module;
-    while (obj) {
-        nameList.prepend(obj->name());
+    while (obj && obj != m_rootModule) {
+        url.prepend(obj->name());
         obj = obj->getParent();
     }
+    return url.join('/');
+}
 
-    QList<ModuleObject *> modules;
-    modules.append(module);
+void MainWindow::onAddModule(ModuleObject *const module)
+{
+    QString url = getUrlByModule(module);
+
+    QList<QPair<QString, ModuleObject *>> modules;
+    modules.append({ url, module });
     while (!modules.isEmpty()) {
-        ModuleObject *obj = modules.takeFirst();
+        auto it = modules.takeFirst();
+        ModuleObject *obj = it.second;
+        configModule(it.first, obj);
         connect(obj, &ModuleObject::appendedChild, this, &MainWindow::onAddModule);
         connect(obj, &ModuleObject::insertedChild, this, &MainWindow::onAddModule);
         connect(obj, &ModuleObject::removedChild, this, &MainWindow::onRemoveModule);
         connect(obj, &ModuleObject::triggered, this, &MainWindow::onTriggered);
-        modules.append(obj->childrens());
+        for (auto &&tmpObj : obj->childrens()) {
+            modules.append({ it.first + "/" + tmpObj->name(), tmpObj });
+        }
     }
 }
 
