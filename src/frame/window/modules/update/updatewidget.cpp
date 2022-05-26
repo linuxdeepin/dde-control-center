@@ -166,6 +166,8 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
     UpdateSettings *updateSetting = new UpdateSettings(m_model);
     updateSetting->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     connect(updateSetting, &UpdateSettings::requestSetAutoDownloadUpdates, m_work, &UpdateWorker::setAutoDownloadUpdates);
+    connect(updateSetting, &UpdateSettings::requestSetTestingChannelEnable, m_work, &UpdateWorker::setTestingChannelEnable);
+    connect(updateSetting, &UpdateSettings::requestCheckCanExitTestingChannel, m_work, &UpdateWorker::checkCanExitTestingChannel);
     connect(updateSetting, &UpdateSettings::requestSetAutoInstall, m_work, &UpdateWorker::setAutoInstallUpdates);
     connect(updateSetting, &UpdateSettings::requestShowMirrorsView, this, &UpdateWidget::pushMirrorsView);
     connect(updateSetting, &UpdateSettings::requestSetAutoCleanCache, m_work, &UpdateWorker::setAutoCleanCache);

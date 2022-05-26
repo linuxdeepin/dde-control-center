@@ -75,12 +75,18 @@ Q_SIGNALS:
     void requestEnableSmartMirror(bool enable);
     void requestShowMirrorsView();
     void requestSetAutoInstall(const bool &autoInstall);
+    void requestSetTestingChannelEnable(const bool &enable);
+    void requestCheckCanExitTestingChannel();
 
 private Q_SLOTS:
     void setUpdateMode();
     void setCheckStatus(QWidget *widget, bool state, const QString &key);
     void onAutoUpdateCheckChanged();
     void onAutoSecureUpdateCheckChanged();
+    // When the testing channel switch chagned
+    void onTestingChannelCheckChanged(const bool checked);
+    // When the testing channel status changed
+    void onTestingChannelStatusChanged();
 
 private:
     void initUi();
@@ -102,6 +108,11 @@ private:
     DTK_WIDGET_NAMESPACE::DTipLabel *m_autoInstallUpdatesTips;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_autoDownloadUpdateTips;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_autoCheckSecureUpdateTips;
+
+    dcc::widgets::SwitchWidget *m_testingChannel;        // Testing Channel Switch Button
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_testingChannelTips; // Testing Channle Description Label
+    QLabel *m_testingChannelHeadingLabel; // Testing Channel Title
+    QLabel *m_testingChannelLinkLabel; // Testing Channel Join Link
 
     dcc::widgets::SwitchWidget *m_timerDownload; // 定时下载更新
     DTK_WIDGET_NAMESPACE::DTipLabel *m_timerDownloadLbl;
