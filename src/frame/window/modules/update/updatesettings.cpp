@@ -32,10 +32,13 @@
 #include "window/gsettingwatcher.h"
 
 #include <DTipLabel>
+#include <DDialog>
+#include <DWaterProgress>
 #include <DFontSizeManager>
 
 #include <QVBoxLayout>
 #include <QGSettings>
+#include <QMessageBox>
 
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -52,6 +55,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     , m_autoInstallUpdatesTips(new DTipLabel(tr("")))
     , m_autoDownloadUpdateTips(new DTipLabel(tr("Switch it on to automatically download the updates in wireless or wired network"), this))
     , m_autoCheckSecureUpdateTips(new DTipLabel(tr("Switch it on to only update security vulnerabilities and compatibility issues"), this))
+    , m_testingChannelTips(new DTipLabel(tr("Join the internal testing channel to get deepin latest updates")))
+    , m_testingChannelHeadingLabel(new QLabel(tr("Updates from Internal Testing Sources")))
+    , m_testingChannelLinkLabel(new QLabel(""))
     , m_autoCleanCache(new SwitchWidget(this))
     , m_dconfig(nullptr)
 {
@@ -78,6 +84,8 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_autoInstallUpdate = new SwitchWidget(tr("Auto Install Updates"), this);
     //~ contents_path /update/Update Settings
     //~ child_page Update Settings
+    m_testingChannel = new SwitchWidget(tr("Join Internal Testing Channel"), this);
+
     initUi();
     initConnection();
     setModel(model);
@@ -198,6 +206,31 @@ void UpdateSettings::initUi()
         m_updateMirrors->setRightTxtWordWrap(true);
         m_updateMirrors->addBackground();
         contentLayout->addWidget(m_updateMirrors);
+        contentLayout->addSpacing(20);
+
+        DFontSizeManager::instance()->bind(m_testingChannelHeadingLabel, DFontSizeManager::T5, QFont::DemiBold);
+        m_testingChannelHeadingLabel->setContentsMargins(10, 0, 10, 0); // 左右边距为10
+        contentLayout->addWidget(m_testingChannelHeadingLabel);
+        contentLayout->addSpacing(10);
+        // Add link label to switch button
+        m_testingChannelLinkLabel->setOpenExternalLinks(true);
+        m_testingChannelLinkLabel->setStyleSheet("font: 12px");
+        auto mainLayout = m_testingChannel->getMainLayout();
+        mainLayout->insertWidget(mainLayout->count()-1, m_testingChannelLinkLabel);
+
+        m_testingChannel->addBackground();
+        contentLayout->addWidget(m_testingChannel);
+        m_testingChannelTips->setWordWrap(true);
+        m_testingChannelTips->setAlignment(Qt::AlignLeft);
+        m_testingChannelTips->setContentsMargins(10, 0, 10, 0);
+        contentLayout->addWidget(m_testingChannelTips);
+        m_testingChannel->setVisible(false);
+        m_testingChannelTips->setVisible(false);
+    } else {
+        m_testingChannel->hide();
+        m_testingChannelTips->hide();
+        m_testingChannelLinkLabel->hide();
+        m_testingChannelHeadingLabel->hide();
     }
 
     contentLayout->setAlignment(Qt::AlignTop);
@@ -235,6 +268,8 @@ void UpdateSettings::initConnection()
     if (IsCommunitySystem) {
         connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
         connect(m_smartMirrorBtn, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestEnableSmartMirror);
+
+        connect(m_testingChannel, &SwitchWidget::checkedChanged, this, &UpdateSettings::onTestingChannelCheckChanged);
     }
 }
 
@@ -401,7 +436,99 @@ void UpdateSettings::setModel(UpdateModel *model)
 
         connect(model, &UpdateModel::smartMirrorSwitchChanged, this, setMirrorListVisible);
         setMirrorListVisible(model->smartMirrorSwitch());
+
+        auto hyperLink = QString("<a href='%1'>%2</a>").arg(m_model->getTestingChannelJoinURL().toString(),tr("here"));
+        m_testingChannelLinkLabel->setText(tr("Click %1 to complete the application").arg(hyperLink));
+        connect(model, &UpdateModel::testingChannelStatusChanged, this, &UpdateSettings::onTestingChannelStatusChanged);
+        onTestingChannelStatusChanged();
     }
+}
+
+void UpdateSettings::onTestingChannelStatusChanged()
+{
+    const auto channelStatus = m_model->getTestingChannelStatus();
+    if (channelStatus == UpdateModel::TestingChannelStatus::Hidden) {
+        m_testingChannelHeadingLabel->hide();
+        m_testingChannel->hide();
+        m_testingChannelTips->hide();
+        m_testingChannelLinkLabel->hide();
+    } else {
+        m_testingChannelHeadingLabel->show();
+        m_testingChannel->show();
+        m_testingChannelTips->show();
+        m_testingChannelLinkLabel->setVisible(channelStatus == UpdateModel::TestingChannelStatus::WaitJoined);
+        m_testingChannel->setChecked(channelStatus != UpdateModel::TestingChannelStatus::NotJoined);
+    }
+}
+
+void UpdateSettings::onTestingChannelCheckChanged(const bool checked)
+{
+    const auto status = m_model->getTestingChannelStatus();
+    if (checked) {
+        Q_EMIT requestSetTestingChannelEnable(checked);
+        return;
+    }
+    if (status != UpdateModel::TestingChannelStatus::Joined) {
+        Q_EMIT requestSetTestingChannelEnable(checked);
+        return;
+    }
+
+    auto dialog = new DDialog(this);
+    dialog->setFixedWidth(400);
+    dialog->setFixedHeight(280);
+
+    auto label = new DLabel(dialog);
+    label->setWordWrap(true);
+    label->setText(tr("Checking system versions, please wait..."));
+
+    auto progress = new DWaterProgress(dialog);
+    progress->setFixedSize(100, 100);
+    progress->setTextVisible(false);
+    progress->setValue(50);
+    progress->start();
+
+    QWidget* content = new QWidget(dialog);
+    QVBoxLayout* layout = new QVBoxLayout(dialog);
+    layout->setContentsMargins(0, 0, 0, 0);
+    content->setLayout(layout);
+    dialog->addContent(content);
+
+    layout->addStretch();
+    layout->addWidget(label, 0, Qt::AlignHCenter);
+    layout->addSpacing(20);
+    layout->addWidget(progress, 0, Qt::AlignHCenter);
+    layout->addStretch();
+
+    connect(m_model, &UpdateModel::canExitTestingChannelChanged, dialog, [ = ](const bool can) {
+        progress->setVisible(false);
+        if (!can)
+        {
+            Q_EMIT requestSetTestingChannelEnable(checked);
+            dialog->deleteLater();
+            return;
+        }
+        const auto text = tr("If you leave the internal testing channel now, you may not be able to get the latest bug fixes and updates. Please leave after the official version is released to keep your system stable!");
+        label->setText(text);
+        dialog->addButton(tr("Leave"), false, DDialog::ButtonWarning);
+        dialog->addButton(tr("Cancel"), true, DDialog::ButtonRecommend);
+    });
+    Q_EMIT requestCheckCanExitTestingChannel();
+    connect(dialog, &DDialog::closed, this, [ = ]() {
+        // clicked windows close button
+        m_testingChannel->setChecked(true);
+        dialog->deleteLater();
+    });
+    connect(dialog, &DDialog::buttonClicked, this, [ = ](int index, const QString &text) {
+        if ( index == 0 ) {
+            // clicked the leave button
+            Q_EMIT requestSetTestingChannelEnable(checked);
+        }else {
+            // clicked the cancel button
+            m_testingChannel->setChecked(true);
+        }
+        dialog->deleteLater();
+    });
+    dialog->exec();
 }
 
 void UpdateSettings::setUpdateMode()
