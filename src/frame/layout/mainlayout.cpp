@@ -52,7 +52,7 @@ void MainLayout::setCurrent(ModuleObject *const child)
     }
 }
 
-QWidget *MainLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, const int index)
+QWidget *MainLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, ModuleObject * const child)
 {
     QHBoxLayout *vlayout = new QHBoxLayout(parent);
     //    configLayout(vlayout);
@@ -74,19 +74,19 @@ QWidget *MainLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
     m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_view->setSelectionMode(QAbstractItemView::SingleSelection);
     m_view->setIconSize(ListViweItemIconSize_IconMode);
-    if (index < 0) {
+    if (child) {
+        m_view->setIconSize(ListViweItemIconSize_ListMode);
+        m_view->setGridSize(ListViweItemSize_ListMode);
+        m_view->setSpacing(0);
+    } else {
         m_view->setGridSize(ListViweItemSize_IconMode);
         m_view->setSpacing(20);
         m_view->setViewMode(ListView::IconMode);
         m_view->setAcceptDrops(false);
         m_view->setAlignment(Qt::AlignCenter);
-    } else {
-        m_view->setIconSize(ListViweItemIconSize_ListMode);
-        m_view->setGridSize(ListViweItemSize_ListMode);
-        m_view->setSpacing(0);
     }
-    m_view->setCurrentIndex(m_model->index(index, 0));
-    auto onClicked = [module, parent](const QModelIndex &index) {
+    m_view->setCurrentIndex(m_model->index(child));
+    auto onClicked = [](const QModelIndex &index) {
         ModuleObject *obj = static_cast<ModuleObject *>(index.internalPointer());
         if (obj)
             obj->trigger();
@@ -96,7 +96,7 @@ QWidget *MainLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
     QObject::connect(m_view, &ListView::clicked, m_view, onClicked);
     QObject::connect(m_view, &ListView::destroyed, module, &ModuleObject::deactive);
 
-    if (index < 0) {
+    if (!child) {
         vlayout->addWidget(m_view);
         return nullptr;
     }

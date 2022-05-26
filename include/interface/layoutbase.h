@@ -53,19 +53,23 @@ public:
      * @param index 子项索引
      * @return 子项的QWidget
      */
-    virtual QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const int index) = 0;
+    virtual QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, DCC_NAMESPACE::ModuleObject *const child) = 0;
     /**
      * @brief IsVisible 返回module是否显示，判断了配置项和程序设置项
      * @param module
      * @return
      */
-    static bool IsVisible(DCC_NAMESPACE::ModuleObject *const module);
+    static bool IsHiden(DCC_NAMESPACE::ModuleObject *const module);
+    // 是否为隐藏标志
+    static bool IsHidenFlag(uint32_t flag);
     /**
      * @brief IsEnabled 返回module是否可用，判断了配置项和程序设置项
      * @param module
      * @return
      */
-    static bool IsEnabled(DCC_NAMESPACE::ModuleObject *const module);
+    static bool IsDisabled(DCC_NAMESPACE::ModuleObject *const module);
+    // 是否为禁用标志
+    static bool IsDisabledFlag(uint32_t flag);
 };
 
 class LayoutFactoryBase

@@ -57,8 +57,8 @@ DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
 
-#define DCC_CONFIG_HIDDEN 0xA0000000
-#define DCC_CONFIG_DISABLED 0x50000000
+#define DCC_CONFIG_HIDDEN 0x20000000
+#define DCC_CONFIG_DISABLED 0x10000000
 #define setConfigHidden(hide) setFlagState(DCC_CONFIG_HIDDEN, hide)
 #define setConfigDisabled(disabled) setFlagState(DCC_CONFIG_DISABLED, disabled)
 
@@ -236,19 +236,17 @@ void MainWindow::updateModuleConfig(const QString &key)
     configValue.remove('\"');
     *newModuleConfig = QSet<QString>::fromList(configValue.split(",", QString::SkipEmptyParts));
 
-    if (newModuleConfig) {
-        QSet<QString> addModuleConfig = findAddItems(&oldModuleConfig, newModuleConfig);
-        QSet<QString> removeModuleConfig = findAddItems(newModuleConfig, &oldModuleConfig);
-        for (auto &&url : addModuleConfig) {
-            ModuleObject *obj = getModuleByUrl(m_rootModule, url, UrlType::Name);
-            if (obj)
-                obj->setFlagState(type, true);
-        }
-        for (auto &&url : removeModuleConfig) {
-            ModuleObject *obj = getModuleByUrl(m_rootModule, url, UrlType::Name);
-            if (obj)
-                obj->setFlagState(type, false);
-        }
+    QSet<QString> addModuleConfig = findAddItems(&oldModuleConfig, newModuleConfig);
+    QSet<QString> removeModuleConfig = findAddItems(newModuleConfig, &oldModuleConfig);
+    for (auto &&url : addModuleConfig) {
+        ModuleObject *obj = getModuleByUrl(m_rootModule, url, UrlType::Name);
+        if (obj)
+            obj->setFlagState(type, true);
+    }
+    for (auto &&url : removeModuleConfig) {
+        ModuleObject *obj = getModuleByUrl(m_rootModule, url, UrlType::Name);
+        if (obj)
+            obj->setFlagState(type, false);
     }
 }
 
@@ -257,7 +255,10 @@ void MainWindow::loadModules()
     onAddModule(m_rootModule);
     m_pluginManager->loadModules(m_rootModule, m_layoutManager);
     showModule(m_rootModule, m_contentWidget);
-    m_searchWidget->setModuleObject(m_rootModule);
+    // 搜索没实时更新，插件并行加载，此处暂延时设置，待修改
+    QTimer::singleShot(3000, this, [this]() {
+        m_searchWidget->setModuleObject(m_rootModule);
+    });
 }
 
 void MainWindow::toHome()
@@ -289,11 +290,12 @@ void MainWindow::clearPage(QWidget *const widget)
     QScrollArea *area = qobject_cast<QScrollArea *>(widget);
     if (area)
         area->widget()->deleteLater();
+
     if (layout) {
-        while (QLayoutItem *child = layout->takeAt(0)) {
-            layout->removeWidget(child->widget());
-            child->widget()->deleteLater();
-            layout->removeItem(child);
+        QLayoutItem *child;
+        while ((child = layout->takeAt(0)) != nullptr) {
+            if (child->widget())
+                child->widget()->deleteLater();
             delete child;
         }
         delete layout;
@@ -387,7 +389,6 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
         if (!obj)
             return;
         obj->active();
-        int idx = modules.isEmpty() ? -1 : obj->childrens().indexOf(modules.first());
         clearPage(widget);
 
         LayoutBase *layout = m_layoutManager->createLayout(obj->childType());
@@ -396,11 +397,19 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
         data.module = obj;
         data.layout = layout;
         m_currentModule.append(data);
-        widget = layout->layoutModule(obj, widget, idx);
+        widget = layout->layoutModule(obj, widget, modules.isEmpty() ? nullptr : modules.first());
         if (modules.isEmpty()) {
             ModuleObject *child = layout->autoExpand(obj, nullptr);
             if (child)
                 modules.append(child);
+        }
+        if (!widget && !modules.isEmpty()){
+            ModuleObject *child = modules.first();
+            layout->setCurrent(child);
+            QTimer::singleShot(10,this,[layout,child](){
+                layout->setCurrent(child);
+            });
+            break;
         }
     }
 }

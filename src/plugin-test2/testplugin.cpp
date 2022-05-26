@@ -20,7 +20,7 @@ ModuleObject* Plugin::module()
 
     for (int j = 0; j < 4; j++) {
         LabelModule *labelModule = new LabelModule(QString("main%1menu%2").arg(3).arg(j), QString("具体页面%1的第%2个page的标题").arg(3).arg(j), moduleRoot);
-        labelModule->setText(QString("我是具体页面%1的第%2个page").arg(3).arg(j));
+        labelModule->setText(QString("二级插件页面%1的第%2个page").arg(3).arg(j));
         moduleRoot->appendChild(labelModule);
     }
 
@@ -29,7 +29,7 @@ ModuleObject* Plugin::module()
 
 QString Plugin::follow() const
 {
-    // 注意这里返回的是上级插件plugin->module()->name(), 而不是plugin->name();
+    // 注意这里返回的是上级的url
     return QStringLiteral("firstmenu");
 }
 

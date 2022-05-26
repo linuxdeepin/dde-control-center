@@ -136,14 +136,14 @@ int ModuleObject::badge() const
     return d->m_badge;
 }
 
-bool ModuleObject::isVisible() const
+bool ModuleObject::isHiden() const
 {
-    return !getFlagState(DCC_HIDDEN);
+    return getFlagState(DCC_HIDDEN);
 }
 
-bool ModuleObject::isEnabled() const
+bool ModuleObject::isDisabled() const
 {
-    return !getFlagState(DCC_DISABLED);
+    return getFlagState(DCC_DISABLED);
 }
 
 unsigned ModuleObject::GetCurrentVersion()
@@ -151,14 +151,14 @@ unsigned ModuleObject::GetCurrentVersion()
     return c_currentVersion;
 }
 
-void ModuleObject::setVisible(bool visible)
+void ModuleObject::setHiden(bool hiden)
 {
-    setFlagState(DCC_HIDDEN, !visible);
+    setFlagState(DCC_HIDDEN, hiden);
 }
 
-void ModuleObject::setEnabled(bool enabled)
+void ModuleObject::setDisabled(bool disabled)
 {
-    setFlagState(DCC_DISABLED, !enabled);
+    setFlagState(DCC_DISABLED, disabled);
 }
 
 void ModuleObject::trigger()
@@ -302,6 +302,9 @@ void ModuleObject::setFlagState(uint32_t flag, bool state)
         else
             d->m_flags &= (~flag);
         Q_EMIT stateChanged(flag, state);
+        ModuleObject *parent = getParent();
+        if (parent)
+            Q_EMIT parent->childStateChanged(this, flag, state);
     }
 }
 

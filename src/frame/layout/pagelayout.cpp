@@ -71,7 +71,7 @@ int PageLayout::getScrollPos(ModuleObject *child)
     return pos;
 }
 
-QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, const int index)
+QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, ModuleObject * const child)
 {
     QScrollArea *area = new QScrollArea(parent);
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -88,25 +88,25 @@ QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
     m_vlayout = new QVBoxLayout(areaWidget);
     areaWidget->setLayout(m_vlayout);
 
-    for (auto child : module->childrens()) {
-        if (!LayoutBase::IsVisible(child))
+    for (auto tmpChild : module->childrens()) {
+        if (LayoutBase::IsHiden(tmpChild))
             continue;
-        auto page = getPage(child->page(), child->displayName());
+        auto page = getPage(tmpChild->page(), tmpChild->displayName());
         if (page) {
-            if (child->extra())
+            if (tmpChild->extra())
                 m_hlayout->addWidget(page);
             else {
                 m_vlayout->addWidget(page, 0, Qt::AlignTop);
-                m_mapWidget.append({ child, page });
+                m_mapWidget.append({ tmpChild, page });
             }
-            page->setEnabled(LayoutBase::IsEnabled(child));
+            page->setDisabled(LayoutBase::IsDisabled(tmpChild));
         }
-        child->active();
+        tmpChild->active();
     }
     if (module->childrens().count() > 1)
         m_vlayout->addStretch(1);
 
-    area->verticalScrollBar()->setSliderPosition(getScrollPos(module->children(index)));
+    area->verticalScrollBar()->setSliderPosition(getScrollPos(child));
 
     auto addChild = [this, module](ModuleObject *const childModule) {
         int index = module->childrens().indexOf(childModule);
@@ -119,8 +119,8 @@ QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
     QObject::connect(module, &ModuleObject::appendedChild, area, addChild);
 
     QObject::connect(areaWidget, &QWidget::destroyed, module, [module] {
-        for (auto child : module->childrens()) {
-            child->deactive();
+        for (auto tmpChild : module->childrens()) {
+            tmpChild->deactive();
         }
         module->deactive();
     });

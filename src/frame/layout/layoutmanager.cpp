@@ -61,6 +61,7 @@ bool LayoutManager::registerLayout(LayoutFactoryBase *factory)
         m_mapFactory.insert(factory->type(), factory);
         return true;
     }
+    qWarning() << "layout type:" << QString::number(factory->type(), 16) << "have been used";
     return false;
 }
 

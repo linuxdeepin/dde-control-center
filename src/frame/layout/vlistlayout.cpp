@@ -44,7 +44,7 @@ void VListLayout::setCurrent(ModuleObject *const child)
     }
 }
 
-QWidget *VListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, const int index)
+QWidget *VListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, ModuleObject * const child)
 {
     QHBoxLayout *hlayout = new QHBoxLayout(parent);
     parent->setLayout(hlayout);
@@ -72,15 +72,15 @@ QWidget *VListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *
     m_view->setSpacing(0);
     m_view->setItemSpacing(2);
     m_view->setSelectionMode(QAbstractItemView::SingleSelection);
-    m_view->setCurrentIndex(m_model->index(index == -1 ? 0 : index, 0));
+    m_view->setCurrentIndex(m_model->index(child));
 
-    for (auto child : module->childrens()) {
-        auto page = child->page();
+    for (auto tmpChild : module->childrens()) {
+        auto page = tmpChild->page();
         if (page) {
-            if (child->extra())
+            if (tmpChild->extra())
                 m_hlayout->addWidget(page);
         }
-        child->active();
+        tmpChild->active();
     }
 
     auto onClicked = [](const QModelIndex &index) {

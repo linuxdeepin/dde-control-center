@@ -42,7 +42,7 @@ void HListLayout::setCurrent(ModuleObject *const child)
     }
 }
 
-QWidget *HListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, const int index)
+QWidget *HListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, ModuleObject * const child)
 {
     QVBoxLayout *vlayout = new QVBoxLayout(parent);
     parent->setLayout(vlayout);
@@ -59,7 +59,7 @@ QWidget *HListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *
     m_view->setModel(m_model);
     m_view->setItemDelegate(delegate);
     vlayout->addWidget(dframeTab, 1, Qt::AlignCenter);
-    m_view->setCurrentIndex(m_model->index(index == -1 ? 0 : index, 0));
+    m_view->setCurrentIndex(m_model->index(child));
     QWidget *childWdiget = new QWidget(parent);
 
     auto onClicked = [=](const QModelIndex &index) {

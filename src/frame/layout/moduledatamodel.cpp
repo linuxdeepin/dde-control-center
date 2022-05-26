@@ -89,14 +89,14 @@ Qt::ItemFlags ModuleDataModel::flags(const QModelIndex &index) const
 {
     Qt::ItemFlags flag = QAbstractItemModel::flags(index);
     ModuleObject *module = static_cast<ModuleObject *>(index.internalPointer());
-    flag.setFlag(Qt::ItemIsEnabled, LayoutBase::IsEnabled(module));
+    flag.setFlag(Qt::ItemIsEnabled, !LayoutBase::IsDisabled(module));
     return flag;
 }
 
 void ModuleDataModel::onDataChanged(QObject *obj)
 {
     ModuleObject *const module = static_cast<ModuleObject *const>(obj);
-    if (module->extra() || !LayoutBase::IsVisible(module))
+    if (module->extra() || LayoutBase::IsHiden(module))
         onRemovedChild(module);
     else {
         int row = m_data.indexOf(module);
@@ -111,7 +111,7 @@ void ModuleDataModel::onDataChanged(QObject *obj)
 
 void ModuleDataModel::onInsertChild(ModuleObject *const module)
 {
-    if (module->extra() || !LayoutBase::IsVisible(module))
+    if (module->extra() || LayoutBase::IsHiden(module))
         return;
     int row = 0;
     for (auto &&tmpModule : m_parentObject->childrens()) {
@@ -147,7 +147,7 @@ void ModuleDataModel::setData(ModuleObject *const module)
     beginResetModel();
     m_data.clear();
     for (ModuleObject *tmpModule : datas) {
-        if (!tmpModule->extra() && LayoutBase::IsVisible(tmpModule))
+        if (!tmpModule->extra() && !LayoutBase::IsHiden(tmpModule))
             m_data.append(tmpModule);
         connect(tmpModule, SIGNAL(moduleDataChanged()), m_signalMapper, SLOT(map()));
         m_signalMapper->setMapping(tmpModule, tmpModule);

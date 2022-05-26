@@ -154,6 +154,7 @@ ModuleObject *PluginManager::findModule(ModuleObject *module, const QString &nam
 
 void PluginManager::initModules(const PluginData &data)
 {
+    m_layoutManager->registerLayout(data.layoutFactory);
     if (data.Follow.isEmpty()) {    // root plugin
         data.Module->setProperty("location", data.Location);
         if (!m_rootModule->hasChildrens()) {
@@ -175,5 +176,4 @@ void PluginManager::initModules(const PluginData &data)
     } else {    // other plugin
         m_datas.append(data);
     }
-    m_layoutManager->registerLayout(data.layoutFactory);
 }

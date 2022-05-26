@@ -13,6 +13,7 @@ class Plugin : public PluginInterface
 public:
     virtual QString name() const override;
     virtual ModuleObject *module() override;
+    virtual QList<LayoutFactoryBase *> layoutFactory() override;
 };
 
 class LabelModule : public ModuleObject

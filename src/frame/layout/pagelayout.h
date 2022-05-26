@@ -29,7 +29,7 @@ public:
     PageLayout();
 
     void setCurrent(DCC_NAMESPACE::ModuleObject *const child) override;
-    QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const int index) override;
+    QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, DCC_NAMESPACE::ModuleObject *const child) override;
 
 private:
     QWidget *getPage(QWidget *const widget, const QString &title);

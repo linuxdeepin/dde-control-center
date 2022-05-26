@@ -48,8 +48,8 @@ class ModuleObject : public QObject, public DTK_CORE_NAMESPACE::DObject
     Q_PROPERTY(QIcon icon READ icon WRITE setIcon NOTIFY moduleDataChanged)
     Q_PROPERTY(int badge READ badge WRITE setBadge NOTIFY moduleDataChanged)
 
-    Q_PROPERTY(bool visible READ isVisible WRITE setVisible NOTIFY stateChanged)
-    Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY stateChanged)
+    Q_PROPERTY(bool hiden READ isHiden WRITE setHiden NOTIFY stateChanged)
+    Q_PROPERTY(bool disabled READ isDisabled WRITE setDisabled NOTIFY stateChanged)
 
 public:
     enum : DCC_LAYOUT_TYPE {
@@ -98,8 +98,8 @@ public:
     QIcon icon() const;
     int badge() const;
 
-    bool isVisible() const;
-    bool isEnabled() const;
+    bool isHiden() const;
+    bool isDisabled() const;
     /**
      * @brief 获取状态标志
      * @return 对应状态位是否
@@ -115,8 +115,8 @@ public:
     void setFlagState(uint32_t flag, bool state);
 
 public Q_SLOTS:
-    void setVisible(bool visible);
-    void setEnabled(bool enabled);
+    void setHiden(bool hiden);
+    void setDisabled(bool disabled);
     void trigger();
 
     // 名称，作为每个模块的唯一标识，不可为空
@@ -145,6 +145,13 @@ Q_SIGNALS:
      * @param state
      */
     void stateChanged(uint32_t flag, bool state);
+    /**
+     * @brief childStateChanged 子项状态标志变化 (可见、禁用等)
+     * @param child 子项
+     * @param flag 标志
+     * @param state 变化后值
+     */
+    void childStateChanged(ModuleObject *const child, uint32_t flag, bool state);
 
     /**
      * @brief 添加child后触发
@@ -163,10 +170,8 @@ Q_SIGNALS:
      */
     void childrenSizeChanged(const int size);
     /**
-     * @brief 显示 child 可以发送此信号
+     * @brief trigger触发该信号，框架收到信号会切换到该ModuleObject页
      */
-//    void activeChild(const int index);
-
     void triggered();
 
 public:
