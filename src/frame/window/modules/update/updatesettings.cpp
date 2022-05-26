@@ -78,6 +78,8 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_autoInstallUpdate = new SwitchWidget(tr("Auto Install Updates"), this);
     //~ contents_path /update/Update Settings
     //~ child_page Update Settings
+    m_testingChannel = new SwitchWidget(tr("Internal Test Channel"), this);
+
     initUi();
     initConnection();
     setModel(model);
@@ -161,6 +163,10 @@ void UpdateSettings::initUi()
     contentLayout->addWidget(m_autoInstallUpdatesTips);
     contentLayout->addSpacing(10);
 
+    SettingsGroup *testingChannelGrp = new SettingsGroup;
+    testingChannelGrp->appendItem(m_testingChannel);
+    contentLayout->addWidget(testingChannelGrp);
+
     SettingsGroup *updatesNotificationtGrp = new SettingsGroup;
     updatesNotificationtGrp->appendItem(m_updateNotify);
     //~ contents_path /update/Update Settings
@@ -221,6 +227,7 @@ void UpdateSettings::initConnection()
     });
 
     connect(m_autoInstallUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoInstall);
+    connect(m_testingChannel, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetTestingChannelEnable);
     connect(m_autoCleanCache, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCleanCache);
 
 #if 0
@@ -401,6 +408,12 @@ void UpdateSettings::setModel(UpdateModel *model)
 
         connect(model, &UpdateModel::smartMirrorSwitchChanged, this, setMirrorListVisible);
         setMirrorListVisible(model->smartMirrorSwitch());
+
+        auto testingChannelShow = m_model->getTestingChannelShow();
+        m_testingChannel->setVisible(testingChannelShow);
+        if(testingChannelShow) {
+            m_testingChannel->setChecked(m_model->getTestingChannelEnable());
+        }
     }
 }
 

@@ -29,6 +29,7 @@
 #include "updatemodel.h"
 
 #include <QObject>
+#include <QNetworkAccessManager>
 #include <com_deepin_lastore_updater.h>
 #include <com_deepin_lastore_job.h>
 #include <com_deepin_lastore_jobmanager.h>
@@ -102,6 +103,7 @@ public Q_SLOTS:
     void setAutoDownloadUpdates(const bool &autoDownload);
     void setAutoInstallUpdates(const bool &autoInstall);
     void setMirrorSource(const MirrorInfo &mirror);
+    void setTestingChannelEnable(const bool &enable);
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     void setSourceCheck(bool enable);
 #endif
@@ -143,6 +145,7 @@ private Q_SLOTS:
     void onSysUpdateInstallProgressChanged(double value);
     void onSafeUpdateInstallProgressChanged(double value);
     void onUnkonwnUpdateInstallProgressChanged(double value);
+    void checkTestingChannelStatus();
 
 private:
     QMap<ClassifyUpdateType, UpdateItemInfo *> getAllUpdateInfo();

@@ -75,6 +75,7 @@ Q_SIGNALS:
     void requestEnableSmartMirror(bool enable);
     void requestShowMirrorsView();
     void requestSetAutoInstall(const bool &autoInstall);
+    void requestSetTestingChannelEnable(const bool &enable);
 
 private Q_SLOTS:
     void setUpdateMode();
@@ -99,6 +100,7 @@ private:
     dcc::widgets::SwitchWidget *m_updateNotify;          // 更新提醒
     dcc::widgets::SwitchWidget *m_autoDownloadUpdate;    // 下载更新
     dcc::widgets::SwitchWidget *m_autoInstallUpdate;     // 安装更新
+    dcc::widgets::SwitchWidget *m_testingChannel;        // 内测渠道
     DTK_WIDGET_NAMESPACE::DTipLabel *m_autoInstallUpdatesTips;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_autoDownloadUpdateTips;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_autoCheckSecureUpdateTips;

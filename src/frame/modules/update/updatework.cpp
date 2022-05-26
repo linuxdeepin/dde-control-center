@@ -34,11 +34,15 @@
 #include <QApplication>
 #include <QMutexLocker>
 #include <vector>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QDesktopServices>
 
 #define MIN_NM_ACTIVE 50
 #define UPDATE_PACKAGE_SIZE 0
 using namespace DCC_NAMESPACE;
 
+const QString TestingChannelPackage = "deepin-unstable-source";
 const QString ChangeLogFile = "/usr/share/deepin/release-note/UpdateInfo.json";
 const QString ChangeLogDic = "/usr/share/deepin/";
 
@@ -168,6 +172,13 @@ void UpdateWorker::init()
         sVersion.append(" " + DSysInfo::uosEditionName());
     m_model->setSystemVersionInfo(sVersion);
 
+    const auto server = valueByQSettings<QString>(DCC_CONFIG_FILES, "Testing", "Server", "");
+    if(!server.isEmpty()){
+        m_model->setTestingChannelServer(server);
+        m_model->setTestingChannelShow(m_managerInter->PackageInstallable(TestingChannelPackage));
+        m_model->setTestingChannelEnable(m_managerInter->PackageExists(TestingChannelPackage));
+    }
+    
     connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWorker::onJobListChanged);
     connect(m_managerInter, &ManagerInter::AutoCleanChanged, m_model, &UpdateModel::setAutoCleanCache);
 
@@ -733,6 +744,92 @@ void UpdateWorker::setAutoInstallUpdates(const bool &autoInstall)
 void UpdateWorker::setMirrorSource(const MirrorInfo &mirror)
 {
     m_updateInter->SetMirrorSource(mirror.m_id);
+}
+
+void UpdateWorker::checkTestingChannelStatus()
+{
+    qDebug() << "Testing:" << "check testing join status";
+    const auto server = m_model->getTestingChannelServer();
+    const auto machineID = m_model->getMachineID();
+    auto http = new QNetworkAccessManager(this);
+    QNetworkRequest request;
+    request.setUrl(QUrl(server + QString("/api/v2/public/testing/machine/status/") + machineID));
+    request.setRawHeader("content-type", "application/json");
+    connect(http, &QNetworkAccessManager::finished, this, [ = ](QNetworkReply *reply){
+        reply->deleteLater();
+        http->deleteLater();
+
+        if(reply->error() != QNetworkReply::NoError){
+            qDebug() << "Testing:" << "Network Error" << reply->errorString();
+            return;
+        }
+        auto data = reply->readAll();
+        qDebug() << "Testing:" << "machine status body" << data;
+        auto doc = QJsonDocument::fromJson(data);
+        auto obj = doc.object();
+        auto status = obj["data"].toObject()["status"].toString();
+        // Exit the loop if switch status is disable
+        if(!m_model->getTestingChannelEnable()){
+            return;
+        }
+        // If user has joined then install testing source package;
+        if(status == "joined"){
+            qDebug() << "Testing:" << "Install testing channel package";
+            m_managerInter->InstallPackage("testing channel", TestingChannelPackage);
+            return;
+        }
+        // Run again after sleep
+        QTimer::singleShot(5000, this,  &UpdateWorker::checkTestingChannelStatus);
+    });
+    http->get(request);
+}
+
+
+
+void UpdateWorker::setTestingChannelEnable(const bool &enable)
+{
+    qDebug() << "Testing:" << "TestingChannelEnableChange" << enable;
+    m_model->setTestingChannelEnable(enable);
+
+    const auto server = m_model->getTestingChannelServer();
+    const auto machineID = m_model->getMachineID();
+
+    /* Disable Testing Channel */
+    if(!enable){
+        // Uninstall testing source package if it is installed
+        if(m_managerInter->PackageExists(TestingChannelPackage)){
+            qDebug() << "Testing:" << "Uninstall testing channel package";
+            m_managerInter->RemovePackage("testing channel", TestingChannelPackage);
+        }
+        // Send status to server
+        auto http = new QNetworkAccessManager(this);
+        QNetworkRequest request;
+        request.setUrl(QUrl(server + QString("/api/v2/public/testing/machine/") + machineID));
+        request.setRawHeader("content-type", "application/json");
+        connect(http, &QNetworkAccessManager::finished, this, [ = ](QNetworkReply *reply){
+            reply->deleteLater();
+            http->deleteLater();
+        });
+        http->deleteResource(request);
+        return;
+    }
+
+    /* Enable Testing Channel */
+    const auto hostname = m_model->getHostName();
+    const auto version = DSysInfo::minorVersion();
+
+    // Open join page in browser
+    auto u = QUrl(server+"/internal-testing");
+    auto query = QUrlQuery(u.query());
+    query.addQueryItem("h", hostname);
+    query.addQueryItem("m", machineID);
+    query.addQueryItem("v", version);
+    u.setQuery(query);
+    qDebug() << "Testing:" << "open join page" << u.toString();
+    QDesktopServices::openUrl(u);
+    
+    // Loop to check if user hava joined
+    QTimer::singleShot(1000, this,  &UpdateWorker::checkTestingChannelStatus);
 }
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK

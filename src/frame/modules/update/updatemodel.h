@@ -236,6 +236,15 @@ public:
     bool getAutoCheckThirdpartyUpdates() const;
     void setAutoCheckThirdpartyUpdates(bool autoCheckThirdpartyUpdates);
 
+    QString getHostName();
+    QString getMachineID();
+    bool getTestingChannelShow() const;
+    bool getTestingChannelEnable() const;
+    void setTestingChannelShow(const bool show);
+    void setTestingChannelEnable(const bool enable);
+    QString getTestingChannelServer() const;
+    void setTestingChannelServer(const QString server);
+   
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void autoInstallUpdatesChanged(const bool &autoInstallUpdates);
@@ -327,6 +336,10 @@ private:
     bool m_autoCheckThirdpartyUpdates;
     bool m_updateNotify;
     bool m_smartMirrorSwitch;
+    QString m_testingChannelServer;
+    bool m_testingChannelShow;
+    bool m_testingChannelEnable;
+
     QString m_mirrorId;
     MirrorInfoList m_mirrorList;
     QMap<QString, int> m_mirrorSpeedInfo;

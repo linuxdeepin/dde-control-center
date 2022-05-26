@@ -23,6 +23,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include <org_freedesktop_hostname1.h>
+
 #include "updatemodel.h"
 #include "modules/systeminfo/systeminfomodel.h"
 
@@ -86,6 +88,10 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_lastCheckUpdateTime(QString())
     , m_autoCheckUpdateCircle(0)
     , m_isUpdatablePackages(false)
+    , m_testingChannelServer(QString())
+    , m_testingChannelShow(false)
+    , m_testingChannelEnable(false)
+
 {
 
 }
@@ -700,6 +706,62 @@ UpdatesStatus UpdateModel::getClassifyUpdateStatus(ClassifyUpdateType type)
 
     }
     return status;
+}
+
+QString UpdateModel::getHostName()
+{
+    org::freedesktop::hostname1 hostnameInter("org.freedesktop.hostname1",
+                                              "/org/freedesktop/hostname1",
+                                              QDBusConnection::systemBus());
+
+    return hostnameInter.staticHostname();
+}
+
+QString UpdateModel::getMachineID()
+{
+    QProcess process;
+    auto args = QStringList();
+    args.append("-c");
+    args.append("eval `apt-config shell Token Acquire::SmartMirrors::Token`; echo $Token");
+    process.start("sh", args);
+    process.waitForFinished();
+    const auto token = QString(process.readAllStandardOutput());
+    const auto list = token.split(";");
+    for (const auto &line: list) {
+        const auto key = line.section("=", 0, 0);
+        if (key == "i"){
+            const auto value = line.section("=", 1);
+            return value;
+        }
+    }
+    return "";
+}
+
+bool UpdateModel::getTestingChannelShow() const
+{
+    return m_testingChannelShow;
+}
+void UpdateModel::setTestingChannelShow(const bool show)
+{
+    m_testingChannelShow = show;
+}
+
+bool UpdateModel::getTestingChannelEnable() const
+{
+    return m_testingChannelEnable;
+}
+void UpdateModel::setTestingChannelEnable(const bool enable)
+{
+    m_testingChannelEnable = enable;
+}
+
+QString UpdateModel::getTestingChannelServer() const
+{
+    return m_testingChannelServer;
+}
+void UpdateModel::setTestingChannelServer(const QString server)
+{
+    m_testingChannelServer = server;
 }
 
 }
