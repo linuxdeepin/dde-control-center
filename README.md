@@ -26,6 +26,10 @@ DDE Control Center is the control panel of Deepin Desktop Environment.
 * freetype6-dev
 * egl1-mesa-dev
 * xcb-ewmh-dev
+* libqt5waylandclient5-dev
+* libwayland-dev
+* libkf5wayland-dev
+* qtwayland5-private-dev
 
 ### Runtime dependencies
 
