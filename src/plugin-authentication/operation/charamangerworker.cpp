@@ -43,6 +43,7 @@ CharaMangerWorker::CharaMangerWorker(CharaMangerModel *model, QObject *parent)
     , m_model(model)
     , m_charaMangerInter(new CharaMangerDBusProxy(this))
     , m_stopTimer(new QTimer(this))
+    , m_fileDescriptor(nullptr)
     , m_dbusSenderID("")
     , m_currentInputCharaType(0)
 {
