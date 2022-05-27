@@ -80,6 +80,9 @@ MainWindow::MainWindow(QWidget *parent)
     , m_layoutManager(new LayoutManager())
     , m_pluginManager(new PluginManager(this))
 {
+    qRegisterMetaType<LayoutBase *>("LayoutBase *");
+    qRegisterMetaType<ModuleObject *>("ModuleObject *");
+
     initUI();
     initConfig();
     loadModules();
@@ -250,6 +253,11 @@ void MainWindow::updateModuleConfig(const QString &key)
     }
 }
 
+void MainWindow::updateLayoutCurrent(LayoutBase *layout, ModuleObject *child)
+{
+    layout->setCurrent(child);
+}
+
 void MainWindow::loadModules()
 {
     onAddModule(m_rootModule);
@@ -347,7 +355,7 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
         if (modules.isEmpty()) {
             if (i == 0)
                 break;
-            ModuleObject *child = m_currentModule.at(i - 1).layout->autoExpand(m_currentModule.at(i - 1).module, nullptr);
+            ModuleObject *child = m_currentModule.at(i - 1).layout->autoExpand(m_currentModule.at(i - 1).module, modules);
             // A/B/C=>A/B 从B开始布局
             if (!child) {
                 modules.prepend(m_currentModule.at(i - 1).module);
@@ -397,20 +405,14 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
         data.module = obj;
         data.layout = layout;
         m_currentModule.append(data);
-        widget = layout->layoutModule(obj, widget, modules.isEmpty() ? nullptr : modules.first());
+        widget = layout->layoutModule(obj, widget, modules);
         if (modules.isEmpty()) {
-            ModuleObject *child = layout->autoExpand(obj, nullptr);
+            ModuleObject *child = layout->autoExpand(obj, modules);
             if (child)
                 modules.append(child);
         }
-        if (!widget && !modules.isEmpty()){
-            ModuleObject *child = modules.first();
-            layout->setCurrent(child);
-            QTimer::singleShot(10,this,[layout,child](){
-                layout->setCurrent(child);
-            });
-            break;
-        }
+        if (!modules.isEmpty())
+            QMetaObject::invokeMethod(this, "updateLayoutCurrent", Qt::QueuedConnection, Q_ARG(LayoutBase *, layout), Q_ARG(ModuleObject *, modules.first()));
     }
 }
 

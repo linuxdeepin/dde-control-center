@@ -44,8 +44,9 @@ void VListLayout::setCurrent(ModuleObject *const child)
     }
 }
 
-QWidget *VListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, ModuleObject * const child)
+QWidget *VListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, const QList<ModuleObject *> &children)
 {
+    Q_UNUSED(children)
     QHBoxLayout *hlayout = new QHBoxLayout(parent);
     parent->setLayout(hlayout);
 
@@ -72,7 +73,6 @@ QWidget *VListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *
     m_view->setSpacing(0);
     m_view->setItemSpacing(2);
     m_view->setSelectionMode(QAbstractItemView::SingleSelection);
-    m_view->setCurrentIndex(m_model->index(child));
 
     for (auto tmpChild : module->childrens()) {
         auto page = tmpChild->page();

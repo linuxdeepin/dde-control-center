@@ -31,7 +31,7 @@ public:
     VListLayout();
 
     void setCurrent(DCC_NAMESPACE::ModuleObject *const child) override;
-    QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, ModuleObject * const child) override;
+    QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const QList<ModuleObject *> &children) override;
 
 private:
     DTK_WIDGET_NAMESPACE::DListView *m_view;

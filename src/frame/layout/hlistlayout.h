@@ -31,7 +31,7 @@ public:
     HListLayout();
 
     void setCurrent(DCC_NAMESPACE::ModuleObject *const child) override;
-    QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, DCC_NAMESPACE::ModuleObject *const child) override;
+    QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const QList<ModuleObject *> &children) override;
 
 private:
     TabView *m_view;

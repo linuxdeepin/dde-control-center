@@ -22,7 +22,8 @@
 #define TESTLAYOUT_H
 #include "interface/layoutbase.h"
 // 定义布局的key，在使用自定义布局时会用到，注册布局时，如果key已被使用会对应报错，并注册失败
-// key通常用预设的DCC_LAYOUT_TYPE或上一个数字，在使用时没找到该布局则会根据key值使用一个接近的预设DCC_LAYOUT_TYPE，如果没接近的则使用ModuleObject::Page
+// key通常用预设的DCC_LAYOUT_TYPE或(|)上一个数字，在使用时没找到该布局则会根据key值使用一个接近的预设DCC_LAYOUT_TYPE，如果没接近的则使用ModuleObject::Page
+// key或上的数字取值范围(0x00000001 ~ 0x00FFFFFF)，key应唯一，如果注册时已存在会对应报错
 #define TESTLAYOUT_KEY (DCC_NAMESPACE::ModuleObject::Page | 1)
 class QFormLayout;
 class QScrollArea;
@@ -32,7 +33,7 @@ public:
     testLayout();
 
     virtual void setCurrent(DCC_NAMESPACE::ModuleObject *const child);
-    virtual QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, DCC_NAMESPACE::ModuleObject *const child);
+    virtual QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const QList<DCC_NAMESPACE::ModuleObject *> &children);
 
 private:
     void removeChild(DCC_NAMESPACE::ModuleObject *const childModule);

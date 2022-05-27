@@ -34,12 +34,22 @@ DCC_USE_NAMESPACE
 
 PageLayout::PageLayout()
     : m_vlayout(nullptr)
+    , m_area(nullptr)
 {
 }
 
 void PageLayout::setCurrent(ModuleObject *const child)
 {
-    // 滚动到child
+    for (auto &&it : m_mapWidget) {
+        if (it.first == child) {
+            int index = m_vlayout->indexOf(it.second);
+            if (index == -1)
+                return;
+            QWidget *w = it.second;
+            QPoint p = w->mapTo(w->parentWidget(), QPoint());
+            m_area->verticalScrollBar()->setSliderPosition(p.y());
+        }
+    }
 }
 
 QWidget *PageLayout::getPage(QWidget *const widget, const QString &title)
@@ -71,20 +81,21 @@ int PageLayout::getScrollPos(ModuleObject *child)
     return pos;
 }
 
-QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, ModuleObject * const child)
+QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, const QList<ModuleObject *> &children)
 {
-    QScrollArea *area = new QScrollArea(parent);
+    Q_UNUSED(children)
+    m_area = new QScrollArea(parent);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     parent->setLayout(mainLayout);
-    mainLayout->addWidget(area);
+    mainLayout->addWidget(m_area);
     QHBoxLayout *m_hlayout = new QHBoxLayout();
     mainLayout->addLayout(m_hlayout);
-    area->setFrameShape(QFrame::NoFrame);
-    area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    area->setWidgetResizable(true);
+    m_area->setFrameShape(QFrame::NoFrame);
+    m_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_area->setWidgetResizable(true);
 
-    QWidget *areaWidget = new QWidget(area);
-    area->setWidget(areaWidget);
+    QWidget *areaWidget = new QWidget(m_area);
+    m_area->setWidget(areaWidget);
     m_vlayout = new QVBoxLayout(areaWidget);
     areaWidget->setLayout(m_vlayout);
 
@@ -106,8 +117,6 @@ QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
     if (module->childrens().count() > 1)
         m_vlayout->addStretch(1);
 
-    area->verticalScrollBar()->setSliderPosition(getScrollPos(child));
-
     auto addChild = [this, module](ModuleObject *const childModule) {
         int index = module->childrens().indexOf(childModule);
         auto newPage = getPage(childModule->page(), childModule->displayName());
@@ -115,8 +124,8 @@ QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
             m_vlayout->insertWidget(index, newPage);
         }
     };
-    QObject::connect(module, &ModuleObject::insertedChild, area, addChild);
-    QObject::connect(module, &ModuleObject::appendedChild, area, addChild);
+    QObject::connect(module, &ModuleObject::insertedChild, m_area, addChild);
+    QObject::connect(module, &ModuleObject::appendedChild, m_area, addChild);
 
     QObject::connect(areaWidget, &QWidget::destroyed, module, [module] {
         for (auto tmpChild : module->childrens()) {

@@ -29,9 +29,9 @@ class MainLayout : public LayoutBase
 public:
     MainLayout();
 
-    DCC_NAMESPACE::ModuleObject *autoExpand(DCC_NAMESPACE::ModuleObject *const module, DCC_NAMESPACE::ModuleObject *const child) override;
+    DCC_NAMESPACE::ModuleObject *autoExpand(DCC_NAMESPACE::ModuleObject *const module, const QList<ModuleObject *> &children) override;
     void setCurrent(DCC_NAMESPACE::ModuleObject *const child) override;
-    QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, DCC_NAMESPACE::ModuleObject *const child) override;
+    QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const QList<ModuleObject *> &children) override;
 
 private:
     ListView *m_view;

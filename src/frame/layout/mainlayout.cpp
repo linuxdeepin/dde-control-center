@@ -40,9 +40,10 @@ MainLayout::MainLayout()
 {
 }
 
-ModuleObject *MainLayout::autoExpand(ModuleObject *const module, ModuleObject *const child)
+ModuleObject *MainLayout::autoExpand(ModuleObject *const module, const QList<ModuleObject *> &children)
 {
-    return child;
+    Q_UNUSED(module)
+    return children.isEmpty() ? nullptr : children.first();
 }
 
 void MainLayout::setCurrent(ModuleObject *const child)
@@ -52,7 +53,7 @@ void MainLayout::setCurrent(ModuleObject *const child)
     }
 }
 
-QWidget *MainLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, ModuleObject * const child)
+QWidget *MainLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, const QList<ModuleObject *> &children)
 {
     QHBoxLayout *vlayout = new QHBoxLayout(parent);
     //    configLayout(vlayout);
@@ -74,18 +75,8 @@ QWidget *MainLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
     m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_view->setSelectionMode(QAbstractItemView::SingleSelection);
     m_view->setIconSize(ListViweItemIconSize_IconMode);
-    if (child) {
-        m_view->setIconSize(ListViweItemIconSize_ListMode);
-        m_view->setGridSize(ListViweItemSize_ListMode);
-        m_view->setSpacing(0);
-    } else {
-        m_view->setGridSize(ListViweItemSize_IconMode);
-        m_view->setSpacing(20);
-        m_view->setViewMode(ListView::IconMode);
-        m_view->setAcceptDrops(false);
-        m_view->setAlignment(Qt::AlignCenter);
-    }
-    m_view->setCurrentIndex(m_model->index(child));
+
+    //    m_view->setCurrentIndex(m_model->index(children));
     auto onClicked = [](const QModelIndex &index) {
         ModuleObject *obj = static_cast<ModuleObject *>(index.internalPointer());
         if (obj)
@@ -96,10 +87,19 @@ QWidget *MainLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
     QObject::connect(m_view, &ListView::clicked, m_view, onClicked);
     QObject::connect(m_view, &ListView::destroyed, module, &ModuleObject::deactive);
 
-    if (!child) {
+    if (children.isEmpty()) {
+        m_view->setGridSize(ListViweItemSize_IconMode);
+        m_view->setSpacing(20);
+        m_view->setViewMode(ListView::IconMode);
+        m_view->setAcceptDrops(false);
+        m_view->setAlignment(Qt::AlignCenter);
         vlayout->addWidget(m_view);
         return nullptr;
     }
+    m_view->setIconSize(ListViweItemIconSize_ListMode);
+    m_view->setGridSize(ListViweItemSize_ListMode);
+    m_view->setSpacing(0);
+
     QWidget *childWdiget = new QWidget(parent);
     vlayout->addWidget(m_view, 1);
     vlayout->addWidget(childWdiget, 5);

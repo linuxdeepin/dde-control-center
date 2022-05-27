@@ -25,9 +25,14 @@ DCC_USE_NAMESPACE
 #define DCC_ALL_HIDDEN 0xA0000000
 #define DCC_ALL_DISABLED 0x50000000
 
-ModuleObject *LayoutBase::autoExpand(ModuleObject *const module, ModuleObject *const child)
+ModuleObject *LayoutBase::autoExpand(ModuleObject *const module, const QList<ModuleObject *> &children)
 {
-    return child ? child : module->children(0);
+    return children.isEmpty() ? module->children(0) : children.first();
+}
+
+bool LayoutBase::checkUpdate(ModuleObject *const, ModuleObject *const)
+{
+    return false;
 }
 
 bool LayoutBase::IsHiden(ModuleObject *const module)

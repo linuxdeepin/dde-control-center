@@ -99,6 +99,7 @@ private Q_SLOTS:
     void onRemoveModule(ModuleObject *const module);
     void onTriggered();
     void updateModuleConfig(const QString &key);
+    void updateLayoutCurrent(LayoutBase *layout, ModuleObject *child);
 
 private:
     QWidget                             *m_contentWidget;

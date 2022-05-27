@@ -43,8 +43,9 @@ void testLayout::setCurrent(ModuleObject *const child)
     m_area->verticalScrollBar()->setSliderPosition(p.y());
 }
 
-QWidget *testLayout::layoutModule(ModuleObject *const module, QWidget *const parent, ModuleObject *const child)
+QWidget *testLayout::layoutModule(ModuleObject *const module, QWidget *const parent, const QList<ModuleObject *> &children)
 {
+    Q_UNUSED(children)
     // 所保存的变量尽量与parent关联，该类会在界面切换时delete
     m_module = module;
     m_area = new QScrollArea(parent);
@@ -84,7 +85,7 @@ QWidget *testLayout::layoutModule(ModuleObject *const module, QWidget *const par
     auto addModuleSlot = [this](ModuleObject *const tmpChild) {
         addChild(tmpChild);
     };
-    setCurrent(child); // 布局完成后定位到对应项
+
     // 监听子项的添加、删除、状态变更，动态的更新界面
     QObject::connect(module, &ModuleObject::insertedChild, m_area, addModuleSlot);
     QObject::connect(module, &ModuleObject::appendedChild, m_area, addModuleSlot);
