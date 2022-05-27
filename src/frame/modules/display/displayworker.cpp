@@ -146,7 +146,7 @@ void DisplayWorker::saveChanges()
 
 void DisplayWorker::switchMode(const int mode, const QString &name)
 {
-    m_displayInter.SwitchMode(static_cast<uchar>(mode), name);
+    m_displayInter.SwitchMode(static_cast<uchar>(mode), name).waitForFinished();;
 }
 
 void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)

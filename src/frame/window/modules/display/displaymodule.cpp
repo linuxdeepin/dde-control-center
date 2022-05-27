@@ -146,6 +146,18 @@ void DisplayModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
         }
     });
 
+    // 在wayland环境下，仅单屏切换的时候，会出现display服务告知主屏已变化，但是Qt的屏幕信息还没有准备好的情况
+    // 此处监听一下屏幕增加的信号，然后重新获取数据设置一下主屏（如果之前主屏已经设置了，此时设置并不会有影响）
+    connect(qApp, &QApplication::screenAdded, this, [this] {
+        if (m_pMainWindow && QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+            for (auto mon : m_displayModel->monitorList()) {
+                if (mon->isPrimary()) {
+                    m_pMainWindow->setPrimaryScreen(mon->getQScreen());
+                }
+            }
+        }
+    });
+
     connect(m_displayModel, &DisplayModel::primaryScreenChanged, this, [=] (QString primary) {
         if (m_pMainWindow && !primary.isEmpty()) {
             for (auto mon : m_displayModel->monitorList()) {
