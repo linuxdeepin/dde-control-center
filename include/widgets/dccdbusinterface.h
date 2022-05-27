@@ -40,8 +40,8 @@ public:
     QString suffix() const;
     void setSuffix(const QString &suffix);
 
-    QVariant internalPropGet(const char *propname);
-    void internalPropSet(const char *propname, const QVariant &value);
+    QVariant property(const char *propname);
+    void setProperty(const char *propname, const QVariant &value);
 
 private Q_SLOTS:
     void onPropertiesChanged(const QString &interfaceName, const QVariantMap &changedProperties, const QStringList &invalidatedProperties);

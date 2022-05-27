@@ -135,7 +135,7 @@ inline QString originalPropname(const char *propname, QString suffix)
     return propStr.left(propStr.length() - suffix.length());
 }
 
-QVariant DCCDBusInterface::internalPropGet(const char *propname)
+QVariant DCCDBusInterface::property(const char *propname)
 {
     D_D(DCCDBusInterface);
     if (d->m_propertyMap.contains(propname)) {
@@ -158,7 +158,7 @@ QVariant DCCDBusInterface::internalPropGet(const char *propname)
     return QVariant();
 }
 
-void DCCDBusInterface::internalPropSet(const char *propname, const QVariant &value)
+void DCCDBusInterface::setProperty(const char *propname, const QVariant &value)
 {
     D_D(const DCCDBusInterface);
     QDBusMessage msg = QDBusMessage::createMethodCall(service(), path(), PropertiesInterface, QStringLiteral("Set"));
