@@ -77,8 +77,7 @@ protected:
 
 protected:
     void paintEvent(QPaintEvent *e) override;
-    void mouseMoveEvent(QMouseEvent *e) override;
-    void leaveEvent(QEvent *event) override;
+    bool viewportEvent(QEvent *event) override;
 
 private:
     D_DECLARE_PRIVATE(ListView)

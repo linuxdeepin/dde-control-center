@@ -558,19 +558,20 @@ void ListView::paintEvent(QPaintEvent *e)
     }
 }
 
-void ListView::mouseMoveEvent(QMouseEvent *e)
-{
-    if (!isVisible())
-        return;
-    QAbstractItemView::mouseMoveEvent(e);
-    if (state() == ExpandingState || state() == CollapsingState)
-        return;
-    D_D(ListView);
-    d->m_hover = indexAt(e->pos());
-}
-
-void ListView::leaveEvent(QEvent *)
+bool ListView::viewportEvent(QEvent *event)
 {
     D_D(ListView);
-    d->m_hover = QModelIndex();
+    switch (event->type()) {
+    case QEvent::HoverMove:
+    case QEvent::HoverEnter:
+        d->m_hover = indexAt(static_cast<QHoverEvent *>(event)->pos());
+        break;
+    case QEvent::HoverLeave:
+    case QEvent::Leave:
+        d->m_hover = QModelIndex();
+        break;
+    default:
+        break;
+    }
+    return QAbstractItemView::viewportEvent(event);
 }
