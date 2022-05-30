@@ -46,7 +46,6 @@ public:
     void activate();
     void deactivate();
 
-    void refreshSoundEffect();
 
 public Q_SLOTS:
     void switchSpeaker(bool on);
@@ -65,6 +64,7 @@ public Q_SLOTS:
     void setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable);
     void enableAllSoundEffect(bool enable);
     void setBluetoothMode(const QString &mode);
+    void refreshSoundEffect();
 
 private Q_SLOTS:
     void defaultSinkChanged(const QDBusObjectPath &path);

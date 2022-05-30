@@ -131,11 +131,11 @@ void SoundDBusProxy::GetSoundEnabledMap()
     m_soundEffectInter->callWithCallback(QStringLiteral("GetSoundEnabledMap"), argumentList, this, SIGNAL(pendingCallWatcherFinished(QMap<QString, bool>)));
 }
 
-void SoundDBusProxy::EnableSound(const QString &name, bool enabled)
+void SoundDBusProxy::EnableSound(const QString &name, bool enabled, QObject *receiver, const char *member, const char *errorSlot)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(name) << QVariant::fromValue(enabled);
-    m_soundEffectInter->asyncCallWithArgumentList(QStringLiteral("EnableSound"), argumentList);
+    m_soundEffectInter->callWithCallback(QStringLiteral("EnableSound"), argumentList, receiver, member, errorSlot);
 }
 
 QString SoundDBusProxy::GetSoundFile(const QString &name)

@@ -30,7 +30,7 @@ public:
 
     // SoundEffect
     void GetSoundEnabledMap();
-    void EnableSound(const QString &name, bool enabled);
+    void EnableSound(const QString &name, bool enabled, QObject *receiver, const char *member, const char *errorSlot);
     QString GetSoundFile(const QString &name);
 
     // Power

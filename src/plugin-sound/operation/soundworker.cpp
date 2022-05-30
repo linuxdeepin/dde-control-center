@@ -179,7 +179,7 @@ void SoundWorker::setPort(const Port *port)
 
 void SoundWorker::setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable)
 {
-    m_soundDBusInter->EnableSound(m_model->getNameByEffectType(effect), enable);
+    m_soundDBusInter->EnableSound(m_model->getNameByEffectType(effect), enable, this , SLOT(refreshSoundEffect()), SLOT(refreshSoundEffect()));
 }
 
 void SoundWorker::enableAllSoundEffect(bool enable)
