@@ -134,11 +134,9 @@ void FaceWidget::addFaceButton(const QString &newFaceName)
     m_addBtn->setMinimumWidth(nFontWidth);
     connect(m_addBtn, &DCommandLinkButton::clicked, this, [ = ] {
         Q_EMIT requestAddFace(m_model->faceDriverName(), m_model->faceCharaType(), newFaceName);
-        m_model->setAddButtonStatus(false);
     });
     connect(m_addfaceItem, &AuthenticationLinkButtonItem::mousePressed, this, [ = ] {
         Q_EMIT requestAddFace(m_model->faceDriverName(), m_model->faceCharaType(), newFaceName);
-        m_model->setAddButtonStatus(false);
     });
 
 }

@@ -253,6 +253,7 @@ void CharaMangerWorker::refreshDriverInfo()
 
 void CharaMangerWorker::entollStart(const QString &driverName, const int &charaType, const QString &charaName)
 {
+    m_model->setAddButtonStatus(false);
     qDebug() << " CharaMangerWorker::entollStart " << driverName << charaType << charaName;
     m_currentInputCharaType = charaType;
 
@@ -262,6 +263,7 @@ void CharaMangerWorker::entollStart(const QString &driverName, const int &charaT
     Q_EMIT requestMainWindowEnabled(false);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(*m_fileDescriptor, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        m_model->setAddButtonStatus(true);
         if (m_fileDescriptor->isError()) {
             qDebug() << "get File Descriptor error! " << m_fileDescriptor->error();
         } else {
