@@ -60,7 +60,6 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_lastRmPortIndex(-1)
     , m_balance(true)
     , m_volumeBtn(nullptr)
-    , m_mute(false)
     , m_enablePort(false)
     , m_fristChangePort(true)
     , m_fristStatusChangePort(true)
@@ -139,10 +138,7 @@ void SpeakerPage::setModel(SoundModel *model)
         m_balance = !mode.contains("headset");
         changeComboxStatus();
     });
-    connect(m_model, &SoundModel::speakerOnChanged, this, [ = ](bool flag) {
-        m_mute = flag;
-        refreshIcon();
-    });
+    connect(m_model, &SoundModel::speakerOnChanged, this, &SpeakerPage::refreshIcon);
 
     initSlider();
     initCombox();
@@ -439,11 +435,7 @@ void SpeakerPage::initCombox()
 
 void SpeakerPage::refreshIcon()
 {
-    if (m_mute) {
-        m_volumeBtn->setIcon(DStyle::standardIcon(style(), DStyle::SP_MediaVolumeMutedElement));
-    } else {
-        m_volumeBtn->setIcon(DStyle::standardIcon(style(), DStyle::SP_MediaVolumeLowElement));
-    }
+    m_volumeBtn->setIcon(DStyle::standardIcon(style(), (m_model->speakerOn() ? DStyle::SP_MediaVolumeMutedElement : DStyle::SP_MediaVolumeLowElement)));
 }
 
 void SpeakerPage::showWaitSoundPortStatus(bool showStatus)

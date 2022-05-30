@@ -126,7 +126,6 @@ private:
     //左/右平衡音界面是否显示
     bool m_balance;
     SoundLabel *m_volumeBtn;
-    bool m_mute;
     //启用端口但未设置为默认端口判断
     bool m_enablePort;
     // 蓝牙模式信息
