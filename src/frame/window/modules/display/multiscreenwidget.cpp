@@ -577,6 +577,9 @@ void MultiScreenWidget::setModeCurrentIndex(const QString &monitorName)
 
     qDebug() << Q_FUNC_INFO << monitorName;
     int index = m_modeCombox->findData(monitorName);
-    if(index != -1)
+    if (index != -1) {
+        m_modeCombox->blockSignals(true);
         m_modeCombox->setCurrentIndex(index);
+        m_modeCombox->blockSignals(false);
+    }
 }

@@ -85,6 +85,7 @@ void DisplayModel::setScreenWidth(const int w)
 
 void DisplayModel::setDisplayMode(const int mode)
 {
+    qDebug() << Q_FUNC_INFO << mode;
     if (m_mode != mode && mode >= 0 && mode < 5) {
         m_mode = mode;
         Q_EMIT displayModeChanged(m_mode);
