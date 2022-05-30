@@ -251,7 +251,7 @@ void VpnOpenVPNSection::initPasswordItems()
     }
     passwordFlagsChooser->setCurrentText(curPasswordOption);
 
-    LineEditWidget *password = new PasswdLineEditWidget(this);
+    PasswdLineEditWidget *password = new PasswdLineEditWidget(this);
     password->setTitle(tr("Password"));
     password->setText(m_secretMap.value("password"));
     password->setPlaceholderText(tr("Required"));
