@@ -13,8 +13,8 @@
 int main(int argc, char **argv)
 {
     QProcess process;
-    QString cmd = "dbus-daemon --session --print-address";
-    process.start(cmd);
+    QString cmd = "dbus-daemon";
+    process.start(cmd, {"--session", "--print-address"});
     process.waitForReadyRead();
 
     QString path = process.readAllStandardOutput().simplified();

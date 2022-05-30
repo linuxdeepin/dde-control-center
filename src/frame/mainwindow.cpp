@@ -191,6 +191,7 @@ void MainWindow::initConfig()
 
     auto w = m_dconfig->value(WidthConfig).toInt();
     auto h = m_dconfig->value(HeightConfig).toInt();
+
     resize(w, h);
     Dtk::Widget::moveToCenter(this);
 
@@ -233,12 +234,8 @@ void MainWindow::updateModuleConfig(const QString &key)
     if (!newModuleConfig)
         return;
 
-    QString configValue = m_dconfig->value(key).toString();
-    configValue.remove('[');
-    configValue.remove(']');
-    configValue.remove('\"');
-    *newModuleConfig = QSet<QString>::fromList(configValue.split(",", QString::SkipEmptyParts));
-
+    const auto &list = m_dconfig->value(key).toStringList();
+    *newModuleConfig = QSet<QString>(list.cbegin(), list.cend());
     QSet<QString> addModuleConfig = findAddItems(&oldModuleConfig, newModuleConfig);
     QSet<QString> removeModuleConfig = findAddItems(newModuleConfig, &oldModuleConfig);
     for (auto &&url : addModuleConfig) {

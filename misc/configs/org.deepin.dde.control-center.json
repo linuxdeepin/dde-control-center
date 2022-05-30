@@ -5,7 +5,7 @@
         "width": {
             "value": 800,
             "serial": 0,
-            "flags": ["global"],
+            "flags": [],
             "name": "width",
             "name[zh_CN]": "宽度",
             "description": "config dde-control-center width",
@@ -16,7 +16,7 @@
         "height": {
             "value": 600,
             "serial": 0,
-            "flags": ["global"],
+            "flags": [],
             "name": "height",
             "name[zh_CN]": "高度",
             "description": "config dde-control-center height",
@@ -25,9 +25,9 @@
             "visibility": "public"
         },
         "hideModule": {
-            "value": "",
+            "value": [],
             "serial": 0,
-            "flags": ["global"],
+            "flags": [],
             "name": "hide module",
             "name[zh_CN]": "隐藏模块",
             "description": "config dde-control-center hide module",
@@ -36,9 +36,9 @@
             "visibility": "public"
         },
         "disableModule": {
-            "value": "",
+            "value": [],
             "serial": 0,
-            "flags": ["global"],
+            "flags": [],
             "name": "disable module",
             "name[zh_CN]": "禁用模块",
             "description": "config dde-control-center disable module",
