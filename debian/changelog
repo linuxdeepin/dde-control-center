@@ -1,3 +1,7 @@
+dde-control-center (6.0.0.001) unstable; urgency=low
+  * update interface version
+ -- guoyao <guoyao@uniontech.com>  Web, 1 June 2022 09:36:33 +0000
+
 dde-control-center (1.0.0-1) unstable; urgency=low
   * dde-control-center for v23
  -- guoyao <guoyao@uniontech.com>  Mon, 14 Mar 2022 09:42:33 +0000
