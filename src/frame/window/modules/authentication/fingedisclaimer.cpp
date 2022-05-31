@@ -49,6 +49,8 @@ FingerDisclaimer::FingerDisclaimer(QWidget *parent)
     initWidget();
     initConnect();
     QWidget::installEventFilter(this);
+    setWindowFlags(Qt::WindowStaysOnTopHint | windowFlags());
+    setAttribute(Qt::WA_ShowModal, true);
 }
 
 FingerDisclaimer::~FingerDisclaimer()

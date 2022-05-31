@@ -49,6 +49,8 @@ AddFingeDialog::AddFingeDialog(const QString &thumb, DAbstractDialog *parent)
     initWidget();
     initData();
     QWidget::installEventFilter(this);
+    setWindowFlags(Qt::WindowStaysOnTopHint | windowFlags());
+    setAttribute(Qt::WA_ShowModal, true);
 }
 
 AddFingeDialog::~AddFingeDialog()
