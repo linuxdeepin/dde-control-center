@@ -47,6 +47,7 @@ void VListLayout::setCurrent(ModuleObject *const child)
 QWidget *VListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, const QList<ModuleObject *> &children)
 {
     Q_UNUSED(children)
+    m_module = module;
     QHBoxLayout *hlayout = new QHBoxLayout(parent);
     parent->setLayout(hlayout);
 
@@ -55,7 +56,7 @@ QWidget *VListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *
     m_view = new DListView(parent);
     QWidget *widget = new QWidget(parent);
     QVBoxLayout *vlayout = new QVBoxLayout;
-    QHBoxLayout *m_hlayout = new QHBoxLayout;
+    m_hlayout = new QHBoxLayout;
     widget->setLayout(vlayout);
     vlayout->addWidget(m_view);
     vlayout->addLayout(m_hlayout);
@@ -77,20 +78,79 @@ QWidget *VListLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *
     for (auto tmpChild : module->childrens()) {
         auto page = tmpChild->page();
         if (page) {
-            if (tmpChild->extra())
+            if (tmpChild->extra()) {
                 m_hlayout->addWidget(page);
+                m_extraModules.append(tmpChild);
+            }
         }
         tmpChild->active();
     }
 
     auto onClicked = [](const QModelIndex &index) {
         ModuleObject *obj = static_cast<ModuleObject *>(index.internalPointer());
-        if (obj)
+        if (obj && !LayoutBase::IsDisabled(obj))
             obj->trigger();
     };
 
     QObject::connect(m_view, &DListView::activated, m_view, &DListView::clicked);
     QObject::connect(m_view, &DListView::clicked, m_view, onClicked);
-    QObject::connect(m_view, &DListView::destroyed, module, &ModuleObject::deactive);
+    auto addModuleSlot = [this](ModuleObject *const tmpChild) {
+        addChild(tmpChild);
+    };
+    // 监听子项的添加、删除、状态变更，动态的更新界面
+    QObject::connect(module, &ModuleObject::insertedChild, m_view, addModuleSlot);
+    QObject::connect(module, &ModuleObject::appendedChild, m_view, addModuleSlot);
+    QObject::connect(module, &ModuleObject::removedChild, m_view, [this](ModuleObject *const childModule) { removeChild(childModule); });
+    QObject::connect(module, &ModuleObject::childStateChanged, m_view, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+        if (LayoutBase::IsHidenFlag(flag)) {
+            if (state)
+                removeChild(tmpChild);
+            else
+                addChild(tmpChild);
+        } else if (LayoutBase::IsDisabledFlag(flag)) {
+            int index = m_extraModules.indexOf(tmpChild);
+            if (-1 != index) {
+                m_hlayout->itemAt(index)->widget()->setDisabled(state);
+            }
+        }
+    });
+    QObject::connect(m_view, &QWidget::destroyed, module, [module] {
+        for (auto tmpChild : module->childrens()) {
+            tmpChild->deactive();
+        }
+        module->deactive();
+    });
+
     return childWidget;
+}
+
+void VListLayout::removeChild(ModuleObject *const childModule)
+{
+    int index = m_extraModules.indexOf(childModule);
+    if (index != -1) {
+        QLayoutItem *item = m_hlayout->takeAt(index);
+        item->widget()->deleteLater();
+        delete item;
+        m_extraModules.removeAt(index);
+    }
+}
+
+void VListLayout::addChild(ModuleObject *const childModule)
+{
+    if (LayoutBase::IsHiden(childModule) || !childModule->extra() || m_extraModules.contains(childModule))
+        return;
+
+    int index = 0;
+    for (auto &&child : m_module->childrens()) {
+        if (child == childModule)
+            break;
+        if (!LayoutBase::IsHiden(child) && child->extra())
+            index++;
+    }
+    auto newPage = childModule->page();
+    if (newPage) {
+        m_hlayout->insertWidget(index, newPage);
+        newPage->setDisabled(LayoutBase::IsDisabled(childModule));
+        m_extraModules.insert(index, childModule);
+    }
 }

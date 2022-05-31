@@ -34,18 +34,17 @@ DCC_USE_NAMESPACE
 
 PageLayout::PageLayout()
     : m_vlayout(nullptr)
+    , m_hlayout(nullptr)
     , m_area(nullptr)
+    , m_module(nullptr)
 {
 }
 
 void PageLayout::setCurrent(ModuleObject *const child)
 {
-    for (auto &&it : m_mapWidget) {
-        if (it.first == child) {
-            int index = m_vlayout->indexOf(it.second);
-            if (index == -1)
-                return;
-            QWidget *w = it.second;
+    if (m_mapWidget.contains(child)) {
+        QWidget *w = m_mapWidget.value(child);
+        if (-1 != m_vlayout->indexOf(w)) {
             QPoint p = w->mapTo(w->parentWidget(), QPoint());
             m_area->verticalScrollBar()->setSliderPosition(p.y());
         }
@@ -70,25 +69,60 @@ QWidget *PageLayout::getPage(QWidget *const widget, const QString &title)
     return widget;
 }
 
-int PageLayout::getScrollPos(ModuleObject *child)
+void PageLayout::removeChild(ModuleObject *const childModule)
 {
-    int pos = 0;
-    for (auto &it : m_mapWidget) {
-        if (it.first == child)
-            break;
-        pos += it.second->height();
+    if (m_mapWidget.contains(childModule)) {
+        QWidget *w = m_mapWidget.value(childModule);
+        int index = m_vlayout->indexOf(w);
+        if (-1 != index) {
+            w->deleteLater();
+            delete m_vlayout->takeAt(index);
+            m_mapWidget.remove(childModule);
+            return;
+        }
+        index = m_hlayout->indexOf(w);
+        if (-1 != index) {
+            w->deleteLater();
+            delete m_hlayout->takeAt(index);
+            m_mapWidget.remove(childModule);
+        }
     }
-    return pos;
 }
 
-QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *const parent, const QList<ModuleObject *> &children)
+void PageLayout::addChild(ModuleObject *const childModule)
+{
+    if (LayoutBase::IsHiden(childModule))
+        return;
+
+    bool isExtra = childModule->extra();
+    int index = 0;
+    for (auto &&child : m_module->childrens()) {
+        if (child == childModule)
+            break;
+        if (!LayoutBase::IsHiden(child) && child->extra() == isExtra)
+            index++;
+    }
+    auto newPage = childModule->page();
+    if (newPage) {
+        if (isExtra)
+            m_hlayout->insertWidget(index, newPage);
+        else
+            m_vlayout->insertWidget(index, newPage);
+
+        newPage->setDisabled(LayoutBase::IsDisabled(childModule));
+        m_mapWidget.insert(childModule, newPage);
+    }
+}
+
+QWidget *PageLayout::layoutModule(ModuleObject *const module, QWidget *const parent, const QList<ModuleObject *> &children)
 {
     Q_UNUSED(children)
+    m_module = module;
     m_area = new QScrollArea(parent);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     parent->setLayout(mainLayout);
     mainLayout->addWidget(m_area);
-    QHBoxLayout *m_hlayout = new QHBoxLayout();
+    m_hlayout = new QHBoxLayout();
     mainLayout->addLayout(m_hlayout);
     m_area->setFrameShape(QFrame::NoFrame);
     m_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -108,8 +142,8 @@ QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
                 m_hlayout->addWidget(page);
             else {
                 m_vlayout->addWidget(page, 0, Qt::AlignTop);
-                m_mapWidget.append({ tmpChild, page });
             }
+            m_mapWidget.insert(tmpChild, page);
             page->setDisabled(LayoutBase::IsDisabled(tmpChild));
         }
         tmpChild->active();
@@ -117,16 +151,25 @@ QWidget *PageLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
     if (module->childrens().count() > 1)
         m_vlayout->addStretch(1);
 
-    auto addChild = [this, module](ModuleObject *const childModule) {
-        int index = module->childrens().indexOf(childModule);
-        auto newPage = getPage(childModule->page(), childModule->displayName());
-        if (newPage) {
-            m_vlayout->insertWidget(index, newPage);
-        }
+    auto addModuleSlot = [this](ModuleObject *const tmpChild) {
+        addChild(tmpChild);
     };
-    QObject::connect(module, &ModuleObject::insertedChild, m_area, addChild);
-    QObject::connect(module, &ModuleObject::appendedChild, m_area, addChild);
-
+    // 监听子项的添加、删除、状态变更，动态的更新界面
+    QObject::connect(module, &ModuleObject::insertedChild, m_area, addModuleSlot);
+    QObject::connect(module, &ModuleObject::appendedChild, m_area, addModuleSlot);
+    QObject::connect(module, &ModuleObject::removedChild, m_area, [this](ModuleObject *const childModule) { removeChild(childModule); });
+    QObject::connect(module, &ModuleObject::childStateChanged, m_area, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+        if (LayoutBase::IsHidenFlag(flag)) {
+            if (state)
+                removeChild(tmpChild);
+            else
+                addChild(tmpChild);
+        } else if (LayoutBase::IsDisabledFlag(flag)) {
+            if (m_mapWidget.contains(tmpChild)) {
+                m_mapWidget.value(tmpChild)->setDisabled(state);
+            }
+        }
+    });
     QObject::connect(areaWidget, &QWidget::destroyed, module, [module] {
         for (auto tmpChild : module->childrens()) {
             tmpChild->deactive();

@@ -31,7 +31,6 @@ DCC_USE_NAMESPACE
 ModuleDataModel::ModuleDataModel(QObject *parent)
     : QAbstractItemModel(parent)
     , m_parentObject(nullptr)
-    , m_signalMapper(nullptr)
 {
 }
 
@@ -111,7 +110,7 @@ void ModuleDataModel::onDataChanged(QObject *obj)
 
 void ModuleDataModel::onInsertChild(ModuleObject *const module)
 {
-    if (module->extra() || LayoutBase::IsHiden(module))
+    if (module->extra() || LayoutBase::IsHiden(module) || m_data.contains(module))
         return;
     int row = 0;
     for (auto &&tmpModule : m_parentObject->childrens()) {
@@ -138,10 +137,6 @@ void ModuleDataModel::onRemovedChild(ModuleObject *const module)
 void ModuleDataModel::setData(ModuleObject *const module)
 {
     m_parentObject = module;
-    if (m_signalMapper) {
-        delete m_signalMapper;
-    }
-    m_signalMapper = new QSignalMapper(this);
     QList<ModuleObject *> datas = m_parentObject->childrens();
 
     beginResetModel();
@@ -149,16 +144,15 @@ void ModuleDataModel::setData(ModuleObject *const module)
     for (ModuleObject *tmpModule : datas) {
         if (!tmpModule->extra() && !LayoutBase::IsHiden(tmpModule))
             m_data.append(tmpModule);
-        connect(tmpModule, SIGNAL(moduleDataChanged()), m_signalMapper, SLOT(map()));
-        m_signalMapper->setMapping(tmpModule, tmpModule);
     }
     endResetModel();
-
-    connect(m_signalMapper, SIGNAL(mapped(QObject *)), this, SLOT(onDataChanged(QObject *)));
 
     connect(m_parentObject, &ModuleObject::appendedChild, this, &ModuleDataModel::onInsertChild);
     connect(m_parentObject, &ModuleObject::insertedChild, this, &ModuleDataModel::onInsertChild);
     connect(m_parentObject, &ModuleObject::removedChild, this, &ModuleDataModel::onRemovedChild);
+    connect(m_parentObject, &ModuleObject::childStateChanged, this, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+        onDataChanged(tmpChild);
+    });
 }
 
 QModelIndex ModuleDataModel::index(ModuleObject *module) const

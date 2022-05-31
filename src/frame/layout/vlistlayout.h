@@ -23,6 +23,8 @@
 #include "interface/layoutbase.h"
 
 #include <DListView>
+
+class QHBoxLayout;
 DCC_BEGIN_NAMESPACE
 class ModuleDataModel;
 class VListLayout : public LayoutBase
@@ -34,8 +36,15 @@ public:
     QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const QList<ModuleObject *> &children) override;
 
 private:
+    void removeChild(DCC_NAMESPACE::ModuleObject *const childModule);
+    void addChild(DCC_NAMESPACE::ModuleObject *const childModule);
+
+private:
     DTK_WIDGET_NAMESPACE::DListView *m_view;
     ModuleDataModel *m_model;
+    QHBoxLayout *m_hlayout;
+    QList<DCC_NAMESPACE::ModuleObject *> m_extraModules;
+    DCC_NAMESPACE::ModuleObject *m_module;
 };
 DCC_END_NAMESPACE
 #endif // VLISTLAYOUT_H

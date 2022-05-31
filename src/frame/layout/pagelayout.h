@@ -22,6 +22,7 @@
 #define PAGELAYOUT_H
 #include "interface/layoutbase.h"
 class QVBoxLayout;
+class QHBoxLayout;
 class QScrollArea;
 DCC_BEGIN_NAMESPACE
 class PageLayout : public LayoutBase
@@ -34,12 +35,15 @@ public:
 
 private:
     QWidget *getPage(QWidget *const widget, const QString &title);
-    int getScrollPos(ModuleObject *child);
+    void removeChild(DCC_NAMESPACE::ModuleObject *const childModule);
+    void addChild(DCC_NAMESPACE::ModuleObject *const childModule);
 
 private:
-    QVBoxLayout *m_vlayout;
-    QList<QPair<ModuleObject *, QWidget *>> m_mapWidget;
+    QVBoxLayout *m_vlayout; // 上方纵向布局
+    QHBoxLayout *m_hlayout; // 底下横向布局
+    QMap<ModuleObject *, QWidget *> m_mapWidget;
     QScrollArea *m_area;
+    DCC_NAMESPACE::ModuleObject *m_module;
 };
 DCC_END_NAMESPACE
 #endif // PAGELAYOUT_H

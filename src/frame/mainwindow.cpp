@@ -235,7 +235,7 @@ void MainWindow::updateModuleConfig(const QString &key)
         return;
 
     const auto &list = m_dconfig->value(key).toStringList();
-    *newModuleConfig = QSet<QString>(list.cbegin(), list.cend());
+    *newModuleConfig = QSet<QString>(list.cbegin(), list.cend());qInfo()<<__LINE__<<key<<*newModuleConfig;
     QSet<QString> addModuleConfig = findAddItems(&oldModuleConfig, newModuleConfig);
     QSet<QString> removeModuleConfig = findAddItems(newModuleConfig, &oldModuleConfig);
     for (auto &&url : addModuleConfig) {
@@ -291,17 +291,22 @@ void MainWindow::updateMainView()
 
 void MainWindow::clearPage(QWidget *const widget)
 {
-    QLayout *layout = widget->layout();
-    QScrollArea *area = qobject_cast<QScrollArea *>(widget);
-    if (area)
-        area->widget()->deleteLater();
+    QLayout *widgetLayout = widget->layout();
+    if (!widgetLayout)
+        return;
 
-    if (layout) {
-        QLayoutItem *child;
-        while ((child = layout->takeAt(0)) != nullptr) {
-            if (child->widget())
-                child->widget()->deleteLater();
-            delete child;
+    QList<QLayout *> layouts;
+    layouts.append(widgetLayout);
+    while (!layouts.isEmpty()) {
+        QLayout *layout = layouts.takeFirst();
+        while (!layout->isEmpty()) {
+            QLayoutItem *item = layout->takeAt(0);
+            QWidget *w = item->widget();
+            if (w)
+                w->deleteLater();
+            QLayout *l = item->layout();
+            if (l)
+                layouts.append(l);
         }
         delete layout;
     }
@@ -315,6 +320,7 @@ void MainWindow::configLayout(QBoxLayout *const layout)
 
 void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
 {
+    m_backwardBtn->setEnabled(module != m_rootModule);
     QList<ModuleObject *> modules;
     ModuleObject *obj = module;
     while (obj) { // ==root

@@ -76,7 +76,6 @@ QWidget *MainLayout::layoutModule(dccV23::ModuleObject *const module, QWidget *c
     m_view->setSelectionMode(QAbstractItemView::SingleSelection);
     m_view->setIconSize(ListViweItemIconSize_IconMode);
 
-    //    m_view->setCurrentIndex(m_model->index(children));
     auto onClicked = [](const QModelIndex &index) {
         ModuleObject *obj = static_cast<ModuleObject *>(index.internalPointer());
         if (obj)

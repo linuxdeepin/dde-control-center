@@ -33,9 +33,6 @@ const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Propert
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 const static char *PropertyName = "propname";
 
-#define STR_VALUE_(x) #x
-#define STR_VALUE(x) STR_VALUE_(x)
-
 DCORE_USE_NAMESPACE
 DCC_USE_NAMESPACE
 
@@ -107,7 +104,7 @@ DCCDBusInterface::DCCDBusInterface(const QString &service, const QString &path, 
             int i = parentMeta->indexOfSignal(QMetaObject::normalizedSignature(signal.toLatin1()));
             if (i != -1) {
                 const QMetaMethod &parentMethod = parentMeta->method(i);
-                this->connection().connect(service, path, interface, parentMethod.name(), parent, STR_VALUE(QSIGNAL_CODE) + parentMethod.methodSignature());
+                this->connection().connect(service, path, interface, parentMethod.name(), parent, QT_STRINGIFY(QSIGNAL_CODE) + parentMethod.methodSignature());
             }
         }
     }

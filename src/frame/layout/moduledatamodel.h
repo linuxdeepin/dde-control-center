@@ -55,7 +55,6 @@ public slots:
 private:
     QList<ModuleObject *> m_data;
     ModuleObject *m_parentObject;
-    QSignalMapper *m_signalMapper;
 };
 DCC_END_NAMESPACE
 
