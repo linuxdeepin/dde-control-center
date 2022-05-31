@@ -292,6 +292,7 @@ void SystemInfoWork::onBackgroundChanged()
 
 void SystemInfoWork::setBackground(const QString &path)
 {
+#ifndef DCC_DISABLE_GRUB_THEME
     Q_EMIT requestSetAutoHideDCC(false);
 
     QDBusPendingCall call = m_dbusGrubTheme->SetBackgroundSourceFile(path);
@@ -307,6 +308,7 @@ void SystemInfoWork::setBackground(const QString &path)
 
         w->deleteLater();
     });
+#endif
 }
 
 void SystemInfoWork::showActivatorDialog()

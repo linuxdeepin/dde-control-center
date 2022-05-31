@@ -285,6 +285,7 @@ void CommonInfoWork::onEnabledUsersChanged(const QStringList & value)
 
 void CommonInfoWork::setBackground(const QString &path)
 {
+#ifndef DCC_DISABLE_GRUB_THEME
     QDBusPendingCall call = m_dBusGrubTheme->SetBackgroundSourceFile(path);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
@@ -296,6 +297,7 @@ void CommonInfoWork::setBackground(const QString &path)
 
         w->deleteLater();
     });
+#endif
 }
 
 void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMainWindow)
