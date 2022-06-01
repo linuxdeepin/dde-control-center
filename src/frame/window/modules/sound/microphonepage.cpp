@@ -336,10 +336,9 @@ void MicrophonePage::initSlider()
     connect(slider, &DCCSlider::sliderMoved, this, slotfunc1);
     connect(m_model, &SoundModel::microphoneVolumeChanged, this, [ = ](double v) {
         slider->blockSignals(true);
-        slider->setValue(static_cast<int>(v * 100));
-        slider->setSliderPosition(static_cast<int>(v * 100));
+        slider->setValue(static_cast<int>(v * 100 + 0.000001));
         slider->blockSignals(false);
-        m_inputSlider->setValueLiteral(QString::number(v * 100) + "%");
+        m_inputSlider->setValueLiteral(QString::number((int)(v * 100 + 0.000001)) + "%");
     });
     connect(m_volumeBtn, &SoundLabel::clicked, this, &MicrophonePage::toggleMute);
 
