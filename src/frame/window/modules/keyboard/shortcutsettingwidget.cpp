@@ -460,6 +460,11 @@ void ShortCutSettingWidget::onSearchStringFinish(const QList<ShortcutInfo*> sear
 
         ShortcutItem *item = new ShortcutItem;
         connect(item, &ShortcutItem::requestUpdateKey, this, &ShortCutSettingWidget::requestUpdateKey);
+        if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+            connect(this, &ShortCutSettingWidget::changed, [ & ] {
+                onSearchTextChanged(m_searchText);
+            });
+        }
         item->setShortcutInfo(list[i]);
         item->setTitle(list[i]->name);
         item->setFixedHeight(36);
