@@ -181,6 +181,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
             m_modeCombox->setCurrentIndex(0);
             m_primarySettingsItem->setVisible(false);
             m_brightnessWidget->showBrightness();
+            m_brightnessWidget->setVisible(m_model->brightnessEnable());
             m_monitorControlWidget->setModel(m_model);
             for (auto dlg : m_secondaryScreenDlgList) {
                 dlg->deleteLater();
