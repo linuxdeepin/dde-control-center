@@ -513,7 +513,7 @@ void ShortCutSettingWidget::onKeyEvent(bool press, const QString &shortcut)
 
     ShortcutInfo *conflict = m_model->getInfo(shortcut);
 
-    if (conflict == current && conflict->accels == current->accels) {
+    if (conflict && conflict->id == current->id && conflict->type == current->type && conflict->accels == current->accels) {
         current->item->setShortcut(current->accels);
         return;
     }
