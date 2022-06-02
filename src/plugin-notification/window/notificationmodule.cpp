@@ -40,7 +40,7 @@ ModuleObject *NotificationPlugin::module()
 {
     //一级菜单--通知
     ModuleObject *moduleInterface = new ModuleObject(this);
-    moduleInterface->setName("Notification");
+    moduleInterface->setName("notification");
     moduleInterface->setDisplayName(tr("Notification"));
     moduleInterface->setDescription(tr("Notification"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_notification"));

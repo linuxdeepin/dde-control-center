@@ -128,7 +128,7 @@ PersonalizationGeneralModule::PersonalizationGeneralModule(PersonalizationModel 
         DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold);
         title->setText(tr("Theme"));
     }));
-    m_modules.append(new WidgetModule<PersonalizationThemeWidget>("personalizationTheme", tr("Theme"), [this](PersonalizationThemeWidget *themes) {
+    m_modules.append(new WidgetModule<PersonalizationThemeWidget>("perssonalGeneralThemes", tr("Theme"), [this](PersonalizationThemeWidget *themes) {
         themes->setMainLayout(new QHBoxLayout(), true);
         themes->setModel(m_model->getWindowModel());
         connect(themes, &PersonalizationThemeWidget::requestSetDefault, m_work, &PersonalizationWorker::setDefault);

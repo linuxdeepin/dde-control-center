@@ -64,6 +64,7 @@ public Q_SLOTS: // METHODS
     void ShowHome();
     void ShowPage(const QString &url);
     void Toggle();
+    QString GetAllModule();
 
 };
 

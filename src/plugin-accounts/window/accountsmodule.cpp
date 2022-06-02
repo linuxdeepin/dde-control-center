@@ -57,7 +57,7 @@ ModuleObject *AccountsPlugin::module()
 {
     //一级菜单--账户
     AccountsModule *moduleInterface = new AccountsModule(this);
-    moduleInterface->setName("Accounts");
+    moduleInterface->setName("accounts");
     moduleInterface->setDisplayName(tr("Accounts"));
     moduleInterface->setDescription(tr("Accounts"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_accounts"));

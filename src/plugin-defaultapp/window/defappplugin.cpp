@@ -34,13 +34,13 @@ QString DefAppPlugin::name() const
 ModuleObject *DefAppPlugin::module()
 {
     QList<DATE> moduleInfo = {
-        DATE( "Webpage","Webpage", "dcc_browser", DefAppWorker::DefaultAppsCategory::Browser),
-        DATE("Mail","Mail", "dcc_mail", DefAppWorker::DefaultAppsCategory::Mail),
-        DATE("Text","Text", "dcc_text", DefAppWorker::DefaultAppsCategory::Text),
-        DATE("Music","Music","dcc_music", DefAppWorker::DefaultAppsCategory::Music),
-        DATE("Video","Video","dcc_video", DefAppWorker::DefaultAppsCategory::Video),
-        DATE("Picture","Picture","dcc_photo", DefAppWorker::DefaultAppsCategory::Picture),
-        DATE("Terminal","Terminal", "dcc_terminal", DefAppWorker::DefaultAppsCategory::Terminal),
+        DATE( "defappWebpage",tr("Webpage"), "dcc_browser", DefAppWorker::DefaultAppsCategory::Browser),
+        DATE("defappMail",tr("Mail"), "dcc_mail", DefAppWorker::DefaultAppsCategory::Mail),
+        DATE("defappText",tr("Text"), "dcc_text", DefAppWorker::DefaultAppsCategory::Text),
+        DATE("defappMusic",tr("Music"),"dcc_music", DefAppWorker::DefaultAppsCategory::Music),
+        DATE("defappVideo",tr("Video"),"dcc_video", DefAppWorker::DefaultAppsCategory::Video),
+        DATE("defappPicture",tr("Picture"),"dcc_photo", DefAppWorker::DefaultAppsCategory::Picture),
+        DATE("defappTerminal",tr("Terminal"), "dcc_terminal", DefAppWorker::DefaultAppsCategory::Terminal),
     };
     // 一级页面
     DefAppModule *moduleRoot = new DefAppModule;
@@ -59,7 +59,7 @@ ModuleObject *DefAppPlugin::module()
         defappDetail->setChildType(ModuleObject::Page);
         moduleDefaultApps->appendChild(defappDetail);
 
-        ModuleObject *addButton = new WidgetModule<AddButtonWidget>("addDefApp","addDefApp",[iter,moduleRoot](AddButtonWidget *button){
+        ModuleObject *addButton = new WidgetModule<AddButtonWidget>("defappApplistAddbtn","addDefApp",[iter,moduleRoot](AddButtonWidget *button){
             button->setDefaultAppsCategory(iter.category);
             button->setModel(moduleRoot->model());
             connect(button, &AddButtonWidget::requestCreateFile, moduleRoot->work(), &DefAppWorker::onCreateFile);
@@ -86,8 +86,6 @@ DefAppModule::DefAppModule(QObject *parent)
     , m_work(new DefAppWorker(m_model, this))
     , m_defApps(nullptr)
 {
-    m_work->moveToThread(qApp->thread());
-    m_model->moveToThread(qApp->thread());
 }
 
 DefAppModule::~DefAppModule() {
@@ -122,7 +120,7 @@ QWidget *DefAppsButtonModule::page(){
 
 // 三级页面
 DefappDetailModule::DefappDetailModule(DefAppWorker::DefaultAppsCategory category, DefAppModel *model, DefAppWorker *work)
-    : ModuleObject(nullptr)
+    : ModuleObject("defappApplistDefapp")
 {
     m_category = category;
     m_model = model;

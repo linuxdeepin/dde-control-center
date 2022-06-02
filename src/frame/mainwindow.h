@@ -75,6 +75,7 @@ public:
      * @param url 路径地址,从左至右搜索，如路径错误，只显示已搜索出的模块
      */
     void showPage(const QString &url, const UrlType &uType);
+    ModuleObject *getRootModule() const;
 
 protected:
     void changeEvent(QEvent *event) override;

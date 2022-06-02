@@ -34,7 +34,7 @@ const QString gsetting_showHiberante = "showHibernate";
 const QString gsetting_showShutdown = "showShutdown";
 
 PersonalizationModule::PersonalizationModule(QObject *parent)
-    : ModuleObject("Personalization", tr("Personalization"), tr("Personalization"), QIcon::fromTheme("dcc_nav_personalization"), parent)
+    : ModuleObject("personalization", tr("Personalization"), tr("Personalization"), QIcon::fromTheme("dcc_nav_personalization"), parent)
     , m_model(nullptr)
     , m_nBatteryPercentage(100.0)
     , m_useElectric(nullptr)

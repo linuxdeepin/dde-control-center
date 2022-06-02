@@ -69,21 +69,21 @@ ModuleObject *CommonInfoPlugin::module()
     moduleInterface->setChildType(ModuleObject::HList);
 
     //二级菜单--启动菜单
-    ModuleObject *moduleBootMenu = new ModuleObject(tr("Boot Menu"), tr("Boot Menu"), this);
+    ModuleObject *moduleBootMenu = new ModuleObject("bootMenu", tr("Boot Menu"), this);
     moduleBootMenu->setChildType(ModuleObject::Page);
     BootModule *bootModule = new BootModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
     moduleBootMenu->appendChild(bootModule);
     moduleInterface->appendChild(moduleBootMenu);
 
     //二级菜单--开发者模式
-    ModuleObject *moduleDeveloperMode = new ModuleObject(tr("Developer Mode"), tr("Developer Mode"), this);
+    ModuleObject *moduleDeveloperMode = new ModuleObject("developerMode", tr("Developer Mode"), this);
     moduleDeveloperMode->setChildType(ModuleObject::Page);
     DeveloperModeModule *developerModeModule = new DeveloperModeModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
     moduleDeveloperMode->appendChild(developerModeModule);
     moduleInterface->appendChild(moduleDeveloperMode);
 
     //二级菜单--开发者模式
-    ModuleObject *moduleUserExperienceProgram = new ModuleObject(tr("User Experience Program"), tr("User Experience Program"), this);
+    ModuleObject *moduleUserExperienceProgram = new ModuleObject("userExperienceProgram", tr("User Experience Program"), this);
     moduleUserExperienceProgram->setChildType(ModuleObject::Page);
     UserExperienceProgramModule *userExperienceProgramModule = new UserExperienceProgramModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
     moduleUserExperienceProgram->appendChild(userExperienceProgramModule);

@@ -71,7 +71,7 @@ ModuleObject *MousePlugin::module()
     moduleInterface->setChildType(ModuleObject::HList);
 
     //二级菜单--通用
-    ModuleObject *moduleGeneral = new ModuleObject(tr("General"), tr("General"), this);
+    ModuleObject *moduleGeneral = new ModuleObject("mouseGeneral", tr("General"), this);
     moduleGeneral->setChildType(ModuleObject::Page);
     GeneralSettingModule *generalSettingModule = new GeneralSettingModule(moduleInterface->model(), moduleInterface->work(), moduleGeneral);
     moduleGeneral->appendChild(generalSettingModule);
@@ -79,21 +79,21 @@ ModuleObject *MousePlugin::module()
 
 
     //二级菜单--鼠标
-    ModuleObject *moduleMouse = new ModuleObject(tr("Mouse"), tr("Mouse"), this);
+    ModuleObject *moduleMouse = new ModuleObject("mouseMouse", tr("Mouse"), this);
     moduleMouse->setChildType(ModuleObject::Page);
     MouseSettingModule *mouseSettingModule = new MouseSettingModule(moduleInterface->model(), moduleInterface->work(), moduleMouse);
     moduleMouse->appendChild(mouseSettingModule);
     moduleInterface->appendChild(moduleMouse);
 
     //二级菜单--触摸板
-    ModuleObject *moduleTouchpad = new ModuleObject(tr("Touchpad"), tr("Touchpad"), this);
+    ModuleObject *moduleTouchpad = new ModuleObject("mouseTouch", tr("Touchpad"), this);
     moduleTouchpad->setChildType(ModuleObject::Page);
     TouchPadSettingModule *touchPadSettingModule = new TouchPadSettingModule(moduleInterface->model(), moduleInterface->work(), moduleTouchpad);
     moduleTouchpad->appendChild(touchPadSettingModule);
     moduleInterface->appendChild(moduleTouchpad);
 
     //二级菜单--指点杆
-    ModuleObject *moduleTrackPoint = new ModuleObject(tr("TrackPoint"), tr("TrackPoint"), this);
+    ModuleObject *moduleTrackPoint = new ModuleObject("mouseTrackpoint", tr("TrackPoint"), this);
     moduleTrackPoint->setChildType(ModuleObject::Page);
     TrackPointSettingModule *trackPointSettingModule = new TrackPointSettingModule(moduleInterface->model(), moduleInterface->work(), moduleTrackPoint);
     moduleTrackPoint->appendChild(trackPointSettingModule);

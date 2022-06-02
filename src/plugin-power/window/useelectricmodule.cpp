@@ -33,7 +33,7 @@ DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 UseElectricModule::UseElectricModule(PowerModel *model, PowerWorker *work, QObject *parent)
-    : ModuleObject("power::useelectric", tr("UseElectric"), QIcon::fromTheme("dcc_using_electric"), parent)
+    : ModuleObject("pluggedIn", tr("UseElectric"), QIcon::fromTheme("dcc_using_electric"), parent)
     , m_model(model)
     , m_work(work)
 {

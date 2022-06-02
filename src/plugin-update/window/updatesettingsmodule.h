@@ -86,7 +86,6 @@ private:
 private:
     UpdateModel *m_model;
     UpdateWorker *m_work;
-    QList<DCC_NAMESPACE::ModuleObject *> m_moduleList;
 
     DCC_NAMESPACE::SwitchWidget *m_autoCheckUniontechUpdate; // 检查系统更新
     DCC_NAMESPACE::SwitchWidget *m_autoCheckSecureUpdate; // 检查安全更新
@@ -102,4 +101,7 @@ private:
 
     DCC_NAMESPACE::SwitchWidget *m_updateNotify;          // 更新提醒
     DCC_NAMESPACE::SwitchWidget *m_autoCleanCache; // 清除软件包
+
+    DCC_NAMESPACE::ModuleObject *m_autoInstallUpdateModule;
+    DCC_NAMESPACE::ModuleObject *m_autoInstallUpdatesTipsModule;
 };

@@ -40,7 +40,7 @@ DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *parent)
-    : ModuleObject("power::general", tr("General"), QIcon::fromTheme("dcc_general_purpose"), parent)
+    : ModuleObject("general", tr("General"), QIcon::fromTheme("dcc_general_purpose"), parent)
     , m_powerplanListview(nullptr)
     , m_model(model)
     , m_work(work)
@@ -81,8 +81,8 @@ GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *pare
     appendChild(new TitleModule("powerLowerBrightnessLabel", tr("Power Saving Settings")));
     appendChild(new WidgetModule<SettingsGroup>("powerLowerBrightness", tr("Power Saving Settings"), this, &GeneralModule::initPowerSavingSettings));
     // 唤醒设置
-    appendChild(new TitleModule("WakeupSettingsLabel", tr("Wakeup Settings")));
-    m_wakeupSettings = new WidgetModule<SettingsGroup>("WakeupSettings", tr("Wakeup Settings"), this, &GeneralModule::initWakeupSettings);
+    appendChild(new TitleModule("wakeupSettingsLabel", tr("Wakeup Settings")));
+    m_wakeupSettings = new WidgetModule<SettingsGroup>("wakeupSettings", tr("Wakeup Settings"), this, &GeneralModule::initWakeupSettings);
     appendChild(m_wakeupSettings);
     // 电池设置
     onBatteryChanged(m_model->haveBettary());

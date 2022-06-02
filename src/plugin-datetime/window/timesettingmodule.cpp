@@ -60,18 +60,18 @@ protected:
 };
 
 TimeSettingModule::TimeSettingModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
-    : ModuleObject("TimeSetting", tr("Time Setting"), QIcon::fromTheme("dcc_TimeSetting"), parent)
+    : ModuleObject("timeSettings", tr("Time Setting"), QIcon::fromTheme("dcc_TimeSetting"), parent)
     , m_model(model)
     , m_work(work)
 {
     deactive();
     setChildType(ModuleObject::Page);
     appendChild(new WidgetModule<Clock>("time", tr("Time")));
-    appendChild(new WidgetModule<SettingsGroup>("ntp server", tr("ntp server"), this, &TimeSettingModule::initAutoSyncTime));
+    appendChild(new WidgetModule<SettingsGroup>("ntpServer", tr("ntp server"), this, &TimeSettingModule::initAutoSyncTime));
     appendChild(new WidgetModule<SettingsGroup>("time", tr("Time setting"), this, &TimeSettingModule::initTimeSetting));
     appendChild(new WidgetModule<QWidget>("datetime", tr("datetime"), this, &TimeSettingModule::initDigitalClock));
 
-    ModuleObject *saveButton = new WidgetModule<ButtonTuple>("save","",[this](ButtonTuple *buttonTuple){
+    ModuleObject *saveButton = new WidgetModule<ButtonTuple>("datetimeDatesettingConfirmbtn","",[this](ButtonTuple *buttonTuple){
         m_buttonTuple = buttonTuple;
         m_buttonTuple->setButtonType(ButtonTuple::Save);
         QPushButton *cancelButton = m_buttonTuple->leftButton();

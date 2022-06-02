@@ -36,7 +36,7 @@ DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 TimezoneModule::TimezoneModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
-    : ModuleObject("Timezone", tr("Timezone"), parent)
+    : ModuleObject("timezoneList", tr("Timezone"), parent)
     , m_model(model)
     , m_work(work)
     , m_timezoneGroup(nullptr)
@@ -45,7 +45,7 @@ TimezoneModule::TimezoneModule(DatetimeModel *model, DatetimeWorker *work, QObje
     setChildType(ModuleObject::Page);
     connect(this, &TimezoneModule::requestRemoveUserTimeZone, m_work, &DatetimeWorker::removeUserTimeZone);
 
-    appendChild(new WidgetModule<SettingsHead>("System Timezone", tr("System Timezone"), [this](SettingsHead *w) {
+    appendChild(new WidgetModule<SettingsHead>("systemTimezone", tr("System Timezone"), [this](SettingsHead *w) {
         w->setTitle(tr("System Timezone"));
         w->removeBackground();
         connect(w, &SettingsHead::editChanged, this, [this, w](bool) {
@@ -55,16 +55,16 @@ TimezoneModule::TimezoneModule(DatetimeModel *model, DatetimeWorker *work, QObje
             ensureZoneChooserDialog(true);
         });
     }));
-    appendChild(new WidgetModule<TimezoneItem>("System Timezone", tr("System Timezone"), [this](TimezoneItem *w) {
+    appendChild(new WidgetModule<TimezoneItem>("systemTimezone", tr("System Timezone"), [this](TimezoneItem *w) {
         w->setTimeZone(m_model->currentSystemTimeZone());
         connect(m_model, &DatetimeModel::currentSystemTimeZoneChanged, w, &TimezoneItem::setTimeZone);
     }));
-    appendChild(new WidgetModule<SettingsHead>("TimezoneList", tr("Timezone List"), [this](SettingsHead *w) {
+    appendChild(new WidgetModule<SettingsHead>("timezoneList", tr("Timezone List"), [this](SettingsHead *w) {
         w->setTitle(tr("Timezone List"));
         connect(w, &SettingsHead::editChanged, this, &TimezoneModule::onEditClicked);
         connect(this, &TimezoneModule::exitEdit, w, &SettingsHead::toCancel);
     }));
-    appendChild(new WidgetModule<SettingsGroup>("TimezoneList", tr("Timezone List"), this, &TimezoneModule::initTimezoneListGroup));
+    appendChild(new WidgetModule<SettingsGroup>("timezoneList", tr("Timezone List"), this, &TimezoneModule::initTimezoneListGroup));
 }
 
 void TimezoneModule::initTimezoneListGroup(DCC_NAMESPACE::SettingsGroup *timezoneGroup)
@@ -89,7 +89,7 @@ void TimezoneModule::initTimezoneListGroup(DCC_NAMESPACE::SettingsGroup *timezon
         for (const ZoneInfo &zoneInfo : userTimeZones) {
             TimezoneItem *timezoneitem = new TimezoneItem;
             timezoneitem->setTimeZone(zoneInfo);
-            connect(timezoneitem, &TimezoneItem::removeClicked, [this, timezoneitem] {
+            connect(timezoneitem, &TimezoneItem::removeClicked, this, [this, timezoneitem] {
                 timezoneitem->setVisible(false);
                 Q_EMIT requestRemoveUserTimeZone(timezoneitem->timeZone());
             });

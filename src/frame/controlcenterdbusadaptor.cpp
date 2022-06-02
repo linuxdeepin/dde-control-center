@@ -21,6 +21,7 @@
 
 #include "controlcenterdbusadaptor.h"
 #include "mainwindow.h"
+#include "interface/moduleobject.h"
 
 #include <QtCore/QMetaObject>
 #include <QtCore/QByteArray>
@@ -46,19 +47,16 @@ DCC_USE_NAMESPACE
 ControlCenterDBusAdaptor::ControlCenterDBusAdaptor(MainWindow *parent)
     : QDBusAbstractAdaptor(parent)
 {
-
 }
 
 ControlCenterDBusAdaptor::~ControlCenterDBusAdaptor()
 {
-
 }
 
 MainWindow *ControlCenterDBusAdaptor::parent() const
 {
     return static_cast<MainWindow *>(QObject::parent());
 }
-
 
 const QRect ControlCenterDBusAdaptor::rect() const
 {
@@ -91,7 +89,6 @@ void ControlCenterDBusAdaptor::ShowHome()
     Show();
 }
 
-
 void ControlCenterDBusAdaptor::ShowPage(const QString &url)
 {
     parent()->showPage(url, MainWindow::UrlType::Name);
@@ -103,4 +100,62 @@ void ControlCenterDBusAdaptor::Toggle()
     parent()->setVisible(!parent()->isVisible());
     if (parent()->isVisible())
         parent()->activateWindow();
+}
+
+QJsonArray getJsonArray(ModuleObject *module)
+{
+    QList<ModuleObject *> modules;
+    modules.append(module->childrens());
+    QJsonArray arr;
+    while (!modules.isEmpty()) {
+        ModuleObject *obj = modules.takeFirst();
+        QJsonObject json;
+        json.insert("name", obj->name());
+        json.insert("displayName", obj->displayName());
+        if (obj->hasChildrens()) {
+            json.insert("child", getJsonArray(obj));
+        }
+        arr.append(json);
+    }
+    return arr;
+}
+
+struct ModuleUrlInfo
+{
+    ModuleObject *module;
+    QString url;
+    QString displayName;
+};
+
+QString ControlCenterDBusAdaptor::GetAllModule()
+{
+    ModuleObject *root = parent()->getRootModule();
+    QList<ModuleUrlInfo> modules;
+    for (auto &&child : root->childrens()) {
+        ModuleUrlInfo urlInfo;
+        urlInfo.module = child;
+        urlInfo.url = child->name();
+        urlInfo.displayName = child->displayName();
+        modules.append(urlInfo);
+    }
+
+    QJsonArray arr;
+    while (!modules.isEmpty()) {
+        const ModuleUrlInfo &urlInfo = modules.takeFirst();
+        QJsonObject obj;
+        obj.insert("url", urlInfo.url);
+        obj.insert("displayName", urlInfo.displayName);
+        arr.append(obj);
+        for (auto &&child : urlInfo.module->childrens()) {
+            ModuleUrlInfo childUrlInfo;
+            childUrlInfo.module = child;
+            childUrlInfo.url = urlInfo.url + "/" + child->name();
+            childUrlInfo.displayName = urlInfo.displayName + "/" + child->displayName();
+            modules.append(childUrlInfo);
+        }
+    }
+
+    QJsonDocument doc;
+    doc.setArray(arr);
+    return doc.toJson(QJsonDocument::Compact);
 }

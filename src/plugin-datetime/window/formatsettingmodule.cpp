@@ -29,7 +29,7 @@
 DCC_USE_NAMESPACE
 
 FormatSettingModule::FormatSettingModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
-    : ModuleObject("dcc_time_format", tr("Time Format"), parent)
+    : ModuleObject("timeFormat", tr("Time Format"), parent)
     , m_model(model)
     , m_work(work)
     , m_fotmatWeek({ tr("Monday"), tr("monday") })
@@ -42,7 +42,7 @@ FormatSettingModule::FormatSettingModule(DatetimeModel *model, DatetimeWorker *w
     deactive();
     setChildType(ModuleObject::Page);
 
-    appendChild(new WidgetModule<SwitchWidget>("24-hour Time", tr("24-hour Time"), [this](SwitchWidget *hourTypeSwitch) {
+    appendChild(new WidgetModule<SwitchWidget>("24hourTime", tr("24-hour Time"), [this](SwitchWidget *hourTypeSwitch) {
         hourTypeSwitch->setTitle(tr("24-hour Time"));
         hourTypeSwitch->setChecked(m_model->get24HourFormat());
         hourTypeSwitch->addBackground();
@@ -51,7 +51,7 @@ FormatSettingModule::FormatSettingModule(DatetimeModel *model, DatetimeWorker *w
         connect(m_model, &DatetimeModel::hourTypeChanged, hourTypeSwitch, &SwitchWidget::setChecked);
     }));
 
-    appendChild(new WidgetModule<SettingsGroup>("TimeFotmat", tr("Time Fotmat"), this, &FormatSettingModule::initTimeFotmat));
+    appendChild(new WidgetModule<SettingsGroup>("timeFotmat", tr("Time Fotmat"), this, &FormatSettingModule::initTimeFotmat));
 }
 
 void FormatSettingModule::initTimeFotmat(DCC_NAMESPACE::SettingsGroup *timeGrp)

@@ -55,7 +55,7 @@ PersonalizationFontsModule::PersonalizationFontsModule(PersonalizationModel *mod
     setMonoList(m_model->getMonoFontModel()->getFontList());
     connect(m_model->getMonoFontModel(), &FontModel::listChanged, this, &PersonalizationFontsModule::setMonoList);
 
-    appendChild(new WidgetModule<TitledSliderItem>("fontsizeslider", tr("Size"), [this](TitledSliderItem *fontSizeSlider) {
+    appendChild(new WidgetModule<TitledSliderItem>("perssonalFontSize", tr("Size"), [this](TitledSliderItem *fontSizeSlider) {
         fontSizeSlider->setTitle(tr("Size"));
         fontSizeSlider->addBackground();
         fontSizeSlider->setObjectName("fontsizeslider");

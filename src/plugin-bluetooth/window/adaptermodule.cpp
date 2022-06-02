@@ -57,19 +57,19 @@ AdapterModule::AdapterModule(const BluetoothAdapter *adapter, BluetoothModel *mo
                               tip->setContentsMargins(16, 0, 10, 0);
                           }),
                           true });
-    m_moduleList.append({ new WidgetModule<TitleLabel>("DevicesTitle", tr("My Devices"), [](TitleLabel *title) {
+    m_moduleList.append({ new WidgetModule<TitleLabel>("devicesTitle", tr("My Devices"), [](TitleLabel *title) {
                               title->setText(tr("My Devices"));
                               DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
                           }),
                           true });
-    m_moduleList.append({ new WidgetModule<DCCListView>("List_mydevicelist", tr("My Devices"), this, &AdapterModule::initDeviceListView), true });
-    m_moduleList.append({ new WidgetModule<TitleLabel>("OtherDevices", tr("Other Devices"), [](TitleLabel *title) {
+    m_moduleList.append({ new WidgetModule<DCCListView>("mydeviceList", tr("My Devices"), this, &AdapterModule::initDeviceListView), true });
+    m_moduleList.append({ new WidgetModule<TitleLabel>("otherDevices", tr("Other Devices"), [](TitleLabel *title) {
                               title->setText(tr("Other Devices"));
                               DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
                           }),
                           true });
-    m_moduleList.append({ new WidgetModule<QWidget>("AnonymousCheckBox", tr("Other Devices"), this, &AdapterModule::initAnonymousCheckBox), true });
-    m_moduleList.append({ new WidgetModule<DCCListView>("List_otherdevicelist", "", this, &AdapterModule::initOtherDeviceListView), true });
+    m_moduleList.append({ new WidgetModule<QWidget>("anonymousCheckBox", tr("Other Devices"), this, &AdapterModule::initAnonymousCheckBox), true });
+    m_moduleList.append({ new WidgetModule<DCCListView>("otherdeviceList", "", this, &AdapterModule::initOtherDeviceListView), true });
 
     setAdapter(m_adapter);
 }

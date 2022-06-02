@@ -115,6 +115,11 @@ void MainWindow::showPage(const QString &url, const UrlType &uType)
     showPage(m_rootModule, url, uType);
 }
 
+ModuleObject *MainWindow::getRootModule() const
+{
+    return m_rootModule;
+}
+
 void MainWindow::showPage(ModuleObject *const module, const QString &url, const UrlType &uType)
 {
     ModuleObject *obj = module;
@@ -235,7 +240,7 @@ void MainWindow::updateModuleConfig(const QString &key)
         return;
 
     const auto &list = m_dconfig->value(key).toStringList();
-    *newModuleConfig = QSet<QString>(list.cbegin(), list.cend());qInfo()<<__LINE__<<key<<*newModuleConfig;
+    *newModuleConfig = QSet<QString>(list.cbegin(), list.cend());
     QSet<QString> addModuleConfig = findAddItems(&oldModuleConfig, newModuleConfig);
     QSet<QString> removeModuleConfig = findAddItems(newModuleConfig, &oldModuleConfig);
     for (auto &&url : addModuleConfig) {

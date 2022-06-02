@@ -47,7 +47,7 @@ ModuleObject * DisplayPlugin::module()
 {
     //一级菜单--显示
     ModuleObject *moduleInterface = new ModuleObject(this);
-    moduleInterface->setName("Display");
+    moduleInterface->setName("display");
     moduleInterface->setDisplayName(tr("Display"));
     moduleInterface->setDescription(tr("Display"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_display"));

@@ -28,7 +28,7 @@
 DCC_USE_NAMESPACE
 
 DatetimeModule::DatetimeModule(QObject *parent)
-    : ModuleObject("Datetime", tr("Datetime"), tr("Datetime"), QIcon::fromTheme("dcc_nav_datetime"), parent)
+    : ModuleObject("datetime", tr("Datetime"), tr("Datetime"), QIcon::fromTheme("dcc_nav_datetime"), parent)
     , m_model(nullptr)
 {
     setChildType(ModuleObject::HList);
@@ -59,7 +59,7 @@ DatetimePlugin::~DatetimePlugin()
 
 QString DatetimePlugin::name() const
 {
-    return QStringLiteral("Datetime");
+    return QStringLiteral("datetime");
 }
 
 ModuleObject *DatetimePlugin::module()

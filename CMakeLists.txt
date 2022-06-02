@@ -52,7 +52,7 @@ endif()
 
 # dconfig
 file(GLOB DCONFIG_FILES "misc/configs/*.json")
-dconfig_meta_files(APPID dde-control-center BASE misc/configs FILES ${DCONFIG_FILES})
+dconfig_meta_files(APPID org.deepin.dde.control-center BASE misc/configs FILES ${DCONFIG_FILES})
 
 include_directories(
     include

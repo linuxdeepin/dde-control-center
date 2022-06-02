@@ -28,7 +28,7 @@ ModuleObject *UpdatePlugin::module()
     updateInterface->setChildType(ModuleObject::HList);
 
     // 检查更新
-    ModuleObject *moduleUpdate = new ModuleObject(tr("Check for Updates"), tr("Check for Updates"), this);
+    ModuleObject *moduleUpdate = new ModuleObject("checkForUpdates", tr("Check for Updates"), this);
     moduleUpdate->setChildType(ModuleObject::Page);
     checkUpdateModule *checkUpdatePage = new checkUpdateModule(updateInterface->model(), updateInterface->work(), moduleUpdate);
     moduleUpdate->appendChild(checkUpdatePage);
