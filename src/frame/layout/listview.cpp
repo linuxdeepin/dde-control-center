@@ -95,18 +95,16 @@ public:
     void updateGeometries()
     {
         D_Q(ListView);
-        if (m_viewMode == ListView::IconMode) {
+        m_maxColumnCount = 1;
+        if (m_viewMode == ListView::IconMode && (m_gridSize.width() + m_spacing) > 0)
             m_maxColumnCount = (q->viewport()->width() - m_spacing) / (m_gridSize.width() + m_spacing);
-            if (m_maxColumnCount <= 0)
-                m_maxColumnCount = 1;
-        } else {
-            m_maxColumnCount = 1;
-        }
 
         int count = q->model() ? q->model()->rowCount() : 0;
-        if (count < m_maxColumnCount) {
+        if (count < m_maxColumnCount)
             m_maxColumnCount = count;
-        }
+
+        if (m_maxColumnCount <= 0)
+            m_maxColumnCount = 1;
 
         if (m_viewMode == ListView::IconMode) {
             if (count == 0)
@@ -164,6 +162,8 @@ public:
     // item在窗口中位置(无滚动)
     QModelIndex indexAt(const QPoint &p) const
     {
+        if ((m_itemSize.height() + m_spacing) <= 0 || (m_itemSize.width() + m_spacing) <= 0)
+            return QModelIndex();
         D_Q(const ListView);
         QRect rect(p.x() - m_xOffset, p.y() - m_yOffset, 1, 1);
         int row = (rect.y() - m_firstHeightDiff) / (m_itemSize.height() + m_spacing);
