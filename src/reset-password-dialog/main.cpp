@@ -61,7 +61,11 @@ int main(int argc, char *argv[])
 
     QTranslator translator;
     translator.load("/usr/share/dde-control-center/translations/reset-password-dialog_" + QLocale::system().name());
+    QTranslator dccTranslator;
+    dccTranslator.load("/usr/share/dde-control-center/translations/dde-control-center_" + QLocale::system().name());
+
     a.installTranslator(&translator);
+    a.installTranslator(&dccTranslator);
     a.loadTranslator();
 
     DLogManager::setlogFilePath(QString("/tmp/%1.log").arg(a.applicationName()));
