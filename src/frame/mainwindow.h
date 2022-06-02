@@ -94,12 +94,14 @@ private:
     void showModule(ModuleObject *const module, QWidget *const parent);
     ModuleObject *getModuleByUrl(ModuleObject *const root, const QString &url, const UrlType &uType);
     QString getUrlByModule(ModuleObject *const module);
+    void resizeCurrentModule(int size);
 
 private Q_SLOTS:
     void onAddModule(ModuleObject *const module);
     void onRemoveModule(ModuleObject *const module);
     void onTriggered();
     void updateModuleConfig(const QString &key);
+    void delayUpdateLayoutCurrent(LayoutBase *layout, ModuleObject *child);
     void updateLayoutCurrent(LayoutBase *layout, ModuleObject *child);
 
 private:

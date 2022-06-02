@@ -53,7 +53,7 @@ PluginData loadModule(const QPair<PluginManager*,QString> &pair)
 
     QElapsedTimer et;
     et.start();
-    QPluginLoader *loader = new QPluginLoader(fileName);
+    QScopedPointer<QPluginLoader> loader(new QPluginLoader(fileName));
     if (!loader->load()) {
         qWarning() << QString("The plugin: %1 load failed! error message: %2").arg(fileName, loader->errorString());
         return data;

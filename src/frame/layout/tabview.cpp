@@ -107,8 +107,8 @@ public:
 
         QSize emptySZ = fm.size(Qt::TextShowMnemonic, QStringLiteral("XXXX"));
         emptySZ = (dstyle.sizeFromContents(DStyle::CT_ButtonBoxButton, &opt, emptySZ, q).expandedTo(QApplication::globalStrut()));
-        for (int i =0;i<model->rowCount();i++) {
-            QString s(model->data(model->index(i,0)).toString());
+        for (int i = 0; i < model->rowCount(); i++) {
+            QString s(model->data(model->index(i, 0)).toString());
             QSize sz;
             if (s.isEmpty()) {
                 sz = emptySZ;
@@ -119,9 +119,9 @@ public:
             totalWidth += sz.width() + 14;
             m_itemX.append(totalWidth);
         }
-        height = emptySZ.height()-9;
-        m_size = QSize(totalWidth,height);
-        q->setFixedSize(m_size.width()+2,m_size.height()+2);
+        height = emptySZ.height() - 9;
+        m_size = QSize(totalWidth, height);
+        q->setFixedSize(m_size.width() + 2, m_size.height() + 2);
     }
     // item在窗口中位置(无滚动)
     QRect rectForIndex(const QModelIndex &index) const
@@ -144,7 +144,7 @@ public:
     QModelIndex indexAt(const QPoint &p) const
     {
         Q_Q(const TabView);
-        if(!QRect(QPoint(),m_size).contains(p) ) {
+        if (!QRect(QPoint(), m_size).contains(p)) {
             return QModelIndex();
         }
         int row = -1;
@@ -201,7 +201,6 @@ private:
 
     QList<int> m_itemX;
     QSize m_size;
-
 };
 } // namespace DCC_NAMESPACE
 
@@ -215,12 +214,13 @@ TabView::TabView(QWidget *parent)
     setAttribute(Qt::WA_MacShowFocusRect);
     scheduleDelayedItemsLayout();
     setMouseTracking(true);
-    setContentsMargins(0,0,0,0);
+    setContentsMargins(0, 0, 0, 0);
     setFrameStyle(QFrame::NoFrame);
 }
 
 TabView::~TabView()
 {
+    delete d_ptr;
 }
 
 void TabView::setSpacing(int space)
@@ -396,7 +396,7 @@ void TabView::updateGeometries()
         horizontalScrollBar()->setRange(0, 0);
         verticalScrollBar()->setRange(0, 0);
     } else {
-        QSize step = QSize(d->m_itemX.isEmpty()?0:d->m_itemX.first(),d->m_size.height());
+        QSize step = QSize(d->m_itemX.isEmpty() ? 0 : d->m_itemX.first(), d->m_size.height());
         horizontalScrollBar()->setSingleStep(step.width() + spacing());
         horizontalScrollBar()->setPageStep(viewport()->width());
 

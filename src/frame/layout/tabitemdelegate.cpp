@@ -55,8 +55,8 @@ void TabItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     // 选择高亮背景
     if (opt.state & QStyle::State_Selected) {
         QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
-                                          ? QPalette::Normal
-                                          : QPalette::Disabled;
+                ? QPalette::Normal
+                : QPalette::Disabled;
         opt.backgroundBrush = option.palette.color(cg, QPalette::Highlight);
     }
 
@@ -87,7 +87,7 @@ void TabItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         if (isBeginning && isIconMode) {
             displayRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 40), QSize(opt.rect.width(), -1));
         } else if (isBeginning || isIconMode) {
-            displayRect = QRect(opt.rect.topLeft() + QPoint(decorationRect.width() + 18, (opt.rect.height() / 2 - fontHeight+5)), QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
+            displayRect = QRect(opt.rect.topLeft() + QPoint(decorationRect.width() + 18, (opt.rect.height() / 2 - fontHeight + 5)), QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
         } else {
             displayRect = QRect(opt.rect.topLeft() + QPoint(decorationRect.width() + 18, (opt.rect.height() - fontHeight) / 2), QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
         }
@@ -103,12 +103,9 @@ void TabItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
     QPalette::ColorGroup cg = (opt.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
     painter->setPen(opt.palette.color(cg, (opt.state & QStyle::State_Selected) ? QPalette::HighlightedText : QPalette::Text));
 
-//    drawDecoration(painter, opt, decorationRect);
     opt.displayAlignment = Qt::AlignCenter;
     drawDisplay(style, painter, opt, opt.rect);
 
-    //drawFocus(style, painter, opt, opt.rect);
-    // done
     painter->restore();
 }
 
@@ -175,10 +172,8 @@ void TabItemDelegate::drawFocus(const QStyle *style, QPainter *painter, const QS
     o.state |= QStyle::State_KeyboardFocusChange;
     o.state |= QStyle::State_Item;
     QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
-                                      ? QPalette::Normal
-                                      : QPalette::Disabled;
-    o.backgroundColor = option.palette.color(cg, (option.state & QStyle::State_Selected)
-                                                         ? QPalette::Highlight
-                                                         : QPalette::Window);
+            ? QPalette::Normal
+            : QPalette::Disabled;
+    o.backgroundColor = option.palette.color(cg, (option.state & QStyle::State_Selected) ? QPalette::Highlight : QPalette::Window);
     style->drawPrimitive(QStyle::PE_FrameFocusRect, &o, painter, option.widget);
 }

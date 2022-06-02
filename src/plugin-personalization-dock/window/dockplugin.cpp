@@ -109,7 +109,7 @@ ModuleObject* DockPlugin::module()
 QString DockPlugin::follow() const
 {
     // 插入到个性化模块中，作为二级模块
-    return QStringLiteral("Personalization");
+    return QStringLiteral("personalization");
 }
 
 int DockPlugin::location() const

@@ -61,6 +61,7 @@ public:
      * @return 子项的QWidget
      */
     virtual QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const QList<DCC_NAMESPACE::ModuleObject *> &children) = 0;
+    virtual ~LayoutBase();
     /**
      * @brief IsVisible 返回module是否显示，判断了配置项和程序设置项
      * @param module

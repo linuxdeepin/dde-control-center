@@ -239,6 +239,7 @@ ListView::ListView(QWidget *parent)
 
 ListView::~ListView()
 {
+    delete d_ptr;
 }
 
 void ListView::setSpacing(int space)

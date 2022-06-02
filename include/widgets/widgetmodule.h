@@ -30,13 +30,13 @@ class WidgetModule : public DCC_NAMESPACE::ModuleObject
 public:
     template<class classT>
     WidgetModule(const QString &name, const QString &displayName, classT *receiver, void (classT::*callback)(T *), QObject *parent = nullptr)
-        : DCC_NAMESPACE::ModuleObject(name, QStringList({ displayName }), parent)
+        : DCC_NAMESPACE::ModuleObject(name, displayName, parent)
     {
         connect(receiver, callback);
     }
     template<typename FunT>
     WidgetModule(const QString &name, const QString &displayName, FunT callback, QObject *parent = nullptr)
-        : DCC_NAMESPACE::ModuleObject(name, QStringList({ displayName }), parent)
+        : DCC_NAMESPACE::ModuleObject(name, displayName, parent)
     {
         auto fun = [](QWidget *w, FunT callback) {
             T *tWidget = static_cast<T *>(w);
@@ -45,7 +45,7 @@ public:
         m_callback = std::bind(fun, std::placeholders::_1, callback);
     }
     WidgetModule(const QString &name = QString(), const QString &displayName = QString(), QObject *parent = nullptr)
-        : DCC_NAMESPACE::ModuleObject(name, QStringList({ displayName }), parent)
+        : DCC_NAMESPACE::ModuleObject(name, displayName, parent)
         , m_callback(nullptr)
     {
     }

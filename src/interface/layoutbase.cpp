@@ -35,6 +35,10 @@ bool LayoutBase::checkUpdate(ModuleObject *const, ModuleObject *const)
     return false;
 }
 
+LayoutBase::~LayoutBase()
+{
+}
+
 bool LayoutBase::IsHiden(ModuleObject *const module)
 {
     return module ? module->getFlagState(DCC_ALL_HIDDEN) : true;

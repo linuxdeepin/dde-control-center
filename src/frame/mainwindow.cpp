@@ -98,6 +98,8 @@ MainWindow::~MainWindow()
         m_dconfig->setValue(WidthConfig, width());
         m_dconfig->setValue(HeightConfig, height());
     }
+    resizeCurrentModule(0);
+    delete m_layoutManager;
 }
 
 void MainWindow::showPage(const QString &url, const UrlType &uType)
@@ -255,6 +257,11 @@ void MainWindow::updateModuleConfig(const QString &key)
     }
 }
 
+void MainWindow::delayUpdateLayoutCurrent(LayoutBase *layout, ModuleObject *child)
+{
+    QMetaObject::invokeMethod(this, "updateLayoutCurrent", Qt::QueuedConnection, Q_ARG(LayoutBase *, layout), Q_ARG(ModuleObject *, child));
+}
+
 void MainWindow::updateLayoutCurrent(LayoutBase *layout, ModuleObject *child)
 {
     layout->setCurrent(child);
@@ -328,24 +335,12 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
     m_backwardBtn->setEnabled(module != m_rootModule);
     QList<ModuleObject *> modules;
     ModuleObject *obj = module;
-    while (obj) { // ==root
+    while (obj) {
         modules.prepend(obj);
         obj = dynamic_cast<ModuleObject *>(obj->parent());
     }
-
-    // DEBUG===================
-    {
-        QStringList newList;
-        QStringList oldList;
-        for (auto &tmp : modules) {
-            newList << tmp->name();
-        }
-        for (auto &tmp : m_currentModule) {
-            oldList << tmp.module->name();
-        }
-        qInfo() << __LINE__ << oldList.join("/") << "=>" << newList.join("/");
-    }
-    // DEBUG===================
+    if (modules.isEmpty() || modules.first() != m_rootModule)
+        return;
 
     QWidget *widget = parent;
     int i = 0;
@@ -357,7 +352,7 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
 
             modules.prepend(m_currentModule.at(i - 1).module);
             widget = m_currentModule.at(i - 1).w;
-            m_currentModule = m_currentModule.mid(0, i - 1);
+            resizeCurrentModule(i - 1);
             break;
         }
         if (modules.isEmpty()) {
@@ -368,37 +363,25 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
             if (!child) {
                 modules.prepend(m_currentModule.at(i - 1).module);
                 widget = m_currentModule.at(i - 1).w;
-                m_currentModule = m_currentModule.mid(0, i - 1);
+                resizeCurrentModule(i - 1);
                 break;
             }
             return;
         }
         if (m_currentModule.at(i).module == modules.first()) {
             obj = modules.takeFirst();
-        } else { // A/B/C=>A/B/D 从B开始布局
+        } else { // A/B/C=>A/B/D 从C的w开始布局
             widget = m_currentModule.at(i).w;
-            m_currentModule = m_currentModule.mid(0, i);
+            resizeCurrentModule(i);
             if (!m_currentModule.isEmpty()) {
                 const WidgetData &data = m_currentModule.last();
-                data.layout->setCurrent(modules.first());
+                if (data.layout)
+                    data.layout->setCurrent(modules.first());
             }
             break;
         }
         i++;
     }
-    // DEBUG===================
-    {
-        QStringList newList;
-        QStringList oldList;
-        for (auto &tmp : modules) {
-            newList << tmp->name();
-        }
-        for (auto &tmp : m_currentModule) {
-            oldList << tmp.module->name();
-        }
-        qInfo() << __LINE__ << oldList.join("/") << "=>" << newList.join("/") << i;
-    }
-    // DEBUG===================
 
     while (widget && !modules.isEmpty()) {
         obj = modules.takeFirst();
@@ -420,7 +403,15 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
                 modules.append(child);
         }
         if (!modules.isEmpty())
-            QMetaObject::invokeMethod(this, "updateLayoutCurrent", Qt::QueuedConnection, Q_ARG(LayoutBase *, layout), Q_ARG(ModuleObject *, modules.first()));
+            delayUpdateLayoutCurrent(layout, modules.first());
+    }
+    // 记录最后定位的位置
+    if (!widget && !modules.isEmpty()) {
+        WidgetData lastdata;
+        lastdata.w = nullptr;
+        lastdata.module = modules.first();
+        lastdata.layout = nullptr;
+        m_currentModule.append(lastdata);
     }
 }
 
@@ -461,6 +452,15 @@ QString MainWindow::getUrlByModule(ModuleObject *const module)
         obj = obj->getParent();
     }
     return url.join('/');
+}
+
+void MainWindow::resizeCurrentModule(int size)
+{
+    for (int i = size; i < m_currentModule.size(); ++i) {
+        if (m_currentModule.at(i).layout)
+            delete m_currentModule.at(i).layout;
+    }
+    m_currentModule = m_currentModule.mid(0, size);
 }
 
 void MainWindow::onAddModule(ModuleObject *const module)
