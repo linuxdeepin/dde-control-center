@@ -123,6 +123,9 @@ void PasswordWidget::initData()
     m_newPasswordEdit->setPlaceholderText(tr("Required"));
     m_repeatPasswordEdit->setPlaceholderText(tr("Required"));
     m_passwordTipsEdit->setPlaceholderText(tr("Optional"));
+    m_newPasswordEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
+    m_repeatPasswordEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
+    m_passwordTipsEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
 
     connect(m_repeatPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] { hideAlert(m_repeatPasswordEdit); });
     connect(m_repeatPasswordEdit, &DPasswordEdit::editingFinished, this, [ & ]() {

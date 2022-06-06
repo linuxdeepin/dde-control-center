@@ -133,6 +133,8 @@ void UnionIDWidget::initData()
     m_phoneEmailEdit->setPlaceholderText(tr("Required"));
     m_verificationCodeEdit->setPlaceholderText(tr("Required"));
     m_sendCodeBtn->setText(tr("Get Code"));
+    m_phoneEmailEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
+    m_verificationCodeEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
 
     connect(m_stackedLayout, &QStackedLayout::currentChanged, this, [ this ](int index) {
          Q_EMIT pageChanged(index == UNION_ID_STATUS_RESET_PASSWD);
