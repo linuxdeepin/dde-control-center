@@ -96,7 +96,7 @@ void PowerDBusProxy::setLidClosedSleep(bool value)
 
 bool PowerDBusProxy::lowPowerNotifyEnable()
 {
-    return qvariant_cast<bool>(m_powerInter->property("$L2owPowerNotifyEnable"));
+    return qvariant_cast<bool>(m_powerInter->property("LowPowerNotifyEnable"));
 }
 
 void PowerDBusProxy::setLowPowerNotifyEnable(bool value)
