@@ -9,12 +9,12 @@
 #include <qwidget.h>
 #include <QThread>
 
-QString Plugin::name() const
+QString Test1Plugin::name() const
 {
     return QStringLiteral("plugin-test1");
 }
 
-ModuleObject *Plugin::module()
+ModuleObject *Test1Plugin::module()
 {
     QThread::sleep(2);
     //-----------创建根节点----------
@@ -116,7 +116,7 @@ ModuleObject *Plugin::module()
     return moduleRoot;
 }
 
-QList<LayoutFactoryBase *> Plugin::layoutFactory()
+QList<LayoutFactoryBase *> Test1Plugin::layoutFactory()
 {
     return { new LayoutFactory<TESTLAYOUT_KEY, testLayout>() };
 }

@@ -5,7 +5,7 @@
 
 DCC_USE_NAMESPACE
 
-class Plugin : public PluginInterface
+class Test2Plugin : public PluginInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.test2" FILE "plugin-test.json")

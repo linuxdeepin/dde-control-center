@@ -21,13 +21,13 @@
 #ifndef TABVIEW_H
 #define TABVIEW_H
 #include "interface/namespace.h"
+#include <qglobal.h>
 #include <QAbstractItemView>
-#include <DObject>
 
 namespace DCC_NAMESPACE {
 
 class TabViewPrivate;
-class TabView : public QAbstractItemView , public Dtk::Core::DObject
+class TabView : public QAbstractItemView
 {
     Q_OBJECT
     Q_PROPERTY(int spacing READ spacing WRITE setSpacing)
@@ -75,7 +75,8 @@ protected:
     void leaveEvent(QEvent *event) override;
 
 private:
-    D_DECLARE_PRIVATE(TabView)
+    TabViewPrivate *const d_ptr;
+    Q_DECLARE_PRIVATE(TabView)
     Q_DISABLE_COPY(TabView)
 };
 

@@ -7,12 +7,12 @@
 #include <qpushbutton.h>
 #include <qwidget.h>
 
-QString Plugin::name() const
+QString Test2Plugin::name() const
 {
     return QStringLiteral("plugin-test2");
 }
 
-ModuleObject* Plugin::module()
+ModuleObject* Test2Plugin::module()
 {
     //-----------创建根节点----------
     ModuleObject *moduleRoot = new ModuleObject("menu3", tr("菜单3"), tr("我是菜单3"), QIcon::fromTheme("preferences-system"), this);
@@ -27,13 +27,13 @@ ModuleObject* Plugin::module()
     return moduleRoot;
 }
 
-QString Plugin::follow() const
+QString Test2Plugin::follow() const
 {
     // 注意这里返回的是上级的url
     return QStringLiteral("firstmenu");
 }
 
-int Plugin::location() const
+int Test2Plugin::location() const
 {
     return 2;
 }

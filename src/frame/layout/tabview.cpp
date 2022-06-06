@@ -28,7 +28,6 @@
 
 #include <DApplicationHelper>
 #include <DPalette>
-#include <DObjectPrivate>
 #include <DStyleHelper>
 #include <DStyle>
 #include <DStyleOption>
@@ -41,11 +40,11 @@ DCC_USE_NAMESPACE
 /////////////////////////////////////////
 namespace DCC_NAMESPACE {
 
-class TabViewPrivate : public DObjectPrivate
+class TabViewPrivate
 {
 public:
-    explicit TabViewPrivate(TabView *TabView)
-        : DObjectPrivate(TabView)
+    explicit TabViewPrivate(TabView *parent)
+        : q_ptr(parent)
         , m_spacing(20)
         , m_gridSize(280, 84)
         , m_viewMode(TabView::ListMode)
@@ -97,7 +96,7 @@ public:
 
     void updateGeometries()
     {
-        D_Q(TabView);
+        Q_Q(TabView);
         m_itemX.clear();
         int totalWidth = 0;
         int height = 0;
@@ -127,7 +126,7 @@ public:
     // item在窗口中位置(无滚动)
     QRect rectForIndex(const QModelIndex &index) const
     {
-        D_Q(const TabView);
+        Q_Q(const TabView);
         QRect rect(0, 0, 0, m_size.height());
         int indexRow = index.row();
         if (indexRow < 0 || indexRow >= m_itemX.size()) {
@@ -144,7 +143,7 @@ public:
     // item在窗口中位置(无滚动)
     QModelIndex indexAt(const QPoint &p) const
     {
-        D_Q(const TabView);
+        Q_Q(const TabView);
         if(!QRect(QPoint(),m_size).contains(p) ) {
             return QModelIndex();
         }
@@ -162,7 +161,7 @@ public:
     }
     QVector<QModelIndex> intersectingSet(const QRect &area) const
     {
-        D_Q(const TabView);
+        Q_Q(const TabView);
         QVector<QModelIndex> indexs;
         int rows = q->model() ? q->model()->rowCount() : 0;
         for (int row = 0; row < rows; row++) {
@@ -176,22 +175,22 @@ public:
     }
     inline int marginsWidth() const
     {
-        D_Q(const TabView);
+        Q_Q(const TabView);
         return q->contentsMargins().left() + q->contentsMargins().right();
     }
     inline int marginsHidget() const
     {
-        D_Q(const TabView);
+        Q_Q(const TabView);
         return q->contentsMargins().top() + q->contentsMargins().bottom();
     }
 
-    D_DECLARE_PUBLIC(TabView)
-public:
+private:
+    TabView *const q_ptr;
+    Q_DECLARE_PUBLIC(TabView)
     int m_spacing;
     QSize m_gridSize;
     TabView::ViewMode m_viewMode;
 
-//    QSize m_itemSize;
     int m_maxColumnCount;      // 一行可容纳的最大列数
     int m_maxRowCount;         // 换算显示所有item所需行数
     int m_xOffset;             // x轴偏移
@@ -202,6 +201,7 @@ public:
 
     QList<int> m_itemX;
     QSize m_size;
+
 };
 } // namespace DCC_NAMESPACE
 
@@ -209,7 +209,7 @@ public:
 
 TabView::TabView(QWidget *parent)
     : QAbstractItemView(parent)
-    , DObject(*new TabViewPrivate(this), this)
+    , d_ptr(new TabViewPrivate(this))
 {
     setSelectionMode(SingleSelection);
     setAttribute(Qt::WA_MacShowFocusRect);
@@ -225,7 +225,7 @@ TabView::~TabView()
 
 void TabView::setSpacing(int space)
 {
-    D_D(TabView);
+    Q_D(TabView);
     if (d->spacing() != space) {
         d->setSpacing(space);
         scheduleDelayedItemsLayout();
@@ -233,13 +233,13 @@ void TabView::setSpacing(int space)
 }
 int TabView::spacing() const
 {
-    D_D(const TabView);
+    Q_D(const TabView);
     return d->spacing();
 }
 
 void TabView::setGridSize(const QSize &size)
 {
-    D_D(TabView);
+    Q_D(TabView);
     if (d->gridSize() != size) {
         d->setGridSize(size);
         scheduleDelayedItemsLayout();
@@ -247,13 +247,13 @@ void TabView::setGridSize(const QSize &size)
 }
 QSize TabView::gridSize() const
 {
-    D_D(const TabView);
+    Q_D(const TabView);
     return d->gridSize();
 }
 
 void TabView::setViewMode(ViewMode mode)
 {
-    D_D(TabView);
+    Q_D(TabView);
     if (d->viewMode() != mode) {
         d->setViewMode(mode);
         scheduleDelayedItemsLayout();
@@ -261,13 +261,13 @@ void TabView::setViewMode(ViewMode mode)
 }
 TabView::ViewMode TabView::viewMode() const
 {
-    D_D(const TabView);
+    Q_D(const TabView);
     return d->viewMode();
 }
 
 void TabView::setAlignment(Qt::Alignment alignment)
 {
-    D_D(TabView);
+    Q_D(TabView);
     if (d->alignment() != alignment) {
         d->setAlignment(alignment);
         scheduleDelayedItemsLayout();
@@ -275,14 +275,14 @@ void TabView::setAlignment(Qt::Alignment alignment)
 }
 Qt::Alignment TabView::alignment() const
 {
-    D_D(const TabView);
+    Q_D(const TabView);
     return d->alignment();
 }
 /////////////////////////////////////////////////////////////////////////////
 // item在窗口中位置(加滚动偏移)
 QRect TabView::visualRect(const QModelIndex &index) const
 {
-    D_D(const TabView);
+    Q_D(const TabView);
     return d->rectForIndex(index).translated(-horizontalOffset(), -verticalOffset());
 }
 
@@ -314,13 +314,13 @@ void TabView::scrollTo(const QModelIndex &index, ScrollHint hint)
 
 QModelIndex TabView::indexAt(const QPoint &p) const
 {
-    D_D(const TabView);
+    Q_D(const TabView);
     return d->indexAt(p + QPoint(horizontalOffset(), verticalOffset()));
 }
 
 QModelIndex TabView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers /*modifiers*/)
 {
-    D_D(const TabView);
+    Q_D(const TabView);
     QModelIndex current = currentIndex();
     int currentRow = current.row();
     int maxRow = model()->rowCount();
@@ -387,7 +387,7 @@ int TabView::verticalOffset() const
 
 void TabView::updateGeometries()
 {
-    D_D(TabView);
+    Q_D(TabView);
     QAbstractItemView::updateGeometries();
     d->updateGeometries();
 
@@ -418,7 +418,7 @@ QRegion TabView::visualRegionForSelection(const QItemSelection &selection) const
 {
     if (selection.isEmpty())
         return QRegion();
-    D_D(const TabView);
+    Q_D(const TabView);
     QRect rect = d->rectForIndex(selection.indexes().first());
     return QRegion(rect);
 }
@@ -440,7 +440,7 @@ void TabView::setSelection(const QRect &rect, QItemSelectionModel::SelectionFlag
 
 void TabView::paintEvent(QPaintEvent *e)
 {
-    D_D(const TabView);
+    Q_D(const TabView);
     QStyleOptionViewItem option = viewOptions();
     QPainter painter(viewport());
 
@@ -501,6 +501,6 @@ void TabView::mouseMoveEvent(QMouseEvent *e)
 
 void TabView::leaveEvent(QEvent *)
 {
-    D_D(TabView);
+    Q_D(TabView);
     d->m_hover = QModelIndex();
 }

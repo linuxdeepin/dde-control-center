@@ -27,7 +27,6 @@
 
 #include <DApplicationHelper>
 #include <DPalette>
-#include <DObjectPrivate>
 
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -37,11 +36,11 @@ DCC_USE_NAMESPACE
 /////////////////////////////////////////
 namespace DCC_NAMESPACE {
 
-class ListViewPrivate : public DObjectPrivate
+class ListViewPrivate
 {
 public:
-    explicit ListViewPrivate(ListView *listview)
-        : DObjectPrivate(listview)
+    explicit ListViewPrivate(ListView *parent)
+        : q_ptr(parent)
         , m_spacing(20)
         , m_gridSize(280, 84)
         , m_viewMode(ListView::ListMode)
@@ -94,7 +93,7 @@ public:
 
     void updateGeometries()
     {
-        D_Q(ListView);
+        Q_Q(ListView);
         m_maxColumnCount = 1;
         if (m_viewMode == ListView::IconMode && (m_gridSize.width() + m_spacing) > 0)
             m_maxColumnCount = (q->viewport()->width() - m_spacing) / (m_gridSize.width() + m_spacing);
@@ -141,7 +140,7 @@ public:
     // item在窗口中位置(无滚动)
     QRect rectForIndex(const QModelIndex &index) const
     {
-        D_Q(const ListView);
+        Q_Q(const ListView);
         QRect rect(0, 0, m_itemSize.width(), m_itemSize.height());
         if (index.row() == 0 && m_viewMode == ListView::IconMode) {
             rect.setHeight(m_itemSize.height() * 2 + m_spacing);
@@ -164,7 +163,7 @@ public:
     {
         if ((m_itemSize.height() + m_spacing) <= 0 || (m_itemSize.width() + m_spacing) <= 0)
             return QModelIndex();
-        D_Q(const ListView);
+        Q_Q(const ListView);
         QRect rect(p.x() - m_xOffset, p.y() - m_yOffset, 1, 1);
         int row = (rect.y() - m_firstHeightDiff) / (m_itemSize.height() + m_spacing);
         int col = (rect.x()) / (m_itemSize.width() + m_spacing);
@@ -185,7 +184,7 @@ public:
     }
     QVector<QModelIndex> intersectingSet(const QRect &area) const
     {
-        D_Q(const ListView);
+        Q_Q(const ListView);
         QVector<QModelIndex> indexs;
         int rows = q->model()->rowCount();
         for (int row = 0; row < rows; row++) {
@@ -199,17 +198,18 @@ public:
     }
     inline int marginsWidth() const
     {
-        D_Q(const ListView);
+        Q_Q(const ListView);
         return q->contentsMargins().left() + q->contentsMargins().right();
     }
     inline int marginsHidget() const
     {
-        D_Q(const ListView);
+        Q_Q(const ListView);
         return q->contentsMargins().top() + q->contentsMargins().bottom();
     }
 
-    D_DECLARE_PUBLIC(ListView)
-public:
+private:
+    ListView *const q_ptr;
+    Q_DECLARE_PUBLIC(ListView)
     int m_spacing;
     QSize m_gridSize;
     ListView::ViewMode m_viewMode;
@@ -229,7 +229,7 @@ public:
 
 ListView::ListView(QWidget *parent)
     : QAbstractItemView(parent)
-    , DObject(*new ListViewPrivate(this), this)
+    , d_ptr(new ListViewPrivate(this))
 {
     setSelectionMode(SingleSelection);
     setAttribute(Qt::WA_MacShowFocusRect);
@@ -243,7 +243,7 @@ ListView::~ListView()
 
 void ListView::setSpacing(int space)
 {
-    D_D(ListView);
+    Q_D(ListView);
     if (d->spacing() != space) {
         d->setSpacing(space);
         scheduleDelayedItemsLayout();
@@ -251,13 +251,13 @@ void ListView::setSpacing(int space)
 }
 int ListView::spacing() const
 {
-    D_D(const ListView);
+    Q_D(const ListView);
     return d->spacing();
 }
 
 void ListView::setGridSize(const QSize &size)
 {
-    D_D(ListView);
+    Q_D(ListView);
     if (d->gridSize() != size) {
         d->setGridSize(size);
         scheduleDelayedItemsLayout();
@@ -265,13 +265,13 @@ void ListView::setGridSize(const QSize &size)
 }
 QSize ListView::gridSize() const
 {
-    D_D(const ListView);
+    Q_D(const ListView);
     return d->gridSize();
 }
 
 void ListView::setViewMode(ViewMode mode)
 {
-    D_D(ListView);
+    Q_D(ListView);
     if (d->viewMode() != mode) {
         d->setViewMode(mode);
         scheduleDelayedItemsLayout();
@@ -279,13 +279,13 @@ void ListView::setViewMode(ViewMode mode)
 }
 ListView::ViewMode ListView::viewMode() const
 {
-    D_D(const ListView);
+    Q_D(const ListView);
     return d->viewMode();
 }
 
 void ListView::setAlignment(Qt::Alignment alignment)
 {
-    D_D(ListView);
+    Q_D(ListView);
     if (d->alignment() != alignment) {
         d->setAlignment(alignment);
         scheduleDelayedItemsLayout();
@@ -293,14 +293,14 @@ void ListView::setAlignment(Qt::Alignment alignment)
 }
 Qt::Alignment ListView::alignment() const
 {
-    D_D(const ListView);
+    Q_D(const ListView);
     return d->alignment();
 }
 /////////////////////////////////////////////////////////////////////////////
 // item在窗口中位置(加滚动偏移)
 QRect ListView::visualRect(const QModelIndex &index) const
 {
-    D_D(const ListView);
+    Q_D(const ListView);
     return d->rectForIndex(index).translated(-horizontalOffset(), -verticalOffset());
 }
 
@@ -332,13 +332,13 @@ void ListView::scrollTo(const QModelIndex &index, ScrollHint hint)
 
 QModelIndex ListView::indexAt(const QPoint &p) const
 {
-    D_D(const ListView);
+    Q_D(const ListView);
     return d->indexAt(p + QPoint(horizontalOffset(), verticalOffset()));
 }
 
 QModelIndex ListView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers /*modifiers*/)
 {
-    D_D(const ListView);
+    Q_D(const ListView);
     QModelIndex current = currentIndex();
     int currentRow = current.row();
     int maxRow = model()->rowCount();
@@ -416,7 +416,7 @@ int ListView::verticalOffset() const
 
 void ListView::updateGeometries()
 {
-    D_D(ListView);
+    Q_D(ListView);
     QAbstractItemView::updateGeometries();
     d->updateGeometries();
 
@@ -465,7 +465,7 @@ QRegion ListView::visualRegionForSelection(const QItemSelection &selection) cons
 {
     if (selection.isEmpty())
         return QRegion();
-    D_D(const ListView);
+    Q_D(const ListView);
     QRect rect = d->rectForIndex(selection.indexes().first());
     return QRegion(rect);
 }
@@ -487,7 +487,7 @@ void ListView::setSelection(const QRect &rect, QItemSelectionModel::SelectionFla
 
 void ListView::paintEvent(QPaintEvent *e)
 {
-    D_D(const ListView);
+    Q_D(const ListView);
     QStyleOptionViewItem option = viewOptions();
     QPainter painter(viewport());
 
@@ -560,7 +560,7 @@ void ListView::paintEvent(QPaintEvent *e)
 
 bool ListView::viewportEvent(QEvent *event)
 {
-    D_D(ListView);
+    Q_D(ListView);
     switch (event->type()) {
     case QEvent::HoverMove:
     case QEvent::HoverEnter:

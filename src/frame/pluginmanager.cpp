@@ -47,6 +47,7 @@ PluginData loadModule(const QPair<PluginManager*,QString> &pair)
 {
     PluginData data;
     data.Module = nullptr;
+    data.Location = -1;
     auto &&fileName = pair.second;
     qInfo() << "loading plugin: " << fileName;
 

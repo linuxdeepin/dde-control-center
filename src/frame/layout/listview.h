@@ -21,14 +21,13 @@
 #ifndef LISTVIEW_H
 #define LISTVIEW_H
 #include "interface/namespace.h"
+#include <qglobal.h>
 #include <QAbstractItemView>
-#include <DObject>
 
 namespace DCC_NAMESPACE {
 
 class ListViewPrivate;
 class ListView : public QAbstractItemView
-    , public Dtk::Core::DObject
 {
     Q_OBJECT
     Q_PROPERTY(int spacing READ spacing WRITE setSpacing)
@@ -80,7 +79,8 @@ protected:
     bool viewportEvent(QEvent *event) override;
 
 private:
-    D_DECLARE_PRIVATE(ListView)
+    ListViewPrivate *const d_ptr;
+    Q_DECLARE_PRIVATE(ListView)
     Q_DISABLE_COPY(ListView)
 };
 
