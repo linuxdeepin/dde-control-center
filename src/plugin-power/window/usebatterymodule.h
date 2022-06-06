@@ -42,6 +42,7 @@ public:
     explicit UseBatteryModule(PowerModel *model, PowerWorker *work, QObject *parent = nullptr);
     ~UseBatteryModule() override;
     void setModel(PowerModel *model);
+    void active() override;
     void deactive() override;
 
 Q_SIGNALS:
@@ -60,9 +61,6 @@ public Q_SLOTS:
     void setAutoLockScreenOnBattery(const int delay);
     void onLowPowerNotifyThreshold(const int value);
     void onLowPowerAutoSleepThreshold(const int value);
-    void setCloseLid(int lidIndex);
-    void setPowerBtn(int powIndex);
-    void updatePowerButtonActionList();
 
 private:
     void initMonitorSleep(DCC_NAMESPACE::TitledSliderItem *monitorSleepOnBattery);
@@ -74,6 +72,8 @@ private:
     void initSldAutoSuspend(DCC_NAMESPACE::TitledSliderItem *sldAutoSuspend);
 
     QString delayToLiteralString(const int delay) const;
+    void setComboBox(DCC_NAMESPACE::ComboxWidget *combox, QList<QPair<QString, int>>::iterator first, QList<QPair<QString, int>>::iterator last);
+    void setComboBoxValue(DCC_NAMESPACE::ComboxWidget *combox, int data);
 
 private:
     PowerModel *m_model;
@@ -89,5 +89,7 @@ private:
     DCC_NAMESPACE::SwitchWidget *m_swBatteryHint;
     DCC_NAMESPACE::TitledSliderItem *m_sldLowBatteryHint;
     DCC_NAMESPACE::TitledSliderItem *m_sldAutoSuspend;
+
+    QList<QPair<QString, int>> m_Options;
 };
 #endif // USEBATTERYMODULE_H

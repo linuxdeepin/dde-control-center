@@ -72,6 +72,23 @@ UseBatteryModule::~UseBatteryModule()
 {
 }
 
+void UseBatteryModule::active()
+{
+    m_Options.clear();
+    /*** 笔记本合盖功能与按电源按钮功能 ***/
+    if (m_model->getShutdown()) {
+        m_Options.append({ tr("Shut down"), 0 });
+    }
+    if (m_work->getCurCanSuspend()) {
+        m_Options.append({ tr("Suspend"), 1 });
+    }
+    if (m_work->getCurCanHibernate()) {
+        m_Options.append({ tr("Hibernate"), 2 });
+    }
+    m_Options.append({ tr("Turn off the monitor"), 3 });
+    m_Options.append({ tr("Do nothing"), 4 });
+}
+
 void UseBatteryModule::deactive()
 {
     m_monitorSleepOnBattery = nullptr;
@@ -99,12 +116,12 @@ void UseBatteryModule::setModel(PowerModel *model)
     connect(m_model, &PowerModel::batteryLockScreenDelayChanged, this, &UseBatteryModule::setAutoLockScreenOnBattery);
     connect(m_model, &PowerModel::batteryLidClosedActionChanged, this, [=](const int reply) {
         if (m_cmbCloseLid && reply - 1 < m_cmbCloseLid->comboBox()->count() && reply >= 1) {
-            setCloseLid(reply);
+            setComboBoxValue(m_cmbCloseLid, reply);
         }
     });
     connect(m_model, &PowerModel::batteryPressPowerBtnActionChanged, this, [=](const int reply) {
         if (m_cmbPowerBtn && reply - 1 < m_cmbPowerBtn->comboBox()->count()) {
-            setPowerBtn(reply);
+            setComboBoxValue(m_cmbPowerBtn, reply);
         }
     });
 }
@@ -164,12 +181,12 @@ void UseBatteryModule::initCmbCloseLid(DCC_NAMESPACE::ComboxWidget *cmbCloseLid)
     m_cmbCloseLid = cmbCloseLid;
     m_cmbCloseLid->setTitle(tr("When the lid is closed"));
     m_cmbCloseLid->setVisible(m_model->lidPresent());
-    setCloseLid(m_model->batteryLidClosedAction());
-    updatePowerButtonActionList();
+    setComboBox(m_cmbCloseLid,m_Options.begin()+1,m_Options.end());
+    setComboBoxValue(m_cmbCloseLid, m_model->batteryLidClosedAction());
     connect(m_cmbCloseLid->comboBox(), &AlertComboBox::clicked, this, [=]() {
-        updatePowerButtonActionList();
-        setPowerBtn(m_model->batteryPressPowerBtnAction());
-        setCloseLid(m_model->batteryLidClosedAction());
+        setComboBox(m_cmbCloseLid,m_Options.begin()+1,m_Options.end());
+        setComboBoxValue(m_cmbPowerBtn, m_model->batteryPressPowerBtnAction());
+        setComboBoxValue(m_cmbCloseLid, m_model->batteryLidClosedAction());
     });
     connect(m_cmbCloseLid, &ComboxWidget::dataChanged, this, [=](const QVariant data) {
         Q_EMIT requestSetBatteryLidClosedAction(data.toInt());
@@ -181,12 +198,12 @@ void UseBatteryModule::initCmbPowerBtn(DCC_NAMESPACE::ComboxWidget *cmbPowerBtn)
     m_cmbPowerBtn = cmbPowerBtn;
     m_cmbPowerBtn->setTitle(tr("When pressing the power button"));
 
-    updatePowerButtonActionList();
-    setPowerBtn(m_model->batteryPressPowerBtnAction());
+    setComboBox(m_cmbPowerBtn,m_Options.begin(),m_Options.end());
+    setComboBoxValue(m_cmbPowerBtn, m_model->batteryPressPowerBtnAction());
     connect(m_cmbPowerBtn->comboBox(), &AlertComboBox::clicked, this, [=]() {
-        updatePowerButtonActionList();
-        setPowerBtn(m_model->batteryPressPowerBtnAction());
-        setCloseLid(m_model->batteryLidClosedAction());
+        setComboBox(m_cmbPowerBtn,m_Options.begin(),m_Options.end());
+        setComboBoxValue(m_cmbPowerBtn, m_model->batteryPressPowerBtnAction());
+        setComboBoxValue(m_cmbCloseLid, m_model->batteryLidClosedAction());
     });
     connect(m_cmbPowerBtn, &ComboxWidget::dataChanged, this, [=](const QVariant data) {
         Q_EMIT requestSetBatteryPressPowerBtnAction(data.toInt());
@@ -307,64 +324,29 @@ void UseBatteryModule::onLowPowerAutoSleepThreshold(const int value)
     m_sldAutoSuspend->slider()->blockSignals(false);
 }
 
-void UseBatteryModule::setCloseLid(int lidIndex)
+void UseBatteryModule::setComboBox(ComboxWidget *combox, QList<QPair<QString, int>>::iterator first, QList<QPair<QString, int>>::iterator last)
 {
-    if (!m_cmbCloseLid)
+    AlertComboBox *box = combox->comboBox();
+    box->blockSignals(true);
+    box->clear();
+    for (auto it = first; it != last; it++) {
+        box->addItem(it->first, it->second);
+    }
+    box->blockSignals(false);
+    combox->addBackground();
+}
+
+void UseBatteryModule::setComboBoxValue(ComboxWidget *combox, int data)
+{
+    if  (!combox)
         return;
-    AlertComboBox *cmbPower = m_cmbCloseLid->comboBox();
-    for (int i = 0; i < cmbPower->count(); i++) {
-        if (cmbPower->itemData(i).toInt() == lidIndex) {
-            m_cmbCloseLid->setCurrentIndex(i);
+    AlertComboBox *alertComboBox = combox->comboBox();
+    for (int i = 0; i < alertComboBox->count(); i++) {
+        if (alertComboBox->itemData(i).toInt() == data) {
+            alertComboBox->setCurrentIndex(i);
             break;
         }
     }
-}
-
-void UseBatteryModule::setPowerBtn(int powIndex)
-{
-    if (!m_cmbPowerBtn)
-        return;
-    AlertComboBox *cmbPower = m_cmbPowerBtn->comboBox();
-    for (int i = 0; i < cmbPower->count(); i++) {
-        if (cmbPower->itemData(i).toInt() == powIndex) {
-            m_cmbPowerBtn->setCurrentIndex(i);
-            break;
-        }
-    }
-}
-
-void UseBatteryModule::updatePowerButtonActionList()
-{
-    if (!m_model || !m_cmbPowerBtn || !m_cmbCloseLid) {
-        return;
-    }
-    QList<QPair<QString, int>> options;
-    /*** 笔记本合盖功能与按电源按钮功能 ***/
-    if (m_model->getShutdown()) {
-        options.append({ tr("Shut down"), 0 });
-    }
-    if (m_work->getCurCanSuspend()) {
-        options.append({ tr("Suspend"), 1 });
-    }
-    if (m_work->getCurCanHibernate()) {
-        options.append({ tr("Hibernate"), 2 });
-    }
-    options.append({ tr("Turn off the monitor"), 3 });
-    options.append({ tr("Do nothing"), 4 });
-
-    auto setComboBox = [](ComboxWidget *combox, QList<QPair<QString, int>> options) {
-        AlertComboBox *box = combox->comboBox();
-        box->blockSignals(true);
-        box->clear();
-        for (auto it : options) {
-            box->addItem(it.first, it.second);
-        }
-        box->blockSignals(false);
-        combox->addBackground();
-    };
-    setComboBox(m_cmbPowerBtn, options);
-    options.pop_front();
-    setComboBox(m_cmbCloseLid, options);
 }
 
 QString UseBatteryModule::delayToLiteralString(const int delay) const
