@@ -57,7 +57,6 @@ GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *pare
     connect(this, &GeneralModule::requestSetWakeDisplay, m_work, &PowerWorker::setScreenBlackLock);
     connect(this, &GeneralModule::requestSetWakeComputer, m_work, &PowerWorker::setSleepLock);
 
-    connect(this, &GeneralModule::requestSetPowerSavingModeAuto, m_work, &PowerWorker::setAutoEnablePowerSave);
     connect(this, &GeneralModule::requestSetLowBatteryMode, m_work, &PowerWorker::setEnablePowerSave);
     connect(this, &GeneralModule::requestSetPowerSaveMode, m_work, &PowerWorker::setEnablePowerSave);
 
@@ -145,6 +144,7 @@ void GeneralModule::initPowerSavingSettings(SettingsGroup *energySavingGrp)
 
     m_swLowPowerAutoIntoSaveEnergyMode->setChecked(m_model->powerSavingModeAutoWhenQuantifyLow());
     connect(m_model, &PowerModel::powerSavingModeAutoWhenQuantifyLowChanged, m_swLowPowerAutoIntoSaveEnergyMode, &SwitchWidget::setChecked);
+    connect(m_swLowPowerAutoIntoSaveEnergyMode, &SwitchWidget::checkedChanged, this, &GeneralModule::requestSetPowerSavingModeAutoWhenQuantifyLow);
 
     int maxBacklight = m_work->getMaxBacklightBrightness();
     m_sldLowerBrightness->setVisible(maxBacklight >= 100 || maxBacklight == 0);
@@ -162,6 +162,7 @@ void GeneralModule::initPowerSavingSettings(SettingsGroup *energySavingGrp)
     m_autoIntoSaveEnergyMode->setChecked(m_model->autoPowerSaveMode());
 
     connect(m_model, &PowerModel::autoPowerSavingModeChanged, m_autoIntoSaveEnergyMode, &SwitchWidget::setChecked);
+    connect(m_autoIntoSaveEnergyMode, &SwitchWidget::checkedChanged, this, &GeneralModule::requestSetPowerSavingModeAuto);
 
     connect(m_model, &PowerModel::haveBettaryChanged, m_swLowPowerAutoIntoSaveEnergyMode, &SwitchWidget::setVisible);
     connect(m_model, &PowerModel::haveBettaryChanged, m_autoIntoSaveEnergyMode, &SwitchWidget::setVisible);

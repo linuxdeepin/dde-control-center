@@ -310,11 +310,6 @@ void PowerWorker::setEnablePowerSave(const bool isEnable)
     m_powerDBusProxy->setPowerSavingModeEnabled(isEnable);
 }
 
-void PowerWorker::setAutoEnablePowerSave(const bool isEnable)
-{
-    m_powerDBusProxy->setPowerSavingModeAuto(isEnable);
-}
-
 double PowerWorker::getBatteryCapacity()
 {
     return m_powerDBusProxy->batteryCapacity();

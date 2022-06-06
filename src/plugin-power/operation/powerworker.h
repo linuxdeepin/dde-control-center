@@ -75,7 +75,6 @@ public Q_SLOTS:
     bool getCurCanHibernate();
 
     void setEnablePowerSave(const bool isEnable);
-    void setAutoEnablePowerSave(const bool isEnable);
 
     double getBatteryCapacity();
     int getMaxBacklightBrightness();
