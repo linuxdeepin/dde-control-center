@@ -31,7 +31,6 @@
 
 #include <DStandardItem>
 #include <DStyleHelper>
-#include <DConfig>
 
 #include <QPointer>
 
@@ -151,10 +150,6 @@ public Q_SLOTS:
 
     void setIsAirplaneMode(bool isAirplaneMode);
 
-protected:
-    void showEvent(QShowEvent *event) override;
-    void hideEvent(QHideEvent *event) override;
-
 private Q_SLOTS:
     void onHotspotEnableChanged(const bool enabled);
     void onCloseHotspotClicked();
@@ -178,7 +173,6 @@ private:
     void updateLayout(bool enabled);
     bool isHiddenWlan(const QString &ssid) const;
     void appendConnectHidden();
-    void scanNetwork(const bool isConnected);
 
 private:
     WirelessDevice *m_device;
@@ -201,12 +195,8 @@ private:
     QMap<QString, APItem *> m_apItems;
     QString m_autoConnectHideSsid;
     QTimer *m_wirelessScanTimer;
-    Dtk::Core::DConfig *m_dconfig;
 
     bool m_isAirplaneMode;
-    QList<int> m_wirelessScanIntervalList;
-    int m_wirelessScanInterval;
-    int m_wirelessScanIntervalIndex;
 };
 
 Q_DECLARE_METATYPE(APSortInfo)

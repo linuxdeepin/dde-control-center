@@ -80,8 +80,6 @@ private:
     void expandPasswordInput();
     NetItem *selectItem();
 
-    void scanNetwork();
-
 private Q_SLOTS:
     void initConnection();
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
@@ -97,7 +95,6 @@ private:
     QTimer *m_wirelessScanTimer;
 
     bool m_switchWire;
-    int m_wirelessScanInterval;
 
     QStandardItemModel *m_model;
 
