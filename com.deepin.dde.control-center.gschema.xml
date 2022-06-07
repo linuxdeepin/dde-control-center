@@ -929,7 +929,7 @@
             <description></description>
         </key>
         <key name="wireless-scan-interval" type="i">
-            <default>5</default>
+            <default>10</default>
             <summary>wireless scan interval</summary>
         </key>
     </schema>
