@@ -61,7 +61,8 @@ static const QStringList systemFilter = {"terminal",
                                          "wm-switcher",
                                          "system-monitor",
                                          "color-picker",
-                                         "clipboard"};
+                                         "clipboard",
+                                         "switch-next-kbd-layout"};
 
 static QStringList windowFilter = {"maximize", "unmaximize", "minimize", "begin-move", "begin-resize", "close"};
 

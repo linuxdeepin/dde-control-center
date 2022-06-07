@@ -351,11 +351,8 @@ void KeyboardWorker::delUserLayout(const QString &value)
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2)
 {
     QCollator qc;
-    int i = qc.compare(s1.text(), s2.text());
-    if (i < 0)
-        return true;
-    else
-        return false;
+    return qc.compare(s1.text(), s2.text()) < 0;
+
 }
 
 void KeyboardWorker::onRequestShortcut(QDBusPendingCallWatcher *watch)
