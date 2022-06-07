@@ -505,6 +505,7 @@ void DatetimeModule::onPopWidget()
     QModelIndex index = list->model()->index(ETimezoneList, 0);
     list->setCurrentIndex(index);
     list->clicked(index);
+    m_widget->setFocus();
 }
 
 void DatetimeModule::closeDialog()
