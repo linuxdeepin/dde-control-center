@@ -26,6 +26,7 @@
 #include "controlcenterdbusadaptor.h"
 #include "mainwindow.h"
 #include "accessible.h"
+#include "utils.h"
 
 #include <DApplication>
 #include <DDBusSender>
@@ -36,14 +37,86 @@
 #include <QIcon>
 #include <QScreen>
 
+#include <qdebug.h>
+#include <qfileinfo.h>
+#include <qsettings.h>
 #include <unistd.h>
+#include <signal.h>
+#include <execinfo.h>
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
+// 记录是否发生过崩溃，防止多线程崩溃重复记录崩溃信息
+bool IsCrashed = false;
+
+void sig_crash(int sig)
+{
+    if (IsCrashed)
+        exit(1);
+    // backtrace
+    void *backtrace_buffer[100];
+    auto size = backtrace(backtrace_buffer, 100);
+    auto strings = backtrace_symbols(backtrace_buffer, size);
+
+    // cache log
+    QStringList crash_logs;
+    qDebug() << "\ndde-control-center crashed! this is the log:";
+    for (int i = 0; i < size; i++) {
+        const auto &log = QLatin1String(strings[i]);
+        crash_logs << log;
+        qDebug() << log;
+    }
+    free(strings);
+
+    // analyze log and save config
+#ifdef QT_DEBUG
+    const QString &pluginDirectory = "/home";
+#else
+    const QString &pluginDirectory = "/usr/lib/dde-control-center";
+#endif
+    for (auto &&log : crash_logs) {
+        if (log.startsWith(pluginDirectory)) {
+            const QString &pluginPath = log.left(log.indexOf(".so") + 3);
+            qWarning() << "find crash plugin path:" << pluginPath;
+            IsCrashed = true;
+
+            QFileInfo fileInfo(pluginPath);
+            QSettings settings(CollapseConfgPath, QSettings::IniFormat);
+            settings.beginGroup("collapse");
+            settings.setValue(fileInfo.fileName(), getFileMd5(pluginPath).toHex());
+            settings.endGroup();
+
+            DDBusSender()
+                .service("org.freedesktop.Notifications")
+                .path("/org/freedesktop/Notifications")
+                .interface("org.freedesktop.Notifications")
+                .method("Notify")
+                .arg(QString())
+                .arg((uint)0)
+                .arg(QStringLiteral("dialog-warning"))
+                .arg(QObject::tr("crashed"))
+                .arg(QObject::tr("The plugin %1 crashed, next boot will not load, place reboot dde-control-center!").arg(pluginPath))
+                .arg(QStringList())
+                .arg(QVariantMap())
+                .arg((int)5000)
+                .call();
+            break;
+        }
+    }
+
+    exit(1);
+}
+
 int main(int argc, char *argv[])
 {
     DApplication *app = DApplication::globalApplication(argc, argv);
+
+    signal(SIGSEGV, sig_crash);
+    signal(SIGILL,  sig_crash);
+    signal(SIGABRT, sig_crash);
+    signal(SIGFPE,  sig_crash);
+
     app->setOrganizationName("deepin");
     app->setApplicationName("dde-control-center");
 

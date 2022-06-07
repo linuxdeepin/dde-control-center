@@ -2,6 +2,7 @@
 #include "layout/layoutmanager.h"
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
+#include "utils.h"
 
 #include <QDir>
 #include <QDebug>
@@ -9,6 +10,8 @@
 #include <QPluginLoader>
 #include <QCoreApplication>
 #include <QtConcurrent>
+#include <qfileinfo.h>
+#include <qsettings.h>
 #include <queue>
 
 DCC_USE_NAMESPACE
@@ -49,6 +52,15 @@ PluginData loadModule(const QPair<PluginManager*,QString> &pair)
     data.Module = nullptr;
     data.Location = -1;
     auto &&fileName = pair.second;
+    QFileInfo fileInfo(fileName);
+    QSettings settings(CollapseConfgPath, QSettings::IniFormat);
+    settings.beginGroup("collapse");
+    const QByteArray &md5 = settings.value(fileInfo.fileName()).toByteArray();
+    settings.endGroup();
+    if (getFileMd5(fileName).toHex() == md5) {
+        qWarning() << QString("The Plugin: %1 crashed, will not load!").arg(fileName);
+        return data;
+    }
     qInfo() << "loading plugin: " << fileName;
 
     QElapsedTimer et;
