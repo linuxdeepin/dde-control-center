@@ -69,6 +69,7 @@ Q_SIGNALS:
     void requestSetUpdateNotify(bool notify);
     void requestSetAutoDownloadUpdates(const bool &autoUpdate);
     void requestSetAutoCleanCache(const bool autoClean);
+    void requestSetAutoCleanCache1(const bool autoClean);
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     void requestSetSourceCheck(const bool check);
 #endif
