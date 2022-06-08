@@ -82,7 +82,7 @@ QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type, CheckT
         {PW_ERR_PALINDROME, tr("No more than %1 palindrome characters please").arg(passwordPalimdromeNum)},
         {PW_ERR_PW_MONOTONE, tr("No more than %1 monotonic characters please").arg(passwordMonotoneCharacterNum)},
         {PW_ERR_PW_CONSECUTIVE_SAME, tr("No more than %1 repeating characters please").arg(passwordConsecutiveSameCharacterNum)},
-
+        {PW_ERR_CHARACTER_TYPE_TOO_FEW, err_to_string(type)},
     };
 
     //服务器版校验规则
@@ -93,6 +93,7 @@ QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type, CheckT
         PasswordFlagsStrMap[PW_ERR_PW_MONOTONE] = tr("Create a strong password please");
         PasswordFlagsStrMap[PW_ERR_PW_CONSECUTIVE_SAME] = tr("Create a strong password please");
         PasswordFlagsStrMap[PW_ERR_PW_FIRST_UPPERM] = tr("Do not use common words and combinations as password");
+        PasswordFlagsStrMap[PW_ERR_CHARACTER_TYPE_TOO_FEW] = err_to_string(type);
     }
 
     //规则校验以外的情况统一返回密码不符合安全要求

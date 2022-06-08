@@ -146,8 +146,7 @@ TEST_F(Test_NativeInfoWidget, m_hostNameLineEdit){
 TEST_F(Test_NativeInfoWidget, Method){
 
     QString copyrightVale =  m_widget->systemCopyright();
-    QString oem_copyright = QString(QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2019-2021 UnionTech Software Technology Co., LTD")).arg(2019);
-    EXPECT_EQ(copyrightVale, oem_copyright);
+    EXPECT_FALSE(copyrightVale.isEmpty());
 
     QString systemLogo = m_widget->systemLogo();
     EXPECT_EQ(systemLogo, ":/systeminfo/themes/dark/icons/logo.png");
