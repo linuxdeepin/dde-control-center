@@ -54,6 +54,7 @@ public:
 
 Q_SIGNALS:
     void loadedModule(const PluginData &data);
+    void loadAllFinished();
 
 private:
     ModuleObject *findModule(ModuleObject *module, const QString &name);

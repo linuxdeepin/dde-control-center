@@ -71,10 +71,15 @@ public:
     virtual ~MainWindow() override;
 
     /**
-     * @brief 显示路径请求的页面，用于搜索或DBus接口
+     * @brief 显示路径请求的页面，用于搜索接口
      * @param url 路径地址,从左至右搜索，如路径错误，只显示已搜索出的模块
      */
     void showPage(const QString &url, const UrlType &uType);
+    /**
+     * @brief 显示路径请求的页面，用于DBus接口,会延时到所有插件加载完成再调用
+     * @param url 路径地址
+     */
+    void showPage(const QString &url);
     ModuleObject *getRootModule() const;
 
 protected:
@@ -113,8 +118,7 @@ private:
     DCC_NAMESPACE::LayoutManager        *m_layoutManager;
     QList<WidgetData>                   m_currentModule;
     PluginManager                       *m_pluginManager;
-//    QAbstractItemView                   *m_mainView;            //保存主菜单view, 方便改变背景
-//    QList<QWidget*>                     m_pages;                //保存终点的页面
+    bool                                m_loadAllFinished;
 
     QSet<QString> m_hideModule;
     QSet<QString> m_disableModule;

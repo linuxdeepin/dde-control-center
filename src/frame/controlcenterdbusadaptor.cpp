@@ -91,7 +91,7 @@ void ControlCenterDBusAdaptor::ShowHome()
 
 void ControlCenterDBusAdaptor::ShowPage(const QString &url)
 {
-    parent()->showPage(url, MainWindow::UrlType::Name);
+    parent()->showPage(url);
     Show();
 }
 

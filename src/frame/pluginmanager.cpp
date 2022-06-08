@@ -142,6 +142,7 @@ void PluginManager::loadModules(ModuleObject *root, LayoutManager *layoutManager
                 module->insertChild(data.Location, data.Module);
             }
         }
+        emit loadAllFinished();
     });
     watcher->setFuture(future);
 }

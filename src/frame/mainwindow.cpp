@@ -79,6 +79,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_rootModule(new ModuleObject(this))
     , m_layoutManager(new LayoutManager())
     , m_pluginManager(new PluginManager(this))
+    , m_loadAllFinished(false)
 {
     qRegisterMetaType<LayoutBase *>("LayoutBase *");
     qRegisterMetaType<ModuleObject *>("ModuleObject *");
@@ -89,6 +90,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(m_searchWidget, &SearchWidget::notifySearchUrl, this, [this](const QString &url) {
         showPage(url, UrlType::DisplayName);
+    });
+    connect(m_pluginManager, &PluginManager::loadAllFinished, this, [this] () {
+        m_loadAllFinished = true;
     });
 }
 
@@ -115,6 +119,17 @@ void MainWindow::showPage(const QString &url, const UrlType &uType)
         return;
     }
     showPage(m_rootModule, url, uType);
+}
+
+void MainWindow::showPage(const QString &url)
+{
+    if (m_loadAllFinished) {
+        showPage(url, UrlType::Name);
+        return;
+    }
+    QTimer::singleShot(10, this, [url, this] {
+        showPage(url);
+    });
 }
 
 ModuleObject *MainWindow::getRootModule() const
