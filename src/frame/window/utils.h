@@ -84,7 +84,7 @@ const QMap<uint32_t, QString> WaylandkeyMap = { {Qt::Key_A, "A"}, {Qt::Key_B, "B
     {Qt::Key_Backtab, "Tab"}, {Qt::Key_Backspace, "Backspace"}, {Qt::Key_Return, "Return"}, {Qt::Key_Enter, "Enter"}, {Qt::Key_Insert, "Insert"},
     {Qt::Key_Delete, "Delete"}, {Qt::Key_Pause, "Pause"}, {Qt::Key_Print, "Print"}, {Qt::Key_SysReq, "SysReq"}, {Qt::Key_Clear, "Clear"}, {Qt::Key_Home, "Home"},
     {Qt::Key_End, "End"}, {Qt::Key_Left, "←"}, {Qt::Key_Up, "↑"}, {Qt::Key_Right, "→"}, {Qt::Key_Down, "↓"}, {Qt::Key_PageUp, "PageUp"},
-    {Qt::Key_PageDown, "PageDown"}, {Qt::Key_Shift, "Shift_L"}, {Qt::Key_Control, "Control_L"}, {Qt::Key_Super_L, "Super_L"}, {Qt::Key_Alt, "Alt_L"},
+    {Qt::Key_PageDown, "PageDown"}, {Qt::Key_Shift, "Shift_L"}, {Qt::Key_Control, "Control_L"}, {Qt::Key_Super_L, "Super_L"}, {Qt::Key_Super_R, "Super_R"}, {Qt::Key_Alt, "Alt_L"},
     {Qt::Key_CapsLock, "CapLock"}, {Qt::Key_NumLock, "NumLock"}, {Qt::Key_ScrollLock, "ScrollLock"}, {Qt::Key_F1, "F1"}, {Qt::Key_F2, "F2"}, {Qt::Key_F3, "F3"},
     {Qt::Key_F4, "F4"}, {Qt::Key_F5, "F5"}, {Qt::Key_F6, "F6"}, {Qt::Key_F7, "F7"}, {Qt::Key_F8, "F8"}, {Qt::Key_F9, "F9"},
     {Qt::Key_F10, "F10"}, {Qt::Key_F11, "F11"}, {Qt::Key_F12, "F12"}, {Qt::Key_Space, "Space"}, {Qt::Key_AsciiTilde, "~"}

@@ -239,7 +239,7 @@ void CustomContent::keyPressEvent(QKeyEvent *ke)
 
     waylandGrab->setRecordState(true);
     keyEvent(true, waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
-    if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L) {
+    if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L || ke->key() == Qt::Key_Super_R) {
         lastKey += ("<" + keyValue.remove(keyValue.indexOf("_"), 2) + ">");
         waylandGrab->setLastKey(lastKey);
     }
@@ -254,11 +254,15 @@ void CustomContent::keyReleaseEvent(QKeyEvent *ke)
     QString lastKey = waylandGrab->getLastKey();
     QString keyValue = waylandGrab->getKeyValue();
     if (!lastKey.isEmpty()) {
-        if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L) {
+        if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift) {
             keyEvent(false, "");
+        } else if (ke->key() == Qt::Key_Super_L || ke->key() == Qt::Key_Super_R) {
+            keyEvent(false, "Super_L");
         } else {
             keyEvent(false, lastKey + keyValue);
         }
+    } else {
+        keyEvent(false, "");
     }
     waylandGrab->setLastKey("");
     waylandGrab->setRecordState(false);
