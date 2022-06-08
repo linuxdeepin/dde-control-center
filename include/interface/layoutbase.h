@@ -91,6 +91,7 @@ public:
 class LayoutFactoryBase
 {
 public:
+    virtual ~LayoutFactoryBase() {}
     virtual DCC_LAYOUT_TYPE type() = 0;
     virtual LayoutBase *createLayout() = 0;
 };

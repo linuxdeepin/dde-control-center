@@ -27,6 +27,7 @@ class LayoutManager
 {
 public:
     LayoutManager();
+    ~LayoutManager();
     LayoutBase *createLayout(DCC_LAYOUT_TYPE type);
     bool registerLayout(LayoutFactoryBase *factory);
     void registerLayout(QList<LayoutFactoryBase *> factories);

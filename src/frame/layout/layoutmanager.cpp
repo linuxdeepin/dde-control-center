@@ -29,6 +29,15 @@ LayoutManager::LayoutManager()
 {
 }
 
+LayoutManager::~LayoutManager()
+{
+    QMap<DCC_LAYOUT_TYPE, LayoutFactoryBase *>::const_iterator iter = m_mapFactory.cbegin();
+    while (iter != m_mapFactory.cend()) {
+        delete iter.value();
+        ++iter;
+    }
+}
+
 LayoutBase *LayoutManager::createLayout(DCC_LAYOUT_TYPE type)
 {
     LayoutBase *layout = nullptr;
