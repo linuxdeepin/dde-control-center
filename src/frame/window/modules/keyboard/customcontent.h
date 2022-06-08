@@ -72,6 +72,7 @@ public Q_SLOTS:
 protected:
     void keyPressEvent(QKeyEvent *ke) override;
     void keyReleaseEvent(QKeyEvent *ke) override;
+    void mousePressEvent(QMouseEvent *e) override;
 
 private:
     dcc::keyboard::KeyboardWorker *m_work;

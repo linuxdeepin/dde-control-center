@@ -237,8 +237,8 @@ void CustomContent::keyPressEvent(QKeyEvent *ke)
     QString lastKey = waylandGrab->getLastKey();
     QString keyValue = waylandGrab->getKeyValue();
 
-    keyEvent(true, waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
     waylandGrab->setRecordState(true);
+    keyEvent(true, waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
     if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L) {
         lastKey += ("<" + keyValue.remove(keyValue.indexOf("_"), 2) + ">");
         waylandGrab->setLastKey(lastKey);
@@ -264,4 +264,16 @@ void CustomContent::keyReleaseEvent(QKeyEvent *ke)
     waylandGrab->setRecordState(false);
     waylandGrab->onUnGrab();
     return QWidget::keyReleaseEvent(ke);
+}
+
+void CustomContent::mousePressEvent(QMouseEvent *e)
+{
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm()) {
+        return;
+    }
+    setFocus();
+    if (waylandGrab != nullptr && !waylandGrab->getRecordState()) {
+        waylandGrab->onUnGrab();
+    }
+    QWidget::mousePressEvent(e);
 }

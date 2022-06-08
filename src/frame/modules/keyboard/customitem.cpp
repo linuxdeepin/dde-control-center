@@ -64,6 +64,12 @@ CustomItem::CustomItem(QWidget *parent)
     m_shortcutEdit->hide();
     m_shortcutEdit->installEventFilter(this);
     m_shortcutEdit->setAccessibleName("SHORTCUT_EDIT");
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        connect(m_shortcutEdit, &QLineEdit::editingFinished, this, [ this ] {
+            m_shortcutEdit->hide();
+            m_shortKey->show();
+        });
+    }
     layout->addWidget(m_shortcutEdit);
 
     setLayout(layout);
