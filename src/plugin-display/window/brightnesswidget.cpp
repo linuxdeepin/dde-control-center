@@ -134,6 +134,7 @@ void BrightnessWidget::setMode(DisplayModel *model)
     m_autoLightMode->setChecked(model->isAudtoLightAdjust());
     setAdjustCCTmode(model->adjustCCTMode()); //0不调节色温  1  自动调节   2手动调节
     setColorTemperatureVisible(model->redshiftIsValid());
+    connect(model, &DisplayModel::redshiftVaildChanged, this, &BrightnessWidget::setColorTemperatureVisible);
 
     addSlider();
 }

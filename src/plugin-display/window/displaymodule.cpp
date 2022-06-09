@@ -195,11 +195,14 @@ void DisplayModule::showSingleScreenWidget()
     }
     m_displayWidget->layout()->addWidget(singleScreenWidget);
 
-    connect(m_model, &DisplayModel::brightnessEnableChanged, this, [brightnessWidget, scalingSpacerItem, this](const bool enable) {
-        const bool visible = enable && m_model->primaryMonitor() && m_model->primaryMonitor()->canBrightness();
+    auto setBrightnessWidget = [brightnessWidget, scalingSpacerItem, this]() {
+        const bool visible = m_model->brightnessEnable() && m_model->primaryMonitor() && m_model->primaryMonitor()->canBrightness();
         scalingSpacerItem->changeSize(0, visible ? 20 : 0);
         brightnessWidget->setVisible(visible);
-    });
+    };
+
+    connect(m_model, &DisplayModel::primaryScreenChanged, brightnessWidget ,setBrightnessWidget);
+    connect(m_model, &DisplayModel::brightnessEnableChanged, brightnessWidget ,setBrightnessWidget);
 }
 
 void DisplayModule::updateWinsize(QRect rect)
