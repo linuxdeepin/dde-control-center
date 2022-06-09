@@ -19,9 +19,17 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #pragma once
+#include "interface/namespace.h"
 
 #include <QObject>
 #include <QStandardPaths>
 
+DCC_BEGIN_NAMESPACE
+class ModuleObject;
+
 static const QString &CollapseConfgPath = QStandardPaths::standardLocations(QStandardPaths::ConfigLocation).first() + "/dde-control-center-collapse.conf";
 QByteArray getFileMd5(const QString &filePath);
+ModuleObject *GetModuleByUrl(ModuleObject *const root, const QString &url);
+QString GetUrlByModule(ModuleObject *const module);
+
+DCC_END_NAMESPACE

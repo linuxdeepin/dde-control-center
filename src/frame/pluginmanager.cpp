@@ -3,6 +3,7 @@
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
 #include "utils.h"
+#include "mainwindow.h"
 
 #include <QDir>
 #include <QDebug>
@@ -53,11 +54,11 @@ PluginData loadModule(const QPair<PluginManager*,QString> &pair)
     data.Location = -1;
     auto &&fileName = pair.second;
     QFileInfo fileInfo(fileName);
-    QSettings settings(CollapseConfgPath, QSettings::IniFormat);
+    QSettings settings(DCC_NAMESPACE::CollapseConfgPath, QSettings::IniFormat);
     settings.beginGroup("collapse");
     const QByteArray &md5 = settings.value(fileInfo.fileName()).toByteArray();
     settings.endGroup();
-    if (getFileMd5(fileName).toHex() == md5) {
+    if (DCC_NAMESPACE::getFileMd5(fileName).toHex() == md5) {
         qWarning() << QString("The Plugin: %1 crashed, will not load!").arg(fileName);
         return data;
     }
@@ -136,12 +137,25 @@ void PluginManager::loadModules(ModuleObject *root, LayoutManager *layoutManager
     QFuture<PluginData> future = QtConcurrent::mapped(libraryNames, loadModule);
     connect(watcher, &QFutureWatcher<PluginData>::finished, this, [this] {
         // 加载非一级插件
-        for (auto &&data : m_datas) {
-            auto &&module = findModule(m_rootModule, data.Follow);
-            if (module) {
-                module->insertChild(data.Location, data.Module);
+        bool loop = true;
+        while (loop) {
+            loop = false;
+            for (auto it = m_datas.begin(); it != m_datas.end();) {
+                auto &&module = DCC_NAMESPACE::GetModuleByUrl(m_rootModule, it->Follow);
+                if (module) {
+                    module->insertChild(it->Location, it->Module);
+                    loop = true;
+                    it = m_datas.erase(it);
+                } else 
+                    ++it;
             }
         }
+        // 释放加不进去的module
+        for(auto &&data : m_datas) {
+            qWarning()<<"Unkown Module! name:"<<data.Module->name()<<"follow:"<<data.Follow<<"location:"<<data.Location;
+            delete data.Module;
+        }
+        m_datas.clear();
         emit loadAllFinished();
     });
     watcher->setFuture(future);

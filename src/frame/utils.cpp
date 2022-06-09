@@ -20,12 +20,15 @@
 */
 
 #include "utils.h"
+#include "interface/moduleobject.h"
 
 #include <QDebug>
 #include <QFile>
 #include <QCryptographicHash>
 
-QByteArray getFileMd5(const QString &filePath)
+DCC_USE_NAMESPACE
+
+QByteArray DCC_NAMESPACE::getFileMd5(const QString &filePath)
 {
     QFile localFile(filePath);
 
@@ -63,4 +66,35 @@ QByteArray getFileMd5(const QString &filePath)
 
     localFile.close();
     return ch.result();
+}
+
+ModuleObject *DCC_NAMESPACE::GetModuleByUrl(ModuleObject *const root, const QString &url)
+{
+    ModuleObject *obj = root;
+    ModuleObject *parent = nullptr;
+    QStringList names = url.split('/');
+    while (!names.isEmpty() && obj) {
+        const QString &name = names.takeFirst();
+        QString childName;
+        parent = obj;
+        obj = nullptr;
+        for (auto child : parent->childrens()) {
+            if (child->name() == name)
+                obj = child;
+            if (obj)
+                break;
+        }
+    }
+    return names.isEmpty() ? obj : nullptr;
+}
+
+QString DCC_NAMESPACE::GetUrlByModule(ModuleObject *const module)
+{
+    QStringList url;
+    ModuleObject *obj = module;
+    while (obj && obj->getParent()) {
+        url.prepend(obj->name());
+        obj = obj->getParent();
+    }
+    return url.join('/');
 }

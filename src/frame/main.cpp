@@ -82,9 +82,9 @@ void sig_crash(int sig)
             IsCrashed = true;
 
             QFileInfo fileInfo(pluginPath);
-            QSettings settings(CollapseConfgPath, QSettings::IniFormat);
+            QSettings settings(DCC_NAMESPACE::CollapseConfgPath, QSettings::IniFormat);
             settings.beginGroup("collapse");
-            settings.setValue(fileInfo.fileName(), getFileMd5(pluginPath).toHex());
+            settings.setValue(fileInfo.fileName(), DCC_NAMESPACE::getFileMd5(pluginPath).toHex());
             settings.endGroup();
 
             DDBusSender()

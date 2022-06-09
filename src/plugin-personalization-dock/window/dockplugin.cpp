@@ -78,17 +78,17 @@ ModuleObject* DockPlugin::module()
     ModuleObject *moduleRoot = new ModuleObject("dock", tr("Dock"), tr("Dock plugin"));
     moduleRoot->setChildType(ModuleObject::Page);
 
-    moduleRoot->appendChild(new WidgetModule<ComboxWidget>("Mode", tr("Mode"), this, &DockPlugin::initMode));
-    moduleRoot->appendChild(new WidgetModule<ComboxWidget>("Position", tr("Position"), this, &DockPlugin::initPosition));
-    moduleRoot->appendChild(new WidgetModule<ComboxWidget>("Status", tr("Status"), this, &DockPlugin::initStatus));
-    moduleRoot->appendChild(new WidgetModule<TitledSliderItem>("Size", tr("Size"), this, &DockPlugin::initSizeSlider));
+    moduleRoot->appendChild(new WidgetModule<ComboxWidget>("mode", tr("Mode"), this, &DockPlugin::initMode));
+    moduleRoot->appendChild(new WidgetModule<ComboxWidget>("position", tr("Position"), this, &DockPlugin::initPosition));
+    moduleRoot->appendChild(new WidgetModule<ComboxWidget>("status", tr("Status"), this, &DockPlugin::initStatus));
+    moduleRoot->appendChild(new WidgetModule<TitledSliderItem>("size", tr("Size"), this, &DockPlugin::initSizeSlider));
 
     // 当任务栏服务未注册或当前只有一个屏幕或当前有多个屏幕但设置为复制模式时均不显示多屏设置项
     if (QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.Dock")
             && QApplication::screens().size() > 1
             && !isCopyMode()) {
-        moduleRoot->appendChild(new WidgetModule<TitleLabel>("ScreenTitle", tr("ScreenTitle"), this, &DockPlugin::initScreenTitle));
-        moduleRoot->appendChild(new WidgetModule<ComboxWidget>("Screen", tr("Screen"), this, &DockPlugin::initScreen));
+        moduleRoot->appendChild(new WidgetModule<TitleLabel>("screenTitle", tr("ScreenTitle"), this, &DockPlugin::initScreenTitle));
+        moduleRoot->appendChild(new WidgetModule<ComboxWidget>("screen", tr("Screen"), this, &DockPlugin::initScreen));
     }
 
     // @note 不使用m_dbusProxy的原因在于module函数的调用和m_dbusProxy指针的初始化分别在不同的线程中
@@ -98,9 +98,9 @@ ModuleObject* DockPlugin::module()
     QStringList plugins = reply.value();
     // 当対应服务异常或插件为空时，不显示对应模块信息
     if (reply.error().type() == QDBusError::ErrorType::NoError && reply.value().size() > 0) {
-        moduleRoot->appendChild(new WidgetModule<TitleLabel>("PluginTitle", tr("PluginTitle"), this, &DockPlugin::initPluginTitle));
-        moduleRoot->appendChild(new WidgetModule<DTipLabel>("PluginTip", tr("PluginTip"), this, &DockPlugin::initPluginTips));
-        moduleRoot->appendChild(new WidgetModule<DListView>("PluginArea", tr("PluginArea"), this, &DockPlugin::initPluginView));
+        moduleRoot->appendChild(new WidgetModule<TitleLabel>("pluginTitle", tr("PluginTitle"), this, &DockPlugin::initPluginTitle));
+        moduleRoot->appendChild(new WidgetModule<DTipLabel>("pluginTip", tr("PluginTip"), this, &DockPlugin::initPluginTips));
+        moduleRoot->appendChild(new WidgetModule<DListView>("pluginArea", tr("PluginArea"), this, &DockPlugin::initPluginView));
     }
 
     return moduleRoot;

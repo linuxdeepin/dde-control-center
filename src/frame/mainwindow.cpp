@@ -23,6 +23,7 @@
 #include "pluginmanager.h"
 #include "searchwidget.h"
 #include "widgets/utils.h"
+#include "utils.h"
 
 #include <DBackgroundGroup>
 #include <DIconButton>
@@ -50,6 +51,8 @@
 #include <QShortcut>
 #include <QTimer>
 #include <QColor>
+#include <QJsonArray>
+#include <QJsonDocument>
 
 #include "layout/layoutmanager.h"
 
@@ -93,6 +96,8 @@ MainWindow::MainWindow(QWidget *parent)
     });
     connect(m_pluginManager, &PluginManager::loadAllFinished, this, [this] () {
         m_loadAllFinished = true;
+        // 搜索没实时更新，插件并行加载，此处在插件加载完后更新，待修改为实时更新
+        m_searchWidget->setModuleObject(m_rootModule);
     });
 }
 
@@ -130,11 +135,6 @@ void MainWindow::showPage(const QString &url)
     QTimer::singleShot(10, this, [url, this] {
         showPage(url);
     });
-}
-
-ModuleObject *MainWindow::getRootModule() const
-{
-    return m_rootModule;
 }
 
 void MainWindow::showPage(ModuleObject *const module, const QString &url, const UrlType &uType)
@@ -261,12 +261,12 @@ void MainWindow::updateModuleConfig(const QString &key)
     QSet<QString> addModuleConfig = findAddItems(&oldModuleConfig, newModuleConfig);
     QSet<QString> removeModuleConfig = findAddItems(newModuleConfig, &oldModuleConfig);
     for (auto &&url : addModuleConfig) {
-        ModuleObject *obj = getModuleByUrl(m_rootModule, url, UrlType::Name);
+        ModuleObject *obj = DCC_NAMESPACE::GetModuleByUrl(m_rootModule, url);
         if (obj)
             obj->setFlagState(type, true);
     }
     for (auto &&url : removeModuleConfig) {
-        ModuleObject *obj = getModuleByUrl(m_rootModule, url, UrlType::Name);
+        ModuleObject *obj = DCC_NAMESPACE::GetModuleByUrl(m_rootModule, url);
         if (obj)
             obj->setFlagState(type, false);
     }
@@ -279,12 +279,8 @@ void MainWindow::delayUpdateLayoutCurrent(LayoutBase *layout, ModuleObject *chil
 
 void MainWindow::updateLayoutCurrent(LayoutBase *layout, ModuleObject *child)
 {
-    for (auto &&data : m_currentModule) {
-        if (layout == data.layout) {
-            layout->setCurrent(child);
-            return;
-        }
-    }
+    if (layout && std::any_of(m_currentModule.begin(), m_currentModule.end(), [layout] (auto &&data) { return data.layout == layout; }))
+        layout->setCurrent(child);
 }
 
 void MainWindow::loadModules()
@@ -293,9 +289,9 @@ void MainWindow::loadModules()
     m_pluginManager->loadModules(m_rootModule, m_layoutManager);
     showModule(m_rootModule, m_contentWidget);
     // 搜索没实时更新，插件并行加载，此处暂延时设置，待修改
-    QTimer::singleShot(3000, this, [this]() {
-        m_searchWidget->setModuleObject(m_rootModule);
-    });
+    // QTimer::singleShot(3000, this, [this]() {
+    //     m_searchWidget->setModuleObject(m_rootModule);
+    // });
 }
 
 void MainWindow::toHome()
@@ -435,45 +431,6 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
     }
 }
 
-ModuleObject *MainWindow::getModuleByUrl(ModuleObject *const root, const QString &url, const MainWindow::UrlType &uType)
-{
-    ModuleObject *obj = root;
-    ModuleObject *parent = nullptr;
-    QStringList names = url.split('/');
-    while (!names.isEmpty() && obj) {
-        const QString &name = names.takeFirst();
-        QString childName;
-        parent = obj;
-        obj = nullptr;
-        for (auto child : parent->childrens()) {
-            switch (uType) {
-            case UrlType::Name:
-                if (child->name() == name)
-                    obj = child;
-                break;
-            case UrlType::DisplayName:
-                if (child->displayName() == name || child->contentText().contains(name))
-                    obj = child;
-                break;
-            }
-            if (obj)
-                break;
-        }
-    }
-    return names.isEmpty() ? obj : nullptr;
-}
-
-QString MainWindow::getUrlByModule(ModuleObject *const module)
-{
-    QStringList url;
-    ModuleObject *obj = module;
-    while (obj && obj != m_rootModule) {
-        url.prepend(obj->name());
-        obj = obj->getParent();
-    }
-    return url.join('/');
-}
-
 void MainWindow::resizeCurrentModule(int size)
 {
     for (int i = size; i < m_currentModule.size(); ++i) {
@@ -485,7 +442,7 @@ void MainWindow::resizeCurrentModule(int size)
 
 void MainWindow::onAddModule(ModuleObject *const module)
 {
-    QString url = getUrlByModule(module);
+    QString url = DCC_NAMESPACE::GetUrlByModule(module);
 
     QList<QPair<QString, ModuleObject *>> modules;
     modules.append({ url, module });
@@ -542,4 +499,29 @@ void MainWindow::openManual()
     if (reply.type() == QDBusMessage::ErrorMessage) {
         qWarning() << "Open manual failed, error message:" << reply.errorMessage();
     }
+}
+
+QString MainWindow::getAllModule() const
+{
+    ModuleObject *root = m_rootModule;
+    QList<QPair<ModuleObject *, QStringList>> modules;
+    for (auto &&child : root->childrens()) {
+        modules.append({child, {child->name(), child->displayName()}});
+    }
+
+    QJsonArray arr;
+    while (!modules.isEmpty()) {
+        const auto &urlInfo = modules.takeFirst();
+        QJsonObject obj;
+        obj.insert("url", urlInfo.second.at(0));
+        obj.insert("displayName", urlInfo.second.at(1));
+        arr.append(obj);
+        for (auto &&child : urlInfo.first->childrens()) {
+            modules.append({child, {urlInfo.second.at(0) + "/" + child->name(), urlInfo.second.at(1) + "/" + child->displayName()}});
+        }
+    }
+
+    QJsonDocument doc;
+    doc.setArray(arr);
+    return doc.toJson(QJsonDocument::Compact);
 }

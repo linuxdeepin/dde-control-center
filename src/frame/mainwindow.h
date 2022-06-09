@@ -80,7 +80,7 @@ public:
      * @param url 路径地址
      */
     void showPage(const QString &url);
-    ModuleObject *getRootModule() const;
+    QString getAllModule() const;
 
 protected:
     void changeEvent(QEvent *event) override;
@@ -97,8 +97,6 @@ private:
     void configLayout(QBoxLayout *const layout);
     void showPage(ModuleObject *const module, const QString &url, const UrlType &uType);
     void showModule(ModuleObject *const module, QWidget *const parent);
-    ModuleObject *getModuleByUrl(ModuleObject *const root, const QString &url, const UrlType &uType);
-    QString getUrlByModule(ModuleObject *const module);
     void resizeCurrentModule(int size);
 
 private Q_SLOTS:

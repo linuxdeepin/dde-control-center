@@ -93,8 +93,7 @@ SoundModule::SoundModule(QObject *parent)
     , m_model(new SoundModel(this))
     , m_work(new SoundWorker(m_model, this))
 {
-    m_model->moveToThread(qApp->thread());
-    m_work->moveToThread(qApp->thread());
+
 }
 
 SoundModule::~SoundModule()
