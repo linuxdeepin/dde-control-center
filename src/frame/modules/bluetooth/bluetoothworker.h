@@ -99,7 +99,7 @@ private:
     DBusBluetooth *m_bluetoothInter;
     DBusAirplaneMode *m_airPlaneModeInter;
     BluetoothModel *m_model;
-    QMap<QDBusObjectPath, PinCodeDialog*> m_dialogs;
+    QMap<QString, PinCodeDialog*> m_dialogs;
     bool m_connectingAudioDevice;
     uint m_state;
 };

@@ -49,9 +49,9 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
     connect(m_bluetoothInter, &DBusBluetooth::DeviceRemoved, this, &BluetoothWorker::removeDevice);
     connect(m_bluetoothInter, &DBusBluetooth::DevicePropertiesChanged, this, &BluetoothWorker::onDevicePropertiesChanged);
     connect(m_bluetoothInter, &DBusBluetooth::Cancelled, this, [=] (const QDBusObjectPath &device) {
-        PinCodeDialog *dialog = m_dialogs[device];
+        PinCodeDialog *dialog = m_dialogs[device.path()];
         if (dialog != nullptr) {
-            m_dialogs.remove(device);
+            m_dialogs.remove(device.path());
             QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
         } else {
             Q_EMIT pinCodeCancel(device);
@@ -74,9 +74,15 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
 
     connect(m_bluetoothInter, &DBusBluetooth::DisplayPasskey, this, [ = ] (const QDBusObjectPath &in0, uint in1, uint in2) {
         qDebug() << "request display passkey: " << in0.path() << in1 << in2;
-
-        PinCodeDialog *dialog = PinCodeDialog::instance(QString::number(in1), false);
-        m_dialogs[in0] = dialog;
+        auto pinCode = QString::number(in1).rightJustified(6, '0');
+        PinCodeDialog *dialog = PinCodeDialog::instance(pinCode, false);
+        if (m_dialogs.keys().contains(in0.path()) && m_dialogs[in0.path()]->pinCode() != pinCode) {
+            qDebug() << "not repeat dialog" ;
+            m_dialogs[in0.path()]->hide();
+            m_dialogs[in0.path()]->deleteLater();
+            m_dialogs.remove(in0.path());
+        }
+        m_dialogs[in0.path()] = dialog;
         if (!dialog->isVisible()) {
             dialog->exec();
             QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
@@ -87,7 +93,7 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
         qDebug() << "request display pincode: " << in0.path() << in1;
 
         PinCodeDialog *dialog = PinCodeDialog::instance(in1, false);
-        m_dialogs[in0] = dialog;
+        m_dialogs[in0.path()] = dialog;
         if (!dialog->isVisible()) {
             dialog->exec();
             QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
