@@ -387,7 +387,6 @@ void KeyboardModule::showShortCutSetting()
 
     if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
         connect(m_work, &KeyboardWorker::stareGrab, m_shortcutSettingWidget, &ShortCutSettingWidget::onGrab);
-        connect(m_shortcutSettingWidget, &ShortCutSettingWidget::changed, m_work, &KeyboardWorker::onShortcutChanged);
     }
 
     m_frameProxy->pushWidget(this, m_shortcutSettingWidget);

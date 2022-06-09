@@ -248,15 +248,15 @@ void CustomContent::keyPressEvent(QKeyEvent *ke)
 
 void CustomContent::keyReleaseEvent(QKeyEvent *ke)
 {
-    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm()) {
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm() || !waylandGrab->getRecordState()) {
         return;
     }
     QString lastKey = waylandGrab->getLastKey();
     QString keyValue = waylandGrab->getKeyValue();
     if (!lastKey.isEmpty()) {
-        if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift) {
+        if (WaylandkeyMap[Qt::Key_Control] == keyValue || WaylandkeyMap[Qt::Key_Alt] == keyValue || WaylandkeyMap[Qt::Key_Shift] == keyValue) {
             keyEvent(false, "");
-        } else if (ke->key() == Qt::Key_Super_L || ke->key() == Qt::Key_Super_R) {
+        } else if (WaylandkeyMap[Qt::Key_Super_L] == keyValue || WaylandkeyMap[Qt::Key_Super_R] == keyValue) {
             keyEvent(false, "Super_L");
         } else {
             keyEvent(false, lastKey + keyValue);
