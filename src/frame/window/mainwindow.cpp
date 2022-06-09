@@ -1402,3 +1402,12 @@ QString MainWindow::moduleDisplayName(const QString &module) const
     }
     return find_it->second;
 }
+
+
+bool MainWindow::event(QEvent *event)
+{
+    if(event->type() == QEvent::Show || event->type() == QEvent::Hide ){
+        Q_EMIT mainwindowStateChange(event->type());
+    }
+    return DMainWindow::event(event);
+}

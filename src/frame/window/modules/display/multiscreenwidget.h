@@ -92,6 +92,9 @@ private:
     void initSecondaryScreenDialog();
     void setModeCurrentIndex(const QString &monitorName);
 
+public Q_SLOTS:
+    void onMainwindowStateChanged(int type);
+
 private Q_SLOTS:
     void onGatherWindows(const QPoint cursor);
     void onMonitorPress(dcc::display::Monitor *monitor);

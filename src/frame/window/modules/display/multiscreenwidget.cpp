@@ -413,7 +413,6 @@ void MultiScreenWidget::initSecondaryScreenDialog()
             connect(dlg, &SecondaryScreenDialog::requestCloseRecognize, this, &MultiScreenWidget::onRequestCloseRecognize);
             connect(this, &MultiScreenWidget::requestGatherEnabled, dlg, &SecondaryScreenDialog::requestGatherEnabled);
             m_secondaryScreenDlgList.append(dlg);
-            
             dlg->show();
         }
         activateWindow();
@@ -422,7 +421,6 @@ void MultiScreenWidget::initSecondaryScreenDialog()
             m_resetSecondaryScreenDlgTimer->start();
             QTimer::singleShot(10, this, [=] {
                 for (auto dlg : m_secondaryScreenDlgList) {
-                    dlg->setWindowFlags(Qt::CoverWindow);
                     dlg->show();
                 }
             });
@@ -582,5 +580,16 @@ void MultiScreenWidget::setModeCurrentIndex(const QString &monitorName)
         m_modeCombox->blockSignals(true);
         m_modeCombox->setCurrentIndex(index);
         m_modeCombox->blockSignals(false);
+    }
+}
+
+void MultiScreenWidget::onMainwindowStateChanged(int type)
+{
+    qDebug() << Q_FUNC_INFO << type;
+    if(QEvent::Show == type || QEvent::Hide == type ){
+        for (auto item : m_secondaryScreenDlgList) {
+            if(item != nullptr)
+                item->setVisible(QEvent::Show == type);
+        }
     }
 }

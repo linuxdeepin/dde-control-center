@@ -116,9 +116,11 @@ public:
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
+    void mainwindowStateChange(int type);
 
 private:
     void changeEvent(QEvent *event) override;
+    bool event(QEvent* event) override;
 
 private Q_SLOTS:
     void onEnterSearchWidget(QString moduleName, QString widget);

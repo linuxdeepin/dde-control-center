@@ -325,6 +325,9 @@ void DisplayModule::showMultiScreenWidget()
                 m_displayWorker->setCurrentFillMode(m, currfillMode);
         }
     });
+    if(QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)){
+        connect(m_pMainWindow, &MainWindow::mainwindowStateChange, multiScreenWidget, &MultiScreenWidget::onMainwindowStateChanged);
+    }
 
     connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi,  bool isInit) {
