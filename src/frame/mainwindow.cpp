@@ -279,7 +279,12 @@ void MainWindow::delayUpdateLayoutCurrent(LayoutBase *layout, ModuleObject *chil
 
 void MainWindow::updateLayoutCurrent(LayoutBase *layout, ModuleObject *child)
 {
-    layout->setCurrent(child);
+    for (auto &&data : m_currentModule) {
+        if (layout == data.layout) {
+            layout->setCurrent(child);
+            return;
+        }
+    }
 }
 
 void MainWindow::loadModules()
@@ -391,7 +396,7 @@ void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
             if (!m_currentModule.isEmpty()) {
                 const WidgetData &data = m_currentModule.last();
                 if (data.layout)
-                    data.layout->setCurrent(modules.first());
+                    delayUpdateLayoutCurrent(data.layout, modules.first());
             }
             break;
         }
