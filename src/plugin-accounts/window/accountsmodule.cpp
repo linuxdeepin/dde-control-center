@@ -209,6 +209,7 @@ void AccountsPageModule::onShowPasswordPage(User *account)
     connect(w, &ModifyPasswdPage::requestChangePassword, m_worker, &AccountsWorker::setPassword);
     connect(w, &ModifyPasswdPage::requestResetPassword, m_worker, &AccountsWorker::resetPassword);
     connect(w, &ModifyPasswdPage::requestBack, m_accountsListWidget, &AccountsListWidget::handleRequestBack);
+    connect(w, &ModifyPasswdPage::requestBack, w, &ModifyPasswdPage::deleteLater);
     connect(w, &ModifyPasswdPage::requestSetPasswordHint, m_worker, &AccountsWorker::setPasswordHint);
     connect(w, &ModifyPasswdPage::requestUOSID, m_worker, &AccountsWorker::getUOSID);
     connect(w, &ModifyPasswdPage::requestUUID, m_worker, &AccountsWorker::getUUID);
