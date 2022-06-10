@@ -205,7 +205,8 @@ int main(int argc, char *argv[])
     if (!conn.registerService("com.deepin.dde.ControlCenter") ||
         !conn.registerObject("/com/deepin/dde/ControlCenter", &mw)) {
         qDebug() << "dbus service already registered!" << "pid is:" << pid;
-        return -1;
+        if (!parser.isSet(showOption))
+            return -1;
     }
 
     if (!reqPage.isEmpty()) {
