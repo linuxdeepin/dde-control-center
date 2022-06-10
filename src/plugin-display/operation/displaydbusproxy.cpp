@@ -19,13 +19,10 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "displaydbusproxy.h"
+#include "widgets/dccdbusinterface.h"
 
-#include <QMetaObject>
-#include <QDBusConnection>
-#include <QDBusInterface>
 #include <QDBusPendingReply>
 #include <QDBusMetaType>
-#include <QDebug>
 
 const static QString DisplayService = "com.deepin.daemon.Display";
 const static QString DisplayPath = "/com/deepin/daemon/Display";
@@ -38,9 +35,6 @@ const static QString AppearanceInterface = "com.deepin.daemon.Appearance";
 const static QString PowerService = "com.deepin.daemon.Power";
 const static QString PowerPath = "/com/deepin/daemon/Power";
 const static QString PowerInterface = "com.deepin.daemon.Power";
-
-const static QString PropertiesInterface = "org.freedesktop.DBus.Properties";
-const static QString PropertiesChanged = "PropertiesChanged";
 
 DisplayDBusProxy::DisplayDBusProxy(QObject *parent)
     : QObject(parent)
@@ -58,15 +52,9 @@ DisplayDBusProxy::DisplayDBusProxy(QObject *parent)
 
 void DisplayDBusProxy::init()
 {
-    m_dBusDisplayPropertiesInter = new QDBusInterface(DisplayService, DisplayPath, PropertiesInterface, QDBusConnection::sessionBus(), this);
-    m_dBusDisplayInter = new QDBusInterface(DisplayService, DisplayPath, DisplayInterface, QDBusConnection::sessionBus(), this);
-    m_dBusAppearanceInter = new QDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
-    m_dBusPowerInter = new QDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
-
-    QDBusConnection dbusConnection = m_dBusDisplayInter->connection();
-    dbusConnection.connect(DisplayService, DisplayPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    dbusConnection = m_dBusPowerInter->connection();
-    dbusConnection.connect(PowerService, PowerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
+    m_dBusDisplayInter = new DCC_NAMESPACE::DCCDBusInterface(DisplayService, DisplayPath, DisplayInterface, QDBusConnection::sessionBus(), this);
+    m_dBusAppearanceInter = new DCC_NAMESPACE::DCCDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
+    m_dBusPowerInter = new DCC_NAMESPACE::DCCDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
 }
 
 //power
@@ -88,7 +76,7 @@ bool DisplayDBusProxy::hasAmbientLightSensor()
 //display
 BrightnessMap DisplayDBusProxy::brightness()
 {
-    return qvariant_cast<BrightnessMap>(m_dBusDisplayPropertiesInter->call("Get", DisplayInterface, "Brightness").arguments().at(0).value<QDBusVariant>().variant());
+    return qvariant_cast<BrightnessMap>(m_dBusDisplayInter->property("Brightness"));
 }
 
 int DisplayDBusProxy::colorTemperatureManual()
@@ -98,7 +86,7 @@ int DisplayDBusProxy::colorTemperatureManual()
 
 int DisplayDBusProxy::colorTemperatureMode()
 {
-    return qvariant_cast<int>(m_dBusDisplayInter->property("ColorTemperatureManual"));
+    return qvariant_cast<int>(m_dBusDisplayInter->property("ColorTemperatureMode"));
 }
 
 QString DisplayDBusProxy::currentCustomId()
@@ -137,7 +125,7 @@ QString DisplayDBusProxy::primary()
 
 ScreenRect DisplayDBusProxy::primaryRect()
 {
-    return qvariant_cast<ScreenRect>(m_dBusDisplayPropertiesInter->call("Get", DisplayInterface, "PrimaryRect").arguments().at(0).value<QDBusVariant>().variant());
+    return qvariant_cast<ScreenRect>(m_dBusDisplayInter->property("PrimaryRect"));
 }
 
 ushort DisplayDBusProxy::screenHeight()
@@ -152,17 +140,17 @@ ushort DisplayDBusProxy::screenWidth()
 
 TouchscreenMap DisplayDBusProxy::touchMap()
 {
-    return qvariant_cast<TouchscreenMap>(m_dBusDisplayPropertiesInter->call("Get", DisplayInterface, "TouchMap").arguments().at(0).value<QDBusVariant>().variant());
+    return qvariant_cast<TouchscreenMap>(m_dBusDisplayInter->property("TouchMap"));
 }
 
 TouchscreenInfoList DisplayDBusProxy::touchscreens()
 {
-    return qvariant_cast<TouchscreenInfoList>(m_dBusDisplayPropertiesInter->call("Get", DisplayInterface, "Touchscreens").arguments().at(0).value<QDBusVariant>().variant());
+    return qvariant_cast<TouchscreenInfoList>(m_dBusDisplayInter->property("Touchscreens"));
 }
 
 TouchscreenInfoList_V2 DisplayDBusProxy::touchscreensV2()
 {
-    return qvariant_cast<TouchscreenInfoList_V2>(m_dBusDisplayPropertiesInter->call("Get", DisplayInterface, "TouchscreensV2").arguments().at(0).value<QDBusVariant>().variant());
+    return qvariant_cast<TouchscreenInfoList_V2>(m_dBusDisplayInter->property("TouchscreensV2"));
 }
 
 
@@ -333,26 +321,4 @@ QDBusReply<bool> DisplayDBusProxy::CanSetBrightnessSync(const QString &name)
 QDBusReply<bool> DisplayDBusProxy::SupportSetColorTemperatureSync()
 {
     return m_dBusDisplayInter->call("SupportSetColorTemperatureSync");
-}
-
-
-
-void DisplayDBusProxy::onPropertiesChanged(const QDBusMessage &message)
-{
-    QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
-    for (QVariantMap::const_iterator it = changedProps.begin(); it != changedProps.end(); ++it) {
-        if(it.key() =="Brightness") {
-            emit BrightnessChanged(qdbus_cast<BrightnessMap>(changedProps.value(it.key())));
-        } else if(it.key() =="PrimaryRect") {
-            emit PrimaryRectChanged(qdbus_cast<ScreenRect>(changedProps.value(it.key())));
-        } else if(it.key() =="TouchMap") {
-            emit TouchMapChanged(qdbus_cast<TouchscreenMap>(changedProps.value(it.key())));
-        } else if(it.key() =="Touchscreens") {
-            emit TouchscreensChanged(qdbus_cast<TouchscreenInfoList>(changedProps.value(it.key())));
-        } else if(it.key() =="TouchscreensV2") {
-            emit TouchscreensV2Changed(qdbus_cast<TouchscreenInfoList_V2>(changedProps.value(it.key())));
-        } else {
-            QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
-        }
-    }
 }

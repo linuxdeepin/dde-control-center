@@ -21,6 +21,7 @@
 #ifndef DISPLAYDBUSPROXY_H
 #define DISPLAYDBUSPROXY_H
 
+#include "interface/namespace.h"
 #include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
 #include "types/resolutionlist.h"
@@ -32,7 +33,9 @@
 #include <QDBusPendingReply>
 #include <QDBusReply>
 
-class QDBusInterface;
+DCC_BEGIN_NAMESPACE
+class DCCDBusInterface;
+DCC_END_NAMESPACE
 class QDBusMessage;
 
 class DisplayDBusProxy : public QObject
@@ -128,9 +131,6 @@ public Q_SLOTS: // METHODS
     QDBusPendingReply<> SetScaleFactor(double in0);
     QDBusPendingReply<> SetScreenScaleFactors(const QMap<QString,double> &scaleFactors);
 
-
-    void onPropertiesChanged(const QDBusMessage &message);
-
 Q_SIGNALS: // SIGNALS
     // begin property changed signals
     void BrightnessChanged(BrightnessMap  value) const;
@@ -155,11 +155,9 @@ Q_SIGNALS: // SIGNALS
     void HasAmbientLightSensorChanged(bool  value) const;
 
 private:
-    QDBusInterface *m_dBusDisplayInter;
-    QDBusInterface *m_dBusAppearanceInter;
-    QDBusInterface *m_dBusPowerInter;
-
-    QDBusInterface *m_dBusDisplayPropertiesInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_dBusDisplayInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_dBusAppearanceInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_dBusPowerInter;
 };
 
 #endif // DISPLAYDBUSPROXY_H
