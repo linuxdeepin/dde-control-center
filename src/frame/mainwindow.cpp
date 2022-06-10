@@ -516,9 +516,9 @@ QString MainWindow::getAllModule() const
         obj.insert("url", urlInfo.second.at(0));
         obj.insert("displayName", urlInfo.second.at(1));
         arr.append(obj);
-        for (auto &&child : urlInfo.first->childrens()) {
-            modules.append({child, {urlInfo.second.at(0) + "/" + child->name(), urlInfo.second.at(1) + "/" + child->displayName()}});
-        }
+        const QList<ModuleObject *> &children = urlInfo.first->childrens();
+        for (auto it = children.crbegin(); it != children.crend(); ++it)
+            modules.prepend({*it, {urlInfo.second.at(0) + "/" + (*it)->name(), urlInfo.second.at(1) + "/" + (*it)->displayName()}});
     }
 
     QJsonDocument doc;

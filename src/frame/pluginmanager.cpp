@@ -3,7 +3,6 @@
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
 #include "utils.h"
-#include "mainwindow.h"
 
 #include <QDir>
 #include <QDebug>

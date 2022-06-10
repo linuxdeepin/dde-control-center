@@ -136,7 +136,7 @@ void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
         connect(moni, &Monitor::rotateChanged, this, &MonitorsGround::onRotateChanged);
         m_isSingleDisplay = true;
     }
-
+    setEnabled(!m_isSingleDisplay && m_model->displayMode() == EXTEND_MODE);
     QTimer::singleShot(1, this, [=](){
         if (!m_isSingleDisplay) {
             updateScale();
