@@ -69,6 +69,10 @@ void sig_crash(int sig)
     }
     free(strings);
 
+    // Do't save configuration if all modules are loaded.
+    if (IsModulesLoaded)
+        exit(1);
+
     // analyze log and save config
 #ifdef QT_DEBUG
     const QString &pluginDirectory = "/home";

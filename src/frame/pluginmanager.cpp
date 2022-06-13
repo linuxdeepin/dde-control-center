@@ -145,7 +145,7 @@ void PluginManager::loadModules(ModuleObject *root, LayoutManager *layoutManager
                     module->insertChild(it->Location, it->Module);
                     loop = true;
                     it = m_datas.erase(it);
-                } else 
+                } else
                     ++it;
             }
         }
@@ -155,6 +155,9 @@ void PluginManager::loadModules(ModuleObject *root, LayoutManager *layoutManager
             delete data.Module;
         }
         m_datas.clear();
+
+        // save variable
+        IsModulesLoaded = true;
         emit loadAllFinished();
     });
     watcher->setFuture(future);

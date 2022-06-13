@@ -27,6 +27,8 @@
 DCC_BEGIN_NAMESPACE
 class ModuleObject;
 
+__attribute__((unused)) static bool IsModulesLoaded = false;
+
 static const QString &CollapseConfgPath = QStandardPaths::standardLocations(QStandardPaths::ConfigLocation).first() + "/dde-control-center-collapse.conf";
 QByteArray getFileMd5(const QString &filePath);
 ModuleObject *GetModuleByUrl(ModuleObject *const root, const QString &url);
