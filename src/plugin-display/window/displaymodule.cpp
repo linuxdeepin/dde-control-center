@@ -228,18 +228,13 @@ void DisplayModule::updateWinsize(QRect rect)
         w = rect.width();
         h = rect.height();
     }
-    int WidgetMinimumWidth = qMin(w, 820);
-    int WidgetMinimumHeight = qMin(h, 634);
+    int WidgetMinimumWidth = qMin(w, 800);
+    int WidgetMinimumHeight = qMin(h, 600);
 
     topWidget->setMinimumSize(QSize(WidgetMinimumWidth, WidgetMinimumHeight));
 
-    if (topWidget->width() > WidgetMinimumWidth)
-        topWidget->setGeometry(topWidget->x(), topWidget->y(), WidgetMinimumWidth, topWidget->height());
-    if (topWidget->height() > WidgetMinimumHeight)
-        topWidget->setGeometry(topWidget->x(), topWidget->y(), topWidget->width(), WidgetMinimumHeight);
-//    topWidget->titlebar()->updateGeometry();
-    topWidget->move(QPoint(m_primaryScreen->geometry().left() + (m_primaryScreen->geometry().width() - topWidget->geometry().width()) / 2,
-                m_primaryScreen->geometry().top() + (m_primaryScreen->geometry().height() - topWidget->geometry().height()) / 2));
+    topWidget->move(QPoint(m_primaryScreen->geometry().left() + (w - topWidget->geometry().width()) / 2,
+                m_primaryScreen->geometry().top() + (h - topWidget->geometry().height()) / 2));
 }
 
 void DisplayModule::setPrimaryScreen(QScreen *screen)
