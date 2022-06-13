@@ -381,13 +381,19 @@ void MultiScreenWidget::initSecondaryScreenDialog()
         }
         m_secondaryScreenDlgList.clear();
 
+        // x11 上 dialog 没有父窗口会导致主程序退出缓慢
+        // wayland上子窗口为适应多屏就不该设置父窗口，由窗管设置
+        QWidget *parent = this;
+        if (!qgetenv("WAYLAND_DISPLAY").isEmpty()) {
+            parent = nullptr;
+        }
         for (const auto &monitor : m_model->monitorList()) {
             if (monitor == m_model->primaryMonitor()) {
                 QTimer::singleShot(0, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor(), true); });
                 continue;
             }
 
-            SecondaryScreenDialog *dlg = new SecondaryScreenDialog(this);
+            SecondaryScreenDialog *dlg = new SecondaryScreenDialog(parent);
             dlg->setAttribute(Qt::WA_WState_WindowOpacitySet);
             dlg->setModel(m_model, monitor);
             connect(dlg, &SecondaryScreenDialog::requestRecognize, this, &MultiScreenWidget::requestRecognize);
@@ -402,7 +408,7 @@ void MultiScreenWidget::initSecondaryScreenDialog()
             connect(this, &MultiScreenWidget::requestGatherEnabled, dlg, &SecondaryScreenDialog::requestGatherEnabled);
             m_secondaryScreenDlgList.append(dlg);
             
-            dlg->show();
+            dlg->resetDialog();
         }
         activateWindow();
 
@@ -445,7 +451,7 @@ void MultiScreenWidget::onGatherWindows(const QPoint cursor)
                     rt.setHeight(monitor->h());
                 auto tsize = (mrt.size() / m_model->monitorScale(monitor) - rt.size()) / 2;
                 rt.moveTo(monitor->x() + tsize.width(), monitor->y() + tsize.height());
-                dlg->setGeometry(rt);
+                dlg->QDialog::setGeometry(rt);
             }
             break;
         }

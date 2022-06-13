@@ -269,7 +269,7 @@ void SecondaryScreenDialog::resetDialog()
     if(!screen)
         return;
 
-    setGeometry(QRect(screen->geometry().topLeft(),rt.size()));
+    QDialog::setGeometry(QRect(screen->geometry().topLeft(),rt.size()));
     move(QPoint(screen->geometry().left() + (screen->geometry().width() - rt.width()) / 2,
                 screen->geometry().top() + (screen->geometry().height() - rt.height()) / 2));
 
