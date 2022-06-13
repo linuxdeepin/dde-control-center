@@ -201,9 +201,6 @@ void DockPopupWindow::setBackground(const QImage &image)
     if (image.isNull())
         return;
     m_srcImage = new QImage(image.copy());
-    QImage img(image);
-    QImage blurred(img.size(), QImage::Format_ARGB32_Premultiplied);
-    QPainter pa(&blurred);
     int radius = DEFAULT_RADIUS;
     QColor maskColor = backgroundColor();
     DBlurEffectWidget *blurBackground = findChild<DBlurEffectWidget *>();
@@ -212,7 +209,19 @@ void DockPopupWindow::setBackground(const QImage &image)
         maskColor = blurBackground->maskColor();
         blurBackground->hide();
     }
-    qt_blurImage(&pa, img, radius * 2, false, false);
+    QImage img(image);
+    QImage blurred(img.size(), QImage::Format_ARGB32_Premultiplied);
+    QImage blurredTmp(img.size(), QImage::Format_ARGB32_Premultiplied);
+    // 获取模糊图片img
+    QPainter paTmp(&blurredTmp);
+    // qt_blurImage函数把图片写入blurredTmp时会计算当前的缩放，导致blurredTmp有一片空白
+    // 所以下面使用img进行的处理，将img写入到blurred中。
+    qt_blurImage(&paTmp, img, radius * 2, false, false);
+    QPainter pa(&blurred);
+    // qt_blurImage中判断参数radius >= 4时将图片分辨率缩小1/2，我们这里的radius肯定是大于4的，所以这里要放大一倍。
+    pa.scale(2, 2);
+    pa.setRenderHint(QPainter::SmoothPixmapTransform);
+    pa.drawImage(QRect(QPoint(0, 0), img.size()), img);
     pa.setOpacity(DEFAULT_OPACITY);
     pa.fillRect(img.rect(), maskColor);
     pa.end();
@@ -238,15 +247,33 @@ void DockPopupWindow::paintEvent(QPaintEvent *event)
             rect.moveTop(p.y());
             p.setY(0);
         }
+
+        // 多屏缩放模式时，QT在计算除第一个屏幕之外的屏幕的坐标点时算法有误，在Qt6.0中修复。详见QTBUG-81695。
+        // 此处需要根据屏幕的坐标计算一下
+        QScreen * screen = windowHandle()->screen();
+        const qreal pixelRatio = screen->devicePixelRatio();
+        if (QString(qVersion()) < "6.0") {
+            const QRect &screenRect = screen->geometry();
+            QRectF rt(screenRect.x() + (rect.x() - screenRect.x()) * pixelRatio,
+                screenRect.y() + (rect.y() - screenRect.y()) * pixelRatio,
+                rect.width() * pixelRatio,
+                rect.height() * pixelRatio);
+            rect = rt.toRect();
+        } else {
+            QRectF rt(rect.x() * pixelRatio, rect.y() * pixelRatio, rect.width() * pixelRatio, rect.height() * pixelRatio);
+            rect = rt.toRect();
+        }
+
         QPainter pa(this);
         pa.drawImage(p, *m_srcImage, rect);
         int r = ARROWRECTANGLE_RADIUS;
         QPainterPath path;
         path.addRoundedRect(0, 0, rect.width(), rect.height() - arrowHeight(), r, r);
-        path.addRect(r, this->height() - arrowHeight(), this->width() - r * 2, arrowHeight());
+        path.addRect(r, rect.height() - arrowHeight(), rect.width() - r * 2, arrowHeight());
         pa.setRenderHint(QPainter::Antialiasing);
         pa.setClipPath(path);
 
+        m_bgImage->setDevicePixelRatio(pixelRatio);
         pa.drawImage(p, *m_bgImage, rect);
         pa.end();
     }
