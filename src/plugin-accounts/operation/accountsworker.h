@@ -31,12 +31,16 @@
 #include "interface/namespace.h"
 #include "usermodel.h"
 #include "creationresult.h"
-#include "accountsdbusproxy.h"
-#include "userdbusproxy.h"
 
 #include <QObject>
+#include <QDBusPendingReply>
 
 #define SECURITY_QUESTIONS_ERROR_COUNT 1
+
+class AccountsDBusProxy;
+class UserDBusProxy;
+class SyncDBusProxy;
+class SecurityDBusProxy;
 
 namespace DCC_NAMESPACE {
 
@@ -115,7 +119,8 @@ private:
 private:
     AccountsDBusProxy *m_accountsInter;
     UserDBusProxy *m_userQInter;
-    QDBusInterface *m_syncHelperInter;
+    SyncDBusProxy *m_syncInter;
+    SecurityDBusProxy *m_securityInter;
     QMap<User *, UserDBusProxy *> m_userInters;
     QString m_currentUserName;
     QStringList m_onlineUsers;

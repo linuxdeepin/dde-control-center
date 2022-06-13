@@ -822,6 +822,7 @@ set(Accounts_Includes
     Qt5::Widgets
     Qt5::DBus
     Qt5::Concurrent
+    src/plugin-accounts/
 )
 set(Accounts_Libraries
     ${Dcc_Widgets_Name}

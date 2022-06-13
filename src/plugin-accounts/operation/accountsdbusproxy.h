@@ -34,19 +34,10 @@ public:
     explicit AccountsDBusProxy(QObject *parent = nullptr);
 
     //accounts
-    Q_PROPERTY(bool AllowGuest READ allowGuest NOTIFY AllowGuestChanged)
-    bool allowGuest();
-
-    Q_PROPERTY(QString GuestIcon READ guestIcon NOTIFY GuestIconChanged)
-    QString guestIcon();
-
     Q_PROPERTY(QStringList UserList READ userList NOTIFY UserListChanged)
     QStringList userList();
 
     //displaymanager
-    Q_PROPERTY(QList<QDBusObjectPath> Seats READ seats NOTIFY SeatsChanged)
-    QList<QDBusObjectPath> seats();
-
     Q_PROPERTY(QList<QDBusObjectPath> Sessions READ sessions NOTIFY SessionsChanged)
     QList<QDBusObjectPath> sessions();
 
@@ -54,18 +45,13 @@ signals:
     void UserAdded(const QString &in0);
     void UserDeleted(const QString &in0);
     // begin property changed signals
-    void AllowGuestChanged(bool  value) const;
-    void GuestIconChanged(const QString & value) const;
     void UserListChanged(const QStringList & value) const;
 
     //displaymanager
-    void SeatsChanged(const QList<QDBusObjectPath> & value) const;
     void SessionsChanged(const QList<QDBusObjectPath> & value) const;
 
 
 public slots:
-    QDBusPendingReply<> AllowGuestAccount(bool in0);
-    QDBusPendingReply<QString> CreateGuestAccount();
     QDBusPendingReply<QDBusObjectPath> CreateUser(const QString &in0, const QString &in1, int in2);
     QDBusPendingReply<> DeleteUser(const QString &in0, bool in1);
     QDBusPendingReply<QString> FindUserById(const qint64 &in0);

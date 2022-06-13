@@ -26,7 +26,14 @@
  */
 
 #include "accountsworker.h"
+#include "user.h"
 #include "widgets/utils.h"
+#include "syncdbusproxy.h"
+#include "accountsdbusproxy.h"
+#include "userdbusproxy.h"
+#include "securitydbusproxy.h"
+
+#include <ddbussender.h>
 
 #include <QFileDialog>
 #include <QtConcurrent>
@@ -34,11 +41,9 @@
 #include <QStandardPaths>
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
-#include <QDBusConnection>
-#include <QDBusInterface>
-#include <QDBusReply>
 
 #include <pwd.h>
+#include <tuple>
 #include <unistd.h>
 #include <libintl.h>
 #include <random>
@@ -47,18 +52,13 @@
 using namespace PolkitQt1;
 
 DCC_USE_NAMESPACE
-const QString AutoLoginVisable = "auto-login-visable";
-const QString NoPasswordVisable = "nopasswd-login-visable";
-const QString Sysadm_u = "sysadm_u";
-const QString Secadm_u = "secadm_u";
-const QString Audadm_u = "audadm_u";
-const QString Auditadm_u = "auditadm_u";
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new AccountsDBusProxy(this))
     , m_userQInter(new UserDBusProxy(QString("/com/deepin/daemon/Accounts/User%1").arg(getuid()), this))
-    , m_syncHelperInter(new QDBusInterface("com.deepin.sync.Helper", "/com/deepin/sync/Helper", "com.deepin.sync.Helper", QDBusConnection::systemBus(), this))
+    , m_syncInter(new SyncDBusProxy(this))
+    , m_securityInter(new SecurityDBusProxy(this))
     , m_userModel(userList)
 {
     struct passwd *pws;
@@ -130,16 +130,9 @@ void AccountsWorker::getPresetGroupsResult(QDBusPendingCallWatcher *watch)
 
 void AccountsWorker::getUOSID(QString &uosid)
 {
-    if (!m_syncHelperInter->isValid()) {
-        qWarning() << "syncHelper interface invalid: (getUOSID)" << m_syncHelperInter->lastError().message();
-        return;
-    }
-    QDBusReply<QString> retUOSID = m_syncHelperInter->call("UOSID");
-    if (retUOSID.error().message().isEmpty()) {
-        uosid = retUOSID.value();
-    } else {
-        qWarning() << "UOSID failed:" << retUOSID.error().message();
-        return;
+    const auto &result = m_syncInter->UOSID();
+    if (!result.isEmpty()) {
+        uosid = result;
     }
 }
 
@@ -221,46 +214,36 @@ void AccountsWorker::setSecurityQuestions(User *user, const QMap<int, QByteArray
 
 bool AccountsWorker::hasOpenSecurity()
 {
-    QDBusInterface securityEnhance("com.deepin.daemon.SecurityEnhance",
-                            "/com/deepin/daemon/SecurityEnhance",
-                            "com.deepin.daemon.SecurityEnhance",
-                            QDBusConnection::systemBus());
-    QDBusMessage reply = securityEnhance.call("Status");
-    qDebug() << reply.errorMessage();
-    QList<QVariant> outArgs = reply.arguments();
-    if (outArgs.count() > 0) {
-        QString value  = outArgs.at(0).toString();
-        if (value == "open") {
-            return true;
-        }
+    const auto &value = m_securityInter->Status();
+    if (value.isEmpty()) {
+        qWarning() << m_securityInter->lastError();
+        return false;
     }
-
+    if (value == "open")
+        return true;
     return false;
 }
 
 SecurityLever AccountsWorker::getSecUserLeverbyname(QString userName)
 {
-    QDBusInterface securityEnhance("com.deepin.daemon.SecurityEnhance",
-                            "/com/deepin/daemon/SecurityEnhance",
-                            "com.deepin.daemon.SecurityEnhance",
-                            QDBusConnection::systemBus());
+    std::tuple<QString, QString> result = m_securityInter->GetSEUserByName(userName);
+    const auto &value = std::get<0>(result);
+    if (value.isEmpty()) {
+        qWarning() << m_securityInter->lastError();
+        return SecurityLever::Standard;
+    }
 
-    QList<QVariant> currentUserSeName = securityEnhance.call("GetSEUserByName", userName).arguments();
-
-    if (currentUserSeName.count() > 0) {
-        QString value  = currentUserSeName.first().toString();
-        if (value == Sysadm_u) {
-            return SecurityLever::Sysadm;
-        }
-        if (value == Secadm_u) {
-            return SecurityLever::Secadm;
-        }
-        if (value == Audadm_u) {
-            return SecurityLever::Audadm;
-        }
-        if (value == Auditadm_u) {
-            return SecurityLever::Auditadm;
-        }
+    if (value == QStringLiteral("sysadm_u")) {
+        return SecurityLever::Sysadm;
+    }
+    if (value == QStringLiteral("secadm_u")) {
+        return SecurityLever::Secadm;
+    }
+    if (value == QStringLiteral("audadm_u")) {
+        return SecurityLever::Audadm;
+    }
+    if (value == QStringLiteral("auditadm_u")) {
+        return SecurityLever::Auditadm;
     }
 
     return SecurityLever::Standard;
@@ -671,12 +654,21 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
                          : tr("Your host failed to join the domain server");
     }
 
-    QDBusInterface notifyInter("org.freedesktop.Notifications",
-                            "/org/freedesktop/Notifications",
-                            "org.freedesktop.Notifications",
-                            QDBusConnection::sessionBus());
+    DDBusSender()
+        .service("org.freedesktop.Notifications")
+        .path("/org/freedesktop/Notifications")
+        .interface("org.freedesktop.Notifications")
+        .method("Notify")
+        .arg(QString())
+        .arg((uint)QDateTime::currentMSecsSinceEpoch())
+        .arg(exitCode ? QStringLiteral("dialog-warning") : QStringLiteral("dialog-ok"))
+        .arg(tr("AD domain settings"))
+        .arg(message)
+        .arg(QStringList())
+        .arg(QVariantMap())
+        .arg((int)0)
+        .call();
 
-    notifyInter.call("Notify", "", QDateTime::currentMSecsSinceEpoch(), exitCode ? "dialog-warning" : "dialog-ok", tr("AD domain settings"), message, QStringList(), QVariantMap(), 0);
     refreshADDomain();
 }
 
@@ -832,16 +824,10 @@ QString AccountsWorker::cryptUserPassword(const QString &password)
 BindCheckResult AccountsWorker::checkLocalBind(const QString &uosid, const QString &uuid)
 {
     BindCheckResult result;
-    QDBusReply<QString> retLocalBindCheck = m_syncHelperInter->call(QDBus::BlockWithGui, "LocalBindCheck", uosid, uuid);
-    if (!m_syncHelperInter->isValid()) {
-        qWarning() << "syncHelper interface invalid: (localBindCheck)" << m_syncHelperInter->lastError().message();
-        return result;
-    }
-    if (retLocalBindCheck.error().message().isEmpty()) {
-        result.ubid = retLocalBindCheck.value();
-    } else {
-        qWarning() << "localBindCheck failed:" << retLocalBindCheck.error().message();
-        result.error = retLocalBindCheck.error().message();
-    }
+    const auto &ret = m_syncInter->LocalBindCheck(uosid, uuid);
+    if (!ret.isEmpty())
+        result.ubid = ret;
+    else
+        result.error = m_syncInter->lastError();
     return result;
 }

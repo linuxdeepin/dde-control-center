@@ -56,45 +56,15 @@ void AccountsDBusProxy::init()
 }
 
 //Accounts
-bool AccountsDBusProxy::allowGuest()
-{
-    return qvariant_cast<bool>(m_dBusAccountsInter->property("AllowGuest"));
-}
-
-QString AccountsDBusProxy::guestIcon()
-{
-    return qvariant_cast<QString>(m_dBusAccountsInter->property("GuestIcon"));
-}
-
 QStringList AccountsDBusProxy::userList()
 {
     return qvariant_cast<QStringList>(m_dBusAccountsInter->property("UserList"));
-}
-
-QList<QDBusObjectPath> AccountsDBusProxy::seats()
-{
-    return qvariant_cast<QList<QDBusObjectPath>>(m_dBusDisplayManagerInter->property("Seats"));
 }
 
 QList<QDBusObjectPath> AccountsDBusProxy::sessions()
 {
     return qvariant_cast<QList<QDBusObjectPath>>(m_dBusDisplayManagerInter->property("Sessions"));
 }
-
-QDBusPendingReply<> AccountsDBusProxy::AllowGuestAccount(bool in0)
-{
-    QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(in0);
-    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("AllowGuestAccount"), argumentList);
-}
-
-
-QDBusPendingReply<QString> AccountsDBusProxy::CreateGuestAccount()
-{
-    QList<QVariant> argumentList;
-    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("CreateGuestAccount"), argumentList);
-}
-
 
 
 QDBusPendingReply<QDBusObjectPath> AccountsDBusProxy::CreateUser(const QString &in0, const QString &in1, int in2)
