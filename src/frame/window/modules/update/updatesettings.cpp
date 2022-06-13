@@ -346,17 +346,16 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_autoCheckAppUpdate->setVisible(false);
 
     m_dconfig = DConfigWatcher::instance()->getModulesConfig(DConfigWatcher::update);
-    if (m_dconfig && !m_dconfig->isValid()) {
-        return;
+    if (m_dconfig && m_dconfig->isValid()) {
+        connect(m_dconfig, &DConfig::valueChanged, this, [ = ](const QString& key) {
+            if (key == "updateAutoInstall") {
+                setCheckStatus(m_autoInstallUpdate, m_autoDownloadUpdate->checked(), "updateAutoInstall");
+                setCheckStatus(m_autoInstallUpdatesTips, m_autoDownloadUpdate->checked(), "updateAutoInstall");
+            }
+        });
     }
     DConfigWatcher::instance()->bind(DConfigWatcher::update, "updateSafety", m_autoCheckSecureUpdate);
     DConfigWatcher::instance()->bind(DConfigWatcher::update, "updateSafety", m_autoCheckSecureUpdateTips);
-    connect(m_dconfig, &DConfig::valueChanged, this, [ = ](const QString key) {
-        if (key == "updateAutoInstall") {
-            setCheckStatus(m_autoInstallUpdate, m_autoDownloadUpdate->checked(), "updateAutoInstall");
-            setCheckStatus(m_autoInstallUpdatesTips, m_autoDownloadUpdate->checked(), "updateAutoInstall");
-        }
-    });
 
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [ = ](const QString & gsetting, const QString & state) {
         bool status = GSettingWatcher::instance()->get(gsetting).toString() == "Enabled" && (m_autoCheckSecureUpdate->checked() || m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked());

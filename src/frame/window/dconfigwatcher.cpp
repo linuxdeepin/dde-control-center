@@ -228,6 +228,9 @@ void DConfigWatcher::setStatus(QString &moduleName, const QString &configName, Q
  */
 const QString DConfigWatcher::getStatus(ModuleType moduleType, const QString &configName)
 {
+    QString moduleName;
+    if (!existKey(moduleType, configName, moduleName))
+        return "";
     return m_mapModulesConfig[QMetaEnum::fromType<ModuleType>().valueToKey(moduleType)]->value(configName).toString();
 }
 
