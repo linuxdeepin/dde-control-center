@@ -198,6 +198,15 @@ inline int comparePluginApi(const QString &pluginApi1, const QString &pluginApi2
         return -1;
     }
 }
+
+/**
+* @brief 当前是否处于wayland的环境
+* @return true：是，false：否
+*/
+inline bool isWaylandEnvironment()
+{
+    return QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive);
+}
 }
 
 #endif // UTILS

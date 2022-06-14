@@ -21,6 +21,7 @@
 
 #include "dockpopupwindow.h"
 #include "thememanager.h"
+#include "utils.h"
 
 #include <dregionmonitor.h>
 #include <DWindowManagerHelper>
@@ -59,7 +60,13 @@ DockPopupWindow::DockPopupWindow(QWidget *parent)
     m_wmHelper = DWindowManagerHelper::instance();
 
     compositeChanged();
-    setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
+    if (Utils::isWaylandEnvironment()) {
+        setWindowFlags(windowFlags() | Qt::Dialog | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
+        setAttribute(Qt::WA_NativeWindow);
+        windowHandle()->setProperty("_d_dwayland_window-type", "override");
+    } else {
+        setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
+    }
 
     setShadowBlurRadius(20);
     setRadius(ARROWRECTANGLE_RADIUS);
