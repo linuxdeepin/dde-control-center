@@ -67,7 +67,6 @@ AccountsWidget::AccountsWidget(QWidget *parent)
 
     m_accountSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
     m_isCreateValid = m_accountSetting->get(GSETTINGS_SHOW_CREATEUSER).toBool();
-
     m_createBtn->setVisible(m_isCreateValid);
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout();
@@ -121,15 +120,26 @@ void AccountsWidget::setModel(UserModel *model)
 {
     m_userModel = model;
 
-    m_createBtn->setVisible(m_userModel->isCreateUserValid() && m_isCreateValid);
-    if (m_userModel->getIsSecurityHighLever()) {
-        for (auto user : m_userModel->userList()) {
-            if (user->name() == m_userModel->getCurrentUserName() && !(user->securityLever() == SecurityLever::Sysadm)) {
-                m_createBtn->setVisible(false);
-                break;
+    auto updateCreateUserVisible = [ = ] {
+        m_createBtn->setVisible(m_userModel->isCreateUserValid() && m_isCreateValid);
+        if (m_userModel->getIsSecurityHighLever()) {
+            for (auto user : m_userModel->userList()) {
+                if (user->name() == m_userModel->getCurrentUserName() && !(user->securityLever() == SecurityLever::Sysadm)) {
+                    m_createBtn->setVisible(false);
+                    break;
+                }
             }
         }
-    }
+    };
+
+    updateCreateUserVisible();
+
+    connect(m_accountSetting, &QGSettings::changed, this, [ = ] (const QString &key) {
+        if (key == "showCreateuser") {
+            m_isCreateValid = m_accountSetting->get(GSETTINGS_SHOW_CREATEUSER).toBool();
+            updateCreateUserVisible();
+        }
+    });
 
     connect(model, &UserModel::userAdded, this, [this](User * user) {
         addUser(user);
