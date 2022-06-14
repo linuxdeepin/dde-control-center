@@ -137,7 +137,7 @@ void PersonalizationList::onCategoryClicked(const QModelIndex &index)
 
 void PersonalizationList::setCurrentIndex(int row)
 {
-    if (row > m_model->rowCount())
+    if (row >= m_model->rowCount() || row < 0)
         row = 0;
 
     const QModelIndex &index = m_model->indexFromItem(m_model->item(row));
