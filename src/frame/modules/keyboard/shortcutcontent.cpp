@@ -132,7 +132,8 @@ void ShortcutContent::keyEvent(bool press, const QString &shortcut)
     if (!press) {
 
         if (shortcut.isEmpty()) {
-            setBottomTip(nullptr);
+            setBottomTip(m_info);
+            m_shortcutItem->setShortcut(m_shortcut);
             return;
         }
 
