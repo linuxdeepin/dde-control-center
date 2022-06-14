@@ -19,19 +19,19 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef DAEMONDOCKDBUSPROXY_H
-#define DAEMONDOCKDBUSPROXY_H
+#ifndef DOCKDBUSPROXY_H
+#define DOCKDBUSPROXY_H
 
 #include <QObject>
 #include <QDBusPendingReply>
 
 class QDBusInterface;
 class QDBusMessage;
-class DBusProxy : public QObject
+class DockDBusProxy : public QObject
 {
     Q_OBJECT
 public:
-    explicit DBusProxy(QObject *parent = nullptr);
+    explicit DockDBusProxy(QObject *parent = nullptr);
 
     Q_PROPERTY(int DisplayMode READ displayMode WRITE setDisplayMode NOTIFY DisplayModeChanged)
     int displayMode();
@@ -84,4 +84,4 @@ private:
     QDBusInterface *m_dockInter;
 };
 
-#endif // DAEMONDOCKDBUSPROXY_H
+#endif // DOCKDBUSPROXY_H

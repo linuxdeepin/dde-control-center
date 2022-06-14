@@ -20,7 +20,7 @@
 */
 
 #include "dockplugin.h"
-#include "dbusproxy.h"
+#include "dockdbusproxy.h"
 
 #include "widgets/widgetmodule.h"
 #include "widgets/comboxwidget.h"
@@ -75,35 +75,7 @@ QString DockPlugin::name() const
 
 ModuleObject* DockPlugin::module()
 {
-    ModuleObject *moduleRoot = new ModuleObject("dock", tr("Dock"), tr("Dock plugin"));
-    moduleRoot->setChildType(ModuleObject::Page);
-
-    moduleRoot->appendChild(new WidgetModule<ComboxWidget>("mode", tr("Mode"), this, &DockPlugin::initMode));
-    moduleRoot->appendChild(new WidgetModule<ComboxWidget>("position", tr("Position"), this, &DockPlugin::initPosition));
-    moduleRoot->appendChild(new WidgetModule<ComboxWidget>("status", tr("Status"), this, &DockPlugin::initStatus));
-    moduleRoot->appendChild(new WidgetModule<TitledSliderItem>("size", tr("Size"), this, &DockPlugin::initSizeSlider));
-
-    // 当任务栏服务未注册或当前只有一个屏幕或当前有多个屏幕但设置为复制模式时均不显示多屏设置项
-    if (QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.Dock")
-            && QApplication::screens().size() > 1
-            && !isCopyMode()) {
-        moduleRoot->appendChild(new WidgetModule<TitleLabel>("screenTitle", tr("ScreenTitle"), this, &DockPlugin::initScreenTitle));
-        moduleRoot->appendChild(new WidgetModule<ComboxWidget>("screen", tr("Screen"), this, &DockPlugin::initScreen));
-    }
-
-    // @note 不使用m_dbusProxy的原因在于module函数的调用和m_dbusProxy指针的初始化分别在不同的线程中
-    QDBusInterface dockInter("com.deepin.dde.Dock", "/com/deepin/dde/Dock", "com.deepin.dde.Dock", QDBusConnection::sessionBus(), this);
-    QDBusPendingReply<QStringList> reply = dockInter.asyncCall(QStringLiteral("GetLoadedPlugins"));
-    reply.waitForFinished();
-    QStringList plugins = reply.value();
-    // 当対应服务异常或插件为空时，不显示对应模块信息
-    if (reply.error().type() == QDBusError::ErrorType::NoError && reply.value().size() > 0) {
-        moduleRoot->appendChild(new WidgetModule<TitleLabel>("pluginTitle", tr("PluginTitle"), this, &DockPlugin::initPluginTitle));
-        moduleRoot->appendChild(new WidgetModule<DTipLabel>("pluginTip", tr("PluginTip"), this, &DockPlugin::initPluginTips));
-        moduleRoot->appendChild(new WidgetModule<DListView>("pluginArea", tr("PluginArea"), this, &DockPlugin::initPluginView));
-    }
-
-    return moduleRoot;
+    return new DockModuleObject();
 }
 
 QString DockPlugin::follow() const
@@ -118,10 +90,41 @@ int DockPlugin::location() const
     return 4;
 }
 
-void DockPlugin::initMode(ComboxWidget *widget)
+DockModuleObject::DockModuleObject()
+    : ModuleObject("dock", tr("Dock"), tr("Dock plugin"))
+{
+    setChildType(ModuleObject::Page);
+
+    appendChild(new WidgetModule<ComboxWidget>("mode", tr("Mode"), this, &DockModuleObject::initMode));
+    appendChild(new WidgetModule<ComboxWidget>("position", tr("Position"), this, &DockModuleObject::initPosition));
+    appendChild(new WidgetModule<ComboxWidget>("status", tr("Status"), this, &DockModuleObject::initStatus));
+    appendChild(new WidgetModule<TitledSliderItem>("size", tr("Size"), this, &DockModuleObject::initSizeSlider));
+
+    // 当任务栏服务未注册或当前只有一个屏幕或当前有多个屏幕但设置为复制模式时均不显示多屏设置项
+    if (QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.Dock")
+            && QApplication::screens().size() > 1
+            && !isCopyMode()) {
+        appendChild(new WidgetModule<TitleLabel>("screenTitle", tr("ScreenTitle"), this, &DockModuleObject::initScreenTitle));
+        appendChild(new WidgetModule<ComboxWidget>("screen", tr("Screen"), this, &DockModuleObject::initScreen));
+    }
+
+    // @note 不使用m_dbusProxy的原因在于module函数的调用和m_dbusProxy指针的初始化分别在不同的线程中
+    QDBusInterface dockInter("com.deepin.dde.Dock", "/com/deepin/dde/Dock", "com.deepin.dde.Dock", QDBusConnection::sessionBus(), this);
+    QDBusPendingReply<QStringList> reply = dockInter.asyncCall(QStringLiteral("GetLoadedPlugins"));
+    reply.waitForFinished();
+    QStringList plugins = reply.value();
+    // 当対应服务异常或插件为空时，不显示对应模块信息
+    if (reply.error().type() == QDBusError::ErrorType::NoError && reply.value().size() > 0) {
+        appendChild(new WidgetModule<TitleLabel>("pluginTitle", tr("PluginTitle"), this, &DockModuleObject::initPluginTitle));
+        appendChild(new WidgetModule<DTipLabel>("pluginTip", tr("PluginTip"), this, &DockModuleObject::initPluginTips));
+        appendChild(new WidgetModule<DListView>("pluginArea", tr("PluginArea"), this, &DockModuleObject::initPluginView));
+    }
+}
+
+void DockModuleObject::initMode(ComboxWidget *widget)
 {
     if (m_dbusProxy.isNull())
-        m_dbusProxy.reset(new DBusProxy);
+        m_dbusProxy.reset(new DockDBusProxy);
 
     static QMap<QString, int> g_modeMap = {{tr("Fashion mode"), Fashion}
                                            , {tr("Efficient mode"), Efficient}};
@@ -135,7 +138,7 @@ void DockPlugin::initMode(ComboxWidget *widget)
         m_dbusProxy->setDisplayMode(g_modeMap.value(text));
     });
 
-    connect(m_dbusProxy.get(), &DBusProxy::DisplayModeChanged, this, [ = ] (int value) {
+    connect(m_dbusProxy.get(), &DockDBusProxy::DisplayModeChanged, this, [ = ] (int value) {
         DisplayMode mode = static_cast<DisplayMode>(value);
         if (g_modeMap.key(mode) == widget->comboBox()->currentText())
             return;
@@ -145,10 +148,10 @@ void DockPlugin::initMode(ComboxWidget *widget)
 
 }
 
-void DockPlugin::initPosition(ComboxWidget *widget)
+void DockModuleObject::initPosition(ComboxWidget *widget)
 {
     if (m_dbusProxy.isNull())
-        m_dbusProxy.reset(new DBusProxy);
+        m_dbusProxy.reset(new DockDBusProxy);
 
     const QMap<QString, int> g_positionMap = {{tr("Top"), Top}
                                                , {tr("Bottom"), Bottom}
@@ -164,7 +167,7 @@ void DockPlugin::initPosition(ComboxWidget *widget)
         m_dbusProxy->setPosition(g_positionMap.value(text));
     });
 
-    connect(m_dbusProxy.get(), &DBusProxy::PositionChanged, this, [ = ] (int position) {
+    connect(m_dbusProxy.get(), &DockDBusProxy::PositionChanged, this, [ = ] (int position) {
         if (g_positionMap.key(position) == widget->comboBox()->currentText())
             return;
 
@@ -173,10 +176,10 @@ void DockPlugin::initPosition(ComboxWidget *widget)
 
 }
 
-void DockPlugin::initStatus(ComboxWidget *widget)
+void DockModuleObject::initStatus(ComboxWidget *widget)
 {
     if (m_dbusProxy.isNull())
-        m_dbusProxy.reset(new DBusProxy);
+        m_dbusProxy.reset(new DockDBusProxy);
 
     const QMap<QString, int> g_stateMap = {{tr("Keep shown"), KeepShowing}
                                             , {tr("Keep hidden"), KeepHidden}
@@ -191,7 +194,7 @@ void DockPlugin::initStatus(ComboxWidget *widget)
         m_dbusProxy->setHideMode(g_stateMap.value(text));
     });
 
-    connect(m_dbusProxy.get(), &DBusProxy::HideModeChanged, this, [ = ] (int hideMode) {
+    connect(m_dbusProxy.get(), &DockDBusProxy::HideModeChanged, this, [ = ] (int hideMode) {
         if (g_stateMap.key(hideMode) == widget->comboBox()->currentText())
             return;
 
@@ -199,10 +202,10 @@ void DockPlugin::initStatus(ComboxWidget *widget)
     });
 }
 
-void DockPlugin::initSizeSlider(TitledSliderItem *slider)
+void DockModuleObject::initSizeSlider(TitledSliderItem *slider)
 {
     if (m_dbusProxy.isNull())
-        m_dbusProxy.reset(new DBusProxy);
+        m_dbusProxy.reset(new DockDBusProxy);
 
     slider->setAccessibleName("Slider");
     slider->addBackground();
@@ -225,9 +228,9 @@ void DockPlugin::initSizeSlider(TitledSliderItem *slider)
         slider->slider()->blockSignals(false);
     };
 
-    connect(m_dbusProxy.get(), &DBusProxy::DisplayModeChanged, this, [ = ] {updateSliderValue();});
-    connect(m_dbusProxy.get(), &DBusProxy::WindowSizeFashionChanged, this, [ = ] {updateSliderValue();});
-    connect(m_dbusProxy.get(), &DBusProxy::WindowSizeEfficientChanged, this, [ = ] {updateSliderValue();});
+    connect(m_dbusProxy.get(), &DockDBusProxy::DisplayModeChanged, this, [ = ] {updateSliderValue();});
+    connect(m_dbusProxy.get(), &DockDBusProxy::WindowSizeFashionChanged, this, [ = ] {updateSliderValue();});
+    connect(m_dbusProxy.get(), &DockDBusProxy::WindowSizeEfficientChanged, this, [ = ] {updateSliderValue();});
     connect(slider->slider(), &DSlider::sliderMoved, slider->slider(), &DSlider::valueChanged);
     connect(slider->slider(), &DSlider::valueChanged, this, [ = ] (int value) {
         m_dbusProxy->resizeDock(value, true);
@@ -248,7 +251,7 @@ void DockPlugin::initSizeSlider(TitledSliderItem *slider)
     updateSliderValue();
 }
 
-void DockPlugin::initScreenTitle(TitleLabel *label)
+void DockModuleObject::initScreenTitle(TitleLabel *label)
 {
     label->setAccessibleName("MultipleDisplays");
     label->setText(tr("Multiple Displays"));
@@ -261,10 +264,10 @@ void DockPlugin::initScreenTitle(TitleLabel *label)
     });
 }
 
-void DockPlugin::initScreen(ComboxWidget *widget)
+void DockModuleObject::initScreen(ComboxWidget *widget)
 {
     if (m_dbusProxy.isNull())
-        m_dbusProxy.reset(new DBusProxy);
+        m_dbusProxy.reset(new DockDBusProxy);
 
     const QMap<QString, bool> g_screenSettingMap = {{tr("On screen where the cursor is"), false}
                                                      , {tr("Only on main screen"), true}};
@@ -285,7 +288,7 @@ void DockPlugin::initScreen(ComboxWidget *widget)
     });
 
     // 这里不会生效，但实际场景中也不存在有其他可配置的地方，暂时不用处理
-    connect(m_dbusProxy.get(), &DBusProxy::ShowInPrimaryChanged, this, [ = ] (bool showInPrimary) {
+    connect(m_dbusProxy.get(), &DockDBusProxy::ShowInPrimaryChanged, this, [ = ] (bool showInPrimary) {
         if (widget->comboBox()->currentText() == g_screenSettingMap.key(showInPrimary))
             return;
 
@@ -295,13 +298,13 @@ void DockPlugin::initScreen(ComboxWidget *widget)
     });
 }
 
-void DockPlugin::initPluginTitle(TitleLabel *label)
+void DockModuleObject::initPluginTitle(TitleLabel *label)
 {
     label->setAccessibleName("PluginArea");
     label->setText(tr("Plugin Area"));
 }
 
-void DockPlugin::initPluginTips(DTipLabel *label)
+void DockModuleObject::initPluginTips(DTipLabel *label)
 {
     label->setAccessibleName("PluginTips");
     label->setText(tr("Select which icons appear in the Dock"));
@@ -311,10 +314,10 @@ void DockPlugin::initPluginTips(DTipLabel *label)
     label->setAlignment(Qt::AlignLeft);
 }
 
-void DockPlugin::initPluginView(DListView *view)
+void DockModuleObject::initPluginView(DListView *view)
 {
     if (m_dbusProxy.isNull())
-        m_dbusProxy.reset(new DBusProxy);
+        m_dbusProxy.reset(new DockDBusProxy);
 
     QDBusPendingReply<QStringList> reply = m_dbusProxy->GetLoadedPlugins();
     QStringList plugins = reply.value();
@@ -396,7 +399,7 @@ void DockPlugin::initPluginView(DListView *view)
     int lineHeight = view->visualRect(view->indexAt(QPoint(0, 0))).height();
     view->setMinimumHeight(lineHeight * plugins.size() + 10);
 
-    connect(m_dbusProxy.get(), &DBusProxy::pluginVisibleChanged, this, std::bind(updateItemCheckStatus, std::placeholders::_1, std::placeholders::_2));
+    connect(m_dbusProxy.get(), &DockDBusProxy::pluginVisibleChanged, this, std::bind(updateItemCheckStatus, std::placeholders::_1, std::placeholders::_2));
 }
 
 /**判断屏幕是否为复制模式的依据，第一个屏幕的X和Y值是否和其他的屏幕的X和Y值相等
@@ -404,7 +407,7 @@ void DockPlugin::initPluginView(DListView *view)
  * @brief DisplayManager::isCopyMode
  * @return
  */
-bool DockPlugin::isCopyMode()
+bool DockModuleObject::isCopyMode()
 {
     QList<QScreen *> screens = qApp->screens();
     if (screens.size() < 2)

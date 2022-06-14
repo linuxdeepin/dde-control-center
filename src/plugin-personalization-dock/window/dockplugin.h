@@ -41,7 +41,8 @@ DWIDGET_END_NAMESPACE
 DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
-class DBusProxy;
+class DockDBusProxy;
+
 class DockPlugin : public PluginInterface
 {
     Q_OBJECT
@@ -55,6 +56,14 @@ public:
     virtual ModuleObject *module() override;
     virtual QString follow() const override;
     virtual int location() const override;
+};
+
+class DockModuleObject : public ModuleObject
+{
+    Q_OBJECT
+
+public:
+    explicit DockModuleObject();
 
 private:
     bool isCopyMode();
@@ -71,7 +80,7 @@ private Q_SLOTS:
     void initPluginView(DListView *view);
 
 private:
-    QSharedPointer<DBusProxy> m_dbusProxy;
+    QSharedPointer<DockDBusProxy> m_dbusProxy;
 };
 
 #endif // DOCKPLUGIN_H
