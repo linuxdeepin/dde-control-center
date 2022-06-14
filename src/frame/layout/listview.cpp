@@ -367,11 +367,9 @@ QModelIndex ListView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifier
     };
     switch (cursorAction) {
     case MoveLeft:
-    case MovePrevious:
         currentRow--;
         break;
     case MoveRight:
-    case MoveNext:
         currentRow++;
         break;
     case MovePageUp: {
@@ -401,8 +399,12 @@ QModelIndex ListView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifier
     case MoveEnd:
         currentRow = maxRow - 1;
         break;
+    default:
+        return QModelIndex();
     }
-    return model()->index(currentRow, 0);
+    QModelIndex selectIndex = model()->index(currentRow, 0);
+    activated(selectIndex);
+    return selectIndex;
 }
 
 int ListView::horizontalOffset() const

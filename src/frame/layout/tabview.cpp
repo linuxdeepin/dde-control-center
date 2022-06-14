@@ -348,11 +348,9 @@ QModelIndex TabView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers
     };
     switch (cursorAction) {
     case MoveLeft:
-    case MovePrevious:
         currentRow--;
         break;
     case MoveRight:
-    case MoveNext:
         currentRow++;
         break;
     case MovePageUp: {
@@ -371,8 +369,12 @@ QModelIndex TabView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers
     case MoveEnd:
         currentRow = maxRow - 1;
         break;
+    default:
+        return QModelIndex();
     }
-    return model()->index(currentRow, 0);
+    QModelIndex selectIndex = model()->index(currentRow, 0);
+    activated(selectIndex);
+    return selectIndex;
 }
 
 int TabView::horizontalOffset() const
