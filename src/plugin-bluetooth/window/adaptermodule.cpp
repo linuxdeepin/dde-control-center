@@ -256,6 +256,7 @@ void AdapterModule::initOtherDeviceListView(DCCListView *otherDeviceListView)
     otherDeviceListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     otherDeviceListView->setSelectionMode(QAbstractItemView::NoSelection);
     otherDeviceListView->setViewportMargins(0, 0, 0, 0);
+    model->showAnonymous(m_model->displaySwitch());
 
     connect(m_model, &BluetoothModel::displaySwitchChanged, model, &BluetoothDeviceModel::showAnonymous);
 

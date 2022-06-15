@@ -108,7 +108,6 @@ AdapterModule *BluetoothModule::getAdapter(const BluetoothAdapter *adapter)
     connect(adpWidget, &AdapterModule::requestSetDisplaySwitch, m_work, &BluetoothWorker::setDisplaySwitch);
     connect(adpWidget, &AdapterModule::requestIgnoreDevice, m_work, &BluetoothWorker::ignoreDevice);
 
-    m_work->setAdapterDiscovering(path, true);
     return adpWidget;
 }
 
