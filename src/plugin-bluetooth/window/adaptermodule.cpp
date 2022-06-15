@@ -1,23 +1,23 @@
 /*
-* Copyright (C) 2021 ~ 2023 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2023 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #include "adaptermodule.h"
 #include "bluetoothdevicemodel.h"
 #include "bluetoothworker.h"
@@ -50,37 +50,48 @@ AdapterModule::AdapterModule(const BluetoothAdapter *adapter, BluetoothModel *mo
     , m_model(model)
     , m_work(work)
 {
-    m_moduleList.append({ new WidgetModule<SettingsGroup>("bluetoothTitleGroup", tr("Allow other Bluetooth devices to find this device"), this, &AdapterModule::initBluetoothTitle), true });
-    m_moduleList.append({ new WidgetModule<QLabel>("bluetoothTitle", tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"), [](QLabel *tip) {
-                              tip->setText(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
-                              tip->setWordWrap(true);
-                              tip->setContentsMargins(16, 0, 10, 0);
-                          }),
-                          true });
-    m_moduleList.append({ new WidgetModule<TitleLabel>("devicesTitle", tr("My Devices"), [](TitleLabel *title) {
-                              title->setText(tr("My Devices"));
-                              DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
-                          }),
-                          true });
-    m_moduleList.append({ new WidgetModule<DCCListView>("mydeviceList", tr("My Devices"), this, &AdapterModule::initDeviceListView), true });
-    m_moduleList.append({ new WidgetModule<TitleLabel>("otherDevices", tr("Other Devices"), [](TitleLabel *title) {
-                              title->setText(tr("Other Devices"));
-                              DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
-                          }),
-                          true });
-    m_moduleList.append({ new WidgetModule<QWidget>("anonymousCheckBox", tr("Other Devices"), this, &AdapterModule::initAnonymousCheckBox), true });
-    m_moduleList.append({ new WidgetModule<DCCListView>("otherdeviceList", "", this, &AdapterModule::initOtherDeviceListView), true });
+    m_moduleList.append(new WidgetModule<SettingsGroup>("bluetoothTitleGroup", tr("Allow other Bluetooth devices to find this device"), this, &AdapterModule::initBluetoothTitle));
+    m_bluetoothTitle = new WidgetModule<QLabel>("bluetoothTitle", tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"), [](QLabel *tip) {
+        tip->setText(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
+        tip->setWordWrap(true);
+        tip->setContentsMargins(16, 0, 10, 0);
+    });
+    m_moduleList.append(m_bluetoothTitle);
+    m_devicesTitle = new WidgetModule<TitleLabel>("devicesTitle", tr("My Devices"), [](TitleLabel *title) {
+        title->setText(tr("My Devices"));
+        DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
+    });
+    m_moduleList.append(m_devicesTitle);
+    m_mydevicelist = new WidgetModule<DCCListView>("mydeviceList", tr("My Devices"), this, &AdapterModule::initDeviceListView);
+    m_moduleList.append(m_mydevicelist);
+    m_otherDevices = new WidgetModule<TitleLabel>("otherDevices", tr("Other Devices"), [](TitleLabel *title) {
+        title->setText(tr("Other Devices"));
+        DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
+    });
+    m_moduleList.append(m_otherDevices);
+    m_anonymousCheckBox = new WidgetModule<QWidget>("anonymousCheckBox", tr("Other Devices"), this, &AdapterModule::initAnonymousCheckBox);
+    m_moduleList.append(m_anonymousCheckBox);
+    m_otherdevicelist = new WidgetModule<DCCListView>("otherdeviceList", "", this, &AdapterModule::initOtherDeviceListView);
+    m_moduleList.append(m_otherdevicelist);
 
     setAdapter(m_adapter);
 }
 
 AdapterModule::~AdapterModule()
 {
+    qDeleteAll(m_moduleList);
 }
 
-const QList<QPair<DCC_NAMESPACE::ModuleObject *, bool>> &AdapterModule::ModuleList() const
+const QList<DCC_NAMESPACE::ModuleObject *> &AdapterModule::ModuleList() const
 {
     return m_moduleList;
+}
+
+void AdapterModule::active()
+{
+    updateVisible(m_adapter->powered(), m_adapter->discovering());
+    if (m_adapter->powered() && !m_adapter->discovering())
+        Q_EMIT requestRefresh(m_adapter);
 }
 
 void AdapterModule::initBluetoothTitle(DCC_NAMESPACE::SettingsGroup *settingsGrp)
@@ -210,7 +221,7 @@ void AdapterModule::initAnonymousCheckBox(QWidget *w)
     phlayoutShowAnonymous->addWidget(spinner);
     phlayoutShowAnonymous->addWidget(refreshBtn);
 
-    connect(refreshBtn, &DIconButton::clicked, this, [=] {
+    connect(refreshBtn, &DIconButton::clicked, this, [this] {
         Q_EMIT requestRefresh(m_adapter);
     });
     connect(m_model, &BluetoothModel::displaySwitchChanged, showAnonymousCheckBox, &QCheckBox::setChecked);
@@ -279,19 +290,12 @@ void AdapterModule::toggleDiscoverableSwitch(const bool checked)
 
 void AdapterModule::updateVisible(bool bPower, bool bDiscovering)
 {
-    Q_UNUSED(bDiscovering)
-    for (auto &&module : m_moduleList) {
-        if (module.first->name() == "bluetoothTitle")
-            module.second = !bPower;
-        else if (module.first->name() == "OtherDevices"
-                 || module.first->name() == "AnonymousCheckBox"
-                 || module.first->name() == "List_otherdevicelist")
-            module.second = bPower;
-        else if (module.first->name() == "DevicesTitle"
-                 || module.first->name() == "List_mydevicelist")
-            module.second = bPower && m_hasPaired;
-    }
-    Q_EMIT visibleChanged();
+    m_bluetoothTitle->setHiden(bPower);
+    m_otherDevices->setHiden(!bPower);
+    m_anonymousCheckBox->setHiden(!bPower);
+    m_otherdevicelist->setHiden(!bPower);
+    m_devicesTitle->setHiden(!bPower || !m_hasPaired);
+    m_mydevicelist->setHiden(!bPower || !m_hasPaired);
 }
 
 void AdapterModule::contextMenu(const BluetoothAdapter *adapter, const BluetoothDevice *device, DCCListView *view)

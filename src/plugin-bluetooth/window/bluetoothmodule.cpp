@@ -1,23 +1,23 @@
 /*
-* Copyright (C) 2021 ~ 2023 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2023 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #include "bluetoothmodule.h"
 #include "bluetoothmodel.h"
 #include "adaptermodule.h"
@@ -33,8 +33,6 @@ DCC_USE_NAMESPACE
 
 BluetoothModule::BluetoothModule(QObject *parent)
     : ModuleObject("bluetooth", tr("Bluetooth"), tr("Bluetooth"), QIcon::fromTheme("dcc_nav_bluetooth"), parent)
-    , m_index(0)
-    , m_parent(nullptr)
 {
     setChildType(ModuleObject::Page);
 
@@ -55,6 +53,14 @@ BluetoothModule::BluetoothModule(QObject *parent)
 
     for (const BluetoothAdapter *adapter : m_model->adapters())
         addAdapter(adapter);
+
+    updateWidget();
+}
+
+void BluetoothModule::active()
+{
+    for (auto &&module : m_valueMap)
+        module->active();
 }
 
 void BluetoothModule::deactive()
@@ -98,7 +104,6 @@ AdapterModule *BluetoothModule::getAdapter(const BluetoothAdapter *adapter)
     connect(adpWidget, &AdapterModule::requestRefresh, this, &BluetoothModule::requestRefresh);
     connect(adpWidget, &AdapterModule::requestDiscoverable, this, &BluetoothModule::requestDiscoverable);
     connect(adpWidget, &AdapterModule::requestDiscoverable, this, &BluetoothModule::requestDiscoverable);
-    connect(adpWidget, &AdapterModule::visibleChanged, this, &BluetoothModule::updateVisible);
     connect(adpWidget, &AdapterModule::requestSetDevAlias, m_work, &BluetoothWorker::setDeviceAlias);
     connect(adpWidget, &AdapterModule::requestSetDisplaySwitch, m_work, &BluetoothWorker::setDisplaySwitch);
     connect(adpWidget, &AdapterModule::requestIgnoreDevice, m_work, &BluetoothWorker::ignoreDevice);
@@ -111,7 +116,6 @@ void BluetoothModule::addAdapter(const BluetoothAdapter *adapter)
 {
     if (!m_valueMap.contains(adapter)) {
         m_valueMap[adapter] = getAdapter(adapter);
-        setVisibleState();
         updateVisible();
         updateWidget();
     }
@@ -121,11 +125,10 @@ void BluetoothModule::removeAdapter(const BluetoothAdapter *adapter)
     if (m_valueMap.contains(adapter)) {
         AdapterModule *adpModule = m_valueMap.take(adapter);
         for (auto &&obj : adpModule->ModuleList()) {
-            removeChild(obj.first);
+            removeChild(obj);
         }
         adpModule->setParent(nullptr);
         adpModule->deleteLater();
-        setVisibleState();
         updateWidget();
     }
 }
@@ -139,13 +142,10 @@ void BluetoothModule::updateVisible()
 {
     int row = 0;
     for (const BluetoothAdapter *adapter : m_model->adapters()) {
-        auto &&adpModule = m_valueMap.value(adapter,nullptr);
-        if(adpModule) {
+        auto &&adpModule = m_valueMap.value(adapter, nullptr);
+        if (adpModule) {
             for (auto &&module : adpModule->ModuleList()) {
-                if (module.second)
-                    insertChild(row++, module.first);
-                else
-                    removeChild(module.first);
+                insertChild(row++, module);
             }
         }
     }
@@ -153,30 +153,5 @@ void BluetoothModule::updateVisible()
 
 void BluetoothModule::updateWidget()
 {
-    if (!m_parent)
-        return;
-    if (m_valueMap.isEmpty()) {
-        if (m_parent->findChild(this) != -1) {
-            m_index = m_parent->childrens().indexOf(this);
-            m_parent->removeChild(this);
-        }
-    } else {
-        if (m_parent->findChild(this) == -1) {
-            m_parent->insertChild(m_index, this);
-        }
-    }
-}
-
-bool BluetoothModule::event(QEvent *ev)
-{
-    if (ev->type() == QEvent::ThreadChange) {
-        m_parent = qobject_cast<ModuleObject *>(parent());
-        updateWidget();
-    }
-    return ModuleObject::event(ev);
-}
-
-void BluetoothModule::setVisibleState()
-{
-    Q_EMIT requestModuleVisible(!m_valueMap.isEmpty());
+    setHiden(m_valueMap.isEmpty());
 }

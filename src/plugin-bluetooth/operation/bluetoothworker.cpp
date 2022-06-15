@@ -151,15 +151,7 @@ void BluetoothWorker::blockDBusSignals(bool block)
 
 void BluetoothWorker::setAdapterPowered(const BluetoothAdapter *adapter, const bool &powered)
 {
-    QTimer *timer = new QTimer;
-    timer->setSingleShot(true);
-    // 500后后端还不响应,前端就显示一个加载中的状态
-    timer->setInterval(500);
-
-    connect(timer, &QTimer::timeout, adapter, &BluetoothAdapter::loadStatus);
-
-    timer->start();
-
+    QTimer::singleShot(500, adapter, &BluetoothAdapter::loadStatus);
     const_cast<BluetoothAdapter *>(adapter)->setAdapterPowered(powered);
 }
 

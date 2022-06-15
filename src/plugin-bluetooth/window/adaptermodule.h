@@ -50,7 +50,8 @@ class AdapterModule : public QObject
 public:
     explicit AdapterModule(const BluetoothAdapter *adapter, BluetoothModel *model, BluetoothWorker *work, QObject *parent = nullptr);
     virtual ~AdapterModule();
-    const QList<QPair<DCC_NAMESPACE::ModuleObject *, bool>> &ModuleList() const;
+    const QList<DCC_NAMESPACE::ModuleObject *> &ModuleList() const;
+    void active();
 
 public Q_SLOTS:
     void initBluetoothTitle(DCC_NAMESPACE::SettingsGroup *settingsGrp);
@@ -71,7 +72,6 @@ Q_SIGNALS:
     void requestDiscoverable(const BluetoothAdapter *adapter, const bool &discoverable);
     void requestSetDisplaySwitch(const bool &on);
     void requestIgnoreDevice(const BluetoothAdapter *adapter, const BluetoothDevice *device);
-    void visibleChanged();
 
 private Q_SLOTS:
     void contextMenu(const BluetoothAdapter *adapter, const BluetoothDevice *device, DCC_NAMESPACE::DCCListView *view);
@@ -82,7 +82,7 @@ private:
     bool getSwitchState();
 
 protected:
-    QList<QPair<DCC_NAMESPACE::ModuleObject *, bool>> m_moduleList;
+    QList<DCC_NAMESPACE::ModuleObject *> m_moduleList;
     QSet<const BluetoothDevice *> m_devices;
 
     DCC_NAMESPACE::TitleEdit *m_titleEdit;
@@ -91,6 +91,13 @@ protected:
 
     BluetoothModel *m_model;
     BluetoothWorker *m_work;
+
+    DCC_NAMESPACE::ModuleObject *m_bluetoothTitle;
+    DCC_NAMESPACE::ModuleObject *m_otherDevices;
+    DCC_NAMESPACE::ModuleObject *m_anonymousCheckBox;
+    DCC_NAMESPACE::ModuleObject *m_otherdevicelist;
+    DCC_NAMESPACE::ModuleObject *m_devicesTitle;
+    DCC_NAMESPACE::ModuleObject *m_mydevicelist;
 };
 
 #endif // ADAPTERMODULE_H
