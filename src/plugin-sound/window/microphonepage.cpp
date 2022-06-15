@@ -59,7 +59,6 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_volumeBtn(nullptr)
     , m_waitTimerValue(0)
     , m_lastRmPortIndex(-1)
-    , m_mute(false)
     , m_enablePort(false)
     , m_fristChangePort(true)
     , m_currentBluetoothPortStatus(true)
@@ -157,7 +156,6 @@ void MicrophonePage::setModel(SoundModel *model)
     connect(m_noiseReductionsw, &SwitchWidget::checkedChanged, this, &MicrophonePage::requestReduceNoise);
     connect(m_model, &SoundModel::reduceNoiseChanged, m_noiseReductionsw, &SwitchWidget::setChecked);
     connect(m_model, &SoundModel::microphoneOnChanged, this, [ = ](bool flag) {
-        m_mute = flag;
         refreshIcon();
     });
 
@@ -279,8 +277,6 @@ void MicrophonePage::toggleMute()
 
 void MicrophonePage::initSlider()
 {
-    //~ contents_path /sound/Input
-    //~ child_page Input
     m_inputSlider = new TitledSliderItem(tr("Input Volume"));
     m_inputSlider->addBackground();
     m_layout->insertWidget(2, m_inputSlider);
@@ -325,8 +321,6 @@ void MicrophonePage::initSlider()
     connect(m_volumeBtn, &SoundLabel::clicked, this, &MicrophonePage::toggleMute);
 
 #ifndef DCC_DISABLE_FEEDBACK
-    //~ contents_path /sound/Input
-    //~ child_page Input
     m_feedbackSlider = (new TitledSliderItem(tr("Input Level")));
     m_feedbackSlider->addBackground();
     DCCSlider *slider2 = m_feedbackSlider->slider();
@@ -383,11 +377,7 @@ void MicrophonePage::initCombox()
 
 void MicrophonePage::refreshIcon()
 {
-    if (m_mute) {
-        m_volumeBtn->setIcon(DStyle::standardIcon(style(), DStyle::SP_MediaVolumeMutedElement));
-    } else {
-        m_volumeBtn->setIcon(DStyle::standardIcon(style(), DStyle::SP_MediaVolumeLowElement));
-    }
+    m_volumeBtn->setIcon(DStyle::standardIcon(style(),m_model->microphoneOn() ? DStyle::SP_MediaVolumeMutedElement : DStyle::SP_MediaVolumeLowElement));
 }
 
 void MicrophonePage::showWaitSoundPortStatus(bool showStatus)
