@@ -1,0 +1,13 @@
+name: Call build-distribution
+on:
+  push:
+  pull_request_target:
+    paths-ignore:
+      - ".github/workflows/**"
+
+jobs:
+  check_job:
+    uses: justforlxz/github/.github/workflows/build-distribution.yml@fix
+    secrets:
+      BUILD_GPG_PRIVATE_KEY: ${{ secrets.BUILD_GPG_PRIVATE_KEY }}
+      BUILD_SSH_PRIVATE_KEY: ${{ secrets.BUILD_SSH_PRIVATE_KEY }}
