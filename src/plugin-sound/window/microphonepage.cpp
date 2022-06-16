@@ -62,7 +62,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_enablePort(false)
     , m_fristChangePort(true)
     , m_currentBluetoothPortStatus(true)
-    , m_waitStatusChangeTimer(new QTimer (this))
+    , m_waitStatusChangeTimer(new QTimer(this))
 {
     m_inputSoundCbx = new ComboxWidget(tr("Input Device"));
     m_inputSoundCbx->comboBox()->setAccessibleName("inputSoundCbx");
@@ -74,13 +74,13 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     m_inputSoundCbx->comboBox()->setModel(m_inputModel);
 
     m_layout->setContentsMargins(10, 0, 10, 10);
-    m_waitStatusChangeTimer->setSingleShot(true);
-
     // TODO: 配置 DCONFIG
-    QTimer::singleShot(200, this, [this]() {
+    connect(m_waitStatusChangeTimer, &QTimer::timeout, [this](){
         refreshActivePortShow(m_currentPort);
         showWaitSoundPortStatus(true);
     });
+    m_waitStatusChangeTimer->setSingleShot(true);
+    m_waitStatusChangeTimer->start();
 
     setLayout(m_layout);
 }
