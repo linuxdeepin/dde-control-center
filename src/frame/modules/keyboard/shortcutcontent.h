@@ -80,7 +80,7 @@ private:
     TitleButtonItem* m_item;
     QString m_shortcut;
     QString m_conflictShortcut;
-    WaylandGrab *waylandGrab;
+    WaylandGrab *m_waylandGrab;
 };
 }
 }

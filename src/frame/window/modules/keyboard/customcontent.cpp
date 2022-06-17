@@ -30,6 +30,7 @@
 #include "widgets/lineeditwidget.h"
 #include "widgets/settingsgroup.h"
 #include "window/utils.h"
+#include "waylandgrab.h"
 
 #include <dfilechooseredit.h>
 
@@ -54,9 +55,10 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     , m_conflict(nullptr)
     , m_model(model)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
+    , m_waylandGrab(nullptr)
 {
     if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
-        waylandGrab = new WaylandGrab(this->parent());
+        m_waylandGrab = new WaylandGrab(this->parent());
     }
 
     QVBoxLayout *mainLayout = new QVBoxLayout();
@@ -225,36 +227,41 @@ void CustomContent::updateKey()
 
 void CustomContent::onGrab(ShortcutInfo *info)
 {
-    waylandGrab->onGrab(info);
+    if (m_waylandGrab)
+        m_waylandGrab->onGrab(info);
 }
 
 void CustomContent::keyPressEvent(QKeyEvent *ke)
 {
-    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm()) {
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)
+            || !m_waylandGrab || !m_waylandGrab->getZxgm()) {
         return;
     }
-    waylandGrab->setKeyValue(WaylandkeyMap[ke->key()]);
-    QString lastKey = waylandGrab->getLastKey();
-    QString keyValue = waylandGrab->getKeyValue();
+    m_waylandGrab->setKeyValue(WaylandkeyMap[ke->key()]);
+    QString lastKey = m_waylandGrab->getLastKey();
+    QString keyValue = m_waylandGrab->getKeyValue();
 
-    waylandGrab->setRecordState(true);
-    keyEvent(true, waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
-    if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L || ke->key() == Qt::Key_Super_R) {
+    m_waylandGrab->setRecordState(true);
+    keyEvent(true, m_waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
+    if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt
+            || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L || ke->key() == Qt::Key_Super_R) {
         lastKey += ("<" + keyValue.remove(keyValue.indexOf("_"), 2) + ">");
-        waylandGrab->setLastKey(lastKey);
+        m_waylandGrab->setLastKey(lastKey);
     }
     return QWidget::keyPressEvent(ke);
 }
 
 void CustomContent::keyReleaseEvent(QKeyEvent *ke)
 {
-    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm() || !waylandGrab->getRecordState()) {
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)
+            || !m_waylandGrab || !m_waylandGrab->getZxgm() || !m_waylandGrab->getRecordState()) {
         return;
     }
-    QString lastKey = waylandGrab->getLastKey();
-    QString keyValue = waylandGrab->getKeyValue();
+    QString lastKey = m_waylandGrab->getLastKey();
+    QString keyValue = m_waylandGrab->getKeyValue();
     if (!lastKey.isEmpty()) {
-        if (WaylandkeyMap[Qt::Key_Control] == keyValue || WaylandkeyMap[Qt::Key_Alt] == keyValue || WaylandkeyMap[Qt::Key_Shift] == keyValue) {
+        if (WaylandkeyMap[Qt::Key_Control] == keyValue
+                || WaylandkeyMap[Qt::Key_Alt] == keyValue || WaylandkeyMap[Qt::Key_Shift] == keyValue) {
             keyEvent(false, "");
         } else if (WaylandkeyMap[Qt::Key_Super_L] == keyValue || WaylandkeyMap[Qt::Key_Super_R] == keyValue) {
             keyEvent(false, "Super_L");
@@ -264,20 +271,21 @@ void CustomContent::keyReleaseEvent(QKeyEvent *ke)
     } else {
         keyEvent(false, "");
     }
-    waylandGrab->setLastKey("");
-    waylandGrab->setRecordState(false);
-    waylandGrab->onUnGrab();
+    m_waylandGrab->setLastKey("");
+    m_waylandGrab->setRecordState(false);
+    m_waylandGrab->onUnGrab();
     return QWidget::keyReleaseEvent(ke);
 }
 
 void CustomContent::mousePressEvent(QMouseEvent *e)
 {
-    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm()) {
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)
+            || !m_waylandGrab || !m_waylandGrab->getZxgm()) {
         return;
     }
     setFocus();
-    if (waylandGrab != nullptr && !waylandGrab->getRecordState()) {
-        waylandGrab->onUnGrab();
+    if (!m_waylandGrab->getRecordState()) {
+        m_waylandGrab->onUnGrab();
     }
     QWidget::mousePressEvent(e);
 }

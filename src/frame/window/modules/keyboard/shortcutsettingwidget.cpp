@@ -28,8 +28,8 @@
 #include "widgets/settingsheaderitem.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/searchinput.h"
-#include "window/utils.h"
 #include "window/gsettingwatcher.h"
+#include "waylandgrab.h"
 
 #include <DAnchors>
 
@@ -46,9 +46,10 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     , m_workspaceGroup(nullptr)
     , m_assistiveToolsGroup(nullptr)
     , m_model(model)
+    , m_waylandGrab(nullptr)
 {
     if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
-        waylandGrab = new WaylandGrab(this->parent());
+        m_waylandGrab = new WaylandGrab(this->parent());
     }
 
     setAccessibleName("ShortCutSettingWidget");
@@ -260,8 +261,8 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
         connect(item, &ShortcutItem::requestUpdateKey, this, &ShortCutSettingWidget::requestUpdateKey);
         if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
             connect(item, &ShortcutItem::waylandEditKeyFinshed, this, [ this ]{
-                if(waylandGrab != nullptr && !waylandGrab->getRecordState())
-                    waylandGrab->onUnGrab();
+                if(m_waylandGrab && !m_waylandGrab->getRecordState())
+                    m_waylandGrab->onUnGrab();
             });
         }
         item->setShortcutInfo(info);
@@ -552,36 +553,41 @@ void ShortCutSettingWidget::onResetFinished()
 
 void ShortCutSettingWidget::onGrab(ShortcutInfo *info)
 {
-    waylandGrab->onGrab(info);
+    if (m_waylandGrab)
+        m_waylandGrab->onGrab(info);
 }
 
 void ShortCutSettingWidget::keyPressEvent(QKeyEvent *ke)
 {
-    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm()) {
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)
+            || !m_waylandGrab || !m_waylandGrab->getZxgm()) {
         return;
     }
-    waylandGrab->setKeyValue(WaylandkeyMap[ke->key()]);
-    QString lastKey = waylandGrab->getLastKey();
-    QString keyValue = waylandGrab->getKeyValue();
+    m_waylandGrab->setKeyValue(WaylandkeyMap[ke->key()]);
+    QString lastKey = m_waylandGrab->getLastKey();
+    QString keyValue = m_waylandGrab->getKeyValue();
 
-    waylandGrab->setRecordState(true);
-    onKeyEvent(true, waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
-    if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L || ke->key() == Qt::Key_Super_R) {
+    m_waylandGrab->setRecordState(true);
+    onKeyEvent(true, m_waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
+    if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt
+            || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L || ke->key() == Qt::Key_Super_R) {
         lastKey += ("<" + keyValue.remove(keyValue.indexOf("_"), 2) + ">");
-        waylandGrab->setLastKey(lastKey);
+        m_waylandGrab->setLastKey(lastKey);
     }
     QWidget::keyPressEvent(ke);
 }
 
 void ShortCutSettingWidget::keyReleaseEvent(QKeyEvent *ke)
 {
-    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm() || !waylandGrab->getRecordState()) {
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)
+            || !m_waylandGrab || !m_waylandGrab->getZxgm() || !m_waylandGrab->getRecordState()) {
         return;
     }
-    QString lastKey = waylandGrab->getLastKey();
-    QString keyValue = waylandGrab->getKeyValue();
+    QString lastKey = m_waylandGrab->getLastKey();
+    QString keyValue = m_waylandGrab->getKeyValue();
     if (!lastKey.isEmpty()) {
-        if (WaylandkeyMap[Qt::Key_Control] == keyValue || WaylandkeyMap[Qt::Key_Alt] == keyValue || WaylandkeyMap[Qt::Key_Shift] == keyValue) {
+        if (WaylandkeyMap[Qt::Key_Control] == keyValue
+                || WaylandkeyMap[Qt::Key_Alt] == keyValue || WaylandkeyMap[Qt::Key_Shift] == keyValue) {
             onKeyEvent(false, "");
         } else if (WaylandkeyMap[Qt::Key_Super_L] == keyValue || WaylandkeyMap[Qt::Key_Super_R] == keyValue) {
             onKeyEvent(false, "Super_L");
@@ -591,9 +597,9 @@ void ShortCutSettingWidget::keyReleaseEvent(QKeyEvent *ke)
     } else {
         onKeyEvent(false, "");
     }
-    waylandGrab->setLastKey("");
-    waylandGrab->setRecordState(false);
-    Q_EMIT changed(waylandGrab->getInfo()->id, waylandGrab->getInfo()->type);
-    waylandGrab->onUnGrab();
+    m_waylandGrab->setLastKey("");
+    m_waylandGrab->setRecordState(false);
+    Q_EMIT changed(m_waylandGrab->getInfo()->id, m_waylandGrab->getInfo()->type);
+    m_waylandGrab->onUnGrab();
     QWidget::keyReleaseEvent(ke);
 }

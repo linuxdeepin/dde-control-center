@@ -24,7 +24,6 @@
 #include "interface/namespace.h"
 #include "widgets/contentwidget.h"
 #include "modules/keyboard/shortcutmodel.h"
-#include "waylandgrab.h"
 
 #include <DFloatingButton>
 #include <com_deepin_daemon_search.h>
@@ -35,6 +34,8 @@ QT_BEGIN_NAMESPACE
 class QLineEdit;
 class QPushButton;
 QT_END_NAMESPACE
+
+class WaylandGrab;
 
 namespace dcc {
 namespace keyboard {
@@ -130,7 +131,7 @@ private:
     QStringList m_assistiveToolsIdList;
     QStringList m_workspaceIdList;
 
-    WaylandGrab *waylandGrab;
+    WaylandGrab *m_waylandGrab;
 };
 }
 }

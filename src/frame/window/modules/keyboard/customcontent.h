@@ -21,7 +21,6 @@
 
 #pragma once
 #include "interface/namespace.h"
-#include "waylandgrab.h"
 
 #include <dfilechooseredit.h>
 
@@ -30,6 +29,8 @@
 QT_BEGIN_NAMESPACE
 class QLabel;
 QT_END_NAMESPACE
+
+class WaylandGrab;
 
 namespace dcc {
 namespace keyboard {
@@ -84,7 +85,7 @@ private:
     dcc::keyboard::ShortcutModel *m_model;
     dcc::widgets::ButtonTuple *m_buttonTuple;
 
-    WaylandGrab *waylandGrab = nullptr;
+    WaylandGrab *m_waylandGrab;
 };
 }
 }
