@@ -1057,3 +1057,36 @@ if (UNITTEST)
         ${Test_Libraries}
     )
 endif()
+
+#--------------------------plugin-adapterv20tov23--------------------------
+set(AdapterV20toV23_Name dcc-adapterv20tov23-plugin)
+file(GLOB_RECURSE ADAPTERV20TOV23_SRCS
+    "src/plugin-adapterv20tov23/*.cpp"
+)
+
+add_library(${AdapterV20toV23_Name} MODULE
+    ${ADAPTERV20TOV23_SRCS}
+)
+set(AdapterV20toV23_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::Core
+    Qt5::DBus
+)
+set(AdapterV20toV23_Libraries
+    ${Dcc_Widgets_Name}
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+)
+
+target_include_directories(${AdapterV20toV23_Name} PUBLIC
+    ${AdapterV20toV23_Includes}
+)
+
+target_link_libraries(${AdapterV20toV23_Name} PRIVATE
+    ${AdapterV20toV23_Libraries}
+)
+
+install(TARGETS ${AdapterV20toV23_Name} DESTINATION lib/dde-control-center/modules)
