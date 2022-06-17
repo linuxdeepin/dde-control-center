@@ -443,32 +443,35 @@ void MultiScreenWidget::onGatherWindows(const QPoint cursor)
     Q_EMIT requestGatherEnabled(false);
 
     for (const auto &monitor : m_model->monitorList()) {
-        auto mrt = monitor->rect();
+        auto screen = monitor->getQScreen();
+        auto mrt = screen->geometry();
+
         if (mrt.contains(cursor.x(), cursor.y())) {
             for (QWidget *w : qApp->topLevelWidgets()) {
                 if (DMainWindow *mainWin = qobject_cast<DMainWindow *>(w)) {
                     auto rt = mainWin->rect();
-                    if (rt.width() > monitor->w())
-                        rt.setWidth(monitor->w());
+                    if (rt.width() > screen->geometry().width())
+                        rt.setWidth(screen->geometry().width());
 
-                    if (rt.height() > monitor->h())
-                        rt.setHeight(monitor->h());
+                    if (rt.height() > screen->geometry().height())
+                        rt.setHeight(screen->geometry().height());
 
-                    auto tsize = (mrt.size() / m_model->monitorScale(monitor) - rt.size()) / 2;
-                    rt.moveTo(monitor->x() + tsize.width(), monitor->y() + tsize.height());
+                    auto tsize = (mrt.size() / screen->devicePixelRatio() - rt.size()) / 2;
+                    rt.moveTo(screen->geometry().topLeft().x() + tsize.width(), screen->geometry().topLeft().y() + tsize.height());
                     mainWin->setGeometry(rt);
                 }
             }
 
             for (auto dlg : m_secondaryScreenDlgList) {
                 auto rt = dlg->rect();
-                if (rt.width() > monitor->w())
-                    rt.setWidth(monitor->w());
+                if (rt.width() > screen->geometry().width())
+                    rt.setWidth(screen->geometry().width());
 
-                if (rt.height() > monitor->h())
-                    rt.setHeight(monitor->h());
-                auto tsize = (mrt.size() / m_model->monitorScale(monitor) - rt.size()) / 2;
-                rt.moveTo(monitor->x() + tsize.width(), monitor->y() + tsize.height());
+                if (rt.height() > screen->geometry().height())
+                    rt.setHeight(screen->geometry().height());
+
+                auto tsize = (mrt.size() / screen->devicePixelRatio() - rt.size()) / 2;
+                rt.moveTo(screen->geometry().topLeft().x() + tsize.width(), screen->geometry().topLeft().y() + tsize.height());
                 dlg->QDialog::setGeometry(rt);
             }
             break;
