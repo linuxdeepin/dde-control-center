@@ -25,13 +25,14 @@
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
 
-QT_BEGIN_NAMESPACE
-#include <QObject>
-QT_END_NAMESPACE
+class HostNameItem;
 
 namespace DCC_NAMESPACE {
 class SystemInfoModel;
 class SystemInfoWork;
+class TitleValueItem;
+class LogoItem;
+class TitleAuthorizedItem;
 class SystemInfoPlugin : public PluginInterface
 {
     Q_OBJECT
@@ -59,51 +60,26 @@ public:
 public:
     explicit SystemInfoModule(QObject *parent = nullptr);
     ~SystemInfoModule();
-    SystemInfoWork *work() { return m_work; }
-    SystemInfoModel *model() { return m_model; }
 
 protected:
     virtual void active() override;
 
 private:
-    SystemInfoWork *m_work;
-    SystemInfoModel *m_model;
-};
-
-class NativeInfoModule : public ModuleObject
-{
-    Q_OBJECT
-public:
-    explicit NativeInfoModule(SystemInfoModel *model, SystemInfoWork *work, QObject *parent = nullptr);
-    virtual QWidget *page() override;
+    void initChildModule();
+    void initLogoModule(LogoItem *item);
+    void initHostnameModule(HostNameItem *item);
+    void initOSNameModule(TitleValueItem *item);
+    void initVersionModule(TitleValueItem *item);
+    void initEditionModule(TitleValueItem *item);
+    void initTypeModule(TitleValueItem *item);
+    void initAuthorizationModule(TitleAuthorizedItem *item);
+    void initKernelModule(TitleValueItem *item);
+    void initProcessorModule(TitleValueItem *item);
+    void initMemoryModule(TitleValueItem *item);
 
 private:
     SystemInfoModel *m_model;
     SystemInfoWork *m_work;
-};
-
-class PrivacyPolicyModule : public ModuleObject
-{
-    Q_OBJECT
-public:
-    explicit PrivacyPolicyModule(QObject *parent = nullptr): ModuleObject(parent) {}
-    virtual QWidget *page() override;
-};
-
-class UserLicenseModule : public ModuleObject
-{
-    Q_OBJECT
-public:
-    explicit UserLicenseModule(QObject *parent = nullptr): ModuleObject(parent) {}
-    virtual QWidget *page() override;
-};
-
-class VersionProtocolModule : public ModuleObject
-{
-    Q_OBJECT
-public:
-    explicit VersionProtocolModule(QObject *parent = nullptr): ModuleObject(parent) {}
-    virtual QWidget *page() override;
 };
 
 }

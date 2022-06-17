@@ -1,52 +1,34 @@
 /*
- * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
- *
- * Author:     liuhong <liuhong_cm@deepin.com>
- *
- * Maintainer: liuhong <liuhong_cm@deepin.com>
- *             Tianlu Shao <shaotianlu@uniontech.com>
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+* Copyright (C) 2019 ~ 2022 Deepin Technology Co., Ltd.
+*
+* Author:     guoyao <guoyao@uniontech.com>
 
-#include "nativeinfowidget.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/titlevalueitem.h"
-#include "logoitem.h"
+* Maintainer: guoyao <guoyao@uniontech.com>
 
-#include <DToolButton>
-#include <DLineEdit>
-#include <DLabel>
-#include <DSysInfo>
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* any later version.
+
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+
+* You should have received a copy of the GNU General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+#include "hostnameitem.h"
+#include "dtkwidget_global.h"
+
 #include <DDesktopServices>
+#include <DLabel>
 
-#include <QVBoxLayout>
-#include <QApplication>
-#include <QSettings>
-#include <QIcon>
-#include <QScrollArea>
-#include <QScroller>
-#include <QDebug>
-#include <QKeyEvent>
-#include <QSizePolicy>
-#include <QTimer>
+#include <qevent.h>
+#include <qvalidator.h>
+#include <qtoolbutton.h>
 
-using namespace DCC_NAMESPACE;
-
-DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
-namespace DCC_NAMESPACE {
 
 HostNameEdit::HostNameEdit(QWidget *parent)
     : DLineEdit(parent)
@@ -82,7 +64,7 @@ HostNameItem::HostNameItem(QWidget *parent)
     : SettingsItem(parent)
     , m_hostNameTitleLabel(new QLabel(tr("Computer Name") + ':', this))
     , m_hostNameLabel(new DLabel(this))
-    , m_hostNameBtn(new DToolButton(this))
+    , m_hostNameBtn(new QToolButton(this))
     , m_hostNameLineEdit(new HostNameEdit(this))
 {
     initUI();
@@ -157,7 +139,7 @@ void HostNameItem::initUI()
     m_hostNameLineEdit->hide();
 
     //点击编辑按钮
-    connect(m_hostNameBtn, &DToolButton::clicked, this, &HostNameItem::onToolButtonButtonClicked);
+    connect(m_hostNameBtn, &QToolButton::clicked, this, &HostNameItem::onToolButtonButtonClicked);
     connect(m_hostNameLineEdit, &DLineEdit::focusChanged, this, &HostNameItem::onFocusChanged);
     connect(m_hostNameLineEdit, &DLineEdit::textEdited, this, &HostNameItem::onTextEdited);
     connect(m_hostNameLineEdit, &DLineEdit::alertChanged, this, &HostNameItem::onAlertChanged);
@@ -285,154 +267,3 @@ void HostNameItem::onToolButtonButtonClicked()
     m_hostNameLineEdit->lineEdit()->setFocus();
     m_hostNameLineEdit->lineEdit()->selectAll();
 }
-
-NativeInfoWidget::NativeInfoWidget(SystemInfoModel *model, QWidget *parent)
-    : QFrame(parent)
-    , m_model(model)
-{
-    initWidget();
-}
-
-NativeInfoWidget::~NativeInfoWidget()
-{
-//    GSettingWatcher::instance()->erase("systeminfoNativeinfoAuthorized", m_authorized);
-//    GSettingWatcher::instance()->erase("systeminfoNativeinfoKernel", m_kernel);
-//    GSettingWatcher::instance()->erase("systeminfoNativeinfoProcessor", m_processor);
-//    GSettingWatcher::instance()->erase("systeminfoNativeinfoMemory", m_memory);
-//    GSettingWatcher::instance()->erase("edition", m_version);
-}
-
-void NativeInfoWidget::initWidget()
-{
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    setLayout(mainLayout);
-    mainLayout->setMargin(0);
-    mainLayout->setSpacing(10);
-    // info 与 logo 两个分组
-    SettingsGroup *infoGroup = new SettingsGroup(this);
-    SettingsGroup *logoGroup = new SettingsGroup(this);
-    infoGroup->setSpacing(10);
-    mainLayout->addWidget(logoGroup);
-    mainLayout->addWidget(infoGroup);
-    mainLayout->addStretch();
-
-    // 添加logo及描述
-    LogoItem *logo = new LogoItem(logoGroup);
-    logo->setDescription(true); //显示文字描述
-    logo->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
-    logo->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal));
-    logoGroup->appendItem(logo);
-
-    HostNameItem *hostName = new HostNameItem(infoGroup);
-    // 需要在初始化后进行设置，因为要获取width()属性
-    QTimer::singleShot(0, hostName, [this, hostName] {
-        hostName->setHostName(m_model->hostName());
-    });
-    connect(m_model, &SystemInfoModel::hostNameChanged, hostName, &HostNameItem::setHostName);
-    connect(m_model, &SystemInfoModel::setHostNameError, hostName, &HostNameItem::onSetError);
-    connect(hostName, &HostNameItem::hostNameChanged, this, &NativeInfoWidget::requestSetHostname);
-    infoGroup->appendItem(hostName);
-
-    if (DSysInfo::isDeepin()) {
-        TitleValueItem *productName = new TitleValueItem(infoGroup);
-        productName->setTitle(tr("OS Name") + ':');
-        productName->setValue(m_model->productName());
-        infoGroup->appendItem(productName);
-        connect(m_model, &SystemInfoModel::productNameChanged, productName, &TitleValueItem::setValue);
-
-        TitleValueItem *versionNumber = new TitleValueItem(infoGroup);
-        versionNumber->setTitle(tr("Version") + ':');
-        versionNumber->setValue(m_model->versionNumber());
-        infoGroup->appendItem(versionNumber);
-        connect(m_model, &SystemInfoModel::versionNumberChanged, versionNumber, &TitleValueItem::setValue);
-    }
-
-    TitleValueItem *edition = new TitleValueItem(infoGroup);
-    edition->setTitle(tr("Edition") + ':');
-    edition->setValue(m_model->version());
-    infoGroup->appendItem(edition);
-    connect(m_model, &SystemInfoModel::versionChanged, edition, &TitleValueItem::setValue);
-
-    TitleValueItem *type = new TitleValueItem(infoGroup);
-    type->setTitle(tr("Type") + ':');
-    type->setValue(typeStr(m_model->type()));
-    infoGroup->appendItem(type);
-    connect(m_model, &SystemInfoModel::typeChanged, type, &TitleValueItem::setValue);
-
-    if (!DSysInfo::isCommunityEdition()) {
-        TitleAuthorizedItem *authorized = new TitleAuthorizedItem(infoGroup);
-        authorized->setTitle(tr("Authorization") + ':');
-        setLicenseState(authorized, m_model->licenseState());
-        infoGroup->appendItem(authorized);
-        connect(m_model, &SystemInfoModel::licenseStateChanged, authorized, [this, authorized] (ActiveState state) {
-            setLicenseState(authorized, state);
-        });
-        connect(authorized, &TitleAuthorizedItem::clicked, this, &NativeInfoWidget::clickedActivator);
-    }
-
-    TitleValueItem *kernel = new TitleValueItem(infoGroup);
-    kernel->setTitle(tr("Kernel") + ':');
-    kernel->setValue(m_model->kernel());
-    infoGroup->appendItem(kernel);
-    connect(m_model, &SystemInfoModel::kernelChanged, kernel, &TitleValueItem::setValue);
-
-    TitleValueItem *processor = new TitleValueItem(this);
-    processor->setTitle(tr("Processor") + ':');
-    processor->setValue(m_model->processor());
-    infoGroup->appendItem(processor);
-    connect(m_model, &SystemInfoModel::processorChanged, processor, &TitleValueItem::setValue);
-
-    TitleValueItem *memory = new TitleValueItem(this);
-    memory->setTitle(tr("Memory") + ':');
-    memory->setValue(m_model->memory());
-    infoGroup->appendItem(memory);
-    connect(m_model, &SystemInfoModel::memoryChanged, memory, &TitleValueItem::setValue);
-}
-
-void NativeInfoWidget::setLicenseState(TitleAuthorizedItem *const authorized, ActiveState state)
-{
-    if (state == Authorized) {
-        authorized->setValue(tr("Activated"));
-        authorized->setValueForegroundRole(QColor(21, 187, 24));
-        authorized->setButtonText(tr("View"));
-    } else if (state == Unauthorized) {
-        authorized->setValue(tr("To be activated"));
-        authorized->setValueForegroundRole(QColor(255, 87, 54));
-        authorized->setButtonText(tr("Activate"));
-    } else if (state == AuthorizedLapse) {
-        authorized->setValue(tr("Expired"));
-        authorized->setValueForegroundRole(QColor(255, 87, 54));
-        authorized->setButtonText(tr("View"));
-    } else if (state == TrialAuthorized) {
-        authorized->setValue(tr("In trial period"));
-        authorized->setValueForegroundRole(QColor(255, 170, 0));
-        authorized->setButtonText(tr("Activate"));
-    } else if (state == TrialExpired) {
-        authorized->setValue(tr("Trial expired"));
-        authorized->setValueForegroundRole(QColor(255, 87, 54));
-        authorized->setButtonText(tr("Activate"));
-    }
-}
-
-const QString NativeInfoWidget::systemCopyright() const
-{
-    const QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
-    const QString& oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
-
-    if (oem_copyright.isEmpty()) {
-        if (DSysInfo::isCommunityEdition())
-            return QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2011-%1 Deepin Community").arg(2022);
-        else
-            return QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2019-%1 UnionTech Software Technology Co., LTD").arg(2022);
-    } else {
-        return oem_copyright;
-    }
-}
-
-const QString NativeInfoWidget::typeStr(const QString &type) const
-{
-    return tr("%1-bit").arg(type);
-}
-
-}
-
