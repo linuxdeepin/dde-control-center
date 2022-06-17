@@ -30,7 +30,13 @@
 #include "keyboardcontrol.h"
 #include "widgets/translucentframe.h"
 #include "keyboardmodel.h"
+#include "window/modules/keyboard/waylandgrab.h"
+#include "window/utils.h"
+
 #include <QVBoxLayout>
+#include <QGuiApplication>
+
+using namespace DCC_NAMESPACE;
 
 namespace dcc {
 namespace keyboard {
@@ -40,7 +46,11 @@ ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
     , m_conflict(nullptr)
     , m_shortcutItem(new ShortcutItem)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
+    , waylandGrab(nullptr)
 {
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        waylandGrab = new WaylandGrab(this->topLevelWidget());
+    }
     TranslucentFrame *widget = new TranslucentFrame();
     setContentsMargins(10, 10, 10, 10);
     QVBoxLayout *layout = new QVBoxLayout();
@@ -127,12 +137,17 @@ void ShortcutContent::setShortcut(const QString &shortcut)
     m_shortcutItem->setShortcut(shortcut);
 }
 
+void ShortcutContent::setConflictShortcut(const QString &shortcut)
+{
+    m_conflictShortcut = shortcut;
+}
+
 void ShortcutContent::keyEvent(bool press, const QString &shortcut)
 {
     if (!press) {
 
         if (shortcut.isEmpty()) {
-            setBottomTip(m_info);
+            setBottomTip(m_shortcut == m_conflictShortcut ? m_conflict : nullptr);
             m_shortcutItem->setShortcut(m_shortcut);
             return;
         }
@@ -150,8 +165,12 @@ void ShortcutContent::keyEvent(bool press, const QString &shortcut)
         if (info && info != m_info && info->accels != m_info->accels) {
             m_shortcutItem->setShortcut(info->accels);
             setBottomTip(info);
+            setConflictShortcut(shortcut);
             return;
         }
+    }
+
+    if (!shortcut.isEmpty()) {
         setBottomTip(nullptr);
         m_shortcutItem->setShortcut(shortcut);
     }
@@ -174,6 +193,65 @@ void ShortcutContent::onReplace()
 void ShortcutContent::onUpdateKey()
 {
     Q_EMIT requestUpdateKey(nullptr);
+}
+
+void ShortcutContent::onGrab(ShortcutInfo *info)
+{
+    waylandGrab->onGrab(info);
+}
+
+void ShortcutContent::keyPressEvent(QKeyEvent *ke)
+{
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm()) {
+        return;
+    }
+    waylandGrab->setKeyValue(WaylandkeyMap[ke->key()]);
+    QString lastKey = waylandGrab->getLastKey();
+    QString keyValue = waylandGrab->getKeyValue();
+
+    waylandGrab->setRecordState(true);
+    keyEvent(true, waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
+    if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L || ke->key() == Qt::Key_Super_R) {
+        lastKey += ("<" + keyValue.remove(keyValue.indexOf("_"), 2) + ">");
+        waylandGrab->setLastKey(lastKey);
+    }
+    return QWidget::keyPressEvent(ke);
+}
+
+void ShortcutContent::keyReleaseEvent(QKeyEvent *ke)
+{
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm() || !waylandGrab->getRecordState()) {
+        return;
+    }
+    QString lastKey = waylandGrab->getLastKey();
+    QString keyValue = waylandGrab->getKeyValue();
+    if (!lastKey.isEmpty()) {
+        if (WaylandkeyMap[Qt::Key_Control] == keyValue || WaylandkeyMap[Qt::Key_Alt] == keyValue || WaylandkeyMap[Qt::Key_Shift] == keyValue) {
+            keyEvent(false, "");
+        } else if (WaylandkeyMap[Qt::Key_Super_L] == keyValue || WaylandkeyMap[Qt::Key_Super_R] == keyValue) {
+            keyEvent(false, "Super_L");
+        } else {
+            keyEvent(false, lastKey + keyValue);
+        }
+    } else {
+        keyEvent(false, "");
+    }
+    waylandGrab->setLastKey("");
+    waylandGrab->setRecordState(false);
+    waylandGrab->onUnGrab();
+    return QWidget::keyReleaseEvent(ke);
+}
+
+void ShortcutContent::mousePressEvent(QMouseEvent *e)
+{
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || !waylandGrab->getZxgm()) {
+        return;
+    }
+    setFocus();
+    if (waylandGrab != nullptr && !waylandGrab->getRecordState()) {
+        waylandGrab->onUnGrab();
+    }
+    QWidget::mousePressEvent(e);
 }
 
 }

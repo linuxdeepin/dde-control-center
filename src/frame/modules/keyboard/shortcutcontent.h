@@ -35,6 +35,7 @@
 #include "widgets/buttontuple.h"
 
 using namespace dcc;
+class WaylandGrab;
 
 namespace dcc {
 namespace keyboard{
@@ -51,6 +52,7 @@ public:
     void setBottomTip(ShortcutInfo *conflict);
     void setInfo(ShortcutInfo *info);
     void setShortcut(const QString &shortcut);
+    void setConflictShortcut(const QString &shortcut);
 
 Q_SIGNALS:
     void requestUpdateKey(ShortcutInfo *conflict);
@@ -61,6 +63,12 @@ public Q_SLOTS:
     void keyEvent(bool press, const QString &shortcut);
     void onReplace();
     void onUpdateKey();
+    void onGrab(ShortcutInfo *info);
+
+protected:
+    void keyPressEvent(QKeyEvent *ke) override;
+    void keyReleaseEvent(QKeyEvent *ke) override;
+    void mousePressEvent(QMouseEvent *e) override;
 
 private:
     ShortcutModel *m_model;
@@ -71,6 +79,8 @@ private:
     dcc::widgets::ButtonTuple *m_buttonTuple;
     TitleButtonItem* m_item;
     QString m_shortcut;
+    QString m_conflictShortcut;
+    WaylandGrab *waylandGrab;
 };
 }
 }

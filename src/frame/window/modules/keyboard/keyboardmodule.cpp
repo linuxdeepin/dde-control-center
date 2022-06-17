@@ -436,9 +436,13 @@ void KeyboardModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
     connect(m_scContent, &ShortcutContent::requestUpdateKey, m_work, &KeyboardWorker::updateKey);
     connect(m_scContent, &ShortcutContent::requestDisableShortcut, m_work, &KeyboardWorker::onDisableShortcut);
     connect(m_scContent, &ShortcutContent::back, this, &KeyboardModule::showShortCutSetting);
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        connect(m_work, &KeyboardWorker::stareGrab, m_scContent, &ShortcutContent::onGrab);
+    }
 
     m_scContent->setInfo(info);
     m_scContent->setShortcut(shortcut);
+    m_scContent->setConflictShortcut(shortcut);
     m_scContent->setBottomTip(m_shortcutModel->getInfo(shortcut));
 
     m_frameProxy->pushWidget(this, m_scContent);
