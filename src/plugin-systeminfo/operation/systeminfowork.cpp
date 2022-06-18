@@ -50,18 +50,13 @@ void SystemInfoWork::activate()
     //获取主机名
     m_model->setHostName(m_systemInfDBusProxy->staticHostname());
 
-
     if (DSysInfo::isDeepin()) {
         m_model->setLicenseState(static_cast<ActiveState>(m_systemInfDBusProxy->authorizationState()));
+        QString productName = QString("%1").arg(DSysInfo::uosSystemName());
+        m_model->setProductName(productName);
+        QString versionNumber = QString("%1").arg(DSysInfo::majorVersion());
+        m_model->setVersionNumber(versionNumber);
     }
-
-    m_model->setKernel(QSysInfo::kernelVersion());
-    m_model->setProcessor(DSysInfo::cpuModelName());
-
-    QString productName = QString("%1").arg(DSysInfo::uosSystemName());
-    m_model->setProductName(productName);
-    QString versionNumber = QString("%1").arg(DSysInfo::majorVersion());
-    m_model->setVersionNumber(versionNumber);
     QString version;
     if (DSysInfo::uosType() == DSysInfo::UosServer || DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
         version = QString("%1%2").arg(DSysInfo::minorVersion(), DSysInfo::uosEditionName());
@@ -72,9 +67,12 @@ void SystemInfoWork::activate()
     }
 
     m_model->setVersion(version);
+
     m_model->setType(QSysInfo::WordSize);
 
-   m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), static_cast<qulonglong>(DSysInfo::memoryInstalledSize()));
+    m_model->setKernel(QSysInfo::kernelVersion());
+    m_model->setProcessor(DSysInfo::cpuModelName());
+    m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), static_cast<qulonglong>(DSysInfo::memoryInstalledSize()));
 }
 
 void SystemInfoWork::deactivate()
