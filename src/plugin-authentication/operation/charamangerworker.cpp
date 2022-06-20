@@ -419,13 +419,28 @@ void CharaMangerWorker::stopFingerEnroll(const QString &userName)
 
 void CharaMangerWorker::deleteFingerItem(const QString &userName, const QString &finger)
 {
-    auto call = m_charaMangerInter->DeleteFinger(userName, finger);
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    m_charaMangerInter->setFingerprintInterTimeout(1000 * 60 * 60);
+    auto callClaim = m_charaMangerInter->Claim(userName, true);
+    callClaim.waitForFinished();
+    if (callClaim.isError()) {
+        qDebug() << "call Claim Error : " << callClaim.error();
+        m_model->refreshEnrollResult(CharaMangerModel::EnrollResult::Enroll_ClaimFailed);
+    } else {
+        m_charaMangerInter->setFingerprintInterTimeout(-1);
+        auto call = m_charaMangerInter->DeleteFinger(userName, finger);
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
 
-    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [ this, userName ]() {
-        refreshFingerEnrollList(userName);
-        sender()->deleteLater();
-    });
+        QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+            refreshFingerEnrollList(userName);
+            sender()->deleteLater();
+            auto callStopClaim = m_charaMangerInter->Claim(userName, false);
+            callStopClaim.waitForFinished();
+            if (callStopClaim.isError()) {
+                qDebug() << "call stop Claim Error : " << callStopClaim.error();
+            }
+        });
+    }
+    m_charaMangerInter->setFingerprintInterTimeout(-1);
 }
 
 void CharaMangerWorker::renameFingerItem(const QString &userName, const QString &finger, const QString &newName)
