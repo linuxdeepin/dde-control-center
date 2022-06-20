@@ -132,6 +132,7 @@ void KeyboardLayoutDialog::onAddKBLayout()
     }
 
     Q_EMIT layoutSelected(md.text());
+    accept();
 }
 
 void KeyboardLayoutDialog::onKBLayoutSelect(const QModelIndex &index)
@@ -207,12 +208,6 @@ void KeyboardLayoutDialog::setLetters(QList<QString> letters)
     }
 }
 
-void KeyboardLayoutDialog::closeEvent(QCloseEvent *event)
-{
-    Q_EMIT requestCloseDlg();
-    QDialog::closeEvent(event);
-}
-
 void KeyboardLayoutDialog::onSearch(const QString &text)
 {
     if (text.length() == 0) {
@@ -235,21 +230,6 @@ void KeyboardLayoutDialog::onSearch(const QString &text)
         m_view->setModel(m_searchModel);
         m_buttonTuple->rightButton()->setEnabled(false);
     }
-}
-
-void KeyboardLayoutDialog::onItemClicked(const QModelIndex &index)
-{
-    QVariant var = index.data(IndexModel::KBLayoutRole);
-    MetaData md = var.value<MetaData>();
-
-    if (m_model->letters().contains(md.text())) {
-        m_buttonTuple->rightButton()->setEnabled(true);
-        return;
-    }
-
-    Q_EMIT layoutSelected(md.text());
-
-    close();
 }
 
 bool KeyboardLayoutDialog::eventFilter(QObject *watched, QEvent *event)

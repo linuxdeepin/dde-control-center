@@ -45,7 +45,6 @@ public:
     explicit CustomContentDialog(ShortcutModel *model, QWidget *parent = nullptr);
     void setBottomTip(ShortcutInfo *conflict);
 Q_SIGNALS:
-    void requestCloseDlg();
     void requestAddKey(const QString &name, const QString &command, const QString &accels);
     void requestUpdateKey(ShortcutInfo *info);
     void requestForceSubs(ShortcutInfo *info);
@@ -55,9 +54,6 @@ public Q_SLOTS:
     void onShortcut();
     void keyEvent(bool press, const QString &shortcut);
     void updateKey();
-
-protected:
-    void closeEvent(QCloseEvent *event) override;
 
 private:
     KeyboardWorker *m_work;

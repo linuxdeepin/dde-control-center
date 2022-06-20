@@ -56,16 +56,13 @@ public:
     void setLetters(QList<QString> letters);
 
 protected:
-    void closeEvent(QCloseEvent *event) override;
     bool eventFilter(QObject *watched, QEvent *event) override;
 
 Q_SIGNALS:
     void layoutSelected(const QString &value);
-    void requestCloseDlg();
 
 public Q_SLOTS:
     void onSearch(const QString& text);
-    void onItemClicked(const QModelIndex &index);
     void onKBLayoutSelect(const QModelIndex &index);
     void onAddKBLayout();
 private:

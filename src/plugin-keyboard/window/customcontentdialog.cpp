@@ -195,6 +195,7 @@ void CustomContentDialog::onShortcut()
         Q_EMIT requestForceSubs(m_conflict);
 
     Q_EMIT requestAddKey(m_shortCutNameEdit->text(), m_shortCutCmdEdit->text(), m_shortcut->text());
+    accept();
 }
 
 void CustomContentDialog::keyEvent(bool press, const QString &shortcut)
@@ -217,10 +218,4 @@ void CustomContentDialog::keyEvent(bool press, const QString &shortcut)
 void CustomContentDialog::updateKey()
 {
     Q_EMIT requestUpdateKey(nullptr);
-}
-
-void CustomContentDialog::closeEvent(QCloseEvent *event)
-{
-    Q_EMIT requestCloseDlg();
-    QDialog::closeEvent(event);
 }

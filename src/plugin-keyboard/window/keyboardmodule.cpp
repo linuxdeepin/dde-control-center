@@ -180,12 +180,9 @@ void KBLayoutSettingModule::onPushKeyboard(const QStringList &kblist)
     kbLayoutDialog->setLetters(m_worker->getLetters());
 
     connect(kbLayoutDialog, &KeyboardLayoutDialog::layoutSelected, m_worker, &KeyboardWorker::addUserLayout);
-    connect(kbLayoutDialog, &KeyboardLayoutDialog::requestCloseDlg, m_worker, &KeyboardWorker::onRefreshKBLayout);
-    kbLayoutDialog->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
     kbLayoutDialog->setAttribute(Qt::WA_DeleteOnClose);
-    kbLayoutDialog->setFocus();
-    kbLayoutDialog->activateWindow();
-    kbLayoutDialog->show();
+    kbLayoutDialog->exec();
+
 }
 
 void KBLayoutSettingModule::setCurrentLayout(const QString &value)
@@ -222,12 +219,8 @@ void SystemLanguageSettingModule::onPushSystemLanguageSetting()
 {
     SystemLanguageSettingDialog *systemLanguageSettingDialog = new SystemLanguageSettingDialog(m_model);
     connect(systemLanguageSettingDialog, &SystemLanguageSettingDialog::click, this, &SystemLanguageSettingModule::onAddLocale);
-    connect(systemLanguageSettingDialog, &SystemLanguageSettingDialog::requestCloseDlg, m_worker, &KeyboardWorker::refreshLang);
-    systemLanguageSettingDialog->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
     systemLanguageSettingDialog->setAttribute(Qt::WA_DeleteOnClose);
-    systemLanguageSettingDialog->setFocus();
-    systemLanguageSettingDialog->activateWindow();
-    systemLanguageSettingDialog->show();
+    systemLanguageSettingDialog->exec();
 }
 
 void SystemLanguageSettingModule::onAddLocale(const QModelIndex &index)
@@ -261,12 +254,8 @@ void ShortCutSettingModule::onPushCustomShortcut()
     connect(content, &CustomContentDialog::requestUpdateKey, m_worker, &KeyboardWorker::updateKey);
     connect(content, &CustomContentDialog::requestAddKey, m_worker, &KeyboardWorker::addCustomShortcut);
     connect(content, &CustomContentDialog::requestForceSubs, m_worker, &KeyboardWorker::onDisableShortcut);
-    connect(content, &CustomContentDialog::requestCloseDlg, m_worker, &KeyboardWorker::refreshShortcut);
-    content->setWindowFlags(Qt::Dialog);
     content->setAttribute(Qt::WA_DeleteOnClose);
-    content->setFocus();
-    content->activateWindow();
-    content->show();
+    content->exec();
 }
 
 void ShortCutSettingModule::onPushConflict(ShortcutInfo *info, const QString &shortcut)
@@ -280,13 +269,9 @@ void ShortCutSettingModule::onPushConflict(ShortcutInfo *info, const QString &sh
     connect(scContentDialog, &ShortcutContentDialog::requestSaveShortcut, m_worker, &KeyboardWorker::modifyShortcutEdit);
     connect(scContentDialog, &ShortcutContentDialog::requestUpdateKey, m_worker, &KeyboardWorker::updateKey);
     connect(scContentDialog, &ShortcutContentDialog::requestDisableShortcut, m_worker, &KeyboardWorker::onDisableShortcut);
-    connect(scContentDialog, &ShortcutContentDialog::requestCloseDlg, m_worker, &KeyboardWorker::refreshShortcut);
 
-    scContentDialog->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
     scContentDialog->setAttribute(Qt::WA_DeleteOnClose);
-    scContentDialog->setFocus();
-    scContentDialog->activateWindow();
-    scContentDialog->show();
+    scContentDialog->exec();
 }
 
 void ShortCutSettingModule::onShortcutEdit(ShortcutInfo *info)

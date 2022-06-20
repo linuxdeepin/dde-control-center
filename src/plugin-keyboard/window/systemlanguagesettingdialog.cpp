@@ -130,7 +130,7 @@ void SystemLanguageSettingDialog::onAddLanguage()
         Q_EMIT click(m_modelIndex);
     }
 
-    close();
+    accept();
 }
 
 void SystemLanguageSettingDialog::onLangSelect(const QModelIndex &index)
@@ -194,10 +194,4 @@ bool SystemLanguageSettingDialog::eventFilter(QObject *watched, QEvent *event)
     path.addRoundedRect(rect, 5, 5);
 
     return false;
-}
-
-void SystemLanguageSettingDialog::closeEvent(QCloseEvent *event)
-{
-    Q_EMIT requestCloseDlg();
-    QDialog::closeEvent(event);
 }

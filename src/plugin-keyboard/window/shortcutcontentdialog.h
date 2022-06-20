@@ -54,15 +54,11 @@ Q_SIGNALS:
     void requestUpdateKey(ShortcutInfo *conflict);
     void requestSaveShortcut(ShortcutInfo *info);
     void requestDisableShortcut(ShortcutInfo *info);
-    void requestCloseDlg();
 
 public Q_SLOTS:
     void keyEvent(bool press, const QString &shortcut);
     void onReplace();
     void onUpdateKey();
-
-protected:
-    void closeEvent(QCloseEvent *event) override;
 
 private:
     ShortcutModel *m_model;

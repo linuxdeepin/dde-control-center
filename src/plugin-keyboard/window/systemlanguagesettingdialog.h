@@ -61,7 +61,6 @@ public:
 
 Q_SIGNALS:
     void click(const QModelIndex &index);
-    void requestCloseDlg();
 
 public Q_SLOTS:
     void setModelData(const QList<MetaData> &datas);
@@ -70,7 +69,6 @@ public Q_SLOTS:
     void onLangSelect(const QModelIndex &index);
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
-    void closeEvent(QCloseEvent *event) override;
 
 private:
     bool m_searchStatus;

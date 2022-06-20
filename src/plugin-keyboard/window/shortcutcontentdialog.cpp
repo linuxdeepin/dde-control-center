@@ -171,7 +171,7 @@ void ShortcutContentDialog::onReplace()
             Q_EMIT requestSaveShortcut(m_info);
         }
     }
-    this->close();
+    accept();
 }
 
 void ShortcutContentDialog::onUpdateKey()
@@ -179,8 +179,3 @@ void ShortcutContentDialog::onUpdateKey()
     Q_EMIT requestUpdateKey(nullptr);
 }
 
-void ShortcutContentDialog::closeEvent(QCloseEvent *event)
-{
-    Q_EMIT requestCloseDlg();
-    QDialog::closeEvent(event);
-}
