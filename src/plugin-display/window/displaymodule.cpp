@@ -207,7 +207,7 @@ void DisplayModule::showSingleScreenWidget()
 
 void DisplayModule::updateWinsize(QRect rect)
 {
-    if (!m_displayWidget->window()) {
+    if (!m_displayWidget || !m_displayWidget->window()) {
         return;
     }
 
@@ -440,6 +440,8 @@ void DisplayModule::onRequestSetRotate(Monitor *monitor, const int rotate)
 
 void DisplayModule::pushScreenWidget()
 {
+    if (!m_displayWidget)
+        return;
     if (m_model->monitorList().size() > 1) {
         showMultiScreenWidget();
     } else {
