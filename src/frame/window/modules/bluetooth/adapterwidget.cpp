@@ -308,9 +308,7 @@ void AdapterWidget::initConnect()
     connect(m_model, &BluetoothModel::displaySwitchChanged, m_showAnonymousCheckBox, &DCheckBox::setChecked);
     connect(m_showAnonymousCheckBox, &DCheckBox::stateChanged, this, [ = ](int state) {
         if (state == Qt::CheckState::Unchecked) {
-            if (m_model->displaySwitch()) {
-                Q_EMIT requestSetDisplaySwitch(false);
-            }
+            Q_EMIT requestSetDisplaySwitch(false);
             // 将蓝牙名称为空的设备过滤掉
             for (int i = 0; i < m_deviceLists.size(); i++) {
                 DeviceSettingsItem *pDeviceItem = m_deviceLists[i];
@@ -327,9 +325,7 @@ void AdapterWidget::initConnect()
                 }
             }
         } else {
-            if (!m_model->displaySwitch()) {
-                Q_EMIT requestSetDisplaySwitch(true);
-            }
+            Q_EMIT requestSetDisplaySwitch(true);
             // 显示所有蓝牙设备
             for (int i = 0; i < m_deviceLists.size(); i++) {
                 DeviceSettingsItem *pDeviceItem = m_deviceLists[i];

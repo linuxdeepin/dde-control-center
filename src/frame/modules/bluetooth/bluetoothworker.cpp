@@ -547,6 +547,7 @@ void BluetoothWorker::handleDbusSignal(QDBusMessage mes)
             if (keys.at(i) == "DisplaySwitch") {
                 bool state = static_cast<bool>(changedProps.value(keys.at(i)).toBool());
                 m_model->setDisplaySwitch(state);
+                return;
             }
         }
     }
