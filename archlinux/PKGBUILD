@@ -10,11 +10,8 @@ license=('GPL3')
 depends=('dtkwidget-git' 'deepin-account-faces-git' 'libpwquality' 'startdde-git'
          'deepin-daemon-git' 'startdde-git' 'networkmanager-qt'
          'deepin-qt-dbus-factory-git' 'deepin-network-utils-git'
-         'deepin-pw-check-git' 'qt5-wayland' 'kwayland')
-makedepends=('git' 'cmake' 'ninja' 'qt5-tools' 'qt5-base' 'qt5-x11extras' 
-             'qt5-multimedia' 'qt5-svg' 'dtkcommon-git' 'dtkcore-git' 'dtkwidget-git' 'dtkgui-git' 'networkmanager-qt'
-             'deepin-network-utils-git' 'deepin-qt-dbus-factory-git' 'gtest' 'gmock' 'polkit-qt5' 'deepin-pw-check-git'
-             'qt5-wayland' 'kwayland')
+         'deepin-pw-check-git')
+makedepends=('git' 'cmake' 'ninja' 'qt5-tools' 'qt5-base' 'qt5-x11extras' 'qt5-multimedia' 'qt5-svg' 'dtkcommon-git' 'dtkcore-git' 'dtkwidget-git' 'dtkgui-git' 'networkmanager-qt' 'deepin-network-utils-git' 'deepin-qt-dbus-factory-git' 'gtest' 'gmock' 'polkit-qt5' 'deepin-pw-check-git')
 optdepends=('redshift: automatic color temperature support'
             'networkmanager-openconnect: for OpenConnect support'
             'networkmanager-openvpn: for OpenVPN support'
@@ -26,18 +23,22 @@ optdepends=('redshift: automatic color temperature support'
 conflicts=('deepin-control-center')
 provides=('deepin-control-center')
 groups=('deepin-git')
-source=("source.tar.gz"
+source=("$pkgname-$pkgver::source.tar.gz"
         remove-auth.patch)
 sha512sums=('SKIP'
-            'SKIP')
+            '79e6d8189b44bc695e51c3f3eefbc3333554b1dd4000e77f56b73eef38e7f551d1c0578b4e5ad488ba1788756763994a742da863d12cac37c7b9993405d82c9d')
+pkgver() {
+    cd $pkgname-$pkgver
+    git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+}
 
 prepare() {
-    cd $deepin_source_name
+  cd $pkgname-$pkgver
 }
 
 build() {
-  mkdir -p $deepin_source_name/build
-  cd $deepin_source_name/build
+  mkdir -p $pkgname/build
+  cd $pkgname-$pkgver/build
   cmake -GNinja \
         -DDISABLE_SYS_UPDATE=YES \
         -DDISABLE_RECOVERY=YES \
@@ -50,6 +51,6 @@ build() {
 }
 
 package() {
-  cd $deepin_source_name/build
+  cd $pkgname-$pkgver/build
   DESTDIR="$pkgdir" ninja install
 }
