@@ -33,7 +33,7 @@ prepare() {
 }
 
 build() {
-  mkdir -p $pkgname/build
+  mkdir -p $deepin_source_name/build
   cd $deepin_source_name/build
   cmake -GNinja \
         -DDISABLE_SYS_UPDATE=YES \
