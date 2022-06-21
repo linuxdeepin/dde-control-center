@@ -29,13 +29,12 @@ sha512sums=('SKIP'
             'SKIP')
 
 prepare() {
-
-    cd $pkgname
+    cd $deepin_source_name
 }
 
 build() {
   mkdir -p $pkgname/build
-  cd $pkgname/build
+  cd $deepin_source_name/build
   cmake -GNinja \
         -DDISABLE_SYS_UPDATE=YES \
         -DDISABLE_RECOVERY=YES \
@@ -48,6 +47,6 @@ build() {
 }
 
 package() {
-  cd $pkgname/build
+  cd $deepin_source_name/build
   DESTDIR="$pkgdir" ninja install
 }
