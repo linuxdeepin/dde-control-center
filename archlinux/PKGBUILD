@@ -23,10 +23,8 @@ optdepends=('redshift: automatic color temperature support'
 conflicts=('deepin-control-center')
 provides=('deepin-control-center')
 groups=('deepin-git')
-source=("source.tar.gz"
-        remove-auth.patch)
-sha512sums=('SKIP'
-            'SKIP')
+source=("source.tar.gz")
+sha512sums=('SKIP')
 
 prepare() {
     cd $deepin_source_name
