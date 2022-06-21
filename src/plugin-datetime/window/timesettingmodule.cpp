@@ -141,10 +141,10 @@ void TimeSettingModule::initAutoSyncTime(SettingsGroup *ntpGroup)
     connect(m_model, &DatetimeModel::NTPServerChanged, m_ntpServerList, setNtpServer);
     connect(m_model, &DatetimeModel::NTPServerNotChanged, m_ntpServerList, setNtpServer);
 
-    bool isNtp = m_model->nTP();
+    const bool isNtp = m_model->nTP();
     m_autoSyncTimeSwitch->setChecked(isNtp);
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, m_work, &DatetimeWorker::setNTP);
-    connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &TimeSettingModule::setControlVisible);
+    connect(m_model, &DatetimeModel::NTPChanged, this, &TimeSettingModule::setControlVisible);
 
     connect(m_ntpServerList->comboBox(), QOverload<const int>::of(&QComboBox::currentIndexChanged), this, [this](const int index) {
         const QString &text = m_ntpServerList->comboBox()->itemText(index);
@@ -186,6 +186,9 @@ void TimeSettingModule::initAutoSyncTime(SettingsGroup *ntpGroup)
 void TimeSettingModule::initTimeSetting(SettingsGroup *datetimeGroup)
 {
     m_datetimeGroup = datetimeGroup;
+
+    datetimeGroup->setHidden(m_model->nTP());
+    connect(m_model, &DatetimeModel::NTPChanged, datetimeGroup, &SettingsGroup::setHidden);
     QLabel *centerLabel = new QLabel(" : ");
     QFont font;
     font.setPointSizeF(24);
@@ -343,6 +346,7 @@ void TimeSettingModule::setControlVisible(bool state)
     m_datetimeGroup->setVisible(!state);
     m_ntpServerList->setVisible(state);
     setButtonShowState(state);
+    m_autoSyncTimeSwitch->setChecked(state);
     m_customizeAddress->setVisible(state && m_ntpServerList->comboBox()->currentText() == tr("Customize"));
 }
 
