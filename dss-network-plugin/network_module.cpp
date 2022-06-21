@@ -22,6 +22,7 @@
 #include "network_module.h"
 #include "networkpluginhelper.h"
 #include "networkdialog.h"
+#include "secretagent.h"
 #include "trayicon.h"
 #include "notificationmanager.h"
 
@@ -74,6 +75,7 @@ NetworkModule::NetworkModule(QObject *parent)
         for (dde::network::NetworkDeviceBase *device : dde::network::NetworkController::instance()->devices()) {
             onAddDevice(device->path());
         }
+        m_secretAgent = new NETWORKPLUGIN_NAMESPACE::SecretAgent(true, this);
     }
     m_networkDialog->runServer(true);
 }

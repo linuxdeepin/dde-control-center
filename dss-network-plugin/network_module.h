@@ -31,6 +31,7 @@
 NETWORKPLUGIN_BEGIN_NAMESPACE
 class NetworkPluginHelper;
 class NetworkDialog;
+class SecretAgent;
 NETWORKPLUGIN_END_NAMESPACE
 
 namespace dss {
@@ -73,6 +74,7 @@ private:
 public:
     NETWORKPLUGIN_NAMESPACE::NetworkPluginHelper *m_networkHelper;
     NETWORKPLUGIN_NAMESPACE::NetworkDialog *m_networkDialog;
+    NETWORKPLUGIN_NAMESPACE::SecretAgent *m_secretAgent;
 
     bool m_isLockModel;  // 锁屏 or greeter
     bool m_isLockScreen; // 锁屏显示
