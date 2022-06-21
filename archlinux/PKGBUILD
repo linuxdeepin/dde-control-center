@@ -23,7 +23,7 @@ optdepends=('redshift: automatic color temperature support'
 conflicts=('deepin-control-center')
 provides=('deepin-control-center')
 groups=('deepin-git')
-source=("$pkgname::source.tar.gz"
+source=("source.tar.gz"
         remove-auth.patch)
 sha512sums=('SKIP'
             '79e6d8189b44bc695e51c3f3eefbc3333554b1dd4000e77f56b73eef38e7f551d1c0578b4e5ad488ba1788756763994a742da863d12cac37c7b9993405d82c9d')
