@@ -128,7 +128,6 @@ void SecurityLevelItem::initUi()
     QHBoxLayout *newPasswdLevelLayout = new QHBoxLayout;
     newPasswdLevelLayout->setMargin(0);
     m_newPasswdLevelText->setFixedWidth(55);
-    m_newPasswdLevelText->setFixedHeight(20);
     m_newPasswdLevelText->setAlignment(Qt::AlignRight);
     DFontSizeManager::instance()->bind(m_newPasswdLevelText, DFontSizeManager::T8);
     newPasswdLevelLayout->addWidget(m_newPasswdLevelText, 0, Qt::AlignRight);
