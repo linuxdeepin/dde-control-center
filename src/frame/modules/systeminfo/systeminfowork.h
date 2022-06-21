@@ -40,6 +40,13 @@ using HostNameDbus = org::freedesktop::hostname1;
 namespace dcc{
 namespace systeminfo{
 
+enum AuthorizationProperty {
+    Dedault = 0,  //默认
+    Government,  //政务
+    Enterprise,  //企业
+    Count,
+};
+
 class SystemInfoModel;
 
 class SystemInfoWork : public QObject
@@ -72,6 +79,7 @@ private:
     void getEntryTitles();
     void getBackgroundFinished(QDBusPendingCallWatcher *w);
     void getLicenseState();
+    unsigned int getLicenseAuthorizationProperty();
 
 private:
     SystemInfoModel* m_model;

@@ -177,13 +177,27 @@ void SystemInfoWork::activate()
         version = QString("%1%2").arg(DSysInfo::minorVersion())
                                   .arg(DSysInfo::uosEditionName());
     } else if (DSysInfo::isDeepin()) {
-        version = QString("%1 (%2)").arg(DSysInfo::uosEditionName())
-                                  .arg(DSysInfo::minorVersion());
+        //获取政务授权、企业授权
+        QString authorizationProperty = "";
+        AuthorizationProperty type = static_cast<AuthorizationProperty>(getLicenseAuthorizationProperty());
+        if (AuthorizationProperty::Government == type) {
+            authorizationProperty = tr("For Government");
+        } else if (AuthorizationProperty::Enterprise == type) {
+            authorizationProperty = tr("For Enterprise");
+        }
+
+        if (authorizationProperty != "") {
+            version = QString("%1(%2)(%3)").arg(DSysInfo::uosEditionName())
+                                      .arg(authorizationProperty)
+                                      .arg(DSysInfo::minorVersion());
+        } else {
+            version = QString("%1 (%2)").arg(DSysInfo::uosEditionName())
+                                      .arg(DSysInfo::minorVersion());
+        }
     } else {
         version = QString("%1 %2").arg(DSysInfo::productVersion())
                                   .arg(DSysInfo::productTypeString());
     }
-
     m_model->setVersion(version);
     m_model->setType(QSysInfo::WordSize);
 
@@ -389,6 +403,21 @@ void SystemInfoWork::getLicenseState()
     ActiveState reply = licenseInfo.property("AuthorizationState").value<ActiveState>();
     qDebug() << "authorize result:" << reply;
     m_model->setLicenseState(reply);
+}
+
+unsigned int SystemInfoWork::getLicenseAuthorizationProperty()
+{
+    QDBusInterface licenseInfo("com.deepin.license",
+                               "/com/deepin/license/Info",
+                               "com.deepin.license.Info",
+                               QDBusConnection::systemBus());
+
+    if (!licenseInfo.isValid()) {
+        qDebug() << "com.deepin.license error ," << licenseInfo.lastError().name();
+        return 0;
+    }
+
+    return licenseInfo.property("AuthorizationProperty").value<unsigned int>();
 }
 #endif
 
