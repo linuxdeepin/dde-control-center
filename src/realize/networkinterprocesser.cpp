@@ -420,6 +420,17 @@ void NetworkInterProcesser::updateDeviceConnectiveInfo()
 
 void NetworkInterProcesser::activeConnInfoChanged(const QString &conns)
 {
+    // 当没有激活的连接时，需要更新对应的连接信息和网络详细信息为空
+    if (conns == "null") {
+        for (NetworkDeviceBase *device : m_devices){
+            DeviceInterRealize *deviceInter = static_cast<DeviceInterRealize *>(device->deviceRealize());
+            deviceInter->updateActiveConnectionInfo(QList<QJsonObject>());
+            m_networkDetails.clear();
+        }
+
+        return;
+    }
+
     QJsonParseError error;
     m_activeConnectionInfo = QJsonDocument::fromJson(conns.toUtf8(), &error).array();
     if (error.error == QJsonParseError::NoError) {
