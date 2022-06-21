@@ -189,14 +189,10 @@ ResolutionWidget::ResolutionWidget(int comboxWidth, QWidget *parent)
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(m_contentLayout);
     m_contentLayout->addWidget(grp);
-
-    setItemIcon();
 }
 
 ResolutionWidget::~ResolutionWidget()
 {
-    qDeleteAll(m_mapFillModeItems.values());
-    m_mapFillModeItems.clear();
     m_resizeItemModel->deleteLater();
 }
 
@@ -266,70 +262,63 @@ void ResolutionWidget::OnCurrentModeChanged(const Resolution &mode)
     }
 }
 
-void ResolutionWidget::setItemIcon()
+Dtk::Widget::DStandardItem *ResolutionWidget::getItemIcon(const QString &key)
 {
-    Dtk::Widget::DStandardItem *defaultItem = new Dtk::Widget::DStandardItem(tr("Default"));
-    //深色
-    defaultItem->setData("None", FillModeRole);
-    defaultItem->setData(":/display/icons/dark/icons/dark/Default.svg", DarkItemIconRole);
-    defaultItem->setData(":/display/icons/dark/icons/dark/Default.svg", DarkDefaultIconRole);
-    defaultItem->setData(":/display/icons/dark/icons/white/Default.svg", DarkHighlightIconRole);
-    defaultItem->setData(":/display/icons/dark/icons/hover/Default.svg", DarkHoverIconRole);
-    //浅色
-    defaultItem->setData(":/display/icons/light/icon/black/Default.svg", LightItemIconRole);
-    defaultItem->setData(":/display/icons/light/icon/light/Default.svg", LightDefaultIconRole);
-    defaultItem->setData(":/display/icons/light/icon/white/Default.svg", LightHighlightIconRole);
-    defaultItem->setData(":/display/icons/light/icon/hover/Default.svg", LightHoverIconRole);
-
-    m_mapFillModeItems["None"] = defaultItem; /*默认*/
-
-
-    Dtk::Widget::DStandardItem *fitItem = new Dtk::Widget::DStandardItem(tr("Fit"));
-    //深色
-    fitItem->setData("Full aspect", FillModeRole);
-    fitItem->setData(":/display/icons/dark/icons/dark/Fit.svg", DarkItemIconRole);
-    fitItem->setData(":/display/icons/dark/icons/dark/Fit.svg", DarkDefaultIconRole);
-    fitItem->setData(":/display/icons/dark/icons/white/Fit.svg", DarkHighlightIconRole);
-    fitItem->setData(":/display/icons/dark/icons/hover/Fit.svg", DarkHoverIconRole);
-    //浅色
-    fitItem->setData(":/display/icons/light/icon/black/Fit.svg", LightItemIconRole);
-    fitItem->setData(":/display/icons/light/icon/light/Fit.svg", LightDefaultIconRole);
-    fitItem->setData(":/display/icons/light/icon/white/Fit.svg", LightHighlightIconRole);
-    fitItem->setData(":/display/icons/light/icon/hover/Fit.svg", LightHoverIconRole);
-
-    m_mapFillModeItems["Full aspect"] = fitItem; /*适应*/
-
-
-    Dtk::Widget::DStandardItem *stretchItem = new Dtk::Widget::DStandardItem(tr("Stretch"));
-    //深色
-    stretchItem->setData("Full", FillModeRole);
-    stretchItem->setData(":/display/icons/dark/icons/dark/Stretch.svg", DarkItemIconRole);
-    stretchItem->setData(":/display/icons/dark/icons/dark/Stretch.svg", DarkDefaultIconRole);
-    stretchItem->setData(":/display/icons/dark/icons/white/Stretch.svg", DarkHighlightIconRole);
-    stretchItem->setData(":/display/icons/dark/icons/hover/Stretch.svg", DarkHoverIconRole);
-    //浅色
-    stretchItem->setData(":/display/icons/light/icon/black/Stretch.svg", LightItemIconRole);
-    stretchItem->setData(":/display/icons/light/icon/light/Stretch.svg", LightDefaultIconRole);
-    stretchItem->setData(":/display/icons/light/icon/white/Stretch.svg", LightHighlightIconRole);
-    stretchItem->setData(":/display/icons/light/icon/hover/Stretch.svg", LightHoverIconRole);
-
-    m_mapFillModeItems["Full"] = stretchItem;/*铺满*/
-
-
-    Dtk::Widget::DStandardItem *centerItem = new Dtk::Widget::DStandardItem(tr("Center"));
-    //深色
-    centerItem->setData("Center", FillModeRole);
-    centerItem->setData(":/display/icons/dark/icons/dark/Center.svg", DarkItemIconRole);
-    centerItem->setData(":/display/icons/dark/icons/dark/Center.svg", DarkDefaultIconRole);
-    centerItem->setData(":/display/icons/dark/icons/white/Center.svg", DarkHighlightIconRole);
-    centerItem->setData(":/display/icons/dark/icons/hover/Center.svg", DarkHoverIconRole);
-    //浅色
-    centerItem->setData(":/display/icons/light/icon/black/Center.svg", LightItemIconRole);
-    centerItem->setData(":/display/icons/light/icon/light/Center.svg", LightDefaultIconRole);
-    centerItem->setData(":/display/icons/light/icon/white/Center.svg", LightHighlightIconRole);
-    centerItem->setData(":/display/icons/light/icon/hover/Center.svg", LightHoverIconRole);
-
-    m_mapFillModeItems["Center"] = centerItem;/*居中*/
+    Dtk::Widget::DStandardItem *item = nullptr;
+    if (key == "None") { // 默认
+        item = new Dtk::Widget::DStandardItem(tr("Default"));
+        //深色
+        item->setData("None", FillModeRole);
+        item->setData(":/display/icons/dark/icons/dark/Default.svg", DarkItemIconRole);
+        item->setData(":/display/icons/dark/icons/dark/Default.svg", DarkDefaultIconRole);
+        item->setData(":/display/icons/dark/icons/white/Default.svg", DarkHighlightIconRole);
+        item->setData(":/display/icons/dark/icons/hover/Default.svg", DarkHoverIconRole);
+        //浅色
+        item->setData(":/display/icons/light/icon/black/Default.svg", LightItemIconRole);
+        item->setData(":/display/icons/light/icon/light/Default.svg", LightDefaultIconRole);
+        item->setData(":/display/icons/light/icon/white/Default.svg", LightHighlightIconRole);
+        item->setData(":/display/icons/light/icon/hover/Default.svg", LightHoverIconRole);
+    } else if (key == "Full aspect") { // 适应
+        item = new Dtk::Widget::DStandardItem(tr("Fit"));
+        //深色
+        item->setData("Full aspect", FillModeRole);
+        item->setData(":/display/icons/dark/icons/dark/Fit.svg", DarkItemIconRole);
+        item->setData(":/display/icons/dark/icons/dark/Fit.svg", DarkDefaultIconRole);
+        item->setData(":/display/icons/dark/icons/white/Fit.svg", DarkHighlightIconRole);
+        item->setData(":/display/icons/dark/icons/hover/Fit.svg", DarkHoverIconRole);
+        //浅色
+        item->setData(":/display/icons/light/icon/black/Fit.svg", LightItemIconRole);
+        item->setData(":/display/icons/light/icon/light/Fit.svg", LightDefaultIconRole);
+        item->setData(":/display/icons/light/icon/white/Fit.svg", LightHighlightIconRole);
+        item->setData(":/display/icons/light/icon/hover/Fit.svg", LightHoverIconRole);
+    } else if (key == "Full") { // 铺满
+        item = new Dtk::Widget::DStandardItem(tr("Stretch"));
+        //深色
+        item->setData("Full", FillModeRole);
+        item->setData(":/display/icons/dark/icons/dark/Stretch.svg", DarkItemIconRole);
+        item->setData(":/display/icons/dark/icons/dark/Stretch.svg", DarkDefaultIconRole);
+        item->setData(":/display/icons/dark/icons/white/Stretch.svg", DarkHighlightIconRole);
+        item->setData(":/display/icons/dark/icons/hover/Stretch.svg", DarkHoverIconRole);
+        //浅色
+        item->setData(":/display/icons/light/icon/black/Stretch.svg", LightItemIconRole);
+        item->setData(":/display/icons/light/icon/light/Stretch.svg", LightDefaultIconRole);
+        item->setData(":/display/icons/light/icon/white/Stretch.svg", LightHighlightIconRole);
+        item->setData(":/display/icons/light/icon/hover/Stretch.svg", LightHoverIconRole);
+    } else if (key == "Center") { // 居中
+        item = new Dtk::Widget::DStandardItem(tr("Center"));
+        //深色
+        item->setData("Center", FillModeRole);
+        item->setData(":/display/icons/dark/icons/dark/Center.svg", DarkItemIconRole);
+        item->setData(":/display/icons/dark/icons/dark/Center.svg", DarkDefaultIconRole);
+        item->setData(":/display/icons/dark/icons/white/Center.svg", DarkHighlightIconRole);
+        item->setData(":/display/icons/dark/icons/hover/Center.svg", DarkHoverIconRole);
+        //浅色
+        item->setData(":/display/icons/light/icon/black/Center.svg", LightItemIconRole);
+        item->setData(":/display/icons/light/icon/light/Center.svg", LightDefaultIconRole);
+        item->setData(":/display/icons/light/icon/white/Center.svg", LightHighlightIconRole);
+        item->setData(":/display/icons/light/icon/hover/Center.svg", LightHoverIconRole);
+    }
+    return item;
 }
 
 void ResolutionWidget::initResizeDesktop()
@@ -361,8 +350,9 @@ void ResolutionWidget::OnAvailableFillModesChanged(const QStringList &lstFillMod
 
     m_resizeItemModel->clear();
     for(auto str : lstFillMode) {
-        if(m_mapFillModeItems.keys().contains(str))
-            m_resizeItemModel->appendRow(m_mapFillModeItems[str]);
+        Dtk::Widget::DStandardItem *item = getItemIcon(str);
+        if(item)
+            m_resizeItemModel->appendRow(item);
     }
     m_resizeDesktopCombox->setDefaultRoleIcon();
 

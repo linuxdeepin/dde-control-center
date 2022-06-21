@@ -111,7 +111,7 @@ public Q_SLOTS:
 private:
     void initResolution();
     void initResizeDesktop();
-    void setItemIcon();
+    Dtk::Widget::DStandardItem *getItemIcon(const QString &key);
     void setResizeDesktopVisible(bool visible);
     void updateResizeDesktopVisible();
     bool eventFilter(QObject *obj, QEvent *event) override;
@@ -130,8 +130,6 @@ private:
     Monitor *m_monitor;
     QStandardItemModel *m_resoItemModel;
     QStandardItemModel *m_resizeItemModel;
-
-    QMap<QString, Dtk::Widget::DStandardItem*> m_mapFillModeItems; //铺满方式对应的items
 };
 }
 #endif // RESOLUTIONWIDGET_H
