@@ -132,6 +132,9 @@ void TimezoneMap::resizeEvent(QResizeEvent *event)
         popup_window_->hide();
     }
 
+    if (!nearest_zones_.isEmpty()) {
+        this->remark();
+    }
     QLabel *background_label = findChild<QLabel *>("background_label");
     if (background_label) {
         QPixmap timezone_pixmap = loadPixmap(kTimezoneMapFile);

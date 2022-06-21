@@ -110,9 +110,11 @@ void TimezoneModule::initTimezoneListGroup(DCC_NAMESPACE::SettingsGroup *timezon
 void TimezoneModule::ensureZoneChooserDialog(bool setZone)
 {
     TimeZoneChooser *zoneChooserdialog = new TimeZoneChooser(qApp->activeWindow());
-    zoneChooserdialog->setAttribute(Qt::WA_DeleteOnClose);
+    zoneChooserdialog->setAttribute(Qt::WA_DeleteOnClose, true);
     zoneChooserdialog->setIsAddZone(!setZone);
+
     if (setZone) {
+        zoneChooserdialog->setMarkedTimeZone(installer::GetCurrentTimezone().isEmpty() ? m_model->getTimeZone() : installer::GetCurrentTimezone());
         connect(zoneChooserdialog, &TimeZoneChooser::confirmed, m_work, &DatetimeWorker::setTimezone);
     } else {
         connect(zoneChooserdialog, &TimeZoneChooser::confirmed, m_work, &DatetimeWorker::addUserTimeZone);
