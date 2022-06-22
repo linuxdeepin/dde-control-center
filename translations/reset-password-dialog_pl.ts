@@ -25,7 +25,7 @@
     <message>
         <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="128"/>
         <source>Password Hint</source>
-        <translation>Podpowiedź do hasła</translation>
+        <translation>Wskazówka do hasła</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="137"/>
@@ -70,7 +70,7 @@
     <message>
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="76"/>
         <source>Password cannot be empty</source>
-        <translation>Hasło nie może być puste</translation>
+        <translation>Pole na hasło nie może być puste</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="77"/>

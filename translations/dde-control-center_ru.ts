@@ -7,87 +7,87 @@
         <translation>Помощь</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Biometric Authentication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
         <source>Accounts</source>
         <translation>Учетные записи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
         <source>Display</source>
         <translation>Дисплей</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
         <source>Touch Screen</source>
         <translation>Сенсорный Экран</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Default Applications</source>
         <translation>Приложения по умолчанию</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
         <source>Personalization</source>
         <translation>Персонализация</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Notification</source>
         <translation>Уведомление</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Sound</source>
         <translation>Звук</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <source>Date and Time</source>
         <translation>Дата и время</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Power</source>
         <translation>Питание</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Mouse</source>
         <translation>Мышь</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>Drawing Tablet</source>
         <translation>Планшет для рисования</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
         <source>Keyboard and Language</source>
         <translation>Язык и клавиатура</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>Updates</source>
         <translation>Обновления</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
         <source>System Info</source>
         <translation>Системная информация</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <source>General Settings</source>
         <translation>Общие настройки</translation>
     </message>
@@ -128,7 +128,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="396"/>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>Секретные вопросы</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="448"/>
@@ -145,7 +145,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="463"/>
         <source>Reset Password</source>
-        <translation type="unfinished"/>
+        <translation>Сброс пароля</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="465"/>
@@ -172,24 +172,24 @@
         <extra-contents_path>/accounts/Administrator</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="517"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="520"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="518"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="521"/>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="651"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="654"/>
         <source>Group</source>
         <translation>Группа</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="699"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="707"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="716"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="702"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="710"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="719"/>
         <source>The full name has been used by other user accounts</source>
         <translation type="unfinished"/>
     </message>
@@ -270,41 +270,41 @@
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="178"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="213"/>
         <source>Standard User</source>
         <translation>Обычный пользователь</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="191"/>
         <source>System Administrator</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="194"/>
         <source>Security Administrator</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="198"/>
         <source>Audit Administrator</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="213"/>
         <source>Administrator</source>
         <translation>Администратор</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="423"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="438"/>
         <source>Go to Settings</source>
-        <translation type="unfinished"/>
+        <translation>Перейти к настройкам</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="439"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>
@@ -318,65 +318,65 @@
 <context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="64"/>
         <source>Group</source>
         <translation>Группа</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="100"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="101"/>
         <source>Create</source>
         <translation>Создать</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="162"/>
         <source>New Account</source>
         <translation>Новая учетная запись</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="177"/>
         <source>Account Type</source>
         <translation>Тип аккаунта</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="182"/>
         <source>Username</source>
         <translation>Имя пользователя</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="188"/>
         <source>Full Name</source>
         <translation>Полное имя</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="194"/>
         <source>Password</source>
         <translation>Пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="207"/>
         <source>Repeat Password</source>
         <translation>Повторите пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="213"/>
         <source>Password Hint</source>
-        <translation type="unfinished"/>
+        <translation>Подсказка пароля</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="532"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="534"/>
         <source>The full name is too long</source>
         <translation>Полное имя слишком длинное</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="582"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="594"/>
         <source>Passwords do not match</source>
         <translation>Пароли не совпадают</translation>
     </message>
@@ -409,40 +409,40 @@
         <translation>необязательный</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="410"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="411"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Подсказка видна всем пользователям. Не указывайте здесь пароль.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="468"/>
         <source>Policykit authentication failed</source>
         <translation>Сбой проверки подлинности Policykit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="486"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="487"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Имя пользователя должно содержать от 3 до 32 символов</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="493"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="494"/>
         <source>The first character must be a letter or number</source>
         <translation>Первый символ должен быть буквой или цифрой</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="500"/>
         <source>Your username should not only have numbers</source>
         <translation>Имя пользователя не должно состоять только из цифр</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="505"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="506"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="514"/>
         <source>The username has been used by other user accounts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="540"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="551"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="560"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="543"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="557"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="569"/>
         <source>The full name has been used by other user accounts</source>
         <translation type="unfinished"/>
     </message>
@@ -450,115 +450,104 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="58"/>
+        <source>Forgot password?</source>
+        <translation>Забыли пароль?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
         <source>Change Password</source>
         <translation>Изменить пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="81"/>
         <source>Reset Password</source>
-        <translation type="unfinished"/>
+        <translation>Сброс пароля</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="82"/>
         <source>Resetting the password will clear the data stored in the keyring.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="90"/>
         <source>Current Password</source>
         <translation>Текущий пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
-        <source>Forgot password?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="105"/>
         <source>New Password</source>
         <translation>Новый пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
         <source>Repeat Password</source>
         <translation>Повторите пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
         <source>Password Hint</source>
-        <translation type="unfinished"/>
+        <translation>Подсказка пароля</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="127"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="128"/>
         <source>Save</source>
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="199"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="208"/>
-        <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="211"/>
-        <source>Error occurred when reading the configuration files of password rules!</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="218"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="326"/>
         <source>Passwords do not match</source>
         <translation>Пароли не совпадают</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="222"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="224"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="191"/>
         <source>Required</source>
         <translation>Требуется</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="193"/>
         <source>Optional</source>
         <translation>Необязательный</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="232"/>
         <source>Password cannot be empty</source>
         <translation>Пароль не может быть пустым</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="258"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="333"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Подсказка видна всем пользователям. Не указывайте здесь пароль.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="269"/>
         <source>Wrong password</source>
         <translation>Неверный пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="275"/>
         <source>New password should differ from the current one</source>
         <translation>Новый пароль должен отличаться от текущего</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="438"/>
         <source>System error</source>
-        <translation type="unfinished"/>
+        <translation>Системная ошибка</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="452"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="440"/>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка сети</translation>
     </message>
 </context>
 <context>
@@ -566,7 +555,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="70"/>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>Секретные вопросы</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="81"/>
@@ -604,7 +593,7 @@
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="165"/>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="329"/>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>В ответе не более 30 символов</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="181"/>
@@ -620,91 +609,91 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="258"/>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>Как называется город, где вы родились?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="259"/>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>Как называется первая школа, в которую ты пошел?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="260"/>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>Кого ты любишь больше всего в этом мире?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="261"/>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>Какое твое любимое животное?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="262"/>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>Какая твоя любимая песня?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="263"/>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>Какое у тебя прозвище?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="276"/>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="288"/>
         <source>It cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Не может быть пустым</translation>
     </message>
 </context>
 <context>
     <name>dccV20::authentication::AddFaceInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="87"/>
         <source>Enroll Face</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="195"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="111"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="110"/>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="200"/>
         <source>Next</source>
         <translation>Далее</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
         <source>Face enrolled</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
         <source>Use your face to unlock the device and make settings later</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="216"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="220"/>
         <source>Failed to enroll your face</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="227"/>
         <source>Try Again</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="230"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
@@ -712,29 +701,29 @@
 <context>
     <name>dccV20::authentication::AddFingeDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="98"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="103"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="145"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="105"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="202"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="220"/>
         <source>Scan Again</source>
         <translation>Сканировать снова</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="200"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="218"/>
         <source>Scan Suspended</source>
         <translation>Сканирование приостановлено</translation>
     </message>
@@ -805,44 +794,44 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/faceinfodialog.cpp" line="74"/>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>Расположите Ваше лицо внутри рамки</translation>
     </message>
 </context>
 <context>
     <name>dccV20::authentication::FaceWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="24"/>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="83"/>
         <source>Edit</source>
         <translation>Редактировать</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="38"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="40"/>
         <source>Manage Faces</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="41"/>
         <source>You can add up to 5 faces</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="79"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="121"/>
         <source>Add Face</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="167"/>
         <source>The name already exists</source>
         <translation>Имя уже существует.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="197"/>
         <source>Faceprint</source>
         <translation type="unfinished"/>
     </message>
@@ -866,17 +855,17 @@
 <context>
     <name>dccV20::authentication::FingerDisclaimer</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
         <source>Add Fingerprint</source>
         <translation>Добавить отпечаток пальца</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="109"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="111"/>
         <source>Next</source>
         <translation>Далее</translation>
     </message>
@@ -959,7 +948,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="180"/>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Радужка</translation>
     </message>
 </context>
 <context>
@@ -985,7 +974,7 @@
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="124"/>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="180"/>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Радужка</translation>
     </message>
 </context>
 <context>
@@ -1008,7 +997,7 @@
         <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="69"/>
         <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="138"/>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Радужка</translation>
         <extra-contents_path>/authentication/Iris</extra-contents_path>
     </message>
 </context>
@@ -1195,52 +1184,52 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="405"/>
         <source>Username:</source>
         <translation>Имя пользователя:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="406"/>
         <source>root</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="405"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="407"/>
         <source>New password:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="408"/>
         <source>Repeat password:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="409"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="410"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="412"/>
         <source>Required</source>
         <translation>Требуется</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="426"/>
         <source>Cancel</source>
         <comment>button</comment>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="425"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="427"/>
         <source>Confirm</source>
         <comment>button</comment>
         <translation>Применить</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="435"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="437"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="467"/>
         <source>Password cannot be empty</source>
         <translation>Пароль не может быть пустым</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="448"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="478"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="480"/>
         <source>Passwords do not match</source>
         <translation>Пароли не совпадают</translation>
     </message>
@@ -1248,50 +1237,50 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="97"/>
         <source>General Settings</source>
         <translation>Общие настройки</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="238"/>
         <source>Boot Menu</source>
         <translation>Меню загрузки</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="242"/>
         <source>Developer Mode</source>
         <translation>Режим разработчика</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="149"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="244"/>
         <source>User Experience Program</source>
         <translation>Программа взаимодействия с пользователем</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="239"/>
         <source>Startup Delay</source>
         <translation>Задержка запуска</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="234"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="240"/>
         <source>Theme</source>
         <translation>Тема</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="241"/>
         <source>GRUB Authentication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="243"/>
         <source>Join User Experience Program</source>
         <translation>Присоединиться к Программе взаимодействия с пользователем</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="287"/>
         <source>Request Root Access</source>
         <translation>Запросить root-доступ</translation>
     </message>
@@ -1353,17 +1342,17 @@
         <translation>Ошибка проверки подписи, не удалось получить root-доступ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="310"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Дать согласие и присоединиться к Программе взаимодействия с пользователем</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="374"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Отказ от ответственности за режим разработчика</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="375"/>
         <source>Agree and Request Root Access</source>
         <translation>Дать согласие и запросить root-доступ</translation>
     </message>
@@ -1371,53 +1360,53 @@
 <context>
     <name>dccV20::commoninfo::DeveloperModeDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="70"/>
         <source>Request Root Access</source>
         <translation>Запросить root-доступ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="80"/>
         <source>Online</source>
         <translation>В сети</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="81"/>
         <source>Offline</source>
         <translation>Не в сети</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="96"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="212"/>
         <source>Please sign in to your Union ID first and continue</source>
         <translation>Пожалуйста, войдите сначала в свой Union ID и продолжите</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="103"/>
         <source>Next</source>
         <translation>Далее</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="107"/>
         <source>Export PC Info</source>
         <translation>Экспорт информации о ПК</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="108"/>
         <source>Import Certificate</source>
         <translation>Импорт сертификата</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="218"/>
         <source>1. Export your PC information</source>
         <translation>1. Экспортируйте информацию о вашем ПК</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="219"/>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
         <translation>2. Перейдите на https://www.chinauos.com/developMode, чтобы загрузить оффлайн сертификат.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="220"/>
         <source>3. Import the certificate</source>
         <translation>3. Импортируйте сертификат</translation>
     </message>
@@ -1426,7 +1415,7 @@
     <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="61"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="217"/>
         <source>Request Root Access</source>
         <translation>Запросить root-доступ</translation>
         <extra-child_page>Developer Mode</extra-child_page>
@@ -1474,22 +1463,22 @@
         <translation>Ошибка проверки подписи, не удалось получить root-доступ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="171"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
         <translation>Чтобы его задействовать, требуется перезагрузка. Перезагрузить сейчас?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="172"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="172"/>
         <source>Restart Now</source>
         <translation>Перезагрузить сейчас</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="210"/>
         <source>Root Access Allowed</source>
         <translation>Root-доступ разрешен</translation>
     </message>
@@ -1537,13 +1526,13 @@
 <context>
     <name>dccV20::datetime::ClockItem</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="83"/>
-        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="216"/>
         <source>AM</source>
         <translation>ДП</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="216"/>
         <source>PM</source>
         <translation>ПП</translation>
     </message>
@@ -1593,9 +1582,8 @@
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="289"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="302"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="348"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="356"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="411"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="473"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="471"/>
         <source>Customize</source>
         <translation>Настроить</translation>
     </message>
@@ -2153,29 +2141,29 @@
         <extra-contents_path>/display/Auto Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="89"/>
         <source>Night Shift</source>
         <translation>Ночной Режим</translation>
         <extra-contents_path>/display/Night Shift</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="94"/>
         <source>The screen hue will be auto adjusted according to your location</source>
         <translation>Оттенок экрана будет автоматически настраиваться в соответствии с Вашим местоположением</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="106"/>
         <source>Change Color Temperature</source>
         <translation>Изменить Цветовую Температуру</translation>
         <extra-contents_path>/display/Change Color Temperature</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="107"/>
         <source>Cool</source>
         <translation>Холодный</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="107"/>
         <source>Warm</source>
         <translation>Теплый</translation>
     </message>
@@ -2188,88 +2176,88 @@
         <translation>Дисплей</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="526"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
         <source>Brightness</source>
         <translation>Яркость</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="524"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="597"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="557"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="630"/>
         <source>Auto Brightness</source>
         <translation>Автоматическая яркость</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="528"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="601"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="561"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="634"/>
         <source>Color Temperature</source>
         <translation>Цветовая Температура</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="189"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="529"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="602"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="562"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="635"/>
         <source>Night Shift</source>
         <translation>Ночной режим</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="530"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="603"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="563"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="636"/>
         <source>Change Color Temperature</source>
         <translation>Изменить Цветовую Температуру</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="508"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="539"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="570"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="541"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="572"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="603"/>
         <source>Multiple Displays</source>
         <translation>Несколько Дисплеев</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="506"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="537"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="568"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="539"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="570"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="601"/>
         <source>Mode</source>
         <translation>Режим</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="507"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="538"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="569"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="540"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="571"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="602"/>
         <source>Main Screen</source>
         <translation>Главный Экран</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="541"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="572"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="574"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="605"/>
         <source>Refresh Rate</source>
         <translation>Частота Обновления</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="542"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="574"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="575"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="607"/>
         <source>Resolution</source>
         <translation>Разрешение</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="196"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="543"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="208"/>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="576"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="609"/>
         <source>Rotation</source>
         <translation>Поворот</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="197"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="544"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="578"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="577"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="611"/>
         <source>Display Scaling</source>
         <translation>Масштабирование Дисплея</translation>
     </message>
@@ -2295,17 +2283,17 @@
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="347"/>
         <source>Duplicate</source>
         <translation>Дублировать</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="348"/>
         <source>Extend</source>
         <translation>Расширить</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="365"/>
         <source>Only on %1</source>
         <translation>Только на %1</translation>
     </message>
@@ -2427,40 +2415,40 @@
 <context>
     <name>dccV20::keyboard::CustomContent</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="68"/>
         <source>Add Custom Shortcut</source>
         <translation>Добавить сочетание</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts/Add Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="74"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="79"/>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="102"/>
         <source>Required</source>
         <translation>Требуется</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="91"/>
         <source>Command</source>
         <translation>Команда</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="138"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="140"/>
         <source>Add</source>
         <translation>Добавить</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="179"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Это сочетание клавиш конфликтует с %1, нажмите на Добавить, чтобы выбрать именно такое сочетание клавиш</translation>
     </message>
@@ -2468,55 +2456,55 @@
 <context>
     <name>dccV20::keyboard::GeneralKBSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="51"/>
         <source>Repeat Delay</source>
         <translation>Задержка повтора</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="61"/>
         <source>Short</source>
         <translation>Короткая</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="62"/>
         <source>Long</source>
         <translation>Длинная</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="67"/>
         <source>Repeat Rate</source>
         <translation>Частота повтора</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="78"/>
         <source>Slow</source>
         <translation>Медленно</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="79"/>
         <source>Fast</source>
         <translation>Быстро</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="86"/>
         <source>Test here</source>
         <translation>Проверьте здесь</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="108"/>
         <source>Numeric Keypad</source>
         <translation>Цифровая клавиатура</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="115"/>
         <source>Caps Lock Prompt</source>
         <translation>Индикатор Caps Lock</translation>
         <extra-child_page>General</extra-child_page>
@@ -2588,11 +2576,15 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="256"/>
         <source>Numeric Keypad</source>
         <translation>Цифровая клавиатура</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="258"/>
         <source>Caps Lock Prompt</source>
         <translation>Индикатор Caps Lock</translation>
     </message>
@@ -2608,7 +2600,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="405"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="415"/>
         <source>Custom Shortcut</source>
         <translation>Пользовательское сочетание</translation>
     </message>
@@ -2643,7 +2635,7 @@
         <translation>Список языков</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="278"/>
         <source>Keyboard and Language</source>
         <translation>Язык и клавиатура</translation>
     </message>
@@ -2677,47 +2669,47 @@
 <context>
     <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="65"/>
         <source>System</source>
         <translation>Система</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="75"/>
         <source>Window</source>
         <translation>Окно</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="86"/>
         <source>Workspace</source>
         <translation>Рабочая область</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="96"/>
         <source>Assistive Tools</source>
         <translation>Вспомогательные инструменты</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="115"/>
         <source>Custom Shortcut</source>
         <translation>Пользовательское сочетание</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="148"/>
         <source>Restore Defaults</source>
         <translation>Восстановить значения по умолчанию</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="188"/>
         <source>Shortcut</source>
         <translation>Сочетание клавиш</translation>
     </message>
@@ -3156,7 +3148,7 @@
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="263"/>
         <source> (Unsupported font)</source>
         <translation>(Неподдерживаемый шрифт)</translation>
     </message>
@@ -3950,7 +3942,7 @@
         <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="348"/>
         <source>Input Level</source>
         <translation>Входной уровень</translation>
         <extra-child_page>Input</extra-child_page>
@@ -4235,12 +4227,12 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="440"/>
         <source>System error</source>
-        <translation type="unfinished"/>
+        <translation>Системная ошибка</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="442"/>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка сети</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="444"/>
@@ -5026,18 +5018,18 @@
         <translation>Последнее обновление</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="141"/>
         <source>Return</source>
         <translation>Возврат</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="196"/>
         <source>Current Edition</source>
         <translation>Текущая версия</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="204"/>
         <source>Update History</source>
         <translation>История обновлений</translation>
     </message>
@@ -5171,7 +5163,7 @@
         <translation>Пожалуйста, создайте надежный пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="101"/>
         <source>It does not meet password rules</source>
         <translation>Не соответствует правилам паролей</translation>
     </message>
@@ -5225,12 +5217,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="35"/>
+        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="37"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="37"/>
+        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="39"/>
         <source>Go to Link</source>
         <translation type="unfinished"/>
     </message>
@@ -5238,32 +5230,32 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="693"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="695"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Ваш хост был успешно удален с сервера домена</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="694"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="696"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Ваш хост успешно подключается к серверу домена</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="722"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="724"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Ваш хост не смог покинуть сервер домена</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="723"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="725"/>
         <source>Your host failed to join the domain server</source>
         <translation>Ваш хост не присоединился к серверу домена</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="726"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="728"/>
         <source>AD domain settings</source>
         <translation>Настройки домена AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="795"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="797"/>
         <source>Password not match</source>
         <translation>Пароль не совпадает</translation>
     </message>
@@ -5294,73 +5286,73 @@
 <context>
     <name>dcc::authentication::CharaMangerModel</name>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="106"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="118"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="130"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="164"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="176"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="188"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="111"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="123"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="135"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="169"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="181"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="193"/>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="109"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="167"/>
-        <source>Face enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Расположите Ваше лицо внутри рамки</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="114"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="172"/>
+        <source>Face enrolled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="119"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="177"/>
         <source>Position a human face please</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="122"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="180"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="127"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="185"/>
         <source>Keep away from the camera</source>
-        <translation type="unfinished"/>
+        <translation>Отодвиньтесь от камеры</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="126"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="184"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="131"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="189"/>
         <source>Get closer to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Приблизьтесь к камере</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="134"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="139"/>
         <source>Do not position multiple faces inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>Не размещайте несколько лиц внутри рамки</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="138"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="143"/>
         <source>Make sure the camera lens is clean</source>
-        <translation type="unfinished"/>
+        <translation>Убедитесь, что объектив камеры чистый</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="142"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="147"/>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation type="unfinished"/>
+        <translation>Не регистрируйтесь в темных, ярких или плохо освещенных помещениях</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="146"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="151"/>
         <source>Keep your face uncovered</source>
-        <translation type="unfinished"/>
+        <translation>Не закрывайте Ваше лицо</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="150"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="198"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="155"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="203"/>
         <source>Scan timed out</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="153"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="195"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="158"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="200"/>
         <source>Device crashed, please scan again!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="192"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="197"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
@@ -5731,22 +5723,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Сохранить</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="101"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="111"/>
         <source>Shortcut</source>
         <translation>Сочетание клавиш</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="104"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="114"/>
         <source>Name</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="105"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="115"/>
         <source>Command</source>
         <translation>Команда</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="122"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="132"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Это сочетание клавиш конфликтует с % 1, нажмите на Добавить, чтобы выбрать именно такое сочетание клавиш</translation>
     </message>
@@ -5759,7 +5751,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Сочетание клавиш</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="114"/>
+        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="120"/>
         <source>Please enter a shortcut</source>
         <translation>Пожалуйста, введите сочетание клавиш</translation>
     </message>
@@ -5787,27 +5779,27 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>dcc::keyboard::ShortcutContent</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="50"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>Please Reset Shortcut</source>
         <translation>Пожалуйста, сбросьте сочетание</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="65"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="75"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="66"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="76"/>
         <source>Replace</source>
         <translation>Заменить</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="68"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="78"/>
         <source>Shortcuts</source>
         <translation>Сочетания клавиш</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="100"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="118"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
         <translation>Это сочетание клавиш конфликтует с %1, нажмите на Заменить, чтобы выбрать именно такое сочетание клавиш</translation>
     </message>
@@ -5970,6 +5962,19 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
+    <name>dcc::systeminfo::SystemInfoWork</name>
+    <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="184"/>
+        <source>For Government</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="186"/>
+        <source>For Enterprise</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::update::AppstoreUpdateItem</name>
     <message>
         <location filename="../src/frame/window/modules/update/appstoreupdateitem.cpp" line="27"/>
@@ -6037,7 +6042,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="31"/>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Ошибка сети</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="31"/>
@@ -6184,7 +6189,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="93"/>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Сильный</translation>
     </message>
 </context>
 <context>

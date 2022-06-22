@@ -7,87 +7,87 @@
         <translation>Kömək</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Biometric Authentication</source>
         <translation>Biometrik Kimlik Doğrulaması</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
         <source>Accounts</source>
         <translation>Hesablar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
         <source>Display</source>
         <translation>Ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
         <source>Touch Screen</source>
         <translation>Toxunma ekranı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Default Applications</source>
         <translation>Varsayılan proqramlar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
         <source>Personalization</source>
         <translation>Fərdiləşdirmə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Notification</source>
         <translation>Bildiriş</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Sound</source>
         <translation>Səs</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <source>Date and Time</source>
         <translation>Tarix və Vaxt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Power</source>
         <translation>Elektrik qidalanması</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Mouse</source>
         <translation>Siçan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>Drawing Tablet</source>
         <translation>Rəsm tableti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
         <source>Keyboard and Language</source>
         <translation>Klaviatura və Dil</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>Updates</source>
         <translation>Yeniləmələr</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
         <source>System Info</source>
         <translation>Sistem məlumatı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <source>General Settings</source>
         <translation>Əsas ayarlar</translation>
     </message>
@@ -172,24 +172,24 @@
         <extra-contents_path>/accounts/Administrator</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="517"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="520"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="518"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="521"/>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
         <translation>&quot;Avtomatik giriş&quot; yalnız bir hesab üçün aktiv edilə bilər, Lütfən oncə onu &quot;%1&quot; hesabı üçün söndürün</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="651"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="654"/>
         <source>Group</source>
         <translation>Qrup</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="699"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="707"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="716"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="702"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="710"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="719"/>
         <source>The full name has been used by other user accounts</source>
         <translation>Tam ad başqa istifadəçi hesabları tərəfindən istifadə olunub</translation>
     </message>
@@ -270,41 +270,41 @@
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="178"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="213"/>
         <source>Standard User</source>
         <translation>Standart istifadəçi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="191"/>
         <source>System Administrator</source>
         <translation>Sistem inzibatçısı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="194"/>
         <source>Security Administrator</source>
         <translation>Təhlükəsizlik inzibatçısı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="198"/>
         <source>Audit Administrator</source>
         <translation>Audit inzibatçısı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="213"/>
         <source>Administrator</source>
         <translation>Administrator</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="423"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="438"/>
         <source>Go to Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ayarlara keçin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="439"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>İmtina</translation>
     </message>
 </context>
 <context>
@@ -318,65 +318,65 @@
 <context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="64"/>
         <source>Group</source>
         <translation>Qrup</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="100"/>
         <source>Cancel</source>
         <translation>İmtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="101"/>
         <source>Create</source>
         <translation>Yarat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="162"/>
         <source>New Account</source>
         <translation>Yeni hesab</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="177"/>
         <source>Account Type</source>
-        <translation>Hesab Növü</translation>
+        <translation>Hesab növü</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="182"/>
         <source>Username</source>
         <translation>İstifadəçi adı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="188"/>
         <source>Full Name</source>
         <translation>Tam ad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="194"/>
         <source>Password</source>
         <translation>Şifrə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="207"/>
         <source>Repeat Password</source>
         <translation>Təkrar Şifrə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="213"/>
         <source>Password Hint</source>
         <translation>Şifrə göstərişi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="532"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="534"/>
         <source>The full name is too long</source>
         <translation>Tam ad çox uzundur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="582"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="594"/>
         <source>Passwords do not match</source>
         <translation>Şifrənin təkrarı oxşar deyil</translation>
     </message>
@@ -409,40 +409,40 @@
         <translation>ixtiyari</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="410"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="411"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>İşarə bütün istifadəçilər üçün görünür. Şifrəni buraya daxil etməyin.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="468"/>
         <source>Policykit authentication failed</source>
         <translation>Policykit doğrulaması baş tutmadı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="486"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="487"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>İstifadəçi adı 3 və 32 simvolları arasından olmalıdır</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="493"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="494"/>
         <source>The first character must be a letter or number</source>
         <translation>İlk simvol hərf və ya rəqəm olmalıdır</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="500"/>
         <source>Your username should not only have numbers</source>
         <translation>İstifadəçi adınız yalnız rəqəmlər ola bilməz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="505"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="506"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="514"/>
         <source>The username has been used by other user accounts</source>
         <translation>İstifadəçi adı başqa istifadəçi hesabları tərəfindən istifadə olunub</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="540"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="551"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="560"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="543"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="557"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="569"/>
         <source>The full name has been used by other user accounts</source>
         <translation>Tam ad başqa istifadəçi hesabları tərəfindən istifadə olunub</translation>
     </message>
@@ -450,113 +450,102 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="74"/>
-        <source>Change Password</source>
-        <translation>Şifrəni dəyişin</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="77"/>
-        <source>Reset Password</source>
-        <translation>Şifrəni sıfırlayın</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
-        <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation>Şifrənin sıfırlanması açar bağında saxlanılan bütün verilənlərin silinməsi ilə nəticələnəcək.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
-        <source>Current Password</source>
-        <translation>Hal-hazırki şifrə</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="58"/>
         <source>Forgot password?</source>
         <translation>Şifrəni unutmusunuz?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
+        <source>Change Password</source>
+        <translation>Şifrəni dəyişin</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="81"/>
+        <source>Reset Password</source>
+        <translation>Şifrəni sıfırlayın</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="82"/>
+        <source>Resetting the password will clear the data stored in the keyring.</source>
+        <translation>Şifrənin sıfırlanması açar bağında saxlanılan bütün verilənlərin silinməsi ilə nəticələnəcək.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="90"/>
+        <source>Current Password</source>
+        <translation>Hal-hazırki şifrə</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="105"/>
         <source>New Password</source>
         <translation>Yeni Şifrə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
         <source>Repeat Password</source>
         <translation>Təkrar Şifrə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
         <source>Password Hint</source>
         <translation>Şifrə göstərişi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="127"/>
         <source>Cancel</source>
         <translation>İmtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="128"/>
         <source>Save</source>
         <translation>Saxla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="199"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="208"/>
-        <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Daha güclü seçimi bu qaydada edin: 8 işarədən, həmçinin kiçik və böyük hərflərdən, saylardan və simvollardan ibarət 3 işarə növündən ibarət</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="211"/>
-        <source>Error occurred when reading the configuration files of password rules!</source>
-        <translation>Şifrə qaydaları üçün tənzimləmə faylının oxunması zamanı xəta baş verdi!</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="218"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="326"/>
         <source>Passwords do not match</source>
         <translation>Şifrənin təkrarı oxşar deyil</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="222"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="224"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="191"/>
         <source>Required</source>
         <translation>Tələb olunur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="193"/>
         <source>Optional</source>
         <translation>İxtiyari</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="232"/>
         <source>Password cannot be empty</source>
         <translation>Şifrə boş ola bilməz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="258"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="333"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>İşarə bütün istifadəçilər üçün görünür. Şifrəni buraya daxil etməyin.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="269"/>
         <source>Wrong password</source>
         <translation>Yanlış parol</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="275"/>
         <source>New password should differ from the current one</source>
         <translation>Yeni şifrə hazırkı şifrədən fərqlənməlidir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="438"/>
         <source>System error</source>
         <translation>Sistem xətası</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="452"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="440"/>
         <source>Network error</source>
         <translation>Şəbəkə xətası</translation>
     </message>
@@ -657,54 +646,54 @@
 <context>
     <name>dccV20::authentication::AddFaceInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="87"/>
         <source>Enroll Face</source>
         <translation>Üz qeydiyyatı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="195"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
         <translation>Üzünüzü hər hansı bir əşya ilə örtülmədiyindən onun təmiz göründüyündən əmin olun. Üzünüz yaxşı işıqlanmalıdır.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="111"/>
         <source>Cancel</source>
         <translation>İmtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="110"/>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="200"/>
         <source>Next</source>
         <translation>Sonrakı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
         <source>Face enrolled</source>
         <translation>Üzün qeydə alınması</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
         <source>Use your face to unlock the device and make settings later</source>
         <translation>Cihazı kiliddən çıxartmaq üçün üzünüzdən istifadə edin və ayarları sonra dəyişdirin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="216"/>
         <source>Done</source>
         <translation>Tamamlandı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="220"/>
         <source>Failed to enroll your face</source>
         <translation>Üz qeydiyyatı alınmadı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="227"/>
         <source>Try Again</source>
         <translation>Yenidən cəhd edin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="230"/>
         <source>Close</source>
         <translation>Bağlayın</translation>
     </message>
@@ -712,29 +701,29 @@
 <context>
     <name>dccV20::authentication::AddFingeDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="98"/>
         <source>Cancel</source>
         <translation>İmtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="103"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="145"/>
         <source>Done</source>
         <translation>Tamamlandı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="105"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="202"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="220"/>
         <source>Scan Again</source>
         <translation>Yenidən aşkarlamaq</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="200"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="218"/>
         <source>Scan Suspended</source>
         <translation>Aşkarlama dayandırıldı</translation>
     </message>
@@ -812,37 +801,37 @@
     <name>dccV20::authentication::FaceWidget</name>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="24"/>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="83"/>
         <source>Edit</source>
         <translation>Düzəliş edin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="38"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="40"/>
         <source>Manage Faces</source>
         <translation>Üz qeydlərini idarə edin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="41"/>
         <source>You can add up to 5 faces</source>
         <translation>5-dən çox üz tanınması əlavə edə bilərsiniz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="79"/>
         <source>Done</source>
         <translation>Hazırdır</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="121"/>
         <source>Add Face</source>
         <translation>Üz əlavə edin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="167"/>
         <source>The name already exists</source>
         <translation>Bu ad artıq var</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="197"/>
         <source>Faceprint</source>
         <translation>Üz izi</translation>
     </message>
@@ -866,17 +855,17 @@
 <context>
     <name>dccV20::authentication::FingerDisclaimer</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
         <source>Add Fingerprint</source>
         <translation>Barmaq izi daxil et</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="109"/>
         <source>Cancel</source>
         <translation>İmtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="111"/>
         <source>Next</source>
         <translation>Sonrakı</translation>
     </message>
@@ -1195,52 +1184,52 @@
         <translation>GRUB şifrəsini dəyişin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="405"/>
         <source>Username:</source>
         <translation>İstifadəçi adı:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="406"/>
         <source>root</source>
         <translation>kök</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="405"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="407"/>
         <source>New password:</source>
         <translation>Yeni şifrə:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="408"/>
         <source>Repeat password:</source>
         <translation>Şifrəni təkrarlayın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="409"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="410"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="412"/>
         <source>Required</source>
         <translation>Tələb olunur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="426"/>
         <source>Cancel</source>
         <comment>button</comment>
         <translation>İmtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="425"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="427"/>
         <source>Confirm</source>
         <comment>button</comment>
         <translation>Təsdiq edin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="435"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="437"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="467"/>
         <source>Password cannot be empty</source>
         <translation>Şifrə boş ola bilməz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="448"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="478"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="480"/>
         <source>Passwords do not match</source>
         <translation>Şifrələr oxşar deyil</translation>
     </message>
@@ -1248,50 +1237,50 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="97"/>
         <source>General Settings</source>
         <translation>Ümumi ayarlar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="238"/>
         <source>Boot Menu</source>
         <translation>Önyükləmə menyusu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="242"/>
         <source>Developer Mode</source>
         <translation>Tərtibatçı rejimi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="149"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="244"/>
         <source>User Experience Program</source>
         <translation>İstifadəçi Təcrübəsi Proqramı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="239"/>
         <source>Startup Delay</source>
         <translation>Başlama gecikməsi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="234"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="240"/>
         <source>Theme</source>
         <translation>Mövzu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="241"/>
         <source>GRUB Authentication</source>
         <translation>GRUB kimlik doğrulaması</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="243"/>
         <source>Join User Experience Program</source>
         <translation>İstifadəçi Təcrübəsi Proqramına qoşulmaq</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="287"/>
         <source>Request Root Access</source>
         <translation>Kök icazəsi tələb etmək</translation>
     </message>
@@ -1353,17 +1342,17 @@
         <translation>İmzanı doğrulamaq baş tutmadı, kök (root) icazəsi verilmir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="310"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Qəbul etmək və İstifadəçi Təcrübəsi Proqramına qoşulmaq</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="374"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Təcrübəçi Rejimi məsuliyyətindən imtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="375"/>
         <source>Agree and Request Root Access</source>
         <translation>Kök icazəsini qəbul etmək və tələb etmək</translation>
     </message>
@@ -1371,53 +1360,53 @@
 <context>
     <name>dccV20::commoninfo::DeveloperModeDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="70"/>
         <source>Request Root Access</source>
         <translation>Kök icazəsi tələb etmək</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="80"/>
         <source>Online</source>
         <translation>Şəbəkədə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="81"/>
         <source>Offline</source>
         <translation>Şəbəkədən kənar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="96"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="212"/>
         <source>Please sign in to your Union ID first and continue</source>
         <translation>Lütfən, öncə Union İD&apos;nizə daxil olun və davam edin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="103"/>
         <source>Next</source>
         <translation>Sonrakı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="107"/>
         <source>Export PC Info</source>
         <translation>Fərdi komputer məlumatlarının ixracı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="108"/>
         <source>Import Certificate</source>
         <translation>Sertifikatın idxalı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="218"/>
         <source>1. Export your PC information</source>
         <translation>1. Fərdi komputerinizin məlumatlarını ixrac edin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="219"/>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
         <translation>2. Oflayn sertifikatları endirmək üçün https://www.chinauos.com/developMode səhifəsinə keçin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="220"/>
         <source>3. Import the certificate</source>
         <translation>3. Sertifikatı idxal edin</translation>
     </message>
@@ -1426,7 +1415,7 @@
     <name>dccV20::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="61"/>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="217"/>
         <source>Request Root Access</source>
         <translation>Kök icazəsi tələb etmək</translation>
         <extra-child_page>Developer Mode</extra-child_page>
@@ -1446,7 +1435,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="117"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="129"/>
         <source>Failed to get root access</source>
-        <translation>Kök (root) icazələri alına bilmədi</translation>
+        <translation>Kök (root) giriş icazələri alına bilmədi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="119"/>
@@ -1474,22 +1463,22 @@
         <translation>İmzanı doğrulamaq baş tutmadı, kök (root) icazəsi verilmir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="171"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
         <translation>Bəzi funksiyaların qüvvəyə minməsi üçün yenidən başlatmaq tələb olunur. İndi yenidən başlatmaq?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="172"/>
         <source>Cancel</source>
         <translation>İmtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="172"/>
         <source>Restart Now</source>
         <translation>İndi yenidən başlat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="210"/>
         <source>Root Access Allowed</source>
         <translation>Kök icazəsi qəbul edildi</translation>
     </message>
@@ -1537,13 +1526,13 @@
 <context>
     <name>dccV20::datetime::ClockItem</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="83"/>
-        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="216"/>
         <source>AM</source>
         <translation>GQ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="216"/>
         <source>PM</source>
         <translation>GS</translation>
     </message>
@@ -1593,9 +1582,8 @@
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="289"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="302"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="348"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="356"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="411"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="473"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="471"/>
         <source>Customize</source>
         <translation>Fərdiləşdirmək</translation>
     </message>
@@ -1986,7 +1974,7 @@
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="78"/>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="79"/>
         <source>Add Application</source>
-        <translation>Tətəbiq əlavə etmək</translation>
+        <translation>Tətbiq əlavə edin</translation>
         <extra-child_page>Video</extra-child_page>
         <extra-contents_path>/defapp/Video/Add Application</extra-contents_path>
     </message>
@@ -2153,29 +2141,29 @@
         <extra-contents_path>/display/Auto Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="89"/>
         <source>Night Shift</source>
         <translation>Gecə rejimi</translation>
         <extra-contents_path>/display/Night Shift</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="94"/>
         <source>The screen hue will be auto adjusted according to your location</source>
         <translation>Ekran tonu yerləşdiyiniz yerə görə avtomatik tənzimlənəcəkdir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="106"/>
         <source>Change Color Temperature</source>
         <translation>Rəng temperaturunu dəyişmək</translation>
         <extra-contents_path>/display/Change Color Temperature</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="107"/>
         <source>Cool</source>
         <translation>Sərin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="107"/>
         <source>Warm</source>
         <translation>İsti</translation>
     </message>
@@ -2188,88 +2176,88 @@
         <translation>Ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="526"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
         <source>Brightness</source>
         <translation>Parlaqlıq</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="524"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="597"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="557"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="630"/>
         <source>Auto Brightness</source>
         <translation>Avto parlaqlıq</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="528"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="601"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="561"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="634"/>
         <source>Color Temperature</source>
         <translation>Rəng temperaturu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="189"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="529"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="602"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="562"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="635"/>
         <source>Night Shift</source>
         <translation>Gecə rejimi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="530"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="603"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="563"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="636"/>
         <source>Change Color Temperature</source>
         <translation>Rəng temperaturunu dəyişmək</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="508"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="539"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="570"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="541"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="572"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="603"/>
         <source>Multiple Displays</source>
         <translation>Bir neçə ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="506"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="537"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="568"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="539"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="570"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="601"/>
         <source>Mode</source>
         <translation>Rejim</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="507"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="538"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="569"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="540"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="571"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="602"/>
         <source>Main Screen</source>
         <translation>Əsas ekran</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="541"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="572"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="574"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="605"/>
         <source>Refresh Rate</source>
         <translation>Yeniləmə tezliyi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="542"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="574"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="575"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="607"/>
         <source>Resolution</source>
         <translation>Görüntü imkanı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="196"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="543"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="208"/>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="576"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="609"/>
         <source>Rotation</source>
         <translation>Döndərin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="197"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="544"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="578"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="577"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="611"/>
         <source>Display Scaling</source>
         <translation>Ekran miqyası</translation>
     </message>
@@ -2295,17 +2283,17 @@
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="347"/>
         <source>Duplicate</source>
         <translation>Dublikat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="348"/>
         <source>Extend</source>
         <translation>Genişlədin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="365"/>
         <source>Only on %1</source>
         <translation>Yalnız %1 -də/da</translation>
     </message>
@@ -2427,40 +2415,40 @@
 <context>
     <name>dccV20::keyboard::CustomContent</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="68"/>
         <source>Add Custom Shortcut</source>
         <translation>Özünüzə aid qısayol əlavə edin</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts/Add Custom Shortcut</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="74"/>
         <source>Name</source>
         <translation>Ad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="79"/>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="102"/>
         <source>Required</source>
         <translation>Tələb olunur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="91"/>
         <source>Command</source>
         <translation>Əmr</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="138"/>
         <source>Cancel</source>
         <translation>İmtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="140"/>
         <source>Add</source>
         <translation>Əlavə et</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="179"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Bu qısayol %1 ilə ziddiyətlidir, bu qısayolun dərhal qüvvəyə minməsi üçün Əlavə etmək düyməsinə vurun</translation>
     </message>
@@ -2468,55 +2456,55 @@
 <context>
     <name>dccV20::keyboard::GeneralKBSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="51"/>
         <source>Repeat Delay</source>
         <translation>Təkrarlanma gecikməsi</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="61"/>
         <source>Short</source>
         <translation>Qısa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="62"/>
         <source>Long</source>
         <translation>Uzun</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="67"/>
         <source>Repeat Rate</source>
         <translation>Təkrarlanma tezliyi</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="78"/>
         <source>Slow</source>
         <translation>Göstərmək</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="79"/>
         <source>Fast</source>
         <translation>Sürətli</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="86"/>
         <source>Test here</source>
         <translation>Sınaq sahəsi</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="108"/>
         <source>Numeric Keypad</source>
         <translation>Rəqəmsal klaviatura</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="115"/>
         <source>Caps Lock Prompt</source>
         <translation>Böyük Hərf göstəricisi</translation>
         <extra-child_page>General</extra-child_page>
@@ -2588,11 +2576,15 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="256"/>
         <source>Numeric Keypad</source>
         <translation>Rəqəmsal klaviatura</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="258"/>
         <source>Caps Lock Prompt</source>
         <translation>Böyük Hərf göstəricisi</translation>
     </message>
@@ -2608,7 +2600,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="405"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="415"/>
         <source>Custom Shortcut</source>
         <translation>Fərdi qısayol</translation>
     </message>
@@ -2643,7 +2635,7 @@
         <translation>Dil siyahısı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="278"/>
         <source>Keyboard and Language</source>
         <translation>Klaviatura və Dil</translation>
     </message>
@@ -2677,47 +2669,47 @@
 <context>
     <name>dccV20::keyboard::ShortCutSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="65"/>
         <source>System</source>
         <translation>Sistem</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="75"/>
         <source>Window</source>
         <translation>Pəncərə</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="86"/>
         <source>Workspace</source>
         <translation>İş sahəsi</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="96"/>
         <source>Assistive Tools</source>
         <translation>Köməkçi vasitələr</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="115"/>
         <source>Custom Shortcut</source>
         <translation>Fərdi qısayol</translation>
         <extra-child_page>Shortcuts</extra-child_page>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="148"/>
         <source>Restore Defaults</source>
         <translation>Varsayəlanların bərpası</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="188"/>
         <source>Shortcut</source>
         <translation>Qısayol</translation>
     </message>
@@ -3156,7 +3148,7 @@
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="263"/>
         <source> (Unsupported font)</source>
         <translation>(Dəstəklənməyən şrift)</translation>
     </message>
@@ -3950,7 +3942,7 @@
         <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="348"/>
         <source>Input Level</source>
         <translation>Giriş səviyyəsi</translation>
         <extra-child_page>Input</extra-child_page>
@@ -5026,18 +5018,18 @@
         <translation>Sonuncu yenilənmə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="141"/>
         <source>Return</source>
         <translation>Geri qayıtmaq</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="196"/>
         <source>Current Edition</source>
         <translation>Cari Buraxılış</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="204"/>
         <source>Update History</source>
         <translation>Yenilənmə tarixçəsi</translation>
     </message>
@@ -5171,7 +5163,7 @@
         <translation>Lütfən güclü şifrə yaradın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="101"/>
         <source>It does not meet password rules</source>
         <translation>Bu, şifrə qaydalarına uyğun deyil</translation>
     </message>
@@ -5225,12 +5217,12 @@
         <translation>Şifrələri sıfırlamaq üçün öncə Union İD ilə daxil olmalısınız. Ayarlamanı tamamlamaq üçün &quot;Keçidi açın&quot; üzərinə vurun.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="35"/>
+        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="37"/>
         <source>Cancel</source>
         <translation>İmtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="37"/>
+        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="39"/>
         <source>Go to Link</source>
         <translation>Keçidi açın</translation>
     </message>
@@ -5238,32 +5230,32 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="693"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="695"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Sizin host, domen serverindən uğurla silindi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="694"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="696"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Sizin host, domen serverinə uğurla qoşuldu</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="722"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="724"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Sizin host, domen serverini tərk edə bilmədi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="723"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="725"/>
         <source>Your host failed to join the domain server</source>
         <translation>Sizin host, domen serverinə qoşula bilmədi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="726"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="728"/>
         <source>AD domain settings</source>
         <translation>AD domen ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="795"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="797"/>
         <source>Password not match</source>
         <translation>Şifrələr oxşar deyil</translation>
     </message>
@@ -5294,73 +5286,73 @@
 <context>
     <name>dcc::authentication::CharaMangerModel</name>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="106"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="118"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="130"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="164"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="176"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="188"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="111"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="123"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="135"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="169"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="181"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="193"/>
         <source>Position your face inside the frame</source>
         <translation>Üzünüzü çərçivə daxilinə yerləşdirin</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="109"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="167"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="172"/>
         <source>Face enrolled</source>
         <translation>Üzün qeydə alınması</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="114"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="172"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="119"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="177"/>
         <source>Position a human face please</source>
         <translation>Lütfən insan üzü yerləşdirin</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="122"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="180"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="127"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="185"/>
         <source>Keep away from the camera</source>
         <translation>Kameradan aralı tutm</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="126"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="184"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="131"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="189"/>
         <source>Get closer to the camera</source>
         <translation>Kameraya yaxın tutun</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="134"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="139"/>
         <source>Do not position multiple faces inside the frame</source>
         <translation>Bir çərçivə daxilində bir neçə üz yerləşdirməyin</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="138"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="143"/>
         <source>Make sure the camera lens is clean</source>
         <translation>Kamera linzasının təmiz olduğuna əmin olun</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="142"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="147"/>
         <source>Do not enroll in dark, bright or backlit environments</source>
         <translation>Qeydiyyatı qaranlıq, parlaq və arxa işıqlanma mühitində etməyin</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="146"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="151"/>
         <source>Keep your face uncovered</source>
         <translation>üzünüzü açıq saxlayın</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="150"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="198"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="155"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="203"/>
         <source>Scan timed out</source>
         <translation>Oxuma vaxtı bitdi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="153"/>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="195"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="158"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="200"/>
         <source>Device crashed, please scan again!</source>
         <translation>Cihazda xəta baş verdi, yenidən cəhd edin!</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="192"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="197"/>
         <source>Cancel</source>
         <translation>Ləğv edin</translation>
     </message>
@@ -5744,24 +5736,24 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <translation>Saxla</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="101"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="111"/>
         <source>Shortcut</source>
         <translation>Qısayol</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="104"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="114"/>
         <source>Name</source>
         <translation>Ad</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="105"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="115"/>
         <source>Command</source>
         <translation>Əmr</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="122"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="132"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Bu qısayol %1 ilə ziddiyətlidir, bu qısayolun dərhal qüvvəyə minməsi üçün Əlavə etmək düyməsinə vurun</translation>
+        <translation>Qısayol %1 ilə ziddiyətlidir, bu qısayolun dərhal qüvvəyə minməsi üçün Əlavə etmək vurun</translation>
     </message>
 </context>
 <context>
@@ -5772,7 +5764,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <translation>Qısayol</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="114"/>
+        <location filename="../src/frame/modules/keyboard/customitem.cpp" line="120"/>
         <source>Please enter a shortcut</source>
         <translation>Qısayolu daxil edin</translation>
     </message>
@@ -5800,27 +5792,27 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
 <context>
     <name>dcc::keyboard::ShortcutContent</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="50"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>Please Reset Shortcut</source>
         <translation>Qısayolu sıfırlayın</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="65"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="75"/>
         <source>Cancel</source>
         <translation>İmtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="66"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="76"/>
         <source>Replace</source>
         <translation>Əvəz et</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="68"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="78"/>
         <source>Shortcuts</source>
         <translation>Qısayollar</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="100"/>
+        <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="118"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
         <translation>Bu qısayol %1 ilə ziddiyyətlidir, bu qısayolun dərhal qüvvəyə minməsi üçün &quot;Əvəz edin&quot; vurun</translation>
     </message>
@@ -5872,7 +5864,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="87"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation>Aktiv edildikdən sonra toxunma paneli işləmirsə bu seçimi söndürün</translation>
+        <translation>Aktiv edildikdən sonra toxunma paneli işləmirsə bu seçimi söndürün``</translation>
     </message>
 </context>
 <context>
@@ -5918,7 +5910,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
         <source>Low battery</source>
-        <translation>Batareya zəifdir</translation>
+        <translation>Zəif batareya səviyyəsi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
@@ -5935,7 +5927,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
         <source>Plug in</source>
-        <translation>Elektrik şəbəkəsinə qoşun</translation>
+        <translation>Elektrik şəbəkəsinə qoşulu</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="124"/>
@@ -5980,6 +5972,19 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="382"/>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
         <translation>Müəllif Hüquqları© 2019-%1 UnionTech Software Technology Co., LTD</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::systeminfo::SystemInfoWork</name>
+    <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="184"/>
+        <source>For Government</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="186"/>
+        <source>For Enterprise</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
