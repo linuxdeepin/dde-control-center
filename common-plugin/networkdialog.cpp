@@ -98,7 +98,9 @@ void NetworkDialog::show()
 void NetworkDialog::requestFocus()
 {
     for (QWidget *w : qApp->topLevelWidgets()) {
-        if (QString("FullscreenBackground") == w->metaObject()->superClass()->className()) {
+        // 需要判断contentVisible属性是否为true，否则在多屏的情况下，
+        // 释放grab的时候可能会让隐藏的屏幕抓取键盘，显示登陆界面的屏幕无法获取到焦点
+        if (QString("FullscreenBackground") == w->metaObject()->superClass()->className() && w->property("contentVisible").toBool()) {
             w->installEventFilter(this);
             if (w->window() && w->window()->windowHandle()->setKeyboardGrabEnabled(false)) {
                 qInfo() << "requestFocus true";
