@@ -38,6 +38,7 @@ NextPageWidget::NextPageWidget(QFrame *parent, bool bLeftInterval)
     , m_title(new NormalLabel)
     , m_value(new TipsLabel)
     , m_nextPageBtn(new dcc::widgets::NextButton)
+    , m_icon(new TipsLabel)
 {
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setSpacing(0);
@@ -53,6 +54,7 @@ NextPageWidget::NextPageWidget(QFrame *parent, bool bLeftInterval)
     mainLayout->addSpacing(18);
     mainLayout->addWidget(m_value, 0, Qt::AlignRight | Qt::AlignCenter);
     mainLayout->addWidget(m_nextPageBtn);
+    mainLayout->addWidget(m_icon);
 
     setFixedHeight(36);
     setLayout(mainLayout);
@@ -97,6 +99,16 @@ void NextPageWidget::mouseReleaseEvent(QMouseEvent *e)
 
     Q_EMIT selected();
     Q_EMIT clicked();
+}
+
+void NextPageWidget::setBtnHiden(const bool hiden)
+{
+    m_nextPageBtn->setHidden(hiden);
+}
+
+void NextPageWidget::setIconIcon(const QPixmap &icon)
+{
+    m_icon->setPixmap(icon);
 }
 
 }

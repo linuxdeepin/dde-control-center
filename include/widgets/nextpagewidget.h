@@ -47,6 +47,8 @@ public:
     void setTitle(const QString &title);
     void setValue(const QString &value);
     void setIcon(const QPixmap &icon);
+    void setBtnHiden(const bool hiden);
+    void setIconIcon(const QPixmap &icon);
 
     void clearValue() { m_value->clear(); }
     inline QString value() { return m_value->text();}
@@ -65,6 +67,7 @@ protected:
     NormalLabel *m_title;
     TipsLabel *m_value;
     NextButton *m_nextPageBtn;
+    TipsLabel *m_icon;
 };
 
 }

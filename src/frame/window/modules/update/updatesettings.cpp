@@ -197,6 +197,9 @@ void UpdateSettings::initUi()
         m_updateMirrors->setTitle(tr("Mirror List"));
         m_updateMirrors->setRightTxtWordWrap(true);
         m_updateMirrors->addBackground();
+        QStyleOption opt;
+        m_updateMirrors->setBtnHiden(true);
+        m_updateMirrors->setIconIcon(DStyleHelper(m_updateMirrors->style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr).pixmap(10, 10));
         contentLayout->addWidget(m_updateMirrors);
     }
 
