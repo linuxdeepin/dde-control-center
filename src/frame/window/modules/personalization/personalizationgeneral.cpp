@@ -242,39 +242,37 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
                 Q_EMIT requestSetMiniEffect(m_cmbMiniEffect->comboBox()->currentIndex());
         });
 
-        if (Dtk::Core::DSysInfo::isCommunityEdition()) {
-            winEffectVLayout->addSpacing(10);
-            m_winRoundSlider = new dcc::widgets::TitledSliderItem(tr("Rounded Corner"));
-            m_winRoundSlider->addBackground();
-            m_winRoundSlider->slider()->setOrientation(Qt::Horizontal);
-            m_winRoundSlider->setObjectName("m_winRoundSlider");
+        winEffectVLayout->addSpacing(10);
+        m_winRoundSlider = new dcc::widgets::TitledSliderItem(tr("Rounded Corner"));
+        m_winRoundSlider->addBackground();
+        m_winRoundSlider->slider()->setOrientation(Qt::Horizontal);
+        m_winRoundSlider->setObjectName("m_winRoundSlider");
 
-            dcc::widgets::DCCSlider *sliderRound = m_winRoundSlider->slider();
-            QStringList list;
-            list<<tr("Small")<<tr("Medium")<<tr("Large");
-            sliderRound->setAnnotations(list);
-            sliderRound->setType(dcc::widgets::DCCSlider::Vernier);
-            sliderRound->setTickPosition(QSlider::TicksBelow);
-            sliderRound->setRange(0, 2);
-            sliderRound->setTickInterval(1);
-            sliderRound->setPageStep(1);
-            winEffectVLayout->addWidget(m_winRoundSlider);
-            winEffectVLayout->addStretch(20);
+        dcc::widgets::DCCSlider *sliderRound = m_winRoundSlider->slider();
+        QStringList list;
+        list<<tr("Small")<<tr("Medium")<<tr("Large");
+        sliderRound->setAnnotations(list);
+        sliderRound->setType(dcc::widgets::DCCSlider::Vernier);
+        sliderRound->setTickPosition(QSlider::TicksBelow);
+        sliderRound->setRange(0, 2);
+        sliderRound->setTickInterval(1);
+        sliderRound->setPageStep(1);
+        winEffectVLayout->addWidget(m_winRoundSlider);
+        winEffectVLayout->addStretch(20);
 
-            connect(m_winRoundSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this, [=](int value){
-                int val = value;
-                if (value == 0) {
-                    val = 0;
-                } else if (value == 1) {
-                    val = 8;
-                } else if (value == 2) {
-                    val = 18;
-                }
+        connect(m_winRoundSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this, [=](int value){
+            int val = value;
+            if (value == 0) {
+                val = 0;
+            } else if (value == 1) {
+                val = 8;
+            } else if (value == 2) {
+                val = 18;
+            }
 
-                Q_EMIT windowRadiusChanged(val);
-            });
-            update();
-        }
+            Q_EMIT windowRadiusChanged(val);
+        });
+        update();
     }
 
     m_centralLayout->addWidget(m_switchWidget);
@@ -395,6 +393,10 @@ void PersonalizationGeneral::updateWMSwitcher(bool checked)
         m_transparentSlider->setVisible(checked || qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland"));
         m_cmbMiniEffect->setVisible(checked || qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland"));
     }
+
+    if (m_winRoundSlider) {
+        m_winRoundSlider->setVisible(checked || qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland"));
+    }
 }
 
 void PersonalizationGeneral::onCompositingAllowSwitchChanged(bool value)
@@ -415,15 +417,13 @@ void PersonalizationGeneral::onWindowRadiusChanged(int radius)
 
     m_windowRadius = radius;
 
-    if (Dtk::Core::DSysInfo::isCommunityEdition()) {
-        if(m_winRoundSlider) {
-            if (m_windowRadius <= 0) {
-                m_winRoundSlider->slider()->setValue(0);
-            } else if (0 < m_windowRadius && m_windowRadius <= 8) {
-                m_winRoundSlider->slider()->setValue(1);
-            } else {
-                m_winRoundSlider->slider()->setValue(2);
-            }
+    if (m_winRoundSlider) {
+        if (m_windowRadius <= 0) {
+            m_winRoundSlider->slider()->setValue(0);
+        } else if (0 < m_windowRadius && m_windowRadius <= 8) {
+            m_winRoundSlider->slider()->setValue(1);
+        } else {
+            m_winRoundSlider->slider()->setValue(2);
         }
     }
 }
