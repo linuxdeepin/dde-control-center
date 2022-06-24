@@ -1,23 +1,23 @@
 /*
-* Copyright (C) 2021 ~ 2023 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2023 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #include "pagelayout.h"
 #include "moduledatamodel.h"
 #include "tabitemdelegate.h"
@@ -64,7 +64,7 @@ QWidget *PageLayout::getPage(QWidget *const widget, const QString &title)
     //    if (title.isEmpty()) {
     //        titleLbl->setVisible(false);
     //    }
-    //todo：此处会造成listview显示不全，待解决
+    // todo：此处会造成listview显示不全，待解决
     Q_UNUSED(title)
     return widget;
 }
@@ -155,10 +155,10 @@ QWidget *PageLayout::layoutModule(ModuleObject *const module, QWidget *const par
         addChild(tmpChild);
     };
     // 监听子项的添加、删除、状态变更，动态的更新界面
-    QObject::connect(module, &ModuleObject::insertedChild, m_area, addModuleSlot);
-    QObject::connect(module, &ModuleObject::appendedChild, m_area, addModuleSlot);
-    QObject::connect(module, &ModuleObject::removedChild, m_area, [this](ModuleObject *const childModule) { removeChild(childModule); });
-    QObject::connect(module, &ModuleObject::childStateChanged, m_area, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+    QObject::connect(module, &ModuleObject::insertedChild, areaWidget, addModuleSlot);
+    QObject::connect(module, &ModuleObject::appendedChild, areaWidget, addModuleSlot);
+    QObject::connect(module, &ModuleObject::removedChild, areaWidget, [this](ModuleObject *const childModule) { removeChild(childModule); });
+    QObject::connect(module, &ModuleObject::childStateChanged, areaWidget, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
         if (LayoutBase::IsHidenFlag(flag)) {
             if (state)
                 removeChild(tmpChild);

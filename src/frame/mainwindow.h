@@ -103,6 +103,7 @@ private Q_SLOTS:
     void onAddModule(ModuleObject *const module);
     void onRemoveModule(ModuleObject *const module);
     void onTriggered();
+    void onChildStateChanged(ModuleObject *const child, uint32_t flag, bool state);
     void updateModuleConfig(const QString &key);
     void delayUpdateLayoutCurrent(LayoutBase *layout, ModuleObject *child);
     void updateLayoutCurrent(LayoutBase *layout, ModuleObject *child);

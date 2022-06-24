@@ -94,7 +94,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_searchWidget, &SearchWidget::notifySearchUrl, this, [this](const QString &url) {
         showPage(url, UrlType::DisplayName);
     });
-    connect(m_pluginManager, &PluginManager::loadAllFinished, this, [this] () {
+    connect(m_pluginManager, &PluginManager::loadAllFinished, this, [this]() {
         m_loadAllFinished = true;
         // 搜索没实时更新，插件并行加载，此处在插件加载完后更新，待修改为实时更新
         m_searchWidget->setModuleObject(m_rootModule);
@@ -279,7 +279,7 @@ void MainWindow::delayUpdateLayoutCurrent(LayoutBase *layout, ModuleObject *chil
 
 void MainWindow::updateLayoutCurrent(LayoutBase *layout, ModuleObject *child)
 {
-    if (layout && std::any_of(m_currentModule.begin(), m_currentModule.end(), [layout] (auto &&data) { return data.layout == layout; }))
+    if (layout && std::any_of(m_currentModule.cbegin(), m_currentModule.cend(), [layout](auto &&data) { return data.layout == layout; }))
         layout->setCurrent(child);
 }
 
@@ -331,7 +331,7 @@ void MainWindow::clearPage(QWidget *const widget)
             QLayoutItem *item = layout->takeAt(0);
             QWidget *w = item->widget();
             if (w)
-                w->deleteLater();
+                delete w;
             QLayout *l = item->layout();
             if (l)
                 layouts.append(l);
@@ -453,7 +453,8 @@ void MainWindow::onAddModule(ModuleObject *const module)
         connect(obj, &ModuleObject::appendedChild, this, &MainWindow::onAddModule);
         connect(obj, &ModuleObject::insertedChild, this, &MainWindow::onAddModule);
         connect(obj, &ModuleObject::removedChild, this, &MainWindow::onRemoveModule);
-        connect(obj, &ModuleObject::triggered, this, &MainWindow::onTriggered);
+        connect(obj, &ModuleObject::childStateChanged, this, &MainWindow::onChildStateChanged);
+        connect(obj, &ModuleObject::triggered, this, &MainWindow::onTriggered, Qt::QueuedConnection);
         for (auto &&tmpObj : obj->childrens()) {
             modules.append({ it.first + "/" + tmpObj->name(), tmpObj });
         }
@@ -469,6 +470,9 @@ void MainWindow::onRemoveModule(ModuleObject *const module)
         disconnect(obj, nullptr, this, nullptr);
         modules.append(obj->childrens());
     }
+    // 最后一个是滚动到，不参与比较
+    if (!m_currentModule.isEmpty() && std::any_of(m_currentModule.cbegin(), m_currentModule.cend() - 1, [module](auto &&data) { return data.module == module; }))
+        toHome();
 }
 
 void MainWindow::onTriggered()
@@ -478,6 +482,16 @@ void MainWindow::onTriggered()
     ModuleObject *obj = dynamic_cast<ModuleObject *>(sender());
     if (obj && qobj && module) {
         showModule(obj, m_contentWidget);
+    }
+}
+
+void MainWindow::onChildStateChanged(ModuleObject *const child, uint32_t flag, bool state)
+{
+    if (LayoutBase::IsHidenFlag(flag)) {
+        if (state)
+            onRemoveModule(child);
+        else
+            onAddModule(child);
     }
 }
 
@@ -506,7 +520,7 @@ QString MainWindow::getAllModule() const
     ModuleObject *root = m_rootModule;
     QList<QPair<ModuleObject *, QStringList>> modules;
     for (auto &&child : root->childrens()) {
-        modules.append({child, {child->name(), child->displayName()}});
+        modules.append({ child, { child->name(), child->displayName() } });
     }
 
     QJsonArray arr;
@@ -518,7 +532,7 @@ QString MainWindow::getAllModule() const
         arr.append(obj);
         const QList<ModuleObject *> &children = urlInfo.first->childrens();
         for (auto it = children.crbegin(); it != children.crend(); ++it)
-            modules.prepend({*it, {urlInfo.second.at(0) + "/" + (*it)->name(), urlInfo.second.at(1) + "/" + (*it)->displayName()}});
+            modules.prepend({ *it, { urlInfo.second.at(0) + "/" + (*it)->name(), urlInfo.second.at(1) + "/" + (*it)->displayName() } });
     }
 
     QJsonDocument doc;
