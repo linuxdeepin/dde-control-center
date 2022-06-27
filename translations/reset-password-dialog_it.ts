@@ -143,7 +143,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="109"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
-        <translation type="unfinished"/>
+        <translation>La reimpostazione della password cancellerà i dati memorizzati nel portachiavi</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="111"/>
@@ -155,7 +155,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="120"/>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>Domande di sicurezza</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="155"/>
@@ -172,7 +172,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
         <source>Reset Password By Union ID</source>
-        <translation type="unfinished"/>
+        <translation>Reset password mediante Union ID</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="160"/>
@@ -211,42 +211,42 @@
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="131"/>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>Qual è il nome della città in cui sei nato?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="132"/>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>Qual è il nome della scuola primaria che hai frequentato?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="133"/>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>Cosa ami di più a questo mondo?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="134"/>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>Qual è il tuo animale preferito?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="135"/>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>Qual è la tua canzone preferita?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="136"/>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>Qual è il tuo nickname?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="186"/>
         <source>Wrong answer</source>
-        <translation type="unfinished"/>
+        <translation>Risposta errata</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="201"/>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>La risposta non deve eccedere i 30 caratteri</translation>
     </message>
 </context>
 <context>
@@ -266,7 +266,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="89"/>
         <source>Connecting to the Internet...</source>
-        <translation type="unfinished"/>
+        <translation>Connessione ad internet...</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="101"/>

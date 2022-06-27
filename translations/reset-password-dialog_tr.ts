@@ -10,7 +10,7 @@
     <message>
         <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="65"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>İpucu tüm kullanıcılar tarafından görülebilir. Şifreyi buraya dahil etmeyin.</translation>
+        <translation>İpucu tüm kullanıcılar tarafından görülebilir. Parolayı buraya dahil etmeyin.</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="86"/>
@@ -122,7 +122,7 @@
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="90"/>
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="91"/>
         <source>Create a strong password please</source>
-        <translation>Lütfen güçlü bir şifre oluşturun</translation>
+        <translation>Lütfen güçlü bir parola oluşturun</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="97"/>
@@ -143,7 +143,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="109"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
-        <translation type="unfinished"/>
+        <translation>Parolanın sıfırlanması, anahtarlıkta depolanan verileri siler</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="111"/>
@@ -155,7 +155,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="120"/>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>Güvenlik Soruları</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="155"/>
@@ -172,7 +172,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
         <source>Reset Password By Union ID</source>
-        <translation type="unfinished"/>
+        <translation>Parolayı Union ID ile sıfırla</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="160"/>
@@ -186,7 +186,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
-        <translation>Şifreyi sıfırlamak, anahtarlığınızda saklanan verileri siler ve tekrar giriş yapmalısınız, lütfen dosyaları önceden kaydedin</translation>
+        <translation>Parolayı sıfırlamak, anahtarlığınızda saklanan verileri siler ve tekrar giriş yapmalısınız, lütfen dosyaları önceden kaydedin</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
@@ -196,7 +196,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="260"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
-        <translation>Başarıyla sıfırladın, lütfen  yeni şifre ile giriş yapın ve kilidi açın</translation>
+        <translation>Başarıyla sıfırladın, lütfen  yeni parola ile giriş yapın ve kilidi açın</translation>
     </message>
 </context>
 <context>
@@ -211,42 +211,42 @@
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="131"/>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>Doğduğun şehrin adı nedir?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="132"/>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>İlk okuduğun okulun adı nedir?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="133"/>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>Dünyada en çok kimi seviyorsun?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="134"/>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>Gözde hayvanın nedir?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="135"/>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>Gözde şarkın nedir?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="136"/>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>Takma adın nedir?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="186"/>
         <source>Wrong answer</source>
-        <translation type="unfinished"/>
+        <translation>Yanlış cevap</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="201"/>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>Cevap 30 karakterden az olmalıdır</translation>
     </message>
 </context>
 <context>
@@ -266,7 +266,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="89"/>
         <source>Connecting to the Internet...</source>
-        <translation type="unfinished"/>
+        <translation>İnternet&apos;e bağlanıyor...</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="101"/>
@@ -313,7 +313,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="246"/>
         <source>The Union ID is not linked to a user account</source>
-        <translation>Birlik Kimliği bir kullanıcı hesabına bağlı değil</translation>
+        <translation>Union ID bir kullanıcı hesabına bağlı değil</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="255"/>
