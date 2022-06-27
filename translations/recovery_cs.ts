@@ -5,7 +5,7 @@
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="65"/>
         <source>Rolling back the system, please wait...</source>
-        <translation>Navracení k předchozí verzi systému – čekejte, prosím…</translation>
+        <translation>Navrácení k předchozí verzi systému – čekejte, prosím…</translation>
     </message>
 </context>
 <context>
@@ -23,7 +23,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="280"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation>Opravdu se chcete vrátit ke předchozí verzi %1, ze zálohy z %2?</translation>
+        <translation>Opravdu se chcete vrátit k předchozí verzi %1, ze zálohy z %2?</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="283"/>

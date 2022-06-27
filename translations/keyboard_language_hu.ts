@@ -404,7 +404,7 @@
     <message>
         <location filename="language.h" line="111"/>
         <source>Norsk (bokmål)</source>
-        <translation>Norsk (bokmål)</translation>
+        <translation>Norvég</translation>
     </message>
     <message>
         <location filename="language.h" line="112"/>
@@ -464,7 +464,7 @@
     <message>
         <location filename="language.h" line="123"/>
         <source>Polski</source>
-        <translation>Polski</translation>
+        <translation>Lengyel</translation>
     </message>
     <message>
         <location filename="language.h" line="124"/>

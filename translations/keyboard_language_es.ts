@@ -439,7 +439,7 @@
     <message>
         <location filename="language.h" line="118"/>
         <source>Occitan</source>
-        <translation>Occitano </translation>
+        <translation>Occitano</translation>
     </message>
     <message>
         <location filename="language.h" line="119"/>

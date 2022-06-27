@@ -13,12 +13,12 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="266"/>
         <source>Rollback failed.</source>
-        <translation>Откат завершился неудался</translation>
+        <translation>Не удалось откатить систему</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
         <source>Reboot</source>
-        <translation>Перезагрузить</translation>
+        <translation>Перезагрузка</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="280"/>

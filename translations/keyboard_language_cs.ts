@@ -629,7 +629,7 @@
     <message>
         <location filename="language.h" line="156"/>
         <source>Українська</source>
-        <translation>Українська</translation>
+        <translation>Ukrajinský</translation>
     </message>
     <message>
         <location filename="language.h" line="157"/>

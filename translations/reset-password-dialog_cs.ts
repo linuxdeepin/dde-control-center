@@ -52,7 +52,7 @@
         <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="240"/>
         <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="253"/>
         <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols.</source>
-        <translation>Je doporučeno silnější heslo: více než 8 znaků a obsahující 3 ze čtyřech typů znaků: malá a velká písmena, číslice a symboly.</translation>
+        <translation>Je doporučeno silnější heslo: více než 8 znaků a obsahující 3 ze čtyř typů znaků: malá a velká písmena, číslice a symboly.</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="244"/>
@@ -122,7 +122,7 @@
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="90"/>
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="91"/>
         <source>Create a strong password please</source>
-        <translation>Vytvořte si odolné heslo prosím</translation>
+        <translation>Vytvořte si odolné heslo, prosím</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="97"/>
@@ -266,7 +266,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="89"/>
         <source>Connecting to the Internet...</source>
-        <translation>Připojování k Internetu…</translation>
+        <translation>Připojuje se k internetu…</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="101"/>
@@ -276,7 +276,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="114"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation>Síť je odpojena – až opět bude k dispozici, zkuste to znovu</translation>
+        <translation>Síť je odpojena – až opět bude dostupná, zkuste to znovu</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="134"/>

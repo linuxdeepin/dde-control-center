@@ -46,7 +46,7 @@
     <message>
         <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="231"/>
         <source>Medium</source>
-        <translation>Mesatar</translation>
+        <translation>Çka</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="240"/>
@@ -100,7 +100,7 @@
     <message>
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="82"/>
         <source>No more than %1 repeating characters please</source>
-        <translation>Ju lutemi, jo më shumë se %1 shenja të përsëritura</translation>
+        <translation>Ju lutemi, jo më shumë se %1 shenja që përsëriten</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/pwqualitymanager.cpp" line="87"/>
@@ -254,7 +254,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="63"/>
         <source>Phone/Email</source>
-        <translation>Telefoni/Email</translation>
+        <translation>Telefon/Email</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="69"/>

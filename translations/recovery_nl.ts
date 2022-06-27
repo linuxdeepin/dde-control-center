@@ -13,7 +13,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="266"/>
         <source>Rollback failed.</source>
-        <translation>Terugrollen mislukt.</translation>
+        <translation>Het terugrollen is mislukt.</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>

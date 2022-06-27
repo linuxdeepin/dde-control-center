@@ -172,7 +172,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
         <source>Reset Password By Union ID</source>
-        <translation type="unfinished"/>
+        <translation>Restablecer contraseña de Union ID</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="160"/>
@@ -211,42 +211,42 @@
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="131"/>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>¿Cómo se llama la ciudad donde naciste?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="132"/>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>¿Cómo se llama la primera escuela a la que asististe?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="133"/>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>¿A quién amas más en este mundo?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="134"/>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>¿Cuál es tu animal favorito?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="135"/>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>¿Cuál es tu canción favorita?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="136"/>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>¿Cuál es tu apodo?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="186"/>
         <source>Wrong answer</source>
-        <translation type="unfinished"/>
+        <translation>Respuesta incorrecta</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="201"/>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>Mantenga la respuesta por debajo de los 30 caracteres</translation>
     </message>
 </context>
 <context>
@@ -266,7 +266,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="89"/>
         <source>Connecting to the Internet...</source>
-        <translation type="unfinished"/>
+        <translation>Conectándose a Internet...</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="101"/>
