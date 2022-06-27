@@ -103,7 +103,7 @@ PluginManager::PluginManager(QObject *parent)
     qRegisterMetaType<PluginData>("PluginData");
 }
 
-void PluginManager::loadModules(ModuleObject *root, LayoutManager *layoutManager)
+void PluginManager::loadModules(ModuleObject *root, LayoutManager *layoutManager, bool async)
 {
     if (!root || !layoutManager)
         return;
@@ -161,6 +161,8 @@ void PluginManager::loadModules(ModuleObject *root, LayoutManager *layoutManager
         emit loadAllFinished();
     });
     watcher->setFuture(future);
+    if (!async)
+        watcher->waitForFinished();
 }
 
 ModuleObject *PluginManager::findModule(ModuleObject *module, const QString &name)

@@ -46,7 +46,7 @@ class MainWindow;
 class ControlCenterDBusAdaptor: public QDBusAbstractAdaptor
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "com.deepin.dde.ControlCenter")
+    Q_CLASSINFO("D-Bus Interface", "org.deepin.dde.ControlCenter")
 
 public:
     explicit ControlCenterDBusAdaptor(MainWindow *parent);

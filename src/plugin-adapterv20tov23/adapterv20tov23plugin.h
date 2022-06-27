@@ -43,6 +43,9 @@ public Q_SLOTS:
     void insertModule(bool append);
 
 private:
+    void registerDBus();
+
+private:
     enum Status{
         WaitParent,
         GetPaths,

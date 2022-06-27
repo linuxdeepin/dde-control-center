@@ -73,7 +73,7 @@ const QString HeightConfig = QStringLiteral("height");
 const QString HideConfig = QStringLiteral("hideModule");
 const QString DisableConfig = QStringLiteral("disableModule");
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(bool async, QWidget *parent)
     : DMainWindow(parent)
     , m_contentWidget(new QWidget(this))
     , m_backwardBtn(new DIconButton(QStyle::SP_ArrowBack, this))
@@ -89,7 +89,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     initUI();
     initConfig();
-    loadModules();
+    loadModules(async);
 
     connect(m_searchWidget, &SearchWidget::notifySearchUrl, this, [this](const QString &url) {
         showPage(url, UrlType::DisplayName);
@@ -283,10 +283,10 @@ void MainWindow::updateLayoutCurrent(LayoutBase *layout, ModuleObject *child)
         layout->setCurrent(child);
 }
 
-void MainWindow::loadModules()
+void MainWindow::loadModules(bool async)
 {
     onAddModule(m_rootModule);
-    m_pluginManager->loadModules(m_rootModule, m_layoutManager);
+    m_pluginManager->loadModules(m_rootModule, m_layoutManager, async);
     showModule(m_rootModule, m_contentWidget);
     // 搜索没实时更新，插件并行加载，此处暂延时设置，待修改
     // QTimer::singleShot(3000, this, [this]() {

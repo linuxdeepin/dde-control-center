@@ -19,6 +19,7 @@ public:
     };
 
 public:
+    virtual ~FrameProxyInterface() {}
     // Module request to into next page
     virtual void pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type = Normal) = 0;
     virtual void popWidget(ModuleInterface *const inter) = 0;

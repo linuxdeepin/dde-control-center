@@ -25,9 +25,12 @@
 #include "frameproxyv20.h"
 #include "pluginmanagerv20.h"
 #include "layoutv20.h"
+#include "dbuscontrolcenterservice.h"
 
 #include <QEvent>
 #include <QTimer>
+#include <qdbusconnection.h>
+#include <qdebug.h>
 
 AdapterV20toV23Root::AdapterV20toV23Root()
     : ModuleObject("adapterV20toV23")
@@ -39,6 +42,7 @@ AdapterV20toV23Root::AdapterV20toV23Root()
     m_timer = new QTimer(this);
     connect(m_timer, &QTimer::timeout, this, &AdapterV20toV23Root::timerTask);
     m_timer->start(50);
+    registerDBus();
 }
 
 AdapterV20toV23Root::~AdapterV20toV23Root()
@@ -47,6 +51,8 @@ AdapterV20toV23Root::~AdapterV20toV23Root()
         delete m_timer;
     if (m_pluginManagerV20)
         delete m_pluginManagerV20;
+    if (m_prameProxy)
+        delete m_prameProxy;
 }
 
 void AdapterV20toV23Root::timerTask()
@@ -182,4 +188,14 @@ int AdapterV20toV23Plugin::location() const
 QList<DCC_NAMESPACE::LayoutFactoryBase *> AdapterV20toV23Plugin::layoutFactory()
 {
     return { new DCC_NAMESPACE::LayoutFactory<LayoutV20_KEY, LayoutV20>() };
+}
+
+void AdapterV20toV23Root::registerDBus()
+{
+    DBusControlCenterService *dbus = new DBusControlCenterService(this);
+    QDBusConnection conn = QDBusConnection::sessionBus();
+    if (!conn.registerService("com.deepin.dde.ControlCenter") ||
+        !conn.registerObject("/com/deepin/dde/ControlCenter", dbus, QDBusConnection::ExportAllSlots)) {
+        qDebug() << "can't regist dbus!";
+    }
 }

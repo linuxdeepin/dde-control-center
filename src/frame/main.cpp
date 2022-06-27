@@ -145,27 +145,27 @@ int main(int argc, char *argv[])
     if (!app->setSingleInstance(app->applicationName())) {
         if (parser.isSet(toggleOption)) {
             DDBusSender()
-            .service("com.deepin.dde.ControlCenter")
-            .interface("com.deepin.dde.ControlCenter")
-            .path("/com/deepin/dde/ControlCenter")
+            .service("org.deepin.dde.ControlCenter")
+            .interface("org.deepin.dde.ControlCenter")
+            .path("/org/deepin/dde/ControlCenter")
             .method("Toggle")
             .call();
         }
 
         if (!reqPage.isEmpty()) {
             DDBusSender()
-            .service("com.deepin.dde.ControlCenter")
-            .interface("com.deepin.dde.ControlCenter")
-            .path("/com/deepin/dde/ControlCenter")
+            .service("org.deepin.dde.ControlCenter")
+            .interface("org.deepin.dde.ControlCenter")
+            .path("/org/deepin/dde/ControlCenter")
             .method("ShowPage")
             .arg(reqPage)
             .call();
         }
         else if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
             DDBusSender()
-            .service("com.deepin.dde.ControlCenter")
-            .interface("com.deepin.dde.ControlCenter")
-            .path("/com/deepin/dde/ControlCenter")
+            .service("org.deepin.dde.ControlCenter")
+            .interface("org.deepin.dde.ControlCenter")
+            .path("/org/deepin/dde/ControlCenter")
             .method("Show")
             .call();
         }
@@ -200,14 +200,14 @@ int main(int argc, char *argv[])
     pid_t pid = getpid();
     qApp->setProperty("AppPid", pid);
 
-    DCC_NAMESPACE::MainWindow mw;
+    DCC_NAMESPACE::MainWindow mw(!parser.isSet(dbusOption));
 
     DCC_NAMESPACE::ControlCenterDBusAdaptor adaptor(&mw);
     // DBusControlCenterGrandSearchService grandSearchadAptor(&mw);
 
     QDBusConnection conn = QDBusConnection::sessionBus();
-    if (!conn.registerService("com.deepin.dde.ControlCenter") ||
-        !conn.registerObject("/com/deepin/dde/ControlCenter", &mw)) {
+    if (!conn.registerService("org.deepin.dde.ControlCenter") ||
+        !conn.registerObject("/org/deepin/dde/ControlCenter", &mw)) {
         qDebug() << "dbus service already registered!" << "pid is:" << pid;
         if (!parser.isSet(showOption))
             return -1;

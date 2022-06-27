@@ -50,7 +50,7 @@ class PluginManager : public QObject
     Q_OBJECT
 public:
     explicit PluginManager(QObject *parent = nullptr);
-    void loadModules(ModuleObject *root, LayoutManager *layoutManager);
+    void loadModules(ModuleObject *root, LayoutManager *layoutManager, bool async = true);
 
 Q_SIGNALS:
     void loadedModule(const PluginData &data);

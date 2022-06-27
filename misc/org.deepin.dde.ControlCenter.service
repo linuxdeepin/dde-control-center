@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.deepin.dde.ControlCenter
+Exec=/usr/bin/dde-control-center -d
