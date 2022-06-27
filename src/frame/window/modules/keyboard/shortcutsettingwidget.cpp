@@ -563,14 +563,15 @@ void ShortCutSettingWidget::keyPressEvent(QKeyEvent *ke)
             || !m_waylandGrab || !m_waylandGrab->getZxgm()) {
         return;
     }
-    m_waylandGrab->setKeyValue(WaylandkeyMap[ke->key()]);
+    unsigned int keKey = static_cast<unsigned int>(ke->key());
+    m_waylandGrab->setKeyValue(WaylandkeyMap[keKey]);
     QString lastKey = m_waylandGrab->getLastKey();
     QString keyValue = m_waylandGrab->getKeyValue();
 
     m_waylandGrab->setRecordState(true);
     onKeyEvent(true, m_waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
-    if (ke->key() == Qt::Key_Control || ke->key() == Qt::Key_Alt
-            || ke->key() == Qt::Key_Shift || ke->key() == Qt::Key_Super_L || ke->key() == Qt::Key_Super_R) {
+    if (keKey == Qt::Key_Control || keKey == Qt::Key_Alt
+            || keKey == Qt::Key_Shift || keKey == Qt::Key_Super_L || keKey == Qt::Key_Super_R) {
         lastKey += ("<" + keyValue.remove(keyValue.indexOf("_"), 2) + ">");
         m_waylandGrab->setLastKey(lastKey);
     }
