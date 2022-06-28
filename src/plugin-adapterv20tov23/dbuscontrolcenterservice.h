@@ -43,20 +43,18 @@
 #include <QtDBus/QtDBus>
 #include <qobject.h>
 
+class AdapterV20toV23Root;
 /*
  * Adaptor class for interface com.deepin.dde.ControlCenter
  */
-class DBusControlCenterService: public QDBusAbstractAdaptor
+class DBusControlCenterService : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "com.deepin.dde.ControlCenter")
 
 public:
-    explicit DBusControlCenterService(QObject *parent = nullptr);
+    explicit DBusControlCenterService(AdapterV20toV23Root *parent = nullptr);
     virtual ~DBusControlCenterService();
-
-
-public: // PROPERTIES
 
 public Q_SLOTS: // METHODS
     void exitProc();
@@ -67,7 +65,12 @@ public Q_SLOTS: // METHODS
     void ShowPage(const QString &url);
     void ShowPage(const QString &module, const QString &page);
     void Toggle();
+
+private:
+    void delayShowPage(const QString &url);
+
+private:
+    AdapterV20toV23Root *m_adapter;
 };
 
 #endif
-

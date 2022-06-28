@@ -37,19 +37,19 @@
 
 #include "dbuscontrolcenterservice.h"
 #include "ddbussender.h"
+#include "adapterv20tov23plugin.h"
 
 /*
  * Implementation of adaptor class DBusControlCenter
  */
-DBusControlCenterService::DBusControlCenterService(QObject *parent)
+DBusControlCenterService::DBusControlCenterService(AdapterV20toV23Root *parent)
     : QDBusAbstractAdaptor(parent)
+    , m_adapter(parent)
 {
-
 }
 
 DBusControlCenterService::~DBusControlCenterService()
 {
-
 }
 
 void DBusControlCenterService::exitProc()
@@ -106,21 +106,15 @@ void DBusControlCenterService::ShowPage(const QString &url)
         .method("ShowPage")
         .arg(url)
         .call();
+    delayShowPage(url);
 }
 
 void DBusControlCenterService::ShowPage(const QString &module, const QString &page)
 {
-    qDebug() << "->>>ShowPage:";
     auto url = module.toLower();
     if (!page.isEmpty())
         url += "/" + page;
-    DDBusSender()
-        .service("org.deepin.dde.ControlCenter")
-        .interface("org.deepin.dde.ControlCenter")
-        .path("/org/deepin/dde/ControlCenter")
-        .method("ShowPage")
-        .arg(url)
-        .call();
+    ShowPage(url);
 }
 
 void DBusControlCenterService::Toggle()
@@ -132,4 +126,32 @@ void DBusControlCenterService::Toggle()
         .method("Toggle")
         .call();
 }
-
+// 先显示，加载完成后再跳转
+void DBusControlCenterService::delayShowPage(const QString &url)
+{
+    DCC_NAMESPACE::ModuleObject *parent = m_adapter->moduleRoot();
+    if (parent) {
+        QStringList names = url.split('/', Qt::SkipEmptyParts);
+        DCC_NAMESPACE::ModuleObject *obj = parent;
+        while (!names.isEmpty() && obj) {
+            const QString &name = names.takeFirst();
+            parent = obj;
+            obj = nullptr;
+            for (auto &&child : parent->childrens()) {
+                if (0 == name.compare(child->name(), Qt::CaseInsensitive)) {
+                    obj = child;
+                    if (names.isEmpty()) {
+                        obj->trigger();
+                        return;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    if (m_adapter->loadFinished())
+        return;
+    QTimer::singleShot(50, this, [this, url] {
+        delayShowPage(url);
+    });
+}

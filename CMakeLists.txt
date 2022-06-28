@@ -193,7 +193,7 @@ install(FILES ${QM_FILES} DESTINATION share/${PROJECT_NAME}/translations)
 install(FILES misc/dde-control-center.desktop DESTINATION share/applications)
 
 #service
-install(FILES misc/com.deepin.dde.ControlCenter.service DESTINATION share/dbus-1/services)
+install(FILES misc/org.deepin.dde.ControlCenter.service DESTINATION share/dbus-1/services)
 
 # dev files
 file(GLOB HEADERS "include/*")
@@ -1090,3 +1090,4 @@ target_link_libraries(${AdapterV20toV23_Name} PRIVATE
 )
 
 install(TARGETS ${AdapterV20toV23_Name} DESTINATION lib/dde-control-center/modules)
+install(FILES misc/com.deepin.dde.ControlCenter.service DESTINATION share/dbus-1/services)

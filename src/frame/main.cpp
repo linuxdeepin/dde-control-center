@@ -200,7 +200,7 @@ int main(int argc, char *argv[])
     pid_t pid = getpid();
     qApp->setProperty("AppPid", pid);
 
-    DCC_NAMESPACE::MainWindow mw(!parser.isSet(dbusOption));
+    DCC_NAMESPACE::MainWindow mw(!(parser.isSet(showOption) && parser.isSet(dbusOption)));
 
     DCC_NAMESPACE::ControlCenterDBusAdaptor adaptor(&mw);
     // DBusControlCenterGrandSearchService grandSearchadAptor(&mw);

@@ -28,11 +28,9 @@
 
 using namespace dccV20;
 
-FrameProxyV20::FrameProxyV20()
-{
-}
-
-FrameProxyV20::~FrameProxyV20()
+FrameProxyV20::FrameProxyV20(QObject *parent)
+    : QObject(parent)
+    , m_rootModule(nullptr)
 {
 }
 

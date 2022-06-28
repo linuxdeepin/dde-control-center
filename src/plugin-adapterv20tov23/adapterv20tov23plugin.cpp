@@ -35,13 +35,15 @@
 AdapterV20toV23Root::AdapterV20toV23Root()
     : ModuleObject("adapterV20toV23")
     , m_root(nullptr)
+    , m_timer(new QTimer(this))
+    , m_prameProxy(nullptr)
+    , m_pluginManagerV20(nullptr)
     , m_status(WaitParent)
     , m_tryCount(50)
 {
     setHiden(true);
-    m_timer = new QTimer(this);
     connect(m_timer, &QTimer::timeout, this, &AdapterV20toV23Root::timerTask);
-    m_timer->start(50);
+    m_timer->start(10);
     registerDBus();
 }
 
@@ -53,6 +55,16 @@ AdapterV20toV23Root::~AdapterV20toV23Root()
         delete m_pluginManagerV20;
     if (m_prameProxy)
         delete m_prameProxy;
+}
+
+bool AdapterV20toV23Root::loadFinished() const
+{
+    return m_status == LoadFinished;
+}
+
+dccV23::ModuleObject *AdapterV20toV23Root::moduleRoot() const
+{
+    return m_root;
 }
 
 void AdapterV20toV23Root::timerTask()
@@ -68,7 +80,7 @@ void AdapterV20toV23Root::timerTask()
         connect(m_root, &ModuleObject::destroyed, this, &AdapterV20toV23Root::deleteLater);
         connect(m_root, &ModuleObject::appendedChild, this, &AdapterV20toV23Root::pushModule, Qt::QueuedConnection);
         connect(m_root, &ModuleObject::insertedChild, this, &AdapterV20toV23Root::pushModule, Qt::QueuedConnection);
-        m_prameProxy = new FrameProxyV20();
+        m_prameProxy = new FrameProxyV20(this);
         m_prameProxy->setRootModule(m_root);
         m_pluginManagerV20 = new PluginManagerV20();
         m_pluginPaths = m_pluginManagerV20->pluginPath();
@@ -97,6 +109,7 @@ void AdapterV20toV23Root::timerTask()
         delete m_timer;
         m_timer = nullptr;
         insertModule(true);
+        m_status = LoadFinished;
         break;
     default:
         break;
@@ -160,9 +173,21 @@ void AdapterV20toV23Root::insertModule(bool append)
         inter->initialize();
     }
 }
+
+void AdapterV20toV23Root::registerDBus()
+{
+    DBusControlCenterService *dbus = new DBusControlCenterService(this);
+    QDBusConnection conn = QDBusConnection::sessionBus();
+    if (!conn.registerService("com.deepin.dde.ControlCenter") ||
+        !conn.registerObject("/com/deepin/dde/ControlCenter", dbus, QDBusConnection::ExportAllSlots)) {
+        qDebug() << "can't regist dbus!";
+    }
+}
+
 ///////////////////////////
 AdapterV20toV23Plugin::AdapterV20toV23Plugin(QObject *parent)
     : PluginInterface(parent)
+    , m_moduleRoot(nullptr)
 {
 }
 
@@ -188,14 +213,4 @@ int AdapterV20toV23Plugin::location() const
 QList<DCC_NAMESPACE::LayoutFactoryBase *> AdapterV20toV23Plugin::layoutFactory()
 {
     return { new DCC_NAMESPACE::LayoutFactory<LayoutV20_KEY, LayoutV20>() };
-}
-
-void AdapterV20toV23Root::registerDBus()
-{
-    DBusControlCenterService *dbus = new DBusControlCenterService(this);
-    QDBusConnection conn = QDBusConnection::sessionBus();
-    if (!conn.registerService("com.deepin.dde.ControlCenter") ||
-        !conn.registerObject("/com/deepin/dde/ControlCenter", dbus, QDBusConnection::ExportAllSlots)) {
-        qDebug() << "can't regist dbus!";
-    }
 }

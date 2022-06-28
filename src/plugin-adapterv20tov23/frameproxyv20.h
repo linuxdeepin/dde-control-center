@@ -31,11 +31,11 @@ class QTimer;
 namespace dccV20 {
 class ModuleInterface;
 }
-class FrameProxyV20 : public dccV20::FrameProxyInterface
+class FrameProxyV20 : public QObject, public dccV20::FrameProxyInterface
 {
 public:
-    explicit FrameProxyV20();
-    ~FrameProxyV20();
+    explicit FrameProxyV20(QObject *parent = nullptr);
+    ~FrameProxyV20() = default;
 
 public:
     void setRootModule(DCC_NAMESPACE::ModuleObject *rootModule);

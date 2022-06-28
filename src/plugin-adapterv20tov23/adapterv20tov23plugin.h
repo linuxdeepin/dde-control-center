@@ -37,6 +37,9 @@ public:
     explicit AdapterV20toV23Root();
     ~AdapterV20toV23Root();
 
+    bool loadFinished() const;
+    ModuleObject *moduleRoot() const;
+
 public Q_SLOTS:
     void timerTask();
     void pushModule();
@@ -52,6 +55,7 @@ private:
         LoadPlugin,
         InsertModule,
         InsertAllModule, // 对于找不到位置的插到最后
+        LoadFinished,
     };
     ModuleObject *m_root;
     QTimer *m_timer;

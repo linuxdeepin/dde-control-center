@@ -13,8 +13,10 @@ DCC_USE_NAMESPACE
 using namespace dccV20;
 
 PluginManagerV20::PluginManagerV20()
+    : m_rootModule(nullptr)
 {
 }
+
 PluginManagerV20::~PluginManagerV20()
 {
 }

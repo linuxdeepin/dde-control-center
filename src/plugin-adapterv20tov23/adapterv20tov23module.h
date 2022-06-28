@@ -65,7 +65,6 @@ public:
 
 private:
     dccV20::ModuleInterface *m_v20Module;
-    QWidget *m_widget;
     AdapterV20toV23Child *m_modules[2];
 };
 

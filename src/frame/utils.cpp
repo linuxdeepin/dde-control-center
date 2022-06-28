@@ -49,7 +49,7 @@ QByteArray DCC_NAMESPACE::getFileMd5(const QString &filePath)
     bytesToWrite = totalBytes;
 
     while (true) {
-        if(bytesToWrite > 0) {
+        if (bytesToWrite > 0) {
             buf = localFile.read(qMin(bytesToWrite, loadSize));
             ch.addData(buf);
             bytesWritten += buf.length();
@@ -59,7 +59,7 @@ QByteArray DCC_NAMESPACE::getFileMd5(const QString &filePath)
             break;
         }
 
-        if(bytesWritten == totalBytes) {
+        if (bytesWritten == totalBytes) {
             break;
         }
     }
@@ -75,14 +75,13 @@ ModuleObject *DCC_NAMESPACE::GetModuleByUrl(ModuleObject *const root, const QStr
     QStringList names = url.split('/');
     while (!names.isEmpty() && obj) {
         const QString &name = names.takeFirst();
-        QString childName;
         parent = obj;
         obj = nullptr;
-        for (auto child : parent->childrens()) {
-            if (child->name() == name)
+        for (auto &&child : parent->childrens()) {
+            if (child->name() == name) {
                 obj = child;
-            if (obj)
                 break;
+            }
         }
     }
     return names.isEmpty() ? obj : nullptr;
