@@ -607,7 +607,7 @@ if(${Qt5_VERSION} VERSION_GREATER "5.15.1")
 endif()
 find_package(KF5Wayland QUIET)
 pkg_check_modules(WaylandClient REQUIRED wayland-client)
-pkg_check_modules(XCB_EWMH REQUIRED xcb-ewmh x11 xext)
+pkg_check_modules(XCB_EWMH REQUIRED xcb-ewmh x11 xext xkbcommon)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
 pkg_check_modules(Gio-2.0 REQUIRED gio-2.0)
@@ -735,6 +735,8 @@ target_include_directories(dccwidgets PUBLIC
     ${DtkWidget_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
     ${Qt5WaylandClient_PRIVATE_INCLUDE_DIRS}
+    ${WaylandClient_INCLUDE_DIRS}
+    ${XCB_EWMH_INCLUDE_DIRS}
 )
 
 if(${Qt5_VERSION} VERSION_GREATER "5.15.1")
