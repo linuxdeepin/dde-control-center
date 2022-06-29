@@ -218,6 +218,8 @@ void DConfigWatcher::setStatus(QString &moduleName, const QString &configName, Q
         Q_EMIT requestShowSecondMenu(item->row());
     else
         Q_EMIT requestUpdateSecondMenu(item->row(), configName);
+
+    Q_EMIT notifyDConfigChanged(moduleName, configName);
 }
 
 /**
@@ -272,6 +274,7 @@ void DConfigWatcher::onStatusModeChanged(ModuleType moduleType, const QString &k
     keys->key = key;
     keys->type = moduleType;
     Q_EMIT requestUpdateSearchMenu(moduleName + key, m_menuState.value(keys));
+    Q_EMIT notifyDConfigChanged(moduleName, key);
 }
 
 
