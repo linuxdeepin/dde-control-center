@@ -39,6 +39,7 @@ using namespace dcc::personalization;
 
 const QString Service = "com.deepin.daemon.Appearance";
 const QString Path    = "/com/deepin/daemon/Appearance";
+const QString effectMoveWindowArg = "kwin4_effect_translucency";
 
 static const std::vector<int> OPACITY_SLIDER {
     0,
@@ -203,6 +204,18 @@ void PersonalizationWork::refreshWMState()
 {
     QDBusPendingCallWatcher *wmWatcher = new QDBusPendingCallWatcher(m_wmSwitcher->CurrentWM(), this);
     connect(wmWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetCurrentWMFinished);
+
+    if (!m_effects) {
+        qWarning() << "The Interface of org::kde::kwin::Effects is nullptr.";
+        return;
+    }
+
+    bool isMoveWindow = m_effects->isEffectLoaded(effectMoveWindowArg);
+    qDebug() << Q_FUNC_INFO << isMoveWindow;
+    m_model->setIsMoveWindow(isMoveWindow);
+
+    //TODO: 关联打开移动窗口功能信号(kwin4_effect_translucency)，实时响应变化
+    //目前窗管无法提供该信号，待后续窗管提供信号后再处理
 }
 
 void PersonalizationWork::FontSizeChanged(const double value) const
@@ -533,6 +546,23 @@ void PersonalizationWork::windowSwitchWM(bool value)
          qDebug() << "reply.type() = " << reply.type();
      }
 
+}
+
+void PersonalizationWork::movedWindowSwitchWM(bool value)
+{
+    if (!m_effects) {
+        qWarning() << "The Interface of org::kde::kwin::Effects is nullptr.";
+        return;
+    }
+
+    if (value) {
+        bool isload = m_effects->loadEffect(effectMoveWindowArg);
+        qDebug() << Q_FUNC_INFO << " The effect of  kwin4_effect_translucency is : " << isload;
+        m_model->setIsMoveWindow(isload);
+    } else {
+        m_effects->unloadEffect(effectMoveWindowArg);
+        m_model->setIsMoveWindow(false);
+    }
 }
 
 void PersonalizationWork::setOpacity(int opacity)

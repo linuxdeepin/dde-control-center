@@ -28,6 +28,7 @@
 #include "personalizationfontswidget.h"
 #include "window/mainwindow.h"
 #include "window/gsettingwatcher.h"
+#include "window/dconfigwatcher.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -161,6 +162,7 @@ void PersonalizationModule::showGenaralWidget()
     connect(widget, &PersonalizationGeneral::requestSetOpacity, m_work, &dcc::personalization::PersonalizationWork::setOpacity);
     connect(widget, &PersonalizationGeneral::requestSetMiniEffect, m_work, &dcc::personalization::PersonalizationWork::setMiniEffect);
     connect(widget, &PersonalizationGeneral::requestWindowSwitchWM, m_work, &dcc::personalization::PersonalizationWork::windowSwitchWM);
+    connect(widget, &PersonalizationGeneral::requestMovedWindowSwitchWM, m_work, &dcc::personalization::PersonalizationWork::movedWindowSwitchWM);
     connect(widget, &PersonalizationGeneral::requestSetActiveColor, m_work, &dcc::personalization::PersonalizationWork::setActiveColor);
     m_work->active();
 
@@ -230,6 +232,12 @@ void PersonalizationModule::initSearchData()
         return status != value;
     };
 
+    auto func_isdconf_visible = [=](const QString &gsettings, QString value = "Hidden") {
+        const QString& status = DConfigWatcher::instance()->getStatus(DConfigWatcher::personalization, gsettings);
+        gsettingsMap.insert(gsettings, status);
+        return status != value;
+    };
+
     auto func_font_changed = [ = ](bool bFont) {
         m_frameProxy->setWidgetVisible(module, font, bFont);
         m_frameProxy->setDetailVisible(module, font, tr("Size"), bFont);
@@ -250,6 +258,7 @@ void PersonalizationModule::initSearchData()
         m_frameProxy->setDetailVisible(module, general, tr("Window Effect"), bGeneral && bEffects && !IsServerSystem && !QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive));
         m_frameProxy->setDetailVisible(module, general, tr("Transparency"), bGeneral && bEffects && is3DWm);
         m_frameProxy->setDetailVisible(module, general, tr("Window Minimize Effect"), bGeneral && bEffects && is3DWm);
+        m_frameProxy->setDetailVisible(module, general, tr("Show transparency effects when a window is moved"), bGeneral && bEffects && is3DWm && func_isdconf_visible("effectMovewindowTranslucency"));
     };
 
     auto func_icontheme_changed = [ = ](bool bIconTheme) {
@@ -303,11 +312,27 @@ void PersonalizationModule::initSearchData()
         m_frameProxy->updateSearchData(module);
     });
 
+    connect(DConfigWatcher::instance(), &DConfigWatcher::notifyDConfigChanged, this, [=](const QString &moduleName, const QString &configName) {
+        if (moduleName != "personalization" || configName == "" || !gsettingsMap.contains(configName) || !m_model) {
+            return;
+        }
+        const QString& status = DConfigWatcher::instance()->getStatus(DConfigWatcher::personalization, configName);
+        if (gsettingsMap.value(configName) == status) {
+            return;
+        }
+
+        bool bGeneral = func_is_visible("personalizationGeneral");
+        bool bEffects = func_is_visible("perssonalGeneralEffects");
+        m_frameProxy->setDetailVisible(module, general, tr("Show transparency effects when a window is moved"), bGeneral && bEffects && m_model->is3DWm() && func_isdconf_visible("effectMovewindowTranslucency"));
+        m_frameProxy->updateSearchData(module);
+    });
+
     connect(m_model, &dcc::personalization::PersonalizationModel::wmChanged, this, [ = ](const bool is3d){
         bool bGeneral = func_is_visible("personalizationGeneral");
         bool bEffects = func_is_visible("perssonalGeneralEffects");
         m_frameProxy->setDetailVisible(module, general, tr("Transparency"), bGeneral && bEffects && is3d);
         m_frameProxy->setDetailVisible(module, general, tr("Window Minimize Effect"), bGeneral && bEffects && is3d);
+        m_frameProxy->setDetailVisible(module, general, tr("Show transparency effects when a window is moved"), bGeneral && bEffects && is3d && func_isdconf_visible("effectMovewindowTranslucency"));
         m_frameProxy->updateSearchData(module);
     });
 

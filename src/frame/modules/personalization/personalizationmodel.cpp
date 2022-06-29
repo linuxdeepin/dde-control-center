@@ -43,6 +43,7 @@ PersonalizationModel::PersonalizationModel(QObject *parent)
     m_monoFontModel  = new FontModel(this);
     m_fontSizeModel  = new FontSizeModel(this);
     m_is3DWm = true;
+    m_isMoveWindow = false;
     m_miniEffect = 0;
 }
 
@@ -62,6 +63,19 @@ void PersonalizationModel::setIs3DWm(const bool is3d)
 bool PersonalizationModel::is3DWm() const
 {
     return m_is3DWm;
+}
+
+void PersonalizationModel::setIsMoveWindow(const bool isMoveWindow)
+{
+    if (isMoveWindow != m_isMoveWindow) {
+        m_isMoveWindow = isMoveWindow;
+        Q_EMIT moveWindowChanged(isMoveWindow);
+    }
+}
+
+bool PersonalizationModel::isMoveWindow() const
+{
+    return m_isMoveWindow;
 }
 
 void PersonalizationModel::setWindowRadius(int radius)
