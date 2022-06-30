@@ -103,6 +103,10 @@ set(WINDOW_FILES
     window/modules/datetime/systemtimezone.cpp
     window/modules/datetime/formatsetting.cpp
     window/modules/datetime/formatsetting.h
+    window/modules/datetime/currencyformat.cpp
+    window/modules/datetime/currencyformat.h
+    window/modules/datetime/numberformat.cpp
+    window/modules/datetime/numberformat.h
     window/modules/datetime/datesettings.cpp
     window/modules/datetime/timesetedit.cpp
     window/modules/datetime/datetimecombox.cpp

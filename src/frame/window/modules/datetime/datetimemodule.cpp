@@ -26,6 +26,7 @@
 #include "systemtimezone.h"
 #include "formatsetting.h"
 #include "window/gsettingwatcher.h"
+#include "window/dconfigwatcher.h"
 #include "window/mainwindow.h"
 
 #include <types/zoneinfo.h>
@@ -240,6 +241,10 @@ void DatetimeModule::initSearchData()
         return ret;
     };
 
+    auto func_dsg_visible = [=](const QString &dsgSettings) {
+        return (DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, dsgSettings) != "Hidden");
+    };
+
     auto func_timezonelist_changed = [ = ]() {
         if (!m_frameProxy || !m_model) {
             return;
@@ -267,6 +272,15 @@ void DatetimeModule::initSearchData()
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Short Time"), bTimeFormat);
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Long Time"), bTimeFormat);
         m_frameProxy->setDetailVisible(module, formatSettings, tr("First Day of Week"), bTimeFormat);
+
+        //货币格式
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Currency Symbol"), bTimeFormat && func_dsg_visible("FromatsettingCurrencysymbol"));
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Positive Currency Format"), bTimeFormat && func_dsg_visible("FromatsettingPositive"));
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Negative Currency Format"), bTimeFormat && func_dsg_visible("FromatsettingNegative"));
+        //数字格式
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Decimal Symbol"), bTimeFormat && func_dsg_visible("FromatsettingDecimalsymbol"));
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Digit Grouping Symbol"), bTimeFormat && func_dsg_visible("FromatsettingDigitgroupingsymbol"));
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Digit Grouping"), bTimeFormat && func_dsg_visible("FromatsettingDigitgrouping"));
     };
 
     auto func_setting_changed = [ = ]() {
@@ -289,6 +303,21 @@ void DatetimeModule::initSearchData()
 
         func_setting_changed();
      };
+
+    QStringList cbxList;
+    cbxList << "datetimeFromatsettingCurrencysymbol"
+            << "datetimeFromatsettingPositive"
+            << "datetimeFromatsettingNegative"
+            << "datetimeFromatsettingDecimalsymbol"
+            << "datetimeFromatsettingDigitgroupingsymbol"
+            << "datetimeFromatsettingDigitgrouping";
+    connect(DConfigWatcher::instance(), &DConfigWatcher::requestUpdateSearchMenu, this, [=](const QString &moduleName, bool status) {
+        Q_UNUSED(status)
+        if (moduleName == "" || !cbxList.contains(moduleName)) {
+            return;
+        }
+        func_format_changed();
+    });
 
     //更新开/关时间同步显示“服务器”
     connect(m_model, &DatetimeModel::NTPChanged, [ = ](bool value) {

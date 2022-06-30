@@ -231,5 +231,59 @@ void DatetimeModel::setWeekStartDayFormatTypeCount(int size)
 
     m_weekStartDayFormatTypeCount = size;
 }
+
+void DatetimeModel::setFormatFormWidget(const QString &type, QString value, int place)
+{
+    qInfo() << "  setFormatFormWidget place, type, value : " << place << type << value;
+    Q_EMIT formatPropertyChanged(type, value);
+}
+
+void DatetimeModel::setCurrencySymbol(const QString &value)
+{
+    if (m_currencySymbol != value) {
+        m_currencySymbol = value;
+        Q_EMIT CurrencySymbolChanged(value);
+    }
+}
+
+void DatetimeModel::setDecimalSymbol(const QString &value)
+{
+    if (m_decimalSymbol != value) {
+        m_decimalSymbol = value;
+        Q_EMIT DecimalSymbolChanged(value);
+    }
+}
+
+void DatetimeModel::setDigitGrouping(const QString &value)
+{
+    if (m_digitGrouping != value) {
+        m_digitGrouping = value;
+        Q_EMIT DigitGroupingChanged(value);
+    }
+}
+
+void DatetimeModel::setDigitGroupingSymbol(const QString &value)
+{
+    if (m_digitGroupingSymbol != value) {
+        m_digitGroupingSymbol = value;
+        Q_EMIT DigitGroupingSymbolChanged(value);
+    }
+}
+
+void DatetimeModel::setNegativeCurrencyFormat(const QString &value)
+{
+    if (m_negativeCurrencyFormat != value) {
+        m_negativeCurrencyFormat = value;
+        Q_EMIT NegativeCurrencyFormatChanged(value);
+    }
+}
+
+void DatetimeModel::setPositiveCurrencyFormat(const QString &value)
+{
+    if (m_positiveCurrencyFormat != value) {
+        m_positiveCurrencyFormat = value;
+        Q_EMIT PositiveCurrencyFormatChanged(value);
+    }
+}
 }
 }

@@ -1,0 +1,72 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "FromatsettingCurrencysymbol": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "FromatsettingCurrencysymbol",
+            "name[zh_CN]": "控制中心时间模块货币符号设置",
+            "description[zh_CN]": "此配置为对控制中心时间模块货币符号配置是否显示，默认为启动：当配置为启动时，控制中心时间模块货币符号配置可以调整；当配置为禁用时，控制中心时间模块货币符号配置置灰展示；当配置为隐藏时，控制中心时间模块货币符号配置隐藏；",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "FromatsettingPositive": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "FromatsettingPositive",
+            "name[zh_CN]": "控制中心时间模块货币正数设置",
+            "description[zh_CN]": "此配置为对控制中心时间模块货币正数配置是否显示，默认为启动：当配置为启动时，控制中心时间模块货币正数配置可以调整；当配置为禁用时，控制中心时间模块货币正数配置置灰展示；当配置为隐藏时，控制中心时间模块货币正数配置隐藏；",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "FromatsettingNegative": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "FromatsettingNegative",
+            "name[zh_CN]": "控制中心时间模块货币负数设置",
+            "description[zh_CN]": "此配置为对控制中心时间模块货币负数配置是否显示，默认为启动：当配置为启动时，控制中心时间模块货币负数配置可以调整；当配置为禁用时，控制中心时间模块货币负数配置置灰展示；当配置为隐藏时，控制中心时间模块货币负数配置隐藏；",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "FromatsettingDecimalsymbol": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "FromatsettingDecimalsymbol",
+            "name[zh_CN]": "控制中心时间模块小数点设置",
+            "description[zh_CN]": "此配置为对控制中心时间模块小数点配置是否显示，默认为启动：当配置为启动时，控制中心时间模块小数点配置可以调整；当配置为禁用时，控制中心时间模块小数点配置置灰展示；当配置为隐藏时，控制中心时间模块小数点配置隐藏；",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "FromatsettingDigitgroupingsymbol": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "FromatsettingDigitgroupingsymbol",
+            "name[zh_CN]": "控制中心时间模块分隔符设置",
+            "description[zh_CN]": "此配置为对控制中心时间模块分隔符配置是否显示，默认为启动：当配置为启动时，控制中心时间模块分隔符配置可以调整；当配置为禁用时，控制中心时间模块分隔符配置置灰展示；当配置为隐藏时，控制中心时间模块分隔符配置隐藏；",
+             "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "FromatsettingDigitgrouping": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "FromatsettingDigitgrouping",
+            "name[zh_CN]": "控制中心时间模块数字分组设置",
+            "description[zh_CN]": "此配置为对控制中心时间模块数字分组配置是否显示，默认为启动：当配置为启动时，控制中心时间模块数字分组配置可以调整；当配置为禁用时，控制中心时间模块数字分组配置置灰展示；当配置为隐藏时，控制中心时间模块数字分组配置隐藏；",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        }
+    }
+  }

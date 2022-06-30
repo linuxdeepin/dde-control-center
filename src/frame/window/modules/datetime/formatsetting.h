@@ -21,6 +21,9 @@
 #pragma once
 
 #include "interface/namespace.h"
+#include "widgets/contentwidget.h"
+
+#include <DListView>
 
 #include <types/zoneinfo.h>
 #include <QWidget>
@@ -29,20 +32,31 @@ QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 QT_END_NAMESPACE
 
+DWIDGET_USE_NAMESPACE
+
 namespace dcc {
 namespace datetime {
 class DatetimeModel;
 }
 }
+
+namespace DCC_NAMESPACE {
+namespace datetime {
+class CurrencyFormat;
+class NumberFormat;
+}
+}
+
 namespace dcc {
 namespace widgets {
 class ComboxWidget;
 }
 }
+
 namespace DCC_NAMESPACE {
 namespace datetime {
 
-class FormatSetting : public QWidget
+class FormatSetting : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
@@ -70,6 +84,7 @@ private:
     QString fotmatLongTime(int type);
     QString fotmatShortTime(int type);
     QString weekStartWithDay(int type);
+private:
     QVBoxLayout *m_layout;
     dcc::datetime::DatetimeModel *mModel;
     dcc::widgets::ComboxWidget *m_weekCbx = nullptr ;
@@ -78,6 +93,8 @@ private:
     dcc::widgets::ComboxWidget *m_longtimeCbx = nullptr;
     dcc::widgets::ComboxWidget *m_shortimeCbx = nullptr ;
     dcc::widgets::ComboxWidget *m_weekStartDayCbx = nullptr ;
+    CurrencyFormat *m_currencyFormatWidget;
+    NumberFormat *m_numberFormatWidget;
 };
 
 }// namespace datetime
