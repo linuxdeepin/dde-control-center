@@ -24,6 +24,7 @@
  */
 
 #include "widgets/lineeditwidget.h"
+#include "widgets/accessibleinterface.h"
 
 #include <DPasswordEdit>
 #include <DLineEdit>
@@ -33,7 +34,7 @@
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
 
-
+SET_FORM_ACCESSIBLE(ErrorTip,"ErrorTip");
 ErrorTip::ErrorTip(QWidget *parent) :
     DArrowRectangle(DArrowRectangle::ArrowTop, parent),
     m_label(new QLabel)

@@ -25,6 +25,7 @@
 
 #include "widgets/switchwidget.h"
 #include "widgets/utils.h"
+#include "widgets/accessibleinterface.h"
 
 #include <DSwitchButton>
 
@@ -33,7 +34,7 @@
 
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
-
+SET_LABEL_ACCESSIBLE(SwitchLabel,"SwitchLabel");
 SwitchLabel::SwitchLabel(QWidget *parent, Qt::WindowFlags f)
     : QLabel (parent,f)
 {
@@ -61,7 +62,7 @@ void SwitchLabel::resizeEvent(QResizeEvent *event)
     QLabel::resizeEvent(event);
 }
 
-
+SET_FORM_ACCESSIBLE(SwitchWidget,"SwitchWidget");
 SwitchWidget::SwitchWidget(const QString &title, QWidget *parent)
     : SettingsItem(parent)
     , m_leftWidget(new SwitchLabel)

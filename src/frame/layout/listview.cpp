@@ -19,6 +19,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "listview.h"
+#include "widgets/accessibleinterface.h"
 #include <QDebug>
 #include <QMouseEvent>
 #include <QPainter>
@@ -32,7 +33,7 @@ DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(ListView, m_w->objectName().isEmpty() ? "ListView" : m_w->objectName())
 /////////////////////////////////////////
 namespace DCC_NAMESPACE {
 

@@ -70,7 +70,7 @@ void sig_crash(int sig)
     free(strings);
 
     // Do't save configuration if all modules are loaded.
-    if (IsModulesLoaded)
+    if (DCC_NAMESPACE::IsModulesLoaded)
         exit(1);
 
     // analyze log and save config

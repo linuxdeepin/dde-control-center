@@ -24,6 +24,7 @@
  */
 
 #include "widgets/buttontuple.h"
+#include "widgets/accessibleinterface.h"
 
 #include <QHBoxLayout>
 #include <QPushButton>
@@ -34,7 +35,7 @@
 
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(ButtonTuple,"ButtonTuple")
 ButtonTuple::ButtonTuple(ButtonType type, QWidget *parent)
     : QWidget(parent)
     , m_leftButton(new QPushButton(this))

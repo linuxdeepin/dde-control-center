@@ -21,6 +21,7 @@
 
 #include "avatarlistwidget.h"
 #include "src/plugin-accounts/operation/user.h"
+#include "widgets/accessibleinterface.h"
 #include "avataritemdelegate.h"
 
 #include <QWidget>
@@ -44,7 +45,7 @@ const int MaxAvatarSize = 14;
 
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(AvatarListWidget,"AvatarListWidget")
 AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
     : DListView(parent)
     , m_curUser(usr)

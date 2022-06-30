@@ -27,6 +27,7 @@
 #include "widgets/settingsitem.h"
 #include "widgets/settingsheaderitem.h"
 #include "widgets/utils.h"
+#include "widgets/accessibleinterface.h"
 
 #include <DBackgroundGroup>
 
@@ -36,7 +37,7 @@
 
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(SettingsGroup,"SettingsGroup");
 SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
     : QFrame(parent)
     , m_layout(nullptr)

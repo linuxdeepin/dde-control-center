@@ -24,6 +24,7 @@
  */
 
 #include "avatarwidget.h"
+#include "widgets/accessibleinterface.h"
 
 #include <QDebug>
 #include <QUrl>
@@ -36,7 +37,7 @@
 #include <QColor>
 
 DCC_USE_NAMESPACE
-
+SET_LABEL_ACCESSIBLE(AvatarWidget, "avatarwidget")
 AvatarWidget::AvatarWidget(QWidget *parent)
     : QLabel(parent)
     , m_hover(false)

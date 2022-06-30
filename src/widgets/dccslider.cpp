@@ -24,6 +24,7 @@
  */
 
 #include "widgets/dccslider.h"
+#include "widgets/accessibleinterface.h"
 
 #include <QWheelEvent>
 #include <QGridLayout>
@@ -34,7 +35,7 @@
 
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
-
+SET_SLIDER_ACCESSIBLE(DCCSlider,"DCCSlider")
 DCCSlider::DCCSlider(DCCSlider::SliderType type, QWidget *parent)
     : DSlider(Qt::Horizontal, parent)
     , m_separateValue(0)

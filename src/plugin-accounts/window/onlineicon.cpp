@@ -24,6 +24,7 @@
 // in the LICENSE file.
 
 #include "onlineicon.h"
+#include "widgets/accessibleinterface.h"
 
 #include <QStyle>
 #include <QPainter>
@@ -34,6 +35,7 @@
 #include <QGraphicsDropShadowEffect>
 
 DCC_USE_NAMESPACE;
+SET_FORM_ACCESSIBLE(OnlineIcon,"OnlineIcon")
 OnlineIcon::OnlineIcon(QWidget *parent)
     : QWidget(parent)
     , m_shadowEffect(new QGraphicsDropShadowEffect(this))

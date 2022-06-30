@@ -21,6 +21,7 @@
 #include "useritem.h"
 #include "useritempic.h"
 #include "onlineicon.h"
+#include "widgets/accessibleinterface.h"
 
 #include <DIconButton>
 #include <DLabel>
@@ -30,7 +31,7 @@
 
 DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(UserItem,"UserItem")
 UserItem::UserItem(QWidget *parent)
     : QWidget(parent)
     , m_onlineIcon(nullptr)

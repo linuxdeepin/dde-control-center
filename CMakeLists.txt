@@ -167,6 +167,7 @@ set(Control_Center_Includes
     Qt5::Concurrent
 )
 set(Control_Center_Libraries
+    ${Dcc_Widgets_Name}
     ${Interface_Name}
     ${DtkWidget_LIBRARIES}
     Qt5::Widgets

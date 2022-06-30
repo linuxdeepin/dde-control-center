@@ -24,6 +24,7 @@
 #include "accountsdetailwidget.h"
 #include "onlineicon.h"
 #include "useritemdelegate.h"
+#include "widgets/accessibleinterface.h"
 
 #include <DStyleOption>
 #include <DFloatingButton>
@@ -51,6 +52,7 @@
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
+SET_FORM_ACCESSIBLE(AccountsListWidget,"AccountsListWidget")
 AccountsListWidget::AccountsListWidget(QWidget *parent)
     : QWidget(parent)
     , m_createBtn(new DFloatingButton(DStyle::SP_IncreaseElement, this))

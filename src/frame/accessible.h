@@ -20,10 +20,8 @@
  */
 #pragma once
 
-#include "accessibleinterface.h"
-
-#include "mainwindow.h"
-#include "searchwidget.h"
+#include "widgets/accessibleinterface.h"
+#include "src/widgets/accessiblefactoryinterface.h"
 
 #include <QPushButton>
 #include <QWidget>
@@ -33,25 +31,13 @@
 #include <QFrame>
 #include <QMenu>
 #include <QLabel>
+#include <QListWidget>
+#include <QScrollArea>
+#include <QScrollBar>
+#include <QComboBox>
+#include <QMainWindow>
 
-#include <DSwitchButton>
-#include <DBackgroundGroup>
-#include <DFloatingButton>
-#include <DLineEdit>
-#include <DLabel>
-#include <DListView>
-#include <DCommandLinkButton>
-#include <DSearchEdit>
-#include <DTitlebar>
-#include <DComboBox>
 /**************************************************************************************/
-DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
-
-// 主窗口
-SET_FORM_ACCESSIBLE(MainWindow, "mainwindow")
-SET_FORM_ACCESSIBLE(SearchWidget, "searchwidget")
-
 // Qt控件
 SET_FORM_ACCESSIBLE(QWidget, m_w->objectName().isEmpty() ? "widget" : m_w->objectName())
 SET_BUTTON_ACCESSIBLE(QPushButton, m_w->text().isEmpty() ? "qpushbutton" : m_w->text())
@@ -59,47 +45,51 @@ SET_EDITABLE_ACCESSIBLE(QLineEdit, m_w->text().isEmpty() ? "qlineedit" : m_w->te
 SET_BUTTON_ACCESSIBLE(QToolButton, m_w->text().isEmpty() ? "qtoolbutton" : m_w->text())
 SET_SLIDER_ACCESSIBLE(QSlider, "qslider")
 SET_FORM_ACCESSIBLE(QMenu, "qmenu")
+SET_FORM_ACCESSIBLE(QFrame, "qframe")
+SET_FORM_ACCESSIBLE(QListView, "qlistview")
+SET_FORM_ACCESSIBLE(QListWidget, "qlistwidget")
+SET_FORM_ACCESSIBLE(QScrollArea, "qscrollarea")
+SET_FORM_ACCESSIBLE(QScrollBar, "QScrollBar")
+SET_FORM_ACCESSIBLE(QComboBox, "QComboBox")
+SET_FORM_ACCESSIBLE(QMainWindow, "QMainWindow")
 SET_LABEL_ACCESSIBLE(QLabel, m_w->text().isEmpty() ? "qlabel" : m_w->text())
 
-// Dtk控件
-SET_FORM_ACCESSIBLE(DBackgroundGroup, m_w->objectName().isEmpty() ? "dbackgroundgroup" : m_w->objectName())
-SET_BUTTON_ACCESSIBLE(DSwitchButton, m_w->text().isEmpty() ? "switchbutton" : m_w->text())
-SET_BUTTON_ACCESSIBLE(DFloatingButton,  m_w->toolTip().isEmpty() ? "DFloatingButton" : m_w->toolTip())
-SET_DTK_EDITABLE_ACCESSIBLE(DLineEdit, "DLineEdit")
-SET_FORM_ACCESSIBLE(DSearchEdit, m_w->objectName().isEmpty() ? "DSearchEdit" : m_w->objectName())
-SET_BUTTON_ACCESSIBLE(DIconButton, m_w->objectName().isEmpty() ? "DIconButton" : m_w->objectName())
-SET_BUTTON_ACCESSIBLE(DCommandLinkButton, "DCommandLinkButton")
-SET_LABEL_ACCESSIBLE(DLabel, m_w->text().isEmpty() ? m_w->objectName().isEmpty() ? "DLabel" : m_w->objectName() : m_w->text())
-SET_FORM_ACCESSIBLE(DTitlebar, m_w->objectName().isEmpty() ? "DTitlebar" : m_w->objectName())
+class AccessibleFactory : public AccessibleFactoryInterface
+{
+public:
+    explicit AccessibleFactory()
+        : AccessibleFactoryInterface()
+    {
+        AccessibleFactoryInterface::RegisterInstance(this);
+    }
+    virtual ~AccessibleFactory() { }
+    virtual AccessibleFactoryBase *registerAccessibleFactory(const char *factoryName, AccessibleFactoryBase *factory) override
+    {
+        if (!m_factoryMap.contains(factoryName))
+            m_factoryMap.insert(factoryName, factory);
+        return factory;
+    }
+    QAccessibleInterface *createObject(const QString &classname, QObject *object)
+    {
+        if (m_factoryMap.contains(classname))
+            return m_factoryMap.value(classname)->createObject(object);
+                                     qInfo()<<"no Accessible:"<<classname;
+        return nullptr;
+    }
 
+private:
+    QMap<QString, AccessibleFactoryBase *> m_factoryMap;
+};
 
 QAccessibleInterface *accessibleFactory(const QString &classname, QObject *object)
 {
     QAccessibleInterface *interface = nullptr;
+   static AccessibleFactory * s_accessibleFactory = nullptr;
+   if (!s_accessibleFactory)
+        s_accessibleFactory = new AccessibleFactory();
 
-    // 应用主窗口
-    USE_ACCESSIBLE(QString(classname).replace("dccV23::", ""), MainWindow);
-    // USE_ACCESSIBLE(QString(classname).replace("dccV20::search::", ""), SearchWidget);
-    USE_ACCESSIBLE_BY_OBJECTNAME(classname, QWidget, "contentwindow");
-    USE_ACCESSIBLE_BY_OBJECTNAME(classname, QWidget, "AvatarItem");
-    USE_ACCESSIBLE_BY_OBJECTNAME(QString(classname).replace("Dtk::Widget::", ""), DBackgroundGroup, "modulepage");
-
-    // Qt控件
-    USE_ACCESSIBLE(classname, QPushButton);
-    USE_ACCESSIBLE(classname, QToolButton);
-    USE_ACCESSIBLE(classname, QLineEdit);
-    USE_ACCESSIBLE(classname, QSlider);
-    USE_ACCESSIBLE(classname, QMenu);
-    USE_ACCESSIBLE(classname, QLabel);
-
-    // Dtk控件
-    USE_ACCESSIBLE(QString(classname).replace("Dtk::Widget::", ""), DLineEdit);
-    USE_ACCESSIBLE(QString(classname).replace("Dtk::Widget::", ""), DSwitchButton);
-    USE_ACCESSIBLE(QString(classname).replace("Dtk::Widget::", ""), DIconButton);
-    USE_ACCESSIBLE(QString(classname).replace("Dtk::Widget::", ""), DCommandLinkButton);
-    USE_ACCESSIBLE(QString(classname).replace("Dtk::Widget::", ""), DSearchEdit);
-    USE_ACCESSIBLE(QString(classname).replace("Dtk::Widget::", ""), DTitlebar);
-    USE_ACCESSIBLE(QString(classname).replace("Dtk::Widget::", ""), DLabel);
+   if (object && object->isWidgetType())
+        interface = s_accessibleFactory->createObject(classname.split("::").last(),object);
 
     return interface;
 }

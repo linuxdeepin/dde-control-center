@@ -24,6 +24,7 @@
 #include "pwqualitymanager.h"
 #include "createaccountpage.h"
 #include "securitylevelitem.h"
+#include "widgets/accessibleinterface.h"
 
 #include "deepin_pw_check.h"
 #include "unionidbindreminderdialog.h"
@@ -46,7 +47,7 @@
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 DCC_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(ModifyPasswdPage,"ModifyPasswdPage")
 ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)

@@ -24,6 +24,7 @@
  */
 
 #include "widgets/titlevalueitem.h"
+#include "widgets/accessibleinterface.h"
 
 #include <DPaletteHelper>
 
@@ -34,7 +35,7 @@
 
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(TitleValueItem,"TitleValueItem")
 ResizeEventFilter::ResizeEventFilter(QObject *parent) : QObject(parent) {}
 
 bool ResizeEventFilter::eventFilter(QObject *watched, QEvent *event)

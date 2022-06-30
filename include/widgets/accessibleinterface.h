@@ -18,7 +18,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#pragma once
+#ifndef ACCESSIBLEINTERFACE_H
+#define ACCESSIBLEINTERFACE_H
 
 #include <QAccessible>
 #include <QAccessibleWidget>
@@ -124,6 +125,8 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
             QPointF localPos = m_w->geometry().center();\
             QMouseEvent event(QEvent::MouseButtonPress,localPos,Qt::LeftButton,Qt::LeftButton,Qt::NoModifier);\
             qApp->sendEvent(m_w,&event);\
+            QMouseEvent eventr(QEvent::MouseButtonRelease,localPos,Qt::LeftButton,Qt::LeftButton,Qt::NoModifier);\
+            qApp->sendEvent(m_w,&eventr);\
         }\
         else if(actionName == showMenuAction())\
         {\
@@ -461,17 +464,52 @@ inline QString getAccessibleName(QWidget *w, QAccessible::Role r, const QString 
     }\
 
 /*******************************************简化使用*******************************************/
-#define SET_FORM_ACCESSIBLE(classname,accessiblename)                          SET_FORM_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")
 
-#define SET_BUTTON_ACCESSIBLE(classname,accessiblename)                        SET_BUTTON_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")
+class AccessibleFactoryBase
+{
+public:
+    explicit AccessibleFactoryBase() {}
+    virtual ~AccessibleFactoryBase() {}
+    virtual QAccessibleInterface* createObject(QObject *object) = 0;
+};
+
+class AccessibleFactoryManager
+{
+public:
+    static AccessibleFactoryBase * RegisterAccessibleFactory(const char *factoryName,AccessibleFactoryBase *factory);
+};
+
+#define FactoryMacro(Key,ClassName)\
+class FactoryAccessible##ClassName :public AccessibleFactoryBase\
+{\
+    private:\
+    static AccessibleFactoryBase* s_Accessible##ClassName##instance;\
+    public:\
+    virtual QAccessibleInterface* createObject(QObject *object) override\
+    { return new Accessible##ClassName(static_cast<ClassName *>(object));}\
+};\
+AccessibleFactoryBase* FactoryAccessible##ClassName::s_Accessible##ClassName##instance = AccessibleFactoryManager::RegisterAccessibleFactory(Key, new FactoryAccessible##ClassName());
+
+/////////////////////////////////////////////////
+#define SET_FORM_ACCESSIBLE(classname,accessiblename)                          SET_FORM_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")\
+FactoryMacro(#classname, classname)
+
+#define SET_BUTTON_ACCESSIBLE(classname,accessiblename)                        SET_BUTTON_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")\
+FactoryMacro(#classname, classname)
 
 #define SET_LABEL_ACCESSIBLE(classname,accessiblename)                         SET_LABEL_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,QAccessible::StaticText,"") \
-                                                                               FUNC_CHILD_LABLE(classname)
+FUNC_CHILD_LABLE(classname)\
+FactoryMacro(#classname, classname)
 
 #define SET_DTK_EDITABLE_ACCESSIBLE(classname,accessiblename)                  SET_LABEL_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,QAccessible::EditableText,"") \
-                                                                               FUNC_CHILD_EDITABLE(classname)
+FUNC_CHILD_EDITABLE(classname)\
+FactoryMacro(#classname, classname)
 
-#define SET_SLIDER_ACCESSIBLE(classname,accessiblename)                        SET_SLIDER_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")
+#define SET_SLIDER_ACCESSIBLE(classname,accessiblename)                        SET_SLIDER_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")\
+FactoryMacro(#classname, classname)
 
-#define SET_EDITABLE_ACCESSIBLE(classname,accessiblename)                      SET_EDITABLE_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")
-/************************************************************************************************/
+#define SET_EDITABLE_ACCESSIBLE(classname,accessiblename)                      SET_EDITABLE_ACCESSIBLE_WITH_DESCRIPTION(classname,accessiblename,"")\
+FactoryMacro(#classname, classname)
+/////////////////////////////////////////////////
+
+#endif // ACCESSIBLEINTERFACE_H

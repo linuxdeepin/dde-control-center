@@ -25,6 +25,7 @@
 
 #include "widgets/settingshead.h"
 #include "widgets/titlelabel.h"
+#include "widgets/accessibleinterface.h"
 
 #include <DCommandLinkButton>
 
@@ -35,7 +36,7 @@
 
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(SettingsHead,"SettingsHead");
 SettingsHead::SettingsHead(QFrame *parent)
     : SettingsItem(parent)
     , m_title(new TitleLabel)

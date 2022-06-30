@@ -20,6 +20,7 @@
  */
 
 #include "widgets/titlelabel.h"
+#include "widgets/accessibleinterface.h"
 
 #include <DFontSizeManager>
 
@@ -28,7 +29,7 @@
 
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
-
+SET_LABEL_ACCESSIBLE(TitleLabel,"TitleLabel");
 TitleLabel::TitleLabel(QWidget *parent, Qt::WindowFlags f)
     : DLabel(parent, f)
 {

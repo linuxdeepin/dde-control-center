@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "useritempic.h"
-
+#include "widgets/accessibleinterface.h"
 #include <DStyle>
 #include <DSvgRenderer>
 
@@ -34,7 +34,7 @@ DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 using DTK_GUI_NAMESPACE::DSvgRenderer;
-
+SET_FORM_ACCESSIBLE(UserItemPic,"UserItemPic")
 UserItemPic::UserItemPic(QWidget *parent)
     : QWidget(parent)
     , m_isSelected(false)

@@ -26,6 +26,7 @@
 #include "widgets/dcclistview.h"
 #include "src/plugin-accounts/operation/usermodel.h"
 #include "src/plugin-accounts/window/removeuserdialog.h"
+#include "widgets/accessibleinterface.h"
 
 #include <DToolButton>
 #include <DIconButton>
@@ -62,7 +63,7 @@ DCC_USE_NAMESPACE
 
 #define MAXVALUE 99999
 #define GSETTINGS_EFFECTIVE_DAY_VISIBLE "effectiveDayVisible"
-
+SET_FORM_ACCESSIBLE(AccountSpinBox,"accountspinbox")
 AccountSpinBox::AccountSpinBox(QWidget *parent)
     : DSpinBox(parent)
 {
@@ -91,7 +92,7 @@ void AccountSpinBox::focusOutEvent(QFocusEvent *event)
     }
     return DSpinBox::focusOutEvent(event);
 }
-
+SET_FORM_ACCESSIBLE(AccountsDetailWidget,"accountsdetailwidget")
 AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)

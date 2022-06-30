@@ -21,6 +21,7 @@
 
 #include "widgets/comboxwidget.h"
 #include "widgets/utils.h"
+#include "widgets/accessibleinterface.h"
 
 #include <QHBoxLayout>
 #include <QComboBox>
@@ -31,7 +32,7 @@
 #include <QPainter>
 
 DCC_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(ComboxWidget,"ComboxWidget")
 ComboxWidget::ComboxWidget(QFrame *parent)
     : ComboxWidget(new QLabel, parent)
 {
@@ -141,7 +142,7 @@ void ComboxWidget::resizeEvent(QResizeEvent *event)
         }
     }
 }
-
+SET_FORM_ACCESSIBLE(AlertComboBox,"AlertComboBox")
 /**
  * @brief 错误提示下拉框
  * @param parent

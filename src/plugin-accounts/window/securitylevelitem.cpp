@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "securitylevelitem.h"
+#include "widgets/accessibleinterface.h"
 
 #include <DFontSizeManager>
 #include <DApplicationHelper>
@@ -36,7 +37,7 @@
 #define PASSWORD_LEVEL_ICON_HIGH_PATH           ":/accounts/icons/dcc_deepin_password_strength_high.svg"
 
 DCC_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(SecurityLevelItem,"SecurityLevelItem")
 SecurityLevelItem::SecurityLevelItem(QWidget *parent) : QWidget(parent)
   , m_newPasswdLevelText(new QLabel (this))
   , m_level(NoneLevel)

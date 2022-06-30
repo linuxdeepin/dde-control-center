@@ -19,9 +19,10 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "widgets/dcclistview.h"
+#include "widgets/accessibleinterface.h"
 
 DCC_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(DCCListView,"DCCListView");
 DCCListView::DCCListView(QWidget *parent)
     : DTK_WIDGET_NAMESPACE::DListView(parent)
 {

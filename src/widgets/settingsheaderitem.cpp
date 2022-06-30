@@ -26,11 +26,12 @@
 #include "widgets/settingsheaderitem.h"
 
 #include "widgets/titlelabel.h"
+#include "widgets/accessibleinterface.h"
 
 #include <QLayout>
 
 DCC_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(SettingsHeaderItem,"SettingsHeaderItem");
 SettingsHeaderItem::SettingsHeaderItem(QWidget *parent)
     : SettingsItem(parent),
       m_mainLayout(new QHBoxLayout),

@@ -24,6 +24,7 @@
  */
 
 #include "widgets/titledslideritem.h"
+#include "widgets/accessibleinterface.h"
 
 #include <QLabel>
 #include <QSlider>
@@ -38,7 +39,7 @@
 #include "widgets/dccslider.h"
 
 DCC_USE_NAMESPACE
-
+SET_FORM_ACCESSIBLE(TitledSliderItem,"TitledSliderItem");
 TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     : SettingsItem(parent)
     , m_titleLabel(new QLabel(title))
