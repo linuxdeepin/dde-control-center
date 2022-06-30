@@ -359,6 +359,9 @@ void UpdateSettings::setModel(UpdateModel *model)
     }
     DConfigWatcher::instance()->bind(DConfigWatcher::update, "updateSafety", m_autoCheckSecureUpdate);
     DConfigWatcher::instance()->bind(DConfigWatcher::update, "updateSafety", m_autoCheckSecureUpdateTips);
+    if (DCC_NAMESPACE::IsProfessionalSystem) {
+        DConfigWatcher::instance()->bind(DConfigWatcher::update, "updateThirdPartySource", m_autoCheckThirdpartyUpdate);
+    }
 
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [ = ](const QString & gsetting, const QString & state) {
         bool status = GSettingWatcher::instance()->get(gsetting).toString() == "Enabled" && (m_autoCheckSecureUpdate->checked() || m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked());

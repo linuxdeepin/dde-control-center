@@ -23,6 +23,17 @@
             "description": "",
             "permissions": "readwrite",
             "visibility": "private"
+        },
+        "updateThirdPartySource": {
+            "value": "Hidden",
+            "serial": 0,
+            "flags": [],
+            "name": "update_third_party_srouce",
+            "name[zh_CN]": "更新设置是否显示第三方仓库开关",
+            "description[zh_CN]": "如果Enabled，显示第三方仓库开关；如果Disabled，第三方仓库开关将置灰；如果Hidden该配置，第三方仓库开关将隐藏。此配置仅在专业版生效。",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
         }
     }
   }
