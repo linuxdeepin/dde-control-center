@@ -96,8 +96,6 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     : QWidget(parent)
     , m_curUser(user)
     , m_userModel(model)
-    , m_groupListView(nullptr)
-    , m_groupItemModel(nullptr)
     , m_avatarLayout(new QHBoxLayout)
     , m_deleteAccount(new DWarningButton)
     , m_modifyPassword(new QPushButton)
@@ -105,6 +103,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     , m_scrollArea(new QScrollArea)
     , m_curLoginUser(nullptr)
     , m_bindStatusLabel(new QLabel(tr("Go to Settings"), this))
+    , m_groupsPage(nullptr)
 {
     m_isServerSystem = IsServerSystem;
     //整体布局
@@ -146,10 +145,6 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
 
     initUserInfo(contentLayout);
     initSetting(contentLayout);
-
-    if (m_isServerSystem) {
-        initGroups(contentLayout);
-    }
 
     setAccountModel(model);
 }
@@ -455,6 +450,22 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     layout->addWidget(m_accountSettingsTitle);
     layout->addWidget(accountSettingsGrp);
 
+    //用户组设置
+    m_groupsPage = new NextPageWidget(nullptr, false);
+    m_groupsPage->setTitle(tr("Group"));
+    m_groupsPage->setRightTxtWordWrap(true);
+    m_groupsPage->addBackground();
+    m_groupsPage->setBtnHiden(true);
+    m_groupsPage->setIconIcon(DStyleHelper(m_groupsPage->style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr).pixmap(10, 10));
+    auto groupHLayout = new QHBoxLayout;
+    groupHLayout->setContentsMargins(10, 0, 10, 0);
+    groupHLayout->addWidget(m_groupsPage);
+    layout->addLayout(groupHLayout);
+
+    connect(m_groupsPage, &NextPageWidget::clicked, this, [ = ] {
+        emit requestShowUserGroups(m_curUser);
+    });
+
     //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();
     m_autoLogin->switchButton()->setEnabled(isCurUser);
@@ -619,43 +630,9 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         m_asAdministrator->switchButton()->setEnabled(asAdministratorEnable());
     });
 
-    if (!m_groupItemModel)
-        return;
-    m_groupItemModel->clear();
-    for (QString item : m_userModel->getAllGroups()) {
-        GroupItem *it = new GroupItem(item);
-        it->setCheckable(false);
-        m_groupItemModel->appendRow(it);
-    }
-
-    connect(m_userModel, &UserModel::allGroupsChange, this, &AccountsDetailWidget::setGroupInfo);
-    changeUserGroup(m_curUser->groups());
-    onGidChanged(m_curUser->gid());
-    connect(m_curUser, &User::groupsChanged, this, &AccountsDetailWidget::changeUserGroup);
-    connect(m_curUser, &User::gidChanged, this, &AccountsDetailWidget::onGidChanged);
     connect(m_curLoginUser, &User::userTypeChanged, this, [ = ] {
         setModifyPwdBtnStatus("accountUserModifypasswd");
     });
-}
-
-void AccountsDetailWidget::initGroups(QVBoxLayout *layout)
-{
-    QStringList userGroup = m_curUser->groups();
-    m_groupListView = new DListView(this);
-    m_groupItemModel = new QStandardItemModel(this);
-    m_groupListView->setModel(m_groupItemModel);
-    m_groupListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_groupListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    m_groupListView->setSelectionMode(QAbstractItemView::NoSelection);
-    m_groupListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_groupListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_groupListView->setSpacing(1);
-    connect(m_groupListView, &DListView::clicked, this, &AccountsDetailWidget::userGroupClicked);
-    QLabel *groupTip = new QLabel(tr("Group"));
-    layout->addWidget(groupTip);
-    layout->addSpacing(List_Interval);
-    layout->addWidget(m_groupListView);
-    layout->setContentsMargins(ScrollAreaMargins);
 }
 
 bool AccountsDetailWidget::eventFilter(QObject *obj, QEvent *event)
@@ -778,67 +755,4 @@ bool AccountsDetailWidget::isSystemAdmin(User *user)
         return user->securityLever() == SecurityLever::Sysadm;
 
     return user->userType() == User::UserType::Administrator;
-}
-
-void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
-{
-    QStandardItem *item = m_groupItemModel->item(index.row(), index.column());
-    //不可移除主组
-    if (!item || item->text() == m_groupName)
-        return;
-
-    QStringList curUserGroup;
-    int row_count = m_groupItemModel->rowCount();
-    for (int i = 0; i < row_count; ++i) {
-        QStandardItem *itemGroup = m_groupItemModel->item(i, 0);
-        if (itemGroup && itemGroup->checkState()) {
-            curUserGroup << itemGroup->text();
-        }
-    }
-
-    Qt::CheckState state = item->checkState();
-    state == Qt::Checked ? (void)curUserGroup.removeOne(item->text()) : curUserGroup.append(item->text());
-
-    Q_EMIT requestSetGroups(m_curUser, curUserGroup);
-}
-
-void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
-{
-    int row_count = m_groupItemModel->rowCount();
-    for (int i = 0; i < row_count; ++i) {
-        QStandardItem *item = m_groupItemModel->item(i, 0);
-        item->setCheckState(item && groups.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
-        item->setEnabled(item->text() != m_groupName);
-    }
-    m_groupItemModel->sort(0);
-}
-
-void AccountsDetailWidget::setGroupInfo(const QStringList &group)
-{
-    for (const QString &item : group) {
-        GroupItem *it = new GroupItem(item);
-        it->setCheckable(false);
-        m_groupItemModel->appendRow(it);
-    }
-    changeUserGroup(m_curUser->groups());
-}
-
-void AccountsDetailWidget::onGidChanged(const QString &gid)
-{
-    bool ok;
-    int iGid = gid.toInt(&ok, 10);
-    if (!ok)
-        return;
-
-    const group *group = getgrgid(static_cast<__gid_t>(iGid));
-    if (nullptr == group || nullptr == group->gr_name)
-        return;
-
-    m_groupName = QString(group->gr_name);
-    for (int i = 0; i < m_groupItemModel->rowCount(); ++i) {
-        QStandardItem *item = m_groupItemModel->item(i, 0);
-        if (nullptr == item)
-            continue;
-        item->setEnabled(item->text() != m_groupName);
-    }
 }

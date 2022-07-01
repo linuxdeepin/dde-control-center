@@ -30,6 +30,7 @@
 #include "window/gsettingwatcher.h"
 #include "window/utils.h"
 #include "securityquestionspage.h"
+#include "usergroupspage.h"
 
 #include <DDialog>
 
@@ -184,7 +185,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestSetAdministrator, m_accountsWorker, &AccountsWorker::setAdministrator);
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
     connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
-    connect(w, &AccountsDetailWidget::requestSetGroups, m_accountsWorker, &AccountsWorker::setGroups);
+    connect(w, &AccountsDetailWidget::requestShowUserGroups, this, &AccountsModule::onShowUserGroupsPage);
     connect(w, &AccountsDetailWidget::requestBack, this, [&]() {
         m_accountsWidget->setShowFirstUserInfo(false);
     });
@@ -361,6 +362,18 @@ void AccountsModule::onShowSecurityQuestionsPage(User *account)
 
     m_frameProxy->pushWidget(this, w);
     Q_EMIT w->requestSecurityQuestionsCheck(account);
+
+    w->setVisible(true);
+}
+
+void AccountsModule::onShowUserGroupsPage(User *account)
+{
+    UserGroupsPage *w = new UserGroupsPage(account, m_userModel);
+    w->setVisible(false);
+
+    connect(w, &UserGroupsPage::requestSetGroups, m_accountsWorker, &AccountsWorker::setGroups);
+
+    m_frameProxy->pushWidget(this, w, FrameProxyInterface::PushType::CoverTop);
 
     w->setVisible(true);
 }
