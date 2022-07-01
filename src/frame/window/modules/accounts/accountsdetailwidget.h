@@ -105,11 +105,11 @@ Q_SIGNALS:
     void requestSetAvatar(dcc::accounts::User *user, const QString &filePath);
     void requestSetFullname(dcc::accounts::User *user, const QString &fullname);
     void requestCleanThumbs(dcc::accounts::User *user);
-    void requestSetGroups(dcc::accounts::User *user, const QStringList &usrGroups);
     void requsetSetPassWordAge(dcc::accounts::User *user, const int age);
     void noticeEnrollCompleted(QString username);
     void editingFinished(const QString& userFullName);
     void requestSecurityQuestionsCheck(dcc::accounts::User *user);
+    void requestShowUserGroups(dcc::accounts::User *user);
 
 public Q_SLOTS:
     void resetDelButtonState();
@@ -119,16 +119,11 @@ public Q_SLOTS:
 protected:
     void initUserInfo(QVBoxLayout *layout);
     void initSetting(QVBoxLayout *layout);
-    void initGroups(QVBoxLayout *layout);
     bool eventFilter(QObject *obj, QEvent *event) override;
-    void resizeEvent(QResizeEvent *event);
+    void resizeEvent(QResizeEvent *event) override;
 
 private Q_SLOTS:
     void deleteUserClicked();
-    void changeUserGroup(const QStringList &groups);
-    void userGroupClicked(const QModelIndex &index);
-    void setGroupInfo(const QStringList &group);
-    void onGidChanged(const QString &gid);
 
 private:
     dcc::accounts::User *m_curUser;
@@ -137,8 +132,6 @@ private:
     DTK_WIDGET_NAMESPACE::DToolButton *m_fullNameBtn;//账户全名编辑按钮
     DLineEdit *m_inputLineEdit;//账户全名编辑框
     AvatarListWidget *m_avatarListWidget;//图像列表
-    DTK_WIDGET_NAMESPACE::DListView *m_groupListView;
-    QStandardItemModel *m_groupItemModel;
     bool m_isServerSystem;
     dcc::widgets::SwitchWidget *m_autoLogin;
     dcc::widgets::SwitchWidget *m_nopasswdLogin;
@@ -152,6 +145,7 @@ private:
     QString m_groupName;
     dcc::accounts::User *m_curLoginUser;
     QLabel *m_bindStatusLabel;
+    dcc::widgets::NextPageWidget *m_groupsPage;
 };
 
 }   // namespace accounts

@@ -322,6 +322,7 @@ set(ACCOUNTS_FILES
                 window/modules/accounts/onlineicon.cpp
                 window/modules/accounts/unionidbindreminderdialog.cpp
                 window/modules/accounts/securityquestionspage.cpp
+                window/modules/accounts/usergroupspage.cpp
 
 )
 

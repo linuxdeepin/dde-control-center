@@ -76,7 +76,7 @@ public Q_SLOTS:
     void onShowPasswordPage(dcc::accounts::User *account);
     void onShowSecurityQuestionsPage(dcc::accounts::User *account);
     void onSetMainWindowEnabled(const bool isEnabled);
-
+    void onShowUserGroupsPage(dcc::accounts::User *user);
 private:
     ~AccountsModule();
     void initSearchData() override;
