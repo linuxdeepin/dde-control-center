@@ -32,10 +32,6 @@ updateControlPanel::updateControlPanel(QWidget *parent)
 
 void updateControlPanel::onStartUpdate()
 {
-    showUpdateProcess(true);
-
-    setButtonStatus(ButtonStatus::pause);
-
     Q_EMIT startUpdate();
 }
 
