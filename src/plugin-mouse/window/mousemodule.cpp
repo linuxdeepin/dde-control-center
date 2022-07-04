@@ -24,6 +24,8 @@
 #include "mousesettingwidget.h"
 #include "touchpadsettingwidget.h"
 #include "trackpointsettingwidget.h"
+#include "interface/pagemodule.h"
+
 #include "src/plugin-mouse/operation/mousemodel.h"
 #include "src/plugin-mouse/operation/mouseworker.h"
 #include "src/plugin-mouse/operation/mousedbusproxy.h"
@@ -34,7 +36,7 @@
 DCC_USE_NAMESPACE
 
 MouseModule::MouseModule(QObject *parent)
-    : ModuleObject(parent)
+    : HListModule(parent)
     , m_model(nullptr)
     , m_worker(nullptr)
 {
@@ -68,33 +70,28 @@ ModuleObject *MousePlugin::module()
     moduleInterface->setDisplayName(tr("Mouse"));
     moduleInterface->setDescription(tr("Mouse"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_mouse"));
-    moduleInterface->setChildType(ModuleObject::HList);
 
     //二级菜单--通用
-    ModuleObject *moduleGeneral = new ModuleObject("mouseGeneral", tr("General"), this);
-    moduleGeneral->setChildType(ModuleObject::Page);
+    ModuleObject *moduleGeneral = new PageModule("mouseGeneral", tr("General"), this);
     GeneralSettingModule *generalSettingModule = new GeneralSettingModule(moduleInterface->model(), moduleInterface->work(), moduleGeneral);
     moduleGeneral->appendChild(generalSettingModule);
     moduleInterface->appendChild(moduleGeneral);
 
 
     //二级菜单--鼠标
-    ModuleObject *moduleMouse = new ModuleObject("mouseMouse", tr("Mouse"), this);
-    moduleMouse->setChildType(ModuleObject::Page);
+    ModuleObject *moduleMouse = new PageModule("mouseMouse", tr("Mouse"), this);
     MouseSettingModule *mouseSettingModule = new MouseSettingModule(moduleInterface->model(), moduleInterface->work(), moduleMouse);
     moduleMouse->appendChild(mouseSettingModule);
     moduleInterface->appendChild(moduleMouse);
 
     //二级菜单--触摸板
-    ModuleObject *moduleTouchpad = new ModuleObject("mouseTouch", tr("Touchpad"), this);
-    moduleTouchpad->setChildType(ModuleObject::Page);
+    ModuleObject *moduleTouchpad = new PageModule("mouseTouch", tr("Touchpad"), this);
     TouchPadSettingModule *touchPadSettingModule = new TouchPadSettingModule(moduleInterface->model(), moduleInterface->work(), moduleTouchpad);
     moduleTouchpad->appendChild(touchPadSettingModule);
     moduleInterface->appendChild(moduleTouchpad);
 
     //二级菜单--指点杆
-    ModuleObject *moduleTrackPoint = new ModuleObject("mouseTrackpoint", tr("TrackPoint"), this);
-    moduleTrackPoint->setChildType(ModuleObject::Page);
+    ModuleObject *moduleTrackPoint = new PageModule("mouseTrackpoint", tr("TrackPoint"), this);
     TrackPointSettingModule *trackPointSettingModule = new TrackPointSettingModule(moduleInterface->model(), moduleInterface->work(), moduleTrackPoint);
     moduleTrackPoint->appendChild(trackPointSettingModule);
     moduleInterface->appendChild(moduleTrackPoint);
@@ -102,9 +99,9 @@ ModuleObject *MousePlugin::module()
     return moduleInterface;
 }
 
-int MousePlugin::location() const
+QString MousePlugin::location() const
 {
-    return 11;
+    return "11";
 }
 
 

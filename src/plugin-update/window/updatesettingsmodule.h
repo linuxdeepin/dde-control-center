@@ -20,7 +20,7 @@
  */
 #pragma once
 
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 #include <DTipLabel>
 
 DCC_BEGIN_NAMESPACE
@@ -30,7 +30,7 @@ DCC_END_NAMESPACE
 
 class UpdateModel;
 class UpdateWorker;
-class UpdateSettingsModule : public DCC_NAMESPACE::ModuleObject
+class UpdateSettingsModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:

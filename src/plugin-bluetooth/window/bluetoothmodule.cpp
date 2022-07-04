@@ -32,10 +32,8 @@
 DCC_USE_NAMESPACE
 
 BluetoothModule::BluetoothModule(QObject *parent)
-    : ModuleObject("bluetooth", tr("Bluetooth"), tr("Bluetooth"), QIcon::fromTheme("dcc_nav_bluetooth"), parent)
+    : PageModule("bluetooth", tr("Bluetooth"), tr("Bluetooth"), QIcon::fromTheme("dcc_nav_bluetooth"), parent)
 {
-    setChildType(ModuleObject::Page);
-
     m_model = new BluetoothModel(this);
     m_work = new BluetoothWorker(m_model, this);
 

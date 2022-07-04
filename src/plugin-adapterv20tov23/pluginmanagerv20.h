@@ -17,7 +17,6 @@ public:
     QList<AdapterV20toV23Module *> modules() { return m_modules; }
 
 private:
-    DCC_NAMESPACE::ModuleObject *m_rootModule;
     QList<AdapterV20toV23Module *> m_modules;
 };
 #endif // PLUGINMANAGERV20_H

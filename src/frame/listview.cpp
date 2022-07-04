@@ -18,36 +18,32 @@
 * You should have received a copy of the GNU General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "tabview.h"
+#include "listview.h"
 #include <QDebug>
 #include <QMouseEvent>
 #include <QPainter>
 #include <QScrollBar>
 #include <QModelIndex>
-#include <QApplication>
 
 #include <DApplicationHelper>
 #include <DPalette>
-#include <DStyleHelper>
-#include <DStyle>
-#include <DStyleOption>
 
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
-
 /////////////////////////////////////////
 namespace DCC_NAMESPACE {
 
-class TabViewPrivate
+class ListViewPrivate
 {
 public:
-    explicit TabViewPrivate(TabView *parent)
+    explicit ListViewPrivate(ListView *parent)
         : q_ptr(parent)
         , m_spacing(20)
         , m_gridSize(280, 84)
-        , m_viewMode(TabView::ListMode)
+        , m_viewMode(ListView::ListMode)
+        , m_itemSize(m_gridSize)
         , m_maxColumnCount(1)
         , m_maxRowCount(1)
         , m_xOffset(0)
@@ -70,18 +66,18 @@ public:
     void setGridSize(const QSize &size)
     {
         m_gridSize = size;
-        m_firstHeightDiff = m_viewMode == TabView::IconMode ? 0 : 18;
+        m_firstHeightDiff = m_viewMode == ListView::IconMode ? 0 : 18;
     }
     QSize gridSize() const
     {
         return m_gridSize;
     }
 
-    void setViewMode(TabView::ViewMode mode)
+    void setViewMode(ListView::ViewMode mode)
     {
         m_viewMode = mode;
     }
-    TabView::ViewMode viewMode() const
+    ListView::ViewMode viewMode() const
     {
         return m_viewMode;
     }
@@ -96,74 +92,100 @@ public:
 
     void updateGeometries()
     {
-        Q_Q(TabView);
-        m_itemX.clear();
-        int totalWidth = 0;
-        int height = 0;
-        QFontMetrics fm = q->fontMetrics();
-        QAbstractItemModel *model = q->model();
-        DStyleHelper dstyle(q->style());
-        DStyleOptionButtonBoxButton opt;
+        Q_Q(ListView);
+        m_maxColumnCount = 1;
+        if (m_viewMode == ListView::IconMode && (m_gridSize.width() + m_spacing) > 0)
+            m_maxColumnCount = (q->viewport()->width() - m_spacing) / (m_gridSize.width() + m_spacing);
 
-        QSize emptySZ = fm.size(Qt::TextShowMnemonic, QStringLiteral("XXXX"));
-        emptySZ = (dstyle.sizeFromContents(DStyle::CT_ButtonBoxButton, &opt, emptySZ, q).expandedTo(QApplication::globalStrut()));
-        for (int i = 0; i < model->rowCount(); i++) {
-            QString s(model->data(model->index(i, 0)).toString());
-            QSize sz;
-            if (s.isEmpty()) {
-                sz = emptySZ;
-            } else {
-                sz = fm.size(Qt::TextShowMnemonic, s);
-                sz = (dstyle.sizeFromContents(DStyle::CT_ButtonBoxButton, &opt, sz, q).expandedTo(QApplication::globalStrut()));
-            }
-            totalWidth += sz.width() + 14;
-            m_itemX.append(totalWidth);
+        int count = q->model() ? q->model()->rowCount() : 0;
+        if (count < m_maxColumnCount)
+            m_maxColumnCount = count;
+
+        if (m_maxColumnCount <= 0)
+            m_maxColumnCount = 1;
+
+        if (m_viewMode == ListView::IconMode) {
+            if (count == 0)
+                m_maxRowCount = 0;
+            else if (count <= m_maxColumnCount)
+                m_maxRowCount = 2;
+            else
+                m_maxRowCount = 1 + (count / m_maxColumnCount);
+        } else {
+            m_maxRowCount = (count <= m_maxColumnCount) ? 1 : count / m_maxColumnCount;
         }
-        height = emptySZ.height() - 9;
-        m_size = QSize(totalWidth, height);
-        q->setFixedSize(m_size.width() + 2, m_size.height() + 2);
+
+        m_itemSize = (m_viewMode == ListView::IconMode) ? m_gridSize : QSize(q->viewport()->width() - marginsWidth(), m_gridSize.height());
+        int itemWidth = m_maxColumnCount * (m_itemSize.width() + m_spacing) - m_spacing;
+        int itemHeight = m_maxRowCount * (m_itemSize.height() + m_spacing) - m_spacing;
+
+        if (m_alignment & Qt::AlignRight) {
+            m_xOffset = q->viewport()->width() - itemWidth;
+        } else if (m_alignment & Qt::AlignHCenter) {
+            m_xOffset = (q->viewport()->width() - itemWidth) / 2;
+        } else {
+            m_xOffset = 0;
+        }
+        if (itemHeight > q->viewport()->height()) {
+            m_yOffset = 0;
+        } else if (m_alignment & Qt::AlignBottom) {
+            m_yOffset = q->viewport()->height() - itemHeight;
+        } else if (m_alignment & Qt::AlignVCenter) {
+            m_yOffset = (q->viewport()->height() - itemHeight) / 2;
+        } else {
+            m_yOffset = 0;
+        }
     }
     // item在窗口中位置(无滚动)
     QRect rectForIndex(const QModelIndex &index) const
     {
-        Q_Q(const TabView);
-        QRect rect(0, 0, 0, m_size.height());
-        int indexRow = index.row();
-        if (indexRow < 0 || indexRow >= m_itemX.size()) {
-            rect = QRect();
-        } else if (indexRow == 0) {
-            rect.setWidth(m_itemX.at(0));
+        Q_Q(const ListView);
+        QRect rect(0, 0, m_itemSize.width(), m_itemSize.height());
+        if (index.row() == 0 && m_viewMode == ListView::IconMode) {
+            rect.setHeight(m_itemSize.height() * 2 + m_spacing);
+        } else if (index.row() == 0 && m_viewMode == ListView::ListMode) {
+            rect.setHeight(m_itemSize.height() + m_firstHeightDiff);
         } else {
-            rect.setLeft(m_itemX.at(indexRow - 1));
-            rect.setRight(m_itemX.at(indexRow));
+            int indexRow = index.row();
+            if (m_viewMode == ListView::IconMode && indexRow >= m_maxColumnCount)
+                indexRow++;
+            int row = indexRow / m_maxColumnCount;
+            int col = indexRow % m_maxColumnCount;
+            rect.translate((m_itemSize.width() + m_spacing) * col, (m_itemSize.height() + m_spacing) * row);
+            if (m_viewMode == ListView::ListMode && indexRow >= 1)
+                rect.translate(0, m_firstHeightDiff);
         }
-
         return rect.translated(q->contentsMargins().left() + m_xOffset, q->contentsMargins().top() + m_yOffset);
     }
     // item在窗口中位置(无滚动)
     QModelIndex indexAt(const QPoint &p) const
     {
-        Q_Q(const TabView);
-        if (!QRect(QPoint(), m_size).contains(p)) {
+        if ((m_itemSize.height() + m_spacing) <= 0 || (m_itemSize.width() + m_spacing) <= 0)
             return QModelIndex();
-        }
-        int row = -1;
-        for (int i = 0; i < m_itemX.size(); i++) {
-            if (p.x() <= m_itemX.at(i)) {
-                row = i;
-                break;
+        Q_Q(const ListView);
+        QRect rect(p.x() - m_xOffset, p.y() - m_yOffset, 1, 1);
+        int row = (rect.y() - m_firstHeightDiff) / (m_itemSize.height() + m_spacing);
+        int col = (rect.x()) / (m_itemSize.width() + m_spacing);
+        if (row < 0)
+            row = 0;
+        int indexRow = 0;
+        if (m_viewMode == ListView::IconMode) {
+            if (row != 1 || col != 0) {
+                indexRow = row > 0 ? row * m_maxColumnCount + col - 1 : col;
             }
+        } else {
+            indexRow = row * m_maxColumnCount + col;
         }
-        QModelIndex index = q->model() ? q->model()->index(row, 0) : QModelIndex();
+        QModelIndex index = q->model()->index(indexRow, 0);
         if (index.isValid() && rectForIndex(index).contains(p))
             return index;
         return QModelIndex();
     }
     QVector<QModelIndex> intersectingSet(const QRect &area) const
     {
-        Q_Q(const TabView);
+        Q_Q(const ListView);
         QVector<QModelIndex> indexs;
-        int rows = q->model() ? q->model()->rowCount() : 0;
+        int rows = q->model()->rowCount();
         for (int row = 0; row < rows; row++) {
             QModelIndex index = q->model()->index(row, 0);
             QRect rectIndex = rectForIndex(index);
@@ -175,22 +197,23 @@ public:
     }
     inline int marginsWidth() const
     {
-        Q_Q(const TabView);
+        Q_Q(const ListView);
         return q->contentsMargins().left() + q->contentsMargins().right();
     }
     inline int marginsHidget() const
     {
-        Q_Q(const TabView);
+        Q_Q(const ListView);
         return q->contentsMargins().top() + q->contentsMargins().bottom();
     }
 
 private:
-    TabView *const q_ptr;
-    Q_DECLARE_PUBLIC(TabView)
+    ListView *const q_ptr;
+    Q_DECLARE_PUBLIC(ListView)
     int m_spacing;
     QSize m_gridSize;
-    TabView::ViewMode m_viewMode;
+    ListView::ViewMode m_viewMode;
 
+    QSize m_itemSize;
     int m_maxColumnCount;      // 一行可容纳的最大列数
     int m_maxRowCount;         // 换算显示所有item所需行数
     int m_xOffset;             // x轴偏移
@@ -198,95 +221,89 @@ private:
     QModelIndex m_hover;       // hover项
     Qt::Alignment m_alignment; //　对齐方式
     int m_firstHeightDiff;     // 第一行与其他行高差值
-
-    QList<int> m_itemX;
-    QSize m_size;
 };
 } // namespace DCC_NAMESPACE
 
 /////////////////////////////////////////
 
-TabView::TabView(QWidget *parent)
+ListView::ListView(QWidget *parent)
     : QAbstractItemView(parent)
-    , d_ptr(new TabViewPrivate(this))
+    , DCC_INIT_PRIVATE(ListView)
 {
     setSelectionMode(SingleSelection);
     setAttribute(Qt::WA_MacShowFocusRect);
     scheduleDelayedItemsLayout();
     setMouseTracking(true);
-    setContentsMargins(0, 0, 0, 0);
-    setFrameStyle(QFrame::NoFrame);
 }
 
-TabView::~TabView()
+ListView::~ListView()
 {
-    delete d_ptr;
 }
 
-void TabView::setSpacing(int space)
+void ListView::setSpacing(int space)
 {
-    Q_D(TabView);
+    Q_D(ListView);
     if (d->spacing() != space) {
         d->setSpacing(space);
         scheduleDelayedItemsLayout();
     }
 }
-int TabView::spacing() const
+int ListView::spacing() const
 {
-    Q_D(const TabView);
+    Q_D(const ListView);
     return d->spacing();
 }
 
-void TabView::setGridSize(const QSize &size)
+void ListView::setGridSize(const QSize &size)
 {
-    Q_D(TabView);
+    Q_D(ListView);
     if (d->gridSize() != size) {
         d->setGridSize(size);
         scheduleDelayedItemsLayout();
     }
 }
-QSize TabView::gridSize() const
+QSize ListView::gridSize() const
 {
-    Q_D(const TabView);
+    Q_D(const ListView);
     return d->gridSize();
 }
 
-void TabView::setViewMode(ViewMode mode)
+void ListView::setViewMode(ViewMode mode)
 {
-    Q_D(TabView);
+    Q_D(ListView);
     if (d->viewMode() != mode) {
         d->setViewMode(mode);
         scheduleDelayedItemsLayout();
     }
 }
-TabView::ViewMode TabView::viewMode() const
+ListView::ViewMode ListView::viewMode() const
 {
-    Q_D(const TabView);
+    Q_D(const ListView);
     return d->viewMode();
 }
 
-void TabView::setAlignment(Qt::Alignment alignment)
+void ListView::setAlignment(Qt::Alignment alignment)
 {
-    Q_D(TabView);
+    Q_D(ListView);
     if (d->alignment() != alignment) {
         d->setAlignment(alignment);
         scheduleDelayedItemsLayout();
     }
 }
-Qt::Alignment TabView::alignment() const
+Qt::Alignment ListView::alignment() const
 {
-    Q_D(const TabView);
+    Q_D(const ListView);
     return d->alignment();
 }
 /////////////////////////////////////////////////////////////////////////////
 // item在窗口中位置(加滚动偏移)
-QRect TabView::visualRect(const QModelIndex &index) const
+QRect ListView::visualRect(const QModelIndex &index) const
 {
-    Q_D(const TabView);
+    Q_D(const ListView);
     return d->rectForIndex(index).translated(-horizontalOffset(), -verticalOffset());
 }
 
-void TabView::scrollTo(const QModelIndex &index, ScrollHint hint)
+void ListView::scrollTo(const QModelIndex &index, ScrollHint hint)
 {
     if (!index.isValid())
         return;
@@ -298,29 +315,29 @@ void TabView::scrollTo(const QModelIndex &index, ScrollHint hint)
     }
 
     const QRect area = viewport()->rect();
-    const bool above = (hint == EnsureVisible && rect.left() < area.left());
-    const bool below = (hint == EnsureVisible && rect.right() > area.right());
+    const bool above = (hint == EnsureVisible && rect.top() < area.top());
+    const bool below = (hint == EnsureVisible && rect.bottom() > area.bottom());
 
-    int horizontalValue = horizontalScrollBar()->value();
+    int verticalValue = verticalScrollBar()->value();
     QRect adjusted = rect.adjusted(-spacing(), -spacing(), spacing(), spacing());
     if (hint == PositionAtTop || above)
-        horizontalValue += adjusted.top();
+        verticalValue += adjusted.top();
     else if (hint == PositionAtBottom || below)
-        horizontalValue += qMin(adjusted.left(), adjusted.right() - area.width() + 1);
+        verticalValue += qMin(adjusted.top(), adjusted.bottom() - area.height() + 1);
     else if (hint == PositionAtCenter)
-        horizontalValue += adjusted.left() - ((area.width() - adjusted.width()) / 2);
-    horizontalScrollBar()->setValue(horizontalValue);
+        verticalValue += adjusted.top() - ((area.height() - adjusted.height()) / 2);
+    verticalScrollBar()->setValue(verticalValue);
 }
 
-QModelIndex TabView::indexAt(const QPoint &p) const
+QModelIndex ListView::indexAt(const QPoint &p) const
 {
-    Q_D(const TabView);
+    Q_D(const ListView);
     return d->indexAt(p + QPoint(horizontalOffset(), verticalOffset()));
 }
 
-QModelIndex TabView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers /*modifiers*/)
+QModelIndex ListView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers /*modifiers*/)
 {
-    Q_D(const TabView);
+    Q_D(const ListView);
     QModelIndex current = currentIndex();
     int currentRow = current.row();
     int maxRow = model()->rowCount();
@@ -354,11 +371,22 @@ QModelIndex TabView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers
         currentRow++;
         break;
     case MovePageUp: {
+        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing) / (d->m_itemSize.height() + d->m_spacing);
+        for (int i = 0; i < pageItem; i++) {
+            currentRow = moveup(currentRow, d->m_maxColumnCount);
+        }
     } break;
     case MoveUp:
         currentRow = moveup(currentRow, d->m_maxColumnCount);
         break;
     case MovePageDown: {
+        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing) / (d->m_itemSize.height() + d->m_spacing);
+        for (int i = 0; i < pageItem; i++) {
+            int row = movedown(currentRow, d->m_maxColumnCount);
+            if (row >= maxRow)
+                break;
+            currentRow = row;
+        }
     } break;
     case MoveDown:
         currentRow = movedown(currentRow, d->m_maxColumnCount);
@@ -377,19 +405,19 @@ QModelIndex TabView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers
     return selectIndex;
 }
 
-int TabView::horizontalOffset() const
+int ListView::horizontalOffset() const
 {
-    return horizontalScrollBar()->value();
+    return 0;
 }
 
-int TabView::verticalOffset() const
+int ListView::verticalOffset() const
 {
     return verticalScrollBar()->value();
 }
 
-void TabView::updateGeometries()
+void ListView::updateGeometries()
 {
-    Q_D(TabView);
+    Q_D(ListView);
     QAbstractItemView::updateGeometries();
     d->updateGeometries();
 
@@ -398,34 +426,52 @@ void TabView::updateGeometries()
         horizontalScrollBar()->setRange(0, 0);
         verticalScrollBar()->setRange(0, 0);
     } else {
-        QSize step = QSize(d->m_itemX.isEmpty() ? 0 : d->m_itemX.first(), d->m_size.height());
-        horizontalScrollBar()->setSingleStep(step.width() + spacing());
-        horizontalScrollBar()->setPageStep(viewport()->width());
+        QSize step = d->m_itemSize;
+        verticalScrollBar()->setSingleStep(step.height() + spacing());
+        verticalScrollBar()->setPageStep(viewport()->height());
 
-        int width = d->m_size.width();
-        if (width < viewport()->width()) {
-            horizontalScrollBar()->setRange(0, 0);
+        int height = d->m_maxRowCount * (d->m_itemSize.height() + d->m_spacing) - d->m_spacing + (d->m_viewMode == ListMode ? d->m_firstHeightDiff : 0);
+        if (height < viewport()->height()) {
+            verticalScrollBar()->setRange(0, 0);
         } else {
-            horizontalScrollBar()->setRange(0, width - viewport()->width());
+            verticalScrollBar()->setRange(0, height - viewport()->height());
         }
     }
 }
 
-bool TabView::isIndexHidden(const QModelIndex & /*index*/) const
+void ListView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+{
+    QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
+    scheduleDelayedItemsLayout();
+}
+
+void ListView::rowsInserted(const QModelIndex &parent, int start, int end)
+{
+    scheduleDelayedItemsLayout();
+    QAbstractItemView::rowsInserted(parent, start, end);
+}
+
+void ListView::rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end)
+{
+    QAbstractItemView::rowsAboutToBeRemoved(parent, start, end);
+    scheduleDelayedItemsLayout();
+}
+
+bool ListView::isIndexHidden(const QModelIndex & /*index*/) const
 {
     return false;
 }
 
-QRegion TabView::visualRegionForSelection(const QItemSelection &selection) const
+QRegion ListView::visualRegionForSelection(const QItemSelection &selection) const
 {
     if (selection.isEmpty())
         return QRegion();
-    Q_D(const TabView);
+    Q_D(const ListView);
     QRect rect = d->rectForIndex(selection.indexes().first());
     return QRegion(rect);
 }
 
-void TabView::setSelection(const QRect &rect, QItemSelectionModel::SelectionFlags command)
+void ListView::setSelection(const QRect &rect, QItemSelectionModel::SelectionFlags command)
 {
     int rows = model()->rowCount();
     QModelIndex selectedIndex;
@@ -440,9 +486,9 @@ void TabView::setSelection(const QRect &rect, QItemSelectionModel::SelectionFlag
     selectionModel()->select(selectedIndex, command);
 }
 
-void TabView::paintEvent(QPaintEvent *e)
+void ListView::paintEvent(QPaintEvent *e)
 {
-    Q_D(const TabView);
+    Q_D(const ListView);
     QStyleOptionViewItem option = viewOptions();
     QPainter painter(viewport());
 
@@ -453,13 +499,17 @@ void TabView::paintEvent(QPaintEvent *e)
     const QAbstractItemModel *itemModel = model();
     const QItemSelectionModel *selections = selectionModel();
     const bool focus = (hasFocus() || viewport()->hasFocus()) && current.isValid();
+    const bool alternate = alternatingRowColors();
     const QStyle::State state = option.state;
     const QAbstractItemView::State viewState = this->state();
     const bool enabled = (state & QStyle::State_Enabled) != 0;
     option.decorationAlignment = d->m_viewMode == IconMode ? Qt::AlignCenter : Qt::AlignLeft;
 
+    bool alternateBase = false;
+    int previousRow = -2;
+
     painter.setRenderHint(QPainter::Antialiasing);
-    painter.fillRect(e->rect(), palette().color(QPalette::Base));
+    painter.fillRect(e->rect(), palette().color(QPalette::Window));
 
     QVector<QModelIndex>::const_iterator end = toBeRendered.constEnd();
     for (QVector<QModelIndex>::const_iterator it = toBeRendered.constBegin(); it != end; ++it) {
@@ -486,23 +536,43 @@ void TabView::paintEvent(QPaintEvent *e)
         }
         option.state.setFlag(QStyle::State_MouseOver, *it == hover);
 
+        if (alternate) { //　交替色处理，未实现
+            int row = (*it).row();
+            if (row != previousRow + 1) {
+                // adjust alternateBase according to rows in the "gap"
+                alternateBase = (row & 1) != 0;
+            }
+            option.features.setFlag(QStyleOptionViewItem::Alternate, alternateBase);
+
+            // draw background of the item (only alternate row). rest of the background
+            // is provided by the delegate
+            QStyle::State oldState = option.state;
+            option.state &= ~QStyle::State_Selected;
+            style()->drawPrimitive(QStyle::PE_PanelItemViewRow, &option, &painter, this);
+            option.state = oldState;
+
+            alternateBase = !alternateBase;
+            previousRow = row;
+        }
+
         itemDelegate(*it)->paint(&painter, option, *it);
     }
 }
 
-void TabView::mouseMoveEvent(QMouseEvent *e)
+bool ListView::viewportEvent(QEvent *event)
 {
-    if (!isVisible())
-        return;
-    QAbstractItemView::mouseMoveEvent(e);
-    if (state() == ExpandingState || state() == CollapsingState)
-        return;
-    D_D(TabView);
-    d->m_hover = indexAt(e->pos());
-}
-
-void TabView::leaveEvent(QEvent *)
-{
-    Q_D(TabView);
-    d->m_hover = QModelIndex();
+    Q_D(ListView);
+    switch (event->type()) {
+    case QEvent::HoverMove:
+    case QEvent::HoverEnter:
+        d->m_hover = indexAt(static_cast<QHoverEvent *>(event)->pos());
+        break;
+    case QEvent::HoverLeave:
+    case QEvent::Leave:
+        d->m_hover = QModelIndex();
+        break;
+    default:
+        break;
+    }
+    return QAbstractItemView::viewportEvent(event);
 }

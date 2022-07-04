@@ -23,6 +23,7 @@
 #include "pluginmanager.h"
 #include "searchwidget.h"
 #include "widgets/utils.h"
+#include "mainmodule.h"
 #include "utils.h"
 
 #include <DBackgroundGroup>
@@ -54,8 +55,6 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 
-#include "layout/layoutmanager.h"
-
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
@@ -75,16 +74,13 @@ const QString DisableConfig = QStringLiteral("disableModule");
 
 MainWindow::MainWindow(bool async, QWidget *parent)
     : DMainWindow(parent)
-    , m_contentWidget(new QWidget(this))
     , m_backwardBtn(new DIconButton(QStyle::SP_ArrowBack, this))
     , m_dconfig(DConfig::create("org.deepin.dde.control-center", ControlCenterConfig, QString(), this))
     , m_searchWidget(new SearchWidget(this))
-    , m_rootModule(new ModuleObject(this))
-    , m_layoutManager(new LayoutManager())
+    , m_rootModule(new MainModule(this))
     , m_pluginManager(new PluginManager(this))
     , m_loadAllFinished(false)
 {
-    qRegisterMetaType<LayoutBase *>("LayoutBase *");
     qRegisterMetaType<ModuleObject *>("ModuleObject *");
 
     initUI();
@@ -108,7 +104,7 @@ MainWindow::~MainWindow()
         m_dconfig->setValue(HeightConfig, height());
     }
     resizeCurrentModule(0);
-    delete m_layoutManager;
+    //    delete m_layoutManager;
 }
 
 void MainWindow::showPage(const QString &url, const UrlType &uType)
@@ -155,7 +151,7 @@ void MainWindow::showPage(ModuleObject *const module, const QString &url, const 
         }
     }
 
-    showModule(obj, m_contentWidget);
+    showModule(obj);
 }
 
 void MainWindow::changeEvent(QEvent *event)
@@ -169,9 +165,7 @@ void MainWindow::changeEvent(QEvent *event)
 void MainWindow::initUI()
 {
     setMinimumSize(MainWindowMininumSize);
-    m_contentWidget->setAccessibleName("contentwindow");
-    m_contentWidget->setObjectName("contentwindow");
-    setCentralWidget(m_contentWidget);
+    setCentralWidget(m_rootModule->activePage());
 
     layout()->setMargin(0);
     layout()->setSpacing(0);
@@ -243,7 +237,7 @@ void MainWindow::updateModuleConfig(const QString &key)
 {
     QSet<QString> oldModuleConfig;
     QSet<QString> *newModuleConfig = nullptr;
-    DCC_LAYOUT_TYPE type = DCC_CONFIG_HIDDEN;
+    uint32_t type = DCC_CONFIG_HIDDEN;
     if (key == HideConfig) {
         type = DCC_CONFIG_HIDDEN;
         oldModuleConfig = m_hideModule;
@@ -257,7 +251,11 @@ void MainWindow::updateModuleConfig(const QString &key)
         return;
 
     const auto &list = m_dconfig->value(key).toStringList();
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+    *newModuleConfig = QSet<QString>(list.begin(), list.end());
+#else
     *newModuleConfig = QSet<QString>::fromList(list);
+#endif
     QSet<QString> addModuleConfig = findAddItems(&oldModuleConfig, newModuleConfig);
     QSet<QString> removeModuleConfig = findAddItems(newModuleConfig, &oldModuleConfig);
     for (auto &&url : addModuleConfig) {
@@ -272,22 +270,11 @@ void MainWindow::updateModuleConfig(const QString &key)
     }
 }
 
-void MainWindow::delayUpdateLayoutCurrent(LayoutBase *layout, ModuleObject *child)
-{
-    QMetaObject::invokeMethod(this, "updateLayoutCurrent", Qt::QueuedConnection, Q_ARG(LayoutBase *, layout), Q_ARG(ModuleObject *, child));
-}
-
-void MainWindow::updateLayoutCurrent(LayoutBase *layout, ModuleObject *child)
-{
-    if (layout && std::any_of(m_currentModule.cbegin(), m_currentModule.cend(), [layout](auto &&data) { return data.layout == layout; }))
-        layout->setCurrent(child);
-}
-
 void MainWindow::loadModules(bool async)
 {
     onAddModule(m_rootModule);
-    m_pluginManager->loadModules(m_rootModule, m_layoutManager, async);
-    showModule(m_rootModule, m_contentWidget);
+    m_pluginManager->loadModules(m_rootModule, async);
+    showModule(m_rootModule);
     // 搜索没实时更新，插件并行加载，此处暂延时设置，待修改
     // QTimer::singleShot(3000, this, [this]() {
     //     m_searchWidget->setModuleObject(m_rootModule);
@@ -296,7 +283,7 @@ void MainWindow::loadModules(bool async)
 
 void MainWindow::toHome()
 {
-    showModule(m_rootModule, m_contentWidget);
+    showModule(m_rootModule);
 }
 
 void MainWindow::updateMainView()
@@ -346,97 +333,33 @@ void MainWindow::configLayout(QBoxLayout *const layout)
     layout->setSpacing(0);
 }
 
-void MainWindow::showModule(ModuleObject *const module, QWidget *const parent)
+void MainWindow::showModule(ModuleObject *const module)
 {
-    m_backwardBtn->setEnabled(module != m_rootModule);
-    QList<ModuleObject *> modules;
-    ModuleObject *obj = module;
-    while (obj) {
-        modules.prepend(obj);
-        obj = dynamic_cast<ModuleObject *>(obj->parent());
-    }
-    if (modules.isEmpty() || modules.first() != m_rootModule)
+    if (m_currentModule.contains(module) && module->defultModule())
         return;
 
-    QWidget *widget = parent;
-    int i = 0;
-    while (true) {
-        // A/B=>A/B/C 从B开始布局
-        if (m_currentModule.length() <= i) {
-            if (i == 0 || modules.isEmpty())
-                break;
+    m_backwardBtn->setEnabled(module != m_rootModule);
+    QList<ModuleObject *> modules;
 
-            modules.prepend(m_currentModule.at(i - 1).module);
-            widget = m_currentModule.at(i - 1).w;
-            resizeCurrentModule(i - 1);
-            break;
-        }
-        if (modules.isEmpty()) {
-            if (i == 0)
-                break;
-            ModuleObject *child = m_currentModule.at(i - 1).layout->autoExpand(m_currentModule.at(i - 1).module, modules);
-            // A/B/C=>A/B 从B开始布局
-            if (!child) {
-                modules.prepend(m_currentModule.at(i - 1).module);
-                widget = m_currentModule.at(i - 1).w;
-                resizeCurrentModule(i - 1);
-                break;
-            }
-            return;
-        }
-        if (m_currentModule.at(i).module == modules.first()) {
-            obj = modules.takeFirst();
-        } else { // A/B/C=>A/B/D 从C的w开始布局
-            widget = m_currentModule.at(i).w;
-            resizeCurrentModule(i);
-            if (!m_currentModule.isEmpty()) {
-                const WidgetData &data = m_currentModule.last();
-                if (data.layout)
-                    delayUpdateLayoutCurrent(data.layout, modules.first());
-            }
-            break;
-        }
-        i++;
+    ModuleObject *child = module;
+    while (child) {
+        child->setCurrentModule(child->defultModule());
+        modules.append(child);
+        child = child->currentModule();
     }
-
-    while (widget && !modules.isEmpty()) {
-        obj = modules.takeFirst();
-        if (!obj)
-            return;
-        obj->active();
-        clearPage(widget);
-
-        LayoutBase *layout = m_layoutManager->createLayout(obj->childType());
-        WidgetData data;
-        data.w = widget;
-        data.module = obj;
-        data.layout = layout;
-        m_currentModule.append(data);
-        widget = layout->layoutModule(obj, widget, modules);
-        if (modules.isEmpty()) {
-            ModuleObject *child = layout->autoExpand(obj, modules);
-            if (child)
-                modules.append(child);
-        }
-        if (!modules.isEmpty())
-            delayUpdateLayoutCurrent(layout, modules.first());
+    child = module;
+    ModuleObject *p = module->getParent();
+    while (p) {
+        p->setCurrentModule(child);
+        modules.prepend(p);
+        child = p;
+        p = p->getParent();
     }
-    // 记录最后定位的位置
-    if (!widget && !modules.isEmpty()) {
-        WidgetData lastdata;
-        lastdata.w = nullptr;
-        lastdata.module = modules.first();
-        lastdata.layout = nullptr;
-        m_currentModule.append(lastdata);
-    }
+    m_currentModule = modules;
 }
 
 void MainWindow::resizeCurrentModule(int size)
 {
-    for (int i = size; i < m_currentModule.size(); ++i) {
-        if (m_currentModule.at(i).layout)
-            delete m_currentModule.at(i).layout;
-    }
     m_currentModule = m_currentModule.mid(0, size);
 }
 
@@ -471,7 +394,7 @@ void MainWindow::onRemoveModule(ModuleObject *const module)
         modules.append(obj->childrens());
     }
     // 最后一个是滚动到，不参与比较
-    if (!m_currentModule.isEmpty() && std::any_of(m_currentModule.cbegin(), m_currentModule.cend() - 1, [module](auto &&data) { return data.module == module; }))
+    if (!m_currentModule.isEmpty() && std::any_of(m_currentModule.cbegin(), m_currentModule.cend() - 1, [module](auto &&data) { return data == module; }))
         toHome();
 }
 
@@ -481,13 +404,13 @@ void MainWindow::onTriggered()
     ModuleObject *module = qobject_cast<ModuleObject *>(sender());
     ModuleObject *obj = dynamic_cast<ModuleObject *>(sender());
     if (obj && qobj && module) {
-        showModule(obj, m_contentWidget);
+        showModule(obj);
     }
 }
 
 void MainWindow::onChildStateChanged(ModuleObject *const child, uint32_t flag, bool state)
 {
-    if (LayoutBase::IsHidenFlag(flag)) {
+    if (ModuleObject::IsHidenFlag(flag)) {
         if (state)
             onRemoveModule(child);
         else
@@ -499,7 +422,7 @@ void MainWindow::openManual()
 {
     QString helpTitle;
     if (!m_currentModule.isEmpty())
-        helpTitle = m_currentModule.last().module->name();
+        helpTitle = m_currentModule.last()->name();
     if (helpTitle.isEmpty())
         helpTitle = "controlcenter";
 

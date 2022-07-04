@@ -60,12 +60,11 @@ protected:
 };
 
 TimeSettingModule::TimeSettingModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
-    : ModuleObject("timeSettings", tr("Time Setting"), QIcon::fromTheme("dcc_TimeSetting"), parent)
+    : PageModule("timeSettings", tr("Time Setting"), QIcon::fromTheme("dcc_TimeSetting"), parent)
     , m_model(model)
     , m_work(work)
 {
     deactive();
-    setChildType(ModuleObject::Page);
     appendChild(new WidgetModule<Clock>("time", tr("Time")));
     appendChild(new WidgetModule<SettingsGroup>("ntpServer", tr("ntp server"), this, &TimeSettingModule::initAutoSyncTime));
     appendChild(new WidgetModule<SettingsGroup>("time", tr("Time setting"), this, &TimeSettingModule::initTimeSetting));

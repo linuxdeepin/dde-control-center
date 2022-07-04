@@ -32,7 +32,8 @@ class DCCDBusInterfacePrivate : public QObject
     Q_OBJECT
 
 public:
-    explicit DCCDBusInterfacePrivate(DCCDBusInterface *interface, QObject *parent);
+    explicit DCCDBusInterfacePrivate(DCCDBusInterface *interface);
+    void init(QObject *parent);
     QVariant demarshall(const QMetaProperty &metaProperty, const QVariant &value);
     QVariant updateProp(const char *propname, const QVariant &value);
     void initDBusConnection();

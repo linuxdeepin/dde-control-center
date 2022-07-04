@@ -136,7 +136,6 @@ public:
         //        int row = (rect.y() - m_firstHeightDiff) / (m_itemSize.height() + m_spacing);
         int col = (rect.x()) / (m_itemSize.width() + m_spacing);
 
-        //        indexRow = col;
         QModelIndex index = q->model()->index(col, 0);
         if (index.isValid() && rectForIndex(index).contains(p))
             return index;
@@ -187,7 +186,7 @@ private:
 
 AccountsListView::AccountsListView(QWidget *parent)
     : QAbstractItemView(parent)
-    , d_ptr(new AccountsListViewPrivate(this))
+    , DCC_INIT_PRIVATE(AccountsListView)
 {
     setSelectionMode(SingleSelection);
     setAttribute(Qt::WA_MacShowFocusRect);

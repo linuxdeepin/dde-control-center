@@ -1,25 +1,24 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #include "listitemdelegate.h"
-#include "listview.h"
 
 #include <QPainter>
 #include <QIcon>
@@ -33,7 +32,16 @@
 #include <DStyleOption>
 #include <DStyle>
 #include <DStyledItemDelegate>
+#include <DGuiApplicationHelper>
 
+#if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 0, 0)
+#    define USE_DCIICON
+#endif
+
+#ifdef USE_DCIICON
+#    include <DDciIcon>
+Q_DECLARE_METATYPE(DDciIcon)
+#endif
 DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
@@ -55,15 +63,15 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
     // 选择高亮背景
     if (opt.state & QStyle::State_Selected) {
         QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
-                                          ? QPalette::Normal
-                                          : QPalette::Disabled;
+                ? QPalette::Normal
+                : QPalette::Disabled;
         opt.backgroundBrush = option.palette.color(cg, QPalette::Highlight);
     }
 
     QVariant value;
 
     QRect decorationRect;
-    if (!opt.icon.isNull()) {
+    if (index.data(Qt::DecorationRole).isValid()) {
         if (isBeginning && isIconMode) {
             decorationRect = QRect(opt.rect.topLeft() + QPoint((opt.rect.width() - opt.decorationSize.width()) / 2, 15), opt.decorationSize);
             opt.displayAlignment = Qt::AlignCenter;
@@ -86,13 +94,13 @@ void ListItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &opti
         if (isBeginning && isIconMode) {
             displayRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 40), QSize(opt.rect.width(), -1));
         } else if (isBeginning || isIconMode) {
-            displayRect = QRect(opt.rect.topLeft() + QPoint(decorationRect.width() + 18, (opt.rect.height() / 2 - fontHeight+5)), QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
+            displayRect = QRect(opt.rect.topLeft() + QPoint(decorationRect.width() + 18, (opt.rect.height() / 2 - fontHeight + 5)), QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
         } else {
             displayRect = QRect(opt.rect.topLeft() + QPoint(decorationRect.width() + 18, (opt.rect.height() - fontHeight) / 2), QSize(opt.rect.width() - opt.decorationSize.width() - 30, -1));
         }
     }
     QString tipText;
-    QRect tipRect = displayRect.translated(0, opt.widget->fontMetrics().lineSpacing()+3);
+    QRect tipRect = displayRect.translated(0, opt.widget->fontMetrics().lineSpacing() + 3);
 
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
     // draw the item
@@ -139,16 +147,68 @@ void ListItemDelegate::drawBackground(const QStyle *style, QPainter *painter, co
     style->drawPrimitive(static_cast<QStyle::PrimitiveElement>(DStyle::PE_ItemBackground), &boption, painter, option.widget);
 }
 
+bool drawDciIcon(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect)
+{
+#ifdef USE_DCIICON
+    QVariant iconVar = option.index.data(Qt::DecorationRole);
+    DDciIcon icon;
+    if (iconVar.canConvert<DDciIcon>()) {
+        icon = iconVar.value<DDciIcon>();
+    } else {
+        QString iconstr = iconVar.toString();
+        icon = DDciIcon::fromTheme(iconstr);
+        if (icon.isNull())
+            icon = DDciIcon(iconstr);
+    }
+    if (!icon.isNull()) {
+        DDciIcon::Mode dciMode = DDciIcon::Normal;
+        if (option.state & QStyle::State_Enabled) {
+            if (option.state & (QStyle::State_Sunken | QStyle::State_Selected)) {
+                dciMode = DDciIcon::Pressed;
+            } else if (option.state & QStyle::State_MouseOver) {
+                dciMode = DDciIcon::Hover;
+            }
+        } else {
+            dciMode = DDciIcon::Disabled;
+        }
+
+        DDciIcon::Theme theme = DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType ? DDciIcon::Dark : DDciIcon::Light;
+
+        painter->save();
+        painter->setBrush(Qt::NoBrush);
+        icon.paint(painter, rect, painter->device() ? painter->device()->devicePixelRatioF() : qApp->devicePixelRatio(), theme, dciMode, option.decorationAlignment);
+        painter->restore();
+        return true;
+    }
+#endif
+    return false;
+}
+
 void ListItemDelegate::drawDecoration(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
 {
-    if (option.features & QStyleOptionViewItem::HasDecoration) {
-        QIcon::Mode mode = QIcon::Normal;
-        if (!(option.state & QStyle::State_Enabled))
-            mode = QIcon::Disabled;
-        else if (option.state & QStyle::State_Selected)
-            mode = QIcon::Selected;
-        QIcon::State state = (option.state & QStyle::State_Open) ? QIcon::On : QIcon::Off;
-        option.icon.paint(painter, rect, option.decorationAlignment, mode, state);
+    if (option.features & QStyleOptionViewItem::HasDecoration
+        && !drawDciIcon(painter, option, rect)) {
+        QVariant iconVar = option.index.data(Qt::DecorationRole);
+        QIcon icon;
+        if (iconVar.type() == QVariant::Icon) {
+            icon = iconVar.value<QIcon>();
+        } else if (iconVar.type() == QVariant::String) {
+            const QString &iconstr = iconVar.toString();
+            icon = QIcon::fromTheme(iconstr);
+            if (icon.isNull())
+                icon = QIcon(iconstr);
+        }
+        if (!icon.isNull()) {
+            QIcon::Mode mode = QIcon::Normal;
+            if (!(option.state & QStyle::State_Enabled))
+                mode = QIcon::Disabled;
+            else if (option.state & QStyle::State_Selected)
+                mode = QIcon::Selected;
+
+            QIcon::State state = (option.state & QStyle::State_Open) ? QIcon::On : QIcon::Off;
+            icon.paint(painter, rect, option.decorationAlignment, mode, state);
+            return;
+        }
     }
 }
 
@@ -182,10 +242,8 @@ void ListItemDelegate::drawFocus(const QStyle *style, QPainter *painter, const Q
     o.state |= QStyle::State_KeyboardFocusChange;
     o.state |= QStyle::State_Item;
     QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
-                                      ? QPalette::Normal
-                                      : QPalette::Disabled;
-    o.backgroundColor = option.palette.color(cg, (option.state & QStyle::State_Selected)
-                                                         ? QPalette::Highlight
-                                                         : QPalette::Window);
+            ? QPalette::Normal
+            : QPalette::Disabled;
+    o.backgroundColor = option.palette.color(cg, (option.state & QStyle::State_Selected) ? QPalette::Highlight : QPalette::Window);
     style->drawPrimitive(QStyle::PE_FrameFocusRect, &o, painter, option.widget);
 }

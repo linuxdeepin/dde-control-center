@@ -20,7 +20,9 @@
 */
 #ifndef PERSONALIZATIONTHEMEMODULE_H
 #define PERSONALIZATIONTHEMEMODULE_H
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
+
+#include <QJsonObject>
 
 DCC_BEGIN_NAMESPACE
 class DCCListView;
@@ -30,7 +32,7 @@ class QStandardItemModel;
 class ThemeModel;
 class PersonalizationWorker;
 
-class PersonalizationThemeModule : public DCC_NAMESPACE::ModuleObject
+class PersonalizationThemeModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:

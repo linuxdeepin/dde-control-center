@@ -25,27 +25,13 @@
 
 class QEvent;
 class QTimer;
+
+class QHBoxLayout;
 namespace dccV20 {
 class ModuleInterface;
 }
 
-class AdapterV20toV23Child : public DCC_NAMESPACE::ModuleObject
-{
-    Q_OBJECT
-public:
-    explicit AdapterV20toV23Child();
-    ~AdapterV20toV23Child();
-
-    virtual QWidget *page() override;
-    void setPage(QWidget *w);
-
-    inline QWidget *widget() const { return m_widget; }
-
-private:
-    QWidget *m_widget;
-};
-
-class AdapterV20toV23Module : public AdapterV20toV23Child
+class AdapterV20toV23Module : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
@@ -59,6 +45,8 @@ public:
     void setChildPage(int level, QWidget *w);
     void popWidget(QWidget *w);
 
+    virtual QWidget *page() override;
+
 Q_SIGNALS:
     void actived();
 
@@ -68,8 +56,12 @@ public:
     bool enabled() const;
 
 private:
+    void setWidget(int index);
+
+private:
     dccV20::ModuleInterface *m_v20Module;
-    QList<AdapterV20toV23Child *> m_modules;
+    QList<QWidget *> m_widgets;
+    QHBoxLayout *m_layout;
 };
 
 #endif // ADAPTERV20TOV23MODULE_H

@@ -79,9 +79,6 @@ public:
 
     virtual QString name() const override;
     virtual DCC_NAMESPACE::ModuleObject *module() override;
-    virtual int location() const override;
-
-    virtual QList<DCC_NAMESPACE::LayoutFactoryBase *> layoutFactory() override;
 
 private:
     DCC_NAMESPACE::ModuleObject *m_moduleRoot;

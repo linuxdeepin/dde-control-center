@@ -20,14 +20,13 @@ DWIDGET_USE_NAMESPACE
 
 using namespace DCC_PRIVACY_NAMESPACE;
 ServiceSettingsModule::ServiceSettingsModule(DATE& serviceDate, PrivacySecurityModel *model, PrivacySecurityWorker *work, QObject *parent)
-    : ModuleObject(serviceDate.name, serviceDate.displayName, QIcon::fromTheme(serviceDate.icon), parent)
+    : PageModule(serviceDate.name, serviceDate.displayName, serviceDate.icon, parent)
     , m_currentServiceDate(serviceDate)
     , m_model(model)
     , m_worker(work)
 {
     deactive();
     m_serviceItemDate = m_model->getServiceItem(serviceDate.category);
-    setChildType(ModuleObject::Page);
     // 添加标题
     appendChild(new WidgetModule<SwitchWidget>(m_currentServiceDate.name, m_currentServiceDate.displayName, this, &ServiceSettingsModule::initSwitchWidget));
 

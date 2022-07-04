@@ -28,11 +28,9 @@
 DCC_USE_NAMESPACE
 
 DatetimeModule::DatetimeModule(QObject *parent)
-    : ModuleObject("datetime", tr("Datetime"), tr("Datetime"), QIcon::fromTheme("dcc_nav_datetime"), parent)
+    : HListModule("datetime", tr("Datetime"), tr("Datetime"), QIcon::fromTheme("dcc_nav_datetime"), parent)
     , m_model(nullptr)
 {
-    setChildType(ModuleObject::HList);
-
     m_model = new DatetimeModel(this);
     m_work = new DatetimeWorker(m_model, this);
 
@@ -71,7 +69,7 @@ ModuleObject *DatetimePlugin::module()
     return m_moduleRoot;
 }
 
-int DatetimePlugin::location() const
+QString DatetimePlugin::location() const
 {
-    return 12;
+    return "12";
 }

@@ -24,7 +24,6 @@
 #include "moduleinterface.h"
 #include "frameproxyv20.h"
 #include "pluginmanagerv20.h"
-#include "layoutv20.h"
 #include "dbuscontrolcenterservice.h"
 
 #include <QEvent>
@@ -204,14 +203,4 @@ QString AdapterV20toV23Plugin::name() const
 DCC_NAMESPACE::ModuleObject *AdapterV20toV23Plugin::module()
 {
     return new AdapterV20toV23Root();
-}
-
-int AdapterV20toV23Plugin::location() const
-{
-    return -1;
-}
-
-QList<DCC_NAMESPACE::LayoutFactoryBase *> AdapterV20toV23Plugin::layoutFactory()
-{
-    return { new DCC_NAMESPACE::LayoutFactory<LayoutV20_KEY, LayoutV20>() };
 }

@@ -118,11 +118,11 @@ void SettingsGroup::moveItem(SettingsItem *item, const int index)
     m_layout->insertWidget(index, item);
 }
 
-void SettingsGroup::setSpacing(const int spaceing)
+void SettingsGroup::setSpacing(const int spacing)
 {
-    m_layout->setSpacing(spaceing);
+    m_layout->setSpacing(spacing);
     if (m_bggroup)
-        m_bggroup->setItemSpacing(spaceing);
+        m_bggroup->setItemSpacing(spacing);
 }
 
 int SettingsGroup::itemCount() const

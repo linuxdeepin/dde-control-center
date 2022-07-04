@@ -22,7 +22,8 @@
 #ifndef DEFAPPPLUGIN_H
 #define DEFAPPPLUGIN_H
 
-#include "interface/moduleobject.h"
+#include "interface/vlistmodule.h"
+#include "interface/pagemodule.h"
 #include "interface/plugininterface.h"
 
 DCC_USE_NAMESPACE
@@ -40,12 +41,12 @@ public:
 
     virtual QString name() const override;
     virtual ModuleObject *module() override;
-    virtual int location() const override;
+    virtual QString location() const override;
 };
 
 
 // 一级菜单
-class DefAppModule : public ModuleObject
+class DefAppModule : public VListModule
 {
     Q_OBJECT
 public:
@@ -65,16 +66,16 @@ private:
 };
 
 // 二级按钮菜单
-class DefAppsButtonModule : public DCC_NAMESPACE::ModuleObject
+class DefAppsButtonModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:
     explicit DefAppsButtonModule(DefAppWorker::DefaultAppsCategory category,
-                               const QString &name, const QString &displayName, const QIcon &icon,
+                               const QString &name, const QString &displayName, const QString &icon,
                                DefAppModel *model, DefAppWorker *work);
     ~DefAppsButtonModule();
 
-    virtual QWidget *page() override;
+//    virtual QWidget *page() override;
 
 Q_SIGNALS:
     void onButtonClicked();

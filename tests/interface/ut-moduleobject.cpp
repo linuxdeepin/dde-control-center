@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
+#include "interface/hlistmodule.h"
 
 #include <QDebug>
 
@@ -11,7 +12,7 @@ class Tst_ModuleObject : public testing::Test
 public:
     void SetUp() override
     {
-        obj = new ModuleObject;
+        obj = new HListModule;
     }
     void TearDown() override
     {
@@ -29,11 +30,9 @@ TEST_F(Tst_ModuleObject, coverage)
     obj->setDisplayName("DisplayName");
     obj->setDescription("Description");
     obj->setIcon(QIcon::fromTheme("preferences-system"));
-    obj->setChildType(ModuleObject::HList);
 
     for (int i = 1; i < 4; i++) {
-        ModuleObject *module = new ModuleObject(QString("menu%1").arg(i), QString("菜单%1").arg(i), QString("我是菜单%1").arg(i));
-        module->setChildType(ModuleObject::Page);
+        ModuleObject *module = new PageModule(QString("menu%1").arg(i), QString("菜单%1").arg(i), QString("我是菜单%1").arg(i));
 
         obj->appendChild(module);
     }

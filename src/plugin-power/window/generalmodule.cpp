@@ -40,7 +40,7 @@ DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *parent)
-    : ModuleObject("general", tr("General"), QIcon::fromTheme("dcc_general_purpose"), parent)
+    : PageModule("general", tr("General"), QIcon::fromTheme("dcc_general_purpose"), parent)
     , m_powerplanListview(nullptr)
     , m_model(model)
     , m_work(work)
@@ -49,7 +49,6 @@ GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *pare
     , m_batterySettings(nullptr)
 {
     deactive();
-    setChildType(ModuleObject::Page);
     m_powerPlanMap.insert(BALANCE, tr("Balanced"));
     m_powerPlanMap.insert(PERFORMANCE, tr("High Performance"));
     m_powerPlanMap.insert(POWERSAVE, tr("Power Saver"));

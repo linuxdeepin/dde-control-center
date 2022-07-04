@@ -48,7 +48,7 @@ ModuleObject *BluetoothPlugin::module()
     return m_moduleRoot;
 }
 
-int BluetoothPlugin::location() const
+QString BluetoothPlugin::location() const
 {
-    return 8;
+    return "8";
 }

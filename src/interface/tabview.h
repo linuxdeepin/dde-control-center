@@ -71,8 +71,9 @@ protected:
 
 protected:
     void paintEvent(QPaintEvent *e) override;
-    void mouseMoveEvent(QMouseEvent *e) override;
-    void leaveEvent(QEvent *event) override;
+    bool viewportEvent(QEvent *event) override;
+    void wheelEvent(QWheelEvent *e) override;
+
 
 private:
     TabViewPrivate *const d_ptr;

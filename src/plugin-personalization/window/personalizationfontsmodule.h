@@ -20,7 +20,7 @@
 */
 #ifndef PERSONALIZATIONFONTSMODULE_H
 #define PERSONALIZATIONFONTSMODULE_H
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 
 DCC_BEGIN_NAMESPACE
 class ComboxWidget;
@@ -30,7 +30,7 @@ class PersonalizationWorker;
 class FontModel;
 class QStandardItemModel;
 
-class PersonalizationFontsModule : public DCC_NAMESPACE::ModuleObject
+class PersonalizationFontsModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:

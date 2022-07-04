@@ -35,14 +35,12 @@ const QString gsetting_showHiberante = "showHibernate";
 const QString gsetting_showShutdown = "showShutdown";
 
 PowerModule::PowerModule(QObject *parent)
-    : ModuleObject("power", tr("Power"), tr("Power"), QIcon::fromTheme("dcc_nav_power"), parent)
+    : HListModule("power", tr("Power"), tr("Power"), QIcon::fromTheme("dcc_nav_power"), parent)
     , m_model(nullptr)
     , m_nBatteryPercentage(100.0)
     , m_useElectric(nullptr)
     , m_useBattery(nullptr)
 {
-    setChildType(ModuleObject::HList);
-
     m_model = new PowerModel(this);
     m_work = new PowerWorker(m_model, this);
 
@@ -155,7 +153,7 @@ ModuleObject *PowerPlugin::module()
     return m_moduleRoot;
 }
 
-int PowerPlugin::location() const
+QString PowerPlugin::location() const
 {
-    return 10;
+    return "10";
 }

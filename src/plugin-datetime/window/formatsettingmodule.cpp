@@ -29,7 +29,7 @@
 DCC_USE_NAMESPACE
 
 FormatSettingModule::FormatSettingModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
-    : ModuleObject("timeFormat", tr("Time Format"), parent)
+    : PageModule("timeFormat", tr("Time Format"), parent)
     , m_model(model)
     , m_work(work)
     , m_fotmatWeek({ tr("Monday"), tr("monday") })
@@ -40,7 +40,6 @@ FormatSettingModule::FormatSettingModule(DatetimeModel *model, DatetimeWorker *w
     , m_weekStartWithDay({ tr("Monday"), tr("Tuesday"), tr("Wednesday"), tr("Thursday"), tr("Friday"), tr("Saturday"), tr("Sunday") })
 {
     deactive();
-    setChildType(ModuleObject::Page);
 
     appendChild(new WidgetModule<SwitchWidget>("24hourTime", tr("24-hour Time"), [this](SwitchWidget *hourTypeSwitch) {
         hourTypeSwitch->setTitle(tr("24-hour Time"));

@@ -20,7 +20,7 @@
 */
 #ifndef FORMATSETTINGMODULE_H
 #define FORMATSETTINGMODULE_H
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 
 DCC_BEGIN_NAMESPACE
 class SettingsGroup;
@@ -29,7 +29,7 @@ DCC_END_NAMESPACE
 class DatetimeModel;
 class DatetimeWorker;
 
-class FormatSettingModule : public DCC_NAMESPACE::ModuleObject
+class FormatSettingModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:

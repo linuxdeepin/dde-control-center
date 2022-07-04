@@ -37,12 +37,11 @@ DCORE_USE_NAMESPACE
 const static QMap<int, int> g_sldLowBatteryMap = { { 0, 10 }, { 1, 15 }, { 2, 20 }, { 3, 25 } };
 
 UseBatteryModule::UseBatteryModule(PowerModel *model, PowerWorker *work, QObject *parent)
-    : ModuleObject("onBattery", tr("UseBattery"), QIcon::fromTheme("dcc_battery"), parent)
+    : PageModule("onBattery", tr("UseBattery"), QIcon::fromTheme("dcc_battery"), parent)
     , m_model(model)
     , m_work(work)
     , m_annos({ "1m", "5m", "10m", "15m", "30m", "1h", tr("Never") })
 {
-    setChildType(ModuleObject::Page);
     deactive();
 
     connect(this, &UseBatteryModule::requestSetScreenBlackDelayOnBattery, m_work, &PowerWorker::setScreenBlackDelayOnBattery);

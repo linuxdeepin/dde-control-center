@@ -20,42 +20,53 @@
 */
 #include "interface/moduleobject.h"
 
-#include <DObjectPrivate>
+#include <QWidget>
 
 #define DCC_HIDDEN 0x80000000
 #define DCC_DISABLED 0x40000000
 
+// 0xA0000000 = 0x80000000|0x20000000 0x80000000为用户设置位 0x20000000为配置设置位
+// 0x50000000 = 0x40000000|0x10000000 0x4000000为用户设置位 0x10000000为配置设置位
+#define DCC_ALL_HIDDEN 0xA0000000
+#define DCC_ALL_DISABLED 0x50000000
+
+#define DCC_EXTRA 0x00800000 // 扩展按钮(子项)
+
 /** Versions:
     V1.0 - 2022/05/24 - create
 **/
-const unsigned c_currentVersion = 10; //1.0
+const unsigned c_currentVersion = 10; // 1.0
 
-//DCORE_USE_NAMESPACE
+// DCORE_USE_NAMESPACE
 
 DCC_USE_NAMESPACE
 DCC_BEGIN_NAMESPACE
-class ModuleObjectPrivate : public DTK_CORE_NAMESPACE::DObjectPrivate
+class ModuleObjectPrivate
 {
 public:
     explicit ModuleObjectPrivate(ModuleObject *object)
-        : DObjectPrivate(object)
+        : q_ptr(object)
+        , m_currentModule(nullptr)
         , m_badge(0)
         , m_flags(0)
-        , m_childType(ModuleObject::Main)
     {
     }
 
 public:
+    ModuleObject *q_ptr;
+    Q_DECLARE_PUBLIC(ModuleObject)
+
+    QList<ModuleObject *> m_childrens;
+    ModuleObject *m_currentModule;
+
     QString m_name;            // 名称，作为每个模块的唯一标识，不可为空
     QString m_displayName;     // 显示名称，如菜单的名称，页面的标题等，为空则不显示
     QString m_description;     // 描述，如主菜单的描述信息
     QStringList m_contentText; // 上下文数据，参与搜索，只可用于终结点：DisplayName -> ContentText(one of it)
-    QIcon m_icon;              // 图标，如主菜单的图标
+    QVariant m_icon;           // 图标，如主菜单的图标
     int m_badge;               // 主菜单中的角标, 默认为0不显示，大于0显示
 
     uint32_t m_flags;
-    DCC_LAYOUT_TYPE m_childType;
-    QList<ModuleObject *> m_childrens;
 };
 DCC_END_NAMESPACE
 ModuleObject::ModuleObject(QObject *parent)
@@ -74,25 +85,35 @@ ModuleObject::ModuleObject(const QString &name, const QStringList &contentText, 
 }
 
 ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent)
-    : ModuleObject(name, displayName, {}, contentText, QIcon(), parent)
+    : ModuleObject(name, displayName, {}, contentText, QVariant(), parent)
 {
 }
 
-ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QIcon &icon, QObject *parent)
+ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QVariant &icon, QObject *parent)
     : ModuleObject(name, displayName, {}, icon, parent)
 {
 }
 
-ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent)
+ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, QObject *parent)
+    : ModuleObject(name, displayName, description, {}, QVariant(), parent)
+{
+}
+
+ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, const QVariant &icon, QObject *parent)
     : ModuleObject(name, displayName, description, {}, icon, parent)
 {
 }
 
-ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QIcon &icon, QObject *parent)
-    : QObject(parent)
-    , DObject(*new ModuleObjectPrivate(this), this)
+ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent)
+    : ModuleObject(name, displayName, description, {}, QVariant::fromValue(icon), parent)
 {
-    D_D(ModuleObject);
+}
+
+ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent)
+    : QObject(parent)
+    , DCC_INIT_PRIVATE(ModuleObject)
+{
+    Q_D(ModuleObject);
     d->m_name = name;
     d->m_displayName = displayName;
     d->m_description = description;
@@ -105,34 +126,52 @@ ModuleObject::~ModuleObject()
     deactive();
 }
 
+QWidget *ModuleObject::activePage(bool autoActive)
+{
+    if (autoActive)
+        active();
+    QWidget *w = ModuleObject::IsHiden(this) ? nullptr : page();
+    if (w) {
+        connect(w, &QObject::destroyed, this, &ModuleObject::deactive);
+        connect(this, &ModuleObject::stateChanged, w, [w](uint32_t flag, bool state) {
+            if (ModuleObject::IsDisabledFlag(flag))
+                w->setDisabled(state);
+        });
+        w->setDisabled(ModuleObject::IsDisabled(this));
+    } else {
+        deactive();
+    }
+    return w;
+}
+
 QString ModuleObject::name() const
 {
-    D_D(const ModuleObject);
+    Q_D(const ModuleObject);
     return d->m_name;
 }
 QString ModuleObject::displayName() const
 {
-    D_D(const ModuleObject);
+    Q_D(const ModuleObject);
     return d->m_displayName;
 }
 QString ModuleObject::description() const
 {
-    D_D(const ModuleObject);
+    Q_D(const ModuleObject);
     return d->m_description;
 }
 QStringList ModuleObject::contentText() const
 {
-    D_D(const ModuleObject);
+    Q_D(const ModuleObject);
     return d->m_contentText;
 }
-QIcon ModuleObject::icon() const
+QVariant ModuleObject::icon() const
 {
-    D_D(const ModuleObject);
+    Q_D(const ModuleObject);
     return d->m_icon;
 }
 int ModuleObject::badge() const
 {
-    D_D(const ModuleObject);
+    Q_D(const ModuleObject);
     return d->m_badge;
 }
 
@@ -168,7 +207,7 @@ void ModuleObject::trigger()
 
 void ModuleObject::setName(const QString &name)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     if (d->m_name != name) {
         d->m_name = name;
         Q_EMIT moduleDataChanged();
@@ -176,15 +215,16 @@ void ModuleObject::setName(const QString &name)
 }
 void ModuleObject::setDisplayName(const QString &displayName)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     if (d->m_displayName != displayName) {
         d->m_displayName = displayName;
+        Q_EMIT displayNameChanged(d->m_displayName);
         Q_EMIT moduleDataChanged();
     }
 }
 void ModuleObject::setDescription(const QString &description)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     if (d->m_description != description) {
         d->m_description = description;
         Q_EMIT moduleDataChanged();
@@ -192,7 +232,7 @@ void ModuleObject::setDescription(const QString &description)
 }
 void ModuleObject::setContentText(const QStringList &contentText)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     if (d->m_contentText != contentText) {
         d->m_contentText = contentText;
         Q_EMIT moduleDataChanged();
@@ -201,27 +241,32 @@ void ModuleObject::setContentText(const QStringList &contentText)
 
 void ModuleObject::addContentText(const QString &contentText)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     d->m_contentText << contentText;
     Q_EMIT moduleDataChanged();
 }
 
 void ModuleObject::addContentText(const QStringList &contentText)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     d->m_contentText << contentText;
+    Q_EMIT moduleDataChanged();
+}
+
+void ModuleObject::setIcon(const QVariant &icon)
+{
+    Q_D(ModuleObject);
+    d->m_icon = icon;
     Q_EMIT moduleDataChanged();
 }
 
 void ModuleObject::setIcon(const QIcon &icon)
 {
-    D_D(ModuleObject);
-    d->m_icon = icon;
-    Q_EMIT moduleDataChanged();
+    setIcon(QVariant::fromValue(icon));
 }
 void ModuleObject::setBadge(int badge)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     if (d->m_badge != badge) {
         d->m_badge = badge;
         Q_EMIT moduleDataChanged();
@@ -230,7 +275,7 @@ void ModuleObject::setBadge(int badge)
 
 void ModuleObject::appendChild(ModuleObject *const module)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     if (d->m_childrens.contains(module))
         return;
     d->m_childrens.append(module);
@@ -241,7 +286,7 @@ void ModuleObject::appendChild(ModuleObject *const module)
 
 void ModuleObject::removeChild(ModuleObject *const module)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     if (!d->m_childrens.contains(module))
         return;
     Q_EMIT removedChild(module);
@@ -251,7 +296,7 @@ void ModuleObject::removeChild(ModuleObject *const module)
 
 void ModuleObject::removeChild(const int index)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     if (d->m_childrens.size() <= index)
         return;
     Q_EMIT removedChild(d->m_childrens[index]);
@@ -261,7 +306,7 @@ void ModuleObject::removeChild(const int index)
 
 void ModuleObject::insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     if (d->m_childrens.contains(module))
         return;
     d->m_childrens.insert(before, module);
@@ -272,7 +317,7 @@ void ModuleObject::insertChild(QList<ModuleObject *>::iterator before, ModuleObj
 
 void ModuleObject::insertChild(const int index, ModuleObject *const module)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     if (d->m_childrens.contains(module))
         return;
     d->m_childrens.insert(index, module);
@@ -283,19 +328,46 @@ void ModuleObject::insertChild(const int index, ModuleObject *const module)
 
 bool ModuleObject::getFlagState(uint32_t flag) const
 {
-    D_D(const ModuleObject);
+    Q_D(const ModuleObject);
     return (d->m_flags & flag);
 }
 
 uint32_t ModuleObject::getFlag() const
 {
-    D_D(const ModuleObject);
+    Q_D(const ModuleObject);
     return d->m_flags;
+}
+
+bool ModuleObject::extra()
+{
+    return getFlagState(DCC_EXTRA);
+}
+
+void ModuleObject::setExtra(bool value)
+{
+    setFlagState(DCC_EXTRA, value);
+}
+
+ModuleObject *ModuleObject::currentModule() const
+{
+    Q_D(const ModuleObject);
+    return d->m_currentModule;
+}
+
+ModuleObject *ModuleObject::defultModule() const
+{
+    Q_D(const ModuleObject);
+    // 第一个可见项
+    for (auto &&module : d->m_childrens) {
+        if (!ModuleObject::IsHiden(module) && !module->extra())
+            return module;
+    }
+    return nullptr;
 }
 
 void ModuleObject::setFlagState(uint32_t flag, bool state)
 {
-    D_D(ModuleObject);
+    Q_D(ModuleObject);
     if (getFlagState(flag) != state) {
         if (state)
             d->m_flags |= flag;
@@ -305,6 +377,15 @@ void ModuleObject::setFlagState(uint32_t flag, bool state)
         ModuleObject *parent = getParent();
         if (parent)
             Q_EMIT parent->childStateChanged(this, flag, state);
+    }
+}
+
+void ModuleObject::setCurrentModule(ModuleObject *child)
+{
+    Q_D(ModuleObject);
+    if (d->m_currentModule != child) {
+        d->m_currentModule = child;
+        Q_EMIT currentModuleChanged(d->m_currentModule);
     }
 }
 
@@ -331,27 +412,15 @@ int ModuleObject::findChild(ModuleObject *const module, ModuleObject *const chil
     return findChild(module, child, 0);
 }
 
-DCC_LAYOUT_TYPE ModuleObject::childType() const
-{
-    D_D(const ModuleObject);
-    return d->m_childType;
-}
-
-void ModuleObject::setChildType(const DCC_LAYOUT_TYPE &t)
-{
-    D_D(ModuleObject);
-    d->m_childType = t;
-}
-
 const QList<ModuleObject *> &ModuleObject::childrens()
 {
-    D_D(const ModuleObject);
+    Q_D(const ModuleObject);
     return d->m_childrens;
 }
 
 ModuleObject *ModuleObject::children(const int index) const
 {
-    D_D(const ModuleObject);
+    Q_D(const ModuleObject);
     if (index < 0 || index >= d->m_childrens.size())
         return nullptr;
     return d->m_childrens.at(index);
@@ -359,7 +428,7 @@ ModuleObject *ModuleObject::children(const int index) const
 
 int ModuleObject::getChildrenSize() const
 {
-    D_D(const ModuleObject);
+    Q_D(const ModuleObject);
     return d->m_childrens.size();
 }
 
@@ -375,4 +444,24 @@ int ModuleObject::findChild(ModuleObject *const module, ModuleObject *const chil
             return temp;
     }
     return -1;
+}
+
+bool ModuleObject::IsHiden(ModuleObject *const module)
+{
+    return module ? module->getFlagState(DCC_ALL_HIDDEN) : true;
+}
+
+bool ModuleObject::IsHidenFlag(uint32_t flag)
+{
+    return DCC_ALL_HIDDEN & flag;
+}
+
+bool ModuleObject::IsDisabled(ModuleObject *const module)
+{
+    return module ? module->getFlagState(DCC_ALL_DISABLED) : true;
+}
+
+bool ModuleObject::IsDisabledFlag(uint32_t flag)
+{
+    return DCC_ALL_DISABLED & flag;
 }

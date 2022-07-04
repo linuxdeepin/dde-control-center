@@ -78,9 +78,9 @@ ModuleObject *AccountsPlugin::module()
     return new AccountsModule();
 }
 
-int AccountsPlugin::location() const
+QString AccountsPlugin::location() const
 {
-    return 1;
+    return "1";
 }
 ///////////////////////////////////////
 #define MAXVALUE 99999
@@ -213,7 +213,7 @@ private:
 };
 ///////////////////////////////////////
 AccountsModule::AccountsModule(QObject *parent)
-    : ModuleObject("accounts", tr("Accounts"), tr("Accounts"), QIcon::fromTheme("dcc_nav_accounts"), parent)
+    : PageModule("accounts", tr("Accounts"), tr("Accounts"), QIcon::fromTheme("dcc_nav_accounts"), parent)
     , m_model(nullptr)
     , m_worker(nullptr)
     , m_curLoginUser(nullptr)
@@ -222,7 +222,6 @@ AccountsModule::AccountsModule(QObject *parent)
     , m_groupItemModel(new QStandardItemModel(this))
     , m_checkAuthorizationing(false)
 {
-    setChildType(ModuleObject::Page);
     m_model = new UserModel(this);
     m_worker = new AccountsWorker(m_model, this);
 

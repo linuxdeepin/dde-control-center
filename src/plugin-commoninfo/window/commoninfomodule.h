@@ -22,7 +22,7 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "interface/moduleobject.h"
+#include "interface/hlistmodule.h"
 #include "interface/plugininterface.h"
 
 #include <QObject>
@@ -39,10 +39,10 @@ class CommonInfoPlugin : public PluginInterface
 public:
     virtual QString name() const override;
     virtual ModuleObject *module() override;
-    virtual int location() const override;
+    virtual QString location() const override;
 };
 
-class CommonInfoModule : public ModuleObject
+class CommonInfoModule : public HListModule
 {
     Q_OBJECT
 public:

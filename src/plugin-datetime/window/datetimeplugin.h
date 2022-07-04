@@ -21,13 +21,13 @@
 #ifndef DATETIMEPLUGIN_H
 #define DATETIMEPLUGIN_H
 
-#include "interface/moduleobject.h"
+#include "interface/hlistmodule.h"
 #include "interface/plugininterface.h"
 
 class DatetimeModel;
 class DatetimeWorker;
 
-class DatetimeModule : public DCC_NAMESPACE::ModuleObject
+class DatetimeModule : public DCC_NAMESPACE::HListModule
 {
     Q_OBJECT
 public:
@@ -54,7 +54,7 @@ public:
 
     virtual QString name() const override;
     virtual DCC_NAMESPACE::ModuleObject *module() override;
-    virtual int location() const override;
+    virtual QString location() const override;
 
 private:
     DCC_NAMESPACE::ModuleObject *m_moduleRoot;

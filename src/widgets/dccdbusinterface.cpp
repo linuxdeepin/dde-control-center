@@ -40,19 +40,25 @@ const static char *PropertyName = "propname";
 
 DCC_USE_NAMESPACE
 
-DCCDBusInterfacePrivate::DCCDBusInterfacePrivate(DCCDBusInterface *interface, QObject *parent)
+DCCDBusInterfacePrivate::DCCDBusInterfacePrivate(DCCDBusInterface *interface)
     : QObject(interface)
-    , m_parent(parent)
+    , m_parent(nullptr)
     , m_serviceValid(false)
     , q_ptr(interface)
 {
+}
+
+void DCCDBusInterfacePrivate::init(QObject *parent)
+{
+    Q_Q(DCCDBusInterface);
+    m_parent = parent;
     QDBusMessage message = QDBusMessage::createMethodCall(DBusService, DBusPath, DBusInterface, "NameHasOwner");
-    message << interface->service();
-    interface->connection().callWithCallback(message, this, SLOT(onDBusNameHasOwner(bool)));
+    message << q->service();
+    q->connection().callWithCallback(message, this, SLOT(onDBusNameHasOwner(bool)));
 
     QStringList argumentMatch;
-    argumentMatch << interface->interface();
-    interface->connection().connect(interface->service(), interface->path(), PropertiesInterface, PropertiesChanged, argumentMatch, QString(), this, SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
+    argumentMatch << q->interface();
+    q->connection().connect(q->service(), q->path(), PropertiesInterface, PropertiesChanged, argumentMatch, QString(), this, SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
 }
 
 QVariant DCCDBusInterfacePrivate::demarshall(const QMetaProperty &metaProperty, const QVariant &value)
@@ -161,8 +167,10 @@ void DCCDBusInterfacePrivate::onDBusNameOwnerChanged(const QString &name, const 
 //////////////////////////////////////////////////////////
 DCCDBusInterface::DCCDBusInterface(const QString &service, const QString &path, const QString &interface, const QDBusConnection &connection, QObject *parent)
     : QDBusAbstractInterface(service, path, interface.toLatin1(), connection, parent)
-    , d_ptr(new DCCDBusInterfacePrivate(this, parent))
+    , DCC_INIT_PRIVATE(DCCDBusInterface)
 {
+    Q_D(DCCDBusInterface);
+    d->init(parent);
 }
 
 DCCDBusInterface::~DCCDBusInterface()

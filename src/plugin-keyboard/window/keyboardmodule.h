@@ -24,7 +24,8 @@
 
 #include "interface/namespace.h"
 #include "interface/plugininterface.h"
-#include "interface/moduleobject.h"
+#include "interface/hlistmodule.h"
+#include "interface/pagemodule.h"
 
 #include <QObject>
 
@@ -53,10 +54,10 @@ class KeyboardPlugin : public PluginInterface
 public:
     virtual QString name() const override;
     virtual ModuleObject *module() override;
-    virtual int location() const override;
+    virtual QString location() const override;
 };
 
-class KeyboardModule : public ModuleObject
+class KeyboardModule : public HListModule
 {
     Q_OBJECT
 
@@ -122,12 +123,12 @@ private:
     KeyboardWorker *m_worker;
 };
 
-class ShortCutSettingMenuModule : public ModuleObject
+class ShortCutSettingMenuModule : public PageModule
 {
     Q_OBJECT
 public:
     explicit ShortCutSettingMenuModule(const QString &name, const QString &displayName = {}, QObject *parent = nullptr)
-        : ModuleObject(name, displayName, parent) {}
+        : PageModule(name, displayName, parent) {}
 };
 
 class ShortCutSettingModule : public ModuleObject

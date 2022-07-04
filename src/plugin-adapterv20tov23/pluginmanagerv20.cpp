@@ -13,7 +13,6 @@ DCC_USE_NAMESPACE
 using namespace dccV20;
 
 PluginManagerV20::PluginManagerV20()
-    : m_rootModule(nullptr)
 {
 }
 
@@ -45,7 +44,6 @@ void PluginManagerV20::loadPlugin(QString path, dccV20::FrameProxyInterface *fra
     QElapsedTimer et;
     et.start();
     QPluginLoader loader(path);
-    const QJsonObject &meta = loader.metaData().value("MetaData").toObject();
 
     QObject *instance = loader.instance();
     if (!instance) {

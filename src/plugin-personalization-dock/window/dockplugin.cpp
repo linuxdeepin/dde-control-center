@@ -85,17 +85,15 @@ QString DockPlugin::follow() const
     return QStringLiteral("personalization");
 }
 
-int DockPlugin::location() const
+QString DockPlugin::location() const
 {
     // 个性化的最后一个模块
-    return 4;
+    return "4";
 }
 
 DockModuleObject::DockModuleObject()
-    : ModuleObject("dock", tr("Dock"), tr("Dock plugin"))
+    : PageModule("dock", tr("Dock"), tr("Dock plugin"), nullptr)
 {
-    setChildType(ModuleObject::Page);
-
     appendChild(new WidgetModule<ComboxWidget>("mode", tr("Mode"), this, &DockModuleObject::initMode));
     appendChild(new WidgetModule<ComboxWidget>("position", tr("Position"), this, &DockModuleObject::initPosition));
     appendChild(new WidgetModule<ComboxWidget>("status", tr("Status"), this, &DockModuleObject::initStatus));

@@ -19,63 +19,83 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
+#ifndef DCC_MODULEOBJECT_H
+#define DCC_MODULEOBJECT_H
 
 #include "namespace.h"
 
+#include <QObject>
+#include <QVariant>
 #include <QIcon>
-#include <QDebug>
-#include <DObject>
 
-// 扩展按钮，在VList和Page布局中放在最下面，横向排列
-#define DCC_EXTRA 0x00800000
-#define setExtra() setFlagState(DCC_EXTRA, true)
-#define extra() getFlagState(DCC_EXTRA)
+using DCC_MODULE_TYPE = uint32_t;
 
-using DCC_LAYOUT_TYPE = uint32_t;
+#define DCC_MODULE_HIERARCHY_BIT 0x80000000
+#define DCC_MODULE_GROUP_BIT 0x40000000
+#define DCC_MODULE_LEAF_BIT 0x20000000
+#define DCC_MODULE_LAYOUT_BIT 0x10000000
+
+#define DCC_MODULE_LISTVIEW_BIT 0x08000000
+#define DCC_MODULE_ITEM_BIT 0x04000000
+#define DCC_MODULE_SETTINGSGROUP_BIT 0x02000000
+#define DCC_MODULE_HORIZONTAL_BIT 0x01000000
+#define DCC_MODULE_VERTICAL_BIT 0x00800000
+
+#define DCC_MODULE_MAIN_BIT 0x00040000
+#define DCC_MODULE_CUSTOM_BIT 0x00020000
+
 namespace DCC_NAMESPACE {
+enum : DCC_MODULE_TYPE {
+    HIERARCHY_OBJECT = DCC_MODULE_HIERARCHY_BIT,
+    LEAF_OBJECT = DCC_MODULE_LEAF_BIT,
+    LISTVIEW = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_LISTVIEW_BIT,
+    ITEM = DCC_MODULE_LEAF_BIT | DCC_MODULE_ITEM_BIT,
+    SETTINGSGROUP = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_SETTINGSGROUP_BIT,
+    HORIZONTAL = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_HORIZONTAL_BIT,
+    MAINLAYOUT = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_MAIN_BIT,
+    HLISTLAYOUT = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_HORIZONTAL_BIT | DCC_MODULE_LISTVIEW_BIT,
+    VLISTLAYOUT = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_VERTICAL_BIT | DCC_MODULE_LISTVIEW_BIT,
+    PAGELAYOUT = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_VERTICAL_BIT,
+    CUSTOM_OBJECT = DCC_MODULE_CUSTOM_BIT,
+};
+
 class ModuleObjectPrivate;
 /**
  * @brief ModuleObject作为规范每个Module的接口，每个Module必须提供其基本的信息
  */
-class ModuleObject : public QObject, public DTK_CORE_NAMESPACE::DObject
+class ModuleObject : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY moduleDataChanged)
-    Q_PROPERTY(QString displayName READ displayName WRITE setDisplayName NOTIFY moduleDataChanged)
+    Q_PROPERTY(QString displayName READ displayName WRITE setDisplayName NOTIFY displayNameChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY moduleDataChanged)
     Q_PROPERTY(QStringList contentText READ contentText WRITE setContentText NOTIFY moduleDataChanged)
-    Q_PROPERTY(QIcon icon READ icon WRITE setIcon NOTIFY moduleDataChanged)
+    Q_PROPERTY(QVariant icon READ icon WRITE setIcon NOTIFY moduleDataChanged)
     Q_PROPERTY(int badge READ badge WRITE setBadge NOTIFY moduleDataChanged)
 
     Q_PROPERTY(bool hiden READ isHiden WRITE setHiden NOTIFY stateChanged)
     Q_PROPERTY(bool disabled READ isDisabled WRITE setDisabled NOTIFY stateChanged)
 
 public:
-    enum : DCC_LAYOUT_TYPE {
-        Main = 0x01000000,  //主菜单显示
-        HList = 0x02000000, //横向菜单列表显示
-        VList = 0x03000000, //纵向菜单列表显示
-        Page = 0x04000000   //页面显示
-    };
     ModuleObject(QObject *parent = nullptr);
     ModuleObject(const QString &name, const QString &displayName = {}, QObject *parent = nullptr);
     ModuleObject(const QString &name, const QStringList &contentText, QObject *parent = nullptr);
     ModuleObject(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QIcon &icon, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QString &description, const QIcon &icon = QIcon(), QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QIcon &icon = QIcon(), QObject *parent = nullptr);
+    ModuleObject(const QString &name, const QString &displayName, const QVariant &icon, QObject *parent = nullptr);
+    ModuleObject(const QString &name, const QString &displayName, const QString &description, QObject *parent = nullptr);
+    ModuleObject(const QString &name, const QString &displayName, const QString &description, const QVariant &icon, QObject *parent = nullptr);
+    ModuleObject(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent = nullptr);
+    ModuleObject(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent = nullptr);
 
     virtual ~ModuleObject();
+    /**
+     * @brief activePage 激活并返回page
+     * @param autoActive 是否自动调用active
+     * @return ModuleObject隐藏时返回nullptr,否则返回page返回的QWidget *
+     */
+    virtual QWidget *activePage(bool autoActive = true);
 
-    /**
-     * @brief 子项类型，由类型决定view显示效果
-     */
-    DCC_LAYOUT_TYPE childType() const;
-    /**
-     * @brief 设置子项类型
-     */
-    void setChildType(const DCC_LAYOUT_TYPE &t);
+protected Q_SLOTS:
     /**
      * @brief 当进入模块时，active会被调用，如无需通知则可不实现
      */
@@ -95,7 +115,7 @@ public:
     QString displayName() const;
     QString description() const;
     QStringList contentText() const;
-    QIcon icon() const;
+    QVariant icon() const;
     int badge() const;
 
     bool isHiden() const;
@@ -107,12 +127,25 @@ public:
     bool getFlagState(uint32_t flag) const;
     uint32_t getFlag() const;
 
+    // 扩展标志，在VList和Page布局中放在最下面，横向排列
+    bool extra();
+    void setExtra(bool value = true);
+
     /**
-     * @brief setFlagState 设置状态标志，状态标志共32位，高16位为预留，低16位可根据需要设置
-     * @param flag 需要设置的状态位
-     * @param state true 置位 false 复位
+     * @brief currentModule     当前active的子项
+     *      当前active的子项变化时会触发currentModuleChanged信号，
+     *      page与子项相关时需要处理currentModuleChanged信号
+     * @return 当前active的子项
      */
-    void setFlagState(uint32_t flag, bool state);
+    ModuleObject *currentModule() const;
+    /**
+     * @brief defultModule 默认active的子项
+     *      当某个页面被active时，会通过defultModule去active子项
+     *      当返回为nullptr时，不再递归active子项
+     *      ModuleObject类默认处理为返回第一个未隐藏的子项
+     * @return 默认active的子项
+     */
+    virtual ModuleObject *defultModule() const;
 
 public Q_SLOTS:
     void setHiden(bool hiden);
@@ -120,25 +153,42 @@ public Q_SLOTS:
     void trigger();
 
     // 名称，作为每个模块的唯一标识，不可为空
-    void setName(const QString &name);
+    virtual void setName(const QString &name);
     // 显示名称，如菜单的名称，页面的标题等，为空则不显示
-    void setDisplayName(const QString &displayName);
+    virtual void setDisplayName(const QString &displayName);
     // 描述，如主菜单的描述信息
-    void setDescription(const QString &description);
+    virtual void setDescription(const QString &description);
     // 上下文数据，参与搜索，只可用于终结点：DisplayName -> ContentText(one of it)
-    void setContentText(const QStringList &contentText);
-    void addContentText(const QString &contentText);
-    void addContentText(const QStringList &contentText);
+    virtual void setContentText(const QStringList &contentText);
+    virtual void addContentText(const QString &contentText);
+    virtual void addContentText(const QStringList &contentText);
     // 图标，如主菜单的图标
-    void setIcon(const QIcon &icon);
+    // 字符串类型,支持DDciIcon\QVariant,优先作为DDciIcon处理
+    virtual void setIcon(const QVariant &icon);
+    virtual void setIcon(const QIcon &icon);
     // 主菜单中的角标, 默认为0不显示，大于0显示
-    void setBadge(int badge);
+    virtual void setBadge(int badge);
+    /**
+     * @brief setFlagState 设置状态标志，状态标志共32位，高16位为预留，低16位可根据需要设置
+     * @param flag 需要设置的状态位
+     * @param state true 置位 false 复位
+     */
+    virtual void setFlagState(uint32_t flag, bool state);
+    /**
+     * @brief setCurrentModule 设置当前active的子项
+     * @param child 当前active的子项
+     */
+    void setCurrentModule(ModuleObject *child);
 
 Q_SIGNALS:
     /**
      * @brief 基本信息改变后发送此信号
      */
     void moduleDataChanged();
+    /**
+     * @brief displayName改变后发送此信号
+     */
+    void displayNameChanged(const QString &displayName);
     /**
      * @brief stateChanged 状态标志变化 (可见、禁用等)
      * @param flag
@@ -174,6 +224,8 @@ Q_SIGNALS:
      */
     void triggered();
 
+    void currentModuleChanged(ModuleObject *currentModule);
+
 public:
     ModuleObject *getParent();
     /**
@@ -195,21 +247,46 @@ public:
     ModuleObject *children(const int index) const;
     int getChildrenSize() const;
 
-    void appendChild(ModuleObject *const module);
-    void removeChild(ModuleObject *const module);
-    void removeChild(const int index);
-    void insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module);
-    void insertChild(const int index, ModuleObject *const module);
+    virtual void appendChild(ModuleObject *const module);
+    virtual void removeChild(ModuleObject *const module);
+    virtual void removeChild(const int index);
+    virtual void insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module);
+    virtual void insertChild(const int index, ModuleObject *const module);
 
     //! Returns current ModuleObject version
     static unsigned GetCurrentVersion();
+    /**
+     * @brief IsVisible 返回module是否显示，判断了配置项和程序设置项
+     * @param module
+     * @return
+     */
+    static bool IsHiden(DCC_NAMESPACE::ModuleObject *const module);
+    /**
+     * @brief IsHidenFlag 判断标志是否为隐藏标志
+     * @param flag 标志
+     * @return true 有隐藏标志位 false 没有隐藏标志位
+     */
+    static bool IsHidenFlag(uint32_t flag);
+    /**
+     * @brief IsEnabled 返回module是否可用，判断了配置项和程序设置项
+     * @param module
+     * @return
+     */
+    static bool IsDisabled(DCC_NAMESPACE::ModuleObject *const module);
+    /**
+     * @brief IsDisabledFlag 判断标志是否为禁用标志
+     * @param flag 标志
+     * @return true 有禁用标志位 false 没有禁用标志位
+     */
+    static bool IsDisabledFlag(uint32_t flag);
+
+    inline virtual DCC_MODULE_TYPE getClassID() const { return HIERARCHY_OBJECT; }
 
 private:
     static int findChild(ModuleObject *const module, ModuleObject *const child, const int num);
-
-private:
-    D_DECLARE_PRIVATE(ModuleObject)
-    Q_DISABLE_COPY(ModuleObject)
+    DCC_DECLARE_PRIVATE(ModuleObject)
 };
 
 } // namespace DCC_NAMESPACE
+
+#endif // DCC_MODULEOBJECT_H

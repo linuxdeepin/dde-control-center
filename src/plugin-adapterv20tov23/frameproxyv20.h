@@ -49,8 +49,8 @@ public:
     virtual void showModulePage(const QString &module, const QString &page, bool animation) override;
     virtual void setModuleSubscriptVisible(const QString &module, bool bIsDisplay) override;
 
-    Q_DECL_DEPRECATED virtual void setRemoveableDeviceStatus(QString type, bool state) override;
-    Q_DECL_DEPRECATED virtual bool getRemoveableDeviceStatus(QString type) const override;
+    virtual void setRemoveableDeviceStatus(QString type, bool state) override; // Q_DECL_DEPRECATED
+    virtual bool getRemoveableDeviceStatus(QString type) const override; // Q_DECL_DEPRECATED
 
     virtual void setSearchPath(dccV20::ModuleInterface *const inter) const override;
     virtual void addChildPageTrans(const QString &menu, const QString &rran) override;

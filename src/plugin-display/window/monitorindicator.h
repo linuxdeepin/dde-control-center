@@ -44,7 +44,7 @@ public:
 
 public Q_SLOTS:
 
-    virtual void setVisible(bool visible);
+    virtual void setVisible(bool visible) override;
 
 private:
     void updateGeometry();

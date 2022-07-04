@@ -44,19 +44,15 @@ ModuleObject *DefAppPlugin::module()
     };
     // 一级页面
     DefAppModule *moduleRoot = new DefAppModule;
-    moduleRoot->setChildType(ModuleObject::VList);
 
     for (DATE iter : moduleInfo) {
         // 二级按钮页
         DefAppsButtonModule *moduleDefaultApps = new DefAppsButtonModule(iter.category, iter.name, iter.displayName,
-                                                                         QIcon::fromTheme(QString(iter.icon)),
+                                                                         iter.icon,
                                                                          moduleRoot->model(), moduleRoot->work());
-
-        moduleDefaultApps->setChildType(ModuleObject::Page);
 
         // 三级页面
         DefappDetailModule *defappDetail = new DefappDetailModule(iter.category, moduleRoot->model(), moduleRoot->work());
-        defappDetail->setChildType(ModuleObject::Page);
         moduleDefaultApps->appendChild(defappDetail);
 
         ModuleObject *addButton = new WidgetModule<AddButtonWidget>("defappApplistAddbtn","addDefApp",[iter,moduleRoot](AddButtonWidget *button){
@@ -75,13 +71,13 @@ ModuleObject *DefAppPlugin::module()
     return moduleRoot;
 }
 
-int DefAppPlugin::location() const
+QString DefAppPlugin::location() const
 {
-    return 4;
+    return "4";
 }
 
 DefAppModule::DefAppModule(QObject *parent)
-    : ModuleObject("defapp", tr("Default Applications"), tr("Default Applications"), QIcon::fromTheme("dcc_nav_defapp"), parent)
+    : VListModule("defapp", tr("Default Applications"), tr("Default Applications"), QIcon::fromTheme("dcc_nav_defapp"), parent)
     , m_model(new DefAppModel(this))
     , m_work(new DefAppWorker(m_model, this))
     , m_defApps(nullptr)
@@ -98,8 +94,8 @@ void DefAppModule::active()
     m_work->onGetListApps();
 }
 
-DefAppsButtonModule::DefAppsButtonModule(DefAppWorker::DefaultAppsCategory category, const QString &name, const QString &displayName, const QIcon &icon,  DefAppModel *model, DefAppWorker *work)
-    : ModuleObject(name, displayName, icon)
+DefAppsButtonModule::DefAppsButtonModule(DefAppWorker::DefaultAppsCategory category, const QString &name, const QString &displayName, const QString &icon,  DefAppModel *model, DefAppWorker *work)
+    : PageModule(name, displayName, icon, nullptr)
     , m_category(category)
     , m_model(model)
     , m_work(work)
@@ -111,12 +107,12 @@ DefAppsButtonModule::~DefAppsButtonModule()
 {
 }
 
-QWidget *DefAppsButtonModule::page(){
-    DefappDetailWidget *defDetail = new DefappDetailWidget(m_category);
-    defDetail->setModel(m_model);
+//QWidget *DefAppsButtonModule::page(){
+//    DefappDetailWidget *defDetail = new DefappDetailWidget(m_category);
+//    defDetail->setModel(m_model);
 
-    return defDetail;
-}
+//    return defDetail;
+//}
 
 // 三级页面
 DefappDetailModule::DefappDetailModule(DefAppWorker::DefaultAppsCategory category, DefAppModel *model, DefAppWorker *work)

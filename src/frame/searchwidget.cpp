@@ -27,6 +27,7 @@
 #include <QAbstractItemView>
 #include <QPainter>
 #include <QStandardItemModel>
+#include <QDebug>
 
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
@@ -228,19 +229,19 @@ void SearchWidget::refreshModel()
 
         if (res != m_rootModule->childrens().cend()) {
             QStandardItem *item1 = new QStandardItem;
-            item1->setIcon((*res)->icon());
+            item1->setIcon((*res)->icon().value<QIcon>());
             item1->setText(data.SearchUrl);
-            item1->setData((*res)->icon().name(), Qt::UserRole + 1);
+            item1->setData((*res)->icon(), Qt::UserRole + 1);
             if (m_bIsChinese) {
                 item1->setData(data.SearchUrl, Qt::UserRole);
             }
             m_model->appendRow(item1);
             if (m_bIsChinese) {// 中文环境添加拼音数据
                 QStandardItem *item2 = new QStandardItem;
-                item2->setIcon((*res)->icon());
+                item2->setIcon((*res)->icon().value<QIcon>());
                 item2->setText(data.SearchUrl);
                 item2->setData(data.PinYin, Qt::UserRole);
-                item2->setData((*res)->icon().name(), Qt::UserRole + 1);
+                item2->setData((*res)->icon(), Qt::UserRole + 1);
                 m_model->appendRow(item2);
             }
         }

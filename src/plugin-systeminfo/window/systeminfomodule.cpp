@@ -27,6 +27,8 @@
 #include "hostnameitem.h"
 #include "logoitem.h"
 #include "widgets/titlevalueitem.h"
+#include "interface/pagemodule.h"
+#include "interface/vlistmodule.h"
 
 #include "operation/systeminfowork.h"
 #include "operation/systeminfomodel.h"
@@ -43,7 +45,7 @@ DCC_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 SystemInfoModule::SystemInfoModule(QObject *parent)
-    : ModuleObject(parent)
+    : HListModule(parent)
     , m_model(new SystemInfoModel())
     , m_work(new SystemInfoWork(m_model))
 {
@@ -66,8 +68,7 @@ void SystemInfoModule::active()
 void SystemInfoModule::initChildModule()
 {
     //二级菜单--关于本机
-    ModuleObject *moduleAboutPc = new ModuleObject("aboutThisPc", tr("About This PC"), QIcon::fromTheme("dcc_on_sel"), this);
-    moduleAboutPc->setChildType(ModuleObject::Page);
+    ModuleObject *moduleAboutPc = new PageModule("aboutThisPc", tr("About This PC"), QIcon::fromTheme("dcc_on_sel"), this);
     appendChild(moduleAboutPc);
 
     moduleAboutPc->appendChild(new WidgetModule<LogoItem>("logo", tr("Logo"), this, &SystemInfoModule::initLogoModule));
@@ -82,25 +83,21 @@ void SystemInfoModule::initChildModule()
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("memory", tr("Memory"), this, &SystemInfoModule::initMemoryModule));
 
     //二级菜单--协议与隐私政策
-    ModuleObject *moduleAgreement = new ModuleObject("agreement", tr("Agreement and privacy policy"), QIcon::fromTheme("dcc_version"), this);
-    moduleAgreement->setChildType(ModuleObject::VList);
+    ModuleObject *moduleAgreement = new VListModule("agreement", tr("Agreement and privacy policy"), QIcon::fromTheme("dcc_version"), this);
 
     //三级菜单--协议与隐私政策-版本协议
-    ModuleObject *moduleEdition = new ModuleObject("editionLicense", tr("Edition License"), QIcon::fromTheme("dcc_version"), moduleAgreement);
-    moduleEdition->setChildType(ModuleObject::Page);
+    ModuleObject *moduleEdition = new PageModule("editionLicense", tr("Edition License"), QIcon::fromTheme("dcc_version"), moduleAgreement);
 
     moduleEdition->appendChild(new WidgetModule<VersionProtocolWidget>());
     moduleAgreement->appendChild(moduleEdition);
 
     //三级菜单--协议与隐私政策-最终用户许可协议
-    ModuleObject *moduleUserAgreement = new ModuleObject("endUserLicenseAgreement", tr("End User License Agreement"), QIcon::fromTheme("dcc_protocol"), moduleAgreement);
-    moduleUserAgreement->setChildType(ModuleObject::Page);
+    ModuleObject *moduleUserAgreement = new PageModule("endUserLicenseAgreement", tr("End User License Agreement"), QIcon::fromTheme("dcc_protocol"), moduleAgreement);
     moduleUserAgreement->appendChild(new WidgetModule<UserLicenseWidget>());
     moduleAgreement->appendChild(moduleUserAgreement);
 
     //三级菜单--协议与隐私政策-隐私政策
-    ModuleObject *modulePolicy = new ModuleObject("privacyPolicy", tr("Privacy Policy"), QIcon::fromTheme("dcc_privacy_policy"), moduleAgreement);
-    modulePolicy->setChildType(ModuleObject::Page);
+    ModuleObject *modulePolicy = new PageModule("privacyPolicy", tr("Privacy Policy"), QIcon::fromTheme("dcc_privacy_policy"), moduleAgreement);
     modulePolicy->appendChild(new WidgetModule<PrivacyPolicyWidget>());
     moduleAgreement->appendChild(modulePolicy);
 
@@ -244,13 +241,12 @@ ModuleObject *SystemInfoPlugin::module()
     moduleInterface->setDisplayName(tr("System Info"));
     moduleInterface->setDescription(tr("System Info"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_systeminfo"));
-    moduleInterface->setChildType(ModuleObject::HList);
 
     return moduleInterface;
 }
 
-int SystemInfoPlugin::location() const
+QString SystemInfoPlugin::location() const
 {
-    return 21;
+    return "21";
 }
 

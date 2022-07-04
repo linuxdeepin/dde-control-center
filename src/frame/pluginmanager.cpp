@@ -1,5 +1,5 @@
 #include "pluginmanager.h"
-#include "layout/layoutmanager.h"
+//#include "layout/layoutmanager.h"
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
 #include "utils.h"
@@ -41,12 +41,12 @@ bool compareVersion(const QString &targetVersion, const QString &baseVersion)
     return true;
 }
 
-bool comparePluginLocation(PluginInterface const* target1, PluginInterface const* target2)
+bool comparePluginLocation(PluginInterface const *target1, PluginInterface const *target2)
 {
     return target1->location() < target2->location();
 }
 
-PluginData loadModule(const QPair<PluginManager*,QString> &pair)
+PluginData loadModule(const QPair<PluginManager *, QString> &pair)
 {
     PluginData data;
     data.Module = nullptr;
@@ -76,7 +76,7 @@ PluginData loadModule(const QPair<PluginManager*,QString> &pair)
         return data;
     }
 
-    PluginInterface * plugin = qobject_cast<PluginInterface *>(loader->instance());
+    PluginInterface *plugin = qobject_cast<PluginInterface *>(loader->instance());
     if (!plugin) {
         qWarning() << QString("Can't read plugin: %1").arg(fileName);
         loader->unload();
@@ -86,7 +86,6 @@ PluginData loadModule(const QPair<PluginManager*,QString> &pair)
     data.Module = plugin->module();
     data.Follow = plugin->follow();
     data.Location = plugin->location();
-    data.layoutFactory = plugin->layoutFactory();
 
     data.Module->setParent(nullptr);
     data.Module->moveToThread(qApp->thread());
@@ -95,7 +94,6 @@ PluginData loadModule(const QPair<PluginManager*,QString> &pair)
     return data;
 }
 
-
 PluginManager::PluginManager(QObject *parent)
     : QObject(parent)
     , m_rootModule(nullptr)
@@ -103,14 +101,14 @@ PluginManager::PluginManager(QObject *parent)
     qRegisterMetaType<PluginData>("PluginData");
 }
 
-void PluginManager::loadModules(ModuleObject *root, LayoutManager *layoutManager, bool async)
+void PluginManager::loadModules(ModuleObject *root, bool async)
 {
-    if (!root || !layoutManager)
+    if (!root)
         return;
     m_rootModule = root;
-    m_layoutManager = layoutManager;
+//    m_layoutManager = layoutManager;
 
-    connect(this, &PluginManager::loadedModule, root, [this] (const PluginData &data) {
+    connect(this, &PluginManager::loadedModule, root, [this](const PluginData &data) {
         initModules(data);
     });
 
@@ -124,15 +122,15 @@ void PluginManager::loadModules(ModuleObject *root, LayoutManager *layoutManager
     }
 
     auto &&pluginList = pluginDir.entryInfoList();
-    QList<QPair<PluginManager*,QString>> libraryNames;
+    QList<QPair<PluginManager *, QString>> libraryNames;
     for (auto &&lib : pluginList) {
         auto &&fileName = lib.absoluteFilePath();
         if (!QLibrary::isLibrary(fileName))
             continue;
-        libraryNames.append({this,fileName});
+        libraryNames.append({ this, fileName });
     }
 
-    QFutureWatcher<PluginData> *watcher= new QFutureWatcher<PluginData>(this);
+    QFutureWatcher<PluginData> *watcher = new QFutureWatcher<PluginData>(this);
     QFuture<PluginData> future = QtConcurrent::mapped(libraryNames, loadModule);
     connect(watcher, &QFutureWatcher<PluginData>::finished, this, [this] {
         // 加载非一级插件
@@ -142,7 +140,17 @@ void PluginManager::loadModules(ModuleObject *root, LayoutManager *layoutManager
             for (auto it = m_datas.begin(); it != m_datas.end();) {
                 auto &&module = DCC_NAMESPACE::GetModuleByUrl(m_rootModule, it->Follow);
                 if (module) {
-                    module->insertChild(it->Location, it->Module);
+                    bool isInt;
+                    int locationIndex = it->Location.toInt(&isInt);
+                    if (!isInt) {
+                        for (locationIndex = 0; locationIndex < module->getChildrenSize(); ++locationIndex) {
+                            if (module->children(locationIndex)->name() == it->Location) {
+                                ++locationIndex;
+                                break;
+                            }
+                        }
+                    }
+                    module->insertChild(locationIndex, it->Module);
                     loop = true;
                     it = m_datas.erase(it);
                 } else
@@ -150,8 +158,8 @@ void PluginManager::loadModules(ModuleObject *root, LayoutManager *layoutManager
             }
         }
         // 释放加不进去的module
-        for(auto &&data : m_datas) {
-            qWarning()<<"Unkown Module! name:"<<data.Module->name()<<"follow:"<<data.Follow<<"location:"<<data.Location;
+        for (auto &&data : m_datas) {
+            qWarning() << "Unkown Module! name:" << data.Module->name() << "follow:" << data.Follow << "location:" << data.Location;
             delete data.Module;
         }
         m_datas.clear();
@@ -170,7 +178,7 @@ ModuleObject *PluginManager::findModule(ModuleObject *module, const QString &nam
     if (!module)
         return nullptr;
 
-    std::queue<ModuleObject*> qbfs;
+    std::queue<ModuleObject *> qbfs;
     qbfs.push(module);
     while (!qbfs.empty()) {
         if (qbfs.front()->name() == name)
@@ -186,26 +194,35 @@ ModuleObject *PluginManager::findModule(ModuleObject *module, const QString &nam
 
 void PluginManager::initModules(const PluginData &data)
 {
-    m_layoutManager->registerLayout(data.layoutFactory);
-    if (data.Follow.isEmpty()) {    // root plugin
+    if (data.Follow.isEmpty()) { // root plugin
         data.Module->setProperty("location", data.Location);
         if (!m_rootModule->hasChildrens()) {
             m_rootModule->appendChild(data.Module);
             return;
         }
-        if (data.Location < 0) {
+        if (data.Location.isEmpty()) {
             m_rootModule->appendChild(data.Module);
             return;
         }
+        bool isInt;
+        int curLocation = data.Location.toInt(&isInt);
+
         int i = m_rootModule->childrens().count() - 1;
         for (; i >= 0; i--) {
-            auto &&tmpLocation = m_rootModule->childrens().at(i)->property("location").toInt();
-            if (tmpLocation >= 0 && data.Location > tmpLocation) {
-                break;
+            if (isInt) {
+                bool ok = false;
+                const QString &location = m_rootModule->childrens().at(i)->property("location").toString();
+                int tmpLocation = location.toInt(&ok);
+                if (ok && tmpLocation >= 0 && curLocation > tmpLocation) {
+                    break;
+                }
+            } else {
+                if (m_rootModule->children(i)->name() == data.Location)
+                    break;
             }
         }
         m_rootModule->insertChild(i + 1, data.Module);
-    } else {    // other plugin
+    } else { // other plugin
         m_datas.append(data);
     }
 }

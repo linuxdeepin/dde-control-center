@@ -119,11 +119,10 @@ void RingColorWidget::paintEvent(QPaintEvent *event)
 }
 ////////////////////////////////////////////////////////
 PersonalizationGeneralModule::PersonalizationGeneralModule(PersonalizationModel *model, PersonalizationWorker *work, QObject *parent)
-    : ModuleObject("personalizationGeneral", tr("General"), QIcon::fromTheme("dcc_common"), parent)
+    : PageModule("personalizationGeneral", tr("General"), QIcon::fromTheme("dcc_common"), parent)
     , m_model(model)
     , m_work(work)
 {
-    setChildType(ModuleObject::Page);
     m_modules.append(new WidgetModule<TitleLabel>("personalizationThemeTitle", tr("Theme"), [](TitleLabel *title) {
         DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold);
         title->setText(tr("Theme"));

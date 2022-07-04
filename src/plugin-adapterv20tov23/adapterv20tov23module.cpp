@@ -20,56 +20,18 @@
  */
 
 #include "adapterv20tov23module.h"
-#include "layoutv20.h"
 #include "moduleinterface.h"
 #include <QEvent>
-#include <QTimer>
+#include <QHBoxLayout>
 
-AdapterV20toV23Child::AdapterV20toV23Child()
-    : ModuleObject("adapterV20toV23Child")
-    , m_widget(nullptr)
-{
-}
-
-AdapterV20toV23Child::~AdapterV20toV23Child()
-{
-}
-
-QWidget *AdapterV20toV23Child::page()
-{
-    if (m_widget)
-        m_widget->setVisible(true);
-
-    return m_widget;
-}
-
-void AdapterV20toV23Child::setPage(QWidget *w)
-{
-    if (w == m_widget)
-        return;
-
-    m_widget = w;
-    if (m_widget)
-        m_widget->setVisible(false);
-
-    widgetChanged();
-}
-////////////////////////
 AdapterV20toV23Module::AdapterV20toV23Module(dccV20::ModuleInterface *v20Module)
-    : AdapterV20toV23Child()
+    : ModuleObject()
     , m_v20Module(v20Module)
+    , m_layout(nullptr)
 {
-    setChildType(LayoutV20_KEY);
     setName(v20Module->name());
     setDisplayName(v20Module->displayName());
     setIcon(m_v20Module->icon());
-
-    m_modules.append(this);
-    for (int i = 0; i < 3; i++) {
-        AdapterV20toV23Child *child = new AdapterV20toV23Child();
-        m_modules.last()->appendChild(child);
-        m_modules.append(child);
-    }
 }
 
 AdapterV20toV23Module::~AdapterV20toV23Module()
@@ -90,6 +52,11 @@ void AdapterV20toV23Module::active()
 
 void AdapterV20toV23Module::deactive()
 {
+    m_layout = nullptr;
+    for (auto &&w : m_widgets) {
+        w = nullptr;
+    }
+
     m_v20Module->deactive();
 }
 
@@ -108,20 +75,54 @@ bool AdapterV20toV23Module::enabled() const
     return m_v20Module->enabled();
 }
 
+void AdapterV20toV23Module::setWidget(int index)
+{
+    if (!m_layout)
+        return;
+
+    while (m_layout->count() > index) {
+        QLayoutItem *item = m_layout->takeAt(index);
+        QWidget *oldW = item->widget();
+        if (!m_widgets.contains(oldW)) {
+            oldW->setVisible(false);
+            oldW->setParent(nullptr);
+            oldW->deleteLater();
+        }
+        delete item;
+    }
+
+    for (int i = index; i < m_widgets.count(); ++i) {
+        m_layout->addWidget(m_widgets.at(i), i * 4 + 3);
+    }
+}
+
 void AdapterV20toV23Module::setChildPage(int level, QWidget *w)
 {
-    if (level < m_modules.size())
-        m_modules.at(level)->setPage(w);
-
-    for (int i = m_modules.size() - 1; i > level; --i) {
-        m_modules.at(i)->setPage(nullptr);
+    while (level < m_widgets.size()) {
+        m_widgets.takeLast();
     }
+    m_widgets.append(w);
+    setWidget(level);
 }
 
 void AdapterV20toV23Module::popWidget(QWidget *w)
 {
-    for (auto &&child : m_modules) {
-        if (child->widget() == w)
-            child->setPage(nullptr);
+    while (!m_widgets.isEmpty()) {
+        QWidget *last = m_widgets.takeLast();
+        if (last == w)
+            break;
     }
+    setWidget(0);
+}
+
+QWidget *AdapterV20toV23Module::page()
+{
+    QWidget *parentWidget = new QWidget();
+    m_layout = new QHBoxLayout();
+    m_layout->setMargin(0);
+    m_layout->setSpacing(0);
+    parentWidget->setLayout(m_layout);
+    setWidget(0);
+
+    return parentWidget;
 }

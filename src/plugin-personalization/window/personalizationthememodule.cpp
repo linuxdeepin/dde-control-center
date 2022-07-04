@@ -35,12 +35,11 @@ const QMargins ScrollAreaOffsetMargins(0, 0, 10, 0);
 #define IDRole (DTK_NAMESPACE::UserRole + 1)
 
 PersonalizationThemeModule::PersonalizationThemeModule(ThemeModel *model, PersonalizationWorker *work, QObject *parent)
-  : ModuleObject(parent)
+  : PageModule(parent)
   , m_itemModel(new QStandardItemModel(this))
   , m_model(model)
   , m_work(work)
 {
-    setChildType(ModuleObject::Page);
     appendChild(new WidgetModule<DCCListView>("perssonalizationThemeList", tr("Theme List"), this, &PersonalizationThemeModule::initThemeListView));
     appendChild(new WidgetModule<QWidget>());
 

@@ -1,10 +1,9 @@
 #include "gtest/gtest.h"
 
-#include "src/frame/mainwindow.h"
-#include "src/frame/layout/listitemdelegate.h"
-#include "src/frame/layout/listview.h"
-#include "src/frame/layout/moduledatamodel.h"
 #include "interface/moduleobject.h"
+#include "src/frame/listview.h"
+#include "src/frame/listitemdelegate.h"
+#include "src/interface/moduledatamodel.h"
 
 DCC_USE_NAMESPACE
 const static QString G_icons[] = {
@@ -215,5 +214,5 @@ TEST_F(Tst_ListView, coverage)
         module->setIcon(QIcon::fromTheme(G_icons[i]));
         module->appendChild(modulechild);
     }
-    model->setData(module);
+    model->setModuleObject(module);
 }

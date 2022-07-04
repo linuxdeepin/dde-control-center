@@ -55,9 +55,9 @@ DBusControlCenterService::~DBusControlCenterService()
 void DBusControlCenterService::exitProc()
 {
     DDBusSender()
-        .service("org.deepin.dde.ControlCenter")
-        .interface("org.deepin.dde.ControlCenter")
-        .path("/org/deepin/dde/ControlCenter")
+        .service("org.deepin.dde.ControlCenter1")
+        .interface("org.deepin.dde.ControlCenter1")
+        .path("/org/deepin/dde/ControlCenter1")
         .method("Exit")
         .call();
 }
@@ -65,9 +65,9 @@ void DBusControlCenterService::exitProc()
 void DBusControlCenterService::Hide()
 {
     DDBusSender()
-        .service("org.deepin.dde.ControlCenter")
-        .interface("org.deepin.dde.ControlCenter")
-        .path("/org/deepin/dde/ControlCenter")
+        .service("org.deepin.dde.ControlCenter1")
+        .interface("org.deepin.dde.ControlCenter1")
+        .path("/org/deepin/dde/ControlCenter1")
         .method("Hide")
         .call();
 }
@@ -75,9 +75,9 @@ void DBusControlCenterService::Hide()
 void DBusControlCenterService::Show()
 {
     DDBusSender()
-        .service("org.deepin.dde.ControlCenter")
-        .interface("org.deepin.dde.ControlCenter")
-        .path("/org/deepin/dde/ControlCenter")
+        .service("org.deepin.dde.ControlCenter1")
+        .interface("org.deepin.dde.ControlCenter1")
+        .path("/org/deepin/dde/ControlCenter1")
         .method("Show")
         .call();
 }
@@ -85,9 +85,9 @@ void DBusControlCenterService::Show()
 void DBusControlCenterService::ShowHome()
 {
     DDBusSender()
-        .service("org.deepin.dde.ControlCenter")
-        .interface("org.deepin.dde.ControlCenter")
-        .path("/org/deepin/dde/ControlCenter")
+        .service("org.deepin.dde.ControlCenter1")
+        .interface("org.deepin.dde.ControlCenter1")
+        .path("/org/deepin/dde/ControlCenter1")
         .method("ShowHome")
         .call();
 }
@@ -100,9 +100,9 @@ void DBusControlCenterService::ShowModule(const QString &module)
 void DBusControlCenterService::ShowPage(const QString &url)
 {
     DDBusSender()
-        .service("org.deepin.dde.ControlCenter")
-        .interface("org.deepin.dde.ControlCenter")
-        .path("/org/deepin/dde/ControlCenter")
+        .service("org.deepin.dde.ControlCenter1")
+        .interface("org.deepin.dde.ControlCenter1")
+        .path("/org/deepin/dde/ControlCenter1")
         .method("ShowPage")
         .arg(url)
         .call();
@@ -120,9 +120,9 @@ void DBusControlCenterService::ShowPage(const QString &module, const QString &pa
 void DBusControlCenterService::Toggle()
 {
     DDBusSender()
-        .service("org.deepin.dde.ControlCenter")
-        .interface("org.deepin.dde.ControlCenter")
-        .path("/org/deepin/dde/ControlCenter")
+        .service("org.deepin.dde.ControlCenter1")
+        .interface("org.deepin.dde.ControlCenter1")
+        .path("/org/deepin/dde/ControlCenter1")
         .method("Toggle")
         .call();
 }

@@ -23,7 +23,7 @@
 #define DISPLAYMODULE_H
 
 #include "interface/namespace.h"
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 #include "interface/plugininterface.h"
 #include "src/plugin-display/window/recognizewidget.h"
 
@@ -43,7 +43,7 @@ class DisplayPlugin : public PluginInterface
 public:
     virtual QString name() const override;
     virtual ModuleObject *module() override;
-    virtual int location() const override;
+    virtual QString location() const override;
 };
 
 class DisplayModule : public ModuleObject

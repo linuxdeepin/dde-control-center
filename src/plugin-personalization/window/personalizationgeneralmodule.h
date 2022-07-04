@@ -20,7 +20,7 @@
 */
 #ifndef PERSONALIZATIONGENERALMODULE_H
 #define PERSONALIZATIONGENERALMODULE_H
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 
 #include <QWidget>
 
@@ -57,7 +57,7 @@ private:
     RoundColorWidget* m_selectedItem;
 };
 
-class PersonalizationGeneralModule : public DCC_NAMESPACE::ModuleObject
+class PersonalizationGeneralModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:

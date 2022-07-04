@@ -21,7 +21,7 @@
 #ifndef USEELECTRICMODULE_H
 #define USEELECTRICMODULE_H
 
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 
 #include <DListView>
 
@@ -34,7 +34,7 @@ DCC_END_NAMESPACE
 class PowerModel;
 class PowerWorker;
 
-class UseElectricModule : public DCC_NAMESPACE::ModuleObject
+class UseElectricModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:

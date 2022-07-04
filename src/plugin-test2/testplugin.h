@@ -14,7 +14,7 @@ public:
     virtual QString name() const override;
     virtual ModuleObject *module() override;
     virtual QString follow() const override;
-    virtual int location() const override;
+    virtual QString location() const override;
 };
 
 class LabelModule : public ModuleObject

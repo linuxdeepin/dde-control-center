@@ -21,14 +21,14 @@
 #ifndef PERSONALIZATIONPLUGIN_H
 #define PERSONALIZATIONPLUGIN_H
 
-#include "interface/moduleobject.h"
+#include "interface/hlistmodule.h"
 #include "interface/plugininterface.h"
 
 class PersonalizationModel;
 class PersonalizationWorker;
 class GeneralModule;
 
-class PersonalizationModule : public DCC_NAMESPACE::ModuleObject
+class PersonalizationModule : public DCC_NAMESPACE::HListModule
 {
     Q_OBJECT
 public:
@@ -58,7 +58,7 @@ public:
 
     virtual QString name() const override;
     virtual DCC_NAMESPACE::ModuleObject *module() override;
-    virtual int location() const override;
+    virtual QString location() const override;
 
 private:
     DCC_NAMESPACE::ModuleObject *m_moduleRoot;

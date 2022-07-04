@@ -20,7 +20,7 @@
 */
 #ifndef TIMESETTINGMODULE_H
 #define TIMESETTINGMODULE_H
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 
 DCC_BEGIN_NAMESPACE
 class SettingsGroup;
@@ -36,7 +36,7 @@ class DatetimeWorker;
 class QSpinBox;
 class DateWidget;
 
-class TimeSettingModule : public DCC_NAMESPACE::ModuleObject
+class TimeSettingModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:

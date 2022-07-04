@@ -9,17 +9,30 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_FLAGS "-g -Wall -Werror=return-type")
 
+# asan 自己有内存泄露，暂不使用
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(UNITTEST ON)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O1 -g -fsanitize=address -fno-omit-frame-pointer")
+else()
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Ofast")
+
+    # generate qm
+    execute_process(COMMAND bash "translate_generation.sh"
+                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+endif()
+
+# GNU 默认
+set(SAFE_COMPILER "-fstack-protector-strong -D_FORTITY_SOURCE=1 -z noexecstack -pie -fPIC -z lazy")
+set(UT_COMPILER -fprofile-arcs -ftest-coverage)
+
+# Clang
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    set(SAFE_COMPILER "-fstack-protector-strong -D_FORTITY_SOURCE=1 -fPIC")
+    set(UT_COMPILER -fprofile-instr-generate -ftest-coverage)
 endif()
 
 # 增加安全编译参数
-ADD_DEFINITIONS("-fstack-protector-strong -D_FORTITY_SOURCE=1 -z noexecstack -pie -fPIC -z lazy")
-
-# asan 自己有内存泄露，暂不使用
-if (CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -lasan -O -g -fsanitize=address -fno-omit-frame-pointer")
-endif()
+ADD_DEFINITIONS(${SAFE_COMPILER})
 
 if (DEFINED ENABLE_MIEEE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mieee")
@@ -28,14 +41,6 @@ endif()
 # Install settings
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
-endif ()
-
-if (NOT (${CMAKE_BUILD_TYPE} MATCHES "Debug"))
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Ofast")
-
-    # generate qm
-    execute_process(COMMAND bash "translate_generation.sh"
-                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif ()
 
 # Find the library
@@ -77,11 +82,11 @@ add_library(${Interface_Name} SHARED
 
 set(Interface_Includes
     Qt5::Widgets
-    ${DtkCore_INCLUDE_DIRS}
+    include/interface
 )
 set(Interface_Libraries
     Qt5::Widgets
-    ${DtkCore_LIBRARIES}
+    ${DtkWidget_LIBRARIES}
 )
 target_include_directories(${Interface_Name} PUBLIC
     ${Interface_Includes}
@@ -107,12 +112,14 @@ add_library(${Dcc_Widgets_Name} SHARED
 set(Dcc_Widgets_Includes
     ${DtkWidget_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
+    include/widgets
 )
 set(Dcc_Widgets_Libraries
     ${DtkWidget_LIBRARIES}
     Qt5::Widgets
     Qt5::Svg
     Qt5::DBus
+    ${Interface_Name}
 )
 target_include_directories(${Dcc_Widgets_Name} PUBLIC
     ${Dcc_Widgets_Includes}
@@ -135,7 +142,7 @@ if (UNITTEST)
         ${UT_Dcc_Widgets_SRCS}
     )
     # 用于测试覆盖率的编译条件
-    target_compile_options(${UT_Dcc_Widgets_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+    target_compile_options(${UT_Dcc_Widgets_Name} PRIVATE ${UT_COMPILER})
     target_include_directories(${UT_Dcc_Widgets_Name} PUBLIC
         ${Dcc_Widgets_Includes}
     )
@@ -194,7 +201,7 @@ install(FILES ${QM_FILES} DESTINATION share/${PROJECT_NAME}/translations)
 install(FILES misc/dde-control-center.desktop DESTINATION share/applications)
 
 #service
-install(FILES misc/org.deepin.dde.ControlCenter.service DESTINATION share/dbus-1/services)
+install(FILES misc/org.deepin.dde.ControlCenter1.service DESTINATION share/dbus-1/services)
 
 # dev files
 file(GLOB HEADERS "include/*")
@@ -224,7 +231,7 @@ if (UNITTEST)
     )
 
     # 用于测试覆盖率的编译条件
-    target_compile_options(${UT_Interface_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+    target_compile_options(${UT_Interface_Name} PRIVATE ${UT_COMPILER})
 
     target_include_directories(${UT_Interface_Name} PUBLIC
         ${Interface_Includes}
@@ -248,7 +255,7 @@ if (UNITTEST)
     )
 
     # 用于测试覆盖率的编译条件
-    target_compile_options(${UT_Frame_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+    target_compile_options(${UT_Frame_Name} PRIVATE ${UT_COMPILER})
 
     target_include_directories(${UT_Frame_Name} PUBLIC
         ${Control_Center_Includes}
@@ -371,7 +378,7 @@ if (UNITTEST)
     )
 
     # 用于测试覆盖率的编译条件
-    target_compile_options(${UT_SystemInfo_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+    target_compile_options(${UT_SystemInfo_Name} PRIVATE ${UT_COMPILER})
 
     target_include_directories(${UT_SystemInfo_Name} PUBLIC
         ${SystemInfo_Includes}
@@ -469,7 +476,7 @@ if (UNITTEST)
     )
 
     # 用于测试覆盖率的编译条件
-    target_compile_options(${UT_Mouse_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+    target_compile_options(${UT_Mouse_Name} PRIVATE ${UT_COMPILER})
 
     target_include_directories(${UT_Mouse_Name} PUBLIC
         ${Mouse_Includes}
@@ -532,7 +539,7 @@ if (UNITTEST)
     )
 
     # 用于测试覆盖率的编译条件
-    target_compile_options(${UT_CommonInfo_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+    target_compile_options(${UT_CommonInfo_Name} PRIVATE ${UT_COMPILER})
 
     target_include_directories(${UT_CommonInfo_Name} PUBLIC
         ${CommonInfo_Includes}
@@ -711,7 +718,7 @@ if (UNITTEST)
     )
 
     # 用于测试覆盖率的编译条件
-    target_compile_options(${UT_KeyBoard_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+    target_compile_options(${UT_KeyBoard_Name} PRIVATE ${UT_COMPILER})
 
     target_include_directories(${UT_KeyBoard_Name} PUBLIC
         ${KeyBoard_Includes}
@@ -1047,7 +1054,7 @@ if (UNITTEST)
     )
 
     # 用于测试覆盖率的编译条件
-    target_compile_options(${UT_Notification_Name} PRIVATE -fprofile-arcs -ftest-coverage)
+    target_compile_options(${UT_Notification_Name} PRIVATE ${UT_COMPILER})
 
     target_include_directories(${UT_Notification_Name} PUBLIC
         ${Notification_Includes}

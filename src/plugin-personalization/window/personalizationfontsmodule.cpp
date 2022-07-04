@@ -41,14 +41,12 @@ DCC_USE_NAMESPACE
 //DCORE_USE_NAMESPACE
 
 PersonalizationFontsModule::PersonalizationFontsModule(PersonalizationModel *model, PersonalizationWorker *work, QObject *parent)
-    : ModuleObject("personalizationFont", tr("Font"), QIcon::fromTheme("dcc_Font"), parent)
+    : PageModule("personalizationFont", tr("Font"), QIcon::fromTheme("dcc_Font"), parent)
     , m_standardModel(new QStandardItemModel(this))
     , m_monospacedModel(new QStandardItemModel(this))
     , m_model(model)
     , m_work(work)
 {
-    setChildType(ModuleObject::Page);
-
     setStandList(m_model->getStandFontModel()->getFontList());
     connect(m_model->getStandFontModel(), &FontModel::listChanged, this, &PersonalizationFontsModule::setStandList);
 

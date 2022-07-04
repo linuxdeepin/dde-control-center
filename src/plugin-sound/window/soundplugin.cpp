@@ -22,6 +22,7 @@
 #include <QApplication>
 #include <DFontSizeManager>
 #include "widgets/titlelabel.h"
+#include "interface/pagemodule.h"
 #include "soundplugin.h"
 #include "soundmodel.h"
 #include "soundworker.h"
@@ -42,32 +43,27 @@ ModuleObject *SoundPlugin::module()
 {
     // 一级页面
     SoundModule *soundInterface = new SoundModule;
-    soundInterface->setChildType(ModuleObject::HList);
 
     // 二级 -- 输出
-    ModuleObject *moduleOutput = new ModuleObject("output", tr("Output"), this);
-    moduleOutput->setChildType(ModuleObject::Page);
+    ModuleObject *moduleOutput = new PageModule("output", tr("Output"), this);
     OutputModule *outputPage = new OutputModule(soundInterface->model(), soundInterface->work(), moduleOutput);
     moduleOutput->appendChild(outputPage);
     soundInterface->appendChild(moduleOutput);
 
     // 二级 -- 输入
-    ModuleObject *moduleInput = new ModuleObject("input", tr("Input"), this);
-    moduleInput->setChildType(ModuleObject::Page);
+    ModuleObject *moduleInput = new PageModule("input", tr("Input"), this);
     InputModule *inputPage = new InputModule(soundInterface->model(), soundInterface->work(), moduleInput);
     moduleInput->appendChild(inputPage);
     soundInterface->appendChild(moduleInput);
 
     // 二级 -- 系统音效
-    ModuleObject *moduleSoundEffects = new ModuleObject("soundEffects", tr("Sound Effects"), this);
-    moduleSoundEffects->setChildType(ModuleObject::Page);
+    ModuleObject *moduleSoundEffects = new PageModule("soundEffects", tr("Sound Effects"), this);
     SoundEffectsModule *effectsPage = new SoundEffectsModule(soundInterface->model(), soundInterface->work(), moduleSoundEffects);
     moduleSoundEffects->appendChild(effectsPage);
     soundInterface->appendChild(moduleSoundEffects);
 
     // 二级 -- 设备管理
-    ModuleObject *moduleDevices = new ModuleObject(tr("devices"), tr("Devices"), this);
-    moduleDevices->setChildType(ModuleObject::Page);
+    ModuleObject *moduleDevices = new PageModule(tr("devices"), tr("Devices"), this);
 
     DeviceTitleModule *inputTitle = new DeviceTitleModule(tr("inputDevices"), tr("Input Devices"), moduleDevices);
     moduleDevices->appendChild(inputTitle);
@@ -83,13 +79,13 @@ ModuleObject *SoundPlugin::module()
     return soundInterface;
 }
 
-int SoundPlugin::location() const
+QString SoundPlugin::location() const
 {
-    return 9;
+    return "9";
 }
 
 SoundModule::SoundModule(QObject *parent)
-    : ModuleObject("sound", tr("sound"), tr("sound"), QIcon::fromTheme("dcc_nav_sound"), parent)
+    : HListModule("sound", tr("sound"), tr("sound"), QIcon::fromTheme("dcc_nav_sound"), parent)
     , m_model(new SoundModel(this))
     , m_work(new SoundWorker(m_model, this))
 {

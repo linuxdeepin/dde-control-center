@@ -39,13 +39,12 @@ DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
 
 UpdateSettingsModule::UpdateSettingsModule(UpdateModel *model, UpdateWorker *work, QObject *parent)
-    : ModuleObject(parent)
+    : PageModule(parent)
     , m_model(model)
     , m_work(work)
 {
     setName("updateSettings");
     setDisplayName(tr("Update Settings"));
-    setChildType(ModuleObject::Page);
 
     initConnection();
     initModuleList();

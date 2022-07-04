@@ -1,5 +1,6 @@
 #include "updateplugin.h"
 #include "updatesettingsmodule.h"
+#include "interface/pagemodule.h"
 
 #include "updatemodel.h"
 #include "updatewidget.h"
@@ -25,11 +26,9 @@ ModuleObject *UpdatePlugin::module()
     }
     // 一级页面
     UpdateModule *updateInterface = new UpdateModule;
-    updateInterface->setChildType(ModuleObject::HList);
 
     // 检查更新
-    ModuleObject *moduleUpdate = new ModuleObject("checkForUpdates", tr("Check for Updates"), this);
-    moduleUpdate->setChildType(ModuleObject::Page);
+    ModuleObject *moduleUpdate = new PageModule("checkForUpdates", tr("Check for Updates"), this);
     checkUpdateModule *checkUpdatePage = new checkUpdateModule(updateInterface->model(), updateInterface->work(), moduleUpdate);
     moduleUpdate->appendChild(checkUpdatePage);
     updateInterface->appendChild(moduleUpdate);
@@ -41,13 +40,13 @@ ModuleObject *UpdatePlugin::module()
     return updateInterface;
 }
 
-int UpdatePlugin::location() const
+QString UpdatePlugin::location() const
 {
-    return 13;
+    return "13";
 }
 
 UpdateModule::UpdateModule(QObject *parent)
-    : ModuleObject(tr("update"),tr("update"),tr("update"),QIcon::fromTheme("dcc_nav_update"),parent)
+    : HListModule(tr("update"),tr("update"),tr("update"),QIcon::fromTheme("dcc_nav_update"),parent)
     , m_model(new UpdateModel(this))
     , m_work(new UpdateWorker(m_model, this))
 {

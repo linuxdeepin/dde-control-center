@@ -34,6 +34,7 @@
 #include "customedit.h"
 #include "shortcutcontentdialog.h"
 #include "widgets/widgetmodule.h"
+#include "interface/pagemodule.h"
 
 #include <DFloatingButton>
 
@@ -62,11 +63,9 @@ ModuleObject *KeyboardPlugin::module()
     moduleInterface->setDisplayName(tr("Keyboard and Language"));
     moduleInterface->setDescription(tr("Keyboard and Language"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_keyboard"));
-    moduleInterface->setChildType(ModuleObject::HList);
 
     //二级菜单--键盘
-    ModuleObject *moduleKeyBoard = new ModuleObject("keyboardGeneral", tr("Keyboard"), this);
-    moduleKeyBoard->setChildType(ModuleObject::Page);
+    ModuleObject *moduleKeyBoard = new PageModule("keyboardGeneral", tr("Keyboard"), this);
 
     //为二级菜单-键盘添加children
     GeneralSettingModule *generalSettingModule = new GeneralSettingModule(moduleInterface->model(), moduleInterface->worker());
@@ -84,15 +83,13 @@ ModuleObject *KeyboardPlugin::module()
     moduleInterface->appendChild(moduleKeyBoard);
 
     //二级菜单--系统语言
-    ModuleObject *moduleSystemLanguageSetting = new ModuleObject("keyboardLanguage", tr("Language"), this);
-    moduleSystemLanguageSetting->setChildType(ModuleObject::Page);
+    ModuleObject *moduleSystemLanguageSetting = new PageModule("keyboardLanguage", tr("Language"), this);
     SystemLanguageSettingModule *systemLanguageSettingModule = new SystemLanguageSettingModule(moduleInterface->model(), moduleInterface->worker());
     moduleSystemLanguageSetting->appendChild(systemLanguageSettingModule);
     moduleInterface->appendChild(moduleSystemLanguageSetting);
 
     //二级菜单--快捷键
     ShortCutSettingMenuModule *moduleShortCutSetting = new ShortCutSettingMenuModule("keyboardShortcuts", tr("Shortcuts"), this);
-    moduleShortCutSetting->setChildType(ModuleObject::Page);
     ShortCutSettingModule *shortCutSettingModule = new ShortCutSettingModule(moduleInterface->model(), moduleInterface->worker(), moduleInterface->shortcutModel());
     moduleShortCutSetting->appendChild(shortCutSettingModule);
     ModuleObject *customShortcutModule = new WidgetModule<KeyboardFloatingButton>("AddCustomShortCut","AddCustomShortCut",[shortCutSettingModule](KeyboardFloatingButton *customShortcut){
@@ -107,13 +104,13 @@ ModuleObject *KeyboardPlugin::module()
     return moduleInterface;
 }
 
-int KeyboardPlugin::location() const
+QString KeyboardPlugin::location() const
 {
-    return 15;
+    return "15";
 }
 
 KeyboardModule::KeyboardModule(QObject *parent)
-    : ModuleObject(parent)
+    : HListModule(parent)
     , m_model(nullptr)
     , m_shortcutModel(nullptr)
     , m_work(nullptr)

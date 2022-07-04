@@ -20,6 +20,7 @@
  */
 #include "notificationmodule.h"
 #include "notificationwidget.h"
+#include "interface/pagemodule.h"
 #include "src/plugin-notification/operation/notificationmodel.h"
 #include "src/plugin-notification/operation/notificationworker.h"
 #include "src/plugin-notification/operation/model/appitemmodel.h"
@@ -41,21 +42,20 @@ QString NotificationPlugin::name() const
 ModuleObject *NotificationPlugin::module()
 {
     //一级菜单--通知
-    ModuleObject *moduleInterface = new ModuleObject(this);
+    ModuleObject *moduleInterface = new PageModule(this);
     moduleInterface->setName("notification");
     moduleInterface->setDisplayName(tr("Notification"));
     moduleInterface->setDescription(tr("Notification"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_notification"));
-    moduleInterface->setChildType(ModuleObject::Page);
 
     NotificationModule *displayModule = new NotificationModule(moduleInterface);
     moduleInterface->appendChild(displayModule);
     return moduleInterface;
 }
 
-int NotificationPlugin::location() const
+QString NotificationPlugin::location() const
 {
-    return 7;
+    return "7";
 }
 
 

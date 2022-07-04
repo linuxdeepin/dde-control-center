@@ -78,10 +78,7 @@ protected:
     void paintEvent(QPaintEvent *e) override;
     bool viewportEvent(QEvent *event) override;
 
-private:
-    ListViewPrivate *const d_ptr;
-    Q_DECLARE_PRIVATE(ListView)
-    Q_DISABLE_COPY(ListView)
+    DCC_DECLARE_PRIVATE(ListView)
 };
 
 } // namespace DCC_NAMESPACE

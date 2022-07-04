@@ -47,21 +47,20 @@ QString DisplayPlugin::name() const
 ModuleObject * DisplayPlugin::module()
 {
     //一级菜单--显示
-    ModuleObject *moduleInterface = new ModuleObject(this);
+    ModuleObject *moduleInterface = new PageModule(this);
     moduleInterface->setName("display");
     moduleInterface->setDisplayName(tr("Display"));
     moduleInterface->setDescription(tr("Display"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_display"));
-    moduleInterface->setChildType(ModuleObject::Page);
 
     DisplayModule *displayModule = new DisplayModule(moduleInterface);
     moduleInterface->appendChild(displayModule);
     return moduleInterface;
 }
 
-int DisplayPlugin::location() const
+QString DisplayPlugin::location() const
 {
-    return 2;
+    return "2";
 }
 
 QWidget *DisplayModule::page()

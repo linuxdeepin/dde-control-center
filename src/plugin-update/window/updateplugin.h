@@ -22,7 +22,7 @@
 #ifndef UPDATEPLUGIN_H
 #define UPDATEPLUGIN_H
 
-#include "interface/moduleobject.h"
+#include "interface/hlistmodule.h"
 #include "interface/plugininterface.h"
 
 DCC_USE_NAMESPACE
@@ -40,11 +40,11 @@ public:
 
     virtual QString name() const override;
     virtual ModuleObject *module() override;
-    virtual int location() const override;
+    virtual QString location() const override;
 };
 
 // 一级页面
-class UpdateModule : public ModuleObject
+class UpdateModule : public HListModule
 {
     Q_OBJECT
 public:

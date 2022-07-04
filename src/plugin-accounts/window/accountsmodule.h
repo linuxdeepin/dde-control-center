@@ -22,7 +22,7 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 #include "interface/plugininterface.h"
 
 #include <DLineEdit>
@@ -58,7 +58,7 @@ class AccountsPlugin : public PluginInterface
 public:
     virtual QString name() const override;
     virtual ModuleObject *module() override;
-    virtual int location() const override;
+    virtual QString location() const override;
 };
 ///////////////////////////////////////
 class AccountSpinBox : public DTK_WIDGET_NAMESPACE::DSpinBox
@@ -73,7 +73,7 @@ protected:
     void focusOutEvent(QFocusEvent *event) override;
 };
 ///////////////////////////////////////
-class AccountsModule : public ModuleObject
+class AccountsModule : public PageModule
 {
     Q_OBJECT
 

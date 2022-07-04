@@ -145,27 +145,27 @@ int main(int argc, char *argv[])
     if (!app->setSingleInstance(app->applicationName())) {
         if (parser.isSet(toggleOption)) {
             DDBusSender()
-            .service("org.deepin.dde.ControlCenter")
-            .interface("org.deepin.dde.ControlCenter")
-            .path("/org/deepin/dde/ControlCenter")
+            .service("org.deepin.dde.ControlCenter1")
+            .interface("org.deepin.dde.ControlCenter1")
+            .path("/org/deepin/dde/ControlCenter1")
             .method("Toggle")
             .call();
         }
 
         if (!reqPage.isEmpty()) {
             DDBusSender()
-            .service("org.deepin.dde.ControlCenter")
-            .interface("org.deepin.dde.ControlCenter")
-            .path("/org/deepin/dde/ControlCenter")
+            .service("org.deepin.dde.ControlCenter1")
+            .interface("org.deepin.dde.ControlCenter1")
+            .path("/org/deepin/dde/ControlCenter1")
             .method("ShowPage")
             .arg(reqPage)
             .call();
         }
         else if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
             DDBusSender()
-            .service("org.deepin.dde.ControlCenter")
-            .interface("org.deepin.dde.ControlCenter")
-            .path("/org/deepin/dde/ControlCenter")
+            .service("org.deepin.dde.ControlCenter1")
+            .interface("org.deepin.dde.ControlCenter1")
+            .path("/org/deepin/dde/ControlCenter1")
             .method("Show")
             .call();
         }
@@ -206,8 +206,8 @@ int main(int argc, char *argv[])
     // DBusControlCenterGrandSearchService grandSearchadAptor(&mw);
 
     QDBusConnection conn = QDBusConnection::sessionBus();
-    if (!conn.registerService("org.deepin.dde.ControlCenter") ||
-        !conn.registerObject("/org/deepin/dde/ControlCenter", &mw)) {
+    if (!conn.registerService("org.deepin.dde.ControlCenter1") ||
+        !conn.registerObject("/org/deepin/dde/ControlCenter1", &mw)) {
         qDebug() << "dbus service already registered!" << "pid is:" << pid;
         if (!parser.isSet(showOption))
             return -1;

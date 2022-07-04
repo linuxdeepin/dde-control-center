@@ -65,7 +65,7 @@ public:
     void appendItem(SettingsItem *item, BackgroundStyle bgStyle);
     void removeItem(SettingsItem *item);
     void moveItem(SettingsItem *item, const int index);
-    void setSpacing(const int spaceing);
+    void setSpacing(const int spacing);
 
     int itemCount() const;
     void clear();

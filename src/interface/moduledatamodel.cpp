@@ -20,7 +20,6 @@
 */
 #include "moduledatamodel.h"
 #include "interface/moduleobject.h"
-#include "interface/layoutbase.h"
 
 #include <dstyleoption.h>
 
@@ -88,14 +87,14 @@ Qt::ItemFlags ModuleDataModel::flags(const QModelIndex &index) const
 {
     Qt::ItemFlags flag = QAbstractItemModel::flags(index);
     ModuleObject *module = static_cast<ModuleObject *>(index.internalPointer());
-    flag.setFlag(Qt::ItemIsEnabled, !LayoutBase::IsDisabled(module));
+    flag.setFlag(Qt::ItemIsEnabled, !ModuleObject::IsDisabled(module));
     return flag;
 }
 
 void ModuleDataModel::onDataChanged(QObject *obj)
 {
     ModuleObject *const module = static_cast<ModuleObject *const>(obj);
-    if (module->extra() || LayoutBase::IsHiden(module))
+    if (module->extra() || ModuleObject::IsHiden(module))
         onRemovedChild(module);
     else {
         int row = m_data.indexOf(module);
@@ -110,7 +109,7 @@ void ModuleDataModel::onDataChanged(QObject *obj)
 
 void ModuleDataModel::onInsertChild(ModuleObject *const module)
 {
-    if (module->extra() || LayoutBase::IsHiden(module) || m_data.contains(module))
+    if (module->extra() || ModuleObject::IsHiden(module) || m_data.contains(module))
         return;
 
     int row = 0;
@@ -135,7 +134,7 @@ void ModuleDataModel::onRemovedChild(ModuleObject *const module)
     }
 }
 
-void ModuleDataModel::setData(ModuleObject *const module)
+void ModuleDataModel::setModuleObject(ModuleObject *const module)
 {
     m_parentObject = module;
     QList<ModuleObject *> datas = m_parentObject->childrens();
@@ -143,7 +142,7 @@ void ModuleDataModel::setData(ModuleObject *const module)
     beginResetModel();
     m_data.clear();
     for (ModuleObject *tmpModule : datas) {
-        if (!tmpModule->extra() && !LayoutBase::IsHiden(tmpModule))
+        if (!tmpModule->extra() && !ModuleObject::IsHiden(tmpModule))
             m_data.append(tmpModule);
     }
     endResetModel();
@@ -152,6 +151,8 @@ void ModuleDataModel::setData(ModuleObject *const module)
     connect(m_parentObject, &ModuleObject::insertedChild, this, &ModuleDataModel::onInsertChild);
     connect(m_parentObject, &ModuleObject::removedChild, this, &ModuleDataModel::onRemovedChild);
     connect(m_parentObject, &ModuleObject::childStateChanged, this, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+        Q_UNUSED(flag)
+        Q_UNUSED(state)
         onDataChanged(tmpChild);
     });
 }

@@ -47,10 +47,7 @@ public:
 Q_SIGNALS:
     void serviceValidChanged(const bool valid) const;
 
-private:
-    QScopedPointer<DCCDBusInterfacePrivate> d_ptr;
-    Q_DECLARE_PRIVATE(DCCDBusInterface)
-    Q_DISABLE_COPY(DCCDBusInterface)
+    DCC_DECLARE_PRIVATE(DCCDBusInterface)
 };
 
 DCC_END_NAMESPACE

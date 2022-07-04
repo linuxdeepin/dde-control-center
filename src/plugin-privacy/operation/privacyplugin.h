@@ -21,7 +21,7 @@
 #ifndef PRIVACYPLUGIN_H
 #define PRIVACYPLUGIN_H
 
-#include "interface/moduleobject.h"
+#include "interface/vlistmodule.h"
 #include "interface/plugininterface.h"
 
 #include <QWidget>
@@ -42,14 +42,14 @@ public:
 
     virtual QString name() const override;
     virtual ModuleObject *module() override;
-    virtual int location() const override;
+    virtual QString location() const override;
 
 private:
     DCC_NAMESPACE::ModuleObject *m_moduleRoot;
 };
 
 // 一级
-class PrivacyModule : public DCC_NAMESPACE::ModuleObject
+class PrivacyModule : public DCC_NAMESPACE::VListModule
 {
     Q_OBJECT
 public:

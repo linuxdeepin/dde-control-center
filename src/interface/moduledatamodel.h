@@ -34,7 +34,7 @@ class ModuleDataModel : public QAbstractItemModel
 public:
     explicit ModuleDataModel(QObject *parent = nullptr);
 
-    void setData(ModuleObject *const module);
+    void setModuleObject(ModuleObject *const module);
     QModelIndex index(DCC_NAMESPACE::ModuleObject *module) const;
     // Basic functionality:
     QModelIndex index(int row, int column,

@@ -22,7 +22,7 @@
 #ifndef DOCKPLUGIN_H
 #define DOCKPLUGIN_H
 
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 #include "interface/plugininterface.h"
 
 #include "dtkwidget_global.h"
@@ -56,10 +56,10 @@ public:
     virtual QString name() const override;
     virtual ModuleObject *module() override;
     virtual QString follow() const override;
-    virtual int location() const override;
+    virtual QString location() const override;
 };
 
-class DockModuleObject : public ModuleObject
+class DockModuleObject : public PageModule
 {
     Q_OBJECT
 
@@ -82,7 +82,7 @@ private Q_SLOTS:
     void initPluginView(DListView *view);
 
 private:
-    QSharedPointer<DockDBusProxy> m_dbusProxy;
+    QScopedPointer<DockDBusProxy> m_dbusProxy;
 };
 
 #endif // DOCKPLUGIN_H

@@ -21,7 +21,7 @@
 #ifndef BLUETOOTHMODULE_H
 #define BLUETOOTHMODULE_H
 
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 
 #include <QDBusObjectPath>
 
@@ -33,7 +33,7 @@ class QDBusObjectPath;
 class PinCodeDialog;
 class AdapterModule;
 
-class BluetoothModule : public DCC_NAMESPACE::ModuleObject
+class BluetoothModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 

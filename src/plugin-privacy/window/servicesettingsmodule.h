@@ -1,7 +1,7 @@
 #ifndef SERVICESETTINGSMODULE_H
 #define SERVICESETTINGSMODULE_H
 
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 #include <dtkwidget_global.h>
 #include <QObject>
 #include <privacysecuritymodel.h>
@@ -22,7 +22,7 @@ DWIDGET_END_NAMESPACE
 class PrivacySecurityWorker;
 
 // 三级详情页
-class ServiceSettingsModule : public DCC_NAMESPACE::ModuleObject
+class ServiceSettingsModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:

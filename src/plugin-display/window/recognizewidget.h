@@ -47,7 +47,7 @@ public:
     explicit RecognizeWidget(Monitor *monitor, QString name, QWidget *parent = nullptr);
 
 protected:
-    void paintEvent(QPaintEvent *);
+    void paintEvent(QPaintEvent *) override;
     void timerEvent(QTimerEvent *event) override;
 
 private Q_SLOTS:

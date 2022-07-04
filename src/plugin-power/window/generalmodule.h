@@ -21,7 +21,7 @@
 #ifndef GENERALMODULE_H
 #define GENERALMODULE_H
 
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 
 #include <DListView>
 
@@ -33,7 +33,7 @@ class DCCListView;
 class PowerModel;
 class PowerWorker;
 
-class GeneralModule : public DCC_NAMESPACE::ModuleObject
+class GeneralModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:

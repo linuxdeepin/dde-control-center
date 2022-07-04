@@ -22,7 +22,7 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "interface/moduleobject.h"
+#include "interface/hlistmodule.h"
 #include "interface/plugininterface.h"
 
 #include <QObject>
@@ -46,11 +46,11 @@ class MousePlugin : public PluginInterface
 public:
     virtual QString name() const override;
     virtual ModuleObject *module() override;
-    virtual int location() const override;
+    virtual QString location() const override;
 };
 
 //一级菜单
-class MouseModule : public ModuleObject
+class MouseModule : public HListModule
 {
     Q_OBJECT
 public:

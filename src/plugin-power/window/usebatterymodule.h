@@ -21,7 +21,7 @@
 #ifndef USEBATTERYMODULE_H
 #define USEBATTERYMODULE_H
 
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 
 #include <DListView>
 
@@ -35,7 +35,7 @@ DCC_END_NAMESPACE
 class PowerModel;
 class PowerWorker;
 
-class UseBatteryModule : public DCC_NAMESPACE::ModuleObject
+class UseBatteryModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:

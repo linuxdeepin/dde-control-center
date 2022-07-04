@@ -20,6 +20,7 @@
  */
 
 #include "commoninfomodule.h"
+#include "interface/pagemodule.h"
 #include "src/plugin-commoninfo/operation/commoninfomodel.h"
 #include "src/plugin-commoninfo/operation/commoninfowork.h"
 
@@ -34,7 +35,7 @@ DCC_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 CommonInfoModule::CommonInfoModule(QObject *parent)
-    : ModuleObject(parent)
+    : HListModule(parent)
     , m_worker(nullptr)
     , m_model(nullptr)
 {
@@ -66,25 +67,21 @@ ModuleObject *CommonInfoPlugin::module()
     moduleInterface->setDisplayName(tr("General Settings"));
     moduleInterface->setDescription(tr("General Settings"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_commoninfo"));
-    moduleInterface->setChildType(ModuleObject::HList);
 
     //二级菜单--启动菜单
-    ModuleObject *moduleBootMenu = new ModuleObject("bootMenu", tr("Boot Menu"), this);
-    moduleBootMenu->setChildType(ModuleObject::Page);
+    ModuleObject *moduleBootMenu = new PageModule("bootMenu", tr("Boot Menu"), this);
     BootModule *bootModule = new BootModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
     moduleBootMenu->appendChild(bootModule);
     moduleInterface->appendChild(moduleBootMenu);
 
     //二级菜单--开发者模式
-    ModuleObject *moduleDeveloperMode = new ModuleObject("developerMode", tr("Developer Mode"), this);
-    moduleDeveloperMode->setChildType(ModuleObject::Page);
+    ModuleObject *moduleDeveloperMode = new PageModule("developerMode", tr("Developer Mode"), this);
     DeveloperModeModule *developerModeModule = new DeveloperModeModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
     moduleDeveloperMode->appendChild(developerModeModule);
     moduleInterface->appendChild(moduleDeveloperMode);
 
     //二级菜单--开发者模式
-    ModuleObject *moduleUserExperienceProgram = new ModuleObject("userExperienceProgram", tr("User Experience Program"), this);
-    moduleUserExperienceProgram->setChildType(ModuleObject::Page);
+    ModuleObject *moduleUserExperienceProgram = new PageModule("userExperienceProgram", tr("User Experience Program"), this);
     UserExperienceProgramModule *userExperienceProgramModule = new UserExperienceProgramModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
     moduleUserExperienceProgram->appendChild(userExperienceProgramModule);
     moduleInterface->appendChild(moduleUserExperienceProgram);
@@ -92,9 +89,9 @@ ModuleObject *CommonInfoPlugin::module()
     return moduleInterface;
 }
 
-int CommonInfoPlugin::location() const
+QString CommonInfoPlugin::location() const
 {
-    return 22;
+    return "22";
 }
 
 QWidget *DeveloperModeModule::page()

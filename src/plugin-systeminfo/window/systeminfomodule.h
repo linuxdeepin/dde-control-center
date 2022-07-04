@@ -22,7 +22,7 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "interface/moduleobject.h"
+#include "interface/hlistmodule.h"
 #include "interface/plugininterface.h"
 
 class HostNameItem;
@@ -41,10 +41,10 @@ class SystemInfoPlugin : public PluginInterface
 public:
     virtual QString name() const override;
     virtual ModuleObject *module() override;
-    virtual int location() const override;
+    virtual QString location() const override;
 };
 
-class SystemInfoModule : public ModuleObject
+class SystemInfoModule : public HListModule
 {
     Q_OBJECT
 public:

@@ -33,11 +33,10 @@ DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 UseElectricModule::UseElectricModule(PowerModel *model, PowerWorker *work, QObject *parent)
-    : ModuleObject("pluggedIn", tr("UseElectric"), QIcon::fromTheme("dcc_using_electric"), parent)
+    : PageModule("pluggedIn", tr("UseElectric"), QIcon::fromTheme("dcc_using_electric"), parent)
     , m_model(model)
     , m_work(work)
 {
-    setChildType(ModuleObject::Page);
     deactive();
     connect(this, &UseElectricModule::requestSetScreenBlackDelayOnPower, m_work, &PowerWorker::setScreenBlackDelayOnPower);
     connect(this, &UseElectricModule::requestSetSleepDelayOnPower, m_work, &PowerWorker::setSleepDelayOnPower);

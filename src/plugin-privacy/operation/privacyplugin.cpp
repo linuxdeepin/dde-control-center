@@ -34,13 +34,10 @@
 DCC_USE_NAMESPACE
 
 PrivacyModule::PrivacyModule(QObject *parent)
-    : ModuleObject("privacyAndSecurity", tr("Privacy and Security"), tr("Privacy and Security"), QIcon::fromTheme("dcc_nav_privacy"),parent)
+    : VListModule("Privacy and Security", tr("Privacy and Security"), tr("Privacy and Security"), QIcon::fromTheme("dcc_nav_privacy"),parent)
     , m_model(new PrivacySecurityModel(this))
     , m_work(new PrivacySecurityWorker(m_model, this))
 {
-    // 一级
-    setChildType(ModuleObject::VList);
-
     for (DCC_PRIVACY_NAMESPACE::DATE iter : m_model->getModuleInfo()) {
         // 添加三级页面
         appendChild(new ServiceSettingsModule(iter, m_model, m_work, this));
@@ -77,7 +74,7 @@ ModuleObject *PrivacyPlugin::module()
     return m_moduleRoot;
 }
 
-int PrivacyPlugin::location() const
+QString PrivacyPlugin::location() const
 {
-    return 0;
+    return "0";
 }

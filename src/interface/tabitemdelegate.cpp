@@ -19,7 +19,6 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "tabitemdelegate.h"
-#include "listview.h"
 
 #include <QPainter>
 #include <QIcon>

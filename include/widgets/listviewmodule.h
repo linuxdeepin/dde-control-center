@@ -18,29 +18,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef LAYOUTV20_H
-#define LAYOUTV20_H
-#include "interface/layoutbase.h"
+#ifndef LISTVIEWMODULE_H
+#define LISTVIEWMODULE_H
 
-#define LayoutV20_KEY (DCC_NAMESPACE::ModuleObject::Page | 20)
-
-#define WIDGETCHANGED_FLAG 0x00000100
-#define widgetChanged() setFlagState(WIDGETCHANGED_FLAG, !getFlagState(WIDGETCHANGED_FLAG))
-
-class QHBoxLayout;
-class QScrollArea;
-class LayoutV20 : public DCC_NAMESPACE::LayoutBase
+#include "interface/moduleobject.h"
+DCC_BEGIN_NAMESPACE
+class ListViewModulePrivate;
+class ListViewModule : public ModuleObject
 {
+    Q_OBJECT
 public:
-    explicit LayoutV20();
-    ~LayoutV20() { }
+    explicit ListViewModule(const QString &name, const QString &displayName, QObject *parent = nullptr);
+    ~ListViewModule() override;
 
-    virtual void setCurrent(DCC_NAMESPACE::ModuleObject *const child);
-    virtual QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const QList<DCC_NAMESPACE::ModuleObject *> &children);
+    QWidget *page() override;
+    inline DCC_MODULE_TYPE getClassID() const override { return LISTVIEW; }
 
-private:
-    QList<DCC_NAMESPACE::ModuleObject *> m_modules;
-    QHBoxLayout *m_layout;
+Q_SIGNALS:
+    void clicked(ModuleObject *module);
+
+    DCC_DECLARE_PRIVATE(ListViewModule)
 };
-
-#endif // LAYOUTV20_H
+DCC_END_NAMESPACE
+#endif // LISTVIEWMODULE_H

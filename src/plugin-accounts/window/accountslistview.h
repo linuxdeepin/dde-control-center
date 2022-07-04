@@ -20,6 +20,7 @@
  */
 #ifndef ACCOUNTSLISTVIEW_H
 #define ACCOUNTSLISTVIEW_H
+#include "interface/namespace.h"
 
 #include <QListView>
 class AccountsListViewPrivate;
@@ -56,10 +57,7 @@ protected:
     bool viewportEvent(QEvent *event) override;
     void wheelEvent(QWheelEvent *e) override;
 
-private:
-    QScopedPointer<AccountsListViewPrivate> d_ptr;
-    Q_DECLARE_PRIVATE(AccountsListView)
-    Q_DISABLE_COPY(AccountsListView)
+    DCC_DECLARE_PRIVATE(AccountsListView)
 };
 
 #endif // ACCOUNTSLISTVIEW_H

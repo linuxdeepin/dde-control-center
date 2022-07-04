@@ -47,16 +47,9 @@ class QAbstractItemView;
 namespace DCC_NAMESPACE
 {
 
-class LayoutBase;
-class LayoutManager;
 class ModuleObject;
 class PluginManager;
 class SearchWidget;
-struct WidgetData {
-    ModuleObject *module;
-    QWidget *w;
-    LayoutBase *layout;
-};
 /**************forward declaring end*****************/
 
 class MainWindow : public Dtk::Widget::DMainWindow, protected QDBusContext
@@ -96,7 +89,7 @@ private:
     void clearPage(QWidget *const widget);
     void configLayout(QBoxLayout *const layout);
     void showPage(ModuleObject *const module, const QString &url, const UrlType &uType);
-    void showModule(ModuleObject *const module, QWidget *const parent);
+    void showModule(ModuleObject *const module);
     void resizeCurrentModule(int size);
 
 private Q_SLOTS:
@@ -105,17 +98,13 @@ private Q_SLOTS:
     void onTriggered();
     void onChildStateChanged(ModuleObject *const child, uint32_t flag, bool state);
     void updateModuleConfig(const QString &key);
-    void delayUpdateLayoutCurrent(LayoutBase *layout, ModuleObject *child);
-    void updateLayoutCurrent(LayoutBase *layout, ModuleObject *child);
 
 private:
-    QWidget                             *m_contentWidget;
     Dtk::Widget::DIconButton            *m_backwardBtn;         //回退按钮
     Dtk::Core::DConfig                  *m_dconfig;             //配置
     SearchWidget                        *m_searchWidget;        //搜索框
     ModuleObject                        *m_rootModule;
-    DCC_NAMESPACE::LayoutManager        *m_layoutManager;
-    QList<WidgetData>                   m_currentModule;
+    QList<ModuleObject *>               m_currentModule;
     PluginManager                       *m_pluginManager;
     bool                                m_loadAllFinished;
 

@@ -20,7 +20,7 @@
 */
 #ifndef TIMEZONEMODULE_H
 #define TIMEZONEMODULE_H
-#include "interface/moduleobject.h"
+#include "interface/pagemodule.h"
 
 #include "zoneinfo.h"
 
@@ -34,7 +34,7 @@ class DatetimeWorker;
 class TimezoneItem;
 class TimeZoneChooser;
 
-class TimezoneModule : public DCC_NAMESPACE::ModuleObject
+class TimezoneModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:

@@ -36,13 +36,12 @@ DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 TimezoneModule::TimezoneModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
-    : ModuleObject("timezoneList", tr("Timezone"), parent)
+    : PageModule("timezoneList", tr("Timezone"), parent)
     , m_model(model)
     , m_work(work)
     , m_timezoneGroup(nullptr)
 {
     deactive();
-    setChildType(ModuleObject::Page);
     connect(this, &TimezoneModule::requestRemoveUserTimeZone, m_work, &DatetimeWorker::removeUserTimeZone);
 
     appendChild(new WidgetModule<SettingsHead>("systemTimezone", tr("System Timezone"), [this](SettingsHead *w) {
