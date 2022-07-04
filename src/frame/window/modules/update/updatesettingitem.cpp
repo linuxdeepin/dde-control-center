@@ -330,3 +330,9 @@ void UpdateSettingItem::onRetryUpdate()
 
     onStartUpdate();
 }
+
+void UpdateSettingItem::updateStarted()
+{
+    m_controlWidget->showUpdateProcess(true);
+    m_controlWidget->setButtonStatus(ButtonStatus::pause);
+}

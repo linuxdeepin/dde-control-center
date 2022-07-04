@@ -34,9 +34,11 @@
 #include <QSettings>
 #include <QPushButton>
 #include <QScrollArea>
+
 #include <DFontSizeManager>
 #include <DPalette>
 #include <DSysInfo>
+#include <DDialog>
 
 #define UpgradeWarningSize 500
 #define FullUpdateBtnWidth 92
@@ -46,6 +48,7 @@ using namespace dcc::update;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::update;
+using namespace Dtk::Widget;
 
 UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     : QWidget(parent)
@@ -257,11 +260,22 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
 void UpdateCtrlWidget::initConnect()
 {
     auto initUpdateItemConnect = [ = ](UpdateSettingItem * updateItem) {
-        connect(updateItem, &UpdateSettingItem::requestUpdate, this, &UpdateCtrlWidget::requestUpdates);
+        connect(updateItem, &UpdateSettingItem::requestUpdate, this, [updateItem, this] (ClassifyUpdateType type) {
+                qInfo() << "1111111";
+            if (m_model->recoverConfigValid() || continueUpdate()) {
+                updateItem->updateStarted();
+                Q_EMIT requestUpdates(type);
+            }
+        });
         connect(updateItem, &UpdateSettingItem::requestUpdateCtrl, this, &UpdateCtrlWidget::requestUpdateCtrl);
         connect(updateItem, &UpdateSettingItem::requestRefreshSize, this, &UpdateCtrlWidget::onRequestRefreshSize);
         connect(updateItem, &UpdateSettingItem::requestRefreshWidget, this, &UpdateCtrlWidget::onRequestRefreshWidget);
-        connect(updateItem, &UpdateSettingItem::requestFixError, this, &UpdateCtrlWidget::requestFixError);
+        connect(updateItem, &UpdateSettingItem::requestFixError, this, [this] (const ClassifyUpdateType &updateType, const QString &error) {
+                qInfo() << "22222222";
+            if (m_model->recoverConfigValid() || continueUpdate()) {
+                Q_EMIT requestFixError(updateType, error);
+            }
+        });
     };
 
     initUpdateItemConnect(m_systemUpdateItem);
@@ -685,7 +699,13 @@ void UpdateCtrlWidget::onFullUpdateClicked()
                 || updateItem->status() == UpdatesStatus::DownloadPaused
                 || updateItem->status() == UpdatesStatus::UpdateFailed
                 || updateItem->status() == UpdatesStatus::AutoDownloaded) {
-            Q_EMIT  requestUpdates(updateItem->classifyUpdateType());
+                qInfo() << "33333333";
+            if (m_model->recoverConfigValid() || continueUpdate()) {
+                Q_EMIT requestUpdates(updateItem->classifyUpdateType());
+            } else {
+                qWarning() << "Do not continue update";
+                break;
+            }
         }
     }
 }
@@ -822,5 +842,28 @@ void UpdateCtrlWidget::onShowUpdateCtrl()
     }
 }
 
+/**
+ * @brief  当用户没有自动分区安装系、未安装ab-recovery或者是缺少某些更新文件的时候，
+ * 弹窗告知用户系统无法备份，是否要继续升级。
+ *
+ * @return true 继续升级
+ * @return false 停止升级
+ */
+bool UpdateCtrlWidget::continueUpdate()
+{
+    DDialog *tipDialog = new DDialog(this);
+    tipDialog->setAttribute(Qt::WA_DeleteOnClose);
+    tipDialog->setIcon(QIcon::fromTheme("dialog-warning"));
+    tipDialog->setMinimumSize(380, 158);
+    tipDialog->setModal(true);
+    tipDialog->setMessage(tr("Unable to perform system backup. Continue the update?"));
+    tipDialog->addButton(tr("Cancel"), false, DDialog::ButtonRecommend);
+    tipDialog->addButton(tr("Continue"), true, DDialog::ButtonNormal);
+    // 修改continue按钮的文字颜色
+    QAbstractButton* continueBtn = tipDialog->getButton(1);
+    QPalette pal = continueBtn->palette();
+    pal.setColor(QPalette::ButtonText, QColor("#FF5736"));
+    continueBtn->setPalette(pal);
 
-
+    return 1 ==  tipDialog->exec();
+}
