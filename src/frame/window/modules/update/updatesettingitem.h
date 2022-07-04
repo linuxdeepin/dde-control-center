@@ -66,6 +66,7 @@ public:
     void setUpdateJobErrorMessage(const UpdateErrorType &updateJobErrorMessage);
 
     void setUpdateFailedInfo();
+    void updateStarted();
 
 Q_SIGNALS:
     void UpdateSuccessed();
