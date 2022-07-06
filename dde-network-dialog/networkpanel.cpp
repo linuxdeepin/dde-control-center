@@ -152,7 +152,7 @@ void NetworkPanel::initUi()
     setControlBackground();
 
     // 支持在触摸屏上滚动
-    QScroller::grabGesture(m_netListView->window(), QScroller::LeftMouseButtonGesture);
+    QScroller::grabGesture(m_netListView->viewport(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_netListView->window());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
