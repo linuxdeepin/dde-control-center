@@ -428,6 +428,8 @@ void NetworkInterProcesser::activeConnInfoChanged(const QString &conns)
             m_networkDetails.clear();
         }
 
+        Q_EMIT activeConnectionChange();
+
         return;
     }
 
