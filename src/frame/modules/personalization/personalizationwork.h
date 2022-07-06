@@ -69,6 +69,7 @@ public Q_SLOTS:
     void setMiniEffect(int effect);
     void setActiveColor(const QString &hexColor);
     void setWindowRadius(int radius);
+    void handlePropertiesChanged(QDBusMessage msg);
 
 private Q_SLOTS:
     void FontSizeChanged(const double value) const;

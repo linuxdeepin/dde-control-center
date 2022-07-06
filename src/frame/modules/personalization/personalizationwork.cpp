@@ -83,6 +83,13 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     connect(m_wm, &WM::CompositingAllowSwitchChanged, this, &PersonalizationWork::onCompositingAllowSwitch);
     connect(m_wm, &WM::compositingEnabledChanged, this, &PersonalizationWork::onWindowWM);
 
+    // 监听窗口圆角值变化信号，以及后续增加的其他属性值变化均可在此监听
+    QDBusConnection::sessionBus().connect(Service, Path,
+                                          "org.freedesktop.DBus.Properties",
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this,
+                                          SLOT(handlePropertiesChanged(QDBusMessage)));
 
     //获取最小化设置
     if (m_setting->keys().contains("effectLoad", Qt::CaseSensitivity::CaseInsensitive)) {
@@ -561,6 +568,27 @@ void PersonalizationWork::setWindowRadius(int radius)
 {
     QDBusInterface interface(Service, Path, Service, QDBusConnection::sessionBus());
     interface.setProperty("WindowRadius", radius);
+}
+
+void PersonalizationWork::handlePropertiesChanged(QDBusMessage msg)
+{
+    QList<QVariant> arguments = msg.arguments();
+    if (3 != arguments.count()) {
+        return;
+    }
+    QString interfaceName = msg.arguments().at(0).toString();
+    if (interfaceName == Service) {
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        QStringList keys = changedProps.keys();
+        for (int i = 0; i < keys.size(); i++) {
+            // 监听窗口圆角值信号
+            if (keys.at(i) == "WindowRadius") {
+                int radius = static_cast<int>(changedProps.value(keys.at(i)).toInt());
+                m_model->setWindowRadius(radius);
+                return;
+            }
+        }
+    }
 }
 
 template<typename T>
