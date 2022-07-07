@@ -456,7 +456,7 @@ void MultiScreenWidget::onGatherWindows(const QPoint cursor)
                     if (rt.height() > screen->geometry().height())
                         rt.setHeight(screen->geometry().height());
 
-                    auto tsize = (mrt.size() / screen->devicePixelRatio() - rt.size()) / 2;
+                    auto tsize = (mrt.size() - rt.size()) / 2;
                     rt.moveTo(screen->geometry().topLeft().x() + tsize.width(), screen->geometry().topLeft().y() + tsize.height());
                     mainWin->setGeometry(rt);
                 }
@@ -470,9 +470,11 @@ void MultiScreenWidget::onGatherWindows(const QPoint cursor)
                 if (rt.height() > screen->geometry().height())
                     rt.setHeight(screen->geometry().height());
 
-                auto tsize = (mrt.size() / screen->devicePixelRatio() - rt.size()) / 2;
+                auto tsize = (mrt.size() - rt.size()) / 2;
                 rt.moveTo(screen->geometry().topLeft().x() + tsize.width(), screen->geometry().topLeft().y() + tsize.height());
                 dlg->QDialog::setGeometry(rt);
+                // 将副窗口置顶
+                dlg->activateWindow();
             }
             break;
         }
