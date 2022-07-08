@@ -38,6 +38,8 @@ PasswordWidget::PasswordWidget(int margin, const QString &userName, QWidget *par
 {
     initWidget(margin);
     initData();
+
+    qApp->setProperty("editing_username", m_userName);
 }
 
 bool PasswordWidget::checkPassword()

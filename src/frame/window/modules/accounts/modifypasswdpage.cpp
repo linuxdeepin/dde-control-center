@@ -62,6 +62,8 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     , m_localServer(new QLocalServer(this))
 {
     initWidget();
+
+    qApp->setProperty("editing_username", m_curUser->name());
 }
 
 ModifyPasswdPage::~ModifyPasswdPage()

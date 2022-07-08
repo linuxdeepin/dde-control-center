@@ -481,6 +481,8 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
 bool CreateAccountPage::checkName()
 {
     const QString &userName = m_nameEdit->lineEdit()->text();
+    // 不想大改造，所以使用动态属性去传递数据
+    qApp->setProperty("editing_username", userName);
 
     if (userName.size() < 3 || userName.size() > 32) {
         m_nameEdit->setAlert(true);
