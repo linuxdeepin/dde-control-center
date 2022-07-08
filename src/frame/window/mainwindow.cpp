@@ -82,8 +82,8 @@ const QString ModuleDirectory = "/usr/lib/dde-control-center/modules";
 const QString ControlCenterIconPath = "/usr/share/icons/bloom/apps/64/preferences-system.svg";
 const QString ControlCenterGroupName = "com.deepin.dde-grand-search.group.dde-control-center-setting";
 
-static int WidgetMinimumWidth = 820;
-static int WidgetMinimumHeight = 634;
+const int WidgetMinimumWidth = 820;
+const int WidgetMinimumHeight = 634;
 
 //此处为带边距的宽度
 const int first_widget_min_width = 188;
@@ -434,24 +434,29 @@ void MainWindow::updateWinsize(QRect rect)
     if (!qApp->screens().contains(m_primaryScreen))
         return;
 
-    if(this->isMaximized())
+    if (this->isMaximized())
         return;
 
+    // 取当前显示器大小
     int w = m_primaryScreen->geometry().width();
     int h = m_primaryScreen->geometry().height();
-    if (rect.width() && rect.height()) {
-        w = rect.width();
-        h = rect.height();
+
+    // 如果允许的最小宽度大于显示器宽度,则将允许的最小宽高对换下,例如1024*768分辨率并旋转90度时
+    if (WidgetMinimumWidth <= w) {
+        setMinimumSize(QSize(qMin(w, WidgetMinimumWidth), qMin(h, WidgetMinimumHeight)));
+    } else {
+        setMinimumSize(QSize(qMin(w, WidgetMinimumHeight), qMin(h, WidgetMinimumWidth)));
     }
-    WidgetMinimumWidth = qMin(w, 820);
-    WidgetMinimumHeight = qMin(h, 634);
 
-    setMinimumSize(QSize(WidgetMinimumWidth, WidgetMinimumHeight));
+    // 当前界面大小再和显示器比较大小，取其中最小的值
+    // 重新打开时会设置为上一次界面关闭时的大小,重新打开时显示器大小可能会有变化，需要比较大小避免打开的界面超出显示器
+    w = qMin(w, width());
+    h = qMin(h, height());
 
-    if (width() > WidgetMinimumWidth)
-        this->setGeometry(x(), y(), WidgetMinimumWidth, height());
-    if (height() > WidgetMinimumHeight)
-        this->setGeometry(x(), y(), width(), WidgetMinimumHeight);
+    // 设置窗口大小
+    this->setGeometry(x(), y(), w, h);
+
+    // 移动到中心位置
     this->titlebar()->updateGeometry();
     move(QPoint(m_primaryScreen->geometry().left() + (m_primaryScreen->geometry().width() - this->geometry().width()) / 2,
                 m_primaryScreen->geometry().top() + (m_primaryScreen->geometry().height() - this->geometry().height()) / 2));
