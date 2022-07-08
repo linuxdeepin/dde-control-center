@@ -99,6 +99,8 @@ public:
     ShortcutInfo *getInfo(const QString &shortcut);
     void setSearchResult(const QString &searchResult);
     bool getWindowSwitch();
+    QString parseKeystroke(QString& shortcuts);
+
 Q_SIGNALS:
     void listChanged(QList<ShortcutInfo *>, InfoType);
     void addCustomInfo(ShortcutInfo *info);

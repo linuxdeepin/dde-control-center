@@ -324,8 +324,12 @@ void ShortcutModel::setCurrentInfo(ShortcutInfo *currentInfo)
 
 ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
 {
+    QString newShortcut = shortcut;
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        newShortcut = parseKeystroke(newShortcut);
+    }
     auto res = std::find_if(m_infos.begin(), m_infos.end(), [ = ] (const ShortcutInfo *info)->bool{
-        return !QString::compare(info->accels, shortcut, Qt::CaseInsensitive); //判断是否相等，相等则返回0
+        return !QString::compare(info->accels, newShortcut, Qt::CaseInsensitive); //判断是否相等，相等则返回0
     });
 
     if (res != m_infos.end()) {
@@ -333,6 +337,31 @@ ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
     }
 
     return nullptr;
+}
+
+QString ShortcutModel::parseKeystroke(QString& shortcut)
+{
+    QStringList keys = shortcut.replace(">", ">,").split(",");
+    keys.removeAll("");
+    QString sortArr[4];
+    foreach (const QString& key, keys) {
+        if (key.contains("Shift")) {
+            sortArr[0] = key;
+        } else if (key.contains("Control")) {
+            sortArr[1] = key;
+        } else if (key.contains("Alt")) {
+            sortArr[2] = key;
+        } else {
+            sortArr[3] = key;
+        }
+    }
+    QString newShort;
+    for (const QString& key : sortArr) {
+        if (!key.isEmpty()) {
+            newShort += key;
+        }
+    }
+    return newShort;
 }
 
 void ShortcutModel::setSearchResult(const QString &searchResult)
