@@ -34,6 +34,8 @@
 #include <DComboBox>
 #include <DSuggestButton>
 
+#include <QDialog>
+
 #define NAME_ALREADY 4
 
 DWIDGET_USE_NAMESPACE
@@ -45,10 +47,12 @@ class QPushButton;
 class QLabel;
 
 namespace DCC_NAMESPACE {
+class ComboxWidget;
+class SecurityLevelItem;
 
 const int PwdLimitLowestLevel = 1;
 //创建账户页面
-class CreateAccountPage : public QWidget
+class CreateAccountPage : public QDialog
 {
     Q_OBJECT
 
@@ -102,18 +106,18 @@ private:
     User *m_newUser;
     UserModel *m_userModel;
     AccountsWorker *m_accountWorker;
-    AvatarListWidget *m_avatarListWidget;
-    Dtk::Widget::DLineEdit *m_nameEdit;
-    Dtk::Widget::DLineEdit *m_fullnameEdit;
+    LineEditWidget *m_nameEdit;
+    LineEditWidget *m_fullnameEdit;
     DPasswordEdit *m_passwdEdit;
     DPasswordEdit *m_repeatpasswdEdit;
     Dtk::Widget::DLineEdit *m_passwdTipsEdit;
-    DComboBox *m_accountChooser;
+    ComboxWidget *m_accountChooser;
     DListView *m_groupListView;
     QStandardItemModel *m_groupItemModel;
     bool m_isServerSystem;
     QWidget *m_tw;
     QScrollArea *m_scrollArea;
     QLabel *m_groupTip;
+    SecurityLevelItem *m_securityLevelItem;
 };
 }

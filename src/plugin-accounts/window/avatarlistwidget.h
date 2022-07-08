@@ -26,6 +26,7 @@
 
 #include <DListView>
 
+#include <QDialog>
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -36,6 +37,10 @@ class QStandardItemModel;
 class QModelIndex;
 class QFileDialog;
 QT_END_NAMESPACE
+
+DCORE_BEGIN_NAMESPACE
+class DConfig;
+DCORE_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 class AvatarItemDelegate;
@@ -83,5 +88,19 @@ private:
     QModelIndex m_currentSelectIndex;
     bool m_displayLastItem;
     QFileDialog *m_fd;
+    DTK_CORE_NAMESPACE::DConfig *m_dconfig;
+};
+
+class AvatarListDialog : public QDialog
+{
+    Q_OBJECT
+public:
+    AvatarListDialog(User *usr, QWidget *parent = nullptr);
+    virtual ~AvatarListDialog();
+
+    QString getAvatarPath() const;
+
+private:
+    AvatarListWidget *m_avatarList;
 };
 }

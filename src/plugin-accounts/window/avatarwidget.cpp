@@ -35,6 +35,7 @@
 #include <QApplication>
 #include <QRect>
 #include <QColor>
+#include <QGraphicsDropShadowEffect>
 
 DCC_USE_NAMESPACE
 SET_LABEL_ACCESSIBLE(AvatarWidget, "avatarwidget")
@@ -129,16 +130,16 @@ void AvatarWidget::paintEvent(QPaintEvent *e)
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setClipPath(painterPath);
 
-    painter.drawPixmap(e->rect(), m_avatar);
+    painter.drawPixmap(rect(), m_avatar);
 
     QRect picRect = rect();
-    //second draw picture rounded rect bound
+    // second draw picture rounded rect bound
     QPen pen;
     pen.setColor(palette().base().color());
     painter.setPen(pen);
     painter.drawRoundedRect(picRect, 8, 8);
 
-    //third fill space with base brush
+    // third fill space with base brush
     QPainterPath picPath;
     picPath.addRect(picRect);
     QPainterPath roundPath;
@@ -146,7 +147,6 @@ void AvatarWidget::paintEvent(QPaintEvent *e)
     QPainterPath anglePath = picPath - roundPath;
     painter.fillPath(anglePath, palette().base().color());
     painter.strokePath(picPath, palette().base().color());
-
 
     if (m_selected) {
         setAccessibleDescription("selectedIcon");

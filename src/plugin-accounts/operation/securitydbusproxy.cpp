@@ -19,9 +19,9 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "securitydbusproxy.h"
+#include "widgets/dccdbusinterface.h"
 
 #include <QDBusConnection>
-#include <QDBusInterface>
 #include <QDBusPendingReply>
 #include <QDebug>
 
@@ -62,7 +62,7 @@ void SecurityDBusProxy::init()
     const QString &path = QStringLiteral("/com/deepin/daemon/SecurityEnhance");
     const QString &interface = QStringLiteral("com.deepin.daemon.SecurityEnhance");
 
-    m_dBusInter = new QDBusInterface(service, path, interface, QDBusConnection::systemBus(), this);
+    m_dBusInter = new DCC_NAMESPACE::DCCDBusInterface(service, path, interface, QDBusConnection::systemBus(), this);
 
     if (!m_dBusInter->isValid()) {
         qWarning() << "Security interface invalid: " << m_dBusInter->lastError().message();

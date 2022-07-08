@@ -49,7 +49,7 @@ DCORE_USE_NAMESPACE
 DCC_USE_NAMESPACE
 SET_FORM_ACCESSIBLE(ModifyPasswdPage,"ModifyPasswdPage")
 ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
-    : QWidget(parent)
+    : QDialog(parent)
     , m_curUser(user)
     , m_oldPasswordEdit(new DPasswordEdit)
     , m_newPasswordEdit(new DPasswordEdit)
@@ -60,6 +60,7 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     , m_securityLevelItem(new SecurityLevelItem(this))
 {
     initWidget();
+    resize(460, -1);
 }
 
 ModifyPasswdPage::~ModifyPasswdPage()
@@ -134,9 +135,7 @@ void ModifyPasswdPage::initWidget()
     setPasswordEditAttribute(m_newPasswordEdit);
     setPasswordEditAttribute(m_repeatPasswordEdit);
 
-    connect(cancleBtn, &QPushButton::clicked, this, [&] {
-        Q_EMIT requestBack();
-    });
+    connect(cancleBtn, &QPushButton::clicked, this, &ModifyPasswdPage::reject);
 
     connect(saveBtn, &DSuggestButton::clicked, this, &ModifyPasswdPage::clickSaveBtn);
 
@@ -336,7 +335,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
     } else {
         if (!m_passwordTipsEdit->text().simplified().isEmpty())
             requestSetPasswordHint(m_curUser, m_passwordTipsEdit->text());
-        Q_EMIT requestBack();
+        close();
     }
 }
 
@@ -398,13 +397,13 @@ void ModifyPasswdPage::paintEvent(QPaintEvent *event)
     Q_UNUSED(event);
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing, true);
-    QWidget::paintEvent(event);
+    QDialog::paintEvent(event);
 }
 
 void ModifyPasswdPage::resetPasswordFinished(const QString &errorText)
 {
     if (errorText.isEmpty()) {
-        Q_EMIT requestBack();
+        close();
     } else {
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(errorText, m_newPasswordEdit, 2000);

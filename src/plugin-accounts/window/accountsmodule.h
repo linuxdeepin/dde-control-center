@@ -25,8 +25,17 @@
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
 
+#include <DLineEdit>
+
 class QVBoxLayout;
 class QStackedWidget;
+class QStandardItemModel;
+class AccountsModel;
+
+DWIDGET_BEGIN_NAMESPACE
+class DLabel;
+class DStandardItem;
+DWIDGET_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 class User;
@@ -35,6 +44,8 @@ class UserModel;
 class AccountsDetailWidget;
 class AccountsListWidget;
 class ModifyPasswdPage;
+class SettingsGroup;
+class DCCListView;
 
 class AccountsPlugin : public PluginInterface
 {
@@ -46,28 +57,12 @@ public:
     virtual ModuleObject *module() override;
     virtual int location() const override;
 };
-
-
+///////////////////////////////////////
 class AccountsModule : public ModuleObject
 {
     Q_OBJECT
+
 public:
-    explicit AccountsModule(QObject *parent = nullptr);
-    ~AccountsModule();
-    AccountsWorker *work() { return m_worker; }
-    UserModel *model() { return m_model; }
-
-protected:
-    virtual void active() override;
-
-private:
-    UserModel  *m_model;
-    AccountsWorker *m_worker;
-};
-class AccountsPageModule : public ModuleObject
-{
-    Q_OBJECT
-
     enum PassErrorCode {
         ErrCodeEmpty = 1,
         ErrCodeInvalidChar,
@@ -78,30 +73,53 @@ class AccountsPageModule : public ModuleObject
         ErrCodeLen
     };
 
-public:
-    explicit AccountsPageModule(UserModel *model, AccountsWorker *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker)  {}
-
-    virtual QWidget *page() override;
+    explicit AccountsModule(QObject *parent = nullptr);
+    ~AccountsModule();
+    AccountsWorker *work() { return m_worker; }
+    UserModel *model() { return m_model; }
 
 protected:
-    void deactive() override;
-private:
-    AccountsDetailWidget* updateAccountsDetailWidget(User *account);
+    virtual void active() override;
+    bool isSystemAdmin(User *user);
 
-    void onShowPasswordPage(User *account);
-    void onShowSecurityQuestionsPage(User *account);
-    void onShowCreateAccountPage();
+Q_SIGNALS:
+    void currentUserChanged(User *user, User *oldUser);
+
+protected Q_SLOTS:
+    void initAccountsList(QWidget *w);
+    void initAvatar(QWidget *w);
+    void initFullName(QWidget *w);
+    void initName(QWidget *w);
+    void initModifyButton(QWidget *w);
+    void initAccountType(SettingsGroup *accountSettingsGrp);
+    void initAutoLogin(DCCListView *listview);
+
+    void onCreateAccount();
+    void onModifyPassword();
+    void onDeleteUser();
+    void onModifyIcon();
+    void setCurrentUser(User *user);
+    void setGroupInfo(const QStringList &group);
+    void userGroupClicked(const QModelIndex &index);
+    void changeUserGroup(const QStringList &groups);
+    void onGidChanged(const QString &gid);
+    bool onEditingFinished(bool isValid, DTK_WIDGET_NAMESPACE::DLineEdit *fullNameEdit);
+    void setFullname(const QString &fullName, DTK_WIDGET_NAMESPACE::DLabel *fullNameLabel);
+
+protected:
+    QString getOtherUserAutoLogin(); //获取其它用户是否开启自动登录开关
+    bool deleteUserBtnEnable();      // 可以删除用户
 
 private:
-    UserModel  *m_model;
+    UserModel *m_model;
     AccountsWorker *m_worker;
-    QWidget *m_page = nullptr;
-    QVBoxLayout *m_mainContentLayout = nullptr;
-    AccountsListWidget *m_accountsListWidget = nullptr;
-    AccountsDetailWidget* m_accountsDetailWidget = nullptr;
-    QStackedWidget *m_stackedWidget = nullptr;
+    User *m_curLoginUser; // 当前登录用户
+    User *m_curUser;      // 当前选中用户
+    AccountsModel *m_accountsmodel;
+
+    QStandardItemModel *m_groupItemModel;
+    QString m_groupName;
+    bool m_checkAuthorizationing;
 };
 
-
-}   // namespace DCC_NAMESPACE
+} // namespace DCC_NAMESPACE

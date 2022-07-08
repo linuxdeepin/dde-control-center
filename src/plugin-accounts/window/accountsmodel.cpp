@@ -1,0 +1,263 @@
+#include "accountsmodel.h"
+#include "operation/user.h"
+#include "operation/usermodel.h"
+
+#include <QIcon>
+#include <QDebug>
+#include <QPainter>
+#include <QApplication>
+
+#include <DStyleOptionBackgroundGroup>
+#include <DStyle>
+#include <QPainterPath>
+
+DCC_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
+
+AccountsModel::AccountsModel(QObject *parent)
+    : QAbstractItemModel(parent)
+{
+
+}
+
+void AccountsModel::setUserModel(UserModel *userModel)
+{
+    m_userModel = userModel;
+    connect(userModel,&UserModel::userAdded,this,&AccountsModel::onUserAdded);
+    connect(userModel,&UserModel::userRemoved,this,&AccountsModel::onUserRemoved);
+    for (auto &&user:userModel->userList())
+        onUserAdded(user);
+}
+
+User *AccountsModel::getUser(const QModelIndex &index) const
+{
+    int row = index.row();
+    if (row < 0 || row >= m_data.size())
+        return nullptr;
+    return m_data.at(row);
+}
+
+
+QModelIndex AccountsModel::index(int row, int column, const QModelIndex &parent) const
+{
+    Q_UNUSED(parent);
+    if (row < 0 || row >= m_data.size())
+        return QModelIndex();
+    return createIndex(row, column, m_data.at(row));
+}
+
+QModelIndex AccountsModel::parent(const QModelIndex &index) const
+{
+    Q_UNUSED(index);
+    return QModelIndex();
+}
+
+int AccountsModel::rowCount(const QModelIndex &parent) const
+{
+    if (!parent.isValid())
+        return m_data.size();
+
+    return 0;
+}
+
+int AccountsModel::columnCount(const QModelIndex &parent) const
+{
+    Q_UNUSED(parent);
+    return 1;
+}
+
+QVariant AccountsModel::data(const QModelIndex &index, int role) const
+{
+    if (m_data.isEmpty() || !index.isValid())
+        return QVariant();
+
+    int row = index.row();
+    User *user = m_data.at(row);
+    switch (role) {
+    case Qt::DisplayRole:
+        return user->fullname().isEmpty()?user->name():user->fullname();
+    case Qt::DecorationRole:
+        return QIcon(user->currentAvatar().mid(7));
+    case Qt::CheckStateRole:
+        return user->online()?Qt::Checked:Qt::Unchecked;
+    default:
+        break;
+    }
+    return QVariant();
+}
+
+void AccountsModel::onUserAdded(User *user)
+{
+qInfo()<<__LINE__<<__FUNCTION__<<user->name();
+    int row = m_data.size();
+    connect(user,&User::nameChanged,this,&AccountsModel::onDataChanged);
+    connect(user,&User::fullnameChanged,this,&AccountsModel::onDataChanged);
+    connect(user,&User::currentAvatarChanged,this,&AccountsModel::onDataChanged);
+    connect(user,&User::onlineChanged,this,&AccountsModel::onDataChanged);
+
+    beginInsertRows(QModelIndex(), row, row);
+    m_data.insert(row, user);
+    endInsertRows();
+}
+
+void AccountsModel::onUserRemoved(User *user)
+{
+    int row = m_data.indexOf(user);
+    if (row >= 0 && row < m_data.size()) {
+        beginRemoveRows(QModelIndex(), row, row);
+        m_data.removeAt(row);
+        endRemoveRows();
+    }
+}
+
+void AccountsModel::onDataChanged()
+{
+    User *user = qobject_cast<User *>(sender());
+    if (user) {
+        QModelIndex i = index(m_data.indexOf(user),0);
+        emit dataChanged(i,i);
+    }
+}
+
+//Qt::ItemFlags AccountsModel::flags(const QModelIndex &index) const
+//{
+//    Qt::ItemFlags flag = QAbstractItemModel::flags(index);
+//    ModuleObject *module = static_cast<ModuleObject *>(index.internalPointer());
+//    flag.setFlag(Qt::ItemIsEnabled, !LayoutBase::IsDisabled(module));
+//    return flag;
+//}
+
+UserDelegate::UserDelegate(QAbstractItemView *parent)
+    : DStyledItemDelegate(parent)
+{
+//    m_shadowEffect->setColor(QColor(0, 0, 0, 16));      // 阴影的颜色
+//    m_shadowEffect->setOffset(0, 2);
+//    setGraphicsEffect(m_shadowEffect);
+}
+
+void UserDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    painter->save();
+
+    QStyleOptionViewItem opt(option);
+    initStyleOption(&opt, index);
+    // 选择高亮背景
+    if (opt.state & QStyle::State_Selected) {
+        QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
+                                          ? QPalette::Normal
+                                          : QPalette::Disabled;
+        opt.backgroundBrush = option.palette.color(cg, QPalette::Highlight);
+    }
+    QStyle *style = option.widget ? option.widget->style() : QApplication::style();
+    QRect decorationRect;
+    decorationRect = QRect(opt.rect.topLeft() + QPoint((opt.rect.width() - opt.decorationSize.width()) / 2, 3), opt.decorationSize);
+    opt.displayAlignment = Qt::AlignCenter;
+
+    QRect displayRect = QRect(opt.rect.topLeft() + QPoint(10, opt.decorationSize.height() + 4), QSize(opt.rect.width(), 15));
+    QRect onlineRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 8), QSize(10, 10));
+    opt.displayAlignment = Qt::AlignLeft|Qt::AlignVCenter;
+
+
+    // draw the item
+    drawBackground(style, painter, opt, decorationRect);
+    // 图标的绘制用也可能会使用这些颜色
+    QPalette::ColorGroup cg = (opt.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
+    painter->setPen(opt.palette.color(cg, QPalette::Text));//(opt.state & QStyle::State_Selected) ? QPalette::HighlightedText : QPalette::Text));
+    drawDecoration(painter, opt, decorationRect);
+
+    if (index.data(Qt::CheckStateRole) == Qt::Checked)
+        drawOnlineIcon(painter, opt, onlineRect);
+
+    drawDisplay(style, painter, opt, displayRect);
+    painter->restore();
+    return;
+}
+
+QSize UserDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    Q_UNUSED(option)
+    Q_UNUSED(index)
+
+    return QSize(60,60);
+}
+
+void UserDelegate::drawBackground(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+{
+    QRect r = rect;
+    r.adjust(-2,-2,2,2);
+    painter->save();
+    painter->setRenderHint(QPainter::Antialiasing);
+    painter->setPen(option.palette.color(QPalette::Normal,(option.state & QStyle::State_Selected)? QPalette::Highlight:QPalette::Window));
+    painter->drawRoundedRect(r,8,8);
+    painter->restore();
+
+
+
+//    DStyleOptionBackgroundGroup boption;
+//    boption.init(option.widget);
+//    boption.QStyleOption::operator=(option);
+//    boption.position = DStyleOptionBackgroundGroup::ItemBackgroundPosition(option.viewItemPosition);
+
+//    if (option.backgroundBrush.style() != Qt::NoBrush) {
+//        boption.dpalette.setBrush(DPalette::ItemBackground, option.backgroundBrush);
+//    }
+
+//    boption.rect = option.rect;
+
+//    if (backgroundType() != RoundedBackground) {
+//        boption.directions = Qt::Vertical;
+//    }
+
+//    style->drawPrimitive(static_cast<QStyle::PrimitiveElement>(DStyle::PE_ItemBackground), &boption, painter, option.widget);
+}
+
+void UserDelegate::drawDisplay(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+{
+    DStyle::viewItemDrawText(style, painter, &option, rect);
+}
+
+
+void UserDelegate::drawDecoration(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+{
+    if (option.features & QStyleOptionViewItem::HasDecoration) {
+        QIcon::Mode mode = QIcon::Normal;
+        if (!(option.state & QStyle::State_Enabled))
+            mode = QIcon::Disabled;
+        else if (option.state & QStyle::State_Selected)
+            mode = QIcon::Selected;
+        QIcon::State state = (option.state & QStyle::State_Open) ? QIcon::On : QIcon::Off;
+        painter->save();
+        QPainterPath painterPath;
+        painterPath.addRoundedRect(rect,8,8);
+        painter->setRenderHint(QPainter::Antialiasing);
+        painter->setClipPath(painterPath);
+        option.icon.paint(painter, rect, option.decorationAlignment, mode, state);
+
+//        painter->setRenderHint(QPainter::Antialiasing);
+//        painter->setPen(option.palette.color(QPalette::Normal, QPalette::Highlight));
+//        painter->drawRoundedRect(r,8,8);
+        painter->restore();
+
+//        option.icon.paint(painter, rect, option.decorationAlignment, mode, state);
+    }
+}
+
+
+void UserDelegate::drawOnlineIcon(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+{
+    painter->save();
+    painter->setRenderHints(QPainter::Antialiasing);
+
+    painter->setBrush(QBrush(QColor(103, 239, 74)));
+    painter->setPen(Qt::NoPen);
+    painter->drawEllipse(rect.adjusted(1, 1, -1, -1));
+
+    QPen pen;
+    pen.setColor(Qt::white);
+    pen.setWidth(1);
+    painter->setPen(pen);
+    painter->setBrush(Qt::NoBrush);
+    painter->drawEllipse(rect.adjusted(1, 1, -1, -1));
+//    setGraphicsEffect(m_shadowEffect);
+    painter->restore();
+}

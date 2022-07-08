@@ -24,6 +24,7 @@
 #include "widgets/dcclistview.h"
 #include "groupitem.h"
 #include "pwqualitymanager.h"
+#include "securitylevelitem.h"
 
 #include <DFontSizeManager>
 #include <DDesktopServices>
@@ -44,24 +45,28 @@
 #include <QScrollArea>
 #include <QDBusReply>
 
+#include <widgets/comboxwidget.h>
+#include <widgets/lineeditwidget.h>
+#include <widgets/settingsgroup.h>
+
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 DCC_USE_NAMESPACE
 
 CreateAccountPage::CreateAccountPage(AccountsWorker *accountsWorker, QWidget *parent)
-    : QWidget(parent)
+    : QDialog(parent)
     , m_newUser{nullptr}
     , m_accountWorker(accountsWorker)
-    , m_avatarListWidget(nullptr)
-    , m_nameEdit(new DLineEdit)
-    , m_fullnameEdit(new DLineEdit)
+    , m_nameEdit(new LineEditWidget)
+    , m_fullnameEdit(new LineEditWidget)
     , m_passwdEdit(new DPasswordEdit)
     , m_repeatpasswdEdit(new DPasswordEdit)
     , m_passwdTipsEdit(new DLineEdit)
-    , m_accountChooser(new DComboBox)
+    , m_accountChooser(new ComboxWidget())
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
     , m_groupTip(new QLabel(tr("Group")))
+    , m_securityLevelItem(new SecurityLevelItem(this))
 {
     m_passwdEdit->setCopyEnabled(false);
     m_passwdEdit->setCutEnabled(false);
@@ -75,20 +80,12 @@ CreateAccountPage::CreateAccountPage(AccountsWorker *accountsWorker, QWidget *pa
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     setLayout(mainContentLayout);
 
-    m_scrollArea = new QScrollArea;
-    m_scrollArea->setWidgetResizable(true);
-    m_scrollArea->setFrameStyle(QFrame::NoFrame);
-    m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    m_scrollArea->setContentsMargins(0, 0, 0, 0);
-    mainContentLayout->addWidget(m_scrollArea);
-
     m_tw = new QWidget(this);
     QVBoxLayout *contentLayout = new QVBoxLayout(m_tw);
     contentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     contentLayout->setSpacing(0);
     contentLayout->setContentsMargins(0, 0, 0, 0);
-    m_scrollArea->setWidget(m_tw);
+    mainContentLayout->addWidget(m_tw);
 
     initWidgets(contentLayout);
     initUsrGroup(contentLayout);
@@ -105,10 +102,9 @@ CreateAccountPage::CreateAccountPage(AccountsWorker *accountsWorker, QWidget *pa
     mainContentLayout->addSpacing(0);
     mainContentLayout->addLayout(btnLayout);
 
-    connect(cancleBtn, &QPushButton::clicked, this, [&] {
-        Q_EMIT requestBack();
-    });
+    connect(cancleBtn, &QPushButton::clicked, this, &CreateAccountPage::reject);
     connect(addBtn, &DSuggestButton::clicked, this, &CreateAccountPage::createUser);
+    resize(460, -1);
 }
 
 CreateAccountPage::~CreateAccountPage()
@@ -119,9 +115,6 @@ CreateAccountPage::~CreateAccountPage()
 void CreateAccountPage::resizeEvent(QResizeEvent *e)
 {
     Q_UNUSED(e);
-    if (m_tw) {
-        m_tw->resize(m_scrollArea->size());
-    }
 }
 
 void CreateAccountPage::initUsrGroup(QVBoxLayout *layout)
@@ -149,7 +142,7 @@ void CreateAccountPage::initUsrGroup(QVBoxLayout *layout)
     layout->addSpacing(10);
     layout->addWidget(m_groupListView);
 
-    if (m_accountChooser->currentIndex() != 2) {
+    if (m_accountChooser->comboBox()->currentIndex() != 2) {
         m_groupTip->setVisible(false);
         m_groupListView->setVisible(false);
     }
@@ -162,64 +155,71 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     layout->setContentsMargins(10, 10, 10, 10);
     layout->addWidget(titleLabel);
 
-    m_avatarListWidget = new AvatarListWidget(m_newUser, this);
-    m_avatarListWidget->setAccessibleName("List_useravatarlist");
-    m_avatarListWidget->setAvatarSize(QSize(40, 40));
-    m_avatarListWidget->setViewportMargins(0, 0, 0, 0);
-    m_avatarListWidget->setSpacing(14);
-    m_avatarListWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
-    layout->addSpacing(7);
-    layout->addWidget(m_avatarListWidget, 0, Qt::AlignTop);
-
     /* 用户类型 */
-    QLabel *accountTypeLabel = new QLabel(tr("Account Type") + ':');
-    layout->addWidget(accountTypeLabel);
+    m_accountChooser->setTitle(tr("Account Type"));
+    m_accountChooser->addBackground();
+
     layout->addWidget(m_accountChooser);
     layout->addSpacing(7);
 
-    QLabel *nameLabel = new QLabel(tr("Username") + ':');
+    SettingsGroup *nameGroup = new SettingsGroup(nullptr,SettingsGroup::GroupBackground);
+    m_nameEdit->setTitle(tr("Username") + ':');
     m_nameEdit->setAccessibleName("username_edit");
-    layout->addWidget(nameLabel);
-    layout->addWidget(m_nameEdit);
-    layout->addSpacing(7);
+    nameGroup->insertWidget(m_nameEdit);
 
-    QLabel *fullnameLabel = new QLabel(tr("Full Name") + ':');
+    m_fullnameEdit->setTitle(tr("Full Name") + ':');
     m_fullnameEdit->setAccessibleName("fullname_edit");
-    layout->addWidget(fullnameLabel);
-    layout->addWidget(m_fullnameEdit);
+    nameGroup->insertWidget(m_fullnameEdit);
+    layout->addWidget(nameGroup);
     layout->addSpacing(7);
 
+    layout->addWidget(m_securityLevelItem,0,Qt::AlignRight|Qt::AlignVCenter);
+
+    SettingsGroup *passwdGroup = new SettingsGroup(nullptr,SettingsGroup::GroupBackground);
     QLabel *passwdLabel = new QLabel(tr("Password") + ':');
+    passwdLabel->setFixedWidth(110);
     m_passwdEdit->setAccessibleName("passwd_edit");
-    layout->addWidget(passwdLabel);
-    layout->addWidget(m_passwdEdit);
-    layout->addSpacing(7);
+
+    QHBoxLayout *passwdLayout = new QHBoxLayout;
+    passwdLayout->setContentsMargins(10, 0, 10, 0);
+    passwdLayout->addWidget(passwdLabel, 0, Qt::AlignVCenter);
+    passwdLayout->addWidget(m_passwdEdit, 0, Qt::AlignVCenter);
+    SettingsItem *passwdItem = new SettingsItem();
+    passwdItem->setLayout(passwdLayout);
+    passwdGroup->appendItem(passwdItem);
 
     QLabel *repeatpasswdLabel = new QLabel(tr("Repeat Password") + ':');
+    repeatpasswdLabel->setFixedWidth(110);
     m_repeatpasswdEdit->setAccessibleName("repeatpasswd_edit");
-    layout->addWidget(repeatpasswdLabel);
-    layout->addWidget(m_repeatpasswdEdit);
-    layout->addSpacing(7);
+
+    QHBoxLayout *repeatpasswdLayout = new QHBoxLayout;
+    repeatpasswdLayout->setContentsMargins(10, 0, 10, 0);
+    repeatpasswdLayout->addWidget(repeatpasswdLabel, 0, Qt::AlignVCenter);
+    repeatpasswdLayout->addWidget(m_repeatpasswdEdit, 0, Qt::AlignVCenter);
+    SettingsItem *repeatpasswdItem = new SettingsItem();
+    repeatpasswdItem->setLayout(repeatpasswdLayout);
+    passwdGroup->appendItem(repeatpasswdItem);
 
     QLabel *passwdTipsLabel = new QLabel(tr("Password Hint") + ':');
-    m_repeatpasswdEdit->setAccessibleName("password_hint");
-    layout->addWidget(passwdTipsLabel);
-    layout->addWidget(m_passwdTipsEdit);
+    passwdTipsLabel->setFixedWidth(110);
+    m_passwdTipsEdit->setAccessibleName("password_hint");
+
+    QHBoxLayout *passwdTipsLayout = new QHBoxLayout;
+    passwdTipsLayout->setContentsMargins(10, 0, 10, 0);
+    passwdTipsLayout->addWidget(passwdTipsLabel, 0, Qt::AlignVCenter);
+    passwdTipsLayout->addWidget(m_passwdTipsEdit, 0, Qt::AlignVCenter);
+    SettingsItem *passwdTipsItem = new SettingsItem();
+    passwdTipsItem->setLayout(passwdTipsLayout);
+    passwdGroup->appendItem(passwdTipsItem);
+
+    layout->addWidget(passwdGroup);
     layout->addSpacing(27);
 
-    connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
-            m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
-    connect(m_avatarListWidget, &AvatarListWidget::requestAddNewAvatar,
-    this, [this](User *user, const QString &file) {
-        Q_UNUSED(user)
-        m_avatarListWidget->setCurrentAvatarChecked(file);
-    });
-
-    connect(m_nameEdit, &DLineEdit::textEdited, this, [ = ](const QString &strText) {
+    connect(m_nameEdit->dTextEdit(), &DLineEdit::textEdited, this, [ = ](const QString &strText) {
         Q_UNUSED(strText);
-        if (m_nameEdit->isAlert()) {
+        if (m_nameEdit->dTextEdit()->isAlert()) {
             m_nameEdit->hideAlertMessage();
-            m_nameEdit->setAlert(false);
+            m_nameEdit->dTextEdit()->setAlert(false);
         }
 
         if (strText.isEmpty())
@@ -238,16 +238,16 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
             }
         }
 
-        m_nameEdit->lineEdit()->blockSignals(true);
-        int cursorIndex = m_nameEdit->lineEdit()->cursorPosition();
-        m_nameEdit->lineEdit()->setText(strTemp);
-        m_nameEdit->lineEdit()->setCursorPosition(cursorIndex);
-        m_nameEdit->lineEdit()->blockSignals(false);
+        m_nameEdit->dTextEdit()->lineEdit()->blockSignals(true);
+        int cursorIndex = m_nameEdit->dTextEdit()->lineEdit()->cursorPosition();
+        m_nameEdit->dTextEdit()->lineEdit()->setText(strTemp);
+        m_nameEdit->dTextEdit()->lineEdit()->setCursorPosition(cursorIndex);
+        m_nameEdit->dTextEdit()->lineEdit()->blockSignals(false);
     });
 
-    connect(m_nameEdit, &DLineEdit::editingFinished, this, &CreateAccountPage::checkName);
+    connect(m_nameEdit->dTextEdit(), &DLineEdit::editingFinished, this, &CreateAccountPage::checkName);
 
-    connect(m_fullnameEdit, &DLineEdit::textEdited, this, [ = ](const QString &userFullName) {
+    connect(m_fullnameEdit->dTextEdit(), &DLineEdit::textEdited, this, [ = ](const QString &userFullName) {
         /* 90401:在键盘输入下禁止冒号的输入，粘贴情况下自动识别冒号自动删除 */
         QString fullName = userFullName;
         fullName.remove(":");
@@ -256,21 +256,21 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         }
         /* 在输入的过程中仅检查全名的长度，输入完成后检查其它规则 */
         if (fullName.size() > 32) {
-            m_fullnameEdit->lineEdit()->backspace();
-            m_fullnameEdit->setAlert(true);
-            m_fullnameEdit->showAlertMessage(tr("The full name is too long"), m_fullnameEdit, 2000);
+            m_fullnameEdit->dTextEdit()->lineEdit()->backspace();
+            m_fullnameEdit->dTextEdit()->setAlert(true);
+            m_fullnameEdit->dTextEdit()->showAlertMessage(tr("The full name is too long"), m_fullnameEdit, 2000);
             DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
-        } else if (m_fullnameEdit->isAlert()) {
-            m_fullnameEdit->setAlert(false);
+        } else if (m_fullnameEdit->dTextEdit()->isAlert()) {
+            m_fullnameEdit->dTextEdit()->setAlert(false);
             m_fullnameEdit->hideAlertMessage();
         }
     });
 
-    connect(m_fullnameEdit, &DLineEdit::editingFinished, this, &CreateAccountPage::checkFullname);
+    connect(m_fullnameEdit->dTextEdit(), &DLineEdit::editingFinished, this, &CreateAccountPage::checkFullname);
 
     //失焦后就提示
     connect(m_passwdEdit, &DLineEdit::editingFinished, this, [ = ] {
-        PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(),
+        PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->dTextEdit()->lineEdit()->text(),
                                                                                           m_passwdEdit->lineEdit()->text());
         if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
             m_passwdEdit->setAlert(true);
@@ -294,6 +294,26 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         }
     });
 
+    connect(m_passwdEdit, &DPasswordEdit::textChanged, this, [ = ] {
+        if (m_passwdEdit->text().isEmpty()) {
+            m_securityLevelItem->setLevel(SecurityLevelItem::NoneLevel);
+            m_passwdEdit->setAlert(false);
+            m_passwdEdit->hideAlertMessage();
+            return ;
+        }
+        PASSWORD_LEVEL_TYPE m_level = PwqualityManager::instance()->GetNewPassWdLevel(m_passwdEdit->text());
+        PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_passwdEdit->lineEdit()->text(),
+                                                                                          m_passwdEdit->lineEdit()->text());
+
+        if (m_level == PASSWORD_STRENGTH_LEVEL_HIGH) {
+            m_securityLevelItem->setLevel(SecurityLevelItem::HighLevel);
+        } else if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
+            m_securityLevelItem->setLevel(SecurityLevelItem::MidLevel);
+        } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
+            m_securityLevelItem->setLevel(SecurityLevelItem::LowLevel);
+        }
+    });
+
     connect(m_repeatpasswdEdit, &DPasswordEdit::textEdited, this, [ = ] {
         if (m_repeatpasswdEdit->isAlert()) {
             m_repeatpasswdEdit->hideAlertMessage();
@@ -310,17 +330,17 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         }
     });
 
-    connect(m_accountChooser, &DComboBox::currentTextChanged, this, &CreateAccountPage::showGroupList);
+    connect(m_accountChooser->comboBox(), &DComboBox::currentTextChanged, this, &CreateAccountPage::showGroupList);
 
-    m_accountChooser->addItem(tr("Standard User"));
-    m_accountChooser->addItem(tr("Administrator"));
+    m_accountChooser->comboBox()->addItem(tr("Standard User"));
+    m_accountChooser->comboBox()->addItem(tr("Administrator"));
     /* 仅在服务器模式下创建用户才能自定义用户组 */
     if (m_isServerSystem) {
-        m_accountChooser->addItem(tr("Customized"));
+        m_accountChooser->comboBox()->addItem(tr("Customized"));
     }
 
-    m_nameEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
-    m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
+    m_nameEdit->dTextEdit()->lineEdit()->setPlaceholderText(tr("Required"));//必填
+    m_fullnameEdit->dTextEdit()->lineEdit()->setPlaceholderText(tr("optional"));//选填
     m_passwdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_repeatpasswdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_passwdTipsEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
@@ -330,7 +350,7 @@ void CreateAccountPage::showGroupList(const QString &index)
 {
     Q_UNUSED(index)
 
-    if (m_accountChooser->currentIndex() == 2) {
+    if (m_accountChooser->comboBox()->currentIndex() == 2) {
         m_groupTip->setVisible(true);
         m_groupListView->setVisible(true);
     } else {
@@ -363,6 +383,7 @@ void CreateAccountPage::setModel(UserModel *userModel, User *user)
         item->setCheckState(item && presetGroup.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
     }
     m_groupItemModel->sort(0);
+    m_accountChooser->setCurrentIndex(user->userType());
 }
 
 //在修改密码页面设置默认焦点
@@ -371,7 +392,7 @@ void CreateAccountPage::showEvent(QShowEvent *event)
     if (m_accountChooser && m_accountChooser->isVisible() && m_accountChooser->isEnabled())
         m_accountChooser->setFocus();
     else if (m_nameEdit && !m_nameEdit->hasFocus()) {
-        m_nameEdit->lineEdit()->setFocus();
+        m_nameEdit->dTextEdit()->lineEdit()->setFocus();
     }
     QWidget::showEvent(event);
 }
@@ -440,18 +461,18 @@ void CreateAccountPage::createUser()
     }
 
     //如果用户没有选图像
-    auto avatarPaht = m_avatarListWidget->getAvatarPath();
+    auto avatarPaht = AvatarListWidget(m_newUser).getAvatarPath();
     m_newUser->setCurrentAvatar(avatarPaht);
-    m_newUser->setName(m_nameEdit->lineEdit()->text().simplified());
-    m_newUser->setFullname(m_fullnameEdit->lineEdit()->text());
+    m_newUser->setName(m_nameEdit->dTextEdit()->lineEdit()->text().simplified());
+    m_newUser->setFullname(m_fullnameEdit->dTextEdit()->lineEdit()->text());
     m_newUser->setPassword(m_passwdEdit->lineEdit()->text());
     m_newUser->setRepeatPassword(m_repeatpasswdEdit->lineEdit()->text());
     m_newUser->setPasswordHint(m_passwdTipsEdit->lineEdit()->text());
 
     /* 设置用户组 */
-    if (m_accountChooser->currentIndex() == 1) {
+    if (m_accountChooser->comboBox()->currentIndex() == 1) {
         m_newUser->setUserType(User::UserType::Administrator);
-    } else if (m_accountChooser->currentIndex() == 0) {
+    } else if (m_accountChooser->comboBox()->currentIndex() == 0) {
         m_newUser->setUserType(User::UserType::StandardUser);
     } else {
         QStringList usrGroups;
@@ -466,6 +487,7 @@ void CreateAccountPage::createUser()
         m_newUser->setUserType(User::UserType::StandardUser);
     }
     Q_EMIT requestCreateUser(m_newUser); // 请求创建用户
+    accept();
 }
 
 void CreateAccountPage::setCreationResult(CreationResult *result)
@@ -475,8 +497,8 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
         Q_EMIT requestBack(UserModel::CreateUserSuccess);
         break;
     case CreationResult::UserNameError:
-        m_nameEdit->setAlert(true);
-        m_nameEdit->showAlertMessage(result->message(), m_nameEdit, 2000);
+        m_nameEdit->dTextEdit()->setAlert(true);
+        m_nameEdit->dTextEdit()->showAlertMessage(result->message(), m_nameEdit, 2000);
         break;
     case CreationResult::PasswordError:
         m_passwdEdit->setAlert(true);
@@ -489,11 +511,11 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
     case CreationResult::UnknownError:
         //当用户名与用户组信息重名时,会返回UnknownError,并且提示信息是从系统中获取过来的,控制中心无法区分他的中英文
         qDebug() << "error encountered creating user: " << result->message();
-        m_nameEdit->setAlert(true);
+        m_nameEdit->dTextEdit()->setAlert(true);
         if (result->message() == "Policykit authentication failed") {
-            m_nameEdit->showAlertMessage(tr("Policykit authentication failed"), m_nameEdit, 2000);
+            m_nameEdit->dTextEdit()->showAlertMessage(tr("Policykit authentication failed"), m_nameEdit, 2000);
         } else {
-            m_nameEdit->showAlertMessage(result->message(), m_nameEdit, 2000);
+            m_nameEdit->dTextEdit()->showAlertMessage(result->message(), m_nameEdit, 2000);
         }
         break;
     case CreationResult::Canceled:
@@ -506,44 +528,44 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
 
 bool CreateAccountPage::checkName()
 {
-    const QString &userName = m_nameEdit->lineEdit()->text();
+    const QString &userName = m_nameEdit->dTextEdit()->lineEdit()->text();
 
     if (userName.size() < 3 || userName.size() > 32) {
-        m_nameEdit->setAlert(true);
-        m_nameEdit->showAlertMessage(tr("Username must be between 3 and 32 characters"), m_nameEdit, 2000);
+        m_nameEdit->dTextEdit()->setAlert(true);
+        m_nameEdit->dTextEdit()->showAlertMessage(tr("Username must be between 3 and 32 characters"), m_nameEdit, 2000);
         return false;
     }
 
     const QString compStr = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") + QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     if (!compStr.contains(userName.at(0))) {
-        m_nameEdit->setAlert(true);
-        m_nameEdit->showAlertMessage(tr("The first character must be a letter or number"), m_nameEdit, 2000);
+        m_nameEdit->dTextEdit()->setAlert(true);
+        m_nameEdit->dTextEdit()->showAlertMessage(tr("The first character must be a letter or number"), m_nameEdit, 2000);
         return false;
     }
 
     if (userName.contains(QRegExp("^\\d+$"))) {
-        m_nameEdit->setAlert(true);
-        m_nameEdit->showAlertMessage(tr("Your username should not only have numbers"), m_nameEdit, 2000);
+        m_nameEdit->dTextEdit()->setAlert(true);
+        m_nameEdit->dTextEdit()->showAlertMessage(tr("Your username should not only have numbers"), m_nameEdit, 2000);
         return false;
     }
 
     if (!m_accountWorker->isUsernameValid(userName).argumentAt(0).toBool() && NAME_ALREADY == m_accountWorker->isUsernameValid(userName).argumentAt(2).toInt()) {
-        m_nameEdit->setAlert(true);
-        m_nameEdit->showAlertMessage(tr("The username has been used by other user accounts"), m_nameEdit, 2000);
+        m_nameEdit->dTextEdit()->setAlert(true);
+        m_nameEdit->dTextEdit()->showAlertMessage(tr("The username has been used by other user accounts"), m_nameEdit, 2000);
         return false;
     }
 
      QList<User *> userList = m_userModel->userList();
      for (User *user : userList) {
          if (userName == user->fullname()) {
-             m_nameEdit->setAlert(true);
-             m_nameEdit->showAlertMessage(tr("The username has been used by other user accounts"), m_nameEdit, 2000);
+             m_nameEdit->dTextEdit()->setAlert(true);
+             m_nameEdit->dTextEdit()->showAlertMessage(tr("The username has been used by other user accounts"), m_nameEdit, 2000);
              return false;
          }
      }
 
-    if (m_nameEdit->isAlert()) {
-        m_nameEdit->setAlert(false);
+    if (m_nameEdit->dTextEdit()->isAlert()) {
+        m_nameEdit->dTextEdit()->setAlert(false);
         m_nameEdit->hideAlertMessage();
     }
 
@@ -552,20 +574,20 @@ bool CreateAccountPage::checkName()
 
 bool CreateAccountPage::checkFullname()
 {
-    QString userFullName = m_fullnameEdit->lineEdit()->text();
+    QString userFullName = m_fullnameEdit->dTextEdit()->lineEdit()->text();
 
     if (userFullName.size() > 32) {
-        m_fullnameEdit->setAlert(true);
-        m_fullnameEdit->showAlertMessage(tr("The full name is too long"), m_fullnameEdit, 2000);
+        m_fullnameEdit->dTextEdit()->setAlert(true);
+        m_fullnameEdit->dTextEdit()->showAlertMessage(tr("The full name is too long"), m_fullnameEdit, 2000);
         return false;
     }
 
     //欧拉版会自己创建shutdown等root组账户且不会添加到userList中，导致无法重复性算法无效，先通过isUsernameValid校验这些账户再通过重复性算法校验
     //vaild == false && code ==6 是用户名已存在
     if (!m_accountWorker->isUsernameValid(userFullName).argumentAt(0).toBool() && ErrCodeSystemUsed == m_accountWorker->isUsernameValid(userFullName).argumentAt(2).toInt()) {
-        m_fullnameEdit->setAlert(true);
-        m_fullnameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
-        m_fullnameEdit->lineEdit()->selectAll();
+        m_fullnameEdit->dTextEdit()->setAlert(true);
+        m_fullnameEdit->dTextEdit()->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
+        m_fullnameEdit->dTextEdit()->lineEdit()->selectAll();
         return false;
     }
 
@@ -574,27 +596,27 @@ bool CreateAccountPage::checkFullname()
         /* 与已有的用户全名和用户名进行重复性校验 */
         for (User *user : userList) {
             if (userFullName == user->fullname() || userFullName == user->name()) {
-                m_fullnameEdit->setAlert(true);
-                m_fullnameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
-                m_fullnameEdit->lineEdit()->selectAll();
+                m_fullnameEdit->dTextEdit()->setAlert(true);
+                m_fullnameEdit->dTextEdit()->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
+                m_fullnameEdit->dTextEdit()->lineEdit()->selectAll();
                 return false;
             }
         }
         QList<QString> groupList = m_userModel->getAllGroups();
         for (QString &group : groupList) {
             if (userFullName == group) {
-                m_fullnameEdit->setAlert(true);
-                m_fullnameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
-                m_fullnameEdit->lineEdit()->selectAll();
+                m_fullnameEdit->dTextEdit()->setAlert(true);
+                m_fullnameEdit->dTextEdit()->showAlertMessage(tr("The full name has been used by other user accounts"), m_fullnameEdit, 2000);
+                m_fullnameEdit->dTextEdit()->lineEdit()->selectAll();
                 return false;
             }
         }
     } else {
-        m_fullnameEdit->lineEdit()->clear(); // 输入全空格不保存
+        m_fullnameEdit->dTextEdit()->lineEdit()->clear(); // 输入全空格不保存
     }
 
-    if (m_fullnameEdit->isAlert()) {
-        m_fullnameEdit->setAlert(false);
+    if (m_fullnameEdit->dTextEdit()->isAlert()) {
+        m_fullnameEdit->dTextEdit()->setAlert(false);
         m_fullnameEdit->hideAlertMessage();
     }
 
@@ -611,7 +633,7 @@ bool CreateAccountPage::checkPassword(DPasswordEdit *edit, bool &needShowSafetyP
         }
     }
 
-    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(),
+    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->dTextEdit()->lineEdit()->text(),
                                                                                       edit->lineEdit()->text());
 
     if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {

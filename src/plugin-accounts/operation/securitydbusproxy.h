@@ -22,8 +22,12 @@
 
 #include <QObject>
 #include <tuple>
+#include "interface/namespace.h"
 
-class QDBusInterface;
+DCC_BEGIN_NAMESPACE
+class DCCDBusInterface;
+DCC_END_NAMESPACE
+
 class QDBusMessage;
 
 class SecurityDBusProxy : public QObject
@@ -41,6 +45,6 @@ private:
     void init();
 
 private:
-    QDBusInterface *m_dBusInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_dBusInter;
     QString m_lastError;
 };

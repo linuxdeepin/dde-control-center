@@ -26,6 +26,7 @@
 #include "src/plugin-accounts/operation/usermodel.h"
 
 #include <QTimer>
+#include <QDialog>
 
 #include <DSuggestButton>
 #include <DLineEdit>
@@ -54,7 +55,7 @@ class SecurityLevelItem;
 
 namespace DCC_NAMESPACE {
 //修改密码页面
-class ModifyPasswdPage : public QWidget
+class ModifyPasswdPage : public QDialog
 {
     Q_OBJECT
 

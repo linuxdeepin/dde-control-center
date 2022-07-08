@@ -19,20 +19,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "accountslistview.h"
 #include "accountsmodule.h"
+#include "avatarwidget.h"
 #include "createaccountpage.h"
+#include "groupitem.h"
 #include "modifypasswdpage.h"
-#include "useritemdelegate.h"
+#include "removeuserdialog.h"
 
-#include "accountslistwidget.h"
-#include "accountsdetailwidget.h"
-#include "src/plugin-accounts/operation/accountsworker.h"
-#include "src/plugin-accounts/operation/user.h"
-#include "src/plugin-accounts/operation/usermodel.h"
+#include "operation/accountsworker.h"
+#include "operation/user.h"
+#include "operation/usermodel.h"
 #include "securityquestionspage.h"
 
-#include "src/plugin-accounts/window/useritem.h"
-#include "src/plugin-accounts/window/useritempic.h"
+#include "window/accountsmodel.h"
+
+#include "widgets/widgetmodule.h"
 
 #include <DDialog>
 
@@ -40,14 +42,30 @@
 #include <QTimer>
 #include <QDebug>
 #include <QApplication>
-
 #include <QListView>
 #include <QListWidget>
 #include <QScroller>
 #include <QStackedWidget>
 #include <QResizeEvent>
+#include <DLabel>
+#include <DToolButton>
+#include <DWarningButton>
+#include <DSysInfo>
+#include <DDesktopServices>
+#include <DFloatingButton>
+
+#include <widgets/comboxwidget.h>
+#include <widgets/dcclistview.h>
+#include <widgets/settingsgroup.h>
+
+#include <polkit-qt5-1/PolkitQt1/Authority>
+
+#include <grp.h>
 
 DCC_USE_NAMESPACE
+DCORE_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE
+
 QString AccountsPlugin::name() const
 {
     return QStringLiteral("accounts");
@@ -55,34 +73,154 @@ QString AccountsPlugin::name() const
 
 ModuleObject *AccountsPlugin::module()
 {
-    //一级菜单--账户
-    AccountsModule *moduleInterface = new AccountsModule(this);
-    moduleInterface->setName("accounts");
-    moduleInterface->setDisplayName(tr("Accounts"));
-    moduleInterface->setDescription(tr("Accounts"));
-    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_accounts"));
-    moduleInterface->setChildType(ModuleObject::Page);
-
-    AccountsPageModule *accountsPageModule = new AccountsPageModule(moduleInterface->model(), moduleInterface->work(), moduleInterface);
-    moduleInterface->appendChild(accountsPageModule);
-
-    return moduleInterface;
+    return new AccountsModule();
 }
 
 int AccountsPlugin::location() const
 {
     return 1;
 }
+///////////////////////////////////////
+class AutoLoginModel : public QAbstractItemModel
+{
 
+public:
+    explicit AutoLoginModel(QObject *parent = nullptr)
+        : QAbstractItemModel(parent)
+        , m_user(nullptr)
+        , m_enable(true)
+    {
+        m_data.append({ tr("Auto Login"), { new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), false) } });
+        m_data.append({ tr("Login Without Password"), { new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), false) } });
+    }
+    ~AutoLoginModel()
+    {
+        for (auto &&it : m_data) {
+            qDeleteAll(it.second);
+        }
+    }
+
+    void setUser(DCC_NAMESPACE::User *user)
+    {
+        if (m_user) {
+            disconnect(m_user, 0, this, 0);
+        }
+        m_user = user;
+        onDataChanged();
+        connect(m_user, &User::autoLoginChanged, this, [this] { onDataChanged(); });
+        connect(m_user, &User::nopasswdLoginChanged, this, [this] { onDataChanged(); });
+    }
+    void setEnable(bool enable)
+    {
+        m_enable = enable;
+    }
+    // Basic functionality:
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override
+    {
+        Q_UNUSED(parent);
+        if (row < 0 || row >= 2)
+            return QModelIndex();
+        return createIndex(row, column);
+    }
+    QModelIndex parent(const QModelIndex &index) const override
+    {
+        Q_UNUSED(index);
+        return QModelIndex();
+    }
+
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override
+    {
+        if (!parent.isValid() && m_user)
+            return 2;
+
+        return 0;
+    }
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override
+    {
+        Q_UNUSED(parent);
+        return 1;
+    }
+
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override
+    {
+        if (m_data.isEmpty() || !index.isValid())
+            return QVariant();
+
+        int row = index.row();
+        switch (role) {
+        case Qt::DisplayRole:
+            return m_data.at(row).first;
+        case Dtk::RightActionListRole:
+            return QVariant::fromValue(m_data.at(row).second);
+        default:
+            break;
+        }
+        return QVariant();
+    }
+    Qt::ItemFlags flags(const QModelIndex &index) const override
+    {
+        Qt::ItemFlags flag = QAbstractItemModel::flags(index);
+        flag.setFlag(Qt::ItemIsEnabled, m_enable && m_user->isCurrentUser());
+        return flag;
+    }
+
+    void onDataChanged()
+    {
+        m_data.at(0).second.first()->setIcon(qobject_cast<DStyle *>(qApp->style())->standardIcon(m_user->autoLogin() ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked));
+        m_data.at(1).second.first()->setIcon(qobject_cast<DStyle *>(qApp->style())->standardIcon(m_user->nopasswdLogin() ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked));
+        beginResetModel();
+        endResetModel();
+    }
+
+private:
+    DCC_NAMESPACE::User *m_user;
+    QList<QPair<QString, DViewItemActionList>> m_data;
+    bool m_enable;
+};
+///////////////////////////////////////
 AccountsModule::AccountsModule(QObject *parent)
-    : ModuleObject(parent)
+    : ModuleObject("accounts", tr("Accounts"), tr("Accounts"), QIcon::fromTheme("dcc_nav_accounts"), parent)
     , m_model(nullptr)
     , m_worker(nullptr)
+    , m_curLoginUser(nullptr)
+    , m_curUser(nullptr)
+    , m_groupItemModel(new QStandardItemModel(this))
+    , m_checkAuthorizationing(false)
 {
-    m_model  = new UserModel();
-    m_worker = new AccountsWorker(m_model);
-    m_worker->moveToThread(qApp->thread());
-    m_model->moveToThread(qApp->thread());
+    setChildType(ModuleObject::Page);
+    m_model = new UserModel(this);
+    m_worker = new AccountsWorker(m_model, this);
+    m_accountsmodel = new AccountsModel(this);
+    m_accountsmodel->setUserModel(m_model);
+
+    setGroupInfo(m_model->getAllGroups());
+    connect(m_model, &UserModel::allGroupsChange, this, &AccountsModule::setGroupInfo);
+    setCurrentUser(m_accountsmodel->getUser(m_accountsmodel->index(0, 0)));
+
+    appendChild(new WidgetModule<QWidget>("accountsList", tr("accountsList"), this, &AccountsModule::initAccountsList));
+    appendChild(new WidgetModule<QWidget>("avatar", tr("avatar"), this, &AccountsModule::initAvatar));
+    appendChild(new WidgetModule<QWidget>("fullName", tr("Full Name"), this, &AccountsModule::initFullName));
+    appendChild(new WidgetModule<QWidget>("name", tr("name"), this, &AccountsModule::initName));
+    appendChild(new WidgetModule<QWidget>("deleteAccount", tr("Delete Account"), this, &AccountsModule::initModifyButton));
+    //
+    appendChild(new WidgetModule<SettingsGroup>("accountType", tr("Account Type"), this, &AccountsModule::initAccountType));
+    appendChild(new WidgetModule<DCCListView>("autoLogin", tr("Auto Login"), this, &AccountsModule::initAutoLogin));
+
+    if (DSysInfo::UosServer == DSysInfo::uosType()) {
+        appendChild(new WidgetModule<QLabel>("group", tr("Group"), [](QLabel *groupTip) {
+            groupTip->setText(tr("Group"));
+        }));
+        appendChild(new WidgetModule<DCCListView>("groupListView", tr("Group"), [this](DCCListView *m_groupListView) {
+            m_groupListView->setModel(m_groupItemModel);
+            m_groupListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+            m_groupListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+            m_groupListView->setSelectionMode(QAbstractItemView::NoSelection);
+            m_groupListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+            m_groupListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+            m_groupListView->setSpacing(1);
+            connect(m_groupListView, &DListView::clicked, this, &AccountsModule::userGroupClicked);
+        }));
+    }
 }
 
 AccountsModule::~AccountsModule()
@@ -94,149 +232,589 @@ AccountsModule::~AccountsModule()
 void AccountsModule::active()
 {
     m_worker->active();
+    for (auto user : m_model->userList()) {
+        if (user->name() == m_model->getCurrentUserName()) {
+            m_curLoginUser = user;
+            // 结束后续没必要的循环
+            break;
+        }
+    }
+    m_curUser = m_model->userList().first();
+    m_checkAuthorizationing = false;
 }
 
-QWidget *AccountsPageModule::page()
+bool AccountsModule::isSystemAdmin(User *user)
 {
-    m_stackedWidget = new QStackedWidget;
-    m_page = new QWidget;
-    m_mainContentLayout = new QVBoxLayout();
-    m_accountsListWidget = new AccountsListWidget;
-    m_accountsListWidget->setModel(m_model);
-    m_accountsListWidget->setShowFirstUserInfo(true);
+    // 本地管理员账户不一定是等保三级的管理员账户，要区分判断
+    if (m_model->getIsSecurityHighLever())
+        return user->securityLever() == SecurityLever::Sysadm;
 
-    connect(m_accountsListWidget, &AccountsListWidget::requestShowAccountsDetail, this, [&](User *currUser)
-    {
-        m_mainContentLayout->removeWidget(m_accountsDetailWidget);
-        if(m_accountsDetailWidget)
-            m_accountsDetailWidget->deleteLater();
+    return user->userType() == User::UserType::Administrator;
+}
 
-        m_accountsDetailWidget = updateAccountsDetailWidget(currUser);
-        m_mainContentLayout->insertWidget(1, m_accountsDetailWidget);
-        m_accountsDetailWidget->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+void AccountsModule::initAccountsList(QWidget *w)
+{
+    AccountsListView *userlistView = new AccountsListView(w);
+    userlistView->setMaximumHeight(90);
+    userlistView->setFrameShape(QFrame::NoFrame);
+    QPalette pa = userlistView->palette();
+    pa.setColor(QPalette::Base, pa.color(QPalette::Window));
+    userlistView->setAutoFillBackground(true);
+    userlistView->setPalette(pa);
+
+    userlistView->setIconSize(QSize(40, 40));
+    userlistView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    userlistView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    QScroller::grabGesture(userlistView, QScroller::LeftMouseButtonGesture);
+    UserDelegate *delegate = new UserDelegate(userlistView);
+    userlistView->setItemDelegate(delegate);
+    userlistView->setModel(m_accountsmodel);
+
+    QScroller::grabGesture(userlistView->viewport(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(userlistView);
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::HorizontalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
+    //自动刷新当前链接状态
+    connect(userlistView->selectionModel(), &QItemSelectionModel::currentChanged, this, [this](const QModelIndex &current, const QModelIndex &previous) {
+        setCurrentUser(m_accountsmodel->getUser(current));
     });
-    connect(m_accountsListWidget, &AccountsListWidget::requestCreateAccount, this, &AccountsPageModule::onShowCreateAccountPage);
-    connect(m_accountsListWidget, &AccountsListWidget::requestLoadUserList, m_worker, &AccountsWorker::loadUserList);
-    connect(m_accountsListWidget, &AccountsListWidget::requestUpdatGroupList, m_worker, &AccountsWorker::updateGroupinfo);
-    connect(m_accountsListWidget, &AccountsListWidget::requestBack, this, [ = ] {
-        m_stackedWidget->setCurrentIndex(0);
-    });
-    m_accountsListWidget->showDefaultAccountInfo();
 
-    m_mainContentLayout->setMargin(0);
-    m_mainContentLayout->insertWidget(0, m_accountsListWidget);
-    m_page->setLayout(m_mainContentLayout);
-
-    m_stackedWidget->insertWidget(0,m_page);
-    m_stackedWidget->insertWidget(1,new QWidget()); //占位：修改密码
-    m_stackedWidget->insertWidget(2,new QWidget()); //占位：创建用户
-    m_stackedWidget->insertWidget(3,new QWidget()); //占位：安全问题
-    m_stackedWidget->setCurrentWidget(m_page);
-    return m_stackedWidget;
+    DFloatingButton *createBtn = new DFloatingButton();
+    createBtn->setIcon(DStyle::SP_IncreaseElement);
+    createBtn->setFixedSize(50, 50);
+    createBtn->setToolTip(tr("Create Account"));
+    createBtn->setAccessibleName(tr("Create Account"));
+    createBtn->setVisible(true);
+    connect(createBtn, &QPushButton::clicked, this, &AccountsModule::onCreateAccount);
+    userlistView->selectionModel()->select(m_accountsmodel->index(0, 0), QItemSelectionModel::SelectCurrent);
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->setMargin(0);
+    layout->setSpacing(0);
+    layout->addWidget(userlistView);
+    layout->addWidget(createBtn, 0, Qt::AlignRight);
+    w->setLayout(layout);
 }
 
-void AccountsPageModule::deactive()
+void AccountsModule::initAvatar(QWidget *w)
 {
-    m_page = nullptr;
-    m_accountsListWidget = nullptr;
-    m_accountsDetailWidget = nullptr;
-    m_stackedWidget = nullptr;
+    QHBoxLayout *layout = new QHBoxLayout;
+    AvatarWidget *avatar = new AvatarWidget();
+    layout->addWidget(avatar, 0, Qt::AlignCenter);
+    w->setLayout(layout);
+    avatar->setFixedSize(120, 120);
+    avatar->setArrowed(false);
+    auto updateUser = [avatar](User *user, User *oldUser) {
+        if (oldUser)
+            disconnect(oldUser, 0, avatar, 0);
+
+        avatar->setAvatarPath(user->currentAvatar());
+        connect(user, &User::currentAvatarChanged, avatar, &AvatarWidget::setAvatarPath);
+    };
+    updateUser(m_curUser, nullptr);
+    connect(this, &AccountsModule::currentUserChanged, avatar, updateUser);
+    connect(avatar, &AvatarWidget::clicked, this, &AccountsModule::onModifyIcon);
 }
 
-//创建账户界面
-void AccountsPageModule::onShowCreateAccountPage()
+void AccountsModule::initFullName(QWidget *w)
 {
-    CreateAccountPage *w = new CreateAccountPage(m_worker);
-    User *newUser = new User(this);
-    w->setModel(m_model, newUser);
-    connect(w, &CreateAccountPage::requestCreateUser, m_worker, &AccountsWorker::createAccount);
-    connect(m_worker, &AccountsWorker::accountCreationFinished, w, &CreateAccountPage::setCreationResult);
-    connect(w, &CreateAccountPage::requestBack, m_accountsListWidget, &AccountsListWidget::handleRequestBack);
-    m_accountsListWidget->setShowDefaultAccountInfo(false);
+    DLabel *fullName = new DLabel();
+    fullName->setContentsMargins(0, 6, 0, 6);
+    fullName->setElideMode(Qt::ElideRight);
+    DFontSizeManager::instance()->bind(fullName, DFontSizeManager::T5);
 
-    m_stackedWidget->removeWidget(m_stackedWidget->widget(2));
-    m_stackedWidget->insertWidget(2, w);
-    m_stackedWidget->setCurrentIndex(2);
-}
+    DLineEdit *inputLineEdit = new DLineEdit();
+    inputLineEdit->setAccessibleName("fullName_edit");
+    inputLineEdit->setMinimumWidth(220);
+    inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    inputLineEdit->setVisible(false);
+    inputLineEdit->lineEdit()->setFrame(false);
+    inputLineEdit->lineEdit()->setAlignment(Qt::AlignCenter);
+    inputLineEdit->lineEdit()->installEventFilter(this);
+    DFontSizeManager::instance()->bind(inputLineEdit, DFontSizeManager::T5);
 
-//显示账户信息
-AccountsDetailWidget * AccountsPageModule::updateAccountsDetailWidget(User *account)
-{
-    AccountsDetailWidget *w = new AccountsDetailWidget(account, m_model);
-    w->setVisible(false);
-
-    connect(m_model, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
-    connect(m_model, &UserModel::isCancelChanged, w, &AccountsDetailWidget::resetDelButtonState);
-    connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsPageModule::onShowPasswordPage);
-    connect(w, &AccountsDetailWidget::requestShowSecurityQuestionsSettings, this, &AccountsPageModule::onShowSecurityQuestionsPage);
-    connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_worker, &AccountsWorker::setAutoLogin);
-    connect(w, &AccountsDetailWidget::requestSetAdministrator, m_worker, &AccountsWorker::setAdministrator);
-    connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_worker, &AccountsWorker::setNopasswdLogin);
-    connect(w, &AccountsDetailWidget::requestDeleteAccount, m_worker, &AccountsWorker::deleteAccount);
-    connect(w, &AccountsDetailWidget::requestSetGroups, m_worker, &AccountsWorker::setGroups);
-    connect(w, &AccountsDetailWidget::requestBack, this, [&]() {
-        m_accountsListWidget->setShowFirstUserInfo(false);
-    });
-    connect(w, &AccountsDetailWidget::requestSetAvatar, m_worker, &AccountsWorker::setAvatar);
-    connect(w, &AccountsDetailWidget::requestSetFullname, m_worker, &AccountsWorker::setFullname);
-    connect(w, &AccountsDetailWidget::requsetSetPassWordAge, m_worker, &AccountsWorker::setMaxPasswordAge);
-    connect(w, &AccountsDetailWidget::editingFinished, this, [ = ](QString userFullName) {
-        QDBusPendingReply<bool, QString, int> reply = m_worker->isUsernameValid(userFullName);
-        //欧拉版会自己创建shutdown等root组账户且不会添加到userList中，导致无法重复性算法无效，先通过isUsernameValid校验这些账户再通过重复性算法校验
-        //vaild == false && code ==6 是用户名已存在
-        if (!reply.argumentAt(0).toBool() && PassErrorCode::ErrCodeSystemUsed == reply.argumentAt(2).toInt()) {
-            w->onEditingFinished(true, userFullName);
-        } else {
-            w->onEditingFinished(false, userFullName);
+    connect(inputLineEdit, &DLineEdit::textEdited, inputLineEdit, [inputLineEdit](const QString &userFullName) {
+        /* 90401:在键盘输入下禁止冒号的输入，粘贴情况下自动识别冒号自动删除 */
+        QString fullName = userFullName;
+        fullName.remove(":");
+        if (fullName != userFullName) {
+            inputLineEdit->setText(fullName);
+        }
+        if (fullName.size() > 32) {
+            inputLineEdit->lineEdit()->backspace();
+            inputLineEdit->setAlert(true);
+            inputLineEdit->showAlertMessage(tr("The full name is too long"), inputLineEdit);
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        } else if (inputLineEdit->isAlert()) {
+            inputLineEdit->setAlert(false);
+            inputLineEdit->hideAlertMessage();
         }
     });
-    connect(w, &AccountsDetailWidget::requestSecurityQuestionsCheck, m_worker, &AccountsWorker::asyncSecurityQuestionsCheck);
 
-    if (account->isCurrentUser()) {
-        Q_EMIT w->requestSecurityQuestionsCheck(account);
+    DToolButton *fullNameBtn = new DToolButton();
+    fullNameBtn->setAccessibleName("fullName_btn");
+    fullNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+    fullNameBtn->setIconSize(QSize(12, 12));
+    //点击用户全名编辑按钮
+    connect(fullNameBtn, &DIconButton::clicked, this, [fullName, fullNameBtn, inputLineEdit, this]() {
+        fullName->setVisible(false);
+        fullNameBtn->setVisible(false);
+        inputLineEdit->setVisible(true);
+        inputLineEdit->setAlert(false);
+        inputLineEdit->setText(m_curUser->fullname());
+        inputLineEdit->hideAlertMessage();
+        inputLineEdit->lineEdit()->setFocus();
+    });
+    auto updateFullname = [fullName, fullNameBtn, inputLineEdit, this](User *user, User *oldUser) {
+        if (oldUser)
+            disconnect(oldUser, 0, fullName, 0);
+        fullName->setVisible(true);
+        fullNameBtn->setVisible(true);
+        inputLineEdit->setVisible(false);
+        if (m_model->getIsSecurityHighLever() && m_curLoginUser->securityLever() != SecurityLever::Sysadm && !m_curUser->isCurrentUser()) {
+            fullNameBtn->setEnabled(false);
+        }
+        setFullname(user->fullname(), fullName);
+        connect(user, &User::fullnameChanged, fullName, [this, fullName](const QString &name) {
+            setFullname(name, fullName);
+        });
+    };
+    updateFullname(m_curUser, nullptr);
+    connect(this, &AccountsModule::currentUserChanged, fullName, updateFullname);
+
+    connect(inputLineEdit, &DLineEdit::editingFinished, inputLineEdit, [fullName, fullNameBtn, inputLineEdit, this] {
+        QString userFullName = inputLineEdit->lineEdit()->text();
+        QDBusPendingReply<bool, QString, int> reply = m_worker->isUsernameValid(userFullName);
+        //欧拉版会自己创建shutdown等root组账户且不会添加到userList中，导致无法重复性算法无效，先通过isUsernameValid校验这些账户再通过重复性算法校验
+        // vaild == false && code ==6 是用户名已存在
+        if (!reply.argumentAt(0).toBool() && PassErrorCode::ErrCodeSystemUsed == reply.argumentAt(2).toInt()) {
+            bool ok = onEditingFinished(true, inputLineEdit);
+            fullName->setVisible(ok);
+            fullNameBtn->setVisible(ok);
+        } else {
+            bool ok = onEditingFinished(false, inputLineEdit);
+            fullName->setVisible(ok);
+            fullNameBtn->setVisible(ok);
+        }
+    });
+
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->setMargin(0);
+    layout->addStretch();
+    layout->addWidget(fullName);
+    layout->addWidget(inputLineEdit);
+    layout->addWidget(fullNameBtn);
+    layout->addStretch();
+    w->setLayout(layout);
+}
+
+void AccountsModule::initName(QWidget *w)
+{
+    QLabel *shortnameBtn = new QLabel();
+    shortnameBtn->setPixmap(QIcon::fromTheme("dcc_avatar").pixmap(12, 12));
+    QLabel *shortName = new QLabel();
+    shortName->setEnabled(false);
+    auto updateName = [shortName](User *user, User *oldUser) {
+        if (oldUser)
+            disconnect(oldUser, 0, shortName, 0);
+
+        shortName->setText(user->name());
+        connect(user, &User::nameChanged, shortName, &QLabel::setText);
+    };
+    updateName(m_curUser, nullptr);
+    connect(this, &AccountsModule::currentUserChanged, shortName, updateName);
+
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->setMargin(0);
+    layout->addStretch();
+    layout->addWidget(shortnameBtn);
+    layout->addWidget(shortName);
+    layout->addStretch();
+    w->setLayout(layout);
+}
+
+void AccountsModule::initModifyButton(QWidget *w)
+{
+    QPushButton *modifyPassword = new QPushButton();
+    modifyPassword->setEnabled(!(m_model->getIsSecurityHighLever() && m_curLoginUser->securityLever() != SecurityLever::Sysadm && m_curUser != m_curLoginUser));
+    DWarningButton *deleteAccount = new DWarningButton();
+    deleteAccount->setText(tr("Delete Account"));
+    deleteAccount->setEnabled(!(m_model->getIsSecurityHighLever() && m_curLoginUser->securityLever() != SecurityLever::Sysadm && m_curUser != m_curLoginUser));
+    auto setButtonFun = [](AccountsModule *module, DWarningButton *deleteAccount, QPushButton *modifyPassword) {
+        bool enabled = !(module->m_model->getIsSecurityHighLever() && module->m_curLoginUser->securityLever() != SecurityLever::Sysadm && !module->m_curUser->isCurrentUser());
+        modifyPassword->setText(module->m_curUser->isCurrentUser() ? tr("Change Password") : tr("Reset Password"));
+        // 若选择当前登录的账户，则允许修改，选择其他账户，当前登录账户必需是管理员且其他账户未登录时才允许修改密码
+        modifyPassword->setEnabled((!module->m_curUser->online() && module->isSystemAdmin(module->m_curLoginUser) && enabled) || module->m_curUser->isCurrentUser());
+        deleteAccount->setEnabled(module->deleteUserBtnEnable());
+    };
+    std::function<void()> setButton = std::bind(setButtonFun, this, deleteAccount, modifyPassword);
+    auto updateButton = [this, deleteAccount, setButton](User *user, User *oldUser) {
+        if (oldUser)
+            disconnect(oldUser, 0, deleteAccount, 0);
+        setButton();
+        connect(user, &User::onlineChanged, deleteAccount, setButton);
+        connect(m_model, &UserModel::adminCntChange, deleteAccount, setButton);
+    };
+    updateButton(m_curUser, nullptr);
+    connect(this, &AccountsModule::currentUserChanged, modifyPassword, updateButton);
+    connect(modifyPassword, &QPushButton::clicked, this, &AccountsModule::onModifyPassword);
+    connect(deleteAccount, &DWarningButton::clicked, this, &AccountsModule::onDeleteUser);
+
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->setSpacing(8);
+    layout->addWidget(modifyPassword);
+    layout->addWidget(deleteAccount);
+    w->setLayout(layout);
+}
+
+void AccountsModule::initAccountType(SettingsGroup *accountSettingsGrp)
+{
+    accountSettingsGrp->setBackgroundStyle(SettingsGroup::GroupBackground);
+    accountSettingsGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
+    accountSettingsGrp->setContentsMargins(10, 0, 10, 0);
+    accountSettingsGrp->layout()->setMargin(0);
+    ComboxWidget *asAdministrator = new ComboxWidget;
+    asAdministrator->setTitle(tr("Account Type"));
+    asAdministrator->addBackground();
+    QStringList options;
+    options << tr("Standard User") << tr("Administrator");
+    asAdministrator->setComboxOption(options);
+    accountSettingsGrp->appendItem(asAdministrator);
+    auto setTypeFun = [](AccountsModule *module, ComboxWidget *asAdministrator) {
+        asAdministrator->setEnabled(module->deleteUserBtnEnable());
+        asAdministrator->setCurrentIndex(module->isSystemAdmin(module->m_curUser) ? User::Administrator : User::StandardUser);
+    };
+    std::function<void()> setType = std::bind(setTypeFun, this, asAdministrator);
+
+    auto updateType = [asAdministrator, setType](User *user, User *oldUser) {
+        if (oldUser)
+            disconnect(oldUser, 0, asAdministrator, 0);
+        setType();
+
+        connect(user, &User::userTypeChanged, asAdministrator, setType);
+        connect(user, &User::onlineChanged, asAdministrator, setType);
+    };
+    updateType(m_curUser, nullptr);
+    connect(m_model, &UserModel::adminCntChange, asAdministrator, [this, updateType]() { updateType(m_curUser, m_curUser); });
+    connect(this, &AccountsModule::currentUserChanged, asAdministrator, updateType);
+    connect(asAdministrator, &ComboxWidget::onIndexChanged, this, [this](const int userType) {
+        m_worker->setAdministrator(m_curUser, User::UserType::Administrator == userType);
+    });
+}
+
+void AccountsModule::initAutoLogin(DCCListView *listview)
+{
+    listview->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    listview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    listview->setSelectionMode(QListView::SelectionMode::NoSelection);
+    listview->setEditTriggers(DListView::NoEditTriggers);
+    listview->setFrameShape(DListView::NoFrame);
+    listview->setViewportMargins(10, 10, 10, 10);
+    listview->setItemSpacing(1);
+    QMargins itemMargins(listview->itemMargins());
+    itemMargins.setLeft(1);
+    listview->setItemMargins(itemMargins);
+    listview->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+
+    AutoLoginModel *model = new AutoLoginModel(listview);
+    model->setUser(m_curUser);
+    model->setEnable(!(m_model->getIsSecurityHighLever() && m_curLoginUser->securityLever() != SecurityLever::Sysadm));
+    listview->setModel(model);
+    connect(this, &AccountsModule::currentUserChanged, model, [model](User *user, User *oldUser) { model->setUser(user); });
+
+    connect(listview, &DListView::clicked, this, [this, listview](const QModelIndex &index) {
+        if (!(index.flags() & Qt::ItemIsEnabled))
+            return;
+        if (index.row() == 0) {
+            bool autoLogin = !m_curUser->autoLogin();
+            if (autoLogin) {
+                const QString &existedAutoLoginUserName = getOtherUserAutoLogin();
+                if (existedAutoLoginUserName.isEmpty()) {
+                    m_worker->setAutoLogin(m_curUser, autoLogin);
+                } else {
+                    DDialog *tipDialog = new DDialog(listview);
+                    tipDialog->setIcon(QIcon::fromTheme("dialog-warning"));
+                    tipDialog->setModal(true);
+                    tipDialog->setAttribute(Qt::WA_DeleteOnClose);
+                    tipDialog->addButton(tr("OK"));
+                    tipDialog->setMessage(tr("\"Auto Login\" can be enabled for only one account, please disable it for the account \"%1\" first").arg(existedAutoLoginUserName));
+                    tipDialog->setFixedWidth(422);
+                    tipDialog->show();
+                }
+            } else {
+                m_worker->setAutoLogin(m_curUser, autoLogin);
+            }
+        }
+
+        if (index.row() == 1) {
+            m_worker->setNopasswdLogin(m_curUser, !m_curUser->nopasswdLogin());
+        }
+    });
+}
+
+void AccountsModule::onCreateAccount()
+{
+    if (m_checkAuthorizationing)
+        return;
+    m_checkAuthorizationing = true;
+    QWidget *w = qobject_cast<QWidget *>(sender());
+    PolkitQt1::Authority::instance()->checkAuthorization("com.deepin.daemon.accounts.user-administration", PolkitQt1::UnixProcessSubject(getpid()),
+                                                         PolkitQt1::Authority::AllowUserInteraction);
+
+    connect(PolkitQt1::Authority::instance(), &PolkitQt1::Authority::checkAuthorizationFinished, w, [this, w](PolkitQt1::Authority::Result authenticationResult) {
+        disconnect(PolkitQt1::Authority::instance(), nullptr, w, nullptr);
+        m_checkAuthorizationing = false;
+        if (PolkitQt1::Authority::Result::Yes != authenticationResult) {
+            return;
+        }
+        CreateAccountPage *createAccountPage = new CreateAccountPage(m_worker, w);
+        User *newUser = new User(this);
+        createAccountPage->setAttribute(Qt::WA_DeleteOnClose);
+        newUser->setUserType(m_curLoginUser->userType());
+        createAccountPage->setModel(m_model, newUser);
+        connect(createAccountPage, &CreateAccountPage::requestCreateUser, m_worker, &AccountsWorker::createAccount);
+        connect(m_worker, &AccountsWorker::accountCreationFinished, createAccountPage, &CreateAccountPage::setCreationResult);
+        createAccountPage->exec();
+    });
+}
+
+void AccountsModule::onModifyPassword()
+{
+    if (m_checkAuthorizationing)
+        return;
+    m_checkAuthorizationing = true;
+    QWidget *w = qobject_cast<QWidget *>(sender());
+    PolkitQt1::Authority::instance()->checkAuthorization("com.deepin.daemon.accounts.user-administration", PolkitQt1::UnixProcessSubject(getpid()),
+                                                         PolkitQt1::Authority::AllowUserInteraction);
+
+    connect(PolkitQt1::Authority::instance(), &PolkitQt1::Authority::checkAuthorizationFinished, w, [this, w](PolkitQt1::Authority::Result authenticationResult) {
+        disconnect(PolkitQt1::Authority::instance(), nullptr, w, nullptr);
+        m_checkAuthorizationing = false;
+        if (PolkitQt1::Authority::Result::Yes != authenticationResult) {
+            return;
+        }
+        ModifyPasswdPage *modifyPasswdPage = new ModifyPasswdPage(m_curUser, m_curUser->isCurrentUser(), w);
+        modifyPasswdPage->setAttribute(Qt::WA_DeleteOnClose);
+        connect(modifyPasswdPage, &ModifyPasswdPage::requestChangePassword, m_worker, &AccountsWorker::setPassword);
+        connect(modifyPasswdPage, &ModifyPasswdPage::requestResetPassword, m_worker, &AccountsWorker::resetPassword);
+
+        connect(modifyPasswdPage, &ModifyPasswdPage::requestSetPasswordHint, m_worker, &AccountsWorker::setPasswordHint);
+        connect(modifyPasswdPage, &ModifyPasswdPage::requestUOSID, m_worker, &AccountsWorker::getUOSID);
+        connect(modifyPasswdPage, &ModifyPasswdPage::requestUUID, m_worker, &AccountsWorker::getUUID);
+        connect(modifyPasswdPage, &ModifyPasswdPage::requestLocalBindCheck, m_worker, &AccountsWorker::localBindCheck);
+        connect(modifyPasswdPage, &ModifyPasswdPage::requestStartResetPasswordExec, m_worker, &AccountsWorker::startResetPasswordExec);
+        connect(modifyPasswdPage, &ModifyPasswdPage::requestSecurityQuestionsCheck, m_worker, &AccountsWorker::asyncSecurityQuestionsCheck);
+        connect(m_worker, &AccountsWorker::localBindUbid, modifyPasswdPage, &ModifyPasswdPage::onLocalBindCheckUbid);
+        connect(m_worker, &AccountsWorker::localBindError, modifyPasswdPage, &ModifyPasswdPage::onLocalBindCheckError);
+        modifyPasswdPage->exec();
+    });
+}
+
+void AccountsModule::onDeleteUser()
+{
+    QWidget *w = qobject_cast<QWidget *>(sender());
+    if (!w)
+        return;
+    w->setEnabled(false);
+    RemoveUserDialog d(m_curUser, w);
+    if (d.exec() == QDialog::Accepted) {
+        m_worker->deleteAccount(m_curUser, d.deleteHome());
     }
-    w->setVisible(true);
-    //当前页面为用户详情页面的时候允许跳转默认帐户，否则只响应用户点击。避免出现显示了创建账户页面，又被账户详情页面隐藏的问题。
-    m_accountsListWidget->setShowDefaultAccountInfo(true);
-    return w;
+    w->setEnabled(true);
 }
 
-//修改密码界面
-void AccountsPageModule::onShowPasswordPage(User *account)
+void AccountsModule::onModifyIcon()
 {
-    ModifyPasswdPage *w = new ModifyPasswdPage(account, account->isCurrentUser());
-
-    connect(w, &ModifyPasswdPage::requestChangePassword, m_worker, &AccountsWorker::setPassword);
-    connect(w, &ModifyPasswdPage::requestResetPassword, m_worker, &AccountsWorker::resetPassword);
-    connect(w, &ModifyPasswdPage::requestBack, m_accountsListWidget, &AccountsListWidget::handleRequestBack);
-    connect(w, &ModifyPasswdPage::requestBack, w, &ModifyPasswdPage::deleteLater);
-    connect(w, &ModifyPasswdPage::requestSetPasswordHint, m_worker, &AccountsWorker::setPasswordHint);
-    connect(w, &ModifyPasswdPage::requestUOSID, m_worker, &AccountsWorker::getUOSID);
-    connect(w, &ModifyPasswdPage::requestUUID, m_worker, &AccountsWorker::getUUID);
-    connect(w, &ModifyPasswdPage::requestLocalBindCheck, m_worker, &AccountsWorker::localBindCheck);
-    connect(w, &ModifyPasswdPage::requestStartResetPasswordExec, m_worker, &AccountsWorker::startResetPasswordExec);
-    connect(w, &ModifyPasswdPage::requestSecurityQuestionsCheck, m_worker, &AccountsWorker::asyncSecurityQuestionsCheck);
-    connect(m_worker, &AccountsWorker::localBindUbid, w, &ModifyPasswdPage::onLocalBindCheckUbid);
-    connect(m_worker, &AccountsWorker::localBindError, w, &ModifyPasswdPage::onLocalBindCheckError);
-
-    m_stackedWidget->removeWidget(m_stackedWidget->widget(1));
-    m_stackedWidget->insertWidget(1, w);
-    m_stackedWidget->setCurrentIndex(1);
+    QWidget *w = qobject_cast<QWidget *>(sender());
+    if (!w)
+        return;
+    AvatarListDialog *avatarListDialog = new AvatarListDialog(m_curUser, w);
+    if (avatarListDialog->exec() == QDialog::Accepted) {
+        QString avatarpath = avatarListDialog->getAvatarPath();
+        if (!avatarpath.isEmpty() && avatarpath != m_curUser->currentAvatar())
+            m_worker->setAvatar(m_curUser, avatarpath);
+    }
+    avatarListDialog->deleteLater();
 }
 
-void AccountsPageModule::onShowSecurityQuestionsPage(User *account)
+void AccountsModule::setCurrentUser(User *user)
 {
-    SecurityQuestionsPage *w = new SecurityQuestionsPage(account);
-    w->setVisible(false);
-    connect(w, &SecurityQuestionsPage::requestBack, m_accountsListWidget, &AccountsListWidget::handleRequestBack);
-    connect(w, &SecurityQuestionsPage::requestSecurityQuestionsCheck, m_worker, &AccountsWorker::asyncSecurityQuestionsCheck);
-    connect(w, &SecurityQuestionsPage::requestSetSecurityQuestions, m_worker, &AccountsWorker::setSecurityQuestions);
+    if (user && m_curUser != user) {
+        User *oldUser = m_curUser;
+        m_curUser = user;
+        if (oldUser)
+            disconnect(oldUser, &User::groupsChanged, this, 0);
+        connect(m_curUser, &User::groupsChanged, this, &AccountsModule::changeUserGroup);
+        changeUserGroup(m_curUser->groups());
+        emit currentUserChanged(m_curUser, oldUser);
+    }
+}
 
-    Q_EMIT w->requestSecurityQuestionsCheck(account);
+void AccountsModule::setGroupInfo(const QStringList &group)
+{
+    m_groupItemModel->clear();
+    for (const QString &item : group) {
+        GroupItem *it = new GroupItem(item);
+        it->setCheckable(false);
+        m_groupItemModel->appendRow(it);
+    }
+    if (m_curUser)
+        changeUserGroup(m_curUser->groups());
+}
 
-    w->setVisible(true);
+void AccountsModule::userGroupClicked(const QModelIndex &index)
+{
+    QStandardItem *item = m_groupItemModel->item(index.row(), index.column());
+    //不可移除主组
+    if (!item || item->text() == m_groupName)
+        return;
 
-    m_stackedWidget->removeWidget(m_stackedWidget->widget(3));
-    m_stackedWidget->insertWidget(3, w);
-    m_stackedWidget->setCurrentIndex(3);
+    QStringList curUserGroup;
+    int row_count = m_groupItemModel->rowCount();
+    for (int i = 0; i < row_count; ++i) {
+        QStandardItem *itemGroup = m_groupItemModel->item(i, 0);
+        if (itemGroup && itemGroup->checkState()) {
+            curUserGroup << itemGroup->text();
+        }
+    }
+
+    Qt::CheckState state = item->checkState();
+    state == Qt::Checked ? (void)curUserGroup.removeOne(item->text()) : curUserGroup.append(item->text());
+
+    m_worker->setGroups(m_curUser, curUserGroup);
+}
+
+void AccountsModule::changeUserGroup(const QStringList &groups)
+{
+    int row_count = m_groupItemModel->rowCount();
+    for (int i = 0; i < row_count; ++i) {
+        QStandardItem *item = m_groupItemModel->item(i, 0);
+        item->setCheckState(item && groups.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
+        item->setEnabled(item->text() != m_groupName);
+    }
+    m_groupItemModel->sort(0);
+}
+
+void AccountsModule::onGidChanged(const QString &gid)
+{
+    bool ok;
+    int iGid = gid.toInt(&ok, 10);
+    if (!ok)
+        return;
+
+    const group *group = getgrgid(static_cast<__gid_t>(iGid));
+    if (nullptr == group || nullptr == group->gr_name)
+        return;
+
+    m_groupName = QString(group->gr_name);
+    for (int i = 0; i < m_groupItemModel->rowCount(); ++i) {
+        QStandardItem *item = m_groupItemModel->item(i, 0);
+        if (nullptr == item)
+            continue;
+        item->setEnabled(item->text() != m_groupName);
+    }
+}
+
+bool AccountsModule::onEditingFinished(bool isValid, DLineEdit *fullNameEdit)
+{
+    const QString &userFullName = fullNameEdit->text();
+    if (userFullName == m_curUser->fullname() || (!userFullName.isEmpty() && userFullName.simplified().isEmpty())) {
+        fullNameEdit->lineEdit()->clearFocus();
+        fullNameEdit->setVisible(false);
+        if (fullNameEdit->isAlert()) {
+            fullNameEdit->setAlert(false);
+            fullNameEdit->hideAlertMessage();
+        }
+        return true;
+    }
+    if (!userFullName.isEmpty()) {
+        if (isValid) {
+            fullNameEdit->setAlert(true);
+            fullNameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), fullNameEdit, 2000);
+            fullNameEdit->lineEdit()->selectAll();
+            return false;
+        }
+        QList<User *> userList = m_model->userList();
+        for (User *user : userList) {
+            if (userFullName == user->fullname() || userFullName == user->name()) {
+                fullNameEdit->setAlert(true);
+                fullNameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), fullNameEdit, 2000);
+                fullNameEdit->lineEdit()->selectAll();
+                return false;
+            }
+        }
+        QList<QString> groupList = m_model->getAllGroups();
+        for (QString &group : groupList) {
+            if (userFullName == group && userFullName != m_curUser->name()) {
+                fullNameEdit->setAlert(true);
+                fullNameEdit->showAlertMessage(tr("The full name has been used by other user accounts"), fullNameEdit, 2000);
+                fullNameEdit->lineEdit()->selectAll();
+                return false;
+            }
+        }
+    }
+    fullNameEdit->lineEdit()->clearFocus();
+    fullNameEdit->setVisible(false);
+    if (fullNameEdit->isAlert()) {
+        fullNameEdit->setAlert(false);
+        fullNameEdit->hideAlertMessage();
+    }
+
+    m_worker->setFullname(m_curUser, fullNameEdit->text());
+    return true;
+}
+
+void AccountsModule::setFullname(const QString &fullName, DLabel *fullNameLabel)
+{
+    QString fullname = fullName;
+    fullNameLabel->setEnabled(true);
+    if (fullname.simplified().isEmpty()) {
+        fullname = tr("Full Name");
+        fullNameLabel->setEnabled(false);
+    } else if (fullname.toLocal8Bit().size() > 32) {
+        for (auto i = 1; i <= fullname.size(); ++i) {
+            if (fullname.left(i).toLocal8Bit().size() > 29) {
+                fullname = fullname.left(i - 1) + QString("...");
+                break;
+            }
+        }
+    }
+    fullNameLabel->setText(fullname.toHtmlEscaped());
+}
+
+QString AccountsModule::getOtherUserAutoLogin()
+{
+    for (auto user : m_model->userList()) {
+        if (user->name() != m_curUser->name() && user->autoLogin()) {
+            return user->name();
+        }
+    }
+    return "";
+}
+
+bool AccountsModule::deleteUserBtnEnable()
+{
+    auto adminCnt = [this]() {
+        int cnt = 0;
+        if (m_model->getIsSecurityHighLever()) {
+            return 1;
+        }
+        for (auto user : m_model->userList()) {
+            if (user->userType() == User::UserType::Administrator)
+                cnt++;
+        }
+        return cnt;
+    };
+
+    auto isOnlyAdmin = [this, adminCnt] { // 是最后一个管理员
+        return isSystemAdmin(m_curUser)   // 是管理员
+                && adminCnt() == 1;       // 管理员只有一个
+    };
+
+    if (m_model->getIsSecurityHighLever()) {
+        return m_curLoginUser->securityLever() == SecurityLever::Sysadm && !m_curUser->isCurrentUser();
+    }
+    return !m_curUser->isCurrentUser() // 不是当前用户
+            && !m_curUser->online()    // 未登录
+            && !isOnlyAdmin();         // 不是最后一个管理员
 }

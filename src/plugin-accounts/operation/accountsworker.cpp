@@ -419,18 +419,9 @@ void AccountsWorker::loadUserList()
 
 void AccountsWorker::onUserListChanged(const QStringList &userList)
 {
-    int count = 0;
-    static bool first = true;
     for (const QString &path : userList) {
         if (!m_userModel->contains(path)) {
-            count++;
             addUser(path);
-            if (count > 50 && first) {
-                first = false;
-                break; // 第一次打开用户列表只加载51个用户信息
-            } else if (count > 2 && !first) {
-                break; // 滚动条每滑动一次，加载3个用户
-            }
         }
     }
 }
