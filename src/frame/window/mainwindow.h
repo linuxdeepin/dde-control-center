@@ -32,6 +32,7 @@
 #include <QPair>
 #include <QDBusContext>
 #include <QGSettings>
+#include <QPointer>
 
 DWIDGET_USE_NAMESPACE
 
@@ -112,7 +113,7 @@ public:
     inline QSize getLastSize() const { return m_lastSize; }
     inline void setNeedRememberLastSize(bool needRememberLastSize)  { m_needRememberLastSize = needRememberLastSize;}
     void setPrimaryScreen(QScreen *screen);
-    inline QScreen *primaryScreen() const { return m_primaryScreen; }
+    QScreen *primaryScreen() const;
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
@@ -187,7 +188,7 @@ private:
 
     //全局搜索
     QList<QJsonObject> m_lstGrandSearchTasks;
-    QScreen *m_primaryScreen;
+    QPointer<QScreen> m_primaryScreen;
 };
 }
 

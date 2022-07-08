@@ -117,6 +117,7 @@ public:
     bool hasResolutionAndRate(const Resolution &r);
     bool hasRatefresh(const double r);
     QScreen *getQScreen();
+    void setPrimary(const QString &primaryName);
 
 private Q_SLOTS:
     void setX(const int x);
@@ -126,7 +127,6 @@ private Q_SLOTS:
     void setMmWidth(const uint mmWidth);
     void setMmHeight(const uint mmHeight);
     void setScale(const double scale);
-    void setPrimary(const QString &primaryName);
     void setRotate(const quint16 rotate);
     void setBrightness(const double brightness);
     void setName(const QString &name);

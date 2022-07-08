@@ -301,10 +301,18 @@ void MainWindow::setPrimaryScreen(QScreen *screen)
     if(m_primaryScreen == screen)
         return;
 
+    if (m_primaryScreen)
+        m_primaryScreen->disconnect(this);
+
     m_primaryScreen = screen;
     updateWinsize();
     connect(m_primaryScreen, &QScreen::geometryChanged, this, &MainWindow::updateWinsize);
     connect(m_primaryScreen, &QScreen::availableGeometryChanged, this, &MainWindow::updateWinsize);
+}
+
+QScreen *MainWindow::primaryScreen() const
+{
+    return m_primaryScreen.data();
 }
 
 void MainWindow::initAllModule(const QString &m)
@@ -447,6 +455,7 @@ void MainWindow::updateWinsize(QRect rect)
     this->titlebar()->updateGeometry();
     move(QPoint(m_primaryScreen->geometry().left() + (m_primaryScreen->geometry().width() - this->geometry().width()) / 2,
                 m_primaryScreen->geometry().top() + (m_primaryScreen->geometry().height() - this->geometry().height()) / 2));
+    qInfo() << "Update main window geometry: " << geometry() << ", primary screen geometry: " << m_primaryScreen->geometry();
 }
 
 void MainWindow::updateModuleVisible()

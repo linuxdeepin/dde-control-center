@@ -421,7 +421,6 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::CurrentRotateModeChanged, mon, &Monitor::setCurrentRotateMode);
     connect(inter, &MonitorInter::AvailableFillModesChanged, mon, &Monitor::setAvailableFillModes);
     connect(inter, &MonitorInter::CurrentFillModeChanged, mon, &Monitor::setCurrentFillMode);
-    connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), mon, &Monitor::setPrimary);
     connect(this, &DisplayWorker::requestUpdateModeList, this, [=] {
         mon->setModeList(inter->modes());
     });

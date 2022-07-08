@@ -137,6 +137,7 @@ void DisplayModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
     //获取的主屏的信息是错误的，所以不能直接使用。现在的方法是通过/com/deepin/daemon/Display服务获取主屏的名称
     //然后再在QGuiApplication::screens()中匹配，从而获取主屏的信息。
     connect(m_displayModel, &DisplayModel::monitorListChanged, this, [=] {
+        qInfo() << "Moniter list changed";
         if (m_pMainWindow) {
             for (auto mon : m_displayModel->monitorList()) {
                 if (mon->isPrimary()) {
@@ -149,6 +150,7 @@ void DisplayModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
     // 在wayland环境下，仅单屏切换的时候，会出现display服务告知主屏已变化，但是Qt的屏幕信息还没有准备好的情况
     // 此处监听一下屏幕增加的信号，然后重新获取数据设置一下主屏（如果之前主屏已经设置了，此时设置并不会有影响）
     connect(qApp, &QApplication::screenAdded, this, [this] {
+        qInfo() << "Screen added";
         if (m_pMainWindow && QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
             for (auto mon : m_displayModel->monitorList()) {
                 if (mon->isPrimary()) {
@@ -159,6 +161,7 @@ void DisplayModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
     });
 
     connect(m_displayModel, &DisplayModel::primaryScreenChanged, this, [=] (QString primary) {
+        qInfo() << "On display model primary screen changed: " << primary;
         if (m_pMainWindow && !primary.isEmpty()) {
             for (auto mon : m_displayModel->monitorList()) {
                 if (mon->name() == primary) {
