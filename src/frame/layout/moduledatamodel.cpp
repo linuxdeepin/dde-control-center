@@ -112,6 +112,7 @@ void ModuleDataModel::onInsertChild(ModuleObject *const module)
 {
     if (module->extra() || LayoutBase::IsHiden(module) || m_data.contains(module))
         return;
+
     int row = 0;
     for (auto &&tmpModule : m_parentObject->childrens()) {
         if (tmpModule == module)
