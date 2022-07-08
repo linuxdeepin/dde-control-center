@@ -15,7 +15,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Port</source>
@@ -198,6 +198,12 @@
         <translation>VPN</translation>
     </message>
     <message>
+        <source>Airplane Mode</source>
+        <translation>飛航模式</translation>
+        <extra-child_page>Airplane Mode</extra-child_page>
+        <extra-contents_path>/network/Airplane Mode</extra-contents_path>
+    </message>
+    <message>
         <source>Wired Network Adapter</source>
         <translation>有線網路介面卡</translation>
         <extra-child_page>Wired Network</extra-child_page>
@@ -359,6 +365,13 @@
     </message>
 </context>
 <context>
+    <name>dccV20::network::AirplaneModepage</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>飛航模式</translation>
+    </message>
+</context>
+<context>
     <name>DNSSection</name>
     <message>
         <source>DNS</source>
@@ -460,7 +473,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Gateway</source>
@@ -495,7 +508,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
 </context>
 <context>
@@ -549,7 +562,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Gateway</source>
@@ -629,6 +642,11 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
+        <source>Airplane Mode</source>
+        <translation>飛航模式</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
+    </message>
+    <message>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
@@ -689,7 +707,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Service</source>
@@ -919,7 +937,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Pwd Options</source>
@@ -994,7 +1012,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Key</source>
@@ -1052,7 +1070,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Authentication</source>
@@ -1272,7 +1290,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>CA Cert</source>
@@ -1347,7 +1365,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Auth Type</source>
@@ -1524,7 +1542,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Port</source>
@@ -1609,7 +1627,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1687,7 +1705,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>CA Cert</source>
@@ -1801,7 +1819,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Username</source>
@@ -1889,7 +1907,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>必須</translation>
+        <translation>必填</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

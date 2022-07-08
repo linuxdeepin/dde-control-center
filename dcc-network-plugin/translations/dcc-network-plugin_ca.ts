@@ -198,6 +198,12 @@
         <translation>XPV</translation>
     </message>
     <message>
+        <source>Airplane Mode</source>
+        <translation>Mode d&apos;avió</translation>
+        <extra-child_page>Airplane Mode</extra-child_page>
+        <extra-contents_path>/network/Airplane Mode</extra-contents_path>
+    </message>
+    <message>
         <source>Wired Network Adapter</source>
         <translation>Adaptador de la xarxa amb fil</translation>
         <extra-child_page>Wired Network</extra-child_page>
@@ -359,6 +365,13 @@
     </message>
 </context>
 <context>
+    <name>dccV20::network::AirplaneModepage</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Mode d&apos;avió</translation>
+    </message>
+</context>
+<context>
     <name>DNSSection</name>
     <message>
         <source>DNS</source>
@@ -460,7 +473,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>Necessari</translation>
+        <translation>Cal</translation>
     </message>
     <message>
         <source>Gateway</source>
@@ -495,7 +508,7 @@
     </message>
     <message>
         <source>Required</source>
-        <translation>Necessari</translation>
+        <translation>Cal</translation>
     </message>
 </context>
 <context>
@@ -628,6 +641,11 @@
 </context>
 <context>
     <name>NetworkModuleWidget</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Mode d&apos;avió</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
+    </message>
     <message>
         <source>DSL</source>
         <translation>DSL</translation>

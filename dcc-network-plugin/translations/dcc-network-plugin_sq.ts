@@ -198,6 +198,12 @@
         <translation>VPN</translation>
     </message>
     <message>
+        <source>Airplane Mode</source>
+        <translation>Mënyra Aeroplan</translation>
+        <extra-child_page>Airplane Mode</extra-child_page>
+        <extra-contents_path>/network/Airplane Mode</extra-contents_path>
+    </message>
+    <message>
         <source>Wired Network Adapter</source>
         <translation>Përshtatës Rrjeti Me Fill</translation>
         <extra-child_page>Wired Network</extra-child_page>
@@ -359,6 +365,13 @@
     </message>
 </context>
 <context>
+    <name>dccV20::network::AirplaneModepage</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Mënyra Aeroplan</translation>
+    </message>
+</context>
+<context>
     <name>DNSSection</name>
     <message>
         <source>DNS</source>
@@ -377,7 +390,7 @@
     </message>
     <message>
         <source>Not Bind</source>
-        <translation type="unfinished"/>
+        <translation>Jo e lidhur</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>
@@ -629,6 +642,11 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
+        <source>Airplane Mode</source>
+        <translation>Mënyra Aeroplan</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
+    </message>
+    <message>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
@@ -760,7 +778,7 @@
     </message>
     <message>
         <source>Stateful MPPE</source>
-        <translation type="unfinished"/>
+        <translation>Gjendje  MPPE</translation>
     </message>
 </context>
 <context>
@@ -943,7 +961,7 @@
     </message>
     <message>
         <source>Provisioning</source>
-        <translation type="unfinished"/>
+        <translation>Provisioni</translation>
     </message>
     <message>
         <source>PAC file</source>
@@ -1119,7 +1137,7 @@
     </message>
     <message>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation type="unfinished"/>
+        <translation>Kufizo Tunalin TCP MSS</translation>
     </message>
     <message>
         <source>Randomize Remote Hosts</source>
@@ -1138,7 +1156,7 @@
     </message>
     <message>
         <source>Netscreen</source>
-        <translation type="unfinished"/>
+        <translation>Netscreen</translation>
     </message>
     <message>
         <source>Secure (default)</source>
@@ -1206,7 +1224,7 @@
     </message>
     <message>
         <source>NAT Traversal Mode</source>
-        <translation type="unfinished"/>
+        <translation>menyra e udhetimit NAT</translation>
     </message>
     <message>
         <source>IKE DH Group</source>
@@ -1214,7 +1232,7 @@
     </message>
     <message>
         <source>Forward Secrecy</source>
-        <translation type="unfinished"/>
+        <translation>Perpara sekretet</translation>
     </message>
     <message>
         <source>Local Port</source>
@@ -1245,7 +1263,7 @@
     </message>
     <message>
         <source>Pre-Shared Key</source>
-        <translation type="unfinished"/>
+        <translation>Celes i para-shperndare</translation>
     </message>
     <message>
         <source>Phase1 Algorithms</source>
@@ -1466,7 +1484,7 @@
     </message>
     <message>
         <source>Stateful MPPE</source>
-        <translation type="unfinished"/>
+        <translation>Gjendje  MPPE</translation>
     </message>
 </context>
 <context>
@@ -1679,7 +1697,7 @@
     </message>
     <message>
         <source>Pre-Shared Key</source>
-        <translation type="unfinished"/>
+        <translation>Celes i para-shperndare</translation>
     </message>
     <message>
         <source>Gateway</source>
@@ -1881,7 +1899,7 @@
     </message>
     <message>
         <source>Not Bind</source>
-        <translation type="unfinished"/>
+        <translation>Jo e lidhur</translation>
     </message>
     <message>
         <source>SSID</source>

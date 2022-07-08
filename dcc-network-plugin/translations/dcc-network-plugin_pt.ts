@@ -198,6 +198,12 @@
         <translation>VPN</translation>
     </message>
     <message>
+        <source>Airplane Mode</source>
+        <translation>Modo de avião</translation>
+        <extra-child_page>Airplane Mode</extra-child_page>
+        <extra-contents_path>/network/Airplane Mode</extra-contents_path>
+    </message>
+    <message>
         <source>Wired Network Adapter</source>
         <translation>Adaptador de rede por cabo</translation>
         <extra-child_page>Wired Network</extra-child_page>
@@ -359,6 +365,13 @@
     </message>
 </context>
 <context>
+    <name>dccV20::network::AirplaneModepage</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Modo de avião</translation>
+    </message>
+</context>
+<context>
     <name>DNSSection</name>
     <message>
         <source>DNS</source>
@@ -471,7 +484,7 @@
     <name>IPV4InputSection</name>
     <message>
         <source>Duplicate IP address</source>
-        <translation type="unfinished"/>
+        <translation>Endereço IP duplicado</translation>
     </message>
     <message>
         <source>Invalid IP address</source>
@@ -483,7 +496,7 @@
     </message>
     <message>
         <source>Only one gateway is allowed</source>
-        <translation type="unfinished"/>
+        <translation>Apenas um Gateway é permitido</translation>
     </message>
     <message>
         <source>Invalid gateway</source>
@@ -502,7 +515,7 @@
     <name>IPV6InputSection</name>
     <message>
         <source>Duplicate IP address</source>
-        <translation type="unfinished"/>
+        <translation>Endereço IP duplicado</translation>
     </message>
     <message>
         <source>Invalid IP address</source>
@@ -510,7 +523,7 @@
     </message>
     <message>
         <source>Only one gateway is allowed</source>
-        <translation type="unfinished"/>
+        <translation>Apenas um Gateway é permitido</translation>
     </message>
     <message>
         <source>Invalid gateway</source>
@@ -628,6 +641,11 @@
 </context>
 <context>
     <name>NetworkModuleWidget</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Modo de avião</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
+    </message>
     <message>
         <source>DSL</source>
         <translation>DSL</translation>
@@ -986,7 +1004,7 @@
     </message>
     <message>
         <source>WPA3 Personal</source>
-        <translation type="unfinished"/>
+        <translation>WPA3 Personal</translation>
     </message>
     <message>
         <source>Security</source>
@@ -1036,7 +1054,7 @@
     </message>
     <message>
         <source>WPA3 Personal</source>
-        <translation type="unfinished"/>
+        <translation>WPA3 Personal</translation>
     </message>
     <message>
         <source>Shared key</source>

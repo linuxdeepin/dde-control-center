@@ -1,59 +1,61 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="en">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1">
 <context>
     <name>ChainsProxyPage</name>
     <message>
         <source>Application Proxy</source>
-        <translation>Application Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Proxy Type</source>
-        <translation>Proxy Type</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IP Address</source>
-        <translation>IP Address</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>Optional</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation>Cancel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
         <comment>button</comment>
-        <translation>Save</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid IP address</source>
-        <translation>Invalid IP address</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid port</source>
-        <translation>Invalid port</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -61,780 +63,798 @@
     <message>
         <source>Disconnect</source>
         <comment>button</comment>
-        <translation>Disconnect</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
         <comment>button</comment>
-        <translation>Delete</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation>Cancel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
         <comment>button</comment>
-        <translation>Save</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Are you sure you want to delete this configuration?</source>
-        <translation>Are you sure you want to delete this configuration?</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wired Connection %1</source>
-        <translation>Wired Connection %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wireless Connection %1</source>
-        <translation>Wireless Connection %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PPPoE Connection %1</source>
-        <translation>PPPoE Connection %1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ConnectionVpnEditPage</name>
     <message>
         <source>New VPN</source>
-        <translation>New VPN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>VPN Type</source>
-        <translation>VPN Type</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>L2TP</source>
-        <translation>L2TP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PPTP</source>
-        <translation>PPTP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OpenVPN</source>
-        <translation>OpenVPN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OpenConnect</source>
-        <translation>OpenConnect</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>StrongSwan</source>
-        <translation>StrongSwan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>VPNC</source>
-        <translation>VPNC</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export</source>
         <comment>button</comment>
-        <translation>Export</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>VPN L2TP %1</source>
-        <translation>VPN L2TP %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>VPN PPTP %1</source>
-        <translation>VPN PPTP %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>VPN VPNC %1</source>
-        <translation>VPN VPNC %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>VPN OpenVPN %1</source>
-        <translation>VPN OpenVPN %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>VPN StrongSwan %1</source>
-        <translation>VPN StrongSwan %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>VPN OpenConnect %1</source>
-        <translation>VPN OpenConnect %1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DCCNetworkModule</name>
     <message>
         <source>Network</source>
-        <translation>Network</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Application Proxy</source>
-        <translation>Application Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Personal Hotspot</source>
-        <translation>Personal Hotspot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Network Details</source>
-        <translation>Network Details</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System Proxy</source>
-        <translation>System Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wired Network</source>
-        <translation>Wired Network</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation>Wireless Network</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"></translation>
+        <extra-child_page>Airplane Mode</extra-child_page>
+        <extra-contents_path>/network/Airplane Mode</extra-contents_path>
     </message>
     <message>
         <source>Wired Network Adapter</source>
-        <translation>Wired Network Adapter</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Wired Network</extra-child_page>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <source>Add Network Connection</source>
-        <translation>Add Network Connection</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Wired Network</extra-child_page>
         <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <source>Wireless Network Adapter</source>
-        <translation>Wireless Network Adapter</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Wireless Network</extra-child_page>
         <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
         <source>Connect to hidden network</source>
-        <translation>Connect to hidden network</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Wireless Network</extra-child_page>
         <extra-contents_path>/network/Wireless Network/Connect to hidden network</extra-contents_path>
     </message>
     <message>
         <source>DSL</source>
-        <translation>DSL</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page_hide>DSL</extra-child_page_hide>
         <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
         <source>Create PPPoE Connection</source>
-        <translation>Create PPPoE Connection</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>DSL</extra-child_page>
         <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
         <source>VPN Status</source>
-        <translation>VPN Status</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>VPN</extra-child_page>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
         <source>Create VPN</source>
-        <translation>Create VPN</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>VPN</extra-child_page>
         <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
     </message>
     <message>
         <source>Import VPN</source>
-        <translation>Import VPN</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>VPN</extra-child_page>
         <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
         <source>Proxy Type</source>
-        <translation>Proxy Type</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Application Proxy</extra-child_page>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Configuration URL</source>
-        <translation>Configuration URL</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IP Address</source>
-        <translation>IP Address</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Application Proxy</extra-child_page>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Application Proxy</extra-child_page>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Application Proxy</extra-child_page>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Application Proxy</extra-child_page>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Personal Hotspot</extra-child_page>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
         <source>Create Hotspot</source>
-        <translation>Create Hotspot</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Personal Hotspot</extra-child_page>
         <extra-contents_path>/network/Personal Hotspot/Create Hotspot</extra-contents_path>
     </message>
     <message>
         <source>Interface</source>
-        <translation>Interface</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>MAC</source>
-        <translation>MAC</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>Band</source>
-        <translation>Band</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>IPv4</source>
-        <translation>IPv4</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation>Primary DNS</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Netmask</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>IPv6</source>
-        <translation>IPv6</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Speed</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::AirplaneModepage</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DNSSection</name>
     <message>
         <source>DNS</source>
-        <translation>DNS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid DNS address</source>
-        <translation>Invalid DNS address</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>EthernetSection</name>
     <message>
         <source>Ethernet</source>
-        <translation>Ethernet</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Not Bind</source>
-        <translation>Not Bind</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Device MAC Addr</source>
-        <translation>Device MAC Addr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cloned MAC Addr</source>
-        <translation>Cloned MAC Addr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Customize MTU</source>
-        <translation>Customize MTU</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MTU</source>
-        <translation>MTU</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>GenericHotspotSection</name>
     <message>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>GenericSection</name>
     <message>
         <source>General</source>
-        <translation>General</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The name already exists</source>
-        <translation>The name already exists</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Name</source>
-        <translation>Name</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto Connect</source>
-        <translation>Auto Connect</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>HotspotDeviceWidget</name>
     <message>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add Settings</source>
-        <translation>Add Settings</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>HotspotPage</name>
     <message>
         <source>Create Hotspot</source>
-        <translation>Create Hotspot</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>IPInputSection</name>
     <message>
         <source>IP Address</source>
-        <translation>IP Address</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>IPV4InputSection</name>
     <message>
         <source>Duplicate IP address</source>
-        <translation>Duplicate IP address</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid IP address</source>
-        <translation>Invalid IP address</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid netmask</source>
-        <translation>Invalid netmask</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Only one gateway is allowed</source>
-        <translation>Only one gateway is allowed</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid gateway</source>
-        <translation>Invalid gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Netmask</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>IPV6InputSection</name>
     <message>
         <source>Duplicate IP address</source>
-        <translation>Duplicate IP address</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid IP address</source>
-        <translation>Invalid IP address</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Only one gateway is allowed</source>
-        <translation>Only one gateway is allowed</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid gateway</source>
-        <translation>Invalid gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>IpvxSection</name>
     <message>
         <source>IPv4</source>
-        <translation>IPv4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation>IPv6</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Manual</source>
-        <translation>Manual</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation>Ignore</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IP Address</source>
-        <translation>IP Address</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Only applied in corresponding resources</source>
-        <translation>Only applied in corresponding resources</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Method</source>
-        <translation>Method</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Netmask</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid IP address</source>
-        <translation>Invalid IP address</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid netmask</source>
-        <translation>Invalid netmask</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid gateway</source>
-        <translation>Invalid gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Network</source>
-        <translation>Network</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IP conflict</source>
-        <translation>IP conflict</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MultiIpvxSection</name>
     <message>
         <source>Method</source>
-        <translation>Method</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IPv4</source>
-        <translation>IPv4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Manual</source>
-        <translation>Manual</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation>IPv6</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore</source>
-        <translation>Ignore</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>NetworkDetailPage</name>
     <message>
         <source>Network Details</source>
-        <translation>Network Details</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>NetworkModuleWidget</name>
     <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
+    </message>
+    <message>
         <source>DSL</source>
-        <translation>DSL</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System Proxy</source>
-        <translation>System Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Application Proxy</source>
-        <translation>Application Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Network Details</source>
-        <translation>Network Details</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Network</source>
-        <translation>Network</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IP conflict</source>
-        <translation>IP conflict</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation>Disabled</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Manual</source>
-        <translation>Manual</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Configure by Network Manager</source>
-        <translation>Configure by Network Manager</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Personal Hotspot</source>
-        <translation>Personal Hotspot</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PPPOESection</name>
     <message>
         <source>PPPoE</source>
-        <translation>PPPoE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Service</source>
-        <translation>Service</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PPPSection</name>
     <message>
         <source>PPP</source>
-        <translation>PPP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Refuse EAP Authentication</source>
-        <translation>Refuse EAP Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Refuse PAP Authentication</source>
-        <translation>Refuse PAP Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Refuse CHAP Authentication</source>
-        <translation>Refuse CHAP Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Refuse MSCHAP Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Refuse MSCHAPv2 Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No BSD Data Compression</source>
-        <translation>No BSD Data Compression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No Deflate Data Compression</source>
-        <translation>No Deflate Data Compression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No TCP Header Compression</source>
-        <translation>No TCP Header Compression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No Protocol Field Compression</source>
-        <translation>No Protocol Field Compression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No Address/Control Compression</source>
-        <translation>No Address/Control Compression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Send PPP Echo Packets</source>
-        <translation>Send PPP Echo Packets</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use MPPE</source>
-        <translation>Use MPPE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>128-bit MPPE</source>
-        <translation>128-bit MPPE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stateful MPPE</source>
-        <translation>Stateful MPPE</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PppoePage</name>
     <message>
         <source>Create PPPoE Connection</source>
-        <translation>Create PPPoE Connection</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PPP</source>
-        <translation>PPP</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ProxyPage</name>
     <message>
         <source>System Proxy</source>
-        <translation>System Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation>Cancel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
         <comment>button</comment>
-        <translation>Save</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Proxy Type</source>
-        <translation>Proxy Type</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>System Proxy</extra-child_page>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <source>Manual</source>
-        <translation>Manual</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation>Auto</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation>Optional</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HTTP Proxy</source>
-        <translation>HTTP Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HTTPS Proxy</source>
-        <translation>HTTPS Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FTP Proxy</source>
-        <translation>FTP Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SOCKS Proxy</source>
-        <translation>SOCKS Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Ignore the proxy configurations for the above hosts and domains</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Configuration URL</source>
-        <translation>Configuration URL</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>System Proxy</extra-child_page>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
@@ -843,1032 +863,1032 @@
     <name>Secret8021xSection</name>
     <message>
         <source>Security</source>
-        <translation>Security</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>TLS</source>
-        <translation>TLS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MD5</source>
-        <translation>MD5</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>LEAP</source>
-        <translation>LEAP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>FAST</source>
-        <translation>FAST</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Tunneled TLS</source>
-        <translation>Tunneled TLS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Protected EAP</source>
-        <translation>Protected EAP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save password for this user</source>
-        <translation>Save password for this user</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save password for all users</source>
-        <translation>Save password for all users</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ask me always</source>
-        <translation>Ask me always</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation>Disabled</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Anonymous</source>
-        <translation>Anonymous</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Authenticated</source>
-        <translation>Authenticated</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Both</source>
-        <translation>Both</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Automatic</source>
-        <translation>Automatic</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Version 0</source>
-        <translation>Version 0</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Version 1</source>
-        <translation>Version 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>EAP Auth</source>
-        <translation>EAP Auth</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Identity</source>
-        <translation>Identity</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pwd Options</source>
-        <translation>Pwd Options</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Private Key</source>
-        <translation>Private Key</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>User Cert</source>
-        <translation>User Cert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Anonymous ID</source>
-        <translation>Anonymous ID</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Provisioning</source>
-        <translation>Provisioning</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PAC file</source>
-        <translation>PAC file</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Inner Auth</source>
-        <translation>Inner Auth</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>PEAP Version</source>
-        <translation>PEAP Version</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Private Pwd</source>
-        <translation>Private Pwd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SecretHotspotSection</name>
     <message>
         <source>Invalid password</source>
-        <translation>Invalid password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>None</source>
-        <translation>None</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>WEP</source>
-        <translation>WEP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Personal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>WPA3 Personal</source>
-        <translation>WPA3 Personal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Security</source>
-        <translation>Security</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Key</source>
-        <translation>Key</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SecretWiredSection</name>
     <message>
         <source>Security Required</source>
-        <translation>Security Required</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SecretWirelessSection</name>
     <message>
         <source>Invalid password</source>
-        <translation>Invalid password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>None</source>
-        <translation>None</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>WEP</source>
-        <translation>WEP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Personal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>WPA/WPA2 Enterprise</source>
-        <translation>WPA/WPA2 Enterprise</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>WPA3 Personal</source>
-        <translation>WPA3 Personal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Shared key</source>
-        <translation>Shared key</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Open system</source>
-        <translation>Open system</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Security</source>
-        <translation>Security</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Authentication</source>
-        <translation>Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Key</source>
-        <translation>Key</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnAdvOpenVPNSection</name>
     <message>
         <source>VPN Advanced</source>
-        <translation>VPN Advanced</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Customize Gateway Port</source>
-        <translation>Customize Gateway Port</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gateway Port</source>
-        <translation>Gateway Port</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Customize Renegotiation Interval</source>
-        <translation>Customize Renegotiation Interval</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Renegotiation Interval</source>
-        <translation>Renegotiation Interval</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use LZO Data Compression</source>
-        <translation>Use LZO Data Compression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use TCP Connection</source>
-        <translation>Use TCP Connection</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use TAP Device</source>
-        <translation>Use TAP Device</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Customize Tunnel MTU</source>
-        <translation>Customize Tunnel MTU</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MTU</source>
-        <translation>MTU</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Customize UDP Fragment Size</source>
-        <translation>Customize UDP Fragment Size</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>UDP Fragment Size</source>
-        <translation>UDP Fragment Size</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation>Restrict Tunnel TCP MSS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Randomize Remote Hosts</source>
-        <translation>Randomize Remote Hosts</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnAdvVPNCSection</name>
     <message>
         <source>VPN Advanced</source>
-        <translation>VPN Advanced</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cisco (default)</source>
-        <translation>Cisco (default)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Netscreen</source>
-        <translation>Netscreen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Secure (default)</source>
-        <translation>Secure (default)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Weak</source>
-        <translation>Weak</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>None</source>
-        <translation>None</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>NAT-T When Available (default)</source>
-        <translation>NAT-T When Available (default)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>NAT-T Always</source>
-        <translation>NAT-T Always</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cisco UDP</source>
-        <translation>Cisco UDP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disabled</source>
-        <translation>Disabled</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DH Group 1</source>
-        <translation>DH Group 1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DH Group 2 (default)</source>
-        <translation>DH Group 2 (default)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DH Group 5</source>
-        <translation>DH Group 5</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Server (default)</source>
-        <translation>Server (default)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>DH Group 2</source>
-        <translation>DH Group 2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Domain</source>
-        <translation>Domain</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Vendor</source>
-        <translation>Vendor</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Version</source>
-        <translation>Version</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Encryption</source>
-        <translation>Encryption</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>NAT Traversal Mode</source>
-        <translation>NAT Traversal Mode</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IKE DH Group</source>
-        <translation>IKE DH Group</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Forward Secrecy</source>
-        <translation>Forward Secrecy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local Port</source>
-        <translation>Local Port</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disable Dead Peer Detection</source>
-        <translation>Disable Dead Peer Detection</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnIpsecSection</name>
     <message>
         <source>VPN IPsec</source>
-        <translation>VPN IPsec</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable IPsec</source>
-        <translation>Enable IPsec</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Group Name</source>
-        <translation>Group Name</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Group ID</source>
-        <translation>Group ID</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pre-Shared Key</source>
-        <translation>Pre-Shared Key</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Phase1 Algorithms</source>
-        <translation>Phase1 Algorithms</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Phase2 Algorithms</source>
-        <translation>Phase2 Algorithms</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnOpenConnectSection</name>
     <message>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid gateway</source>
-        <translation>Invalid gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Proxy</source>
-        <translation>Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Allow Cisco Secure Desktop Trojan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>CSD Script</source>
-        <translation>CSD Script</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>User Cert</source>
-        <translation>User Cert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Private Key</source>
-        <translation>Private Key</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use FSID for Key Passphrase</source>
-        <translation>Use FSID for Key Passphrase</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnOpenVPNSection</name>
     <message>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid gateway</source>
-        <translation>Invalid gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Certificates (TLS)</source>
-        <translation>Certificates (TLS)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Certificates with Password (TLS)</source>
-        <translation>Certificates with Password (TLS)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Static Key</source>
-        <translation>Static Key</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Saved</source>
-        <translation>Saved</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ask</source>
-        <translation>Ask</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Not Required</source>
-        <translation>Not Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auth Type</source>
-        <translation>Auth Type</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>User Cert</source>
-        <translation>User Cert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Private Key</source>
-        <translation>Private Key</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pwd Options</source>
-        <translation>Pwd Options</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Private Pwd</source>
-        <translation>Private Pwd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Customize Key Direction</source>
-        <translation>Customize Key Direction</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Key Direction</source>
-        <translation>Key Direction</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remote IP</source>
-        <translation>Remote IP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local IP</source>
-        <translation>Local IP</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnPPPSection</name>
     <message>
         <source>VPN PPP</source>
-        <translation>VPN PPP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>All Available (default)</source>
-        <translation>All Available (default)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>40-bit (less secure)</source>
-        <translation>40-bit (less secure)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>128-bit (most secure)</source>
-        <translation>128-bit (most secure)</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Refuse EAP Authentication</source>
-        <translation>Refuse EAP Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Refuse PAP Authentication</source>
-        <translation>Refuse PAP Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Refuse CHAP Authentication</source>
-        <translation>Refuse CHAP Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Refuse MSCHAP Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Refuse MSCHAPv2 Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No BSD Data Compression</source>
-        <translation>No BSD Data Compression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No Deflate Data Compression</source>
-        <translation>No Deflate Data Compression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No TCP Header Compression</source>
-        <translation>No TCP Header Compression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No Protocol Field Compression</source>
-        <translation>No Protocol Field Compression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>No Address/Control Compression</source>
-        <translation>No Address/Control Compression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Send PPP Echo Packets</source>
-        <translation>Send PPP Echo Packets</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use MPPE</source>
-        <translation>Use MPPE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Security</source>
-        <translation>Security</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Stateful MPPE</source>
-        <translation>Stateful MPPE</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnPage</name>
     <message>
         <source>VPN Status</source>
-        <translation>VPN Status</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Create VPN</source>
-        <translation>Create VPN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Import VPN</source>
-        <translation>Import VPN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Import Error</source>
-        <translation>Import Error</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>File error</source>
-        <translation>File error</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnProxySection</name>
     <message>
         <source>VPN Proxy</source>
-        <translation>VPN Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Not Required</source>
-        <translation>Not Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HTTP</source>
-        <translation>HTTP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SOCKS</source>
-        <translation>SOCKS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Proxy Type</source>
-        <translation>Proxy Type</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Server IP</source>
-        <translation>Server IP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Retry Indefinitely When Failed</source>
-        <translation>Retry Indefinitely When Failed</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnSSTPSection</name>
     <message>
         <source>CA File</source>
-        <translation>CA File</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ignore Certificate Warnings</source>
-        <translation>Ignore Certificate Warnings</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use TLS Hostname Extensions</source>
-        <translation>Use TLS Hostname Extensions</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnSecOpenVPNSection</name>
     <message>
         <source>VPN Security</source>
-        <translation>VPN Security</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default</source>
-        <translation>Default</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>None</source>
-        <translation>None</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cipher</source>
-        <translation>Cipher</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>HMAC Auth</source>
-        <translation>HMAC Auth</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnSection</name>
     <message>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid gateway</source>
-        <translation>Invalid gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Saved</source>
-        <translation>Saved</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ask</source>
-        <translation>Ask</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Not Required</source>
-        <translation>Not Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pwd Options</source>
-        <translation>Pwd Options</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>NT Domain</source>
-        <translation>NT Domain</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnSstpProxySection</name>
     <message>
         <source>VPN Proxy</source>
-        <translation>VPN Proxy</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Server IP</source>
-        <translation>Server IP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnStrongSwanSection</name>
     <message>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid gateway</source>
-        <translation>Invalid gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Private Key</source>
-        <translation>Private Key</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SSH Agent</source>
-        <translation>SSH Agent</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Smart Card</source>
-        <translation>Smart Card</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>EAP</source>
-        <translation>EAP</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pre-Shared Key</source>
-        <translation>Pre-Shared Key</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>CA Cert</source>
-        <translation>CA Cert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auth Type</source>
-        <translation>Auth Type</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>User Cert</source>
-        <translation>User Cert</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Request an Inner IP Address</source>
-        <translation>Request an Inner IP Address</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enforce UDP Encapsulation</source>
-        <translation>Enforce UDP Encapsulation</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use IP Compression</source>
-        <translation>Use IP Compression</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable Custom Cipher Proposals</source>
-        <translation>Enable Custom Cipher Proposals</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IKE</source>
-        <translation>IKE</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ESP</source>
-        <translation>ESP</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnTLSSection</name>
     <message>
         <source>VPN TLS Authentication</source>
-        <translation>VPN TLS Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Default</source>
-        <translation>Default</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Client</source>
-        <translation>Client</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Server</source>
-        <translation>Server</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Subject Match</source>
-        <translation>Subject Match</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remote Cert Type</source>
-        <translation>Remote Cert Type</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Key File</source>
-        <translation>Key File</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Customize Key Direction</source>
-        <translation>Customize Key Direction</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Key Direction</source>
-        <translation>Key Direction</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>VpnVPNCSection</name>
     <message>
         <source>VPN</source>
-        <translation>VPN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid gateway</source>
-        <translation>Invalid gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Saved</source>
-        <translation>Saved</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ask</source>
-        <translation>Ask</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Not Required</source>
-        <translation>Not Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Username</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Pwd Options</source>
-        <translation>Pwd Options</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Group Name</source>
-        <translation>Group Name</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Group Pwd</source>
-        <translation>Group Pwd</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use Hybrid Authentication</source>
-        <translation>Use Hybrid Authentication</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>CA File</source>
-        <translation>CA File</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>WiredPage</name>
     <message>
         <source>Plug in the network cable first</source>
-        <translation>Plug in the network cable first</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wired Network Adapter</source>
-        <translation>Wired Network Adapter</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add Network Connection</source>
-        <translation>Add Network Connection</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select Settings</source>
-        <translation>Select Settings</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>WirelessPage</name>
     <message>
         <source>Wireless Network Adapter</source>
-        <translation>Wireless Network Adapter</translation>
+        <translation type="unfinished"></translation>
         <extra-contents_path>/network/Wireless Network</extra-contents_path>
     </message>
     <message>
         <source>Close Hotspot</source>
-        <translation>Close Hotspot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation>Disable hotspot first if you want to connect to a wireless network</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Connect to hidden network</source>
-        <translation>Connect to hidden network</translation>
+        <translation type="unfinished"></translation>
         <extra-child_page>WirelessPage</extra-child_page>
         <extra-contents_path>/network/Connect to hidden network</extra-contents_path>
     </message>
@@ -1877,164 +1897,164 @@
     <name>WirelessSection</name>
     <message>
         <source>WLAN</source>
-        <translation>WLAN</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Not Bind</source>
-        <translation>Not Bind</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SSID</source>
-        <translation>SSID</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Required</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Device MAC Addr</source>
-        <translation>Device MAC Addr</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Customize MTU</source>
-        <translation>Customize MTU</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MTU</source>
-        <translation>MTU</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>SSID</source>
-        <translation>SSID</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Protocol</source>
-        <translation>Protocol</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Security Type</source>
-        <translation>Security Type</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Band</source>
-        <translation>Band</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Channel</source>
-        <translation>Channel</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation>Interface</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>MAC</source>
-        <translation>MAC</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IPv4</source>
-        <translation>IPv4</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Netmask</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation>Primary DNS</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IPv6</source>
-        <translation>IPv6</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Speed</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDeviceRealize</name>
     <message>
         <source>Device disabled</source>
-        <translation>Device disabled</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Connected but no Internet access</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Not connected</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>Network cable unplugged</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Connecting</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Authenticating</source>
-        <translation>Authenticating</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Obtaining IP address</source>
-        <translation>Obtaining IP address</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Connected</source>
-        <translation>Connected</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnected</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>IP conflict</source>
-        <translation>IP conflict</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation>Failed</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation>Obtaining address</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkProcesser</name>
     <message>
         <source>Wired Network</source>
-        <translation>Wired Network</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wired Network %1</source>
-        <translation>Wired Network %1</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation>Wireless Network</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wireless Network %1</source>
-        <translation>Wireless Network %1</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

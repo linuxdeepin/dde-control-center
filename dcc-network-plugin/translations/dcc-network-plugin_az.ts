@@ -198,6 +198,12 @@
         <translation>VPN</translation>
     </message>
     <message>
+        <source>Airplane Mode</source>
+        <translation>Təyyarə rejimi</translation>
+        <extra-child_page>Airplane Mode</extra-child_page>
+        <extra-contents_path>/network/Airplane Mode</extra-contents_path>
+    </message>
+    <message>
         <source>Wired Network Adapter</source>
         <translation>Naqilli şəbəkə uzlaşdırıcısı</translation>
         <extra-child_page>Wired Network</extra-child_page>
@@ -356,6 +362,13 @@
         <translation>Sürət</translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::AirplaneModepage</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Təyyarə rejimi</translation>
     </message>
 </context>
 <context>
@@ -628,6 +641,11 @@
 </context>
 <context>
     <name>NetworkModuleWidget</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Təyyarə rejimi</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
+    </message>
     <message>
         <source>DSL</source>
         <translation>DSL</translation>

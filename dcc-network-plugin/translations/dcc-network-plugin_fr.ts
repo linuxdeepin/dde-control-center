@@ -198,6 +198,12 @@
         <translation>VPN</translation>
     </message>
     <message>
+        <source>Airplane Mode</source>
+        <translation>Mode avion</translation>
+        <extra-child_page>Airplane Mode</extra-child_page>
+        <extra-contents_path>/network/Airplane Mode</extra-contents_path>
+    </message>
+    <message>
         <source>Wired Network Adapter</source>
         <translation>Adaptateur réseau filaire</translation>
         <extra-child_page>Wired Network</extra-child_page>
@@ -359,6 +365,13 @@
     </message>
 </context>
 <context>
+    <name>dccV20::network::AirplaneModepage</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Mode avion</translation>
+    </message>
+</context>
+<context>
     <name>DNSSection</name>
     <message>
         <source>DNS</source>
@@ -471,7 +484,7 @@
     <name>IPV4InputSection</name>
     <message>
         <source>Duplicate IP address</source>
-        <translation type="unfinished"/>
+        <translation>Adresse IP en double</translation>
     </message>
     <message>
         <source>Invalid IP address</source>
@@ -483,7 +496,7 @@
     </message>
     <message>
         <source>Only one gateway is allowed</source>
-        <translation type="unfinished"/>
+        <translation>Une seule passerelle est autorisée</translation>
     </message>
     <message>
         <source>Invalid gateway</source>
@@ -502,7 +515,7 @@
     <name>IPV6InputSection</name>
     <message>
         <source>Duplicate IP address</source>
-        <translation type="unfinished"/>
+        <translation>Adresse IP en double</translation>
     </message>
     <message>
         <source>Invalid IP address</source>
@@ -510,7 +523,7 @@
     </message>
     <message>
         <source>Only one gateway is allowed</source>
-        <translation type="unfinished"/>
+        <translation>Une seule passerelle est autorisée</translation>
     </message>
     <message>
         <source>Invalid gateway</source>
@@ -589,7 +602,7 @@
     </message>
     <message>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Conflit IP</translation>
     </message>
 </context>
 <context>
@@ -629,6 +642,11 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
+        <source>Airplane Mode</source>
+        <translation>Mode avion</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
+    </message>
+    <message>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
@@ -654,7 +672,7 @@
     </message>
     <message>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Conflit IP</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -986,7 +1004,7 @@
     </message>
     <message>
         <source>WPA3 Personal</source>
-        <translation type="unfinished"/>
+        <translation>WPA3 Personnel</translation>
     </message>
     <message>
         <source>Security</source>
@@ -1036,7 +1054,7 @@
     </message>
     <message>
         <source>WPA3 Personal</source>
-        <translation type="unfinished"/>
+        <translation>WPA3 Personnel</translation>
     </message>
     <message>
         <source>Shared key</source>
@@ -1493,7 +1511,7 @@
     </message>
     <message>
         <source>OK</source>
-        <translation>D&apos;accord</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -2007,7 +2025,7 @@
     </message>
     <message>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Conflit IP</translation>
     </message>
     <message>
         <source>Failed</source>
@@ -2015,7 +2033,7 @@
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Obtenir l&apos;adresse</translation>
     </message>
 </context>
 <context>

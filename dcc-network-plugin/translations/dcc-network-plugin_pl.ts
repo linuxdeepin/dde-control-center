@@ -35,7 +35,7 @@
     </message>
     <message>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Zaznacz „Użyj proxy” w menu kontekstowym aplikacji w Launcherze po skonfigurowaniu</translation>
+        <translation>Zaznacz „Użyj proxy” w menu kontekstowym aplikacji w programie wywołującym po skonfigurowaniu</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -103,7 +103,7 @@
     <name>ConnectionVpnEditPage</name>
     <message>
         <source>New VPN</source>
-        <translation>Nowe VPN</translation>
+        <translation>Nowy VPN</translation>
     </message>
     <message>
         <source>VPN Type</source>
@@ -198,6 +198,12 @@
         <translation>VPN</translation>
     </message>
     <message>
+        <source>Airplane Mode</source>
+        <translation>Tryb samolotowy</translation>
+        <extra-child_page>Airplane Mode</extra-child_page>
+        <extra-contents_path>/network/Airplane Mode</extra-contents_path>
+    </message>
+    <message>
         <source>Wired Network Adapter</source>
         <translation>Przewodowa karta sieciowa</translation>
         <extra-child_page>Wired Network</extra-child_page>
@@ -235,7 +241,7 @@
     </message>
     <message>
         <source>VPN Status</source>
-        <translation>Stan VPN</translation>
+        <translation>Status VPN</translation>
         <extra-child_page>VPN</extra-child_page>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
@@ -356,6 +362,13 @@
         <translation>Prędkość</translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::AirplaneModepage</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Tryb samolotowy</translation>
     </message>
 </context>
 <context>
@@ -629,6 +642,11 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
+        <source>Airplane Mode</source>
+        <translation>Tryb samolotowy</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
+    </message>
+    <message>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
@@ -670,7 +688,7 @@
     </message>
     <message>
         <source>Configure by Network Manager</source>
-        <translation>Skonfiguruj przy użyciu Menedżera Sieci</translation>
+        <translation>Skonfiguruj przy użyciu menedżera sieci</translation>
     </message>
     <message>
         <source>Personal Hotspot</source>
@@ -1146,7 +1164,7 @@
     </message>
     <message>
         <source>Weak</source>
-        <translation>Słaby</translation>
+        <translation>Słabe</translation>
     </message>
     <message>
         <source>None</source>
@@ -1473,7 +1491,7 @@
     <name>VpnPage</name>
     <message>
         <source>VPN Status</source>
-        <translation>Stan VPN</translation>
+        <translation>Status VPN</translation>
     </message>
     <message>
         <source>Create VPN</source>
