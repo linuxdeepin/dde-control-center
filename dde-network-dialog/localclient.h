@@ -74,6 +74,8 @@ public:
     void connectNetwork(QLocalSocket *socket, const QByteArray &data);
     void receivePassword(QLocalSocket *socket, const QByteArray &data);
     void updateTranslator(QString locale);
+    inline WaitClient waitClientType() const { return m_wait; }
+    inline QString ssidWaitingForPassword() const { return m_ssid; }
 
 private:
     void showPopupWindow(bool forceShowDialog = false);

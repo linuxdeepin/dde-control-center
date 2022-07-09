@@ -238,6 +238,7 @@ private Q_SLOTS:
     void onInputPassword(const QString oldPassword);
     void onConnectHidden();
     void checkInputValid();
+    void onApConnectionStatusChanged(ConnectionStatus);
 
 private:
     AccessPoints *m_accessPoint;

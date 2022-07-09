@@ -210,6 +210,15 @@ void AccessPoints::updateAccessPoints(const QJsonObject &json)
         Q_EMIT strengthChanged(nStrength);
 }
 
+void AccessPoints::updateConnectionStatus(ConnectionStatus status)
+{
+    if (m_status == status)
+        return;
+
+    m_status = status;
+    Q_EMIT connectionStatusChanged(status);
+}
+
 /**
  * @brief 无线连接信息
  */

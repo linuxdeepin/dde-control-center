@@ -615,10 +615,7 @@ void WirelessDeviceInterRealize::updateActiveInfo()
         return;
 
     PRINT_INFO_MESSAGE("start");
-    // 先将所有的连接变成普通状态
-    for (AccessPoints *ap : m_accessPoints)
-        ap->m_status = ConnectionStatus::Unknown;
-
+    QList<AccessPoints *> tmpApList = m_accessPoints;
     // 遍历活动连接列表，找到对应的wlan，改变其连接状态，State赋值即可
     bool changed = false;
     AccessPoints *activeAp = Q_NULLPTR;
@@ -629,15 +626,20 @@ void WirelessDeviceInterRealize::updateActiveInfo()
         if (!ap)
             continue;
 
+        tmpApList.removeAll(ap);
         ConnectionStatus status = convertConnectionStatus(connectionStatus);
         if (ap->status() == status)
             continue;
 
-        ap->m_status = status;
+        ap->updateConnectionStatus(status);
         changed = true;
-        if (ap->m_status == ConnectionStatus::Activated)
+        if (ap->status() == ConnectionStatus::Activated)
             activeAp = ap;
     }
+
+    // 将其它连接变成普通状态
+    for (AccessPoints *ap : tmpApList)
+        ap->updateConnectionStatus(ConnectionStatus::Unknown);
 
     if (changed) {
         PRINT_INFO_MESSAGE("accessPoint Status Changed");
