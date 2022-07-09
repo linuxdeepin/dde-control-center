@@ -187,7 +187,7 @@ void SystemInfoWork::activate()
         }
 
         if (authorizationProperty != "") {
-            version = QString("%1(%2)(%3)").arg(DSysInfo::uosEditionName())
+            version = QString("%1 (%2) (%3)").arg(DSysInfo::uosEditionName())
                                       .arg(authorizationProperty)
                                       .arg(DSysInfo::minorVersion());
         } else {
