@@ -110,6 +110,7 @@ private:
     void setCurrentIndex(const int settingIndex);
     void initIpConflictInfo(const QList<NetworkDeviceBase *> &devices);
     void selectListIndex(const QModelIndex &idx);
+    bool supportAirplaneModeState() const;
 
 private:
     QVBoxLayout *m_centralLayout;

@@ -90,9 +90,9 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     m_centralLayout->setMargin(0);
     setLayout(m_centralLayout);
 
-    //判断当前的机器是否为盘古v，如果为盘古v则不需要飞行模式功能
-    QString productName = qEnvironmentVariable("SYS_PRODUCT_NAME");
-    if (!productName.contains("PGUV")) {
+
+    // 蓝牙和无线网络,只要有其中一个就允许显示飞行模式
+    if (supportAirplaneModeState()) {
         qDebug() << "This machine is not PanguV";
         //~ contents_path /network/Airplane
         DStandardItem *airplanemode = new DStandardItem(tr("Airplane Mode"));
@@ -226,6 +226,32 @@ void NetworkModuleWidget::selectListIndex(const QModelIndex &idx)
     }
 
     m_lvnmpages->resetStatus(idx);
+}
+
+bool NetworkModuleWidget::supportAirplaneModeState() const
+{
+    QDBusInterface inter("com.deepin.daemon.Bluetooth",
+                         "/com/deepin/daemon/Bluetooth",
+                         "com.deepin.daemon.Bluetooth",
+                          QDBusConnection::sessionBus());
+    if (inter.isValid()) {
+        QDBusReply<QString> reply = inter.call("GetAdapters");
+        QString replyStr = reply.value();
+        QJsonDocument json = QJsonDocument::fromJson(replyStr.toUtf8());
+        QJsonArray array = json.array();
+        if (array.size() > 0 && !array[0].toObject()["Path"].toString().isEmpty()) {
+            return true;
+        }
+    }
+
+    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
+    for (NetworkDeviceBase *device : devices) {
+        if (device->deviceType() == DeviceType::Wireless) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 void NetworkModuleWidget::onProxyMethodChanged(const ProxyMethod &method)
