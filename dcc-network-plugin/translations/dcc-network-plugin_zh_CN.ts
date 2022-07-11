@@ -370,6 +370,10 @@
         <source>Airplane Mode</source>
         <translation>飞行模式</translation>
     </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation>打开飞行模式将关闭无线网络、个人热点和蓝牙功能</translation>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>

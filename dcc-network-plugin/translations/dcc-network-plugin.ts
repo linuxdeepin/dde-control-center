@@ -372,6 +372,10 @@
         <source>Airplane Mode</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>
@@ -644,11 +648,6 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
-        <source>Airplane Mode</source>
-        <translation type="unfinished"></translation>
-        <extra-contents_path>/network/Airplane</extra-contents_path>
-    </message>
-    <message>
         <source>DSL</source>
         <translation type="unfinished"></translation>
     </message>
@@ -663,6 +662,11 @@
     <message>
         <source>Application Proxy</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
