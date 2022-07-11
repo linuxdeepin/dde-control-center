@@ -37,6 +37,8 @@
 using namespace dcc;
 using namespace dcc::widgets;
 
+class WaylandGrab;
+
 namespace dcc {
 namespace keyboard{
 struct ShortcutInfo;
@@ -56,6 +58,12 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setBottomTip(ShortcutInfo *conflict);
     void keyEvent(bool press, const QString &shortcut);
+    void onGrab(ShortcutInfo *info);
+
+protected:
+    void keyPressEvent(QKeyEvent *e) override;
+    void keyReleaseEvent(QKeyEvent *e) override;
+    void mousePressEvent(QMouseEvent *e) override;
 
 private Q_SLOTS:
     void onOpenFile();
@@ -71,6 +79,7 @@ private:
     ShortcutInfo   *m_info;
     QLabel         *m_tip;
     ShortcutInfo *m_conflict;
+    WaylandGrab *m_waylandGrab;
 };
 }
 }

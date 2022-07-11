@@ -463,6 +463,9 @@ void KeyboardModule::onShortcutEdit(ShortcutInfo *info)
     connect(m_customEdit, &CustomEdit::requestSaveShortcut, head, &SettingsHead::toCancel);
     connect(m_customEdit, &CustomEdit::requestSaveShortcut, m_work, &KeyboardWorker::modifyCustomShortcut);
     connect(m_customEdit, &CustomEdit::back, this, &KeyboardModule::showShortCutSetting);
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        connect(m_work, &KeyboardWorker::stareGrab, m_customEdit, &CustomEdit::onGrab);
+    }
 
     m_frameProxy->pushWidget(this, m_customEdit);
     m_customEdit->setVisible(true);

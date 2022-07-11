@@ -26,14 +26,19 @@
 #include "customedit.h"
 #include "widgets/translucentframe.h"
 #include "customitem.h"
+#include "window/modules/keyboard/waylandgrab.h"
+#include "window/utils.h"
+
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QFileDialog>
+#include <QGuiApplication>
 
 #include <DIconButton>
 
 DWIDGET_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 keyboard::CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
     ContentWidget(parent),
@@ -43,8 +48,12 @@ keyboard::CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
     m_command(new LineEditWidget),
     m_short(new CustomItem(this)),
     m_tip(new QLabel),
-    m_conflict(nullptr)
+    m_conflict(nullptr),
+    m_waylandGrab(nullptr)
 {
+    if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)) {
+        m_waylandGrab = new WaylandGrab(this->topLevelWidget());
+    }
     m_tip->setVisible(false);
     m_tip->setWordWrap(true);
 
@@ -203,4 +212,69 @@ void keyboard::CustomEdit::onSaveAccels()
 void keyboard::CustomEdit::onUpdateKey()
 {
     Q_EMIT requestUpdateKey(nullptr);
+}
+
+void keyboard::CustomEdit::onGrab(ShortcutInfo *info)
+{
+    if (m_waylandGrab)
+        m_waylandGrab->onGrab(info);
+}
+
+void keyboard::CustomEdit::keyPressEvent(QKeyEvent *e)
+{
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)
+            || !m_waylandGrab || !m_waylandGrab->getZxgm()) {
+        return;
+    }
+    m_waylandGrab->setKeyValue(WaylandkeyMap[e->key()]);
+    QString lastKey = m_waylandGrab->getLastKey();
+    QString keyValue = m_waylandGrab->getKeyValue();
+
+    m_waylandGrab->setRecordState(true);
+    keyEvent(true, m_waylandGrab->getRecordState() ? lastKey + keyValue : keyValue);
+    if (e->key() == Qt::Key_Control || e->key() == Qt::Key_Alt
+            || e->key() == Qt::Key_Shift || e->key() == Qt::Key_Super_L || e->key() == Qt::Key_Super_R) {
+        lastKey += ("<" + keyValue.remove(keyValue.indexOf("_"), 2) + ">");
+        m_waylandGrab->setLastKey(lastKey);
+    }
+    QWidget::keyPressEvent(e);
+}
+
+void keyboard::CustomEdit::keyReleaseEvent(QKeyEvent *e)
+{
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)
+            || !m_waylandGrab || !m_waylandGrab->getZxgm() || !m_waylandGrab->getRecordState()) {
+        return;
+    }
+    QString lastKey = m_waylandGrab->getLastKey();
+    const QString keyValue = m_waylandGrab->getKeyValue();
+    if (!lastKey.isEmpty()) {
+        if (WaylandkeyMap[Qt::Key_Control] == keyValue
+                || WaylandkeyMap[Qt::Key_Alt] == keyValue || WaylandkeyMap[Qt::Key_Shift] == keyValue) {
+            keyEvent(false, "");
+        } else if (WaylandkeyMap[Qt::Key_Super_L] == keyValue || WaylandkeyMap[Qt::Key_Super_R] == keyValue) {
+            keyEvent(false, "Super_L");
+        } else {
+            keyEvent(false, lastKey + keyValue);
+        }
+    } else {
+        keyEvent(false, "");
+    }
+    m_waylandGrab->setLastKey("");
+    m_waylandGrab->setRecordState(false);
+    m_waylandGrab->onUnGrab();
+    QWidget::keyReleaseEvent(e);
+}
+
+void keyboard::CustomEdit::mousePressEvent(QMouseEvent *e)
+{
+    if (!QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive)
+            || !m_waylandGrab || !m_waylandGrab->getZxgm()) {
+        return;
+    }
+    setFocus();
+    if (!m_waylandGrab->getRecordState()) {
+        m_waylandGrab->onUnGrab();
+    }
+    QWidget::mousePressEvent(e);
 }
