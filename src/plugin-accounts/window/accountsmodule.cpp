@@ -280,7 +280,7 @@ void AccountsModule::initAccountsList(QWidget *w)
         setCurrentUser(m_accountsmodel->getUser(current));
     });
 
-    DFloatingButton *createBtn = new DFloatingButton();
+    DFloatingButton *createBtn = new DFloatingButton(nullptr);
     createBtn->setIcon(DStyle::SP_IncreaseElement);
     createBtn->setFixedSize(50, 50);
     createBtn->setToolTip(tr("Create Account"));

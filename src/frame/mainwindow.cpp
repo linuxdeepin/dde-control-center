@@ -257,7 +257,7 @@ void MainWindow::updateModuleConfig(const QString &key)
         return;
 
     const auto &list = m_dconfig->value(key).toStringList();
-    *newModuleConfig = QSet<QString>(list.cbegin(), list.cend());
+    *newModuleConfig = QSet<QString>::fromList(list);
     QSet<QString> addModuleConfig = findAddItems(&oldModuleConfig, newModuleConfig);
     QSet<QString> removeModuleConfig = findAddItems(newModuleConfig, &oldModuleConfig);
     for (auto &&url : addModuleConfig) {

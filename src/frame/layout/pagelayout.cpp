@@ -91,7 +91,7 @@ void PageLayout::removeChild(ModuleObject *const childModule)
 
 void PageLayout::addChild(ModuleObject *const childModule)
 {
-    if (LayoutBase::IsHiden(childModule))
+    if (LayoutBase::IsHiden(childModule) || m_mapWidget.contains(childModule))
         return;
 
     bool isExtra = childModule->extra();
