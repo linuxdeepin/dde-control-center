@@ -341,9 +341,10 @@ ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
 
 QString ShortcutModel::parseKeystroke(QString& shortcut)
 {
+    // 如<Alt><Super><Control><Shift>L转换后为<Shift><Control><Alt><Super>L
     QStringList keys = shortcut.replace(">", ">,").split(",");
     keys.removeAll("");
-    QString sortArr[4];
+    QString sortArr[5];
     foreach (const QString& key, keys) {
         if (key.contains("Shift")) {
             sortArr[0] = key;
@@ -351,8 +352,10 @@ QString ShortcutModel::parseKeystroke(QString& shortcut)
             sortArr[1] = key;
         } else if (key.contains("Alt")) {
             sortArr[2] = key;
-        } else {
+        } else if (key.contains("Super")) {
             sortArr[3] = key;
+        } else {
+            sortArr[4] = key;
         }
     }
     QString newShort;
