@@ -90,17 +90,6 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     m_centralLayout->setMargin(0);
     setLayout(m_centralLayout);
 
-
-    // 蓝牙和无线网络,只要有其中一个就允许显示飞行模式
-    if (supportAirplaneModeState()) {
-        qDebug() << "This machine is not PanguV";
-        //~ contents_path /network/Airplane
-        DStandardItem *airplanemode = new DStandardItem(tr("Airplane Mode"));
-        airplanemode->setData(QVariant::fromValue(PageType::AirplaneModepage), SectionRole);
-        airplanemode->setIcon(QIcon::fromTheme("dcc_airplane_mode"));
-        m_modelpages->appendRow(airplanemode);
-    }
-
     DStandardItem *pppIt = new DStandardItem(tr("DSL"));
     pppIt->setData(QVariant::fromValue(PageType::DSLPage), SectionRole);
     pppIt->setIcon(QIcon::fromTheme("dcc_dsl"));
@@ -125,13 +114,16 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     m_modelpages->appendRow(aprxit);
     GSettingWatcher::instance()->bind("applicationProxy", m_lvnmpages, aprxit);
 
-    DStandardItem *infoit = new DStandardItem(tr("Network Details"));
-    infoit->setData(QVariant::fromValue(PageType::NetworkInfoPage), SectionRole);
-    infoit->setIcon(QIcon::fromTheme("dcc_network"));
-    m_modelpages->appendRow(infoit);
-    GSettingWatcher::instance()->bind("networkDetails", m_lvnmpages, infoit);
+    // 蓝牙和无线网络,只要有其中一个就允许显示飞行模式
+    if (supportAirplaneModeState()) {
+        qDebug() << "This machine is not PanguV";
+        //~ contents_path /network/Airplane
+        DStandardItem *airplanemode = new DStandardItem(tr("Airplane Mode"));
+        airplanemode->setData(QVariant::fromValue(PageType::AirplaneModepage), SectionRole);
+        airplanemode->setIcon(QIcon::fromTheme("dcc_airplane_mode"));
+        m_modelpages->appendRow(airplanemode);
+    }
 
-    m_centralLayout->addWidget(m_lvnmpages);
     if (IsServerSystem)
         handleNMEditor();
 
@@ -156,6 +148,14 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
 
     initIpConflictInfo(pNetworkController->devices());
     onDeviceChanged();
+
+    DStandardItem *infoit = new DStandardItem(tr("Network Details"));
+    infoit->setData(QVariant::fromValue(PageType::NetworkInfoPage), SectionRole);
+    infoit->setIcon(QIcon::fromTheme("dcc_network"));
+    m_modelpages->appendRow(infoit);
+    GSettingWatcher::instance()->bind("networkDetails", m_lvnmpages, infoit);
+
+    m_centralLayout->addWidget(m_lvnmpages);
     QTimer::singleShot(0, this, [ proxyController, this ] {
         proxyController->querySysProxyData();
         onProxyMethodChanged(proxyController->proxyMethod());

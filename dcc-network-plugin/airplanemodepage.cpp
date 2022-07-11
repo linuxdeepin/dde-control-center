@@ -27,6 +27,7 @@
 
 #include <QVBoxLayout>
 #include <QDBusConnection>
+#include <DTipLabel>
 
 DWIDGET_USE_NAMESPACE
 
@@ -48,6 +49,11 @@ AirplaneModepage::AirplaneModepage(QWidget *parent)
 
     QVBoxLayout *scrollLayout = new QVBoxLayout;
     scrollLayout->addWidget(switchGrp);
+    DTipLabel *tip = new DTipLabel(tr("Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth"), switchGrp);
+    tip->setWordWrap(true);
+    tip->setAlignment(Qt::AlignLeft);
+    tip->setMargin(8);          // 设置tips与列表中文字左对齐
+    scrollLayout->addWidget(tip);
     //这里用个QListView占位置
     scrollLayout->addWidget(m_lvprofiles);
     scrollLayout->setSpacing(10);
