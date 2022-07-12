@@ -62,9 +62,13 @@ public:
     virtual QString moduleDisplayName(const QString &module) const override;
 
 private:
+    void popAllWidgets();
+
+private:
     QMap<dccV20::ModuleInterface *, AdapterV20toV23Module *> m_moduleMap;
-    DCC_NAMESPACE::ModuleObject *m_rootModule;
     QStack<QWidget *> m_widgets;
+    DCC_NAMESPACE::ModuleObject *m_rootModule;
+    QWidget *m_topWidget;
 };
 
 #endif // FRAMEPROXYV20_H

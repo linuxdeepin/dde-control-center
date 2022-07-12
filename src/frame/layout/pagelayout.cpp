@@ -129,7 +129,6 @@ QWidget *PageLayout::layoutModule(ModuleObject *const module, QWidget *const par
     m_area->setWidgetResizable(true);
 
     QWidget *areaWidget = new QWidget(m_area);
-    m_area->setWidget(areaWidget);
     m_vlayout = new QVBoxLayout(areaWidget);
     areaWidget->setLayout(m_vlayout);
 
@@ -150,6 +149,7 @@ QWidget *PageLayout::layoutModule(ModuleObject *const module, QWidget *const par
     }
     if (module->childrens().count() > 1)
         m_vlayout->addStretch(1);
+    m_area->setWidget(areaWidget);
 
     auto addModuleSlot = [this](ModuleObject *const tmpChild) {
         addChild(tmpChild);

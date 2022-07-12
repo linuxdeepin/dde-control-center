@@ -31,6 +31,7 @@ using namespace dccV20;
 FrameProxyV20::FrameProxyV20(QObject *parent)
     : QObject(parent)
     , m_rootModule(nullptr)
+    , m_topWidget(nullptr)
 {
 }
 
@@ -42,6 +43,7 @@ void FrameProxyV20::setRootModule(DCC_NAMESPACE::ModuleObject *rootModule)
 void FrameProxyV20::append(AdapterV20toV23Module *module)
 {
     m_moduleMap.insert(module->inter(), module);
+    connect(module,&AdapterV20toV23Module::actived,this,&FrameProxyV20::popAllWidgets);
 }
 
 void FrameProxyV20::pushWidget(ModuleInterface *const inter, QWidget *const w, dccV20::FrameProxyInterface::PushType type)
@@ -50,16 +52,24 @@ void FrameProxyV20::pushWidget(ModuleInterface *const inter, QWidget *const w, d
         return;
 
     AdapterV20toV23Module *module = m_moduleMap.value(inter);
-    m_widgets.push(w);
     switch (type) {
-    case Replace:
+    case Replace:   // 替换三级页面。当在新的三级页面中单击“pop”按钮时，返回到旧的三级页面
     case CoverTop:  //根据当前页面宽度去计算新增的页面放在最后面一层，或者Top页面
-    case DirectTop: //不需要管页面宽度，直接将新增页面放在Top页面；为解决某些页面使用CoverTop无法全部展示的问题
-        module->setChildPage(1, w);
+    case DirectTop: //不需要管页面宽度，直接将新增页面放在Top页面；为解决某些页面使用CoverTop无法全部示的问题
+        if (m_topWidget)
+            popWidget(inter);
+
+        module->setChildPage(m_widgets.size(), w);
+        m_topWidget = w;
+        m_widgets.push(w);
         break;
     case Normal:
     default:
-        module->setChildPage(0, w);
+        while (m_widgets.size() > 1)
+            popWidget(inter);
+
+        module->setChildPage(m_widgets.size(), w);
+        m_widgets.push(w);
         break;
     }
 }
@@ -68,9 +78,13 @@ void FrameProxyV20::popWidget(ModuleInterface *const inter)
 {
     if (m_widgets.isEmpty())
         return;
+
     QWidget *w = m_widgets.pop();
     for (auto &&module : m_moduleMap)
         module->popWidget(w);
+
+    if (m_topWidget == w)
+        m_topWidget = nullptr;
 }
 
 void FrameProxyV20::setModuleVisible(ModuleInterface *const inter, const bool visible)
@@ -176,4 +190,10 @@ QString FrameProxyV20::moduleDisplayName(const QString &module) const
         return QString();
     }
     return find_it.key()->displayName();
+}
+
+void FrameProxyV20::popAllWidgets()
+{
+    m_topWidget = nullptr;
+    m_widgets.clear();
 }

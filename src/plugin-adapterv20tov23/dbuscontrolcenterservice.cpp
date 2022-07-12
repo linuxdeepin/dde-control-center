@@ -131,7 +131,7 @@ void DBusControlCenterService::delayShowPage(const QString &url)
 {
     DCC_NAMESPACE::ModuleObject *parent = m_adapter->moduleRoot();
     if (parent) {
-        QStringList names = url.split('/', Qt::SkipEmptyParts);
+        QStringList names = url.split('/');
         DCC_NAMESPACE::ModuleObject *obj = parent;
         while (!names.isEmpty() && obj) {
             const QString &name = names.takeFirst();

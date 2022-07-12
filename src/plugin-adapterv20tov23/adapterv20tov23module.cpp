@@ -37,24 +37,39 @@ AdapterV20toV23Child::~AdapterV20toV23Child()
 
 QWidget *AdapterV20toV23Child::page()
 {
+    if (m_widget)
+        m_widget->setVisible(true);
+
     return m_widget;
 }
+
 void AdapterV20toV23Child::setPage(QWidget *w)
 {
+    if (w == m_widget)
+        return;
+
     m_widget = w;
+    if (m_widget)
+        m_widget->setVisible(false);
+
     widgetChanged();
 }
 ////////////////////////
 AdapterV20toV23Module::AdapterV20toV23Module(dccV20::ModuleInterface *v20Module)
-    : ModuleObject(v20Module->name(), v20Module->displayName())
+    : AdapterV20toV23Child()
     , m_v20Module(v20Module)
 {
     setChildType(LayoutV20_KEY);
+    setName(v20Module->name());
+    setDisplayName(v20Module->displayName());
     setIcon(m_v20Module->icon());
-    m_modules[0] = new AdapterV20toV23Child();
-    appendChild(m_modules[0]);
-    m_modules[1] = new AdapterV20toV23Child();
-    m_modules[0]->appendChild(m_modules[1]);
+
+    m_modules.append(this);
+    for (int i = 0; i < 3; i++) {
+        AdapterV20toV23Child *child = new AdapterV20toV23Child();
+        m_modules.last()->appendChild(child);
+        m_modules.append(child);
+    }
 }
 
 AdapterV20toV23Module::~AdapterV20toV23Module()
@@ -69,12 +84,8 @@ dccV20::ModuleInterface *AdapterV20toV23Module::inter()
 
 void AdapterV20toV23Module::active()
 {
+    emit actived();
     m_v20Module->active();
-}
-// 第二级
-QWidget *AdapterV20toV23Module::page()
-{
-    return m_v20Module->moduleWidget();
 }
 
 void AdapterV20toV23Module::deactive()
@@ -99,21 +110,18 @@ bool AdapterV20toV23Module::enabled() const
 
 void AdapterV20toV23Module::setChildPage(int level, QWidget *w)
 {
-    switch (level) {
-    case 0:                             // 第三级
-        m_modules[1]->setPage(nullptr); // 设置第三级时先清空第四级
-    case 1:                             // 第四级
-        m_modules[level]->setPage(w);
-        break;
-    default:
-        break;
+    if (level < m_modules.size())
+        m_modules.at(level)->setPage(w);
+
+    for (int i = m_modules.size() - 1; i > level; --i) {
+        m_modules.at(i)->setPage(nullptr);
     }
 }
 
 void AdapterV20toV23Module::popWidget(QWidget *w)
 {
-    for (int i = 0; i < 2; i++) {
-        if (m_modules[i]->page() == w)
-            m_modules[i]->setPage(nullptr);
+    for (auto &&child : m_modules) {
+        if (child->widget() == w)
+            child->setPage(nullptr);
     }
 }

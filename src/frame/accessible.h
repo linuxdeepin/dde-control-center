@@ -71,10 +71,7 @@ public:
     }
     QAccessibleInterface *createObject(const QString &classname, QObject *object)
     {
-        if (m_factoryMap.contains(classname))
-            return m_factoryMap.value(classname)->createObject(object);
-                                     qInfo()<<"no Accessible:"<<classname;
-        return nullptr;
+        return m_factoryMap.contains(classname) ? m_factoryMap.value(classname)->createObject(object) : nullptr;
     }
 
 private:

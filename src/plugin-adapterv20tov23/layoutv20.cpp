@@ -26,8 +26,6 @@
 
 DCC_USE_NAMESPACE
 
-const int stretch[3] = { 3, 7, 7 };
-
 LayoutV20::LayoutV20()
     : m_layout(nullptr)
 {
@@ -53,14 +51,15 @@ QWidget *LayoutV20::layoutModule(ModuleObject *const module, QWidget *const pare
     modules.append(module);
     while (!modules.isEmpty()) {
         ModuleObject *tmpModule = modules.takeFirst();
-        if (LayoutBase::IsHiden(tmpModule))
-            break;
-        auto page = tmpModule->page();
+        QWidget *page = nullptr;
+        if (!LayoutBase::IsHiden(tmpModule))
+            page = tmpModule->page();
+
         if (!page) {
             page = new QWidget(); // 空的占位
             page->setVisible(false);
         }
-        m_layout->addWidget(page, stretch[i++]);
+        m_layout->addWidget(page, i * 4 + 3);
         page->setDisabled(LayoutBase::IsDisabled(tmpModule));
 
         m_modules.append(tmpModule);
@@ -76,7 +75,7 @@ QWidget *LayoutV20::layoutModule(ModuleObject *const module, QWidget *const pare
                     QWidget *oldW = m_layout->itemAt(index)->widget();
                     if (oldW != newW) {
                         QLayoutItem *item = m_layout->takeAt(index);
-                        m_layout->insertWidget(index, newW, stretch[index]);
+                        m_layout->insertWidget(index, newW, index * 4 + 3);
                         oldW->setVisible(false);
                         oldW->setParent(nullptr);
                         oldW->deleteLater();

@@ -39,11 +39,13 @@ public:
     virtual QWidget *page() override;
     void setPage(QWidget *w);
 
+    inline QWidget *widget() const { return m_widget; }
+
 private:
     QWidget *m_widget;
 };
 
-class AdapterV20toV23Module : public DCC_NAMESPACE::ModuleObject
+class AdapterV20toV23Module : public AdapterV20toV23Child
 {
     Q_OBJECT
 public:
@@ -51,12 +53,14 @@ public:
     ~AdapterV20toV23Module();
 
     virtual void active() override;
-    virtual QWidget *page() override;
     virtual void deactive() override;
 
     dccV20::ModuleInterface *inter();
     void setChildPage(int level, QWidget *w);
     void popWidget(QWidget *w);
+
+Q_SIGNALS:
+    void actived();
 
 public:
     QString path() const;
@@ -65,7 +69,7 @@ public:
 
 private:
     dccV20::ModuleInterface *m_v20Module;
-    AdapterV20toV23Child *m_modules[2];
+    QList<AdapterV20toV23Child *> m_modules;
 };
 
 #endif // ADAPTERV20TOV23MODULE_H

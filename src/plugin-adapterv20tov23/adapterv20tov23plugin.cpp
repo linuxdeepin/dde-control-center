@@ -133,7 +133,6 @@ void AdapterV20toV23Root::insertModule(bool append)
                 return child->name() == path;
             });
 
-            root = *it;
             if (it == m_root->childrens().end()) {
                 if (append) {
                     follow = QString::number(m_root->getChildrenSize() + 1);
@@ -142,6 +141,8 @@ void AdapterV20toV23Root::insertModule(bool append)
                     m_modules.append(module);
                     return;
                 }
+            } else {
+                root = (*it);
             }
         }
         bool ok;
