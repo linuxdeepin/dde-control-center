@@ -370,6 +370,10 @@
         <source>Airplane Mode</source>
         <translation>飛行模式</translation>
     </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation>打開飛行模式將關閉無線網絡、個人熱點和藍牙功能</translation>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>
@@ -642,11 +646,6 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
-        <source>Airplane Mode</source>
-        <translation>飛行模式</translation>
-        <extra-contents_path>/network/Airplane</extra-contents_path>
-    </message>
-    <message>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
@@ -661,6 +660,11 @@
     <message>
         <source>Application Proxy</source>
         <translation>應用代理</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>飛行模式</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>

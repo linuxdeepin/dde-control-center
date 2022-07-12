@@ -175,7 +175,7 @@
     </message>
     <message>
         <source>Personal Hotspot</source>
-        <translation>Osobisty hotspot</translation>
+        <translation>Osobisty Hotspot</translation>
     </message>
     <message>
         <source>Network Details</source>
@@ -299,7 +299,7 @@
     </message>
     <message>
         <source>Create Hotspot</source>
-        <translation>Utwórz hotspot</translation>
+        <translation>Utwórz Hotspot</translation>
         <extra-child_page>Personal Hotspot</extra-child_page>
         <extra-contents_path>/network/Personal Hotspot/Create Hotspot</extra-contents_path>
     </message>
@@ -369,6 +369,10 @@
     <message>
         <source>Airplane Mode</source>
         <translation>Tryb samolotowy</translation>
+    </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation>Włączenie trybu samolotowego wyłączy sieć bezprzewodową, osobisty Hotspot i Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -462,7 +466,7 @@
     <name>HotspotPage</name>
     <message>
         <source>Create Hotspot</source>
-        <translation>Utwórz hotspot</translation>
+        <translation>Utwórz Hotspot</translation>
     </message>
 </context>
 <context>
@@ -642,11 +646,6 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
-        <source>Airplane Mode</source>
-        <translation>Tryb samolotowy</translation>
-        <extra-contents_path>/network/Airplane</extra-contents_path>
-    </message>
-    <message>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
@@ -661,6 +660,11 @@
     <message>
         <source>Application Proxy</source>
         <translation>Proxy aplikacji</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Tryb samolotowy</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
@@ -692,7 +696,7 @@
     </message>
     <message>
         <source>Personal Hotspot</source>
-        <translation>Osobisty hotspot</translation>
+        <translation>Osobisty Hotspot</translation>
     </message>
 </context>
 <context>
@@ -1882,7 +1886,7 @@
     </message>
     <message>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation>Jeśli chcesz połączyć się z siecią bezprzewodową, najpierw wyłącz hotspot</translation>
+        <translation>Jeśli chcesz połączyć się z siecią bezprzewodową, najpierw wyłącz Hotspot</translation>
     </message>
     <message>
         <source>Connect to hidden network</source>

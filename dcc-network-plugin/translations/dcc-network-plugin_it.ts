@@ -370,6 +370,10 @@
         <source>Airplane Mode</source>
         <translation>Modalità aereo</translation>
     </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation>L&apos;abilitazione della modalità aereo disattiva la rete wireless, l&apos;hotspot personale e il Bluetooth</translation>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>
@@ -642,11 +646,6 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
-        <source>Airplane Mode</source>
-        <translation>Modalità aereo</translation>
-        <extra-contents_path>/network/Airplane</extra-contents_path>
-    </message>
-    <message>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
@@ -661,6 +660,11 @@
     <message>
         <source>Application Proxy</source>
         <translation>Proxy applicazione</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Modalità aereo</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>

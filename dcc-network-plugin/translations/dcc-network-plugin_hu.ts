@@ -370,6 +370,10 @@
         <source>Airplane Mode</source>
         <translation>Repülőgép üzemmód</translation>
     </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation>A repülőgép üzemmód engedélyezése kikapcsolja a vezeték nélküli hálózatot, a személyes hotspotot és a Bluetooth-t</translation>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>
@@ -642,11 +646,6 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
-        <source>Airplane Mode</source>
-        <translation>Repülőgép üzemmód</translation>
-        <extra-contents_path>/network/Airplane</extra-contents_path>
-    </message>
-    <message>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
@@ -661,6 +660,11 @@
     <message>
         <source>Application Proxy</source>
         <translation>Alkalmazás proxy</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Repülőgép üzemmód</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
