@@ -37,6 +37,10 @@ User *AccountsModel::getUser(const QModelIndex &index) const
     return m_data.at(row);
 }
 
+QModelIndex AccountsModel::index(User *user) const
+{
+    return index(m_data.indexOf(user), 0);
+}
 
 QModelIndex AccountsModel::index(int row, int column, const QModelIndex &parent) const
 {
@@ -118,20 +122,9 @@ void AccountsModel::onDataChanged()
     }
 }
 
-//Qt::ItemFlags AccountsModel::flags(const QModelIndex &index) const
-//{
-//    Qt::ItemFlags flag = QAbstractItemModel::flags(index);
-//    ModuleObject *module = static_cast<ModuleObject *>(index.internalPointer());
-//    flag.setFlag(Qt::ItemIsEnabled, !LayoutBase::IsDisabled(module));
-//    return flag;
-//}
-
 UserDelegate::UserDelegate(QAbstractItemView *parent)
     : DStyledItemDelegate(parent)
 {
-//    m_shadowEffect->setColor(QColor(0, 0, 0, 16));      // 阴影的颜色
-//    m_shadowEffect->setOffset(0, 2);
-//    setGraphicsEffect(m_shadowEffect);
 }
 
 void UserDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
@@ -189,25 +182,6 @@ void UserDelegate::drawBackground(const QStyle *style, QPainter *painter, const 
     painter->setPen(option.palette.color(QPalette::Normal,(option.state & QStyle::State_Selected)? QPalette::Highlight:QPalette::Window));
     painter->drawRoundedRect(r,8,8);
     painter->restore();
-
-
-
-//    DStyleOptionBackgroundGroup boption;
-//    boption.init(option.widget);
-//    boption.QStyleOption::operator=(option);
-//    boption.position = DStyleOptionBackgroundGroup::ItemBackgroundPosition(option.viewItemPosition);
-
-//    if (option.backgroundBrush.style() != Qt::NoBrush) {
-//        boption.dpalette.setBrush(DPalette::ItemBackground, option.backgroundBrush);
-//    }
-
-//    boption.rect = option.rect;
-
-//    if (backgroundType() != RoundedBackground) {
-//        boption.directions = Qt::Vertical;
-//    }
-
-//    style->drawPrimitive(static_cast<QStyle::PrimitiveElement>(DStyle::PE_ItemBackground), &boption, painter, option.widget);
 }
 
 void UserDelegate::drawDisplay(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
@@ -232,12 +206,7 @@ void UserDelegate::drawDecoration(QPainter *painter, const QStyleOptionViewItem 
         painter->setClipPath(painterPath);
         option.icon.paint(painter, rect, option.decorationAlignment, mode, state);
 
-//        painter->setRenderHint(QPainter::Antialiasing);
-//        painter->setPen(option.palette.color(QPalette::Normal, QPalette::Highlight));
-//        painter->drawRoundedRect(r,8,8);
         painter->restore();
-
-//        option.icon.paint(painter, rect, option.decorationAlignment, mode, state);
     }
 }
 
@@ -257,6 +226,5 @@ void UserDelegate::drawOnlineIcon(QPainter *painter, const QStyleOptionViewItem 
     painter->setPen(pen);
     painter->setBrush(Qt::NoBrush);
     painter->drawEllipse(rect.adjusted(1, 1, -1, -1));
-//    setGraphicsEffect(m_shadowEffect);
     painter->restore();
 }

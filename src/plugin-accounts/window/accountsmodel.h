@@ -22,6 +22,7 @@ public:
 
     void setUserModel(DCC_NAMESPACE::UserModel *userModel);
     DCC_NAMESPACE::User *getUser(const QModelIndex &index) const;
+    QModelIndex index(DCC_NAMESPACE::User *user) const;
     // Basic functionality:
     QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
     QModelIndex parent(const QModelIndex &index) const override;
@@ -30,7 +31,6 @@ public:
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-//    virtual Qt::ItemFlags flags(const QModelIndex &index) const override;
 
 private Q_SLOTS:
     void onUserAdded(DCC_NAMESPACE::User *user);

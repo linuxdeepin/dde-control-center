@@ -88,7 +88,6 @@ protected:
 
 Q_SIGNALS:
     void requestCreateUser(const User *user);
-    void requestBack(UserModel::ActionOption option = UserModel::ClickCancel);
     void requestSetPasswordHint(User *, const QString &);
 
 public Q_SLOTS:

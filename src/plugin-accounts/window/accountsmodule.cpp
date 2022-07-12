@@ -192,7 +192,6 @@ AccountsModule::AccountsModule(QObject *parent)
     m_model = new UserModel(this);
     m_worker = new AccountsWorker(m_model, this);
 
-
     setGroupInfo(m_model->getAllGroups());
     connect(m_model, &UserModel::allGroupsChange, this, &AccountsModule::setGroupInfo);
 
@@ -245,7 +244,6 @@ void AccountsModule::active()
         m_accountsmodel->setUserModel(m_model);
         setCurrentUser(m_accountsmodel->getUser(m_accountsmodel->index(0, 0)));
     }
-
 }
 
 bool AccountsModule::isSystemAdmin(User *user)
@@ -283,6 +281,12 @@ void AccountsModule::initAccountsList(QWidget *w)
     //自动刷新当前链接状态
     connect(userlistView->selectionModel(), &QItemSelectionModel::currentChanged, this, [this](const QModelIndex &current, const QModelIndex &previous) {
         setCurrentUser(m_accountsmodel->getUser(current));
+    });
+    connect(this, &AccountsModule::currentUserChanged, userlistView, [this, userlistView](User *user, User *oldUser) {
+        QModelIndex i = m_accountsmodel->index(user);
+        if (userlistView->selectionModel()->currentIndex() != i) {
+            userlistView->selectionModel()->setCurrentIndex(i, QItemSelectionModel::ClearAndSelect);
+        }
     });
 
     DFloatingButton *createBtn = new DFloatingButton(nullptr);
@@ -579,7 +583,14 @@ void AccountsModule::onCreateAccount()
         createAccountPage->setModel(m_model, newUser);
         connect(createAccountPage, &CreateAccountPage::requestCreateUser, m_worker, &AccountsWorker::createAccount);
         connect(m_worker, &AccountsWorker::accountCreationFinished, createAccountPage, &CreateAccountPage::setCreationResult);
-        createAccountPage->exec();
+        if (createAccountPage->exec() == QDialog::Accepted) {
+            for (auto &&user : m_model->userList()) {
+                if (user->name() == newUser->name()) {
+                    setCurrentUser(user);
+                    break;
+                }
+            }
+        }
     });
 }
 

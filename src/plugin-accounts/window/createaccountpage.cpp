@@ -486,15 +486,16 @@ void CreateAccountPage::createUser()
         m_newUser->setGroups(usrGroups);
         m_newUser->setUserType(User::UserType::StandardUser);
     }
+    setEnabled(false);
     Q_EMIT requestCreateUser(m_newUser); // 请求创建用户
-    accept();
 }
 
 void CreateAccountPage::setCreationResult(CreationResult *result)
 {
+    setEnabled(true);
     switch (result->type()) {
     case CreationResult::NoError:
-        Q_EMIT requestBack(UserModel::CreateUserSuccess);
+        accept();
         break;
     case CreationResult::UserNameError:
         m_nameEdit->dTextEdit()->setAlert(true);
