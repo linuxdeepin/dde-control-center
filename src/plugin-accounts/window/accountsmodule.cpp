@@ -184,18 +184,17 @@ AccountsModule::AccountsModule(QObject *parent)
     , m_worker(nullptr)
     , m_curLoginUser(nullptr)
     , m_curUser(nullptr)
+    , m_accountsmodel(nullptr)
     , m_groupItemModel(new QStandardItemModel(this))
     , m_checkAuthorizationing(false)
 {
     setChildType(ModuleObject::Page);
     m_model = new UserModel(this);
     m_worker = new AccountsWorker(m_model, this);
-    m_accountsmodel = new AccountsModel(this);
-    m_accountsmodel->setUserModel(m_model);
+
 
     setGroupInfo(m_model->getAllGroups());
     connect(m_model, &UserModel::allGroupsChange, this, &AccountsModule::setGroupInfo);
-    setCurrentUser(m_accountsmodel->getUser(m_accountsmodel->index(0, 0)));
 
     appendChild(new WidgetModule<QWidget>("accountsList", tr("accountsList"), this, &AccountsModule::initAccountsList));
     appendChild(new WidgetModule<QWidget>("avatar", tr("avatar"), this, &AccountsModule::initAvatar));
@@ -241,6 +240,12 @@ void AccountsModule::active()
     }
     m_curUser = m_model->userList().first();
     m_checkAuthorizationing = false;
+    if (!m_accountsmodel) {
+        m_accountsmodel = new AccountsModel(this);
+        m_accountsmodel->setUserModel(m_model);
+        setCurrentUser(m_accountsmodel->getUser(m_accountsmodel->index(0, 0)));
+    }
+
 }
 
 bool AccountsModule::isSystemAdmin(User *user)

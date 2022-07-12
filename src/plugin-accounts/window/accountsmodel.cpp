@@ -88,8 +88,7 @@ QVariant AccountsModel::data(const QModelIndex &index, int role) const
 
 void AccountsModel::onUserAdded(User *user)
 {
-qInfo()<<__LINE__<<__FUNCTION__<<user->name();
-    int row = m_data.size();
+    int row = user->isCurrentUser() ? 0 : m_data.size();
     connect(user,&User::nameChanged,this,&AccountsModel::onDataChanged);
     connect(user,&User::fullnameChanged,this,&AccountsModel::onDataChanged);
     connect(user,&User::currentAvatarChanged,this,&AccountsModel::onDataChanged);

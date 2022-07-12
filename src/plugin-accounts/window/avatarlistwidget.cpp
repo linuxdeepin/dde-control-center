@@ -179,9 +179,6 @@ void AvatarListWidget::setCurrentAvatarChecked(const QString &avatar)
     if (avatar.startsWith("file://"))
         currentAvatar = QUrl(avatar).toLocalFile();
 
-    if (currentAvatar == "/var/lib/AccountsService/icons/default.png")
-        return;
-
     if (!QFile(currentAvatar).exists())
         return;
 
@@ -222,7 +219,9 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
         }
         m_fd->show();
     } else {
-        m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
+        if(m_currentSelectIndex.isValid())
+            m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
+
         m_currentSelectIndex = index;
         m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Checked);
         Q_EMIT requestSetAvatar(filePath);
