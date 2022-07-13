@@ -58,7 +58,7 @@ bool VpnOpenVPNSection::allInputValid()
 {
     bool valid = true;
 
-    if (m_gateway->text().isEmpty() || !isIpv4Address(m_gateway->text())) {
+    if (m_gateway->text().isEmpty()) {
         valid = false;
         m_gateway->setIsErr(true);
         m_gateway->dTextEdit()->showAlertMessage(tr("Invalid gateway"), parentWidget(), 2000);
