@@ -259,7 +259,17 @@ void ConnectionEditPage::initConnection()
     });
 
     connect(m_disconnectBtn, &QPushButton::clicked, this, [ = ]() {
-        Q_EMIT disconnect(m_disconnectBtn->property("connectionUuid").toString());
+        NetworkManager::Connection::Ptr con = NetworkManager::findConnection(m_connection->path());
+        if (!con) {
+            qWarning() << "Not possible to deactivate this connection";
+        } else {
+            for (const NetworkManager::ActiveConnection::Ptr &active : NetworkManager::activeConnections()) {
+                if (active->uuid() == con->uuid()) {
+                    qDebug() << "deactivate connection: " << active->path();
+                    NetworkManager::deactivateConnection(active->path());
+                }
+            }
+        }
         Q_EMIT back();
     });
 }
