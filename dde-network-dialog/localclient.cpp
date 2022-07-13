@@ -42,7 +42,8 @@ static QMap<QString, void (LocalClient::*)(QLocalSocket *, const QByteArray &)> 
     { "connect", &LocalClient::connectNetwork },
     { "password", &LocalClient::receivePassword },
     { "receive", &LocalClient::receive },
-    { "click", &LocalClient::onClick}
+    { "click", &LocalClient::onClick },
+    { "close", &LocalClient::close },
 };
 
 LocalClient::LocalClient(QObject *parent)
@@ -253,6 +254,17 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
         m_popopWindow->setProperty("localpos", QPoint(x, y));
         m_popopWindow->setContent(m_panel->itemApplet());
         showPopupWindow(forceShowDialog);
+    }
+}
+
+void LocalClient::close(QLocalSocket *socket, const QByteArray &data)
+{
+    Q_UNUSED(socket)
+    Q_UNUSED(data)
+
+    qInfo() << "Close dialog";
+    if (m_popopWindow) {
+        m_popopWindow->closeDialog();
     }
 }
 

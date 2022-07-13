@@ -126,9 +126,17 @@ bool NetworkDialog::eventFilter(QObject *watched, QEvent *e)
     if (qobject_cast<TrayIcon *>(watched)) {
         switch (e->type()) {
         case QEvent::Show:
+            // 在事件循环中处理,因为位置有可能没有及时更新
+            QTimer::singleShot(0, this, [this] {
+                for (auto it = m_clients.begin(); it != m_clients.end(); it++)
+                    forceShowDialog(it.key());
+            });
+            break;
         case QEvent::Hide:
-            for (auto it = m_clients.begin(); it != m_clients.end(); it++)
-                forceShowDialog(it.key());
+            // 隐藏的时候发送关闭弹窗请求，在事件循环中处理，避免控件的visible状态没有更新
+            QTimer::singleShot(0, this, [this] {
+                Q_EMIT requestCloseDialog();
+            });
             break;
         default:
             break;
@@ -146,6 +154,7 @@ bool NetworkDialog::eventFilter(QObject *watched, QEvent *e)
     if (watched == m_focusWidget && e->type() == QEvent::WindowDeactivate) {
         return true;
     }
+
     return QObject::eventFilter(watched, e);
 }
 
@@ -317,6 +326,17 @@ void NetworkDialog::forceShowDialog(QLocalSocket *socket)
     doc.setObject(json);
     QByteArray data = doc.toJson(QJsonDocument::Compact);
     socket->write("\nshowPosition:" + data + "\n");
+}
+
+void NetworkDialog::closeDialog()
+{
+    for (auto it = m_clients.begin(); it != m_clients.end(); it++)
+        closeDialog(it.key());
+}
+
+void NetworkDialog::closeDialog(QLocalSocket *socket)
+{
+    socket->write("\nclose:" + QByteArray() + "\n");
 }
 
 void NetworkDialog::connectNetwork(QLocalSocket *socket, const QByteArray &data)

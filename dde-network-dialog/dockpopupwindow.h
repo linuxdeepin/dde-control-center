@@ -45,6 +45,7 @@ public:
 
     void setContent(QWidget *content);
     void setBackground(const QImage &image);
+    void closeDialog();
 
 public slots:
     void show(const QPoint &pos, const bool model = false);

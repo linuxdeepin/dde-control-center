@@ -184,8 +184,13 @@ void DockPopupWindow::onGlobMouseRelease(const QPoint &mousePos, const int flag)
     if (rect.contains(mousePos))
         return;
 
+    closeDialog();
+}
+
+void DockPopupWindow::closeDialog()
+{
     emit accept();
-    hide(); // 点击窗口以外先隐藏
+    hide(); // 先隐藏
     close();
 }
 

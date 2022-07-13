@@ -40,6 +40,7 @@ class NetworkDialog : public QObject
 
 signals:
     void requestPosition();
+    void requestCloseDialog();
 
 public:
     enum RunReason {
@@ -58,6 +59,7 @@ public:
     void setPosition(int x, int y, Dtk::Widget::DArrowRectangle::ArrowDirection position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowBottom);
     bool isVisible() const;
     void setLocale(const QString &locale);
+    void closeDialog();
 
 private:
     void runProcess(bool show = true);
@@ -82,6 +84,7 @@ public:
     void sendPassword(QLocalSocket *socket, const QByteArray &data);
     void closeServer(QLocalSocket *socket, const QByteArray &data);
     void startServer(QLocalSocket *socket, const QByteArray &data);
+    void closeDialog(QLocalSocket *socket);
     QByteArray showConfig();
 
 private:

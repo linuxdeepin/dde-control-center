@@ -27,11 +27,13 @@
 
 #include <NetworkManagerQt/Device>
 #include <NetworkManagerQt/WiredDevice>
+#include <QPointer>
 
 NETWORKPLUGIN_BEGIN_NAMESPACE
 class NetworkPluginHelper;
 class NetworkDialog;
 class SecretAgent;
+class TrayIcon;
 NETWORKPLUGIN_END_NAMESPACE
 
 namespace dss {
@@ -84,6 +86,7 @@ public:
     QString m_lastConnection;
     NetworkManager::Device::State m_lastState;
     int m_clickTime;
+    mutable QList<QPointer<NETWORKPLUGIN_NAMESPACE::TrayIcon>> trayIcons;
 };
 
 class NetworkPlugin : public QObject
