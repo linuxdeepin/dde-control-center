@@ -2,39 +2,39 @@
 <context>
     <name>PasswordWidget</name>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="58"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="134"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="60"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="136"/>
         <source>Passwords do not match</source>
         <translation>Zadání hesla se neshodují</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="66"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="68"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Nápověda je viditelná všem uživatelům. Nepište sem heslo.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="84"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="86"/>
         <source>New Password</source>
         <translation>Nové heslo</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="106"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="108"/>
         <source>Repeat Password</source>
         <translation>Zadejte heslo znovu</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="114"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="116"/>
         <source>Password Hint</source>
         <translation>Nápověda k heslu</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="123"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="124"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="126"/>
         <source>Required</source>
         <translation>Vyžadováno</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="127"/>
         <source>Optional</source>
         <translation>Volitelné</translation>
     </message>
@@ -77,29 +77,34 @@
         <translation>Ne více než %1 opakující se znaky prosím</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="85"/>
+        <source>The password should differ from the username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>Je třeba, aby heslo obsahovalo velká a malá písmena z (pouze z anglické abecedy), číslice a symboly (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Heslo nemůže obsahovat posloupnost více než 4 znaků, která se čte stejně oběma směry (palindrom)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="96"/>
         <source>Do not use common words and combinations as password</source>
         <translation>Jako heslo nepoužívejte běžná slova a jejich kombinace</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
         <source>Create a strong password please</source>
-        <translation>Vytvořte si odolné heslo, prosím</translation>
+        <translation>Vytvořte si odolné heslo prosím</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="102"/>
         <source>It does not meet password rules</source>
         <translation>Nesplňuje pravidla pro hesla</translation>
     </message>

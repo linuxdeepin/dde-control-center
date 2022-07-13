@@ -2,39 +2,39 @@
 <context>
     <name>PasswordWidget</name>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="58"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="134"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="60"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="136"/>
         <source>Passwords do not match</source>
         <translation>Le password non coincidono</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="66"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="68"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Il suggerimento è visibile a tutti gli utenti. Non scrivere qui la password.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="84"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="86"/>
         <source>New Password</source>
         <translation>Nuova password</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="106"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="108"/>
         <source>Repeat Password</source>
         <translation>Ripeti password</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="114"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="116"/>
         <source>Password Hint</source>
         <translation>Suggerimento password</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="123"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="124"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="126"/>
         <source>Required</source>
         <translation>Richiesto</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="127"/>
         <source>Optional</source>
         <translation>Opzionale</translation>
     </message>
@@ -77,29 +77,34 @@
         <translation>Non più di %1 caratteri ripetuti per favore</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="85"/>
+        <source>The password should differ from the username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>La password deve contenere lettere maiuscole, minuscole, numeri e simboli (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>La password non può contenere più di 4 caratteri palindromi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="96"/>
         <source>Do not use common words and combinations as password</source>
         <translation>Non utilizzare parole comuni e le loro combinazioni come password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
         <source>Create a strong password please</source>
         <translation>Per cortesia, crea una password più sicura</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="102"/>
         <source>It does not meet password rules</source>
         <translation>Non rispetta le regole di password</translation>
     </message>

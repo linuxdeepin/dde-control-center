@@ -2,39 +2,39 @@
 <context>
     <name>PasswordWidget</name>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="58"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="134"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="60"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="136"/>
         <source>Passwords do not match</source>
         <translation>Пароли не совпадают</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="66"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="68"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Подсказка видна всем пользователям. Не указывайте здесь пароль.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="84"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="86"/>
         <source>New Password</source>
         <translation>Новый пароль</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="106"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="108"/>
         <source>Repeat Password</source>
         <translation>Повторите пароль</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="114"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="116"/>
         <source>Password Hint</source>
         <translation>Подсказка пароля</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="123"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="124"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="126"/>
         <source>Required</source>
         <translation>Требуется</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="127"/>
         <source>Optional</source>
         <translation>Необязательный</translation>
     </message>
@@ -77,29 +77,34 @@
         <translation>Слишком много повторяющихся символов: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="85"/>
+        <source>The password should differ from the username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>Пароль должен содержать прописные буквы, строчные буквы, цифры и символы (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Пароль не должен содержать более 4 символов палиндрома</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="96"/>
         <source>Do not use common words and combinations as password</source>
         <translation>Не используйте общие слова и комбинации в качестве пароля</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
         <source>Create a strong password please</source>
         <translation>Пожалуйста, создайте надежный пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="102"/>
         <source>It does not meet password rules</source>
         <translation>Не соответствует правилам паролей</translation>
     </message>
@@ -165,7 +170,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
         <source>Confirm and Reset</source>
-        <translation>Подтвердить и сбросить</translation>
+        <translation>Подтвердить и Восстановить</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="296"/>
@@ -208,7 +213,7 @@
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="131"/>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation>Как называется первая школа, в которую вы ходили?</translation>
+        <translation>Как называется первая школа, в которую ты пошел?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="132"/>
