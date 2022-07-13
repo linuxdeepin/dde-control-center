@@ -603,10 +603,6 @@ set(Qt_LIBS
     Qt5::WaylandClient
 )
 
-# dconfig
-file(GLOB DCONFIG_FILES "../../configs/org.deepin.dde.control-center*.json")
-dconfig_meta_files(APPID dde-control-center BASE ../../configs FILES ${DCONFIG_FILES})
-
 set(DEEPIN_PW_CHECK libdeepin_pw_check.so)
 set(SHMN_VIDEO libdareader.so)
 
@@ -764,9 +760,9 @@ target_link_libraries(${BIN_NAME} PRIVATE
 install(TARGETS ${BIN_NAME} DESTINATION bin)
 install(TARGETS dccwidgets LIBRARY DESTINATION lib)
 
-#dconfig
-dconfig_meta_files(APPID org.deepin.dde.control-center FILES ../../configs/org.deepin.dde.control-center.display.json)
-dconfig_meta_files(APPID org.deepin.dde.control-center FILES ../../configs/org.deepin.dde.control-center.update.json)
+# dconfig
+file(GLOB DCONFIG_FILES "../../configs/org.deepin.dde.control-center*.json")
+dconfig_meta_files(APPID org.deepin.dde.control-center BASE ../../configs FILES ${DCONFIG_FILES})
 
 find_package(Qt5 COMPONENTS
 Test
