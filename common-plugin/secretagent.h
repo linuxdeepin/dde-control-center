@@ -108,7 +108,7 @@ private:
     bool hasSecrets(const NMVariantMapMap &connection) const;
     void sendSecrets(const NMVariantMapMap &secrets, const QDBusMessage &message) const;
 
-    mutable QProcess *m_process;
+    mutable QProcess *m_process = nullptr;
     QList<SecretsRequest> m_calls;
     QByteArray m_lastData; // 用于数据拼接
     bool m_greeter;
