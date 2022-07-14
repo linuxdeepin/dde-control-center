@@ -140,11 +140,7 @@ void SecurityLevelItem::initUi()
     }
 
     newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[0]);
-    newPasswdLevelLayout->addSpacing(4);
-
     newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[1]);
-    newPasswdLevelLayout->addSpacing(4);
-
     newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[2]);
     newPasswdLevelLayout->addSpacing(50);
     setLayout(newPasswdLevelLayout);
