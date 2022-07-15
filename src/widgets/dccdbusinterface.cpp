@@ -88,6 +88,10 @@ QVariant DCCDBusInterfacePrivate::updateProp(const char *propname, const QVarian
 void DCCDBusInterfacePrivate::initDBusConnection()
 {
     Q_Q(DCCDBusInterface);
+    if (q->path().isEmpty() || q->interface().isEmpty()) {
+        qWarning()<<"not valid DBus:"<<q->service()<< q->path()<< q->interface()<<q->connection().name();
+        return;
+    }
     QDBusConnection connection = q->connection();
     QStringList signalList;
     QDBusInterface inter(q->service(), q->path(), q->interface(), connection);

@@ -232,6 +232,8 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 
 #ifndef DCC_DISABLE_FEEDBACK
     QDBusObjectPath meter = m_soundDBusInter->GetMeter();
+    if (meter.path().isEmpty())
+        return;
     m_soundDBusInter->setMeterDevicePath(meter.path());
     connect(m_soundDBusInter, &SoundDBusProxy::VolumeMeterChanged, m_model, &SoundModel::setMicrophoneFeedback);
     m_model->setMicrophoneFeedback(m_soundDBusInter->volumeMeter());
