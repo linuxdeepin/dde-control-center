@@ -79,7 +79,8 @@ void ScalingWidget::addSlider()
     onResolutionChanged();
     DCCSlider *slider = m_slider->slider();
     connect(slider, &DCCSlider::valueChanged, this, [=](const int value) {
-        if (m_displayModel->uiScale() != m_scaleList[value - 1].toFloat()) {
+        if (value > 0 && value <= m_scaleList.size()
+            && m_displayModel->uiScale() != m_scaleList[value - 1].toFloat()) {
             Q_EMIT requestUiScaleChange(m_scaleList[value - 1].toFloat());
         }
     });
