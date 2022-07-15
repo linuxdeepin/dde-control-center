@@ -212,6 +212,12 @@ public:
     inline int currentWaitSoundReceiptTime() { return m_waitSoundReceiptTime; }
     void setWaitSoundReceiptTime(const int receiptTime);
 
+    inline QString speakerName() const { return m_speakerName; }
+    void setSpeakerName(QString speakerVolume);
+
+    inline QString microphoneName() const { return m_microphoneName; }
+    void setMicrophoneName(QString microphoneName);
+
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
@@ -228,6 +234,8 @@ Q_SIGNALS:
     void isPortEnableChanged(bool enable) const;
     void bluetoothModeOptsChanged(const QStringList &modeOpts) const;
     void bluetoothModeChanged(const QString &mode);
+    void speakerNameChanged(const QString &name) const;
+    void microphoneNameChanged(const QString &name) const;
 
     void setPortChanged(const Port* port) const;
     //查询是否可用
@@ -261,6 +269,8 @@ private:
     double m_microphoneVolume;
     double m_maxUIVolume;
     int m_waitSoundReceiptTime;
+    QString m_speakerName;
+    QString m_microphoneName;
 
 #ifndef DCC_DISABLE_FEEDBACK
     double m_microphoneFeedback;

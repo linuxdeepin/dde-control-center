@@ -144,6 +144,8 @@ private:
     // 确保第一次点击没有延时
     bool m_fristChangePort;
     bool m_fristStatusChangePort;
+    // 名称
+    QString m_name;
 
     /**
      * @brief m_waitStatusChangeTimer 端口切换等待延时

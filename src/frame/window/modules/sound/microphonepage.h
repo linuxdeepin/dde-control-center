@@ -112,6 +112,8 @@ private:
     bool m_fristChangePort;
     bool m_currentBluetoothPortStatus;
     QTimer *m_waitStatusChangeTimer;
+    // 名字
+    QString m_name;
 };
 
 }

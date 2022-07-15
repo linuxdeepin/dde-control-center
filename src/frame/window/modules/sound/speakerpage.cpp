@@ -158,6 +158,9 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
         m_mute = flag;
         refreshIcon();
     });
+    connect(m_model, &SoundModel::speakerNameChanged, this, [ = ](const QString &name) {
+        m_name = name;
+    });
 
     initSlider();
     initCombox();
@@ -247,6 +250,8 @@ void SpeakerPage::refreshActivePortShow(const dcc::sound::Port *port)
         }
 
         setBlueModeVisible(port->isBluetoothPort() && (m_outputModel->rowCount() > 0));
+    } else {
+        setBlueModeVisible(false);
     }
 }
 
@@ -474,6 +479,9 @@ void SpeakerPage::initCombox()
     m_layout->addWidget(m_outputSoundsGrp);
     m_layout->setSpacing(10);
     m_layout->addStretch(10);
+
+    // 无端口情况下后续不会更新状态，所以默认不显示。
+    m_blueSoundCbx->setVisible(false);
 }
 
 void SpeakerPage::refreshIcon()
@@ -487,7 +495,7 @@ void SpeakerPage::refreshIcon()
 
 void SpeakerPage::showWaitSoundPortStatus(bool showStatus)
 {
-    if ((m_currentPort && !m_currentPort->isBluetoothPort()) || m_model->currentBluetoothAudioMode().isEmpty()) {
+    if (!m_currentPort || !m_currentPort->isBluetoothPort() || m_model->currentBluetoothAudioMode().isEmpty()) {
         m_blueSoundCbx->setVisible(false);
     }
     m_outputSoundCbx->setEnabled(showStatus);
@@ -505,7 +513,8 @@ void SpeakerPage::showDevice()
     if (!m_speakSlider || !m_vbWidget || !m_balanceSlider || !m_outputSlider)
         return;
 
-    if (1 > m_outputModel->rowCount()){
+    // 支持云平台无端口设备的显示
+    if (1 > m_outputModel->rowCount() && (!m_model->ports().isEmpty() || m_name.startsWith("auto_null"))){
         setDeviceVisible(false);
         setBlueModeVisible(false);
     } else

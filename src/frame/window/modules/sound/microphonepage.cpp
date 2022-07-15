@@ -179,6 +179,9 @@ void MicrophonePage::setModel(SoundModel *model)
         m_mute = flag;
         refreshIcon();
     });
+    connect(m_model, &SoundModel::microphoneNameChanged, this, [ = ](const QString &name) {
+        m_name = name;
+    });
 
     initSlider();
     initCombox();
@@ -429,7 +432,8 @@ void MicrophonePage::showDevice()
     if (!m_feedbackSlider || !m_inputSlider || !m_noiseReductionsw)
         return;
 
-    setDeviceVisible(1 <= m_inputModel->rowCount());
+    // 支持云平台无端口设备的显示
+    setDeviceVisible(1 <= m_inputModel->rowCount() || (m_model->ports().isEmpty() && !m_name.startsWith("auto_null")));
 }
 
 void MicrophonePage::setDeviceVisible(bool visable)

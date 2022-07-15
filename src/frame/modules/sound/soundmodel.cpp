@@ -295,6 +295,22 @@ void SoundModel::setMaxUIVolume(double value)
     }
 }
 
+void SoundModel::setSpeakerName(QString speakerName)
+{
+    if (m_speakerName != speakerName) {
+        m_speakerName = speakerName;
+        Q_EMIT speakerNameChanged(speakerName);
+    }
+}
+
+void SoundModel::setMicrophoneName(QString microphoneName)
+{
+    if (m_microphoneName != microphoneName) {
+        m_microphoneName = microphoneName;
+        Q_EMIT microphoneNameChanged(microphoneName);
+    }
+}
+
 QDBusObjectPath SoundModel::defaultSource() const
 {
     return m_defaultSource;
