@@ -57,6 +57,7 @@
 #include <widgets/comboxwidget.h>
 #include <widgets/dcclistview.h>
 #include <widgets/settingsgroup.h>
+#include <widgets/settingsitem.h>
 
 #include <polkit-qt5-1/PolkitQt1/Authority>
 
@@ -79,6 +80,38 @@ ModuleObject *AccountsPlugin::module()
 int AccountsPlugin::location() const
 {
     return 1;
+}
+///////////////////////////////////////
+#define MAXVALUE 99999
+#define GSETTINGS_EFFECTIVE_DAY_VISIBLE "effectiveDayVisible"
+
+AccountSpinBox::AccountSpinBox(QWidget *parent)
+    : DSpinBox(parent)
+{
+}
+
+QString AccountSpinBox::textFromValue(int val) const
+{
+    if (val >= MAXVALUE && !lineEdit()->hasFocus()) {
+        return tr("Always");
+    }
+    return QString::number(val);
+}
+
+void AccountSpinBox::focusInEvent(QFocusEvent *event)
+{
+    if (lineEdit()->text() == tr("Always")) {
+        lineEdit()->setText(QString::number(MAXVALUE));
+    }
+    return DSpinBox::focusInEvent(event);
+};
+
+void AccountSpinBox::focusOutEvent(QFocusEvent *event)
+{
+    if (lineEdit()->text().isEmpty()) {
+        editingFinished();
+    }
+    return DSpinBox::focusOutEvent(event);
 }
 ///////////////////////////////////////
 class AutoLoginModel : public QAbstractItemModel
@@ -203,6 +236,7 @@ AccountsModule::AccountsModule(QObject *parent)
     //
     appendChild(new WidgetModule<SettingsGroup>("accountType", tr("Account Type"), this, &AccountsModule::initAccountType));
     appendChild(new WidgetModule<DCCListView>("autoLogin", tr("Auto Login"), this, &AccountsModule::initAutoLogin));
+    appendChild(new WidgetModule<SettingsGroup>("validityDays", tr("Validity Days"), this, &AccountsModule::initValidityDays));
 
     if (DSysInfo::UosServer == DSysInfo::uosType()) {
         appendChild(new WidgetModule<QLabel>("group", tr("Group"), [](QLabel *groupTip) {
@@ -518,7 +552,7 @@ void AccountsModule::initAutoLogin(DCCListView *listview)
     listview->setSelectionMode(QListView::SelectionMode::NoSelection);
     listview->setEditTriggers(DListView::NoEditTriggers);
     listview->setFrameShape(DListView::NoFrame);
-    listview->setViewportMargins(10, 10, 10, 10);
+    listview->setViewportMargins(10, 0, 10, 0);
     listview->setItemSpacing(1);
     QMargins itemMargins(listview->itemMargins());
     itemMargins.setLeft(1);
@@ -559,6 +593,69 @@ void AccountsModule::initAutoLogin(DCCListView *listview)
             m_worker->setNopasswdLogin(m_curUser, !m_curUser->nopasswdLogin());
         }
     });
+}
+
+void AccountsModule::initValidityDays(SettingsGroup *pwGroup)
+{
+    // 设置密码有效期
+    pwGroup->setBackgroundStyle(SettingsGroup::GroupBackground);
+    pwGroup->getLayout()->setContentsMargins(0, 0, 0, 0);
+    pwGroup->setContentsMargins(10, 0, 10, 0);
+    pwGroup->layout()->setMargin(0);
+
+    auto pwHLayout = new QHBoxLayout;
+    auto pwWidget = new SettingsItem;
+    pwGroup->appendItem(pwWidget);
+    pwWidget->setLayout(pwHLayout);
+    pwHLayout->setContentsMargins(10, 0, 10, 0);
+
+    QLabel *vlidityLabel = new QLabel(tr("Validity Days"));
+    pwHLayout->addWidget(vlidityLabel, 0, Qt::AlignLeft);
+    auto validityDaysBox = new AccountSpinBox();
+    validityDaysBox->lineEdit()->setValidator(new QRegularExpressionValidator(QRegularExpression("[1-9]\\d{0,4}/^[1-9]\\d*$/"), validityDaysBox->lineEdit()));
+    validityDaysBox->lineEdit()->setPlaceholderText("99999");
+    validityDaysBox->setRange(1, 99999);
+    pwHLayout->addWidget(validityDaysBox, 0, Qt::AlignRight);
+
+    connect(validityDaysBox, qOverload<int>(&DSpinBox::valueChanged), this, [=](const int value) {
+        validityDaysBox->setValue(value);
+        validityDaysBox->setAlert(false);
+    });
+    connect(validityDaysBox, &QSpinBox::editingFinished, this, [this, validityDaysBox]() {
+        if (validityDaysBox->lineEdit()->text().isEmpty()) {
+            validityDaysBox->setValue(m_curUser->passwordAge());
+            return;
+        }
+        int age = validityDaysBox->value();
+        if (age == m_curUser->passwordAge())
+            return;
+
+        m_worker->setMaxPasswordAge(m_curUser, validityDaysBox->value());
+    });
+
+    connect(m_curUser, &User::passwordAgeChanged, validityDaysBox, &AccountSpinBox::setValue);
+
+    validityDaysBox->setValue(m_curUser->passwordAge());
+    validityDaysBox->valueChanged(m_curUser->passwordAge());
+
+    auto setvalidityDaysFun = [](AccountsModule *module, AccountSpinBox *validityDaysBox) {
+        validityDaysBox->setValue(module->m_curUser->passwordAge());
+        validityDaysBox->valueChanged(module->m_curUser->passwordAge());
+        validityDaysBox->setEnabled(!(module->m_model->getIsSecurityHighLever() && module->m_curLoginUser->securityLever() != SecurityLever::Sysadm && !module->m_curUser->isCurrentUser()));
+    };
+    std::function<void()> setvalidityDays = std::bind(setvalidityDaysFun, this, validityDaysBox);
+
+    auto updateValidityDays = [validityDaysBox, setvalidityDays](User *user, User *oldUser) {
+        if (oldUser)
+            disconnect(oldUser, 0, validityDaysBox, 0);
+        setvalidityDays();
+
+        connect(user, &User::passwordAgeChanged, validityDaysBox, setvalidityDays);
+    };
+    updateValidityDays(m_curUser, nullptr);
+
+    connect(this, &AccountsModule::currentUserChanged, validityDaysBox, updateValidityDays);
+
 }
 
 void AccountsModule::onCreateAccount()

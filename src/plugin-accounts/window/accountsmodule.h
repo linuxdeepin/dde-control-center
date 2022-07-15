@@ -26,6 +26,7 @@
 #include "interface/plugininterface.h"
 
 #include <DLineEdit>
+#include <DSpinBox>
 
 class QVBoxLayout;
 class QStackedWidget;
@@ -38,6 +39,8 @@ class DStandardItem;
 DWIDGET_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
+
+class SettingsItem;
 class User;
 class AccountsWorker;
 class UserModel;
@@ -56,6 +59,18 @@ public:
     virtual QString name() const override;
     virtual ModuleObject *module() override;
     virtual int location() const override;
+};
+///////////////////////////////////////
+class AccountSpinBox : public DTK_WIDGET_NAMESPACE::DSpinBox
+{
+    Q_OBJECT
+
+public:
+    explicit AccountSpinBox(QWidget *parent = nullptr);
+protected:
+    virtual QString textFromValue(int val) const override;
+    void focusInEvent(QFocusEvent *event) override;
+    void focusOutEvent(QFocusEvent *event) override;
 };
 ///////////////////////////////////////
 class AccountsModule : public ModuleObject
@@ -93,6 +108,7 @@ protected Q_SLOTS:
     void initModifyButton(QWidget *w);
     void initAccountType(SettingsGroup *accountSettingsGrp);
     void initAutoLogin(DCCListView *listview);
+    void initValidityDays(SettingsGroup *pwGroup);
 
     void onCreateAccount();
     void onModifyPassword();
