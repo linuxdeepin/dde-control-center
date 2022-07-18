@@ -26,6 +26,8 @@
 #include "interface/namespace.h"
 #include "interface/moduleinterface.h"
 #include "interface/frameproxyinterface.h"
+#include "com_deepin_daemon_network.h"
+#include "com_deepin_daemon_bluetooth.h"
 
 #include <com_deepin_daemon_airplanemode.h>
 
@@ -47,6 +49,8 @@ namespace DCC_NAMESPACE {
 enum class PageType;
 
 using DBusAirplaneMode = com::deepin::daemon::AirplaneMode;
+using NetworkInter = com::deepin::daemon::Network;
+using BluetoothInter = com::deepin::daemon::Bluetooth;
 
 using namespace DCC_NAMESPACE;
 using namespace dde::network;
@@ -60,6 +64,7 @@ class DCCNetworkModule : public QObject, public ModuleInterface
 
 signals:
     void deviceChanged();
+    void popAirplaneModePage();
 
 public:
     explicit DCCNetworkModule();
@@ -104,6 +109,7 @@ private:
     void removeConnEditPageByDevice(NetworkDeviceBase *dev);
     void initListConfig();
     bool hasModule(const PageType &type);
+    bool supportAirplaneMode() const;
 
 private Q_SLOTS:
     void showWirelessEditPage(NetworkDeviceBase *dev, const QString &connUuid = QString(), const QString &apPath = QString());
@@ -116,11 +122,14 @@ private Q_SLOTS:
     void showHotspotPage(const QString &searchPath);
     void showDetailPage();
     void showAirplanePage();
+    void onWirelessAccessPointsOrAdapterChange();
 
 private:
     NetworkModuleWidget *m_indexWidget;
     ConnectionEditPage *m_connEditPage;
     DBusAirplaneMode *m_airplaneMode;
+    NetworkInter *m_networkInter;
+    BluetoothInter *m_bluetoothInter;
 };
 
 #endif // NETWORKINTERFACE_H

@@ -130,6 +130,13 @@ void DCCNetworkModule::active()
     m_indexWidget->setVisible(true);
     initListConfig();
     m_indexWidget->showDefaultWidget();
+
+    m_networkInter = new NetworkInter("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this);
+    connect(m_networkInter, &NetworkInter::WirelessAccessPointsChanged, this, &DCCNetworkModule::onWirelessAccessPointsOrAdapterChange);
+
+    m_bluetoothInter = new BluetoothInter("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this);
+    connect(m_bluetoothInter, &BluetoothInter::AdapterAdded, this, &DCCNetworkModule::onWirelessAccessPointsOrAdapterChange);
+    connect(m_bluetoothInter, &BluetoothInter::AdapterRemoved, this, &DCCNetworkModule::onWirelessAccessPointsOrAdapterChange);
 }
 
 QStringList DCCNetworkModule::availPage() const
@@ -286,6 +293,47 @@ bool DCCNetworkModule::hasModule(const PageType &type)
     }
 
     return true;
+}
+
+bool DCCNetworkModule::supportAirplaneMode() const
+{
+    // 蓝牙和无线网络,只要有其中一个就允许显示飞行模式
+    QDBusInterface inter("com.deepin.system.Bluetooth",
+                    "/com/deepin/system/Bluetooth",
+                    "com.deepin.system.Bluetooth",
+                    QDBusConnection::systemBus());
+    if (inter.isValid()) {
+        QDBusReply<QString> reply = inter.call("GetAdapters");
+        QString replyStr = reply.value();
+        QJsonDocument json = QJsonDocument::fromJson(replyStr.toUtf8());
+        QJsonArray array = json.array();
+        if (array.size() > 0 && !array[0].toObject()["Path"].toString().isEmpty()) {
+            return true;
+        }
+    }
+
+    QDBusInterface networkInter("org.freedesktop.NetworkManager",
+                                "/org/freedesktop/NetworkManager",
+                                "org.freedesktop.NetworkManager",
+                                QDBusConnection::systemBus());
+    if (networkInter.isValid()) {
+        QDBusReply<QList<QDBusObjectPath>> reply = networkInter.call("GetAllDevices");
+        QList<QDBusObjectPath> replyStrList = reply.value();
+        for (QDBusObjectPath objPath : replyStrList) {
+            QDBusInterface deviceInter("org.freedesktop.NetworkManager",
+                                        objPath.path(),
+                                        "org.freedesktop.NetworkManager.Device",
+                                        QDBusConnection::systemBus());
+            if (deviceInter.isValid()) {
+                QVariant reply = deviceInter.property("DeviceType");
+                if (2 == reply.toUInt()) {
+                    return true;
+                }
+            }
+        }
+    }
+
+    return false;
 }
 
 void DCCNetworkModule::initSearchData()
@@ -703,4 +751,16 @@ void DCCNetworkModule::showAirplanePage()
 {
     AirplaneModepage *p = new AirplaneModepage();
     m_frameProxy->pushWidget(this, p);
+
+    connect(this, &DCCNetworkModule::popAirplaneModePage, p, [this] {
+        m_frameProxy->popWidget(nullptr);
+    });
+}
+
+void DCCNetworkModule::onWirelessAccessPointsOrAdapterChange()
+{
+    m_indexWidget->setModelVisible("networkAirplane", supportAirplaneMode());
+    if (supportAirplaneMode()) {
+        emit popAirplaneModePage();
+    }
 }
