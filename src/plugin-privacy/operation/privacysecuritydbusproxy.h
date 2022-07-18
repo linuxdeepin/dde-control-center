@@ -25,6 +25,7 @@ public:
 Q_SIGNALS:
     void permissionEnableChanged(const QString& permissionGroup, const QString& permissionId, bool enable);
     void permissionInfoChanged();
+    void permissionEnableReset(const QString &permissionGroup, const QString &permissionId);
 
     // 数据加载完成
     void permissionInfoLoadFinished(const QString& perInfo);

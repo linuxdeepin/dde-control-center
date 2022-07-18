@@ -37,17 +37,9 @@ PrivacySecurityWorker::PrivacySecurityWorker(PrivacySecurityModel *model, QObjec
     , m_model(model)
     , m_privacyDBusInter(new PrivacySecurityDBusProxy(this))
 {
-    // TODO: test 读取本地文件
-//    QFile fileInfo("/home/uos/Desktop/date1.json");
-//    if (!fileInfo.open(QIODevice::ReadOnly)) {
-//        qDebug() << "Json 不存在";
-//        return;
-//    }
-//    QByteArray allData = fileInfo.readAll();
-//    fileInfo.close();
-//    PermissionInfoLoadFinished(QString::fromUtf8(allData));
     connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionInfoLoadFinished, this, &PrivacySecurityWorker::permissionInfoLoadFinished);
     connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionEnableChanged, this, &PrivacySecurityWorker::refreshPermissionState);
+    connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionEnableReset, this, &PrivacySecurityWorker::resetPermissionState);
 }
 
 PrivacySecurityWorker::~PrivacySecurityWorker()
@@ -131,8 +123,16 @@ void PrivacySecurityWorker::saveServiceApps(const QString &currentGroup, const Q
 
 void PrivacySecurityWorker::refreshPermissionState(const QString &permissionGroup, const QString &permissionId, bool enable)
 {
+    Q_UNUSED(permissionGroup);
     ServiceControlItems *serviceItem = m_model->getServiceItem(permissionId);
     serviceItem->setSwitchState(enable);
+}
+
+void PrivacySecurityWorker::resetPermissionState(const QString &permissionGroup, const QString &permissionId)
+{
+    Q_UNUSED(permissionGroup);
+    ServiceControlItems *serviceItem = m_model->getServiceItem(permissionId);
+    serviceItem->serviceSwitchStateChange(serviceItem->getSwitchState());
 }
 
 const QString PrivacySecurityWorker::getIconPath(const QString &appName)

@@ -34,7 +34,6 @@ void ServiceControlItems::setSwitchState(const bool switchState)
 {
     if (m_switch != switchState) {
         m_switch = switchState;
-        qDebug() << " GetPermissionEnable: " << switchState;
         Q_EMIT serviceSwitchStateChange(switchState);
     }
 }
