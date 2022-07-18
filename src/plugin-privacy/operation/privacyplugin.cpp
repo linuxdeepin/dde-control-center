@@ -34,7 +34,7 @@
 DCC_USE_NAMESPACE
 
 PrivacyModule::PrivacyModule(QObject *parent)
-    : ModuleObject("Privacy and Security", tr("Privacy and Security"), tr("Privacy and Security"), QIcon::fromTheme("dcc_nav_privacy"),parent)
+    : ModuleObject("privacyAndSecurity", tr("Privacy and Security"), tr("Privacy and Security"), QIcon::fromTheme("dcc_nav_privacy"),parent)
     , m_model(new PrivacySecurityModel(this))
     , m_work(new PrivacySecurityWorker(m_model, this))
 {
@@ -65,7 +65,7 @@ PrivacyPlugin::~PrivacyPlugin()
 
 QString PrivacyPlugin::name() const
 {
-    return QStringLiteral("Privacy and Security");
+    return QStringLiteral("privacyAndSecurity");
 }
 
 ModuleObject *PrivacyPlugin::module()
