@@ -134,11 +134,11 @@ void DockModuleObject::initMode(ComboxWidget *widget)
     widget->setTitle(tr("Mode"));
     widget->setComboxOption(QStringList() << tr("Fashion mode") << tr("Efficient mode"));
     widget->setCurrentText(g_modeMap.key(m_dbusProxy->displayMode()));
-    connect(widget, &ComboxWidget::onSelectChanged, this, [ = ] (const QString &text) {
+    connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [ = ] (const QString &text) {
         m_dbusProxy->setDisplayMode(g_modeMap.value(text));
     });
 
-    connect(m_dbusProxy.get(), &DockDBusProxy::DisplayModeChanged, this, [ = ] (int value) {
+    connect(m_dbusProxy.get(), &DockDBusProxy::DisplayModeChanged, widget, [ = ] (int value) {
         DisplayMode mode = static_cast<DisplayMode>(value);
         if (g_modeMap.key(mode) == widget->comboBox()->currentText())
             return;
@@ -163,11 +163,11 @@ void DockModuleObject::initPosition(ComboxWidget *widget)
     widget->setTitle(tr("Location"));
     widget->setComboxOption(QStringList() << tr("Top") << tr("Bottom") << tr("Left") << tr("Right"));
     widget->setCurrentText(g_positionMap.key(m_dbusProxy->position()));
-    connect(widget, &ComboxWidget::onSelectChanged, this, [ = ] (const QString &text) {
+    connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [ = ] (const QString &text) {
         m_dbusProxy->setPosition(g_positionMap.value(text));
     });
 
-    connect(m_dbusProxy.get(), &DockDBusProxy::PositionChanged, this, [ = ] (int position) {
+    connect(m_dbusProxy.get(), &DockDBusProxy::PositionChanged, widget, [ = ] (int position) {
         if (g_positionMap.key(position) == widget->comboBox()->currentText())
             return;
 
@@ -190,11 +190,11 @@ void DockModuleObject::initStatus(ComboxWidget *widget)
     widget->setTitle(tr("Status"));
     widget->setComboxOption(QStringList() << tr("Keep shown") << tr("Keep hidden") << tr("Smart hide"));
     widget->setCurrentText(g_stateMap.key(m_dbusProxy->hideMode()));
-    connect(widget, &ComboxWidget::onSelectChanged, this, [ = ] (const QString &text) {
+    connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [ = ] (const QString &text) {
         m_dbusProxy->setHideMode(g_stateMap.value(text));
     });
 
-    connect(m_dbusProxy.get(), &DockDBusProxy::HideModeChanged, this, [ = ] (int hideMode) {
+    connect(m_dbusProxy.get(), &DockDBusProxy::HideModeChanged, widget, [ = ] (int hideMode) {
         if (g_stateMap.key(hideMode) == widget->comboBox()->currentText())
             return;
 
@@ -228,11 +228,11 @@ void DockModuleObject::initSizeSlider(TitledSliderItem *slider)
         slider->slider()->blockSignals(false);
     };
 
-    connect(m_dbusProxy.get(), &DockDBusProxy::DisplayModeChanged, this, [ = ] {updateSliderValue();});
-    connect(m_dbusProxy.get(), &DockDBusProxy::WindowSizeFashionChanged, this, [ = ] {updateSliderValue();});
-    connect(m_dbusProxy.get(), &DockDBusProxy::WindowSizeEfficientChanged, this, [ = ] {updateSliderValue();});
+    connect(m_dbusProxy.get(), &DockDBusProxy::DisplayModeChanged, slider, [ = ] {updateSliderValue();});
+    connect(m_dbusProxy.get(), &DockDBusProxy::WindowSizeFashionChanged, slider, [ = ] {updateSliderValue();});
+    connect(m_dbusProxy.get(), &DockDBusProxy::WindowSizeEfficientChanged, slider, [ = ] {updateSliderValue();});
     connect(slider->slider(), &DSlider::sliderMoved, slider->slider(), &DSlider::valueChanged);
-    connect(slider->slider(), &DSlider::valueChanged, this, [ = ] (int value) {
+    connect(slider->slider(), &DSlider::valueChanged, m_dbusProxy.get(), [ = ] (int value) {
         m_dbusProxy->resizeDock(value, true);
     });
     connect(slider->slider(), &DSlider::sliderPressed, m_dbusProxy.get(), [ = ] {
@@ -256,10 +256,10 @@ void DockModuleObject::initScreenTitle(TitleLabel *label)
     label->setAccessibleName("MultipleDisplays");
     label->setText(tr("Multiple Displays"));
 
-    connect(qApp, &QApplication::screenAdded, this, [ = ] {
+    connect(qApp, &QApplication::screenAdded, label, [ = ] {
         label->setVisible(qApp->screens().count() > 1);
     });
-    connect(qApp, &QApplication::screenRemoved, this, [ = ] {
+    connect(qApp, &QApplication::screenRemoved, label, [ = ] {
         label->setVisible(qApp->screens().count() > 1);
     });
 }
@@ -277,18 +277,18 @@ void DockModuleObject::initScreen(ComboxWidget *widget)
     widget->addBackground();
     widget->setComboxOption(QStringList() << tr("On screen where the cursor is") << tr("Only on main screen"));
     widget->setCurrentText(g_screenSettingMap.key(m_dbusProxy->showInPrimary()));
-    connect(widget, &ComboxWidget::onSelectChanged, this, [ = ] (const QString &text) {
+    connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [ = ] (const QString &text) {
         m_dbusProxy->setShowInPrimary(g_screenSettingMap.value(text));
     });
-    connect(qApp, &QApplication::screenAdded, this, [ = ] {
+    connect(qApp, &QApplication::screenAdded, widget, [ = ] {
         widget->setVisible(qApp->screens().count() > 1);
     });
-    connect(qApp, &QApplication::screenRemoved, this, [ = ] {
+    connect(qApp, &QApplication::screenRemoved, widget, [ = ] {
         widget->setVisible(qApp->screens().count() > 1);
     });
 
     // 这里不会生效，但实际场景中也不存在有其他可配置的地方，暂时不用处理
-    connect(m_dbusProxy.get(), &DockDBusProxy::ShowInPrimaryChanged, this, [ = ] (bool showInPrimary) {
+    connect(m_dbusProxy.get(), &DockDBusProxy::ShowInPrimaryChanged, widget, [ = ] (bool showInPrimary) {
         if (widget->comboBox()->currentText() == g_screenSettingMap.key(showInPrimary))
             return;
 
@@ -389,7 +389,7 @@ void DockModuleObject::initPluginView(DListView *view)
         item->setActionList(Qt::Edge::RightEdge, {rightAction});
         pluginModel->appendRow(item);
 
-        connect(rightAction, &DViewItemAction::triggered, this, [ = ] {
+        connect(rightAction, &DViewItemAction::triggered, view, [ = ] {
             bool checked = m_dbusProxy->getPluginVisible(name);
             m_dbusProxy->setPluginVisible(name, !checked);
             updateItemCheckStatus(name, !checked);
@@ -399,7 +399,7 @@ void DockModuleObject::initPluginView(DListView *view)
     int lineHeight = view->visualRect(view->indexAt(QPoint(0, 0))).height();
     view->setMinimumHeight(lineHeight * plugins.size() + 10);
 
-    connect(m_dbusProxy.get(), &DockDBusProxy::pluginVisibleChanged, this, std::bind(updateItemCheckStatus, std::placeholders::_1, std::placeholders::_2));
+    connect(m_dbusProxy.get(), &DockDBusProxy::pluginVisibleChanged, view, std::bind(updateItemCheckStatus, std::placeholders::_1, std::placeholders::_2));
 }
 
 /**判断屏幕是否为复制模式的依据，第一个屏幕的X和Y值是否和其他的屏幕的X和Y值相等
