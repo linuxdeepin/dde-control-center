@@ -41,7 +41,8 @@ static QMap<QString, void (NetworkDialog::*)(QLocalSocket *, const QByteArray &)
     { "password", &NetworkDialog::sendPassword },
     { "connect", &NetworkDialog::connectNetwork },
     { "close", &NetworkDialog::closeServer },
-    { "start", &NetworkDialog::startServer }
+    { "start", &NetworkDialog::startServer },
+    { "grabKeyboard", &NetworkDialog::onGrabKeyboard }
 };
 
 /**
@@ -90,7 +91,6 @@ void NetworkDialog::show()
         m_process->blockSignals(true);
         m_process->close();
         m_process->blockSignals(false);
-        requestFocus();
         runProcess(true);
     });
 }
@@ -133,10 +133,9 @@ bool NetworkDialog::eventFilter(QObject *watched, QEvent *e)
             });
             break;
         case QEvent::Hide:
-            // 隐藏的时候发送关闭弹窗请求，在事件循环中处理，避免控件的visible状态没有更新
-            QTimer::singleShot(0, this, [this] {
-                Q_EMIT requestCloseDialog();
-            });
+            // 网络插件隐藏的时候关闭弹窗
+            // 主要是为了规避锁屏和网络列表争抢键盘的问题（可能会导致锁屏失败，退出进程）
+            closeDialog();
             break;
         default:
             break;
@@ -273,6 +272,7 @@ void NetworkDialog::readyReadHandler()
     if (socket) {
         QByteArray allData = socket->readAll();
         allData = m_lastData + allData;
+        qDebug() << "Recieve data from client: " << allData;
         QList<QByteArray> dataArray = allData.split('\n');
         m_lastData = dataArray.last();
         for (const QByteArray &data : dataArray) {
@@ -304,15 +304,21 @@ QByteArray NetworkDialog::showConfig()
 void NetworkDialog::showDialog(QLocalSocket *socket, const QByteArray &)
 {
     emit requestPosition();
-    requestFocus();
     m_clients[socket] = ClientType::Show;
     socket->write("\nshowPosition:" + showConfig() + "\n");
+}
+
+void NetworkDialog::onGrabKeyboard(QLocalSocket *socket, const QByteArray &data)
+{
+    Q_UNUSED(socket)
+    Q_UNUSED(data)
+
+    requestFocus();
 }
 
 void NetworkDialog::forceShowDialog(QLocalSocket *socket)
 {
     emit requestPosition();
-    requestFocus();
     m_clients[socket] = ClientType::Show;
 
     QJsonObject json;

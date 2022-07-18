@@ -48,7 +48,7 @@ QT_END_NAMESPACE
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 
-DockPopupWindow::DockPopupWindow(QWidget *parent)
+DockPopupWindow::DockPopupWindow(RunReason runReaseon, QWidget *parent)
     : DArrowRectangle(ArrowBottom, parent)
     , m_model(false)
     , m_regionInter(new DRegionMonitor(this))
@@ -65,7 +65,10 @@ DockPopupWindow::DockPopupWindow(QWidget *parent)
         setAttribute(Qt::WA_NativeWindow);
         windowHandle()->setProperty("_d_dwayland_window-type", "override");
     } else {
-        setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
+        if (runReaseon == Lock || runReaseon == Greeter)
+            setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
+        else
+            setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
     }
 
     setShadowBlurRadius(20);

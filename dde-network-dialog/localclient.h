@@ -21,6 +21,9 @@
 
 #ifndef LOCALCLIENT_H
 #define LOCALCLIENT_H
+
+#include "dockpopupwindow.h"
+
 #include <QLocalSocket>
 #include <QProcess>
 
@@ -40,12 +43,6 @@ class LocalClient : public QObject
     friend class Dtk::Core::DSingleton<LocalClient>;
 
 public:
-    enum RunReason {
-        Lock,     // 锁屏插件唤起
-        Greeter,  // greeter插件唤起
-        Dock,     // 任务栏插件唤起
-        Password, // 密码错误唤起
-    };
     enum WaitClient {
         No,    // 无客户端等待
         Other, // 有其他客户端在等待密码
@@ -66,6 +63,7 @@ public:
     void initWidget();
 
     bool changePassword(QString key, QString password, bool input);
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 public:
     void showPosition(QLocalSocket *socket, const QByteArray &data);
@@ -77,6 +75,7 @@ public:
     inline WaitClient waitClientType() const { return m_wait; }
     inline QString ssidWaitingForPassword() const { return m_ssid; }
     void close(QLocalSocket *socket, const QByteArray &data);
+    void releaseKeyboard();
 
 private:
     void showPopupWindow(bool forceShowDialog = false);
@@ -101,6 +100,7 @@ private:
     QTranslator *m_translator;
     QString m_locale;
     bool m_popopNeedShow;
+    RunReason m_runReason;
 };
 
 #endif // LOCALCLIENT_H

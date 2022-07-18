@@ -78,17 +78,6 @@ NetworkModule::NetworkModule(QObject *parent)
         m_secretAgent = new NETWORKPLUGIN_NAMESPACE::SecretAgent(true, this);
     }
 
-    connect(m_networkDialog, &NetworkDialog::requestCloseDialog, this, [this] {
-        // 如果所有的网络icon都处于隐藏状态，则关闭弹窗
-        qInfo() << "Request close network dialog";
-        for (auto trayIcon : trayIcons) {
-            if (trayIcon && trayIcon->isVisible()) {
-                return;
-            }
-        }
-
-        m_networkDialog->closeDialog();
-    });
     m_networkDialog->runServer(true);
 }
 

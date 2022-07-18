@@ -52,6 +52,12 @@ int main(int argc, char **argv)
     qApp->setApplicationDisplayName("NetworkDialog");
     qApp->setApplicationDescription("network dialog");
 
+#ifdef DEBUG_LOG
+    DTK_CORE_NAMESPACE::DLogManager::setlogFilePath("/tmp/dde-network-dialog.log");
+    DTK_CORE_NAMESPACE::DLogManager::registerConsoleAppender();
+    DTK_CORE_NAMESPACE::DLogManager::registerFileAppender();
+#endif
+
     QCommandLineOption showOption(QStringList() << "s", "show config", "config");
     QCommandLineOption waitOption(QStringList() << "w", "wait wep-key"); // 等待模式，密码输入后返回给调用者并退出。否则不退出尝试联网
     QCommandLineOption connectPathOption(QStringList() << "c", "connect wireless ", "path");

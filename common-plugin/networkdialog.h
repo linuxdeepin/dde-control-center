@@ -40,7 +40,6 @@ class NetworkDialog : public QObject
 
 signals:
     void requestPosition();
-    void requestCloseDialog();
 
 public:
     enum RunReason {
@@ -84,6 +83,7 @@ public:
     void sendPassword(QLocalSocket *socket, const QByteArray &data);
     void closeServer(QLocalSocket *socket, const QByteArray &data);
     void startServer(QLocalSocket *socket, const QByteArray &data);
+    void onGrabKeyboard(QLocalSocket *socket, const QByteArray &data);
     void closeDialog(QLocalSocket *socket);
     QByteArray showConfig();
 

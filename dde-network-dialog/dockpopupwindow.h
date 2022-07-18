@@ -33,12 +33,19 @@ namespace Dtk {
 
 DWIDGET_USE_NAMESPACE
 
+enum RunReason {
+    Lock = 0,     // 锁屏插件唤起
+    Greeter,  // greeter插件唤起
+    Dock,     // 任务栏插件唤起
+    Password, // 密码错误唤起
+};
+
 class DockPopupWindow : public Dtk::Widget::DArrowRectangle
 {
     Q_OBJECT
 
 public:
-    explicit DockPopupWindow(QWidget *parent = 0);
+    explicit DockPopupWindow(RunReason runReaseon = Dock, QWidget *parent = 0);
     ~DockPopupWindow();
 
     bool model() const;

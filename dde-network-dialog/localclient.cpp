@@ -55,6 +55,7 @@ LocalClient::LocalClient(QObject *parent)
     , m_panel(nullptr)
     , m_translator(nullptr)
     , m_popopNeedShow(false)
+    , m_runReason(Dock)
 {
     m_clinet = new QLocalSocket(this);
     connect(m_clinet, SIGNAL(connected()), this, SLOT(connectedHandler()));
@@ -183,7 +184,8 @@ void LocalClient::showPopupWindow(bool forceShowDialog)
 void LocalClient::initWidget()
 {
     if (!m_popopWindow) {
-        m_popopWindow = new DockPopupWindow();
+        m_popopWindow = new DockPopupWindow(m_runReason);
+        m_popopWindow->installEventFilter(this);
         m_popopWindow->setProperty("localpos", QPoint(-1, -1));
         m_panel = new NetworkPanel(m_popopWindow);
         QObject::connect(qApp, &QCoreApplication::destroyed, m_popopWindow, &DockPopupWindow::deleteLater);
@@ -220,7 +222,7 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
         QJsonObject obj = doc.object();
         int x = obj.value("x").toInt();
         int y = obj.value("y").toInt();
-        int reason = obj.value("reason").toInt();
+        m_runReason = static_cast<RunReason>(obj.value("reason").toInt());
         int position = obj.value("position").toInt();
         QString locale = obj.value("locale").toString();
         if (locale.isEmpty())
@@ -229,7 +231,7 @@ void LocalClient::showPosition(QLocalSocket *socket, const QByteArray &data)
         updateTranslator(locale);
 
         QPixmap pixmap;
-        switch (reason) {
+        switch (m_runReason) {
         case Greeter:
             dde::network::NetworkController::setServiceType(dde::network::ServiceLoadType::LoadFromManager);
             ThemeManager::instance()->setThemeType(ThemeManager::GreeterType);
@@ -347,4 +349,24 @@ bool LocalClient::changePassword(QString key, QString password, bool input)
     bool isWait = m_wait != WaitClient::No;
     m_wait = WaitClient::No;
     return isWait;
+}
+
+void LocalClient::releaseKeyboard()
+{
+    qInfo() << "Request grab keyboard";
+    m_clinet->write("\ngrabKeyboard:{}\n");
+    m_clinet->waitForBytesWritten(3000);
+}
+
+bool LocalClient::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == m_popopWindow) {
+        // 当m_popopWindow显示后，请求锁屏界面释放键盘,否则无法输入密码
+        if (event->type() == QEvent::Show && m_runReason == Lock && m_popopWindow->window()) {
+            qInfo() << "Popop windos is visible, request dde-lock to release grab keyboard";
+            releaseKeyboard();
+        }
+    }
+
+    return QObject::eventFilter(watched, event);
 }
