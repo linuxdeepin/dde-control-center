@@ -67,9 +67,11 @@ inline QString cryptUserPassword(const QString &password)
 inline bool isContentEmpty(DLineEdit *edit)
 {
     if (edit->text().isEmpty()) {
+        edit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
         edit->setAlert(true);
         edit->showAlertMessage(QObject::tr("It cannot be empty"), edit, 2000);
     } else {
+        edit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
         edit->setAlert(false);
     }
 

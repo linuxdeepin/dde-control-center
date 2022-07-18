@@ -143,12 +143,14 @@ void UnionIDWidget::initData()
     connect(m_phoneEmailEdit, &DLineEdit::textEdited, this, [ & ] {
         if (m_phoneEmailEdit->isAlert()) {
             m_phoneEmailEdit->hideAlertMessage();
+            m_phoneEmailEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
             m_phoneEmailEdit->setAlert(false);
         }
     });
     connect(m_verificationCodeEdit, &DLineEdit::textEdited, this, [ & ] {
         if (m_verificationCodeEdit->isAlert()) {
             m_verificationCodeEdit->hideAlertMessage();
+            m_verificationCodeEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
             m_verificationCodeEdit->setAlert(false);
         }
     });
@@ -165,8 +167,10 @@ void UnionIDWidget::onPhoneEmailLineEditFocusChanged(bool onFocus)
 {
     if (!onFocus && !m_phoneEmailEdit->text().isEmpty()) {
         if (checkPhoneEmailFormat(m_phoneEmailEdit->text())) {
+            m_phoneEmailEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
             m_phoneEmailEdit->setAlert(false);
         } else {
+            m_phoneEmailEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
             m_phoneEmailEdit->setAlert(true);
             m_phoneEmailEdit->showAlertMessage(tr("Phone/Email format is incorrect"), m_phoneEmailEdit, 2000);
         }
@@ -180,8 +184,10 @@ void UnionIDWidget::onVerificationCodeBtnClicked()
     }
 
     if (checkPhoneEmailFormat(m_phoneEmailEdit->text())) {
+        m_phoneEmailEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
         m_phoneEmailEdit->setAlert(false);
     } else {
+        m_phoneEmailEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
         m_phoneEmailEdit->setAlert(true);
         m_phoneEmailEdit->showAlertMessage(tr("Phone/Email format is incorrect"), m_phoneEmailEdit, 2000);
         return;
@@ -247,18 +253,6 @@ QString UnionIDWidget::getErrorTips(UnionIDWidget::UNION_ID_ERROR_TYPE errorType
         { UNION_ID_ERROR_USER_UNBIND, tr("The Union ID is not linked to a user account") },
     };
     return errorTypeMap.value(errorType);
-}
-
-bool UnionIDWidget::isContentEmpty(DLineEdit *edit)
-{
-    if (edit->text().isEmpty()) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("It cannot be empty"), edit, 2000);
-    } else {
-        edit->setAlert(false);
-    }
-
-    return edit->text().isEmpty();
 }
 
 bool UnionIDWidget::checkPhoneEmailFormat(const QString &content)
@@ -335,6 +329,7 @@ void UnionIDWidget::onRequestVerficationCodeReplied(int ret)
         m_sendCodeBtn->setText(tr("Resend (%1s)").arg(m_count));
         m_codeTimer->start(1000);
     } else if (ret == UNION_ID_ERROR_USER_UNBIND) {
+        m_phoneEmailEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
         m_phoneEmailEdit->setAlert(true);
         m_phoneEmailEdit->showAlertMessage(getErrorTips(UNION_ID_ERROR_USER_UNBIND), m_phoneEmailEdit, 2000);
     } else if (ret == UNION_ID_ERROR_REQUEST_REACHED) {
@@ -361,6 +356,7 @@ void UnionIDWidget::onRequestVerifyVerficationCodeReplied(int ret)
         m_verifyCodeSuccess = true;
         m_verificationCodeEdit->setAlert(false);
     } else if (ret == UNION_ID_ERROR_USER_UNBIND) {
+        m_phoneEmailEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
         m_phoneEmailEdit->setAlert(true);
         m_phoneEmailEdit->showAlertMessage(getErrorTips(UNION_ID_ERROR_USER_UNBIND), m_phoneEmailEdit, 2000);
     } else if (ret == UNION_ID_ERROR_SYSTEM_ERROR) {
@@ -373,6 +369,7 @@ void UnionIDWidget::onRequestVerifyVerficationCodeReplied(int ret)
         DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
                                                  getErrorTips(UNION_ID_ERROR_NETWORK_ERROR));
     } else {
+        m_verificationCodeEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
         m_verificationCodeEdit->setAlert(true);
         m_verificationCodeEdit->showAlertMessage(tr("Wrong verification code"), m_verificationCodeEdit, 2000);
     }

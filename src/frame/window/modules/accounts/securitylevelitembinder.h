@@ -55,6 +55,7 @@ public:
             if (m_level == PASSWORD_STRENGTH_LEVEL_HIGH) {
                 securityLevelItem->setLevel(SecurityLevelItem::HighLevel);
                 if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+                    lineEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
                     lineEdit->setAlert(true);
                     lineEdit->showAlertMessage(pwQualityManager->getErrorTips(error), lineEdit, 2000);
                 } else {
@@ -64,6 +65,7 @@ public:
             } else if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
                 securityLevelItem->setLevel(SecurityLevelItem::MidLevel);
                 if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+                    lineEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
                     lineEdit->setAlert(true);
                     lineEdit->showAlertMessage(pwQualityManager->getErrorTips(error), lineEdit, 2000);
                 } else {
@@ -73,6 +75,7 @@ public:
             } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
                 securityLevelItem->setLevel(SecurityLevelItem::LowLevel);
                 if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+                    lineEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
                     lineEdit->setAlert(true);
                     lineEdit->showAlertMessage(pwQualityManager->getErrorTips(error), lineEdit, 2000);
                 } else {

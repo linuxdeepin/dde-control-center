@@ -49,6 +49,7 @@ bool PasswordWidget::checkPassword()
                                                                                       m_newPasswordEdit->text());
 
     if (error != PW_NO_ERR) {
+        m_newPasswordEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
         return false;
@@ -56,6 +57,7 @@ bool PasswordWidget::checkPassword()
 
     // 新密码和重复密码是否一致
     if (m_newPasswordEdit->text() != m_repeatPasswordEdit->text()) {
+        m_repeatPasswordEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
         m_repeatPasswordEdit->setAlert(true);
         m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
         return false;
@@ -64,6 +66,7 @@ bool PasswordWidget::checkPassword()
     // 密码提示
     for (auto c : m_newPasswordEdit->text()) {
         if (m_passwordTipsEdit->text().contains(c)) {
+            m_passwordTipsEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
             m_passwordTipsEdit->setAlert(true);
             m_passwordTipsEdit->showAlertMessage(tr("The hint is visible to all users. Do not include the password here."), m_passwordTipsEdit, 2000);
             return false;
@@ -129,9 +132,15 @@ void PasswordWidget::initData()
     m_repeatPasswordEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
     m_passwordTipsEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
 
+    connect(m_newPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
+        if (!m_newPasswordEdit->isAlert()) {
+            m_newPasswordEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
+        }
+    });
     connect(m_repeatPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] { hideAlert(m_repeatPasswordEdit); });
     connect(m_repeatPasswordEdit, &DPasswordEdit::editingFinished, this, [ & ]() {
         if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
+            m_repeatPasswordEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
             m_repeatPasswordEdit->setAlert(true);
             m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
         }
@@ -155,6 +164,7 @@ void PasswordWidget::hideAlert(DLineEdit *edit)
 {
     if (edit->isAlert()) {
         edit->hideAlertMessage();
+        edit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
         edit->setAlert(false);
     }
 }

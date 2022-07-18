@@ -68,7 +68,6 @@ private:
     void initData();
     int parseError(const QString& errorMsg);
     QString getErrorTips(UNION_ID_ERROR_TYPE errorType);
-    bool isContentEmpty(DLineEdit *);
     bool checkPhoneEmailFormat(const QString &content);
     void startCount();
     void setIconPath(DGuiApplicationHelper::ColorType themeType);
