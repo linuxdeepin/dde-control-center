@@ -30,11 +30,11 @@ PrivacySecurityModel::PrivacySecurityModel(QObject *parent)
     : QObject(parent)
 {
     // TODO: linglong数据不一致 做调整
-    m_serviceToCategory.insert("Camera"      , ServiceCategory::Camera);
-    m_serviceToCategory.insert("Microphone"  , ServiceCategory::Microphone);
-    m_serviceToCategory.insert("UserFolders" , ServiceCategory::UserFolders);
-    m_serviceToCategory.insert("Calendar"    , ServiceCategory::Calendar);
-    m_serviceToCategory.insert("Screenshots" , ServiceCategory::Screenshots);
+    m_serviceToCategory.insert("camera"      , ServiceCategory::Camera);
+    m_serviceToCategory.insert("mic"  , ServiceCategory::Microphone);
+    m_serviceToCategory.insert("userdir" , ServiceCategory::UserFolders);
+    m_serviceToCategory.insert("calendar"    , ServiceCategory::Calendar);
+    m_serviceToCategory.insert("screenshot" , ServiceCategory::Screenshots);
 
     m_moduleInfo = {
         DCC_PRIVACY_NAMESPACE::DATE("camera",tr("Camera"), "dcc_camera", ServiceCategory::Camera),
