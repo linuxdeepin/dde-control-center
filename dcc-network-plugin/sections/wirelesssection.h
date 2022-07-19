@@ -25,6 +25,7 @@
 #include "abstractsection.h"
 
 #include <networkmanagerqt/wirelesssetting.h>
+#include <networkmanagerqt/connectionsettings.h>
 
 namespace dcc {
   namespace widgets {
@@ -45,7 +46,7 @@ class WirelessSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit WirelessSection(WirelessSetting::Ptr wiredSetting, bool isHotSpot = false, QFrame *parent = nullptr);
+    explicit WirelessSection(ConnectionSettings::Ptr connSettings, WirelessSetting::Ptr wiredSetting, QString devPath, bool isHotSpot = false, QFrame *parent = nullptr);
     virtual ~WirelessSection() Q_DECL_OVERRIDE;
 
     bool allInputValid() Q_DECL_OVERRIDE;
@@ -73,10 +74,11 @@ private:
     SwitchWidget *m_customMtuSwitch;
     SpinBoxWidget *m_customMtu;
 
+    ConnectionSettings::Ptr m_connSettings;
     WirelessSetting::Ptr m_wirelessSetting;
 
     QRegExp m_macAddrRegExp;
-    QMap<QString, QString> m_macStrMap;
+    QMap<QString, QPair<QString, QString>> m_macStrMap;
 };
 
 #endif /* WIRELESSSECTION_H */

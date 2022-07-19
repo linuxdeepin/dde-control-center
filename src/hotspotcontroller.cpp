@@ -216,10 +216,12 @@ void HotspotController::updateDevices(const QList<NetworkDeviceBase *> &devices)
     }
 
     // 移除不在列表中的热点的数据，防止数据更新不及时访问了野指针
-    for (HotspotItem *item : m_hotspotItems) {
-        if (!m_devices.contains(item->device())) {
-            m_hotspotItems.removeOne(item);
-            delete item;
+    for (auto it = m_hotspotItems.begin(); it != m_hotspotItems.end();) {
+        if (!m_devices.contains((*it)->device())) {
+            delete (*it);
+            it = m_hotspotItems.erase(it);
+        } else {
+            ++it;
         }
     }
 

@@ -42,17 +42,19 @@
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-WirelessSection::WirelessSection(WirelessSetting::Ptr wiredSetting, bool isHotSpot, QFrame *parent)
+WirelessSection::WirelessSection(ConnectionSettings::Ptr connSettings, WirelessSetting::Ptr wiredSetting, QString devPath, bool isHotSpot, QFrame *parent)
     : AbstractSection(tr("WLAN"), parent)
     , m_apSsid(new LineEditWidget(this))
     , m_deviceMacLine(new ComboxWidget(this))
     , m_customMtuSwitch(new SwitchWidget(this))
     , m_customMtu(new SpinBoxWidget(this))
+    , m_connSettings(connSettings)
     , m_wirelessSetting(wiredSetting)
 {
     // get the macAddress list from all wireless devices
     for (auto device : networkInterfaces()) {
-        if (device->type() != Device::Type::Wifi)
+        if (device->type() != Device::Type::Wifi
+            || (!devPath.isEmpty() && devPath != "/" && device->uni() != devPath))
             continue;
 
         WirelessDevice::Ptr wDevice = device.staticCast<WirelessDevice>();
@@ -62,10 +64,10 @@ WirelessSection::WirelessSection(WirelessSetting::Ptr wiredSetting, bool isHotSp
 
         /* Alt:  permanentHardwareAddress to get real hardware address which is connot be changed */
         const QString &macStr = wDevice->permanentHardwareAddress() + " (" + wDevice->interfaceName() + ")";
-        m_macStrMap.insert(macStr, wDevice->permanentHardwareAddress().remove(":"));
+        m_macStrMap.insert(macStr, { wDevice->permanentHardwareAddress().remove(":"), wDevice->interfaceName() });
     }
 
-    m_macStrMap.insert(tr("Not Bind"), NotBindValue);
+    m_macStrMap.insert(tr("Not Bind"), { NotBindValue, QString() });
 
     // "^([0-9A-Fa-f]{2}[:-\\.]){5}([0-9A-Fa-f]{2})$"
     m_macAddrRegExp = QRegExp("^([0-9A-Fa-f]{2}[:]){5}([0-9A-Fa-f]{2})$");
@@ -98,7 +100,8 @@ void WirelessSection::saveSettings()
 {
     m_wirelessSetting->setSsid(m_apSsid->text().toUtf8());
 
-    QString hwAddr = m_macStrMap.value(m_deviceMacComboBox->currentText());
+    const QPair<QString, QString> &pair = m_macStrMap.value(m_deviceMacComboBox->currentText());
+    QString hwAddr = pair.first;
     if (hwAddr == NotBindValue)
         hwAddr.clear();
 
@@ -110,6 +113,8 @@ void WirelessSection::saveSettings()
     m_wirelessSetting->setMtu(m_customMtuSwitch->checked() ? static_cast<unsigned int>(m_customMtu->spinBox()->value()) : 0);
 
     m_wirelessSetting->setInitialized(true);
+    if (!hwAddr.isEmpty())
+        m_connSettings->setInterfaceName(pair.second);
 }
 
 void WirelessSection::setSsidEditable(const bool editable)
@@ -143,12 +148,14 @@ void WirelessSection::initUI()
     m_deviceMacLine->setTitle(tr("Device MAC Addr"));
     m_deviceMacComboBox = m_deviceMacLine->comboBox();
     for (const QString &key : m_macStrMap.keys())
-        m_deviceMacComboBox->addItem(key, m_macStrMap.value(key));
+        m_deviceMacComboBox->addItem(key, m_macStrMap.value(key).first);
 
     // get the macAddress from Settings
     const QString &macAddr = QString(m_wirelessSetting->macAddress().toHex()).toUpper();
 
-    if (m_macStrMap.values().contains(macAddr))
+    if (std::any_of(m_macStrMap.cbegin(), m_macStrMap.cend(), [macAddr](const QPair<QString, QString> &it) {
+            return it.first == macAddr;
+        }))
         m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(macAddr));
     else
         m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(NotBindValue));

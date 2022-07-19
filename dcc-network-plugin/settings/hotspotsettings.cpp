@@ -23,6 +23,7 @@
 #include "../sections/generichotspotsection.h"
 #include "../sections/secrethotspotsection.h"
 #include "../sections/wirelesssection.h"
+#include "../connectioneditpage.h"
 
 using namespace NetworkManager;
 
@@ -49,7 +50,7 @@ void HotspotSettings::initSections()
         m_connSettings->setting(Setting::SettingType::WirelessSecurity)
         .staticCast<WirelessSecuritySetting>());
 
-    WirelessSection *wirelessSection = new WirelessSection(wirelessSetting, true);
+    WirelessSection *wirelessSection = new WirelessSection(m_connSettings, wirelessSetting, ConnectionEditPage::devicePath(), true);
 
     connect(genericSection, &GenericHotspotSection::editClicked, this, &HotspotSettings::anyEditClicked);
     connect(secretHotspotSection, &GenericHotspotSection::editClicked, this, &HotspotSettings::anyEditClicked);
