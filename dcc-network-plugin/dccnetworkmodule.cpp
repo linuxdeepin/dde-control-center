@@ -759,8 +759,9 @@ void DCCNetworkModule::showAirplanePage()
 
 void DCCNetworkModule::onWirelessAccessPointsOrAdapterChange()
 {
-    m_indexWidget->setModelVisible("networkAirplane", supportAirplaneMode());
-    if (supportAirplaneMode()) {
+    bool bSupportAirplaneMode = supportAirplaneMode();
+    m_indexWidget->setModelVisible("networkAirplane", bSupportAirplaneMode);
+    if (!bSupportAirplaneMode) {
         emit popAirplaneModePage();
     }
 }
