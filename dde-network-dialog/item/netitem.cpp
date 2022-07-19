@@ -697,7 +697,7 @@ const QDateTime WirelessItem::timeStamp(WirelessConnection *connection) const
 
 void WirelessItem::onCancel()
 {
-    if (m_accessPoint && m_accessPoint->status() == ConnectionStatus::Activating) {
+    if (m_accessPoint && (m_accessPoint->status() == ConnectionStatus::Activating || m_accessPoint->ssid() == m_device->activeAp())) {
         m_device->disconnectNetwork();
         QList<WirelessConnection *> connections = m_device->items();
         // 断开连接后，找到最后一次连接的热点
