@@ -177,28 +177,17 @@ void SystemInfoWork::activate()
         version = QString("%1%2").arg(DSysInfo::minorVersion())
                                   .arg(DSysInfo::uosEditionName());
     } else if (DSysInfo::isDeepin()) {
-        //获取政务授权、企业授权
-        QString authorizationProperty = "";
-        AuthorizationProperty type = static_cast<AuthorizationProperty>(getLicenseAuthorizationProperty());
-        if (AuthorizationProperty::Government == type) {
-            authorizationProperty = tr("For Government");
-        } else if (AuthorizationProperty::Enterprise == type) {
-            authorizationProperty = tr("For Enterprise");
-        }
+        QDBusConnection::systemBus().connect("com.deepin.license",
+                                             "/com/deepin/license/Info",
+                                             "com.deepin.license.Info",
+                                             "LicenseStateChange",
+                                             this, SLOT(onLicenseAuthorizationProperty()));
 
-        if (authorizationProperty != "") {
-            version = QString("%1 (%2) (%3)").arg(DSysInfo::uosEditionName())
-                                      .arg(authorizationProperty)
-                                      .arg(DSysInfo::minorVersion());
-        } else {
-            version = QString("%1 (%2)").arg(DSysInfo::uosEditionName())
-                                      .arg(DSysInfo::minorVersion());
-        }
+        onLicenseAuthorizationProperty();
     } else {
         version = QString("%1 %2").arg(DSysInfo::productVersion())
                                   .arg(DSysInfo::productTypeString());
     }
-    m_model->setVersion(version);
     m_model->setType(QSysInfo::WordSize);
 
     if (m_systemInfo->isValid()) {
@@ -226,6 +215,32 @@ void SystemInfoWork::processChanged(QDBusMessage msg)
             m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
                                   .arg(cpuMaxMhz / 1000));
         }
+    }
+}
+
+void SystemInfoWork::onLicenseAuthorizationProperty()
+{
+    //获取政务授权、企业授权
+    QString authorizationProperty = "";
+    AuthorizationProperty authorizationType = static_cast<AuthorizationProperty>(getLicenseAuthorizationProperty());
+    if (AuthorizationProperty::Government == authorizationType) {
+        authorizationProperty = tr("For Government");
+    } else if (AuthorizationProperty::Enterprise == authorizationType) {
+        authorizationProperty = tr("For Enterprise");
+    }
+
+    QString version = "";
+    if (authorizationProperty != "") {
+        version = QString("%1 (%2) (%3)").arg(DSysInfo::uosEditionName())
+                .arg(authorizationProperty)
+                .arg(DSysInfo::minorVersion());
+    } else {
+        version = QString("%1 (%2)").arg(DSysInfo::uosEditionName())
+                .arg(DSysInfo::minorVersion());
+    }
+
+    if (m_model) {
+        m_model->setVersion(version);
     }
 }
 

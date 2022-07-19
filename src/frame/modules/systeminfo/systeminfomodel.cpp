@@ -161,7 +161,7 @@ void SystemInfoModel::setVersionNumber(const QString& number)
 
 void SystemInfoModel::setVersion(const QString &version)
 {
-    if(m_version == version)
+    if(version == "" || m_version == version)
         return;
 
     m_version = version;

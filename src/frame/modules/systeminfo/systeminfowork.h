@@ -74,6 +74,7 @@ public Q_SLOTS:
     void showActivatorDialog();
     void licenseStateChangeSlot();
     void processChanged(QDBusMessage msg);
+    void onLicenseAuthorizationProperty(void);
 
 private:
     void getEntryTitles();
