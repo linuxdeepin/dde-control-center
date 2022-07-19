@@ -227,6 +227,8 @@ void ChainsProxyPage::onRestoreValue()
 
 void ChainsProxyPage::onCheckValue()
 {
+    bool ok = true;
+
     m_addr->setIsErr(false);
     m_port->setIsErr(false);
     m_username->setIsErr(false);
@@ -234,8 +236,9 @@ void ChainsProxyPage::onCheckValue()
 
     ProxyController *proxyController = NetworkController::instance()->proxyController();
 
+    const uint port = m_port->text().toUInt(&ok);
     // 如果地址和端口为0，删除配置文件
-    if (m_addr->text().isEmpty() && m_port->text().toInt() == 0) {
+    if (m_addr->text().isEmpty() && ok && port == 0) {
         AppProxyConfig config;
         config.port = 0;
         config.ip.clear();
@@ -255,8 +258,6 @@ void ChainsProxyPage::onCheckValue()
         return;
     }
 
-    bool ok = true;
-    const uint port = m_port->text().toUInt(&ok);
     if (!ok || port > 65535) {
         m_port->setIsErr(true);
         m_port->dTextEdit()->showAlertMessage(tr("Invalid port"), m_port, 2000);
