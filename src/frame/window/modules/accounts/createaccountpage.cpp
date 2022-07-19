@@ -254,6 +254,10 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         m_nameEdit->lineEdit()->blockSignals(false);
     });
 
+    connect(m_nameEdit, &DLineEdit::textChanged, this, [ = ] (const QString &text) {
+        // 不想大改造，所以使用动态属性去传递数据
+        qApp->setProperty("editing_username", text);
+    });
     connect(m_nameEdit, &DLineEdit::editingFinished, this, &CreateAccountPage::checkName);
 
     connect(m_fullnameEdit, &DLineEdit::textEdited, this, [ = ](const QString &userFullName) {
@@ -378,12 +382,13 @@ void CreateAccountPage::showEvent(QShowEvent *event)
 
 void CreateAccountPage::createUser()
 {
-    bool checkResult = true;
-    //校验输入的用户名和密码
+    // 用户名未校验通过，不需要继续往下走，直接提示
     if (!checkName()) {
-        checkResult = false;
+        return;
     }
 
+    //校验输入的用户名和密码
+    bool checkResult = true;
     if (!checkFullname(checkResult)) {
         checkResult = false;
     }
@@ -481,9 +486,6 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
 bool CreateAccountPage::checkName()
 {
     const QString &userName = m_nameEdit->lineEdit()->text();
-    // 不想大改造，所以使用动态属性去传递数据
-    qApp->setProperty("editing_username", userName);
-
     if (userName.size() < 3 || userName.size() > 32) {
         m_nameEdit->setAlert(true);
         m_nameEdit->showAlertMessage(tr("Username must be between 3 and 32 characters"), m_nameEdit, 2000);

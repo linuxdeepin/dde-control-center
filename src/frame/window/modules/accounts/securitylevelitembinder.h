@@ -50,7 +50,7 @@ public:
             PwqualityManager *pwQualityManager = PwqualityManager::instance();
             PASSWORD_LEVEL_TYPE m_level = pwQualityManager->GetNewPassWdLevel(text);
             const QString &userName = qApp->property("editing_username").toString();
-            PwqualityManager::ERROR_TYPE error = pwQualityManager->verifyPassword(userName.isEmpty() ? text : userName, text);
+            PwqualityManager::ERROR_TYPE error = pwQualityManager->verifyPassword(userName, text);
 
             if (m_level == PASSWORD_STRENGTH_LEVEL_HIGH) {
                 securityLevelItem->setLevel(SecurityLevelItem::HighLevel);
