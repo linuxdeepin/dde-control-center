@@ -261,6 +261,11 @@ void ResolutionWidget::OnCurrentModeChanged(const Resolution &mode)
             break;
         }
     }
+
+    // 如果当前设置的分辨率不在列表里面，将分辨率选择框置空
+    if (!m_monitor->modeList().contains(mode)) {
+        m_resolutionCombox->setCurrentIndex(-1);
+    }
 }
 
 void ResolutionWidget::setItemIcon()
@@ -511,10 +516,20 @@ void ResolutionWidget::initResolution()
         }
     }
 
+    // 如果当前设置的分辨率不在列表里面，将分辨率选择框置空
+    if (!modeList.contains(curMode)) {
+        m_resolutionCombox->setCurrentIndex(-1);
+    }
+
     //推荐分辨率下隐藏铺满方式并改变高度
     updateResizeDesktopVisible();
 
     connect(m_resolutionCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
+        // 不处理空白选择项
+        if (idx == -1) {
+            return;
+        }
+
         auto item = m_resoItemModel->item(idx);
         auto r = item->data(IdRole).toInt();
         auto w = item->data(WidthRole).toInt();
