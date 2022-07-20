@@ -52,7 +52,9 @@ bool GenericHotspotSection::allInputValid()
 void GenericHotspotSection::saveSettings()
 {
     m_connSettings->setId(m_connIdItem->text());
-    m_connSettings->setAutoconnect(true);
+
+    // hotspot connection should not be activated automatically by daemon
+    m_connSettings->setAutoconnect(false);
 }
 
 void GenericHotspotSection::initUI()
