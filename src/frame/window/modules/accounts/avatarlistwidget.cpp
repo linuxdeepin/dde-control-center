@@ -51,17 +51,11 @@ AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
     , m_avatarItemModel(new QStandardItemModel(this))
     , m_avatarItemDelegate(new AvatarItemDelegate(this))
     , m_avatarSize(QSize(74, 74))
-    , m_fd(new QFileDialog(this))
+    , m_fd(nullptr)
 {
     initWidgets();
 
     connect(this, &DListView::clicked, this, &AvatarListWidget::onItemClicked);
-    connect(m_fd, &QFileDialog::finished, this, [ = ] (int result) {
-        if (result == QFileDialog::Accepted) {
-            const QString filePath = m_fd->selectedFiles().first();
-            Q_EMIT requestSetAvatar(filePath);
-        }
-    });
 }
 
 AvatarListWidget::~AvatarListWidget()
@@ -82,7 +76,6 @@ AvatarListWidget::~AvatarListWidget()
 
 void AvatarListWidget::initWidgets()
 {
-    m_fd->setAccessibleName("QFileDialog");
 
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setViewMode(QListView::IconMode);
@@ -98,13 +91,6 @@ void AvatarListWidget::initWidgets()
     setModel(m_avatarItemModel);
 
     addItemFromDefaultDir();
-
-    m_fd->setModal(true);
-    m_fd->setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
-    QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
-    if (!directory.isEmpty()) {
-        m_fd->setDirectory(directory.first());
-    }
 
     if (m_curUser)
         refreshCustomAvatar(getUserAddedCustomPicPath(m_curUser->name()));
@@ -180,6 +166,24 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
 {
     if (index.data(Qt::CheckStateRole) == Qt::Checked)
         return;
+
+    if (!m_fd) {
+        m_fd = new QFileDialog(this);
+        m_fd->setAccessibleName("QFileDialog");
+        m_fd->setModal(true);
+        m_fd->setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
+        QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
+        if (!directory.isEmpty()) {
+            m_fd->setDirectory(directory.first());
+        }
+
+        connect(m_fd, &QFileDialog::finished, this, [ = ] (int result) {
+            if (result == QFileDialog::Accepted) {
+                const QString filePath = m_fd->selectedFiles().first();
+                Q_EMIT requestSetAvatar(filePath);
+            }
+        });
+    }
 
     const QString filePath = index.data(SaveAvatarRole).toString();
     if (filePath.isEmpty()) {
