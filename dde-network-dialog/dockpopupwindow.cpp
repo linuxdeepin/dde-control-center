@@ -31,6 +31,7 @@
 #include <QAccessible>
 #include <QAccessibleEvent>
 #include <QString>
+#include <QPainterPath>
 
 #include <iostream>
 
