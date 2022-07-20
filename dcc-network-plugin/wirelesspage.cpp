@@ -577,7 +577,9 @@ void WirelessPage::onUpdateAccessPointInfo(const QList<AccessPoints *> &changeAp
 
 void WirelessPage::onAirplaneModeChanged(bool airplaneModeEnabled)
 {
-    setDisabled(airplaneModeEnabled);
+    if (m_switch && m_switch->switchButton()) {
+        m_switch->switchButton()->setDisabled(airplaneModeEnabled);
+    }
     setIsAirplaneMode(airplaneModeEnabled);
 }
 
