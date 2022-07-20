@@ -228,7 +228,9 @@ void AdapterWidget::initUI()
     m_myDeviceListView->setVisible(false);
     m_otherDeviceListView->setVisible(false);
 
-    setEnabled(!m_model->airplaneMode());
+    if (m_powerSwitch && m_powerSwitch->switchButton()) {
+        m_powerSwitch->switchButton()->setEnabled(!m_model->airplaneMode());
+    }
 
     setLayout(layout);
 }
@@ -343,7 +345,9 @@ void AdapterWidget::initConnect()
         }
     });
 
-    connect(m_model, &BluetoothModel::airplaneEnableChanged, this, &AdapterWidget::setDisabled);
+    if (m_powerSwitch && m_powerSwitch->switchButton()) {
+        connect(m_model, &BluetoothModel::airplaneEnableChanged, m_powerSwitch->switchButton(), &DSwitchButton::setDisabled);
+    }
 }
 
 void AdapterWidget::loadDetailPage()
