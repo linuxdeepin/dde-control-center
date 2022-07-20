@@ -91,6 +91,8 @@ void NetworkDialog::show()
         m_process->blockSignals(true);
         m_process->close();
         m_process->blockSignals(false);
+        if (Greeter == m_runReason)
+            requestFocus();
         runProcess(true);
     });
 }
@@ -304,6 +306,8 @@ QByteArray NetworkDialog::showConfig()
 void NetworkDialog::showDialog(QLocalSocket *socket, const QByteArray &)
 {
     emit requestPosition();
+    if (Greeter == m_runReason)
+        requestFocus();
     m_clients[socket] = ClientType::Show;
     socket->write("\nshowPosition:" + showConfig() + "\n");
 }
@@ -319,6 +323,8 @@ void NetworkDialog::onGrabKeyboard(QLocalSocket *socket, const QByteArray &data)
 void NetworkDialog::forceShowDialog(QLocalSocket *socket)
 {
     emit requestPosition();
+    if (Greeter == m_runReason)
+        requestFocus();
     m_clients[socket] = ClientType::Show;
 
     QJsonObject json;
