@@ -86,7 +86,12 @@ void SearchModel::getJumpPath(QString &moduleName, QString &pageName, const QStr
 bool SearchModel::jumpContentPathWidget(const QString &path)
 {
     qDebug() << Q_FUNC_INFO << path;
-
+    if (!m_dataUpdateCompleted) {
+        QTimer::singleShot(10, this, [this, path]() {
+            jumpContentPathWidget(path);
+        });
+        return true;
+    }
     //网络详情 / 接口
     QString searchDetailData = path.section('>', 1, -1).remove('>').trimmed();
 
