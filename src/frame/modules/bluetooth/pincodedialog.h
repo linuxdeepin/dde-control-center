@@ -27,6 +27,7 @@
 #define DCC_BLUETOOTH_PINCODEDIALOG_H
 
 #include <ddialog.h>
+#include <QPointer>
 
 DWIDGET_USE_NAMESPACE
 
@@ -48,7 +49,7 @@ public:
     void setPinCode(const QString &pinCode);
 
 private:
-    dcc::widgets::LargeLabel *m_pinCodeLabel;
+    QPointer<dcc::widgets::LargeLabel> m_pinCodeLabel;
 
     explicit PinCodeDialog();
     explicit PinCodeDialog(const QString &pinCode, const bool &cancelable = true);

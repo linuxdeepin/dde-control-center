@@ -76,10 +76,11 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
         qDebug() << "request display passkey: " << in0.path() << in1 << in2;
         auto pinCode = QString::number(in1).rightJustified(6, '0');
         PinCodeDialog *dialog = PinCodeDialog::instance(pinCode, false);
-        if (m_dialogs.keys().contains(in0.path()) && m_dialogs[in0.path()]->pinCode() != pinCode) {
+        if (m_dialogs.keys().contains(in0.path()) && m_dialogs[in0.path()] && m_dialogs[in0.path()]->pinCode() != pinCode) {
             qDebug() << "not repeat dialog" ;
             m_dialogs[in0.path()]->hide();
             m_dialogs[in0.path()]->deleteLater();
+            m_dialogs[in0.path()] = NULL;
             m_dialogs.remove(in0.path());
         }
         m_dialogs[in0.path()] = dialog;

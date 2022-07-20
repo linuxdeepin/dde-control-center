@@ -36,7 +36,7 @@ static QList<PinCodeDialog*> Instances;
 
 PinCodeDialog::PinCodeDialog(const QString &pinCode, const bool &cancelable) :
     DDialog(),
-    m_pinCodeLabel(new dcc::widgets::LargeLabel)
+    m_pinCodeLabel(new dcc::widgets::LargeLabel(this))
 {
     setTitle(tr("The PIN for connecting to the Bluetooth device is:"));
     setIcon(QIcon::fromTheme("notification-bluetooth-connected"));
@@ -75,7 +75,12 @@ PinCodeDialog* PinCodeDialog::instance(const QString &pinCode, const bool &cance
 
 QString PinCodeDialog::pinCode() const
 {
-    return m_pinCodeLabel->text();
+    if (m_pinCodeLabel) {
+        return m_pinCodeLabel->text();
+    } else {
+        return "";
+    }
+
 }
 
 void PinCodeDialog::setPinCode(const QString &pinCode)
