@@ -684,11 +684,6 @@
             <summary></summary>
             <description>default is true</description>
         </key>
-        <key name="network-airplane" type="b">
-            <default>true</default>
-            <summary></summary>
-            <description>default is true</description>
-        </key>
         <!-- Power module configuration -->
         <key name="general" type="b">
             <default>true</default>
