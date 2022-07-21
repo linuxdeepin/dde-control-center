@@ -113,7 +113,9 @@ void WirelessSection::saveSettings()
     m_wirelessSetting->setMtu(m_customMtuSwitch->checked() ? static_cast<unsigned int>(m_customMtu->spinBox()->value()) : 0);
 
     m_wirelessSetting->setInitialized(true);
-    if (!hwAddr.isEmpty())
+    if (hwAddr.isEmpty())
+        m_connSettings->setInterfaceName(QString());
+    else
         m_connSettings->setInterfaceName(pair.second);
 }
 
