@@ -45,11 +45,13 @@
 #include <hotspotcontroller.h>
 
 #include <NetworkManagerQt/Manager>
+#include <DConfig>
 
 using namespace dde::network;
 using namespace dccV20;
 using namespace dcc;
 using namespace DCC_NAMESPACE::network;
+DCORE_USE_NAMESPACE
 
 DCCNetworkModule::DCCNetworkModule()
     : QObject()
@@ -57,6 +59,7 @@ DCCNetworkModule::DCCNetworkModule()
     , m_indexWidget(nullptr)
     , m_connEditPage(nullptr)
     , m_airplaneMode(new DBusAirplaneMode("com.deepin.daemon.AirplaneMode", "/com/deepin/daemon/AirplaneMode", QDBusConnection::systemBus(), this))
+    , m_dconfig(DConfig::create("org.deepin.dde.network", "org.deepin.dde.network", QString(), this))
 {
     QTranslator *translator = new QTranslator(this);
     translator->load(QString("/usr/share/dcc-network-plugin/translations/dcc-network-plugin_%1.qm").arg(QLocale::system().name()));
@@ -82,7 +85,6 @@ void DCCNetworkModule::preInitialize(bool sync, FrameProxyInterface::PushType)
 
     GSettingWatcher::instance()->insertState("networkWireless");
     GSettingWatcher::instance()->insertState("networkWired");
-    GSettingWatcher::instance()->insertState("networkAirplane");
     GSettingWatcher::instance()->insertState("networkDsl");
     GSettingWatcher::instance()->insertState("networkVpn");
     GSettingWatcher::instance()->insertState("systemProxy");
@@ -130,6 +132,7 @@ void DCCNetworkModule::active()
     m_indexWidget->setVisible(true);
     initListConfig();
     m_indexWidget->showDefaultWidget();
+    onWirelessAccessPointsOrAdapterChange();
 
     m_networkInter = new NetworkInter("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this);
     connect(m_networkInter, &NetworkInter::WirelessAccessPointsChanged, this, &DCCNetworkModule::onWirelessAccessPointsOrAdapterChange);
@@ -297,6 +300,15 @@ bool DCCNetworkModule::hasModule(const PageType &type)
 
 bool DCCNetworkModule::supportAirplaneMode() const
 {
+    // dde-dconfig配置优先级高于设备优先级
+    bool bAirplane = false;
+    if (m_dconfig && m_dconfig->isValid()) {
+        bAirplane = m_dconfig->value("networkAirplaneMode", false).toBool();
+    }
+    if (!bAirplane) {
+        return bAirplane;
+    }
+
     // 蓝牙和无线网络,只要有其中一个就允许显示飞行模式
     QDBusInterface inter("com.deepin.system.Bluetooth",
                     "/com/deepin/system/Bluetooth",
@@ -434,15 +446,25 @@ void DCCNetworkModule::initSearchData()
     };
 
     auto func_airplane_visible = [ = ] {
-        bool bAirplane = func_is_visible("networkAirplane");
-        if (m_indexWidget)
+        bool bAirplane = supportAirplaneMode();
+        if (m_indexWidget) {
             m_indexWidget->setModelVisible("networkAirplane", bAirplane);
+        }
         m_frameProxy->setWidgetVisible(module, airplaneMode, bAirplane);
         //~ contents_path /network/Airplane Mode
         //~ child_page Airplane Mode
         m_frameProxy->setDetailVisible(module, airplaneMode, tr("Airplane Mode"), bAirplane);
+        if (!bAirplane) {
+            emit popAirplaneModePage();
+        }
     };
-
+    if (m_dconfig && m_dconfig->isValid()) {
+        connect(m_dconfig, &DConfig::valueChanged, this, [ = ](const QString& key) {
+            if (key == "networkAirplaneMode") {
+                func_airplane_visible();
+            }
+        });
+    }
     auto func_sysproxy_visible = [ = ] {
         bool bSystemProxy = func_is_visible("systemProxy");
         if (m_indexWidget)
@@ -570,8 +592,6 @@ void DCCNetworkModule::initSearchData()
             func_wired_visible(wiredVisible);
             func_wireless_visible(wirelessVisible);
             func_perhotspot_visible(hotspotsVisible);
-        } else if("networkAirplane" == gsetting) {
-            func_airplane_visible();
         } else {
             qWarning() << " not contains the gsettings : " << gsetting << state;
             return;
@@ -753,7 +773,9 @@ void DCCNetworkModule::showAirplanePage()
     m_frameProxy->pushWidget(this, p);
 
     connect(this, &DCCNetworkModule::popAirplaneModePage, p, [this] {
-        m_frameProxy->popWidget(nullptr);
+        if (m_indexWidget) {
+            m_indexWidget->showDefaultWidget();
+        }
     });
 }
 

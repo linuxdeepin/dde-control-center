@@ -20,6 +20,16 @@
             "description[zh_CN]": "",
             "permissions": "readwrite",
             "visibility": "public"
+        },
+	 "networkAirplaneMode": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "NetworkAirplaneMode",
+            "name[zh_CN]": "网络飞行模式",
+            "description": "控制中心-网络模块是否显示飞行模式页面，默认显示。",
+            "permissions": "readwrite",
+            "visibility": "private"
         }
     }
 }

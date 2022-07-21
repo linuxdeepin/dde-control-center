@@ -28,12 +28,15 @@
 #include "interface/frameproxyinterface.h"
 #include "com_deepin_daemon_network.h"
 #include "com_deepin_daemon_bluetooth.h"
-
+#include "dtkcore_global.h"
 #include <com_deepin_daemon_airplanemode.h>
 
 class NetworkModuleWidget;
 class WirelessPage;
 class ConnectionEditPage;
+DCORE_BEGIN_NAMESPACE
+class DConfig;
+DCORE_END_NAMESPACE
 
 namespace dde {
   namespace network {
@@ -130,6 +133,7 @@ private:
     DBusAirplaneMode *m_airplaneMode;
     NetworkInter *m_networkInter;
     BluetoothInter *m_bluetoothInter;
+    DTK_CORE_NAMESPACE::DConfig *m_dconfig;
 };
 
 #endif // NETWORKINTERFACE_H
