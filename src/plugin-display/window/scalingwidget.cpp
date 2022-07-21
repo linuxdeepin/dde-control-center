@@ -107,7 +107,8 @@ void ScalingWidget::onResolutionChanged()
         auto tmode = moni->currentMode();
         // 后端传入currentMode值可能为0
         if (tmode.width() == 0 || tmode.height() == 0) {
-            return;
+            fscaleList.clear();
+            break;
         }
         auto ts = getScaleList(tmode);
         fscaleList = ts.size() < fscaleList.size() ? ts : fscaleList;
