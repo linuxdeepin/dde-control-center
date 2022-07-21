@@ -256,7 +256,6 @@ void DCCNetworkModule::initListConfig()
     setModulVisible("networkDsl", hasModule(PageType::DSLPage));
     setModulVisible("systemProxy");
     setModulVisible("networkVpn");
-    setModulVisible("networkAirplane");
 }
 
 bool DCCNetworkModule::hasModule(const PageType &type)
@@ -386,7 +385,6 @@ void DCCNetworkModule::initSearchData()
         , "networkDsl"
         , "systemProxy"
         , "networkVpn"
-        , "networkAirplane"
     };
     auto func_wired_visible = [ = ](bool visible) {
         bool isVisible = func_is_visible("networkWired");
