@@ -139,8 +139,12 @@ void SecurityLevelItem::initUi()
         m_newPasswdLevelIcons[i]->setPixmap(m_icons[NoneIcon]);
     }
 
+    newPasswdLevelLayout->setSpacing(0);
     newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[0]);
+    // 在高分屏上，我们需要根据对应的缩放比调整(减小)m_newPasswdLevelIcons之间的间隙
+    newPasswdLevelLayout->addSpacing(4 / qRound(devicePixelRatioF()));
     newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[1]);
+    newPasswdLevelLayout->addSpacing(4 / qRound(devicePixelRatioF()));
     newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[2]);
     newPasswdLevelLayout->addSpacing(50);
     setLayout(newPasswdLevelLayout);
