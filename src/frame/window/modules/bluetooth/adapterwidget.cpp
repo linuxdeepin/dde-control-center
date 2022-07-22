@@ -156,13 +156,13 @@ void AdapterWidget::initUI()
     m_discoverySwitch->setFixedHeight(36);
     m_discoverySwitch->setObjectName("discoverySwitch");
 
-    SettingsGroup *settingsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
-    settingsGrp->setContentsMargins(0, 0, 0, 0);
-    settingsGrp->layout()->setMargin(0);
-    settingsGrp->setSpacing(1);
+    m_settingsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    m_settingsGrp->setContentsMargins(0, 0, 0, 0);
+    m_settingsGrp->layout()->setMargin(0);
+    m_settingsGrp->setSpacing(1);
 
-    settingsGrp->appendItem(m_powerSwitch);
-    settingsGrp->appendItem(m_discoverySwitch);
+    m_settingsGrp->appendItem(m_powerSwitch);
+    m_settingsGrp->appendItem(m_discoverySwitch);
 
     //~ contents_path /bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)
     m_tip = new QLabel(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
@@ -203,7 +203,7 @@ void AdapterWidget::initUI()
     layout->setMargin(0);
     layout->setSpacing(10);
 
-    layout->addWidget(settingsGrp);
+    layout->addWidget(m_settingsGrp);
     layout->addWidget(m_tip, 0, Qt::AlignTop);
     layout->addSpacing(10);
     layout->addWidget(m_myDevicesGroup);
@@ -229,7 +229,7 @@ void AdapterWidget::initUI()
     m_otherDeviceListView->setVisible(false);
 
     if (m_powerSwitch && m_powerSwitch->switchButton()) {
-        m_powerSwitch->switchButton()->setEnabled(!m_model->airplaneMode());
+        m_settingsGrp->setDisabled(m_model->airplaneMode());
     }
 
     setLayout(layout);
@@ -346,7 +346,7 @@ void AdapterWidget::initConnect()
     });
 
     if (m_powerSwitch && m_powerSwitch->switchButton()) {
-        connect(m_model, &BluetoothModel::airplaneEnableChanged, m_powerSwitch->switchButton(), &DSwitchButton::setDisabled);
+        connect(m_model, &BluetoothModel::airplaneEnableChanged, m_settingsGrp, &dcc::widgets::SettingsGroup::setDisabled);
     }
 }
 

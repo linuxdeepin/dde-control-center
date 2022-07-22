@@ -128,6 +128,7 @@ private:
     DTK_WIDGET_NAMESPACE::DIconButton *m_refreshBtn;
     dcc::bluetooth::BluetoothModel *m_model;
     dcc::widgets::SwitchWidget *m_discoverySwitch;
+    dcc::widgets::SettingsGroup *m_settingsGrp;
 };
 }
 }
