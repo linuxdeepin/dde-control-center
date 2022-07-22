@@ -28,8 +28,10 @@
 
 #include <DListView>
 
+#include <DStandardItem>
 #include <QApplication>
 
+Q_DECLARE_METATYPE(QMargins)
 DCC_USE_NAMESPACE
 QString NotificationPlugin::name() const
 {
@@ -65,12 +67,16 @@ NotificationModule::NotificationModule(QObject *parent)
     , m_contentLayout(nullptr)
     , m_appNotifyWidget(nullptr)
     , m_systemNotifyWidget(nullptr)
+    , m_softwaremodel(new QStandardItemModel(this))
 {
     if (m_model) {
         delete m_model;
     }
     m_model = new NotificationModel(this);
     m_worker = new NotificationWorker(m_model, this);
+
+    connect(m_model, &NotificationModel::appListAdded, this, &NotificationModule::onAppListAdded);
+    connect(m_model, &NotificationModel::appListRemoved, this, &NotificationModule::onAppListRemoved);
 }
 
 NotificationModule::~NotificationModule()
@@ -81,13 +87,14 @@ NotificationModule::~NotificationModule()
 
 void NotificationModule::active()
 {
-    m_worker->active(true);
+    if (m_model->getAppSize() == 0)
+        m_worker->active(true);
 }
 
 QWidget *NotificationModule::page()
 {
     QWidget *w = new QWidget();
-    m_notificationWidget = new NotificationWidget(m_model);
+    m_notificationWidget = new NotificationWidget(m_model, m_softwaremodel);
     m_contentLayout = new QHBoxLayout;
     m_contentLayout->setSpacing(0);
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
@@ -140,6 +147,25 @@ void NotificationModule::showAppNotify(int index)
     m_contentLayout->insertWidget(1, m_appNotifyWidget);
     m_appNotifyWidget->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
     connect(m_appNotifyWidget, &AppNotifyWidget::requestSetAppSetting, m_worker, &NotificationWorker::setAppSetting);
+}
+
+void NotificationModule::onAppListAdded(AppItemModel *item)
+{
+    QString softName = item->getAppName();
+    QIcon icon = NotificationWidget::getAppIcon(item->getIcon(), QSize(32, 32));
+    DTK_WIDGET_NAMESPACE::DStandardItem *dItem = new DTK_WIDGET_NAMESPACE::DStandardItem(icon, softName);
+    dItem->setData(QVariant::fromValue(QMargins(10, 8, 10, 8)), Dtk::MarginsRole);
+    m_softwaremodel->appendRow(dItem);
+}
+
+void NotificationModule::onAppListRemoved(AppItemModel *item)
+{
+    for (int i = m_softwaremodel->rowCount() - 1; i >= 0; --i) {
+        if (m_softwaremodel->item(i)->text() == item->getAppName()) {
+            m_softwaremodel->removeRow(i);
+            break;
+        }
+    }
 }
 
 void NotificationModule::deactive()

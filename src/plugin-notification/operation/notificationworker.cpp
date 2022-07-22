@@ -70,10 +70,18 @@ void NotificationWorker::initSystemSetting()
 
 void NotificationWorker::initAppSetting()
 {
-    QStringList appList = m_dbus->GetAppList();
-    for (int i = 0; i < appList.size(); i++) {
-        onAppAdded(appList[i]);
-    }
+    QStringList *appList = new QStringList(m_dbus->GetAppList());
+    QTimer *timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, [this, appList, timer]() {
+        if (appList->isEmpty()) {
+            delete appList;
+            timer->stop();
+            timer->deleteLater();
+        } else {
+            onAppAdded(appList->takeFirst());
+        }
+    });
+    timer->start(10);
 }
 
 void NotificationWorker::onAppAdded(const QString &id)

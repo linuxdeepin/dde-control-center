@@ -50,6 +50,8 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void appListChanged();
+    void appListAdded(AppItemModel* item);
+    void appListRemoved(AppItemModel* item);
 
 private:
     SysItemModel *m_sysItemModel;

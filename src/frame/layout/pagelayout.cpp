@@ -140,7 +140,7 @@ QWidget *PageLayout::layoutModule(ModuleObject *const module, QWidget *const par
             if (tmpChild->extra())
                 m_hlayout->addWidget(page);
             else {
-                m_vlayout->addWidget(page, 0, Qt::AlignTop);
+                m_vlayout->addWidget(page);
             }
             m_mapWidget.insert(tmpChild, page);
             page->setDisabled(LayoutBase::IsDisabled(tmpChild));

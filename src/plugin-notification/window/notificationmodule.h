@@ -28,6 +28,7 @@
 #include <QPointer>
 
 class QHBoxLayout;
+class QStandardItemModel;
 
 namespace DCC_NAMESPACE {
 
@@ -36,6 +37,7 @@ class NotificationModel;
 class NotificationWidget;
 class AppNotifyWidget;
 class SystemNotifyWidget;
+class AppItemModel;
 
 class NotificationPlugin : public PluginInterface
 {
@@ -64,7 +66,8 @@ public:
 private Q_SLOTS:
     void showSystemNotify();
     void showAppNotify(int index);
-
+    void onAppListAdded(AppItemModel *item);
+    void onAppListRemoved(AppItemModel *item);
 
 private:
     NotificationModel *m_model;
@@ -73,5 +76,6 @@ private:
     QHBoxLayout *m_contentLayout;
     AppNotifyWidget *m_appNotifyWidget;
     SystemNotifyWidget *m_systemNotifyWidget;
+    QStandardItemModel *m_softwaremodel;
 };
 }

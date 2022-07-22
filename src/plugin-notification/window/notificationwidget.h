@@ -45,8 +45,8 @@ class NotificationWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NotificationWidget(NotificationModel *model, QWidget *parent = nullptr);
-    QIcon getAppIcon(const QString &appIcon, const QSize &size);
+    explicit NotificationWidget(NotificationModel *model, QStandardItemModel *softwaremodel, QWidget *parent = nullptr);
+    static QIcon getAppIcon(const QString &appIcon, const QSize &size);
 
 Q_SIGNALS:
     void requestShowSystem();
@@ -56,13 +56,12 @@ public Q_SLOTS:
     void onAppClicked(const QModelIndex &index);
     void setAppCurrentIndex(int row);
     void onSystemClicked(const QModelIndex &index);
-    void refreshList();
     Dtk::Widget::DListView* getAppListview() const {return (Dtk::Widget::DListView*)m_softwareListView;}
     Dtk::Widget::DListView* getSysListview() const {return m_systemListView;}
     void showDefaultWidget();
 
 private:
-    const QPixmap loadSvg(const QString &fileName, const QSize &size);
+    static const QPixmap loadSvg(const QString &fileName, const QSize &size);
 
 private:
     MultiSelectListView *m_softwareListView;

@@ -37,17 +37,18 @@
 #include <QMessageBox>
 #include <QScroller>
 #include <QFile>
+#include <QApplication>
 
 DWIDGET_USE_NAMESPACE
 DCC_USE_NAMESPACE
 
 Q_DECLARE_METATYPE(QMargins)
-NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent)
+NotificationWidget::NotificationWidget(NotificationModel *model, QStandardItemModel *softwaremodel, QWidget *parent)
     : QWidget(parent)
     , m_softwareListView(new MultiSelectListView())
     , m_systemListView(new DListView())
     , m_sysmodel(new QStandardItemModel(this))
-    , m_softwaremodel(new QStandardItemModel(this))
+    , m_softwaremodel(softwaremodel)
     , m_centralLayout(new QVBoxLayout())
     , m_model(model)
 {
@@ -103,15 +104,10 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
-    //刷新数据
-    refreshList();
-
     m_centralLayout->addWidget(m_softwareListView);
     setLayout(m_centralLayout);
     connect(m_softwareListView, &QListView::clicked, this, &NotificationWidget::onAppClicked);
     connect(m_softwareListView, &DListView::activated, m_softwareListView, &QListView::clicked);
-
-    connect(m_model, &NotificationModel::appListChanged, this, &NotificationWidget::refreshList);
 }
 
 void NotificationWidget::onAppClicked(const QModelIndex &index)
@@ -151,32 +147,6 @@ void NotificationWidget::onSystemClicked(const QModelIndex &index)
     m_systemListView->setCurrentIndex(index);
 }
 
-void NotificationWidget::refreshList()
-{
-    int row = 0;
-    bool systemHasChecked = m_systemListView->selectionModel()->hasSelection();
-
-    if (!systemHasChecked) {
-        row = m_lastIndex.row();
-        if (row >= m_model->getAppSize()) {
-            row = 0;
-        }
-    }
-
-    m_softwaremodel->clear();
-    for (int i = 0; i < m_model->getAppSize(); ++i) {
-        QString softName = m_model->getAppModel(i)->getAppName();
-        QIcon icon = getAppIcon(m_model->getAppModel(i)->getIcon(), QSize(32, 32));
-        DStandardItem *item = new DStandardItem(icon, softName);
-        item->setData(QVariant::fromValue(QMargins(10, 8, 10, 8)), Dtk::MarginsRole);
-        m_softwaremodel->appendRow(item);
-    }
-
-    if (!systemHasChecked) {
-        onAppClicked(m_softwaremodel->indexFromItem(m_softwaremodel->item(row)));
-    }
-}
-
 void NotificationWidget::showDefaultWidget()
 {
     m_systemListView->setVisible(true);
@@ -185,7 +155,6 @@ void NotificationWidget::showDefaultWidget()
 
     onSystemClicked(m_sysmodel->index(0, 0));
     Q_EMIT requestShowSystem();
-    onAppClicked(m_softwaremodel->index(0, 0));
 }
 
 const QPixmap NotificationWidget::loadSvg(const QString &fileName, const QSize &size)
@@ -204,10 +173,10 @@ const QPixmap NotificationWidget::loadSvg(const QString &fileName, const QSize &
 
 QIcon NotificationWidget::getAppIcon(const QString &appIcon, const QSize &size)
 {
-    const qreal ratio = devicePixelRatioF();
+    const qreal ratio = qApp->devicePixelRatio();;
     QPixmap pixmap;
 
-    QIcon icon = QIcon::fromTheme(appIcon, QIcon::fromTheme(m_theme));
+    QIcon icon = QIcon::fromTheme(appIcon);
 
     if (icon.isNull()) {
         // 有些图标是svg格式，加载

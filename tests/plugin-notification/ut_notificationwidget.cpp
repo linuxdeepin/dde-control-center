@@ -32,7 +32,7 @@ public:
 TEST_F(Tst_NotificationWidget, init)
 {
     NotificationModel model;
-    NotificationWidget widget(&model);
+    NotificationWidget widget(&model, new QStandardItemModel());
 }
 
 TEST_F(Tst_NotificationWidget, FullTest)
@@ -41,7 +41,7 @@ TEST_F(Tst_NotificationWidget, FullTest)
     NotificationWorker worker(&model);
     worker.active(true);
 
-    NotificationWidget widget(&model);
+    NotificationWidget widget(&model, new QStandardItemModel());
 
     QSignalSpy spy1(&widget, SIGNAL(requestShowApp(int)));
     DListView *applist = widget.getAppListview();

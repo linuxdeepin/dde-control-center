@@ -50,12 +50,14 @@ void NotificationModel::appAdded(AppItemModel *item)
 {
     m_appItemModels.append(item);
     Q_EMIT appListChanged();
+    Q_EMIT appListAdded(item);
 }
 
 void NotificationModel::appRemoved(const QString &appName)
 {
     for (int i = 0; i < m_appItemModels.size(); i++) {
         if (m_appItemModels[i]->getActName() == appName) {
+            Q_EMIT appListRemoved(m_appItemModels[i]);
             m_appItemModels[i]->deleteLater();
             m_appItemModels[i] = nullptr;
             m_appItemModels.removeAt(i);
