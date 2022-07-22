@@ -103,19 +103,12 @@ void BluetoothAdapter::onClearUnpairedDevice()
 
 void BluetoothAdapter::onSetAdapterPowered()
 {
-    emit loadStatus();
-//    connect(this, &BluetoothAdapter::poweredChanged, [=](const bool &receivePowerd, const bool &) {
-//        if (m_changingPowered == receivePowerd) {
-//            m_model->adpaterPowerChanged(m_changingAdapter->powered());
-//        }
-//    });
+    Q_EMIT loadStatus();
 }
 
 void BluetoothAdapter::onSetAdapterPoweredError()
 {
-    poweredChanged(powered(), discovering());
     Q_EMIT poweredChanged(powered(), discovering());
-    onSetAdapterPowered();
 }
 
 void BluetoothAdapter::setDiscoverabled(const bool discoverable)
