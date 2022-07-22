@@ -234,7 +234,18 @@ void SpeakerPage::changeBluetoothMode(const int idx)
 void SpeakerPage::refreshActivePortShow(const dcc::sound::Port *port)
 {
     if (port && port->isActive()) {
-        m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
+        // 端口激活和未激活时，carname内容不一致，此时无法通过settext匹配选择项，改为通过查找id来匹配
+        for (int i = 0; i < m_outputSoundCbx->comboBox()->count(); i++) {
+            auto tmpPort = m_outputModel->item(i)->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
+
+            if (tmpPort != nullptr && tmpPort->id() == port->id() && tmpPort->cardName() ==  port->cardName()) {
+                m_outputSoundCbx->comboBox()->blockSignals(true);
+                m_outputSoundCbx->comboBox()->setCurrentIndex(i);
+                m_outputSoundCbx->comboBox()->blockSignals(false);
+                break;
+            }
+        }
+
         setBlueModeVisible(port->isBluetoothPort() && (m_outputModel->rowCount() > 0));
     }
 }
@@ -248,7 +259,11 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
         pi->setData(QVariant::fromValue<const dcc::sound::Port *>(port), Qt::WhatsThisPropertyRole);
 
         connect(port, &dcc::sound::Port::nameChanged, this, [ = ](const QString str) {
-            pi->setText(str);
+            pi->setText(str + "(" + port->cardName() + ")");
+        });
+
+        connect(port, &dcc::sound::Port::cardNameChanged, this, [ = ](const QString str) {
+            pi->setText(port->name() + "(" + str + ")");
         });
 
         connect(port, &dcc::sound::Port::isOutputActiveChanged, this, [ = ](bool isActive) {
