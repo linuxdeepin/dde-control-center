@@ -99,6 +99,10 @@ public:
     Q_PROPERTY(bool HasAmbientLightSensor READ hasAmbientLightSensor NOTIFY HasAmbientLightSensorChanged)
     bool hasAmbientLightSensor();
 
+    // Cooperation
+    Q_PROPERTY(QList<QDBusObjectPath> Machines READ Machines NOTIFY MachinesChanged)
+    QList<QDBusObjectPath> Machines();
+
 private:
     void init();
 
@@ -154,10 +158,14 @@ Q_SIGNALS: // SIGNALS
     void AmbientLightAdjustBrightnessChanged(bool  value) const;
     void HasAmbientLightSensorChanged(bool  value) const;
 
+    // Cooperation
+    void MachinesChanged(const QList<QDBusObjectPath> &value) const;
+
 private:
     DCC_NAMESPACE::DCCDBusInterface *m_dBusDisplayInter;
     DCC_NAMESPACE::DCCDBusInterface *m_dBusAppearanceInter;
     DCC_NAMESPACE::DCCDBusInterface *m_dBusPowerInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_dBusCooperationInter;  // 协同连接
 };
 
 #endif // DISPLAYDBUSPROXY_H

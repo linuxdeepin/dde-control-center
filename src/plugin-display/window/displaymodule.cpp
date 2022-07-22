@@ -27,6 +27,7 @@
 #include "rotatewidget.h"
 #include "secondaryscreendialog.h"
 #include "multiscreenwidget.h"
+#include "collaborativelinkwidget.h"
 #include "src/frame/mainwindow.h"
 #include "src/plugin-display/window/timeoutdialog.h"
 #include "src/plugin-display/operation/displaymodel.h"
@@ -137,6 +138,12 @@ void DisplayModule::showSingleScreenWidget()
     QVBoxLayout *contentLayout = new QVBoxLayout;
     contentLayout->setSpacing(0);
     contentLayout->setContentsMargins(56, 20, 56, 0);
+
+    CollaborativeLinkWidget *linkWidget = new CollaborativeLinkWidget(singleScreenWidget);
+    linkWidget->setModel(m_model);
+    contentLayout->addWidget(linkWidget);
+    connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachineDisconnect, m_worker, &DisplayWorker::setCurrentMachineDisconnect);
+    connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachinePair, m_worker, &DisplayWorker::setCurrentMachinePair);
 
     BrightnessWidget *brightnessWidget = new BrightnessWidget(singleScreenWidget);
     brightnessWidget->setMode(m_model);
@@ -264,6 +271,8 @@ void DisplayModule::showMultiScreenWidget()
     connect(multiScreenWidget, &MultiScreenWidget::requestAmbientLightAdjustBrightness, m_worker, &DisplayWorker::setAmbientLightAdjustBrightness);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMethodAdjustCCT, m_worker, &DisplayWorker::SetMethodAdjustCCT);
     connect(multiScreenWidget, &MultiScreenWidget::requestUiScaleChange, m_worker, &DisplayWorker::setUiScale);
+    // 跨端协同
+    connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachinePair, m_worker, &DisplayWorker::setCurrentMachinePair);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetResolution, this, [=](Monitor *monitor, const int mode) {
         onRequestSetResolution(monitor, mode);
         updateWinsize();
