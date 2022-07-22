@@ -82,8 +82,7 @@ class TouchPadSettingModule : public ModuleObject
 {
     Q_OBJECT
 public:
-    explicit TouchPadSettingModule(MouseModel *model, MouseWorker *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker)  {}
+    explicit TouchPadSettingModule(MouseModel *model, MouseWorker *worker, ModuleObject *parent);
     virtual QWidget *page() override;
 
 private:
@@ -95,8 +94,7 @@ class TrackPointSettingModule : public ModuleObject
 {
     Q_OBJECT
 public:
-    explicit TrackPointSettingModule(MouseModel *model, MouseWorker *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker)  {}
+    explicit TrackPointSettingModule(MouseModel *model, MouseWorker *worker, ModuleObject *parent);
     virtual QWidget *page() override;
 
 private:

@@ -120,6 +120,13 @@ QWidget *GeneralSettingModule::page()
     return w;
 }
 
+TouchPadSettingModule::TouchPadSettingModule(MouseModel *model, MouseWorker *worker, ModuleObject *parent)
+    : ModuleObject(parent), m_model(model), m_worker(worker)
+{
+    parent->setHiden(!m_model->tpadExist());
+    connect(m_model, &MouseModel::tpadExistChanged, parent, [parent](bool tpadExist) { parent->setHiden(!tpadExist); });
+}
+
 QWidget *TouchPadSettingModule::page()
 {
     TouchPadSettingWidget *w = new  TouchPadSettingWidget;
@@ -132,6 +139,13 @@ QWidget *TouchPadSettingModule::page()
     w->setModel(this->m_model);
 
     return w;
+}
+
+TrackPointSettingModule::TrackPointSettingModule(MouseModel *model, MouseWorker *worker, ModuleObject *parent)
+    : ModuleObject(parent), m_model(model), m_worker(worker)
+{
+    parent->setHiden(!m_model->redPointExist());
+    connect(m_model, &MouseModel::redPointExistChanged, parent, [parent](bool rPointExist) { parent->setHiden(!rPointExist); });
 }
 
 QWidget *TrackPointSettingModule::page()
