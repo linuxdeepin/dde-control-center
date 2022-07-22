@@ -151,7 +151,6 @@ void BluetoothWorker::blockDBusSignals(bool block)
 
 void BluetoothWorker::setAdapterPowered(const BluetoothAdapter *adapter, const bool &powered)
 {
-    QTimer::singleShot(500, adapter, &BluetoothAdapter::loadStatus);
     const_cast<BluetoothAdapter *>(adapter)->setAdapterPowered(powered);
 }
 
