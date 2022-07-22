@@ -114,15 +114,11 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     m_modelpages->appendRow(aprxit);
     GSettingWatcher::instance()->bind("applicationProxy", m_lvnmpages, aprxit);
 
-    // 蓝牙和无线网络,只要有其中一个就允许显示飞行模式
-    if (supportAirplaneModeState()) {
-        qDebug() << "This machine is not PanguV";
-        //~ contents_path /network/Airplane
-        DStandardItem *airplanemode = new DStandardItem(tr("Airplane Mode"));
-        airplanemode->setData(QVariant::fromValue(PageType::AirplaneModepage), SectionRole);
-        airplanemode->setIcon(QIcon::fromTheme("dcc_airplane_mode"));
-        m_modelpages->appendRow(airplanemode);
-    }
+    //~ contents_path /network/Airplane
+    DStandardItem *airplanemode = new DStandardItem(tr("Airplane Mode"));
+    airplanemode->setData(QVariant::fromValue(PageType::AirplaneModepage), SectionRole);
+    airplanemode->setIcon(QIcon::fromTheme("dcc_airplane_mode"));
+    m_modelpages->appendRow(airplanemode);
 
     if (IsServerSystem)
         handleNMEditor();
@@ -385,8 +381,9 @@ void NetworkModuleWidget::setModelVisible(const QString &modelName, const bool &
 {
     PageType type = getPageTypeFromModelName(modelName);
     for (int i = 0; i < m_modelpages->rowCount(); i++) {
-        if (m_modelpages->item(i)->data(SectionRole).value<PageType>() == type)
+        if (m_modelpages->item(i)->data(SectionRole).value<PageType>() == type) {
             m_lvnmpages->setRowHidden(i, !visible);
+        }
     }
 }
 

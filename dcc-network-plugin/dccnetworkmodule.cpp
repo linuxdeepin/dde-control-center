@@ -132,7 +132,6 @@ void DCCNetworkModule::active()
     m_indexWidget->setVisible(true);
     initListConfig();
     m_indexWidget->showDefaultWidget();
-    onWirelessAccessPointsOrAdapterChange();
 
     m_networkInter = new NetworkInter("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this);
     connect(m_networkInter, &NetworkInter::WirelessAccessPointsChanged, this, &DCCNetworkModule::onWirelessAccessPointsOrAdapterChange);
@@ -245,6 +244,9 @@ void DCCNetworkModule::initListConfig()
 
     auto setModulVisible = [ func_is_visible, this ](const QString &key, bool visible = true) {
         bool isVisible = func_is_visible(key) && visible;
+        if (key == "networkAirplane") {
+            isVisible = supportAirplaneMode();
+        }
         m_indexWidget->setModelVisible(key, isVisible);
     };
 
