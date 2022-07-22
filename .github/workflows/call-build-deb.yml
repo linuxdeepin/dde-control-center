@@ -5,6 +5,10 @@ on:
       - ".github/workflows/**"
     types: [ opened, closed, synchronize ]
 
+  pull_request:
+    types:
+      - closed
+
 concurrency:
   group: ${{ github.workflow }}-pull/${{ github.event.number }}
   cancel-in-progress: true
