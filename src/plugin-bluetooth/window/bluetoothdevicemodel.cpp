@@ -230,8 +230,8 @@ void BluetoothDeviceModel::addDevice(const BluetoothDevice *device)
     });
     m_allData.append(item);
     if (m_showAnonymous || !device->name().isEmpty()) {
-        beginInsertRows(QModelIndex(), m_data.size(), m_data.size());
-        m_data.append(item);
+        beginInsertRows(QModelIndex(), 0, 0);
+        m_data.prepend(item);
         endInsertRows();
     }
 }
