@@ -65,6 +65,8 @@ void BluetoothModule::active()
 
 void BluetoothModule::deactive()
 {
+    for (auto &&adapter : m_valueMap.keys())
+        m_work->setAdapterDiscovering(QDBusObjectPath(adapter->id()), false);
 }
 
 bool BluetoothModule::hasDevice()
