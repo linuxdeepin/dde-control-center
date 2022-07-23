@@ -86,6 +86,7 @@ public:
     void onGrabKeyboard(QLocalSocket *socket, const QByteArray &data);
     void closeDialog(QLocalSocket *socket);
     QByteArray showConfig();
+    void updateDialogPosition();
 
 private:
     int m_x;

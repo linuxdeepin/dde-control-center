@@ -393,3 +393,9 @@ void NetworkDialog::startServer(QLocalSocket *socket, const QByteArray &data)
     QLocalServer::removeServer(m_serverName);
     m_server->listen(m_serverName);
 }
+
+void NetworkDialog::updateDialogPosition()
+{
+    for (auto it = m_clients.begin(); it != m_clients.end(); it++)
+        showDialog(it.key(), QByteArray());
+}

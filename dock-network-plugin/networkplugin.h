@@ -25,12 +25,17 @@
 #include "pluginsiteminterface.h"
 #include "../common-plugin/utils.h"
 
+#include <QSharedPointer>
+
 #define NETWORK_KEY "network-item-key"
 
 NETWORKPLUGIN_BEGIN_NAMESPACE
 class NetworkPluginHelper;
 class NetworkDialog;
+class TrayIcon;
 NETWORKPLUGIN_END_NAMESPACE
+
+class QDBusMessage;
 
 class NetworkPlugin : public QObject, PluginsItemInterface
 {
@@ -46,6 +51,7 @@ public Q_SLOTS:
     void showNetworkDialog(QWidget *w)  const;
     void updatePoint();
     void lockFrontVisible(bool visible);
+    void onDockPropertiesChanged(const QString &interfaceName, const QVariantMap &changedProperties, const QStringList &invalidatedProperties);
 
 public:
     explicit NetworkPlugin(QObject *parent = Q_NULLPTR);
@@ -79,6 +85,7 @@ private:
     QScopedPointer<NETWORKPLUGIN_NAMESPACE::NetworkPluginHelper> m_networkHelper;
     NETWORKPLUGIN_NAMESPACE::NetworkDialog *m_networkDialog;
     int m_clickTime;
+    QSharedPointer<NETWORKPLUGIN_NAMESPACE::TrayIcon> m_trayIcon;
 };
 
 #endif // NETWORKPLUGIN_H

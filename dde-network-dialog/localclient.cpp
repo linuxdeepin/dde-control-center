@@ -175,9 +175,13 @@ void LocalClient::showPopupWindow(bool forceShowDialog)
 {
     static bool isShowing = false;
     QPoint pt = m_popopWindow->property("localpos").toPoint();
-    if (pt.x() >= 0 && pt.y() >= 0 && m_popopNeedShow && (!isShowing || forceShowDialog)) {
-        m_popopWindow->show(pt, true);
-        isShowing = true;
+    if (pt.x() >= 0 && pt.y() >= 0 && m_popopNeedShow) {
+        if (!isShowing || forceShowDialog) {
+            m_popopWindow->show(pt, true);
+            isShowing = true;
+        } else {
+            m_popopWindow->move(pt.x(), pt.y());
+        }
     }
 }
 

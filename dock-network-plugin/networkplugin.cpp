@@ -39,6 +39,7 @@ NetworkPlugin::NetworkPlugin(QObject *parent)
     , m_networkHelper(Q_NULLPTR)
     , m_networkDialog(Q_NULLPTR)
     , m_clickTime(-10000)
+    , m_trayIcon(nullptr)
 {
     NetworkController::setIPConflictCheck(true);
     QTranslator *translator = new QTranslator(this);
@@ -69,6 +70,8 @@ void NetworkPlugin::init(PluginProxyInterface *proxyInter)
     m_networkDialog = new NetworkDialog(this);
     m_networkHelper.reset(new NetworkPluginHelper(m_networkDialog));
     QDBusConnection::sessionBus().connect("com.deepin.dde.lockFront", "/com/deepin/dde/lockFront", "com.deepin.dde.lockFront", "Visible", this, SLOT(lockFrontVisible(bool)));
+
+    QDBusConnection::sessionBus().connect("com.deepin.dde.daemon.Dock", "/com/deepin/dde/daemon/Dock", "org.freedesktop.DBus.Properties",  "PropertiesChanged", this, SLOT(onDockPropertiesChanged(QString, QVariantMap, QStringList)));
 
     if (!pluginIsDisable())
         loadPlugin();
@@ -127,12 +130,14 @@ const QString NetworkPlugin::itemContextMenu(const QString &itemKey)
 QWidget *NetworkPlugin::itemWidget(const QString &itemKey)
 {
     if (itemKey == NETWORK_KEY) {
-        TrayIcon *trayIcon = new TrayIcon(m_networkHelper.data());
-        connect(this, &NetworkPlugin::signalShowNetworkDialog, trayIcon, &TrayIcon::showNetworkDialog);
-        connect(trayIcon, &TrayIcon::signalShowNetworkDialog, this, &NetworkPlugin::showNetworkDialog);
-        connect(m_networkDialog, &NetworkDialog::requestPosition, trayIcon, &TrayIcon::showNetworkDialog);
+        if (m_trayIcon.isNull()) {
+            m_trayIcon.reset(new TrayIcon(m_networkHelper.data()));
+            connect(this, &NetworkPlugin::signalShowNetworkDialog, m_trayIcon.data(), &TrayIcon::showNetworkDialog);
+            connect(m_trayIcon.data(), &TrayIcon::signalShowNetworkDialog, this, &NetworkPlugin::showNetworkDialog);
+            connect(m_networkDialog, &NetworkDialog::requestPosition, m_trayIcon.data(), &TrayIcon::showNetworkDialog);
+        }
         QTimer::singleShot(100, this, &NetworkPlugin::updatePoint);
-        return trayIcon;
+        return m_trayIcon.data();
     }
 
     return Q_NULLPTR;
@@ -244,4 +249,22 @@ void NetworkPlugin::showNetworkDialog(QWidget *widget) const
     }
 
     m_networkDialog->setPosition(point.x(), point.y(), position);
+}
+
+void NetworkPlugin::onDockPropertiesChanged(const QString &interfaceName, const QVariantMap &changedProperties, const QStringList &invalidatedProperties)
+{
+    qInfo() << Q_FUNC_INFO << ", network dialog is visible: " << m_networkDialog->isVisible();
+    if (!m_networkDialog || !m_networkDialog->isVisible()) {
+        return;
+    }
+
+    for (QVariantMap::const_iterator it = changedProperties.begin(); it != changedProperties.end(); ++it) {
+        if (it.key().toLatin1() == "FrontendWindowRect") {
+            // 延迟100ms处理,避免获取到的坐标有误(dock移动位置有动态效果，不加延时的话可能会获取动画中的位置)
+            QTimer::singleShot(100, this, [this] {
+                showNetworkDialog(m_trayIcon.data());
+                m_networkDialog->updateDialogPosition();
+            });
+        }
+    }
 }
