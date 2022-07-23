@@ -71,7 +71,8 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
 void FingerWorker::tryEnroll(const QString &name, const QString &thumb)
 {
     Q_EMIT requestMainWindowEnabled(false);
-    m_fingerPrintInter->setTimeout(1000 * 60 * 60);
+    // 设置超时时间为INT_MAX（约等于无限大），阻塞等待后端响应
+    m_fingerPrintInter->setTimeout(INT_MAX);
     auto callClaim = m_fingerPrintInter->Claim(name, true);
     callClaim.waitForFinished();
 
@@ -79,7 +80,6 @@ void FingerWorker::tryEnroll(const QString &name, const QString &thumb)
         qDebug() << "call Claim Error : " << callClaim.error();
         m_model->refreshEnrollResult(FingerModel::EnrollResult::Enroll_ClaimFailed);
     } else {
-        m_fingerPrintInter->setTimeout(-1);
         auto callEnroll =  m_fingerPrintInter->Enroll(thumb);
 
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(callEnroll, this);
@@ -96,6 +96,7 @@ void FingerWorker::tryEnroll(const QString &name, const QString &thumb)
             watcher->deleteLater();
         });
     }
+    // 设置超时时间为-1时，库函数实现为25s
     m_fingerPrintInter->setTimeout(-1);
 }
 

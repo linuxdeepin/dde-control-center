@@ -258,6 +258,8 @@ void CharaMangerWorker::entollStart(const QString &driverName, const int &charaT
     m_currentInputCharaType = charaType;
 
     m_fileDescriptor = new QDBusPendingReply<QDBusUnixFileDescriptor>();
+      // 设置超时时间为INT_MAX（约等于无限大），阻塞等待后端响应
+    m_charaMangerInter->setTimeout(INT_MAX);
     *m_fileDescriptor = m_charaMangerInter->EnrollStart(driverName, charaType, charaName);
 
     Q_EMIT requestMainWindowEnabled(false);
@@ -283,6 +285,8 @@ void CharaMangerWorker::entollStart(const QString &driverName, const int &charaT
         Q_EMIT requestMainWindowEnabled(true);
         watcher->deleteLater();
     });
+    // 设置超时时间为-1时，库函数实现为25s
+    m_charaMangerInter->setTimeout(-1);
 }
 
 void CharaMangerWorker::refreshUserEnrollStatus(const QString &senderid, const int &code, const QString &codeInfo)
