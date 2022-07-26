@@ -62,6 +62,11 @@ private slots:
     void onDeviceRemove(const QString &uni);
     void onConnectivityChanged(NetworkManager::Connectivity conntity);
     void onDeviceEnabledChanged(QDBusObjectPath path, bool enabled);
+    void onDevicesChanged(const QList<QDBusObjectPath> &devices);
+    void checkConnectivityFinished(quint32 conntity);
+    void onDeviceAdded(const QDBusObjectPath &device);
+    void onDeviceRemoved(const QDBusObjectPath &device);
+    void onPropertiesChanged(const QString &interfaceName, const QVariantMap &changedProperties, const QStringList &invalidatedProperties);
 
 private:
     QList<NetworkDeviceBase *> m_devices;

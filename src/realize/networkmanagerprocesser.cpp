@@ -38,8 +38,13 @@
 using namespace dde::network;
 using namespace NetworkManager;
 
-const static QString networkService = "com.deepin.daemon.Network";
-const static QString networkPath = "/com/deepin/daemon/Network";
+const static QString NetworkService = "com.deepin.daemon.Network";
+const static QString NetworkPath = "/com/deepin/daemon/Network";
+const static QString NetworkInterface = "com.deepin.daemon.Network";
+const static QString NetworkManagerService = "org.freedesktop.NetworkManager";
+const static QString NetworkManagerPath = "/org/freedesktop/NetworkManager";
+const static QString NetworkManagerInterface = "org.freedesktop.NetworkManager";
+const static QString PropertiesInterface = "org.freedesktop.DBus.Properties";
 
 NetworkManagerProcesser::NetworkManagerProcesser(QObject *parent)
     : NetworkProcesser(parent)
@@ -51,12 +56,11 @@ NetworkManagerProcesser::NetworkManagerProcesser(QObject *parent)
     , m_connectivity(dde::network::Connectivity::Unknownconnectivity)
     , m_ipChecker(new IPConfilctChecker(this, false))
 {
-    Device::List allDevices = NetworkManager::networkInterfaces();
-    for (Device::Ptr device : allDevices)
-        onDeviceAdded(device->uni());
-
+    QDBusMessage getDevices = QDBusMessage::createMethodCall(NetworkManagerService, NetworkManagerPath, NetworkManagerInterface, "GetAllDevices");
+    QDBusConnection::systemBus().callWithCallback(getDevices, this, SLOT(onDevicesChanged(QList<QDBusObjectPath>)));
     initConnections();
-    onConnectivityChanged(NetworkManager::connectivity());
+    QDBusMessage checkConnectivity = QDBusMessage::createMethodCall(NetworkManagerService, NetworkManagerPath, NetworkManagerInterface, "CheckConnectivity");
+    QDBusConnection::systemBus().callWithCallback(checkConnectivity, this, SLOT(checkConnectivityFinished(quint32)));
 }
 
 NetworkManagerProcesser::~NetworkManagerProcesser()
@@ -66,10 +70,38 @@ NetworkManagerProcesser::~NetworkManagerProcesser()
 
 void NetworkManagerProcesser::initConnections()
 {
-    connect(NetworkManager::notifier(), &Notifier::deviceAdded, this, &NetworkManagerProcesser::onDeviceAdded);
-    connect(NetworkManager::notifier(), &Notifier::deviceRemoved, this, &NetworkManagerProcesser::onDeviceRemove);
-    connect(NetworkManager::notifier(), &Notifier::connectivityChanged, this, &NetworkManagerProcesser::onConnectivityChanged);
-    QDBusConnection::systemBus().connect("com.deepin.system.Network", "/com/deepin/system/Network", "com.deepin.system.Network", "DeviceEnabled", this, SLOT(onDeviceEnabledChanged(QDBusObjectPath, bool)));
+    QDBusConnection::systemBus().connect(NetworkManagerService, NetworkManagerPath, NetworkManagerInterface, "DeviceAdded", this, SLOT(onDeviceAdded(QDBusObjectPath)));
+    QDBusConnection::systemBus().connect(NetworkManagerService, NetworkManagerPath, NetworkManagerInterface, "DeviceRemoved", this, SLOT(onDeviceRemoved(QDBusObjectPath)));
+    QDBusConnection::systemBus().connect(NetworkManagerService, NetworkManagerPath, PropertiesInterface,  "PropertiesChanged", this, SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
+    QDBusConnection::systemBus().connect(NetworkService, NetworkPath, NetworkInterface, "DeviceEnabled", this, SLOT(onDeviceEnabledChanged(QDBusObjectPath, bool)));
+}
+
+void NetworkManagerProcesser::onDevicesChanged(const QList<QDBusObjectPath> &devices)
+{
+    for(QDBusObjectPath device : devices ) {
+        qInfo() << "Device added: " << device.path();
+        onDeviceAdded(device.path());
+    }
+}
+
+void NetworkManagerProcesser::onDeviceAdded(const QDBusObjectPath &device)
+{
+    onDeviceAdded(device.path());
+}
+
+void NetworkManagerProcesser::onDeviceRemoved(const QDBusObjectPath &device)
+{
+    onDeviceRemove(device.path());
+}
+
+void NetworkManagerProcesser::onPropertiesChanged(const QString &interfaceName, const QVariantMap &changedProperties, const QStringList &invalidatedProperties)
+{
+    Q_UNUSED(interfaceName)
+    Q_UNUSED(invalidatedProperties)
+
+    if (changedProperties.contains("Connectivity")) {
+        onConnectivityChanged(NetworkManager::Connectivity(changedProperties.value("Connectivity").toUInt()));
+    }
 }
 
 QList<NetworkDeviceBase *> NetworkManagerProcesser::devices()
@@ -234,6 +266,8 @@ void NetworkManagerProcesser::onDeviceAdded(const QString &uni)
         m_devices << newDevice;
         sortDevice();
         updateDeviceName();
+        if (!newDevice->activeAp().isEmpty())
+            Q_EMIT activeConnectionChange();
         Q_EMIT deviceAdded({ newDevice });
     }
 }
@@ -256,6 +290,11 @@ void NetworkManagerProcesser::onDeviceRemove(const QString &uni)
         Q_EMIT deviceRemoved({ rmDevice });
         delete rmDevice;
     }
+}
+
+void NetworkManagerProcesser::checkConnectivityFinished(quint32 conntity)
+{
+    onConnectivityChanged(NetworkManager::Connectivity(conntity));
 }
 
 void NetworkManagerProcesser::onConnectivityChanged(NetworkManager::Connectivity conntity)
@@ -313,7 +352,7 @@ NetworkDeviceBase *NetworkManagerProcesser::findDevice(const QString devicePath)
 NetworkInter *NetworkManagerProcesser::networkInter()
 {
     if (!m_networkInter)
-        m_networkInter = new NetworkInter(networkService, networkPath, QDBusConnection::sessionBus(), this);
+        m_networkInter = new NetworkInter(NetworkService, NetworkPath, QDBusConnection::sessionBus(), this);
 
     return m_networkInter;
 }
