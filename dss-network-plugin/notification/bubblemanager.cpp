@@ -163,8 +163,12 @@ void BubbleManager::refreshBubble()
     if (m_bubbleList.size() < BubbleEntities + BubbleOverLap + 1 && !m_oldEntities.isEmpty()) {
         auto notify = m_oldEntities.takeFirst();
         Bubble *bubble = createBubble(notify, BubbleEntities + BubbleOverLap - 1);
-        if (bubble)
+        if (bubble) {
             m_bubbleList.push_back(bubble);
+            connect(bubble, &QObject::destroyed, [this, bubble] {
+                m_bubbleList.removeAll(bubble);
+            });
+        }
     }
 }
 
@@ -352,6 +356,9 @@ void BubbleManager::bubbleActionInvoked(Bubble *bubble, QString actionId)
 void BubbleManager::updateGeometry()
 {
     foreach (auto item, m_bubbleList) {
+        if (item.isNull())
+            continue;
+
         if (item->parentWidget() != m_parentWidget) {
             bool visible = item->isVisible();
             item->setParent(m_parentWidget);
