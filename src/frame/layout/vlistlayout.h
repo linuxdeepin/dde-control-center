@@ -32,6 +32,8 @@ class VListLayout : public LayoutBase
 public:
     VListLayout();
 
+    virtual DCC_NAMESPACE::ModuleObject *autoExpand(DCC_NAMESPACE::ModuleObject *const module, const QList<DCC_NAMESPACE::ModuleObject *> &children) override;
+
     void setCurrent(DCC_NAMESPACE::ModuleObject *const child) override;
     QWidget *layoutModule(DCC_NAMESPACE::ModuleObject *const module, QWidget *const parent, const QList<ModuleObject *> &children) override;
 
