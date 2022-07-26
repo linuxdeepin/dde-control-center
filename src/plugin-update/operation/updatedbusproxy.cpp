@@ -17,9 +17,9 @@ const static QString ManagerPath = QStringLiteral("/com/deepin/lastore");
 const static QString ManagerInterface = QStringLiteral("com.deepin.lastore.Manager");
 
 // PowerInter
-const static QString PowerService = QStringLiteral("om.deepin.daemon.Power");
-const static QString PowerPath = QStringLiteral("/com/deepin/daemon/Power");
-const static QString PowerInterface = QStringLiteral("com.deepin.daemon.Power");
+const static QString PowerService = QStringLiteral("org.deepin.daemon.Power1");
+const static QString PowerPath = QStringLiteral("/org/deepin/daemon/Power1");
+const static QString PowerInterface = QStringLiteral("org.deepin.daemon.Power1");
 
 const static QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");

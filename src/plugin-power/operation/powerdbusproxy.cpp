@@ -27,13 +27,13 @@
 
 #include <QFile>
 
-const QString PowerService = QStringLiteral("com.deepin.daemon.Power");
-const QString PowerPath = QStringLiteral("/com/deepin/daemon/Power");
-const QString PowerInterface = QStringLiteral("com.deepin.daemon.Power");
+const QString PowerService = QStringLiteral("org.deepin.daemon.Power1");
+const QString PowerPath = QStringLiteral("/org/deepin/daemon/Power1");
+const QString PowerInterface = QStringLiteral("org.deepin.daemon.Power1");
 
-const QString SysPowerService = QStringLiteral("com.deepin.system.Power");
-const QString SysPowerPath = QStringLiteral("/com/deepin/system/Power");
-const QString SysPowerInterface = QStringLiteral("com.deepin.system.Power");
+const QString SysPowerService = QStringLiteral("org.deepin.system.Power1");
+const QString SysPowerPath = QStringLiteral("/org/deepin/system/Power1");
+const QString SysPowerInterface = QStringLiteral("org.deepin.system.Power1");
 
 const QString Login1ManagerService = QStringLiteral("org.freedesktop.login1");
 const QString Login1ManagerPath = QStringLiteral("/org/freedesktop/login1");

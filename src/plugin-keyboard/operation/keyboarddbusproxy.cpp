@@ -28,9 +28,9 @@
 #include <QDBusMetaType>
 #include <QDebug>
 
-const static QString LangSelectorService = "com.deepin.daemon.LangSelector";
-const static QString LangSelectorPath = "/com/deepin/daemon/LangSelector";
-const static QString LangSelectorInterface = "com.deepin.daemon.LangSelector";
+const static QString LangSelectorService = "org.deepin.daemon.LangSelector1";
+const static QString LangSelectorPath = "/org/deepin/daemon/LangSelector1";
+const static QString LangSelectorInterface = "org.deepin.daemon.LangSelector1";
 
 const static QString KeyboardService = "com.deepin.daemon.InputDevices";
 const static QString KeyboardPath = "/com/deepin/daemon/InputDevice/Keyboard";

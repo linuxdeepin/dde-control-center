@@ -87,7 +87,7 @@ Q_SIGNALS: // SIGNALS
     // grub2.EditAuth
     void EnabledUsersChanged(const QStringList &users);
     // grub2.Theme
-    void BackgroundChanged(const QString &name);
+    void BackgroundChanged();
 
     // license
     void AuthorizationStateChanged(const int code);
@@ -101,7 +101,6 @@ Q_SIGNALS: // SIGNALS
 
 private Q_SLOTS:
     void onPropertiesChanged(const QDBusMessage &message);
-    void BackgroundChangedPrivate();
 
 private:
     QDBusInterface *m_grubInter;

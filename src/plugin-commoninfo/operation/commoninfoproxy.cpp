@@ -25,15 +25,15 @@
 #include <QDBusArgument>
 #include <QDBusReply>
 
-const QString &GrubService = QStringLiteral("com.deepin.daemon.Grub2");
-const QString &GrubPath = QStringLiteral("/com/deepin/daemon/Grub2");
-const QString &GrubInterface = QStringLiteral("com.deepin.daemon.Grub2");
+const QString &GrubService = QStringLiteral("org.deepin.daemon.Grub2");
+const QString &GrubPath = QStringLiteral("/org/deepin/daemon/Grub2");
+const QString &GrubInterface = QStringLiteral("org.deepin.daemon.Grub2");
 
-const QString &GrubThemePath = QStringLiteral("/com/deepin/daemon/Grub2/Theme");
-const QString &GrubThemeInterface = QStringLiteral("com.deepin.daemon.Grub2.Theme");
+const QString &GrubThemePath = QStringLiteral("/org/deepin/daemon/Grub2/Theme");
+const QString &GrubThemeInterface = QStringLiteral("org.deepin.daemon.Grub2.Theme");
 
-const QString &GrubEditAuthPath = QStringLiteral("/com/deepin/daemon/Grub2/EditAuthentication");
-const QString &GrubEditAuthInterface = QStringLiteral("com.deepin.daemon.Grub2.EditAuthentication");
+const QString &GrubEditAuthPath = QStringLiteral("/org/deepin/daemon/Grub2/EditAuthentication");
+const QString &GrubEditAuthInterface = QStringLiteral("org.deepin.daemon.Grub2.EditAuthentication");
 
 const QString &DeepinIdService = QStringLiteral("com.deepin.deepinid");
 const QString &DeepinIdPath = QStringLiteral("/com/deepin/deepinid");
@@ -71,9 +71,9 @@ CommonInfoProxy::CommonInfoProxy(QObject *parent)
     QDBusConnection::sessionBus().connect(LicenseService, LicensePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 
     QDBusConnection::sessionBus().connect(DeepinIdService, DeepinIdPath, DeepinIdInterface, "Error",
-                                          this, SLOT(DeepinIdError(const int, const QString&)));
+                                          this, SIGNAL(DeepinIdError(const int, const QString&)));
     QDBusConnection::systemBus().connect(GrubService, GrubThemePath, GrubThemeInterface, "BackgroundChanged",
-                                          this, SLOT(BackgroundChanged()));
+                                          this, SIGNAL(BackgroundChanged()));
 }
 
 bool CommonInfoProxy::IsLogin()
@@ -222,9 +222,4 @@ void CommonInfoProxy::onPropertiesChanged(const QDBusMessage &message)
     for (QVariantMap::const_iterator it = changedProps.cbegin(); it != changedProps.cend(); ++it) {
         QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
     }
-}
-
-void CommonInfoProxy::BackgroundChangedPrivate()
-{
-    Q_EMIT BackgroundChanged(Background());
 }

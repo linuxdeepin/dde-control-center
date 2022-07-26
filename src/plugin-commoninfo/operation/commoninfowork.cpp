@@ -119,8 +119,8 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
         m_commomModel->setBootDelay(timeout > 1);
     });
     connect(m_commonInfoProxy, &CommonInfoProxy::UpdatingChanged, m_commomModel, &CommonInfoModel::setUpdating);
-    connect(m_commonInfoProxy, &CommonInfoProxy::BackgroundChanged, m_commomModel, [this] (const QString &name) {
-        QPixmap pix = QPixmap(name);
+    connect(m_commonInfoProxy, &CommonInfoProxy::BackgroundChanged, m_commomModel, [this] () {
+        QPixmap pix = QPixmap(m_commonInfoProxy->Background());
         m_commomModel->setBackground(pix);
     });
     connect(m_commonInfoProxy, &CommonInfoProxy::EnabledUsersChanged, m_commomModel, [this] (const QStringList &users) {

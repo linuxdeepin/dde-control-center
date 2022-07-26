@@ -32,9 +32,9 @@ const static QString AppearanceService = "com.deepin.daemon.Appearance";
 const static QString AppearancePath = "/com/deepin/daemon/Appearance";
 const static QString AppearanceInterface = "com.deepin.daemon.Appearance";
 
-const static QString PowerService = "com.deepin.daemon.Power";
-const static QString PowerPath = "/com/deepin/daemon/Power";
-const static QString PowerInterface = "com.deepin.daemon.Power";
+const static QString PowerService = "org.deepin.daemon.Power1";
+const static QString PowerPath = "/org/deepin/daemon/Power1";
+const static QString PowerInterface = "org.deepin.daemon.Power1";
 
 const static QString CooperationService = "com.deepin.Cooperation";
 const static QString CooperationPath = "/com/deepin/Cooperation";

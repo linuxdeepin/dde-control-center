@@ -102,12 +102,12 @@ MicrophonePage::~MicrophonePage()
  */
 void MicrophonePage::resetUi()
 {
-    QDBusInterface interface("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", "com.deepin.daemon.Audio", QDBusConnection::sessionBus(), this);
+    QDBusInterface interface("org.deepin.daemon.Audio1", "/org/deepin/daemon/Audio1", "org.deepin.daemon.Audio1", QDBusConnection::sessionBus(), this);
     QDBusObjectPath defaultPath = interface.property("DefaultSource").value<QDBusObjectPath>();
     if (defaultPath.path() == "/") //路径为空
         m_inputSoundCbx->comboBox()->setCurrentIndex(-1);
     else {
-        QDBusInterface *defaultSource = new QDBusInterface("com.deepin.daemon.Audio", defaultPath.path(), "com.deepin.daemon.Audio.Source", QDBusConnection::sessionBus(), this);
+        QDBusInterface *defaultSource = new QDBusInterface("org.deepin.daemon.Audio1", defaultPath.path(), "org.deepin.daemon.Audio1.Source", QDBusConnection::sessionBus(), this);
         AudioPort port = QDBusPendingReply<AudioPort>(defaultSource->asyncCall(QStringLiteral("ActivePort")));
         if (port.name.isEmpty() || port.description.isEmpty()) {
             m_inputSoundCbx->comboBox()->setCurrentIndex(-1);

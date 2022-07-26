@@ -57,7 +57,7 @@ DCC_USE_NAMESPACE
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new AccountsDBusProxy(this))
-    , m_userQInter(new UserDBusProxy(QString("/com/deepin/daemon/Accounts/User%1").arg(getuid()), this))
+    , m_userQInter(new UserDBusProxy(QString("/org/deepin/daemon/Accounts1/User%1").arg(getuid()), this))
     , m_syncInter(new SyncDBusProxy(this))
     , m_securityInter(new SecurityDBusProxy(this))
     , m_userModel(userList)
@@ -490,7 +490,7 @@ void AccountsWorker::addUser(const QString &userPath)
     if (userPath.contains("User0", Qt::CaseInsensitive) || m_userModel->contains(userPath))
         return;
 
-    if(!userPath.contains("/com/deepin/daemon/Accounts"))
+    if(!userPath.contains("/org/deepin/daemon/Accounts1"))
         return;
 
     UserDBusProxy *userInter = new UserDBusProxy(userPath, this);

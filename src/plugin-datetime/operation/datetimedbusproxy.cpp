@@ -26,13 +26,13 @@
 #include <QDBusPendingReply>
 #include <QDateTime>
 
-const QString TimedateService = QStringLiteral("com.deepin.daemon.Timedate");
-const QString TimedatePath = QStringLiteral("/com/deepin/daemon/Timedate");
-const QString TimedateInterface = QStringLiteral("com.deepin.daemon.Timedate");
+const QString TimedateService = QStringLiteral("org.deepin.daemon.Timedate1");
+const QString TimedatePath = QStringLiteral("/org/deepin/daemon/Timedate1");
+const QString TimedateInterface = QStringLiteral("org.deepin.daemon.Timedate1");
 
-const QString SystemTimedatedService = QStringLiteral("com.deepin.daemon.Timedated");
-const QString SystemTimedatedPath = QStringLiteral("/com/deepin/daemon/Timedated");
-const QString SystemTimedatedInterface = QStringLiteral("com.deepin.daemon.Timedated");
+const QString SystemTimedatedService = QStringLiteral("org.deepin.daemon.Timedated1");
+const QString SystemTimedatedPath = QStringLiteral("/org/deepin/daemon/Timedated1");
+const QString SystemTimedatedInterface = QStringLiteral("org.deepin.daemon.Timedated1");
 
 const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
@@ -213,6 +213,6 @@ void DatetimeDBusProxy::SetNTPServer(const QString &server, const QString &messa
 
 QString DatetimeDBusProxy::currentLocale()
 {
-    QDBusInterface dbus("com.deepin.daemon.LangSelector", "/com/deepin/daemon/LangSelector", "com.deepin.daemon.LangSelector", QDBusConnection::sessionBus());
+    QDBusInterface dbus("org.deepin.daemon.LangSelector1", "/org/deepin/daemon/LangSelector1", "org.deepin.daemon.LangSelector1", QDBusConnection::sessionBus());
     return qvariant_cast<QString>(dbus.property("CurrentLocale"));
 }

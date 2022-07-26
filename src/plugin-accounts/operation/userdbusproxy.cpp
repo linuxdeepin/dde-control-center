@@ -36,8 +36,8 @@ UserDBusProxy::UserDBusProxy(QString accountsUserPath, QObject *parent)
 
 void UserDBusProxy::init()
 {
-    const QString AccountsUserService = "com.deepin.daemon.Accounts";
-    const QString AccountsUserInterface = "com.deepin.daemon.Accounts.User";
+    const QString AccountsUserService = "org.deepin.daemon.Accounts1";
+    const QString AccountsUserInterface = "org.deepin.daemon.Accounts1.User";
     const QString PropertiesInterface = "org.freedesktop.DBus.Properties";
     const QString PropertiesChanged = "PropertiesChanged";
 

@@ -35,9 +35,9 @@ AccountsDBusProxy::AccountsDBusProxy(QObject *parent)
 
 void AccountsDBusProxy::init()
 {
-    const QString accountsService = "com.deepin.daemon.Accounts";
-    const QString accountsPath = "/com/deepin/daemon/Accounts";
-    const QString accountsInterface = "com.deepin.daemon.Accounts";
+    const QString accountsService = "org.deepin.daemon.Accounts1";
+    const QString accountsPath = "/org/deepin/daemon/Accounts1";
+    const QString accountsInterface = "org.deepin.daemon.Accounts1";
 
     const QString displayManagerService = "org.freedesktop.DisplayManager";
     const QString displayManagerPath = "/org/freedesktop/DisplayManager";
