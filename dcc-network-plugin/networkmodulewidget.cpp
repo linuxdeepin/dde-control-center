@@ -224,32 +224,6 @@ void NetworkModuleWidget::selectListIndex(const QModelIndex &idx)
     m_lvnmpages->resetStatus(idx);
 }
 
-bool NetworkModuleWidget::supportAirplaneModeState() const
-{
-    QDBusInterface inter("com.deepin.daemon.Bluetooth",
-                         "/com/deepin/daemon/Bluetooth",
-                         "com.deepin.daemon.Bluetooth",
-                          QDBusConnection::sessionBus());
-    if (inter.isValid()) {
-        QDBusReply<QString> reply = inter.call("GetAdapters");
-        QString replyStr = reply.value();
-        QJsonDocument json = QJsonDocument::fromJson(replyStr.toUtf8());
-        QJsonArray array = json.array();
-        if (array.size() > 0 && !array[0].toObject()["Path"].toString().isEmpty()) {
-            return true;
-        }
-    }
-
-    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
-    for (NetworkDeviceBase *device : devices) {
-        if (device->deviceType() == DeviceType::Wireless) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
 void NetworkModuleWidget::onProxyMethodChanged(const ProxyMethod &method)
 {
     if (method == ProxyMethod::Init) return;

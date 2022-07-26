@@ -133,12 +133,16 @@ void DCCNetworkModule::active()
     initListConfig();
     m_indexWidget->showDefaultWidget();
 
-    m_networkInter = new NetworkInter("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this);
-    connect(m_networkInter, &NetworkInter::WirelessAccessPointsChanged, this, &DCCNetworkModule::onWirelessAccessPointsOrAdapterChange);
+    if (supportAirplaneMode()) {
+        m_networkInter = new NetworkInter("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this);
+        connect(m_networkInter, &NetworkInter::WirelessAccessPointsChanged, this, &DCCNetworkModule::onWirelessAccessPointsOrAdapterChange);
 
-    m_bluetoothInter = new BluetoothInter("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this);
-    connect(m_bluetoothInter, &BluetoothInter::AdapterAdded, this, &DCCNetworkModule::onWirelessAccessPointsOrAdapterChange);
-    connect(m_bluetoothInter, &BluetoothInter::AdapterRemoved, this, &DCCNetworkModule::onWirelessAccessPointsOrAdapterChange);
+        m_bluetoothInter = new BluetoothInter("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this);
+        connect(m_bluetoothInter, &BluetoothInter::AdapterAdded, this, &DCCNetworkModule::onWirelessAccessPointsOrAdapterChange);
+        connect(m_bluetoothInter, &BluetoothInter::AdapterRemoved, this, &DCCNetworkModule::onWirelessAccessPointsOrAdapterChange);
+    } else {
+        onWirelessAccessPointsOrAdapterChange();
+    }
 }
 
 QStringList DCCNetworkModule::availPage() const
