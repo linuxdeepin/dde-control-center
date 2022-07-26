@@ -114,17 +114,17 @@ void NetworkDetails::updateData(const QJsonObject &info)
         const QString &securityType = info.value("Security").toString();
         appendInfo(tr("Security Type"), securityType);
 
-        // 频段
-        const QString &band = hotspotInfo.value("Band").toString();
-        QString bandInfo = band == "a" ? "5G" : (band == "bg" ? "2.4G" : "automatic");
-        appendInfo(tr("Band"), bandInfo);
-
         // 网络通道
         const QString &channel = QString::number(hotspotInfo.value("Channel").toInt());
         if (!channel.isEmpty())
             appendInfo(tr("Channel"), channel);
     }
-
+    if (isWireless || isHotspot) {
+        // 频段
+        const QString &band = hotspotInfo.value("Band").toString();
+        QString bandInfo = band == "a" ? "5G" : (band == "bg" ? "2.4G" : "automatic");
+        appendInfo(tr("Band"), bandInfo);
+    }
     if (isHotspot) {
         const QString securityType = info.value("Security").toString();
         appendInfo(tr("Security Type"), securityType);
@@ -137,11 +137,7 @@ void NetworkDetails::updateData(const QJsonObject &info)
     const QString mac = info.value("HwAddress").toString();
     if (!mac.isEmpty())
         appendInfo(tr("MAC"), mac);
-    // 频段
-    if (isHotspot) {
-        const QString band = hotspotInfo.value("Band").toString();
-        appendInfo(tr("Band"), band);
-    } else {
+    if (!isHotspot) {
         // ipv4
         if (info.contains("IPv4")) {
             QJsonObject ipv4TopObject = info["IPv4"].toObject();
