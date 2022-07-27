@@ -173,6 +173,7 @@ void AdapterModule::initDeviceListView(DCCListView *deviceListView)
     deviceListView->setFrameShape(QFrame::NoFrame);
     BluetoothDeviceModel *model = new BluetoothDeviceModel(m_adapter, true, deviceListView);
     deviceListView->setModel(model);
+    deviceListView->setItemDelegate(new BluetoothDeviceDelegate(deviceListView));
     deviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     deviceListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     deviceListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
