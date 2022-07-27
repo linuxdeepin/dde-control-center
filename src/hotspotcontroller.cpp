@@ -177,6 +177,14 @@ void HotspotController::updateActiveConnection(const QJsonObject &activeConnecti
                 continue;
 
             ConnectionStatus oldConnectionStatus = allConnectionStatus[uuid];
+            // 上一次热点的连接状态为正在激活，当前连接状态为激活
+            // 或者上一次热点的连接状态为正在取消激活，当前连接状态为取消激活，将其判断为最近一次有效的连接
+            // 此时去更新热点开关的使能状态
+            if ((oldConnectionStatus == ConnectionStatus::Activating && state == ConnectionStatus::Activated)
+                || (oldConnectionStatus == ConnectionStatus::Deactivating && state == ConnectionStatus::Deactivated)) {
+                Q_EMIT enableHotspotSwitch(true);
+            }
+
             if (oldConnectionStatus != hotspotItem->status()) {
                 activeConnChanged = true;
                 if (!activeDevices.contains(device))

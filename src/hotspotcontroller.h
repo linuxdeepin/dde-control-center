@@ -62,6 +62,7 @@ Q_SIGNALS:
     void activeConnectionChanged(const QList<WirelessDevice *> &);           // 活动连接发生变化
     void deviceAdded(const QList<WirelessDevice *> &);                       // 新增热点设备
     void deviceRemove(const QList<WirelessDevice *> &);                      // 删除热点设备
+    void enableHotspotSwitch(const bool &);                                  // 使能热点开关
 
 protected:
     explicit HotspotController(NetworkInter *networkInter, QObject *parent = Q_NULLPTR);

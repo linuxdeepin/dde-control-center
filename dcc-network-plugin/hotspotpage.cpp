@@ -97,6 +97,10 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, QWidget *parent)
     connect(m_device, &WirelessDevice::hotspotEnableChanged, this, &HotspotDeviceWidget::onHotsportEnabledChanged);
 
     connect(m_hotspotSwitch, &SwitchWidget::checkedChanged, this, &HotspotDeviceWidget::onSwitchToggled);
+    HotspotController *hotspotController = NetworkController::instance()->hotspotController();
+    connect(hotspotController, &HotspotController::enableHotspotSwitch, this, [ this ](const bool &enable) {
+        m_hotspotSwitch->setEnabled(enable);
+    });
     GSettingWatcher::instance()->bind("hotspotSwitch", m_hotspotSwitch->switchButton());
 
     QTimer::singleShot(1, this, &HotspotDeviceWidget::onHotsportEnabledChanged);
@@ -161,8 +165,17 @@ void HotspotDeviceWidget::updateCreateButtonStatus(bool showcreatebtn)
 void HotspotDeviceWidget::closeHotspot()
 {
     HotspotController *hotspotController = NetworkController::instance()->hotspotController();
-    // 关闭热点
-    hotspotController->setEnabled(m_device, false);
+    // 如果当前有激活的热点连接，才能去关闭，并且关闭过程中设置热点开关状态不可编辑
+    QList<HotspotItem *> items = hotspotController->items(m_device);
+    for (auto item : items) {
+        if (!item->activeConnection().isEmpty()) {
+            hotspotController->setEnabled(m_device, false);
+            if (!m_isClicked) {
+                m_hotspotSwitch->setEnabled(false);
+            }
+            return;
+        }
+    }
 }
 
 void HotspotDeviceWidget::openHotspot()
@@ -174,8 +187,18 @@ void HotspotDeviceWidget::openHotspot()
         m_hotspotSwitch->setEnabled(true);
         openEditPage(QString());
     } else {
-        // 开启热点
-        hotspotController->setEnabled(m_device, true);
+        // 如果当前没有激活的热点连接，才能去开启，并且开启过程中设置热点开关状态不可编辑
+        for (auto item : items) {
+            if (item->activeConnection().isEmpty()) {
+                hotspotController->setEnabled(m_device, true);
+                // item的点击不应该影响按钮的使能状态
+                if (!m_isClicked) {
+                    m_hotspotSwitch->setEnabled(false);
+                }
+
+                return;
+            }
+        }
     }
 }
 
@@ -250,7 +273,6 @@ void HotspotDeviceWidget::onHotsportEnabledChanged()
         HotspotController *hotspotController = NetworkController::instance()->hotspotController();
         m_hotspotSwitch->blockSignals(true);
         m_hotspotSwitch->setChecked(hotspotController->enabled(m_device));
-        m_hotspotSwitch->setEnabled(true);
         m_hotspotSwitch->blockSignals(false);
     }
 }
