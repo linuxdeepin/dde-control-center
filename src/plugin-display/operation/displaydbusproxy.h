@@ -103,6 +103,11 @@ public:
     Q_PROPERTY(QList<QDBusObjectPath> Machines READ Machines NOTIFY MachinesChanged)
     QList<QDBusObjectPath> Machines();
 
+    Q_PROPERTY(bool EnableCooperation READ enableCooperation NOTIFY EnableCooperationChanged)
+    bool enableCooperation();
+
+    void setCooperationEnable(const bool enable);
+
 private:
     void init();
 
@@ -160,6 +165,7 @@ Q_SIGNALS: // SIGNALS
 
     // Cooperation
     void MachinesChanged(const QList<QDBusObjectPath> &value) const;
+    void EnableCooperationChanged(bool value) const;
 
 private:
     DCC_NAMESPACE::DCCDBusInterface *m_dBusDisplayInter;
