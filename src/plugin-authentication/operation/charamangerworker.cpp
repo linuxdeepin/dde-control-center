@@ -121,7 +121,7 @@ void CharaMangerWorker::initFinger()
     userId = QString(pws->pw_name);
 
     auto defualtDevice = m_charaMangerInter->defaultDevice();
-    m_model->setFingerVaild(!defualtDevice.isEmpty());
+    m_model->setIsVaild(!defualtDevice.isEmpty());
     m_model->setUserName(userId);
 
     if (!defualtDevice.isEmpty()) {

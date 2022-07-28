@@ -31,7 +31,6 @@ class CharaMangerModel : public QObject
     Q_OBJECT
     Q_PROPERTY(bool faceDriverVaild READ faceDriverVaild WRITE setFaceDriverVaild NOTIFY vaildFaceDriverChanged)
     Q_PROPERTY(QStringList facesList READ facesList WRITE setFacesList NOTIFY facesListChanged)
-    Q_PROPERTY(bool charaVaild READ charaVaild WRITE setCharaVaild NOTIFY charaVaildChanged)
 
 public:
     /**
@@ -161,8 +160,8 @@ public:
     void initFingerModel();
     inline QList<QString> getPredefineThumbsName() const { return m_predefineThumbsNames; }
 
-    inline bool fingerVaild() const {  return m_isFingerVaild; }
-    void setFingerVaild(bool isVaild);
+    inline bool isVaild() const {  return m_isVaild; }
+    void setIsVaild(bool isVaild);
 
     inline QString userName() const { return m_userName; }
     void setUserName(const QString &name);
@@ -176,9 +175,6 @@ public:
     void resetProgress() { m_progress = 0; }
 
     void refreshEnrollResult(EnrollResult enrollRes);
-
-    bool charaVaild() const;
-    void setCharaVaild(bool newCharaVaild = true);
 
 Q_SIGNALS:
     void vaildFaceDriverChanged(const bool isVaild);
@@ -211,7 +207,7 @@ Q_SIGNALS:
     void tryStartInputIris(CharaMangerModel::AddInfoState state);
 
     // FInger
-    void vaildFingerChanged(const bool isVaild);
+    void vaildChanged(const bool isVaild);
     void thumbsListChanged(const QStringList &thumbs);
 
     void enrollFailed(QString title, QString msg);
@@ -223,17 +219,7 @@ Q_SIGNALS:
 
     void lockedChanged(bool locked);
 
-    //charaVaild
-    void charaVaildChanged(const bool isVaild);
-
 private:
-    void checkCharaVaild() {
-        if (m_isIrisDriverVaild || m_isFaceDriverVaild || m_isFingerVaild)
-            setCharaVaild();
-        else
-            setCharaVaild(false);
-    }
-
     // 人脸
     QString m_faceDriverName;
     bool m_isFaceDriverVaild;
@@ -246,11 +232,10 @@ private:
 
     // 指纹
     QString m_userName;
-    bool m_isFingerVaild{false};
+    bool m_isVaild{false};
     int m_progress;
     QStringList m_thumbsList;
     QList<QString> m_predefineThumbsNames;
-    bool m_charaVaild;
 };
 
 #endif // CHARAMANGERMODEL_H

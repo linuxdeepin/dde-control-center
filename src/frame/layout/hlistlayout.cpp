@@ -35,13 +35,6 @@ HListLayout::HListLayout()
 {
 }
 
-ModuleObject *HListLayout::autoExpand(ModuleObject * const module, const QList<ModuleObject *> &children)
-{
-    if (m_model)
-        return static_cast<ModuleObject *>(m_model->index(0,0).internalPointer());
-    return nullptr;
-}
-
 void HListLayout::setCurrent(ModuleObject *const child)
 {
     if (m_view && m_model) {

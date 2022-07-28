@@ -31,12 +31,8 @@ CharaMangerModel::CharaMangerModel(QObject *parent)
     , m_facesList(QStringList())
     , m_isIrisDriverVaild(false)
     , m_irisList(QStringList())
-    , m_charaVaild(false)
 {
     initFingerModel();
-    connect(this, &CharaMangerModel::vaildFingerChanged, this, &CharaMangerModel::checkCharaVaild);
-    connect(this, &CharaMangerModel::vaildFaceDriverChanged, this, &CharaMangerModel::checkCharaVaild);
-    connect(this, &CharaMangerModel::vaildIrisDriverChanged, this, &CharaMangerModel::checkCharaVaild);
 }
 
 void CharaMangerModel::setFaceDriverVaild(bool isVaild)
@@ -103,7 +99,7 @@ void CharaMangerModel::setInputIrisFD(CharaMangerModel::AddInfoState state)
 
 void CharaMangerModel::initFingerModel()
 {
-    m_isFingerVaild = false;
+    m_isVaild = false;
 
     m_predefineThumbsNames = {
         tr("Fingerprint1"), tr("Fingerprint2"), tr("Fingerprint3"),
@@ -114,14 +110,14 @@ void CharaMangerModel::initFingerModel()
     m_progress = 0;
 }
 
-void CharaMangerModel::setFingerVaild(bool isVaild)
+void CharaMangerModel::setIsVaild(bool isVaild)
 {
-    if (m_isFingerVaild == isVaild)
+    if (m_isVaild == isVaild)
         return;
 
-    m_isFingerVaild = isVaild;
+    m_isVaild = isVaild;
 
-    Q_EMIT vaildFingerChanged(isVaild);
+    Q_EMIT vaildChanged(isVaild);
 }
 
 void CharaMangerModel::setUserName(const QString &name)
@@ -375,16 +371,3 @@ void CharaMangerModel::onRefreshEnrollDate(const int &charaType)
 
 
 
-
-bool CharaMangerModel::charaVaild() const
-{
-    return m_charaVaild;
-}
-
-void CharaMangerModel::setCharaVaild(bool newCharaVaild)
-{
-    if (m_charaVaild == newCharaVaild)
-        return;
-    m_charaVaild = newCharaVaild;
-    emit charaVaildChanged(m_charaVaild);
-}

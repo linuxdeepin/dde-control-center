@@ -163,8 +163,8 @@ void FingerDetailWidget::setFingerModel(CharaMangerModel *model)
 
     m_model = model;
     m_fingerWidget->setFingerModel(model);
-    connect(model, &CharaMangerModel::vaildFingerChanged, this, &FingerDetailWidget::showDeviceStatus);
-    showDeviceStatus(model->fingerVaild());
+    connect(model, &CharaMangerModel::vaildChanged, this, &FingerDetailWidget::showDeviceStatus);
+    showDeviceStatus(model->isVaild());
 }
 
 void FingerDetailWidget::showFingeDisclaimer(const QString &name, const QString &thumb)
