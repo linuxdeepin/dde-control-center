@@ -246,6 +246,9 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     });
 
     connect(m_nameEdit->dTextEdit(), &DLineEdit::editingFinished, this, &CreateAccountPage::checkName);
+    connect(m_nameEdit->dTextEdit(), &DLineEdit::editingFinished, this, [this]() {
+        m_securityLevelItem->setUser(m_nameEdit->text());
+    });
 
     connect(m_fullnameEdit->dTextEdit(), &DLineEdit::textEdited, this, [ = ](const QString &userFullName) {
         /* 90401:在键盘输入下禁止冒号的输入，粘贴情况下自动识别冒号自动删除 */
@@ -293,26 +296,8 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
             m_passwdEdit->setAlert(false);
         }
     });
-
-    connect(m_passwdEdit, &DPasswordEdit::textChanged, this, [ = ] {
-        if (m_passwdEdit->text().isEmpty()) {
-            m_securityLevelItem->setLevel(SecurityLevelItem::NoneLevel);
-            m_passwdEdit->setAlert(false);
-            m_passwdEdit->hideAlertMessage();
-            return ;
-        }
-        PASSWORD_LEVEL_TYPE m_level = PwqualityManager::instance()->GetNewPassWdLevel(m_passwdEdit->text());
-        PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_passwdEdit->lineEdit()->text(),
-                                                                                          m_passwdEdit->lineEdit()->text());
-
-        if (m_level == PASSWORD_STRENGTH_LEVEL_HIGH) {
-            m_securityLevelItem->setLevel(SecurityLevelItem::HighLevel);
-        } else if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
-            m_securityLevelItem->setLevel(SecurityLevelItem::MidLevel);
-        } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
-            m_securityLevelItem->setLevel(SecurityLevelItem::LowLevel);
-        }
-    });
+    m_securityLevelItem->setUser(m_nameEdit->text());
+    m_securityLevelItem->bind(m_passwdEdit);
 
     connect(m_repeatpasswdEdit, &DPasswordEdit::textEdited, this, [ = ] {
         if (m_repeatpasswdEdit->isAlert()) {

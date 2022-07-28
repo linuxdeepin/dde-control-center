@@ -169,48 +169,9 @@ void ModifyPasswdPage::initWidget()
             m_passwordTipsEdit->setAlert(false);
         }
     });
-    connect(m_newPasswordEdit, &DPasswordEdit::textChanged, this, [ = ]() {
-        if (m_newPasswordEdit->text().isEmpty()) {
-            m_securityLevelItem->setLevel(SecurityLevelItem::NoneLevel);
-            m_newPasswordEdit->setAlert(false);
-            m_newPasswordEdit->hideAlertMessage();
-            return ;
-        }
-        PASSWORD_LEVEL_TYPE m_level = PwqualityManager::instance()->GetNewPassWdLevel(m_newPasswordEdit->text());
-        PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_newPasswordEdit->lineEdit()->text(),
-                                                                                          m_newPasswordEdit->lineEdit()->text());
 
-        if (m_level == PASSWORD_STRENGTH_LEVEL_HIGH) {
-            m_securityLevelItem->setLevel(SecurityLevelItem::HighLevel);
-            if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
-                m_newPasswordEdit->setAlert(true);
-                m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
-            } else {
-                m_newPasswordEdit->setAlert(false);
-                m_newPasswordEdit->hideAlertMessage();
-            }
-        } else if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
-            m_securityLevelItem->setLevel(SecurityLevelItem::MidLevel);
-            if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
-                m_newPasswordEdit->setAlert(true);
-                m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
-            } else {
-                m_newPasswordEdit->setAlert(false);
-                m_newPasswordEdit->showAlertMessage(tr("A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols"));
-            }
-        } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
-            m_securityLevelItem->setLevel(SecurityLevelItem::LowLevel);
-            if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
-                m_newPasswordEdit->setAlert(true);
-                m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
-            } else {
-                m_newPasswordEdit->setAlert(false);
-                m_newPasswordEdit->showAlertMessage(tr("A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols"), m_newPasswordEdit, 2000);
-            }
-        } else {
-            m_newPasswordEdit->showAlertMessage(tr("Error occurred when reading the configuration files of password rules!"));
-        }
-    });
+    m_securityLevelItem->setUser(m_curUser->name());
+    m_securityLevelItem->bind(m_newPasswordEdit);
 
     connect(m_repeatPasswordEdit, &DPasswordEdit::editingFinished, this, [ = ]() {
         if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {

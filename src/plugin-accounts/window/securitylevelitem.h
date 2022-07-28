@@ -23,12 +23,14 @@
 
 #include "interface/namespace.h"
 
-#include<dtkwidget_global.h>
+#include <dtkwidget_global.h>
 
 #include <QWidget>
 
 #define PASSWORD_LEVEL_ICON_NUM 3
-DWIDGET_USE_NAMESPACE
+DWIDGET_BEGIN_NAMESPACE
+class DLineEdit;
+DWIDGET_END_NAMESPACE
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -41,6 +43,9 @@ class SecurityLevelItem : public QWidget
 public:
     explicit SecurityLevelItem(QWidget *parent = nullptr);
     ~SecurityLevelItem();
+
+    void setUser(const QString &userName);
+    void bind(DTK_WIDGET_NAMESPACE::DLineEdit *lineEdit);
 
     enum Level {
         NoneLevel = 0,
@@ -72,7 +77,7 @@ private:
     QLabel *m_newPasswdLevelIcons[PASSWORD_LEVEL_ICON_NUM];
     QPixmap m_icons[ICONTYPE_NR_ITEMS];
     Level m_level;
-
+    QString m_userName;
 };
 } // namespace DCC_NAMESPACE
 
