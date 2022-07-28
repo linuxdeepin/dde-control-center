@@ -76,13 +76,4 @@ private:
     bool m_showAnonymous;
 };
 
-class BluetoothDeviceDelegate : public Dtk::Widget::DStyledItemDelegate
-{
-public:
-    BluetoothDeviceDelegate(QAbstractItemView *parent = nullptr);
-
-protected:
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
-};
-
 #endif // BLUETOOTHDEVICEMODEL_H
