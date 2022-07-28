@@ -29,7 +29,7 @@
 #include <QVBoxLayout>
 #include <QSpacerItem>
 
-DWIDGET_USE_NAMESPACE
+DWIDGET_USE_NAMESPACE;
 DCC_USE_NAMESPACE
 
 const double BrightnessMaxScale = 100.0;

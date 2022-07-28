@@ -36,10 +36,6 @@ const static QString PowerService = "com.deepin.daemon.Power";
 const static QString PowerPath = "/com/deepin/daemon/Power";
 const static QString PowerInterface = "com.deepin.daemon.Power";
 
-const static QString CooperationService = "com.deepin.Cooperation";
-const static QString CooperationPath = "/com/deepin/Cooperation";
-const static QString CooperationInterface = "com.deepin.Cooperation";
-
 DisplayDBusProxy::DisplayDBusProxy(QObject *parent)
     : QObject(parent)
 {
@@ -59,7 +55,6 @@ void DisplayDBusProxy::init()
     m_dBusDisplayInter = new DCC_NAMESPACE::DCCDBusInterface(DisplayService, DisplayPath, DisplayInterface, QDBusConnection::sessionBus(), this);
     m_dBusAppearanceInter = new DCC_NAMESPACE::DCCDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
     m_dBusPowerInter = new DCC_NAMESPACE::DCCDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
-    m_dBusCooperationInter = new DCC_NAMESPACE::DCCDBusInterface(CooperationService, CooperationPath, CooperationInterface, QDBusConnection::systemBus(), this);
 }
 
 //power
@@ -76,11 +71,6 @@ void DisplayDBusProxy::setAmbientLightAdjustBrightness(bool value)
 bool DisplayDBusProxy::hasAmbientLightSensor()
 {
     return qvariant_cast<bool>(m_dBusPowerInter->property("HasAmbientLightSensor"));
-}
-
-QList<QDBusObjectPath> DisplayDBusProxy::Machines()
-{
-    return qvariant_cast<QList<QDBusObjectPath>>(m_dBusCooperationInter->property("Machines"));
 }
 
 //display

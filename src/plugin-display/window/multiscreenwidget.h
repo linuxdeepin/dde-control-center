@@ -40,7 +40,6 @@ QT_END_NAMESPACE
 namespace DCC_NAMESPACE {
 class SettingsItem;
 class Monitor;
-class Machine;
 class DisplayModel;
 class MonitorControlWidget;
 class MonitorIndicator;
@@ -51,7 +50,7 @@ class ResolutionWidget;
 class RefreshRateWidget;
 class RotateWidget;
 class SecondaryScreenDialog;
-class CollaborativeLinkWidget;
+
 class MultiScreenWidget : public QWidget
 {
     Q_OBJECT
@@ -78,7 +77,6 @@ Q_SIGNALS:
     void requestSetMainwindowRect(Monitor *monitor, bool isInit);
     void requestSetFillMode(Monitor *monitor, const QString fillMode);
     void requestCurrFillModeChanged(Monitor *monitor, const QString fillMode);
-    void requestCurrentMachinePair(Machine * machine);
 
 private:
     void initModeList();
@@ -112,9 +110,6 @@ private:
     QLabel *m_primaryLabel;
     QComboBox *m_primaryCombox;
     QSpacerItem *m_brightnessSpacerItem;
-
-    //协同链接
-    CollaborativeLinkWidget *m_linkWidget;
     BrightnessWidget *m_brightnessWidget;
     ScalingWidget *m_scalingWidget;
     ResolutionWidget *m_resolutionWidget;

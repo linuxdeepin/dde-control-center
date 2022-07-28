@@ -132,20 +132,6 @@ void DisplayModel::monitorRemoved(Monitor *mon)
     Q_EMIT monitorListChanged();
 }
 
-void DisplayModel::machinesAdded(Machine *mon)
-{
-    if (!m_machines.contains(mon)) {
-        m_machines.append(mon);
-        Q_EMIT machinesListChanged();
-    }
-}
-
-void DisplayModel::machinesRemoved(Machine *mon)
-{
-    m_machines.removeOne(mon);
-    Q_EMIT machinesListChanged();
-}
-
 void DisplayModel::setAutoLightAdjustIsValid(bool ala)
 {
     if (m_AutoLightAdjustIsValid == ala)
