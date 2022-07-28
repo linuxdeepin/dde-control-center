@@ -269,8 +269,6 @@ void MultiScreenWidget::setModel(DisplayModel *model)
         Q_EMIT requestSetPrimary(m_primaryCombox->itemText(idx));
     });
 
-    connect(m_linkWidget, &CollaborativeLinkWidget::requestCooperationEnable, this, &MultiScreenWidget::requestCooperationEnable);
-    connect(m_linkWidget, &CollaborativeLinkWidget::requestCurrentMachineDisconnect, this, &MultiScreenWidget::requestCurrentMachineDisconnect);
     connect(m_linkWidget, &CollaborativeLinkWidget::requestCurrentMachinePair, this, &MultiScreenWidget::requestCurrentMachinePair);
     connect(m_brightnessWidget, &BrightnessWidget::requestSetColorTemperature, this, &MultiScreenWidget::requestSetColorTemperature);
     connect(m_brightnessWidget, &BrightnessWidget::requestSetMonitorBrightness, this, &MultiScreenWidget::requestSetMonitorBrightness);

@@ -83,17 +83,6 @@ QList<QDBusObjectPath> DisplayDBusProxy::Machines()
     return qvariant_cast<QList<QDBusObjectPath>>(m_dBusCooperationInter->property("Machines"));
 }
 
-bool DisplayDBusProxy::enableCooperation()
-{
-    return qvariant_cast<bool>(m_dBusCooperationInter->property("EnableCooperation"));
-}
-
-void DisplayDBusProxy::setCooperationEnable(const bool enable)
-{
-    qDebug() << " TODO： setCooperationEnable begin " << enable ;
-    m_dBusCooperationInter->setProperty("EnableCooperation", QVariant::fromValue(enable));
-}
-
 //display
 BrightnessMap DisplayDBusProxy::brightness()
 {

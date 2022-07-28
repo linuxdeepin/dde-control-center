@@ -142,7 +142,6 @@ void DisplayModule::showSingleScreenWidget()
     CollaborativeLinkWidget *linkWidget = new CollaborativeLinkWidget(singleScreenWidget);
     linkWidget->setModel(m_model);
     contentLayout->addWidget(linkWidget);
-    connect(linkWidget, &CollaborativeLinkWidget::requestCooperationEnable, m_worker, &DisplayWorker::setCooperationEnable);
     connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachineDisconnect, m_worker, &DisplayWorker::setCurrentMachineDisconnect);
     connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachinePair, m_worker, &DisplayWorker::setCurrentMachinePair);
 
@@ -273,8 +272,6 @@ void DisplayModule::showMultiScreenWidget()
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMethodAdjustCCT, m_worker, &DisplayWorker::SetMethodAdjustCCT);
     connect(multiScreenWidget, &MultiScreenWidget::requestUiScaleChange, m_worker, &DisplayWorker::setUiScale);
     // 跨端协同
-    connect(multiScreenWidget, &MultiScreenWidget::requestCooperationEnable, m_worker, &DisplayWorker::setCooperationEnable);
-    connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachineDisconnect, m_worker, &DisplayWorker::setCurrentMachineDisconnect);
     connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachinePair, m_worker, &DisplayWorker::setCurrentMachinePair);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetResolution, this, [=](Monitor *monitor, const int mode) {
         onRequestSetResolution(monitor, mode);

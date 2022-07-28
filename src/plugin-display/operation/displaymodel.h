@@ -107,9 +107,6 @@ public:
     inline bool brightnessEnable() const { return m_brightnessEnable; }
     void setBrightnessEnable(const bool enable);
 
-    inline bool enableCooperation() const { return m_enableCooperation; }
-    void setEnableCooperation(const bool enable);
-
     inline bool allSupportFillModes() const { return m_allSupportFillModes; }
     void checkAllSupportFillModes();
 
@@ -133,7 +130,6 @@ Q_SIGNALS:
     void colorTemperatureChanged(int value);
     void resolutionRefreshEnableChanged(const bool enable);
     void brightnessEnableChanged(const bool enable);
-    void enableCooperationChanged(const bool enable);
 
 private Q_SLOTS:
     void setScreenHeight(const int h);
@@ -173,7 +169,6 @@ private:
     TouchscreenMap m_touchMap;
     uint m_maxBacklightBrightness {0};
     bool m_allSupportFillModes;
-    bool m_enableCooperation;
 };
 }
 

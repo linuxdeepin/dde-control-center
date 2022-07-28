@@ -96,7 +96,6 @@ void CollaborativeLinkWidget::initUI()
 void CollaborativeLinkWidget::initConnect()
 {
     // TODO: 协同开关
-    connect(m_deviceSwitch, &SwitchWidget::checkedChanged, this, &CollaborativeLinkWidget::requestCooperationEnable);
     connect(m_deviceCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, &CollaborativeLinkWidget::changeComboxIndex, Qt::QueuedConnection);
     connect(m_deviceButton, &QPushButton::clicked, this, &CollaborativeLinkWidget::disconnectMachine);
 }
@@ -105,8 +104,6 @@ void CollaborativeLinkWidget::setModel(DisplayModel *model)
 {
     m_displayModel = model;
 
-    qDebug() << " =========  m_displayModel->enableCooperation() " << m_displayModel->enableCooperation();
-    m_deviceSwitch->setChecked(m_displayModel->enableCooperation());
     auto AddMacFunc = [ = ](){
         auto machines = m_displayModel->machineList();
         qDebug() << " 获取设备数据： " << machines.size();

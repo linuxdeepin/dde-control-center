@@ -55,7 +55,6 @@ public:
     void setModel(DisplayModel *model);
 
 Q_SIGNALS:
-    void requestCooperationEnable(const bool enabled);
     void requestCurrentMachinePair(Machine * machine);
     void requestCurrentMachineDisconnect(Machine *mac);
 
