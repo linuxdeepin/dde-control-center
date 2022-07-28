@@ -206,7 +206,6 @@ QString ServiceSettingsModule::getTopTipsDoc(ServiceCategory category)
     default:
         break;
     }
-    return QString();
 }
 
 QString ServiceSettingsModule::getNoneTipsDoc(ServiceCategory category)
@@ -225,6 +224,5 @@ QString ServiceSettingsModule::getNoneTipsDoc(ServiceCategory category)
     default:
         break;
     }
-    return QString();
 }
 
