@@ -57,16 +57,12 @@ public:
     bool showInPrimary();
     void setShowInPrimary(bool value);
 
-    Q_PROPERTY(bool ShowRecent READ showRecent NOTIFY showRecentChanged)
-    bool showRecent();
-
 public Q_SLOTS:
     void resizeDock(int offset, bool dragging);
     QDBusPendingReply<QStringList> GetLoadedPlugins();
     QDBusPendingReply<QString> getPluginKey(const QString &pluginName);
     QDBusPendingReply<bool> getPluginVisible(const QString &pluginName);
     QDBusPendingReply<> setPluginVisible(const QString &pluginName, bool visible);
-    QDBusPendingReply<> SetShowRecent(bool visible);
 
 Q_SIGNALS:
     // property changed signals
@@ -79,7 +75,6 @@ Q_SIGNALS:
 
     // real singals
     void pluginVisibleChanged(const QString &pluginName, bool visible) const;
-    void showRecentChanged(bool) const;
 
 private slots:
     void onPropertiesChanged(const QDBusMessage &message);

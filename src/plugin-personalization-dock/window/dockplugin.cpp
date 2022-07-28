@@ -41,7 +41,6 @@
 #include <QDBusConnectionInterface>
 #include <QDBusPendingReply>
 #include <QStyle>
-#include <QCheckBox>
 
 DWIDGET_USE_NAMESPACE
 
@@ -60,7 +59,7 @@ enum Position {
 enum HideMode {
     KeepShowing     = 0,    // 一直显示
     KeepHidden      = 1,    // 一直隐藏
-    SmartHide       = 2,    // 智能隐藏
+    SmartHide       = 3,    // 智能隐藏
 };
 
 DockPlugin::DockPlugin(QObject *parent)
@@ -99,7 +98,6 @@ DockModuleObject::DockModuleObject()
     appendChild(new WidgetModule<ComboxWidget>("mode", tr("Mode"), this, &DockModuleObject::initMode));
     appendChild(new WidgetModule<ComboxWidget>("position", tr("Position"), this, &DockModuleObject::initPosition));
     appendChild(new WidgetModule<ComboxWidget>("status", tr("Status"), this, &DockModuleObject::initStatus));
-    appendChild(new WidgetModule<QCheckBox>("recent", tr("Show Recent App"), this, &DockModuleObject::initShowRecent));
     appendChild(new WidgetModule<TitledSliderItem>("size", tr("Size"), this, &DockModuleObject::initSizeSlider));
 
     // 当任务栏服务未注册或当前只有一个屏幕或当前有多个屏幕但设置为复制模式时均不显示多屏设置项
@@ -201,27 +199,6 @@ void DockModuleObject::initStatus(ComboxWidget *widget)
             return;
 
         widget->setCurrentText(g_stateMap.key(hideMode));
-    });
-}
-
-void DockModuleObject::initShowRecent(QCheckBox *checkBox)
-{
-    if (m_dbusProxy.isNull())
-        m_dbusProxy.reset(new DockDBusProxy);
-
-    checkBox->blockSignals(true);
-    checkBox->setChecked(m_dbusProxy->showRecent());
-    checkBox->blockSignals(false);
-    checkBox->setText(tr("Show Recent App"));
-    connect(checkBox, &QCheckBox::toggled, checkBox, [ this ](bool checked) {
-        m_dbusProxy->blockSignals(true);
-        m_dbusProxy->SetShowRecent(checked);
-        m_dbusProxy->blockSignals(false);
-    });
-    connect(m_dbusProxy.get(), &DockDBusProxy::showRecentChanged, checkBox, [ = ](bool checked) {
-        checkBox->blockSignals(true);
-        checkBox->setChecked(checked);
-        checkBox->blockSignals(false);
     });
 }
 
