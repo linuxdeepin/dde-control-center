@@ -1,31 +1,3 @@
-dde-control-center (6.0.3) unstable; urgency=medium
-
-  [ caixiangrong ]
-  * update changelog
-
-  [ TagBuilder ]
-  * feat(accounts): 帐户列表行云设计修改(Task: 152861)(Influence: 控制中心-帐户)
-  * fix(frame): 修改pagelayout添加多个问题(Task: 133019)(Influence: 控制中心-页面布局)
-  * feat: V23隐私安全代码提交(Task: 153345)(Influence: 控制中心-隐私安全)
-  * fix(accounts): 修改帐户修改头像崩溃问题(Task: 163839)(Influence: 控制中心-帐户-修改用户头像)
-  * fix(adapterv20tov23): 修改切换v20插件时崩溃问题(Task: 164115)(Influence: 控制中心-兼容插件切换)
-  * fix(accounts): 修改创建帐户未跳转到新建的帐户问题(Task: 164157)(Influence: 控制中心-帐户-创建帐户)
-  * fix(display): 修改wayland下修改缩放比导致控制中心崩溃问题(Bug: 147703)(Influence: 控制中心-显示-修改缩放比)
-  * fix(accounts): 添加密码有效天数设置(Bug: 147559)(Influence: 控制中心-帐户-密码有效天数设置)
-  * fix: 调整信号链接生命周期问题(Bug: 143837)(Influence: 控制中心任务栏插件)
-  * fix: 修改隐私安全URL(Bug: 153345)(Influence: 控制中心-隐私安全)
-  * fix(sound): 修改双屏时修改分辨率控制中心崩溃问题(Bug: 147065)(Influence: 控制中心-显示-修改分辨率)
-  * feat: 隐私安全用户权限新增回执信息处理(Task: 153345)(Influence: 隐私安全)
-  * fix: 同步key给后端(Task: 153345)(Influence: 隐私安全)
-  * fix(display): 修改显示缩放比无刻度问题(Bug: 149085)(Influence: 控制中心-显示-缩放)
-  * fix(bluetooth): 修改蓝牙搜索时跳转其他页面未停止搜索问题(Bug: 143793)(Influence: 控制中心-蓝牙-蓝牙搜索时跳转其他页面)
-  * fix(mouse): 修改硬件不支持触控板及指点杆时显示问题(Bug: 134335)(Influence: 控制中心-鼠标-触控板指点杆)
-  * fix(bluetooth): 修改蓝牙其他设备列表排序问题(Bug: 146901)(Influence: 控制中心-蓝牙-其他设备列表)
-  * fix(bluetooth): 修改蓝牙开关显示异常问题(Bug: 141649)(Influence: 控制中心-蓝牙-关闭蓝牙开关)
-  * fix(notification): 修改打开控制中心通知模块的时间较长问题(Bug: 146731)(Influence: 控制中心-通知)
-
- -- caixiangrong <caixiangrong@uniontech.com>  Mon, 25 Jul 2022 10:24:58 +0800
-
 dde-control-center (6.0.2.1) UNRELEASED; urgency=medium
 
   * update changelog
