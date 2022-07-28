@@ -89,7 +89,6 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
     creatPluginAppsView(timeGrp);
     timeGrp->setModel(pluginAppsModel);
 
-
     qDebug() << " Get Apps size: " << m_model->getServiceItem(m_currentServiceDate.category)->getServiceApps().size();
 
     auto updateItemCheckStatus = [this, pluginAppsModel, timeGrp](const QString& name, const QString& visible) {
@@ -122,7 +121,7 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
             item->setActionList(Qt::Edge::LeftEdge, {leftAction});
 
             auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-            bool visible = App.m_enable == "0" ? true : false;
+            bool visible = App.m_enable != "0";
             auto checkstatus = visible ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
             auto checkIcon = qobject_cast<DStyle *>(timeGrp->style())->standardIcon(checkstatus);
             rightAction->setIcon(checkIcon);
@@ -130,7 +129,7 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
             pluginAppsModel->appendRow(item);
 
             connect(rightAction, &DViewItemAction::triggered, this, [ = ] {
-                const QString& checkedChange = (App.m_enable == "0" ? "0" : "1");
+                const QString& checkedChange = (App.m_enable == "0" ? "1" : "0");
                 m_worker->setPermissionInfo(App.m_name, m_serviceItemDate->getServiceGroup(), m_model->getDaemonDefineName(m_currentServiceDate.category), checkedChange);
                 updateItemCheckStatus(App.m_name, checkedChange);
             });
@@ -140,12 +139,12 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
     };
 
     connect(m_serviceItemDate, &ServiceControlItems::serviceSwitchStateChange, timeGrp, &DListView::setEnabled);
-    connect(m_serviceItemDate, &ServiceControlItems::permissionInfoChange, this, [this, updateItemCheckStatus](const QString& name, const QString& visible){
+    connect(m_serviceItemDate, &ServiceControlItems::permissionInfoChange, this, [updateItemCheckStatus](const QString& name, const QString& visible){
         updateItemCheckStatus(name, visible);
     });
     connect(m_serviceItemDate, &ServiceControlItems::serviceAvailableStateChange, timeGrp, &DListView::setVisible);
 
-    connect(m_serviceItemDate, &ServiceControlItems::serviceAppsDateChange, this, [this, refreshItemDate](){
+    connect(m_serviceItemDate, &ServiceControlItems::serviceAppsDateChange, this, [refreshItemDate](){
          refreshItemDate();
     });
 

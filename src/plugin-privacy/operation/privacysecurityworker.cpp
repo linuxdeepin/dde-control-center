@@ -116,6 +116,7 @@ void PrivacySecurityWorker::saveServiceApps(const QString &currentGroup, const Q
         App app;
         app.m_name = appName;
         app.m_enable = enable;
+        qDebug() << " Add Apps: " << appName << enable;
         tmpApss.append(app);
     }
     serviceItem->setServiceApps(tmpApss);
