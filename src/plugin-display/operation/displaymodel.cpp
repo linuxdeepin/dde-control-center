@@ -46,6 +46,7 @@ DisplayModel::DisplayModel(QObject *parent)
     , m_allowEnableMultiScaleRatio(false)
     , m_resolutionRefreshEnable(true)
     , m_brightnessEnable(true)
+    , m_enableCooperation(true)
 {
 }
 
@@ -245,6 +246,14 @@ void DisplayModel::setmaxBacklightBrightness(const uint value)
     if (m_maxBacklightBrightness != value && value < 100) {
         m_maxBacklightBrightness = value;
         Q_EMIT maxBacklightBrightnessChanged(value);
+    }
+}
+
+void DisplayModel::setEnableCooperation(bool enable)
+{
+    if (m_enableCooperation != enable) {
+        m_enableCooperation = enable;
+        Q_EMIT enableCooperationChanged(enable);
     }
 }
 

@@ -73,6 +73,7 @@ public Q_SLOTS:
     void setAmbientLightAdjustBrightness(bool);
     void setCurrentFillMode(Monitor *mon, const QString fillMode);
     // Cooperation Machine
+    void setCooperationEnable(const bool enable);
     void setCurrentMachinePair(Machine *mac);
     void setCurrentMachineDisconnect(Machine *mac);
 
