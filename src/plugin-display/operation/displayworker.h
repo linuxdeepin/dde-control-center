@@ -30,6 +30,8 @@
 
 #include "interface/namespace.h"
 #include "displaydbusproxy.h"
+#include "machine.h"
+#include "machinedbusproxy.h"
 #include "monitor.h"
 
 
@@ -70,16 +72,23 @@ public Q_SLOTS:
     void setMonitorResolutionBySize(Monitor *mon, const int width, const int height);
     void setAmbientLightAdjustBrightness(bool);
     void setCurrentFillMode(Monitor *mon, const QString fillMode);
+    // Cooperation Machine
+    void setCurrentMachinePair(Machine *mac);
+    void setCurrentMachineDisconnect(Machine *mac);
 
 private Q_SLOTS:
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
     void onGetScaleFinished(QDBusPendingCallWatcher *w);
     void onGetScreenScalesFinished(QDBusPendingCallWatcher *w);
+    void onMachinesChanged(const QList<QDBusObjectPath> &machines);
 
 private:
     void monitorAdded(const QString &path);
     void monitorRemoved(const QString &path);
+
+    void machinesAdded(const QString &path);
+    void machinesRemoved(const QString &path);
 
 Q_SIGNALS:
     void requestUpdateModeList();
@@ -88,6 +97,7 @@ private:
     DisplayModel *m_model;
     DisplayDBusProxy *m_displayInter;
     QMap<Monitor *, MonitorDBusProxy *> m_monitors;
+    QMap<Machine *, MachineDBusProxy *> m_machines;
     double m_currentScale;
     bool m_updateScale;
     QTimer *m_timer;

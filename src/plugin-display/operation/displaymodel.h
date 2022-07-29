@@ -33,6 +33,7 @@
 
 #include "interface/namespace.h"
 #include "monitor.h"
+#include "machine.h"
 #include "types/brightnessmap.h"
 #include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
@@ -63,6 +64,7 @@ public:
     inline double minimumBrightnessScale() const { return m_minimumBrightnessScale; }
     inline const QString primary() const { return m_primary; }
     inline const QList<Monitor *> monitorList() const { return m_monitors; }
+    inline const QList<Machine *> machineList() const { return m_machines; }
     Monitor *primaryMonitor() const;
     inline const QString defaultFillMode() { return "None"; }
 
@@ -116,6 +118,7 @@ Q_SIGNALS:
     void minimumBrightnessScaleChanged(const double) const;
     void primaryScreenChanged(const QString &primary) const;
     void monitorListChanged() const;
+    void machinesListChanged() const;
     void nightModeChanged(const bool nightmode) const;
     void redshiftVaildChanged(const bool isvalid) const;
     void autoLightAdjustSettingChanged(bool setting) const;
@@ -138,6 +141,8 @@ private Q_SLOTS:
     void setRedshiftIsValid(bool redshiftIsValid);
     void monitorAdded(Monitor *mon);
     void monitorRemoved(Monitor *mon);
+    void machinesAdded(Machine *mon);
+    void machinesRemoved(Machine *mon);
     void setAutoLightAdjustIsValid(bool);
     void setmaxBacklightBrightness(const uint value);
 
@@ -151,6 +156,7 @@ private:
     double m_minimumBrightnessScale;
     QString m_primary;
     QList<Monitor *> m_monitors;
+    QList<Machine *> m_machines;
     bool m_redshiftIsValid;
     bool m_RefreshRateEnable {false};
     bool m_isAutoLightAdjust {false};

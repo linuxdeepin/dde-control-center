@@ -27,6 +27,7 @@
 #include "rotatewidget.h"
 #include "secondaryscreendialog.h"
 #include "widgets/settingsitem.h"
+#include "collaborativelinkwidget.h"
 #include "monitorcontrolwidget.h"
 #include "monitorindicator.h"
 #include "recognizewidget.h"
@@ -54,6 +55,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_primarySettingsItem(new SettingsItem(this))
     , m_primaryCombox(new QComboBox(this))
     , m_brightnessSpacerItem(new QSpacerItem(0, 20))
+    , m_linkWidget(new CollaborativeLinkWidget(this))
     , m_brightnessWidget(new BrightnessWidget(this))
     , m_scalingWidget(new ScalingWidget(this))
     , m_resolutionWidget(new ResolutionWidget(300, this))
@@ -105,6 +107,8 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     m_contentLayout->addWidget(m_primarySettingsItem);
 
     m_contentLayout->addSpacerItem(m_brightnessSpacerItem);
+    m_contentLayout->addWidget(m_linkWidget);
+    m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_brightnessWidget);
     m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_scalingWidget);
@@ -265,6 +269,7 @@ void MultiScreenWidget::setModel(DisplayModel *model)
         Q_EMIT requestSetPrimary(m_primaryCombox->itemText(idx));
     });
 
+    connect(m_linkWidget, &CollaborativeLinkWidget::requestCurrentMachinePair, this, &MultiScreenWidget::requestCurrentMachinePair);
     connect(m_brightnessWidget, &BrightnessWidget::requestSetColorTemperature, this, &MultiScreenWidget::requestSetColorTemperature);
     connect(m_brightnessWidget, &BrightnessWidget::requestSetMonitorBrightness, this, &MultiScreenWidget::requestSetMonitorBrightness);
     connect(m_brightnessWidget, &BrightnessWidget::requestAmbientLightAdjustBrightness, this, &MultiScreenWidget::requestAmbientLightAdjustBrightness);
@@ -281,6 +286,7 @@ void MultiScreenWidget::setModel(DisplayModel *model)
     m_monitorControlWidget->setScreensMerged(m_model->displayMode());
     m_monitorControlWidget->setModel(m_model, m_model->displayMode() == SINGLE_MODE ? m_model->primaryMonitor() : nullptr);
 
+    m_linkWidget->setModel(m_model);
     m_brightnessWidget->setMode(m_model);
     m_brightnessWidget->showBrightness(m_model->displayMode() == MERGE_MODE ? nullptr : m_model->primaryMonitor());
     const bool brightnessIsEnabled = m_model->brightnessEnable() && m_model->primaryMonitor() && m_model->primaryMonitor()->canBrightness();

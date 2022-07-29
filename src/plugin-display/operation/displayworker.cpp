@@ -50,6 +50,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     m_timer->setInterval(200);
 
     connect(m_displayInter, &DisplayDBusProxy::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
+    connect(m_displayInter, &DisplayDBusProxy::MachinesChanged, this, &DisplayWorker::onMachinesChanged);
     connect(m_displayInter, &DisplayDBusProxy::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
     connect(m_displayInter, &DisplayDBusProxy::BrightnessChanged, model, &DisplayModel::setBrightnessMap);
     connect(m_displayInter, &DisplayDBusProxy::TouchscreensV2Changed, model, &DisplayModel::setTouchscreenList);
@@ -93,6 +94,7 @@ void DisplayWorker::active()
     onMonitorsBrightnessChanged(m_displayInter->brightness());
     m_model->setBrightnessMap(m_displayInter->brightness());
     onMonitorListChanged(m_displayInter->monitors());
+    onMachinesChanged(m_displayInter->Machines());
 
     m_model->setDisplayMode(m_displayInter->displayMode());
     m_model->setTouchscreenList(m_displayInter->touchscreensV2());
@@ -185,6 +187,30 @@ void DisplayWorker::onGetScreenScalesFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
+void DisplayWorker::onMachinesChanged(const QList<QDBusObjectPath> &machines)
+{
+    // TODO: 获取协同接口 同步协同设备
+    QList<QString> machList;
+    QList<QString> existMachines;  //存在的Machine
+
+    for (auto&& mon : m_machines.keys()) {
+        existMachines.append(mon->Path());
+    }
+
+    for (const auto &ma : machines) {
+        const QString path = ma.path();
+        machList << path;
+        if (!existMachines.contains(path))
+            machinesAdded(path);
+    }
+
+    for (const auto &ma : existMachines) {
+        if (!machList.contains(ma)) {
+            machinesRemoved(ma);
+        }
+    }
+}
+
 #ifndef DCC_DISABLE_ROTATE
 void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 {
@@ -233,6 +259,23 @@ void DisplayWorker::setCurrentFillMode(Monitor *mon,const QString fillMode)
     MonitorDBusProxy *inter = m_monitors.value(mon);
     Q_ASSERT(inter);
     inter->setCurrentFillMode(fillMode);
+}
+
+void DisplayWorker::setCurrentMachinePair(Machine *mac)
+{
+    qDebug() << " 设置pair： " << mac->Name();
+    MachineDBusProxy *inter = m_machines.value(mac);
+    if (mac->Paired()) {
+        inter->RequestCooperate();
+    } else {
+        inter->Pair();
+    }
+}
+
+void DisplayWorker::setCurrentMachineDisconnect(Machine *mac)
+{
+    MachineDBusProxy *inter = m_machines.value(mac);
+    inter->Disconnect();
 }
 
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
@@ -408,6 +451,52 @@ void DisplayWorker::monitorRemoved(const QString &path)
     m_monitors.remove(monitor);
 
     monitor->deleteLater();
+}
+
+void DisplayWorker::machinesAdded(const QString &path)
+{
+    MachineDBusProxy *interProxy = new MachineDBusProxy(path, this);
+    Machine *machine = new Machine(this);
+
+    connect(interProxy, &MachineDBusProxy::IpChanged, machine, &Machine::setIP);
+    connect(interProxy, &MachineDBusProxy::NameChanged, machine, &Machine::setName);
+    connect(interProxy, &MachineDBusProxy::PairedChanged, machine, &Machine::setPaired);
+    connect(interProxy, &MachineDBusProxy::PairedChanged, machine, [this, machine](bool pair){
+        // TODO : 若无返回值 根据cooperat处理
+        if (pair) {
+            this->setCurrentMachinePair(machine);
+        }
+    });
+    connect(interProxy, &MachineDBusProxy::CooperatingChanged, machine, &Machine::setCooperating);
+
+    machine->setPath(path);
+    machine->setIP(interProxy->IP());
+    machine->setName(interProxy->name());
+    machine->setPaired(interProxy->paired());
+    machine->setCooperating(interProxy->cooperating());
+
+    m_model->machinesAdded(machine);
+    m_machines.insert(machine, interProxy);
+}
+
+void DisplayWorker::machinesRemoved(const QString &path)
+{
+    Machine *machine = nullptr;
+    for (auto it(m_machines.cbegin()); it !=m_machines.cend(); ++it) {
+        if (it.key()->Path() == path) {
+            machine = it.key();
+            break;
+        }
+    }
+
+    if (!machine)
+        return;
+
+    m_model->machinesRemoved(machine);
+    m_machines[machine]->deleteLater();
+    m_machines.remove(machine);
+
+    machine->deleteLater();
 }
 
 void DisplayWorker::setAmbientLightAdjustBrightness(bool able)
