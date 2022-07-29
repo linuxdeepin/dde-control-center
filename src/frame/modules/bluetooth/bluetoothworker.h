@@ -102,6 +102,7 @@ private:
     QMap<QString, QPointer<PinCodeDialog>> m_dialogs;
     bool m_connectingAudioDevice;
     uint m_state;
+    QTimer *m_powerSwitchTimer;
 };
 
 } // namespace bluetooth

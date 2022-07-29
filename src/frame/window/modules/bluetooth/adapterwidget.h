@@ -129,6 +129,7 @@ private:
     dcc::bluetooth::BluetoothModel *m_model;
     dcc::widgets::SwitchWidget *m_discoverySwitch;
     dcc::widgets::SettingsGroup *m_settingsGrp;
+    QTimer *m_spinnerTimer;
 };
 }
 }

@@ -52,11 +52,23 @@ using namespace DCC_NAMESPACE::bluetooth;
 DWIDGET_USE_NAMESPACE
 
 AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::bluetooth::BluetoothModel *model)
-    : m_titleEdit(new TitleEdit)
+    : m_tip(nullptr)
+    , m_titleEdit(new TitleEdit)
     , m_adapter(adapter)
     , m_powerSwitch(new SwitchWidget(nullptr, m_titleEdit))
     , m_showAnonymousCheckBox(new DCheckBox(this))
+    , m_myDevicesGroup(nullptr)
+    , m_myDeviceListView(nullptr)
+    , m_myDeviceModel(nullptr)
+    , m_otherDevicesGroup(nullptr)
+    , m_spinner(nullptr)
+    , m_otherDeviceListView(nullptr)
+    , m_otherDeviceModel(nullptr)
+    , m_refreshBtn(nullptr)
     , m_model(model)
+    , m_discoverySwitch(nullptr)
+    , m_settingsGrp(nullptr)
+    , m_spinnerTimer(new QTimer(this))
 {
     setAccessibleName("AdapterWidget");
     m_showAnonymousCheckBox->setAccessibleName("AnonymousCheckBox");
@@ -363,12 +375,39 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     connect(adapter, &Adapter::deviceRemoved, this, &AdapterWidget::removeDevice, Qt::QueuedConnection);
     connect(adapter, &Adapter::poweredChanged, this, &AdapterWidget::onPowerStatus, Qt::QueuedConnection);
     connect(m_model, &BluetoothModel::adpaterPowerChanged, m_powerSwitch, [ = ] {
-        m_powerSwitch->switchButton()->setEnabled(true);
-        m_spinnerBtn->hide();
+        QTimer::singleShot(100, this, [this] {
+            m_powerSwitch->switchButton()->setEnabled(true);
+            m_spinnerBtn->hide();
+            if (m_spinnerTimer && m_spinnerTimer->isActive()) {
+                m_spinnerTimer->stop();
+            }
+        });
     });
     connect(adapter, &Adapter::loadStatus, m_powerSwitch, [ = ] {
-        m_powerSwitch->switchButton()->setEnabled(false);
-        m_spinnerBtn->show();
+        QTimer::singleShot(100, this, [this] {
+            m_powerSwitch->switchButton()->setEnabled(false);
+            m_spinnerBtn->show();
+            if (m_spinnerTimer) {
+                if (!m_spinnerTimer->isActive()) {
+                    m_spinnerTimer->start(6 * 1000);
+                } else {
+                    //重新计时
+                    m_spinnerTimer->stop();
+                    m_spinnerTimer->start(6 * 1000);
+                }
+            }
+        });
+    });
+
+    connect(m_spinnerTimer, &QTimer::timeout, this, [this]() {
+        if (m_powerSwitch &&  m_powerSwitch->switchButton() &&
+                !m_powerSwitch->switchButton()->isEnabled() &&
+                !m_spinnerBtn->isHidden()) {
+            qWarning() << " switch bluetooth status timeout";
+            m_powerSwitch->switchButton()->setEnabled(true);
+            m_spinnerBtn->hide();
+            m_spinnerTimer->stop();
+        }
     });
 
     m_titleEdit->setTitle(adapter->name());

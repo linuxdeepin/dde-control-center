@@ -40,7 +40,11 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
     , m_model(model)
     , m_connectingAudioDevice(false)
     , m_state(m_bluetoothInter->state())
+    , m_powerSwitchTimer(new QTimer(this))
 {
+    m_powerSwitchTimer->setSingleShot(true);
+    m_powerSwitchTimer->setInterval(500);
+
     connect(m_bluetoothInter, &DBusBluetooth::StateChanged, this, &BluetoothWorker::onStateChanged);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterAdded, this, &BluetoothWorker::addAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
@@ -80,7 +84,7 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
             qDebug() << "not repeat dialog" ;
             m_dialogs[in0.path()]->hide();
             m_dialogs[in0.path()]->deleteLater();
-            m_dialogs[in0.path()] = NULL;
+            m_dialogs[in0.path()] = nullptr;
             m_dialogs.remove(in0.path());
         }
         m_dialogs[in0.path()] = dialog;
@@ -189,57 +193,49 @@ void BluetoothWorker::blockDBusSignals(bool block)
 
 void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powered)
 {
-    QTimer *timer = new QTimer;
-    timer->setSingleShot(true);
-    // 500后后端还不响应,前端就显示一个加载中的状态
-    timer->setInterval(500);
+    if (!adapter) {
+        return;
+    }
 
-    connect(timer, &QTimer::timeout, adapter, &Adapter::loadStatus);
+    connect(m_powerSwitchTimer, &QTimer::timeout, adapter, &Adapter::loadStatus);
+    m_powerSwitchTimer->start();
 
-    timer->start();
+    connect(adapter, &Adapter::poweredChanged, [=]() {
+        int dealyTime = 0;
+        if (!powered) {
+            dealyTime = 150;
+        }
+        QTimer::singleShot(dealyTime, this, [=] {
+            if (powered == adapter->powered()) {
+                Q_EMIT m_model->adpaterPowerChanged(adapter->powered());
+                m_powerSwitchTimer->stop();
+                disconnect(m_powerSwitchTimer, &QTimer::timeout, adapter, &Adapter::loadStatus);
+            }
+        });
+    });
 
     QDBusObjectPath path(adapter->id());
     // 关闭蓝牙之前删除历史蓝牙设备列表，确保完全是删除后再设置开关
     if (!powered) {
-        QDBusPendingCall call = m_bluetoothInter->ClearUnpairedDevice();
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+        QDBusPendingCall clearUnpairedCall = m_bluetoothInter->ClearUnpairedDevice();
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(clearUnpairedCall, this);
         connect(watcher, &QDBusPendingCallWatcher::finished, [ = ] {
-            if (!call.isError()) {
-                QDBusPendingCall adapterPoweredOffCall  = m_bluetoothInter->SetAdapterPowered(path, false);
-                QDBusPendingCallWatcher *watchers = new QDBusPendingCallWatcher(adapterPoweredOffCall, this);
-                connect(watchers, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOffCall, adapter, timer, powered] {
-                    if (adapterPoweredOffCall.isError()) {
-                        qDebug() << adapterPoweredOffCall.error().message();
-                        adapter->poweredChanged(adapter->powered(), adapter->discovering());
-                    }
-                    adapter->loadStatus();
-                    connect(adapter, &Adapter::poweredChanged, [=](const bool &receivePowerd, const bool &) {
-                        if (powered == receivePowerd) {
-                            m_model->adpaterPowerChanged(adapter->powered());
-                        }
-                    });
-                    delete timer;
-                });
+            if (clearUnpairedCall.isError()) {
+                qWarning() << clearUnpairedCall.error().message();
             } else {
-                qDebug() << call.error().message();
+                m_bluetoothInter->SetAdapterPowered(path, false);
             }
         });
+
+        adapter->loadStatus();
     } else {
         QDBusPendingCall adapterPoweredOnCall  = m_bluetoothInter->SetAdapterPowered(path, true);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(adapterPoweredOnCall, this);
-        connect(watcher, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOnCall, adapter, timer, powered] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, [adapterPoweredOnCall, adapter] {
             if (adapterPoweredOnCall.isError()) {
-                qDebug() << adapterPoweredOnCall.error().message();
-                adapter->poweredChanged(adapter->powered(), adapter->discovering());
-                return;
+                qWarning() << adapterPoweredOnCall.error().message();
+                Q_EMIT adapter->poweredChanged(adapter->powered(), adapter->discovering());
             }
-            adapter->loadStatus();
-            connect(adapter, &Adapter::poweredChanged, [=](const bool &receivePowerd, const bool &) {
-                if (powered == receivePowerd) {
-                    m_model->adpaterPowerChanged(adapter->powered());
-                }
-            });
-            delete timer;
         });
     }
 }
