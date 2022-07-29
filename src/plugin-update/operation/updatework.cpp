@@ -1310,13 +1310,14 @@ void UpdateWorker::setUpdateItemDownloadSize(UpdateItemInfo *updateItem,  QStrin
 {
     QDBusPendingCall call = m_updateInter->PackagesDownloadSize(packages);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, updateItem, call] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, updateItem, [updateItem, call, watcher] {
         if (!call.isError())
         {
             QDBusReply<qlonglong> reply = call.reply();
             qlonglong value = reply.value();
             updateItem->setDownloadSize(value);
         }
+        watcher->deleteLater();
     });
 }
 
