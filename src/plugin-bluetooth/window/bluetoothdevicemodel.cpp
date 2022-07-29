@@ -27,8 +27,10 @@
 #include <QModelIndex>
 #include <QWidget>
 #include <QApplication>
+#include <QLineEdit>
 
 #include <DSpinner>
+#include <DDesktopServices>
 
 DWIDGET_USE_NAMESPACE
 
@@ -318,4 +320,26 @@ void BluetoothDeviceModel::showAnonymous(bool show)
             m_data.append(*it);
     }
     endResetModel();
+}
+
+BluetoothDeviceDelegate::BluetoothDeviceDelegate(QAbstractItemView *parent)
+    : Dtk::Widget::DStyledItemDelegate(parent)
+{
+}
+
+QWidget *BluetoothDeviceDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    if (!index.isValid())
+        return nullptr;
+
+    QLineEdit *edit = new QLineEdit(parent);
+    edit->setFrame(false);
+    edit->setSizePolicy(QSizePolicy::Ignored, edit->sizePolicy().verticalPolicy());
+    connect(edit, &QLineEdit::textChanged, edit, [edit](const QString &str) {
+        if (str.length() > 32) {
+            edit->backspace();
+            Dtk::Widget::DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        }
+    });
+    return edit;
 }
