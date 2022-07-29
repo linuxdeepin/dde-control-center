@@ -27,9 +27,9 @@
 #include <QTimer>
 #include <QApplication>
 
-const static QString DaemonDockService = "com.deepin.dde.daemon.Dock";
-const static QString DaemonDockPath = "/com/deepin/dde/daemon/Dock";
-const static QString DaemonDockInterface = "com.deepin.dde.daemon.Dock";
+const static QString DaemonDockService = "org.deepin.dde.daemon.Dock1";
+const static QString DaemonDockPath = "/org/deepin/dde/daemon/Dock1";
+const static QString DaemonDockInterface = "org.deepin.dde.daemon.Dock1";
 const static QString DockService = "com.deepin.dde.Dock";
 const static QString DockPath = "/com/deepin/dde/Dock";
 const static QString DockInterface = "com.deepin.dde.Dock";
@@ -109,6 +109,11 @@ void DockDBusProxy::setShowInPrimary(bool value)
     m_dockInter->setProperty("showInPrimary", QVariant::fromValue(value));
 }
 
+bool DockDBusProxy::showRecent()
+{
+    return qvariant_cast<bool>(m_daemonDockInter->property("ShowRecent"));
+}
+
 void DockDBusProxy::resizeDock(int offset, bool dragging)
 {
     QList<QVariant> argumentList;
@@ -142,6 +147,13 @@ QDBusPendingReply<> DockDBusProxy::setPluginVisible(const QString &pluginName, b
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(pluginName) << QVariant::fromValue(visible);
     return m_dockInter->asyncCallWithArgumentList(QStringLiteral("setPluginVisible"), argumentList);
+}
+
+QDBusPendingReply<> DockDBusProxy::SetShowRecent(bool visible)
+{
+    QList<QVariant> argumengList;
+    argumengList << QVariant::fromValue(visible);
+    return m_daemonDockInter->asyncCallWithArgumentList(QStringLiteral("SetShowRecent"), argumengList);
 }
 
 void DockDBusProxy::onPropertiesChanged(const QDBusMessage &message)

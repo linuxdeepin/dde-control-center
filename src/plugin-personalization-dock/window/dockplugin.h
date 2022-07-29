@@ -42,6 +42,7 @@ DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 class DockDBusProxy;
+class QCheckBox;
 
 class DockPlugin : public PluginInterface
 {
@@ -72,6 +73,7 @@ private Q_SLOTS:
     void initMode(ComboxWidget *widget);
     void initPosition(ComboxWidget *widget);
     void initStatus(ComboxWidget *widget);
+    void initShowRecent(QCheckBox *checkBox);
     void initSizeSlider(TitledSliderItem *slider);
     void initScreenTitle(TitleLabel *label);
     void initScreen(ComboxWidget *widget);
