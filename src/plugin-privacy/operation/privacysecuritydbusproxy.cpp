@@ -71,16 +71,15 @@ void PrivacySecurityDBusProxy::getPermissionEnable(const QString &permissionGrou
 
 void PrivacySecurityDBusProxy::setPermissionEnable(const QString &permissionGroup, const QString &permissionId, bool enable)
 {
-    QList<QVariant> argumentList;
-    argumentList << permissionGroup << permissionId << enable;
-
-    m_privacyInter->call(QDBus::AutoDetect, QStringLiteral("SetPermissionEnable"), permissionGroup, permissionId, enable);
-    QDBusPendingCall pcall = m_privacyInter->asyncCall(QStringLiteral("SetPermissionEnable"), argumentList);
+    QDBusPendingCall pcall = m_privacyInter->asyncCall(QStringLiteral("SetPermissionEnable"), permissionGroup, permissionId, enable);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pcall, this);
-    disconnect(watcher, &QDBusPendingCallWatcher::finished, this, nullptr);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, permissionGroup, permissionId](bool callResult){
-        if (!callResult){
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher, permissionGroup, permissionId](QDBusPendingCallWatcher *watch){
+        QDBusPendingReply<bool> reply = *watch;
+        if (!reply.isError() && !reply.value()) {
             Q_EMIT permissionEnableReset(permissionGroup, permissionId);
+        } else {
+            qDebug() << "setPermissionEnable ==> value: " << reply.value() << "ERROR: " << reply.error();
         }
+        watcher->deleteLater();
     });
 }

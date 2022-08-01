@@ -134,6 +134,7 @@ void PrivacySecurityWorker::resetPermissionState(const QString &permissionGroup,
 {
     Q_UNUSED(permissionGroup);
     ServiceControlItems *serviceItem = m_model->getServiceItem(permissionId);
+    qDebug() << "serviceItem->getSwitchState(): " << serviceItem->getSwitchState();
     serviceItem->serviceSwitchStateChange(serviceItem->getSwitchState());
 }
 

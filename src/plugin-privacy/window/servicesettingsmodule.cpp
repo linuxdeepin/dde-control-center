@@ -71,7 +71,6 @@ void ServiceSettingsModule::initSwitchWidget(DCC_NAMESPACE::SwitchWidget *titleS
 
     connect(m_serviceItemDate, &ServiceControlItems::serviceSwitchStateChange, titleSwitch, &SwitchWidget::setChecked);
     connect(titleSwitch, &SwitchWidget::checkedChanged, m_worker, [this](bool checkState){
-        m_serviceItemDate->setSwitchState(checkState);
         m_worker->setPermissionEnable(m_serviceItemDate->getServiceGroup(), m_model->getDaemonDefineName(m_currentServiceDate.category), checkState);
     });
     connect(m_serviceItemDate, &ServiceControlItems::serviceAvailableStateChange, titleSwitch, [=](bool serviceAvaiable){
