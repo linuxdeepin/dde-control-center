@@ -64,6 +64,7 @@ void ResetPasswordDialog::showEvent(QShowEvent *event)
 
 void ResetPasswordDialog::hideEvent(QHideEvent *event)
 {
+    qInfo() << "hideEvent";
     DDialog::hideEvent(event);
     auto isWayland = qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland");
     if (isWayland && m_isClose) {
@@ -73,6 +74,9 @@ void ResetPasswordDialog::hideEvent(QHideEvent *event)
         }
         this->close();
         qApp->quit();
+    } else {
+        QTimer::singleShot(1000, this, SLOT(show()));
+        qInfo() << "single shot show";
     }
 }
 
