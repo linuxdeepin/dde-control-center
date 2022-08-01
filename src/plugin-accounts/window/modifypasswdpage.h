@@ -88,6 +88,7 @@ Q_SIGNALS:
     void requestLocalBindCheck(User *user, const QString &uosid, const QString &uuid);
     void requestStartResetPasswordExec(User *user);
     void requestSecurityQuestionsCheck(User *user);
+    void requestCheckPwdLimitLevel();
 
 public Q_SLOTS:
     void onLocalBindCheckUbid(const QString &ubid);

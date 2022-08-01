@@ -121,6 +121,7 @@ protected Q_SLOTS:
     void onGidChanged(const QString &gid);
     bool onEditingFinished(bool isValid, DTK_WIDGET_NAMESPACE::DLineEdit *fullNameEdit);
     void setFullname(const QString &fullName, DTK_WIDGET_NAMESPACE::DLabel *fullNameLabel);
+    void onShowSafetyPage(const QString &errorTips);
 
 protected:
     QString getOtherUserAutoLogin(); //获取其它用户是否开启自动登录开关

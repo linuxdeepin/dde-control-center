@@ -61,6 +61,7 @@
 
 #include <polkit-qt5-1/PolkitQt1/Authority>
 
+#include <DDBusSender>
 #include <grp.h>
 
 DCC_USE_NAMESPACE
@@ -227,6 +228,7 @@ AccountsModule::AccountsModule(QObject *parent)
 
     setGroupInfo(m_model->getAllGroups());
     connect(m_model, &UserModel::allGroupsChange, this, &AccountsModule::setGroupInfo);
+    connect(m_worker, &AccountsWorker::showSafeyPage, this, &AccountsModule::onShowSafetyPage);
 
     appendChild(new WidgetModule<QWidget>("accountsList", tr("accountsList"), this, &AccountsModule::initAccountsList));
     appendChild(new WidgetModule<QWidget>("avatar", tr("avatar"), this, &AccountsModule::initAvatar));
@@ -680,6 +682,7 @@ void AccountsModule::onCreateAccount()
         createAccountPage->setModel(m_model, newUser);
         connect(createAccountPage, &CreateAccountPage::requestCreateUser, m_worker, &AccountsWorker::createAccount);
         connect(m_worker, &AccountsWorker::accountCreationFinished, createAccountPage, &CreateAccountPage::setCreationResult);
+        connect(createAccountPage, &CreateAccountPage::requestCheckPwdLimitLevel, m_worker, &AccountsWorker::checkPwdLimitLevel);
         if (createAccountPage->exec() == QDialog::Accepted) {
             for (auto &&user : m_model->userList()) {
                 if (user->name() == newUser->name()) {
@@ -717,6 +720,7 @@ void AccountsModule::onModifyPassword()
         connect(modifyPasswdPage, &ModifyPasswdPage::requestLocalBindCheck, m_worker, &AccountsWorker::localBindCheck);
         connect(modifyPasswdPage, &ModifyPasswdPage::requestStartResetPasswordExec, m_worker, &AccountsWorker::startResetPasswordExec);
         connect(modifyPasswdPage, &ModifyPasswdPage::requestSecurityQuestionsCheck, m_worker, &AccountsWorker::asyncSecurityQuestionsCheck);
+        connect(modifyPasswdPage, &ModifyPasswdPage::requestCheckPwdLimitLevel, m_worker, &AccountsWorker::checkPwdLimitLevel);
         connect(m_worker, &AccountsWorker::localBindUbid, modifyPasswdPage, &ModifyPasswdPage::onLocalBindCheckUbid);
         connect(m_worker, &AccountsWorker::localBindError, modifyPasswdPage, &ModifyPasswdPage::onLocalBindCheckError);
         modifyPasswdPage->exec();
@@ -893,6 +897,27 @@ void AccountsModule::setFullname(const QString &fullName, DLabel *fullNameLabel)
         }
     }
     fullNameLabel->setText(fullname.toHtmlEscaped());
+}
+
+void AccountsModule::onShowSafetyPage(const QString &errorTips)
+{
+    DDialog dlg("", errorTips, nullptr);
+    dlg.setIcon(QIcon::fromTheme("preferences-system"));
+    dlg.addButton(tr("Go to Settings"));
+    dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
+    connect(&dlg, &DDialog::buttonClicked, this, [=](int idx) {
+        if (idx == 0) {
+            DDBusSender()
+                .service("com.deepin.defender.hmiscreen")
+                .interface("com.deepin.defender.hmiscreen")
+                .path("/com/deepin/defender/hmiscreen")
+                .method(QString("ShowPage"))
+                .arg(QString("securitytools"))
+                .arg(QString("login-safety"))
+                .call();
+        }
+    });
+    dlg.exec();
 }
 
 QString AccountsModule::getOtherUserAutoLogin()

@@ -89,6 +89,7 @@ protected:
 Q_SIGNALS:
     void requestCreateUser(const User *user);
     void requestSetPasswordHint(User *, const QString &);
+    void requestCheckPwdLimitLevel();
 
 public Q_SLOTS:
     void setCreationResult(CreationResult *result);
