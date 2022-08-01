@@ -36,12 +36,13 @@ PrivacySecurityModel::PrivacySecurityModel(QObject *parent)
     m_serviceToCategory.insert("calendar"    , ServiceCategory::Calendar);
     m_serviceToCategory.insert("screenshot" , ServiceCategory::Screenshots);
 
+    // TODO: 目前与linglong协定的权限id作为插件的name用于跳转
     m_moduleInfo = {
         DCC_PRIVACY_NAMESPACE::DATE("camera",tr("Camera"), "dcc_camera", ServiceCategory::Camera),
-        DCC_PRIVACY_NAMESPACE::DATE("microphone",tr("Microphone"), "dcc_microphone", ServiceCategory::Microphone),
-        DCC_PRIVACY_NAMESPACE::DATE("userFolders",tr("User Folders"), "folder", ServiceCategory::UserFolders),
+        DCC_PRIVACY_NAMESPACE::DATE("mic",tr("Microphone"), "dcc_microphone", ServiceCategory::Microphone),
+        DCC_PRIVACY_NAMESPACE::DATE("userdir",tr("User Folders"), "folder", ServiceCategory::UserFolders),
         DCC_PRIVACY_NAMESPACE::DATE("calendar",tr("Calendar"), "dde-calendar", ServiceCategory::Calendar),
-        DCC_PRIVACY_NAMESPACE::DATE("screenCapture",tr("Screen Capture"), "deepin-screen-recorder", ServiceCategory::Screenshots),
+        DCC_PRIVACY_NAMESPACE::DATE("screenshot",tr("Screen Capture"), "deepin-screen-recorder", ServiceCategory::Screenshots),
     };
 
     initServiceItems();
