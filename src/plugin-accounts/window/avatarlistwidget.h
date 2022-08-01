@@ -78,6 +78,7 @@ private Q_SLOTS:
 private:
     void initWidgets();
     QString getUserAddedCustomPicPath(const QString &usrName);
+    QStandardItem *getAndSelectCustomAvatar();
 
 private:
     User *m_curUser{nullptr};

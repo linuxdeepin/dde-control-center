@@ -76,7 +76,7 @@ AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
                 }
             }
             if (row == -1) {
-                DStandardItem *item = new DStandardItem();
+                QStandardItem *item = getAndSelectCustomAvatar();
                 item->setAccessibleText(iconpath);
                 auto ratio = devicePixelRatioF();
                 auto px = QPixmap(iconpath).scaled(QSize(74, 74) * ratio,
@@ -86,9 +86,6 @@ AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
                 item->setData(QVariant::fromValue(px), Qt::DecorationRole);
                 item->setData(QVariant::fromValue(iconpath), AvatarListWidget::SaveAvatarRole);
                 item->setData(m_avatarSize, Qt::SizeHintRole);
-                // 第一个为添加
-                m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
-                m_avatarItemModel->insertRow(1, item);
                 row = 1;
             }
             onItemClicked(m_avatarItemModel->index(row, 0));
@@ -135,11 +132,10 @@ void AvatarListWidget::initWidgets()
     m_fd->setModal(true);
     m_fd->setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
 
-    if (m_curUser)
+    if (m_curUser) {
         refreshCustomAvatar(getUserAddedCustomPicPath(m_curUser->name()));
-
-    if (m_curUser)
         setCurrentAvatarChecked(m_curUser->currentAvatar());
+    }
 }
 
 void AvatarListWidget::refreshCustomAvatar(const QString &str)
@@ -148,15 +144,7 @@ void AvatarListWidget::refreshCustomAvatar(const QString &str)
     if (customPicPath.isEmpty())
         return;
 
-    QStandardItem *item = m_avatarItemModel->item(MaxAvatarSize);
-    ;
-    if (!item || item->data(SaveAvatarRole).toString().isEmpty()) {
-        item = new QStandardItem();
-        item->setCheckState(Qt::Checked);
-        m_avatarItemModel->insertRow(MaxAvatarSize, item);
-    } else {
-        item = m_avatarItemModel->item(MaxAvatarSize);
-    }
+    QStandardItem *item = getAndSelectCustomAvatar();
 
     item->setData(QVariant::fromValue(QPixmap(customPicPath)), Qt::DecorationRole);
     item->setData(QVariant::fromValue(customPicPath), AvatarListWidget::SaveAvatarRole);
@@ -304,6 +292,20 @@ QString AvatarListWidget::getUserAddedCustomPicPath(const QString &usrName)
     }
 
     return newiconpath;
+}
+
+QStandardItem *AvatarListWidget::getAndSelectCustomAvatar()
+{
+    QStandardItem *item = m_avatarItemModel->item(1);
+    // 默认项MaxAvatarSize个，添加项一个，自定义项一个
+    if (m_avatarItemModel->rowCount() != MaxAvatarSize + 2) {
+        item = new QStandardItem();
+        if (m_currentSelectIndex.isValid())
+            m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
+        m_avatarItemModel->insertRow(1, item);
+    }
+    item->setCheckState(Qt::Checked);
+    return item;
 }
 
 QString AvatarListWidget::getAvatarPath() const
