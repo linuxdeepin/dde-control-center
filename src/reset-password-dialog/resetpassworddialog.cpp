@@ -74,8 +74,11 @@ void ResetPasswordDialog::hideEvent(QHideEvent *event)
         }
         this->close();
         qApp->quit();
-    } else {
-        QTimer::singleShot(1000, this, SLOT(show()));
+    }
+    if (m_isClose) {
+        QTimer::singleShot(1000, this, [this] {
+            show();
+        });
         qInfo() << "single shot show";
     }
 }
