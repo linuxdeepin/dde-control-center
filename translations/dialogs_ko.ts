@@ -19,7 +19,7 @@
     <message>
         <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
         <source>Shut down</source>
-        <translation>종료</translation>
+        <translation>컴퓨터 끄기</translation>
     </message>
     <message>
         <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>

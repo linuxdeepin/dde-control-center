@@ -14,7 +14,7 @@
     <message>
         <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
         <source>Cancel</source>
-        <translation>ཕྱིར་འཐེན།</translation>
+        <translation>འདོར་བ། </translation>
     </message>
     <message>
         <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>

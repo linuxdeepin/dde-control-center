@@ -2,39 +2,39 @@
 <context>
     <name>PasswordWidget</name>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="60"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="136"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="58"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="134"/>
         <source>Passwords do not match</source>
         <translation>Parolalar eşleşmiyor</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="68"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="66"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>İpucu tüm kullanıcılar tarafından görülebilir. Parolayı buraya dahil etmeyin.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="86"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="84"/>
         <source>New Password</source>
         <translation>Yeni Parola</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="108"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="106"/>
         <source>Repeat Password</source>
         <translation>Parolayı Tekrarla</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="116"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="114"/>
         <source>Password Hint</source>
         <translation>Parola İpucu</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="126"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="123"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="124"/>
         <source>Required</source>
         <translation>Gereklidir</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="127"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
         <source>Optional</source>
         <translation>Seçimlik</translation>
     </message>
@@ -77,34 +77,29 @@
         <translation>Lütfen %1&apos;den fazla yinelenen karakter yok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="85"/>
-        <source>The password should differ from the username</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="90"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>Parola büyük harfler, küçük harfler, sayılar ve semboller içermeli (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Parola 4&apos;ten fazla tersten okunduğunda aynı olan karakter içermemelidir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
         <source>Do not use common words and combinations as password</source>
         <translation>Parola olarak bilinen kelime ve kombinasyonlarını kullanmayın</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="94"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
         <source>Create a strong password please</source>
         <translation>Lütfen güçlü bir parola oluşturun</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="101"/>
         <source>It does not meet password rules</source>
         <translation>Parola kurallarına uymuyor</translation>
     </message>

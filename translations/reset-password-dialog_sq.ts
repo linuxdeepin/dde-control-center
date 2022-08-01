@@ -2,39 +2,39 @@
 <context>
     <name>PasswordWidget</name>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="60"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="136"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="58"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="134"/>
         <source>Passwords do not match</source>
         <translation>Fjalëkalimet nuk përputhen</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="68"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="66"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Ndihmëza do të jetë e dukshme për krejt përdoruesit. Mos përfshini fjalëkalimin këtu.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="86"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="84"/>
         <source>New Password</source>
         <translation>Fjalëkalimi i Ri</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="108"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="106"/>
         <source>Repeat Password</source>
         <translation>Rijepeni Fjalëkalimin</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="116"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="114"/>
         <source>Password Hint</source>
         <translation>Ndihmëz Fjalëkalimi</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="126"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="123"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="124"/>
         <source>Required</source>
         <translation>E domosdoshme</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="127"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
         <source>Optional</source>
         <translation>Opsionale</translation>
     </message>
@@ -74,37 +74,32 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="84"/>
         <source>No more than %1 repeating characters please</source>
-        <translation>Ju lutemi, jo më shumë se %1 shenja të përsëritura</translation>
+        <translation>Ju lutemi, jo më shumë se %1 shenja që përsëriten</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="85"/>
-        <source>The password should differ from the username</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="90"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>Fjalëkalimi duhet të përmbajë vetëm shkronja të mëdha, shkronja të vogla, numra dhe simbole (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Fjalëkalimi s’duhet të përmbajë më shumë se 4 shenja palindromike</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
         <source>Do not use common words and combinations as password</source>
         <translation>Mos përdorni si fjalëkalim fjalë dhe kombinime të zakonshme</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="94"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
         <source>Create a strong password please</source>
         <translation>Ju lutemi, krijoni një fjalëkalim të fortë</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="101"/>
         <source>It does not meet password rules</source>
         <translation>S’plotëson rregullat për fjalëkalime</translation>
     </message>
@@ -188,7 +183,7 @@
     <message>
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="83"/>
         <source>Medium</source>
-        <translation>Mesatar</translation>
+        <translation>Çka</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="93"/>
@@ -251,7 +246,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="62"/>
         <source>Phone/Email</source>
-        <translation>Telefoni/Email</translation>
+        <translation>Telefon/Email</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="68"/>

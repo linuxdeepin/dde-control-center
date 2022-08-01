@@ -2,39 +2,39 @@
 <context>
     <name>PasswordWidget</name>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="60"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="136"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="58"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="134"/>
         <source>Passwords do not match</source>
         <translation>Hasła nie pasują do siebie</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="68"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="66"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Wskazówka będzie widoczna dla wszystkich użytkowników. Nie wprowadzaj tutaj swojego hasła.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="86"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="84"/>
         <source>New Password</source>
         <translation>Nowe hasło</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="108"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="106"/>
         <source>Repeat Password</source>
         <translation>Powtórz hasło</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="116"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="114"/>
         <source>Password Hint</source>
         <translation>Wskazówka do hasła</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="126"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="123"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="124"/>
         <source>Required</source>
         <translation>Wymagane</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="127"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
         <source>Optional</source>
         <translation>Opcjonalne</translation>
     </message>
@@ -64,12 +64,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="82"/>
         <source>No more than %1 palindrome characters please</source>
-        <translation>Nie więcej niż %1 znaki palindromowe</translation>
+        <translation>Nie więcej niż %1 palindromowych znaków</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="83"/>
         <source>No more than %1 monotonic characters please</source>
-        <translation>Nie więcej niż %1 znaki monotoniczne</translation>
+        <translation>Nie więcej niż %1 monotoniczne znaki</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="84"/>
@@ -77,34 +77,29 @@
         <translation>Nie więcej niż %1 powtarzające się znaki</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="85"/>
-        <source>The password should differ from the username</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="90"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>Hasło musi zawierać wielkie litery, małe litery, cyfry i symbole (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Hasło nie może zawierać więcej niż 4 znaki palindromowe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
         <source>Do not use common words and combinations as password</source>
-        <translation>Nie używaj popularnych słów i kombinacji jako hasło</translation>
+        <translation>Nie używaj popularnych słów i kombinacji jako hasła</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="94"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
         <source>Create a strong password please</source>
         <translation>Utwórz silne hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="101"/>
         <source>It does not meet password rules</source>
         <translation>Nie spełnia zasad dotyczących haseł</translation>
     </message>
@@ -183,12 +178,12 @@
     <message>
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="73"/>
         <source>Weak</source>
-        <translation>Słabe</translation>
+        <translation>Słaby</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="83"/>
         <source>Medium</source>
-        <translation>Średnie</translation>
+        <translation>Średni</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="93"/>

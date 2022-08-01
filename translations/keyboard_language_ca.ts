@@ -299,7 +299,7 @@
     <message>
         <location filename="language.h" line="90"/>
         <source>कश्मीरी - (كشميري)</source>
-        <translation>Caixmir - (كشميري)</translation>
+        <translation>कश्मीरी - (Caixmir)</translation>
     </message>
     <message>
         <location filename="language.h" line="91"/>
