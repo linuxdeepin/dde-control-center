@@ -91,7 +91,7 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
 
     qDebug() << " Get Apps size: " << m_model->getServiceItem(m_currentServiceDate.category)->getServiceApps().size();
 
-    auto updateItemCheckStatus = [this, pluginAppsModel, timeGrp](const QString& name, const QString& visible) {
+    auto updateItemCheckStatus = [pluginAppsModel, timeGrp](const QString& name, const QString& visible) {
         qDebug() << " == pluginAppsModel->rowCount()" << pluginAppsModel->rowCount();
         for (int i = 0; i < pluginAppsModel->rowCount(); ++i) {
             auto item = static_cast<DStandardItem *>(pluginAppsModel->item(i));
@@ -99,7 +99,6 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
                 continue;
 
             auto action = item->actionList(Qt::Edge::RightEdge).first();
-            qDebug() << " ========== " << item->index().row() << visible << (visible == "0");
             auto checkstatus = (visible == "1" ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked);
             auto icon = qobject_cast<DStyle *>(timeGrp->style())->standardIcon(checkstatus);
             action->setIcon(icon);
@@ -139,12 +138,11 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
     };
 
     connect(m_serviceItemDate, &ServiceControlItems::serviceSwitchStateChange, timeGrp, &DListView::setEnabled);
-    connect(m_serviceItemDate, &ServiceControlItems::permissionInfoChange, this, [updateItemCheckStatus](const QString& name, const QString& visible){
+    connect(m_serviceItemDate, &ServiceControlItems::permissionInfoChange, timeGrp, [updateItemCheckStatus](const QString& name, const QString& visible){
         updateItemCheckStatus(name, visible);
     });
     connect(m_serviceItemDate, &ServiceControlItems::serviceAvailableStateChange, timeGrp, &DListView::setVisible);
-
-    connect(m_serviceItemDate, &ServiceControlItems::serviceAppsDateChange, this, [refreshItemDate](){
+    connect(m_serviceItemDate, &ServiceControlItems::serviceAppsDateChange, timeGrp, [refreshItemDate](){
          refreshItemDate();
     });
 
@@ -153,7 +151,7 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
 
 void ServiceSettingsModule::initNoServiceLabel(QWidget *noServiceLabel)
 {
-    connect(m_serviceItemDate, &ServiceControlItems::serviceAvailableStateChange, this, [=](bool serviceAvailable){
+    connect(m_serviceItemDate, &ServiceControlItems::serviceAvailableStateChange, noServiceLabel, [=](bool serviceAvailable){
         noServiceLabel->setVisible(!serviceAvailable);
     });
 

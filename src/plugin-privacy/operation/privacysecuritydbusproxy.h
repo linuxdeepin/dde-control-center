@@ -23,10 +23,10 @@ public:
     void setPermissionEnable(const QString& permissionGroup, const QString& permissionId, bool enable);
 
 Q_SIGNALS:
-    void permissionEnableChanged(const QString& permissionGroup, const QString& permissionId, bool enable);
-    void permissionInfoChanged();
-    void permissionEnableReset(const QString &permissionGroup, const QString &permissionId);
+    void PermissionEnableChanged(const QString& permissionGroup, const QString& permissionId, bool enable);
+    void PermissionInfoChanged();
 
+    void permissionEnableReset(const QString &permissionGroup, const QString &permissionId);
     // 数据加载完成
     void permissionInfoLoadFinished(const QString& perInfo);
     void setPermissionInfoLoadState(const bool loadState);

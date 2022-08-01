@@ -38,7 +38,7 @@ PrivacySecurityWorker::PrivacySecurityWorker(PrivacySecurityModel *model, QObjec
     , m_privacyDBusInter(new PrivacySecurityDBusProxy(this))
 {
     connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionInfoLoadFinished, this, &PrivacySecurityWorker::permissionInfoLoadFinished);
-    connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionEnableChanged, this, &PrivacySecurityWorker::refreshPermissionState);
+    connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::PermissionEnableChanged, this, &PrivacySecurityWorker::refreshPermissionState);
     connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionEnableReset, this, &PrivacySecurityWorker::resetPermissionState);
 }
 
@@ -59,6 +59,7 @@ void PrivacySecurityWorker::deactivate()
 
 void PrivacySecurityWorker::permissionInfoLoadFinished(const QString &perInfo)
 {
+    qDebug() << " perInfo : " << perInfo;
     // 解析JSON
     QJsonDocument doc = QJsonDocument::fromJson(perInfo.toUtf8());
     QJsonArray groupDate = doc.array();

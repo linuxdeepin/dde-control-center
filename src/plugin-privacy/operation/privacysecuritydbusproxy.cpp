@@ -39,7 +39,7 @@ PrivacySecurityDBusProxy::PrivacySecurityDBusProxy(QObject *parent)
     : QObject(parent)
     , m_privacyInter(new DCCDBusInterface(PermissionService, PermissionPath, PermissionInterface, QDBusConnection::sessionBus(), this))
 {
-    connect(this, &PrivacySecurityDBusProxy::permissionInfoChanged, this, &PrivacySecurityDBusProxy::getPermissionInfo);
+    connect(this, &PrivacySecurityDBusProxy::PermissionInfoChanged, this, &PrivacySecurityDBusProxy::getPermissionInfo);
 
     connect(this, &PrivacySecurityDBusProxy::setPermissionInfoLoadState, [this](const bool loadState){
         if (loadState)
@@ -49,7 +49,7 @@ PrivacySecurityDBusProxy::PrivacySecurityDBusProxy(QObject *parent)
 
 void PrivacySecurityDBusProxy::getPermissionInfo()
 {
-    qDebug() << "PrivacySecurityDBusProxy::GetPermissionInfo";
+    qDebug() << " PrivacySecurityDBusProxy::GetPermissionInfo ";
     // 使用异步回调展示数据
     QList<QVariant> argumentList;
     m_privacyInter->callWithCallback(QStringLiteral("GetPermissionInfo"), argumentList, this, SIGNAL(permissionInfoLoadFinished(QString)));
