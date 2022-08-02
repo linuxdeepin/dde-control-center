@@ -117,7 +117,7 @@ void FormatSetting::initComboxWidgetList()
         m_weekStartDayCbx->comboBox()->addItem(weekStartWithDay(i));
     }
 
-    int shortdatecount = 9;
+    int shortdatecount = 11;
     for (int i = 0; i < shortdatecount; i++) {
         m_shortDateCbx->comboBox()->addItem(fotmatShortDate(i));
     }
@@ -259,12 +259,18 @@ QString FormatSetting::fotmatShortDate(int type)
         date = tr("2020.04.05");
         break;
     case 6:
-        date = tr("20/4/5");
+        date = tr("04.05.2020");
         break;
     case 7:
-        date = tr("20-4-5");
+        date = tr("05.04.2020");
         break;
     case 8:
+        date = tr("20/4/5");
+        break;
+    case 9:
+        date = tr("20-4-5");
+        break;
+    case 10:
         date = tr("20.4.5");
         break;
     default:
