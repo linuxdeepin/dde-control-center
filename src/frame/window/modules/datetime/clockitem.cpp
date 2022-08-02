@@ -236,7 +236,13 @@ void ClockItem::updateDateTime()
 
     if (m_bIsEnglishType) {
         m_label->setText(QDate::currentDate().toString("dddd"));
-        m_labelDate->setText(QDate::currentDate().toString("MM-dd-yyyy"));
+        // 如果用户有设置短日期（英文）的格式，按照设置的短日期格式去显示
+        // 否则按照默认的格式去显示
+        if (m_shortDateFormat == "MM.dd.yyyy" || m_shortDateFormat == "dd.MM.yyyy") {
+            m_labelDate->setText(QDate::currentDate().toString(m_shortDateFormat));
+        } else {
+            m_labelDate->setText(QDate::currentDate().toString("MM-dd-yyyy"));
+        }
     } else {
         m_label->setText(QDate::currentDate().toString(m_shortDateFormat));
         m_labelDate->setText(QDate::currentDate().toString(m_weekdayFormat));
@@ -270,9 +276,11 @@ void ClockItem::setShortDateFormat(int type)
     case 3: m_shortDateFormat = "yyyy/MM/dd"; break;
     case 4: m_shortDateFormat = "yyyy-MM-dd"; break;
     case 5: m_shortDateFormat = "yyyy.MM.dd"; break;
-    case 6: m_shortDateFormat = "yy/M/d"; break;
-    case 7: m_shortDateFormat = "yy-M-d"; break;
-    case 8: m_shortDateFormat = "yy.M.d"; break;
+    case 6: m_shortDateFormat = "MM.dd.yyyy"; break;
+    case 7: m_shortDateFormat = "dd.MM.yyyy"; break;
+    case 8: m_shortDateFormat = "yy/M/d"; break;
+    case 9: m_shortDateFormat = "yy-M-d"; break;
+    case 10: m_shortDateFormat = "yy.M.d"; break;
     default: m_shortDateFormat = "yyyy-MM-dd"; break;
     }
     updateDateTime();
