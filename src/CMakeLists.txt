@@ -18,35 +18,48 @@ find_package(KF5NetworkManagerQt REQUIRED)
 
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
+pkg_check_modules(LibNM REQUIRED IMPORTED_TARGET libnm)
 
-get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
+# KF5 network manager
+ get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
 
-set(TRY_KF5_LIBRARIES
-IMPORTED_LOCATION_DEBIAN
-IMPORTED_LOCATION_NOCONFIG
-)
+ set(TRY_KF5_LIBRARIES
+ IMPORTED_LOCATION_DEBIAN
+ IMPORTED_LOCATION_NOCONFIG
+ )
 
-if (NOT KF5_QT_LIBRARIES)
-    find_library(KF5_QT_LIBRARIES libKF5NetworkManagerQt.so)
-endif()
+ foreach(LETTER ${TRY_KF5_LIBRARIES})
+     if (NOT KF5_QT_LIBRARIES)
+         get_target_property(KF5_QT_LIBRARIES KF5::NetworkManagerQt ${LETTER})
+     endif()
+ endforeach()
+
+ if (NOT KF5_QT_LIBRARIES)
+     find_library(KF5_QT_LIBRARIES libKF5NetworkManagerQt.so)
+ endif()
+ # end KF5 network manager
 
 target_include_directories(${PROJECT_NAME} PUBLIC
     realize
     ${Qt5DBus_INCLUDE_DIRS}
     ${DFrameworkDBus_INCLUDE_DIRS}
     ${QGSettings_INCLUDE_DIRS}
-    ${LibNM_INCLUDE_DIRS}
     ${Qt5Network_INCLUDE_DIRS}
-    ${KF5_QT_INCLUDE_DIRS})
+    ${KF5_QT_INCLUDE_DIRS}
+    PkgConfig::LibNM
+)
+
+message(STATUS ${LibNM_INCLUDE_DIRS})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     ${Qt5Core_LIBRARIES}
-    ${LibNM_LIBRARIES}
     ${DFrameworkDBus_LIBRARIES}
     ${Qt5DBus_LIBRARIES}
     ${Qt5Network_LIBRARIES}
     ${QGSettings_LIBRARIES}
-    ${KF5_QT_LIBRARIES})
+    ${KF5_QT_LIBRARIES}
+    PkgConfig::LibNM
+)
 
 configure_file(dde-network-core.pc.in ../dde-network-core.pc @ONLY)
 

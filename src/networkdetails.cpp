@@ -30,6 +30,7 @@
 #include <networkmanagerqt/ipv6setting.h>
 
 #include <QJsonObject>
+#include <QJsonArray>
 
 using namespace NetworkManager;
 using namespace dde::network;
