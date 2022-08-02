@@ -179,17 +179,17 @@ void ResetPasswordDialog::initWidget(const QString &userName)
     auto isWayland = qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland");
     if (isWayland) {
         m_tipDialog.windowHandle()->setProperty("_d_dwayland_window-type", "override");
-        m_tipDialog.setWindowFlags(Qt::NoDropShadowWindowHint | Qt::Window);
+        m_tipDialog.setWindowFlags(Qt::NoDropShadowWindowHint | Qt::Window | Qt::CustomizeWindowHint);
         create();
         windowHandle()->setProperty("_d_dwayland_window-type", "override");
-        setWindowFlags(Qt::NoDropShadowWindowHint | Qt::Window);
+        setWindowFlags(Qt::NoDropShadowWindowHint | Qt::Window  | Qt::CustomizeWindowHint);
     } else {
         if (m_appName == "greeter" || m_appName == "lock") {
-            m_tipDialog.setWindowFlags(Qt::Popup | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
-            setWindowFlags(Qt::Popup | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+            m_tipDialog.setWindowFlags(Qt::Popup | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint);
+            setWindowFlags(Qt::Popup | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint);
         } else {
-            m_tipDialog.setWindowFlags(Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
-            setWindowFlags(Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
+            m_tipDialog.setWindowFlags(Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint);
+            setWindowFlags(Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint);
         }
     }
     m_tipDialog.installEventFilter(this);
