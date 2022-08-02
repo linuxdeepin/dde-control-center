@@ -97,7 +97,7 @@ void UnionIDWidget::initWidget()
     unBindVLayout->setSpacing(0);
     unBindVLayout->setMargin(0);
     m_unBindIcon->setPixmap(QIcon::fromTheme(m_iconPath).pixmap({128, 128}));
-    QLabel *unBindLabel = new QLabel(tr("The user account is not linked to Union ID"));
+    QLabel *unBindLabel = new QLabel(tr("The user account is not linked to UOS ID"));
     unBindVLayout->addSpacing(64);
     unBindVLayout->addWidget(m_unBindIcon, 0, Qt::AlignCenter);
     unBindVLayout->addSpacing(32);
@@ -245,12 +245,12 @@ QString UnionIDWidget::getErrorTips(UnionIDWidget::UNION_ID_ERROR_TYPE errorType
         { UNION_ID_ERROR_NO_ERR,   "" },
         { UNION_ID_ERROR_SYSTEM_ERROR, tr("System error") },
         { UNION_ID_ERROR_PARA_ERROR, "parameter error" },
-        { UNION_ID_ERROR_LOGIN_EXPIRED, tr("Login expired, please sign in to the Union ID again") },
+        { UNION_ID_ERROR_LOGIN_EXPIRED, tr("Login expired, please sign in to the UOS ID again") },
         { UNION_ID_ERROR_NO_PERMISSION, "no permission" },
         { UNION_ID_ERROR_NETWORK_ERROR, tr("Network error") },
         { UNION_ID_ERROR_CONFIGURE_ERROR, "Configuration error" },
         { UNION_ID_ERROR_REQUEST_REACHED, tr("You have reached the number limit to get the code today") },
-        { UNION_ID_ERROR_USER_UNBIND, tr("The Union ID is not linked to a user account") },
+        { UNION_ID_ERROR_USER_UNBIND, tr("The UOS ID is not linked to a user account") },
     };
     return errorTypeMap.value(errorType);
 }

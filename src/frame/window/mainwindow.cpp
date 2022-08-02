@@ -373,7 +373,7 @@ void MainWindow::initAllModule(const QString &m)
     };
     // V20 对Deepinid 进行差异化处理  UnionID 走插件化
     if (!IsProfessionalSystem) {
-         m_modules.insert(3, {new SyncModule(this), DSysInfo::isCommunityEdition() ? "Deepin ID" : "Union ID"});
+         m_modules.insert(3, {new SyncModule(this), DSysInfo::isCommunityEdition() ? "Deepin ID" : "UOS ID"});
     }
     //读取加载一级菜单的插件
     if (InsertPlugin::instance(this, this)->updatePluginInfo("mainwindow"))

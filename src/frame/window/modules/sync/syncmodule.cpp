@@ -34,7 +34,7 @@ const QString SyncModule::displayName() const
     if (DSysInfo::isCommunityEdition())
         return tr("Deepin ID");
 
-    return tr("Union ID");
+    return tr("UOS ID");
 }
 
 void SyncModule::contentPopped(QWidget *const w)

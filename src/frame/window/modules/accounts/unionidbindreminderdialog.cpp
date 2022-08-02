@@ -26,8 +26,8 @@
 DCORE_USE_NAMESPACE
 
 UnionIDBindReminderDialog::UnionIDBindReminderDialog(QWidget *parent)
-    : DDialog(tr("The user account is not linked to Union ID"),
-              tr("To reset passwords, you should authenticate your Union ID first. Click \"Go to Link\" to finish the settings."))
+    : DDialog(tr("The user account is not linked to UOS ID"),
+              tr("To reset passwords, you should authenticate your UOS ID first. Click \"Go to Link\" to finish the settings."))
 {
     setFixedWidth(380);
     setWindowFlags(Qt::WindowStaysOnTopHint | windowFlags());
