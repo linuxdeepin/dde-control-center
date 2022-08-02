@@ -10,31 +10,27 @@ function lupdateProject() {
 	local TS_FILE=$1_en.ts
 	echo 工程:$1
 	echo CMakeLists.txt路径:$2
-	if [ $# == 3 ];then
+	if [ $# == 3 ]; then
 		echo 附加头文件路径:$3
 		INC_FLAG=-I\ $3
 	fi
 	cd ./translations
 	rm -f $TS_FILE
 	rm -f files.tmp
-	for i in $(grep "\.h" $SRC_DIR/CMakeLists.txt)
-	do
-		echo $SRC_DIR/$i >> files.tmp
+	for i in $(grep "\.h" $SRC_DIR/CMakeLists.txt); do
+		echo $SRC_DIR/$i >>files.tmp
 	done
 
-	for i in $(grep "\.cpp" $SRC_DIR/CMakeLists.txt)
-	do
-		echo $SRC_DIR/$i >> files.tmp
+	for i in $(grep "\.cpp" $SRC_DIR/CMakeLists.txt); do
+		echo $SRC_DIR/$i >>files.tmp
 	done
 	lupdate @files.tmp $INC_FLAG -ts -no-obsolete $TS_FILE
 	rm -f files.tmp
 
-	sed -e 's/DCC_NAMESPACE/dccV20/g' $TS_FILE > tmp.ts
+	sed -e 's/DCC_NAMESPACE/dccV20/g' $TS_FILE >tmp.ts
 	mv tmp.ts $TS_FILE
 	cd ../
 }
-
-
 
 # dde-control-center_en.ts
 lupdateProject dde-control-center ../src/frame ../include

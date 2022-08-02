@@ -2,39 +2,39 @@
 <context>
     <name>PasswordWidget</name>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="60"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="136"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="62"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="145"/>
         <source>Passwords do not match</source>
         <translation>密码不一致</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="68"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="71"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>密码提示对所有人可见，切勿包含具体密码信息</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="86"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="89"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="108"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="111"/>
         <source>Repeat Password</source>
         <translation>重复密码</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="116"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="119"/>
         <source>Password Hint</source>
         <translation>密码提示</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="126"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="128"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="129"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="127"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="130"/>
         <source>Optional</source>
         <translation>选填</translation>
     </message>
@@ -59,7 +59,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="81"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)）组成</translation>
+        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/）组成</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="82"/>
@@ -112,7 +112,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/reset-password-dialog/utils.h" line="71"/>
+        <location filename="../src/reset-password-dialog/utils.h" line="72"/>
         <source>It cannot be empty</source>
         <translation>内容不能为空</translation>
     </message>
@@ -120,60 +120,60 @@
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="112"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="116"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
         <translation>重设密码将会清除密钥环内已存储的数据</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="114"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="218"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="118"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="221"/>
         <source>Cancel</source>
         <translation>取 消</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="123"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="127"/>
         <source>Security Questions</source>
         <translation>安全问题</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="158"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="162"/>
         <source>Reset Password</source>
         <translation>重置密码</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="203"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="163"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
         <source>Next</source>
         <translation>下一步</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="162"/>
-        <source>Reset Password By Union ID</source>
-        <translation>Union ID重置密码</translation>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
+        <source>Reset Password By UOS ID</source>
+        <translation>UOS ID重置密码</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="163"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="203"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="214"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="221"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="217"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="224"/>
         <source>Reset</source>
         <translation>重 置</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="169"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="173"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
         <translation>重置密码将清空密钥环已保存的数据，并且该用户将重新登录，请注意提前保存文件</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
         <source>Confirm and Reset</source>
         <translation>确认重置</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="296"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="299"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>重置密码成功，请使用新密码登录/解锁</translation>
     </message>
@@ -256,7 +256,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="68"/>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="135"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="290"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="284"/>
         <source>Get Code</source>
         <translation>获取验证码</translation>
     </message>
@@ -267,8 +267,8 @@
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="100"/>
-        <source>The user account is not linked to Union ID</source>
-        <translation>当前帐户未绑定Union ID</translation>
+        <source>The user account is not linked to UOS ID</source>
+        <translation>当前帐户未绑定UOS ID</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="113"/>
@@ -282,54 +282,49 @@
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="171"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="186"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="175"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="192"/>
         <source>Phone/Email format is incorrect</source>
         <translation>手机号/邮箱格式错误</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="240"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="246"/>
         <source>System error</source>
         <translation>系统错误</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="242"/>
-        <source>Login expired, please sign in to the Union ID again</source>
-        <translation>登录过期，请重新登录Union ID</translation>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="248"/>
+        <source>Login expired, please sign in to the UOS ID again</source>
+        <translation>登录过期，请重新登录UOS ID</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="244"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="250"/>
         <source>Network error</source>
         <translation>网络错误</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="246"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="252"/>
         <source>You have reached the number limit to get the code today</source>
         <translation>今日获取验证码次数已达上限</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="247"/>
-        <source>The Union ID is not linked to a user account</source>
-        <translation>此Union ID未绑定本地帐户</translation>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="253"/>
+        <source>The UOS ID is not linked to a user account</source>
+        <translation>此UOS ID未绑定本地帐户</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="256"/>
-        <source>It cannot be empty</source>
-        <translation>内容不能为空</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="293"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="335"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="287"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="329"/>
         <source>Resend (%1s)</source>
         <translation>重新获取 (%1s)</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="354"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="349"/>
         <source>Failed to get the code</source>
         <translation>获取验证码失败</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="377"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="374"/>
         <source>Wrong verification code</source>
         <translation>验证码错误</translation>
     </message>
