@@ -119,7 +119,8 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
             item->setActionList(Qt::Edge::LeftEdge, {leftAction});
 
             auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-            bool visible = App.m_enable != "0";
+            // 0 true  1 false
+            bool visible = App.m_enable == "0";
             auto checkstatus = visible ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
             auto checkIcon = qobject_cast<DStyle *>(timeGrp->style())->standardIcon(checkstatus);
             rightAction->setIcon(checkIcon);
@@ -127,7 +128,7 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
             pluginAppsModel->appendRow(item);
 
             connect(rightAction, &DViewItemAction::triggered, this, [ = ] {
-                const QString& checkedChange = (App.m_enable == "0" ? "1" : "0");
+                const QString& checkedChange = (App.m_enable == "1" ? "0" : "1");
                 m_worker->setPermissionInfo(App.m_name, m_serviceItemDate->getServiceGroup(), m_model->getDaemonDefineName(m_currentServiceDate.category), checkedChange);
                 updateItemCheckStatus(App.m_name, checkedChange);
             });
