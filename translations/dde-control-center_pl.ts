@@ -9,7 +9,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Biometric Authentication</source>
-        <translation>Uwierzytelnienie Biometryczne</translation>
+        <translation>Uwierzytelnienie biometryczne</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
         <source>Date and Time</source>
-        <translation>Data i czas</translation>
+        <translation>Data i godzina</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
@@ -310,7 +310,7 @@
 <context>
     <name>dccV20::accounts::AvatarListWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="174"/>
         <source>Images</source>
         <translation>Obrazy</translation>
     </message>
@@ -369,80 +369,80 @@
         <translation>Wskazówka do hasła</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="536"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="538"/>
         <source>The full name is too long</source>
         <translation>Imię i nazwisko jest za długie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="286"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="596"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="598"/>
         <source>Passwords do not match</source>
         <translation>Hasła nie pasują do siebie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="319"/>
         <source>Standard User</source>
         <translation>Standardowy użytkownik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="320"/>
         <source>Administrator</source>
         <translation>Administrator</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="323"/>
         <source>Customized</source>
         <translation>Dostosowane</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="322"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="324"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="329"/>
         <source>Required</source>
         <translation>Wymagane</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="323"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="330"/>
         <source>optional</source>
         <translation>opcjonalne</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="416"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Wskazówka jest widoczna dla wszystkich użytkowników. Nie podawaj tutaj swojego hasła. </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="473"/>
         <source>Policykit authentication failed</source>
         <translation>Uwierzytelnienie Policykit nie powiodło się</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="489"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="491"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Nazwa użytkownika musi zawierać od 3 do 32 znaków</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="496"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="498"/>
         <source>The first character must be a letter or number</source>
         <translation>Pierwszy znak musi być literą lub cyfrą</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="502"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="504"/>
         <source>Your username should not only have numbers</source>
         <translation>Twoja nazwa użytkownika powinna zawierać nie tylko cyfry</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="508"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="516"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="518"/>
         <source>The username has been used by other user accounts</source>
         <translation>Nazwa użytkownika jest już używana przez innych użytkowników</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="545"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="559"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="571"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="561"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="573"/>
         <source>The full name has been used by other user accounts</source>
         <translation>Imię i nazwisko jest już w użyciu przez innych użytkowników</translation>
     </message>
@@ -956,7 +956,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="71"/>
         <source>Biometric Authentication</source>
-        <translation>Uwierzytelnienie Biometryczne</translation>
+        <translation>Uwierzytelnienie biometryczne</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="122"/>
@@ -1004,31 +1004,31 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="77"/>
         <source>Show Bluetooth devices without names</source>
         <translation>Pokaż urządzenia Bluetooth bez nazw</translation>
         <extra-contents_path>/bluetooth/Show Bluetooth devices without names</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="79"/>
         <source>Allow other Bluetooth devices to find this device</source>
         <translation>Pozwól innym urządzeniom Bluetooth znaleźć to urządzenie</translation>
         <extra-contents_path>/bluetooth/Allow other Bluetooth devices to find this device</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="81"/>
         <source>My Devices</source>
         <translation>Moje urządzenia</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="83"/>
         <source>Other Devices</source>
         <translation>Inne urządzenia</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="180"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Włącz Bluetooth, aby znaleźć pobliskie urządzenia (głośniki, klawiaturę, myszkę)</translation>
         <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
@@ -1117,7 +1117,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="244"/>
         <source>Not connected</source>
-        <translation>Brak połączenia</translation>
+        <translation>Nie połączono</translation>
     </message>
 </context>
 <context>
@@ -1318,8 +1318,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="126"/>
-        <source>Please sign in to your Union ID first</source>
-        <translation>Najpierw zaloguj się do swojego Union ID</translation>
+        <source>Please sign in to your UOS ID first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="128"/>
@@ -1377,8 +1377,8 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="98"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="212"/>
-        <source>Please sign in to your Union ID first and continue</source>
-        <translation>Najpierw zaloguj się do swojego Union ID</translation>
+        <source>Please sign in to your UOS ID first and continue</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="103"/>
@@ -1439,8 +1439,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="119"/>
-        <source>Please sign in to your Union ID first</source>
-        <translation>Najpierw zaloguj się do swojego Union ID</translation>
+        <source>Please sign in to your UOS ID first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="121"/>
@@ -1626,7 +1626,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="97"/>
         <source>Date and Time</source>
-        <translation>Data i czas</translation>
+        <translation>Data i godzina</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="207"/>
@@ -2333,29 +2333,29 @@
         <extra-contents_path>/display/Resize Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="274"/>
         <source>Default</source>
         <translation>Domyślne</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="290"/>
         <source>Fit</source>
         <translation>Dopasuj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="306"/>
         <source>Stretch</source>
         <translation>Rozciągnij</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="322"/>
         <source>Center</source>
         <translation>Wyśrodkuj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="407"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="459"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="506"/>
         <source>Recommended</source>
         <translation>Zalecana</translation>
     </message>
@@ -3143,7 +3143,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="110"/>
         <source>Monospaced Font</source>
-        <translation>Czcionka o równej szerokości</translation>
+        <translation>Czcionka o stałej szerokości</translation>
         <extra-child_page>Font</extra-child_page>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
@@ -3290,7 +3290,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="237"/>
         <source>Monospaced Font</source>
-        <translation>Czcionka o równej szerokości</translation>
+        <translation>Czcionka o stałej szerokości</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
@@ -4101,38 +4101,38 @@
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="310"/>
         <source>Output Volume</source>
         <translation>Głośność na wyjściu</translation>
         <extra-child_page>Output</extra-child_page>
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="397"/>
         <source>Volume Boost</source>
         <translation>Zwiększenie głośności</translation>
         <extra-child_page>Output</extra-child_page>
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="389"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="404"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Jeśli głośność jest większa niż 100%, może to zniekształcić dźwięk i być szkodliwe dla głośnika</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="418"/>
         <source>Left/Right Balance</source>
         <translation>Balans Lewo/Prawo</translation>
         <extra-child_page>Output</extra-child_page>
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="423"/>
         <source>Left</source>
         <translation>Lewo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="424"/>
         <source>Right</source>
         <translation>Prawo</translation>
     </message>
@@ -4237,8 +4237,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="444"/>
-        <source>Login expired, please sign in to the Union ID again</source>
-        <translation>Sesja wygasła, zaloguj się ponownie do Union ID</translation>
+        <source>Login expired, please sign in to the UOS ID again</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4261,8 +4261,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="54"/>
-        <source>Union ID Sign In</source>
-        <translation>Logowanie za pomocą Union ID</translation>
+        <source>UOS ID Sign In</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="66"/>
@@ -4292,8 +4292,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="37"/>
-        <source>Union ID</source>
-        <translation>Union ID</translation>
+        <source>UOS ID</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="110"/>
@@ -4305,126 +4305,126 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="134"/>
         <source>Computer Name</source>
         <translation>Nazwa komputera</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>OS Name</source>
         <translation>Nazwa OS</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
         <source>Version</source>
         <translation>Wersja</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
         <source>Edition</source>
         <translation>Wydanie</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="213"/>
         <source>Type</source>
         <translation>Typ</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="218"/>
         <source>Authorization</source>
         <translation>Autoryzacja</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="213"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
         <source>To be activated</source>
         <translation>Do aktywacji</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="215"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="357"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="375"/>
         <source>Activate</source>
         <translation>Aktywuj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
         <source>Kernel</source>
         <translation>Kernel</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="237"/>
         <source>Processor</source>
         <translation>Procesor</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="243"/>
         <source>Memory</source>
         <translation>Pamięć</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="341"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="357"/>
         <source>Activated</source>
         <translation>Aktywowany</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="353"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="367"/>
         <source>View</source>
         <translation>Podgląd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
         <source>Expired</source>
         <translation>Wygasł</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="369"/>
         <source>In trial period</source>
         <translation>W okresie próbnym</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="373"/>
         <source>Trial expired</source>
         <translation>Okres próbny wygasł</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="441"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="442"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="500"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="447"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="506"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="507"/>
         <source>It cannot start or end with dashes</source>
         <translation>Nie może rozpoczynać lub kończyć się myślnikiem </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="475"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="476"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="505"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="506"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="481"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="482"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="511"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="512"/>
         <source>1~63 characters please</source>
         <translation>1~63 znaków proszę</translation>
     </message>
@@ -5144,7 +5144,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="85"/>
         <source>The password should differ from the username</source>
-        <translation type="unfinished"/>
+        <translation>Hasło powinno różnić się od nazwy użytkownika</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
@@ -5214,13 +5214,13 @@
     <name>UnionIDBindReminderDialog</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="29"/>
-        <source>The user account is not linked to Union ID</source>
-        <translation>Konto użytkownika nie jest powiązane z Union ID</translation>
+        <source>The user account is not linked to UOS ID</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="30"/>
-        <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
-        <translation>Żeby zresetować hasło, powinieneś najpierw uwierzytelnić twoje Union ID. Naciśnij &quot;Przejdź do łączenia&quot;, aby zakończyć proces ustawiania. </translation>
+        <source>To reset passwords, you should authenticate your UOS ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="37"/>
@@ -5403,7 +5403,7 @@ Aby umiejętnie korzystać z rozpoznawania twarzy, podczas wprowadzania danych t
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
-        <translation>„Uwierzytelnienie Biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.
+        <translation>„Uwierzytelnienie biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.
 Należy pamiętać, że oprogramowanie UnionTech nie będzie gromadzić, ani uzyskiwać dostępu do żadnych danych biometrycznych użytkownika, które będą przechowywane lokalnie na urządzeniu. Aktywuj uwierzytelnienie biometryczne wyłącznie na swoim urządzeniu osobistym i posługuj się wyłącznie swoimi informacjami biometrycznymi. Pamiętaj również, aby usunąć dane innych użytkowników, by uniknąć potencjalnych nieprzyjemności w przyszłości z tym związanych.
 Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpieczeństwa, dokładności i stabilności uwierzytelniania biometrycznego. Jednak ze względu na czynniki środowiskowe, sprzętowe, techniczne i tym podobne oraz kontrole ryzyka związanego z tą technologią, nie możemy zagwarantować, że to rozwiązanie będzie działać za każdym razem. Dlatego nie należy traktować uwierzytelniania biometrycznego jako jedyny sposób logowania do systemu UnionTech OS. Jeśli masz jakiekolwiek pytania lub sugestie dotyczące uwierzytelniania biometrycznego, możesz przekazać opinię poprzez „Serwis i wsparcie” w systemie UnionTech OS.
 </translation>
@@ -5424,7 +5424,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="26"/>
         <source>I have read and agree to the</source>
-        <translation>Przeczytałem i zgadzam się</translation>
+        <translation>Przeczytałem i zgadzam się na</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="28"/>
@@ -5723,42 +5723,42 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
 <context>
     <name>dcc::keyboard::CustomEdit</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="51"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="60"/>
         <source>Shortcuts</source>
         <translation>Skróty</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="61"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="70"/>
         <source>Required</source>
         <translation>Wymagane</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="72"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="81"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="73"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="82"/>
         <source>Save</source>
         <translation>Zapisz</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="111"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="120"/>
         <source>Shortcut</source>
         <translation>Skrót</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="114"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="123"/>
         <source>Name</source>
         <translation>Nazwa</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="115"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="124"/>
         <source>Command</source>
         <translation>Polecenie</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="132"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="141"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Ten skrót powoduje konflikt z %1, kliknij Dodaj, aby ten skrót od razu zadziałał</translation>
     </message>
@@ -5971,12 +5971,12 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="386"/>
         <source>Copyright© 2011-%1 Deepin Community</source>
         <translation>Copyright© 2011-%1 Deepin Community</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="388"/>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
         <translation>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
@@ -5984,12 +5984,12 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
 <context>
     <name>dcc::systeminfo::SystemInfoWork</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="184"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="227"/>
         <source>For Government</source>
         <translation>Dla placówek rządowych</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="186"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="229"/>
         <source>For Enterprise</source>
         <translation>Dla biznesu</translation>
     </message>

@@ -310,7 +310,7 @@
 <context>
     <name>dccV20::accounts::AvatarListWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="174"/>
         <source>Images</source>
         <translation>Figura</translation>
     </message>
@@ -369,80 +369,80 @@
         <translation>Ndihmëz Fjalëkalimi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="536"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="538"/>
         <source>The full name is too long</source>
         <translation>Emri i plotë është shumë i gjatë</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="286"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="596"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="598"/>
         <source>Passwords do not match</source>
         <translation>Fjalëkalimet s’përputhen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="319"/>
         <source>Standard User</source>
         <translation>Përdorues Standard</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="320"/>
         <source>Administrator</source>
         <translation>Përgjegjës</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="323"/>
         <source>Customized</source>
         <translation>E përshtatur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="322"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="324"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="329"/>
         <source>Required</source>
         <translation>E domosdoshme</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="323"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="330"/>
         <source>optional</source>
         <translation>opsionale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="416"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Ndihmëza do të jetë e dukshme për krejt përdoruesit. Mos përfshini fjalëkalimin këtu.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="473"/>
         <source>Policykit authentication failed</source>
         <translation>Mirëfilltësimi me Policykit dështoi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="489"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="491"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Emri i përdoruesit duhet të jetë mes 3 dhe 32 shenja i gjatë</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="496"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="498"/>
         <source>The first character must be a letter or number</source>
         <translation>Shenja e parë duhet të jetë shkronjë ose numër</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="502"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="504"/>
         <source>Your username should not only have numbers</source>
         <translation>Emri juaj i përdoruesit s’duhet të ketë vetëm numra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="508"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="516"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="518"/>
         <source>The username has been used by other user accounts</source>
         <translation>Emri i përdoruesit është përdorur nga llogari të tjera përdoruesish</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="545"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="559"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="571"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="561"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="573"/>
         <source>The full name has been used by other user accounts</source>
         <translation>Emri i plotë është përdorur nga llogari të tjera përdoruesish</translation>
     </message>
@@ -803,7 +803,7 @@
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="24"/>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="83"/>
         <source>Edit</source>
-        <translation>Përpunim</translation>
+        <translation>Përpunojeni</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="40"/>
@@ -876,7 +876,7 @@
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="47"/>
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="92"/>
         <source>Edit</source>
-        <translation>Përpunim</translation>
+        <translation>Përpunojeni</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="50"/>
@@ -918,7 +918,7 @@
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="24"/>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="82"/>
         <source>Edit</source>
-        <translation>Përpunim</translation>
+        <translation>Përpunojeni</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="39"/>
@@ -1004,31 +1004,31 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="77"/>
         <source>Show Bluetooth devices without names</source>
         <translation>Shfaq pajisje Bluetooth pa emra</translation>
         <extra-contents_path>/bluetooth/Show Bluetooth devices without names</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="79"/>
         <source>Allow other Bluetooth devices to find this device</source>
         <translation>Lejoji pajisjet e tjera Bluetooth të gjejnë këtë pajisje</translation>
         <extra-contents_path>/bluetooth/Allow other Bluetooth devices to find this device</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="81"/>
         <source>My Devices</source>
         <translation>Pajisjet e Mia</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="83"/>
         <source>Other Devices</source>
         <translation>Pajisje të Tjera</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="180"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Që të gjenden pajisje atypari (altoparlantë, tastierë, mi), aktivizoni Bluetooth-in</translation>
         <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
@@ -1318,8 +1318,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="126"/>
-        <source>Please sign in to your Union ID first</source>
-        <translation>Ju lutemi, së pari hyni te ID Union juaj</translation>
+        <source>Please sign in to your UOS ID first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="128"/>
@@ -1377,8 +1377,8 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="98"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="212"/>
-        <source>Please sign in to your Union ID first and continue</source>
-        <translation>Ju lutemi, së pari hyni te ID Union juaj dhe vazhdoni</translation>
+        <source>Please sign in to your UOS ID first and continue</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="103"/>
@@ -1439,8 +1439,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="119"/>
-        <source>Please sign in to your Union ID first</source>
-        <translation>Ju lutemi, së pari hyni te ID Union juaj</translation>
+        <source>Please sign in to your UOS ID first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="121"/>
@@ -1854,7 +1854,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="225"/>
         <source>Sunday, April 5, 2020</source>
-        <translation>E diel, 5 prill 2020</translation>
+        <translation>E diel, 5 prill, 2020</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="244"/>
@@ -2333,29 +2333,29 @@
         <extra-contents_path>/display/Resize Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="274"/>
         <source>Default</source>
         <translation>Parazgjedhje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="290"/>
         <source>Fit</source>
         <translation>Vetëpërshtate</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="306"/>
         <source>Stretch</source>
         <translation>Shformoje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="322"/>
         <source>Center</source>
         <translation>Në qendër</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="407"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="459"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="506"/>
         <source>Recommended</source>
         <translation>E këshilluar</translation>
     </message>
@@ -2506,7 +2506,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="115"/>
         <source>Caps Lock Prompt</source>
-        <translation>Kycja e kapakeve</translation>
+        <translation type="unfinished"/>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
@@ -2586,7 +2586,7 @@
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="229"/>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="258"/>
         <source>Caps Lock Prompt</source>
-        <translation>Kycja e kapakeve</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="198"/>
@@ -2866,7 +2866,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="273"/>
         <source>Tap to Click</source>
-        <translation>Prekeni, që të klikohet</translation>
+        <translation>Për Klikim, prekeni</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="276"/>
@@ -3895,7 +3895,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="143"/>
         <source>Output Devices</source>
-        <translation>Pajisje Në Dalje</translation>
+        <translation>Pajisje Output-i</translation>
         <extra-child_page>Devices</extra-child_page>
         <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
@@ -3908,7 +3908,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="168"/>
         <source>Input Devices</source>
-        <translation>Pajisje Në Hyrje</translation>
+        <translation>Pajisje Input-i</translation>
         <extra-child_page>Devices</extra-child_page>
         <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
@@ -3918,12 +3918,12 @@
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="74"/>
         <source>Input</source>
-        <translation>Dhënie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="81"/>
         <source>Input Device</source>
-        <translation>Pajisje Dhëniesh</translation>
+        <translation>Pajisje Input-i</translation>
         <extra-child_page>Input</extra-child_page>
         <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
@@ -3977,13 +3977,13 @@
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="73"/>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="82"/>
         <source>Input</source>
-        <translation>Ç’jepet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="74"/>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="84"/>
         <source>Output</source>
-        <translation>Dalje</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="86"/>
@@ -3993,7 +3993,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="125"/>
         <source>Input Device</source>
-        <translation>Pajisje Dhëniesh</translation>
+        <translation>Pajisje Input-i</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="128"/>
@@ -4056,13 +4056,13 @@
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="75"/>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="142"/>
         <source>Output</source>
-        <translation>Dalje</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="146"/>
         <source>Input</source>
-        <translation>Hyrje</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="77"/>
@@ -4101,38 +4101,38 @@
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="310"/>
         <source>Output Volume</source>
         <translation>Volum Në Dalje</translation>
         <extra-child_page>Output</extra-child_page>
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="397"/>
         <source>Volume Boost</source>
         <translation>Përforcim Volumi</translation>
         <extra-child_page>Output</extra-child_page>
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="389"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="404"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Nëse volumi është më i fortë se 100%, mund të shformohen tingujt dhe të jetë e dëmshme për altoparlantët tuaj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="418"/>
         <source>Left/Right Balance</source>
         <translation>Balancë Majtas/Djathtas</translation>
         <extra-child_page>Output</extra-child_page>
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="423"/>
         <source>Left</source>
         <translation>Majtas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="424"/>
         <source>Right</source>
         <translation>Djathtas</translation>
     </message>
@@ -4236,8 +4236,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="444"/>
-        <source>Login expired, please sign in to the Union ID again</source>
-        <translation>Hyrja skadoi, ju lutemi, rihyni te Union ID</translation>
+        <source>Login expired, please sign in to the UOS ID again</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4260,8 +4260,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="54"/>
-        <source>Union ID Sign In</source>
-        <translation>Hyrje me ID Union</translation>
+        <source>UOS ID Sign In</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="66"/>
@@ -4291,8 +4291,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="37"/>
-        <source>Union ID</source>
-        <translation>ID Union</translation>
+        <source>UOS ID</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="110"/>
@@ -4304,126 +4304,126 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="134"/>
         <source>Computer Name</source>
         <translation>Emër Kompjuteri</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>OS Name</source>
         <translation>Emër OS-i</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
         <source>Version</source>
         <translation>Version</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
         <source>Edition</source>
         <translation>Edicion</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="213"/>
         <source>Type</source>
         <translation>Lloj</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="218"/>
         <source>Authorization</source>
         <translation>Autorizim</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="213"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
         <source>To be activated</source>
         <translation>Për t’u aktivizuar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="215"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="357"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="375"/>
         <source>Activate</source>
         <translation>Aktivizoje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
         <source>Kernel</source>
         <translation>Kernel</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="237"/>
         <source>Processor</source>
         <translation>Procesor</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="243"/>
         <source>Memory</source>
         <translation>Kujtesë</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="341"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="357"/>
         <source>Activated</source>
         <translation>E aktivizuar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="353"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="367"/>
         <source>View</source>
         <translation>Shihni</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
         <source>Expired</source>
         <translation>Ka skaduar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="369"/>
         <source>In trial period</source>
         <translation>Në periudhë prove</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="373"/>
         <source>Trial expired</source>
         <translation>Prova skadoi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="441"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="442"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="500"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="447"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="506"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="507"/>
         <source>It cannot start or end with dashes</source>
         <translation>S’mund të fillojë ose përfundojë me vija ndarëse në mes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="475"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="476"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="505"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="506"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="481"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="482"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="511"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="512"/>
         <source>1~63 characters please</source>
         <translation>Ju lutemi, 1~63 shenja</translation>
     </message>
@@ -5020,7 +5020,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="141"/>
         <source>Return</source>
-        <translation>kthehu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="190"/>
@@ -5143,7 +5143,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="85"/>
         <source>The password should differ from the username</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi duhet të jetë i ndryshëm nga emri i përdoruesit</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
@@ -5213,13 +5213,13 @@
     <name>UnionIDBindReminderDialog</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="29"/>
-        <source>The user account is not linked to Union ID</source>
-        <translation>Llogaria e përdoruesit s’është e lidhur me Union ID</translation>
+        <source>The user account is not linked to UOS ID</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="30"/>
-        <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
-        <translation>Që të ricaktoni fjalëkalime, duhet së pari të bëni mirëfilltësimin e ID-së tuaj Union. Që të përfundohet ujdisja, klikoni mbi “Kalo te Lidhje”.</translation>
+        <source>To reset passwords, you should authenticate your UOS ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="37"/>
@@ -5414,7 +5414,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="84"/>
         <source>Next</source>
-        <translation>Pasueja</translation>
+        <translation>Pasuesi</translation>
     </message>
 </context>
 <context>
@@ -5536,7 +5536,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="164"/>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="182"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Pastroni gishtin ose rregulloni pozicion gishti, dhe riprovoni</translation>
+        <translation>Pastroni gishtin, ose rregulloni pozicion gishti dhe riprovoni</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="167"/>
@@ -5579,12 +5579,12 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="150"/>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="153"/>
         <source>Scan the edges of your fingerprint</source>
-        <translation>Skanoni skajet e shenjës tuaj të gishtit</translation>
+        <translation>Skanoni skajet e mollëzës tuaj</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="68"/>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Vendosni te ndijuesi skajet e mollëzës së gishtit tuaj</translation>
+        <translation>Vendosni te ndijuesi skajet e mollëzës tuaj</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="144"/>
@@ -5599,7 +5599,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="151"/>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>Rregullojeni pozicionin që të skanohen skajet e shenjës së gishtit tuaj</translation>
+        <translation>Rregullojeni pozicionin që të skanohen skajet e mollëzës tuaj</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="154"/>
@@ -5721,42 +5721,42 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
 <context>
     <name>dcc::keyboard::CustomEdit</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="51"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="60"/>
         <source>Shortcuts</source>
         <translation>Shkurtore</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="61"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="70"/>
         <source>Required</source>
         <translation>E domosdoshme</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="72"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="81"/>
         <source>Cancel</source>
         <translation>Anuloje</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="73"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="82"/>
         <source>Save</source>
         <translation>Ruaje</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="111"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="120"/>
         <source>Shortcut</source>
         <translation>Shkurtore</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="114"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="123"/>
         <source>Name</source>
         <translation>Emër</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="115"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="124"/>
         <source>Command</source>
         <translation>Urdhër</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="132"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="141"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Kjo shkurtore ka përplasje me %1, klikoni mbi “Shtoje” për ta bërë këtë shkurtore të hyjë në fuqi menjëherë</translation>
     </message>
@@ -5969,12 +5969,12 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="386"/>
         <source>Copyright© 2011-%1 Deepin Community</source>
         <translation>Të drejta kopjimi© 2011-%1 Bashkësia Deepin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="388"/>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
         <translation>Të drejta kopjimi© 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
@@ -5982,12 +5982,12 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
 <context>
     <name>dcc::systeminfo::SystemInfoWork</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="184"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="227"/>
         <source>For Government</source>
         <translation>Për Qeveri</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="186"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="229"/>
         <source>For Enterprise</source>
         <translation>Për Ndërmarrje</translation>
     </message>

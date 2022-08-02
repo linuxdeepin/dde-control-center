@@ -2,39 +2,39 @@
 <context>
     <name>PasswordWidget</name>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="60"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="136"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="62"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="145"/>
         <source>Passwords do not match</source>
         <translation>Паролі не збігаються</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="68"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="71"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Підказку буде показано усім користувачам. Не включайте до неї пароля.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="86"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="89"/>
         <source>New Password</source>
         <translation>Новий пароль</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="108"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="111"/>
         <source>Repeat Password</source>
         <translation>Повторіть пароль</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="116"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="119"/>
         <source>Password Hint</source>
         <translation>Підказка щодо пароля</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="125"/>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="126"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="128"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="129"/>
         <source>Required</source>
         <translation>Обов&apos;язкове</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="127"/>
+        <location filename="../src/reset-password-dialog/passwordwidget.cpp" line="130"/>
         <source>Optional</source>
         <translation>Необов&apos;язкове</translation>
     </message>
@@ -79,7 +79,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="85"/>
         <source>The password should differ from the username</source>
-        <translation type="unfinished"/>
+        <translation>Пароль має відрізнятися від імені користувача</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
@@ -112,7 +112,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/reset-password-dialog/utils.h" line="71"/>
+        <location filename="../src/reset-password-dialog/utils.h" line="72"/>
         <source>It cannot be empty</source>
         <translation>Не може бути порожнім</translation>
     </message>
@@ -120,60 +120,60 @@
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="112"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="116"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
         <translation>Скидання пароля призведе до вилучення даних, які зберігаються у сховищі ключів</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="114"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="218"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="118"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="221"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="123"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="127"/>
         <source>Security Questions</source>
         <translation>Питання захисту</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="158"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="162"/>
         <source>Reset Password</source>
         <translation>Скинути пароль</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="203"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="163"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
         <source>Next</source>
         <translation>Далі</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="162"/>
-        <source>Reset Password By Union ID</source>
-        <translation>Скидання пароля за ідентифікатором Union</translation>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
+        <source>Reset Password By UOS ID</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="163"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="203"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="214"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="221"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="217"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="224"/>
         <source>Reset</source>
         <translation>Скинути</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="169"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="173"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
         <translation>Скидання пароля призведе до вилучення усіх даних, які зберігалися у вашому сховищі ключів, і вам доведеться увійти до системи знову. Будь ласка, спочатку виконайте збереження важливих файлів</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
         <source>Confirm and Reset</source>
         <translation>Підтвердити і скинути</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="296"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="299"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Успішно скинуто. Будь ласка, увійдіть до системи і розблокуйте її за допомогою нового пароля</translation>
     </message>
@@ -256,7 +256,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="68"/>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="135"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="290"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="284"/>
         <source>Get Code</source>
         <translation>Отримати код</translation>
     </message>
@@ -267,8 +267,8 @@
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="100"/>
-        <source>The user account is not linked to Union ID</source>
-        <translation>Обліковий запис користувача не пов&apos;язано із ідентифікатором Union</translation>
+        <source>The user account is not linked to UOS ID</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="113"/>
@@ -282,54 +282,49 @@
         <translation>Обов&apos;язкове</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="171"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="186"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="175"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="192"/>
         <source>Phone/Email format is incorrect</source>
         <translation>Помилкове форматування телефону/пошти</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="240"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="246"/>
         <source>System error</source>
         <translation>Системна помилка</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="242"/>
-        <source>Login expired, please sign in to the Union ID again</source>
-        <translation>Термін дії квитка для входу вичерпано. Будь ласка, знову увійдіть до облікового запису Union</translation>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="248"/>
+        <source>Login expired, please sign in to the UOS ID again</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="244"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="250"/>
         <source>Network error</source>
         <translation>Помилка мережі</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="246"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="252"/>
         <source>You have reached the number limit to get the code today</source>
         <translation>Ви перевищили граничну кількість отримань коду сьогодні</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="247"/>
-        <source>The Union ID is not linked to a user account</source>
-        <translation>Ідентифікатор Union не пов&apos;язано із обліковим записом користувача</translation>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="253"/>
+        <source>The UOS ID is not linked to a user account</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="256"/>
-        <source>It cannot be empty</source>
-        <translation>Не може бути порожнім</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="293"/>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="335"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="287"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="329"/>
         <source>Resend (%1s)</source>
         <translation>Повторне надсилання (%1с)</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="354"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="349"/>
         <source>Failed to get the code</source>
         <translation>Не вдалося отримати код</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="377"/>
+        <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="374"/>
         <source>Wrong verification code</source>
         <translation>Помилковий код підтвердження</translation>
     </message>

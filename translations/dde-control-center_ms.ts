@@ -310,7 +310,7 @@
 <context>
     <name>dccV20::accounts::AvatarListWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="174"/>
         <source>Images</source>
         <translation>Imej</translation>
     </message>
@@ -369,80 +369,80 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="536"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="538"/>
         <source>The full name is too long</source>
         <translation>Nama penuh terlalu panjang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="286"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="596"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="598"/>
         <source>Passwords do not match</source>
         <translation>Kata laluan tidak sepadan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="319"/>
         <source>Standard User</source>
         <translation>Pengguna Piawai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="320"/>
         <source>Administrator</source>
         <translation>Pentadbir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="323"/>
         <source>Customized</source>
         <translation>Tersuai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="322"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="324"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="329"/>
         <source>Required</source>
         <translation>Diperlukan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="323"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="330"/>
         <source>optional</source>
         <translation>pilihan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="416"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="473"/>
         <source>Policykit authentication failed</source>
         <translation>Pengesahihan Policykit gagal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="489"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="491"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Nama pengguna mestilah antara 3 hingga 32 aksara</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="496"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="498"/>
         <source>The first character must be a letter or number</source>
         <translation>Aksara pertama mesti satu abjad atau angka</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="502"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="504"/>
         <source>Your username should not only have numbers</source>
         <translation>Nama pengguna anda tidak semestinya nombor sahaja</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="508"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="516"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="518"/>
         <source>The username has been used by other user accounts</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="545"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="559"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="571"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="561"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="573"/>
         <source>The full name has been used by other user accounts</source>
         <translation type="unfinished"/>
     </message>
@@ -1004,31 +1004,31 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="77"/>
         <source>Show Bluetooth devices without names</source>
         <translation>Tunjuk peranti Bluetooth tanpa nama</translation>
         <extra-contents_path>/bluetooth/Show Bluetooth devices without names</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="79"/>
         <source>Allow other Bluetooth devices to find this device</source>
         <translation>Izin peranti Bluetooth lain mencari peranti ini</translation>
         <extra-contents_path>/bluetooth/Allow other Bluetooth devices to find this device</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="81"/>
         <source>My Devices</source>
         <translation>Peranti Saya</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="83"/>
         <source>Other Devices</source>
         <translation>Peranti Lain</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="180"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Benarkan Bluetooth untuk mencari peranti berhampiran (pembesar suara, papan kekunci, tetikus)</translation>
         <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
@@ -1318,8 +1318,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="126"/>
-        <source>Please sign in to your Union ID first</source>
-        <translation>Sila daftar masuk ke ID Union anda terlebih dahulu</translation>
+        <source>Please sign in to your UOS ID first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="128"/>
@@ -1377,8 +1377,8 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="98"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="212"/>
-        <source>Please sign in to your Union ID first and continue</source>
-        <translation>Sila daftar masuk ke ID Union anda terlebih dahulu dan teruskan</translation>
+        <source>Please sign in to your UOS ID first and continue</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="103"/>
@@ -1439,8 +1439,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="119"/>
-        <source>Please sign in to your Union ID first</source>
-        <translation>Sila daftar masuk ke ID Union anda terlebih dahulu</translation>
+        <source>Please sign in to your UOS ID first</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="121"/>
@@ -2333,29 +2333,29 @@
         <extra-contents_path>/display/Resize Desktop</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="274"/>
         <source>Default</source>
         <translation>Lalai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="290"/>
         <source>Fit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="306"/>
         <source>Stretch</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="322"/>
         <source>Center</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="407"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="459"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="506"/>
         <source>Recommended</source>
         <translation>Disarankan</translation>
     </message>
@@ -4101,38 +4101,38 @@
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="310"/>
         <source>Output Volume</source>
         <translation>Volum Output</translation>
         <extra-child_page>Output</extra-child_page>
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="397"/>
         <source>Volume Boost</source>
         <translation>Galak Volum</translation>
         <extra-child_page>Output</extra-child_page>
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="389"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="404"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Jika volum lebih kuat dari 100%, ia mungkin menyebabkan audio terherot dan boleh merosakkan pembesar suara anda.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="418"/>
         <source>Left/Right Balance</source>
         <translation>Imbangan Kiri/Kanan</translation>
         <extra-child_page>Output</extra-child_page>
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="423"/>
         <source>Left</source>
         <translation>Kiri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="424"/>
         <source>Right</source>
         <translation>Kanan</translation>
     </message>
@@ -4236,7 +4236,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="444"/>
-        <source>Login expired, please sign in to the Union ID again</source>
+        <source>Login expired, please sign in to the UOS ID again</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4260,8 +4260,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="54"/>
-        <source>Union ID Sign In</source>
-        <translation>Daftar Masuk ID Union</translation>
+        <source>UOS ID Sign In</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="66"/>
@@ -4291,8 +4291,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="37"/>
-        <source>Union ID</source>
-        <translation>ID Union</translation>
+        <source>UOS ID</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="110"/>
@@ -4304,126 +4304,126 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="134"/>
         <source>Computer Name</source>
         <translation>Nama Komputer</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>OS Name</source>
         <translation type="unfinished"/>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
         <source>Version</source>
         <translation>Versi</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
         <source>Edition</source>
         <translation type="unfinished"/>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="213"/>
         <source>Type</source>
         <translation>Jenis</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="218"/>
         <source>Authorization</source>
         <translation>Pengesahihan</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="213"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
         <source>To be activated</source>
         <translation>Untuk diaktifkan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="215"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="357"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="375"/>
         <source>Activate</source>
         <translation>Aktifkan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
         <source>Kernel</source>
         <translation type="unfinished"/>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="237"/>
         <source>Processor</source>
         <translation type="unfinished"/>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="243"/>
         <source>Memory</source>
         <translation type="unfinished"/>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="341"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="357"/>
         <source>Activated</source>
         <translation>Diaktifkan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="353"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="367"/>
         <source>View</source>
         <translation>Lihat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
         <source>Expired</source>
         <translation>Luput</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="369"/>
         <source>In trial period</source>
         <translation>Dalam tempoh percubaan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="373"/>
         <source>Trial expired</source>
         <translation>Percubaan telah luput</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="441"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="442"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="500"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="447"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="506"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="507"/>
         <source>It cannot start or end with dashes</source>
         <translation>Tidak boleh mula atau tamat dengan tanda sempang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="475"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="476"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="505"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="506"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="481"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="482"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="511"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="512"/>
         <source>1~63 characters please</source>
         <translation>1~63 aksara sahaja</translation>
     </message>
@@ -5213,12 +5213,12 @@
     <name>UnionIDBindReminderDialog</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="29"/>
-        <source>The user account is not linked to Union ID</source>
+        <source>The user account is not linked to UOS ID</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="30"/>
-        <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
+        <source>To reset passwords, you should authenticate your UOS ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -5708,42 +5708,42 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>dcc::keyboard::CustomEdit</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="51"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="60"/>
         <source>Shortcuts</source>
         <translation>Pintasan</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="61"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="70"/>
         <source>Required</source>
         <translation>Diperlukan</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="72"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="81"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="73"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="82"/>
         <source>Save</source>
         <translation>Simpan</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="111"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="120"/>
         <source>Shortcut</source>
         <translation>Pintasan</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="114"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="123"/>
         <source>Name</source>
         <translation>Nama</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="115"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="124"/>
         <source>Command</source>
         <translation>Perintah</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="132"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="141"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Pintasan ini berkonflik dengan %1, klik untuk Tambah supaya pintasan ini berkesan serta-merta</translation>
     </message>
@@ -5956,12 +5956,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="386"/>
         <source>Copyright© 2011-%1 Deepin Community</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="388"/>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
         <translation type="unfinished"/>
     </message>
@@ -5969,12 +5969,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>dcc::systeminfo::SystemInfoWork</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="184"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="227"/>
         <source>For Government</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="186"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="229"/>
         <source>For Enterprise</source>
         <translation type="unfinished"/>
     </message>
