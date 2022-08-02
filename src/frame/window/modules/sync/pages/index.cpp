@@ -441,7 +441,7 @@ void IndexPage::onResetPasswdError(const QString &error)
         } else if (error.contains("7506")) {
             tips = tr("Network error");
         } else if (error.contains("7502")) {
-            tips = tr("Login expired, please sign in to the Union ID again");
+            tips = tr("Login expired, please sign in to the UOS ID again");
         }
         if (!tips.isEmpty()) {
             DMessageManager::instance()->sendMessage(this,

@@ -124,7 +124,7 @@ void ResetPasswordDialog::initWidget(const QString &userName)
     mainContentLayout->setMargin(0);
 
     m_buttonBox = new DButtonBox(this);
-    m_buttonBox->setButtonList({new DButtonBoxButton(tr("Security Questions")), new DButtonBoxButton("Union ID")}, true);
+    m_buttonBox->setButtonList({new DButtonBoxButton(tr("Security Questions")), new DButtonBoxButton("UOS ID")}, true);
     m_buttonBox->setId(m_buttonBox->buttonList().at(0), 0);
     m_buttonBox->setId(m_buttonBox->buttonList().at(1), 1);
     m_buttonBox->buttonList().at(0)->click();
@@ -163,7 +163,7 @@ void ResetPasswordDialog::initWidget(const QString &userName)
         this->addButton(tr("Next"), true, ButtonRecommend);
         m_stackedLayout->setCurrentIndex(0);
     } else {
-        this->setTitle(tr("Reset Password By Union ID"));
+        this->setTitle(tr("Reset Password By UOS ID"));
         this->addButton(tr("Reset"), true, ButtonRecommend);
         m_buttonBox->hide();
         m_stackedLayout->setCurrentIndex(1);

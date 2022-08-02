@@ -51,7 +51,7 @@ LoginPage::LoginPage(QWidget *parent)
     if (DSysInfo::isCommunityEdition())
         signintip = new QLabel(tr("Deepin ID Sign In"));
     else
-        signintip = new QLabel(tr("Union ID Sign In"));
+        signintip = new QLabel(tr("UOS ID Sign In"));
     QFont font = signintip->font();
     font.setBold(true);
     signintip->setFont(font);
