@@ -40,6 +40,7 @@ PrivacySecurityWorker::PrivacySecurityWorker(PrivacySecurityModel *model, QObjec
     connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionInfoLoadFinished, this, &PrivacySecurityWorker::permissionInfoLoadFinished);
     connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::PermissionEnableChanged, this, &PrivacySecurityWorker::refreshPermissionState);
     connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionEnableReset, this, &PrivacySecurityWorker::resetPermissionState);
+    connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionInfoReset, this, &PrivacySecurityWorker::resetPermissionInfo);
 }
 
 PrivacySecurityWorker::~PrivacySecurityWorker()
@@ -136,6 +137,13 @@ void PrivacySecurityWorker::resetPermissionState(const QString &permissionGroup,
     ServiceControlItems *serviceItem = m_model->getServiceItem(permissionId);
     qDebug() << "serviceItem->getSwitchState(): " << serviceItem->getSwitchState();
     serviceItem->serviceSwitchStateChange(serviceItem->getSwitchState());
+}
+
+void PrivacySecurityWorker::resetPermissionInfo(const QString &permissionGroup, const QString &permissionId)
+{
+    Q_UNUSED(permissionGroup);
+    ServiceControlItems *serviceItem = m_model->getServiceItem(permissionId);
+    serviceItem->serviceAppsDateChange();
 }
 
 const QString PrivacySecurityWorker::getIconPath(const QString &appName)

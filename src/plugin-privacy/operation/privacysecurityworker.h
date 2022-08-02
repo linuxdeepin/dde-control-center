@@ -52,6 +52,7 @@ private:
 public Q_SLOTS:
     void refreshPermissionState(const QString& permissionGroup, const QString& permissionId, bool enable);
     void resetPermissionState(const QString& permissionGroup, const QString& permissionId);
+    void resetPermissionInfo(const QString& permissionGroup, const QString& permissionId);
 
 private:
     PrivacySecurityModel *m_model;

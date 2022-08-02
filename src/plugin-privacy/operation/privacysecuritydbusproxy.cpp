@@ -40,11 +40,6 @@ PrivacySecurityDBusProxy::PrivacySecurityDBusProxy(QObject *parent)
     , m_privacyInter(new DCCDBusInterface(PermissionService, PermissionPath, PermissionInterface, QDBusConnection::sessionBus(), this))
 {
     connect(this, &PrivacySecurityDBusProxy::PermissionInfoChanged, this, &PrivacySecurityDBusProxy::getPermissionInfo);
-
-    connect(this, &PrivacySecurityDBusProxy::setPermissionInfoLoadState, [this](const bool loadState){
-        if (loadState)
-            getPermissionInfo();
-    });
 }
 
 void PrivacySecurityDBusProxy::getPermissionInfo()
@@ -57,9 +52,19 @@ void PrivacySecurityDBusProxy::getPermissionInfo()
 
 void PrivacySecurityDBusProxy::setPermissionInfo(const QString &appId, const QString &permissionGroup, const QString &permissionId, const QString &value)
 {
-    QList<QVariant> argumentList;
-    argumentList << appId << permissionGroup << permissionId << value;
-    m_privacyInter->callWithCallback(QStringLiteral("SetPermissionInfo"), argumentList, this, SIGNAL(setPermissionInfoLoadState(bool)));
+    QDBusPendingCall pcall = m_privacyInter->asyncCall(QStringLiteral("SetPermissionInfo"), appId, permissionGroup, permissionId, value);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(pcall, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher, permissionGroup, permissionId](QDBusPendingCallWatcher *watch){
+        QDBusPendingReply<bool> reply = *watch;
+        if (!reply.isError() && !reply.value()) {
+            Q_EMIT permissionInfoReset(permissionGroup, permissionId);
+        } else if (!reply.isError() && reply.value()) {
+            this->getPermissionInfo();
+        } else {
+            qDebug() << "setPermissionInfo ==> value: " << reply.value() << "ERROR: " << reply.error();
+        }
+        watcher->deleteLater();
+    });
 }
 
 void PrivacySecurityDBusProxy::getPermissionEnable(const QString &permissionGroup, const QString &permissionId)

@@ -27,9 +27,9 @@ Q_SIGNALS:
     void PermissionInfoChanged();
 
     void permissionEnableReset(const QString &permissionGroup, const QString &permissionId);
+    void permissionInfoReset(const QString &permissionGroup, const QString &permissionId);
     // 数据加载完成
     void permissionInfoLoadFinished(const QString& perInfo);
-    void setPermissionInfoLoadState(const bool loadState);
     // 服务状态回调
     void permissionEnableLoadFinished(const bool loadState);
 
