@@ -524,76 +524,7 @@ void UpdateSettings::onTestingChannelCheckChanged(const bool checked)
         dialog->deleteLater();
     });
     connect(dialog, &DDialog::buttonClicked, this, [ = ](int index, const QString &text) {
-        if ( index == 0 ) {
-            // clicked the leave button
-            Q_EMIT requestSetTestingChannelEnable(checked);
-        }else {
-            // clicked the cancel button
-            m_testingChannel->setChecked(true);
-        }
-        dialog->deleteLater();
-    });
-    dialog->exec();
-}
-
-void UpdateSettings::onTestingChannelCheckChanged(const bool checked)
-{
-    const auto status = m_model->getTestingChannelStatus();
-    if (checked) {
-        Q_EMIT requestSetTestingChannelEnable(checked);
-        return;
-    }
-    if (status != UpdateModel::TestingChannelStatus::Joined) {
-        Q_EMIT requestSetTestingChannelEnable(checked);
-        return;
-    }
-
-    auto dialog = new DDialog(this);
-    dialog->setFixedWidth(400);
-    dialog->setFixedHeight(280);
-
-    auto label = new DLabel(dialog);
-    label->setWordWrap(true);
-    label->setText(tr("Checking system versions, please wait..."));
-
-    auto progress = new DWaterProgress(dialog);
-    progress->setFixedSize(100, 100);
-    progress->setTextVisible(false);
-    progress->setValue(50);
-    progress->start();
-
-    QWidget* content = new QWidget(dialog);
-    QVBoxLayout* layout = new QVBoxLayout(dialog);
-    layout->setContentsMargins(0, 0, 0, 0);
-    content->setLayout(layout);
-    dialog->addContent(content);
-
-    layout->addStretch();
-    layout->addWidget(label, 0, Qt::AlignHCenter);
-    layout->addSpacing(20);
-    layout->addWidget(progress, 0, Qt::AlignHCenter);
-    layout->addStretch();
-
-    connect(m_model, &UpdateModel::canExitTestingChannelChanged, dialog, [ = ](const bool can) {
-        progress->setVisible(false);
-        if (!can)
-        {
-            Q_EMIT requestSetTestingChannelEnable(checked);
-            dialog->deleteLater();
-            return;
-        }
-        const auto text = tr("If you leave the internal testing channel now, you may not be able to get the latest bug fixes and updates. Please leave after the official version is released to keep your system stable!");
-        label->setText(text);
-        dialog->addButton(tr("Leave"), false, DDialog::ButtonWarning);
-        dialog->addButton(tr("Cancel"), true, DDialog::ButtonRecommend);
-    });
-    Q_EMIT requestCheckCanExitTestingChannel();
-    connect(dialog, &DDialog::closed, this, [ = ]() {
-        // clicked windows close button
-        m_testingChannel->setChecked(true);
-        dialog->deleteLater();
-    });
-    connect(dialog, &DDialog::buttonClicked, this, [ = ](int index, const QString &text) {
+        Q_UNUSED(text)
         if ( index == 0 ) {
             // clicked the leave button
             Q_EMIT requestSetTestingChannelEnable(checked);

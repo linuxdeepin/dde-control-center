@@ -82,7 +82,7 @@ QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type, CheckT
         {PW_ERR_PALINDROME, tr("No more than %1 palindrome characters please").arg(passwordPalimdromeNum)},
         {PW_ERR_PW_MONOTONE, tr("No more than %1 monotonic characters please").arg(passwordMonotoneCharacterNum)},
         {PW_ERR_PW_CONSECUTIVE_SAME, tr("No more than %1 repeating characters please").arg(passwordConsecutiveSameCharacterNum)},
-        {PW_ERR_SAME_AS_USERNAME, tr("The password should differ from the username")},
+        {PW_ERR_SAME_AS_USERNAME, tr("Different from the username")},
         {PW_ERR_CHARACTER_TYPE_TOO_FEW, err_to_string(type)},
     };
 
