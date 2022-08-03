@@ -176,3 +176,33 @@ void SoundWidget::showDefaultWidget()
         }
     }
 }
+
+void SoundWidget::setSubItemHidden(const QString &item, bool hide)
+{
+    for (int i = 0; i < m_itemList.size(); ++i) {
+        if (m_itemList[i].gsettingsName == item) {
+            if (m_listView->isRowHidden(i) != hide) {
+                m_listView->setRowHidden(i, hide);
+
+                bool isAllHidden = true;
+                for (int i = 0; i < m_itemModel->rowCount(); i++) {
+                    if (!m_listView->isRowHidden(i))
+                        isAllHidden = false;
+                }
+
+                if (m_listView->selectionModel()->selectedRows().size() > 0) {
+                    int index = m_listView->selectionModel()->selectedRows()[0].row();
+                    Q_EMIT requestUpdateSecondMenu(index == i);
+                } else {
+                    Q_EMIT requestUpdateSecondMenu(false);
+                }
+
+                if (isAllHidden) {
+                    m_currentIdx = QModelIndex();
+                    m_listView->clearSelection();
+                }
+            }
+            break;
+        }
+    }
+}

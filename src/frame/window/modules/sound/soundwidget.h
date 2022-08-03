@@ -54,6 +54,7 @@ public:
 public:
     int showPath(const QString &path);
     void showDefaultWidget();
+    void setSubItemHidden(const QString &item, bool hide);
 
 Q_SIGNALS:
     void requsetSpeakerPage();

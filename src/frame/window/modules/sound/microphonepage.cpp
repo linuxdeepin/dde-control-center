@@ -179,8 +179,9 @@ void MicrophonePage::setModel(SoundModel *model)
         m_mute = flag;
         refreshIcon();
     });
-    connect(m_model, &SoundModel::microphoneNameChanged, this, [ = ](const QString &name) {
-        m_name = name;
+    connect(m_model, &SoundModel::microphoneNameChanged, this, [ this ](const QString &name) {
+        m_microphoneName = name;
+        showDevice();
     });
 
     initSlider();
@@ -246,6 +247,10 @@ void MicrophonePage::refreshActivePortShow(const dcc::sound::Port *port)
         m_currentBluetoothPortStatus = port->isBluetoothPort();
         showDevice();
     }
+}
+
+bool MicrophonePage::hasVirtualSource() {
+    return m_model->ports().isEmpty() && !m_microphoneName.startsWith("auto_null");
 }
 
 void MicrophonePage::addPort(const dcc::sound::Port *port)
@@ -432,8 +437,11 @@ void MicrophonePage::showDevice()
     if (!m_feedbackSlider || !m_inputSlider || !m_noiseReductionsw)
         return;
 
+    // 云平台关闭输入设备
+    m_inputSoundCbx->setVisible(!hasVirtualSource());
+
     // 支持云平台无端口设备的显示
-    setDeviceVisible(1 <= m_inputModel->rowCount() || (m_model->ports().isEmpty() && !m_name.startsWith("auto_null")));
+    setDeviceVisible(1 <= m_inputModel->rowCount() || hasVirtualSource());
 }
 
 void MicrophonePage::setDeviceVisible(bool visable)

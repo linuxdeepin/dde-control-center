@@ -198,8 +198,14 @@ public:
 
     bool isIncreaseVolume() const;
     void setIncreaseVolume(bool value);
-    void initMicroPhone() { Q_EMIT microphoneOnChanged(m_microphoneOn); }
-    void initSpeaker() { Q_EMIT speakerOnChanged(m_speakerOn); }
+    void initMicroPhone() {
+        Q_EMIT microphoneOnChanged(m_microphoneOn);
+        Q_EMIT microphoneNameChanged(m_microphoneName);
+    }
+    void initSpeaker() {
+        Q_EMIT speakerOnChanged(m_speakerOn);
+        Q_EMIT speakerNameChanged(m_speakerName);
+    }
 
     inline QStringList bluetoothAudioModeOpts() { return m_bluetoothModeOpts; }
     void setBluetoothAudioModeOpts(const QStringList &modes);

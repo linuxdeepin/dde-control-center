@@ -87,6 +87,7 @@ private:
     void refreshIcon();
     void showWaitSoundPortStatus(bool showStatus);
     void refreshActivePortShow(const dcc::sound::Port *port);
+    bool hasVirtualSource();
 
 private:
     dcc::sound::SoundModel *m_model{nullptr};
@@ -113,7 +114,7 @@ private:
     bool m_currentBluetoothPortStatus;
     QTimer *m_waitStatusChangeTimer;
     // 名字
-    QString m_name;
+    QString m_microphoneName;
 };
 
 }
