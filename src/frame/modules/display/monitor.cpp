@@ -272,7 +272,7 @@ bool Monitor::isSameResolution(const Resolution &r1, const Resolution &r2)
 
 bool Monitor::isSameRatefresh(const Resolution &r1, const Resolution &r2)
 {
-    return fabs(r1.rate() - r2.rate()) < 0.000001;
+    return QString::number(r1.rate(), 'g', 4) == QString::number(r2.rate(), 'g', 4);
 }
 
 bool Monitor::hasResolution(const Resolution &r)
@@ -289,10 +289,11 @@ bool Monitor::hasResolution(const Resolution &r)
 bool Monitor::hasResolutionAndRate(const Resolution &r)
 {
     for (auto m : m_modeList) {
-        if (fabs(m.rate() - r.rate()) < 0.000001 && m.width() == r.width() && m.height() == r.height()) {
+        if (QString::number(m.rate(), 'g', 4) == QString::number(r.rate(), 'g', 4)  && m.width() == r.width() && m.height() == r.height()) {
             return true;
         }
     }
+
 
     return false;
 }
