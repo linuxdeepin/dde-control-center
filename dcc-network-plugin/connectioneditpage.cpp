@@ -67,6 +67,7 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &d
     , m_connType(static_cast<ConnectionSettings::ConnectionType>(connType))
     , m_isHotSpot(isHotSpot)
 {
+    qDBusRegisterMetaType<NMVariantMapMap>();
     DevicePath = devPath;
 
     initUI();
