@@ -18,11 +18,11 @@ function lupdateProject() {
 	rm -f $TS_FILE
 	rm -f files.tmp
 	for i in $(grep "\.h" $SRC_DIR/CMakeLists.txt); do
-		echo $SRC_DIR/$i >>files.tmp
+                echo $SRC_DIR/$i | grep -q -E "\.h$" && echo $SRC_DIR/$i >>files.tmp
 	done
 
 	for i in $(grep "\.cpp" $SRC_DIR/CMakeLists.txt); do
-		echo $SRC_DIR/$i >>files.tmp
+                echo $SRC_DIR/$i | grep -q -E "\.cpp$" && echo $SRC_DIR/$i >>files.tmp
 	done
 	lupdate @files.tmp $INC_FLAG -ts -no-obsolete $TS_FILE
 	rm -f files.tmp
