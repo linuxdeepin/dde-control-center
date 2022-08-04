@@ -39,6 +39,7 @@ namespace dcc {
 namespace widgets {
 class TitledSliderItem;
 class ComboxWidget;
+class SettingsItem;
 }
 }
 
@@ -90,6 +91,7 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event);
+    void resizeEvent(QResizeEvent *event) override;
 
 private:
     void updateActiveColors(RoundColorWidget *selectedWidget);
@@ -101,6 +103,8 @@ Q_SIGNALS:
     void showFontsWidget();
     void requestSwitchWM();
     void requestWindowSwitchWM(bool value);
+    void requestMovedWindowSwitchWM(bool value);
+    void windowMovedVisibleChanged(bool value);
     void requestSetOpacity(int value);
     void requestSetMiniEffect(int effect);
     void requestSetActiveColor(const QString &color);
@@ -119,6 +123,9 @@ private:
     DTK_WIDGET_NAMESPACE::DSwitchButton *m_wmSwitch;  //是否开启特效
     dcc::widgets::TitledSliderItem *m_transparentSlider;  //透明度调节
     dcc::widgets::ComboxWidget *m_cmbMiniEffect;    //最小化效果
+    DTK_WIDGET_NAMESPACE::DSwitchButton *m_windowMovedSwitch;  //是否开启“窗口移动时启用透明特效”
+    QLabel *m_windowMovedLabel;
+    QString m_displayData;
     dcc::personalization::PersonalizationModel *m_model;
     dcc::widgets::TitledSliderItem *m_winRoundSlider;   // 自定义圆角(社区版功能)
     PerssonalizationThemeWidget *m_Themes;
@@ -128,6 +135,8 @@ private:
     bool m_bSystemIsServer;
     int m_windowRadius;
     Dtk::Gui::DGuiApplicationHelper::ColorType m_themeType;
+    bool m_isWayland;
+    dcc::widgets::SettingsItem *m_movedWinSwitchItem;
 };
 }
 }

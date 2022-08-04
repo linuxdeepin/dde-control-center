@@ -65,6 +65,7 @@ public Q_SLOTS:
     void setFontSize(const int value);
     void switchWM();
     void windowSwitchWM(bool value);
+    void movedWindowSwitchWM(bool value);
     void setOpacity(int opcaity);
     void setMiniEffect(int effect);
     void setActiveColor(const QString &hexColor);

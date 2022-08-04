@@ -114,6 +114,7 @@ Q_SIGNALS:
     void requestUpdateSecondMenu(int, const QString &gsettingsName = QString());
     void requestUpdateSearchMenu(const QString &, bool);
     void requestShowSecondMenu(int); //显示第二级页面
+    void notifyDConfigChanged(const QString &, const QString &);
 
 private:
     QMultiHash<ModuleKey *, QWidget *> m_thirdMap; //三级菜单 map

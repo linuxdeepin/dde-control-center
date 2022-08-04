@@ -79,6 +79,13 @@ public:
     inline int shorTimeFormatTypeCount() const { return  m_shorTimeFormatTypeCount; }
     inline int weekStartDayFormatTypeCount() const { return  m_weekStartDayFormatTypeCount; }
 
+    inline QString currencySymbol() const { return  m_currencySymbol; }
+    inline QString decimalSymbol() const { return  m_decimalSymbol; }
+    inline QString digitGrouping() const { return  m_digitGrouping; }
+    inline QString digitGroupingSymbol() const { return  m_digitGroupingSymbol; }
+    inline QString negativeCurrencyFormat() const { return  m_negativeCurrencyFormat; }
+    inline QString positiveCurrencyFormat() const { return  m_positiveCurrencyFormat; }
+
     void setWeekdayFormatType(int type);
     void setShortDateFormat(int type);
     void setLongDateFormat(int type);
@@ -91,6 +98,13 @@ public:
     void setLongTimeFormatTypeCount(int size);
     void setShorTimeFormatTypeCount(int size);
     void setWeekStartDayFormatTypeCount(int size);
+    void setFormatFormWidget(const QString &type, QString value, int place = 0);
+    void setCurrencySymbol(const QString &value);
+    void setDecimalSymbol(const QString &value);
+    void setDigitGrouping(const QString &value);
+    void setDigitGroupingSymbol(const QString &value);
+    void setNegativeCurrencyFormat(const QString &value);
+    void setPositiveCurrencyFormat(const QString &value);
 
 Q_SIGNALS:
     void NTPChanged(bool value);
@@ -111,6 +125,14 @@ Q_SIGNALS:
     void shorTimeFormatChanged(int type);
     void weekStartDayFormatChanged(int type);
     void timeZoneChanged(QString value);
+    void formatPropertyChanged(QString property, QString value);//used widget set to work
+    void CurrencySymbolChanged(const QString &value);
+    void DecimalSymbolChanged(const QString &value);
+    void DigitGroupingChanged(const QString &value);
+    void DigitGroupingSymbolChanged(const QString &value);
+    void NegativeCurrencyFormatChanged(const QString &value);
+    void PositiveCurrencyFormatChanged(const QString &value);
+
 private:
     bool m_ntp;
     bool m_bUse24HourType;
@@ -138,6 +160,13 @@ private:
     int m_longTimeFormatTypeCount{0};
     int m_shorTimeFormatTypeCount{0};
     int m_weekStartDayFormatTypeCount{0};
+
+    QString m_currencySymbol{""};
+    QString m_decimalSymbol{""};
+    QString m_digitGrouping{""};
+    QString m_digitGroupingSymbol{""};
+    QString m_negativeCurrencyFormat{""};
+    QString m_positiveCurrencyFormat{""};
 };
 
 }

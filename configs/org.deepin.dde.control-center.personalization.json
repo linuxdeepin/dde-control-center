@@ -1,0 +1,17 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "effectMovewindowTranslucency": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "effectMovewindowTranslucency",
+            "name[zh_CN]": "移动窗口展示透明特效开关",
+            "description[zh_CN]": "通过设置 打开/关闭 移动窗口显示透明特效",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        }
+    }
+  }

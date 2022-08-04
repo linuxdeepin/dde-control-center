@@ -52,6 +52,9 @@ public:
     void setIs3DWm(const bool is3d);
     bool is3DWm() const;
 
+    void setIsMoveWindow(const bool isMoveWindow);
+    bool isMoveWindow() const;
+
     void setWindowRadius(int radius);
     int windowRadius();
 
@@ -69,6 +72,7 @@ public:
 
 Q_SIGNALS:
     void wmChanged(const bool is3d);
+    void moveWindowChanged(const bool isMoveWindow);
     void onOpacityChanged(std::pair<int, double> opacity);
     void onMiniEffectChanged(int effect);
     void onActiveColorChanged(const QString &color);
@@ -84,6 +88,7 @@ private:
     FontModel     *m_monoFontModel;
     FontSizeModel *m_fontSizeModel;
     bool m_is3DWm;
+    bool m_isMoveWindow;
     std::pair<int, double> m_opacity;
     int m_miniEffect;
     QString m_activeColor;

@@ -45,6 +45,7 @@ const QMargins ThirdPageCmbMargins(0, 0, 0, 0);
 
 const int ComboxWidgetHeight = 48;
 const int SwitchWidgetHeight = 36;
+const int MovedWindowWidgetHeight = 36;
 const int LeftTitleWitdh = 110;
 
 const QSize ListViweItemIconSize(84,84);

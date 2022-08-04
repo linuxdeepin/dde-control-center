@@ -51,11 +51,13 @@ public:
     Timedate *getTimedate();
     static DatetimeWork &getInstance();
     DatetimeModel *model() { return m_model; }
+    void setFormat(QString property, QString value);
 
 Q_SIGNALS:
     void requestSetAutoHide(const bool visible) const;
 
 public Q_SLOTS:
+    void seteFormatSlot(QDBusMessage msg);
     void setNTP(bool ntp);
     void setDatetime(const QDateTime &time);
     void set24HourType(bool state);
@@ -84,6 +86,7 @@ private:
     DatetimeModel *m_model;
     Timedate *m_timedateInter;
     Timedated *m_systemtimedatedInter;
+    QStringList m_formatList;
 };
 }
 }

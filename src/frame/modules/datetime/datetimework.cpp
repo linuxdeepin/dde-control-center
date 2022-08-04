@@ -91,6 +91,39 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     m_model->setNtpServerAddress(m_timedateInter->nTPServer());
     m_model->setTimeZoneInfo(m_timedateInter->timezone());
     m_model->setNTP(m_timedateInter->nTP());
+
+    m_formatList << "DecimalSymbol"
+                 << "CurrencySymbol"
+                 << "DigitGrouping"
+                 << "DigitGroupingSymbol"
+                 << "NegativeCurrencyFormat"
+                 << "PositiveCurrencyFormat";
+
+    QDBusInterface formatInter("com.deepin.daemon.Timedate",
+                               "/com/deepin/daemon/Format",
+                               "com.deepin.daemon.Format",
+                               QDBusConnection::sessionBus());
+    if (!formatInter.isValid()) {
+        qDebug() << "com.deepin.daemon.Format error ," << formatInter.lastError().name();
+        return;
+    }
+
+    m_model->setCurrencySymbol(static_cast<QString>(formatInter.property("CurrencySymbol").toString()));
+    m_model->setDecimalSymbol(static_cast<QString>(formatInter.property("DecimalSymbol").toString()));
+    m_model->setDigitGrouping(static_cast<QString>(formatInter.property("DigitGrouping").toString()));
+    m_model->setDigitGroupingSymbol(static_cast<QString>(formatInter.property("DigitGroupingSymbol").toString()));
+    m_model->setNegativeCurrencyFormat(static_cast<QString>(formatInter.property("NegativeCurrencyFormat").toString()));
+    m_model->setPositiveCurrencyFormat(static_cast<QString>(formatInter.property("PositiveCurrencyFormat").toString()));
+
+    //关联属性信号变化
+    QDBusConnection::sessionBus().connect("com.deepin.daemon.Timedate",
+                                          "/com/deepin/daemon/Format",
+                                          "org.freedesktop.DBus.Properties",
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this, SLOT(seteFormatSlot(QDBusMessage)));
+
+    connect(m_model, &DatetimeModel::formatPropertyChanged, this, &DatetimeWork::setFormat);
 }
 
 DatetimeWork::~DatetimeWork()
@@ -121,6 +154,68 @@ DatetimeWork &DatetimeWork::getInstance()
 {
     static DatetimeWork worker(new DatetimeModel);
     return worker;
+}
+
+//设置数字格式化接口
+void DatetimeWork::setFormat(QString property, QString value)
+{
+    qInfo() << Q_FUNC_INFO << " property : " << property << " , value : " << value;
+    if (!m_formatList.contains(property) || value == "") {
+        qWarning() << " seteFormat, formatList not contains the property : " << property << value;
+        return;
+    }
+
+    QDBusInterface interface("com.deepin.daemon.Format",
+                             "/com/deepin/daemon/Format",
+                             "org.freedesktop.DBus.Properties",
+                             QDBusConnection::sessionBus());
+
+    QDBusMessage reply = interface.call("Set", "com.deepin.daemon.Format", property, QVariant::fromValue(QDBusVariant(value)));
+    if (reply.type() == QDBusMessage::ErrorMessage) {
+        qWarning() << "reply.type() = " << reply.type();
+        return;
+    }
+}
+
+void DatetimeWork::seteFormatSlot(QDBusMessage msg)
+{
+    QList<QVariant> arguments = msg.arguments();
+    if (3 != arguments.count()) {
+        return;
+    }
+
+    QString interfaceName = msg.arguments().at(0).toString();
+    if (interfaceName == "com.deepin.daemon.Format") {
+        QVariantMap property = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        QStringList keys = property.keys();
+        for (int i = 0; i < keys.size(); i++) {
+            QString propty = keys.at(i);
+            QString value = static_cast<QString>(property.value(keys.at(i)).toString());
+            if (!m_formatList.contains(propty) || value == "") {
+                return;
+            }
+            qInfo() << " [seteFormatSlot] propty : " << propty << " , value : " << value;
+            if (propty == "DecimalSymbol") {
+                m_model->setDecimalSymbol(value);
+                return;
+            } else if (propty == "CurrencySymbol") {
+                m_model->setCurrencySymbol(value);
+                return;
+            } else if (propty == "DigitGrouping") {
+                m_model->setDigitGrouping(value);
+                return;
+            } else if (propty == "DigitGroupingSymbol") {
+                m_model->setDigitGroupingSymbol(value);
+                return;
+            } else if (propty == "NegativeCurrencyFormat") {
+                m_model->setNegativeCurrencyFormat(value);
+                return;
+            } else if (propty == "PositiveCurrencyFormat") {
+                m_model->setPositiveCurrencyFormat(value);
+                return;
+            }
+        }
+    }
 }
 
 void DatetimeWork::setNTP(bool ntp)
