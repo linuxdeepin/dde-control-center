@@ -79,7 +79,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="85"/>
         <source>The password should differ from the username</source>
-        <translation type="unfinished"/>
+        <translation>Salasana tulee olla eri kuin käyttäjänimi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="91"/>
@@ -268,7 +268,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="100"/>
         <source>The user account is not linked to UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjätiliä ei ole linkitetty Union ID:hen</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="113"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="248"/>
         <source>Login expired, please sign in to the UOS ID again</source>
-        <translation type="unfinished"/>
+        <translation>Kirjautuminen vanhentunut, kirjaudu Union ID -tunnuksella uudelleen</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="250"/>

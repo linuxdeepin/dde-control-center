@@ -151,7 +151,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
         <source>Reset Password By UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Jelszó visszaállítása UOS® azonosító alapján </translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
@@ -268,7 +268,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="100"/>
         <source>The user account is not linked to UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>A felhasználói fiók nincs összekapcsolva az UOS® azonosítóval</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="113"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="248"/>
         <source>Login expired, please sign in to the UOS ID again</source>
-        <translation type="unfinished"/>
+        <translation>A bejelentkezés lejárt, kérjük jelentkezzen be újra az UOS® azonosítójával</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="250"/>
@@ -310,7 +310,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="253"/>
         <source>The UOS ID is not linked to a user account</source>
-        <translation type="unfinished"/>
+        <translation>Az UOS® azonosító nincs a felhasználói fiókhoz kapcsolva </translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="287"/>

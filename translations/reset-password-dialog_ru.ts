@@ -170,7 +170,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
         <source>Confirm and Reset</source>
-        <translation>Подтвердить и Восстановить</translation>
+        <translation>Подтвердить и сбросить</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="299"/>
@@ -213,7 +213,7 @@
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="131"/>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation>Как называется первая школа, в которую ты пошел?</translation>
+        <translation>Как называется первая школа, в которую вы ходили?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="132"/>

@@ -74,7 +74,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="84"/>
         <source>No more than %1 repeating characters please</source>
-        <translation>Ju lutemi, jo më shumë se %1 shenja të përsëritura</translation>
+        <translation>Ju lutemi, jo më shumë se %1 shenja që përsëriten</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="85"/>
@@ -251,7 +251,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="62"/>
         <source>Phone/Email</source>
-        <translation>Telefoni/Email</translation>
+        <translation>Telefon/Email</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="68"/>

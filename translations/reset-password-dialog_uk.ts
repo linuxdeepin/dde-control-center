@@ -151,7 +151,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
         <source>Reset Password By UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Скидання пароля за ідентифікатором UOS</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
@@ -268,7 +268,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="100"/>
         <source>The user account is not linked to UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Обліковий запис користувача не пов&apos;язано із ідентифікатором UOS</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="113"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="248"/>
         <source>Login expired, please sign in to the UOS ID again</source>
-        <translation type="unfinished"/>
+        <translation>Термін дії квитка для входу вичерпано. Будь ласка, знову увійдіть до облікового запису UOS</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="250"/>
@@ -310,7 +310,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="253"/>
         <source>The UOS ID is not linked to a user account</source>
-        <translation type="unfinished"/>
+        <translation>Ідентифікатор UOS не пов&apos;язано із обліковим записом користувача</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="287"/>
