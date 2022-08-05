@@ -112,6 +112,7 @@ private:
      * @brief refreshActivePortShow 最终确认显示的端口下拉框 保证蓝牙下拉框与之匹配
      */
     void refreshActivePortShow(const dcc::sound::Port *port);
+    bool hasVirtualSink();
 
 private:
     //model类， 为后端数据来源及数据变化信号来源
@@ -144,6 +145,8 @@ private:
     // 确保第一次点击没有延时
     bool m_fristChangePort;
     bool m_fristStatusChangePort;
+    // 名称
+    QString m_speakerName;
 
     /**
      * @brief m_waitStatusChangeTimer 端口切换等待延时

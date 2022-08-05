@@ -158,6 +158,10 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
         m_mute = flag;
         refreshIcon();
     });
+    connect(m_model, &SoundModel::speakerNameChanged, this, [ this ](const QString &name) {
+        m_speakerName = name;
+        showDevice();
+    });
 
     initSlider();
     initCombox();
@@ -247,7 +251,13 @@ void SpeakerPage::refreshActivePortShow(const dcc::sound::Port *port)
         }
 
         setBlueModeVisible(port->isBluetoothPort() && (m_outputModel->rowCount() > 0));
+    } else {
+        setBlueModeVisible(false);
     }
+}
+
+bool SpeakerPage::hasVirtualSink() {
+    return m_model->ports().isEmpty() && !m_speakerName.startsWith("auto_null");
 }
 
 void SpeakerPage::addPort(const dcc::sound::Port *port)
@@ -474,6 +484,9 @@ void SpeakerPage::initCombox()
     m_layout->addWidget(m_outputSoundsGrp);
     m_layout->setSpacing(10);
     m_layout->addStretch(10);
+
+    // 无端口情况下后续不会更新状态，所以默认不显示。
+    m_blueSoundCbx->setVisible(false);
 }
 
 void SpeakerPage::refreshIcon()
@@ -487,9 +500,10 @@ void SpeakerPage::refreshIcon()
 
 void SpeakerPage::showWaitSoundPortStatus(bool showStatus)
 {
-    if ((m_currentPort && !m_currentPort->isBluetoothPort()) || m_model->currentBluetoothAudioMode().isEmpty()) {
+    if (!m_currentPort || !m_currentPort->isBluetoothPort() || m_model->currentBluetoothAudioMode().isEmpty()) {
         m_blueSoundCbx->setVisible(false);
     }
+
     m_outputSoundCbx->setEnabled(showStatus);
     m_blueSoundCbx->setEnabled(showStatus);
 }
@@ -505,11 +519,15 @@ void SpeakerPage::showDevice()
     if (!m_speakSlider || !m_vbWidget || !m_balanceSlider || !m_outputSlider)
         return;
 
-    if (1 > m_outputModel->rowCount()){
+    // 支持云平台无端口设备的显示
+    if (1 > m_outputModel->rowCount() && !hasVirtualSink()){
         setDeviceVisible(false);
         setBlueModeVisible(false);
     } else
         setDeviceVisible(true);
+
+    // 云平台关闭输出设备
+    m_outputSoundCbx->setVisible(!hasVirtualSink());
 }
 
 void SpeakerPage::setDeviceVisible(bool visible)

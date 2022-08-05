@@ -260,6 +260,7 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
     m_model->setSpeakerOn(m_defaultSink->mute());
     m_model->setSpeakerBalance(m_defaultSink->balance());
     m_model->setSpeakerVolume(m_defaultSink->volume());
+    m_model->setSpeakerName(m_defaultSink->name());
 
     activeSinkPortChanged(m_defaultSink->activePort());
     onSinkCardChanged(m_defaultSink->card());
@@ -282,6 +283,7 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
     m_model->setMicrophoneVolume(m_defaultSource->volume());
     activeSourcePortChanged(m_defaultSource->activePort());
     onSourceCardChanged(m_defaultSource->card());
+    m_model->setMicrophoneName(m_defaultSource->name());
 
 #ifndef DCC_DISABLE_FEEDBACK
     QDBusPendingCall call = m_defaultSource->GetMeter();
