@@ -31,6 +31,7 @@ public:
     explicit CurrencyFormat(dcc::datetime::DatetimeModel *model, QWidget *parent = nullptr);
     ~CurrencyFormat();
 
+    QString getFirstCurrencySymbolFormat() {return m_currencySymbolFormatPlace;}
     int getFirstPositiveCurrencyFormatPlace() {return m_positiveCurrencyFormatPlace;}
     int getFirstNegativeCurrencyPlace() {return m_negativeCurrencyFormatPlace;}
 
@@ -50,6 +51,7 @@ private:
     dcc::widgets::ComboxWidget *m_currencySymbolCbx;
     dcc::widgets::ComboxWidget *m_positiveCurrencyFormatCbx;
     dcc::widgets::ComboxWidget *m_negativeCurrencyFormatCbx;
+    QString m_currencySymbolFormatPlace;
     int m_positiveCurrencyFormatPlace;
     int m_negativeCurrencyFormatPlace;
 };

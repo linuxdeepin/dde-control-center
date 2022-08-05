@@ -42,6 +42,7 @@ Q_SIGNALS:
     void digitGroupingChanged(QString);
 
 public Q_SLOTS:
+    void SetCurrencySymbolFormat(QString value);
     void SetPositiveCurrencyFormat(int value);
     void SetNegativeCurrency(int value);
     void updateExample(int numplace = -1);
@@ -53,6 +54,7 @@ private:
     dcc::widgets::ComboxWidget *m_digitGroupingSymbolCbx;
     dcc::widgets::ComboxWidget *m_digitGroupingCbx;
     dcc::widgets::TipsLabel *m_exampleTips;
+    QString m_currencySymbolFormat;
     int m_positiveCurrencyFormat;
     int m_negativeCurrency;
 };

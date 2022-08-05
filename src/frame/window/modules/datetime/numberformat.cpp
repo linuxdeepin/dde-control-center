@@ -44,6 +44,7 @@ NumberFormat::NumberFormat(dcc::datetime::DatetimeModel *model, QWidget *parent)
     , m_digitGroupingSymbolCbx(new ComboxWidget)
     , m_digitGroupingCbx(new ComboxWidget)
     , m_exampleTips(new TipsLabel)
+    , m_currencySymbolFormat("")
     , m_positiveCurrencyFormat(0)
     , m_negativeCurrency(0)
 {
@@ -116,6 +117,14 @@ NumberFormat::~NumberFormat()
     DConfigWatcher::instance()->erase(DConfigWatcher::datetime, "FromatsettingDecimalsymbol");
     DConfigWatcher::instance()->erase(DConfigWatcher::datetime, "FromatsettingDigitgroupingsymbol");
     DConfigWatcher::instance()->erase(DConfigWatcher::datetime, "FromatsettingDigitgrouping");
+}
+
+void NumberFormat::SetCurrencySymbolFormat(QString value)
+{
+    if (m_currencySymbolFormat != value) {
+        m_currencySymbolFormat = value;
+        updateExample();
+    }
 }
 
 void NumberFormat::SetPositiveCurrencyFormat(int value)
