@@ -166,8 +166,10 @@ void FormatSetting::initComboxWidgetList()
     connect(m_weekStartDayCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &FormatSetting::weekStartDayFormatChanged);
 
+    connect(m_currencyFormatWidget, &CurrencyFormat::currencySymbolFormatChanged, m_numberFormatWidget, &NumberFormat::SetCurrencySymbolFormat);
     connect(m_currencyFormatWidget, &CurrencyFormat::positiveCurrencyFormatChanged, m_numberFormatWidget, &NumberFormat::SetPositiveCurrencyFormat);
     connect(m_currencyFormatWidget, &CurrencyFormat::negativeCurrencyChanged, m_numberFormatWidget, &NumberFormat::SetNegativeCurrency);
+    m_numberFormatWidget->SetCurrencySymbolFormat(m_currencyFormatWidget->getFirstCurrencySymbolFormat());
     m_numberFormatWidget->SetPositiveCurrencyFormat(m_currencyFormatWidget->getFirstPositiveCurrencyFormatPlace());
     m_numberFormatWidget->SetNegativeCurrency(m_currencyFormatWidget->getFirstNegativeCurrencyPlace());
 }

@@ -125,6 +125,7 @@ void CurrencyFormat::initComboxWidgetList()
     m_positiveCurrencyFormatCbx->comboBox()->setCurrentText(m_model->positiveCurrencyFormat());
     m_negativeCurrencyFormatCbx->comboBox()->setCurrentText(m_model->negativeCurrencyFormat());
     //初次进入该页面，获取正负正数位子
+    m_currencySymbolFormatPlace = m_currencySymbolCbx->comboBox()->currentText();
     m_positiveCurrencyFormatPlace = m_positiveCurrencyFormatCbx->comboBox()->currentIndex();
     m_negativeCurrencyFormatPlace = m_negativeCurrencyFormatCbx->comboBox()->currentIndex();
 
