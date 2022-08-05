@@ -14,8 +14,8 @@ ConnectionPageItem::ConnectionPageItem(QWidget *widget, DListView *listView, Con
     : DStandardItem()
     , m_loadingIndicator(new DSpinner)
     , m_parentView(listView)
-    , m_editAction(new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true))
-    , m_loadingAction(new DViewItemAction(Qt::AlignmentFlag::AlignRight, QSize(), QSize(), true))
+    , m_editAction(new DViewItemAction(Qt::AlignmentFlag::AlignVCenter, QSize(), QSize(), true))
+    , m_loadingAction(new DViewItemAction(Qt::AlignmentFlag::AlignVCenter, QSize(), QSize(), true))
     , m_itemData(nullptr)
     , m_connection(connection)
 {
@@ -24,17 +24,17 @@ ConnectionPageItem::ConnectionPageItem(QWidget *widget, DListView *listView, Con
     m_loadingIndicator->setFixedSize(20, 20);
     m_loadingIndicator->setParent(m_parentView->viewport());
 
+    m_loadingAction->setWidget(m_loadingIndicator);
+    m_loadingAction->setVisible(false);
+
     QStyleOption opt;
     m_editAction->setIcon(DStyleHelper(widget->style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
     m_editAction->setClickAreaMargins(ArrowEnterClickMargin);
 
-    m_loadingAction->setWidget(m_loadingIndicator);
-
-    setActionList(Qt::Edge::RightEdge, { m_editAction, m_loadingAction });
+    setActionList(Qt::Edge::RightEdge, { m_loadingAction, m_editAction });
 
     setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
 
-    m_loadingAction->setVisible(false);
     connect(m_loadingAction, &DViewItemAction::destroyed, this, [ this ] {
        this->m_loadingAction = nullptr;
     });
@@ -87,12 +87,9 @@ void ConnectionPageItem::setConnectionStatus(const ConnectionStatus &status)
 void ConnectionPageItem::setLoading(const bool isLoading)
 {
     if (isLoading) {
-        m_editAction->setVisible(false);
         m_loadingIndicator->start();
         m_loadingAction->setVisible(true);
     } else {
-        m_editAction->setVisible(true);
-        //m_loadingIndicator->stop();
         m_loadingIndicator->setVisible(false);
         m_loadingAction->setVisible(false);
     }

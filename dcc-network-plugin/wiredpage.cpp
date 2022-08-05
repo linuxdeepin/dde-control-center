@@ -137,6 +137,12 @@ WiredPage::WiredPage(dde::network::WiredDevice *dev, QWidget *parent)
         WiredConnection *connObj = static_cast<WiredConnection *>(item->itemData());
         if (!connObj->connected())
             m_device->connectNetwork(idx.data(PathRole).toString());
+
+        // 如果正在编辑状态，则切换到当前连接
+        if (!m_editPage.isNull() && m_editPage->connectionUuid() != connObj->connection()->uuid()) {
+            this->editConnection(connObj->connection()->path());
+            m_editPage->setLeftButtonEnable(true);
+        }
     });
 
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
@@ -190,6 +196,11 @@ void WiredPage::onUpdateConnectionStatus()
         }
     }
 
+    // 连接状态变化后更新编辑界面按钮状态
+    if (!m_editPage.isNull()) {
+        m_editPage->initHeaderButtons();
+    }
+
     m_modelprofiles->sort(0);
 }
 
@@ -224,12 +235,17 @@ void WiredPage::refreshConnectionList()
         it->setItemData(connObj);
         it->setConnectionStatus(connObj->status());
         it->setData(connObjList.indexOf(connObj), SortRole);
-        connect(it, &ConnectionPageItem::detailClick, this, [ this, path ]{
+        connect(it, &ConnectionPageItem::detailClick, this, [ this, path ] {
             this->editConnection(path);
             m_editPage->setLeftButtonEnable(true);
         });
         m_modelprofiles->appendRow(it);
         m_connectionPath.insert(it, path);
+    }
+
+    // 连接状态变化后更新编辑界面按钮状态
+    if (!m_editPage.isNull()) {
+        m_editPage->initHeaderButtons();
     }
 
     checkActivatedConnection();

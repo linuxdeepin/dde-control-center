@@ -91,6 +91,30 @@ PppoePage::PppoePage(QWidget *parent)
         QString uuid = idx.data(UuidRole).toString();
         DSLController *dslController = NetworkController::instance()->dslController();
         dslController->connectItem(uuid);
+
+        // 正在编辑连接信息时，点击空白处切换为当前连接
+        if (!m_editPage.isNull() && m_editPage->connectionUuid() != uuid) {
+            QString macAddress = "";
+            ConnectionPageItem *pppoe = static_cast<ConnectionPageItem *>(m_modelSettings->item(idx.row()));
+            if (pppoe) {
+                DSLItem *dslItem = static_cast<DSLItem *>(pppoe->itemData());
+
+                if (dslItem) {
+                    macAddress = dslItem->connection()->hwAddress();
+                }
+            }
+
+            QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
+            QString devicePath = "/";
+            for (NetworkDeviceBase *device : devices) {
+                if (device->realHwAdr() == macAddress) {
+                    devicePath = device->path();
+                    break;
+                }
+            }
+
+            onShowEditPage(devicePath, uuid);
+        }
     });
 
     DSLController *dslController = NetworkController::instance()->dslController();
@@ -153,17 +177,7 @@ void PppoePage::onConnectionListChanged()
         }
 
         connect(pppoe, &ConnectionPageItem::detailClick, this, [ = ] {
-            m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, devicePath, uuid);
-            m_editPage->initSettingsWidget();
-            m_editPage->setLeftButtonEnable(true);
-
-            connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
-            connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
-            connect(m_editPage, &ConnectionEditPage::disconnect, this, [ = ] {
-                dslController->disconnectItem();
-            });
-
-            Q_EMIT requestNextPage(m_editPage);
+            onShowEditPage(devicePath, uuid);
         });
         m_items[uuid] = pppoe;
 
@@ -200,6 +214,27 @@ void PppoePage::onActiveConnectionChanged()
         ConnectionPageItem *item = m_items[uuid];
         item->setConnectionStatus(connectionItem->status());
     }
+
+    // 连接状态变化后更新编辑界面按钮状态
+    if (!m_editPage.isNull()) {
+        m_editPage->initHeaderButtons();
+    }
+}
+
+void PppoePage::onShowEditPage(const QString &devicePath, const QString &uuid)
+{
+    m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, devicePath, uuid);
+    m_editPage->initSettingsWidget();
+    m_editPage->setLeftButtonEnable(true);
+
+    connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
+    connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
+    connect(m_editPage, &ConnectionEditPage::disconnect, this, [ = ] {
+        DSLController *dslController = NetworkController::instance()->dslController();
+        dslController->disconnectItem();
+    });
+
+    Q_EMIT requestNextPage(m_editPage);
 }
 
 void PppoePage::jumpPath(const QString &searchPath)

@@ -103,14 +103,13 @@ void ConnectionEditPage::initUI()
     setAccessibleName("ConnectionEditPage");
     m_settingsLayout->setSpacing(10);
 
+    m_buttonTuple_conn->removeSpacing();
     m_disconnectBtn = m_buttonTuple_conn->leftButton();
     m_removeBtn = m_buttonTuple_conn->rightButton();
     GSettingWatcher::instance()->bind("removeConnection", m_removeBtn);
 
     m_disconnectBtn->setText(tr("Disconnect", "button"));
-    m_disconnectBtn->setVisible(false);
     m_removeBtn->setText(tr("Delete", "button"));
-    m_removeBtn->setVisible(false);
 
     QPushButton *cancelBtn = m_buttonTuple->leftButton();
     QPushButton *acceptBtn = m_buttonTuple->rightButton();
@@ -140,42 +139,50 @@ void ConnectionEditPage::initUI()
     setMinimumWidth(380);
 }
 
-bool ConnectionEditPage::isConnected()
+const ActiveConnection::State ConnectionEditPage::ConnectedState()
 {
     NetworkManager::Device::Ptr device(new NetworkManager::Device(DevicePath));
     if (device->type() == Device::Type::Wifi || device->type() == Device::Type::Ethernet) {
         // 如果是有线网络或者无线网络
         NetworkManager::ActiveConnection::Ptr activeConn = device->activeConnection();
-        return (!activeConn.isNull() && (activeConn->uuid() == m_connection->uuid()));
+        if (!activeConn.isNull() && (activeConn->uuid() == m_connection->uuid())) {
+            return activeConn->state();
+        }
     }
 
     for (auto conn : activeConnections()) {
-        if (conn->uuid() == m_connection->uuid())
-            return true;
+        if (conn->uuid() == m_connection->uuid()) {
+            return conn->state();
+        }
     }
 
-    return false;
+    return NetworkManager::ActiveConnection::Unknown;
 }
 
 void ConnectionEditPage::initHeaderButtons()
 {
     if (m_isNewConnection) {
+        m_disconnectBtn->setVisible(false);
+        m_removeBtn->setVisible(false);
         return;
     }
 
-    if (isConnected()) {
-        m_disconnectBtn->setVisible(true);
+    if (m_connection) {
         m_disconnectBtn->setProperty("activeConnectionPath", m_connection->path());
         m_disconnectBtn->setProperty("connectionUuid", m_connection->uuid());
     }
 
-    m_removeBtn->setVisible(true);
-
-    //当只有m_removeBtn显示时,由于布局中添加了space,导致删除按钮未对齐,需要删除空格
-    if (!m_disconnectBtn->isHidden())
-        return;
-    m_buttonTuple_conn->removeSpacing();
-
+    // 根据连接状态显示按钮文案和状态
+    if (ConnectedState() == NetworkManager::ActiveConnection::Activating) {
+        m_disconnectBtn->setEnabled(false);
+        m_disconnectBtn->setText(tr("Connecting"));
+    } else if (ConnectedState() == NetworkManager::ActiveConnection::Activated) {
+        m_disconnectBtn->setEnabled(true);
+        m_disconnectBtn->setText(tr("Disconnect"));
+    } else {
+        m_disconnectBtn->setEnabled(false);
+        m_disconnectBtn->setText(tr("Disconnect"));
+    }
 }
 
 void ConnectionEditPage::initSettingsWidget()

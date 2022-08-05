@@ -79,6 +79,7 @@ private Q_SLOTS:
     void onConnectionListChanged();
     void onItemChanged(const QList<DSLItem *> &items);
     void onActiveConnectionChanged();
+    void onShowEditPage(const QString &devicePath, const QString &uuid);
 
 private:
     DListView *m_lvsettings;

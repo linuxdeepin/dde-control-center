@@ -78,6 +78,8 @@ private Q_SLOTS:
     void importVPN();
     void createVPN();
     void changeVpnId();
+    void showEditPage(VPNItem *vpn);
+
 private:
     SwitchWidget *m_vpnSwitch;
 

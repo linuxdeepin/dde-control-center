@@ -94,11 +94,17 @@ APItem::APItem(const QString &text, QStyle *style, DListView *parent)
         m_loadingIndicator->setParent(parent->viewport());
     }
 
-    m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true);
+    m_loadingAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter, QSize(), QSize(), false);
+    if (!m_loadingIndicator.isNull()) {
+        m_loadingAction->setWidget(m_loadingIndicator);
+    }
+    m_loadingAction->setVisible(false);
+
+    m_arrowAction = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter, QSize(), QSize(), true);
     QStyleOption opt;
     m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
     m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);
-    setActionList(Qt::Edge::RightEdge, {m_arrowAction});
+    setActionList(Qt::Edge::RightEdge, {m_loadingAction, m_arrowAction});
 }
 
 APItem::~APItem()
@@ -256,29 +262,19 @@ bool APItem::setLoading(bool isLoading)
             QRect itemrect = m_parentView->visualRect(index);
             QPoint point(itemrect.x() + itemrect.width(), itemrect.y());
             m_loadingIndicator->move(point);
+            m_loadingIndicator->start();
+            m_loadingIndicator->show();
         }
 
-        if (!m_arrowAction.isNull())
-            m_arrowAction->setVisible(false);
-
-        m_loadingAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false);
-        m_loadingAction->setWidget(m_loadingIndicator);
         m_loadingAction->setVisible(true);
-        m_loadingIndicator->start();
-        m_loadingIndicator->show();
-        setActionList(Qt::Edge::RightEdge, {m_loadingAction});
     } else {
-        m_loadingIndicator->stop();
-        m_loadingIndicator->hide();
-        if (!m_loadingAction.isNull())
-            m_loadingAction->setVisible(false);
+        if (!m_loadingIndicator.isNull()) {
+            m_loadingIndicator->stop();
+            m_loadingIndicator->hide();
+        }
 
-        m_arrowAction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true);
-        QStyleOption opt;
-        m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
-        m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);
-        m_arrowAction->setVisible(true);
-        setActionList(Qt::Edge::RightEdge, {m_arrowAction});
+        m_loadingAction->setVisible(false);
+
         isReconnect = true;
     }
 
@@ -408,8 +404,14 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         if (!m_clickedItem)
             return;
 
-        if (m_clickedItem->isConnected())
+        if (m_clickedItem->isConnected()) {
+            // 如果已连接并且正在编辑连接信息，切换编辑内容为此连接
+            const QString uuid = connectionUuid(m_clickedItem->data(Qt::ItemDataRole::DisplayRole).toString());
+            if (!m_apEditPage.isNull() && m_apEditPage->connectionUuid() != uuid) {
+                this->onApWidgetEditRequested(m_clickedItem->data(APItem::PathRole).toString(), m_clickedItem->data(Qt::ItemDataRole::DisplayRole).toString());
+            }
             return;
+        }
 
         onApWidgetConnectRequested(idx.data(APItem::PathRole).toString(), idx.data(Qt::ItemDataRole::DisplayRole).toString());
     });
@@ -532,6 +534,11 @@ void WirelessPage::onDeviceStatusChanged(const DeviceStatus &stat)
             }
         }
     }
+
+    // 连接状态变化后更新编辑界面按钮状态
+    if (!m_apEditPage.isNull()) {
+        m_apEditPage->initHeaderButtons();
+    }
 }
 
 void WirelessPage::jumpByUuid(const QString &uuid)
@@ -631,6 +638,12 @@ void WirelessPage::onUpdateAPItem()
         m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
         m_apItems.erase(m_apItems.find(ssid));
     }
+
+    // 连接状态变化后更新编辑界面按钮状态
+    if (!m_apEditPage.isNull()) {
+        m_apEditPage->initHeaderButtons();
+    }
+
     appendConnectHidden();
 }
 
@@ -706,6 +719,11 @@ void WirelessPage::onActivateApFailed(const AccessPoints* pAccessPoints)
 
         it.value()->setConnected(false);
     }
+
+    // 连接状态变化后更新编辑界面按钮状态
+    if (!m_apEditPage.isNull()) {
+        m_apEditPage->initHeaderButtons();
+    }
 }
 
 void WirelessPage::sortAPList()
@@ -716,13 +734,8 @@ void WirelessPage::sortAPList()
 void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString &ssid)
 {
     const QString uuid = connectionUuid(ssid);
-    if (!m_apEditPage.isNull())
-        return;
 
     m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid, apPath, isHiddenWlan(ssid));
-    connect(m_apEditPage, &ConnectionWirelessEditPage::destroyed, this, [ this ] {
-        this->m_apEditPage = nullptr;
-    });
     connect(m_apEditPage, &ConnectionWirelessEditPage::disconnect, this, [ this ] {
         m_device->disconnectNetwork();
     });
@@ -776,6 +789,12 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
             }
         }
     }
+
+    // 如果正在编辑状态，则切换到当前连接
+    if (m_clickedItem && !m_apEditPage.isNull()) {
+        this->onApWidgetEditRequested(m_clickedItem->data(APItem::PathRole).toString(), m_clickedItem->data(Qt::ItemDataRole::DisplayRole).toString());
+    }
+
     if (m_switch && m_switch->checked())
         m_device->connectNetwork(ssid);
 }
@@ -825,6 +844,11 @@ void WirelessPage::updateApStatus()
         connect(apItem->action(), &QAction::triggered, this, [ this, apItem ] {
             this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(), apItem->data(Qt::ItemDataRole::DisplayRole).toString());
         });
+    }
+
+    // 连接状态变化时更新编辑界面按钮状态
+    if (!m_apEditPage.isNull()) {
+        m_apEditPage->initHeaderButtons();
     }
 
     m_sortDelayTimer->start();

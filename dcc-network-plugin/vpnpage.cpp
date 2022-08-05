@@ -163,6 +163,14 @@ VpnPage::VpnPage(QWidget *parent)
     connect(m_lvprofiles, &DListView::clicked, this, [ = ] (const QModelIndex &index) {
         QString uuid = index.data(UuidRole).toString();
         vpnController->connectItem(uuid);
+
+        ConnectionPageItem *pageItem = dynamic_cast<ConnectionPageItem *>(m_modelprofiles->item(index.row()));
+        if (pageItem) {
+            VPNItem *vpn = static_cast<VPNItem *>(pageItem->itemData());
+            if (vpn && !m_editPage.isNull() && m_editPage->connectionUuid() != uuid) {
+                showEditPage(vpn);
+            }
+        }
     });
     connect(m_vpnSwitch, &SwitchWidget::checkedChanged, this, [ = ](const bool checked) {
         vpnController->setEnabled(checked);
@@ -266,22 +274,7 @@ void VpnPage::refreshVpnList(QList<VPNItem *> vpns)
         vpnItem->setData(uuid, UuidRole);
 
         connect(vpnItem, &ConnectionPageItem::detailClick, this, [ = ] {
-            m_editPage = new ConnectionVpnEditPage(uuid);
-            m_editPage->initSettingsWidget();
-            m_editPage->setLeftButtonEnable(true);
-
-            connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
-            connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
-            connect(m_editPage, &ConnectionVpnEditPage::disconnect, this, [ = ] {
-                VPNController *vpnController = NetworkController::instance()->vpnController();
-                vpnController->disconnectItem();
-            });
-            connect(m_editPage, &ConnectionVpnEditPage::activateVpnConnection, this, [ vpn ] {
-                VPNController *vpnController = NetworkController::instance()->vpnController();
-                vpnController->connectItem(vpn);
-            });
-
-            Q_EMIT requestNextPage(m_editPage);
+            showEditPage(vpn);
         });
 
         m_modelprofiles->appendRow(vpnItem);
@@ -381,6 +374,26 @@ void VpnPage::changeVpnId()
         qDebug() << "find Connection By Uuid is success";
         return;
     }
+}
+
+void VpnPage::showEditPage(VPNItem *vpn)
+{
+    m_editPage = new ConnectionVpnEditPage(vpn ? vpn->connection()->uuid() : "");
+    m_editPage->initSettingsWidget();
+    m_editPage->setLeftButtonEnable(true);
+
+    connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
+    connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
+    connect(m_editPage, &ConnectionVpnEditPage::disconnect, this, [ = ] {
+        VPNController *vpnController = NetworkController::instance()->vpnController();
+        vpnController->disconnectItem();
+    });
+    connect(m_editPage, &ConnectionVpnEditPage::activateVpnConnection, this, [ vpn ] {
+        VPNController *vpnController = NetworkController::instance()->vpnController();
+        vpnController->connectItem(vpn);
+    });
+
+    Q_EMIT requestNextPage(m_editPage);
 }
 
 void VpnPage::importVPN()

@@ -183,7 +183,7 @@ void SecretAgent::dialogFinished()
 }
 
 void SecretAgent::readProcessOutput()
-{        
+{
     for (int i = 0; i < m_calls.size(); ++i) {
         SecretsRequest request = m_calls[i];
         if (request.type == SecretsRequest::GetSecrets && request.process == m_process) {
@@ -244,7 +244,7 @@ bool SecretAgent::processGetSecrets(SecretsRequest &request) const
     const bool requestNew = request.flags & RequestNew;
     const bool userRequested = request.flags & UserRequested;
     const bool allowInteraction = request.flags & AllowInteraction;
-    const bool isVpn = (setting->type() == NetworkManager::Setting::Vpn);    
+    const bool isVpn = (setting->type() == NetworkManager::Setting::Vpn);
 
     if (isVpn) {
         NetworkManager::VpnSetting::Ptr vpnSetting = connectionSettings->setting(NetworkManager::Setting::Vpn).dynamicCast<NetworkManager::VpnSetting>();
@@ -286,7 +286,7 @@ bool SecretAgent::processGetSecrets(SecretsRequest &request) const
     }
 
     if (requestNew || (allowInteraction && !setting->needSecrets(requestNew).isEmpty()) || (allowInteraction && userRequested)
-               || (isVpn && allowInteraction)) {        
+               || (isVpn && allowInteraction)) {
         DEBUG_PRINT << "process request secrets";
 
         // 只处理无线的
@@ -382,7 +382,7 @@ void SecretAgent::sendSecrets(const NMVariantMapMap &secrets, const QDBusMessage
 {
     QDBusMessage reply;
     reply = message.createReply(QVariant::fromValue(secrets));
-    if (!QDBusConnection::systemBus().send(reply)) {        
+    if (!QDBusConnection::systemBus().send(reply)) {
         qWarning() << "Failed put the secret into the queue";
     }
 }

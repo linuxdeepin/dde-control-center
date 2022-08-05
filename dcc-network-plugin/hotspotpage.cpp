@@ -133,6 +133,11 @@ void HotspotDeviceWidget::addItems(const QList<HotspotItem *> &newItems)
         m_modelprofiles->appendRow(pageItem);
     }
     m_isClicked = false;
+
+    // 根据连接状态刷新按钮状态
+    if (!m_editPage.isNull()) {
+        m_editPage->initHeaderButtons();
+    }
 }
 
 void HotspotDeviceWidget::removeItems(const QList<HotspotItem *> &rmItems)
@@ -154,6 +159,11 @@ void HotspotDeviceWidget::updateItemStatus(const QList<HotspotItem *> &items)
             item->setText(hotspotItem->connection()->ssid());
             item->setConnectionStatus(hotspotItem->status());
         }
+    }
+
+    // 根据连接状态刷新按钮状态
+    if (!m_editPage.isNull()) {
+        m_editPage->initHeaderButtons();
     }
 }
 
@@ -237,6 +247,11 @@ void HotspotDeviceWidget::onSwitchToggled(const bool checked)
         }
         closeHotspot();
     }
+
+    // 根据连接状态刷新按钮状态
+    if (!m_editPage.isNull()) {
+        m_editPage->initHeaderButtons();
+    }
 }
 
 void HotspotDeviceWidget::onConnWidgetSelected(const QModelIndex &idx)
@@ -244,6 +259,11 @@ void HotspotDeviceWidget::onConnWidgetSelected(const QModelIndex &idx)
     const QString uuid = idx.data(UuidRole).toString();
     if (uuid.isEmpty())
         return;
+
+    // 正在编辑连接信息时，点击连接空白处切换编辑内容
+    if (!m_editPage.isNull() && m_editPage->connectionUuid() != uuid) {
+        onConnEditRequested(uuid);
+    }
 
     // 个人热点开启时才尝试激活连接
     if (m_hotspotSwitch->checked()) {
