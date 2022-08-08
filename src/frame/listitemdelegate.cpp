@@ -154,11 +154,13 @@ bool drawDciIcon(QPainter *painter, const QStyleOptionViewItem &option, const QR
     DDciIcon icon;
     if (iconVar.canConvert<DDciIcon>()) {
         icon = iconVar.value<DDciIcon>();
-    } else {
+    } else if (iconVar.type() == QVariant::String) {
         QString iconstr = iconVar.toString();
-        icon = DDciIcon::fromTheme(iconstr);
-        if (icon.isNull())
-            icon = DDciIcon(iconstr);
+        if (!iconstr.isEmpty()) {
+            icon = DDciIcon::fromTheme(iconstr);
+            if (icon.isNull())
+                icon = DDciIcon(iconstr);
+        }
     }
     if (!icon.isNull()) {
         DDciIcon::Mode dciMode = DDciIcon::Normal;

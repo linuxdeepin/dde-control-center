@@ -1,5 +1,7 @@
 #include "pagemodule.h"
 
+#include <QEvent>
+#include <QResizeEvent>
 #include <QScrollArea>
 #include <QScrollBar>
 #include <QVBoxLayout>
@@ -11,11 +13,12 @@ DCC_USE_NAMESPACE
 #define DCC_NO_STRETCH 0x00040000 // 无下方弹簧(父项)
 
 DCC_BEGIN_NAMESPACE
-class PageModulePrivate
+class PageModulePrivate : public QObject
 {
 public:
     explicit PageModulePrivate(PageModule *parent)
-        : q_ptr(parent)
+        : QObject(parent)
+        , q_ptr(parent)
         , m_spacing(10)
     {
         m_contentsMargins.setLeft(40);
@@ -53,6 +56,7 @@ public:
             mainLayout->addWidget(areaWidget);
         } else {
             m_area = new QScrollArea(parentWidget);
+            m_area->installEventFilter(this);
             m_area->setFrameShape(QFrame::NoFrame);
             m_area->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
             m_area->setWidgetResizable(true);
@@ -159,6 +163,23 @@ private:
             newPage->setDisabled(ModuleObject::IsDisabled(childModule));
             m_mapWidget.insert(childModule, newPage);
         }
+    }
+
+    bool eventFilter(QObject *watched, QEvent *event) override
+    {
+        if (QEvent::Resize == event->type() && m_area) {
+            QResizeEvent *e = static_cast<QResizeEvent *>(event);
+            int width = e->size().width();
+            for (int i = 0; i < m_vlayout->count(); ++i) {
+                QAbstractScrollArea *w = qobject_cast<QAbstractScrollArea *>(m_vlayout->itemAt(i)->widget());
+                if (w) {
+                    int left, right, top, bottom;
+                    m_vlayout->getContentsMargins(&left, &top, &right, &bottom);
+                    w->setMaximumWidth(width - left - right);
+                }
+            }
+        }
+        return QObject::eventFilter(watched, event);
     }
 
 private:
