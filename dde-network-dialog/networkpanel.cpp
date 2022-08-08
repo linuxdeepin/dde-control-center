@@ -62,8 +62,8 @@ NetworkPanel::NetworkPanel(QObject *parent)
 {
     initUi();
     if (NetworkController::instance()->devices().isEmpty()) {
-        // 收到activeConnectionChange信号时数据才全准备好
-        connect(NetworkController::instance(), &NetworkController::activeConnectionChange, this, &NetworkPanel::initConnection);
+        // 当关闭网络后，不会收到activeConnectionChange信号，需要监听deviceAdded信号初始化连接
+        connect(NetworkController::instance(), &NetworkController::deviceAdded, this, &NetworkPanel::initConnection);
     } else {
         initConnection();
     }
@@ -161,6 +161,11 @@ void NetworkPanel::initUi()
 
 void NetworkPanel::initConnection()
 {
+    static bool isConnectionInited = false;
+    if (isConnectionInited) {
+        return;
+    }
+    isConnectionInited = true;
     // 主题发生变化触发的信号
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &NetworkPanel::onUpdatePlugView);
 
@@ -453,9 +458,11 @@ void NetworkPanel::updateView()
                 qApp->quit();
         });
     }
-    // 只有当列表中的数量大于1的情况下，才抛出更新完成的信号,通知网络列表显示
-    if (m_model->rowCount() > 1)
-        Q_EMIT updateFinished();
+    // 网络设备数量大于1时，需要延迟发送信号，确保数据初始化完成，避免网络面板闪烁，解决bug119717
+    QTimer::singleShot(200, this, [ this ] {
+        if (m_model->rowCount() > 0)
+            Q_EMIT updateFinished();
+    });
 }
 
 void NetworkPanel::refreshItems()
