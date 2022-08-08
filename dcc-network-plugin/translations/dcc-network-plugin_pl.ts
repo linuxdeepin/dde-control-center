@@ -79,6 +79,14 @@
         <translation>Zapisz</translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Rozłącz</translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>Czy na pewno chcesz usunąć tę konfigurację?</translation>
     </message>
@@ -1945,12 +1953,12 @@
         <translation>Typ zabezpieczenia</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Pasmo</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kanał</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Pasmo</translation>
     </message>
     <message>
         <source>Interface</source>

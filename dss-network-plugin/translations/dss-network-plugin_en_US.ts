@@ -18,7 +18,7 @@
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation type="unfinished"/>
+        <translation>%1 disconnected</translation>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>

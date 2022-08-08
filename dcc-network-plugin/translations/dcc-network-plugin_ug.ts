@@ -79,6 +79,14 @@
         <translation>ساقلاش</translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>ئۈزۈش</translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>بۇ سەپلىمىنى ئۆچۈرمەكچىمۇ؟</translation>
     </message>
@@ -370,6 +378,10 @@
         <source>Airplane Mode</source>
         <translation>ئۇچۇش ھالىتى</translation>
     </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>
@@ -642,11 +654,6 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
-        <source>Airplane Mode</source>
-        <translation>ئۇچۇش ھالىتى</translation>
-        <extra-contents_path>/network/Airplane</extra-contents_path>
-    </message>
-    <message>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
@@ -661,6 +668,11 @@
     <message>
         <source>Application Proxy</source>
         <translation>ئەپ ۋاكالەتچىسى</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>ئۇچۇش ھالىتى</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
@@ -1941,12 +1953,12 @@
         <translation>بىخەتەرلىك تۈرى</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>دولقۇن بۆلىكى</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>قانال</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>دولقۇن بۆلىكى</translation>
     </message>
     <message>
         <source>Interface</source>

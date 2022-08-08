@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Name (SSID)</source>
-        <translation type="unfinished"/>
+        <translation>Имя (SSID)</translation>
     </message>
 </context>
 <context>
@@ -150,7 +150,7 @@
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Получение адреса</translation>
     </message>
 </context>
 <context>

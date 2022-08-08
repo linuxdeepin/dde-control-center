@@ -79,6 +79,14 @@
         <translation>儲 存</translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation>正在連線</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>斷開連線</translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>確定刪除此設定？</translation>
     </message>
@@ -1945,12 +1953,12 @@
         <translation>安全類型</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>頻段</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>聲道</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>頻段</translation>
     </message>
     <message>
         <source>Interface</source>

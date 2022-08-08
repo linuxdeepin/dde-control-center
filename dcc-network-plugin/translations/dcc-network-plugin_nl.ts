@@ -79,6 +79,14 @@
         <translation>Opslaan</translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Verbinding verbreken</translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>Weet je zeker dat je deze configuratie wilt verwijderen?</translation>
     </message>
@@ -1945,12 +1953,12 @@
         <translation>Soort beveiliging</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Band</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kanaal</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Band</translation>
     </message>
     <message>
         <source>Interface</source>

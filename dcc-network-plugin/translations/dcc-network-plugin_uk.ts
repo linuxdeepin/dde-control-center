@@ -79,6 +79,14 @@
         <translation>Зберегти</translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Відʼєднатися</translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>Ви впевнені, що хочете видалити цю конфігурацію?</translation>
     </message>
@@ -1945,12 +1953,12 @@
         <translation>Тип захисту</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Група</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Канал</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Група</translation>
     </message>
     <message>
         <source>Interface</source>

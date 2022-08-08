@@ -79,6 +79,14 @@
         <translation>Сачувај</translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Прекини везу</translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>Заиста желите да обришете ова подешавања?</translation>
     </message>
@@ -370,6 +378,10 @@
         <source>Airplane Mode</source>
         <translation>Авионски режим</translation>
     </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>
@@ -642,11 +654,6 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
-        <source>Airplane Mode</source>
-        <translation>Авионски режим</translation>
-        <extra-contents_path>/network/Airplane</extra-contents_path>
-    </message>
-    <message>
         <source>DSL</source>
         <translation>ДСЛ</translation>
     </message>
@@ -661,6 +668,11 @@
     <message>
         <source>Application Proxy</source>
         <translation>Програмски посредник</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Авионски режим</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
@@ -1941,12 +1953,12 @@
         <translation>Врста безбедности</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Опсег</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Канал</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Опсег</translation>
     </message>
     <message>
         <source>Interface</source>

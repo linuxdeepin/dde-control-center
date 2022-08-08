@@ -79,6 +79,14 @@
         <translation>Mentés</translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Szétkapcsolás</translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>Biztosan törölni szeretné ezt a beállítást?</translation>
     </message>
@@ -1945,12 +1953,12 @@
         <translation>Biztonság típusa</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Sáv</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Csatorna</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Sáv</translation>
     </message>
     <message>
         <source>Interface</source>

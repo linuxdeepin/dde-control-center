@@ -18,7 +18,7 @@
     </message>
     <message>
         <source>Wrong password</source>
-        <translation>Nieprawidłowe hasło</translation>
+        <translation>Błędne hasło</translation>
     </message>
     <message>
         <source>Password required to connect %1</source>

@@ -79,6 +79,14 @@
         <translation>Lagre</translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Koble fra</translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation type="unfinished"/>
     </message>
@@ -197,6 +205,12 @@
     <message>
         <source>VPN</source>
         <translation>VPN</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"/>
+        <extra-child_page>Airplane Mode</extra-child_page>
+        <extra-contents_path>/network/Airplane Mode</extra-contents_path>
     </message>
     <message>
         <source>Wired Network Adapter</source>
@@ -357,6 +371,17 @@
         <translation>Hastighet</translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::AirplaneModepage</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -644,6 +669,11 @@
     <message>
         <source>Application Proxy</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
@@ -1924,12 +1954,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Bånd</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kanal</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Bånd</translation>
     </message>
     <message>
         <source>Interface</source>

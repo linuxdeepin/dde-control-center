@@ -79,6 +79,14 @@
         <translation>保 存</translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation>正在连接</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>断开连接</translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>您确定要删除当前配置吗？</translation>
     </message>
@@ -1945,12 +1953,12 @@
         <translation>安全类型</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>频段</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>网络通道</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>频段</translation>
     </message>
     <message>
         <source>Interface</source>

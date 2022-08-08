@@ -10,7 +10,7 @@
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
-        <translation type="unfinished"/>
+        <translation>Connexion %1</translation>
     </message>
     <message>
         <source>%1 connected</source>
@@ -18,27 +18,27 @@
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation type="unfinished"/>
+        <translation>%1 déconnecté</translation>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de se connecter à %1, veuillez vérifier votre routeur ou votre câble réseau.</translation>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de se connecter à %1, veuillez vous rapprocher du routeur sans fil</translation>
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation type="unfinished"/>
+        <translation>La connexion a échoué, impossible de se connecter à %1, mot de passe erroné</translation>
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>Le mot de passe est requis pour se connecter à %1</translation>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation type="unfinished"/>
+        <translation>Le réseau WLAN %1 802.11 est introuvable</translation>
     </message>
 </context>
 <context>
@@ -151,7 +151,7 @@
     </message>
     <message>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Conflit IP</translation>
     </message>
     <message>
         <source>Failed</source>
@@ -159,7 +159,7 @@
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Obtenir l&apos;adresse</translation>
     </message>
 </context>
 <context>
@@ -209,7 +209,7 @@
     </message>
     <message>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Conflit IP</translation>
     </message>
     <message>
         <source>Disable wired connection</source>

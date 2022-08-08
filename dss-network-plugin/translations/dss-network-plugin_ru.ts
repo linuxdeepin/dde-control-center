@@ -10,7 +10,7 @@
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
-        <translation type="unfinished"/>
+        <translation>Соединение с %1</translation>
     </message>
     <message>
         <source>%1 connected</source>
@@ -34,11 +34,11 @@
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>Для соединения с %1 требуется пароль</translation>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось найти сеть WLAN 802.11 %1</translation>
     </message>
 </context>
 <context>
@@ -151,7 +151,7 @@
     </message>
     <message>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Конфликт IP-адресов</translation>
     </message>
     <message>
         <source>Failed</source>
@@ -159,7 +159,7 @@
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Получение адреса</translation>
     </message>
 </context>
 <context>
@@ -209,7 +209,7 @@
     </message>
     <message>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Конфликт IP-адресов</translation>
     </message>
     <message>
         <source>Disable wired connection</source>

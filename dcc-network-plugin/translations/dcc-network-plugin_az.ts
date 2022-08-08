@@ -79,6 +79,14 @@
         <translation>Saxla</translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Bağlantını ləğv et</translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>Bu tənzimləmənisilmək istədiyinizə əminsiniz?</translation>
     </message>
@@ -370,6 +378,10 @@
         <source>Airplane Mode</source>
         <translation>Təyyarə rejimi</translation>
     </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation>Təyyarə rejiminin işə salınması simsiz şəbəkəni, fərdi qoşulma nötəsini və Bluetooth-u söndürür</translation>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>
@@ -642,11 +654,6 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
-        <source>Airplane Mode</source>
-        <translation>Təyyarə rejimi</translation>
-        <extra-contents_path>/network/Airplane</extra-contents_path>
-    </message>
-    <message>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
@@ -661,6 +668,11 @@
     <message>
         <source>Application Proxy</source>
         <translation>Tətbiq proksisi</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>Təyyarə rejimi</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
@@ -1941,12 +1953,12 @@
         <translation>Təhlükəsizlik növü</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Aralıq</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kanal</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Aralıq</translation>
     </message>
     <message>
         <source>Interface</source>

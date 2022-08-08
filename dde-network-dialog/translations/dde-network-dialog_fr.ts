@@ -22,7 +22,7 @@
     </message>
     <message>
         <source>Password required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>Mot de passe requis pour se connecter %1</translation>
     </message>
     <message>
         <source>Password</source>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Name (SSID)</source>
-        <translation type="unfinished"/>
+        <translation>Nom (SSID)</translation>
     </message>
 </context>
 <context>
@@ -150,7 +150,7 @@
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Obtenir l&apos;adresse</translation>
     </message>
 </context>
 <context>

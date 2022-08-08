@@ -79,6 +79,14 @@
         <translation>ཉར་ཚགས། </translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>སྦྲེལ་མཐུད་ཕྲལ་གཅོད། </translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>ཁྱོད་ཀྱིས་མིག་སྔའི་སྡེབ་སྒྲིག་བསུབ་རྒྱུ་ཡིན་པ་གཏན་ཁེལ་ལམ།</translation>
     </message>
@@ -370,6 +378,10 @@
         <source>Airplane Mode</source>
         <translation>འཕུར་སྐྱོད་དཔེ་རྣམ།</translation>
     </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DNSSection</name>
@@ -642,11 +654,6 @@
 <context>
     <name>NetworkModuleWidget</name>
     <message>
-        <source>Airplane Mode</source>
-        <translation>འཕུར་སྐྱོད་དཔེ་རྣམ།</translation>
-        <extra-contents_path>/network/Airplane</extra-contents_path>
-    </message>
-    <message>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
@@ -661,6 +668,11 @@
     <message>
         <source>Application Proxy</source>
         <translation>ཉེར་སྤྱོད་ལས་ཚབ།</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation>འཕུར་སྐྱོད་དཔེ་རྣམ།</translation>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
@@ -1941,12 +1953,12 @@
         <translation>བདེ་འཇགས་རིགས།</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>བྱུང་རིམ།</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>དྲ་རྒྱའི་རྒྱུ་ལམ།</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>བྱུང་རིམ།</translation>
     </message>
     <message>
         <source>Interface</source>

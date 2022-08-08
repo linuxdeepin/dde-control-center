@@ -79,6 +79,14 @@
         <translation>සුරකින්න</translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>විසන්ධි කරන්න</translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>මෙම සැකසුම් මකා දැමීමට අවශ්‍ය බව ඔබට විශ්වාසද?</translation>
     </message>
@@ -196,6 +204,12 @@
     <message>
         <source>VPN</source>
         <translation>VPN</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"/>
+        <extra-child_page>Airplane Mode</extra-child_page>
+        <extra-contents_path>/network/Airplane Mode</extra-contents_path>
     </message>
     <message>
         <source>Wired Network Adapter</source>
@@ -356,6 +370,17 @@
         <translation>වේගය</translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::AirplaneModepage</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -643,6 +668,11 @@
     <message>
         <source>Application Proxy</source>
         <translation>යෙදුම් ප්‍රොක්සිය</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
@@ -1923,12 +1953,12 @@
         <translation>ආරක්ෂක වර්ගය</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>කලාපය</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>නාලිකාව</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>කලාපය</translation>
     </message>
     <message>
         <source>Interface</source>

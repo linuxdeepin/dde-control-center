@@ -79,6 +79,14 @@
         <translation>Lưu</translation>
     </message>
     <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Ngắt kết nối</translation>
+    </message>
+    <message>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>Bạn có chắc chắn muốn xóa cấu hình này?</translation>
     </message>
@@ -196,6 +204,12 @@
     <message>
         <source>VPN</source>
         <translation>VPN</translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"/>
+        <extra-child_page>Airplane Mode</extra-child_page>
+        <extra-contents_path>/network/Airplane Mode</extra-contents_path>
     </message>
     <message>
         <source>Wired Network Adapter</source>
@@ -356,6 +370,17 @@
         <translation>Tốt độ</translation>
         <extra-child_page>Network Details</extra-child_page>
         <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::AirplaneModepage</name>
+    <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -643,6 +668,11 @@
     <message>
         <source>Application Proxy</source>
         <translation>Ứng dụng Proxy  </translation>
+    </message>
+    <message>
+        <source>Airplane Mode</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
         <source>Network Details</source>
@@ -1923,12 +1953,12 @@
         <translation>Loại bảo mật</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Băng tần</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kênh</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Băng tần</translation>
     </message>
     <message>
         <source>Interface</source>
