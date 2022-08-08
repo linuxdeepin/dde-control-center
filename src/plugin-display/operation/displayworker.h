@@ -34,10 +34,15 @@
 #include "machinedbusproxy.h"
 #include "monitor.h"
 
+#include <dtkcore_global.h>
 
 #include <QObject>
 #include <QTimer>
 #include <QProcess>
+
+DCORE_BEGIN_NAMESPACE
+class DConfig;
+DCORE_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 class DisplayModel;
@@ -102,6 +107,7 @@ private:
     double m_currentScale;
     bool m_updateScale;
     QTimer *m_timer;
+    DTK_CORE_NAMESPACE::DConfig *m_dconfig;
 };
 }
 

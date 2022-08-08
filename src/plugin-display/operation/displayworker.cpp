@@ -30,6 +30,7 @@
 #include "widgets/utils.h"
 
 #include <DApplicationHelper>
+#include <dconfig.h>
 
 #include <QDebug>
 
@@ -45,6 +46,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     , m_displayInter(new DisplayDBusProxy(this))
     , m_updateScale(false)
     , m_timer(new QTimer(this))
+    , m_dconfig(DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.display"), QString(), this))
 {
     m_timer->setSingleShot(true);
     m_timer->setInterval(200);
@@ -116,7 +118,9 @@ void DisplayWorker::active()
     else
         qWarning() << "Call SupportSetColorTemperature method failed: " << reply.error().message();
     m_model->setRedshiftIsValid(isRedshiftValid);
-//    m_model->setMinimumBrightnessScale(m_dccSettings->get(GSETTINGS_MINIMUM_BRIGHTNESS).toDouble());
+    QVariant minBrightnessValue = 0.1f;
+    minBrightnessValue = m_dconfig->value("minBrightnessValue", minBrightnessValue);
+    m_model->setMinimumBrightnessScale(minBrightnessValue.toDouble());
 //    m_model->setResolutionRefreshEnable(m_dccSettings->get(GSETTINGS_SHOW_MUTILSCREEN).toBool());
 //    m_model->setBrightnessEnable(m_dccSettings->get(GSETTINGS_BRIGHTNESS_ENABLE).toBool());
 }
