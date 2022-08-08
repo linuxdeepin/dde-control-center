@@ -1,23 +1,23 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #include "tabview.h"
 #include <QDebug>
 #include <QMouseEvent>
@@ -47,13 +47,11 @@ public:
         : q_ptr(parent)
         , m_spacing(20)
         , m_gridSize(280, 84)
-        , m_viewMode(TabView::ListMode)
         , m_maxColumnCount(1)
         , m_maxRowCount(1)
         , m_xOffset(0)
         , m_yOffset(0)
         , m_alignment(Qt::AlignHCenter)
-        , m_firstHeightDiff(0)
     {
         setGridSize(m_gridSize);
     }
@@ -70,21 +68,12 @@ public:
     void setGridSize(const QSize &size)
     {
         m_gridSize = size;
-        m_firstHeightDiff = m_viewMode == TabView::IconMode ? 0 : 18;
     }
     QSize gridSize() const
     {
         return m_gridSize;
     }
 
-    void setViewMode(TabView::ViewMode mode)
-    {
-        m_viewMode = mode;
-    }
-    TabView::ViewMode viewMode() const
-    {
-        return m_viewMode;
-    }
     void setAlignment(Qt::Alignment alignment)
     {
         m_alignment = alignment;
@@ -209,7 +198,6 @@ private:
     Q_DECLARE_PUBLIC(TabView)
     int m_spacing;
     QSize m_gridSize;
-    TabView::ViewMode m_viewMode;
 
     int m_maxColumnCount;      // 一行可容纳的最大列数
     int m_maxRowCount;         // 换算显示所有item所需行数
@@ -217,7 +205,6 @@ private:
     int m_yOffset;             // y轴偏移
     QModelIndex m_hover;       // hover项
     Qt::Alignment m_alignment; //　对齐方式
-    int m_firstHeightDiff;     // 第一行与其他行高差值
 
     QList<int> m_itemX;
     QSize m_size;
@@ -269,20 +256,6 @@ QSize TabView::gridSize() const
 {
     Q_D(const TabView);
     return d->gridSize();
-}
-
-void TabView::setViewMode(ViewMode mode)
-{
-    Q_D(TabView);
-    if (d->viewMode() != mode) {
-        d->setViewMode(mode);
-        scheduleDelayedItemsLayout();
-    }
-}
-TabView::ViewMode TabView::viewMode() const
-{
-    Q_D(const TabView);
-    return d->viewMode();
 }
 
 void TabView::setAlignment(Qt::Alignment alignment)
@@ -431,6 +404,24 @@ void TabView::updateGeometries()
     }
 }
 
+void TabView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+{
+    QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
+    scheduleDelayedItemsLayout();
+}
+
+void TabView::rowsInserted(const QModelIndex &parent, int start, int end)
+{
+    scheduleDelayedItemsLayout();
+    QAbstractItemView::rowsInserted(parent, start, end);
+}
+
+void TabView::rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end)
+{
+    QAbstractItemView::rowsAboutToBeRemoved(parent, start, end);
+    scheduleDelayedItemsLayout();
+}
+
 bool TabView::isIndexHidden(const QModelIndex & /*index*/) const
 {
     return false;
@@ -476,7 +467,7 @@ void TabView::paintEvent(QPaintEvent *e)
     const QStyle::State state = option.state;
     const QAbstractItemView::State viewState = this->state();
     const bool enabled = (state & QStyle::State_Enabled) != 0;
-    option.decorationAlignment = d->m_viewMode == IconMode ? Qt::AlignCenter : Qt::AlignLeft;
+    option.decorationAlignment = Qt::AlignLeft;
 
     painter.setRenderHint(QPainter::Antialiasing);
     painter.fillRect(e->rect(), palette().color(QPalette::Window));

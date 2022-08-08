@@ -1,23 +1,23 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #ifndef TABVIEW_H
 #define TABVIEW_H
 #include "interface/namespace.h"
@@ -32,13 +32,9 @@ class TabView : public QAbstractItemView
     Q_OBJECT
     Q_PROPERTY(int spacing READ spacing WRITE setSpacing)
     Q_PROPERTY(QSize gridSize READ gridSize WRITE setGridSize)
-    Q_PROPERTY(ViewMode viewMode READ viewMode WRITE setViewMode)
     Q_PROPERTY(Qt::Alignment alignment READ alignment WRITE setAlignment)
 
 public:
-    enum ViewMode { ListMode, IconMode };
-    Q_ENUM(ViewMode)
-
     explicit TabView(QWidget *parent = nullptr);
     virtual ~TabView() override;
 
@@ -47,9 +43,6 @@ public:
 
     void setGridSize(const QSize &size);
     QSize gridSize() const;
-
-    void setViewMode(ViewMode mode);
-    ViewMode viewMode() const;
 
     void setAlignment(Qt::Alignment alignment);
     Qt::Alignment alignment() const;
@@ -69,11 +62,14 @@ protected:
 
     void updateGeometries() override;
 
+    void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>()) override;
+    void rowsInserted(const QModelIndex &parent, int start, int end) override;
+    void rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end) override;
+
 protected:
     void paintEvent(QPaintEvent *e) override;
     bool viewportEvent(QEvent *event) override;
     void wheelEvent(QWheelEvent *e) override;
-
 
 private:
     TabViewPrivate *const d_ptr;
