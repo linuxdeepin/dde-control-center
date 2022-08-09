@@ -250,7 +250,7 @@ void MicrophonePage::refreshActivePortShow(const dcc::sound::Port *port)
 }
 
 bool MicrophonePage::hasVirtualSource() {
-    return m_model->ports().isEmpty() && !m_microphoneName.startsWith("auto_null");
+    return m_model->ports().isEmpty() && !m_microphoneName.startsWith("auto_null") && !m_microphoneName.endsWith("monitor");
 }
 
 void MicrophonePage::addPort(const dcc::sound::Port *port)

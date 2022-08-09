@@ -121,8 +121,9 @@ void SoundModule::initSearchData()
 
     auto func_input_changed = [ = ]() {
         bool bSoundInput = func_is_visible("soundInput");
+        bool bVirtualInput = (m_inputPortCount == 0 && m_inputPortEnableCount > 0);
         m_frameProxy->setWidgetVisible(module, input, bSoundInput);
-        m_frameProxy->setDetailVisible(module, input, tr("Input Device"), bSoundInput);
+        m_frameProxy->setDetailVisible(module, input, tr("Input Device"), bSoundInput && !bVirtualInput);
         //输入设备为空不显示
         bool isInputVisble = m_inputPortEnableCount > 0;
         m_frameProxy->setDetailVisible(module, input, tr("Automatic Noise Suppression"), bSoundInput && func_is_visible("soundNoiseReduce", "Hidden") && isInputVisble && m_model->reduceNoise());
@@ -132,8 +133,9 @@ void SoundModule::initSearchData()
 
     auto func_output_changed = [ = ]() {
         bool bSoundOutput = func_is_visible("soundOutput");
+        bool bVirtualOutput = (m_outputPortCount == 0 && m_outputPortEnableCount > 0);
         m_frameProxy->setWidgetVisible(module, output, bSoundOutput);
-        m_frameProxy->setDetailVisible(module, output, tr("Output Device"), bSoundOutput);
+        m_frameProxy->setDetailVisible(module, output, tr("Output Device"), bSoundOutput && !bVirtualOutput);
         bool isBlueModeVisible = false;
         for (const Port* port : m_model->ports())
         {
@@ -197,6 +199,16 @@ void SoundModule::initSearchData()
     });
 
     connect(m_model, &SoundModel::reduceNoiseChanged, this, [ = ]() {
+        func_process_all();
+        m_frameProxy->updateSearchData(module);
+    });
+
+    connect(m_model, &SoundModel::speakerNameChanged, this, [ = ]() {
+        func_process_all();
+        m_frameProxy->updateSearchData(module);
+    });
+
+    connect(m_model, &SoundModel::microphoneNameChanged, this, [ = ]() {
         func_process_all();
         m_frameProxy->updateSearchData(module);
     });
@@ -278,7 +290,7 @@ void SoundModule::getPortCount()
     if (m_outputPortEnableCount == 0 && !m_model->speakerName().startsWith("auto_null")) {
         m_outputPortEnableCount++;
     }
-    if (m_inputPortEnableCount == 0 && !m_model->microphoneName().startsWith("auto_null")) {
+    if (m_inputPortEnableCount == 0 && !m_model->microphoneName().startsWith("auto_null") && !m_model->microphoneName().endsWith("monitor")) {
         m_inputPortEnableCount++;
     }
 }
