@@ -525,7 +525,8 @@ void SpeakerPage::showDevice()
 
     // 云平台关闭输出设备和蓝牙模式
     m_outputSoundCbx->setVisible(!hasVirtualSink());
-    m_blueSoundCbx->setVisible(!hasVirtualSink());
+    if (hasVirtualSink())
+        m_blueSoundCbx->setVisible(false);
 }
 
 void SpeakerPage::setDeviceVisible(bool visible)
