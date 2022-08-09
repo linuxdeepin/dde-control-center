@@ -155,12 +155,19 @@ void NumberFormat::initComboxWidgetList()
                                                    << QString(",")
                                                    << QString("'")
                                                    << QString(tr("Space")));
+
+    //用于区分固有数据和 tr("Space")
+    m_digitGroupingKeepList << QString(".")
+                            << QString(",")
+                            << QString("'");
+
     //根据后端的值调整显示
     m_decimalSymbolCbx->comboBox()->setCurrentText(m_model->decimalSymbol());
     m_digitGroupingSymbolCbx->comboBox()->setCurrentText(m_model->digitGroupingSymbol());
 
     //需要根据实际数据进行调整初始值
-    QString digitGroupingSymbol = m_model->digitGroupingSymbol() == tr("Space") ? " " : m_model->digitGroupingSymbol();
+    QString digitGroupingSymbol = (m_model->digitGroupingSymbol() == tr("Space") || !m_digitGroupingKeepList.contains(m_model->digitGroupingSymbol())) ? " " : m_model->digitGroupingSymbol();
+    qInfo() << Q_FUNC_INFO << " digitGroupingSymbol : " << digitGroupingSymbol << m_model->digitGroupingSymbol();
     QStringList digitGroupingList = QStringList()
                             << QString("123456789")
                             << QString("%1%2%3%4%5")
@@ -231,7 +238,8 @@ void NumberFormat::onComboxChanged()
     //切换小数点(decimalSymbol)，更新示例
     //切换分隔符(digitGroupingSymbol)，更新数字分组和示例
     //获取分隔符
-    QString digitGroupingSymbol = m_model->digitGroupingSymbol() == tr("Space") ? " " : m_model->digitGroupingSymbol();
+    QString digitGroupingSymbol = (m_model->digitGroupingSymbol() == tr("Space") || !m_digitGroupingKeepList.contains(m_model->digitGroupingSymbol())) ? " " : m_model->digitGroupingSymbol();
+    qInfo() << Q_FUNC_INFO << " digitGroupingSymbol : " << digitGroupingSymbol << m_model->digitGroupingSymbol();
     int place = m_digitGroupingCbx->comboBox()->currentIndex();//0
     //更新数字分组列表
     QStringList digitGroupingSymbolList;

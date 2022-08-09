@@ -57,6 +57,7 @@ private:
     QString m_currencySymbolFormat;
     int m_positiveCurrencyFormat;
     int m_negativeCurrency;
+    QStringList m_digitGroupingKeepList;
 };
 
 }// namespace datetime
