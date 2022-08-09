@@ -484,9 +484,6 @@ void SpeakerPage::initCombox()
     m_layout->addWidget(m_outputSoundsGrp);
     m_layout->setSpacing(10);
     m_layout->addStretch(10);
-
-    // 无端口情况下后续不会更新状态，所以默认不显示。
-    m_blueSoundCbx->setVisible(false);
 }
 
 void SpeakerPage::refreshIcon()
@@ -526,8 +523,9 @@ void SpeakerPage::showDevice()
     } else
         setDeviceVisible(true);
 
-    // 云平台关闭输出设备
+    // 云平台关闭输出设备和蓝牙模式
     m_outputSoundCbx->setVisible(!hasVirtualSink());
+    m_blueSoundCbx->setVisible(!hasVirtualSink());
 }
 
 void SpeakerPage::setDeviceVisible(bool visible)
