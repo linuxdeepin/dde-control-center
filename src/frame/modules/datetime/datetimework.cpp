@@ -99,7 +99,7 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
                  << "NegativeCurrencyFormat"
                  << "PositiveCurrencyFormat";
 
-    QDBusInterface formatInter("com.deepin.daemon.Timedate",
+    QDBusInterface formatInter("com.deepin.daemon.Format",
                                "/com/deepin/daemon/Format",
                                "com.deepin.daemon.Format",
                                QDBusConnection::sessionBus());
@@ -116,7 +116,7 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     m_model->setPositiveCurrencyFormat(static_cast<QString>(formatInter.property("PositiveCurrencyFormat").toString()));
 
     //关联属性信号变化
-    QDBusConnection::sessionBus().connect("com.deepin.daemon.Timedate",
+    QDBusConnection::sessionBus().connect("com.deepin.daemon.Format",
                                           "/com/deepin/daemon/Format",
                                           "org.freedesktop.DBus.Properties",
                                           "PropertiesChanged",

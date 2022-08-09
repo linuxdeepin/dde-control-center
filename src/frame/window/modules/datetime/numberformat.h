@@ -35,6 +35,7 @@ public:
 private:
     void initComboxWidgetList();
     void onComboxChanged();
+    QString isTruthSpace(QString value);
 
 Q_SIGNALS:
     void decimalSymbolChanged(QString);
@@ -45,7 +46,7 @@ public Q_SLOTS:
     void SetCurrencySymbolFormat(QString value);
     void SetPositiveCurrencyFormat(int value);
     void SetNegativeCurrency(int value);
-    void updateExample(int numplace = -1);
+    void updateExample(int numplace = -1, int line = 0);
 
 private:
     dcc::datetime::DatetimeModel *m_model;
@@ -57,7 +58,6 @@ private:
     QString m_currencySymbolFormat;
     int m_positiveCurrencyFormat;
     int m_negativeCurrency;
-    QStringList m_digitGroupingKeepList;
 };
 
 }// namespace datetime
