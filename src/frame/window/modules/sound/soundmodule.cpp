@@ -125,7 +125,7 @@ void SoundModule::initSearchData()
         m_frameProxy->setDetailVisible(module, input, tr("Input Device"), bSoundInput);
         //输入设备为空不显示
         bool isInputVisble = m_inputPortEnableCount > 0;
-        m_frameProxy->setDetailVisible(module, input, tr("Automatic Noise Suppression"), bSoundInput && func_is_visible("soundNoiseReduce", "Hidden") && isInputVisble);
+        m_frameProxy->setDetailVisible(module, input, tr("Automatic Noise Suppression"), bSoundInput && func_is_visible("soundNoiseReduce", "Hidden") && isInputVisble && m_model->reduceNoise());
         m_frameProxy->setDetailVisible(module, input, tr("Input Volume"), bSoundInput && func_is_visible("soundInputSlider", "Hidden") && isInputVisble);
         m_frameProxy->setDetailVisible(module, input, tr("Input Level"), bSoundInput && isInputVisble);
     };
@@ -192,6 +192,11 @@ void SoundModule::initSearchData()
     });
 
     connect(m_model, &SoundModel::portRemoved, this, [ = ](const QString portName, const uint &cardId) {
+        func_process_all();
+        m_frameProxy->updateSearchData(module);
+    });
+
+    connect(m_model, &SoundModel::reduceNoiseChanged, this, [ = ]() {
         func_process_all();
         m_frameProxy->updateSearchData(module);
     });
@@ -267,6 +272,14 @@ void SoundModule::getPortCount()
             if (port->isEnabled())
                 m_inputPortEnableCount ++;
         }
+    }
+
+    // 云平台搜索支持
+    if (m_outputPortEnableCount == 0 && !m_model->speakerName().startsWith("auto_null")) {
+        m_outputPortEnableCount++;
+    }
+    if (m_inputPortEnableCount == 0 && !m_model->microphoneName().startsWith("auto_null")) {
+        m_inputPortEnableCount++;
     }
 }
 
