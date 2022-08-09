@@ -62,7 +62,6 @@ void SoundModule::preInitialize(bool, FrameProxyInterface::PushType pushtype)
 
     addChildPageTrans();
     initSearchData();
-    initPortCheck();
 }
 
 void SoundModule::addChildPageTrans() const
@@ -271,23 +270,6 @@ void SoundModule::getPortCount()
     }
 }
 
-void SoundModule::initPortCheck()
-{
-    // 有端口时显示设备管理
-    connect(m_model, &SoundModel::portAdded, this, [ this ](const Port *port) {
-        if (m_soundWidget && !m_model->ports().isEmpty()) {
-            m_soundWidget->setSubItemHidden("deviceManage", false);
-        }
-    });
-
-    // 无端口时关闭设备管理
-    connect(m_model, &SoundModel::portRemoved, this, [ this ](const QString portName, const uint &cardId) {
-        if (m_soundWidget && m_model->ports().isEmpty()) {
-            m_soundWidget->setSubItemHidden("deviceManage", true);
-        }
-    });
-}
-
 void SoundModule::initialize()
 {
 }
@@ -316,6 +298,20 @@ void SoundModule::active()
             m_frameProxy->popWidget(this);
         }
         m_soundWidget->showDefaultWidget();
+    });
+
+    // 有端口时显示设备管理
+    connect(m_model, &SoundModel::portAdded, m_soundWidget, [ this ]() {
+        if (!m_model->ports().isEmpty()) {
+            m_soundWidget->setSubItemHidden("deviceManage", false);
+        }
+    });
+
+    // 无端口时关闭设备管理
+    connect(m_model, &SoundModel::portRemoved, m_soundWidget, [ this ]() {
+        if (m_model->ports().isEmpty()) {
+            m_soundWidget->setSubItemHidden("deviceManage", true);
+        }
     });
 
     m_frameProxy->pushWidget(this, m_soundWidget);
