@@ -379,6 +379,9 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
             m_windowMovedSwitch->setChecked(checked);
             m_windowMovedSwitch->blockSignals(false);
         });
+        if (m_windowMovedSwitch && m_windowMovedSwitch->isChecked() != m_model->isMoveWindow()) {
+            m_windowMovedSwitch->setChecked(m_model->isMoveWindow());
+        }
 
         updateWMSwitcher(model->is3DWm());
         connect(model, &dcc::personalization::PersonalizationModel::onOpacityChanged, this,
