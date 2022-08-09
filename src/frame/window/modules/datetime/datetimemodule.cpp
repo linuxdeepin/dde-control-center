@@ -281,6 +281,8 @@ void DatetimeModule::initSearchData()
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Decimal Symbol"), bTimeFormat && func_dsg_visible("FromatsettingDecimalsymbol"));
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Digit Grouping Symbol"), bTimeFormat && func_dsg_visible("FromatsettingDigitgroupingsymbol"));
         m_frameProxy->setDetailVisible(module, formatSettings, tr("Digit Grouping"), bTimeFormat && func_dsg_visible("FromatsettingDigitgrouping"));
+
+        m_frameProxy->updateSearchData(module);
     };
 
     auto func_setting_changed = [ = ]() {
