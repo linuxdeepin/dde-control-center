@@ -89,22 +89,24 @@ NumberFormat::NumberFormat(dcc::datetime::DatetimeModel *model, QWidget *parent)
     initComboxWidgetList();
     setLayout(m_layout);
 
-    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "FromatsettingDecimalsymbol", m_decimalSymbolCbx);
-    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "FromatsettingDigitgroupingsymbol", m_digitGroupingSymbolCbx);
-    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "FromatsettingDigitgrouping", m_digitGroupingCbx);
-    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "FromatsettingExample", m_exampleTips);
+    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "fromatsettingDecimalsymbol", m_decimalSymbolCbx);
+    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "fromatsettingDigitgroupingsymbol", m_digitGroupingSymbolCbx);
+    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "fromatsettingDigitgrouping", m_digitGroupingCbx);
+    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "fromatsettingExample", m_exampleTips);
 
     QStringList cbxList;
-    cbxList << "datetimeFromatsettingDecimalsymbol"
-            << "datetimeFromatsettingDigitgroupingsymbol"
-            << "datetimeFromatsettingDigitgrouping";
+    cbxList << "datetimefromatsettingDecimalsymbol"
+            << "datetimefromatsettingDigitgroupingsymbol"
+            << "datetimefromatsettingDigitgrouping"
+            << "datetimefromatsettingExample";
     auto func_is_visible = [headTitle, this]() {
-        const QString dsgDecimalsymbol = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "FromatsettingDecimalsymbol");
-        const QString dsgDigitgroupingsymbol = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "FromatsettingDigitgroupingsymbol");
-        const QString dsgDigitgrouping = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "FromatsettingDigitgrouping");
+        const QString dsgDecimalsymbol = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingDecimalsymbol");
+        const QString dsgDigitgroupingsymbol = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingDigitgroupingsymbol");
+        const QString dsgDigitgrouping = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingDigitgrouping");
+        const QString dsgExample = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingExample");
         bool isHeadVisible = dsgDecimalsymbol == "Hidden" && dsgDigitgroupingsymbol == "Hidden" && dsgDigitgrouping == "Hidden";
         headTitle->setVisible(!isHeadVisible);
-        m_exampleTips->setVisible(!isHeadVisible);
+        m_exampleTips->setVisible(!isHeadVisible && (dsgExample != "Hidden"));
     };
     connect(DConfigWatcher::instance(), &DConfigWatcher::requestUpdateSearchMenu, this, [=](const QString &moduleName, bool status) {
         Q_UNUSED(status)
@@ -118,9 +120,10 @@ NumberFormat::NumberFormat(dcc::datetime::DatetimeModel *model, QWidget *parent)
 
 NumberFormat::~NumberFormat()
 {
-    DConfigWatcher::instance()->erase(DConfigWatcher::datetime, "FromatsettingDecimalsymbol");
-    DConfigWatcher::instance()->erase(DConfigWatcher::datetime, "FromatsettingDigitgroupingsymbol");
-    DConfigWatcher::instance()->erase(DConfigWatcher::datetime, "FromatsettingDigitgrouping");
+    DConfigWatcher::instance()->erase(DConfigWatcher::datetime, "fromatsettingDecimalsymbol");
+    DConfigWatcher::instance()->erase(DConfigWatcher::datetime, "fromatsettingDigitgroupingsymbol");
+    DConfigWatcher::instance()->erase(DConfigWatcher::datetime, "fromatsettingDigitgrouping");
+    DConfigWatcher::instance()->erase(DConfigWatcher::datetime, "fromatsettingExample");
 }
 
 void NumberFormat::SetCurrencySymbolFormat(QString value)
