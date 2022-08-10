@@ -120,60 +120,60 @@
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="116"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="119"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
         <translation>Salasanan nollaus tyhjentää avaimeen tallennetut tiedot</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="118"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="221"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="121"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="177"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="224"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="127"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="130"/>
         <source>Security Questions</source>
         <translation>Turvakysymykset</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="162"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="165"/>
         <source>Reset Password</source>
         <translation>Nollaa salasana</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="163"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="212"/>
         <source>Next</source>
         <translation>Seuraava</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="169"/>
         <source>Reset Password By UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Palauta salasana UOS-tunnuksella</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="217"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="224"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="212"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="220"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="227"/>
         <source>Reset</source>
         <translation>Nollaa</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="173"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="176"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
         <translation>Salasanan nollaaminen tyhjentää avaimenperään tallennetut tiedot ja sinun tulee kirjautua sisään uudelleen. Tallenna tiedostot etukäteen</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="177"/>
         <source>Confirm and Reset</source>
         <translation>Vahvista ja nollaa</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="299"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="302"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Nollaus onnistui, kirjaudu sisään ja avaa lukitus uudella salasanalla</translation>
     </message>
@@ -310,7 +310,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="253"/>
         <source>The UOS ID is not linked to a user account</source>
-        <translation type="unfinished"/>
+        <translation>UOS ID tunnusta ei ole yhdistetty käyttäjätiliin</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="287"/>

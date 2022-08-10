@@ -104,92 +104,92 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="105"/>
         <source>Go to Settings</source>
         <translation>前往设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="216"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="308"/>
         <source>Full Name</source>
         <translation>设置全名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="270"/>
         <source>The full name is too long</source>
         <translation>名称过长</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="376"/>
         <source>Validity Days</source>
         <translation>密码有效天数</translation>
         <extra-contents_path>/accounts/Validity Days</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="396"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="391"/>
         <source>Security Questions</source>
         <translation>安全问题</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="443"/>
         <source>Account Settings</source>
         <translation>帐户设置</translation>
         <extra-contents_path>/accounts/Account Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="455"/>
+        <source>Group</source>
+        <translation>用户组</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="474"/>
         <source>Change Password</source>
         <translation>修改密码</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="474"/>
         <source>Reset Password</source>
         <translation>重设密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="476"/>
         <source>Delete Account</source>
         <translation>删除帐户</translation>
         <extra-contents_path>/accounts/Delete Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="478"/>
         <source>Auto Login</source>
         <translation>自动登录</translation>
         <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="470"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="481"/>
         <source>Login Without Password</source>
         <translation>无密码登录</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="473"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="484"/>
         <source>Administrator</source>
         <translation>管理员</translation>
         <extra-contents_path>/accounts/Administrator</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="520"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="531"/>
         <source>OK</source>
         <translation>确 定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="521"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="532"/>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
         <translation>只允许一个帐户开启自动登录，请先关闭%1帐户的自动登录，再进行操作</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="654"/>
-        <source>Group</source>
-        <translation>用户组</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="702"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="710"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="719"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="679"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="687"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="696"/>
         <source>The full name has been used by other user accounts</source>
         <translation>全名与其他帐户的全名/用户名重复</translation>
     </message>
@@ -197,65 +197,65 @@
 <context>
     <name>dccV20::accounts::AccountsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="90"/>
         <source>Accounts</source>
         <translation>帐户</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="162"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="163"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="277"/>
         <source>Create Account</source>
         <translation>创建帐户</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="269"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="316"/>
         <source>Auto Login</source>
         <translation>自动登录</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="164"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="273"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="320"/>
         <source>Login Without Password</source>
         <translation>无密码登录</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="165"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="281"/>
         <source>Validity Days</source>
         <translation>密码有效天数</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="166"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="308"/>
         <source>Change Password</source>
         <translation>修改密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="167"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="265"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="312"/>
         <source>Delete Account</source>
         <translation>删除帐户</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="168"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="279"/>
         <source>Account Settings</source>
         <translation>帐户设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="280"/>
         <source>Administrator</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="277"/>
         <source>New Account</source>
         <translation>新帐户</translation>
     </message>
@@ -641,6 +641,14 @@
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="288"/>
         <source>It cannot be empty</source>
         <translation>内容不能为空</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::UserGroupsPage</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="36"/>
+        <source>Group</source>
+        <translation>用户组</translation>
     </message>
 </context>
 <context>
@@ -1687,7 +1695,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="257"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="354"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="365"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
     </message>
@@ -1727,49 +1735,59 @@
         <translation>一周首日</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="280"/>
+        <source>Currency Format</source>
+        <translation>货币格式</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="281"/>
         <source>Currency Symbol</source>
         <translation>货币符号</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="282"/>
         <source>Positive Currency Format</source>
         <translation>货币正数</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="283"/>
         <source>Negative Currency Format</source>
         <translation>货币负数</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="288"/>
+        <source>Number Format</source>
+        <translation>数字格式</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="289"/>
         <source>Decimal Symbol</source>
         <translation>小数点</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="290"/>
         <source>Digit Grouping Symbol</source>
         <translation>分隔符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="291"/>
         <source>Digit Grouping</source>
         <translation>数字分组</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="368"/>
         <source>Auto Sync</source>
         <translation>自动同步配置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="335"/>
         <source>Server</source>
         <translation>服务器</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="308"/>
         <source>24-hour Time</source>
         <translation>24小时制</translation>
     </message>
@@ -1857,139 +1875,139 @@
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="197"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="220"/>
         <source>Monday</source>
         <translation>星期一</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="185"/>
         <source>monday</source>
         <translation>周一</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="202"/>
         <source>Tuesday</source>
         <translation>星期二</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="205"/>
         <source>Wednesday</source>
         <translation>星期三</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="208"/>
         <source>Thursday</source>
         <translation>星期四</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="211"/>
         <source>Friday</source>
         <translation>星期五</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="214"/>
         <source>Saturday</source>
         <translation>星期六</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="217"/>
         <source>Sunday</source>
         <translation>星期日</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="233"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="244"/>
         <source>April 5, 2020</source>
         <translation>2020年4月5日</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="238"/>
         <source>April 5, 2020, Sunday</source>
         <translation>2020年4月5日 星期日</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="241"/>
         <source>Sunday, April 5, 2020</source>
         <translation>星期日 2020年4月5日</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="260"/>
         <source>2020/4/5</source>
         <translation>2020/4/5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="263"/>
         <source>2020-4-5</source>
         <translation>2020-4-5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="266"/>
         <source>2020.4.5</source>
         <translation>2020.4.5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="267"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="293"/>
         <source>2020/04/05</source>
         <translation>2020/04/05</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="272"/>
         <source>2020-04-05</source>
         <translation>2020-04-05</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="275"/>
         <source>2020.04.05</source>
         <translation>2020.04.05</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="278"/>
         <source>04.05.2020</source>
-        <translation type="unfinished"/>
+        <translation>04.05.2020</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="281"/>
         <source>05.04.2020</source>
-        <translation type="unfinished"/>
+        <translation>05.04.2020</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="284"/>
         <source>20/4/5</source>
         <translation>20/4/5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="287"/>
         <source>20-4-5</source>
         <translation>20-4-5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="290"/>
         <source>20.4.5</source>
         <translation>20.4.5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="309"/>
         <source>9:40:07</source>
         <translation>9:40:07</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="310"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="315"/>
         <source>09:40:07</source>
         <translation>09:40:07</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="331"/>
         <source>9:40</source>
         <translation>9:40</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="332"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="334"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="337"/>
         <source>09:40</source>
         <translation>09:40</translation>
     </message>
@@ -1997,43 +2015,42 @@
 <context>
     <name>dccV20::datetime::NumberFormat</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="54"/>
         <source>Number Format</source>
         <translation>数字格式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="65"/>
         <source>Decimal Symbol</source>
         <translation>小数点</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="69"/>
         <source>Digit Grouping Symbol</source>
         <translation>分隔符</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="73"/>
         <source>Digit Grouping</source>
         <translation>数字分组</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="346"/>
         <source>Example</source>
         <translation>示例</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="143"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="154"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="225"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="281"/>
         <source>Space</source>
         <translation>空格</translation>
     </message>
@@ -3216,13 +3233,6 @@
         <source>When the screen is locked</source>
         <translation>在屏幕锁屏时</translation>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="109"/>
-        <source>Show icon on Dock</source>
-        <translation>在任务栏显示图标</translation>
-        <extra-child_page>System Notifications</extra-child_page>
-        <extra-contents_path>/notification/System Notifications</extra-contents_path>
-    </message>
 </context>
 <context>
     <name>dccV20::notification::TimeSlotItem</name>
@@ -4062,14 +4072,14 @@
         <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="311"/>
         <source>Input Volume</source>
         <translation>输入音量</translation>
         <extra-child_page>Input</extra-child_page>
         <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="356"/>
         <source>Input Level</source>
         <translation>反馈音量</translation>
         <extra-child_page>Input</extra-child_page>
@@ -4118,61 +4128,61 @@
         <translation>左/右平衡</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="126"/>
         <source>Input Device</source>
         <translation>输入设备</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="255"/>
         <source>Automatic Noise Suppression</source>
         <translation>噪音抑制</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="129"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="240"/>
         <source>Input Volume</source>
         <translation>输入音量</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="131"/>
         <source>Input Level</source>
         <translation>反馈音量</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="138"/>
         <source>Output Device</source>
         <translation>输出设备</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="147"/>
         <source>Mode</source>
         <translation>模式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="149"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="243"/>
         <source>Output Volume</source>
         <translation>输出音量</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="150"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="246"/>
         <source>Volume Boost</source>
         <translation>音量增强</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="160"/>
         <source>Output Devices</source>
         <translation>输出设备</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="162"/>
         <source>Input Devices</source>
         <translation>输入设备</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="309"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
@@ -4228,38 +4238,38 @@
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="310"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="320"/>
         <source>Output Volume</source>
         <translation>输出音量</translation>
         <extra-child_page>Output</extra-child_page>
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="407"/>
         <source>Volume Boost</source>
         <translation>音量增强</translation>
         <extra-child_page>Output</extra-child_page>
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="414"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>音量大于100%时可能会导致音效失真，同时损害您的扬声器</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="428"/>
         <source>Left/Right Balance</source>
         <translation>左/右平衡</translation>
         <extra-child_page>Output</extra-child_page>
         <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="423"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="433"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="434"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
@@ -4789,115 +4799,130 @@
 <context>
     <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="74"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="394"/>
         <source>Check Again</source>
         <translation>重新检查更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="95"/>
         <source>Update failed: insufficient disk space</source>
         <translation>当前硬盘空间不足，无法进行系统更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="97"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>依赖错误，检测更新失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="104"/>
         <source>Restart the computer to use the system and the applications properly</source>
         <translation>为了您能够正常的使用系统和应用，更新后请重新启动</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="105"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>网络断开，请联网后重试</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="114"/>
         <source>Your system is not authorized, please activate first</source>
         <translation>当前系统未授权，请激活后再更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="132"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation>本次更新可能会用时较长，更新完成前请不要关机或重启</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="147"/>
         <source>Updates Available</source>
         <translation>检测到有更新可用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="156"/>
         <source>Current Edition</source>
         <translation>当前版本</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="169"/>
         <source>Updating...</source>
         <translation>更新中...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="175"/>
         <source>Update All</source>
         <translation>全部更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="342"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="643"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="354"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="655"/>
         <source>Last checking time: </source>
         <translation>上次检查更新时间：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="349"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="402"/>
         <source>Your system is up to date</source>
         <translation>您的系统已经是最新的</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="354"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="405"/>
         <source>Check for Updates</source>
         <translation>检查更新</translation>
         <extra-child_page>Check for Updates</extra-child_page>
         <extra-contents_path>/update/Check for Updates</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="376"/>
         <source>Checking for updates, please wait...</source>
         <translation>检查更新中，请稍候...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="409"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>您已安装最新版本，重启生效！</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="428"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="440"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>已下载%1%（点击暂停）</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="430"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="442"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>已下载%1%（点击继续）</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="443"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="455"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>您的电池电量少于50%，请插入电源后继续</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="457"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>请确保重启后有充足的电源，并不要关机或者拔出电源</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="717"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="736"/>
         <source>Size</source>
         <translation>下载大小</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="858"/>
+        <source>Unable to perform system backup. Continue the update?</source>
+        <translation>无法备份系统，是否要继续升级？</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="859"/>
+        <source>Cancel</source>
+        <translation>取 消</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="860"/>
+        <source>Continue</source>
+        <translation>继续升级</translation>
     </message>
 </context>
 <context>
@@ -5161,7 +5186,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="515"/>
         <source>If you leave the internal testing channel now, you may not be able to get the latest bug fixes and updates. Please leave after the official version is released to keep your system stable!</source>
-        <translation>现在退出可能会导致你无法获取到最新的内测修复和更新内容，为保持系统稳定请等待deepin 正式版本发布后退出内测！</translation>
+        <translation>现在退出可能会导致你无法获取到最新的内测修复和更新内容，为保持系统稳定请等待deepin正式版本发布后退出内测！</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="517"/>
@@ -6320,33 +6345,33 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>dcc::update::updateControlPanel</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="57"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="236"/>
         <source>Downloading </source>
         <translation>下载中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="56"/>
         <source>Waiting </source>
         <translation>等待中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="59"/>
         <source>Installing </source>
         <translation>安装中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="62"/>
         <source>Backing up </source>
         <translation>备份中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="289"/>
         <source>Download and install</source>
         <translation>下载并安装</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="360"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="356"/>
         <source>Learn more</source>
         <translation>了解详情</translation>
     </message>

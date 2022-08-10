@@ -2,92 +2,92 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="188"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="184"/>
         <source>Help</source>
         <translation>Довідка</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Biometric Authentication</source>
         <translation>Біометричне розпізнавання</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <source>Accounts</source>
         <translation>Облікові записи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Display</source>
         <translation>Дисплей</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="357"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Touch Screen</source>
         <translation>Сенсорний екран</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="358"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>Default Applications</source>
         <translation>Типові програми</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="359"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
         <source>Personalization</source>
         <translation>Персоналізація</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="360"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>Notification</source>
         <translation>Сповіщення</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
         <source>Sound</source>
         <translation>Звук</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="363"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
         <source>Date and Time</source>
         <translation>Дата і час</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="364"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
         <source>Power</source>
         <translation>Живлення</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="365"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
         <source>Mouse</source>
         <translation>Миша</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="366"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
         <source>Drawing Tablet</source>
         <translation>Планшет для малювання</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="367"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="357"/>
         <source>Keyboard and Language</source>
         <translation>Клавіатура і мова</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="369"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="358"/>
         <source>Updates</source>
         <translation>Оновлення</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="371"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="359"/>
         <source>System Info</source>
         <translation>Дані щодо системи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="372"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="360"/>
         <source>General Settings</source>
         <translation>Загальні параметри</translation>
     </message>
@@ -1538,35 +1538,6 @@
     </message>
 </context>
 <context>
-    <name>dccV20::datetime::CurrencyFormat</name>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="46"/>
-        <source>Currency Format</source>
-        <translation>Формат валют</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="57"/>
-        <source>Currency Symbol</source>
-        <translation>Символ валюти</translation>
-        <extra-child_page>Time Format</extra-child_page>
-        <extra-contents_path>/datetime/Time Format</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="61"/>
-        <source>Positive Currency Format</source>
-        <translation>Формат додатної суми валюти</translation>
-        <extra-child_page>Time Format</extra-child_page>
-        <extra-contents_path>/datetime/Time Format</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="65"/>
-        <source>Negative Currency Format</source>
-        <translation>Формат від&apos;ємної суми валюти</translation>
-        <extra-child_page>Time Format</extra-child_page>
-        <extra-contents_path>/datetime/Time Format</extra-contents_path>
-    </message>
-</context>
-<context>
     <name>dccV20::datetime::DateSettings</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="82"/>
@@ -1646,130 +1617,100 @@
 <context>
     <name>dccV20::datetime::DatetimeModule</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="58"/>
         <source>Add Application</source>
         <translation>Додати програму</translation>
         <extra-child_page>Picture</extra-child_page>
         <extra-contents_path>/defapp/Picture/Add Application</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="97"/>
         <source>Date and Time</source>
         <translation>Дата і час</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="219"/>
         <source>Time Format</source>
         <translation>Формат часу</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="209"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="218"/>
         <source>Timezone List</source>
         <translation>Список часових поясів</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="210"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="217"/>
         <source>Time Settings</source>
         <translation>Налаштування Часу</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="250"/>
         <source>Change System Timezone</source>
         <translation>Виберіть часовий пояс</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="251"/>
         <source>System Timezone</source>
         <translation>Часовий пояс системи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="257"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="354"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="325"/>
         <source>Add Timezone</source>
         <translation>Додати часовий пояс</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="263"/>
         <source>Date and Time Formats</source>
         <translation>Формати дати і часу</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="264"/>
         <source>Weeks</source>
         <translation>Тижні</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="265"/>
         <source>Short Date</source>
         <translation>Дата скорочено</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="266"/>
         <source>Long Date</source>
         <translation>Дата повністю</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="267"/>
         <source>Short Time</source>
         <translation>Час скорочено</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="268"/>
         <source>Long Time</source>
         <translation>Час повністю</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="269"/>
         <source>First Day of Week</source>
         <translation>Перший день Тижня</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="277"/>
-        <source>Currency Symbol</source>
-        <translation>Символ валюти</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="278"/>
-        <source>Positive Currency Format</source>
-        <translation>Формат додатної суми валюти</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="279"/>
-        <source>Negative Currency Format</source>
-        <translation>Формат від&apos;ємної суми валюти</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="281"/>
-        <source>Decimal Symbol</source>
-        <translation>Десятковий розділювач</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="282"/>
-        <source>Digit Grouping Symbol</source>
-        <translation>Символ групування цифр</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="283"/>
-        <source>Digit Grouping</source>
-        <translation>Групування цифр</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="328"/>
         <source>Auto Sync</source>
         <translation>Авто-синхронізація</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="295"/>
         <source>Server</source>
         <translation>Сервер</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="284"/>
         <source>24-hour Time</source>
         <translation>24 Годинний Час</translation>
     </message>
@@ -1808,234 +1749,180 @@
 <context>
     <name>dccV20::datetime::FormatSetting</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="50"/>
         <source>Date and Time Formats</source>
         <translation>Формати дати і часу</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="62"/>
         <source>Weeks</source>
         <translation>Тижні</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="67"/>
         <source>Short Date</source>
         <translation>Дата скорочено</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="72"/>
         <source>Long Date</source>
         <translation>Дата повністю</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="77"/>
         <source>Short Time</source>
         <translation>Час скорочено</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="82"/>
         <source>Long Time</source>
         <translation>Час повністю</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="87"/>
         <source>First Day of Week</source>
         <translation>Перший день Тижня</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="197"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="204"/>
         <source>Monday</source>
         <translation>Понеділок</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="169"/>
         <source>monday</source>
         <translation>Понеділок</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="186"/>
         <source>Tuesday</source>
         <translation>Вівторок</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="189"/>
         <source>Wednesday</source>
         <translation>Середа</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="192"/>
         <source>Thursday</source>
         <translation>Четвер</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="195"/>
         <source>Friday</source>
         <translation>П&apos;ятниця</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="198"/>
         <source>Saturday</source>
         <translation>Субота</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="201"/>
         <source>Sunday</source>
         <translation>Неділя</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="233"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="228"/>
         <source>April 5, 2020</source>
         <translation>Квітень 5, 2020</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="222"/>
         <source>April 5, 2020, Sunday</source>
         <translation>Квітень 5, 2020, неділя</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="225"/>
         <source>Sunday, April 5, 2020</source>
         <translation>Неділя, квітень 5, 2020</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="244"/>
         <source>2020/4/5</source>
         <translation>2020/4/5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="247"/>
         <source>2020-4-5</source>
         <translation>2020-4-5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="250"/>
         <source>2020.4.5</source>
         <translation>2020.4.5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="267"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="271"/>
         <source>2020/04/05</source>
         <translation>2020/04/05</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="256"/>
         <source>2020-04-05</source>
         <translation>2020-04-05</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="259"/>
         <source>2020.04.05</source>
         <translation>2020.04.05</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="276"/>
-        <source>04.05.2020</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="279"/>
-        <source>05.04.2020</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="262"/>
         <source>20/4/5</source>
         <translation>20/4/5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="265"/>
         <source>20-4-5</source>
         <translation>20-4-5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="268"/>
         <source>20.4.5</source>
         <translation>20.4.5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="287"/>
         <source>9:40:07</source>
         <translation>9:40:07</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="310"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="293"/>
         <source>09:40:07</source>
         <translation>09:40:07</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="309"/>
         <source>9:40</source>
         <translation>9:40</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="332"/>
-        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="315"/>
         <source>09:40</source>
         <translation>09:40</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::datetime::NumberFormat</name>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="50"/>
-        <source>Number Format</source>
-        <translation>Формат чисел</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="61"/>
-        <source>Decimal Symbol</source>
-        <translation>Десятковий розділювач</translation>
-        <extra-child_page>Time Format</extra-child_page>
-        <extra-contents_path>/datetime/Time Format</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="65"/>
-        <source>Digit Grouping Symbol</source>
-        <translation>Символ групування цифр</translation>
-        <extra-child_page>Time Format</extra-child_page>
-        <extra-contents_path>/datetime/Time Format</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="69"/>
-        <source>Digit Grouping</source>
-        <translation>Групування цифр</translation>
-        <extra-child_page>Time Format</extra-child_page>
-        <extra-contents_path>/datetime/Time Format</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="309"/>
-        <source>Example</source>
-        <translation>Приклад</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="143"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="154"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="225"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="261"/>
-        <source>Space</source>
-        <translation>Пробіл</translation>
     </message>
 </context>
 <context>
@@ -3269,74 +3156,67 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="118"/>
         <source>Theme</source>
         <translation>Тема</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="129"/>
         <source>Accent Color</source>
         <translation>Колір тексту</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="192"/>
         <source>Window Effect</source>
         <translation>Ефект вікон</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="202"/>
         <source>Transparency</source>
         <translation>Прозорість</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="224"/>
         <source>Window Minimize Effect</source>
         <translation>Ефект мінімізації вікон</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="234"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="227"/>
         <source>Scale</source>
         <translation>Масштабування</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="234"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="227"/>
         <source>Magic Lamp</source>
         <translation>Магічна лампа</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="250"/>
-        <source>Show transparency effects when a window is moved</source>
-        <translation>Показувати ефекти прозорості при пересуванні вікна</translation>
-        <extra-child_page>General</extra-child_page>
-        <extra-contents_path>/personalization/General</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="246"/>
         <source>Rounded Corner</source>
         <translation>Заокруглений кут</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="253"/>
         <source>Small</source>
         <translation>Малий</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="253"/>
         <source>Medium</source>
         <translation>Середній</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="253"/>
         <source>Large</source>
         <translation>Великий</translation>
     </message>
@@ -3369,97 +3249,90 @@
 <context>
     <name>dccV20::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="83"/>
         <source>Personalization</source>
         <translation>Персоналізація</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="145"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="221"/>
         <source>General</source>
         <translation>Загальне</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="146"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="222"/>
         <source>Icon Theme</source>
         <translation>Тема піктограм</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="223"/>
         <source>Cursor Theme</source>
         <translation>Тема вказівника</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="220"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="235"/>
         <source>Size</source>
         <translation>Розмір</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="236"/>
         <source>Standard Font</source>
         <translation>Стандартний шрифт</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="237"/>
         <source>Monospaced Font</source>
         <translation>Моноширинний шрифт</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
         <source>Theme</source>
         <translation>Тема</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
         <source>Light</source>
         <translation>Світла</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
         <source>Dark</source>
         <translation>Темна</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="248"/>
         <source>Auto</source>
         <translation>Авто</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="249"/>
         <source>Accent Color</source>
         <translation>Колір тексту</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="250"/>
         <source>Window Effect</source>
         <translation>Ефект вікон</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="259"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="333"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="309"/>
         <source>Transparency</source>
         <translation>Прозорість</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="260"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="334"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="310"/>
         <source>Window Minimize Effect</source>
         <translation>Ефект мінімізації вікон</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="326"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="335"/>
-        <source>Show transparency effects when a window is moved</source>
-        <translation>Показувати ефекти прозорості при пересуванні вікна</translation>
     </message>
 </context>
 <context>
@@ -4984,194 +4857,147 @@
 <context>
     <name>dccV20::update::UpdateSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
         <translation>Позначте цей пункт, щоб система автоматично отримувала оновлення у бездротових та дротових мережах</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
         <translation>Увімкнути лише оновлення для усування проблем захисту та сумісності</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="58"/>
-        <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation>Долучіться до каналу внутрішнього тестування, щоб отримати найсвіжіші оновлення deepin</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="59"/>
-        <source>Updates from Internal Testing Sources</source>
-        <translation>Оновлення з джерел внутрішнього тестування</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="60"/>
         <source>Security Updates Only</source>
         <translation>Лише оновлення безпеки</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="86"/>
         <source>System</source>
         <translation>Система</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="66"/>
         <source>App installed in App Store</source>
         <translation>Програму встановлено у «Крамниці програм»</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="75"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="296"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="263"/>
         <source>Third-party Repositories</source>
         <translation>Сторонні сховища</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="72"/>
         <source>Updates Notification</source>
         <translation>Сповіщення щодо оновлень</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="75"/>
         <source>Auto Download Updates</source>
         <translation>Авто-завантаження Оновлень</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="78"/>
         <source>Auto Install Updates</source>
         <translation>Автоматичне встановлення оновлень</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="87"/>
-        <source>Join Internal Testing Channel</source>
-        <translation>Долучитися до каналу внутрішнього тестування</translation>
-        <extra-child_page>Update Settings</extra-child_page>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="105"/>
         <source>Update Settings</source>
         <translation>Налаштування Оновлення</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="113"/>
         <source>Updates from Repositories</source>
         <translation>Оновлення зі сховищ</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="136"/>
         <source>Other settings</source>
         <translation>Інші параметри</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="144"/>
         <source>Auto Check for Updates</source>
         <translation>Шукати оновлення автоматично</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="168"/>
         <source>Clear Package Cache</source>
         <translation>Спорожнити кеш пакунків</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="174"/>
         <source>System Repository Detection</source>
         <translation>Виявлення системного репозиторію</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="177"/>
         <source>Show a notification if system update repository has been modified</source>
         <translation>Показати сповіщення, якщо сховище оновлення системи було змінено</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="186"/>
         <source>Smart Mirror Switch</source>
         <translation>Інтелектуальне перемикання дзеркал</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="190"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation>Позначте цей пункт, щоб система автоматично встановлювала з&apos;єднання із найшвидшим дзеркалом сховища пакунків</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="205"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="197"/>
         <source>Mirror List</source>
         <translation>Список дзеркал</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="250"/>
         <source>System Updates</source>
         <translation>Оновлення системи</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="289"/>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="256"/>
         <source>Security Updates</source>
         <translation>Оновлення безпеки</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="268"/>
         <source>Install updates automatically when the download is complete</source>
         <translation>Встановити оновлення автоматично після завершення отримання даних</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="270"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation>Встановити «%1» автоматично після завершення отримання даних</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="445"/>
-        <source>here</source>
-        <translation>тут</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="446"/>
-        <source>Click %1 to complete the application</source>
-        <translation>Клацніть %1, щоб завершити подання</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="487"/>
-        <source>Checking system versions, please wait...</source>
-        <translation>Перевіряємо версії системи, будь ласка, зачекайте…</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="515"/>
-        <source>If you leave the internal testing channel now, you may not be able to get the latest bug fixes and updates. Please leave after the official version is released to keep your system stable!</source>
-        <translation>Якщо зараз полишите канал внутрішнього тестування, ви, можливо, не зможете скористатися найсвіжішими виправленнями вад і оновленнями. Будь ласка, полишіть канал після випуску офіційної версії, щоб ваша система лишилася стабільною!</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="517"/>
-        <source>Leave</source>
-        <translation>Полишити</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="518"/>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
     </message>
 </context>
 <context>
@@ -5197,13 +5023,13 @@
         <translation>Повернутися</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="196"/>
         <source>Current Edition</source>
         <translation>Поточна версія</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="204"/>
         <source>Update History</source>
         <translation>Історія оновлень</translation>
     </message>
@@ -5808,12 +5634,12 @@ UnionTech Software працює над вивченням і удосконал�
 <context>
     <name>dcc::datetime::DatetimeWork</name>
     <message>
-        <location filename="../src/frame/modules/datetime/datetimework.cpp" line="275"/>
+        <location filename="../src/frame/modules/datetime/datetimework.cpp" line="180"/>
         <source>Authentication is required to set the system timezone</source>
         <translation>Аутентифікація потрібна для встановлення системного часового поясу.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/datetimework.cpp" line="295"/>
+        <location filename="../src/frame/modules/datetime/datetimework.cpp" line="200"/>
         <source>Authentication is required to change NTP server</source>
         <translation>Для зміни NTP-сервера потрібна автентифікація</translation>
     </message>
@@ -6296,23 +6122,23 @@ UnionTech Software працює над вивченням і удосконал�
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="480"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="466"/>
         <source>System Updates</source>
         <translation>Оновлення системи</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="481"/>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="489"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="467"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="475"/>
         <source>Fixed some known bugs and security vulnerabilities</source>
         <translation>Виправлено деякі відомі вади та недоліки захисту</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="488"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="474"/>
         <source>Security Updates</source>
         <translation>Оновлення безпеки</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="496"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="482"/>
         <source>Third-party Repositories</source>
         <translation>Сторонні сховища</translation>
     </message>

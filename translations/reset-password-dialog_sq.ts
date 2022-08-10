@@ -120,60 +120,60 @@
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="116"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="119"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
         <translation>Ricaktimi i fjalëkalimit do të spastrojë të dhënat e depozituara te vargu i kyçeve</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="118"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="221"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="121"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="177"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="224"/>
         <source>Cancel</source>
         <translation>Anuloje</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="127"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="130"/>
         <source>Security Questions</source>
         <translation>Pyetje Sigurie</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="162"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="165"/>
         <source>Reset Password</source>
         <translation>Ricaktoni Fjalëkalimin</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="163"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="212"/>
         <source>Next</source>
         <translation>Pasuesi</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="169"/>
         <source>Reset Password By UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Ricaktoni Fjalëkalimin Përmes ID UOS</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="217"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="224"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="212"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="220"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="227"/>
         <source>Reset</source>
         <translation>Ricaktojeni</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="173"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="176"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
         <translation>Ricaktimi i fjalëkalimit do të spastrojë të dhënat e ruajtura në vargun tuaj të kyçeve dhe do të duhet të ribëni hyrjen, ju lutemi, ruani paraprakisht kartelat</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="177"/>
         <source>Confirm and Reset</source>
         <translation>Ripohojeni dhe Kryeni Ricaktimin</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="299"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="302"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>U ricaktua me sukses, ju lutemi, bëni hyrjen dhe shkyçeni me fjalëkalimin e ri</translation>
     </message>
@@ -268,7 +268,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="100"/>
         <source>The user account is not linked to UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Llogaria e përdoruesit s’është e lidhur me UOS ID</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="113"/>
@@ -295,7 +295,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="248"/>
         <source>Login expired, please sign in to the UOS ID again</source>
-        <translation type="unfinished"/>
+        <translation>Hyrja skadoi, ju lutemi, rihyni te UOS ID</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="250"/>
@@ -310,7 +310,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="253"/>
         <source>The UOS ID is not linked to a user account</source>
-        <translation type="unfinished"/>
+        <translation>UOS ID s’është e lidhur me ndonjë llogari përdoruesi</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="287"/>
