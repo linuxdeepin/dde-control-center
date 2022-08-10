@@ -67,6 +67,17 @@
             "description": "",
             "permissions": "readwrite",
             "visibility": "private"
+        },
+        "FromatsettingExample": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "FromatsettingExample",
+            "name[zh_CN]": "控制中心时间模块示例设置",
+            "description[zh_CN]": "此配置为对控制中心时间模块示例配置是否显示，默认为启动：当配置为启动时，控制中心时间模块示例配置可以调整；当配置为禁用时，控制中心时间模块示例配置置灰展示；当配置为隐藏时，控制中心时间模块示例配置隐藏；",
+             "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
         }
     }
   }

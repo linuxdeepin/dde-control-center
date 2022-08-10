@@ -92,6 +92,7 @@ NumberFormat::NumberFormat(dcc::datetime::DatetimeModel *model, QWidget *parent)
     DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "FromatsettingDecimalsymbol", m_decimalSymbolCbx);
     DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "FromatsettingDigitgroupingsymbol", m_digitGroupingSymbolCbx);
     DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "FromatsettingDigitgrouping", m_digitGroupingCbx);
+    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "FromatsettingExample", m_exampleTips);
 
     QStringList cbxList;
     cbxList << "datetimeFromatsettingDecimalsymbol"
