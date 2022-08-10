@@ -274,13 +274,13 @@ void DatetimeModule::initSearchData()
         m_frameProxy->setDetailVisible(module, formatSettings, tr("First Day of Week"), bTimeFormat);
 
         //货币格式
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Currency Symbol"), bTimeFormat && func_dsg_visible("FromatsettingCurrencysymbol"));
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Positive Currency Format"), bTimeFormat && func_dsg_visible("FromatsettingPositive"));
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Negative Currency Format"), bTimeFormat && func_dsg_visible("FromatsettingNegative"));
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Currency Symbol"), bTimeFormat && func_dsg_visible("fromatsettingCurrencysymbol"));
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Positive Currency Format"), bTimeFormat && func_dsg_visible("fromatsettingPositive"));
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Negative Currency Format"), bTimeFormat && func_dsg_visible("fromatsettingNegative"));
         //数字格式
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Decimal Symbol"), bTimeFormat && func_dsg_visible("FromatsettingDecimalsymbol"));
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Digit Grouping Symbol"), bTimeFormat && func_dsg_visible("FromatsettingDigitgroupingsymbol"));
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Digit Grouping"), bTimeFormat && func_dsg_visible("FromatsettingDigitgrouping"));
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Decimal Symbol"), bTimeFormat && func_dsg_visible("fromatsettingDecimalsymbol"));
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Digit Grouping Symbol"), bTimeFormat && func_dsg_visible("fromatsettingDigitgroupingsymbol"));
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Digit Grouping"), bTimeFormat && func_dsg_visible("fromatsettingDigitgrouping"));
 
         m_frameProxy->updateSearchData(module);
     };
@@ -307,12 +307,13 @@ void DatetimeModule::initSearchData()
      };
 
     QStringList cbxList;
-    cbxList << "datetimeFromatsettingCurrencysymbol"
-            << "datetimeFromatsettingPositive"
-            << "datetimeFromatsettingNegative"
-            << "datetimeFromatsettingDecimalsymbol"
-            << "datetimeFromatsettingDigitgroupingsymbol"
-            << "datetimeFromatsettingDigitgrouping";
+    cbxList << "datetimefromatsettingCurrencysymbol"
+            << "datetimefromatsettingPositive"
+            << "datetimefromatsettingNegative"
+            << "datetimefromatsettingDecimalsymbol"
+            << "datetimefromatsettingDigitgroupingsymbol"
+            << "datetimefromatsettingDigitgrouping"
+            << "datetimefromatsettingExample";
     connect(DConfigWatcher::instance(), &DConfigWatcher::requestUpdateSearchMenu, this, [=](const QString &moduleName, bool status) {
         Q_UNUSED(status)
         if (moduleName == "" || !cbxList.contains(moduleName)) {

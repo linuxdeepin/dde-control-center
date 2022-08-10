@@ -72,18 +72,18 @@ CurrencyFormat::CurrencyFormat(dcc::datetime::DatetimeModel *model, QWidget *par
     initComboxWidgetList();
     setLayout(m_layout);
 
-    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "FromatsettingCurrencysymbol", m_currencySymbolCbx);
-    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "FromatsettingPositive", m_positiveCurrencyFormatCbx);
-    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "FromatsettingNegative", m_negativeCurrencyFormatCbx);
+    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "fromatsettingCurrencysymbol", m_currencySymbolCbx);
+    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "fromatsettingPositive", m_positiveCurrencyFormatCbx);
+    DConfigWatcher::instance()->bind(DConfigWatcher::datetime, "fromatsettingNegative", m_negativeCurrencyFormatCbx);
 
     QStringList cbxList;
-    cbxList << "datetimeFromatsettingCurrencysymbol"
-            << "datetimeFromatsettingPositive"
-            << "datetimeFromatsettingNegative";
+    cbxList << "datetimefromatsettingCurrencysymbol"
+            << "datetimefromatsettingPositive"
+            << "datetimefromatsettingNegative";
     auto func_is_visible = [headTitle]() {
-        const QString dsgCurrencysymbol = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "FromatsettingCurrencysymbol");
-        const QString dsgPositive = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "FromatsettingPositive");
-        const QString dsgNegative = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "FromatsettingNegative");
+        const QString dsgCurrencysymbol = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingCurrencysymbol");
+        const QString dsgPositive = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingPositive");
+        const QString dsgNegative = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingNegative");
         bool isHeadVisible = dsgCurrencysymbol == "Hidden" && dsgPositive == "Hidden" && dsgNegative == "Hidden";
         headTitle->setVisible(!isHeadVisible);
     };

@@ -2,7 +2,7 @@
     "magic": "dsg.config.meta",
     "version": "1.0",
     "contents": {
-        "FromatsettingCurrencysymbol": {
+        "fromatsettingCurrencysymbol": {
             "value": "Enabled",
             "serial": 0,
             "flags": [],
@@ -13,7 +13,7 @@
             "permissions": "readwrite",
             "visibility": "private"
         },
-        "FromatsettingPositive": {
+        "fromatsettingPositive": {
             "value": "Enabled",
             "serial": 0,
             "flags": [],
@@ -24,7 +24,7 @@
             "permissions": "readwrite",
             "visibility": "private"
         },
-        "FromatsettingNegative": {
+        "fromatsettingNegative": {
             "value": "Enabled",
             "serial": 0,
             "flags": [],
@@ -35,7 +35,7 @@
             "permissions": "readwrite",
             "visibility": "private"
         },
-        "FromatsettingDecimalsymbol": {
+        "fromatsettingDecimalsymbol": {
             "value": "Enabled",
             "serial": 0,
             "flags": [],
@@ -46,7 +46,7 @@
             "permissions": "readwrite",
             "visibility": "private"
         },
-        "FromatsettingDigitgroupingsymbol": {
+        "fromatsettingDigitgroupingsymbol": {
             "value": "Enabled",
             "serial": 0,
             "flags": [],
@@ -57,7 +57,7 @@
             "permissions": "readwrite",
             "visibility": "private"
         },
-        "FromatsettingDigitgrouping": {
+        "fromatsettingDigitgrouping": {
             "value": "Enabled",
             "serial": 0,
             "flags": [],
@@ -68,7 +68,7 @@
             "permissions": "readwrite",
             "visibility": "private"
         },
-        "FromatsettingExample": {
+        "fromatsettingExample": {
             "value": "Enabled",
             "serial": 0,
             "flags": [],
