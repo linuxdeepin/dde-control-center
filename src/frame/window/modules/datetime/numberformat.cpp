@@ -51,6 +51,8 @@ NumberFormat::NumberFormat(dcc::datetime::DatetimeModel *model, QWidget *parent)
     , m_positiveCurrencyFormat(0)
     , m_negativeCurrency(0)
 {
+    //~ contents_path /datetime/Time Format
+    //~ child_page Time Format
     TitleLabel *headTitle = new TitleLabel(tr("Number Format"));     //数字格式
     m_layout->setSpacing(10);
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold);

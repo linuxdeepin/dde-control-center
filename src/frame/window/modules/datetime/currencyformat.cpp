@@ -43,6 +43,8 @@ CurrencyFormat::CurrencyFormat(dcc::datetime::DatetimeModel *model, QWidget *par
     , m_positiveCurrencyFormatCbx(new ComboxWidget)
     , m_negativeCurrencyFormatCbx(new ComboxWidget)
 {
+    //~ contents_path /datetime/Time Format
+    //~ child_page Time Format
     TitleLabel *headTitle = new TitleLabel(tr("Currency Format"));     //货币格式
     m_layout->setSpacing(10);
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold);
