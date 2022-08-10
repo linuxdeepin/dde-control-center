@@ -274,13 +274,21 @@ void DatetimeModule::initSearchData()
         m_frameProxy->setDetailVisible(module, formatSettings, tr("First Day of Week"), bTimeFormat);
 
         //货币格式
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Currency Symbol"), bTimeFormat && func_dsg_visible("fromatsettingCurrencysymbol"));
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Positive Currency Format"), bTimeFormat && func_dsg_visible("fromatsettingPositive"));
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Negative Currency Format"), bTimeFormat && func_dsg_visible("fromatsettingNegative"));
+        bool bCurrencysymbol = func_dsg_visible("fromatsettingCurrencysymbol");
+        bool bPositive = func_dsg_visible("fromatsettingPositive");
+        bool bNegative = func_dsg_visible("fromatsettingNegative");
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Currency Format"), bTimeFormat && (bCurrencysymbol || bPositive || bNegative));
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Currency Symbol"), bTimeFormat && bCurrencysymbol);
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Positive Currency Format"), bTimeFormat && bPositive);
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Negative Currency Format"), bTimeFormat && bNegative);
         //数字格式
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Decimal Symbol"), bTimeFormat && func_dsg_visible("fromatsettingDecimalsymbol"));
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Digit Grouping Symbol"), bTimeFormat && func_dsg_visible("fromatsettingDigitgroupingsymbol"));
-        m_frameProxy->setDetailVisible(module, formatSettings, tr("Digit Grouping"), bTimeFormat && func_dsg_visible("fromatsettingDigitgrouping"));
+        bool bDecimalsymbol = func_dsg_visible("fromatsettingDecimalsymbol");
+        bool bDigitgroupingsymbol = func_dsg_visible("fromatsettingDigitgroupingsymbol");
+        bool bDigitgrouping = func_dsg_visible("fromatsettingDigitgrouping");
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Number Format"), bTimeFormat && (bDecimalsymbol || bDigitgroupingsymbol || bDigitgrouping));
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Decimal Symbol"), bTimeFormat && bDecimalsymbol);
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Digit Grouping Symbol"), bTimeFormat && bDigitgroupingsymbol);
+        m_frameProxy->setDetailVisible(module, formatSettings, tr("Digit Grouping"), bTimeFormat && bDigitgrouping);
 
         m_frameProxy->updateSearchData(module);
     };
