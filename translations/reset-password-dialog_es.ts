@@ -120,60 +120,60 @@
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="116"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="119"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
         <translation>Restablecer la contraseña borrará los datos almacenados en el llavero.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="118"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="221"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="121"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="177"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="224"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="127"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="130"/>
         <source>Security Questions</source>
         <translation>Preguntas de seguridad</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="162"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="165"/>
         <source>Reset Password</source>
         <translation>Restablecer contraseña</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="163"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="212"/>
         <source>Next</source>
         <translation>Siguiente</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="169"/>
         <source>Reset Password By UOS ID</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="217"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="224"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="212"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="220"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="227"/>
         <source>Reset</source>
         <translation>Reiniciar</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="173"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="176"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
         <translation>El restablecimiento de la contraseña borrará los datos almacenados en su llavero, y deberá volver a conectarse, por favor, guarde los archivos con antelación.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="177"/>
         <source>Confirm and Reset</source>
         <translation>Confirmar y restaurar</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="299"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="302"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Reinicio exitoso, por favor inicie sesión y desbloquee con la nueva contraseña</translation>
     </message>

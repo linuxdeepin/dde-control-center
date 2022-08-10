@@ -120,60 +120,60 @@
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="116"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="119"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
         <translation>重设密码将会清除密钥环内已存储的数据</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="118"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="221"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="121"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="177"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="224"/>
         <source>Cancel</source>
         <translation>取 消</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="127"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="130"/>
         <source>Security Questions</source>
         <translation>安全问题</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="162"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="165"/>
         <source>Reset Password</source>
         <translation>重置密码</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="163"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="212"/>
         <source>Next</source>
         <translation>下一步</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="166"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="169"/>
         <source>Reset Password By UOS ID</source>
         <translation>UOS ID重置密码</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="217"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="224"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="212"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="220"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="227"/>
         <source>Reset</source>
         <translation>重 置</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="173"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="176"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
         <translation>重置密码将清空密钥环已保存的数据，并且该用户将重新登录，请注意提前保存文件</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="177"/>
         <source>Confirm and Reset</source>
         <translation>确认重置</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="299"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="302"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>重置密码成功，请使用新密码登录/解锁</translation>
     </message>
