@@ -133,17 +133,44 @@ void SecretHotspotSection::initStrMaps()
     KeyMgmtStrMap = {
         { tr("None"), WirelessSecuritySetting::KeyMgmt::WpaNone },
         { tr("WEP"), WirelessSecuritySetting::KeyMgmt::Wep },
-        { tr("WPA/WPA2 Personal"), WirelessSecuritySetting::KeyMgmt::WpaPsk },
-        { tr("WPA3 Personal"), WirelessSecuritySetting::KeyMgmt::WpaSae }
+        { tr("WPA/WPA2 Personal"), WirelessSecuritySetting::KeyMgmt::WpaPsk }
     };
+
+    bool enableWPA3 = true;
+    // 读取文件，根据内容判断热点是否支持WPA3个人协议  1103不支持 1105支持
+    // 若无此文件则默认支持
+    QFile file("/sys/hisys/wal/wifi_devices_info");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream stream(&file);
+        while (!stream.atEnd()) {
+            QString line = stream.readLine();
+            if (line.isEmpty()) {
+                break;
+            }
+
+            QStringList value = line.split(":");
+            if (value.size() >= 2 && value.at(1).contains("1103")) {
+                enableWPA3 = false;
+                break;
+            }
+        }
+        file.close();
+    }
+
+    if (enableWPA3) {
+        KeyMgmtStrMap.insert(tr("WPA3 Personal"), WirelessSecuritySetting::KeyMgmt::WpaSae);
+    }
 }
 
 void SecretHotspotSection::initUI()
 {
     QComboBox *cb = m_keyMgmtChooser->comboBox();
     m_keyMgmtChooser->setTitle(tr("Security"));
-    for (auto keyMgmt : KeyMgmtList)
-        cb->addItem(KeyMgmtStrMap.key(keyMgmt), keyMgmt);
+    for (auto keyMgmt : KeyMgmtList) {
+        if (KeyMgmtStrMap.values().contains(keyMgmt)) {
+            cb->addItem(KeyMgmtStrMap.key(keyMgmt), keyMgmt);
+        }
+    }
 
     cb->setCurrentIndex(cb->findData(m_currentKeyMgmt));
 
