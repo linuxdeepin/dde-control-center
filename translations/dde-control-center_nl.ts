@@ -537,7 +537,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="277"/>
         <source>New password should differ from the current one</source>
-        <translation>Het nieuwe wachtwoord moet verschillen van het huidige wachtwoord</translation>
+        <translation>Het nieuwe wachtwoord moet verschillen van het huidige</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="440"/>
@@ -1548,26 +1548,28 @@
 <context>
     <name>dccV20::datetime::CurrencyFormat</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="48"/>
         <source>Currency Format</source>
         <translation>Valutaformaat</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="59"/>
         <source>Currency Symbol</source>
         <translation>Valutateken</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="63"/>
         <source>Positive Currency Format</source>
         <translation>Positief valutaformaat</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="67"/>
         <source>Negative Currency Format</source>
         <translation>Negatief valutaformaat</translation>
         <extra-child_page>Time Format</extra-child_page>
@@ -1737,7 +1739,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="280"/>
         <source>Currency Format</source>
-        <translation type="unfinished"/>
+        <translation>Valutaformaat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="281"/>
@@ -1757,7 +1759,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="288"/>
         <source>Number Format</source>
-        <translation type="unfinished"/>
+        <translation>Getalopmaak</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="289"/>
@@ -2015,42 +2017,44 @@
 <context>
     <name>dccV20::datetime::NumberFormat</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="56"/>
         <source>Number Format</source>
         <translation>Getalopmaak</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="67"/>
         <source>Decimal Symbol</source>
         <translation>Decimaalteken</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="71"/>
         <source>Digit Grouping Symbol</source>
         <translation>Getalscheidingsteken</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="75"/>
         <source>Digit Grouping</source>
         <translation>Getalscheiding</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="348"/>
         <source>Example</source>
         <translation>Voorbeeld</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="155"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="283"/>
         <source>Space</source>
         <translation>Spatie</translation>
     </message>
@@ -5948,7 +5952,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="141"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Deze sneltoets wordt al gebruikt door &apos;%1&apos;. Klik op &apos;Toevoegen&apos; om de nieuwe sneltoets toe te wijzen.</translation>
+        <translation>Deze sneltoets wordt al gebruikt door ‘1%’. Klik op ‘Toevoegen’ om de nieuwe sneltoets toe te wijzen.</translation>
     </message>
 </context>
 <context>
@@ -6009,7 +6013,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="119"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Deze sneltoets wordt al gebruikt door &apos;%1&apos;. Klik op &apos;Vervangen&apos; om de nieuwe sneltoets toe te wijzen.</translation>
+        <translation>Deze sneltoets wordt al gebruikt door ‘1%’. Klik op ‘Vervangen’ om de nieuwe sneltoets toe te wijzen.</translation>
     </message>
 </context>
 <context>
@@ -6145,7 +6149,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="127"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="141"/>
         <source>Error</source>
-        <translation>Fout</translation>
+        <translation>Foutmelding</translation>
     </message>
 </context>
 <context>

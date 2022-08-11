@@ -5,7 +5,7 @@
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="65"/>
         <source>Rolling back the system, please wait...</source>
-        <translation>Wycofujemy system, proszę czekać...</translation>
+        <translation>Przywracanie systemu, proszę czekać...</translation>
     </message>
 </context>
 <context>
@@ -23,12 +23,12 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="280"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation>Czy na pewno chcesz przywrócić do %1 kopii zapasowej na %2?</translation>
+        <translation>Czy na pewno chcesz przywrócić do %1 z dnia %2?</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="283"/>
         <source>Cancel and Reboot</source>
-        <translation>Anuluj i Zrestartuj</translation>
+        <translation>Anuluj i Uruchom Ponownie</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="284"/>

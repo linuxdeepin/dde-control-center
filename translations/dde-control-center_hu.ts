@@ -1548,26 +1548,28 @@
 <context>
     <name>dccV20::datetime::CurrencyFormat</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="48"/>
         <source>Currency Format</source>
         <translation>Pénznem formátum</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="59"/>
         <source>Currency Symbol</source>
         <translation>Pénznem szimbólum</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="63"/>
         <source>Positive Currency Format</source>
         <translation>Pozitív Pénznem formátum</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="67"/>
         <source>Negative Currency Format</source>
         <translation>Negatív Pénznem formátum</translation>
         <extra-child_page>Time Format</extra-child_page>
@@ -2023,42 +2025,44 @@ időformátum</translation>
 <context>
     <name>dccV20::datetime::NumberFormat</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="56"/>
         <source>Number Format</source>
         <translation>Számformátum</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="67"/>
         <source>Decimal Symbol</source>
         <translation>Tizedes szimbólum</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="71"/>
         <source>Digit Grouping Symbol</source>
         <translation>Számjegycsoportosítási szimbólum</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="75"/>
         <source>Digit Grouping</source>
         <translation>Számjegycsoportosítás</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="348"/>
         <source>Example</source>
         <translation>Például</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="155"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="283"/>
         <source>Space</source>
         <translation>Hely</translation>
     </message>
@@ -5476,7 +5480,7 @@ lecsukásakor</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="797"/>
         <source>Password not match</source>
-        <translation>A jelszavak nem egyeznek</translation>
+        <translation>A jelszó nem egyezik</translation>
     </message>
 </context>
 <context>
@@ -5832,7 +5836,7 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>A Bluetooth-eszközhöz való csatlakozás PIN kódja:</translation>
+        <translation>A PIN-kód megadásával csatlakozhat a bluetooth eszközhöz:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>
@@ -5907,7 +5911,7 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="133"/>
         <source>%1 hours earlier than local</source>
-        <translation>%1 órával korábban, mint a helyi idő</translation>
+        <translation>%1 órával kevesebb, mint a helyi idő</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="135"/>
@@ -5973,7 +5977,7 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="141"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Ez a gyorsbillentyű ütközik a következővel: %1, kattintson a Hozzáadás gombra, hogy ez a gyorsbillentyű azonnal használható legyen</translation>
+        <translation>Ez a gyorsbillentyű ütközik ezzel: %1, kattintson a Hozzáadás gombra, hogy ez a gyorsbillentyű azonnal használható legyen</translation>
     </message>
 </context>
 <context>
@@ -6220,7 +6224,7 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="70"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation>A rendszere nincs engedélyezve, kérjük először aktiválja</translation>
+        <translation>A rendszer nem hitelesített kérjük, először aktiválja</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="75"/>

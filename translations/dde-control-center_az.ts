@@ -1548,26 +1548,28 @@
 <context>
     <name>dccV20::datetime::CurrencyFormat</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="48"/>
         <source>Currency Format</source>
         <translation>Pul vahidi</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="59"/>
         <source>Currency Symbol</source>
         <translation>Pul vahidi simvolu</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="63"/>
         <source>Positive Currency Format</source>
         <translation>Müsbət pul vahidi</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="67"/>
         <source>Negative Currency Format</source>
         <translation>Mənfi pul vahidi</translation>
         <extra-child_page>Time Format</extra-child_page>
@@ -2015,42 +2017,44 @@
 <context>
     <name>dccV20::datetime::NumberFormat</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="56"/>
         <source>Number Format</source>
         <translation>Say formatı</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="67"/>
         <source>Decimal Symbol</source>
         <translation>Onluq simvol</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="71"/>
         <source>Digit Grouping Symbol</source>
         <translation>Rəqəm qrupları simvolu</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="75"/>
         <source>Digit Grouping</source>
         <translation>Rəqəm qrupları</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="348"/>
         <source>Example</source>
         <translation>Nümunə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="155"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="283"/>
         <source>Space</source>
         <translation>Böşluq</translation>
     </message>
@@ -5957,7 +5961,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="141"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Qısayol %1 ilə ziddiyətlidir, bu qısayolun dərhal qüvvəyə minməsi üçün Əlavə etmək vurun</translation>
+        <translation>Bu qısayol %1 ilə ziddiyətlidir, bu qısayolun dərhal qüvvəyə minməsi üçün Əlavə etmək düyməsinə vurun</translation>
     </message>
 </context>
 <context>
@@ -6068,7 +6072,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="87"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation>Aktiv edildikdən sonra toxunma paneli işləmirsə bu seçimi söndürün``</translation>
+        <translation>Aktiv edildikdən sonra toxunma paneli işləmirsə bu seçimi söndürün</translation>
     </message>
 </context>
 <context>
@@ -6114,7 +6118,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
         <source>Low battery</source>
-        <translation>Zəif batareya səviyyəsi</translation>
+        <translation>Batareya zəifdir</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
@@ -6131,7 +6135,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
         <source>Plug in</source>
-        <translation>Elektrik şəbəkəsinə qoşulu</translation>
+        <translation>Elektrik şəbəkəsinə qoşun</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="124"/>

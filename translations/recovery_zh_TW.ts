@@ -13,7 +13,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="266"/>
         <source>Rollback failed.</source>
-        <translation>回滾失敗</translation>
+        <translation>回滾失敗。</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>

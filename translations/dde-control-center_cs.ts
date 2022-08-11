@@ -1152,7 +1152,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="128"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation>Klepnutím na volbu pro nabídku před spuštěním systému ji nastavíte jako první v pořadí a přetažením obrázku sem změníte pozadí</translation>
+        <translation>Klepnutím na volbu pro nabídku před startem systému ji nastavíte jako první v pořadí a přetažením obrázku sem změníte pozadí</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="129"/>
@@ -1473,7 +1473,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="171"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation>Některé z funkcí vyžadují restart počítače, aby byly dostupné. Restartovat nyní?</translation>
+        <translation>Některé z funkcí vyžadují restart počítače, aby byly k dispozici. Restartovat nyní?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="172"/>
@@ -1548,26 +1548,28 @@
 <context>
     <name>dccV20::datetime::CurrencyFormat</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="48"/>
         <source>Currency Format</source>
         <translation type="unfinished"/>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="59"/>
         <source>Currency Symbol</source>
         <translation type="unfinished"/>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="63"/>
         <source>Positive Currency Format</source>
         <translation type="unfinished"/>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="67"/>
         <source>Negative Currency Format</source>
         <translation type="unfinished"/>
         <extra-child_page>Time Format</extra-child_page>
@@ -2015,42 +2017,44 @@
 <context>
     <name>dccV20::datetime::NumberFormat</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="56"/>
         <source>Number Format</source>
         <translation>Formát čísla</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="67"/>
         <source>Decimal Symbol</source>
         <translation type="unfinished"/>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="71"/>
         <source>Digit Grouping Symbol</source>
         <translation type="unfinished"/>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="75"/>
         <source>Digit Grouping</source>
         <translation type="unfinished"/>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="348"/>
         <source>Example</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="155"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="283"/>
         <source>Space</source>
         <translation type="unfinished"/>
     </message>
@@ -4525,7 +4529,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="357"/>
         <source>Activated</source>
-        <translation>Aktivováno</translation>
+        <translation>Zapnuto</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="359"/>
@@ -5123,7 +5127,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="182"/>
         <source>System Repository Detection</source>
-        <translation>Rozpoznání systémového repozitáře</translation>
+        <translation>Rozpoznání systémového úložiště</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="185"/>
@@ -5133,7 +5137,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="194"/>
         <source>Smart Mirror Switch</source>
-        <translation>Inteligentní přepínání mezi zrcadly</translation>
+        <translation>Chytré přepínání mezi zrcadly</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="198"/>
@@ -5971,7 +5975,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="120"/>
         <source>Please enter a shortcut</source>
-        <translation>Prosím zadejte zkratku</translation>
+        <translation>Zadejte zkratku prosím</translation>
     </message>
 </context>
 <context>
@@ -6046,7 +6050,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="39"/>
         <source>Palm Detection</source>
-        <translation>Zjištění dlaně</translation>
+        <translation>Zjišťování dlaně</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -6078,7 +6082,7 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="131"/>
         <source>Boot up</source>
-        <translation>Startování operačního systému</translation>
+        <translation>Spouštění operačního systému</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>

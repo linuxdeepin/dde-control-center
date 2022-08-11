@@ -479,7 +479,7 @@
     <message>
         <location filename="language.h" line="126"/>
         <source>Português do Brasil</source>
-        <translation>ཕོར་ཐིའུ་ཀེལ་སྐད། པ་ཞི།Português do Brasil</translation>
+        <translation>ཕོར་ཐིའུ་ཀེལ་སྐད།པ་ཞིPortuguês do Brasil</translation>
     </message>
     <message>
         <location filename="language.h" line="127"/>
