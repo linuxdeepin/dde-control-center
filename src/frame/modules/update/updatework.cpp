@@ -26,6 +26,8 @@
 #include "updatework.h"
 #include "window/utils.h"
 #include "widgets/utils.h"
+#include "window/dconfigwatcher.h"
+
 #include <QtConcurrent>
 #include <QFuture>
 #include <QFutureWatcher>
@@ -33,10 +35,12 @@
 #include <QJsonDocument>
 #include <QApplication>
 #include <QMutexLocker>
-#include <vector>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QDesktopServices>
+#include <QVariant>
+
+#include <vector>
 
 #define MIN_NM_ACTIVE 50
 #define UPDATE_PACKAGE_SIZE 0
@@ -45,6 +49,13 @@ using namespace DCC_NAMESPACE;
 const QString TestingChannelPackage = "deepin-unstable-source";
 const QString ChangeLogFile = "/usr/share/deepin/release-note/UpdateInfo.json";
 const QString ChangeLogDic = "/usr/share/deepin/";
+const QString UpdateLogTmpFile = "/tmp/deepin-update-log.json";
+
+const int LogTypeSystem = 1;    // 系统更新
+const int LogTypeSecurity = 2;  // 安全更新
+const int DesktopProfessionalPlatform = 1;  // 桌面专业版
+const int DesktopCommunityPlatform = 3;     // 桌面社区版
+const int ServerPlatform = 6;               // 服务器版
 
 // 系统补丁标识
 const QString DDEId = "dde";
@@ -92,6 +103,19 @@ static int TestMirrorSpeedInternal(const QString &url, QPointer<QObject> baseObj
     return 10000;
 }
 
+static int getPlatform()
+{
+    if (DCC_NAMESPACE::IsServerSystem) {
+        return ServerPlatform;
+    }
+
+    if (DCC_NAMESPACE::IsCommunitySystem) {
+        return DesktopCommunityPlatform;
+    }
+
+    return DesktopProfessionalPlatform;
+}
+
 UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
@@ -120,9 +144,6 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_iconThemeState("")
     , m_backupStatus(BackupStatus::NoBackup)
     , m_backupingClassifyType(ClassifyUpdateType::Invalid)
-    , m_releaseNoteJobStatus("")
-    , m_releaseNoteUpdated(false)
-    , m_fileSystemWatcher(new QFileSystemWatcher(this))
 {
 
 }
@@ -136,12 +157,7 @@ UpdateWorker::~UpdateWorker()
     deleteJob(m_unknownUpdateDownloadJob);
     deleteJob(m_unknownUpdateInstallJob);
     deleteJob(m_checkUpdateJob);
-    deleteJob(m_releaseNoteInstallJob);
     deleteJob(m_fixErrorJob);
-    if (m_fileSystemWatcher != nullptr) {
-        delete m_fileSystemWatcher;
-        m_fileSystemWatcher = nullptr;
-    }
 }
 
 void UpdateWorker::init()
@@ -375,6 +391,9 @@ void UpdateWorker::checkForUpdates()
             qDebug() << "UpdateFailed, check for updates error: " << call.error().message();
         }
     });
+
+    // 每次检查更新的时候都从服务器请求一次更新日志
+    requestUpdateLog();
 }
 
 
@@ -397,24 +416,6 @@ void UpdateWorker::setUpdateInfo()
     m_updateInter->setSync(false);
     m_managerInter->setSync(false);
 
-    bool hasReleaseNote = QFile::exists(ChangeLogFile);
-    if ((m_systemPackages.contains("uos-release-note") || !hasReleaseNote) && hasRepositoriesUpdates()) {
-        qDebug() << "install uos-release-note";
-        QEventLoop eventLoop;
-        m_releaseNoteUpdated = false;
-        QTimer::singleShot(30000, &eventLoop, &QEventLoop::quit);
-        connect(this, &UpdateWorker::releaseNoteInstallCompleted, &eventLoop, &QEventLoop::quit);
-        qDebug() << "ChangeLogFile" << ChangeLogFile;
-        eventLoop.exec();
-    } else {
-        m_releaseNoteUpdated = true;
-    }
-    if (m_fileSystemWatcher != nullptr) {
-        delete m_fileSystemWatcher;
-        m_fileSystemWatcher = nullptr;
-    }
-
-
     qDebug() << "systemUpdate packages:" <<  m_systemPackages;
     qDebug() << "safeUpdate packages:" <<  m_safePackages;
     qDebug() << "unkonowUpdate packages:" <<  m_unknownPackages;
@@ -424,7 +425,6 @@ void UpdateWorker::setUpdateInfo()
         return;
     }
 
-    qDebug() << "uos-releasenote :" << getReleaseNoteStatus();
     int updateCount = m_systemPackages.count() + m_safePackages.count() + m_unknownPackages.count();
     if (updateCount < 1) {
         QFile file("/tmp/.dcc-update-successd");
@@ -433,6 +433,30 @@ void UpdateWorker::setUpdateInfo()
             return;
         }
     }
+
+    // 如果内存中没有日志数据，那么从文件里面读取
+    do {
+        if (!m_updateLogs.isEmpty() || !QFile::exists(UpdateLogTmpFile))
+            break;
+
+        qInfo() << "Update log is empty, read logs from temporary file";
+        QFile logFile(UpdateLogTmpFile);
+        if (!logFile.open(QFile::ReadOnly)) {
+            qWarning() << "Can not open update log file:" << UpdateLogTmpFile;
+            break;
+        }
+
+        QJsonParseError err_rpt;
+        QJsonDocument updateInfoDoc = QJsonDocument::fromJson(logFile.readAll(), &err_rpt);
+        logFile.close();
+        if (err_rpt.error != QJsonParseError::NoError) {
+            qWarning() << "Parse update log error: " << err_rpt.errorString();
+            break;
+        }
+        setUpdateLogs(updateInfoDoc.array());
+        qInfo() << "Update logs size: " << m_updateLogs.size();
+    } while(0);
+
 
     QMap<ClassifyUpdateType, UpdateItemInfo *> updateInfoMap = getAllUpdateInfo();
     m_model->setAllDownloadInfo(updateInfoMap);
@@ -498,35 +522,117 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
         resultMap.insert(ClassifyUpdateType::UnknownUpdate, unkownItemInfo);
     }
 
-    if (m_releaseNoteJobStatus == "failed") {
-        qWarning() << "releaseNoteStatus = " << m_releaseNoteJobStatus;
-        return resultMap;
-    }
-
-    QFile logFile(ChangeLogFile);
-    if (!logFile.open(QFile::ReadOnly)) {
-        qDebug() << "can not find update file:" << ChangeLogFile;
-        return resultMap;
-    }
-
-    QJsonParseError err_rpt;
-    QJsonDocument updateInfoDoc = QJsonDocument::fromJson(logFile.readAll(), &err_rpt);
-    if (err_rpt.error != QJsonParseError::NoError) {
-        qDebug() << "更新日志信息JSON格式错误";
-        return resultMap;
-    }
-    const QJsonObject &object = updateInfoDoc.object();
+    // 将更新日志根据`系统更新`or`安全更新`进行分类，并保存留用
     for (ClassifyUpdateType type : resultMap.keys()) {
-        getItemInfo(object.value(updateDailyKeyMap.value(type)), resultMap.value(type));
-        qDebug() << "getAllUpdateInfo: " << updateDailyKeyMap.value(type) << " = " << object.value("otherUpdateInfo").toString();
+        QJsonObject itemObj;
+        int logType = -1;
+        if (type == ClassifyUpdateType::SecurityUpdate) {
+            logType = LogTypeSecurity;
+        } else if (type == ClassifyUpdateType::SystemUpdate) {
+            logType = LogTypeSystem;
+        } else {
+            continue;
+        }
+
+        UpdateItemInfo *itemInfo = resultMap.value(type);
+        if (!itemInfo)
+            continue;
+
+        for (UpdateLogItem logItem : m_updateLogs) {
+            if (!logItem.isValid() || logItem.logType != logType)
+                continue;
+
+            updateItemInfo(logItem, resultMap.value(type));
+        }
     }
 
-    return  resultMap;
+    return resultMap;
 }
 
-void UpdateWorker::getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo)
+void UpdateWorker::requestUpdateLog()
 {
-    if (jsonValue.isNull() || itemInfo == nullptr) {
+    qInfo() << "Get update info";
+    // 接收并处理respond
+    QNetworkAccessManager *http = new QNetworkAccessManager(this);
+    connect(http, &QNetworkAccessManager::finished, this, [ this, http ] (QNetworkReply *reply) {
+        reply->deleteLater();
+        http->deleteLater();
+
+        handleUpdateLogsReply(reply);
+    });
+
+    // 请求头
+    QNetworkRequest request;
+    QUrl url(getUpdateLogAddress());
+    QUrlQuery urlQuery;
+    urlQuery.addQueryItem("rt", QByteArray::number(QDateTime::currentDateTime().toTime_t()));
+    url.setQuery(urlQuery);
+    request.setUrl(url);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    // 请求体
+    // TODO 增加过滤参数，避免每次请求全量更新日志，这个需要web端配合
+    QJsonObject requestBody;
+    requestBody["platformType"] = getPlatform();
+    QJsonDocument doc;
+    doc.setObject(requestBody);
+    const QByteArray &body = doc.toJson();
+
+    http->post(request, body);
+    qInfo() << "Pose request to get update log, request body: " << body;
+}
+
+void UpdateWorker::handleUpdateLogsReply(QNetworkReply *reply)
+{
+    qInfo() << "Handle reply of update log";
+    if (reply->error() != QNetworkReply::NoError) {
+        qWarning() << "Network Error" << reply->errorString();
+        return;
+    }
+    QByteArray respondBody = reply->readAll();
+    if (respondBody.isEmpty()) {
+        qWarning() << "Request body is empty";
+        return;
+    }
+
+    const QJsonDocument &doc = QJsonDocument::fromJson(respondBody);
+    const QJsonObject &obj = doc.object();
+    if (obj.isEmpty()) {
+        qWarning() << "Request body json object is empty";
+        return;
+    }
+    if (obj.value("code").toInt() != 0) {
+        qWarning() << "Request update log failed";
+        return;
+    }
+
+    const QJsonArray array = obj.value("data").toArray();
+    setUpdateLogs(array);
+    // 保存一个临时文件，在没有获取到在线日志的时候展示文件中的内容
+    QFile::remove(UpdateLogTmpFile);
+    QFile file(UpdateLogTmpFile);
+    if (file.open(QIODevice::WriteOnly)) {
+        QJsonDocument dataDoc;
+        dataDoc.setArray(array);
+        file.write(dataDoc.toJson());
+        file.close();
+    }
+}
+
+QString UpdateWorker::getUpdateLogAddress() const
+{
+    const DConfig *dconfig = DConfigWatcher::instance()->getModulesConfig(DConfigWatcher::update);
+    if (dconfig && dconfig->isValid()) {
+        const QString &updateLogAddress = dconfig->value("updateLogAddress").toString();
+        if (!updateLogAddress.isEmpty())
+            return updateLogAddress;
+    }
+    return "https://update-platform.uniontech.com/api/v1/systemupdatelogs";
+}
+
+void UpdateWorker::updateItemInfo(const UpdateLogItem &logItem, UpdateItemInfo *itemInfo)
+{
+    if (!logItem.isValid() || !itemInfo) {
         return ;
     }
 
@@ -543,43 +649,23 @@ void UpdateWorker::getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo)
         }
     }
 
-    QJsonObject jsonObject = jsonValue.toObject();
+    const QString &explain = languageType == "CN" ? logItem.cnLog : logItem.enLog;
 
-    itemInfo->setPackageId(jsonObject.value("package_id").toString());
-    itemInfo->setCurrentVersion(jsonObject.value("current_version_" + languageType).toString());
-    itemInfo->setAvailableVersion(jsonObject.value("available_version_" + languageType).toString());
-    itemInfo->setExplain(jsonObject.value("update_explain_" + languageType).toString());
-
-    if (jsonObject.contains("update_time_" + languageType)) {
-        itemInfo->setUpdateTime(jsonValue.toObject().value("update_time_" + languageType).toString());
+    // 写入最近的更新
+    if (itemInfo->currentVersion().isEmpty()) {
+        itemInfo->setCurrentVersion(logItem.systemVersion);
+        itemInfo->setAvailableVersion(logItem.systemVersion);
+        itemInfo->setExplain(explain);
+        itemInfo->setUpdateTime(logItem.publishTime);
     } else {
-        itemInfo->setUpdateTime(jsonValue.toObject().value("update_time").toString());
-    }
-
-    qDebug() << "UpdateWorker::getItemInfo  itemInfo->name() == " << itemInfo->name();
-
-    QJsonValue dataValue = jsonValue.toObject().value("data_info");
-    if (dataValue.isArray()) {
-        QJsonArray array = dataValue.toArray();
-        QList<DetailInfo> itemList ;
-        int count = array.count();
-        for (int i = 0; i < count; ++i) {
-            DetailInfo detailInfo;
-            detailInfo.name = array.at(i).toObject().value("name_" + languageType).toString().trimmed();
-            detailInfo.updateTime = array.at(i).toObject().value("update_time").toString().trimmed();
-            detailInfo.info = array.at(i).toObject().value("detail_info_" + languageType).toString().trimmed();
-            detailInfo.link = array.at(i).toObject().value("link").toString().trimmed();
-            if (detailInfo.name.isEmpty()
-                    && detailInfo.updateTime.isEmpty()
-                    && detailInfo.info.isEmpty()
-                    && detailInfo.link.isEmpty()) {
-                continue;
-            }
-            itemList.append(detailInfo);
-        }
-
-        if (itemList.count() > 0) {
-            itemInfo->setDetailInfos(itemList);
+        DetailInfo detailInfo;
+        const QString &systemVersion = logItem.systemVersion;
+        // 专业版不不在详细信息中显示维护线版本
+        if (!dccV20::IsProfessionalSystem || (!systemVersion.isEmpty() && systemVersion.back() == '0')) {
+            detailInfo.name = logItem.systemVersion;
+            detailInfo.updateTime = logItem.publishTime;
+            detailInfo.info = explain;
+            itemInfo->addDetailInfo(detailInfo);
         }
     }
 }
@@ -787,8 +873,6 @@ void UpdateWorker::checkTestingChannelStatus()
     });
     http->get(request);
 }
-
-
 
 void UpdateWorker::setTestingChannelEnable(const bool &enable)
 {
@@ -1164,27 +1248,6 @@ void UpdateWorker::setDistUpgradeJob(const QString &jobPath, ClassifyUpdateType 
     job->ProgressChanged(job->progress());
 }
 
-void UpdateWorker::setReleaseNoteInstallJob(const QString &jobPath)
-{
-    m_releaseNoteInstallJob = new JobInter("com.deepin.lastore",
-                                           jobPath,
-                                           QDBusConnection::systemBus(), this);
-    connect(m_releaseNoteInstallJob, &__Job::StatusChanged, this, [ = ](const QString & status) {
-        qDebug() << "setReleaseNoteInstallJob-----status: " << status;
-        setReleaseNoteStatus(status);
-        if (status == "failed") {
-            m_managerInter->CleanJob(m_releaseNoteInstallJob->id());
-            deleteJob(m_releaseNoteInstallJob);
-        }
-
-        if (status == "ready") {
-            listenReleaseNoteFile();
-        }
-    });
-
-    m_releaseNoteInstallJob->StatusChanged(m_releaseNoteInstallJob->status());
-}
-
 void UpdateWorker::setUpdateItemProgress(UpdateItemInfo *itemInfo, double value)
 {
     //异步加载数据,会导致下载信息还未获取就先取到了下载进度
@@ -1280,10 +1343,8 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
             setDistUpgradeJob(m_jobPath, ClassifyUpdateType::SecurityUpdate);
         } else if (id == "unknown_upgrade" && m_unknownUpdateInstallJob == nullptr) {
             setDistUpgradeJob(m_jobPath, ClassifyUpdateType::UnknownUpdate);
-        } else if (id.contains("install") && jobInter.packages().at(0) == "uos-release-note") {
-            qDebug() << "jobInter :uos-release-note status: " << jobInter.status();
-            qDebug() << "jobInter :uos-release-note packages: " << jobInter.packages();
-            setReleaseNoteInstallJob(m_jobPath);
+        } else {
+            qDebug() << "Install id: " + id + ", nothing to do";
         }
     }
 }
@@ -1732,43 +1793,6 @@ QString UpdateWorker::getClassityUpdateDownloadJobName(ClassifyUpdateType update
     return  value;
 }
 
-void UpdateWorker::listenReleaseNoteFile()
-{
-    if (m_fileSystemWatcher == nullptr) {
-        m_fileSystemWatcher = new QFileSystemWatcher;
-    }
-    if (QFile::exists(ChangeLogFile)) {
-        m_fileSystemWatcher->addPath(ChangeLogFile);
-        connect(m_fileSystemWatcher, &QFileSystemWatcher::fileChanged, this, [ = ](const QString & path) {
-            qDebug() << "fileChanged    --" << path;
-            m_releaseNoteUpdated = true;
-            setReleaseNoteStatus(m_releaseNoteJobStatus);
-        });
-        return;
-    }
-
-    QDir dir(ChangeLogDic + "release-note");
-    QString listenDir = dir.exists() ? (ChangeLogDic + "release-note") : ChangeLogDic;
-    m_fileSystemWatcher->addPath(listenDir);
-    connect(m_fileSystemWatcher, &QFileSystemWatcher::directoryChanged, this, [ = ](const QString & path) {
-        qDebug() << "directoryChangedpath :" << path;
-        QDir dir(ChangeLogDic + "release-note");
-        if (dir.exists()) {
-            if (m_fileSystemWatcher->directories().contains(ChangeLogDic)) {
-                m_fileSystemWatcher->removePath(ChangeLogDic);
-            }
-            if (!m_fileSystemWatcher->directories().contains(ChangeLogDic + "release-note")) {
-                m_fileSystemWatcher->addPath(ChangeLogDic + "release-note");
-            }
-            if (QFile::exists(ChangeLogFile)) {
-                m_releaseNoteUpdated = true;
-                setReleaseNoteStatus(m_releaseNoteJobStatus);
-            }
-        }
-    });
-
-}
-
 void UpdateWorker::checkUpdatablePackages(const QMap<QString, QStringList> &updatablePackages)
 {
     qDebug() << "UpdatablePackages = " << updatablePackages.count();
@@ -1784,24 +1808,6 @@ void UpdateWorker::checkUpdatablePackages(const QMap<QString, QStringList> &upda
         }
     }
     m_model->isUpdatablePackages(showUpdateNotify);
-}
-
-QString UpdateWorker::getReleaseNoteStatus() const
-{
-    return m_releaseNoteJobStatus;
-}
-
-void UpdateWorker::setReleaseNoteStatus(const QString &releaseNoteStatus)
-{
-    m_releaseNoteJobStatus = releaseNoteStatus;
-
-    if (m_releaseNoteJobStatus == "failed") {
-        Q_EMIT releaseNoteInstallCompleted();
-    }
-
-    if (m_releaseNoteUpdated && m_releaseNoteJobStatus == "end") {
-        Q_EMIT releaseNoteInstallCompleted();
-    }
 }
 
 bool UpdateWorker::hasRepositoriesUpdates()
@@ -1886,6 +1892,35 @@ void UpdateWorker::onRequestLastoreHeartBeat()
         return;
     }
     lastoreManager.asyncCall("GetCheckIntervalAndTime");
+}
+
+void UpdateWorker::setUpdateLogs(const QJsonArray &array)
+{
+    if (array.isEmpty())
+        return;
+
+    m_updateLogs.clear();
+    for(const QJsonValue &value : array) {
+        QJsonObject obj = value.toObject();
+        if (obj.isEmpty())
+            continue;
+
+        UpdateLogItem item;
+        item.id = obj.value("id").toInt();
+        item.systemVersion = obj.value("systemVersion").toString();
+        item.cnLog = obj.value("cnLog").toString();
+        item.enLog = obj.value("enLog").toString();
+        item.publishTime = DCC_NAMESPACE::utcDateTime2LocalDate(obj.value("publishTime").toString());
+        item.platformType = obj.value("platformType").toInt();
+        item.serverType = obj.value("serverType").toInt();
+        item.logType = obj.value("logType").toInt();
+        m_updateLogs.append(std::move(item));
+    }
+    qInfo() << "m_updateLogs size: " << m_updateLogs.size();
+    // 不依赖服务器返回来日志顺序，用systemVersion进行排序
+    qSort(m_updateLogs.begin(), m_updateLogs.end(), [] (const UpdateLogItem &v1, const UpdateLogItem &v2) -> bool {
+        return v1.systemVersion.compare(v2.systemVersion) >= 0;
+    });
 }
 
 }

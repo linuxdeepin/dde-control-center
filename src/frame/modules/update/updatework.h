@@ -53,6 +53,9 @@ using LastoressionHelper = com::deepin::LastoreSessionHelper;
 using SmartMirrorInter = com::deepin::lastore::Smartmirror;
 using RecoveryInter = com::deepin::ABRecovery;
 using Appearance = com::deepin::daemon::Appearance;
+
+class QJsonArray;
+
 namespace dcc {
 namespace update {
 
@@ -60,6 +63,36 @@ struct CheckUpdateJobRet {
     QString status;
     QString jobID;
     QString jobDescription;
+};
+
+/**
+ * @brief 更新日志中一个版本的信息
+ *
+ * 示例数据：
+ * {
+        "id": 1,
+        "platformType": 1,
+        "cnLog": "<p>中文日志</p>",
+        "enLog": "<p>英文日志</p>",
+        "serverType": 0,
+        "systemVersion": "1070U1",
+        "createdAt": "2022-08-10T17:45:54+08:00",
+        "logType": 1,
+        "publishTime": "2022-08-06T00:00:00+08:00"
+    }
+ */
+struct UpdateLogItem
+{
+    int id = -1;
+    int platformType = 1;
+    int serverType = 0;
+    int logType = 1;
+    QString systemVersion = "";
+    QString cnLog = "";
+    QString enLog = "";
+    QString publishTime = "";
+
+    bool isValid() const { return -1 != id; }
 };
 
 class UpdateWorker : public QObject
@@ -79,15 +112,12 @@ public:
     void setSafeUpdateDownloadJobName(const QString &safeUpdateDownloadJobName);
     void setUnknownUpdateDownloadJobName(const QString &unknownUpdateDownloadJobName);
 
-    QString getReleaseNoteStatus() const;
-    void setReleaseNoteStatus(const QString &releaseNoteStatus);
     bool hasRepositoriesUpdates();
 
 Q_SIGNALS:
     void requestInit();
     void requestActive();
     void requestRefreshLicenseState();
-    void releaseNoteInstallCompleted();
 
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     void requestRefreshMirrors();
@@ -149,10 +179,11 @@ private Q_SLOTS:
     void checkTestingChannelStatus();
     QStringList getSourcesOfPackage(const QString pkg, const QString version);
     QString getTestingChannelSource();
+    void handleUpdateLogsReply(QNetworkReply *reply);
+    QString getUpdateLogAddress() const;
 
 private:
     QMap<ClassifyUpdateType, UpdateItemInfo *> getAllUpdateInfo();
-    void getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo);
     void setUpdateInfo();
     void setUpdateItemDownloadSize(UpdateItemInfo *updateItem, QStringList packages);
 
@@ -166,7 +197,6 @@ private:
 
     void setDownloadJob(const QString &jobPath, ClassifyUpdateType updateType);
     void setDistUpgradeJob(const QString &jobPath, ClassifyUpdateType updateType);
-    void setReleaseNoteInstallJob(const QString &jobPath);
     void setUpdateItemProgress(UpdateItemInfo *itemInfo, double value);
     bool hasBackedUp();
     void onRecoveryFinshed(bool successed);
@@ -182,8 +212,10 @@ private:
     void cleanLastoreJob(QPointer<JobInter> dbusJob);
     UpdateErrorType analyzeJobErrorMessage(QString jobDescription);
     QString getClassityUpdateDownloadJobName(ClassifyUpdateType updateType);
-    void listenReleaseNoteFile();
     void checkUpdatablePackages(const QMap<QString, QStringList> &updatablePackages);
+    void requestUpdateLog();
+    void updateItemInfo(const UpdateLogItem &logItem, UpdateItemInfo *itemInfo);
+    void setUpdateLogs(const QJsonArray &array);
 
 private:
     UpdateModel *m_model;
@@ -197,8 +229,6 @@ private:
     QPointer<JobInter> m_sysUpdateInstallJob;
     QPointer<JobInter> m_safeUpdateInstallJob;
     QPointer<JobInter> m_unknownUpdateInstallJob;
-
-    QPointer<JobInter> m_releaseNoteInstallJob;
 
     QString m_sysUpdateDownloadJobName;
     QString m_safeUpdateDownloadJobName;
@@ -231,13 +261,11 @@ private:
     BackupStatus m_backupStatus;
     // 当前正在备份的更新分类类型
     ClassifyUpdateType m_backupingClassifyType;
-    QString m_releaseNoteJobStatus;
-    bool m_releaseNoteUpdated;
-    QFileSystemWatcher *m_fileSystemWatcher;
     QList<ClassifyUpdateType> m_fixErrorUpdate;
 
     QMutex m_mutex;
     QMutex m_downloadMutex;
+    QList<UpdateLogItem> m_updateLogs;
 };
 
 }

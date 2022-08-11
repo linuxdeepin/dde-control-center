@@ -54,6 +54,7 @@ public:
 
     QList<DetailInfo> detailInfos() const;
     void setDetailInfos(QList<DetailInfo> &detailInfos);
+    void addDetailInfo(DetailInfo detailInfo);
 
 Q_SIGNALS:
     void downloadProgressChanged(const double &progress);

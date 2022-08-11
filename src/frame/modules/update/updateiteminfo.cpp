@@ -114,5 +114,10 @@ void UpdateItemInfo::setDetailInfos(QList<DetailInfo> &detailInfos)
     m_detailInfos = detailInfos;
 }
 
+void UpdateItemInfo::addDetailInfo(DetailInfo detailInfo)
+{
+    m_detailInfos.append(std::move(detailInfo));
+}
+
 }
 }

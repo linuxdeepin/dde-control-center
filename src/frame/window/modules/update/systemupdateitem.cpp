@@ -70,8 +70,6 @@ void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
         m_updateDetailItemList.clear();
     }
 
-    int lastIndex = -1;
-
     const QString systemVer = dccV20::IsCommunitySystem ? Dtk::Core::DSysInfo::deepinVersion() : Dtk::Core::DSysInfo::minorVersion();
     for (int i = 0; i < detailInfoList.count(); i++) {
         const QString currentVersion = detailInfoList.at(i).name;
@@ -79,23 +77,7 @@ void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
             continue;
         }
 
-        if (dccV20::IsProfessionalSystem && getLastNumForString(currentVersion) != '0') {
-            if (lastIndex < 0 ||  subVersion(currentVersion, detailInfoList.at(lastIndex).name) > DBL_MIN) {
-                lastIndex = i;
-            }
-            continue;
-        }
-
         createDetailInfoItem(detailInfoList, i);
-    }
-
-    if (lastIndex > -1 && getLastNumForString(updateItemInfo->availableVersion()) != '0') {
-        vector<double> firstVersionVec = getNumListFromStr(updateItemInfo->availableVersion());
-        vector<double> secondVersionVec = getNumListFromStr(detailInfoList.at(lastIndex).name);
-        // 当前版本是 1061的话 则不显示1051等类似的小版本
-        if (static_cast<int>(firstVersionVec.at(0) / 10) == static_cast<int>(secondVersionVec.at(0) / 10)) {
-            createDetailInfoItem(detailInfoList, lastIndex, 0);
-        }
     }
 
     m_controlWidget->setShowMoreButtonVisible(m_updateDetailItemList.count());
@@ -130,8 +112,9 @@ void SystemUpdateItem::createDetailInfoItem(const QList<DetailInfo> &detailInfoL
         return;
     }
     DetailInfo item = detailInfoList.at(index);
+    const QString &systemVersionType = DCC_NAMESPACE::IsServerSystem ? tr("Server") : tr("Desktop");
     DetailInfoItem *detailInfoItem = new DetailInfoItem(this);
-    detailInfoItem->setTitle(item.name);
+    detailInfoItem->setTitle(systemVersionType + item.name);
     detailInfoItem->setDate(item.updateTime);
     detailInfoItem->setLinkData(item.link);
     detailInfoItem->setDetailData(item.info);

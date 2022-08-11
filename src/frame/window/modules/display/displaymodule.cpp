@@ -228,6 +228,7 @@ void DisplayModule::showSingleScreenWidget()
         if(moi->enable()){
             return moi->canBrightness();
         }
+        return false;
     });
     const bool brightnessIsEnabled = m_displayModel->brightnessEnable() && canBrightness;
     brightnessWidget->setVisible(brightnessIsEnabled);
@@ -284,6 +285,7 @@ void DisplayModule::showSingleScreenWidget()
             if(moi->enable()){
                 return moi->canBrightness();
             }
+            return false;
         });
 
         const bool visible = enable && canBrightness;
