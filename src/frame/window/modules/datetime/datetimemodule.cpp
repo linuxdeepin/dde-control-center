@@ -25,6 +25,8 @@
 #include "clockitem.h"
 #include "systemtimezone.h"
 #include "formatsetting.h"
+#include "currencyformat.h"
+#include "numberformat.h"
 #include "window/gsettingwatcher.h"
 #include "window/dconfigwatcher.h"
 #include "window/mainwindow.h"
@@ -47,6 +49,8 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
     , m_model(nullptr)
     , m_timezonelist(nullptr)
     , m_widget(nullptr)
+    , m_currencyFormatWidget(nullptr)
+    , m_numberFormatWidget(nullptr)
 {
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
     GSettingWatcher::instance()->insertState("timezoneList");
@@ -422,6 +426,8 @@ void DatetimeModule::ensureZoneChooserDialog()
 
 void DatetimeModule::showFormatSetting()
 {
+    Q_ASSERT(m_model);
+
     m_fsetting = new DCC_NAMESPACE::datetime::FormatSetting(m_model);
     connect(m_fsetting, &FormatSetting::weekdayFormatChanged, this, &DatetimeModule::weekdayFormatChanged);
     connect(m_fsetting, &FormatSetting::shortDateFormatChanged, this, &DatetimeModule::shortDateFormatChanged);
@@ -435,8 +441,28 @@ void DatetimeModule::showFormatSetting()
     connect(m_model, &DatetimeModel::longTimeFormatChanged, m_fsetting, &FormatSetting::setCururentLongTimeFormat);
     connect(m_model, &DatetimeModel::shorTimeFormatChanged, m_fsetting, &FormatSetting::setCururentShortTimeFormat);
     connect(m_model, &DatetimeModel::weekStartDayFormatChanged, m_fsetting, &FormatSetting::setCururentWeekStartDayFormat);
-    m_frameProxy->pushWidget(this, m_fsetting);
     GSettingWatcher::instance()->bind("datetimeFromatsetting", m_fsetting);
+
+    m_currencyFormatWidget = new CurrencyFormat(m_model);
+    m_numberFormatWidget = new NumberFormat(m_model);
+
+    connect(m_currencyFormatWidget, &CurrencyFormat::currencySymbolFormatChanged, m_numberFormatWidget, &NumberFormat::SetCurrencySymbolFormat);
+    connect(m_currencyFormatWidget, &CurrencyFormat::positiveCurrencyFormatChanged, m_numberFormatWidget, &NumberFormat::SetPositiveCurrencyFormat);
+    connect(m_currencyFormatWidget, &CurrencyFormat::negativeCurrencyChanged, m_numberFormatWidget, &NumberFormat::SetNegativeCurrency);
+    m_numberFormatWidget->SetCurrencySymbolFormat(m_currencyFormatWidget->getFirstCurrencySymbolFormat());
+    m_numberFormatWidget->SetPositiveCurrencyFormat(m_currencyFormatWidget->getFirstPositiveCurrencyFormatPlace());
+    m_numberFormatWidget->SetNegativeCurrency(m_currencyFormatWidget->getFirstNegativeCurrencyPlace());
+
+    dcc::ContentWidget *formatSettingsWidget = new  dcc::ContentWidget;
+    QWidget *widget = new QWidget(formatSettingsWidget);
+    QVBoxLayout *layout = new QVBoxLayout(widget);
+    layout->addWidget(m_fsetting);
+    layout->addWidget(m_currencyFormatWidget);
+    layout->addWidget(m_numberFormatWidget);
+    layout->addStretch();
+    formatSettingsWidget->setContent(widget);
+
+    m_frameProxy->pushWidget(this, formatSettingsWidget);
 }
 
 void DatetimeModule::showTimezoneList()

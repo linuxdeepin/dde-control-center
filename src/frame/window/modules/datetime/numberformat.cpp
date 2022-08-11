@@ -101,13 +101,14 @@ NumberFormat::NumberFormat(dcc::datetime::DatetimeModel *model, QWidget *parent)
             << "datetimefromatsettingDigitgroupingsymbol"
             << "datetimefromatsettingDigitgrouping"
             << "datetimefromatsettingExample";
-    auto func_is_visible = [headTitle, this]() {
+    auto func_is_visible = [this]() {
         const QString dsgDecimalsymbol = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingDecimalsymbol");
         const QString dsgDigitgroupingsymbol = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingDigitgroupingsymbol");
         const QString dsgDigitgrouping = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingDigitgrouping");
         const QString dsgExample = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingExample");
         bool isHeadVisible = dsgDecimalsymbol == "Hidden" && dsgDigitgroupingsymbol == "Hidden" && dsgDigitgrouping == "Hidden";
-        headTitle->setVisible(!isHeadVisible);
+        //当全部combox隐藏的时候，直接将页面隐藏，避免占位
+        this->setVisible(!isHeadVisible);
         m_exampleTips->setVisible(!isHeadVisible && (dsgExample != "Hidden"));
     };
     connect(DConfigWatcher::instance(), &DConfigWatcher::requestUpdateSearchMenu, this, [=](const QString &moduleName, bool status) {

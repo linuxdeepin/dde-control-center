@@ -26,8 +26,6 @@
 #include "widgets/comboxwidget.h"
 #include "widgets/settingsgroup.h"
 #include "window/utils.h"
-#include "currencyformat.h"
-#include "numberformat.h"
 
 #include <DFontSizeManager>
 
@@ -40,11 +38,9 @@ using namespace DCC_NAMESPACE::datetime;
 using namespace dcc::widgets;
 
 FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
-    : ContentWidget(parent)
+    : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , mModel(mdoel)
-    , m_currencyFormatWidget(new CurrencyFormat(mModel))
-    , m_numberFormatWidget(new NumberFormat(mModel))
 {
     setAccessibleName("FormatSetting");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
@@ -100,15 +96,10 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
     timeGrp->appendItem(m_shortimeCbx);
 
     m_layout->addWidget(timeGrp);
-    m_layout->addWidget(m_currencyFormatWidget);
-    m_layout->addWidget(m_numberFormatWidget);
-
     initComboxWidgetList();
     m_layout->addStretch(0);
 
-    QWidget *widget = new QWidget;
-    widget->setLayout(m_layout);
-    setContent(widget);
+    setLayout(m_layout);
 }
 
 /**
@@ -165,13 +156,6 @@ void FormatSetting::initComboxWidgetList()
             this, &FormatSetting::shortTimeFormatChanged);
     connect(m_weekStartDayCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
             this, &FormatSetting::weekStartDayFormatChanged);
-
-    connect(m_currencyFormatWidget, &CurrencyFormat::currencySymbolFormatChanged, m_numberFormatWidget, &NumberFormat::SetCurrencySymbolFormat);
-    connect(m_currencyFormatWidget, &CurrencyFormat::positiveCurrencyFormatChanged, m_numberFormatWidget, &NumberFormat::SetPositiveCurrencyFormat);
-    connect(m_currencyFormatWidget, &CurrencyFormat::negativeCurrencyChanged, m_numberFormatWidget, &NumberFormat::SetNegativeCurrency);
-    m_numberFormatWidget->SetCurrencySymbolFormat(m_currencyFormatWidget->getFirstCurrencySymbolFormat());
-    m_numberFormatWidget->SetPositiveCurrencyFormat(m_currencyFormatWidget->getFirstPositiveCurrencyFormatPlace());
-    m_numberFormatWidget->SetNegativeCurrency(m_currencyFormatWidget->getFirstNegativeCurrencyPlace());
 }
 
 QString FormatSetting::fotmatWeek(int type)

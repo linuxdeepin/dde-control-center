@@ -21,7 +21,6 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "widgets/contentwidget.h"
 
 #include <DListView>
 
@@ -40,13 +39,6 @@ class DatetimeModel;
 }
 }
 
-namespace DCC_NAMESPACE {
-namespace datetime {
-class CurrencyFormat;
-class NumberFormat;
-}
-}
-
 namespace dcc {
 namespace widgets {
 class ComboxWidget;
@@ -56,7 +48,7 @@ class ComboxWidget;
 namespace DCC_NAMESPACE {
 namespace datetime {
 
-class FormatSetting : public dcc::ContentWidget
+class FormatSetting : public QWidget
 {
     Q_OBJECT
 public:
@@ -93,8 +85,6 @@ private:
     dcc::widgets::ComboxWidget *m_longtimeCbx = nullptr;
     dcc::widgets::ComboxWidget *m_shortimeCbx = nullptr ;
     dcc::widgets::ComboxWidget *m_weekStartDayCbx = nullptr ;
-    CurrencyFormat *m_currencyFormatWidget;
-    NumberFormat *m_numberFormatWidget;
 };
 
 }// namespace datetime
