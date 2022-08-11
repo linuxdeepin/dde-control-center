@@ -48,6 +48,7 @@ public:
     void refreshFont();
 
 public Q_SLOTS:
+    void setDefaultByType(const QString &type, const QString &value);
     void setDefault(const QJsonObject &value);
     void setFontSize(const int value);
     void switchWM();
@@ -69,6 +70,7 @@ private Q_SLOTS:
     void onCompositingAllowSwitch(bool value);
     void onWindowWM(bool value);
     void onMiniEffectChanged(bool value);
+    void onWindowRadiusChanged(int value);
 
 private:
     int sizeToSliderValue(const double value) const;

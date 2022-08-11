@@ -22,6 +22,7 @@
 #include "dockplugin.h"
 #include "dockdbusproxy.h"
 
+#include "widgets/itemmodule.h"
 #include "widgets/widgetmodule.h"
 #include "widgets/comboxwidget.h"
 #include "widgets/titledslideritem.h"
@@ -81,19 +82,24 @@ ModuleObject* DockPlugin::module()
 
 QString DockPlugin::follow() const
 {
-    // 插入到个性化模块中，作为二级模块
-    return QStringLiteral("personalization");
+    // 插入到个性化/桌面模块中，作为三级模块
+    return QStringLiteral("personalization/desktop");
 }
 
 QString DockPlugin::location() const
 {
-    // 个性化的最后一个模块
-    return "4";
+    // 桌面的第一个模块
+    return "0";
 }
 
 DockModuleObject::DockModuleObject()
     : PageModule("dock", tr("Dock"), tr("Dock plugin"), nullptr)
 {
+    setNoScroll();
+    setNoStretch();
+    setContentsMargins(0, 0, 0, 0);
+
+    appendChild(new ItemModule("title", tr("Dock")));
     appendChild(new WidgetModule<ComboxWidget>("mode", tr("Mode"), this, &DockModuleObject::initMode));
     appendChild(new WidgetModule<ComboxWidget>("position", tr("Position"), this, &DockModuleObject::initPosition));
     appendChild(new WidgetModule<ComboxWidget>("status", tr("Status"), this, &DockModuleObject::initStatus));

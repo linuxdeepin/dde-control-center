@@ -43,6 +43,7 @@ public:
     inline ThemeModel *getWindowModel() const { return m_windowModel; }
     inline ThemeModel *getIconModel() const { return m_iconModel; }
     inline ThemeModel *getMouseModel() const { return m_mouseModel; }
+    inline ThemeModel *getGlobalThemeModel() const { return m_globalThemeModel; }
     inline FontModel *getStandFontModel() const { return m_standFontModel; }
     inline FontModel *getMonoFontModel() const { return m_monoFontModel; }
     inline FontSizeModel *getFontSizeModel() const { return m_fontSizeModel; }
@@ -77,6 +78,7 @@ private:
     ThemeModel *m_windowModel;
     ThemeModel *m_iconModel;
     ThemeModel *m_mouseModel;
+    ThemeModel *m_globalThemeModel;
     FontModel *m_standFontModel;
     FontModel *m_monoFontModel;
     FontSizeModel *m_fontSizeModel;

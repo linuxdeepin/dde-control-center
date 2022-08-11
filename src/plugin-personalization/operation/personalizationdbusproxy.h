@@ -38,6 +38,9 @@ public:
     Q_PROPERTY(QString CursorTheme READ cursorTheme WRITE setCursorTheme NOTIFY CursorThemeChanged)
     QString cursorTheme();
     void setCursorTheme(const QString &value);
+    Q_PROPERTY(QString GlobalTheme READ globalTheme WRITE setGlobalTheme NOTIFY GlobalThemeChanged)
+    QString globalTheme();
+    void setGlobalTheme(const QString &value);
     Q_PROPERTY(double FontSize READ fontSize WRITE setFontSize NOTIFY FontSizeChanged)
     double fontSize();
     void setFontSize(double value);
@@ -94,6 +97,7 @@ signals:
     void FontSizeChanged(double value) const;
     void GtkThemeChanged(const QString &value) const;
     void IconThemeChanged(const QString &value) const;
+    void GlobalThemeChanged(const QString &value) const;
     void MonospaceFontChanged(const QString &value) const;
     void OpacityChanged(double value) const;
     void QtActiveColorChanged(const QString &value) const;

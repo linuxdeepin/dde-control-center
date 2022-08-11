@@ -42,14 +42,24 @@ public:
     void addBackground();
     void removeBackground();
 
+    bool clickable() const;
+    void setClickable(const bool clickable);
+
+Q_SIGNALS:
+    void clicked(QWidget *widget);
+
 protected:
     void resizeEvent(QResizeEvent *event) override;
     void paintEvent(QPaintEvent *event) override;
+    void enterEvent(QEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+    void mousePressEvent(QMouseEvent *event) override;
 
 private:
     bool m_isErr;
     bool m_hasBack;
-
+    bool m_hover;
+    bool m_clickable;
 };
 
 }

@@ -21,9 +21,8 @@
 #include "personalizationplugin.h"
 #include "personalizationmodel.h"
 #include "personalizationworker.h"
-#include "personalizationgeneralmodule.h"
 #include "personalizationthememodule.h"
-#include "personalizationfontsmodule.h"
+#include "personalizationdesktopmodule.h"
 
 #include <QLabel>
 
@@ -43,25 +42,14 @@ PersonalizationModule::PersonalizationModule(QObject *parent)
     m_model = new PersonalizationModel(this);
     m_work = new PersonalizationWorker(m_model, this);
 
-    appendChild(new PersonalizationGeneralModule(m_model, m_work, this));
-    ModuleObject *obj = new PersonalizationThemeModule(m_model->getIconModel(), m_work, this);
-    obj->setName("personalizationIconTheme");
-    obj->setIcon(QIcon::fromTheme("dcc_Icon_theme"));
-    obj->setDisplayName(tr("Icon Theme"));
-    appendChild(obj);
-    obj = new PersonalizationThemeModule(m_model->getMouseModel(), m_work, this);
-    obj->setName("personalizationCursorTheme");
-    obj->setIcon(QIcon::fromTheme("dcc_cursor_theme"));
-    obj->setDisplayName(tr("Cursor Theme"));
-    appendChild(obj);
-    appendChild(new PersonalizationFontsModule(m_model, m_work, this));
+    appendChild(new PersonalizationThemeModule(m_model, m_work, this));
+    appendChild(new PersonalizationDesktopModule(m_model, m_work, this));
 }
 
 void PersonalizationModule::active()
 {
     m_work->active(); // refresh data
     m_work->refreshTheme();
-    //    m_work->refreshFont();
 }
 
 void PersonalizationModule::onBatteryChanged(const bool &state)

@@ -338,8 +338,8 @@ void AccountsListView::updateGeometries()
     } else {
         QSize step = d->m_itemSize;
 
-        horizontalScrollBar()->setSingleStep(step.height() + d->spacing());
-        horizontalScrollBar()->setPageStep(viewport()->height());
+        horizontalScrollBar()->setSingleStep(step.width() + d->spacing());
+        horizontalScrollBar()->setPageStep(viewport()->width());
 
         int width = d->m_maxRowCount * (d->m_itemSize.width() + d->m_spacing) - d->m_spacing;
         if (width < viewport()->width()) {

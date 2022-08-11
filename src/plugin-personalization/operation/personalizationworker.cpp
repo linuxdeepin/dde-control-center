@@ -49,12 +49,14 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     ThemeModel *cursorTheme = m_model->getMouseModel();
     ThemeModel *windowTheme = m_model->getWindowModel();
     ThemeModel *iconTheme = m_model->getIconModel();
+    ThemeModel *globalTheme = m_model->getGlobalThemeModel();
     FontModel *fontMono = m_model->getMonoFontModel();
     FontModel *fontStand = m_model->getStandFontModel();
 
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::GtkThemeChanged, windowTheme, &ThemeModel::setDefault);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::CursorThemeChanged, cursorTheme, &ThemeModel::setDefault);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::IconThemeChanged, iconTheme, &ThemeModel::setDefault);
+    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::GlobalThemeChanged, globalTheme, &ThemeModel::setDefault);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::MonospaceFontChanged, fontMono, &FontModel::setFontName);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::StandardFontChanged, fontStand, &FontModel::setFontName);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::FontSizeChanged, this, &PersonalizationWorker::FontSizeChanged);
@@ -65,12 +67,14 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::QtActiveColorChanged, this, &PersonalizationWorker::refreshActiveColor);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::compositingAllowSwitchChanged, this, &PersonalizationWorker::onCompositingAllowSwitch);
     connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::compositingEnabledChanged, this, &PersonalizationWorker::onWindowWM);
+    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WindowRadiusChanged, this, &PersonalizationWorker::onWindowRadiusChanged);
 
     m_personalizationDBusProxy->isEffectLoaded("magiclamp", this, SLOT(onMiniEffectChanged(bool)));
 
     m_themeModels["gtk"] = windowTheme;
     m_themeModels["icon"] = iconTheme;
     m_themeModels["cursor"] = cursorTheme;
+    m_themeModels["globaltheme"] = globalTheme;
     m_fontModels["standardfont"] = fontStand;
     m_fontModels["monospacefont"] = fontMono;
 }
@@ -87,6 +91,7 @@ void PersonalizationWorker::active()
     m_model->getWindowModel()->setDefault(m_personalizationDBusProxy->gtkTheme());
     m_model->getIconModel()->setDefault(m_personalizationDBusProxy->iconTheme());
     m_model->getMouseModel()->setDefault(m_personalizationDBusProxy->cursorTheme());
+    m_model->getGlobalThemeModel()->setDefault(m_personalizationDBusProxy->globalTheme());
     m_model->getMonoFontModel()->setFontName(m_personalizationDBusProxy->monospaceFont());
     m_model->getStandFontModel()->setFontName(m_personalizationDBusProxy->standardFont());
     m_model->setWindowRadius(m_personalizationDBusProxy->windowRadius());
@@ -115,6 +120,9 @@ void PersonalizationWorker::addList(ThemeModel *model, const QString &type, cons
     for (int i = 0; i != array.size(); i++) {
         QJsonObject object = array.at(i).toObject();
         object.insert("type", QJsonValue(type));
+        if (object["Name"].toString() == "Custom") {
+            object["Name"] = tr("Custom");
+        }
         objList << object;
         list.append(object["Id"].toString());
 
@@ -194,6 +202,11 @@ void PersonalizationWorker::onWindowWM(bool value)
 void PersonalizationWorker::onMiniEffectChanged(bool value)
 {
     m_model->setMiniEffect(value ? 1 : 0);
+}
+
+void PersonalizationWorker::onWindowRadiusChanged(int value)
+{
+    m_model->setWindowRadius(value);
 }
 
 void PersonalizationWorker::onCompositingAllowSwitch(bool value)
@@ -301,6 +314,11 @@ double PersonalizationWorker::sliderValueToSize(const int value) const
 double PersonalizationWorker::sliderValutToOpacity(const int value) const
 {
     return static_cast<double>(value) / static_cast<double>(100);
+}
+
+void PersonalizationWorker::setDefaultByType(const QString &type, const QString &value)
+{
+    m_personalizationDBusProxy->Set(type, value);
 }
 
 void PersonalizationWorker::setDefault(const QJsonObject &value)

@@ -62,6 +62,8 @@ public:
     void setWordWrap(bool on);
     bool wordWrap() const;
     void setLeftVisible(bool visible);
+    bool clickable() const;
+    void setClickable(const bool clickable);
 
     template<typename FunT>
     void setRightWidget(FunT callback)
@@ -92,6 +94,9 @@ public:
 
     QWidget *page() override;
     inline DCC_MODULE_TYPE getClassID() const override { return ITEM; }
+
+Q_SIGNALS:
+    void clicked(QWidget *widget);
 
 private:
     void setCallback(std::function<QWidget *()> callback);

@@ -38,11 +38,13 @@
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 DCC_USE_NAMESPACE
-SET_FORM_ACCESSIBLE(SettingsItem,"SettingsItem");
+SET_FORM_ACCESSIBLE(SettingsItem, "SettingsItem");
 SettingsItem::SettingsItem(QWidget *parent)
     : QFrame(parent)
     , m_isErr(false)
     , m_hasBack(false)
+    , m_hover(false)
+    , m_clickable(false)
 {
 }
 
@@ -53,7 +55,8 @@ bool SettingsItem::isErr() const
 
 void SettingsItem::setIsErr(const bool err)
 {
-    if (m_isErr == err) return;
+    if (m_isErr == err)
+        return;
     m_isErr = err;
 
     style()->unpolish(this);
@@ -63,15 +66,23 @@ void SettingsItem::setIsErr(const bool err)
 void SettingsItem::addBackground()
 {
     m_hasBack = true;
-
     update();
 }
 
 void SettingsItem::removeBackground()
 {
     m_hasBack = false;
-
     update();
+}
+
+bool SettingsItem::clickable() const
+{
+    return m_clickable;
+}
+
+void SettingsItem::setClickable(const bool clickable)
+{
+    m_clickable = clickable;
 }
 
 void SettingsItem::resizeEvent(QResizeEvent *event)
@@ -86,9 +97,26 @@ void SettingsItem::paintEvent(QPaintEvent *event)
         const DPalette &dp = DPaletteHelper::instance()->palette(this);
         QPainter p(this);
         p.setPen(Qt::NoPen);
-        p.setBrush(dp.brush(DPalette::ItemBackground));
+        p.setBrush(dp.brush((m_clickable && m_hover) ? DPalette::ObviousBackground : DPalette::ItemBackground));
         p.drawRoundedRect(rect(), 8, 8);
     }
     return QFrame::paintEvent(event);
 }
 
+void SettingsItem::enterEvent(QEvent *event)
+{
+    m_hover = true;
+    update();
+}
+
+void SettingsItem::leaveEvent(QEvent *event)
+{
+    m_hover = false;
+    update();
+}
+
+void SettingsItem::mousePressEvent(QMouseEvent *event)
+{
+    if (m_clickable)
+        Q_EMIT clicked(this);
+}

@@ -162,7 +162,6 @@ void UserDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, 
 
     drawDisplay(style, painter, opt, displayRect);
     painter->restore();
-    return;
 }
 
 QSize UserDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const

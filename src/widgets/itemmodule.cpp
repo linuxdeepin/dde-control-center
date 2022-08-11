@@ -22,6 +22,7 @@ public:
         , m_wordWrap(true)
         , m_isTitle(false)
         , m_leftVisible(true)
+        , m_clickable(false)
     {
     }
     void setCallback(std::function<QWidget *()> callback)
@@ -36,6 +37,7 @@ public:
     bool m_wordWrap;
     bool m_isTitle;
     bool m_leftVisible;
+    bool m_clickable;
     Q_DECLARE_PUBLIC(ItemModule)
 };
 DCC_END_NAMESPACE
@@ -88,6 +90,18 @@ void ItemModule::setLeftVisible(bool visible)
     d->m_leftVisible = visible;
 }
 
+bool ItemModule::clickable() const
+{
+    Q_D(const ItemModule);
+    return d->m_clickable;
+}
+
+void ItemModule::setClickable(const bool clickable)
+{
+    Q_D(ItemModule);
+    d->m_clickable = clickable;
+}
+
 QWidget *ItemModule::page()
 {
     Q_D(ItemModule);
@@ -95,25 +109,32 @@ QWidget *ItemModule::page()
     if (d->m_callback)
         ret = d->m_callback();
 
-    if (d->m_leftVisible) {
+    if (d->m_leftVisible || d->m_background || d->m_clickable) {
         SettingsItem *w = new SettingsItem();
         w->setAccessibleName(name());
+        w->setClickable(d->m_clickable);
+        if (d->m_clickable)
+            connect(w, &SettingsItem::clicked, this, &ItemModule::clicked);
         if (d->m_background)
             w->addBackground();
         QHBoxLayout *layout = new QHBoxLayout(w);
-        DLabel *leftWidget = new DLabel(displayName());
-        leftWidget->setAccessibleName(name());
-        leftWidget->setWordWrap(d->m_wordWrap);
-        if (d->m_isTitle) {
-            leftWidget->setForegroundRole(DPalette::TextTitle);
-            DFontSizeManager::instance()->bind(leftWidget, DFontSizeManager::T5, QFont::DemiBold);
-            layout->addWidget(leftWidget, 0, Qt::AlignVCenter);
-            if (ret)
-                layout->addWidget(ret, 0, Qt::AlignVCenter | Qt::AlignRight);
-        } else {
-            layout->addWidget(leftWidget, 3, Qt::AlignVCenter);
-            if (ret)
-                layout->addWidget(ret, 7, Qt::AlignVCenter);
+        if (d->m_leftVisible) {
+            DLabel *leftWidget = new DLabel(displayName());
+            leftWidget->setAccessibleName(name());
+            leftWidget->setWordWrap(d->m_wordWrap);
+            if (d->m_isTitle) {
+                leftWidget->setForegroundRole(DPalette::TextTitle);
+                DFontSizeManager::instance()->bind(leftWidget, DFontSizeManager::T5, QFont::DemiBold);
+                layout->addWidget(leftWidget, 0, Qt::AlignVCenter);
+                if (ret)
+                    layout->addWidget(ret, 0, Qt::AlignVCenter | Qt::AlignRight);
+            } else {
+                layout->addWidget(leftWidget, 3, Qt::AlignVCenter);
+                if (ret)
+                    layout->addWidget(ret, 7, Qt::AlignVCenter);
+            }
+        } else if (ret) {
+            layout->addWidget(ret);
         }
         ret = w;
     }
