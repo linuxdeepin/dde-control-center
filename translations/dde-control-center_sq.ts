@@ -378,7 +378,7 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="290"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="598"/>
         <source>Passwords do not match</source>
-        <translation>Fjalëkalimet nuk përputhen</translation>
+        <translation>Fjalëkalimet s’përputhen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="319"/>
@@ -811,7 +811,7 @@
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="24"/>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="83"/>
         <source>Edit</source>
-        <translation>Përpunim</translation>
+        <translation>Përpunojeni</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="40"/>
@@ -884,7 +884,7 @@
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="47"/>
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="92"/>
         <source>Edit</source>
-        <translation>Përpunim</translation>
+        <translation>Përpunojeni</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="50"/>
@@ -926,7 +926,7 @@
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="24"/>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="82"/>
         <source>Edit</source>
-        <translation>Përpunim</translation>
+        <translation>Përpunojeni</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="39"/>
@@ -1548,26 +1548,28 @@
 <context>
     <name>dccV20::datetime::CurrencyFormat</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="48"/>
         <source>Currency Format</source>
         <translation>Format Monedhe</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="59"/>
         <source>Currency Symbol</source>
         <translation>Simbol Monedhe</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="63"/>
         <source>Positive Currency Format</source>
         <translation type="unfinished"/>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="67"/>
         <source>Negative Currency Format</source>
         <translation type="unfinished"/>
         <extra-child_page>Time Format</extra-child_page>
@@ -1757,7 +1759,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="288"/>
         <source>Number Format</source>
-        <translation type="unfinished"/>
+        <translation>Format Numrash</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="289"/>
@@ -1931,7 +1933,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="241"/>
         <source>Sunday, April 5, 2020</source>
-        <translation>E diel, 5 prill 2020</translation>
+        <translation>E diel, 5 prill, 2020</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="260"/>
@@ -2015,42 +2017,44 @@
 <context>
     <name>dccV20::datetime::NumberFormat</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="56"/>
         <source>Number Format</source>
         <translation>Format Numrash</translation>
+        <extra-child_page>Time Format</extra-child_page>
+        <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="67"/>
         <source>Decimal Symbol</source>
         <translation>Simbol Dhjetoresh</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="71"/>
         <source>Digit Grouping Symbol</source>
         <translation>Simbol Grupimi Shifrash</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="75"/>
         <source>Digit Grouping</source>
         <translation>Grupim Shifrash</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="348"/>
         <source>Example</source>
         <translation>Shembull</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="155"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="283"/>
         <source>Space</source>
         <translation>Hapësirë</translation>
     </message>
@@ -2636,7 +2640,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="115"/>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>Kycja e kapakeve</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
@@ -2716,7 +2720,7 @@
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="229"/>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="258"/>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>Kycja e kapakeve</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="198"/>
@@ -2996,7 +3000,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="273"/>
         <source>Tap to Click</source>
-        <translation>Prekeni, që të klikohet</translation>
+        <translation>Për Klikim, prekeni</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="276"/>
@@ -4032,7 +4036,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="143"/>
         <source>Output Devices</source>
-        <translation>Pajisje Në Dalje</translation>
+        <translation>Pajisje Output-i</translation>
         <extra-child_page>Devices</extra-child_page>
         <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
@@ -4045,7 +4049,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="168"/>
         <source>Input Devices</source>
-        <translation>Pajisje Në Hyrje</translation>
+        <translation>Pajisje Input-i</translation>
         <extra-child_page>Devices</extra-child_page>
         <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
@@ -4060,7 +4064,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="81"/>
         <source>Input Device</source>
-        <translation>Pajisje Dhëniesh</translation>
+        <translation>Pajisje Input-i</translation>
         <extra-child_page>Input</extra-child_page>
         <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
@@ -4130,7 +4134,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="126"/>
         <source>Input Device</source>
-        <translation>Pajisje Dhëniesh</translation>
+        <translation>Pajisje Input-i</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="129"/>
@@ -4858,7 +4862,7 @@
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="354"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="655"/>
         <source>Last checking time: </source>
-        <translation>Koha e kontrollit të fundit:</translation>
+        <translation>Koha e kontrollit të fundit: </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
@@ -5219,7 +5223,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="141"/>
         <source>Return</source>
-        <translation type="unfinished"/>
+        <translation>kthehu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="192"/>
@@ -5613,7 +5617,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="84"/>
         <source>Next</source>
-        <translation>Pasueja</translation>
+        <translation>Pasuesi</translation>
     </message>
 </context>
 <context>
@@ -5735,7 +5739,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="164"/>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="182"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Pastroni gishtin ose rregulloni pozicion gishti, dhe riprovoni</translation>
+        <translation>Pastroni gishtin, ose rregulloni pozicion gishti dhe riprovoni</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="167"/>
@@ -5778,12 +5782,12 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="150"/>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="153"/>
         <source>Scan the edges of your fingerprint</source>
-        <translation>Skanoni skajet e shenjës tuaj të gishtit</translation>
+        <translation>Skanoni skajet e mollëzës tuaj</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="68"/>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Vendosni te ndijuesi skajet e mollëzës së gishtit tuaj</translation>
+        <translation>Vendosni te ndijuesi skajet e mollëzës tuaj</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="144"/>
@@ -5798,7 +5802,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="151"/>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>Rregullojeni pozicionin që të skanohen skajet e shenjës së gishtit tuaj</translation>
+        <translation>Rregullojeni pozicionin që të skanohen skajet e mollëzës tuaj</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="154"/>

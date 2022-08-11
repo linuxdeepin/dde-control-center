@@ -151,7 +151,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="169"/>
         <source>Reset Password By UOS ID</source>
-        <translation>Palauta salasana UOS-tunnuksella</translation>
+        <translation>Palauta salasana UOS ID tunnuksella</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>

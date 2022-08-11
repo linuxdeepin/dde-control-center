@@ -89,7 +89,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="92"/>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Passwort darf nicht mehr als 4 Palindromzeichen enthalten</translation>
+        <translation>Passwort darf nicht mehr als 4 Palindrom-Zeichen enthalten</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>

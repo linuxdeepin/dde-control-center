@@ -101,7 +101,7 @@
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="94"/>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="95"/>
         <source>Create a strong password please</source>
-        <translation>Vytvořte si odolné heslo, prosím</translation>
+        <translation>Vytvořte si odolné heslo prosím</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="102"/>
