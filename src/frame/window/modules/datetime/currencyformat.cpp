@@ -82,12 +82,13 @@ CurrencyFormat::CurrencyFormat(dcc::datetime::DatetimeModel *model, QWidget *par
     cbxList << "datetimefromatsettingCurrencysymbol"
             << "datetimefromatsettingPositive"
             << "datetimefromatsettingNegative";
-    auto func_is_visible = [headTitle]() {
+    auto func_is_visible = [this]() {
         const QString dsgCurrencysymbol = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingCurrencysymbol");
         const QString dsgPositive = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingPositive");
         const QString dsgNegative = DConfigWatcher::instance()->getStatus(DConfigWatcher::datetime, "fromatsettingNegative");
         bool isHeadVisible = dsgCurrencysymbol == "Hidden" && dsgPositive == "Hidden" && dsgNegative == "Hidden";
-        headTitle->setVisible(!isHeadVisible);
+        //当全部combox隐藏的时候，直接将页面隐藏，避免占位
+        this->setVisible(!isHeadVisible);
     };
     connect(DConfigWatcher::instance(), &DConfigWatcher::requestUpdateSearchMenu, this, [=](const QString &moduleName, bool status) {
         Q_UNUSED(status)

@@ -41,6 +41,8 @@ class TimezoneList;
 class DatetimeWidget;
 class DateSettings;
 class FormatSetting;
+class CurrencyFormat;
+class NumberFormat;
 
 class DatetimeModule : public QObject, public ModuleInterface
 {
@@ -101,6 +103,8 @@ private:
     QPointer<DatetimeWidget> m_widget;
     QPointer<DateSettings> m_setting;
     DCC_NAMESPACE::datetime::FormatSetting *m_fsetting;
+    CurrencyFormat *m_currencyFormatWidget;
+    NumberFormat *m_numberFormatWidget;
     MainWindow *m_pMainWindow;
 };
 
