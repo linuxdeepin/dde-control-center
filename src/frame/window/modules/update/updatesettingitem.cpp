@@ -4,6 +4,7 @@
 
 #include "updatesettingitem.h"
 #include "widgets/basiclistdelegate.h"
+#include "window/utils.h"
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -208,7 +209,8 @@ void UpdateSettingItem::setData(UpdateItemInfo *updateItemInfo)
 
     QString value = updateItemInfo->updateTime().isEmpty() ? "" : tr("Release date: ") + updateItemInfo->updateTime();
     m_controlWidget->setDate(value);
-    value = updateItemInfo->availableVersion().isEmpty() ? "" : tr("Version") + ": " + updateItemInfo->availableVersion();
+    const QString &systemVersionType = DCC_NAMESPACE::IsServerSystem ? tr("Server") : tr("Desktop");
+    value = updateItemInfo->availableVersion().isEmpty() ? "" : tr("Version") + ": " + systemVersionType + updateItemInfo->availableVersion();
     m_controlWidget->setVersion(value);
     m_controlWidget->setTitle(updateItemInfo->name());
     m_controlWidget->setDetail(updateItemInfo->explain());

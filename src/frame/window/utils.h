@@ -31,6 +31,7 @@
 #include <QMetaMethod>
 #include <DSysInfo>
 #include <DPlatformHandle>
+#include <QDateTime>
 
 DCORE_USE_NAMESPACE
 
@@ -132,6 +133,24 @@ inline bool compareVersion(const QString &targetVersion, const QString &baseVers
 
     return true;
 }
+
+/**
+ * @brief utc时间格式转本地日期
+ *
+ * @param utcDateTime utc时间字符串，示例：2022-04-28T11:24:59+08:00
+ * @return QString 本地日期字符串，示例：2022-04-28
+ */
+inline QString utcDateTime2LocalDate(const QString& utcDateTime) {
+    if (utcDateTime.isEmpty())
+        return "";
+
+    QDateTime dateTime = QDateTime::fromString(utcDateTime, "yyyy-MM-ddTHH:mm:ss+08:00");
+    if (!dateTime.isValid())
+        return "";
+
+    return dateTime.toLocalTime().toString("yyyy-MM-dd");
+}
+
 }
 
 #endif // V20_DISPLAY_UTILS_H
