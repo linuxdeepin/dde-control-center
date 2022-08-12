@@ -447,6 +447,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     accountSettingsGrp->layout()->setMargin(0);
     accountSettingsGrp->appendItem(m_asAdministrator);
     layout->addSpacing(20);
+    m_accountSettingsTitle->setContentsMargins(20, 0, 10, 0);
     layout->addWidget(m_accountSettingsTitle);
     layout->addWidget(accountSettingsGrp);
 
