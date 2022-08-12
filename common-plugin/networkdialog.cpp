@@ -97,6 +97,11 @@ void NetworkDialog::show()
     });
 }
 
+void NetworkDialog::setServerName(const QString &name)
+{
+    m_serverName = name;
+}
+
 void NetworkDialog::requestFocus()
 {
     for (QWidget *w : qApp->topLevelWidgets()) {

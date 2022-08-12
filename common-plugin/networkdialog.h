@@ -59,6 +59,7 @@ public:
     bool isVisible() const;
     void setLocale(const QString &locale);
     void closeDialog();
+    void setServerName(const QString &name);
 
 private:
     void runProcess(bool show = true);

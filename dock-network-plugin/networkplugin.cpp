@@ -68,6 +68,7 @@ void NetworkPlugin::init(PluginProxyInterface *proxyInter)
         return;
 
     m_networkDialog = new NetworkDialog(this);
+    m_networkDialog->setServerName("dde-network-dialog" + QString::number(getuid()) + "dock");
     m_networkHelper.reset(new NetworkPluginHelper(m_networkDialog));
     QDBusConnection::sessionBus().connect("com.deepin.dde.lockFront", "/com/deepin/dde/lockFront", "com.deepin.dde.lockFront", "Visible", this, SLOT(lockFrontVisible(bool)));
 

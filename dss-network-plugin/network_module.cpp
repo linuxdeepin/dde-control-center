@@ -61,6 +61,7 @@ NetworkModule::NetworkModule(QObject *parent)
     }
 
     m_networkDialog = new NetworkDialog(this);
+    m_networkDialog->setServerName("dde-network-dialog" + QString::number(getuid()) + "lock");
     m_networkDialog->setRunReason(NetworkDialog::Lock);
     m_networkHelper = new NetworkPluginHelper(m_networkDialog, this);
 

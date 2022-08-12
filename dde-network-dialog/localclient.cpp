@@ -30,6 +30,7 @@
 #include <QTimer>
 #include <QProcess>
 #include <QFile>
+#include <QDBusInterface>
 
 #include <networkcontroller.h>
 #include <DRegionMonitor>
@@ -116,7 +117,16 @@ void LocalClient::disConnectedHandler()
 bool LocalClient::ConnectToServer()
 {
     m_exitTimer->start(10000);
-    m_clinet->connectToServer(NetworkDialogApp + QString::number(getuid()));
+    // 区分登录、锁屏和任务栏
+    // 当sessionManager服务没起来时是在登录界面，锁屏和任务栏通过locked属性来判断
+    QDBusInterface sessionManager("com.deepin.SessionManager", "/com/deepin/SessionManager", "com.deepin.SessionManager", QDBusConnection::sessionBus(), this);
+    QString serverName = NetworkDialogApp + QString::number(getuid());
+    if (!sessionManager.isValid() || sessionManager.property("locked").toBool()) {
+        serverName += "lock";
+    } else {
+        serverName += "dock";
+    }
+    m_clinet->connectToServer(serverName);
     m_clinet->waitForConnected();
     QLocalSocket::LocalSocketState state = m_clinet->state();
     return state == QLocalSocket::ConnectedState;
