@@ -92,8 +92,8 @@ const int WidgetMinimumHeight = 634;
 //此处为带边距的宽度
 const int first_widget_min_width = 188;
 //此处为不带边距的宽度
-const int second_widget_min_width = 230;
-const int third_widget_min_width = 340;
+const int second_widget_min_width = 240;
+const int third_widget_min_width = 370;
 //窗口的总宽度，带边距
 const int widget_total_min_width = 820;
 //当窗口宽度大于 four_widget_min_widget 时，
@@ -809,7 +809,7 @@ void MainWindow::resizeEvent(QResizeEvent *event)
 
     if (m_topWidget) {
         m_topWidget->setFixedSize(event->size());
-        m_topWidget->curWidget()->setMinimumWidth(dstWidth / 2 - 40);
+        m_topWidget->curWidget()->setMinimumWidth(dstWidth / 2 - 30);
         m_topWidget->setFixedHeight(height() - this->titlebar()->height());
     }
 }
@@ -1264,7 +1264,7 @@ void FourthColWidget::initWidget(QWidget *showWidget, ModuleInterface *module)
 
     QHBoxLayout *layout = new QHBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
-    showWidget->setMinimumWidth(this->parentWidget()->width() / 2 - 40);
+    showWidget->setMinimumWidth(this->parentWidget()->width() / 2 - 30);
     showWidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     showWidget->setAutoFillBackground(true);
 

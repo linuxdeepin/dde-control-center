@@ -126,7 +126,11 @@ void UserGroupsPage::initWidget()
     m_layout->addWidget(m_groupTip);
     m_layout->addSpacing(10);
     m_layout->addWidget(m_groupListView);
-    setLayout(m_layout);
+    QHBoxLayout *layout = new QHBoxLayout(this);
+    QWidget *widget = new QWidget;
+    widget->setLayout(m_layout);
+    layout->addWidget(widget);
+    setLayout(layout);
 }
 
 void UserGroupsPage::initData()
