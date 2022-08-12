@@ -50,9 +50,6 @@ public:
     inline bool isDisturbMode() const {return m_isDisturbMode;}
     void setDisturbMode(const bool disturbMode);
 
-    inline bool isShowInDock()const {return m_isShowInDock;}
-    void setShowInDock(const bool showInDock);
-
     inline bool isTimeSlot()const {return  m_isTimeSlot;}
     void setTimeSlot(const bool timeSlot);
 
@@ -69,7 +66,6 @@ public:
 
 Q_SIGNALS:
     void disturbModeChanged(bool isDisturbMode);
-    void showInDockChanged(bool isShowInDock);
     void timeSlotChanged(bool isTimeSlot);
     void lockScreenChanged(bool isLockScreen);
     void timeStartChanged(const QString &timeStart);
@@ -77,7 +73,6 @@ Q_SIGNALS:
 
 private:
     bool m_isDisturbMode;//勿扰模式
-    bool m_isShowInDock;//任务栏显示
     bool m_isTimeSlot;//时间段
     bool m_isLockScreen;//锁屏显示
     QString m_timeStart;//开始时间

@@ -63,7 +63,6 @@ private:
 private:
     SysItemModel *m_model;
     Dtk::Widget::DSwitchButton *m_btnDisturbMode;//勿扰模式
-    SwitchWidget *m_btnShowInDock;//是否显示在Dock
     TimeSlotItem *m_itemTimeSlot;//时间段
     NotificationItem *m_itemLockScreen;
     SettingsGroup *m_settingsGrp;//自选项

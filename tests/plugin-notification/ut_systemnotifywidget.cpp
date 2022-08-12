@@ -48,7 +48,6 @@ TEST_F(Tst_SystemNotifyWidget, FullTest)
 
     SysItemModel *sysmodel = model.getSystemModel();
     sysmodel->disturbModeChanged(true);
-    sysmodel->showInDockChanged(true);
     sysmodel->timeSlotChanged(true);
     sysmodel->timeStartChanged("07:00");
     sysmodel->timeEndChanged("18:00");
