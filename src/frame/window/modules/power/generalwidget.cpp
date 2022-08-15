@@ -59,22 +59,31 @@ static QGSettings *GSettings()
     return &settings;
 }
 
-GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
+GeneralWidget::GeneralWidget(dcc::power::PowerModel *model, QWidget *parent, bool bIsBattery)
     : QWidget(parent)
     , m_bIsBattery(bIsBattery)
     , m_layout(new QVBoxLayout(this))
     , m_batteryLabel(nullptr)
     , m_batteryCapacity(new TitleValueItem)
+    , m_model(model)
 {
-    //~ contents_path /power/General
-    //~ child_page General
-    m_powerPlanMap.insert(BALANCE, tr("Balanced"));
-    //~ contents_path /power/General
-    //~ child_page General
-    m_powerPlanMap.insert(PERFORMANCE, tr("High Performance"));
-    //~ contents_path /power/General
-    //~ child_page General
-    m_powerPlanMap.insert(POWERSAVE, tr("Power Saver"));
+    if (m_model && m_model->isBalanceSupported()) {
+        //~ contents_path /power/General
+        //~ child_page General
+        m_powerPlanMap.insert(BALANCE, tr("Balanced"));
+    }
+
+    if (m_model && m_model->isHighPerformanceSupported()) {
+        //~ contents_path /power/General
+        //~ child_page General
+        m_powerPlanMap.insert(PERFORMANCE, tr("High Performance"));
+    }
+
+    if (m_model && m_model->isPowerSaveSupported()) {
+        //~ contents_path /power/General
+        //~ child_page General
+        m_powerPlanMap.insert(POWERSAVE, tr("Power Saver"));
+    }
 
     //~ contents_path /power/General
     //~ child_page General
@@ -107,6 +116,8 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     connect(m_powerShowTimeToFull, &SwitchWidget::checkedChanged, this, &GeneralWidget::setPowerDisplay);
     connect(GSettings(), &QGSettings::changed, this, &GeneralWidget::onGSettingsChanged);
     onGSettingsChanged("showtimetofull");
+
+    initConnect();
 }
 
 GeneralWidget::~GeneralWidget()
@@ -161,6 +172,10 @@ void GeneralWidget::initUi()
     powerPlansLayout->setSpacing(10);                   // 布局中组件间距
     powerPlansLayout->setContentsMargins(10, 0, 10, 0); // 性能设置布局与外面总布局的边距
     m_layout->addLayout(powerPlansLayout);              // 将性能设置布局添加到总布局中
+
+    powerPlansLabel->setVisible(m_model->isBalanceSupported() || m_model->isHighPerformanceSupported() || m_model->isPowerSaveSupported());
+    m_powerplanListview->setVisible(m_model->isBalanceSupported() || m_model->isHighPerformanceSupported() || m_model->isPowerSaveSupported());
+
     /*************************************************************************************/
 
     /**** 节能设置 ************************************************************************/
@@ -196,6 +211,10 @@ void GeneralWidget::initUi()
     energySavingLayout->setSpacing(10);                   // 布局中组件间距
     energySavingLayout->setContentsMargins(10, 0, 10, 0); // 节能设置与外面总布局的边距
     m_layout->addLayout(energySavingLayout);              // 将节能模式布局添加到总布局中
+
+    energySavingLabel->setVisible(m_model->isPowerSaveSupported());
+    energySavingGrp->setVisible(m_model->isPowerSaveSupported());
+
     /*************************************************************************************/
 
     /**** 唤醒设置 ************************************************************************/
@@ -205,7 +224,6 @@ void GeneralWidget::initUi()
     DFontSizeManager::instance()->bind(wakeupLabel, DFontSizeManager::T5, QFont::DemiBold); // 唤醒设置label字体
     QVBoxLayout *wakeupLayout = new QVBoxLayout(this);                                          // 唤醒设置布局
     SettingsGroup *wakeupSettingsGrp = new SettingsGroup;
-
     wakeupSettingsGrp->appendItem(m_wakeComputerNeedPassword);
     wakeupSettingsGrp->appendItem(m_wakeDisplayNeedPassword);
     GSettingWatcher::instance()->bind(gsetting_systemSuspend, m_wakeComputerNeedPassword);  // 使用GSettings来控制显示状态
@@ -263,43 +281,45 @@ void GeneralWidget::initUi()
     setLayout(mainLayout);
 }
 
-void GeneralWidget::setModel(const PowerModel *model)
+void GeneralWidget::initConnect()
 {
-    connect(model, &PowerModel::screenBlackLockChanged, m_wakeDisplayNeedPassword, &SwitchWidget::setChecked);
-    connect(model, &PowerModel::sleepLockChanged, m_wakeComputerNeedPassword, &SwitchWidget::setChecked);
+    Q_ASSERT(m_model);
+
+    connect(m_model, &PowerModel::screenBlackLockChanged, m_wakeDisplayNeedPassword, &SwitchWidget::setChecked);
+    connect(m_model, &PowerModel::sleepLockChanged, m_wakeComputerNeedPassword, &SwitchWidget::setChecked);
 
 #ifndef DCC_DISABLE_POWERSAVE
-    connect(model, &PowerModel::autoPowerSavingModeChanged, m_autoIntoSaveEnergyMode, &SwitchWidget::setChecked);
+    connect(m_model, &PowerModel::autoPowerSavingModeChanged, m_autoIntoSaveEnergyMode, &SwitchWidget::setChecked);
 #endif
-    connect(model, &PowerModel::suspendChanged, m_wakeComputerNeedPassword, &SwitchWidget::setVisible);
+    connect(m_model, &PowerModel::suspendChanged, m_wakeComputerNeedPassword, &SwitchWidget::setVisible);
 
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [ = ] (const QString &key, const QString &value) {
         if (key == gsetting_systemSuspend && !value.isEmpty()) {
-            m_wakeComputerNeedPassword->setVisible(model->getSuspend() && value != "Hidden");
+            m_wakeComputerNeedPassword->setVisible(m_model->getSuspend() && value != "Hidden");
         }
     });
 
-    connect(model, &PowerModel::highPerformaceSupportChanged, this, &GeneralWidget::onHighPerformanceSupportChanged);
-    onHighPerformanceSupportChanged(model->isHighPerformanceSupported());
+    connect(m_model, &PowerModel::highPerformaceSupportChanged, this, &GeneralWidget::onHighPerformanceSupportChanged);
+    onHighPerformanceSupportChanged(m_model->isHighPerformanceSupported());
 
-    connect(model, &PowerModel::powerPlanChanged, this, &GeneralWidget::onCurPowerPlanChanged);
-    onCurPowerPlanChanged(model->getPowerPlan());
+    connect(m_model, &PowerModel::powerPlanChanged, this, &GeneralWidget::onCurPowerPlanChanged);
+    onCurPowerPlanChanged(m_model->getPowerPlan());
 
     // init ui data
     blockSignals(true);
-    m_wakeDisplayNeedPassword->setChecked(model->screenBlackLock());
-    m_wakeComputerNeedPassword->setChecked(model->sleepLock());
+    m_wakeDisplayNeedPassword->setChecked(m_model->screenBlackLock());
+    m_wakeComputerNeedPassword->setChecked(m_model->sleepLock());
     blockSignals(false);
 
 #ifndef DCC_DISABLE_POWERSAVE
-    m_autoIntoSaveEnergyMode->setChecked(model->autoPowerSaveMode());
+    m_autoIntoSaveEnergyMode->setChecked(m_model->autoPowerSaveMode());
 #endif
 
-    m_wakeComputerNeedPassword->setVisible(model->getSuspend() && (GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden"));
+    m_wakeComputerNeedPassword->setVisible(m_model->getSuspend() && (GSettingWatcher::instance()->getStatus(gsetting_systemSuspend) != "Hidden"));
 
     //-------------sp2 add-------------------------
-    m_swLowPowerAutoIntoSaveEnergyMode->setChecked(model->powerSavingModeAutoWhenQuantifyLow());
-    connect(model, &PowerModel::powerSavingModeAutoWhenQuantifyLowChanged, m_swLowPowerAutoIntoSaveEnergyMode, &SwitchWidget::setChecked);
+    m_swLowPowerAutoIntoSaveEnergyMode->setChecked(m_model->powerSavingModeAutoWhenQuantifyLow());
+    connect(m_model, &PowerModel::powerSavingModeAutoWhenQuantifyLowChanged, m_swLowPowerAutoIntoSaveEnergyMode, &SwitchWidget::setChecked);
 
     QDBusInterface Interface("com.deepin.daemon.Display",
                              "/com/deepin/daemon/Display",
@@ -307,21 +327,21 @@ void GeneralWidget::setModel(const PowerModel *model)
                              QDBusConnection::sessionBus());
     int maxBacklight = Interface.property("MaxBacklightBrightness").toInt();
     m_sldLowerBrightness->setVisible(maxBacklight >= 100 || maxBacklight == 0);
-    m_sldLowerBrightness->slider()->setValue(model->powerSavingModeLowerBrightnessThreshold() / 10);
-    connect(model, &PowerModel::powerSavingModeLowerBrightnessThresholdChanged, this,  [ = ](const uint dLevel) {
+    m_sldLowerBrightness->slider()->setValue(m_model->powerSavingModeLowerBrightnessThreshold() / 10);
+    connect(m_model, &PowerModel::powerSavingModeLowerBrightnessThresholdChanged, this,  [ = ](const uint dLevel) {
         m_sldLowerBrightness->slider()->blockSignals(true);
         m_sldLowerBrightness->slider()->setValue(dLevel / 10);
         m_sldLowerBrightness->slider()->blockSignals(false);
     });
 
-    bool bStatus = model->haveBettary();
+    bool bStatus = m_model->haveBettary();
 
     if (GSettingWatcher::instance()->getStatus("powerAutointoSaveenergyBattery") != "Hidden")
         m_swLowPowerAutoIntoSaveEnergyMode->setVisible(bStatus);
     if (GSettingWatcher::instance()->getStatus("powerAutointoSaveenergy") != "Hidden")
         m_autoIntoSaveEnergyMode->setVisible(bStatus);
 
-    connect(model, &PowerModel::haveBettaryChanged, this, &GeneralWidget::onBatteryChanged);
+    connect(m_model, &PowerModel::haveBettaryChanged, this, &GeneralWidget::onBatteryChanged);
 
     //---------------------------------------------
     initSlider();

@@ -83,6 +83,25 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::LowPowerAutoSleepThresholdChanged, m_powerModel, &PowerModel::setLowPowerAutoSleepThreshold);
     //-------------------------------------------------------
     connect(m_sysPowerInter, &SysPowerInter::ModeChanged, m_powerModel, &PowerModel::setPowerPlan);
+
+    bool value = false;
+    QDBusInterface interface("com.deepin.system.Power",
+                             "/com/deepin/system/Power",
+                             "org.freedesktop.DBus.Properties",
+                             QDBusConnection::systemBus());
+    QDBusMessage reply = interface.call("Get", "com.deepin.system.Power", "IsBalanceSupported");
+    QList<QVariant> outArgs = reply.arguments();
+    if (outArgs.length() > 0) {
+        value = outArgs.at(0).value<QDBusVariant>().variant().toBool();
+        m_powerModel->setBalanceSupported(value);
+    }
+
+    reply = interface.call("Get", "com.deepin.system.Power", "IsPowerSaveSupported");
+    outArgs = reply.arguments();
+    if (outArgs.length() > 0) {
+        value = outArgs.at(0).value<QDBusVariant>().variant().toBool();
+        m_powerModel->setPowerSaveSupported(value);
+    }
 }
 
 void PowerWorker::active()

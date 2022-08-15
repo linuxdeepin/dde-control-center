@@ -150,6 +150,12 @@ public:
     inline bool isHighPerformanceSupported() const { return m_isHighPerformanceSupported; }
     void setHighPerformanceSupported(bool isHighSupport);
 
+    inline bool isBalanceSupported() const { return m_isBalanceSupported; }
+    void setBalanceSupported(bool isBalanceSupport);
+
+    inline bool isPowerSaveSupported() const { return m_isBalanceSupported; }
+    void setPowerSaveSupported(bool isPowerSaveSupported);
+
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
     void canSleepChanged(const bool canSleep);
@@ -189,6 +195,8 @@ Q_SIGNALS:
     void suspendChanged(bool suspendState);
     void powerPlanChanged(const QString &value);
     void highPerformaceSupportChanged(bool value);
+    void balanceSupportChanged(bool value);
+    void powerSaveSupportChanged(bool value);
 
 private:
     bool m_lidPresent;//以此判断是否为笔记本
@@ -228,6 +236,8 @@ private:
 
     QString m_powerPlan;
     bool m_isHighPerformanceSupported;
+    bool m_isBalanceSupported;
+    bool m_isPowerSaveSupported;
 };
 
 }
