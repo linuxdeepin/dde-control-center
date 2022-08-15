@@ -215,9 +215,8 @@ void PowerModule::showGeneral()
 {
     qDebug() << Q_FUNC_INFO;
 
-    GeneralWidget *general = new GeneralWidget(m_widget, m_widget->getIsUseBattety());
+    GeneralWidget *general = new GeneralWidget(m_model, m_widget, m_widget->getIsUseBattety());
     general->setVisible(false);
-    general->setModel(m_model);
     m_frameProxy->pushWidget(this, general);
     general->setVisible(true);
 
@@ -326,11 +325,11 @@ void PowerModule::initSearchData()
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the monitor"), true);
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the computer"), m_model->getSuspend() && func_is_visible(gsetting_systemSuspend));
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Decrease brightness"), func_is_visible("powerLowerBrightness"));
-        m_frameProxy->setDetailVisible(module, generalWidget, tr("Balanced"), true);
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("Balanced"), m_model->isBalanceSupported());
         m_frameProxy->setDetailVisible(module, generalWidget, tr("High Performance"), m_model->isHighPerformanceSupported());
-        m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Saver"), true);
-        m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Plans"), func_is_visible("powerPlansLabel"));
-        m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Saving Settings"), true);
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Saver"), m_model->isPowerSaveSupported());
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Plans"), func_is_visible("powerPlansLabel") && (m_model->isPowerSaveSupported() || m_model->isBalanceSupported() || m_model->isHighPerformanceSupported()));
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Saving Settings"), m_model->isPowerSaveSupported());
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Wakeup Settings"), true);
 
         m_frameProxy->setWidgetVisible(module, pluggedInWidget, func_is_visible("pluggedIn", "false"));
@@ -342,12 +341,22 @@ void PowerModule::initSearchData()
         func_battary_Changed(battaty, haveLib);
     };
 
-    connect(m_model, &PowerModel::haveBettaryChanged, this, [=](bool state) {
+    connect(m_model, &PowerModel::haveBettaryChanged, this, [func_battary_Changed, this](bool state) {
         func_battary_Changed(state, m_model->lidPresent());
     });
 
-    connect(m_model, &PowerModel::highPerformaceSupportChanged, this, [=] (const bool state) {
+    connect(m_model, &PowerModel::highPerformaceSupportChanged, this, [module, generalWidget, this] (bool state) {
         m_frameProxy->setDetailVisible(module, generalWidget, tr("High Performance"), state && m_model->isHighPerformanceSupported());
+        m_frameProxy->updateSearchData(module);
+    });
+    connect(m_model, &PowerModel::balanceSupportChanged, this, [module, generalWidget, this] (bool state) {
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("Balanced"), state && m_model->isBalanceSupported());
+        m_frameProxy->updateSearchData(module);
+    });
+    connect(m_model, &PowerModel::powerSaveSupportChanged, this, [func_is_visible, module, generalWidget, this] (bool state) {
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Saver"), state && m_model->isPowerSaveSupported());
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Plans"), func_is_visible("powerPlansLabel") && (m_model->isPowerSaveSupported() || m_model->isBalanceSupported() || m_model->isHighPerformanceSupported()));
+        m_frameProxy->setDetailVisible(module, generalWidget, tr("Power Saving Settings"), m_model->isPowerSaveSupported());
         m_frameProxy->updateSearchData(module);
     });
 

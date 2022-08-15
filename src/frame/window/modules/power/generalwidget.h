@@ -56,13 +56,12 @@ class GeneralWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit GeneralWidget(QWidget *parent = nullptr, bool bIsBattery = false);
+    explicit GeneralWidget(dcc::power::PowerModel *model = nullptr, QWidget *parent = nullptr, bool bIsBattery = false);
     virtual ~GeneralWidget();
-
-    void setModel(const dcc::power::PowerModel *model);
 
 private:
     void initUi();     // 初始化界面
+    void initConnect();
     void initSlider(); // 初始化 slider 控件
 
 private:
@@ -92,6 +91,7 @@ private:
     dcc::widgets::TitleValueItem *m_batteryCapacity = nullptr;
 
     dcc::widgets::TitledSliderItem *m_monitorSleepOnPower = nullptr;
+    dcc::power::PowerModel *m_model = nullptr;
 
 Q_SIGNALS:
     void requestSetLowBatteryMode(const bool &state);                         // 同节能模式
