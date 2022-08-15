@@ -121,7 +121,7 @@ bool LocalClient::ConnectToServer()
     // 当sessionManager服务没起来时是在登录界面，锁屏和任务栏通过locked属性来判断
     QDBusInterface sessionManager("com.deepin.SessionManager", "/com/deepin/SessionManager", "com.deepin.SessionManager", QDBusConnection::sessionBus(), this);
     QString serverName = NetworkDialogApp + QString::number(getuid());
-    if (!sessionManager.isValid() || sessionManager.property("locked").toBool()) {
+    if (!sessionManager.isValid() || sessionManager.property("Locked").toBool()) {
         serverName += "lock";
     } else {
         serverName += "dock";
