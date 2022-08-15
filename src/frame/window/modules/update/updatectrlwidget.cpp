@@ -856,7 +856,7 @@ bool UpdateCtrlWidget::continueUpdate()
     tipDialog->setMinimumSize(380, 158);
     tipDialog->setModal(true);
     tipDialog->setMessage(tr("Unable to perform system backup. Continue the update?"));
-    tipDialog->addButton(tr("Cancel"), false, DDialog::ButtonRecommend);
+    tipDialog->addButton(tr("Cancel"), false, DDialog::ButtonNormal);
     tipDialog->addButton(tr("Continue"), true, DDialog::ButtonNormal);
     // 修改continue按钮的文字颜色
     QAbstractButton* continueBtn = tipDialog->getButton(1);
