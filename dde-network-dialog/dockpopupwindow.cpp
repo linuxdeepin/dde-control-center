@@ -66,7 +66,7 @@ DockPopupWindow::DockPopupWindow(RunReason runReaseon, QWidget *parent)
         windowHandle()->setProperty("_d_dwayland_window-type", "override");
     } else {
         if (runReaseon == Lock || runReaseon == Greeter)
-            setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
+            setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
         else
             setWindowFlags(Qt::Dialog | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
     }
