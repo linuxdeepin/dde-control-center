@@ -65,8 +65,8 @@ private:
     DLabel *m_dateLabel;
     DLabel *m_explainTitle;
     DLabel *m_linkDataLabel;
-    DLabel *m_dataLable;
-    DLabel *m_linkLable;
+    DLabel *m_dataLabel;
+    DLabel *m_linkLabel;
     DLabel *m_title;
 };
 
