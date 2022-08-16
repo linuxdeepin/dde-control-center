@@ -35,8 +35,8 @@ DetailInfoItem::DetailInfoItem(QWidget *parent)
     : SettingsItem(parent)
     , m_dateLabel(new DLabel(this))
     , m_linkDataLabel(new DLabel(this))
-    , m_dataLable(new DLabel(this))
-    , m_linkLable(new DLabel(this))
+    , m_dataLabel(new DLabel(this))
+    , m_linkLabel(new DLabel(this))
     , m_title(new DLabel(this))
 {
     initUi();
@@ -44,15 +44,15 @@ DetailInfoItem::DetailInfoItem(QWidget *parent)
 
 void DetailInfoItem::initUi()
 {
-    QVBoxLayout *mainlayout = new QVBoxLayout;
+    QVBoxLayout *mainLayout = new QVBoxLayout;
 
-    mainlayout->setSpacing(5);
-    mainlayout->setMargin(0);
+    mainLayout->setSpacing(5);
+    mainLayout->setMargin(0);
 
-    QHBoxLayout *hboxlayout = new QHBoxLayout;
+    QHBoxLayout *hBoxLayout = new QHBoxLayout;
 
-    QPalette titleClolrPal;
-    titleClolrPal.setColor(QPalette::WindowText, QColor(titleColor));
+    QPalette titleColorPal;
+    titleColorPal.setColor(QPalette::WindowText, QColor(titleColor));
 
     QPalette grayColorPal;
     grayColorPal.setColor(QPalette::WindowText, QColor(grayColor));
@@ -64,35 +64,36 @@ void DetailInfoItem::initUi()
     DFontSizeManager::instance()->bind(m_dateLabel, DFontSizeManager::T8);
     m_dateLabel->setForegroundRole(DPalette::TextTips);
 
-    hboxlayout->addWidget(m_title, 0, Qt::AlignLeft | Qt::AlignTop);
-    hboxlayout->addWidget(m_dateLabel, 0, Qt::AlignRight | Qt::AlignTop);
+    hBoxLayout->addWidget(m_title, 0, Qt::AlignLeft | Qt::AlignTop);
+    hBoxLayout->addWidget(m_dateLabel, 0, Qt::AlignRight | Qt::AlignTop);
 
-    DFontSizeManager::instance()->bind(m_dataLable, DFontSizeManager::T8);
-    m_dataLable->setForegroundRole(DPalette::TextTips);
-    m_dataLable->setWordWrap(true);
+    DFontSizeManager::instance()->bind(m_dataLabel, DFontSizeManager::T8);
+    m_dataLabel->setForegroundRole(DPalette::TextTips);
+    m_dataLabel->setWordWrap(true);
+    m_dataLabel->setOpenExternalLinks(true);
 
-    QHBoxLayout *bomboxlayout = new QHBoxLayout;
+    QHBoxLayout *bomBoxLayout = new QHBoxLayout;
     m_linkDataLabel->setText(tr("For more details, visit:"));
     DFontSizeManager::instance()->bind(m_linkDataLabel, DFontSizeManager::T8);
     m_linkDataLabel->setForegroundRole(DPalette::TextTips);
     m_linkDataLabel->setMaximumWidth(250);
 
-    m_linkLable->setOpenExternalLinks(true);
-    DFontSizeManager::instance()->bind(m_linkLable, DFontSizeManager::T8);
-    m_linkLable->setForegroundRole(DPalette::LinkVisited);
-    bomboxlayout->addWidget(m_linkDataLabel, 0, Qt::AlignLeft);
-    bomboxlayout->addWidget(m_linkLable);
-    m_linkLable->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-    m_linkLable->setScaledContents(true);
-    m_linkLable->adjustSize();
-    m_linkLable->setWordWrap(true);
+    m_linkLabel->setOpenExternalLinks(true);
+    DFontSizeManager::instance()->bind(m_linkLabel, DFontSizeManager::T8);
+    m_linkLabel->setForegroundRole(DPalette::LinkVisited);
+    bomBoxLayout->addWidget(m_linkDataLabel, 0, Qt::AlignLeft);
+    bomBoxLayout->addWidget(m_linkLabel);
+    m_linkLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+    m_linkLabel->setScaledContents(true);
+    m_linkLabel->adjustSize();
+    m_linkLabel->setWordWrap(true);
 
-    mainlayout->addLayout(hboxlayout);
-    mainlayout->addWidget(m_dataLable);
-    mainlayout->addLayout(bomboxlayout);
-    mainlayout->addStretch();
+    mainLayout->addLayout(hBoxLayout);
+    mainLayout->addWidget(m_dataLabel);
+    mainLayout->addLayout(bomBoxLayout);
+    mainLayout->addStretch();
 
-    setLayout(mainlayout);
+    setLayout(mainLayout);
 }
 
 void DetailInfoItem::setDate(QString date)
@@ -116,25 +117,25 @@ void DetailInfoItem::setLinkData(QString data)
 {
     if (data.isEmpty()) {
         m_linkDataLabel->setVisible(false);
-        m_linkLable->setVisible(false);
+        m_linkLabel->setVisible(false);
         return;
     }
     m_linkDataLabel->setVisible(true);
-    m_linkLable->setVisible(true);
-    m_linkLable->clear();
+    m_linkLabel->setVisible(true);
+    m_linkLabel->clear();
     QString value = QString("<a href=\"%1\">%2").arg(data, data);
-    m_linkLable->setText(value);
+    m_linkLabel->setText(value);
 }
 
 void DetailInfoItem::setDetailData(QString data)
 {
     if (data.isEmpty()) {
-        m_dataLable->setVisible(false);
+        m_dataLabel->setVisible(false);
         return;
     }
-    m_dataLable->setVisible(true);
-    m_dataLable->clear();
-    m_dataLable->setText(data);
+    m_dataLabel->setVisible(true);
+    m_dataLabel->clear();
+    m_dataLabel->setText(data);
 }
 
 }
