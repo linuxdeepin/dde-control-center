@@ -76,7 +76,7 @@ AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
                 }
             }
             if (row == -1) {
-                QStandardItem *item = getAndSelectCustomAvatar();
+                QStandardItem *item = getCustomAvatar();
                 item->setAccessibleText(iconpath);
                 auto ratio = devicePixelRatioF();
                 auto px = QPixmap(iconpath).scaled(QSize(74, 74) * ratio,
@@ -144,7 +144,7 @@ void AvatarListWidget::refreshCustomAvatar(const QString &str)
     if (customPicPath.isEmpty())
         return;
 
-    QStandardItem *item = getAndSelectCustomAvatar();
+    QStandardItem *item = getCustomAvatar();
 
     item->setData(QVariant::fromValue(QPixmap(customPicPath)), Qt::DecorationRole);
     item->setData(QVariant::fromValue(customPicPath), AvatarListWidget::SaveAvatarRole);
@@ -294,7 +294,7 @@ QString AvatarListWidget::getUserAddedCustomPicPath(const QString &usrName)
     return newiconpath;
 }
 
-QStandardItem *AvatarListWidget::getAndSelectCustomAvatar()
+QStandardItem *AvatarListWidget::getCustomAvatar()
 {
     QStandardItem *item = m_avatarItemModel->item(1);
     // 默认项MaxAvatarSize个，添加项一个，自定义项一个
@@ -304,7 +304,6 @@ QStandardItem *AvatarListWidget::getAndSelectCustomAvatar()
             m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
         m_avatarItemModel->insertRow(1, item);
     }
-    item->setCheckState(Qt::Checked);
     return item;
 }
 
