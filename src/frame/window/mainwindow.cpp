@@ -708,6 +708,11 @@ void MainWindow::openManual()
     if (helpTitle.isEmpty()) {
         helpTitle = "controlcenter";
     }
+
+    if (helpTitle == "cloudsync") {
+        helpTitle = DSysInfo::isCommunityEdition() ? "Deepin ID" : "UOS ID";
+    }
+
     const QString dmanInterface = "com.deepin.Manual.Open";
     QDBusInterface interface(dmanInterface,
                              "/com/deepin/Manual/Open",
