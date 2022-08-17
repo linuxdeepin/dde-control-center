@@ -305,6 +305,8 @@ void UpdateWidget::onNotifyUpdateState(int state)
     default:
         break;
     }
+
+    this->setFocus();
 }
 
 void UpdateWidget::onAppendApplist(const QList<AppUpdateInfo> &infos)

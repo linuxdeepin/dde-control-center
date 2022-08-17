@@ -104,6 +104,7 @@ void updateControlPanel::showUpdateProcess(bool visible)
     m_updateButton->setVisible(!visible);
     m_startButton->setVisible(visible);
     m_progressLabel->setVisible(visible);
+    this->setFocus();
 }
 
 int updateControlPanel::getCurrentValue() const
