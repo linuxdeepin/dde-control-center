@@ -237,6 +237,22 @@ const QString DConfigWatcher::getStatus(ModuleType moduleType, const QString &co
 }
 
 /**
+ * @brief DConfigWatcher::get 获取三级控件状态
+ * @param moduleType          模块类型
+ * @param key                 key值
+ * @return
+ */
+const QVariant DConfigWatcher::get(ModuleType moduleType, const QString &key)
+{
+    QString moduleName;
+
+    if (!existKey(moduleType, key, moduleName))
+        return "";
+
+    return m_mapModulesConfig[QMetaEnum::fromType<ModuleType>().valueToKey(moduleType)]->value(key);
+}
+
+/**
  * @brief DConfigWatcher::getMenuState
  * @return second menu state
  */

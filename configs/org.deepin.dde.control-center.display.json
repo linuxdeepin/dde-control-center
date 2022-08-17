@@ -23,6 +23,28 @@
             "description": "",
             "permissions": "readwrite",
             "visibility": "private"
+        },
+        "resolutionLimit": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "resolutionLimit",
+            "name[zh_CN]": "控制中心显示模块分辨率限制最小值",
+            "description[zh_CN]": "此配置为对显示模块分辨率限制最小值，默认为启用：当配置为启用时，使用限制；当配置为禁用时，不使用限制；",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "resolutionConfig": {
+            "value": "1024*768",
+            "serial": 0,
+            "flags": [],
+            "name": "resolutionConfig",
+            "name[zh_CN]": "控制中心显示模块支持最小分辨率",
+            "description[zh_CN]": "此配置为对显示模块分辨率限制最小值，默认为1024*768；",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
         }
     }
   }

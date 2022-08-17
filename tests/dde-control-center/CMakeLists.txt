@@ -156,6 +156,7 @@ file(GLOB_RECURSE KEYBOARD_Tasks_SRCS
     ../../src/frame/modules/display/monitor.cpp
     ../../src/frame/modules/keyboard/keylabel.cpp
     ../../src/frame/window/utils.h
+    ../../src/frame/window/dconfigwatcher.cpp
 )
 
 # 用于测试覆盖率的编译条件

@@ -100,6 +100,7 @@ public:
     void erase(ModuleType moduleType, const QString &configName, QWidget *binder);
     void insertState(ModuleType moduleType, const QString &);
     const QString getStatus(ModuleType moduleType, const QString &configName);
+    const QVariant get(ModuleType moduleType, const QString &key);
     DConfig *getModulesConfig(ModuleType moduleType);
     QMap<ModuleKey *, bool> getMenuState();
 
