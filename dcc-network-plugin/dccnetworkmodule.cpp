@@ -710,8 +710,8 @@ void DCCNetworkModule::showDeviceDetailPage(NetworkDeviceBase *dev, const QStrin
             m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
             wirelessPage->setVisible(true);
         });
-        connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, wirelessPage, &WirelessPage::onAirplaneModeChanged);
-        wirelessPage->onAirplaneModeChanged(m_airplaneMode->enabled());
+        connect(m_airplaneMode, &DBusAirplaneMode::WifiEnabledChanged, wirelessPage, &WirelessPage::onAirplaneModeChanged);
+        wirelessPage->onAirplaneModeChanged(m_airplaneMode->wifiEnabled());
 
         wirelessPage->jumpByUuid(searchPath);
     } else if (dev->deviceType() == DeviceType::Wired) {
@@ -753,11 +753,11 @@ void DCCNetworkModule::showProxyPage()
 void DCCNetworkModule::showHotspotPage(const QString &searchPath)
 {
     HotspotPage *hotspot = new HotspotPage();
-    hotspot->onAirplaneModeChanged(m_airplaneMode->enabled());
+    hotspot->onAirplaneModeChanged(m_airplaneMode->wifiEnabled());
     connect(hotspot, &HotspotPage::requestNextPage, this, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
     });
-    connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, hotspot, &HotspotPage::onAirplaneModeChanged);
+    connect(m_airplaneMode, &DBusAirplaneMode::WifiEnabledChanged, hotspot, &HotspotPage::onAirplaneModeChanged);
     m_frameProxy->pushWidget(this, hotspot);
     hotspot->jumpPath(searchPath);
 }
