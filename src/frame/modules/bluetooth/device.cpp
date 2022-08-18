@@ -77,6 +77,13 @@ void Device::setPaired(bool paired)
 
 void Device::setState(const State &state, bool connectState)
 {
+    // 后端频繁发送属性改变信号，dbus信号处理顺序可能异常（不一定按顺序执行），会导致蓝牙连接状态显示异常
+    // 如果当前蓝牙设备状态为已连接，后端传递的状态为正在连接中，此操作视为一次异常的信号(Device::StateConnected -> Device::StateAvailable)，不做处理
+    // 正常的蓝牙连接状态为Device::StateAvailable -> Device::StateConnected
+    if (m_state == Device::StateConnected && state == Device::StateAvailable) {
+        return;
+    }
+
     if ((state != m_state) || (connectState != m_connectState)) {
         m_state = state;
         m_connectState = connectState;
