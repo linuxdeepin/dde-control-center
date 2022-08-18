@@ -615,8 +615,7 @@ void UpdateWorker::handleUpdateLogsReply(QNetworkReply *reply)
         dataDoc.setArray(array);
         file.write(dataDoc.toJson());
         file.close();
-    }
-}
+    }}
 
 QString UpdateWorker::getUpdateLogAddress() const
 {

@@ -95,7 +95,7 @@
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="96"/>
         <source>Do not use common words and combinations as password</source>
-        <translation>Nie używaj popularnych słów i kombinacji jako hasło</translation>
+        <translation>Nie używaj popularnych słów i kombinacji jako hasła</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="94"/>
@@ -208,12 +208,12 @@
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="130"/>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation>Jak nazywa się miasto w którym się urodziłeś/aś?</translation>
+        <translation>Jak nazywa się miasto, w którym się urodziłeś(aś)?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="131"/>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation>Jak nazywa się pierwsza szkoła do której uczęszczałeś/aś?</translation>
+        <translation>Jak nazywa się pierwsza szkoła, do której uczęszczałeś(aś)?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="132"/>
@@ -238,7 +238,7 @@
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="185"/>
         <source>Wrong answer</source>
-        <translation>Nieprawidłowa odpowiedź</translation>
+        <translation>Błędna odpowiedź</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="200"/>
