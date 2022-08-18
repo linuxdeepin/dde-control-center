@@ -27,9 +27,11 @@
 
 class QDBusInterface;
 class QDBusMessage;
+
 class DockDBusProxy : public QObject
 {
     Q_OBJECT
+
 public:
     explicit DockDBusProxy(QObject *parent = nullptr);
 
@@ -80,9 +82,6 @@ Q_SIGNALS:
     // real singals
     void pluginVisibleChanged(const QString &pluginName, bool visible) const;
     void showRecentChanged(bool) const;
-
-private slots:
-    void onPropertiesChanged(const QDBusMessage &message);
 
 private:
     QDBusInterface *m_daemonDockInter;

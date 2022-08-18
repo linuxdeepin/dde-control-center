@@ -42,11 +42,15 @@ DockDBusProxy::DockDBusProxy(QObject *parent)
     , m_daemonDockInter(new QDBusInterface(DaemonDockService, DaemonDockPath, DaemonDockInterface, QDBusConnection::sessionBus(), this))
     , m_dockInter(new QDBusInterface(DockService, DockPath, DockInterface, QDBusConnection::sessionBus(), this))
 {
-    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, PropertiesInterface, PropertiesChanged,this, SLOT(onPropertiesChanged(QDBusMessage)));
-    QDBusConnection::sessionBus().connect(DockService, DockPath, PropertiesInterface, PropertiesChanged,this, SLOT(onPropertiesChanged(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "DisplayModeChanged", this, SIGNAL(DisplayModeChanged(int)));
+    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "PositionChanged", this, SIGNAL(PositionChanged(int)));
+    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "HideModeChanged", this, SIGNAL(HideModeChanged(int)));
+    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "WindowSizeEfficientChanged", this, SIGNAL(WindowSizeEfficientChanged(uint)));
+    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "WindowSizeFashionChanged", this, SIGNAL(WindowSizeFashionChanged(uint)));
+    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "showRecentChanged", this, SIGNAL(showRecentChanged(bool)));
 
-    // 对于普通信号需要手动关联
-    m_dockInter->connect(m_dockInter, SIGNAL(pluginVisibleChanged(const QString &, bool)), this, SIGNAL(pluginVisibleChanged(const QString &, bool)));
+    QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "showInPrimaryChanged", this, SLOT(ShowInPrimaryChanged(bool)));
+    QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "pluginVisibleChanged", this, SLOT(pluginVisibleChanged(const QString &, bool)));
 }
 
 int DockDBusProxy::displayMode()
@@ -154,16 +158,4 @@ QDBusPendingReply<> DockDBusProxy::SetShowRecent(bool visible)
     QList<QVariant> argumengList;
     argumengList << QVariant::fromValue(visible);
     return m_daemonDockInter->asyncCallWithArgumentList(QStringLiteral("SetShowRecent"), argumengList);
-}
-
-void DockDBusProxy::onPropertiesChanged(const QDBusMessage &message)
-{
-    // 导出属性变化的信号
-    if (message.arguments().size() < 2)
-        return;
-
-    QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
-    for (QVariantMap::const_iterator it = changedProps.begin(); it != changedProps.end(); ++it) {
-        QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
-    }
 }
