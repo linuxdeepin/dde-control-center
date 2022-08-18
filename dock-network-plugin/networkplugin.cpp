@@ -259,13 +259,11 @@ void NetworkPlugin::onDockPropertiesChanged(const QString &interfaceName, const 
         return;
     }
 
-    for (QVariantMap::const_iterator it = changedProperties.begin(); it != changedProperties.end(); ++it) {
-        if (it.key().toLatin1() == "FrontendWindowRect") {
-            // 延迟100ms处理,避免获取到的坐标有误(dock移动位置有动态效果，不加延时的话可能会获取动画中的位置)
-            QTimer::singleShot(100, this, [this] {
-                showNetworkDialog(m_trayIcon.data());
-                m_networkDialog->updateDialogPosition();
-            });
-        }
+    if (changedProperties.contains("FrontendWindowRect")) {
+        // 延迟100ms处理,避免获取到的坐标有误(dock移动位置有动态效果，不加延时的话可能会获取动画中的位置)
+        QTimer::singleShot(100, this, [this] {
+            showNetworkDialog(m_trayIcon.data());
+            m_networkDialog->updateDialogPosition();
+        });
     }
 }

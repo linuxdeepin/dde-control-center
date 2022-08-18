@@ -78,6 +78,7 @@ protected:
 private slots:
     void compositeChanged();
     void ensureRaised();
+    void lockFrontVisible(bool visible);
 
 private:
     bool m_model;

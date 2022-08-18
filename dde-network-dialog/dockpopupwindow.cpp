@@ -33,6 +33,7 @@
 #include <QAccessibleEvent>
 #include <QString>
 #include <QPainterPath>
+#include <DDBusSender>
 
 #include <iostream>
 
@@ -64,6 +65,7 @@ DockPopupWindow::DockPopupWindow(RunReason runReaseon, QWidget *parent)
         setWindowFlags(windowFlags() | Qt::Dialog | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
         setAttribute(Qt::WA_NativeWindow);
         windowHandle()->setProperty("_d_dwayland_window-type", "override");
+        QDBusConnection::sessionBus().connect("com.deepin.dde.lockFront", "/com/deepin/dde/lockFront", "com.deepin.dde.lockFront", "Visible", this, SLOT(lockFrontVisible(bool)));
     } else {
         if (runReaseon == Lock || runReaseon == Greeter)
             setWindowFlags(Qt::Tool | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
@@ -80,6 +82,13 @@ DockPopupWindow::DockPopupWindow(RunReason runReaseon, QWidget *parent)
 
     connect(m_wmHelper, &DWindowManagerHelper::hasCompositeChanged, this, &DockPopupWindow::compositeChanged);
     connect(m_regionInter, &DRegionMonitor::buttonPress, this, &DockPopupWindow::onGlobMouseRelease);
+}
+
+void DockPopupWindow::lockFrontVisible(bool visible)
+{
+    if (visible) {
+        closeDialog();
+    }
 }
 
 DockPopupWindow::~DockPopupWindow()
