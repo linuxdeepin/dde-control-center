@@ -224,7 +224,7 @@ void CommonInfoModule::initUeProgramWidget()
     m_ueProgramWidget->setVisible(false);
     m_ueProgramWidget->setModel(m_commonModel);
     if (!IsCommunitySystem) {
-        m_ueProgramWidget->setDefaultUeProgram(m_commonWork->defaultUeProgram());
+        m_ueProgramWidget->setDefaultUeProgram(m_commonWork->isUeProgramEnabled());
     }
     connect(m_ueProgramWidget, &UserExperienceProgramWidget::enableUeProgram, this, [=](bool enabled) {
         MainWindow *pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);

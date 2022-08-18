@@ -26,17 +26,16 @@
 #include <com_deepin_daemon_grub2.h>
 #include <com_deepin_daemon_grub2_theme.h>
 #include <com_deepin_daemon_grub2_editauthentication.h>
-#include <com_deepin_system_userexperience_daemon.h>
 #include <com_deepin_deepinid.h>
 
 #include <QObject>
+#include <QDBusInterface>
 
 #include <DObject>
 
 using GrubDbus = com::deepin::daemon::Grub2;
 using GrubThemeDbus = com::deepin::daemon::grub2::Theme;
 using GrubEditAuthDbus = com::deepin::daemon::grub2::EditAuthentication;
-using UeProgramDbus = com::deepin::userexperience::Daemon;
 using GrubDevelopMode = com::deepin::deepinid;
 
 DCORE_BEGIN_NAMESPACE
@@ -59,7 +58,7 @@ public:
     void deactivate();
 
     void loadGrubSettings();
-    bool defaultUeProgram();
+    bool isUeProgramEnabled();
     void getLicenseState();
 
 Q_SIGNALS:
@@ -85,16 +84,17 @@ private:
     void getEntryTitles();
     void getBackgroundFinished(QDBusPendingCallWatcher *w);
     QString passwdEncrypt(const QString &password);
+    void setUeProgramEnabled(bool enabled);
 
 private:
-    CommonInfoModel *m_commomModel;
+    CommonInfoModel *m_commonModel;
     DTK_CORE_NAMESPACE::DConfig *m_dconfig;
     GrubDbus *m_dBusGrub;
     GrubThemeDbus *m_dBusGrubTheme;
     GrubEditAuthDbus *m_dBusGrubEditAuth;
-    UeProgramDbus *m_dBusUeProgram; // for user experience program
-    QProcess *m_process = nullptr;
-    GrubDevelopMode *m_dBusdeepinIdInter;
+    QDBusInterface *m_dBusUeProgram; // for user experience program
+    QProcess *m_process;
+    GrubDevelopMode *m_deepinIdInter;
     QString m_title;
     QString m_content;
 };
