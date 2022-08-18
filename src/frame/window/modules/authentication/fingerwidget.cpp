@@ -41,7 +41,7 @@ FingerWidget::FingerWidget(QWidget *parent)
     , m_listGrp(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
     , m_clearBtn(nullptr)
 {
-	//注册所有的事件
+    //注册所有的事件
     installEventFilter(this);
 
     m_clearBtn = new DCommandLinkButton(tr("Edit"));
@@ -154,6 +154,7 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
             }
             item->setTitle(newName);
             Q_EMIT requestRenameFingerItem(m_currentUserName, finger, newName);
+            this->setFocus();
         });
 
         connect(item, &AuthenticationInfoItem::editClicked, this, [this, item, thumbs]() {
