@@ -29,6 +29,7 @@
 #include <DDialog>
 #include <QPushButton>
 #include <QVBoxLayout>
+#include <QtDBus/qdbusmetatype.h>
 
 #include <interface/moduleinterface.h>
 #include <interface/namespace.h>

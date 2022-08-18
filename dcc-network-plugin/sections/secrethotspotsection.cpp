@@ -35,7 +35,11 @@ using namespace NetworkManager;
 static const QList<WirelessSecuritySetting::KeyMgmt> KeyMgmtList {
     WirelessSecuritySetting::KeyMgmt::WpaNone,
     WirelessSecuritySetting::KeyMgmt::WpaPsk,
+#ifdef USE_DEEPIN_NMQT
     WirelessSecuritySetting::KeyMgmt::WpaSae
+#else
+    WirelessSecuritySetting::KeyMgmt::SAE
+#endif
 };
 
 SecretHotspotSection::SecretHotspotSection(WirelessSecuritySetting::Ptr wsSeting, QFrame *parent)
@@ -76,7 +80,11 @@ bool SecretHotspotSection::allInputValid()
         break;
     }
     case WirelessSecuritySetting::KeyMgmt::WpaPsk:
+#ifdef USE_DEEPIN_NMQT
     case WirelessSecuritySetting::KeyMgmt::WpaSae: {
+#else
+    case WirelessSecuritySetting::KeyMgmt::SAE: {
+#endif
         valid = wpaPskIsValid(m_passwdEdit->text());
         m_passwdEdit->setIsErr(!valid);
         if (!valid && !m_passwdEdit->text().isEmpty())
@@ -114,7 +122,11 @@ void SecretHotspotSection::saveSettings()
         m_wsSetting->setPairwise(QList<NetworkManager::WirelessSecuritySetting::WpaEncryptionCapabilities>{NetworkManager::WirelessSecuritySetting::Ccmp});
         break;
     }
+#ifdef USE_DEEPIN_NMQT
     case WirelessSecuritySetting::KeyMgmt::WpaSae: {
+#else
+    case WirelessSecuritySetting::KeyMgmt::SAE: {
+#endif
         m_wsSetting->setPsk(m_passwdEdit->text());
         m_wsSetting->setPskFlags(NetworkManager::Setting::AgentOwned);
         m_wsSetting->setProto(QList<NetworkManager::WirelessSecuritySetting::WpaProtocolVersion>{NetworkManager::WirelessSecuritySetting::Rsn});
@@ -158,7 +170,11 @@ void SecretHotspotSection::initStrMaps()
     }
 
     if (enableWPA3) {
+#ifdef USE_DEEPIN_NMQT
         KeyMgmtStrMap.insert(tr("WPA3 Personal"), WirelessSecuritySetting::KeyMgmt::WpaSae);
+#else
+        KeyMgmtStrMap.insert(tr("WPA3 Personal"), WirelessSecuritySetting::KeyMgmt::SAE);
+#endif
     }
 }
 
@@ -211,7 +227,11 @@ void SecretHotspotSection::onKeyMgmtChanged(WirelessSecuritySetting::KeyMgmt key
     }
 
     case WirelessSecuritySetting::KeyMgmt::WpaPsk:
+#ifdef USE_DEEPIN_NMQT
     case WirelessSecuritySetting::KeyMgmt::WpaSae: {
+#else
+    case WirelessSecuritySetting::KeyMgmt::SAE: {
+#endif
         m_passwdEdit->setText(m_wsSetting->psk());
         m_passwdEdit->setTitle(tr("Password"));
         m_passwdEdit->setVisible(true);

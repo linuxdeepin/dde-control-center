@@ -25,6 +25,7 @@
 #include "utils.h"
 
 #include <NetworkManagerQt/SecretAgent>
+#include <QProcess>
 
 class QProcess;
 

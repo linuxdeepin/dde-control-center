@@ -75,8 +75,6 @@ set(INTERFACEFILES
     wireddevice.h
     wirelessdevice.h)
 
-set(CMAKE_INSTALL_PREFIX "/usr")
-
 install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}Targets LIBRARY DESTINATION lib)
 install(FILES ${CMAKE_BINARY_DIR}/dde-network-core.pc DESTINATION lib/pkgconfig)
 install(FILES ${INTERFACEFILES} DESTINATION include/libddenetworkcore)

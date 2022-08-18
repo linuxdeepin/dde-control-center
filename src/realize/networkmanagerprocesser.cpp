@@ -219,7 +219,11 @@ void NetworkManagerProcesser::onDeviceAdded(const QString &uni)
 
     // 无线网卡不管是否down，都显示，因为在开启飞行模式后，需要显示网卡的信息
     auto deviceCreateOrRemove = [ this, deviceExist, createDevice ](const Device::Ptr &device) {
-        if (device->managed() && ((device->interfaceFlags() & DEVICE_INTERFACE_FLAG_UP) || device->type() == Device::Wifi)) {
+        if (device->managed() && (
+#ifdef USE_DEEPIN_NMQT
+                    (device->interfaceFlags() & DEVICE_INTERFACE_FLAG_UP) ||
+#endif
+                    device->type() == Device::Wifi)) {
             // 如果由非manager变成manager的模式，则新增设备
             if (!deviceExist(device->uni())) {
                 NetworkDeviceBase *newDevice = createDevice(device);
@@ -252,12 +256,17 @@ void NetworkManagerProcesser::onDeviceAdded(const QString &uni)
     };
 
     NetworkDeviceBase *newDevice = Q_NULLPTR;
-    if (currentDevice->managed() && ((currentDevice->interfaceFlags() & DEVICE_INTERFACE_FLAG_UP) || currentDevice->type() == Device::Wifi))
+    if (currentDevice->managed() && (
+#ifdef USE_DEEPIN_NMQT
+                (currentDevice->interfaceFlags() & DEVICE_INTERFACE_FLAG_UP) ||
+#endif
+                currentDevice->type() == Device::Wifi))
         newDevice = createDevice(currentDevice);
-
+#ifdef USE_DEEPIN_NMQT
     connect(currentDevice.get(), &Device::interfaceFlagsChanged, this, [ currentDevice, deviceCreateOrRemove ] {
         deviceCreateOrRemove(currentDevice);
     });
+#endif
     connect(currentDevice.get(), &Device::managedChanged, this, [ currentDevice, deviceCreateOrRemove ] {
         deviceCreateOrRemove(currentDevice);
     });

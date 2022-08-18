@@ -63,7 +63,12 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE
     ${Qt5Network_LIBRARIES}
 )
 
-install(TARGETS ${PLUGIN_NAME} LIBRARY DESTINATION /lib/dde-session-shell/modules)
+install(TARGETS ${PLUGIN_NAME} LIBRARY DESTINATION lib/dde-session-shell/modules)
 # 安装 .qm 文件
-install(FILES ${QM_FILES} DESTINATION /usr/share/${PLUGIN_NAME}/translations)
-install(FILES 10-network-manager.pkla DESTINATION /var/lib/polkit-1/localauthority/10-vendor.d)
+install(FILES ${QM_FILES} DESTINATION share/${PLUGIN_NAME}/translations)
+
+if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+    set(CMAKE_INSTALL_PREFIX "/var")
+endif()
+
+install(FILES 10-network-manager.pkla DESTINATION lib/polkit-1/localauthority/10-vendor.d)

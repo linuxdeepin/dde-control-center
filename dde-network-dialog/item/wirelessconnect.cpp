@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "wirelessconnect.h"
+#include <pwd.h>
 
 #include <wirelessdevice.h>
 
@@ -30,8 +31,7 @@
 #include <NetworkManagerQt/Ipv4Setting>
 #include <NetworkManagerQt/Ipv6Setting>
 #include <NetworkManagerQt/Utils>
-
-#include <pwd.h>
+#include <QtDBus/qdbusmetatype.h>
 
 #define LIGHTDM_USER "lightdm"
 
@@ -93,10 +93,16 @@ WirelessSecuritySetting::KeyMgmt WirelessConnect::getKeyMgmtByAp(dde::network::A
         keyMgmt = WirelessSecuritySetting::KeyMgmt::WpaPsk;
     }
 
+#ifdef USE_DEEPIN_NMQT
     // 判断是否是wpa3加密的，因为wpa3加密方式，实际上是wpa2的扩展，所以其中会包含KeyMgmtPsk枚举值
     if (wpaFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::keyMgmtSae) || rsnFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::keyMgmtSae)) {
         keyMgmt = NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaSae;
     }
+#else
+    if (wpaFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::KeyMgmtSAE) || rsnFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::KeyMgmtSAE)) {
+        keyMgmt = NetworkManager::WirelessSecuritySetting::KeyMgmt::SAE;
+    }
+#endif
 
     if (wpaFlags.testFlag(AccessPoint::WpaFlag::KeyMgmt8021x) || rsnFlags.testFlag(AccessPoint::WpaFlag::KeyMgmt8021x)) {
         keyMgmt = WirelessSecuritySetting::KeyMgmt::WpaEap;
@@ -169,7 +175,11 @@ void WirelessConnect::initConnection()
                 if (keyMgmt == WirelessSecuritySetting::KeyMgmt::Wep) {
                     wsSetting->setWepKeyFlags(Setting::None);
                 } else if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaPsk
+#ifdef USE_DEEPIN_NMQT
                            || keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaSae) {
+#else
+                           || keyMgmt == WirelessSecuritySetting::KeyMgmt::SAE) {
+#endif
                     wsSetting->setPskFlags(Setting::None);
                 }
                 wsSetting->setInitialized(true);
@@ -191,7 +201,11 @@ void WirelessConnect::setPassword(const QString &password)
     if (keyMgmt == WirelessSecuritySetting::KeyMgmt::Wep) {
         wsSetting->setWepKey0(password);
     } else if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaPsk
+#ifdef USE_DEEPIN_NMQT
                || keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaSae) {
+#else
+               || keyMgmt == WirelessSecuritySetting::KeyMgmt::SAE) {
+#endif
         wsSetting->setPsk(password);
     }
     wsSetting->setInitialized(true);

@@ -60,7 +60,11 @@ EthernetSection::EthernetSection(WiredSetting::Ptr wiredSetting, bool deviceAllo
 
         WiredDevice::Ptr wDevice = device.staticCast<WiredDevice>();
         if (m_devicePath.isEmpty() || m_devicePath == "/") {
-            if (!wDevice->managed() || !(wDevice->interfaceFlags() & DEVICE_INTERFACE_FLAG_UP))
+            if (!wDevice->managed()
+#ifdef USE_DEEPIN_NMQT
+                    || !(wDevice->interfaceFlags() & DEVICE_INTERFACE_FLAG_UP)
+#endif
+                    )
                 continue;
         } else {
             if (wDevice->uni() != m_devicePath)

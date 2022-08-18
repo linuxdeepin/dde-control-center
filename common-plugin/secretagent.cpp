@@ -32,6 +32,9 @@
 
 #include <QDBusConnection>
 #include <QStringBuilder>
+#include <QtDBus/qdbusmetatype.h>
+#include <QJsonDocument>
+#include <QJsonArray>
 
 static const QString NetworkDialogApp = "dde-network-dialog"; //网络列表执行文件
 
@@ -295,7 +298,7 @@ bool SecretAgent::processGetSecrets(SecretsRequest &request) const
             return true;
         }
 
-        m_process = new QProcess();
+        m_process = new QProcess;
 
         connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &SecretAgent::dialogFinished);
         connect(m_process, &QProcess::readyReadStandardOutput, this, &SecretAgent::readProcessOutput);
