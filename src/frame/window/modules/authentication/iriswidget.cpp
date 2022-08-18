@@ -155,6 +155,7 @@ void IrisWidget::onIrisListChanged(const QStringList &irislist)
             item->setTitle(newName);
             Q_EMIT requestRenameIrisItem(m_model->irisCharaType(), irisid, newName);
             Q_EMIT noticeEnrollCompleted(m_model->irisDriverName(), m_model->irisCharaType());
+            this->setFocus();
         });
 
         connect(item, &AuthenticationInfoItem::editClicked, this, [this, item, irislist]() {

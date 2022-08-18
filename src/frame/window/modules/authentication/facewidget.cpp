@@ -172,6 +172,7 @@ void FaceWidget::onFaceidListChanged(const QStringList &facelist)
             item->setTitle(newName);
             Q_EMIT requestRenameFaceItem(m_model->faceCharaType(), faceid, newName);
             Q_EMIT noticeEnrollCompleted(m_model->faceDriverName(), m_model->faceCharaType());
+            this->setFocus();
         });
 
         connect(item, &AuthenticationInfoItem::editClicked, this, [this, item, facelist]() {
