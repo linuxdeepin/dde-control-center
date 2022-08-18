@@ -524,7 +524,6 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
 
     // 将更新日志根据`系统更新`or`安全更新`进行分类，并保存留用
     for (ClassifyUpdateType type : resultMap.keys()) {
-        QJsonObject itemObj;
         int logType = -1;
         if (type == ClassifyUpdateType::SecurityUpdate) {
             logType = LogTypeSecurity;
@@ -649,8 +648,18 @@ void UpdateWorker::updateItemInfo(const UpdateLogItem &logItem, UpdateItemInfo *
         }
     }
 
-    const QString &explain = languageType == "CN" ? logItem.cnLog : logItem.enLog;
+    // 安全更新只会更新与当前系统版本匹配的内容，例如，105X的系统版本只会更新105X的安全更新，而不会更新106X的
+    // 更新日志也需要与之匹配，只显示与当前系统版本相同的安全更新日志
+    if (logItem.logType == LogTypeSecurity) {
+        const QString &currentSystemVer = dccV20::IsCommunitySystem ? Dtk::Core::DSysInfo::deepinVersion() : Dtk::Core::DSysInfo::minorVersion();
+        QString tmpSystemVersion = logItem.systemVersion;
+        tmpSystemVersion.replace(tmpSystemVersion.length() - 1, 1, '0');
+        if (currentSystemVer.compare(tmpSystemVersion) != 0) {
+            return;
+        }
+    }
 
+    const QString &explain = languageType == "CN" ? logItem.cnLog : logItem.enLog;
     // 写入最近的更新
     if (itemInfo->currentVersion().isEmpty()) {
         itemInfo->setCurrentVersion(logItem.systemVersion);
@@ -1918,8 +1927,13 @@ void UpdateWorker::setUpdateLogs(const QJsonArray &array)
     }
     qInfo() << "m_updateLogs size: " << m_updateLogs.size();
     // 不依赖服务器返回来日志顺序，用systemVersion进行排序
+    // 如果systemVersion版本号相同，则用发布时间排序；不考虑版本号相同且发布时间相同的情况，这种情况应该由运维人员避免
     qSort(m_updateLogs.begin(), m_updateLogs.end(), [] (const UpdateLogItem &v1, const UpdateLogItem &v2) -> bool {
-        return v1.systemVersion.compare(v2.systemVersion) >= 0;
+        int compareRet = v1.systemVersion.compare(v2.systemVersion);
+        if (compareRet == 0) {
+            return v1.publishTime.compare(v2.publishTime) >= 0;
+        }
+        return compareRet > 0;
     });
 }
 

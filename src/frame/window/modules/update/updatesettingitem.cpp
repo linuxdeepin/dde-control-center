@@ -210,8 +210,13 @@ void UpdateSettingItem::setData(UpdateItemInfo *updateItemInfo)
     QString value = updateItemInfo->updateTime().isEmpty() ? "" : tr("Release date: ") + updateItemInfo->updateTime();
     m_controlWidget->setDate(value);
     const QString &systemVersionType = DCC_NAMESPACE::IsServerSystem ? tr("Server") : tr("Desktop");
-    value = updateItemInfo->availableVersion().isEmpty() ? "" : tr("Version") + ": " + systemVersionType + updateItemInfo->availableVersion();
-    m_controlWidget->setVersion(value);
+    QString version;
+    if (!updateItemInfo->availableVersion().isEmpty()) {
+        QString avaVersion = updateItemInfo->availableVersion();
+        const QString &tmpVersion = avaVersion.replace(avaVersion.length() - 1, 1, '0'); // 替换版本号的最后一位为‘0‘
+        version = tr("Version") + ": " + systemVersionType + tmpVersion;
+    }
+    m_controlWidget->setVersion(version);
     m_controlWidget->setTitle(updateItemInfo->name());
     m_controlWidget->setDetail(updateItemInfo->explain());
 
