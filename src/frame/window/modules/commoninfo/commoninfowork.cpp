@@ -39,13 +39,18 @@
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
 
-const QString UeProgramInterface("com.deepin.userexperience.Daemon");
-const QString UeProgramObjPath("/com/deepin/userexperience/Daemon");
 const QString GRUB_EDIT_AUTH_ACCOUNT("root");
 
 CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     : QObject(parent)
-    , m_commomModel(model)
+    , m_commonModel(model)
+    , m_dconfig(nullptr)
+    , m_dBusGrub(nullptr)
+    , m_dBusGrubTheme(nullptr)
+    , m_dBusGrubEditAuth(nullptr)
+    , m_dBusUeProgram(nullptr)
+    , m_process(nullptr)
+    , m_deepinIdInter(nullptr)
     , m_title("")
     , m_content("")
 {
@@ -62,7 +67,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
                                               "/com/deepin/daemon/Grub2/EditAuthentication",
                                               QDBusConnection::systemBus(), this);
 
-    m_dBusdeepinIdInter = new GrubDevelopMode("com.deepin.deepinid",
+    m_deepinIdInter = new GrubDevelopMode("com.deepin.deepinid",
                                                 "/com/deepin/deepinid",
                                                 QDBusConnection::sessionBus(), this);
 
@@ -73,13 +78,13 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
 #else
     showGrubEditAuth = true;
 #endif
-    m_commomModel->setShowGrubEditAuth(showGrubEditAuth);
+    m_commonModel->setShowGrubEditAuth(showGrubEditAuth);
 //    m_dconfig = new DConfig("dde-control-center-config", QString(), this);
 //    if (!m_dconfig->isValid()) {
 //        qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(m_dconfig->name(), m_dconfig->subpath());
 //    } else {
 //        bool showGrubEditAuthConfig = m_dconfig->value("show-grub-edit-auth-config").toBool();
-//        m_commomModel->setShowGrubEditAuth(showGrubEditAuthConfig);
+//        m_commonModel->setShowGrubEditAuth(showGrubEditAuthConfig);
 //        QObject::connect(m_dconfig, &DConfig::valueChanged, [this](const QString &key) {
 //            if (key == "show-grub-edit-auth-config") {
 //                Q_EMIT showGrubEditAuthChanged(m_dconfig->value("show-grub-edit-auth-config").toBool());
@@ -90,17 +95,21 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     licenseStateChangeSlot();
 
     if (!IsCommunitySystem) {
-        m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::sessionBus(), this);
+        m_dBusUeProgram = new QDBusInterface(
+            "com.deepin.daemon.EventLog",
+            "/com/deepin/daemon/EventLog",
+            "com.deepin.daemon.EventLog",
+            QDBusConnection::sessionBus(), this);
     }
 
-    m_commomModel->setIsLogin(m_dBusdeepinIdInter->isLogin());
-    m_commomModel->setDeveloperModeState(m_dBusdeepinIdInter->deviceUnlocked());
+    m_commonModel->setIsLogin(m_deepinIdInter->isLogin());
+    m_commonModel->setDeveloperModeState(m_deepinIdInter->deviceUnlocked());
     m_dBusGrub->setSync(false, false);
     m_dBusGrubTheme->setSync(false, false);
     m_dBusGrubEditAuth->setSync(false, false);
 
     //监听开发者在线认证失败的错误接口信息
-    connect(m_dBusdeepinIdInter, &GrubDevelopMode::Error, this, [](int code, const QString &msg) {
+    connect(m_deepinIdInter, &GrubDevelopMode::Error, this, [](int code, const QString &msg) {
         //系统通知弹窗qdbus 接口
         QDBusInterface  tInterNotify("com.deepin.dde.Notification",
                                                 "/com/deepin/dde/Notification",
@@ -138,15 +147,15 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
         //系统通知 认证失败 无法进入开发模式
         tInterNotify.call("Notify", in0, in1, in2, in3, in4, in5, in6, in7);
     });
-    connect(m_dBusdeepinIdInter, &GrubDevelopMode::IsLoginChanged, m_commomModel, &CommonInfoModel::setIsLogin);
-    connect(m_dBusdeepinIdInter, &GrubDevelopMode::DeviceUnlockedChanged, m_commomModel, &CommonInfoModel::setDeveloperModeState);
-    connect(m_dBusGrub, &GrubDbus::DefaultEntryChanged, m_commomModel, &CommonInfoModel::setDefaultEntry);
-    connect(m_dBusGrub, &GrubDbus::EnableThemeChanged, m_commomModel, &CommonInfoModel::setThemeEnabled);
+    connect(m_deepinIdInter, &GrubDevelopMode::IsLoginChanged, m_commonModel, &CommonInfoModel::setIsLogin);
+    connect(m_deepinIdInter, &GrubDevelopMode::DeviceUnlockedChanged, m_commonModel, &CommonInfoModel::setDeveloperModeState);
+    connect(m_dBusGrub, &GrubDbus::DefaultEntryChanged, m_commonModel, &CommonInfoModel::setDefaultEntry);
+    connect(m_dBusGrub, &GrubDbus::EnableThemeChanged, m_commonModel, &CommonInfoModel::setThemeEnabled);
     connect(m_dBusGrub, &GrubDbus::TimeoutChanged, this, [this](const int &value) {
         qDebug()<<" CommonInfoWork::TimeoutChanged  value =  "<< value;
-        m_commomModel->setBootDelay(value > 1);
+        m_commonModel->setBootDelay(value > 1);
     });
-    connect(m_dBusGrub, &__Grub2::UpdatingChanged, m_commomModel, &CommonInfoModel::setUpdating);
+    connect(m_dBusGrub, &__Grub2::UpdatingChanged, m_commonModel, &CommonInfoModel::setUpdating);
 
     connect(m_dBusGrub, &GrubDbus::serviceStartFinished, this, [ = ] {
         QTimer::singleShot(100, this, &CommonInfoWork::grubServerFinished);
@@ -187,9 +196,20 @@ void CommonInfoWork::loadGrubSettings()
     }
 }
 
-bool CommonInfoWork::defaultUeProgram()
+bool CommonInfoWork::isUeProgramEnabled()
 {
-    return m_dBusUeProgram->IsEnabled();
+    if (!m_dBusUeProgram)
+        return false;
+
+    return m_dBusUeProgram->property("Enabled").toBool();
+}
+
+void CommonInfoWork::setUeProgramEnabled(bool enabled)
+{
+    if (!m_dBusUeProgram)
+        return;
+
+    m_dBusUeProgram->asyncCall("Enable", enabled);
 }
 
 void CommonInfoWork::setBootDelay(bool value)
@@ -199,7 +219,7 @@ void CommonInfoWork::setBootDelay(bool value)
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
         if (w->isError()) {
-            Q_EMIT m_commomModel->bootDelayChanged(m_commomModel->bootDelay());
+            Q_EMIT m_commonModel->bootDelayChanged(m_commonModel->bootDelay());
         }
 
         w->deleteLater();
@@ -212,7 +232,7 @@ void CommonInfoWork::setEnableTheme(bool value)
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
         if (w->isError()) {
-            Q_EMIT m_commomModel->themeEnabledChanged(m_commomModel->themeEnabled());
+            Q_EMIT m_commonModel->themeEnabledChanged(m_commonModel->themeEnabled());
         }
         onBackgroundChanged();
 
@@ -251,7 +271,7 @@ void CommonInfoWork::setDefaultEntry(const QString &entry)
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
         if (!w->isError()) {
-            Q_EMIT m_commomModel->defaultEntryChanged(m_dBusGrub->defaultEntry());
+            Q_EMIT m_commonModel->defaultEntryChanged(m_dBusGrub->defaultEntry());
         }
 
         w->deleteLater();
@@ -260,10 +280,10 @@ void CommonInfoWork::setDefaultEntry(const QString &entry)
 
 void CommonInfoWork::grubServerFinished()
 {
-    m_commomModel->setBootDelay(m_dBusGrub->timeout() > 1);
-    m_commomModel->setThemeEnabled(m_dBusGrub->enableTheme());
-    m_commomModel->setGrubEditAuthEnabled(m_dBusGrubEditAuth->enabledUsers().contains(GRUB_EDIT_AUTH_ACCOUNT));
-    m_commomModel->setUpdating(m_dBusGrub->updating());
+    m_commonModel->setBootDelay(m_dBusGrub->timeout() > 1);
+    m_commonModel->setThemeEnabled(m_dBusGrub->enableTheme());
+    m_commonModel->setGrubEditAuthEnabled(m_dBusGrubEditAuth->enabledUsers().contains(GRUB_EDIT_AUTH_ACCOUNT));
+    m_commonModel->setUpdating(m_dBusGrub->updating());
 
     getEntryTitles();
     onBackgroundChanged();
@@ -280,7 +300,7 @@ void CommonInfoWork::onBackgroundChanged()
 void CommonInfoWork::onEnabledUsersChanged(const QStringList & value)
 {
     Q_UNUSED(value);
-    Q_EMIT m_commomModel->grubEditAuthEnabledChanged(m_dBusGrubEditAuth->enabledUsers().contains(GRUB_EDIT_AUTH_ACCOUNT));
+    Q_EMIT m_commonModel->grubEditAuthEnabledChanged(m_dBusGrubEditAuth->enabledUsers().contains(GRUB_EDIT_AUTH_ACCOUNT));
 }
 
 void CommonInfoWork::setBackground(const QString &path)
@@ -304,7 +324,7 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
 {
     QDateTime current_date_time = QDateTime::currentDateTime();
     QString current_date = current_date_time.toString("yyyy-MM-dd hh:mm::ss.zzz");
-    if (enabled && (m_dBusUeProgram->IsEnabled() != enabled)) {
+    if (enabled && (isUeProgramEnabled() != enabled)) {
         qInfo("suser opened experience project switch.");
         // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
         QString allowContent(tr("Agree and Join User Experience Program"));
@@ -337,25 +357,25 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         });
         connect(m_process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [=](int result) {
             if (96 == result) {
-                if (!m_commomModel->ueProgram()) {
-                    m_commomModel->setUeProgram(enabled);
+                if (!m_commonModel->ueProgram()) {
+                    m_commonModel->setUeProgram(enabled);
                     qInfo() << QString("On %1, users open the switch to join the user experience program!").arg(current_date);
                 }
-                m_dBusUeProgram->Enable(enabled);
+                setUeProgramEnabled(enabled);
             } else {
-                m_commomModel->setUeProgram(m_dBusUeProgram->IsEnabled());
+                m_commonModel->setUeProgram(isUeProgramEnabled());
                 qInfo() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
             }
             m_process->deleteLater();
             m_process = nullptr;
         });
     } else {
-        if (m_dBusUeProgram->IsEnabled() != enabled) {
-            m_dBusUeProgram->Enable(enabled);
+        if (isUeProgramEnabled() != enabled) {
+            setUeProgramEnabled(enabled);
             qDebug() << QString("On %1, users close the switch to join the user experience program!").arg(current_date);
         }
-        if (m_commomModel->ueProgram() != enabled) {
-            m_commomModel->setUeProgram(enabled);
+        if (m_commonModel->ueProgram() != enabled) {
+            m_commonModel->setUeProgram(enabled);
             qDebug() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
         }
     }
@@ -369,7 +389,7 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled, DCC_NAMESPACE::MainWin
     if (!enabled)
         return;
 
-    m_dBusdeepinIdInter->setSync(false);
+    m_deepinIdInter->setSync(false);
     // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
     QString title(tr("The Disclaimer of Developer Mode"));
     QString allowContent(tr("Agree and Request Root Access"));
@@ -407,7 +427,7 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled, DCC_NAMESPACE::MainWin
 
     connect(m_process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [=](int result) {
         if (96 == result) {
-            m_dBusdeepinIdInter->call("UnlockDevice");
+            m_deepinIdInter->call("UnlockDevice");
         } else {
             qInfo() << QString("On %1, Remove developer mode Disclaimer!").arg(current_date);
         }
@@ -420,9 +440,9 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled, DCC_NAMESPACE::MainWin
 
 void CommonInfoWork::login()
 {
-    Q_ASSERT(m_dBusdeepinIdInter);
-    m_dBusdeepinIdInter->setSync(true);
-    QDBusPendingCall call = m_dBusdeepinIdInter->Login();
+    Q_ASSERT(m_deepinIdInter);
+    m_deepinIdInter->setSync(true);
+    QDBusPendingCall call = m_deepinIdInter->Login();
     call.waitForFinished();
 }
 
@@ -434,8 +454,8 @@ void CommonInfoWork::getEntryTitles()
         if (!w->isError()) {
             QDBusReply<QStringList> reply = w->reply();
             QStringList entries = reply.value();
-            m_commomModel->setEntryLists(entries);
-            m_commomModel->setDefaultEntry(m_dBusGrub->defaultEntry());
+            m_commonModel->setEntryLists(entries);
+            m_commonModel->setDefaultEntry(m_dBusGrub->defaultEntry());
         } else {
             qDebug() << "get grub entry list failed : " << w->error().message();
         }
@@ -452,7 +472,7 @@ void CommonInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
         QDBusPendingReply<QString> reply = w->reply();
 #if 1
         QPixmap pix = QPixmap(reply.value());
-        m_commomModel->setBackground(pix);
+        m_commonModel->setBackground(pix);
 #else
         const qreal ratio = qApp->devicePixelRatio();
         QPixmap pix = QPixmap(reply.value()).scaled(QSize(ItemWidth * ratio, ItemHeight * ratio),
@@ -465,7 +485,7 @@ void CommonInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
             pix = pix.copy(QRect(pix.rect().center() - r.center(), size));
 
         pix.setDevicePixelRatio(ratio);
-        m_commomModel->setBackground(pix);
+        m_commonModel->setBackground(pix);
 #endif
     } else {
         qDebug() << w->error().message();
@@ -508,5 +528,5 @@ void CommonInfoWork::getLicenseState()
 
     quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
     qDebug() << "authorize result:" << reply;
-    m_commomModel->setActivation(reply == 1 || reply == 3);
+    m_commonModel->setActivation(reply == 1 || reply == 3);
 }
