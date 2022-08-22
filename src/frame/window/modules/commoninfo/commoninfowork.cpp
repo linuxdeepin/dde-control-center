@@ -41,6 +41,8 @@ using namespace commoninfo;
 
 const QString GRUB_EDIT_AUTH_ACCOUNT("root");
 
+const QString USER_EXPERIENCE_SERVICE = "com.deepin.userexperience.Daemon";
+
 CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     : QObject(parent)
     , m_commonModel(model)
@@ -95,11 +97,29 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     licenseStateChangeSlot();
 
     if (!IsCommunitySystem) {
-        m_dBusUeProgram = new QDBusInterface(
-            "com.deepin.daemon.EventLog",
-            "/com/deepin/daemon/EventLog",
-            "com.deepin.daemon.EventLog",
+        QDBusInterface dbusInterface("org.freedesktop.DBus",
+            "/org/freedesktop/DBus",
+            "org.freedesktop.DBus",
             QDBusConnection::sessionBus(), this);
+
+        QDBusMessage reply = dbusInterface.call("NameHasOwner", "com.deepin.userexperience.Daemon");
+        QList<QVariant> outArgs = reply.arguments();
+        if (QDBusMessage::ReplyMessage == reply.type() && !outArgs.isEmpty()) {
+            bool value  = outArgs.first().toBool();
+            if (value) {
+                m_dBusUeProgram = new QDBusInterface(
+                    "com.deepin.userexperience.Daemon",
+                    "/com/deepin/userexperience/Daemon",
+                    "com.deepin.userexperience.Daemon",
+                    QDBusConnection::sessionBus(), this);
+            } else {
+                m_dBusUeProgram = new QDBusInterface(
+                    "com.deepin.daemon.EventLog",
+                    "/com/deepin/daemon/EventLog",
+                    "com.deepin.daemon.EventLog",
+                    QDBusConnection::sessionBus(), this);
+            }
+        }
     }
 
     m_commonModel->setIsLogin(m_deepinIdInter->isLogin());
@@ -198,16 +218,29 @@ void CommonInfoWork::loadGrubSettings()
 
 bool CommonInfoWork::isUeProgramEnabled()
 {
-    if (!m_dBusUeProgram)
+    if (!m_dBusUeProgram || !m_dBusUeProgram->isValid())
         return false;
+
+    if (m_dBusUeProgram->service() == USER_EXPERIENCE_SERVICE) {
+        QDBusMessage reply = m_dBusUeProgram->call("IsEnabled");
+        QList<QVariant> outArgs = reply.arguments();
+        if (QDBusMessage::ReplyMessage == reply.type() &&  !outArgs.isEmpty()) {
+            return outArgs.first().toBool();
+        }
+    }
 
     return m_dBusUeProgram->property("Enabled").toBool();
 }
 
 void CommonInfoWork::setUeProgramEnabled(bool enabled)
 {
-    if (!m_dBusUeProgram)
+    if (!m_dBusUeProgram || !m_dBusUeProgram->isValid())
         return;
+
+    if (m_dBusUeProgram->service() == USER_EXPERIENCE_SERVICE) {
+        m_dBusUeProgram->asyncCall("Enable", enabled);
+        return;
+    }
 
     m_dBusUeProgram->asyncCall("Enable", enabled);
 }
