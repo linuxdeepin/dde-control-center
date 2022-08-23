@@ -23,9 +23,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "window/dconfigwatcher.h"
 #include "monitor.h"
 
-#include <QGSettings>
 #include <QGuiApplication>
 
 using namespace dcc::display;
@@ -188,23 +188,24 @@ bool compareResolution(const Resolution &first, const Resolution &second)
 void Monitor::setModeList(const ResolutionList &modeList)
 {
     m_modeList.clear();
-    // NOTE: limit resolution by gsettings config
-    QGSettings *settings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-    QStringList value = settings->get("resolutionConfig").toString().split("*");
-    settings->deleteLater();
 
-    QList<int> miniMode;
-    for (auto str : value) {
-        bool ok;
-        int res = str.toInt(&ok);
-        if (ok) {
-            miniMode << res;
+    QList<int> miniMode{0, 0};
+    if (DConfigWatcher::instance()->get(DConfigWatcher::display, "resolutionLimit").toBool()) {
+        // NOTE: limit resolution by gsettings config
+        QStringList value = DConfigWatcher::instance()->get(DConfigWatcher::display, "resolutionConfig").toString().split("*");
+
+        for (auto str : value) {
+            bool ok;
+            int res = str.toInt(&ok);
+            if (ok) {
+                miniMode << res;
+            }
         }
-    }
 
-    if (miniMode.size() != 2) {
-        miniMode.clear();
-        miniMode << 1024 << 768;
+        if (miniMode.size() != 2) {
+            miniMode.clear();
+            miniMode << 1024 << 768;
+        }
     }
 
     for (auto m : modeList) {
