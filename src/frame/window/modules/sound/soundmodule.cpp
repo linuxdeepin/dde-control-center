@@ -327,7 +327,7 @@ void SoundModule::active()
 
     // 有端口时显示设备管理
     connect(m_model, &SoundModel::portAdded, m_soundWidget, [ this ]() {
-        if (!m_model->ports().isEmpty()) {
+        if (!m_model->ports().isEmpty() && GSettingWatcher::instance()->get("deviceManage").toBool()) {
             m_soundWidget->setSubItemHidden("deviceManage", false);
         }
     });
