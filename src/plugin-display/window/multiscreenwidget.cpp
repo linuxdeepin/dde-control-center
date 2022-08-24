@@ -298,6 +298,7 @@ void MultiScreenWidget::setModel(DisplayModel *model)
     m_resolutionWidget->setModel(m_model, m_model->primaryMonitor());
     m_refreshRateWidget->setModel(m_model, m_model->primaryMonitor());
     m_rotateWidget->setModel(m_model, m_model->primaryMonitor());
+    m_primarySettingsItem->setVisible(m_model->displayMode() == EXTEND_MODE);
 
     initSecondaryScreenDialog();
 }
