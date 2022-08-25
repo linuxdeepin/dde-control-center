@@ -1,2 +1,2 @@
-usr/lib/libdde-network-core.so
+usr/lib/*/libdde-network-core.so
 usr/share/dsg/configs/*

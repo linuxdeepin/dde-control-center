@@ -4,6 +4,7 @@ set(PLUGIN_NAME "dss-network-plugin")
 
 project(${PLUGIN_NAME})
 
+include(GNUInstallDirs)
 # 启用 qt moc 的支持
 set(CMAKE_AUTOMOC ON)
 # 启用 qrc 资源文件的支持
@@ -65,10 +66,6 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE
 
 install(TARGETS ${PLUGIN_NAME} LIBRARY DESTINATION lib/dde-session-shell/modules)
 # 安装 .qm 文件
-install(FILES ${QM_FILES} DESTINATION share/${PLUGIN_NAME}/translations)
+install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${PLUGIN_NAME}/translations)
 
-if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-    set(CMAKE_INSTALL_PREFIX "/var")
-endif()
-
-install(FILES 10-network-manager.pkla DESTINATION lib/polkit-1/localauthority/10-vendor.d)
+install(FILES 10-network-manager.pkla DESTINATION ${CMAKE_INSTALL_FULL_LOCALSTATEDIR}/lib/polkit-1/localauthority/10-vendor.d)

@@ -7,6 +7,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+include(GNUInstallDirs)
 set(CMAKE_PREFIX_PATH $ENV{Qt5_DIR})
 
 file(GLOB_RECURSE SOURCEFILES "*.h" "*.cpp")
@@ -75,7 +76,7 @@ set(INTERFACEFILES
     wireddevice.h
     wirelessdevice.h)
 
-install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}Targets LIBRARY DESTINATION lib)
-install(FILES ${CMAKE_BINARY_DIR}/dde-network-core.pc DESTINATION lib/pkgconfig)
-install(FILES ${INTERFACEFILES} DESTINATION include/libddenetworkcore)
-install(FILES ../config/org.deepin.dde.network.json DESTINATION share/dsg/configs/org.deepin.dde.network)
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}Targets LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+install(FILES ${CMAKE_BINARY_DIR}/dde-network-core.pc DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
+install(FILES ${INTERFACEFILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/libddenetworkcore)
+install(FILES ../config/org.deepin.dde.network.json DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dsg/configs/org.deepin.dde.network)

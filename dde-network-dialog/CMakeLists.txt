@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.7)
 set(TARGET_NAME "dde-network-dialog")
 
 project(${TARGET_NAME})
-
+include(GNUInstallDirs)
 # 启用 qt moc 的支持
 set(CMAKE_AUTOMOC ON)
 # 启用 qrc 资源文件的支持
@@ -61,4 +61,4 @@ target_link_libraries(${TARGET_NAME} PRIVATE
 
 install(TARGETS ${TARGET_NAME} DESTINATION bin)
 # 安装 .qm 文件
-install(FILES ${QM_FILES} DESTINATION share/${TARGET_NAME}/translations)
+install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${TARGET_NAME}/translations)
