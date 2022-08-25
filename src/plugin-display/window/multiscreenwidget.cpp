@@ -432,7 +432,7 @@ void MultiScreenWidget::onMonitorRelease(Monitor *monitor)
 {
     Q_UNUSED(monitor)
     m_fullIndication->setVisible(false);
-    QTimer::singleShot(1000, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor(), false); });
+    QTimer::singleShot(2500, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor(), false); });
 }
 
 void MultiScreenWidget::onRequestSetMonitorPosition(QHash<Monitor *, QPair<int, int>> monitorPosition)
