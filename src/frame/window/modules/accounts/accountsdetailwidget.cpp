@@ -103,7 +103,9 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     , m_scrollArea(new QScrollArea)
     , m_curLoginUser(nullptr)
     , m_bindStatusLabel(new QLabel(tr("Go to Settings"), this))
-    , m_groupsPage(nullptr)
+    , m_lvgroups(new DListView(this))
+    , m_modelgroups(new QStandardItemModel(this))
+    , m_groupsEditAction(new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter, QSize(14, 14), QSize(14, 14), true))
 {
     m_isServerSystem = IsServerSystem;
     //整体布局
@@ -142,6 +144,18 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootWhenScrollable);
     scroller->setScrollerProperties(sp);
+
+    m_lvgroups->setModel(m_modelgroups);
+    m_lvgroups->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    m_lvgroups->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_lvgroups->setSelectionMode(QAbstractItemView::NoSelection);
+    QMargins listItemmargin( m_lvgroups->itemMargins());
+    listItemmargin.setLeft(2);
+    m_lvgroups->setItemMargins(listItemmargin);
+
+    connect(m_lvgroups, &QListView::clicked, this, [ this ] {
+        Q_EMIT requestShowUserGroups(m_curUser);
+    });
 
     initUserInfo(contentLayout);
     initSetting(contentLayout);
@@ -442,6 +456,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //~ contents_path /accounts/Account Settings
     m_accountSettingsTitle = new TitleLabel(tr("Account Settings"));
     m_asAdministrator = new SwitchWidget;
+    m_asAdministrator->getMainLayout()->setContentsMargins(10, 0, 6, 0);
     accountSettingsGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
     accountSettingsGrp->setContentsMargins(10, 10, 10, 10);
     accountSettingsGrp->layout()->setMargin(0);
@@ -451,21 +466,22 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     layout->addWidget(m_accountSettingsTitle);
     layout->addWidget(accountSettingsGrp);
 
-    //用户组设置
-    m_groupsPage = new NextPageWidget(nullptr, false);
-    m_groupsPage->setTitle(tr("Group"));
-    m_groupsPage->setRightTxtWordWrap(true);
-    m_groupsPage->addBackground();
-    m_groupsPage->setBtnHiden(true);
-    m_groupsPage->setIconIcon(DStyleHelper(m_groupsPage->style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr).pixmap(10, 10));
     auto groupHLayout = new QHBoxLayout;
     groupHLayout->setContentsMargins(10, 0, 10, 0);
-    groupHLayout->addWidget(m_groupsPage);
+    groupHLayout->addWidget(m_lvgroups);
     layout->addLayout(groupHLayout);
 
-    connect(m_groupsPage, &NextPageWidget::clicked, this, [ = ] {
-        emit requestShowUserGroups(m_curUser);
+    DStandardItem *groupItem = new DStandardItem(tr("Group"));
+    m_groupsEditAction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
+    m_groupsEditAction->setClickAreaMargins(ArrowEnterClickMargin);
+
+    groupItem->setActionList(Qt::Edge::RightEdge, { m_groupsEditAction });
+
+    connect(m_groupsEditAction, &QAction::triggered, [ this ] {
+        Q_EMIT requestShowUserGroups(m_curUser);
     });
+
+    m_modelgroups->appendRow(groupItem);
 
     //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();

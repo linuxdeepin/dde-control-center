@@ -21,18 +21,21 @@
 
 #include "usergroupspage.h"
 #include "groupitem.h"
+#include "widgets/translucentframe.h"
 
 #include <QVBoxLayout>
 
 #include <grp.h>
 
+using namespace dcc;
+using namespace dcc::widgets;
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 
 DWIDGET_USE_NAMESPACE
 
-UserGroupsPage::UserGroupsPage(User *user, dcc::accounts::UserModel *userModel, QWidget *parent)
-    : QWidget(parent)
+UserGroupsPage::UserGroupsPage(User *user, dcc::accounts::UserModel *userModel, ContentWidget *parent)
+    : ContentWidget(parent)
     , m_groupTip(new QLabel(tr("Group")))
     , m_layout (new QVBoxLayout(this))
     , m_curUser(user)
@@ -120,17 +123,23 @@ void UserGroupsPage::initWidget()
     m_groupListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_groupListView->setSelectionMode(QAbstractItemView::NoSelection);
     m_groupListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_groupListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     DFontSizeManager::instance()->bind(m_groupTip, DFontSizeManager::T5, QFont::DemiBold);
 
+    TranslucentFrame * mainWidget = new TranslucentFrame(this);
+    setContentsMargins(0, 10, 0, 10);
+    m_layout->setContentsMargins(0, 0, 0, 0);
+    m_layout->setMargin(0);
+
+    m_groupTip->setContentsMargins(10, 10, 10, 10);
     m_layout->addWidget(m_groupTip);
-    m_layout->addSpacing(10);
-    m_layout->addWidget(m_groupListView);
-    QHBoxLayout *layout = new QHBoxLayout(this);
-    QWidget *widget = new QWidget;
-    widget->setLayout(m_layout);
-    layout->addWidget(widget);
-    setLayout(layout);
+
+    QVBoxLayout *vLayout = new QVBoxLayout(this);
+    vLayout->setContentsMargins(10, 0, 10, 0);
+    vLayout->addWidget(m_groupListView);
+    m_layout->addLayout(vLayout);
+
+    mainWidget->setLayout(m_layout);
+    setContent(mainWidget);
 }
 
 void UserGroupsPage::initData()
