@@ -150,6 +150,10 @@ void DockPopupWindow::show(const int x, const int y)
 
 void DockPopupWindow::showEvent(QShowEvent *e)
 {
+    // 显示的时候主动去grab键盘（如果不主动抓取，在社区版上弹窗大概率没有抓取到键盘，可能跟qt的版本有关）
+    if (window() && window()->windowHandle()) {
+        window()->windowHandle()->setKeyboardGrabEnabled(true);
+    }
     DArrowRectangle::showEvent(e);
     QTimer::singleShot(1, this, &DockPopupWindow::ensureRaised);
 }
