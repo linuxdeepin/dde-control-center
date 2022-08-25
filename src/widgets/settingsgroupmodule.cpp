@@ -15,7 +15,7 @@ public:
         , bgStyle(SettingsGroup::GroupBackground)
         , hor(QSizePolicy::Expanding)
         , ver(QSizePolicy::Fixed)
-        , spacing(0)
+        , spacing(1)
         , headerVisible(false)
     {
     }

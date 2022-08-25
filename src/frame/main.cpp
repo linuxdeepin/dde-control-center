@@ -227,9 +227,9 @@ int main(int argc, char *argv[])
     //如果dbus参数错误，不会有任何UI上的变化
     if (1 == argc) {
         DDBusSender()
-            .service("com.deepin.dde.ControlCenter")
-            .interface("com.deepin.dde.ControlCenter")
-            .path("/com/deepin/dde/ControlCenter")
+            .service("org.deepin.dde.ControlCenter1")
+            .interface("org.deepin.dde.ControlCenter1")
+            .path("/org/deepin/dde/ControlCenter1")
             .method("Show")
             .call();
     }

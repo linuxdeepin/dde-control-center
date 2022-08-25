@@ -30,6 +30,10 @@ class SettingsGroup;
 class TitledSliderItem;
 class DCCListView;
 }
+
+namespace DTK_WIDGET_NAMESPACE {
+class DComboBox;
+}
 class PowerModel;
 class PowerWorker;
 
@@ -41,12 +45,6 @@ public:
     ~GeneralModule();
     void deactive() override;
 
-    void setModel(PowerModel *model);
-    void initPowerPlans(DCC_NAMESPACE::DCCListView *view);                       // 性能设置
-    void initPowerSavingSettings(DCC_NAMESPACE::SettingsGroup *energySavingGrp); // 节能设置
-    void initWakeupSettings(DCC_NAMESPACE::SettingsGroup *wakeupSettingsGrp);    // 唤醒设置
-    void initBatterySettings(DCC_NAMESPACE::SettingsGroup *batterySettingsGrp);  // 电池设置
-
 Q_SIGNALS:
     void requestSetLowBatteryMode(const bool &state);                         // 同节能模式
     void requestSetPowerSavingModeAutoWhenQuantifyLow(const bool &state);     // 低电量自动切换节能模式
@@ -57,25 +55,15 @@ Q_SIGNALS:
     void requestSetPowerSavingModeLowerBrightnessThreshold(const int &level); // 节能模式亮度降低
     void requestSetPowerPlan(const QString &powerPlan);                       // 性能模式的设置
 public Q_SLOTS:
-    void setPowerDisplay(const bool &state);
-    void onCurPowerPlanChanged(const QString &curPowerPlan);
-    void onPowerPlanChanged(const QModelIndex &index);
-    void onHighPerformanceSupportChanged(const bool isSupport);
-    void onBatteryChanged(const bool &state);
 
+private:
+    void initUI();
 private:
     QMap<QString, QString> m_powerPlanMap; // Performance mode dictionary
     QStandardItemModel *m_powerPlanModel;
-    Dtk::Widget::DListView *m_powerplanListview;
-    DCC_NAMESPACE::TitledSliderItem *m_sldLowerBrightness;
 
     PowerModel *m_model;
     PowerWorker *m_work;
-
-    ModuleObject *m_wakeupSettings;
-    ModuleObject *m_batterySettingsTitle;
-    ModuleObject *m_batterySettings;
-
 private:
     enum {
         PowerPlanRole = Dtk::UserRole + 1,

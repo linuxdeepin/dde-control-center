@@ -22,11 +22,14 @@
 #include "powermodel.h"
 #include "powerworker.h"
 #include "utils.h"
-#include "widgets/widgetmodule.h"
 #include "widgets/comboxwidget.h"
 #include "widgets/titledslideritem.h"
 #include "widgets/dccslider.h"
-#include "widgets/settingsgroup.h"
+#include "titlemodule.h"
+#include "settingsgroupmodule.h"
+#include "itemmodule.h"
+
+#include <DComboBox>
 
 DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -37,20 +40,15 @@ UseElectricModule::UseElectricModule(PowerModel *model, PowerWorker *work, QObje
     , m_model(model)
     , m_work(work)
 {
-    deactive();
     connect(this, &UseElectricModule::requestSetScreenBlackDelayOnPower, m_work, &PowerWorker::setScreenBlackDelayOnPower);
     connect(this, &UseElectricModule::requestSetSleepDelayOnPower, m_work, &PowerWorker::setSleepDelayOnPower);
-    connect(this, &UseElectricModule::requestSetSleepOnLidOnPowerClosed, m_work, &PowerWorker::setSleepOnLidOnPowerClosed); //Suspend on lid close
+    connect(this, &UseElectricModule::requestSetSleepOnLidOnPowerClosed, m_work, &PowerWorker::setSleepOnLidOnPowerClosed); //Suspend on lid close  not using???
     connect(this, &UseElectricModule::requestSetAutoLockScreenOnPower, m_work, &PowerWorker::setLockScreenDelayOnPower);
 
     connect(this, &UseElectricModule::requestSetLinePowerPressPowerBtnAction, m_work, &PowerWorker::setLinePowerPressPowerBtnAction);
     connect(this, &UseElectricModule::requestSetLinePowerLidClosedAction, m_work, &PowerWorker::setLinePowerLidClosedAction);
 
-    //　电源设置
-    appendChild(new WidgetModule<SettingsGroup>("powerLowerBrightness", tr("Power Saving Settings"), this, &UseElectricModule::initPowerSettings));
-    appendChild(new ModuleObject); // 多个项时才会加弹簧
-
-    setModel(m_model);
+    initUI();
 }
 
 UseElectricModule::~UseElectricModule()
@@ -59,256 +57,209 @@ UseElectricModule::~UseElectricModule()
 
 void UseElectricModule::deactive()
 {
-    m_cmbPowerBtn = nullptr;
-    m_cmbCloseLid = nullptr;
-    m_autoLockScreen = nullptr;
-    m_computerSleepOnPower = nullptr;
-    m_monitorSleepOnPower = nullptr;
 }
 
-void UseElectricModule::setModel(PowerModel *model)
+void UseElectricModule::initUI()
 {
-    m_model = model;
-    connect(m_model, &PowerModel::screenBlackDelayChangedOnPower, this, &UseElectricModule::setScreenBlackDelayOnPower);
-    connect(m_model, &PowerModel::powerLockScreenDelayChanged, this, &UseElectricModule::setLockScreenAfter);
-    connect(m_model, &PowerModel::hibernateChanged, this, [=] {
-        updatePowerButtonActionList();
-        setPowerBtn(model->linePowerPressPowerBtnAction());
-        setCloseLid(model->linePowerLidClosedAction());
-    });
-    connect(m_model, &PowerModel::suspendChanged, this, [=] {
-        updatePowerButtonActionList();
-        setPowerBtn(model->linePowerPressPowerBtnAction());
-        setCloseLid(model->linePowerLidClosedAction());
-    });
+    auto delayToLiteralString = [] (const int delay) ->QString const {
+        QString strData = "";
 
-    connect(m_model, &PowerModel::shutdownChanged, this, [=] {
-        updatePowerButtonActionList();
-    });
-
-    if (!IsServerSystem) {
-        connect(m_model, &PowerModel::sleepDelayChangedOnPower, this, &UseElectricModule::setSleepDelayOnPower);
-    }
-
-    //--------------sp2 add-----------------
-
-    connect(m_model, &PowerModel::linePowerLidClosedActionChanged, this, [=](const int reply) {
-        if (m_cmbCloseLid && reply - 1 < m_cmbCloseLid->comboBox()->count()) {
-            setCloseLid(reply);
+        switch (delay) {
+        case 1:
+            strData = tr("1 Minute");
+            break;
+        case 2:
+            strData = tr("%1 Minutes").arg(5);
+            break;
+        case 3:
+            strData = tr("%1 Minutes").arg(10);
+            break;
+        case 4:
+            strData = tr("%1 Minutes").arg(15);
+            break;
+        case 5:
+            strData = tr("%1 Minutes").arg(30);
+            break;
+        case 6:
+            strData = tr("1 Hour");
+            break;
+        case 7:
+            strData = tr("Never");
+            break;
+        default:
+            strData = tr("%1 Minutes").arg(15);
+            break;
         }
-    });
-    //    setCloseLid(model->linePowerLidClosedAction());
-    connect(m_model, &PowerModel::linePowerPressPowerBtnActionChanged, this, [=](const int reply) {
-        if (m_cmbPowerBtn && reply - 1 < m_cmbPowerBtn->comboBox()->count()) {
-            setPowerBtn(reply);
-        }
-    });
-}
 
-void UseElectricModule::initPowerSettings(DCC_NAMESPACE::SettingsGroup *powerSettingsGrp)
-{
-    powerSettingsGrp->setSpacing(10); // List_Interval
+        return strData;
+    };
 
-    m_monitorSleepOnPower = new TitledSliderItem(tr("Monitor will suspend after"));
-    m_monitorSleepOnPower->setAccessibleName(tr("Monitor will suspend after"));
-    m_monitorSleepOnPower->slider()->setType(DCCSlider::Vernier);
-    m_monitorSleepOnPower->slider()->setRange(1, 7);
-    m_monitorSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
-    m_monitorSleepOnPower->slider()->setTickInterval(1);
-    m_monitorSleepOnPower->slider()->setPageStep(1);
-    connect(m_monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricModule::requestSetScreenBlackDelayOnPower);
-    powerSettingsGrp->appendItem(m_monitorSleepOnPower);
-
-    setScreenBlackDelayOnPower(m_model->screenBlackDelayOnPower());
-
+    //　电源设置
+    appendChild(new TitleModule("wakeupSettingsLabel", tr("Wakeup Settings")));
+    SettingsGroupModule *group = new SettingsGroupModule("wakeupSettingsLabel", tr("Wakeup Settings"));
+    group->setSpacing(10);
+    appendChild(group);
     QStringList annos;
     annos << "1m"
           << "5m"
           << "10m"
           << "15m"
           << "30m"
-          << "1h" << tr("Never");
+          << "1h"
+          << tr("Never");
+    group->appendChild(new ItemModule("monitorSleepOnPower", tr("Monitor will suspend after"),
+        [this, annos, &delayToLiteralString] (ModuleObject *module) -> QWidget*{
+            TitledSliderItem *monitorSleepOnPower = new TitledSliderItem(tr("Monitor will suspend after"));
+            monitorSleepOnPower->setAccessibleName(tr("Monitor will suspend after"));
+            monitorSleepOnPower->slider()->setType(DCCSlider::Vernier);
+            monitorSleepOnPower->slider()->setRange(1, 7);
+            monitorSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
+            monitorSleepOnPower->slider()->setTickInterval(1);
+            monitorSleepOnPower->slider()->setPageStep(1);
+            monitorSleepOnPower->setAnnotations(annos);
+            connect(monitorSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricModule::requestSetScreenBlackDelayOnPower);
+            auto setScreenBlackDelayOnPower = [monitorSleepOnPower, &delayToLiteralString] (const int delay) {
+                monitorSleepOnPower->slider()->blockSignals(true);
+                monitorSleepOnPower->slider()->setValue(delay);
+                monitorSleepOnPower->setValueLiteral(delayToLiteralString(delay));
+                monitorSleepOnPower->slider()->blockSignals(false);
+            };
+            setScreenBlackDelayOnPower(m_model->screenBlackDelayOnPower());
+            connect(m_model, &PowerModel::screenBlackDelayChangedOnPower, monitorSleepOnPower, setScreenBlackDelayOnPower);
+            return monitorSleepOnPower;
+        }, false));
+
+    group->appendChild(new ItemModule("autoLockScreen", tr("Lock screen after"),
+        [this, annos, &delayToLiteralString] (ModuleObject *module) -> QWidget*{
+            TitledSliderItem *autoLockScreen = new TitledSliderItem(tr("Lock screen after"));
+            autoLockScreen->setAccessibleName(tr("Lock screen after"));
+            autoLockScreen->slider()->setType(DCCSlider::Vernier);
+            autoLockScreen->slider()->setRange(1, 7);
+            autoLockScreen->slider()->setTickPosition(QSlider::TicksBelow);
+            autoLockScreen->slider()->setTickInterval(1);
+            autoLockScreen->slider()->setPageStep(1);
+            autoLockScreen->setAnnotations(annos);
+            auto setLockScreenAfter = [autoLockScreen, &delayToLiteralString] (const int delay) {
+                autoLockScreen->slider()->blockSignals(true);
+                autoLockScreen->slider()->setValue(delay);
+                autoLockScreen->setValueLiteral(delayToLiteralString(delay));
+                autoLockScreen->slider()->blockSignals(false);
+            };
+            setLockScreenAfter(m_model->getPowerLockScreenDelay());
+            connect(m_model, &PowerModel::powerLockScreenDelayChanged, autoLockScreen, setLockScreenAfter);
+            connect(autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseElectricModule::requestSetAutoLockScreenOnPower);
+            return autoLockScreen;
+        }, false));
 
     if (!IsServerSystem) {
-        m_computerSleepOnPower = new TitledSliderItem(tr("Computer will suspend after"));
-        m_computerSleepOnPower->setAccessibleName(tr("Computer will suspend after"));
-        m_computerSleepOnPower->slider()->setType(DCCSlider::Vernier);
-        m_computerSleepOnPower->slider()->setRange(1, 7);
-        m_computerSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
-        m_computerSleepOnPower->slider()->setTickInterval(1);
-        m_computerSleepOnPower->slider()->setPageStep(1);
-        m_computerSleepOnPower->setAnnotations(annos);
-        setSleepDelayOnPower(m_model->sleepDelayOnPower());
-        connect(m_model, &PowerModel::sleepDelayChangedOnPower, this, &UseElectricModule::setSleepDelayOnPower);
-        connect(m_computerSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricModule::requestSetSleepDelayOnPower);
-        powerSettingsGrp->appendItem(m_computerSleepOnPower);
-        m_computerSleepOnPower->setVisible(m_model->canSuspend() && m_model->getSuspend());
+        group->appendChild(new ItemModule("computerSleepOnPower", tr("Monitor will suspend after"),
+            [this, annos, &delayToLiteralString] (ModuleObject *module) -> QWidget*{
+                TitledSliderItem *computerSleepOnPower = new TitledSliderItem(tr("Computer will suspend after"));
+                computerSleepOnPower->setAccessibleName(tr("Computer will suspend after"));
+                computerSleepOnPower->slider()->setType(DCCSlider::Vernier);
+                computerSleepOnPower->slider()->setRange(1, 7);
+                computerSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
+                computerSleepOnPower->slider()->setTickInterval(1);
+                computerSleepOnPower->slider()->setPageStep(1);
+                computerSleepOnPower->setAnnotations(annos);
+                connect(computerSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricModule::requestSetSleepDelayOnPower);
+                auto setSleepDelayOnPower = [computerSleepOnPower, &delayToLiteralString] (const int delay) {
+                    computerSleepOnPower->slider()->blockSignals(true);
+                    computerSleepOnPower->slider()->setValue(delay);
+                    computerSleepOnPower->setValueLiteral(delayToLiteralString(delay));
+                    computerSleepOnPower->slider()->blockSignals(false);
+                };
+                setSleepDelayOnPower(m_model->sleepDelayOnPower());
+                connect(m_model, &PowerModel::sleepDelayChangedOnPower, computerSleepOnPower, setSleepDelayOnPower);
+                computerSleepOnPower->setVisible(m_model->canSuspend() && m_model->getSuspend());
+                return computerSleepOnPower;
+            }, false));
     }
 
-    m_autoLockScreen = new TitledSliderItem(tr("Lock screen after"));
-    m_autoLockScreen->setAccessibleName(tr("Lock screen after"));
+    //combox
 
-    m_cmbCloseLid = new ComboxWidget(tr("When the lid is closed"));
-    m_cmbPowerBtn = new ComboxWidget(tr("When pressing the power button"));
+    group->appendChild(new ItemModule("cmbCloseLid", tr("When the lid is closed"),
+        [this] (ModuleObject *module) -> QWidget*{
+            AlertComboBox *cmbCloseLid = new AlertComboBox();
+            module->setHiden(!m_model->lidPresent());
+            connect(m_model, &PowerModel::lidPresentChanged, cmbCloseLid, [this, module] (const bool lidPresent){
+                module->setHiden(!m_model->lidPresent());
+            });
 
-    updatePowerButtonActionList();
+            auto setCloseLidData = [this, cmbCloseLid] () {
+                updateComboxActionList();
+                cmbCloseLid->blockSignals(true);
+                cmbCloseLid->clear();
+                for (const auto &it : qAsConst(m_comboxOptions)) {
+                    if (it == m_comboxOptions.first())
+                        continue;
+                    cmbCloseLid->addItem(it.first, it.second);
+                }
+                for (int i = 0; i < cmbCloseLid->count(); i++) {
+                    if (cmbCloseLid->itemData(i).toInt() == m_model->linePowerLidClosedAction()) {
+                        cmbCloseLid->setCurrentIndex(i);
+                        break;
+                    }
+                }
+                cmbCloseLid->blockSignals(false);
+            };
 
-    powerSettingsGrp->appendItem(m_autoLockScreen);
-    powerSettingsGrp->appendItem(m_cmbCloseLid);
-    powerSettingsGrp->appendItem(m_cmbPowerBtn);
+            setCloseLidData();
+            connect(m_model, &PowerModel::hibernateChanged, cmbCloseLid, setCloseLidData);
+            connect(m_model, &PowerModel::suspendChanged, cmbCloseLid, setCloseLidData);
+            connect(m_model, &PowerModel::linePowerLidClosedActionChanged, cmbCloseLid, setCloseLidData);
+            connect(cmbCloseLid, QOverload<int>::of(&AlertComboBox::currentIndexChanged), this, [this, cmbCloseLid](int index) {
+                Q_EMIT requestSetLinePowerLidClosedAction(cmbCloseLid->itemData(index).toInt());
+            });
+            return cmbCloseLid;
+        }));
 
-    m_monitorSleepOnPower->setAnnotations(annos);
+    group->appendChild(new ItemModule("cmbPowerButton", tr("When pressing the power button"),
+        [this] (ModuleObject *module) -> QWidget*{
+            AlertComboBox *cmbPowerButton = new AlertComboBox();
+            auto setPowerButtonData = [this, cmbPowerButton] () {
+                updateComboxActionList();
+                cmbPowerButton->blockSignals(true);
+                cmbPowerButton->clear();
+                for (const auto &it : qAsConst(m_comboxOptions)) {
+                    cmbPowerButton->addItem(it.first, it.second);
+                }
+                for (int i = 0; i < cmbPowerButton->count(); i++) {
+                    if (cmbPowerButton->itemData(i).toInt() == m_model->linePowerPressPowerBtnAction()) {
+                        cmbPowerButton->setCurrentIndex(i);
+                        break;
+                    }
+                }
+                cmbPowerButton->blockSignals(false);
+            };
 
-    m_autoLockScreen->slider()->setType(DCCSlider::Vernier);
-    m_autoLockScreen->slider()->setRange(1, 7);
-    m_autoLockScreen->slider()->setTickPosition(QSlider::TicksBelow);
-    m_autoLockScreen->slider()->setTickInterval(1);
-    m_autoLockScreen->slider()->setPageStep(1);
-    m_autoLockScreen->setAnnotations(annos);
-    setLockScreenAfter(m_model->getPowerLockScreenDelay());
+            setPowerButtonData();
+            connect(m_model, &PowerModel::hibernateChanged, cmbPowerButton, setPowerButtonData);
+            connect(m_model, &PowerModel::suspendChanged, cmbPowerButton, setPowerButtonData);
+            connect(m_model, &PowerModel::shutdownChanged, cmbPowerButton, setPowerButtonData);
+            connect(m_model, &PowerModel::linePowerPressPowerBtnActionChanged, cmbPowerButton, setPowerButtonData);
+            connect(cmbPowerButton, QOverload<int>::of(&AlertComboBox::currentIndexChanged), this, [this, cmbPowerButton](int index) {
+                Q_EMIT requestSetLinePowerPressPowerBtnAction(cmbPowerButton->itemData(index).toInt());
+            });
+            return cmbPowerButton;
+        }));
 
-    //    setModel(m_model);
-    setPowerBtn(m_model->linePowerPressPowerBtnAction());
-    connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseElectricModule::requestSetAutoLockScreenOnPower);
 
-    connect(m_cmbPowerBtn->comboBox(), &AlertComboBox::clicked, this, [=]() {
-        updatePowerButtonActionList();
-        setPowerBtn(m_model->linePowerPressPowerBtnAction());
-        setCloseLid(m_model->linePowerLidClosedAction());
-    });
-    connect(m_cmbPowerBtn, &ComboxWidget::dataChanged, this, [=](const QVariant data) {
-        Q_EMIT requestSetLinePowerPressPowerBtnAction(data.toInt());
-    });
-    setCloseLid(m_model->linePowerLidClosedAction());
-    m_cmbCloseLid->setVisible(m_model->lidPresent());
-    connect(m_model, &PowerModel::lidPresentChanged, m_cmbCloseLid, &ComboxWidget::setVisible);
-    connect(m_cmbCloseLid->comboBox(), &AlertComboBox::clicked, this, [=]() {
-        updatePowerButtonActionList();
-        setPowerBtn(m_model->linePowerPressPowerBtnAction());
-        setCloseLid(m_model->linePowerLidClosedAction());
-    });
-    connect(m_cmbCloseLid, &ComboxWidget::dataChanged, this, [=](const QVariant data) {
-        Q_EMIT requestSetLinePowerLidClosedAction(data.toInt());
-    });
+    appendChild(new ModuleObject); // 多个项时才会加弹簧
 }
 
-void UseElectricModule::setScreenBlackDelayOnPower(const int delay)
+void UseElectricModule::updateComboxActionList()
 {
-    if (!m_monitorSleepOnPower)
-        return;
-    m_monitorSleepOnPower->slider()->blockSignals(true);
-    m_monitorSleepOnPower->slider()->setValue(delay);
-    m_monitorSleepOnPower->setValueLiteral(delayToLiteralString(delay));
-    m_monitorSleepOnPower->slider()->blockSignals(false);
-}
-
-void UseElectricModule::setSleepDelayOnPower(const int delay)
-{
-    if (!m_computerSleepOnPower)
-        return;
-    m_computerSleepOnPower->slider()->blockSignals(true);
-    m_computerSleepOnPower->slider()->setValue(delay);
-    m_computerSleepOnPower->setValueLiteral(delayToLiteralString(delay));
-    m_computerSleepOnPower->slider()->blockSignals(false);
-}
-
-void UseElectricModule::setLockScreenAfter(const int delay)
-{
-    if (!m_autoLockScreen)
-        return;
-    m_autoLockScreen->slider()->blockSignals(true);
-    m_autoLockScreen->slider()->setValue(delay);
-    m_autoLockScreen->setValueLiteral(delayToLiteralString(delay));
-    m_autoLockScreen->slider()->blockSignals(false);
-}
-
-void UseElectricModule::setCloseLid(int lidIndex)
-{
-    if (!m_cmbCloseLid)
-        return;
-    AlertComboBox *cmbPower = m_cmbCloseLid->comboBox();
-    for (int i = 0; i < cmbPower->count(); i++) {
-        if (cmbPower->itemData(i).toInt() == lidIndex) {
-            m_cmbCloseLid->setCurrentIndex(i);
-            break;
-        }
-    }
-}
-
-void UseElectricModule::setPowerBtn(int powIndex)
-{
-    if (!m_cmbPowerBtn)
-        return;
-    AlertComboBox *cmbPower = m_cmbPowerBtn->comboBox();
-    for (int i = 0; i < cmbPower->count(); i++) {
-        if (cmbPower->itemData(i).toInt() == powIndex) {
-            m_cmbPowerBtn->setCurrentIndex(i);
-            break;
-        }
-    }
-}
-
-void UseElectricModule::updatePowerButtonActionList()
-{
-    if (!m_model || !m_cmbPowerBtn || !m_cmbCloseLid)
-        return;
-    QList<QPair<QString, int>> options;
+    m_comboxOptions.clear();
     if (m_model->getShutdown()) {
-        options.append({ tr("Shut down"), 0 });
+        m_comboxOptions.append({ tr("Shut down"), 0 });
     }
     if (m_work->getCurCanSuspend()) {
-        options.append({ tr("Suspend"), 1 });
+        m_comboxOptions.append({ tr("Suspend"), 1 });
     }
     if (m_work->getCurCanHibernate()) {
-        options.append({ tr("Hibernate"), 2 });
+        m_comboxOptions.append({ tr("Hibernate"), 2 });
     }
-    options.append({ tr("Turn off the monitor"), 3 });
-    options.append({ tr("Do nothing"), 4 });
-
-    auto setComboBox = [](ComboxWidget *combox, QList<QPair<QString, int>> options) {
-        AlertComboBox *box = combox->comboBox();
-        box->blockSignals(true);
-        box->clear();
-        for (auto it : options) {
-            box->addItem(it.first, it.second);
-        }
-        box->blockSignals(false);
-    };
-    setComboBox(m_cmbPowerBtn, options);
-    options.pop_front();
-    setComboBox(m_cmbCloseLid, options);
-}
-
-QString UseElectricModule::delayToLiteralString(const int delay) const
-{
-    QString strData = "";
-
-    switch (delay) {
-    case 1:
-        strData = tr("1 Minute");
-        break;
-    case 2:
-        strData = tr("%1 Minutes").arg(5);
-        break;
-    case 3:
-        strData = tr("%1 Minutes").arg(10);
-        break;
-    case 4:
-        strData = tr("%1 Minutes").arg(15);
-        break;
-    case 5:
-        strData = tr("%1 Minutes").arg(30);
-        break;
-    case 6:
-        strData = tr("1 Hour");
-        break;
-    case 7:
-        strData = tr("Never");
-        break;
-    default:
-        strData = tr("%1 Minutes").arg(15);
-        break;
-    }
-
-    return strData;
+    m_comboxOptions.append({ tr("Turn off the monitor"), 3 });
+    m_comboxOptions.append({ tr("Do nothing"), 4 });
 }

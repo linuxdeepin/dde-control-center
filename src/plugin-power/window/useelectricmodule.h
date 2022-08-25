@@ -25,12 +25,6 @@
 
 #include <DListView>
 
-DCC_BEGIN_NAMESPACE
-class SettingsGroup;
-class ComboxWidget;
-class TitledSliderItem;
-DCC_END_NAMESPACE
-
 class PowerModel;
 class PowerWorker;
 
@@ -40,7 +34,6 @@ class UseElectricModule : public DCC_NAMESPACE::PageModule
 public:
     explicit UseElectricModule(PowerModel *model, PowerWorker *work, QObject *parent = nullptr);
     ~UseElectricModule() override;
-    void setModel(PowerModel *model);
     void deactive() override;
 
 Q_SIGNALS:
@@ -57,20 +50,15 @@ public Q_SLOTS:
     void setLockScreenAfter(const int delay);
     void setCloseLid(int lidIndex);
     void setPowerBtn(int powIndex);
-    void updatePowerButtonActionList();
 
 private:
-    QString delayToLiteralString(const int delay) const;
-    void initPowerSettings(DCC_NAMESPACE::SettingsGroup *powerSettingsGrp); // 电源设置
+    void initUI();
+    void updateComboxActionList();
 
 private:
     PowerModel *m_model;
     PowerWorker *m_work;
-    DCC_NAMESPACE::ComboxWidget *m_cmbPowerBtn;
-    DCC_NAMESPACE::ComboxWidget *m_cmbCloseLid;
-    DCC_NAMESPACE::TitledSliderItem *m_autoLockScreen;
-    DCC_NAMESPACE::TitledSliderItem *m_computerSleepOnPower;
-    DCC_NAMESPACE::TitledSliderItem *m_monitorSleepOnPower;
+    QList<QPair<QString, int>> m_comboxOptions;
 };
 
 #endif // USEELECTRICMODULE_H

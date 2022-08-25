@@ -41,7 +41,6 @@ class UseBatteryModule : public DCC_NAMESPACE::PageModule
 public:
     explicit UseBatteryModule(PowerModel *model, PowerWorker *work, QObject *parent = nullptr);
     ~UseBatteryModule() override;
-    void setModel(PowerModel *model);
     void active() override;
     void deactive() override;
 
@@ -56,20 +55,10 @@ Q_SIGNALS:
     void requestSetLowPowerAutoSleepThreshold(const int dValue);      // 进入待机模式阈值
 
 public Q_SLOTS:
-    void setScreenBlackDelayOnBattery(const int delay);
-    void setSleepDelayOnBattery(const int delay);
-    void setAutoLockScreenOnBattery(const int delay);
-    void onLowPowerNotifyThreshold(const int value);
-    void onLowPowerAutoSleepThreshold(const int value);
 
 private:
-    void initMonitorSleep(DCC_NAMESPACE::TitledSliderItem *monitorSleepOnBattery);
-    void initComputerSleepOnBattery(DCC_NAMESPACE::TitledSliderItem *computerSleepOnBattery);
-    void initAutoLockScreen(DCC_NAMESPACE::TitledSliderItem *autoLockScreen);
-    void initCmbCloseLid(DCC_NAMESPACE::ComboxWidget *cmbCloseLid);
-    void initCmbPowerBtn(DCC_NAMESPACE::ComboxWidget *cmbPowerBtn);
-    void initLowBattery(DCC_NAMESPACE::SettingsGroup *lowBatteryGrp);
-    void initSldAutoSuspend(DCC_NAMESPACE::TitledSliderItem *sldAutoSuspend);
+    void initUI();
+    void updateComboxActionList();
 
     QString delayToLiteralString(const int delay) const;
     void setComboBox(DCC_NAMESPACE::ComboxWidget *combox, QList<QPair<QString, int>>::iterator first, QList<QPair<QString, int>>::iterator last);
@@ -78,18 +67,7 @@ private:
 private:
     PowerModel *m_model;
     PowerWorker *m_work;
-
     const QStringList m_annos;
-
-    DCC_NAMESPACE::TitledSliderItem *m_monitorSleepOnBattery;
-    DCC_NAMESPACE::TitledSliderItem *m_computerSleepOnBattery;
-    DCC_NAMESPACE::TitledSliderItem *m_autoLockScreen;
-    DCC_NAMESPACE::ComboxWidget *m_cmbCloseLid; // 合盖
-    DCC_NAMESPACE::ComboxWidget *m_cmbPowerBtn; // 电源按钮
-    DCC_NAMESPACE::SwitchWidget *m_swBatteryHint;
-    DCC_NAMESPACE::TitledSliderItem *m_sldLowBatteryHint;
-    DCC_NAMESPACE::TitledSliderItem *m_sldAutoSuspend;
-
     QList<QPair<QString, int>> m_Options;
 };
 #endif // USEBATTERYMODULE_H
