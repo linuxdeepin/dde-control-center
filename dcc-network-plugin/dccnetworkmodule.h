@@ -113,6 +113,7 @@ private:
     void initListConfig();
     bool hasModule(const PageType &type);
     bool supportAirplaneMode() const;
+    bool getAirplaneDconfig() const;
 
 private Q_SLOTS:
     void showWirelessEditPage(NetworkDeviceBase *dev, const QString &connUuid = QString(), const QString &apPath = QString());
