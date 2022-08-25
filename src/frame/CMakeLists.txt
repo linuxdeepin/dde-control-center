@@ -26,10 +26,6 @@ if (DEFINED ENABLE_MIEEE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mieee")
 endif()
 
-# Install settings
-if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-    set(CMAKE_INSTALL_PREFIX /usr)
-endif ()
 
 set(DEFINED_LIST
 DISABLE_OPACITY_ANIMATION
@@ -790,7 +786,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${WaylandClient_LIBRARIES}
 )
 # bin
-install(TARGETS ${BIN_NAME} DESTINATION bin)
+install(TARGETS ${BIN_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(TARGETS dccwidgets LIBRARY DESTINATION lib)
 
 # dconfig

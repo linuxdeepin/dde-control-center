@@ -9,6 +9,7 @@ include(CTest)
 add_compile_definitions(CVERSION="${CVERSION}")
 
 # Install settings
+include(GNUInstallDirs)
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
 endif ()
@@ -61,44 +62,43 @@ file(GLOB HEADERS "include/*")
 
 ## qm files
 file(GLOB QM_FILES "translations/*.qm")
-install(FILES ${QM_FILES} DESTINATION share/dde-control-center/translations)
+install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/dde-control-center/translations)
 
 #desktop
-install(FILES dde-control-center.desktop DESTINATION share/applications)
-install(FILES dde-control-center-wapper DESTINATION bin PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+install(FILES dde-control-center.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
+install(FILES dde-control-center-wapper DESTINATION ${CMAKE_INSTALL_BINDIR} PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
 
 #schemas
-install(FILES com.deepin.dde.control-center.gschema.xml DESTINATION share/glib-2.0/schemas)
-install(CODE "execute_process(COMMAND glib-compile-schemas ${CMAKE_INSTALL_PREFIX}/share/glib-2.0/schemas)")
+install(FILES com.deepin.dde.control-center.gschema.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/glib-2.0/schemas)
 
 #dde-grand-search-daemon plugins
 install(FILES com.deepin.dde-grand-search.dde-control-center-setting.conf DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}/dde-grand-search-daemon/plugins/searcher)
 
 #service
-install(FILES com.deepin.dde.ControlCenter.service DESTINATION share/dbus-1/services)
+install(FILES com.deepin.dde.ControlCenter.service DESTINATION ${CMAKE_INSTALL_DATADIR}/dbus-1/services)
 
 #docs
-install(FILES ${DOCS_FILES} DESTINATION share/dman/dde-control-center)
+install(FILES ${DOCS_FILES} DESTINATION ${CMAKE_INSTALL_DATADIR}/dman/dde-control-center)
 
 #datebases
-install(FILES data/timezone.db DESTINATION share/dde-control-center)
+install(FILES data/timezone.db DESTINATION ${CMAKE_INSTALL_DATADIR}/dde-control-center)
 
 # dict file
-install(FILES data/MainEnglishDictionary_ProbWL.txt DESTINATION share/dict)
+install(FILES data/MainEnglishDictionary_ProbWL.txt DESTINATION ${CMAKE_INSTALL_DATADIR}/dict)
 
 # conf file
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/files/dde-control-center.conf DESTINATION share/dde-control-center)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/files/dde-control-center.conf DESTINATION ${CMAKE_INSTALL_DATADIR}/dde-control-center)
 
 # polkit policy file
-install(FILES com.deepin.controlcenter.develop.policy DESTINATION share/polkit-1/actions)
+install(FILES com.deepin.controlcenter.develop.policy DESTINATION ${CMAKE_INSTALL_DATADIR}/polkit-1/actions)
 if (OS_DEEPIN_PROFESSIONAL)
     if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
-        install(FILES com.deepin.controlcenter.addomain.policy DESTINATION share/polkit-1/actions)
+        install(FILES com.deepin.controlcenter.addomain.policy DESTINATION ${CMAKE_INSTALL_DATADIR}/polkit-1/actions)
     endif()
 endif()
 
 # dev files
-set(INCLUDE_INSTALL_DIR include/dde-control-center)
+set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center)
 install(DIRECTORY ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
 
 include(CMakePackageConfigHelpers)
