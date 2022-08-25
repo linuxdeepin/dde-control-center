@@ -510,8 +510,14 @@ AccessPoints *WirelessDeviceInterRealize::activeAccessPoints() const
 }
 
 void WirelessDeviceInterRealize::disconnectNetwork()
-{
-    networkInter()->DisconnectDevice(QDBusObjectPath(path()));
+{    
+    // 使用DeactivateConnection而不是DisconnectDevice，是为了能在断开当前网络后仍能自动回连其他热点
+    WirelessConnection *wirelessConn = findConnectionByAccessPoint(activeAccessPoints());
+    if (!wirelessConn)
+        return;
+
+    const QString uuid = wirelessConn->connection()->uuid();
+    networkInter()->DeactivateConnection(uuid);
 }
 
 QList<WirelessConnection *> WirelessDeviceInterRealize::items() const

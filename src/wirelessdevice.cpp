@@ -72,6 +72,11 @@ bool WirelessDevice::hotspotEnabled() const
     return deviceRealize()->hotspotEnabled();
 }
 
+void WirelessDevice::disconnectNetwork()
+{
+    return deviceRealize()->disconnectNetwork();
+}
+
 void WirelessDevice::connectNetwork(const QString &ssid)
 {
     AccessPoints *apConnection = findAccessPoint(ssid);
