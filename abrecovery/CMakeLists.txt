@@ -25,10 +25,6 @@ if (DEFINED ENABLE_MIEEE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mieee")
 endif()
 
-# Install settings
-if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-    set(CMAKE_INSTALL_PREFIX /usr)
-endif ()
 
 set(SRCS
     main.cpp
@@ -64,5 +60,5 @@ target_link_libraries(${BIN_NAME} PRIVATE
 )
 
 # bin
-install(TARGETS ${BIN_NAME} DESTINATION /usr/bin)
-install(FILES ${FILES_NAME} DESTINATION /etc/xdg/autostart)
+install(TARGETS ${BIN_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(FILES ${FILES_NAME} DESTINATION ${CMAKE_INSTALL_SYSCONFDIR}/xdg/autostart)
