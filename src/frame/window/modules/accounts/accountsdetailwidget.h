@@ -145,7 +145,9 @@ private:
     QString m_groupName;
     dcc::accounts::User *m_curLoginUser;
     QLabel *m_bindStatusLabel;
-    dcc::widgets::NextPageWidget *m_groupsPage;
+    DListView *m_lvgroups;
+    QStandardItemModel *m_modelgroups;
+    DViewItemAction *m_groupsEditAction;
 };
 
 }   // namespace accounts

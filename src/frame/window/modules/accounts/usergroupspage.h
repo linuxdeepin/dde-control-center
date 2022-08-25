@@ -24,6 +24,7 @@
 #include "modules/accounts/user.h"
 #include "modules/accounts/usermodel.h"
 #include "accountswidget.h"
+#include "widgets/contentwidget.h"
 
 #include <QLabel>
 
@@ -32,11 +33,11 @@ DWIDGET_USE_NAMESPACE
 namespace DCC_NAMESPACE {
 namespace accounts {
 
-class UserGroupsPage : public QWidget
+class UserGroupsPage : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit UserGroupsPage(dcc::accounts::User *user, dcc::accounts::UserModel *userModel, QWidget *parent = nullptr);
+    explicit UserGroupsPage(dcc::accounts::User *user, dcc::accounts::UserModel *userModel, dcc::ContentWidget *parent = nullptr);
     ~UserGroupsPage();
 
 Q_SIGNALS:
