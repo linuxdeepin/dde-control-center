@@ -189,7 +189,7 @@ void ResetPasswordDialog::initWidget(const QString &userName)
             setWindowFlags(Qt::Popup | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint);
         } else {
             m_tipDialog.setWindowFlags(Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint);
-            setWindowFlags(Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint);
+            setWindowFlags(Qt::Tool | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint);
         }
     }
     m_tipDialog.installEventFilter(this);
