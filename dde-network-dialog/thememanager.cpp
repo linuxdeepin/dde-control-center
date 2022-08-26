@@ -19,6 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "thememanager.h"
+#include "utils.h"
+
 #include <DApplication>
 #include <DPlatformTheme>
 #include <DLineEdit>
@@ -132,17 +134,18 @@ void ThemeManager::appThemeTypeChanged(Dtk::Gui::DGuiApplicationHelper::ColorTyp
 
 QColor ThemeManager::backgroundColor()
 {
+    int alpha = Utils::isWaylandEnvironment() ? static_cast<int>(0.5 * 255) : static_cast<int>(0.03 * 255);
     switch (m_themeType) {
     case DarkType:
-        return QColor(0, 0, 0, static_cast<int>(0.03 * 255));
+        return QColor(0, 0, 0, alpha);
     case GreeterType:
     case LockType:
-        return QColor(235, 235, 235, static_cast<int>(0.05 * 255));
+        return QColor(235, 235, 235, alpha);
     default:
-        return QColor(255, 255, 255, static_cast<int>(0.03 * 255));
+        return QColor(255, 255, 255, alpha);
     }
     Q_UNREACHABLE();
-    return QColor(255, 255, 255, static_cast<int>(0.03 * 255));
+    return QColor(255, 255, 255, alpha);
 }
 
 QColor ThemeManager::lineColor()
