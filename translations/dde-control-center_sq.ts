@@ -6230,12 +6230,12 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <location filename="../src/frame/window/modules/update/systemupdateitem.cpp" line="115"/>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Shërbyes</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/systemupdateitem.cpp" line="115"/>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Desktop</translation>
     </message>
 </context>
 <context>
@@ -6335,12 +6335,12 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Shërbyes</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Desktop</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="213"/>
