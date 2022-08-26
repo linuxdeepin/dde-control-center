@@ -39,7 +39,6 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     , m_autoDownloadUpdateTips(new DTipLabel(tr("Switch it on to automatically download the updates in wireless or wired network"), this))
     , m_autoCheckSecureUpdateTips(new DTipLabel(tr("Switch it on to only update security vulnerabilities and compatibility issues"), this))
     , m_testingChannelTips(new DTipLabel(tr("Join the internal testing channel to get deepin latest updates")))
-    , m_testingChannelHeadingLabel(new QLabel(tr("Updates from Internal Testing Sources")))
     , m_testingChannelLinkLabel(new QLabel(""))
     , m_autoCleanCache(new SwitchWidget(this))
     , m_dconfig(nullptr)
@@ -68,6 +67,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     //~ contents_path /update/Update Settings
     //~ child_page Update Settings
     m_testingChannel = new SwitchWidget(tr("Join Internal Testing Channel"), this);
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    m_testingChannelHeadingLabel = new QLabel(tr("Updates from Internal Testing Sources"));
 
     initUi();
     initConnection();
