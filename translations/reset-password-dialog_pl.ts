@@ -263,7 +263,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="88"/>
         <source>Connecting to the Internet...</source>
-        <translation>Łączenie się z Internetem...</translation>
+        <translation>Łączenie z Internetem...</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="100"/>

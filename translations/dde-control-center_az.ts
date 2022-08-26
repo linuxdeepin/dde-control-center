@@ -6230,12 +6230,12 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <location filename="../src/frame/window/modules/update/systemupdateitem.cpp" line="115"/>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Sever</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/systemupdateitem.cpp" line="115"/>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>İş masası</translation>
     </message>
 </context>
 <context>
@@ -6335,12 +6335,12 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Sever</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>İş masası</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="213"/>
