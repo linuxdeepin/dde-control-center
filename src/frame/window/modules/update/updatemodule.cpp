@@ -280,6 +280,12 @@ void UpdateModule::initSearchData()
         m_frameProxy->setDetailVisible(module, updateSettings, tr("System"), func_is_visible("updateSystemUpdate"));
         m_frameProxy->setDetailVisible(module, updateSettings, tr("Security Updates Only"), func_is_visible("updateSecureUpdate"));
      };
+    // 如果内测渠道功能隐藏，同步隐藏搜索数据
+    connect(m_model, &UpdateModel::testingChannelStatusChanged, this, [ = ]{
+        auto visible = m_model->getTestingChannelStatus() != UpdateModel::TestingChannelStatus::Hidden;
+        m_frameProxy->setDetailVisible(module, updateSettings, tr("Updates from Internal Testing Sources"), visible);
+        m_frameProxy->updateSearchData(module);
+    });
 
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
         if ("" == gsetting || !gsettingsMap.contains(gsetting)) {
