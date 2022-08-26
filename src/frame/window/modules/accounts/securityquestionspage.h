@@ -51,7 +51,6 @@ private:
     bool isContentEmpty(DComboBox *edit);
     bool isContentEmpty(DLineEdit *edit);
     bool isSecurityQuestionsEmpty();
-    QString cryptUserPassword(const QString &password);
     bool isAllAnswersCharactersSizeRight();
     bool isAnswersCharactersSizeRight(DLineEdit *edit);
     void checkQuestionDuplicate(int id, int id1, int id2, QWidget* w);

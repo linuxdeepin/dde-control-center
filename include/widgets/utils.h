@@ -9,6 +9,10 @@
 #include <QLocale>
 #include <QFile>
 #include <QSettings>
+#include <QDebug>
+
+#include <crypt.h>
+#include <random>
 
 static const QStringList DCC_CONFIG_FILES {
     "/etc/deepin/dde-control-center.conf",
@@ -111,6 +115,46 @@ T valueByQSettings(const QStringList& configFiles,
     }
 
     return failback.value<T>();
+}
+
+/**
+ * @brief crypt函数是否支持SM3算法
+ * crypt使用固定的key和salt进行加密，把加密结果与已知的正确结果进行比对，相等则支持，反之不支持
+ * @return true 支持
+ * @return false 不支持
+ */
+inline bool supportSM3()
+{
+    char password[] = "Hello world!";
+    char salt[] = "$8$saltstring";
+    const QString cryptResult = "$8$saltstring$6RCuSuWbADZmLALkvsvtcYYzhrw3xxpuDcqwdPIWxTD";
+    return crypt(password, salt) == cryptResult;
+}
+
+inline QString cryptUserPassword(const QString &password)
+{
+    /*
+        NOTE(kirigaya): Password is a combination of salt and crypt function.
+        slat is begin with $6$, 16 byte of random values, at the end of $.
+        crypt function will return encrypted values.
+     */
+    const QString seedChars("./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+    char salt[] = "$6$................$";
+    if (supportSM3()) {
+        qInfo() << "SM3 is supported";
+        salt[1] = '8';
+    }
+
+    std::random_device r;
+    std::default_random_engine e1(r());
+    std::uniform_int_distribution<int> uniform_dist(0, seedChars.size() - 1); //seedChars.size()是64，生成随机数的范围应该写成[0, 63]。
+
+    // Random access to a character in a restricted list
+    for (int i = 0; i != 16; i++) {
+        salt[3 + i] = seedChars.at(uniform_dist(e1)).toLatin1();
+    }
+
+    return crypt(password.toUtf8().data(), salt);
 }
 
 #endif // UTILS_H

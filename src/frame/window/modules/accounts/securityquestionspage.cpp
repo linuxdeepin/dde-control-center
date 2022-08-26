@@ -4,6 +4,7 @@
 
 #include "securityquestionspage.h"
 #include "createaccountpage.h"
+#include "widgets/utils.h"
 
 #include <DMessageManager>
 #include <DAlertControl>
@@ -280,29 +281,6 @@ bool SecurityQuestionsPage::isSecurityQuestionsEmpty()
 {
     return isContentEmpty(m_questionCombobox1) || isContentEmpty(m_questionCombobox2) || isContentEmpty(m_questionCombobox3) ||
             isContentEmpty(m_answerEdit1) || isContentEmpty(m_answerEdit2) || isContentEmpty(m_answerEdit3);
-}
-
-QString SecurityQuestionsPage::cryptUserPassword(const QString &password)
-{
-    /*
-        NOTE(kirigaya): Password is a combination of salt and crypt function.
-        slat is begin with $6$, 16 byte of random values, at the end of $.
-        crypt function will return encrypted values.
-     */
-
-    const QString seedchars("./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
-    char salt[] = "$6$................$";
-
-    std::random_device r;
-    std::default_random_engine e1(r());
-    std::uniform_int_distribution<int> uniform_dist(0, seedchars.size() - 1); //seedchars.size()是64，生成随机数的范围应该写成[0, 63]。
-
-    // Random access to a character in a restricted list
-    for (int i = 0; i != 16; i++) {
-        salt[3 + i] = seedchars.at(uniform_dist(e1)).toLatin1();
-    }
-
-    return crypt(password.toUtf8().data(), salt);
 }
 
 bool SecurityQuestionsPage::isAnswersCharactersSizeRight(DLineEdit *edit)
