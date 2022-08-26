@@ -113,7 +113,6 @@ private Q_SLOTS:
 private:
     AccountsUser *userInter(const QString &userName) const;
     CreationResult *createAccountInternal(const User *user);
-    QString cryptUserPassword(const QString &password);
     BindCheckResult checkLocalBind(const QString &uosid, const QString &uuid);
     QList<int> securityQuestionsCheck();
 
