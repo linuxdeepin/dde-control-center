@@ -517,7 +517,12 @@ void UpdateSettings::onTestingChannelCheckChanged(const bool checked)
         dialog->addButton(tr("Leave"), false, DDialog::ButtonWarning);
         dialog->addButton(tr("Cancel"), true, DDialog::ButtonRecommend);
     });
-    Q_EMIT requestCheckCanExitTestingChannel();
+    // 检查有可能会很快完成，对话框一闪而过会给人一种操作出错的感觉
+    // 延迟一秒后再执行检查，可以让人有时间看到对话框，提升用户体验
+    QTimer::singleShot(1000, this,  [ this ] {
+        Q_EMIT requestCheckCanExitTestingChannel();
+    });
+
     connect(dialog, &DDialog::closed, this, [ = ]() {
         // clicked windows close button
         m_testingChannel->setChecked(true);
