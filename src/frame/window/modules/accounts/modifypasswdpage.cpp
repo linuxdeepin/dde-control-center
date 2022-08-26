@@ -44,6 +44,8 @@
 
 #include <unistd.h>
 
+#define DEEPIN_DEEPINID_DAEMON_PATH QStringLiteral("/usr/lib/deepin-deepinid-daemon/deepin-deepinid-daemon")
+
 using namespace dcc::accounts;
 using namespace dcc::widgets;
 DWIDGET_USE_NAMESPACE
@@ -92,7 +94,9 @@ void ModifyPasswdPage::initWidget()
         QLabel *oldPasswdLabel = new QLabel(tr("Current Password") + ":");
         m_forgetPasswordBtn->setVisible(true);
         DFontSizeManager::instance()->bind(m_forgetPasswordBtn, DFontSizeManager::T8);
-        m_forgetPasswordBtn->setVisible(!IsCommunitySystem && getuid() < 9999); // 如果当前账户是域账号,则屏蔽重置密码入口
+        // 如果当前账户是域账号或者没有deepin-deepinid-daemon这个文件,则屏蔽重置密码入口
+        bool isShow = !IsCommunitySystem && getuid() < 9999 && QFile::exists(DEEPIN_DEEPINID_DAEMON_PATH);
+        m_forgetPasswordBtn->setVisible(isShow);
         connect(m_forgetPasswordBtn, &QPushButton::clicked, this, &ModifyPasswdPage::onForgetPasswordBtnClicked);
         QHBoxLayout *hLayout = new QHBoxLayout;
         hLayout->addWidget(oldPasswdLabel);
