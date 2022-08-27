@@ -67,5 +67,11 @@ void MultiSelectListView::keyPressEvent(QKeyEvent *event)
     return DListView::keyPressEvent(event);
 }
 
+void MultiSelectListView::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() != Qt::LeftButton)
+        return;
+    return DListView::mousePressEvent(event);
+}
 }
 }
