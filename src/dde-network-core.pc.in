@@ -1,7 +1,7 @@
-prefix=/usr
+prefix=@CMAKE_INSTALL_PREFIX@
 exec_prefix=${prefix}
-libdir=${prefix}/lib/@HOST_MULTIARCH@
-includedir=${prefix}/include/libddenetworkcore
+libdir=@CMAKE_INSTALL_FULL_LIBDIR@
+includedir=@CMAKE_INSTALL_FULL_INCLUDEDIR@/libddenetworkcore
 
 Name: libddenetworkcore
 Description: networkcore interface
