@@ -80,6 +80,7 @@ private Q_SLOTS:
     void onGetActiveColorFinished(QDBusPendingCallWatcher *w);
     void onRefreshedChanged(const QString &type);
     void onToggleWM(const QString &wm);
+    void setMoveWindow(bool state);
     void onGetCurrentWMFinished(QDBusPendingCallWatcher *w);
     void setFontList(FontModel* model, const QString &type, const QString &list);
     void onCompositingAllowSwitch(bool value);

@@ -297,14 +297,33 @@ void PersonalizationWork::onRefreshedChanged(const QString &type)
 
 void PersonalizationWork::onToggleWM(const QString &wm)
 {
-    qDebug() << "onToggleWM: " << wm;
-    m_model->setIs3DWm(wm == "deepin wm");
+    bool is3D = wm == "deepin wm";
+    qDebug() << "onToggleWM: " << wm << is3D;
+    m_model->setIs3DWm(is3D);
+    setMoveWindow(is3D);
+}
+
+void PersonalizationWork::setMoveWindow(bool state)
+{
+    if (!m_effects) {
+        qWarning() << "The Interface of org::kde::kwin::Effects is nullptr.";
+        return;
+    }
+
+    if (!state || !m_model) {
+        return;
+    }
+    bool isMoveWindow = m_effects->isEffectLoaded(effectMoveWindowArg);
+    m_model->setIsMoveWindow(isMoveWindow);
+
+    //TODO: 关联打开移动窗口功能信号(kwin4_effect_translucency)，实时响应变化
 }
 
 void PersonalizationWork::onWindowWM(bool value)
 {
     qDebug() << "onWindowWM: " << value;
     m_model->setIs3DWm(value);
+    setMoveWindow(value);
 }
 
 void PersonalizationWork::onCompositingAllowSwitch(bool value)
