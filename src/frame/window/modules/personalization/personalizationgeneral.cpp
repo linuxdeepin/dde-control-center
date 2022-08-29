@@ -379,7 +379,7 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
             m_windowMovedSwitch->setChecked(checked);
             m_windowMovedSwitch->blockSignals(false);
         });
-        if (m_windowMovedSwitch && m_windowMovedSwitch->isChecked() != m_model->isMoveWindow()) {
+        if (m_windowMovedSwitch) {
             m_windowMovedSwitch->setChecked(m_model->isMoveWindow());
         }
 
@@ -467,6 +467,10 @@ void PersonalizationGeneral::updateWMSwitcher(bool checked)
 
     if (m_winRoundSlider) {
         m_winRoundSlider->setVisible(checked || m_isWayland);
+    }
+
+    if (m_windowMovedSwitch) {
+        m_windowMovedSwitch->setChecked(m_model->isMoveWindow());
     }
 
     Q_EMIT windowMovedVisibleChanged(checked);
