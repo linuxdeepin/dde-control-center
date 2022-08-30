@@ -44,8 +44,13 @@ Copyright: None
 License: CC0-1.0
 
 # License
-Files: src/frame/modules/systeminfo/gpl/*.txt src/frame/modules/systeminfo/license/*.txt
+Files: src/frame/modules/systeminfo/license/*.txt
 Copyright: UnionTech Software Technology Co., Ltd.
+License: LGPL-3.0-or-later
+
+# gpl
+Files: src/frame/modules/systeminfo/gpl/*.txt
+Copyright: Free Software Foundation, Inc.
 License: LGPL-3.0-or-later
 
 # Other files
