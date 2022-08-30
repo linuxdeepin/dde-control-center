@@ -392,6 +392,8 @@ void SoundWorker::onGsettingsChanged(const QString &key)
 
 void SoundWorker::getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher)
 {
+    m_model->setEnableSoundEffect(m_soundEffectInter->enabled());
+
     if (!watcher->isError()) {
         QDBusReply<QMap<QString, bool>> value = watcher->reply();
         auto map = value.value();
