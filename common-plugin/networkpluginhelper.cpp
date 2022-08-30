@@ -44,6 +44,7 @@
 #include <NetworkManagerQt/Manager>
 #include <NetworkManagerQt/ConnectionSettings>
 #include <NetworkManagerQt/Setting>
+#include <NetworkManagerQt/Settings>
 #include <NetworkManagerQt/WirelessSecuritySetting>
 #include <NetworkManagerQt/WirelessSetting>
 
@@ -242,6 +243,7 @@ void NetworkPluginHelper::onDeviceAdded(QList<NetworkDeviceBase *> devices)
             WirelessDevice *wirelessDevice = static_cast<WirelessDevice *>(device);
 
             connect(wirelessDevice, &WirelessDevice::networkAdded, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wirelessDevice, &WirelessDevice::networkAdded, this, &NetworkPluginHelper::onAccessPointsAdded);
             connect(wirelessDevice, &WirelessDevice::networkRemoved, this, &NetworkPluginHelper::onUpdatePlugView);
             connect(wirelessDevice, &WirelessDevice::enableChanged, this, &NetworkPluginHelper::onUpdatePlugView);
             connect(wirelessDevice, &WirelessDevice::connectionChanged, this, &NetworkPluginHelper::onUpdatePlugView);
@@ -459,4 +461,103 @@ void NetworkPluginHelper::onActiveConnectionChanged()
     }
 
     onUpdatePlugView();
+}
+
+bool NetworkPluginHelper::needSetPassword(AccessPoints *accessPoint) const
+{
+    // 如果当前热点不是隐藏热点，或者当前热点不是加密热点，则需要设置密码（因为这个函数只是处理隐藏且加密的热点）
+    if (!accessPoint->hidden() || !accessPoint->secured())
+        return false;
+
+    WirelessDevice *wirelessDevice = nullptr;
+    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
+    for (NetworkDeviceBase *device : devices) {
+        if (device->deviceType() == DeviceType::Wireless && device->path() == accessPoint->devicePath()) {
+            wirelessDevice = static_cast<WirelessDevice *>(device);
+            break;
+        }
+    }
+    // 如果连这个连接的设备都找不到，则无需设置密码
+    if (!wirelessDevice)
+        return false;
+
+    // 查找该热点对应的连接的UUID
+    QString uuid;
+    QList<WirelessConnection *> conns = wirelessDevice->items();
+    for (WirelessConnection *con : conns) {
+        if (con->accessPoints() != accessPoint)
+            continue;
+
+        uuid = con->connection()->uuid();
+        break;
+    }
+
+    // 如果没有找到对应的UUID连接，说明是新的连接，则此时需要设置密码
+    if (uuid.isEmpty())
+        return true;
+
+    // 查找该连接uuid对应的连接
+    NetworkManager::Connection::Ptr connection = NetworkManager::findConnectionByUuid(uuid);
+    if (connection.isNull())
+        return true;
+
+    // 查找该连接对应的密码配置信息
+    NetworkManager::ConnectionSettings::Ptr settings = connection->settings();
+    if (settings.isNull())
+        return true;
+
+    NetworkManager::WirelessSecuritySetting::Ptr securitySetting =
+            settings->setting(NetworkManager::Setting::SettingType::WirelessSecurity).staticCast<NetworkManager::WirelessSecuritySetting>();
+
+    NetworkManager::WirelessSecuritySetting::KeyMgmt keyMgmt = securitySetting->keyMgmt();
+    if (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone || keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown)
+        return true;
+
+    NetworkManager::Setting::SettingType sType = NetworkManager::Setting::SettingType::WirelessSecurity;
+    if (keyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaEap)
+        sType = NetworkManager::Setting::SettingType::Security8021x;
+
+    QDBusPendingReply<NMVariantMapMap> reply;
+    reply = connection->secrets(settings->setting(sType)->name());
+
+    reply.waitForFinished();
+    if (reply.isError() || !reply.isValid())
+        return true;
+
+    NMVariantMapMap sSecretsMapMap = reply.value();
+    QSharedPointer<NetworkManager::WirelessSecuritySetting> setting = settings->setting(sType).staticCast<NetworkManager::WirelessSecuritySetting>();
+    setting->secretsFromMap(sSecretsMapMap.value(setting->name()));
+
+    if (securitySetting.isNull())
+        return true;
+
+    QString psk;
+    switch (keyMgmt) {
+    case NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep:
+        psk = securitySetting->wepKey0();
+        break;
+    case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk:
+    default:
+        psk = securitySetting->psk();
+        break;
+    }
+
+    // 如果该密码存在，则无需调用设置密码信息
+    return psk.isEmpty();
+}
+
+void NetworkPluginHelper::handleAccessPointSecure(AccessPoints *accessPoint)
+{
+    if (needSetPassword(accessPoint))
+        m_networkDialog->setConnectWireless(accessPoint->devicePath(), accessPoint->ssid());
+}
+
+void NetworkPluginHelper::onAccessPointsAdded(QList<AccessPoints *> newAps)
+{
+    for (AccessPoints *newAp : newAps) {
+        connect(newAp, &AccessPoints::securedChanged, this, [ this, newAp ] {
+            handleAccessPointSecure(newAp);
+        });
+        handleAccessPointSecure(newAp);
+    }
 }

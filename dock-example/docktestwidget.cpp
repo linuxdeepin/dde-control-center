@@ -27,14 +27,20 @@ void DockTestWidget::initDock()
 
 bool DockTestWidget::eventFilter(QObject *object, QEvent *event)
 {
-    if (object == m_networkPlugin->itemWidget(NETWORK_KEY)) {
-        if (event->type() == QEvent::Enter) {
-            m_networkPlugin->itemTipsWidget(NETWORK_KEY)->show();
-            return true;
-        } else if (event->type() == QEvent::Leave) {
-            m_networkPlugin->itemTipsWidget(NETWORK_KEY)->hide();
-            return true;
-        }
+    if (object != m_networkPlugin->itemWidget(NETWORK_KEY))
+        return QWidget::eventFilter(object, event);
+
+    QWidget *tipWidget = m_networkPlugin->itemTipsWidget(NETWORK_KEY);
+    if (!tipWidget)
+        return QWidget::eventFilter(object, event);
+
+    if (event->type() == QEvent::Enter) {
+        tipWidget->show();
+        return true;
+    }
+    if (event->type() == QEvent::Leave) {
+        tipWidget->hide();
+        return true;
     }
 
     return QWidget::eventFilter(object, event);
@@ -44,8 +50,10 @@ void DockTestWidget::enterEvent(QEvent *event)
 {
     Q_UNUSED(event);
     QWidget *tip = m_networkPlugin->itemTipsWidget(NETWORK_KEY);
-    tip->setFixedSize(200, 300);
-    tip->show();
+    if (tip) {
+        tip->setFixedSize(200, 300);
+        tip->show();
+    }
 }
 
 void DockTestWidget::itemAdded(PluginsItemInterface * const itemInter, const QString &itemKey)

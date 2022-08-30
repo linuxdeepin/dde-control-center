@@ -209,10 +209,15 @@ AccessPoints::WlanType AccessPoints::type() const
 void AccessPoints::updateAccessPoints(const QJsonObject &json)
 {
     int nOldStrength = strength();
+    bool oldSecured = secured();
     m_json = json;
     int nStrength = strength();
     if (nOldStrength != -1 && nStrength != nOldStrength)
         Q_EMIT strengthChanged(nStrength);
+
+    bool newSecured = secured();
+    if (oldSecured != newSecured)
+        Q_EMIT securedChanged(newSecured);
 }
 
 void AccessPoints::updateConnectionStatus(ConnectionStatus status)

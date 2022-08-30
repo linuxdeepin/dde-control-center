@@ -114,6 +114,7 @@ public:
 Q_SIGNALS:
     void strengthChanged(const int) const;                          // 当前信号强度变化
     void connectionStatusChanged(ConnectionStatus);
+    void securedChanged(bool);
 
 protected:
     void updateAccessPoints(const QJsonObject &json);

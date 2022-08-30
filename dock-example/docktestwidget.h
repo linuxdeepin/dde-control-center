@@ -12,13 +12,13 @@ class DockTestWidget : public QWidget, public PluginProxyInterface
 
 public:
     explicit DockTestWidget(QWidget *parent = nullptr);
-    ~DockTestWidget();
+    ~DockTestWidget() override;
 
 private:
     void initDock();
 
-    bool eventFilter(QObject *object, QEvent *event);
-    void enterEvent(QEvent *event);
+    bool eventFilter(QObject *object, QEvent *event) override;
+    void enterEvent(QEvent *event) override;
 
 private:
     void itemAdded(PluginsItemInterface * const itemInter, const QString &itemKey) override;

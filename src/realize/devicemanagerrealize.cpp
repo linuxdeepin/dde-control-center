@@ -528,6 +528,7 @@ void DeviceManagerRealize::createWlans(QList<WirelessConnection *> &allConnectio
         AccessPoints *accessPoint = findAccessPoints(ap->ssid());
         if (!accessPoint) {
             accessPoint = new AccessPoints(json);
+            accessPoint->m_devicePath = path();
             newAps << accessPoint;
         } else {
             accessPoint->updateAccessPoints(json);

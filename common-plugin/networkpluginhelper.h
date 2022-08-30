@@ -36,6 +36,7 @@ namespace dde {
 namespace network {
 enum class DeviceType;
 class NetworkDeviceBase;
+class AccessPoints;
 } // namespace network
 } // namespace dde
 
@@ -77,14 +78,18 @@ private:
     bool deviceEnabled(const DeviceType &deviceType) const;
     void setDeviceEnabled(const DeviceType &deviceType, bool enabeld);
     bool wirelessIsActive() const;
+    void handleAccessPointSecure(AccessPoints *accessPoint);
 
     int deviceCount(const DeviceType &devType) const;
     QList<QPair<QString, QStringList>> ipTipsMessage(const DeviceType &devType);
+    bool needSetPassword(AccessPoints *accessPoint) const;
 
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
     void onUpdatePlugView();
     void onActiveConnectionChanged();
+
+    void onAccessPointsAdded(QList<AccessPoints *> newAps);
 
 private:
     PluginState m_pluginState;
