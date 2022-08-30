@@ -3,9 +3,9 @@ Upstream-Name: dde-control-center
 Upstream-Contact: UnionTech Software Technology Co., Ltd. <>
 Source: https://github.com/linuxdeepin/dde-control-center
 
-# README
-Files: README.md README.zh_CN.md CHANGELOG.md
-Copyright: None
+# README & DOC
+Files: README.md README.zh_CN.md CHANGELOG.md docs/* 
+Copyright: UnionTech Software Technology Co., Ltd.
 License: CC-BY-4.0
 
 # translation
@@ -62,11 +62,6 @@ License: LGPL-3.0-or-later
 Files: src/frame/window/modules/keyboard/wayland-xwayland-keyboard-grab-v1-client-protocol.h src/frame/window/modules/keyboard/wayland-xwayland-keyboard-grab-v1-protocol.c
 Copyright: Red Hat Inc.
 License: MIT
-
-# docs
-Files: docs/* 
-Copyright: UnionTech Software Technology Co., Ltd.
-License: CC0-1.0
 
 # ci
 Files: .github/* .gitlab-ci.yml
