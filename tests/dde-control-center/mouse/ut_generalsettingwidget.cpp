@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+
 #include "../src/frame/window/modules/mouse/generalsettingwidget.h"
 #include "../src/frame/modules/mouse/mousemodel.h"
 #include "../src/frame/modules/mouse/widget/doutestwidget.h"

@@ -1,4 +1,6 @@
-
+// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
 #define private public
 #include "../src/frame/window/modules/systeminfo/nativeinfowidget.h"
 #include "../src/frame/modules/systeminfo/systeminfomodel.h"
@@ -16,7 +18,7 @@ using namespace dcc::systeminfo;
 
 DWIDGET_USE_NAMESPACE
 
-class Test_NativeInfoWidget: public testing::Test
+class Test_NativeInfoWidget : public testing::Test
 {
 public:
     virtual void SetUp() override;
@@ -37,7 +39,7 @@ void Test_NativeInfoWidget::SetUp()
     m_model->setHostName("swq-pc322");
     m_model->setKernel("4.19.0-amd64-desktop");
     m_model->setLicenseState(dcc::systeminfo::Authorized);
-    m_model->setMemory(16,15.6);
+    m_model->setMemory(16, 15.6);
     m_model->setProcessor("Intel(R) Core(TM) i7-10700 CPU @ 2.90GHz333");
     m_model->setProductName("统信桌面操作系统");
     m_model->setThemeEnabled(false);
@@ -63,7 +65,7 @@ TEST_F(Test_NativeInfoWidget, full)
     m_widget->m_authorized->clicked();
     EXPECT_EQ(spy1.count(), 1);
 
-    DTK_WIDGET_NAMESPACE::DToolButton* btn = m_widget->m_hostNameBtn;
+    DTK_WIDGET_NAMESPACE::DToolButton *btn = m_widget->m_hostNameBtn;
     QSignalSpy spy2(btn, SIGNAL(clicked()));
     btn->clicked(true);
     EXPECT_EQ(spy2.count(), 1);
@@ -72,7 +74,8 @@ TEST_F(Test_NativeInfoWidget, full)
     m_widget->showNormal();
 }
 
-TEST_F(Test_NativeInfoWidget, Slots){
+TEST_F(Test_NativeInfoWidget, Slots)
+{
 
     QString text;
 
@@ -99,10 +102,10 @@ TEST_F(Test_NativeInfoWidget, Slots){
     m_widget->setEdition("test");
     text = m_widget->m_version->value();
     EXPECT_EQ(text, "test");
-
 }
 
-TEST_F(Test_NativeInfoWidget, SystemInfoModel){
+TEST_F(Test_NativeInfoWidget, SystemInfoModel)
+{
 
     m_model->hostNameChanged("test");
     QString text = m_widget->m_hostNameLabel->text();
@@ -110,12 +113,12 @@ TEST_F(Test_NativeInfoWidget, SystemInfoModel){
 
     m_model->setHostNameError("test");
     EXPECT_EQ(m_widget->m_alertMessage, "test");
-
 }
 
-TEST_F(Test_NativeInfoWidget, m_hostNameLineEdit){
+TEST_F(Test_NativeInfoWidget, m_hostNameLineEdit)
+{
 
-    HostNameEdit* edit = m_widget->m_hostNameLineEdit;
+    HostNameEdit *edit = m_widget->m_hostNameLineEdit;
     QSignalSpy spy1(edit, SIGNAL(textEdited(const QString &)));
     edit->textEdited("testsss");
     EXPECT_EQ(spy1.count(), 1);
@@ -138,26 +141,27 @@ TEST_F(Test_NativeInfoWidget, m_hostNameLineEdit){
     EXPECT_EQ(spy4.count(), 1);
 
     m_widget->m_hostNameLineEdit->setText("test");
-    QString text =  m_widget->m_hostNameLineEdit->text();
+    QString text = m_widget->m_hostNameLineEdit->text();
     EXPECT_EQ(text, "test");
-
 }
 
-TEST_F(Test_NativeInfoWidget, Method){
+TEST_F(Test_NativeInfoWidget, Method)
+{
 
-    QString copyrightVale =  m_widget->systemCopyright();
+    QString copyrightVale = m_widget->systemCopyright();
     EXPECT_FALSE(copyrightVale.isEmpty());
 
     QString systemLogo = m_widget->systemLogo();
     EXPECT_EQ(systemLogo, ":/systeminfo/themes/dark/icons/logo.png");
 }
 
-TEST_F(Test_NativeInfoWidget, LicenseState){
+TEST_F(Test_NativeInfoWidget, LicenseState)
+{
 
     QString text;
 
     m_widget->setLicenseState(dcc::systeminfo::Authorized);
-    text =  m_widget->m_authorized->m_value->text();
+    text = m_widget->m_authorized->m_value->text();
     EXPECT_EQ(text, QObject::tr("Activated"));
 
     m_widget->setLicenseState(dcc::systeminfo::Unauthorized);
@@ -176,4 +180,3 @@ TEST_F(Test_NativeInfoWidget, LicenseState){
     text = m_widget->m_authorized->m_value->text();
     EXPECT_EQ(text, QObject::tr("Trial expired"));
 }
-

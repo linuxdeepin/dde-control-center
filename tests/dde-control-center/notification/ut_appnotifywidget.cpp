@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+
 #include "../src/frame/window/modules/notification/appnotifywidget.h"
 #include "../src/frame/window/modules/notification/notificationitem.h"
 #include "../src/frame/modules/notification/notificationworker.h"
