@@ -19,27 +19,27 @@ Copyright: None
 License: CC0-1.0
 
 # css
-Files: *.css
+Files: src/*.css
 Copyright: None
 License: CC0-1.0
 
 # qss
-Files: *.qss
+Files: src/*.qss
 Copyright: UnionTech Software Technology Co., Ltd.
 License: LGPL-3.0-or-later
 
 # qrc
-Files: *.qrc
+Files: src/*.qrc
 Copyright: None
 License: CC0-1.0
 
 # png svg
-Files: *.png *.svg
+Files: src/*.png src/*.svg
 Copyright: UnionTech Software Technology Co., Ltd.
 License: LGPL-3.0-or-later
 
 # sh
-Files: *.sh
+Files: gen_report.sh lupdate.sh translate_desktop2ts.sh translate_generation.sh translate_ts2desktop.sh tools/update_ts.sh tests/test-recoverage-qmake.sh
 Copyright: None
 License: CC0-1.0
 
@@ -61,7 +61,7 @@ License: MIT
 # docs
 Files: docs/* 
 Copyright: UnionTech Software Technology Co., Ltd.
-License: LGPL-3.0-or-later
+License: CC0-1.0
 
 # ci
 Files: .github/* .gitlab-ci.yml
@@ -74,21 +74,11 @@ Copyright: None
 License: CC0-1.0
 
 # xml toml json conf yaml
-Files: *.xml *.toml *.json *conf *.yaml
+Files: src/*.xml .clog.toml configs/*.json src/*conf src/*.yaml com.deepin.dde-grand-search.dde-control-center-setting.conf .tx/config com.deepin.dde.control-center.gschema.xml files/dde-control-center.conf.in
 Copyright: None
 License: CC0-1.0
 
-# rpm
-Files: rpm/*
-Copyright: None
-License: CC0-1.0
-
-# debian
-Files: debian/*
-Copyright: None
-License: CC0-1.0
-
-# Arch
-Files: archlinux/*
+# Packaging configuration
+Files: rpm/* debian/* archlinux/*
 Copyright: None
 License: CC0-1.0
