@@ -4,7 +4,7 @@ Upstream-Contact: UnionTech Software Technology Co., Ltd. <>
 Source: https://github.com/linuxdeepin/dde-control-center
 
 # README
-Files: README.md CHANGELOG.md
+Files: README.md README.zh_CN.md CHANGELOG.md
 Copyright: None
 License: CC-BY-4.0
 
