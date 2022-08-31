@@ -34,7 +34,7 @@
 DCC_USE_NAMESPACE
 
 PrivacyModule::PrivacyModule(QObject *parent)
-    : VListModule("Privacy and Security", tr("Privacy and Security"), tr("Privacy and Security"), QIcon::fromTheme("dcc_nav_privacy"),parent)
+    : VListModule("privacyAndSecurity", tr("Privacy and Security"), tr("Privacy and Security"), QIcon::fromTheme("dcc_nav_privacy"),parent)
     , m_model(new PrivacySecurityModel(this))
     , m_work(new PrivacySecurityWorker(m_model, this))
 {
