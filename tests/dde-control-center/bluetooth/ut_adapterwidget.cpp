@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+
 #include "../src/frame/window/modules/bluetooth/bluetoothwidget.h"
 #include "../src/frame/window/modules/bluetooth/adapterwidget.h"
 #include "../src/frame/window/modules/bluetooth/titleedit.h"

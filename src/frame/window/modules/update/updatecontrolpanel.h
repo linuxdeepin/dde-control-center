@@ -1,6 +1,6 @@
+// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
 //
-// Created by swq on 2021/9/7.
-//
+// SPDX-License-Identifier: LGPL-3.0-or-later
 
 #ifndef UPDATECONTROLPANEL_H
 #define UPDATECONTROLPANEL_H

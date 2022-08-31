@@ -2,45 +2,10 @@
 
 DDE Control Center is the control panel of Deepin Desktop Environment.
 ## Dependencies
+You can also check the "Depends" provided in the debian/control file.
 
 ### Build dependencies
-* pkg-config
-* cmake
-* Qt5(>= 5.6) with modules:
-  - qt5-default
-  - qt5declarative5-dev
-  - qt5svg5-dev
-  - qttools5-dev-tools
-  - qtdeclarative5-dev
-* Deepin-tool-kit(>=2.0) with modules:
-  - dtkcore-dev
-  - dtkwidget-dev
-  - dtkcore-bin
-* geoip-dev
-* dde-qt-dbus-factory
-* gsettings-qt-dev
-* kf5networkmanagerqt-dev
-* xrandr-dev
-* mtdev-dev
-* fontconfig1-dev
-* freetype6-dev
-* egl1-mesa-dev
-* xcb-ewmh-dev
-
-### Runtime dependencies
-
-* [deepin-tool-kit](https://github.com/linuxdeepin/deepin-tool-kit)
-* [dde-api](https://github.com/linuxdeepin/dde-api)
-* [dde-daemon](https://github.com/linuxdeepin/dde-daemon)
-* [startdde](https://github.com/linuxdeepin/startdde)
-* [dde-qt-dbus-factory](https://github.com/linuxdeepin/dde-qt-dbus-factory)
-* [qt5integration](https://github.com/linuxdeepin/qt5integration)
-* geoip-database
-* Qt5(>= 5.6)
-  * Qt5-DBus
-  * Qt5-Multimedia
-  * Qt5-MultimediaWidgets
-  * Qt5-Svg
+You can also check the "Build-Depends" provided in the debian/control file.
 
 ## Installation
 
@@ -78,6 +43,7 @@ You may also find these channels useful if you encounter any other issues:
 * [IRC Channel](https://webchat.freenode.net/?channels=deepin)
 * [Official Forum](https://bbs.deepin.org/)
 * [Wiki](https://wiki.deepin.org/)
+* [Developer Center](https://github.com/linuxdeepin/dde-session-shell) 
 
 ## Getting involved
 
@@ -88,4 +54,4 @@ We encourage you to report issues and contribute changes
 
 ## License
 
-DDE Control Center is licensed under [GPLv3](LICENSE).
+DDE Control Center is licensed under [LGPL-3.0-or-later](LICENSE).
