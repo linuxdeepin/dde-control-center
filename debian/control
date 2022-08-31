@@ -62,7 +62,6 @@ Depends: ${shlibs:Depends},
 Recommends:
  netselect,
  deepin-ab-recovery,
- deepin-user-experience-daemon,
  deepin-recovery-plugin,
  dcc-network-plugin,
  dcc-deepinid-plugin
@@ -74,13 +73,13 @@ Replaces:
  dde-control-center-plugin-weather,
  dde-control-center-plugin-notify
 Description: New control center for Deepin Desktop Environment,
- Integrated control center with rich functions,Besides providing rich 
- system setting items, the function level is simple, the logic is clear, 
+ Integrated control center with rich functions,Besides providing rich
+ system setting items, the function level is simple, the logic is clear,
  the user can easily set the system, and the learning cost is low,
- Provide users with automatic update system and developer mode to meet 
+ Provide users with automatic update system and developer mode to meet
  the various needs of users for the operating system.
  abrecovery -restore system, Determine whether the system is restored
- reboot-reminder-dialog -Update restart, Confirm whether to restart the system 
+ reboot-reminder-dialog -Update restart, Confirm whether to restart the system
  after the completion of the update.
  DDE Control Center is the control panel of Deepin Desktop Environment.
 
