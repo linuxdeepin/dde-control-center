@@ -83,8 +83,10 @@ public:
     void erase(ModuleType moduleType, const QString &configName, QWidget *binder);
     void insertState(ModuleType moduleType, const QString &);
     const QString getStatus(ModuleType moduleType, const QString &configName);
+    const QVariant getValue(ModuleType moduleType, const QString &configName);
     DConfig *getModulesConfig(ModuleType moduleType);
     QMap<ModuleKey *, bool> getMenuState();
+    void setValue(ModuleType moduleType, const QString &configName, QVariant data);
 
 private:
     DConfigWatcher(QObject *parent = nullptr);

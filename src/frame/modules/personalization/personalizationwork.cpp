@@ -18,7 +18,8 @@ using namespace dcc::personalization;
 
 const QString Service = "com.deepin.daemon.Appearance";
 const QString Path    = "/com/deepin/daemon/Appearance";
-const QString effectMoveWindowArg = "kwin4_effect_translucency";
+const QString EffectMoveWindowArg = "kwin4_effect_translucency";
+const QString StrIsOpenWM = "deepin wm";
 
 static const std::vector<int> OPACITY_SLIDER {
     0,
@@ -94,6 +95,13 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
             }
         });
     };
+
+    if (m_wmSwitcher && m_wmSwitcher->CurrentWM() == StrIsOpenWM && m_effects) {
+        bool isMoveWindow = m_effects->isEffectLoaded(EffectMoveWindowArg);
+        qDebug() << Q_FUNC_INFO << isMoveWindow;
+        m_model->setIsMoveWindow(isMoveWindow);
+        m_model->setIsMoveWindowDconfig(isMoveWindow);
+    }
 
     m_themeModels["gtk"]           = windowTheme;
     m_themeModels["icon"]          = iconTheme;
@@ -183,18 +191,6 @@ void PersonalizationWork::refreshWMState()
 {
     QDBusPendingCallWatcher *wmWatcher = new QDBusPendingCallWatcher(m_wmSwitcher->CurrentWM(), this);
     connect(wmWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetCurrentWMFinished);
-
-    if (!m_effects) {
-        qWarning() << "The Interface of org::kde::kwin::Effects is nullptr.";
-        return;
-    }
-
-    bool isMoveWindow = m_effects->isEffectLoaded(effectMoveWindowArg);
-    qDebug() << Q_FUNC_INFO << isMoveWindow;
-    m_model->setIsMoveWindow(isMoveWindow);
-
-    //TODO: 关联打开移动窗口功能信号(kwin4_effect_translucency)，实时响应变化
-    //目前窗管无法提供该信号，待后续窗管提供信号后再处理
 }
 
 void PersonalizationWork::FontSizeChanged(const double value) const
@@ -276,10 +272,9 @@ void PersonalizationWork::onRefreshedChanged(const QString &type)
 
 void PersonalizationWork::onToggleWM(const QString &wm)
 {
-    bool is3D = wm == "deepin wm";
+    bool is3D = wm == StrIsOpenWM;
     qDebug() << "onToggleWM: " << wm << is3D;
     m_model->setIs3DWm(is3D);
-    setMoveWindow(is3D);
 }
 
 void PersonalizationWork::setMoveWindow(bool state)
@@ -289,13 +284,16 @@ void PersonalizationWork::setMoveWindow(bool state)
         return;
     }
 
-    if (!state || !m_model) {
+    if (!m_model) {
         return;
     }
-    bool isMoveWindow = m_effects->isEffectLoaded(effectMoveWindowArg);
-    m_model->setIsMoveWindow(isMoveWindow);
 
-    //TODO: 关联打开移动窗口功能信号(kwin4_effect_translucency)，实时响应变化
+    if (state) {
+        m_model->setIsMoveWindow(m_model->getIsMoveWindowDconfig());
+    } else {
+        m_model->setIsMoveWindowDconfig(m_model->isMoveWindow());
+        m_model->setIsMoveWindow(false);
+    }
 }
 
 void PersonalizationWork::onWindowWM(bool value)
@@ -554,12 +552,14 @@ void PersonalizationWork::movedWindowSwitchWM(bool value)
     }
 
     if (value) {
-        bool isload = m_effects->loadEffect(effectMoveWindowArg);
+        bool isload = m_effects->loadEffect(EffectMoveWindowArg);
         qDebug() << Q_FUNC_INFO << " The effect of  kwin4_effect_translucency is : " << isload;
         m_model->setIsMoveWindow(isload);
+        m_model->setIsMoveWindowDconfig(isload);
     } else {
-        m_effects->unloadEffect(effectMoveWindowArg);
+        m_effects->unloadEffect(EffectMoveWindowArg);
         m_model->setIsMoveWindow(false);
+        m_model->setIsMoveWindowDconfig(false);
     }
 }
 

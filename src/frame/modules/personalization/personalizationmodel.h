@@ -33,6 +33,8 @@ public:
 
     void setIsMoveWindow(const bool isMoveWindow);
     bool isMoveWindow() const;
+    bool getIsMoveWindowDconfig();
+    void setIsMoveWindowDconfig(bool value);
 
     void setWindowRadius(int radius);
     int windowRadius();

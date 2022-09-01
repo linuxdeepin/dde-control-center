@@ -6,6 +6,7 @@
 #include "model/thememodel.h"
 #include "model/fontmodel.h"
 #include "model/fontsizemodel.h"
+#include "window/dconfigwatcher.h"
 
 using namespace dcc;
 using namespace dcc::personalization;
@@ -55,6 +56,16 @@ void PersonalizationModel::setIsMoveWindow(const bool isMoveWindow)
 bool PersonalizationModel::isMoveWindow() const
 {
     return m_isMoveWindow;
+}
+
+bool PersonalizationModel::getIsMoveWindowDconfig()
+{
+    return DConfigWatcher::instance()->getValue(DConfigWatcher::ModuleType::personalization, "effectMoveWindowTranslucencyStatus").toBool();
+}
+
+void PersonalizationModel::setIsMoveWindowDconfig(bool value)
+{
+    DConfigWatcher::instance()->setValue(DConfigWatcher::ModuleType::personalization, "effectMoveWindowTranslucencyStatus", QVariant(value));
 }
 
 void PersonalizationModel::setWindowRadius(int radius)

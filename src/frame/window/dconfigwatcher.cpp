@@ -4,8 +4,6 @@
 
 #include "dconfigwatcher.h"
 
-#include <DConfig>
-
 #include <QListView>
 #include <QStandardItem>
 #include <QStandardItemModel>
@@ -220,12 +218,42 @@ const QString DConfigWatcher::getStatus(ModuleType moduleType, const QString &co
 }
 
 /**
+ * @brief DConfigWatcher::getValue   获取三级控件状态
+ * @param moduleType                 模块类型
+ * @param configName                 key值
+ * @return
+ */
+const QVariant DConfigWatcher::getValue(DConfigWatcher::ModuleType moduleType, const QString &configName)
+{
+    QString moduleName;
+    if (!existKey(moduleType, configName, moduleName))
+        return QVariant();
+    return m_mapModulesConfig[QMetaEnum::fromType<ModuleType>().valueToKey(moduleType)]->value(configName);
+}
+
+/**
  * @brief DConfigWatcher::getMenuState
  * @return second menu state
  */
 QMap<DConfigWatcher::ModuleKey *, bool> DConfigWatcher::getMenuState()
 {
     return m_menuState;
+}
+
+/**
+ * @brief DConfigWatcher::setValue   获取三级控件状态
+ * @param moduleType                 模块类型
+ * @param configName                 key值
+ * @param data                       设置的值
+ * @return
+ */
+void DConfigWatcher::setValue(DConfigWatcher::ModuleType moduleType, const QString &configName, QVariant data)
+{
+    QString moduleName;
+    if (!existKey(moduleType, configName, moduleName)) {
+        return;
+    }
+    m_mapModulesConfig[QMetaEnum::fromType<ModuleType>().valueToKey(moduleType)]->setValue(configName, data);
 }
 
 /**
