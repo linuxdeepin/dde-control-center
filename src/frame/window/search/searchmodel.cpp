@@ -268,6 +268,9 @@ void SearchModel::loadxml(const QString module)
                 appendRow(new QStandardItem(
                     icon.value(), QString("%1 --> %2 / %3").arg(searchBoxStrcut->actualModuleName).arg(searchBoxStrcut->childPageName).arg(searchBoxStrcut->translateContent)));
             }
+
+            // 设置图标数据
+            setData(index(rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
         }
         else {
             appendChineseData(searchBoxStrcut);
