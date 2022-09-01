@@ -12,6 +12,17 @@
             "description": "",
             "permissions": "readwrite",
             "visibility": "private"
+        },
+        "effectMoveWindowTranslucencyStatus": {
+            "value": false,
+            "serial": 0,
+            "flags": [],
+            "name": "effectMoveWindowTranslucencyStatus",
+            "name[zh_CN]": "移动窗口展示透明特效开关的状态",
+            "description[zh_CN]": "移动窗口展示透明特效开关的状态",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
         }
     }
   }
