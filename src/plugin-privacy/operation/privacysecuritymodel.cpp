@@ -93,4 +93,12 @@ ServiceControlItems *PrivacySecurityModel::getServiceItem(ServiceCategory catego
     return nullptr;
 }
 
+void PrivacySecurityModel::clearServiceItemDate()
+{
+    for (ServiceControlItems *item : m_groupService) {
+        item->clearServiceApps();
+    }
+}
+
+
 

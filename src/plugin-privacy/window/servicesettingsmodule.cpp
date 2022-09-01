@@ -81,15 +81,15 @@ void ServiceSettingsModule::initSwitchWidget(DCC_NAMESPACE::SwitchWidget *titleS
     titleSwitch->switchButton()->setVisible(m_serviceItemDate->getServiceAvailable());
 }
 
-void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
+void ServiceSettingsModule::initListView(Dtk::Widget::DListView *settingsGrp)
 {
     QStandardItemModel *pluginAppsModel = new QStandardItemModel;
-    creatPluginAppsView(timeGrp);
-    timeGrp->setModel(pluginAppsModel);
+    creatPluginAppsView(settingsGrp);
+    settingsGrp->setModel(pluginAppsModel);
 
     qDebug() << " Get Apps size: " << m_model->getServiceItem(m_currentServiceDate.category)->getServiceApps().size();
 
-    auto updateItemCheckStatus = [pluginAppsModel, timeGrp](const QString& name, const QString& visible) {
+    auto updateItemCheckStatus = [pluginAppsModel, settingsGrp](const QString& name, const QString& visible) {
         qDebug() << " == pluginAppsModel->rowCount()" << pluginAppsModel->rowCount();
         for (int i = 0; i < pluginAppsModel->rowCount(); ++i) {
             auto item = static_cast<DStandardItem *>(pluginAppsModel->item(i));
@@ -98,14 +98,14 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
 
             auto action = item->actionList(Qt::Edge::RightEdge).first();
             auto checkstatus = (visible == "1" ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked);
-            auto icon = qobject_cast<DStyle *>(timeGrp->style())->standardIcon(checkstatus);
+            auto icon = qobject_cast<DStyle *>(settingsGrp->style())->standardIcon(checkstatus);
             action->setIcon(icon);
-            timeGrp->update(item->index());
+            settingsGrp->update(item->index());
             break;
         }
     };
 
-    auto refreshItemDate = [this , pluginAppsModel, timeGrp, updateItemCheckStatus] () {
+    auto refreshItemDate = [this , pluginAppsModel, settingsGrp, updateItemCheckStatus] () {
         pluginAppsModel->clear();
         for (auto App : m_model->getServiceItem(m_currentServiceDate.category)->getServiceApps()) {
             DStandardItem *item = new DStandardItem(App.m_name);
@@ -121,7 +121,7 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
             // 0 true  1 false
             bool visible = App.m_enable == "0";
             auto checkstatus = visible ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
-            auto checkIcon = qobject_cast<DStyle *>(timeGrp->style())->standardIcon(checkstatus);
+            auto checkIcon = qobject_cast<DStyle *>(settingsGrp->style())->standardIcon(checkstatus);
             rightAction->setIcon(checkIcon);
             item->setActionList(Qt::Edge::RightEdge, {rightAction});
             pluginAppsModel->appendRow(item);
@@ -136,12 +136,15 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *timeGrp)
         m_appsListView->setHiden(!m_serviceItemDate->getServiceAvailable());
     };
 
-    connect(m_serviceItemDate, &ServiceControlItems::serviceSwitchStateChange, timeGrp, &DListView::setEnabled);
-    connect(m_serviceItemDate, &ServiceControlItems::permissionInfoChange, timeGrp, [updateItemCheckStatus](const QString& name, const QString& visible){
+    connect(m_serviceItemDate, &ServiceControlItems::serviceSwitchStateChange, settingsGrp, &DListView::setEnabled);
+    connect(m_serviceItemDate, &ServiceControlItems::permissionInfoChange, settingsGrp, [updateItemCheckStatus](const QString& name, const QString& visible){
         updateItemCheckStatus(name, visible);
     });
-    connect(m_serviceItemDate, &ServiceControlItems::serviceAvailableStateChange, timeGrp, &DListView::setVisible);
-    connect(m_serviceItemDate, &ServiceControlItems::serviceAppsDateChange, timeGrp, [refreshItemDate](){
+    connect(m_serviceItemDate, &ServiceControlItems::serviceAvailableStateChange, settingsGrp, [settingsGrp,refreshItemDate](const bool visible){
+        settingsGrp->setVisible(visible);
+        refreshItemDate();
+    });
+    connect(m_serviceItemDate, &ServiceControlItems::serviceAppsDateChange, settingsGrp, [refreshItemDate](){
          refreshItemDate();
     });
 

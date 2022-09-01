@@ -53,6 +53,13 @@ QList<App> ServiceControlItems::getServiceApps()
     return m_appList;
 }
 
+void ServiceControlItems::clearServiceApps()
+{
+    m_appList.clear();
+    setServiceAvailable(false);
+    Q_EMIT serviceAppsDateChange();
+}
+
 void ServiceControlItems::setPermissionInfo(const QString &name, const QString &visible)
 {
     Q_EMIT permissionInfoChange(name, visible);

@@ -66,6 +66,8 @@ void PrivacySecurityWorker::permissionInfoLoadFinished(const QString &perInfo)
     QJsonArray groupDate = doc.array();
 
     if (groupDate.isEmpty()) {
+        // 若为空 清空所有数据
+        m_model->clearServiceItemDate();
         return;
     }
 

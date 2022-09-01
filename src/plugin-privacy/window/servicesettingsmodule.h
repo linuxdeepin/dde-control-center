@@ -30,8 +30,8 @@ public:
     ~ServiceSettingsModule();
 
     void initTopTipsLabel(QLabel *tipsLabel);
-    void initSwitchWidget(DCC_NAMESPACE::SwitchWidget *timeGrp);
-    void initListView(DTK_WIDGET_NAMESPACE::DListView *timeGrp);
+    void initSwitchWidget(DCC_NAMESPACE::SwitchWidget *titleSwitch);
+    void initListView(DTK_WIDGET_NAMESPACE::DListView *settingsGrp);
     void initNoServiceLabel(QWidget *noServiceLabel);
     void creatPluginAppsView(Dtk::Widget::DListView *appsListView);
 

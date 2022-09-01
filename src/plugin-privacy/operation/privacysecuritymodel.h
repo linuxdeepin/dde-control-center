@@ -70,6 +70,7 @@ public:
     ServiceControlItems* getServiceItem(DCC_PRIVACY_NAMESPACE::ServiceCategory category);
 
     bool findService();
+    void clearServiceItemDate();
 
 private:
     QMap<QString, DCC_PRIVACY_NAMESPACE::ServiceCategory> m_serviceToCategory;

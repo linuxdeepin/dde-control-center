@@ -43,6 +43,8 @@ public:
     void setServiceApps(const QList<App> &apps);
     QList<App> getServiceApps();
 
+    void clearServiceApps();
+
     DCC_PRIVACY_NAMESPACE::ServiceCategory currentCategory() { return m_currentCategory; }
 
     void setPermissionInfo(const QString& name, const QString& visible);
