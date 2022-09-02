@@ -63,6 +63,7 @@ void DeviceManagerRealize::initSigSlotConnection()
         if (!wirelessDevice.isNull()) {
             connect(wirelessDevice.get(), &NetworkManager::WirelessDevice::accessPointAppeared, this, &DeviceManagerRealize::onWirelessConnectionChanged);
             connect(wirelessDevice.get(), &NetworkManager::WirelessDevice::accessPointDisappeared, this, &DeviceManagerRealize::onWirelessConnectionChanged);
+            connect(wirelessDevice.get(), &NetworkManager::WirelessDevice::activeAccessPointChanged, this, &DeviceManagerRealize::onWirelessConnectionChanged);
             connect(wirelessDevice.get(), &NetworkManager::WirelessDevice::modeChanged, this, [ this ] {
                 bool oldEnabled = m_hotspotEnabled;
                 m_hotspotEnabled = getHotspotIsEnabled();
@@ -524,7 +525,7 @@ void DeviceManagerRealize::createWlans(QList<WirelessConnection *> &allConnectio
     NetworkManager::WirelessNetwork::List networks = wirelessDevice->networks();
     for (QSharedPointer<NetworkManager::WirelessNetwork> network : networks) {
         QSharedPointer<AccessPoint> ap = network->referenceAccessPoint();
-        const QJsonObject json = createWlanJson(network);
+        const QJsonObject json = createWlanJson(ap);
         AccessPoints *accessPoint = findAccessPoints(ap->ssid());
         if (!accessPoint) {
             accessPoint = new AccessPoints(json);
@@ -545,6 +546,20 @@ void DeviceManagerRealize::createWlans(QList<WirelessConnection *> &allConnectio
     }
     // 在信号发送之前同步accessPoints数据，因为在抛出信号后，外面可能通过获取内部所有的WLAN数据来更新内容，此时需要保证WLAN列表是最新的
     m_accessPoints = allAccessPoints;
+    // 确保激活的在列表中
+    AccessPoint::Ptr activeAp = wirelessDevice->activeAccessPoint();
+    if (!activeAp.isNull()) {
+        const QJsonObject json = createWlanJson(activeAp);
+        AccessPoints *accessPoint = findAccessPoints(activeAp->ssid());
+        if (!accessPoint) {
+            accessPoint = new AccessPoints(json);
+            newAps << accessPoint;
+            allAccessPoints << accessPoint;
+            m_accessPoints << accessPoint;
+        } else {
+            accessPoint->updateAccessPoints(json);
+        }
+    }
     syncWlanAndConnections(allConnections);
 
     // 删除不存在的Connections，也放在信号发送之前，原因和accessPoints一样
@@ -632,12 +647,11 @@ AccessPoints *DeviceManagerRealize::findAccessPoints(const QString &ssid)
     return Q_NULLPTR;
 }
 
-QJsonObject DeviceManagerRealize::createWlanJson(QSharedPointer<NetworkManager::WirelessNetwork> network)
+QJsonObject DeviceManagerRealize::createWlanJson(QSharedPointer<NetworkManager::AccessPoint> ap)
 {
-    QSharedPointer<AccessPoint> ap = network->referenceAccessPoint();
     QJsonObject jsonObject;
     jsonObject.insert("Ssid", ap->ssid());
-    jsonObject.insert("Strength", network->signalStrength());
+    jsonObject.insert("Strength", ap->signalStrength());
     bool secured = ap->capabilities() == AccessPoint::Capability::Privacy || ap->wpaFlags() != 0 || ap->rsnFlags() != 0;
     jsonObject.insert("Secured", secured);
     jsonObject.insert("SecuredInEap", secured);
@@ -707,12 +721,12 @@ ConnectionStatus DeviceManagerRealize::convertStatus(Device::State state)
 {
     switch (state) {
     case Device::State::Failed:
-    case Device::State::NeedAuth:
     case Device::State::Unmanaged:
     case Device::State::Unavailable:
     case Device::State::Disconnected:
         return ConnectionStatus::Deactivated;
     case Device::State::Preparing:
+    case Device::State::NeedAuth:
     case Device::State::CheckingIp:
     case Device::State::ConfiguringIp:
     case Device::State::ConfiguringHardware:
