@@ -94,7 +94,7 @@ CurrencyFormat::~CurrencyFormat()
 void CurrencyFormat::initComboxWidgetList()
 {
     QString currencySymbol = m_model->currencySymbol();
-    m_currencySymbolCbx->comboBox()->addItems(QStringList() << QString("￥") << QString("$") << QString("€"));
+    m_currencySymbolCbx->comboBox()->addItems(QStringList() << QString("¥") << QString("$") << QString("€"));
     m_positiveCurrencyFormatCbx->comboBox()->addItems(QStringList()
                                                       << QString("%1%2").arg(currencySymbol).arg("1.1")
                                                       << QString("%1%2").arg("1.1").arg(currencySymbol)
