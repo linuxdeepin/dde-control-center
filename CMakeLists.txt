@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.7)
 
 project(dde-network-core)
 
+set(VERSION "1.0.0" CACHE STRING "define project version")
+
 # 增加安全编译参数
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fstack-protector-all")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fstack-protector-all")
