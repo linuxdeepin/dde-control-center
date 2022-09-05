@@ -39,6 +39,7 @@ private:
     void initFingerUI();
     void initNotFingerDevice();
     QString getDisplayPath();
+    void closeFingerDisclaimer();
 
 Q_SIGNALS:
     void requestAddThumbs(const QString &name, const QString &thumb);
