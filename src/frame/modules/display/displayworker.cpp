@@ -199,7 +199,10 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 
 void DisplayWorker::setPrimary(const QString &name)
 {
-    m_displayInter.SetPrimary(name);
+    // 延时调用，避免卡在下拉框未收回时的一帧画面
+    QTimer::singleShot(150, this, [=] {
+        m_displayInter.SetPrimary(name);
+    });
 }
 
 void DisplayWorker::setMonitorEnable(Monitor *monitor, const bool enable)
