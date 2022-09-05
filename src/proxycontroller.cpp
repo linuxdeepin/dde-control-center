@@ -23,7 +23,6 @@
 
 const QString networkService = "com.deepin.daemon.Network";
 const QString networkPath    = "/com/deepin/daemon/Network/ProxyChains";
-const QString chains4Path    = "/usr/bin/proxychains4";
 
 using namespace dde::network;
 
@@ -51,7 +50,7 @@ ProxyController::ProxyController(NetworkInter *networkInter, QObject *parent)
     m_appProxyConfig.username = m_chainsInter->user();
     m_appProxyConfig.password = m_chainsInter->password();
     // 判断是否存在proxychains4来决定是否存在应用代理
-    m_appProxyExist = QFile().exists(chains4Path);
+    m_appProxyExist = !QStandardPaths::findExecutable("proxychains4").isEmpty();
 }
 
 ProxyController::~ProxyController()
