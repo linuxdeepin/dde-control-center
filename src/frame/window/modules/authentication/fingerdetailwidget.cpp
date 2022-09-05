@@ -105,6 +105,13 @@ QString FingerDetailWidget::getDisplayPath()
     return QString(":/authentication/themes/%1/icons/icon_unknown_device.svg").arg(theme);
 }
 
+void FingerDetailWidget::closeFingerDisclaimer()
+{
+    m_disclaimer->close();
+    delete m_disclaimer;
+    m_disclaimer = nullptr;
+}
+
 void FingerDetailWidget::showDeviceStatus(bool hasDevice)
 {
     // 指纹设备不支持热插拔 直接显示对应信息
@@ -126,9 +133,7 @@ void FingerDetailWidget::showAddFingeDialog(const QString &name, const QString &
     connect(dlg, &AddFingeDialog::requesetCloseDlg, dlg, [ = ](const QString & userName) {
         Q_EMIT noticeEnrollCompleted(userName);
         if (m_disclaimer != nullptr) {
-            m_disclaimer->close();
-            delete m_disclaimer;
-            m_disclaimer = nullptr;
+            closeFingerDisclaimer();
         }
         dlg->deleteLater();
     });
@@ -147,9 +152,7 @@ void FingerDetailWidget::showAddFingeDialog(const QString &name, const QString &
             qDebug() << "FingerModel::Enroll_Failed";
             Q_EMIT requestStopEnroll(name);
             if (m_disclaimer != nullptr) {
-                m_disclaimer->close();
-                delete m_disclaimer;
-                m_disclaimer = nullptr;
+                closeFingerDisclaimer();
             }
             dlg->deleteLater();
         } else if (res == FingerModel::Enroll_AuthFailed) {
@@ -175,8 +178,9 @@ void FingerDetailWidget::setFingerModel(FingerModel *model)
 void FingerDetailWidget::showFingeDisclaimer(const QString &name, const QString &thumb)
 {
     if (m_disclaimer != nullptr) {
-        return;
+        closeFingerDisclaimer();
     }
+
     m_disclaimer = new FingerDisclaimer(this);
     m_disclaimer->setVisible(true);
 
@@ -188,8 +192,7 @@ void FingerDetailWidget::showFingeDisclaimer(const QString &name, const QString 
     connect(m_disclaimer, &FingerDisclaimer::requesetCloseDlg, this, [ = ] {
         if (m_disclaimer != nullptr)
         {
-            delete m_disclaimer;
-            m_disclaimer = nullptr;
+            closeFingerDisclaimer();
         }
     });
 }
