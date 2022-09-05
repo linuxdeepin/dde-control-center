@@ -232,7 +232,6 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
         brightnessWidget->setVisible(m_model->brightnessEnable());
         connect(m_model, &DisplayModel::brightnessEnableChanged, this, [this, brightnessWidget](const bool enable) {
             brightnessWidget->setVisible(enable);
-            resetDialog();
         });
     }
 }
@@ -256,14 +255,6 @@ void SecondaryScreenDialog::resetDialog()
     move(QPoint(screen->geometry().left() + (screen->geometry().width() - rt.width()) / 2,
                 screen->geometry().top() + (screen->geometry().height() - rt.height()) / 2));
 
-    for (auto screen : QGuiApplication::screens()) {
-        screen->disconnect(this);
-    }
-
-    connect(screen, &QScreen::geometryChanged, this, [=](const QRect &geometry) {
-        move(QPoint(geometry.left() + (geometry.width() - rt.width()) / 2,
-                    geometry.top() + (geometry.height() - rt.height()) / 2));
-    });
     show();
 }
 
