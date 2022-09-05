@@ -195,6 +195,7 @@ private:
     void requestUpdateLog();
     void updateItemInfo(const UpdateLogItem &logItem, UpdateItemInfo *itemInfo);
     void setUpdateLogs(const QJsonArray &array);
+    int isUnstableResource() const;
 
 private:
     UpdateModel *m_model;
