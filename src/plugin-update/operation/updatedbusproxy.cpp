@@ -7,14 +7,14 @@
 #include <QDBusReply>
 
 // Updater
-const static QString UpdaterService = QStringLiteral("com.deepin.lastore");
-const static QString UpdaterPath = QStringLiteral("/com/deepin/lastore");
-const static QString UpdaterInterface = QStringLiteral("com.deepin.lastore.Updater");
+const static QString UpdaterService = QStringLiteral("org.deepin.lastore1");
+const static QString UpdaterPath = QStringLiteral("/org/deepin/lastore1");
+const static QString UpdaterInterface = QStringLiteral("org.deepin.lastore1.Updater");
 
 // Manager
-const static QString ManagerService = QStringLiteral("com.deepin.lastore");
-const static QString ManagerPath = QStringLiteral("/com/deepin/lastore");
-const static QString ManagerInterface = QStringLiteral("com.deepin.lastore.Manager");
+const static QString ManagerService = QStringLiteral("org.deepin.lastore1");
+const static QString ManagerPath = QStringLiteral("/org/deepin/lastore1");
+const static QString ManagerInterface = QStringLiteral("org.deepin.lastore1.Manager");
 
 // PowerInter
 const static QString PowerService = QStringLiteral("org.deepin.daemon.Power1");

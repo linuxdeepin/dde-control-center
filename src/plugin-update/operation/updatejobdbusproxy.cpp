@@ -7,8 +7,8 @@
 #include <QDebug>
 
 // Updater Job
-const static QString UpdaterService = QStringLiteral("com.deepin.lastore");
-const static QString UpdaterJobInterface = QStringLiteral("com.deepin.lastore.Job");
+const static QString UpdaterService = QStringLiteral("org.deepin.lastore1");
+const static QString UpdaterJobInterface = QStringLiteral("org.deepin.lastore1.Job");
 
 const static QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");

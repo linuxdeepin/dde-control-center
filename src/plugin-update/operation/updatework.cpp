@@ -1278,9 +1278,9 @@ void UpdateWorker::onFixError(const ClassifyUpdateType &updateType, const QStrin
     if (m_fixErrorJob != nullptr) {
         return;
     }
-    QDBusInterface lastoreManager("com.deepin.lastore",
-                                  "/com/deepin/lastore",
-                                  "com.deepin.lastore.Manager",
+    QDBusInterface lastoreManager("org.deepin.lastore1",
+                                  "/org/deepin/lastore1",
+                                  "org.deepin.lastore1.Manager",
                                   QDBusConnection::systemBus());
     if (!lastoreManager.isValid()) {
         qDebug() << "com.deepin.license error ," << lastoreManager.lastError().name();
@@ -1323,9 +1323,9 @@ void UpdateWorker::setUpdateItemDownloadSize(UpdateItemInfo *updateItem,  QStrin
 
 void UpdateWorker::onRequestLastoreHeartBeat()
 {
-    QDBusInterface lastoreManager("com.deepin.lastore",
-                                  "/com/deepin/lastore",
-                                  "com.deepin.lastore.Updater",
+    QDBusInterface lastoreManager("org.deepin.lastore1",
+                                  "/org/deepin/lastore1",
+                                  "org.deepin.lastore1.Updater",
                                   QDBusConnection::systemBus());
     if (!lastoreManager.isValid()) {
         qDebug() << "com.deepin.license error ," << lastoreManager.lastError().name();
