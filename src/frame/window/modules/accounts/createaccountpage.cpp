@@ -65,6 +65,7 @@ CreateAccountPage::CreateAccountPage(dcc::accounts::AccountsWorker *accountsWork
     m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_scrollArea->setContentsMargins(0, 0, 0, 0);
+    m_scrollArea->setBackgroundRole(QPalette::Base);
     mainContentLayout->addWidget(m_scrollArea);
 
     m_tw = new QWidget(this);
