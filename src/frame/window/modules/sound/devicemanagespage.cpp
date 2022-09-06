@@ -137,7 +137,7 @@ void DevicemanagesPage::initUI()
     m_outputlblTip->setAlignment(Qt::AlignLeft);
 
     m_outputGroup->getLayout()->setContentsMargins(0, 0, 0, 0);
-    m_outputGroup->setContentsMargins(0, 0, 10, 0);
+    m_outputGroup->setContentsMargins(0, 0, 0, 0);
 
     m_layout->addWidget(m_outputDeviceTitle);
     m_layout->addWidget(m_outputlblTip);
@@ -161,7 +161,7 @@ void DevicemanagesPage::initUI()
     m_inputlblTip->setAlignment(Qt::AlignLeft);
 
     m_inputGroup->getLayout()->setContentsMargins(0, 0, 0, 0);
-    m_inputGroup->setContentsMargins(0, 0, 10, 0);
+    m_inputGroup->setContentsMargins(0, 0, 0, 0);
 
     m_layout->addWidget(m_inputDeviceTitle);
     m_layout->addWidget(m_inputlblTip);
