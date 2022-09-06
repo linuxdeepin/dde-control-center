@@ -151,34 +151,40 @@ void GeneralModule::initUI()
             return powerplanListview;
         },false));
     //　节能设置
-    appendChild(new TitleModule("powerLowerBrightnessLabel", tr("Power Saving Settings")));
+    auto powerLowerBrightnessLabel = new TitleModule("powerLowerBrightnessLabel", tr("Power Saving Settings"));
+    powerLowerBrightnessLabel->setHiden(!m_model->haveBettary());
+    connect(m_model, &PowerModel::haveBettaryChanged, powerLowerBrightnessLabel, [powerLowerBrightnessLabel] (bool haveBettary) {
+        powerLowerBrightnessLabel->setHiden(!haveBettary);
+    });
+
+    appendChild(powerLowerBrightnessLabel);
     group = new SettingsGroupModule("powerSavingSettings", tr("Power Saving Settings"));
     appendChild(group);
+    group->setHiden(!m_model->haveBettary());
+    connect(m_model, &PowerModel::haveBettaryChanged, powerLowerBrightnessLabel, [group] (bool haveBettary) {
+        group->setHiden(!haveBettary);
+    });
+
     group->appendChild(new ItemModule("autoPowerSavingOnLowBattery", tr("Auto power saving on low battery"),
         [this] (ModuleObject *module) -> QWidget*{
             DSwitchButton *lowPowerAutoIntoSaveEnergyMode = new DSwitchButton(/*tr("Auto power saving on low battery")*/);
             lowPowerAutoIntoSaveEnergyMode->setChecked(m_model->powerSavingModeAutoWhenQuantifyLow());
             connect(m_model, &PowerModel::powerSavingModeAutoWhenQuantifyLowChanged, lowPowerAutoIntoSaveEnergyMode, &DSwitchButton::setChecked);
             connect(lowPowerAutoIntoSaveEnergyMode, &DSwitchButton::checkedChanged, this, &GeneralModule::requestSetPowerSavingModeAutoWhenQuantifyLow);
-            module->setHiden(!m_model->haveBettary());
-            connect(m_model, &PowerModel::haveBettaryChanged, lowPowerAutoIntoSaveEnergyMode, &DSwitchButton::setVisible);
             return lowPowerAutoIntoSaveEnergyMode;
         }));
     group->appendChild(new ItemModule("autoPowerSavingOnBattery", tr("Auto power saving on battery"),
         [this] (ModuleObject *module) -> QWidget*{
             DSwitchButton *autoIntoSaveEnergyMode = new DSwitchButton();
-            module->setHiden(!m_model->haveBettary());
             autoIntoSaveEnergyMode->setChecked(m_model->autoPowerSaveMode());
             connect(m_model, &PowerModel::autoPowerSavingModeChanged, autoIntoSaveEnergyMode, &DSwitchButton::setChecked);
             connect(autoIntoSaveEnergyMode, &DSwitchButton::checkedChanged, this, &GeneralModule::requestSetPowerSavingModeAuto);
-            connect(m_model, &PowerModel::haveBettaryChanged, autoIntoSaveEnergyMode, &SwitchWidget::setVisible);
             return autoIntoSaveEnergyMode;
         }));
     group->appendChild(new ItemModule("decreaseBrightness", tr("Decrease Brightness"),
         [this] (ModuleObject *module) -> QWidget*{
             DComboBox *decreaseBrightnessRatio = new DComboBox();
             decreaseBrightnessRatio->setAccessibleName("sldLowerBrightness");
-            module->setHiden(!m_model->haveBettary());
             QStringList annotions;
             annotions << "10%"
                       << "20%"
