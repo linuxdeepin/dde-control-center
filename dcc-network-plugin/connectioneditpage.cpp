@@ -121,7 +121,7 @@ void ConnectionEditPage::initUI()
     m_buttonTuple->rightButton()->setEnabled(false);
 
     m_mainLayout->setContentsMargins(10, 10, 10, 10);
-    m_mainLayout->addSpacing(10);
+    m_mainLayout->setSpacing(10);
     m_mainLayout->addWidget(m_buttonTuple_conn);
     m_mainLayout->addLayout(m_settingsLayout);
     m_mainLayout->addStretch();
@@ -165,6 +165,7 @@ void ConnectionEditPage::initHeaderButtons()
     if (m_isNewConnection) {
         m_disconnectBtn->setVisible(false);
         m_removeBtn->setVisible(false);
+        m_buttonTuple_conn->setVisible(false);
         return;
     }
 
