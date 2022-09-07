@@ -223,10 +223,17 @@ void NetworkPlugin::showNetworkDialog(QWidget *widget) const
         parentWidget = w;
         w = qobject_cast<QWidget *>(w->parentWidget());
     }
+
     if (parentWidget) {
         Dock::Position pos = qApp->property(PROP_POSITION).value<Dock::Position>();
         QPoint p = widget->rect().center();
         QRect rect = parentWidget->rect();
+
+        // 任务栏隐藏时不改变网络面板的位置,避免网络面板同步隐藏后不方便操作网络
+        if (rect.height() <= 0 || rect.width() <= 0) {
+            return;
+        }
+
         switch (pos) {
         case Dock::Position::Top:
             p.ry() += rect.height() / 2;
