@@ -34,6 +34,7 @@ public:
 
     QRect screenGeometry() const;
     void setScreenGeometry(const QRect &screenGeometry);
+    void onCancelBtnClicked();
 
 protected:
     void showEvent(QShowEvent *event);
@@ -54,7 +55,6 @@ Q_SIGNALS:
     void requestSecurityQuestions();
 
 private:
-    void onCancelBtnClicked();
     void onResetPasswordBtnClicked();
     void updatePosition();
 
@@ -96,13 +96,13 @@ public:
     ~Manager() {}
 
     void start();
-
+    static void exit(int retCode);
 private Q_SLOTS:
     void setupDialog();
     void showDialog();
 
 private:
-    ResetPasswordDialog *m_dialog;
+    static ResetPasswordDialog *m_dialog;
     QString m_usrName;
     QString m_appName;
     int m_fd;

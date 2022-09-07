@@ -9,6 +9,7 @@
 #include <DDBusSender>
 #include <QDBusConnection>
 #include <LogManager.h>
+#include <csignal>
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -56,6 +57,9 @@ int main(int argc, char *argv[])
 
     Manager *manager = new Manager(userName, appName, fd);
     manager->start();
+
+    std::signal(SIGTERM, &Manager::exit);
+    std::signal(SIGKILL, &Manager::exit);
 
     return a.exec();
 }
