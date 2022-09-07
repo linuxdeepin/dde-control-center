@@ -379,9 +379,10 @@ void ResetPasswordDialog::onGetSecurityQuestionsReplied(const QList<int> securit
 }
 
 
+ResetPasswordDialog* Manager::m_dialog = nullptr;
+
 Manager::Manager(const QString &userName, const QString &appName, const int &fd)
     : QObject()
-    , m_dialog(nullptr)
     , m_usrName(userName)
     , m_appName(appName)
     , m_fd(fd)
@@ -418,4 +419,10 @@ void Manager::start()
 {
     setupDialog();
     showDialog();
+}
+
+void Manager::exit(int retCode)
+{
+    qDebug() << "retCode:" << retCode;
+    m_dialog->onCancelBtnClicked();
 }
