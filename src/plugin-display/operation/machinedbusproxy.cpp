@@ -67,7 +67,7 @@ void MachineDBusProxy::init()
     const QString PropertiesInterface = "org.freedesktop.DBus.Properties";
     const QString PropertiesChanged = "PropertiesChanged";
 
-    m_dBusMachineInter = new QDBusInterface(CooperationService, m_cooperationMachinePath, CooperationInterface, QDBusConnection::systemBus(), this);
+    m_dBusMachineInter = new QDBusInterface(CooperationService, m_cooperationMachinePath, CooperationInterface, QDBusConnection::sessionBus(), this);
     QDBusConnection dbusConnection = m_dBusMachineInter->connection();
     dbusConnection.connect(CooperationService, m_cooperationMachinePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 }

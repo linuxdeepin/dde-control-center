@@ -59,7 +59,7 @@ void DisplayDBusProxy::init()
     m_dBusDisplayInter = new DCC_NAMESPACE::DCCDBusInterface(DisplayService, DisplayPath, DisplayInterface, QDBusConnection::sessionBus(), this);
     m_dBusAppearanceInter = new DCC_NAMESPACE::DCCDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
     m_dBusPowerInter = new DCC_NAMESPACE::DCCDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
-    m_dBusCooperationInter = new DCC_NAMESPACE::DCCDBusInterface(CooperationService, CooperationPath, CooperationInterface, QDBusConnection::systemBus(), this);
+    m_dBusCooperationInter = new DCC_NAMESPACE::DCCDBusInterface(CooperationService, CooperationPath, CooperationInterface, QDBusConnection::sessionBus(), this);
 }
 
 //power
