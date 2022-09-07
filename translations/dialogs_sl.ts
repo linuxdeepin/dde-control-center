@@ -2,27 +2,27 @@
 <context>
     <name>ReminderDialog</name>
     <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
+        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="14"/>
         <source>Restart the computer to use the system and the applications properly</source>
         <translation>Za pravilno uporabo ponovno zaženite računalnik</translation>
     </message>
     <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
+        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="15"/>
         <source>Make sure all data had been saved first</source>
         <translation>Poskrbite, da bodo najprej shranjeni vsi podatki</translation>
     </message>
     <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
+        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="20"/>
         <source>Cancel</source>
         <translation>Prekliči</translation>
     </message>
     <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
+        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="20"/>
         <source>Shut down</source>
         <translation>Zaustavitev sistema</translation>
     </message>
     <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
+        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="23"/>
         <source>Reboot</source>
         <translation>Ponovni zagon</translation>
     </message>
