@@ -80,9 +80,7 @@ void GeneralModule::initUI()
 
     //　性能设置
     appendChild(new TitleModule("powerPlansLabel", tr("Power Plans")));
-    SettingsGroupModule *group = new SettingsGroupModule("powerSavingSettings", tr("Power Saving Settings"));
-    appendChild(group);
-    group->appendChild(new ItemModule("powerPlans", tr("Power Plans"),
+    appendChild(new ItemModule("powerPlans", tr("Power Plans"),
         [this] (ModuleObject *module) -> QWidget*{
             DCCListView *powerplanListview = new DCCListView();
             powerplanListview->setAccessibleName("powerplanListview");
@@ -158,7 +156,7 @@ void GeneralModule::initUI()
     });
 
     appendChild(powerLowerBrightnessLabel);
-    group = new SettingsGroupModule("powerSavingSettings", tr("Power Saving Settings"));
+    SettingsGroupModule *group = new SettingsGroupModule("powerSavingSettings", tr("Power Saving Settings"));
     appendChild(group);
     group->setHiden(!m_model->haveBettary());
     connect(m_model, &PowerModel::haveBettaryChanged, powerLowerBrightnessLabel, [group] (bool haveBettary) {
