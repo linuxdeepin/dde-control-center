@@ -169,6 +169,7 @@ private:
     QWidget *m_lastPushWidget{nullptr};     //用于记录最后push进来的widget控件
     QSize m_lastSize;
     bool m_needRememberLastSize = true;     //用于判断是否需要上次resize的窗口大小
+    QPair<QListView::ViewMode, QModelIndex> m_currentIndex;
 
     //全局搜索
     QList<QJsonObject> m_lstGrandSearchTasks;
