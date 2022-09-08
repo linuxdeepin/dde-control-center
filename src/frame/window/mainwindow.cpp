@@ -430,8 +430,11 @@ void MainWindow::updateWinsize(QRect rect)
     if (!qApp->screens().contains(m_primaryScreen))
         return;
 
-    if (this->isMaximized())
-        return;
+    // 界面最大化时无法move,先还原并移动到对应屏幕位置后重新最大化
+    bool isMaximized = this->isMaximized();
+    if (isMaximized) {
+        this->showNormal();
+    }
 
     // 取当前显示器大小
     int w = m_primaryScreen->geometry().width();
@@ -457,6 +460,10 @@ void MainWindow::updateWinsize(QRect rect)
     move(QPoint(m_primaryScreen->geometry().left() + (m_primaryScreen->geometry().width() - this->geometry().width()) / 2,
                 m_primaryScreen->geometry().top() + (m_primaryScreen->geometry().height() - this->geometry().height()) / 2));
     qInfo() << "Update main window geometry: " << geometry() << ", primary screen geometry: " << m_primaryScreen->geometry();
+
+    if (isMaximized) {
+        this->showMaximized();
+    }
 }
 
 void MainWindow::updateModuleVisible()
@@ -759,11 +766,6 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    if (m_needRememberLastSize && event->oldSize() != event->size()) {
-        m_lastSize = event->oldSize();
-    }
-    m_needRememberLastSize = true;
-
     DMainWindow::resizeEvent(event);
 
     auto dstWidth = event->size().width();

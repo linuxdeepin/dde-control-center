@@ -84,6 +84,11 @@ void SecondaryScreenDialog::OnRequestResizeDesktopVisibleChanged(bool visible)
 
 void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor *monitor)
 {
+    // 断开原连接信号
+    if (monitor->getQScreen()) {
+        monitor->getQScreen()->disconnect(this);
+    }
+
     m_model = model;
     m_monitor = monitor;
 
@@ -104,6 +109,11 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
     connect(m_resolutionWidget, &ResolutionWidget::requestResizeDesktopVisibleChanged, this, &SecondaryScreenDialog::OnRequestResizeDesktopVisibleChanged);
     connect(m_refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &SecondaryScreenDialog::requestSetResolution);
     connect(m_rotateWidget, &RotateWidget::requestSetRotate, this, &SecondaryScreenDialog::requestSetRotate);
+
+    // 连接geometryChanged信号，当geomtry改变里，重新调整界面位置居中
+    if (monitor->getQScreen()) {
+        connect(monitor->getQScreen(), &QScreen::geometryChanged, this, &SecondaryScreenDialog::resetDialog);
+    }
 
     auto tfunc = [this](const double tb) {
         int tmini = int(m_model->minimumBrightnessScale() * BrightnessMaxScale);

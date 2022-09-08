@@ -95,7 +95,6 @@ public:
     void initAllModule(const QString &m = "");
     inline QStack<QPair<ModuleInterface *, QWidget *>> getcontentStack() {return m_contentStack;}
     inline QSize getLastSize() const { return m_lastSize; }
-    inline void setNeedRememberLastSize(bool needRememberLastSize)  { m_needRememberLastSize = needRememberLastSize;}
     void setPrimaryScreen(QScreen *screen);
     QScreen *primaryScreen() const;
 
@@ -168,7 +167,6 @@ private:
     bool m_updateVisibale = true;
     QWidget *m_lastPushWidget{nullptr};     //用于记录最后push进来的widget控件
     QSize m_lastSize;
-    bool m_needRememberLastSize = true;     //用于判断是否需要上次resize的窗口大小
 
     //全局搜索
     QList<QJsonObject> m_lstGrandSearchTasks;

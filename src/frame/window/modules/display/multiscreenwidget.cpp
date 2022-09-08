@@ -379,7 +379,8 @@ void MultiScreenWidget::initSecondaryScreenDialog()
         }
         for (const auto &monitor : m_model->monitorList()) {
             if (monitor == m_model->primaryMonitor()) {
-                QTimer::singleShot(0, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor(), true); });
+                // 显示Display模块时，初始化主界面对应屏幕和居中显示
+                QTimer::singleShot(0, this, &MultiScreenWidget::requestSetMainwindowRect);
                 continue;
             }
 
@@ -473,7 +474,8 @@ void MultiScreenWidget::onMonitorRelease(Monitor *monitor)
 {
     Q_UNUSED(monitor)
     m_fullIndication->setVisible(false);
-    QTimer::singleShot(1000, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor(), false); });
+    // 在显示预览界面调整多屏相对位置后，重新调整主界面居中显示
+    QTimer::singleShot(1000, this, &MultiScreenWidget::requestSetMainwindowRect);
 }
 
 void MultiScreenWidget::onRequestSetMonitorPosition(QHash<dcc::display::Monitor *, QPair<int, int>> monitorPosition)

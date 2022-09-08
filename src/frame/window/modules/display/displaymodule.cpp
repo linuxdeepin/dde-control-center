@@ -318,34 +318,21 @@ void DisplayModule::showMultiScreenWidget()
     }
 
     connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi,  bool isInit) {
-        bool stateChanged = false;
-        //窗口初始化且窗口最大化的时候不需要移动窗口
-        if (m_pMainWindow->isMaximized()) {
-            if(isInit){
-                return;
-            }
-            m_pMainWindow->setNeedRememberLastSize(false);
-            m_pMainWindow->showNormal();
-
-            QSize lastsize = m_pMainWindow->getLastSize();
-            if (!lastsize.isValid() || lastsize == m_pMainWindow->maximumSize()) {
-                lastsize.setWidth(m_pMainWindow->minimumWidth());
-                lastsize.setHeight(m_pMainWindow->minimumHeight());
-            }
-            m_pMainWindow->resize(lastsize);
-            stateChanged = true;
-        }
-
-        if (stateChanged) {
-            m_pMainWindow->showMaximized();
-        }
-
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=]( ) {
         QScreen *screen = m_displayModel->primaryMonitor()->getQScreen();
+        // 界面最大化时无法move,先还原移动到对应屏幕位置后重新最大化
         if (qApp->screens().contains(screen)) {
+            bool isMaximized = m_pMainWindow->isMaximized();
+            if (isMaximized) {
+                m_pMainWindow->showNormal();
+            }
             m_pMainWindow->setGeometry(QRect(screen->geometry().topLeft(),m_pMainWindow->size()));
             m_pMainWindow->move(QPoint(screen->geometry().left() + (screen->geometry().width() - m_pMainWindow->width()) / 2,
                         screen->geometry().top() + (screen->geometry().height() - m_pMainWindow->height()) / 2));
+
+            if (isMaximized) {
+                m_pMainWindow->showMaximized();
+            }
         }
     });
 
