@@ -326,6 +326,18 @@ void SoundModel::setAudioCards(const QString &audioCards)
     Q_EMIT audioCardsChanged(m_audioCards);
 }
 
+QList<QDBusObjectPath> SoundModel::sources() const
+{
+    return m_sources;
+}
+
+void SoundModel::setSources(const QList<QDBusObjectPath> &sources)
+{
+    m_sources = sources;
+
+    Q_EMIT sourcesChanged(m_sources);
+}
+
 SoundEffectList SoundModel::soundEffectMap() const
 {
     if (isLaptop()) { // 笔记本
