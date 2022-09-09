@@ -39,11 +39,10 @@ You can press `F1` to start [deepin-manual](https://github.com/linuxdeepin/deepi
 
 You may also find these channels useful if you encounter any other issues:
 
-* [Gitter](https://gitter.im/orgs/linuxdeepin/rooms)
-* [IRC Channel](https://webchat.freenode.net/?channels=deepin)
+* [Matrix](https://matrix.to/#/#deepin-community:matrix.org)
 * [Official Forum](https://bbs.deepin.org/)
 * [Wiki](https://wiki.deepin.org/)
-* [Developer Center](https://github.com/linuxdeepin/dde-session-shell) 
+* [Developer Center](https://github.com/linuxdeepin/developer-center/issues) 
 
 ## Getting involved
 
