@@ -552,6 +552,7 @@ void UpdateWorker::requestUpdateLog()
     // TODO 增加过滤参数，避免每次请求全量更新日志，这个需要web端配合
     QJsonObject requestBody;
     requestBody["platformType"] = getPlatform();
+    requestBody["isUnstable"] = isUnstableResource();
     QJsonDocument doc;
     doc.setObject(requestBody);
     const QByteArray &body = doc.toJson();
@@ -1913,6 +1914,33 @@ void UpdateWorker::setUpdateLogs(const QJsonArray &array)
         }
         return compareRet > 0;
     });
+}
+
+/**
+ * @brief 发行版or内测版
+ *
+ * @return 1: 发行版，2：内测版
+ */
+int UpdateWorker::isUnstableResource() const
+{
+    qInfo() << Q_FUNC_INFO;
+    const int RELEASE_VERSION = 1;
+    const int UNSTABLE_VERSION = 2;
+    QObject raii;
+    DConfig *config = DConfig::create("org.deepin.unstable", "org.deepin.unstable", QString(), &raii);
+    if (!config) {
+        qInfo() << "Can not find org.deepin.unstable or an error occurred in DTK";
+        return RELEASE_VERSION;
+    }
+
+    if (!config->keyList().contains("updateUnstable")) {
+        qInfo() << "Key(updateUnstable) was not found ";
+        return RELEASE_VERSION;
+    }
+
+    const QString &value = config->value("updateUnstable", "Enabled").toString();
+    qInfo() << "Config(updateUnstable) value: " << value;
+    return "Enabled" == value ? UNSTABLE_VERSION : RELEASE_VERSION;
 }
 
 }

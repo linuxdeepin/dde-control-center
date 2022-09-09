@@ -213,7 +213,9 @@ void UpdateSettingItem::setData(UpdateItemInfo *updateItemInfo)
     QString version;
     if (!updateItemInfo->availableVersion().isEmpty()) {
         QString avaVersion = updateItemInfo->availableVersion();
-        const QString &tmpVersion = avaVersion.replace(avaVersion.length() - 1, 1, '0'); // 替换版本号的最后一位为‘0‘
+        QString tmpVersion = avaVersion;
+        if (dccV20::IsProfessionalSystem)
+            tmpVersion = avaVersion.replace(avaVersion.length() - 1, 1, '0'); // 替换版本号的最后一位为‘0‘
         version = tr("Version") + ": " + systemVersionType + tmpVersion;
     }
     m_controlWidget->setVersion(version);

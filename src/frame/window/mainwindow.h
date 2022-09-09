@@ -167,7 +167,7 @@ private:
     bool m_updateVisibale = true;
     QWidget *m_lastPushWidget{nullptr};     //用于记录最后push进来的widget控件
     QSize m_lastSize;
-
+    QPair<QListView::ViewMode, QModelIndex> m_currentIndex;
     //全局搜索
     QList<QJsonObject> m_lstGrandSearchTasks;
     QPointer<QScreen> m_primaryScreen;
