@@ -38,11 +38,11 @@ $ sudo make install
 
 如果您遇到任何其他问题，您可能还会发现这些渠道很有用：
 
-* [Gitter](https://gitter.im/orgs/linuxdeepin/rooms)
-* [IRC Channel](https://webchat.freenode.net/?channels=deepin)
+* [Matrix](https://matrix.to/#/#deepin-community:matrix.org)
 * [官方论坛](https://bbs.deepin.org/)
 * [Wiki](https://wiki.deepin.org/)
-* [项目地址](https://github.com/linuxdeepin/dde-control-center) 
+* [项目地址](https://github.com/linuxdeepin/dde-control-center)
+* [开发者中心](https://github.com/linuxdeepin/developer-center/issues) 
 
 ## 贡献指南
 
