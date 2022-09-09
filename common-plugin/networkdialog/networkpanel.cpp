@@ -388,12 +388,12 @@ void NetworkPanel::updateItems()
                     connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, apCtrl, &WirelessItem::onAirplaneModeChanged);
                 }
                 apCtrl->updateView();
-                apCtrl->onAirplaneModeChanged(m_airplaneMode->enabled());
+                apCtrl->onAirplaneModeChanged(m_airplaneMode->wifiEnabled());
 
                 apCtrl->standardItem()->setData(sortIndex++, sortRole);
                 items << apCtrl;
             }
-            if (!m_airplaneMode->enabled()) {
+            if (!m_airplaneMode->wifiEnabled()) {
                 // 连接隐藏网络
                 WirelessItem *apCtrl = findWirelessItem(nullptr, device);
                 if (!apCtrl) {
@@ -644,7 +644,7 @@ void NetworkPanel::onClickListView(const QModelIndex &index)
 {
     // 如果当前点击的是连接隐藏网络或者无线网络，且开启了飞行模式，则不让点击
     NetItemType type = index.data(NetItemRole::TypeRole).value<NetItemType>();
-    if ((type == WirelessHiddenViewItem || type == WirelessViewItem) && m_airplaneMode->enabled())
+    if ((type == WirelessHiddenViewItem || type == WirelessViewItem) && m_airplaneMode->wifiEnabled())
         return;
 
     NetItem *oldSelectItem = selectItem();
@@ -930,7 +930,7 @@ bool NetworkDelegate::cantHover(const QModelIndex &index) const
     NetItemType itemType = index.data(TypeRole).value<NetItemType>();
     // 如果是无线网络或者连接隐藏网络项，且当前开启了飞行模式，则当前行不让点击
     if (itemType == NetItemType::WirelessViewItem || itemType == NetItemType::WirelessHiddenViewItem)
-        return (m_airplaneMode && m_airplaneMode->enabled());
+        return (m_airplaneMode && m_airplaneMode->wifiEnabled());
 
     return (itemType == NetItemType::DeviceControllViewItem
             || itemType == NetItemType::WirelessControllViewItem
@@ -1039,7 +1039,7 @@ bool NetworkDelegate::switchIsEnabled(const QModelIndex &index) const
     case NetItemType::WirelessControllViewItem: {
         NetworkDeviceBase *device = index.data(NetItemRole::DeviceDataRole).value<NetworkDeviceBase *>();
         if (device)
-            return device->isEnabled() && !m_airplaneMode->enabled();
+            return device->isEnabled() && !m_airplaneMode->wifiEnabled();
         break;
     }
     default:
@@ -1085,7 +1085,7 @@ void NetworkDelegate::drawSwitchButton(QPainter *painter, const QStyleOptionView
     NetItemType itemType = index.data(TypeRole).value<NetItemType>();
     // 如果是总控、有线网卡、无线网卡开关，则需要显示开关
     QPalette::ColorRole colorRole = isSwitchEnabled ? QPalette::ColorRole::Highlight : DPalette::ColorRole::ButtonText;
-    if (m_airplaneMode->enabled() && itemType == NetItemType::WirelessControllViewItem)
+    if (m_airplaneMode->wifiEnabled() && itemType == NetItemType::WirelessControllViewItem)
         painter->setBrush(palette.color(QPalette::ColorGroup::Disabled, colorRole));
     else
         painter->setBrush(palette.color(colorRole));
@@ -1114,7 +1114,7 @@ bool NetworkDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
     case QEvent::MouseButtonPress: {
         QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
         if (index.data(TypeRole).value<NetItemType>() == NetItemType::WirelessControllViewItem) {
-            if (!m_airplaneMode->enabled()) {
+            if (!m_airplaneMode->wifiEnabled()) {
                 if (!m_refreshAngle.contains(index)) {
                     QRect rctSwitch(option.rect.width() - SWITCH_WIDTH - 36, option.rect.top() + (option.rect.height() - 20) / 2, 20, 20);
                     if (rctSwitch.contains(mouseEvent->pos())) {
@@ -1132,7 +1132,7 @@ bool NetworkDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
             NetItemType itemType = index.data(TypeRole).value<NetItemType>();
             // 以下三种情况可以点击按钮
             // 1: 飞行模式关闭 2: 当前是有线网卡 3: 当前是有线网卡总控
-            if (!m_airplaneMode->enabled() || itemType == NetItemType::WiredControllViewItem
+            if (!m_airplaneMode->wifiEnabled() || itemType == NetItemType::WiredControllViewItem
                 || (itemType == NetItemType::DeviceControllViewItem && index.data(NetItemRole::DeviceTypeRole).value<DeviceType>() == DeviceType::Wired)) {
                 QRect rctSwitch(option.rect.width() - SWITCH_WIDTH - 10,
                                 option.rect.top() + (option.rect.height() - SWITCH_HEIGHT) / 2,
