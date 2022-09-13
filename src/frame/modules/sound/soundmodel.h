@@ -152,6 +152,9 @@ public:
     QString audioCards() const;
     void setAudioCards(const QString &audioCards);
 
+    QList<QDBusObjectPath> sources() const;
+    void setSources(const QList<QDBusObjectPath> &sources);
+
     inline double MaxUIVolume() const { return m_maxUIVolume; }
     void setMaxUIVolume(double value);
 
@@ -213,6 +216,7 @@ Q_SIGNALS:
     void defaultSourceChanged(const QDBusObjectPath &defaultSource) const;
     void defaultSinkChanged(const QDBusObjectPath &defaultSink) const;
     void audioCardsChanged(const QString &audioCards) const;
+    void sourcesChanged(const QList<QDBusObjectPath> &sources) const;
     void maxUIVolumeChanged(double value) const;
     void increaseVolumeChanged(bool value) const;
     void reduceNoiseChanged(bool reduceNoise) const;
@@ -268,6 +272,7 @@ private:
     QDBusObjectPath m_defaultSource;
     QDBusObjectPath m_defaultSink;
     QString m_audioCards;
+    QList<QDBusObjectPath> m_sources;
     QStringList m_bluetoothModeOpts;
     QString m_currentBluetoothMode;
 

@@ -65,6 +65,7 @@ private Q_SLOTS:
     void defaultSinkChanged(const QDBusObjectPath &path);
     void defaultSourceChanged(const QDBusObjectPath &path);
     void cardsChanged(const QString &cards);
+    void sourcesChanged(const QList<QDBusObjectPath> &sources);
 
     void activeSinkPortChanged(const AudioPort &activeSinkPort);
     void activeSourcePortChanged(const AudioPort &activeSourcePort);
@@ -90,11 +91,11 @@ private:
     SoundEffect *m_soundEffectInter;
     QPointer<Sink> m_defaultSink;
     QPointer<Source> m_defaultSource;
-    QPointer<Meter> m_sourceMeter;
     QList<Sink*> m_sinks;
     QList<Source*> m_sources;
     SystemPowerInter *m_powerInter;
     QGSettings *m_dccSettings;
+    QMap<QDBusObjectPath, QPointer<Meter> > m_sourceMeterMap;
 
     QTimer *m_pingTimer;
     QDBusConnectionInterface *m_inter;
