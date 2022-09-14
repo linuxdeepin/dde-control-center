@@ -130,7 +130,7 @@ void FingerDetailWidget::showAddFingeDialog(const QString &name, const QString &
         showAddFingeDialog(name, thumb);
     });
     connect(dlg, &AddFingeDialog::requestStopEnroll, this, &FingerDetailWidget::requestStopEnroll);
-    connect(dlg, &AddFingeDialog::requesetCloseDlg, dlg, [ = ](const QString & userName) {
+    connect(dlg, &AddFingeDialog::requestCloseDlg, dlg, [ = ](const QString & userName) {
         Q_EMIT noticeEnrollCompleted(userName);
         if (m_disclaimer != nullptr) {
             closeFingerDisclaimer();
@@ -184,14 +184,13 @@ void FingerDetailWidget::showFingeDisclaimer(const QString &name, const QString 
     m_disclaimer = new FingerDisclaimer(this);
     m_disclaimer->setVisible(true);
 
-    connect(m_disclaimer, &FingerDisclaimer::requestShowFingeInfoDialog, this, [ = ] {
+    connect(m_disclaimer, &FingerDisclaimer::requestShowFingeInfoDialog, this, [ this, name, thumb ] {
         m_disclaimer->setVisible(false);
         showAddFingeDialog(name, thumb);
     });
 
-    connect(m_disclaimer, &FingerDisclaimer::requesetCloseDlg, this, [ = ] {
-        if (m_disclaimer != nullptr)
-        {
+    connect(m_disclaimer, &FingerDisclaimer::finished, this, [ this ] {
+        if (m_disclaimer != nullptr) {
             closeFingerDisclaimer();
         }
     });

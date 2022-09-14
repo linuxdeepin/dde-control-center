@@ -41,7 +41,7 @@ AddIrisInfoDialog::~AddIrisInfoDialog()
 
 void AddIrisInfoDialog::closeEvent(QCloseEvent *event)
 {
-    Q_EMIT requesetCloseDlg();
+    Q_EMIT requestCloseDlg();
     if (m_state == CharaMangerModel::AddInfoState::Processing) {
         Q_EMIT requestStopEnroll();
     }

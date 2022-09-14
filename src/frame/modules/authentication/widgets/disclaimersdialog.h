@@ -38,18 +38,11 @@ private:
     void initWidget(DisclaimersObj state);
     void initConnect();
 
-protected:
-    void closeEvent(QCloseEvent *event) override;
-
 Q_SIGNALS:
     /**
      * @brief requestClickStatus 点击确定后 返回登陆界面 显示勾选状态
      */
     void requestClickStatus(bool isClick);
-    /**
-     * @brief requesetCloseDlg 离开免责对话框界面 需要恢复父窗口显示状态
-     */
-    void requesetCloseDlg(bool isClose);
 
 private:
     QVBoxLayout *m_mainLayout;

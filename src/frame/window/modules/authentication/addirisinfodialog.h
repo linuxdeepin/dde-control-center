@@ -44,7 +44,7 @@ public:
 
 Q_SIGNALS:
     void requestInputIris();
-    void requesetCloseDlg();
+    void requestCloseDlg();
     void requestStopEnroll();
 
 protected:

@@ -158,7 +158,7 @@ void LoginOptionsModule::showFaceidPage()
 void LoginOptionsModule::showIrisPage()
 {
     IrisDetailWidget *w = new IrisDetailWidget(m_charaMangerModel);
-    connect(w, &IrisDetailWidget::requestEntollStart, m_charaMangerWorker, &CharaMangerWorker::entollStart);
+    connect(w, &IrisDetailWidget::requestEnrollStart, m_charaMangerWorker, &CharaMangerWorker::entollStart);
     connect(w, &IrisDetailWidget::requestStopEnroll, m_charaMangerWorker, &CharaMangerWorker::stopEnroll);
     connect(w, &IrisDetailWidget::requestDeleteIrisItem, m_charaMangerWorker, &CharaMangerWorker::deleteCharaItem);
     connect(w, &IrisDetailWidget::requestRenameIrisItem, m_charaMangerWorker, &CharaMangerWorker::renameCharaItem);

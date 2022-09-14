@@ -40,7 +40,7 @@ Q_SIGNALS:
     void requestDeleteIrisItem(const int &charaType, const QString &charaName);
     void requestRenameIrisItem(const int &charaType, const QString& oldIrisName, const QString& newIrisName);
     void noticeEnrollCompleted(const QString &driverName, const int &CharaType);
-    void requestEntollStart(const QString &driverName, const int &charaType, const QString &charaName);
+    void requestEnrollStart(const QString &driverName, const int &charaType, const QString &charaName);
     void requestStopEnroll();
 
 public Q_SLOTS:

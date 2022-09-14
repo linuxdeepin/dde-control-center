@@ -56,7 +56,9 @@ void DisclaimersItem::showDisclaimers()
 {
     DisclaimersDialog *disdlg = new dcc::authentication::DisclaimersDialog(m_state);
     connect(disdlg, &DisclaimersDialog::requestClickStatus, this, &DisclaimersItem::setAcceptState);
-    connect(disdlg, &DisclaimersDialog::requesetCloseDlg, this, &DisclaimersItem::requestSetWindowEnabled);
+    connect(disdlg, &DisclaimersDialog::finished, this, [this] {
+        requestSetWindowEnabled(true);
+    });
     disdlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
     disdlg->setFocus();
     disdlg->activateWindow();

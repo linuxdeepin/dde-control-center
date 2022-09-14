@@ -47,11 +47,9 @@ public:
 
 Q_SIGNALS:
     void requestShowFingeInfoDialog();
-    void requesetCloseDlg();
     void requestStopEnroll();
 
 protected:
-    void closeEvent(QCloseEvent *event) override;
     bool eventFilter(QObject *o, QEvent *e) override;
 
 private:
