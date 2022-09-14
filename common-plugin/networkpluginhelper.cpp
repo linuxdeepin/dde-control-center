@@ -477,27 +477,27 @@ bool NetworkPluginHelper::needSetPassword(AccessPoints *accessPoint) const
             break;
         }
     }
+
     // 如果连这个连接的设备都找不到，则无需设置密码
     if (!wirelessDevice)
         return false;
 
     // 查找该热点对应的连接的UUID
-    QString uuid;
-    QList<WirelessConnection *> conns = wirelessDevice->items();
-    for (WirelessConnection *con : conns) {
-        if (con->accessPoints() != accessPoint)
+    NetworkManager::Connection::Ptr connection;
+    NetworkManager::WirelessDevice::Ptr device(new NetworkManager::WirelessDevice(wirelessDevice->path()));
+    NetworkManager::Connection::List connectionlist = device->availableConnections();
+    for (NetworkManager::Connection::Ptr conn : connectionlist) {
+        NetworkManager::WirelessSetting::Ptr wSetting = conn->settings()->setting(NetworkManager::Setting::SettingType::Wireless).staticCast<NetworkManager::WirelessSetting>();
+        if (wSetting.isNull())
             continue;
 
-        uuid = con->connection()->uuid();
+        if (wSetting->ssid() != accessPoint->ssid())
+            continue;
+
+        connection = conn;
         break;
     }
 
-    // 如果没有找到对应的UUID连接，说明是新的连接，则此时需要设置密码
-    if (uuid.isEmpty())
-        return true;
-
-    // 查找该连接uuid对应的连接
-    NetworkManager::Connection::Ptr connection = NetworkManager::findConnectionByUuid(uuid);
     if (connection.isNull())
         return true;
 
