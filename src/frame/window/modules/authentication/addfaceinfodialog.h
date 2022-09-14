@@ -51,7 +51,7 @@ public:
 
 Q_SIGNALS:
     void requestShowFaceInfoDialog();
-    void requesetCloseDlg();
+    void requestCloseDlg();
     void requestStopEnroll();
 
 protected:

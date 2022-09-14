@@ -43,7 +43,7 @@ AddFaceInfoDialog::~AddFaceInfoDialog()
 
 void AddFaceInfoDialog::closeEvent(QCloseEvent *event)
 {
-    Q_EMIT requesetCloseDlg();
+    Q_EMIT requestCloseDlg();
     m_faceModel->setAddButtonStatus(true);
     QDialog::closeEvent(event);
 }

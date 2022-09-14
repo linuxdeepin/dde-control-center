@@ -111,9 +111,3 @@ void DisclaimersDialog::initConnect()
     });
 }
 
-void DisclaimersDialog::closeEvent(QCloseEvent *event)
-{
-    Q_EMIT requesetCloseDlg(true);
-    QDialog::closeEvent(event);
-}
-

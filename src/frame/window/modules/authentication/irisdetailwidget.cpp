@@ -115,11 +115,11 @@ void IrisDetailWidget::onShowAddIrisDialog(const QString &driverName, const int 
     connect(m_model, &CharaMangerModel::tryStartInputIris, irisDlg, &AddIrisInfoDialog::refreshInfoStatusDisplay);
 
     connect(irisDlg, &AddIrisInfoDialog::requestStopEnroll, this, &IrisDetailWidget::requestStopEnroll);
-    connect(irisDlg, &AddIrisInfoDialog::requesetCloseDlg, irisDlg, &AddIrisInfoDialog::deleteLater);
+    connect(irisDlg, &AddIrisInfoDialog::requestCloseDlg, irisDlg, &AddIrisInfoDialog::deleteLater);
 
     // 点击下一步开始录入
     connect(irisDlg, &AddIrisInfoDialog::requestInputIris, this, [ = ](){
-        Q_EMIT requestEntollStart(driverName, charaType, charaName);
+        Q_EMIT requestEnrollStart(driverName, charaType, charaName);
     });
 
     irisDlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);

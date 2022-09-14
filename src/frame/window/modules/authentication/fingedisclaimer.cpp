@@ -24,9 +24,12 @@ using namespace DCC_NAMESPACE::authentication;
 FingerDisclaimer::FingerDisclaimer(QWidget *parent)
     : DAbstractDialog(parent)
     , m_mainLayout(new QVBoxLayout(this))
+    , m_fingerPic(new QLabel(this))
+    , m_resultTips(nullptr)
+    , m_explainTips(nullptr)
+    , m_disclaimersItem(nullptr)
     , m_cancelBtn(new QPushButton(this))
     , m_acceptBtn(new DSuggestButton(this))
-    , m_fingerPic(new QLabel(this))
     , m_currentState(dcc::authentication::CharaMangerModel::AddInfoState::StartState)
 {
     initWidget();
@@ -39,12 +42,6 @@ FingerDisclaimer::FingerDisclaimer(QWidget *parent)
 FingerDisclaimer::~FingerDisclaimer()
 {
 
-}
-
-void FingerDisclaimer::closeEvent(QCloseEvent *event)
-{
-    Q_EMIT requesetCloseDlg();
-    QDialog::closeEvent(event);
 }
 
 bool FingerDisclaimer::eventFilter(QObject *o, QEvent *e)
