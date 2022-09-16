@@ -9,15 +9,18 @@
 
 #include <QDebug>
 #include <QJsonObject>
+#include <QLoggingCategory>
 
 #include "com_deepin_daemon_network.h"
 #include "com_deepin_daemon_network_proxychains.h"
 
+Q_DECLARE_LOGGING_CATEGORY(dncd);
+
 namespace dde {
 namespace network {
 
-#define PRINT_INFO_MESSAGE(msg) qInfo() << __FILE__ << "line:" << __LINE__ << "function:" << __FUNCTION__ << "Message:" << msg
-#define PRINT_DEBUG_MESSAGE(msg) qDebug() << __FILE__ << "line:" << __LINE__ << "function:" << __FUNCTION__ << "Message:" << msg
+#define PRINT_INFO_MESSAGE(msg) qCInfo(dncd) << __FILE__ << "line:" << __LINE__ << "function:" << __FUNCTION__ << "Message:" << msg
+#define PRINT_DEBUG_MESSAGE(msg) qCDebug(dncd) << __FILE__ << "line:" << __LINE__ << "function:" << __FUNCTION__ << "Message:" << msg
 
 // an alias for numeric zero, no flags set.
 #define DEVICE_INTERFACE_FLAG_NONE 0
