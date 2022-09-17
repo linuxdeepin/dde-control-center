@@ -58,8 +58,8 @@ int main(int argc, char *argv[])
     Manager *manager = new Manager(userName, appName, fd);
     manager->start();
 
-    std::signal(SIGTERM, &Manager::exit);
-    std::signal(SIGKILL, &Manager::exit);
+    std::signal(SIGTERM, Manager::exit);
+    std::signal(SIGKILL, Manager::exit);
 
     return a.exec();
 }
