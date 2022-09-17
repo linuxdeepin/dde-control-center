@@ -124,7 +124,7 @@ QColor ThemeManager::backgroundColor()
         return QColor(0, 0, 0, alpha);
     case GreeterType:
     case LockType:
-        return QColor(235, 235, 235, alpha);
+        return QColor(235, 235, 235, static_cast<int>(0.05 * 255));
     default:
         return QColor(255, 255, 255, alpha);
     }
