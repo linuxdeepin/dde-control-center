@@ -888,6 +888,18 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
     const auto server = m_model->getTestingChannelServer();
     const auto machineID = m_model->getMachineID();
 
+    // 无论是加入还是退出都先在服务器标记退出
+    // 避免重装系统后机器码相同，没申请就自动加入
+    auto http = new QNetworkAccessManager(this);
+    QNetworkRequest request;
+    request.setUrl(QUrl(server + QString("/api/v2/public/testing/machine/") + machineID));
+    request.setRawHeader("content-type", "application/json");
+    connect(http, &QNetworkAccessManager::finished, this, [ http ](QNetworkReply *reply){
+        reply->deleteLater();
+        http->deleteLater();
+    });
+    http->deleteResource(request);
+
     /* Disable Testing Channel */
     if (!enable) {
         // Uninstall testing source package if it is installed
@@ -895,16 +907,6 @@ void UpdateWorker::setTestingChannelEnable(const bool &enable)
             qDebug() << "Testing:" << "Uninstall testing channel package";
             m_managerInter->RemovePackage("testing channel", TestingChannelPackage);
         }
-        // Send status to server
-        auto http = new QNetworkAccessManager(this);
-        QNetworkRequest request;
-        request.setUrl(QUrl(server + QString("/api/v2/public/testing/machine/") + machineID));
-        request.setRawHeader("content-type", "application/json");
-        connect(http, &QNetworkAccessManager::finished, this, [ = ](QNetworkReply *reply){
-            reply->deleteLater();
-            http->deleteLater();
-        });
-        http->deleteResource(request);
         return;
     }
 
