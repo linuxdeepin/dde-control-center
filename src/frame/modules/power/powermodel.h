@@ -132,7 +132,7 @@ public:
     inline bool isBalanceSupported() const { return m_isBalanceSupported; }
     void setBalanceSupported(bool isBalanceSupport);
 
-    inline bool isPowerSaveSupported() const { return m_isBalanceSupported; }
+    inline bool isPowerSaveSupported() const { return m_isPowerSaveSupported; }
     void setPowerSaveSupported(bool isPowerSaveSupported);
 
 Q_SIGNALS:
