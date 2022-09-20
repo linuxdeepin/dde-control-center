@@ -196,6 +196,7 @@ private:
     void updateItemInfo(const UpdateLogItem &logItem, UpdateItemInfo *itemInfo);
     void setUpdateLogs(const QJsonArray &array);
     int isUnstableResource() const;
+    bool checkNeedUpdates() const;
 
 private:
     UpdateModel *m_model;
@@ -210,6 +211,14 @@ private:
     QPointer<JobInter> m_safeUpdateInstallJob;
     QPointer<JobInter> m_unknownUpdateInstallJob;
 
+    QList<QPointer<JobInter>> m_downloadAndInstallJobList = {
+            m_sysUpdateDownloadJob,
+            m_safeUpdateDownloadJob,
+            m_unknownUpdateDownloadJob,
+            m_sysUpdateInstallJob,
+            m_safeUpdateInstallJob,
+            m_unknownUpdateInstallJob,
+    };
     QString m_sysUpdateDownloadJobName;
     QString m_safeUpdateDownloadJobName;
     QString m_unknownUpdateDownloadJobName;
