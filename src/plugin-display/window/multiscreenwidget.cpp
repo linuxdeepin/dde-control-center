@@ -409,6 +409,7 @@ void MultiScreenWidget::onGatherWindows(const QPoint cursor)
                 auto tsize = (mrt.size() / m_model->monitorScale(monitor) - rt.size()) / 2;
                 rt.moveTo(monitor->x() + tsize.width(), monitor->y() + tsize.height());
                 dlg->setGeometry(rt);
+                dlg->activateWindow();
             }
             break;
         }
