@@ -782,7 +782,7 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
     bool bConfigVlid = m_model->recoverConfigValid();
     qDebug() << Q_FUNC_INFO << " [abRecovery] 更新前,检查备份配置是否满足(true:满足) : " << bConfigVlid;
 
-    if (bConfigVlid) { //系统环境配置为可以恢复,在收到jobEnd()后,且"backup",成功,后才会继续到下一步下载数据
+    if (bConfigVlid && status != UpdatesStatus::UpdateFailed) { //系统环境配置为可以恢复,在收到jobEnd()后,且"backup",成功,后才会继续到下一步下载数据
         recoveryCanBackup(updateType);
     } else { //系统环境配置不满足,则直接跳到下一步下载数据
         qDebug() << Q_FUNC_INFO << " [abRecovery] 备份配置环境不满足,继续更新.";
