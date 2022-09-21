@@ -86,11 +86,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     , m_scrollArea(new QScrollArea)
     , m_curLoginUser(nullptr)
     , m_bindStatusLabel(new QLabel(tr("Go to Settings"), this))
-    , m_lvgroups(new DListView(this))
-    , m_modelgroups(new QStandardItemModel(this))
-    , m_groupsEditAction(new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter, QSize(14, 14), QSize(14, 14), true))
 {
-    m_isServerSystem = IsServerSystem;
     //整体布局
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
@@ -127,18 +123,6 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootWhenScrollable);
     scroller->setScrollerProperties(sp);
-
-    m_lvgroups->setModel(m_modelgroups);
-    m_lvgroups->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    m_lvgroups->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_lvgroups->setSelectionMode(QAbstractItemView::NoSelection);
-    QMargins listItemmargin( m_lvgroups->itemMargins());
-    listItemmargin.setLeft(2);
-    m_lvgroups->setItemMargins(listItemmargin);
-
-    connect(m_lvgroups, &QListView::clicked, this, [ this ] {
-        Q_EMIT requestShowUserGroups(m_curUser);
-    });
 
     initUserInfo(contentLayout);
     initSetting(contentLayout);
@@ -449,22 +433,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     layout->addWidget(m_accountSettingsTitle);
     layout->addWidget(accountSettingsGrp);
 
-    auto groupHLayout = new QHBoxLayout;
-    groupHLayout->setContentsMargins(10, 0, 10, 0);
-    groupHLayout->addWidget(m_lvgroups);
-    layout->addLayout(groupHLayout);
-
-    DStandardItem *groupItem = new DStandardItem(tr("Group"));
-    m_groupsEditAction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
-    m_groupsEditAction->setClickAreaMargins(ArrowEnterClickMargin);
-
-    groupItem->setActionList(Qt::Edge::RightEdge, { m_groupsEditAction });
-
-    connect(m_groupsEditAction, &QAction::triggered, [ this ] {
-        Q_EMIT requestShowUserGroups(m_curUser);
-    });
-
-    m_modelgroups->appendRow(groupItem);
+    initUserGroup(layout);
 
     //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();
@@ -653,6 +622,45 @@ void AccountsDetailWidget::resizeEvent(QResizeEvent *event)
         w = (event->size().width() - 20) % 94;
     }
     m_avatarLayout->setContentsMargins(w / 2 - 1, 0, 0, 0);
+}
+
+void AccountsDetailWidget::initUserGroup(QVBoxLayout *layout)
+{
+    // 用户组入口，非专业版 且 非服务器 不显示
+    if (!IsProfessionalSystem && !IsServerSystem)
+        return;
+
+    DViewItemAction *groupsEditAction = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter, QSize(14, 14), QSize(14, 14), true);
+    QStyleOption opt;
+    groupsEditAction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
+    groupsEditAction->setClickAreaMargins(ArrowEnterClickMargin);
+    connect(groupsEditAction, &QAction::triggered, [ this ] {
+        Q_EMIT requestShowUserGroups(m_curUser);
+    });
+
+    DStandardItem *groupItem = new DStandardItem(tr("Group"));
+    groupItem->setActionList(Qt::Edge::RightEdge, { groupsEditAction });
+
+    QStandardItemModel *modelgroups = new QStandardItemModel(this);
+    modelgroups->appendRow(groupItem);
+
+    DListView *lvgroups = new DListView(this);
+    lvgroups->setModel(modelgroups);
+    lvgroups->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    lvgroups->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    lvgroups->setSelectionMode(QAbstractItemView::NoSelection);
+    QMargins listItemmargin( lvgroups->itemMargins());
+    listItemmargin.setLeft(2);
+    lvgroups->setItemMargins(listItemmargin);
+
+    connect(lvgroups, &QListView::clicked, this, [ this ] {
+        Q_EMIT requestShowUserGroups(m_curUser);
+    });
+
+    auto groupHLayout = new QHBoxLayout;
+    groupHLayout->setContentsMargins(10, 0, 10, 0);
+    groupHLayout->addWidget(lvgroups);
+    layout->addLayout(groupHLayout);
 }
 
 void AccountsDetailWidget::resetDelButtonState()

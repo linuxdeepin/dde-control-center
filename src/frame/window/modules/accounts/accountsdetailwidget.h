@@ -105,6 +105,9 @@ protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
 
+    // 用户组
+    void initUserGroup(QVBoxLayout *layout);
+
 private Q_SLOTS:
     void deleteUserClicked();
 
@@ -128,9 +131,6 @@ private:
     QString m_groupName;
     dcc::accounts::User *m_curLoginUser;
     QLabel *m_bindStatusLabel;
-    DListView *m_lvgroups;
-    QStandardItemModel *m_modelgroups;
-    DViewItemAction *m_groupsEditAction;
 };
 
 }   // namespace accounts
