@@ -107,6 +107,7 @@ private:
     QString m_serverName;
     bool m_visible;
     QString m_locale;
+    bool m_start;
 };
 
 NETWORKPLUGIN_END_NAMESPACE

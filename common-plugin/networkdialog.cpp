@@ -66,6 +66,7 @@ NetworkDialog::NetworkDialog(QObject *parent)
     , m_saveMode(false)
     , m_serverName(NetworkDialogApp + QString::number(getuid()))
     , m_visible(false)
+    , m_start(false)
 {
     m_server = new QLocalServer(this);
     connect(m_server, SIGNAL(newConnection()), this, SLOT(newConnectionHandler()));
@@ -166,6 +167,9 @@ bool NetworkDialog::eventFilter(QObject *watched, QEvent *e)
 
 void NetworkDialog::runProcess(bool show)
 {
+    if (!m_start)
+        return;
+
     QStringList argList;
     if (show) {
         argList << "-s" << showConfig();
@@ -218,6 +222,7 @@ void NetworkDialog::setLocale(const QString &locale)
 
 void NetworkDialog::runServer(bool start)
 {
+    m_start = start;
     if (!start)
         return;
 
