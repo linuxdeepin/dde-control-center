@@ -294,6 +294,7 @@ set(AUTHENTICATION_FILES
     window/modules/authentication/addirisinfodialog.cpp
     modules/authentication/widgets/irisinfowidget.cpp
     window/modules/authentication/fingedisclaimer.cpp
+    window/modules/authentication/biologicalbasedialog.cpp
 )
 
 # load accounts

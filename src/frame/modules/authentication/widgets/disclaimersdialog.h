@@ -6,7 +6,6 @@
 #include "interface/namespace.h"
 #include "widgets/settingsitem.h"
 
-#include <DAbstractDialog>
 #include <DSuggestButton>
 #include <DTipLabel>
 
@@ -21,17 +20,17 @@ namespace dcc {
 namespace authentication {
 
 enum DisclaimersObj {
-    Faceid,
+    FaceId,
     Iris,
-    Finge
+    Finger
 };
 
 // 免责声明对话框
-class DisclaimersDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
+class DisclaimersDialog : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DisclaimersDialog(DisclaimersObj disobj, DAbstractDialog *parent = nullptr);
+    explicit DisclaimersDialog(DisclaimersObj disobj, QWidget *parent = nullptr);
     ~DisclaimersDialog();
 
 private:
@@ -39,10 +38,7 @@ private:
     void initConnect();
 
 Q_SIGNALS:
-    /**
-     * @brief requestClickStatus 点击确定后 返回登陆界面 显示勾选状态
-     */
-    void requestClickStatus(bool isClick);
+    void acceptDisclaimer(bool accept);
 
 private:
     QVBoxLayout *m_mainLayout;
