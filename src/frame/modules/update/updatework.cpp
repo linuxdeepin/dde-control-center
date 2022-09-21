@@ -867,6 +867,11 @@ void UpdateWorker::checkTestingChannelStatus()
         if (status == "joined") {
             m_model->setTestingChannelStatus(UpdateModel::TestingChannelStatus::Joined);
             qDebug() << "Testing:" << "Install testing channel package";
+            // 安装内测源之前执行一次apt update，避免刚安装的系统没有仓库索引导致安装失败
+            checkForUpdates();
+            // 延迟1秒是为了把安装任务放在update之后
+            QThread::sleep(1);
+            // lastore会自动等待apt update完成后再执行安装。
             m_managerInter->InstallPackage("testing channel", TestingChannelPackage);
             return;
         }
@@ -948,7 +953,7 @@ QString UpdateWorker::getTestingChannelSource()
 QStringList UpdateWorker::getSourcesOfPackage(const QString pkg, const QString version)
 {
     QStringList sources;
-    QProcess aptCacheProcess;
+    QProcess aptCacheProcess(this);
     QStringList args;
     args.append("madison");
     args.append(pkg);
@@ -978,8 +983,11 @@ QStringList UpdateWorker::getSourcesOfPackage(const QString pkg, const QString v
 // checkCanExitTestingChannel check if the current env can exit internal test channel
 void UpdateWorker::checkCanExitTestingChannel()
 {
+    // 如果在执行apt-get clean之后使用apt-cache会很慢，比正常情况慢23倍
+    // 执行一次apt update，可以让apt-cache恢复到正常速度
+    checkForUpdates();
     auto testingChannelSource = getTestingChannelSource();
-    QProcess dpkgProcess;
+    QProcess dpkgProcess(this);
     // exec dpkg -l
     dpkgProcess.start("dpkg", QStringList("-l"));
     dpkgProcess.waitForStarted();
