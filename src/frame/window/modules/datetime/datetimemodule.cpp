@@ -412,7 +412,9 @@ void DatetimeModule::showFormatSetting()
 {
     Q_ASSERT(m_model);
 
-    m_fsetting = new DCC_NAMESPACE::datetime::FormatSetting(m_model);
+    dcc::ContentWidget *formatSettingsWidget = new  dcc::ContentWidget;
+
+    m_fsetting = new DCC_NAMESPACE::datetime::FormatSetting(m_model, formatSettingsWidget);
     connect(m_fsetting, &FormatSetting::weekdayFormatChanged, this, &DatetimeModule::weekdayFormatChanged);
     connect(m_fsetting, &FormatSetting::shortDateFormatChanged, this, &DatetimeModule::shortDateFormatChanged);
     connect(m_fsetting, &FormatSetting::longDateFormatChanged, this, &DatetimeModule::longDateFormatChanged);
@@ -427,8 +429,8 @@ void DatetimeModule::showFormatSetting()
     connect(m_model, &DatetimeModel::weekStartDayFormatChanged, m_fsetting, &FormatSetting::setCururentWeekStartDayFormat);
     GSettingWatcher::instance()->bind("datetimeFromatsetting", m_fsetting);
 
-    m_currencyFormatWidget = new CurrencyFormat(m_model);
-    m_numberFormatWidget = new NumberFormat(m_model);
+    m_currencyFormatWidget = new CurrencyFormat(m_model, formatSettingsWidget);
+    m_numberFormatWidget = new NumberFormat(m_model, formatSettingsWidget);
 
     connect(m_currencyFormatWidget, &CurrencyFormat::currencySymbolFormatChanged, m_numberFormatWidget, &NumberFormat::SetCurrencySymbolFormat);
     connect(m_currencyFormatWidget, &CurrencyFormat::positiveCurrencyFormatChanged, m_numberFormatWidget, &NumberFormat::SetPositiveCurrencyFormat);
@@ -437,7 +439,6 @@ void DatetimeModule::showFormatSetting()
     m_numberFormatWidget->SetPositiveCurrencyFormat(m_currencyFormatWidget->getFirstPositiveCurrencyFormatPlace());
     m_numberFormatWidget->SetNegativeCurrency(m_currencyFormatWidget->getFirstNegativeCurrencyPlace());
 
-    dcc::ContentWidget *formatSettingsWidget = new  dcc::ContentWidget;
     QWidget *widget = new QWidget(formatSettingsWidget);
     QVBoxLayout *layout = new QVBoxLayout(widget);
     layout->addWidget(m_fsetting);
