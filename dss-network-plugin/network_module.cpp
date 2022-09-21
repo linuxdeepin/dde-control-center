@@ -88,10 +88,8 @@ QWidget *NetworkModule::content()
     int msec = QTime::currentTime().msecsSinceStartOfDay();
     if (!m_networkDialog->isVisible() && abs(msec - m_clickTime) > 200) {
         m_clickTime = msec;
-        if (needPopupNetworkDialog()) {
-            emit signalShowNetworkDialog();
-            m_networkDialog->show();
-        }
+        emit signalShowNetworkDialog();
+        m_networkDialog->show();
     }
     return nullptr;
 }
@@ -307,6 +305,9 @@ bool NetworkModule::needPopupNetworkDialog() const
 
     // 如果当前连接的密码是按照用户保存的，就不弹出来
     WirelessSecuritySetting::Ptr securitySetting = connection->settings()->setting(Setting::SettingType::WirelessSecurity).staticCast<WirelessSecuritySetting>();
+    if (securitySetting.isNull())
+        return true;
+
     NetworkManager::Setting::SecretFlags passwordFlags = securitySetting->pskFlags();
     return (passwordFlags.testFlag(Setting::None));
 }

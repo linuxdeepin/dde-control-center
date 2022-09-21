@@ -64,10 +64,6 @@ NMVariantMapMap SecretAgent::GetSecrets(const NMVariantMapMap &connection,
     DEBUG_PRINT << "Hints:" << hints;
     DEBUG_PRINT << "Flags:" << flags;
 
-    // 如果当前网络连接的密码是按照所有用户保存的，则正常处理这些请求，否则，就无需处理
-    if (!needConnectNetwork(connection))
-        return {};
-
     const QString callId = connection_path.path() % setting_name;
     for (const SecretsRequest &request : m_calls) {
         if (request == callId) {
@@ -228,6 +224,8 @@ void SecretAgent::readProcessOutput()
                                 request.connection[request.setting_name] = result;
                                 sendSecrets(request.connection, request.message);
                             }
+                        } else {
+                            sendError(SecretAgent::UserCanceled, QStringLiteral("user canceled"), request.message);
                         }
 
                         break;
@@ -302,6 +300,11 @@ bool SecretAgent::processGetSecrets(SecretsRequest &request) const
             return true;
         }
 
+        if (!userRequested) {
+            sendError(SecretAgent::AgentCanceled, QStringLiteral("dss only support user quest"), request.message);
+            return true;
+        }
+
         m_process = new QProcess;
 
         connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &SecretAgent::dialogFinished);
@@ -349,25 +352,6 @@ bool SecretAgent::processGetSecrets(SecretsRequest &request) const
         sendError(SecretAgent::InternalError, QStringLiteral("dss did not know how to handle the request"), request.message);
         return true;
     }
-}
-
-// 判断当前
-bool SecretAgent::needConnectNetwork(const NMVariantMapMap &connectionMap) const
-{
-    // 如果不是登陆界面的连接（任务栏的请求），就让其始终响应请求
-    if (!m_greeter)
-        return true;
-
-    NetworkManager::ConnectionSettings::Ptr connectionSettings =
-        NetworkManager::ConnectionSettings::Ptr(new NetworkManager::ConnectionSettings(connectionMap));
-    NetworkManager::Connection::Ptr connection = NetworkManager::findConnectionByUuid(connectionSettings->uuid());
-    if (connection.isNull())
-        return true;
-
-    // 如果当前连接的密码是按照用户保存的，就不需要处理连接的请求
-    NetworkManager::WirelessSecuritySetting::Ptr securitySetting = connection->settings()->setting(NetworkManager::Setting::SettingType::WirelessSecurity).staticCast<NetworkManager::WirelessSecuritySetting>();
-    NetworkManager::Setting::SecretFlags passwordFlags = securitySetting->pskFlags();
-    return (passwordFlags.testFlag(NetworkManager::Setting::None));
 }
 
 bool SecretAgent::processSaveSecrets(SecretsRequest &request) const
