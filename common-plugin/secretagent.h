@@ -108,6 +108,7 @@ private:
      */
     bool hasSecrets(const NMVariantMapMap &connection) const;
     void sendSecrets(const NMVariantMapMap &secrets, const QDBusMessage &message) const;
+    bool needConnectNetwork(const NMVariantMapMap &connectionMap) const;
 
     mutable QProcess *m_process = nullptr;
     QList<SecretsRequest> m_calls;

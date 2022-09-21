@@ -41,6 +41,7 @@
 #include <NetworkManagerQt/Settings>
 #include <NetworkManagerQt/Connection>
 #include <NetworkManagerQt/WiredSetting>
+#include <NetworkManagerQt/WirelessSecuritySetting>
 
 #define NETWORK_KEY "network-item-key"
 
@@ -87,8 +88,10 @@ QWidget *NetworkModule::content()
     int msec = QTime::currentTime().msecsSinceStartOfDay();
     if (!m_networkDialog->isVisible() && abs(msec - m_clickTime) > 200) {
         m_clickTime = msec;
-        emit signalShowNetworkDialog();
-        m_networkDialog->show();
+        if (needPopupNetworkDialog()) {
+            emit signalShowNetworkDialog();
+            m_networkDialog->show();
+        }
     }
     return nullptr;
 }
@@ -292,6 +295,22 @@ void NetworkModule::addFirstConnection(NetworkManager::WiredDevice *nmDevice)
     }
 }
 
+bool NetworkModule::needPopupNetworkDialog() const
+{
+    // 如果上一次没有保存密码信息则不弹窗
+    if (m_lastConnectionUuid.isEmpty())
+        return false;
+
+    NetworkManager::Connection::Ptr connection = NetworkManager::findConnectionByUuid(m_lastConnectionUuid);
+    if (connection.isNull())
+        return false;
+
+    // 如果当前连接的密码是按照用户保存的，就不弹出来
+    WirelessSecuritySetting::Ptr securitySetting = connection->settings()->setting(Setting::SettingType::WirelessSecurity).staticCast<WirelessSecuritySetting>();
+    NetworkManager::Setting::SecretFlags passwordFlags = securitySetting->pskFlags();
+    return (passwordFlags.testFlag(Setting::None));
+}
+
 void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate, NetworkManager::Device::State oldstate, NetworkManager::Device::StateChangeReason reason)
 {
     if (m_isLockModel) {
@@ -301,9 +320,11 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
     NetworkManager::ActiveConnection::Ptr conn = device->activeConnection();
     if (!conn.isNull()) {
         m_lastConnection = conn->id();
+        m_lastConnectionUuid = conn->uuid();
         m_lastState = newstate;
     } else if (m_lastState != oldstate || m_lastConnection.isEmpty()) {
         m_lastConnection.clear();
+        m_lastConnectionUuid.clear();
         return;
     }
     switch (newstate) {
@@ -390,8 +411,10 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
                     break;
                 case Device::Type::Wifi:
                     NotificationManager::NetworkNotify(NotificationManager::WirelessConnectionFailed, m_lastConnection);
-                    emit signalShowNetworkDialog();
-                    m_networkDialog->setConnectWireless(device->uni(), m_lastConnection);
+                    if (needPopupNetworkDialog()) {
+                        emit signalShowNetworkDialog();
+                        m_networkDialog->setConnectWireless(device->uni(), m_lastConnection);
+                    }
                     break;
                 default:
                     break;
@@ -406,8 +429,11 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
             break;
         case Device::StateChangeReason::NoSecretsReason:
             NotificationManager::NetworkNotify(NotificationManager::NoSecrets, m_lastConnection);
-            emit signalShowNetworkDialog();
-            m_networkDialog->setConnectWireless(device->uni(), m_lastConnection);
+            if (needPopupNetworkDialog()) {
+                // 不是仅当前用户，就弹窗
+                emit signalShowNetworkDialog();
+                m_networkDialog->setConnectWireless(device->uni(), m_lastConnection);
+            }
             break;
         case Device::StateChangeReason::SsidNotFound:
             NotificationManager::NetworkNotify(NotificationManager::SsidNotFound, m_lastConnection);

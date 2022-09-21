@@ -72,8 +72,9 @@ private:
     bool hasConnection(NetworkManager::WiredDevice *nmDevice, NetworkManager::Connection::List &unSaveDevices);
     const QString connectionMatchName() const;
     void installTranslator(QString locale);
+    bool needPopupNetworkDialog() const;
 
-public:
+private:
     NETWORKPLUGIN_NAMESPACE::NetworkPluginHelper *m_networkHelper;
     NETWORKPLUGIN_NAMESPACE::NetworkDialog *m_networkDialog;
     NETWORKPLUGIN_NAMESPACE::SecretAgent *m_secretAgent;
@@ -84,6 +85,7 @@ public:
     QSet<QString> m_devicePaths; // 记录无线设备Path,防止信号重复连接
     QString m_lastActiveWirelessDevicePath;
     QString m_lastConnection;
+    QString m_lastConnectionUuid;
     NetworkManager::Device::State m_lastState;
     int m_clickTime;
     mutable QList<QPointer<NETWORKPLUGIN_NAMESPACE::TrayIcon>> trayIcons;
