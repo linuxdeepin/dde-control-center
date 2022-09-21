@@ -365,12 +365,14 @@ void MultiScreenWidget::initPrimaryList()
 
 void MultiScreenWidget::initSecondaryScreenDialog()
 {
-    if (m_model->displayMode() == EXTEND_MODE) {
-        for (auto dlg : m_secondaryScreenDlgList) {
-            dlg->deleteLater();
-        }
-        m_secondaryScreenDlgList.clear();
+    // 在每次显示模式切换时，先清空m_secondaryScreenDlgList
+    for (auto dlg : m_secondaryScreenDlgList) {
+        dlg->deleteLater();
+    }
 
+    m_secondaryScreenDlgList.clear();
+
+    if (m_model->displayMode() == EXTEND_MODE) {
         // x11 上 dialog 没有父窗口会导致主程序退出缓慢
         // wayland上子窗口为适应多屏就不该设置父窗口，由窗管设置
         QWidget *parent = this;
