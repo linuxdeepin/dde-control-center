@@ -16,8 +16,8 @@ using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::authentication;
 
-DisclaimersDialog::DisclaimersDialog(DisclaimersObj disobj, DAbstractDialog *parent)
-    : DAbstractDialog(parent)
+DisclaimersDialog::DisclaimersDialog(DisclaimersObj disobj, QWidget *parent)
+    : QWidget(parent)
     , m_mainLayout(new QVBoxLayout(this))
     , m_cancelBtn(new QPushButton(this))
     , m_acceptBtn(new DSuggestButton(this))
@@ -34,7 +34,6 @@ DisclaimersDialog::~DisclaimersDialog()
 
 void DisclaimersDialog::initWidget(DisclaimersObj state)
 {
-    setFixedSize(QSize(454, 542));
     m_mainLayout->setAlignment(Qt::AlignHCenter);
 
     DTitlebar *titleIcon = new DTitlebar(this);
@@ -44,7 +43,7 @@ void DisclaimersDialog::initWidget(DisclaimersObj state)
     titleIcon->setTitle(tr("Disclaimer"));
 
     DTipLabel *tipLabel = new DTipLabel("");
-    if (state == DisclaimersObj::Faceid) {
+    if (state == DisclaimersObj::FaceId) {
         tipLabel->setText(tr("Before using face recognition, please note that: \n"
                              "1. Your device may be unlocked by people or objects that look or appear similar to you.\n"
                              "2. Face recognition is less secure than digital passwords and mixed passwords.\n"
@@ -56,13 +55,11 @@ void DisclaimersDialog::initWidget(DisclaimersObj state)
                              "1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.\n"
                              "2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.\n"
                              "3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.\n"));
-    } else if (state == DisclaimersObj::Finge || state == DisclaimersObj::Iris) {
-        setFixedSize(QSize(382, 446));
+    } else if (state == DisclaimersObj::Finger || state == DisclaimersObj::Iris) {
         tipLabel->setText(tr("\"Biometric authentication\" is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through \"biometric authentication\", the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.\n"
                              "Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. \n"
                              "UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through \"Service and Support\" in the UnionTech OS. \n"));
     }
-
 
     DFontSizeManager::instance()->bind(tipLabel, DFontSizeManager::T6);
     tipLabel->adjustSize();
@@ -104,10 +101,11 @@ void DisclaimersDialog::initWidget(DisclaimersObj state)
 
 void DisclaimersDialog::initConnect()
 {
-    connect(m_cancelBtn, &QPushButton::clicked, this, &DisclaimersDialog::close);
+    connect(m_cancelBtn, &QPushButton::clicked, this, [this] {
+        acceptDisclaimer(false);
+    });
     connect(m_acceptBtn, &QPushButton::clicked, this, [this] {
-        Q_EMIT requestClickStatus(true);
-        this->close();
+        acceptDisclaimer(true);
     });
 }
 

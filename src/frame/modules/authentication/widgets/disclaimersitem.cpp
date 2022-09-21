@@ -21,11 +21,10 @@ using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::authentication;
 
-DisclaimersItem::DisclaimersItem(DisclaimersObj disobj, QWidget *parent)
+DisclaimersItem::DisclaimersItem(QWidget *parent)
     : SettingsItem(parent)
     , m_layout(new QHBoxLayout(this))
     , m_acceptCheck(new QCheckBox(this))
-    , m_state(disobj)
 {
     m_acceptCheck->setText(tr("I have read and agree to the"));
 
@@ -40,8 +39,7 @@ DisclaimersItem::DisclaimersItem(DisclaimersObj disobj, QWidget *parent)
     DFontSizeManager::instance()->bind(m_acceptCheck, DFontSizeManager::SizeType::T8);
     DFontSizeManager::instance()->bind(m_disclaimersBtn, DFontSizeManager::SizeType::T8);
 
-    connect(m_disclaimersBtn, &QPushButton::clicked, this, &DisclaimersItem::requestSetWindowEnabled);
-    connect(m_disclaimersBtn, &QPushButton::clicked, this, &DisclaimersItem::showDisclaimers);
+    connect(m_disclaimersBtn, &QPushButton::clicked, this, &DisclaimersItem::requestShowDisclaimers);
     connect(m_acceptCheck, &QCheckBox::toggled, this, &DisclaimersItem::setAcceptState);
     setLayout(m_layout);
 }
@@ -52,16 +50,4 @@ void DisclaimersItem::setAcceptState(const bool &state)
     Q_EMIT requestStateChange(!state);
 }
 
-void DisclaimersItem::showDisclaimers()
-{
-    DisclaimersDialog *disdlg = new dcc::authentication::DisclaimersDialog(m_state);
-    connect(disdlg, &DisclaimersDialog::requestClickStatus, this, &DisclaimersItem::setAcceptState);
-    connect(disdlg, &DisclaimersDialog::finished, this, [this] {
-        requestSetWindowEnabled(true);
-    });
-    disdlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
-    disdlg->setFocus();
-    disdlg->activateWindow();
-    disdlg->exec();
-}
 

@@ -26,15 +26,14 @@ class DisclaimersItem : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
 public:
-    explicit DisclaimersItem(DisclaimersObj disobj, QWidget *parent = nullptr);
+    explicit DisclaimersItem(QWidget *parent = nullptr);
 
 public Q_SLOTS:
-    void showDisclaimers();
     void setAcceptState(const bool &state);
 
 Q_SIGNALS:
     void requestStateChange(bool state);
-    void requestSetWindowEnabled(bool checked = false);
+    void requestShowDisclaimers();
 
 private:
     QHBoxLayout *m_layout;

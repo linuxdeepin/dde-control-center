@@ -7,8 +7,8 @@
 #include "interface/namespace.h"
 #include "widgets/titlelabel.h"
 #include "widgets/buttontuple.h"
-#include "modules/authentication/widgets/disclaimersitem.h"
 #include "modules/authentication/charamangermodel.h"
+#include "biologicalbasedialog.h"
 
 #include <DSuggestButton>
 #include <DAbstractDialog>
@@ -34,7 +34,7 @@ namespace DCC_NAMESPACE {
 namespace authentication {
 
 // 添加人脸对话框
-class AddFaceInfoDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
+class AddFaceInfoDialog : public BiologicalBaseDialog
 {
     Q_OBJECT
 public:
@@ -62,17 +62,13 @@ private:
     void initWidget();
     void initConnect();
     QString getFacePicture();
-
+    void initBioWidget();
 
 private:
     dcc::authentication::CharaMangerModel *m_faceModel;
-    QVBoxLayout *m_mainLayout;
     QLabel *m_facePic; // 人脸图片
     QLabel *m_resultTips; // 录入结果说明
     DLabel *m_explainTips; // 状态说明信息
-    dcc::authentication::DisclaimersItem *m_disclaimersItem; // 免责声明
-    QPushButton* m_cancelBtn; // 取消
-    DTK_WIDGET_NAMESPACE::DSuggestButton* m_acceptBtn; // 下一步
     dcc::authentication::CharaMangerModel::AddInfoState m_currentState;
 };
 

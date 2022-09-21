@@ -18,15 +18,11 @@ using namespace dcc::authentication;
 using namespace DCC_NAMESPACE::authentication;
 
 AddIrisInfoDialog::AddIrisInfoDialog(CharaMangerModel *model, QWidget *parent)
-    : DAbstractDialog(parent)
+    : BiologicalBaseDialog(parent)
     , m_charaModel(model)
-    , m_mainLayout(new QVBoxLayout(this))
     , m_irisInfo(new IrisInfoWidget(this))
     , m_resultTips(new QLabel(this))
     , m_explainTips(new QLabel(this))
-    , m_disclaimersItem(new DisclaimersItem(DisclaimersObj::Iris, this))
-    , m_cancelBtn(new QPushButton(this))
-    , m_acceptBtn(new DSuggestButton(this))
 {
     initWidget();
     initConnect();
@@ -58,10 +54,10 @@ bool AddIrisInfoDialog::eventFilter(QObject *o, QEvent *e)
     return false;
 }
 
-void AddIrisInfoDialog::initWidget()
+void AddIrisInfoDialog::initBioWidget()
 {
-    setFixedSize(QSize(340, 404));
-    m_mainLayout->setAlignment(Qt::AlignHCenter);
+    QVBoxLayout *bioLayout = new QVBoxLayout(this);
+    bioLayout->setAlignment(Qt::AlignHCenter);
 
     DTitlebar *titleIcon = new DTitlebar(this);
     titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
@@ -98,29 +94,42 @@ void AddIrisInfoDialog::initWidget()
     btnLayout->addWidget(m_acceptBtn, Qt::AlignCenter);
     btnLayout->setContentsMargins(20, 10, 20, 20);
 
-    m_mainLayout->addWidget(titleIcon, Qt::AlignTop | Qt::AlignRight);
-    m_mainLayout->addSpacing(30);
-    m_mainLayout->addWidget(m_irisInfo, 0, Qt::AlignHCenter);
-    m_mainLayout->addSpacing(15);
-    m_mainLayout->addWidget(m_resultTips, 0, Qt::AlignHCenter);
-    m_mainLayout->addSpacing(10);
-    m_mainLayout->addLayout(tips);
-    m_mainLayout->addStretch();
-    m_mainLayout->addWidget(m_disclaimersItem, 0, Qt::AlignCenter);
-    m_mainLayout->addLayout(btnLayout);
+    bioLayout->addWidget(titleIcon, Qt::AlignTop | Qt::AlignRight);
+    bioLayout->addSpacing(30);
+    bioLayout->addWidget(m_irisInfo, 0, Qt::AlignHCenter);
+    bioLayout->addSpacing(15);
+    bioLayout->addWidget(m_resultTips, 0, Qt::AlignHCenter);
+    bioLayout->addSpacing(10);
+    bioLayout->addLayout(tips);
+    bioLayout->addStretch();
+    bioLayout->addWidget(m_disclaimersItem, 0, Qt::AlignCenter);
+    bioLayout->addLayout(btnLayout);
+    bioLayout->setMargin(0);
+    bioLayout->setSpacing(0);
 
-    m_mainLayout->setMargin(0);
-    m_mainLayout->setSpacing(0);
-    setLayout(m_mainLayout);
+    m_bioWidget->setLayout(bioLayout);
+}
+
+void AddIrisInfoDialog::initWidget()
+{
+    setFixedSize(QSize(340, 404));
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setAlignment(Qt::AlignHCenter);
+
+    mainLayout->addWidget(m_bioWidget);
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(0);
+    setLayout(mainLayout);
+
+    setDisclaimerVisible(false);
+    this->activateWindow();
+    this->setFocus();
 }
 
 void AddIrisInfoDialog::initConnect()
 {
     connect(m_charaModel, &CharaMangerModel::enrollIrisInfoState, this, &AddIrisInfoDialog::refreshInfoStatusDisplay);
     connect(m_charaModel, &CharaMangerModel::enrollIrisStatusTips, this, &AddIrisInfoDialog::refreshExplainTips);
-    connect(m_disclaimersItem, &DisclaimersItem::requestSetWindowEnabled, this, &AddIrisInfoDialog::onSetWindowEnabled);
-    connect(m_disclaimersItem, &DisclaimersItem::requestStateChange, m_acceptBtn, &QPushButton::setDisabled);
-
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddIrisInfoDialog::close);
     connect(m_acceptBtn, &QPushButton::clicked, this, &AddIrisInfoDialog::requestInputIris);
     connect(m_cancelBtn, &QPushButton::clicked, this, [this]{

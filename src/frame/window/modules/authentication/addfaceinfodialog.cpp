@@ -22,17 +22,15 @@ using namespace dcc::authentication;
 using namespace DCC_NAMESPACE::authentication;
 
 AddFaceInfoDialog::AddFaceInfoDialog(dcc::authentication::CharaMangerModel *model, QWidget *parent)
-    : DAbstractDialog(parent)
+    : BiologicalBaseDialog(parent)
     , m_faceModel(model)
-    , m_mainLayout(new QVBoxLayout(this))
-    , m_cancelBtn(new QPushButton(this))
-    , m_acceptBtn(new DSuggestButton(this))
     , m_currentState(dcc::authentication::CharaMangerModel::AddInfoState::StartState)
 {
     initWidget();
     initConnect();
     QWidget::installEventFilter(this);
     setAttribute(Qt::WA_ShowModal, true);
+    // 此处设置焦点代理是取巧了，如果没有m_acceptBtn没有显示，则焦点下移到cancel按钮上，见bug133453
     setFocusProxy(m_acceptBtn);
 }
 
@@ -45,7 +43,7 @@ void AddFaceInfoDialog::closeEvent(QCloseEvent *event)
 {
     Q_EMIT requestCloseDlg();
     m_faceModel->setAddButtonStatus(true);
-    QDialog::closeEvent(event);
+    BiologicalBaseDialog::closeEvent(event);
 }
 
 bool AddFaceInfoDialog::eventFilter(QObject *o, QEvent *e)
@@ -58,10 +56,10 @@ bool AddFaceInfoDialog::eventFilter(QObject *o, QEvent *e)
     return false;
 }
 
-void AddFaceInfoDialog::initWidget()
+void AddFaceInfoDialog::initBioWidget()
 {
-    setFixedSize(QSize(454, 542));
-    m_mainLayout->setAlignment(Qt::AlignHCenter);
+    QVBoxLayout *bioLayout = new QVBoxLayout(this);
+    bioLayout->setAlignment(Qt::AlignHCenter);
 
     DTitlebar *titleIcon = new DTitlebar();
     titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
@@ -86,7 +84,6 @@ void AddFaceInfoDialog::initWidget()
     tips->setContentsMargins(42, 10, 42, 10);
 
     // 免责声明
-    m_disclaimersItem = new DisclaimersItem(DisclaimersObj::Faceid, this);
     m_disclaimersItem->show();
 
     // 下方按钮
@@ -101,20 +98,34 @@ void AddFaceInfoDialog::initWidget()
     btnLayout->addWidget(m_acceptBtn, Qt::AlignCenter);
     btnLayout->setContentsMargins(20, 10, 20, 20);
 
-    m_mainLayout->addWidget(titleIcon, Qt::AlignTop | Qt::AlignRight);
-    m_mainLayout->addSpacing(55);
-    m_mainLayout->addWidget(m_facePic, 0, Qt::AlignHCenter);
-    m_mainLayout->addSpacing(15);
-    m_mainLayout->addWidget(m_resultTips, 0, Qt::AlignHCenter);
-    m_mainLayout->addSpacing(10);
-    m_mainLayout->addLayout(tips);
-    m_mainLayout->addStretch();
-    m_mainLayout->addWidget(m_disclaimersItem, 0, Qt::AlignCenter);
-    m_mainLayout->addLayout(btnLayout);
+    bioLayout->addWidget(titleIcon, Qt::AlignTop | Qt::AlignRight);
+    bioLayout->addSpacing(55);
+    bioLayout->addWidget(m_facePic, 0, Qt::AlignHCenter);
+    bioLayout->addSpacing(15);
+    bioLayout->addWidget(m_resultTips, 0, Qt::AlignHCenter);
+    bioLayout->addSpacing(10);
+    bioLayout->addLayout(tips);
+    bioLayout->addStretch();
+    bioLayout->addWidget(m_disclaimersItem, 0, Qt::AlignCenter);
+    bioLayout->addLayout(btnLayout);
+    bioLayout->setMargin(0);
+    bioLayout->setSpacing(0);
 
-    m_mainLayout->setMargin(0);
-    m_mainLayout->setSpacing(0);
-    setLayout(m_mainLayout);
+    m_bioWidget->setLayout(bioLayout);
+}
+
+void AddFaceInfoDialog::initWidget()
+{
+    initBioWidget();
+    setFixedSize(QSize(454, 542));
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setAlignment(Qt::AlignHCenter);
+
+    mainLayout->addWidget(m_bioWidget);
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(0);
+    setLayout(mainLayout);
+    setDisclaimerVisible(false);
 
     this->activateWindow();
     this->setFocus();
@@ -123,15 +134,11 @@ void AddFaceInfoDialog::initWidget()
 void AddFaceInfoDialog::initConnect()
 {
     connect(m_faceModel, &CharaMangerModel::enrollInfoState, this, &AddFaceInfoDialog::responseEnrollInfoState);
-
-    connect(m_disclaimersItem, &DisclaimersItem::requestSetWindowEnabled, this, &AddFaceInfoDialog::onSetWindowEnabled);
-    connect(m_disclaimersItem, &DisclaimersItem::requestStateChange, m_acceptBtn, &QPushButton::setDisabled);
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddFaceInfoDialog::close);
     connect(m_acceptBtn, &QPushButton::clicked, this, [this](){
         m_faceModel->setAddButtonStatus(false);
         Q_EMIT requestShowFaceInfoDialog();
     });
-
 }
 
 QString AddFaceInfoDialog::getFacePicture()
@@ -196,6 +203,7 @@ void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState s
         m_disclaimersItem->hide();
         m_acceptBtn->hide();
         m_cancelBtn->show();
+        m_cancelBtn->setFocus();
         m_cancelBtn->setText(tr("Done"));
     }
 
@@ -209,6 +217,7 @@ void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState s
         m_acceptBtn->show();
         m_acceptBtn->setText(tr("Try Again"));
         m_acceptBtn->setDisabled(false);
+        m_acceptBtn->setFocus();
         m_cancelBtn->show();
         m_cancelBtn->setText(tr("Close"));
     }
@@ -216,10 +225,3 @@ void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState s
     this->show();
     Q_EMIT requestStopEnroll();
 }
-
-// 处理界面失焦效果 配合 模态对话框
-void AddFaceInfoDialog::onSetWindowEnabled(const bool isEnabled)
-{
-    this->setEnabled(isEnabled);
-}
-
