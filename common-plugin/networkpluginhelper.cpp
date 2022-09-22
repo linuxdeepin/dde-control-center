@@ -71,6 +71,7 @@ NetworkPluginHelper::NetworkPluginHelper(NetworkDialog *networkDialog, QObject *
     , m_switchWire(true)
     , m_networkDialog(networkDialog)
 {
+    qDBusRegisterMetaType<NMVariantMapMap>();
     initUi();
     initConnection();
 }
