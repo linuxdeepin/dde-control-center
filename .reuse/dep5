@@ -1,0 +1,74 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: dde-network-core
+Upstream-Contact: UnionTech Software Technology Co., Ltd. <>
+Source: https://github.com/linuxdeepin/dde-network-core
+
+# README & DOC
+Files: *.md README.md README.zh_CN.md CHANGELOG.md docs/*
+Copyright: UnionTech Software Technology Co., Ltd.
+License: CC-BY-4.0
+
+# translation
+Files: translations/* *.ts
+Copyright: UnionTech Software Technology Co., Ltd.
+License: LGPL-3.0-or-later
+
+# Project file
+Files: *.pro *.prf *.pri *CMakeLists.txt
+Copyright: None
+License: CC0-1.0
+
+# css
+Files: src/*.css
+Copyright: None
+License: CC0-1.0
+
+# qss
+Files: src/*.qss
+Copyright: UnionTech Software Technology Co., Ltd.
+License: LGPL-3.0-or-later
+
+# qrc
+Files: *.qrc
+Copyright: None
+License: CC0-1.0
+
+# png svg
+Files: *.png *.svg
+Copyright: UnionTech Software Technology Co., Ltd.
+License: LGPL-3.0-or-later
+
+# project config files(json)
+Files: dock-network-plugin/network.json dcc-network-plugin/network.json config/org.deepin.dde.network.json dde-network-dialog/network.json dss-network-plugin/network.json
+Copyright: UnionTech Software Technology Co., Ltd.
+License: LGPL-3.0-or-later
+
+# project config files(pkla in cc)
+Files: dss-network-plugin/10-network-manager.pkla src/dde-network-core.pc.in try-compile/networkmanagerqt.cc
+Copyright: UnionTech Software Technology Co., Ltd.
+License: LGPL-3.0-or-later
+
+# sh
+Files: dcc-network-plugin/lupdate.sh dde-network-dialog/lupdate.sh dss-network-plugin/lupdate.sh dock-network-plugin/lupdate.sh tests/test-recoverage.sh
+Copyright: UnionTech Software Technology Co., Ltd.
+License: LGPL-3.0-or-later
+
+# ci
+Files: .github/* .gitlab-ci.yml
+Copyright: None
+License: CC0-1.0
+
+# gitignore
+Files: .gitignore
+Copyright: None
+License: CC0-1.0
+
+# xml toml json conf yaml
+Files: src/*.xml .clog.toml configs/*.json src/*conf src/*.yaml .tx/config
+Copyright: None
+License: CC0-1.0
+
+# Packaging configuration
+Files: rpm/* debian/* archlinux/*
+Copyright: None
+License: CC0-1.0

@@ -1,4 +1,8 @@
-﻿#include "ipconfilctchecker.h"
+// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+#include "ipconfilctchecker.h"
 #include "networkdevicebase.h"
 #include "realize/netinterface.h"
 
