@@ -127,6 +127,8 @@ void SecretAgent::CancelGetSecrets(const QDBusObjectPath &connection_path, const
         SecretsRequest request = m_calls.at(i);
         if (request.type == SecretsRequest::GetSecrets && callId == request.callId) {
             if (m_process == request.process) {
+                DEBUG_PRINT << "process finished (agent canceled)";
+                m_process->deleteLater();
                 m_process = nullptr;
             }
             sendError(SecretAgent::AgentCanceled, QStringLiteral("Agent canceled the password dialog"), request.message);
@@ -169,6 +171,8 @@ void SecretAgent::processNext()
 
 void SecretAgent::dialogFinished()
 {
+    if (!m_process) return;
+
     readProcessOutput();
 
     for (int i = 0; i < m_calls.size(); ++i) {
