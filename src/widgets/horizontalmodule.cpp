@@ -35,6 +35,9 @@ public:
     {
         Q_Q(HorizontalModule);
         QWidget *w = new QWidget();
+        m_mapWidget.clear();
+        QObject::connect(w, &QObject::destroyed, q, [this]() { m_mapWidget.clear(); });
+
         m_layout = new QHBoxLayout(w);
         m_layout->setMargin(0);
         m_layout->setSpacing(m_spacing);
@@ -64,10 +67,6 @@ public:
                     onRemoveChild(tmpChild);
                 else
                     onAddChild(tmpChild);
-            } else if (ModuleObject::IsDisabledFlag(flag)) {
-                if (m_mapWidget.contains(tmpChild)) {
-                    m_mapWidget.value(tmpChild)->setDisabled(state);
-                }
             }
         });
         return w;
@@ -104,8 +103,6 @@ private:
         auto newPage = childModule->activePage();
         if (newPage) {
             m_layout->insertWidget(index, newPage);
-
-            newPage->setDisabled(ModuleObject::IsDisabled(childModule));
             m_mapWidget.insert(childModule, newPage);
         }
     }

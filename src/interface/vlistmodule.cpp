@@ -35,7 +35,7 @@ public:
             else
                 widget = child->activePage();
             if (widget) {
-                widget->setSizePolicy(QSizePolicy::Expanding,widget->sizePolicy().verticalPolicy());
+                widget->setSizePolicy(QSizePolicy::Expanding, widget->sizePolicy().verticalPolicy());
                 m_layout->addWidget(widget, 5);
                 ModuleDataModel *model = static_cast<ModuleDataModel *>(m_view->model());
                 m_view->setCurrentIndex(model->index(child));
@@ -70,7 +70,6 @@ public:
         auto newPage = childModule->activePage();
         if (newPage) {
             m_hlayout->insertWidget(index, newPage);
-            newPage->setDisabled(ModuleObject::IsDisabled(childModule));
             m_extraModules.insert(index, childModule);
         }
     }
@@ -90,9 +89,9 @@ public:
         widget->setLayout(vlayout);
         vlayout->addWidget(view);
         vlayout->addLayout(m_hlayout);
-        widget->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Expanding);
+        widget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
         m_layout->addWidget(widget, 1);
-        m_layout->addWidget(new DVerticalLine,1);
+        m_layout->addWidget(new DVerticalLine, 1);
 
         ModuleDataModel *model = new ModuleDataModel(view);
         model->setModuleObject(q);
@@ -141,11 +140,6 @@ public:
                     onRemoveChild(tmpChild);
                 else
                     onAddChild(tmpChild);
-            } else if (ModuleObject::IsDisabledFlag(flag)) {
-                int index = m_extraModules.indexOf(tmpChild);
-                if (-1 != index) {
-                    m_hlayout->itemAt(index)->widget()->setDisabled(state);
-                }
             }
         });
         onCurrentModuleChanged(q->currentModule());

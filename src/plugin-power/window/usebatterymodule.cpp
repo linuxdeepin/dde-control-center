@@ -272,30 +272,32 @@ void UseBatteryModule::initUI()
             return swBatteryHint;
         }));
 
-    group->appendChild(new ItemModule("lowBatteryHint", tr("Low battery level"),
-    [this] (ModuleObject *module) -> QWidget*{
-        DComboBox *cmbLowBatteryHint = new DComboBox();
-        cmbLowBatteryHint->setAccessibleName("cmbLowBatteryHint");
-        module->setHiden(!m_model->haveBettary());
-        QStringList levels;
-        levels << "10%"
-               << "15%"
-               << "20%"
-               << "25%";
-        cmbLowBatteryHint->addItems(levels);
-        if (m_model->lowPowerNotifyThreshold() < cmbLowBatteryHint->count()) {
-            cmbLowBatteryHint->setCurrentIndex(m_model->lowPowerNotifyThreshold());
-        }
-        connect(cmbLowBatteryHint, QOverload<int>::of(&DComboBox::currentIndexChanged), this, [=](int value) {
-            if (value < cmbLowBatteryHint->count())
-                Q_EMIT requestSetLowPowerNotifyThreshold(value);
-        });
-        connect(m_model, &PowerModel::lowPowerNotifyEnableChanged, module, [module] (const bool state) {
-            module->setHiden(!state);
-        });
-        connect(m_model, &PowerModel::lowPowerNotifyThresholdChanged, cmbLowBatteryHint, &DComboBox::setCurrentIndex);
-        return cmbLowBatteryHint;
-    }));
+    ItemModule *itemLowBatteryHint =
+        new ItemModule("lowBatteryHint", tr("Low battery level"),
+                       [this] (ModuleObject *module) -> QWidget*{
+                           DComboBox *cmbLowBatteryHint = new DComboBox();
+                           cmbLowBatteryHint->setAccessibleName("cmbLowBatteryHint");
+                           QStringList levels;
+                           levels << "10%"
+                                  << "15%"
+                                  << "20%"
+                                  << "25%";
+                           cmbLowBatteryHint->addItems(levels);
+                           if (m_model->lowPowerNotifyThreshold() < cmbLowBatteryHint->count()) {
+                               cmbLowBatteryHint->setCurrentIndex(m_model->lowPowerNotifyThreshold());
+                           }
+                           connect(cmbLowBatteryHint, QOverload<int>::of(&DComboBox::currentIndexChanged), this, [=](int value) {
+                               if (value < cmbLowBatteryHint->count())
+                                   Q_EMIT requestSetLowPowerNotifyThreshold(value);
+                           });
+                           connect(m_model, &PowerModel::lowPowerNotifyThresholdChanged, cmbLowBatteryHint, &DComboBox::setCurrentIndex);
+                           return cmbLowBatteryHint;
+                       });
+    itemLowBatteryHint->setHiden(!(m_model->haveBettary() && m_model->lowPowerNotifyEnable()));
+    connect(m_model, &PowerModel::lowPowerNotifyEnableChanged, itemLowBatteryHint, [itemLowBatteryHint, this] (/*const bool state*/) {
+        itemLowBatteryHint->setHiden(!(m_model->haveBettary() && m_model->lowPowerNotifyEnable()));
+    });
+    group->appendChild(itemLowBatteryHint);
 
     group->appendChild(new ItemModule("autoSuspend", tr("Auto suspend battery level"),
         [this] (ModuleObject *module) -> QWidget*{

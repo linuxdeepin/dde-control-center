@@ -80,7 +80,6 @@ public:
                     m_vlayout->addWidget(page);
                 }
                 m_mapWidget.insert(tmpChild, page);
-                page->setDisabled(ModuleObject::IsDisabled(tmpChild));
             }
         }
         if (!q->noStretch())
@@ -99,10 +98,6 @@ public:
                     onRemoveChild(tmpChild);
                 else
                     onAddChild(tmpChild);
-            } else if (ModuleObject::IsDisabledFlag(flag)) {
-                if (m_mapWidget.contains(tmpChild)) {
-                    m_mapWidget.value(tmpChild)->setDisabled(state);
-                }
             }
         });
         Q_EMIT q->currentModuleChanged(q->currentModule());
@@ -160,7 +155,6 @@ private:
             else
                 m_vlayout->insertWidget(index, newPage);
 
-            newPage->setDisabled(ModuleObject::IsDisabled(childModule));
             m_mapWidget.insert(childModule, newPage);
         }
     }
