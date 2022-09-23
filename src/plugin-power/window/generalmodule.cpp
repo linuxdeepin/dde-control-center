@@ -19,6 +19,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "generalmodule.h"
+#include "dccslider.h"
 #include "itemmodule.h"
 #include "powermodel.h"
 #include "powerworker.h"
@@ -30,6 +31,7 @@
 #include <DComboBox>
 #include <DListView>
 #include <DSwitchButton>
+#include <titledslideritem.h>
 
 #define BALANCE "balance"         // 平衡模式
 #define PERFORMANCE "performance" // 高性能模式
@@ -150,7 +152,6 @@ void GeneralModule::initUI()
         },false));
     //　节能设置
     auto powerLowerBrightnessLabel = new TitleModule("powerLowerBrightnessLabel", tr("Power Saving Settings"));
-    powerLowerBrightnessLabel->setHiden(!m_model->haveBettary());
     connect(m_model, &PowerModel::haveBettaryChanged, powerLowerBrightnessLabel, [powerLowerBrightnessLabel] (bool haveBettary) {
         powerLowerBrightnessLabel->setHiden(!haveBettary);
     });
@@ -158,48 +159,67 @@ void GeneralModule::initUI()
     appendChild(powerLowerBrightnessLabel);
     SettingsGroupModule *group = new SettingsGroupModule("powerSavingSettings", tr("Power Saving Settings"));
     appendChild(group);
-    group->setHiden(!m_model->haveBettary());
-    connect(m_model, &PowerModel::haveBettaryChanged, powerLowerBrightnessLabel, [group] (bool haveBettary) {
-        group->setHiden(!haveBettary);
-    });
 
-    group->appendChild(new ItemModule("autoPowerSavingOnLowBattery", tr("Auto power saving on low battery"),
-        [this] (ModuleObject *module) -> QWidget*{
-            DSwitchButton *lowPowerAutoIntoSaveEnergyMode = new DSwitchButton(/*tr("Auto power saving on low battery")*/);
-            lowPowerAutoIntoSaveEnergyMode->setChecked(m_model->powerSavingModeAutoWhenQuantifyLow());
-            connect(m_model, &PowerModel::powerSavingModeAutoWhenQuantifyLowChanged, lowPowerAutoIntoSaveEnergyMode, &DSwitchButton::setChecked);
-            connect(lowPowerAutoIntoSaveEnergyMode, &DSwitchButton::checkedChanged, this, &GeneralModule::requestSetPowerSavingModeAutoWhenQuantifyLow);
-            return lowPowerAutoIntoSaveEnergyMode;
-        }));
-    group->appendChild(new ItemModule("autoPowerSavingOnBattery", tr("Auto power saving on battery"),
-        [this] (ModuleObject *module) -> QWidget*{
-            DSwitchButton *autoIntoSaveEnergyMode = new DSwitchButton();
-            autoIntoSaveEnergyMode->setChecked(m_model->autoPowerSaveMode());
-            connect(m_model, &PowerModel::autoPowerSavingModeChanged, autoIntoSaveEnergyMode, &DSwitchButton::setChecked);
-            connect(autoIntoSaveEnergyMode, &DSwitchButton::checkedChanged, this, &GeneralModule::requestSetPowerSavingModeAuto);
-            return autoIntoSaveEnergyMode;
-        }));
+
+    ItemModule *itemAutoPowerSavingOnLowBattery =
+        new ItemModule("autoPowerSavingOnLowBattery", tr("Auto power saving on low battery"),
+                       [this] (ModuleObject *module) -> QWidget*{
+                           DSwitchButton *lowPowerAutoIntoSaveEnergyMode = new DSwitchButton(/*tr("Auto power saving on low battery")*/);
+                           lowPowerAutoIntoSaveEnergyMode->setChecked(m_model->powerSavingModeAutoWhenQuantifyLow());
+                           connect(m_model, &PowerModel::powerSavingModeAutoWhenQuantifyLowChanged, lowPowerAutoIntoSaveEnergyMode, &DSwitchButton::setChecked);
+                           connect(lowPowerAutoIntoSaveEnergyMode, &DSwitchButton::checkedChanged, this, &GeneralModule::requestSetPowerSavingModeAutoWhenQuantifyLow);
+                           return lowPowerAutoIntoSaveEnergyMode;
+                       });
+    itemAutoPowerSavingOnLowBattery->setHiden(!m_model->haveBettary());
+    connect(m_model, &PowerModel::haveBettaryChanged, itemAutoPowerSavingOnLowBattery, [itemAutoPowerSavingOnLowBattery] (bool haveBettary) {
+        itemAutoPowerSavingOnLowBattery->setHiden(!haveBettary);
+    });
+    group->appendChild(itemAutoPowerSavingOnLowBattery);
+
+    ItemModule *itemAutoPowerSavingOnBattery =
+        new ItemModule("autoPowerSavingOnBattery", tr("Auto power saving on battery"),
+                       [this] (ModuleObject *module) -> QWidget*{
+                           DSwitchButton *autoIntoSaveEnergyMode = new DSwitchButton();
+                           autoIntoSaveEnergyMode->setChecked(m_model->autoPowerSaveMode());
+                           connect(m_model, &PowerModel::autoPowerSavingModeChanged, autoIntoSaveEnergyMode, &DSwitchButton::setChecked);
+                           connect(autoIntoSaveEnergyMode, &DSwitchButton::checkedChanged, this, &GeneralModule::requestSetPowerSavingModeAuto);
+                           return autoIntoSaveEnergyMode;
+                       });
+    itemAutoPowerSavingOnBattery->setHiden(!m_model->haveBettary());
+    connect(m_model, &PowerModel::haveBettaryChanged, itemAutoPowerSavingOnBattery, [itemAutoPowerSavingOnBattery] (bool haveBettary) {
+        itemAutoPowerSavingOnBattery->setHiden(!haveBettary);
+    });
+    group->appendChild(itemAutoPowerSavingOnBattery);
+
+
     group->appendChild(new ItemModule("decreaseBrightness", tr("Decrease Brightness"),
         [this] (ModuleObject *module) -> QWidget*{
-            DComboBox *decreaseBrightnessRatio = new DComboBox();
-            decreaseBrightnessRatio->setAccessibleName("sldLowerBrightness");
+            TitledSliderItem *sldLowerBrightness = new TitledSliderItem(tr("Decrease Brightness"));
+            sldLowerBrightness->setAccessibleName("sldLowerBrightness");
             QStringList annotions;
             annotions << "10%"
                       << "20%"
                       << "30%"
                       << "40%";
-            decreaseBrightnessRatio->addItems(annotions);
+            sldLowerBrightness->setAnnotations(annotions);
+            sldLowerBrightness->slider()->setRange(1, 4);
+            sldLowerBrightness->slider()->setPageStep(10);
+            sldLowerBrightness->slider()->setType(DCCSlider::Vernier);
+            sldLowerBrightness->slider()->setTickPosition(QSlider::NoTicks);
+
             int maxBacklight = m_work->getMaxBacklightBrightness();
-            decreaseBrightnessRatio->setVisible(maxBacklight >= 100 || maxBacklight == 0);
-            decreaseBrightnessRatio->setCurrentText(QString("%1\%").arg(m_model->powerSavingModeLowerBrightnessThreshold()));
-            connect(m_model, &PowerModel::powerSavingModeLowerBrightnessThresholdChanged, decreaseBrightnessRatio, [decreaseBrightnessRatio](const uint dLevel) {
-                decreaseBrightnessRatio->setCurrentText(QString("%1\%").arg(dLevel));
+            sldLowerBrightness->setVisible(maxBacklight >= 100 || maxBacklight == 0);
+            sldLowerBrightness->slider()->setValue(m_model->powerSavingModeLowerBrightnessThreshold() / 10);
+            connect(m_model, &PowerModel::powerSavingModeLowerBrightnessThresholdChanged, sldLowerBrightness, [sldLowerBrightness](const uint dLevel) {
+                sldLowerBrightness->slider()->blockSignals(true);
+                sldLowerBrightness->slider()->setValue(dLevel / 10);
+                sldLowerBrightness->slider()->blockSignals(false);
             });
-            connect(decreaseBrightnessRatio, &DComboBox::currentTextChanged, decreaseBrightnessRatio, [this] (const QString &value) {
-                Q_EMIT requestSetPowerSavingModeLowerBrightnessThreshold(value.leftRef(2).toInt());
+            connect(sldLowerBrightness->slider(), &DCCSlider::valueChanged, this, [this] (int value) {
+                Q_EMIT requestSetPowerSavingModeLowerBrightnessThreshold(value * 10);
             });
-            return decreaseBrightnessRatio;
-        }));
+            return sldLowerBrightness;
+        }, false));
 
     // 唤醒设置
     appendChild(new TitleModule("wakeupSettingsLabel", tr("Wakeup Settings")));
