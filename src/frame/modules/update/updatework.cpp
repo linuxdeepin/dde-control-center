@@ -345,16 +345,6 @@ void UpdateWorker::deactivate()
 
 }
 
-bool UpdateWorker::checkNeedUpdates() const
-{
-    for (auto job : m_downloadAndInstallJobList) {
-        if (!job.isNull() && job->isValid() && job->status() == "running") {
-            return false;
-        }
-    }
-    return true;
-}
-
 void UpdateWorker::checkForUpdates()
 {
     if (checkDbusIsValid()) {
@@ -362,10 +352,6 @@ void UpdateWorker::checkForUpdates()
         return;
     }
 
-    if (!checkNeedUpdates()) {
-        qDebug() << " do not need check update";
-        return;
-    }
     QDBusPendingCall call = m_managerInter->UpdateSource();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
