@@ -85,8 +85,7 @@ QVariant DCCDBusInterfacePrivate::updateProp(const char *propname, const QVarian
         result = demarshall(metaProperty, value);
         m_propertyMap.insert(propname, result);
         QMetaObject::invokeMethod(m_parent, propname + QString("Changed").toLatin1(), Qt::DirectConnection, QGenericArgument(result.typeName(), result.data()));
-    } else
-        qInfo() << "invalid property changed:" << propname << value;
+    }
 
     return result;
 }

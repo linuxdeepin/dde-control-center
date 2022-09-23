@@ -34,6 +34,7 @@ public:
     Q_PROPERTY(QString StaticHostname READ staticHostname WRITE setStaticHostname NOTIFY StaticHostnameChanged)
     QString staticHostname();
     void setStaticHostname(const QString &value);
+    void setStaticHostname(const QString &value, QObject *receiver, const char *member, const char *errorSlot);
 
     Q_PROPERTY(int AuthorizationState READ authorizationState WRITE setAuthorizationState NOTIFY AuthorizationStateChanged)
     int authorizationState();

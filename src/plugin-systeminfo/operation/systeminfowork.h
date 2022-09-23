@@ -52,6 +52,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void showActivatorDialog();
     void onSetHostname(const QString &hostname);
+    void onSetHostnameFinish();
 
 private:
     void getLicenseState();

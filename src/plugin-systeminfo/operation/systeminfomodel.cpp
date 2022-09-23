@@ -108,9 +108,6 @@ void SystemInfoModel::setProcessor(const QString &processor)
 
 void SystemInfoModel::setHostName(const QString &hostName)
 {
-    if(m_hostName == hostName)
-        return;
-
     m_hostName = hostName;
     hostNameChanged(hostName);
 }

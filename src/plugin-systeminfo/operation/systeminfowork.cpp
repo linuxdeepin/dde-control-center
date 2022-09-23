@@ -87,7 +87,12 @@ void SystemInfoWork::showActivatorDialog()
 
 void SystemInfoWork::onSetHostname(const QString &hostname)
 {
-    m_systemInfDBusProxy->setStaticHostname(hostname);
+    m_systemInfDBusProxy->setStaticHostname(hostname, this, SLOT(onSetHostnameFinish()), SLOT(onSetHostnameFinish()));
+}
+
+void SystemInfoWork::onSetHostnameFinish()
+{
+    m_model->setHostName(m_systemInfDBusProxy->staticHostname());
 }
 
 }

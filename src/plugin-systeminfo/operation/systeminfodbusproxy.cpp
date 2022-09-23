@@ -63,6 +63,13 @@ void SystemInfoDBusProxy::setStaticHostname(const QString &value)
     m_hostname1Inter->asyncCallWithArgumentList("SetStaticHostname", argumentList);
 }
 
+void SystemInfoDBusProxy::setStaticHostname(const QString &value, QObject *receiver, const char *member, const char *errorSlot)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(value) << QVariant::fromValue(true);
+    m_hostname1Inter->callWithCallback("SetStaticHostname", argumentList, receiver, member, errorSlot);
+}
+
 int SystemInfoDBusProxy::authorizationState()
 {
     return qvariant_cast<int>(m_licenseInfoInter->property("AuthorizationState"));
