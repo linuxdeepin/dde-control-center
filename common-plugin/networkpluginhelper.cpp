@@ -66,7 +66,6 @@ using DBusAirplaneMode = com::deepin::daemon::AirplaneMode;
 
 NetworkPluginHelper::NetworkPluginHelper(NetworkDialog *networkDialog, QObject *parent)
     : QObject(parent)
-    , m_pluginState(PluginState::Unknow)
     , m_tipsWidget(new TipsWidget(nullptr))
     , m_switchWire(true)
     , m_networkDialog(networkDialog)
@@ -102,14 +101,9 @@ void NetworkPluginHelper::initConnection()
     });
 }
 
-void NetworkPluginHelper::updatePluginState()
-{
-    m_pluginState = DeviceStatusHandler::pluginState();
-}
-
 PluginState NetworkPluginHelper::getPluginState()
 {
-    return m_pluginState;
+    return DeviceStatusHandler::pluginState();
 }
 
 QList<QPair<QString, QStringList>> NetworkPluginHelper::ipTipsMessage(const DeviceType &devType)
@@ -139,7 +133,7 @@ QList<QPair<QString, QStringList>> NetworkPluginHelper::ipTipsMessage(const Devi
 
 void NetworkPluginHelper::updateTooltips()
 {
-    switch (m_pluginState) {
+    switch (getPluginState()) {
     case PluginState::Connected: {
         QList<QPair<QString, QStringList>> textList;
         textList << ipTipsMessage(DeviceType::Wireless) << ipTipsMessage(DeviceType::Wired);
@@ -420,7 +414,6 @@ QWidget *NetworkPluginHelper::itemTips()
 
 void NetworkPluginHelper::onUpdatePlugView()
 {
-    updatePluginState();
     updateTooltips();
     emit viewUpdate();
 }

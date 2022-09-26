@@ -69,7 +69,6 @@ public:
     const QString contextMenu(bool hasSetting) const;
     QWidget *itemTips();
     PluginState getPluginState();
-    void updatePluginState();
     void updateTooltips(); // 更新提示的内容
 
 private:
@@ -92,8 +91,6 @@ private Q_SLOTS:
     void onAccessPointsAdded(QList<AccessPoints *> newAps);
 
 private:
-    PluginState m_pluginState;
-
     TipsWidget *m_tipsWidget;
     bool m_switchWire;
     QPixmap m_iconPixmap;

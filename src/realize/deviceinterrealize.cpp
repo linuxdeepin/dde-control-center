@@ -25,6 +25,8 @@
 
 #include <QHostAddress>
 
+#include <NetworkManagerQt/Device>
+
 using namespace dde::network;
 
 #define UNKNOW_MODE 0
@@ -163,6 +165,40 @@ Connectivity DeviceInterRealize::connectivity()
     return m_connectivity;
 }
 
+DeviceStatus DeviceInterRealize::deviceStatus() const
+{
+    NetworkManager::Device::Ptr dev(new NetworkManager::Device(path()));
+    switch(dev->state()) {
+    case NetworkManager::Device::State::UnknownState:
+        return DeviceStatus::Unknown;
+    case NetworkManager::Device::State::Unmanaged:
+        return DeviceStatus::Unmanaged;
+    case NetworkManager::Device::State::Unavailable:
+        return DeviceStatus::Unavailable;
+    case NetworkManager::Device::State::Disconnected:
+        return DeviceStatus::Disconnected;
+    case NetworkManager::Device::State::Preparing:
+        return DeviceStatus::Prepare;
+    case NetworkManager::Device::State::ConfiguringHardware:
+    case NetworkManager::Device::State::ConfiguringIp:
+        return DeviceStatus::Config;
+    case NetworkManager::Device::State::NeedAuth:
+        return DeviceStatus::Needauth;
+    case NetworkManager::Device::State::CheckingIp:
+        return DeviceStatus::IpCheck;
+    case NetworkManager::Device::State::WaitingForSecondaries:
+        return DeviceStatus::Secondaries;
+    case NetworkManager::Device::State::Activated:
+        return DeviceStatus::Activated;
+    case NetworkManager::Device::State::Deactivating:
+        return DeviceStatus::Deactivation;
+    case NetworkManager::Device::State::Failed:
+        return DeviceStatus::Failed;
+    }
+
+    return DeviceStatus::Unknown;
+}
+
 DeviceInterRealize::DeviceInterRealize(IPConfilctChecker *ipChecker, NetworkInter *networkInter, QObject *parent)
     : NetworkDeviceRealize(ipChecker, parent)
     , m_networkInter(networkInter)
@@ -183,9 +219,6 @@ NetworkInter *DeviceInterRealize::networkInter()
 void DeviceInterRealize::updateDeviceInfo(const QJsonObject &info)
 {
     m_data = info;
-    DeviceStatus stat = convertDeviceStatus(info.value("State").toInt());
-
-    setDeviceStatus(stat);
 }
 
 void DeviceInterRealize::initDeviceInfo()
@@ -235,16 +268,6 @@ void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &in
     }
     if (ipChanged)
         Q_EMIT ipV4Changed();
-}
-
-void DeviceInterRealize::setDeviceStatus(const DeviceStatus &status)
-{
-    // 如果是开启热点，就让其renweus断开的状态
-    DeviceStatus stat = status;
-    if (mode() == AP_MODE)
-        stat = DeviceStatus::Disconnected;
-
-    NetworkDeviceRealize::setDeviceStatus(stat);
 }
 
 int DeviceInterRealize::mode() const

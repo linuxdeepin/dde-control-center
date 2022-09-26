@@ -60,6 +60,7 @@ public:
     QJsonObject activeConnectionInfo() const override;                                                       // 获取当前活动连接的信息
     void setEnabled(bool enabled) override;                                                                  // 开启或禁用网卡
     Connectivity connectivity();
+    DeviceStatus deviceStatus() const override;
 
 protected:
     explicit DeviceInterRealize(IPConfilctChecker *ipChecker, NetworkInter *networkInter, QObject *parent = Q_NULLPTR);
@@ -75,7 +76,6 @@ protected:
     virtual void setDeviceEnabledStatus(const bool &enabled);
     virtual void updateActiveInfo(const QList<QJsonObject> &) {}                                        // 当前连接发生变化，例如从一个连接切换到另外一个连接
     virtual void updateActiveConnectionInfo(const QList<QJsonObject> &infos);                               // 当前连接发生变化后，获取设备的活动信息，例如IP等
-    void setDeviceStatus(const DeviceStatus &status) override;
     int mode() const;
 
 private:
