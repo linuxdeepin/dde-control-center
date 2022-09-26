@@ -25,7 +25,6 @@
 #include "powerworker.h"
 #include "titlemodule.h"
 #include "settingsgroupmodule.h"
-#include "widgets/switchwidget.h"
 #include "widgets/dcclistview.h"
 
 #include <DComboBox>
@@ -81,11 +80,11 @@ void GeneralModule::initUI()
     }
 
     //　性能设置
-    appendChild(new TitleModule("powerPlansLabel", tr("Power Plans")));
+    appendChild(new TitleModule("powerPlansTitle", tr("Power Plans")));
     appendChild(new ItemModule("powerPlans", tr("Power Plans"),
         [this] (ModuleObject *module) -> QWidget*{
             DCCListView *powerplanListview = new DCCListView();
-            powerplanListview->setAccessibleName("powerplanListview");
+            powerplanListview->setAccessibleName("Power Plans");
 
             powerplanListview->setModel(m_powerPlanModel);
             powerplanListview->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -151,13 +150,13 @@ void GeneralModule::initUI()
             return powerplanListview;
         },false));
     //　节能设置
-    auto powerLowerBrightnessLabel = new TitleModule("powerLowerBrightnessLabel", tr("Power Saving Settings"));
+    auto powerLowerBrightnessLabel = new TitleModule("powerSavingSettingsTitle", tr("Power Saving Settings"));
     connect(m_model, &PowerModel::haveBettaryChanged, powerLowerBrightnessLabel, [powerLowerBrightnessLabel] (bool haveBettary) {
         powerLowerBrightnessLabel->setHiden(!haveBettary);
     });
 
     appendChild(powerLowerBrightnessLabel);
-    SettingsGroupModule *group = new SettingsGroupModule("powerSavingSettings", tr("Power Saving Settings"));
+    SettingsGroupModule *group = new SettingsGroupModule("powerSavingSettingsGroup", tr("Power Saving Settings"));
     appendChild(group);
 
 
@@ -195,7 +194,7 @@ void GeneralModule::initUI()
     group->appendChild(new ItemModule("decreaseBrightness", tr("Decrease Brightness"),
         [this] (ModuleObject *module) -> QWidget*{
             TitledSliderItem *sldLowerBrightness = new TitledSliderItem(tr("Decrease Brightness"));
-            sldLowerBrightness->setAccessibleName("sldLowerBrightness");
+            sldLowerBrightness->setAccessibleName("Decrease Brightness");
             QStringList annotions;
             annotions << "10%"
                       << "20%"
@@ -222,10 +221,10 @@ void GeneralModule::initUI()
         }, false));
 
     // 唤醒设置
-    appendChild(new TitleModule("wakeupSettingsLabel", tr("Wakeup Settings")));
-    group = new SettingsGroupModule("wakeupSettingsLabel", tr("Wakeup Settings"));
+    appendChild(new TitleModule("wakeupSettingsTitle", tr("Wakeup Settings")));
+    group = new SettingsGroupModule("wakeupSettingsGroup", tr("Wakeup Settings"));
     appendChild(group);
-    group->appendChild(new ItemModule("wakeComputerNeedPassword", tr("Password is required to wake up the computer"),
+    group->appendChild(new ItemModule("passwordIsRequiredToWakeUpTheComputer", tr("Password is required to wake up the computer"),
         [this] (ModuleObject *module) -> QWidget*{
             DSwitchButton *wakeComputerNeedPassword = new DSwitchButton();
             wakeComputerNeedPassword->setChecked(m_model->sleepLock());
@@ -235,7 +234,7 @@ void GeneralModule::initUI()
             connect(wakeComputerNeedPassword, &DSwitchButton::checkedChanged, this, &GeneralModule::requestSetWakeComputer);
             return wakeComputerNeedPassword;
         }));
-    group->appendChild(new ItemModule("wakeComputerNeedPassword", tr("Password is required to wake up the monitor"),
+    group->appendChild(new ItemModule("passwordIsRequiredToWakeUpTheMonitor", tr("Password is required to wake up the monitor"),
         [this] (ModuleObject *module) -> QWidget*{
             DSwitchButton *wakeDisplayNeedPassword = new DSwitchButton();
             wakeDisplayNeedPassword->setChecked(m_model->screenBlackLock());

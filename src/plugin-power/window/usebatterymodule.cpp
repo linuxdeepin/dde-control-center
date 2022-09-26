@@ -43,7 +43,7 @@ DCORE_USE_NAMESPACE
 const static QMap<int, int> g_sldLowBatteryMap = { { 0, 10 }, { 1, 15 }, { 2, 20 }, { 3, 25 } };
 
 UseBatteryModule::UseBatteryModule(PowerModel *model, PowerWorker *work, QObject *parent)
-    : PageModule("onBattery", tr("UseBattery"), QIcon::fromTheme("dcc_battery"), parent)
+    : PageModule("onBattery", tr("On Battery"), QIcon::fromTheme("dcc_battery"), parent)
     , m_model(model)
     , m_work(work)
     , m_annos({ "1m", "5m", "10m", "15m", "30m", "1h", tr("Never") })
@@ -121,15 +121,15 @@ void UseBatteryModule::initUI()
         return strData;
     };
 
-    appendChild(new TitleModule("screenLockAndSleep", tr("Screen lock and sleep")));
-    SettingsGroupModule *group = new SettingsGroupModule("screenLockAndSleepGroup", tr("Screen lock and sleep"));
+    appendChild(new TitleModule("screenAndSuspendTitle", tr("Screen and Suspend")));
+    SettingsGroupModule *group = new SettingsGroupModule("screenAndSuspendGroup", tr("Screen and Suspend"));
     group->setSpacing(10);
     appendChild(group);
-    group->appendChild(new ItemModule("monitorSleepOnBattery", tr("Monitor will suspend after"),
+    group->appendChild(new ItemModule("turnOffTheMonitorAfter", tr("Turn off the monitor after"),
         [this, delayToLiteralString] (ModuleObject *module) -> QWidget*{
-            TitledSliderItem *monitorSleepOnBattery = new TitledSliderItem(tr("Monitor will suspend after"));
-            monitorSleepOnBattery->setTitle(tr("Monitor will suspend after"));
-            monitorSleepOnBattery->setAccessibleName(tr("Monitor will suspend after"));
+            TitledSliderItem *monitorSleepOnBattery = new TitledSliderItem(tr("Turn off the monitor after"));
+            monitorSleepOnBattery->setTitle(tr("Turn off the monitor after"));
+            monitorSleepOnBattery->setAccessibleName(tr("Turn off the monitor after"));
             monitorSleepOnBattery->slider()->setType(DCCSlider::Vernier);
             monitorSleepOnBattery->slider()->setRange(1, 7);
             monitorSleepOnBattery->slider()->setTickPosition(QSlider::TicksBelow);
@@ -149,7 +149,7 @@ void UseBatteryModule::initUI()
             return monitorSleepOnBattery;
         }, false));
 
-    group->appendChild(new ItemModule("monitorSleepOnPower", tr("Lock screen after"),
+    group->appendChild(new ItemModule("lockScreenAfter", tr("Lock screen after"),
         [this, delayToLiteralString] (ModuleObject *module) -> QWidget*{
             TitledSliderItem *autoLockScreen = new TitledSliderItem(tr("Lock screen after"));
             autoLockScreen->setTitle(tr("Lock screen after"));
@@ -173,10 +173,10 @@ void UseBatteryModule::initUI()
             return autoLockScreen;
         }, false));
 
-    group->appendChild(new ItemModule("computerSleepOnBattery", tr("Computer will suspend after"),
+    group->appendChild(new ItemModule("computerSuspendsAfter", tr("Computer suspends after"),
         [this, delayToLiteralString] (ModuleObject *module) -> QWidget*{
-            TitledSliderItem *computerSleepOnBattery = new TitledSliderItem(tr("Computer will suspend after"));
-            computerSleepOnBattery->setTitle(tr("Computer will suspend after"));
+            TitledSliderItem *computerSleepOnBattery = new TitledSliderItem(tr("Computer suspends after"));
+            computerSleepOnBattery->setTitle(tr("Computer suspends after"));
             computerSleepOnBattery->setAccessibleName(tr("Computer will suspend after"));
             computerSleepOnBattery->slider()->setType(DCCSlider::Vernier);
             computerSleepOnBattery->slider()->setRange(1, 7);
@@ -198,7 +198,7 @@ void UseBatteryModule::initUI()
             return computerSleepOnBattery;
         }, false));
 
-    group->appendChild(new ItemModule("cmbCloseLid", tr("When the lid is closed"),
+    group->appendChild(new ItemModule("whenTheLidIsClosed", tr("When the lid is closed"),
         [this] (ModuleObject *module) -> QWidget*{
             AlertComboBox *cmbCloseLid = new AlertComboBox();
             auto setCloseLidData = [this, cmbCloseLid] () {
@@ -228,7 +228,7 @@ void UseBatteryModule::initUI()
             return cmbCloseLid;
         }));
 
-    group->appendChild(new ItemModule("cmbPowerBtn", tr("When pressing the power button"),
+    group->appendChild(new ItemModule("whenThePowerButtonIsPressed", tr("When the power button is pressed"),
         [this] (ModuleObject *module) -> QWidget*{
             AlertComboBox *cmbPowerBtn = new AlertComboBox();
             auto setPowerButtonData = [this, cmbPowerBtn] () {
@@ -255,11 +255,11 @@ void UseBatteryModule::initUI()
         }));
 
     //　低电量设置
-    appendChild(new TitleModule("lowBatteryMng", tr("Low Battery Management")));
-    group = new SettingsGroupModule("lowBatteryMngGroup", tr("Low Battery Management"));
+    appendChild(new TitleModule("lowBatteryTitle", tr("Low Battery")));
+    group = new SettingsGroupModule("lowBatteryGroup", tr("Low Battery"));
     group->setSpacing(10);
     appendChild(group);
-    group->appendChild(new ItemModule("batteryHint", tr("Low Battery Notification"),
+    group->appendChild(new ItemModule("lowBatteryNotification", tr("Low battery notification"),
         [this] (ModuleObject *module) -> QWidget*{
             DSwitchButton *swBatteryHint = new DSwitchButton();
             swBatteryHint->setChecked(m_model->lowPowerNotifyEnable());
@@ -273,10 +273,10 @@ void UseBatteryModule::initUI()
         }));
 
     ItemModule *itemLowBatteryHint =
-        new ItemModule("lowBatteryHint", tr("Low battery level"),
+        new ItemModule("lowBatteryLevel", tr("Low battery level"),
                        [this] (ModuleObject *module) -> QWidget*{
                            DComboBox *cmbLowBatteryHint = new DComboBox();
-                           cmbLowBatteryHint->setAccessibleName("cmbLowBatteryHint");
+                           cmbLowBatteryHint->setAccessibleName("Low battery level");
                            QStringList levels;
                            levels << "10%"
                                   << "15%"
@@ -299,10 +299,10 @@ void UseBatteryModule::initUI()
     });
     group->appendChild(itemLowBatteryHint);
 
-    group->appendChild(new ItemModule("autoSuspend", tr("Auto suspend battery level"),
+    group->appendChild(new ItemModule("autoSuspendBatteryLevel", tr("Auto suspend battery level"),
         [this] (ModuleObject *module) -> QWidget*{
             DComboBox *cmbAutoSuspend = new DComboBox();
-            cmbAutoSuspend->setAccessibleName("cmbAutoSuspend");
+            cmbAutoSuspend->setAccessibleName("Auto suspend battery level");
             module->setHiden(!m_model->getSuspend());
             QStringList levels;
             for (int i = 0; i < 9; i++) {
@@ -323,11 +323,11 @@ void UseBatteryModule::initUI()
         }));
 
     //　电池管理
-    appendChild(new TitleModule("batterySettings", tr("batterySettings")));
-    group = new SettingsGroupModule("batterySettingsGroup", tr("batterySettings"));
+    appendChild(new TitleModule("batteryManagementTitle", tr("Battery Management")));
+    group = new SettingsGroupModule("batteryManagementGroup", tr("Battery Management"));
     group->setSpacing(10);
     appendChild(group);
-    group->appendChild(new ItemModule("powerShowTimeToFull", tr("Display remaining using and charging time"),
+    group->appendChild(new ItemModule("displayRemainingUsingAndChargingTime", tr("Display remaining using and charging time"),
         [] (ModuleObject *module) -> QWidget*{
             DSwitchButton *powerShowTimeToFull = new DSwitchButton();
             // depend dock dconfig setting "showtimetofull"
@@ -346,7 +346,7 @@ void UseBatteryModule::initUI()
             return powerShowTimeToFull;
         }));
 
-    group->appendChild(new ItemModule("ShowTimeToFullTips", tr("Maximum capacity"),
+    group->appendChild(new ItemModule("maximumCapacity", tr("Maximum capacity"),
         [this] (ModuleObject *module) -> QWidget*{
             TitleValueItem *ShowTimeToFullTips = new TitleValueItem();
             ShowTimeToFullTips->setValue(QString::number(int(m_work->getBatteryCapacity())) + "%");

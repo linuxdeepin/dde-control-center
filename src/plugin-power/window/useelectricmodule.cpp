@@ -36,7 +36,7 @@ DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 UseElectricModule::UseElectricModule(PowerModel *model, PowerWorker *work, QObject *parent)
-    : PageModule("pluggedIn", tr("UseElectric"), QIcon::fromTheme("dcc_using_electric"), parent)
+    : PageModule("pluggedIn", tr("Plugged In"), QIcon::fromTheme("dcc_using_electric"), parent)
     , m_model(model)
     , m_work(work)
 {
@@ -95,8 +95,8 @@ void UseElectricModule::initUI()
     };
 
     //　电源设置
-    appendChild(new TitleModule("wakeupSettingsLabel", tr("Wakeup Settings")));
-    SettingsGroupModule *group = new SettingsGroupModule("wakeupSettingsLabel", tr("Wakeup Settings"));
+    appendChild(new TitleModule("screenAndSuspendTitle", tr("Screen and Suspend")));
+    SettingsGroupModule *group = new SettingsGroupModule("screenAndSuspendGroup", tr("Screen and Suspend"));
     group->setSpacing(10);
     appendChild(group);
     QStringList annos;
@@ -107,10 +107,10 @@ void UseElectricModule::initUI()
           << "30m"
           << "1h"
           << tr("Never");
-    group->appendChild(new ItemModule("monitorSleepOnPower", tr("Monitor will suspend after"),
+    group->appendChild(new ItemModule("turnOffTheMonitorAfter", tr("Turn off the monitor after"),
         [this, annos, &delayToLiteralString] (ModuleObject *module) -> QWidget*{
-            TitledSliderItem *monitorSleepOnPower = new TitledSliderItem(tr("Monitor will suspend after"));
-            monitorSleepOnPower->setAccessibleName(tr("Monitor will suspend after"));
+            TitledSliderItem *monitorSleepOnPower = new TitledSliderItem(tr("Turn off the monitor after"));
+            monitorSleepOnPower->setAccessibleName(tr("Turn off the monitor after"));
             monitorSleepOnPower->slider()->setType(DCCSlider::Vernier);
             monitorSleepOnPower->slider()->setRange(1, 7);
             monitorSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
@@ -129,7 +129,7 @@ void UseElectricModule::initUI()
             return monitorSleepOnPower;
         }, false));
 
-    group->appendChild(new ItemModule("autoLockScreen", tr("Lock screen after"),
+    group->appendChild(new ItemModule("lockScreenAfter", tr("Lock screen after"),
         [this, annos, &delayToLiteralString] (ModuleObject *module) -> QWidget*{
             TitledSliderItem *autoLockScreen = new TitledSliderItem(tr("Lock screen after"));
             autoLockScreen->setAccessibleName(tr("Lock screen after"));
@@ -152,10 +152,10 @@ void UseElectricModule::initUI()
         }, false));
 
     if (!IsServerSystem) {
-        group->appendChild(new ItemModule("computerSleepOnPower", tr("Monitor will suspend after"),
+        group->appendChild(new ItemModule("computerSuspendsAfter", tr("Computer suspends after"),
             [this, annos, &delayToLiteralString] (ModuleObject *module) -> QWidget*{
-                TitledSliderItem *computerSleepOnPower = new TitledSliderItem(tr("Computer will suspend after"));
-                computerSleepOnPower->setAccessibleName(tr("Computer will suspend after"));
+                TitledSliderItem *computerSleepOnPower = new TitledSliderItem(tr("Computer suspends after"));
+                computerSleepOnPower->setAccessibleName(tr("Computer suspends after"));
                 computerSleepOnPower->slider()->setType(DCCSlider::Vernier);
                 computerSleepOnPower->slider()->setRange(1, 7);
                 computerSleepOnPower->slider()->setTickPosition(QSlider::TicksBelow);
@@ -178,7 +178,7 @@ void UseElectricModule::initUI()
 
     //combox
 
-    group->appendChild(new ItemModule("cmbCloseLid", tr("When the lid is closed"),
+    group->appendChild(new ItemModule("whenTheLidIsClosed", tr("When the lid is closed"),
         [this] (ModuleObject *module) -> QWidget*{
             AlertComboBox *cmbCloseLid = new AlertComboBox();
             module->setHiden(!m_model->lidPresent());
@@ -214,7 +214,7 @@ void UseElectricModule::initUI()
             return cmbCloseLid;
         }));
 
-    group->appendChild(new ItemModule("cmbPowerButton", tr("When pressing the power button"),
+    group->appendChild(new ItemModule("whenThePowerButtonIsPressed", tr("When the power button is pressed"),
         [this] (ModuleObject *module) -> QWidget*{
             AlertComboBox *cmbPowerButton = new AlertComboBox();
             auto setPowerButtonData = [this, cmbPowerButton] () {
