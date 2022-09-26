@@ -50,7 +50,8 @@ void KeyLabel::paintEvent(QPaintEvent *event)
     option.text = m_text;
     option.palette.setBrush(QPalette::Light, option.palette.base());
     option.palette.setBrush(QPalette::Dark, option.palette.base());
-    option.palette.setBrush(QPalette::ButtonText, option.palette.highlight());
+    // 暂时删除随个性化改变数据颜色
+//    option.palette.setBrush(QPalette::ButtonText, option.palette.highlight());
     option.palette.setBrush(QPalette::Shadow, Qt::transparent);
     stylePainter.drawControl(QStyle::CE_PushButton, option);
 }
