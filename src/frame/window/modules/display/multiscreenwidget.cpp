@@ -120,6 +120,15 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     QDesktopWidget *desktopwidget = QApplication::desktop();
     connect(desktopwidget,SIGNAL(workAreaResized(int)),this,SLOT(onResetSecondaryScreenDlg()));
 
+    // 仅HDMI屏切换到以HDMI为主屏的扩展模式时，只触发显示模式变化信号，不会触发主屏变化信号，此时只会执行一次initSecondaryScreenDialog，
+    // 此时获取QApplication::screens数据不准确，只获取到一个屏幕，另外一个屏幕无法获取，导致副界面位置不对
+    // 在SecondaryScreenDialog::resetDialog中，m_monitor->getQScreen()为空
+    connect(qApp, &QApplication::screenAdded, this, [ = ]{
+        if (qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland")) {
+            initSecondaryScreenDialog();
+        }
+    });
+
 }
 
 MultiScreenWidget::~MultiScreenWidget()
