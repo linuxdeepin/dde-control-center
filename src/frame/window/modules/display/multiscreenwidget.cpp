@@ -382,19 +382,13 @@ void MultiScreenWidget::initSecondaryScreenDialog()
     m_secondaryScreenDlgList.clear();
 
     if (m_model->displayMode() == EXTEND_MODE) {
-        // x11 上 dialog 没有父窗口会导致主程序退出缓慢
-        // wayland上子窗口为适应多屏就不该设置父窗口，由窗管设置
-        QWidget *parent = this;
-        if (!qgetenv("WAYLAND_DISPLAY").isEmpty()) {
-            parent = nullptr;
-        }
         for (const auto &monitor : m_model->monitorList()) {
             if (monitor == m_model->primaryMonitor()) {
                 QTimer::singleShot(0, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor(), true); });
                 continue;
             }
 
-            SecondaryScreenDialog *dlg = new SecondaryScreenDialog(parent);
+            SecondaryScreenDialog *dlg = new SecondaryScreenDialog(this);
             dlg->setAttribute(Qt::WA_WState_WindowOpacitySet);
             dlg->setModel(m_model, monitor);
             connect(dlg, &SecondaryScreenDialog::requestRecognize, this, &MultiScreenWidget::requestRecognize);
@@ -417,7 +411,11 @@ void MultiScreenWidget::initSecondaryScreenDialog()
         if (!qgetenv("WAYLAND_DISPLAY").isEmpty()) {
             QTimer::singleShot(10, this, [=] {
                 for (auto dlg : m_secondaryScreenDlgList) {
+                    dlg->setWindowFlags(Qt::CoverWindow);
                     dlg->show();
+                    QTimer::singleShot(50, dlg, [dlg] { // 此处延时刷新子窗口位置，是因为子窗口在主屏闪现的问题(bug153993)，待窗管处理之后回退
+                        dlg->resetDialog();
+                    });
                 }
             });
         }
