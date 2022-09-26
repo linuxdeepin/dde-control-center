@@ -172,6 +172,7 @@ void HostNameItem::onEditingFinished()
     QString hostName = m_hostNameLineEdit->lineEdit()->text();
     if (hostName == m_hostname || hostName.simplified().isEmpty()) {
         m_hostNameLineEdit->lineEdit()->clearFocus();
+        m_hostnameEdit.clear();
         m_hostNameLineEdit->setVisible(false);
         m_hostNameLabel->setVisible(true);
         m_hostNameBtn->setVisible(true);
@@ -196,6 +197,7 @@ void HostNameItem::onEditingFinished()
 
         if(!m_hostNameLineEdit->isAlert()) {
             m_hostNameLineEdit->lineEdit()->clearFocus();
+            m_hostnameEdit.clear();
             m_hostNameLineEdit->setVisible(false);
             m_hostNameLabel->setVisible(true);
             m_hostNameBtn->setVisible(true);
@@ -237,6 +239,7 @@ void HostNameItem::onFocusChanged(const bool onFocus)
 {
     QString hostName = m_hostNameLineEdit->lineEdit()->text();
     if(!onFocus && hostName.isEmpty()) {
+        m_hostnameEdit.clear();
         m_hostNameLineEdit->setVisible(false);
         m_hostNameLabel->setVisible(true);
         m_hostNameBtn->setVisible(true);
