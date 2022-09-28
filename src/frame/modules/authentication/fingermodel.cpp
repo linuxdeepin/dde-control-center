@@ -155,9 +155,11 @@ void FingerModel::onEnrollStatusChanged(int code, const QString& msg)
                 msg = tr("Finger moved too fast. Please do not lift until prompted");
                 break;
             case RC_FingerNotCenter: //手指不在中间
+                title = tr("Place your finger flat on it");
                 msg = tr("Adjust the finger position to scan your fingerprint fully");
                 break;
             case RC_RemoveAndRetry: // 拿开手指从新扫描
+                title = tr("Place your finger flat on it");
                 msg = tr("Clean your finger or adjust the finger position, and try again");
                 break;
             case RC_CannotRecognize:
