@@ -35,6 +35,7 @@ private Q_SLOTS:
 private:
     void initWidget();
     void initData();
+    int getAdministratorAccountsCount();
 
 private:
     QString m_groupName;

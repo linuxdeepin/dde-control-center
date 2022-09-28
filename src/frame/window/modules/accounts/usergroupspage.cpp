@@ -15,6 +15,8 @@ using namespace dcc::widgets;
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 
+const QString Sudo = "sudo";
+
 DWIDGET_USE_NAMESPACE
 
 UserGroupsPage::UserGroupsPage(User *user, dcc::accounts::UserModel *userModel, ContentWidget *parent)
@@ -49,8 +51,8 @@ void UserGroupsPage::changeUserGroup(const QStringList &groups)
 void UserGroupsPage::userGroupClicked(const QModelIndex &index)
 {
     QStandardItem *item = m_groupItemModel->item(index.row(), index.column());
-    //不可移除主组
-    if (!item || item->text() == m_groupName)
+
+    if (!(item && item->isEnabled()))
         return;
 
     QStringList curUserGroup;
@@ -90,11 +92,25 @@ void UserGroupsPage::onGidChanged(const QString &gid)
         return;
 
     m_groupName = QString(group->gr_name);
+    int managerAccountsCount = getAdministratorAccountsCount();
     for (int i = 0; i < m_groupItemModel->rowCount(); ++i) {
         QStandardItem *item = m_groupItemModel->item(i, 0);
         if (nullptr == item)
             continue;
-        item->setEnabled(item->text() != m_groupName);
+        bool value = false;
+        do {
+            if (item->text() == m_groupName) {
+                break;
+            }
+            if (item->text() == Sudo) {
+                if (!(m_curUser && m_curUser->online()) && !(managerAccountsCount == 1 && m_curUser->userType())) {
+                    value = true;
+                }
+            } else {
+                value = true;
+            }
+        } while (0);
+        item->setEnabled(value);
     }
 }
 
@@ -145,3 +161,16 @@ void UserGroupsPage::initData()
     connect(m_groupListView, &DListView::clicked, this, &UserGroupsPage::userGroupClicked);
 }
 
+int UserGroupsPage::getAdministratorAccountsCount()
+{
+    if (!m_userModel) {
+        return 0;
+    }
+    int count = 0;
+    for (auto data : m_userModel->userList()) {
+        if (data->userType()) {
+            count++;
+        }
+    }
+    return count;
+}
