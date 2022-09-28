@@ -480,8 +480,11 @@ void ShortCutSettingWidget::onRemoveItem(const QString &id, int type)
 
 void ShortCutSettingWidget::onShortcutChanged(ShortcutInfo *info)
 {
+    if (info->type == MEDIAKEY) { // 控制中心不处理mediakey
+        return;
+    }
     for (ShortcutItem *item : m_allList) {
-        if (item->curInfo()->id == info->id) {
+        if (item->curInfo()->id == info->id && item->curInfo()->type == info->type) {
             item->setShortcutInfo(info);
             break;
         }
