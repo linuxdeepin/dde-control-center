@@ -219,7 +219,7 @@ void UseBatteryModule::initUI()
                 cmbCloseLid->blockSignals(false);
             };
 
-            module->setHiden(!m_model->lidPresent());
+            module->setHidden(!m_model->lidPresent());
             setCloseLidData();
             connect(cmbCloseLid, QOverload<int>::of(&AlertComboBox::currentIndexChanged), this, [this, cmbCloseLid](int index) {
                 Q_EMIT requestSetBatteryLidClosedAction(cmbCloseLid->itemData(index).toInt());
@@ -293,9 +293,9 @@ void UseBatteryModule::initUI()
                            connect(m_model, &PowerModel::lowPowerNotifyThresholdChanged, cmbLowBatteryHint, &DComboBox::setCurrentIndex);
                            return cmbLowBatteryHint;
                        });
-    itemLowBatteryHint->setHiden(!(m_model->haveBettary() && m_model->lowPowerNotifyEnable()));
+    itemLowBatteryHint->setHidden(!(m_model->haveBettary() && m_model->lowPowerNotifyEnable()));
     connect(m_model, &PowerModel::lowPowerNotifyEnableChanged, itemLowBatteryHint, [itemLowBatteryHint, this] (/*const bool state*/) {
-        itemLowBatteryHint->setHiden(!(m_model->haveBettary() && m_model->lowPowerNotifyEnable()));
+        itemLowBatteryHint->setHidden(!(m_model->haveBettary() && m_model->lowPowerNotifyEnable()));
     });
     group->appendChild(itemLowBatteryHint);
 
@@ -303,7 +303,7 @@ void UseBatteryModule::initUI()
         [this] (ModuleObject *module) -> QWidget*{
             DComboBox *cmbAutoSuspend = new DComboBox();
             cmbAutoSuspend->setAccessibleName("Auto suspend battery level");
-            module->setHiden(!m_model->getSuspend());
+            module->setHidden(!m_model->getSuspend());
             QStringList levels;
             for (int i = 0; i < 9; i++) {
                 levels.append(QString("%1\%").arg(i + 1));

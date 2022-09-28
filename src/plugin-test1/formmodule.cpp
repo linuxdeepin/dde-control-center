@@ -69,15 +69,11 @@ QWidget *FormModule::page()
         }
     }
 
-    auto addModuleSlot = [this](ModuleObject *const tmpChild) {
-        onAddChild(tmpChild);
-    };
     // 监听子项的添加、删除、状态变更，动态的更新界面
-    connect(this, &ModuleObject::insertedChild, areaWidget, addModuleSlot);
-    connect(this, &ModuleObject::appendedChild, areaWidget, addModuleSlot);
+    connect(this, &ModuleObject::insertedChild, areaWidget, [this](ModuleObject *const childModule) { onAddChild(childModule); });
     connect(this, &ModuleObject::removedChild, areaWidget, [this](ModuleObject *const childModule) { onRemoveChild(childModule); });
     connect(this, &ModuleObject::childStateChanged, areaWidget, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-        if (ModuleObject::IsHidenFlag(flag)) { // 显示隐藏同增加删除处理
+        if (ModuleObject::IsHiddenFlag(flag)) { // 显示隐藏同增加删除处理
             if (state)
                 onRemoveChild(tmpChild);
             else
@@ -111,14 +107,14 @@ void FormModule::onCurrentModuleChanged(dccV23::ModuleObject *child)
 // 动态的添加子项
 void FormModule::onAddChild(dccV23::ModuleObject *const childModule)
 {
-    if (ModuleObject::IsHiden(childModule) || m_mapWidget.contains(childModule))
+    if (ModuleObject::IsHidden(childModule) || m_mapWidget.contains(childModule))
         return;
 
     int index = 0;
     for (auto &&child : childrens()) {
         if (child == childModule)
             break;
-        if (!ModuleObject::IsHiden(child))
+        if (!ModuleObject::IsHidden(child))
             index++;
     }
     auto newPage = childModule->activePage();

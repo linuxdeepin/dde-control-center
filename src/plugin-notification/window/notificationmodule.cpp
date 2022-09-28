@@ -42,11 +42,12 @@ QString NotificationPlugin::name() const
 ModuleObject *NotificationPlugin::module()
 {
     //一级菜单--通知
-    ModuleObject *moduleInterface = new PageModule(this);
+    PageModule *moduleInterface = new PageModule(this);
     moduleInterface->setName("notification");
     moduleInterface->setDisplayName(tr("Notification"));
     moduleInterface->setDescription(tr("Notification"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_notification"));
+    moduleInterface->setNoStretch();
 
     NotificationModule *displayModule = new NotificationModule(moduleInterface);
     moduleInterface->appendChild(displayModule);

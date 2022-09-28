@@ -21,7 +21,6 @@
 DCORE_USE_NAMESPACE
 
 const QMargins ZeroMargins(0, 0, 0, 0);
-const QMargins TenMargins(10, 10, 10, 10);
 
 const int ComboxWidgetHeight = 48;
 const int SwitchWidgetHeight = 36;

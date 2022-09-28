@@ -152,7 +152,7 @@ void GeneralModule::initUI()
     //　节能设置
     auto powerLowerBrightnessLabel = new TitleModule("powerSavingSettingsTitle", tr("Power Saving Settings"));
     connect(m_model, &PowerModel::haveBettaryChanged, powerLowerBrightnessLabel, [powerLowerBrightnessLabel] (bool haveBettary) {
-        powerLowerBrightnessLabel->setHiden(!haveBettary);
+        powerLowerBrightnessLabel->setHidden(!haveBettary);
     });
 
     appendChild(powerLowerBrightnessLabel);
@@ -169,9 +169,9 @@ void GeneralModule::initUI()
                            connect(lowPowerAutoIntoSaveEnergyMode, &DSwitchButton::checkedChanged, this, &GeneralModule::requestSetPowerSavingModeAutoWhenQuantifyLow);
                            return lowPowerAutoIntoSaveEnergyMode;
                        });
-    itemAutoPowerSavingOnLowBattery->setHiden(!m_model->haveBettary());
+    itemAutoPowerSavingOnLowBattery->setHidden(!m_model->haveBettary());
     connect(m_model, &PowerModel::haveBettaryChanged, itemAutoPowerSavingOnLowBattery, [itemAutoPowerSavingOnLowBattery] (bool haveBettary) {
-        itemAutoPowerSavingOnLowBattery->setHiden(!haveBettary);
+        itemAutoPowerSavingOnLowBattery->setHidden(!haveBettary);
     });
     group->appendChild(itemAutoPowerSavingOnLowBattery);
 
@@ -184,9 +184,9 @@ void GeneralModule::initUI()
                            connect(autoIntoSaveEnergyMode, &DSwitchButton::checkedChanged, this, &GeneralModule::requestSetPowerSavingModeAuto);
                            return autoIntoSaveEnergyMode;
                        });
-    itemAutoPowerSavingOnBattery->setHiden(!m_model->haveBettary());
+    itemAutoPowerSavingOnBattery->setHidden(!m_model->haveBettary());
     connect(m_model, &PowerModel::haveBettaryChanged, itemAutoPowerSavingOnBattery, [itemAutoPowerSavingOnBattery] (bool haveBettary) {
-        itemAutoPowerSavingOnBattery->setHiden(!haveBettary);
+        itemAutoPowerSavingOnBattery->setHidden(!haveBettary);
     });
     group->appendChild(itemAutoPowerSavingOnBattery);
 

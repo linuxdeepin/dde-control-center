@@ -133,7 +133,7 @@ void ServiceSettingsModule::initListView(Dtk::Widget::DListView *settingsGrp)
             });
         }
         m_appsListView->setDisabled(!m_serviceItemDate->getSwitchState());
-        m_appsListView->setHiden(!m_serviceItemDate->getServiceAvailable());
+        m_appsListView->setHidden(!m_serviceItemDate->getServiceAvailable());
     };
 
     connect(m_serviceItemDate, &ServiceControlItems::serviceSwitchStateChange, settingsGrp, &DListView::setEnabled);

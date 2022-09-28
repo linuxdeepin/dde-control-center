@@ -19,7 +19,6 @@ public:
     void init(ModuleObject *module)
     {
         m_module = module;
-        QObject::connect(m_module, &ModuleObject::appendedChild, q_ptr, [this](ModuleObject *const module) { onInsertChild(module); });
         QObject::connect(m_module, &ModuleObject::insertedChild, q_ptr, [this](ModuleObject *const module) { onInsertChild(module); });
         QObject::connect(m_module, &ModuleObject::removedChild, q_ptr, [this](ModuleObject *const module) { onRemovedChild(module); });
         QObject::connect(m_module, &ModuleObject::childStateChanged, q_ptr, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
@@ -29,7 +28,7 @@ public:
 
     void onInsertChild(ModuleObject *const module)
     {
-        if (ModuleObject::IsHiden(module) || m_data.contains(module))
+        if (ModuleObject::IsHidden(module) || m_data.contains(module))
             return;
         QObject::connect(module, &ModuleObject::moduleDataChanged, q_ptr, [this]() {
             ModuleObject *module = qobject_cast<ModuleObject *>(q_ptr->sender());
@@ -62,7 +61,7 @@ public:
     void onDataChanged(ModuleObject *const module, uint32_t flag, bool state)
     {
         Q_Q(ModuleListModel);
-        if (ModuleObject::IsHidenFlag(flag)) {
+        if (ModuleObject::IsHiddenFlag(flag)) {
             if (state)
                 onRemovedChild(module);
             else

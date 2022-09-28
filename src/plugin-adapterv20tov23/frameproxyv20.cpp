@@ -90,7 +90,7 @@ void FrameProxyV20::popWidget(ModuleInterface *const inter)
 void FrameProxyV20::setModuleVisible(ModuleInterface *const inter, const bool visible)
 {
     if (m_moduleMap.contains(inter))
-        m_moduleMap.value(inter)->setHiden(!visible);
+        m_moduleMap.value(inter)->setHidden(!visible);
 }
 
 void FrameProxyV20::showModulePage(const QString &module, const QString &page, bool animation)
@@ -137,7 +137,7 @@ void FrameProxyV20::setModuleVisible(const QString &module, bool visible)
         return it->displayName() == module;
     });
     if (find_it != m_moduleMap.cend())
-        find_it.value()->setHiden(!visible);
+        find_it.value()->setHidden(!visible);
 }
 
 void FrameProxyV20::setWidgetVisible(const QString &module, const QString &widget, bool visible)

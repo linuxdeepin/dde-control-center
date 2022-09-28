@@ -130,7 +130,7 @@ QWidget *ModuleObject::activePage(bool autoActive)
 {
     if (autoActive)
         active();
-    QWidget *w = ModuleObject::IsHiden(this) ? nullptr : page();
+    QWidget *w = ModuleObject::IsHidden(this) ? nullptr : page();
     if (w) {
         connect(w, &QObject::destroyed, this, &ModuleObject::deactive);
         connect(this, &ModuleObject::stateChanged, w, [w](uint32_t flag, bool state) {
@@ -142,6 +142,19 @@ QWidget *ModuleObject::activePage(bool autoActive)
         deactive();
     }
     return w;
+}
+
+void ModuleObject::active()
+{
+}
+
+QWidget *ModuleObject::page()
+{
+    return nullptr;
+}
+
+void ModuleObject::deactive()
+{
 }
 
 QString ModuleObject::name() const
@@ -175,9 +188,14 @@ int ModuleObject::badge() const
     return d->m_badge;
 }
 
-bool ModuleObject::isHiden() const
+bool ModuleObject::isHidden() const
 {
     return getFlagState(DCC_HIDDEN);
+}
+
+bool ModuleObject::isVisible() const
+{
+    return !isHidden();
 }
 
 bool ModuleObject::isDisabled() const
@@ -185,19 +203,34 @@ bool ModuleObject::isDisabled() const
     return getFlagState(DCC_DISABLED);
 }
 
+bool ModuleObject::isEnabled() const
+{
+    return !isDisabled();
+}
+
 unsigned ModuleObject::GetCurrentVersion()
 {
     return c_currentVersion;
 }
 
-void ModuleObject::setHiden(bool hiden)
+void ModuleObject::setHidden(bool hidden)
 {
-    setFlagState(DCC_HIDDEN, hiden);
+    setFlagState(DCC_HIDDEN, hidden);
+}
+
+void ModuleObject::setVisible(bool visible)
+{
+    setHidden(!visible);
 }
 
 void ModuleObject::setDisabled(bool disabled)
 {
     setFlagState(DCC_DISABLED, disabled);
+}
+
+void ModuleObject::setEnabled(bool enabled)
+{
+    setDisabled(!enabled);
 }
 
 void ModuleObject::trigger()
@@ -280,7 +313,7 @@ void ModuleObject::appendChild(ModuleObject *const module)
         return;
     d->m_childrens.append(module);
     module->setParent(this);
-    Q_EMIT appendedChild(module);
+    Q_EMIT insertedChild(module);
     Q_EMIT childrenSizeChanged(d->m_childrens.size());
 }
 
@@ -354,12 +387,12 @@ ModuleObject *ModuleObject::currentModule() const
     return d->m_currentModule;
 }
 
-ModuleObject *ModuleObject::defultModule() const
+ModuleObject *ModuleObject::defultModule()
 {
     Q_D(const ModuleObject);
     // 第一个可见项
     for (auto &&module : d->m_childrens) {
-        if (!ModuleObject::IsHiden(module) && !module->extra())
+        if (!ModuleObject::IsHidden(module) && !module->extra())
             return module;
     }
     return nullptr;
@@ -446,14 +479,24 @@ int ModuleObject::findChild(ModuleObject *const module, ModuleObject *const chil
     return -1;
 }
 
-bool ModuleObject::IsHiden(ModuleObject *const module)
+bool ModuleObject::IsVisible(ModuleObject *const module)
+{
+    return !ModuleObject::IsHidden(module);
+}
+
+bool ModuleObject::IsHidden(ModuleObject *const module)
 {
     return module ? module->getFlagState(DCC_ALL_HIDDEN) : true;
 }
 
-bool ModuleObject::IsHidenFlag(uint32_t flag)
+bool ModuleObject::IsHiddenFlag(uint32_t flag)
 {
     return DCC_ALL_HIDDEN & flag;
+}
+
+bool ModuleObject::IsEnabled(ModuleObject *const module)
+{
+    return !ModuleObject::IsDisabled(module);
 }
 
 bool ModuleObject::IsDisabled(ModuleObject *const module)

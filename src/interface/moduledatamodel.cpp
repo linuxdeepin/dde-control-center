@@ -94,7 +94,7 @@ Qt::ItemFlags ModuleDataModel::flags(const QModelIndex &index) const
 void ModuleDataModel::onDataChanged(QObject *obj)
 {
     ModuleObject *const module = static_cast<ModuleObject *const>(obj);
-    if (module->extra() || ModuleObject::IsHiden(module))
+    if (module->extra() || ModuleObject::IsHidden(module))
         onRemovedChild(module);
     else {
         int row = m_data.indexOf(module);
@@ -109,7 +109,7 @@ void ModuleDataModel::onDataChanged(QObject *obj)
 
 void ModuleDataModel::onInsertChild(ModuleObject *const module)
 {
-    if (module->extra() || ModuleObject::IsHiden(module) || m_data.contains(module))
+    if (module->extra() || ModuleObject::IsHidden(module) || m_data.contains(module))
         return;
 
     int row = 0;
@@ -142,12 +142,11 @@ void ModuleDataModel::setModuleObject(ModuleObject *const module)
     beginResetModel();
     m_data.clear();
     for (ModuleObject *tmpModule : datas) {
-        if (!tmpModule->extra() && !ModuleObject::IsHiden(tmpModule))
+        if (!tmpModule->extra() && !ModuleObject::IsHidden(tmpModule))
             m_data.append(tmpModule);
     }
     endResetModel();
 
-    connect(m_parentObject, &ModuleObject::appendedChild, this, &ModuleDataModel::onInsertChild);
     connect(m_parentObject, &ModuleObject::insertedChild, this, &ModuleDataModel::onInsertChild);
     connect(m_parentObject, &ModuleObject::removedChild, this, &ModuleDataModel::onRemovedChild);
     connect(m_parentObject, &ModuleObject::childStateChanged, this, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {

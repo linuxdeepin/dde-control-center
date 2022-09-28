@@ -168,7 +168,7 @@ QWidget *MainModule::page()
     return d->page();
 }
 
-ModuleObject *MainModule::defultModule() const
+ModuleObject *MainModule::defultModule()
 {
     return nullptr;
 }

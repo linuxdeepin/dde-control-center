@@ -56,7 +56,7 @@ public:
 
     void onAddChild(DCC_NAMESPACE::ModuleObject *const childModule)
     {
-        if (ModuleObject::IsHiden(childModule) || !childModule->extra() || m_extraModules.contains(childModule))
+        if (ModuleObject::IsHidden(childModule) || !childModule->extra() || m_extraModules.contains(childModule))
             return;
 
         Q_Q(VListModule);
@@ -64,7 +64,7 @@ public:
         for (auto &&child : q->childrens()) {
             if (child == childModule)
                 break;
-            if (!ModuleObject::IsHiden(child) && child->extra())
+            if (!ModuleObject::IsHidden(child) && child->extra())
                 index++;
         }
         auto newPage = childModule->activePage();
@@ -127,15 +127,10 @@ public:
 
         QObject::connect(m_view, &DListView::activated, m_view, &DListView::clicked);
         QObject::connect(m_view, &DListView::clicked, m_view, onClicked);
-        auto addModuleSlot = [this](ModuleObject *const tmpChild) {
-            onAddChild(tmpChild);
-        };
-        // 监听子项的添加、删除、状态变更，动态的更新界面
-        QObject::connect(q, &ModuleObject::insertedChild, m_view, addModuleSlot);
-        QObject::connect(q, &ModuleObject::appendedChild, m_view, addModuleSlot);
+        QObject::connect(q, &ModuleObject::insertedChild, m_view, [this](ModuleObject *const childModule) { onAddChild(childModule); });
         QObject::connect(q, &ModuleObject::removedChild, m_view, [this](ModuleObject *const childModule) { onRemoveChild(childModule); });
         QObject::connect(q, &ModuleObject::childStateChanged, m_view, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-            if (ModuleObject::IsHidenFlag(flag)) {
+            if (ModuleObject::IsHiddenFlag(flag)) {
                 if (state)
                     onRemoveChild(tmpChild);
                 else

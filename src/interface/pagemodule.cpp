@@ -20,15 +20,26 @@ public:
         : QObject(parent)
         , q_ptr(parent)
         , m_spacing(10)
+        , m_maximumWidth(QWIDGETSIZE_MAX)
     {
-        m_contentsMargins.setLeft(40);
-        m_contentsMargins.setRight(40);
-        m_contentsMargins.setTop(10);
-        m_contentsMargins.setBottom(10);
         clearData();
         QObject::connect(q_ptr, &PageModule::currentModuleChanged, q_ptr, [this](ModuleObject *currentModule) {
             onCurrentModuleChanged(currentModule);
         });
+    }
+    void insertModule(ModuleObject *const module, int stretch, Qt::Alignment alignment)
+    {
+        m_mapModules.insert(module, { stretch, alignment });
+    }
+    void removeModule(ModuleObject *const module)
+    {
+        m_mapModules.remove(module);
+    }
+    QPair<int, Qt::Alignment> layoutParam(ModuleObject *const module)
+    {
+        if (m_mapModules.contains(module))
+            return m_mapModules.value(module);
+        return { 0, Qt::Alignment() };
     }
     void clearData()
     {
@@ -53,7 +64,7 @@ public:
         if (q->noScroll()) {
             m_area = nullptr;
             areaWidget->setParent(parentWidget);
-            mainLayout->addWidget(areaWidget);
+            mainLayout->addWidget(areaWidget, 0, m_contentsMargins.isNull() ? Qt::Alignment() : Qt::AlignHCenter);
         } else {
             m_area = new QScrollArea(parentWidget);
             m_area->installEventFilter(this);
@@ -62,6 +73,8 @@ public:
             m_area->setWidgetResizable(true);
             areaWidget->setParent(m_area);
             m_area->setWidget(areaWidget);
+            if (!m_contentsMargins.isNull())
+                m_area->setAlignment(Qt::AlignHCenter);
             mainLayout->addWidget(m_area);
         }
         mainLayout->addLayout(m_hlayout);
@@ -70,6 +83,7 @@ public:
         m_vlayout->setContentsMargins(m_contentsMargins);
         m_vlayout->setSpacing(m_spacing);
         areaWidget->setLayout(m_vlayout);
+        areaWidget->setMaximumWidth(m_maximumWidth);
 
         for (auto &&tmpChild : q->childrens()) {
             auto page = tmpChild->activePage();
@@ -77,23 +91,21 @@ public:
                 if (tmpChild->extra())
                     m_hlayout->addWidget(page);
                 else {
-                    m_vlayout->addWidget(page);
+                    QPair<int, Qt::Alignment> param = layoutParam(tmpChild);
+                    m_vlayout->addWidget(page, param.first, param.second);
                 }
                 m_mapWidget.insert(tmpChild, page);
+                page->setDisabled(ModuleObject::IsDisabled(tmpChild));
             }
         }
         if (!q->noStretch())
             m_vlayout->addStretch(1);
 
-        auto addModuleSlot = [this](ModuleObject *const tmpChild) {
-            onAddChild(tmpChild);
-        };
         // 监听子项的添加、删除、状态变更，动态的更新界面
-        QObject::connect(q, &ModuleObject::insertedChild, areaWidget, addModuleSlot);
-        QObject::connect(q, &ModuleObject::appendedChild, areaWidget, addModuleSlot);
+        QObject::connect(q, &ModuleObject::insertedChild, areaWidget, [this](ModuleObject *const childModule) { onAddChild(childModule); });
         QObject::connect(q, &ModuleObject::removedChild, areaWidget, [this](ModuleObject *const childModule) { onRemoveChild(childModule); });
         QObject::connect(q, &ModuleObject::childStateChanged, areaWidget, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-            if (ModuleObject::IsHidenFlag(flag)) {
+            if (ModuleObject::IsHiddenFlag(flag)) {
                 if (state)
                     onRemoveChild(tmpChild);
                 else
@@ -136,7 +148,7 @@ private:
     }
     void onAddChild(DCC_NAMESPACE::ModuleObject *const childModule)
     {
-        if (ModuleObject::IsHiden(childModule) || m_mapWidget.contains(childModule))
+        if (ModuleObject::IsHidden(childModule) || m_mapWidget.contains(childModule))
             return;
 
         Q_Q(PageModule);
@@ -145,16 +157,19 @@ private:
         for (auto &&child : q->childrens()) {
             if (child == childModule)
                 break;
-            if (!ModuleObject::IsHiden(child) && child->extra() == isExtra)
+            if (!ModuleObject::IsHidden(child) && child->extra() == isExtra)
                 index++;
         }
         auto newPage = childModule->activePage();
         if (newPage) {
-            if (isExtra)
+            if (isExtra) {
                 m_hlayout->insertWidget(index, newPage);
-            else
-                m_vlayout->insertWidget(index, newPage);
+            } else {
+                QPair<int, Qt::Alignment> param = layoutParam(childModule);
+                m_vlayout->insertWidget(index, newPage, param.first, param.second);
+            }
 
+            newPage->setDisabled(ModuleObject::IsDisabled(childModule));
             m_mapWidget.insert(childModule, newPage);
         }
     }
@@ -163,13 +178,13 @@ private:
     {
         if (QEvent::Resize == event->type() && m_area) {
             QResizeEvent *e = static_cast<QResizeEvent *>(event);
-            int width = e->size().width();
+            int left, right, top, bottom;
+            m_vlayout->getContentsMargins(&left, &top, &right, &bottom);
+            int width = e->size().width() - left - right;
             for (int i = 0; i < m_vlayout->count(); ++i) {
                 QAbstractScrollArea *w = qobject_cast<QAbstractScrollArea *>(m_vlayout->itemAt(i)->widget());
-                if (w) {
-                    int left, right, top, bottom;
-                    m_vlayout->getContentsMargins(&left, &top, &right, &bottom);
-                    w->setMaximumWidth(width - left - right);
+                if (w && m_maximumWidth >= width) {
+                    w->setMaximumWidth(width);
                 }
             }
         }
@@ -182,10 +197,12 @@ private:
 
     QVBoxLayout *m_vlayout; // 上方纵向布局
     QHBoxLayout *m_hlayout; // 底下横向布局
+    QMap<ModuleObject *, QPair<int, Qt::Alignment>> m_mapModules;
     QMap<ModuleObject *, QWidget *> m_mapWidget;
     QScrollArea *m_area;
     QMargins m_contentsMargins;
     int m_spacing;
+    int m_maximumWidth;
 };
 
 DCC_END_NAMESPACE
@@ -278,6 +295,12 @@ void PageModule::setContentsMargins(int left, int top, int right, int bottom)
     d->m_contentsMargins.setBottom(bottom);
 }
 
+void PageModule::setMaximumWidth(int width)
+{
+    Q_D(PageModule);
+    d->m_maximumWidth = width;
+}
+
 bool PageModule::noScroll()
 {
     return getFlagState(DCC_NO_Scroll);
@@ -297,6 +320,66 @@ void PageModule::setNoStretch(bool value)
 {
     setFlagState(DCC_NO_STRETCH, value);
 }
+
+void PageModule::appendChild(ModuleObject *const module)
+{
+    appendChild(module, 0, Qt::Alignment());
+}
+
+void PageModule::insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module)
+{
+    insertChild(before, module, 0, Qt::Alignment());
+}
+
+void PageModule::insertChild(const int index, ModuleObject *const module)
+{
+    insertChild(index, module, 0, Qt::Alignment());
+}
+
+void PageModule::removeChild(ModuleObject *const module)
+{
+    Q_D(PageModule);
+    d->removeModule(module);
+    ModuleObject::removeChild(module);
+}
+
+void PageModule::removeChild(const int index)
+{
+    Q_D(PageModule);
+    d->removeModule(children(index));
+    ModuleObject::removeChild(index);
+}
+
+void PageModule::appendChild(ModuleObject *const module, int stretch, Qt::Alignment alignment)
+{
+    if (childrens().contains(module))
+        return;
+
+    Q_D(PageModule);
+    d->insertModule(module, stretch, alignment);
+    ModuleObject::appendChild(module);
+}
+
+void PageModule::insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module, int stretch, Qt::Alignment alignment)
+{
+    if (childrens().contains(module))
+        return;
+
+    Q_D(PageModule);
+    d->insertModule(module, stretch, alignment);
+    ModuleObject::insertChild(before, module);
+}
+
+void PageModule::insertChild(const int index, ModuleObject *const module, int stretch, Qt::Alignment alignment)
+{
+    if (childrens().contains(module))
+        return;
+
+    Q_D(PageModule);
+    d->insertModule(module, stretch, alignment);
+    ModuleObject::insertChild(index, module);
+}
+
 QWidget *PageModule::page()
 {
     Q_D(PageModule);

@@ -2,6 +2,7 @@
 #include "moduledatamodel.h"
 #include "tabitemdelegate.h"
 #include "tabview.h"
+#include "pagemodule.h"
 
 #include <DFrame>
 #include <QVBoxLayout>
@@ -30,6 +31,10 @@ public:
             delete item;
         }
         if (child) {
+            PageModule *module = qobject_cast<PageModule *>(child);
+            if(module) {
+                module->setContentsMargins(60, 0, 60, 0);
+            }
             m_layout->addWidget(child->activePage(), 60);
             ModuleDataModel *model = static_cast<ModuleDataModel *>(m_view->model());
             m_view->setCurrentIndex(model->index(child));

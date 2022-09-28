@@ -71,6 +71,6 @@ public:
 
 } // namespace DCC_NAMESPACE
 
-Q_DECLARE_INTERFACE(DCC_NAMESPACE::PluginInterface, "com.deepin.dde.ControlCenter.Plugin/1.2")
+Q_DECLARE_INTERFACE(DCC_NAMESPACE::PluginInterface, "com.deepin.dde.ControlCenter.Plugin/1.3")
 
 #endif // DCC_PLUGININTERFACE_H

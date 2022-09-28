@@ -73,7 +73,7 @@ class ModuleObject : public QObject
     Q_PROPERTY(QVariant icon READ icon WRITE setIcon NOTIFY moduleDataChanged)
     Q_PROPERTY(int badge READ badge WRITE setBadge NOTIFY moduleDataChanged)
 
-    Q_PROPERTY(bool hiden READ isHiden WRITE setHiden NOTIFY stateChanged)
+    Q_PROPERTY(bool hidden READ isHidden WRITE setHidden NOTIFY stateChanged)
     Q_PROPERTY(bool disabled READ isDisabled WRITE setDisabled NOTIFY stateChanged)
 
 public:
@@ -95,20 +95,21 @@ public:
      */
     virtual QWidget *activePage(bool autoActive = true);
 
-protected Q_SLOTS:
+public Q_SLOTS:
     /**
      * @brief 当进入模块时，active会被调用，如无需通知则可不实现
      */
-    virtual void active() {}
+    virtual void active();
     /**
      * @brief 每次被调均需new新的QWidget
      * @return 返回自定义页面
+     * @warning page返回的widget生命周期只是对应窗口显示的时候，即模块切换时就会被析构。ModuleObject的生命周期是从控制中心启动到关闭
      */
-    virtual QWidget *page() { return nullptr; }
+    virtual QWidget *page();
     /**
      * @brief 当离开模块时，deactive会被调用，如无需通知则可不实现
      */
-    virtual void deactive() {}
+    virtual void deactive();
 
 public:
     QString name() const;
@@ -118,8 +119,10 @@ public:
     QVariant icon() const;
     int badge() const;
 
-    bool isHiden() const;
+    bool isHidden() const;
+    bool isVisible() const;
     bool isDisabled() const;
+    bool isEnabled() const;
     /**
      * @brief 获取状态标志
      * @return 对应状态位是否
@@ -145,11 +148,13 @@ public:
      *      ModuleObject类默认处理为返回第一个未隐藏的子项
      * @return 默认active的子项
      */
-    virtual ModuleObject *defultModule() const;
+    virtual ModuleObject *defultModule();
 
 public Q_SLOTS:
-    void setHiden(bool hiden);
+    void setHidden(bool hidden);
+    void setVisible(bool visible);
     void setDisabled(bool disabled);
+    void setEnabled(bool enabled);
     void trigger();
 
     // 名称，作为每个模块的唯一标识，不可为空
@@ -202,11 +207,6 @@ Q_SIGNALS:
      * @param state 变化后值
      */
     void childStateChanged(ModuleObject *const child, uint32_t flag, bool state);
-
-    /**
-     * @brief 添加child后触发
-     */
-    void appendedChild(ModuleObject *const module);
     /**
      * @brief 删除child前触发
      */
@@ -223,7 +223,10 @@ Q_SIGNALS:
      * @brief trigger触发该信号，框架收到信号会切换到该ModuleObject页
      */
     void triggered();
-
+    /**
+     * @brief currentModuleChanged 当前激活的子项改变时会触发此信号
+     * @param currentModule 当前激活的子项
+     */
     void currentModuleChanged(ModuleObject *currentModule);
 
 public:
@@ -260,18 +263,20 @@ public:
      * @param module
      * @return
      */
-    static bool IsHiden(DCC_NAMESPACE::ModuleObject *const module);
+    static bool IsVisible(DCC_NAMESPACE::ModuleObject *const module);
+    static bool IsHidden(DCC_NAMESPACE::ModuleObject *const module);
     /**
-     * @brief IsHidenFlag 判断标志是否为隐藏标志
+     * @brief IsHiddenFlag 判断标志是否为隐藏标志
      * @param flag 标志
      * @return true 有隐藏标志位 false 没有隐藏标志位
      */
-    static bool IsHidenFlag(uint32_t flag);
+    static bool IsHiddenFlag(uint32_t flag);
     /**
      * @brief IsEnabled 返回module是否可用，判断了配置项和程序设置项
      * @param module
      * @return
      */
+    static bool IsEnabled(DCC_NAMESPACE::ModuleObject *const module);
     static bool IsDisabled(DCC_NAMESPACE::ModuleObject *const module);
     /**
      * @brief IsDisabledFlag 判断标志是否为禁用标志

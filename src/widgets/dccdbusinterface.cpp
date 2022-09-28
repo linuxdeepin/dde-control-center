@@ -94,7 +94,7 @@ void DCCDBusInterfacePrivate::initDBusConnection()
 {
     Q_Q(DCCDBusInterface);
     if (q->path().isEmpty() || q->interface().isEmpty()) {
-        qWarning()<<"not valid DBus:"<<q->service()<< q->path()<< q->interface()<<q->connection().name();
+        qWarning() << "not valid DBus:" << q->service() << q->path() << q->interface() << q->connection().name();
         return;
     }
     QDBusConnection connection = q->connection();
@@ -225,6 +225,6 @@ void DCCDBusInterface::setProperty(const char *propname, const QVariant &value)
 {
     Q_D(const DCCDBusInterface);
     QDBusMessage msg = QDBusMessage::createMethodCall(service(), path(), PropertiesInterface, QStringLiteral("Set"));
-    msg << interface() << originalPropname(propname, d->m_suffix) << value;
+    msg << interface() << originalPropname(propname, d->m_suffix) << QVariant::fromValue(QDBusVariant(value));
     connection().asyncCall(msg);
 }

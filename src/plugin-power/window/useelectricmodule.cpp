@@ -181,9 +181,9 @@ void UseElectricModule::initUI()
     group->appendChild(new ItemModule("whenTheLidIsClosed", tr("When the lid is closed"),
         [this] (ModuleObject *module) -> QWidget*{
             AlertComboBox *cmbCloseLid = new AlertComboBox();
-            module->setHiden(!m_model->lidPresent());
+            module->setHidden(!m_model->lidPresent());
             connect(m_model, &PowerModel::lidPresentChanged, cmbCloseLid, [this, module] (const bool lidPresent){
-                module->setHiden(!m_model->lidPresent());
+                module->setHidden(!m_model->lidPresent());
             });
 
             auto setCloseLidData = [this, cmbCloseLid] () {

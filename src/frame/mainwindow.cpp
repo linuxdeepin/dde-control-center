@@ -373,7 +373,6 @@ void MainWindow::onAddModule(ModuleObject *const module)
         auto it = modules.takeFirst();
         ModuleObject *obj = it.second;
         configModule(it.first, obj);
-        connect(obj, &ModuleObject::appendedChild, this, &MainWindow::onAddModule);
         connect(obj, &ModuleObject::insertedChild, this, &MainWindow::onAddModule);
         connect(obj, &ModuleObject::removedChild, this, &MainWindow::onRemoveModule);
         connect(obj, &ModuleObject::childStateChanged, this, &MainWindow::onChildStateChanged);
@@ -410,7 +409,7 @@ void MainWindow::onTriggered()
 
 void MainWindow::onChildStateChanged(ModuleObject *const child, uint32_t flag, bool state)
 {
-    if (ModuleObject::IsHidenFlag(flag)) {
+    if (ModuleObject::IsHiddenFlag(flag)) {
         if (state)
             onRemoveModule(child);
         else

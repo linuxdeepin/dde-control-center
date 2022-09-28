@@ -292,12 +292,12 @@ void AdapterModule::toggleDiscoverableSwitch(const bool checked)
 
 void AdapterModule::updateVisible(bool bPower, bool bDiscovering)
 {
-    m_bluetoothTitle->setHiden(bPower);
-    m_otherDevices->setHiden(!bPower);
-    m_anonymousCheckBox->setHiden(!bPower);
-    m_otherdevicelist->setHiden(!bPower);
-    m_devicesTitle->setHiden(!bPower || !m_hasPaired);
-    m_mydevicelist->setHiden(!bPower || !m_hasPaired);
+    m_bluetoothTitle->setHidden(bPower);
+    m_otherDevices->setHidden(!bPower);
+    m_anonymousCheckBox->setHidden(!bPower);
+    m_otherdevicelist->setHidden(!bPower);
+    m_devicesTitle->setHidden(!bPower || !m_hasPaired);
+    m_mydevicelist->setHidden(!bPower || !m_hasPaired);
 }
 
 void AdapterModule::contextMenu(const BluetoothAdapter *adapter, const BluetoothDevice *device, DCCListView *view)

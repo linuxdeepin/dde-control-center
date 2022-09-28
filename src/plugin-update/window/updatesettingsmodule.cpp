@@ -184,8 +184,8 @@ void UpdateSettingsModule::initModuleList()
 
 void UpdateSettingsModule::uiMethodChanged(SettingsMethod uiMethod)
 {
-    m_autoInstallUpdateModule->setHiden(uiMethod == SettingsMethod::autoDownload);
-    m_autoInstallUpdatesTipsModule->setHiden(uiMethod == SettingsMethod::autoDownload);
+    m_autoInstallUpdateModule->setHidden(uiMethod == SettingsMethod::autoDownload);
+    m_autoInstallUpdatesTipsModule->setHidden(uiMethod == SettingsMethod::autoDownload);
 }
 
 

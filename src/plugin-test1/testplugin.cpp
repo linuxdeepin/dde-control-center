@@ -71,7 +71,7 @@ Test1ModuleObject::Test1ModuleObject()
             buttonModule->setText(QString("我是页面%1的第%2个按钮").arg(i).arg(j));
             module->appendChild(buttonModule);
         }
-        module->children(1)->setHiden(true);
+        module->children(1)->setHidden(true);
         module->children(2)->setDisabled(true);
 
         appendChild(module);
@@ -129,6 +129,10 @@ QWidget *Test1ModuleObject::initButton()
 void Test1ModuleObject::addTestModule(ModuleObject *parent)
 {
     // ItemModule测试
+    // ItemModule提供一个回调函数接口,方便窗口与ModuleObject结合
+    // 左边是displayName字符串，右则是回调函数返回的widget，回调函数可以是匿名函数，也可以是成员函数。其参数是ModuleObject*，返回值为创建的QWidget*
+    // 同时ItemModule提供一些接口如setLeftVisible设置左则是否显示，setClickable是否处理点击。具体参考ItemModule头文件
+    // @warning 回调函数返回的widget生命周期只是对应窗口显示的时候，即模块切换时就会被析构。ItemModule的生命周期是从控制中心启动到关闭。
     ItemModule *item = new ItemModule("item", tr("Title"));
     item->setRightWidget([](ModuleObject *item) {
         return new QPushButton(Dtk::Widget::DStyle::standardIcon(qApp->style(), Dtk::Widget::DStyle::SP_EditElement), "");
@@ -139,13 +143,15 @@ void Test1ModuleObject::addTestModule(ModuleObject *parent)
     itemButton->setBackground(true);
     parent->appendChild(itemButton);
     // SettingsGroupModule测试
+    // SettingsGroupModule提供一个基于SettingsGroup的ModuleObject,可实现SettingsGroup的窗口背景处理
     SettingsGroupModule *groupModule = new SettingsGroupModule("group", tr("group Module"));
     groupModule->appendChild(new ItemModule("groupItem1", tr("group PushButton"), [](ModuleObject *module) { return new QPushButton(); }));
     groupModule->appendChild(new ItemModule("groupItem2", tr("group LineEdit"), [](ModuleObject *module) { return new QLineEdit(); }));
     groupModule->appendChild(new ItemModule("groupItem3", tr("group ComboBox"), [](ModuleObject *module) { return new QComboBox(); }));
     parent->appendChild(groupModule);
 
-    // ItemModule测试
+    // HorizontalModule测试
+    // HorizontalModule提供一个横向布局的ModuleObject，与PageModule(纵向布局)类似
     HorizontalModule *hor = new HorizontalModule("hor", tr("Horizontal Module"));
     hor->setStretchType(HorizontalModule::AllStretch);
     parent->appendChild(hor);
@@ -157,7 +163,7 @@ void Test1ModuleObject::addTestModule(ModuleObject *parent)
             },
             false);
     connect(hlabel, &ModuleObject::displayNameChanged, hlabel, [hlabel]() {
-        hlabel->setHiden(false);
+        hlabel->setHidden(false);
     });
 
     ItemModule *hedit = new ItemModule(
@@ -171,33 +177,34 @@ void Test1ModuleObject::addTestModule(ModuleObject *parent)
                         hlabel->setDisplayName(text);
                         module->setDisplayName(text);
                     }
-                    module->setHiden(true);
+                    module->setHidden(true);
                 });
                 return edit;
             },
             false);
-    hedit->setHiden(true);
+    hedit->setHidden(true);
     ItemModule *hbutton = new ItemModule(
             "hbutton", tr("Horizontal QPushButton"), [hlabel, hedit](ModuleObject *module) {
                 QPushButton *but = new QPushButton();
                 but->setIcon(Dtk::Widget::DStyle::standardIcon(qApp->style(), Dtk::Widget::DStyle::SP_EditElement));
                 but->setFixedSize(32, 32);
                 connect(but, &QPushButton::clicked, module, [hlabel, hedit, module]() {
-                    hlabel->setHiden(true);
-                    hedit->setHiden(false);
-                    module->setHiden(true);
+                    hlabel->setHidden(true);
+                    hedit->setHidden(false);
+                    module->setHidden(true);
                 });
                 return but;
             },
             false);
     connect(hedit, &ModuleObject::stateChanged, hedit, [hlabel, hbutton, hedit]() {
-        hlabel->setHiden(!hedit->isHiden());
-        hbutton->setHiden(!hedit->isHiden());
+        hlabel->setHidden(!hedit->isHidden());
+        hbutton->setHidden(!hedit->isHidden());
     });
     hor->appendChild(hlabel);
     hor->appendChild(hedit);
     hor->appendChild(hbutton);
-    // ItemModule测试
+    // ListViewModule测试
+    // ListViewModule提供一个以DListView为界面的ModuleObject，子项可用ModuleObjectItem或ModuleObject
     ListViewModule *listmodule = new ListViewModule("listView", tr("List View"));
     connect(listmodule, &ListViewModule::clicked, this, [](ModuleObject *module) {
         qInfo() << __FILE__ << __LINE__ << "clicked:" << module->displayName();
@@ -222,7 +229,7 @@ void Test1ModuleObject::addTestModule(ModuleObject *parent)
     listmodule->appendChild(item2);
     connect(item2, &ModuleObjectItem::clicked, this, [item1]() {
         qInfo() << __FILE__ << __LINE__ << "clicked ModuleObjectItem:" << tr("listitem 2");
-        item1->setHiden(!item1->isHiden());
+        item1->setHidden(!item1->isHidden());
         static int pix = Dtk::Widget::DStyle::SP_ForkElement;
         item1->setRightIcon((Dtk::Widget::DStyle::StandardPixmap)(pix));
         pix++;

@@ -12,6 +12,7 @@ class SettingsGroupModulePrivate
 public:
     explicit SettingsGroupModulePrivate(SettingsGroupModule *object)
         : q_ptr(object)
+        , settingsGroup(nullptr)
         , bgStyle(SettingsGroup::GroupBackground)
         , hor(QSizePolicy::Expanding)
         , ver(QSizePolicy::Fixed)
@@ -40,15 +41,11 @@ public:
                 m_mapWidget.insert(tmpChild, childPage);
             }
         }
-        // 监听子项的添加、删除、状态变更，动态的更新界面
-        auto addModuleSlot = [this](ModuleObject *const tmpChild) {
-            onAddChild(tmpChild);
-        };
-        QObject::connect(q, &ModuleObject::insertedChild, settingsGroup, addModuleSlot);
-        QObject::connect(q, &ModuleObject::appendedChild, settingsGroup, addModuleSlot);
+
+        QObject::connect(q, &ModuleObject::insertedChild, settingsGroup, [this](ModuleObject *const childModule) { onAddChild(childModule); });
         QObject::connect(q, &ModuleObject::removedChild, settingsGroup, [this](ModuleObject *const childModule) { onRemoveChild(childModule); });
         QObject::connect(q, &ModuleObject::childStateChanged, settingsGroup, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-            if (ModuleObject::IsHidenFlag(flag)) {
+            if (ModuleObject::IsHiddenFlag(flag)) {
                 if (state)
                     onRemoveChild(tmpChild);
                 else
@@ -75,7 +72,7 @@ private:
     }
     void onAddChild(DCC_NAMESPACE::ModuleObject *const childModule)
     {
-        if (ModuleObject::IsHiden(childModule) || m_mapWidget.contains(childModule))
+        if (ModuleObject::IsHidden(childModule) || m_mapWidget.contains(childModule))
             return;
 
         Q_Q(SettingsGroupModule);
@@ -84,7 +81,7 @@ private:
         for (auto &&child : q->childrens()) {
             if (child == childModule)
                 break;
-            if (!ModuleObject::IsHiden(child) && child->extra() == isExtra)
+            if (!ModuleObject::IsHidden(child) && child->extra() == isExtra)
                 index++;
         }
         auto newPage = childModule->activePage();
@@ -97,14 +94,14 @@ private:
 
 public:
     SettingsGroupModule *q_ptr;
-    Q_DECLARE_PUBLIC(SettingsGroupModule)
+    SettingsGroup *settingsGroup;
+    QMap<ModuleObject *, QWidget *> m_mapWidget;
     SettingsGroup::BackgroundStyle bgStyle;
     QSizePolicy::Policy hor;
     QSizePolicy::Policy ver;
     int spacing;
     bool headerVisible;
-    SettingsGroup *settingsGroup;
-    QMap<ModuleObject *, QWidget *> m_mapWidget;
+    Q_DECLARE_PUBLIC(SettingsGroupModule)
 };
 DCC_END_NAMESPACE
 

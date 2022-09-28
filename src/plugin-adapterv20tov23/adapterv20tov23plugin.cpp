@@ -40,7 +40,7 @@ AdapterV20toV23Root::AdapterV20toV23Root()
     , m_status(WaitParent)
     , m_tryCount(50)
 {
-    setHiden(true);
+    setHidden(true);
     connect(m_timer, &QTimer::timeout, this, &AdapterV20toV23Root::timerTask);
     m_timer->start(10);
     registerDBus();
@@ -77,7 +77,6 @@ void AdapterV20toV23Root::timerTask()
     case GetPaths: // 获取插件路径，并完成一些初始化
         m_root->removeChild(this);
         connect(m_root, &ModuleObject::destroyed, this, &AdapterV20toV23Root::deleteLater);
-        connect(m_root, &ModuleObject::appendedChild, this, &AdapterV20toV23Root::pushModule, Qt::QueuedConnection);
         connect(m_root, &ModuleObject::insertedChild, this, &AdapterV20toV23Root::pushModule, Qt::QueuedConnection);
         m_prameProxy = new FrameProxyV20(this);
         m_prameProxy->setRootModule(m_root);
@@ -102,7 +101,6 @@ void AdapterV20toV23Root::timerTask()
             m_status = InsertAllModule;
         break;
     case InsertAllModule: // 插入所有项，并断开信号
-        disconnect(m_root, &ModuleObject::appendedChild, this, &AdapterV20toV23Root::pushModule);
         disconnect(m_root, &ModuleObject::insertedChild, this, &AdapterV20toV23Root::pushModule);
         m_timer->stop();
         delete m_timer;
