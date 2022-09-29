@@ -103,7 +103,7 @@ void UserGroupsPage::onGidChanged(const QString &gid)
                 break;
             }
             if (item->text() == Sudo) {
-                if (!(m_curUser && m_curUser->online()) && !(managerAccountsCount == 1 && m_curUser->userType())) {
+                if (!(m_curUser && m_curUser->online()) && !(managerAccountsCount == 1 && m_curUser->userType() == User::UserType::Administrator)) {
                     value = true;
                 }
             } else {
@@ -168,7 +168,7 @@ int UserGroupsPage::getAdministratorAccountsCount()
     }
     int count = 0;
     for (auto data : m_userModel->userList()) {
-        if (data->userType()) {
+        if (data->userType() == User::UserType::Administrator) {
             count++;
         }
     }
