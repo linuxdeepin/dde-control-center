@@ -98,7 +98,8 @@ private:
         }
         auto newPage = childModule->activePage();
         if (newPage) {
-            m_layout->insertWidget(index, newPage);
+            QPair<int, Qt::Alignment> param = layoutParam(childModule);
+            m_layout->insertWidget(index, newPage, param.first, param.second);
             m_mapWidget.insert(childModule, newPage);
         }
     }

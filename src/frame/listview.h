@@ -55,6 +55,10 @@ public:
     void setAlignment(Qt::Alignment alignment);
     Qt::Alignment alignment() const;
 
+    void setContentsMargins(int left, int top, int right, int bottom);
+    void setContentsMargins(const QMargins &margins);
+    QMargins contentsMargins() const;
+
     QRect visualRect(const QModelIndex &index) const override;
     void scrollTo(const QModelIndex &index, ScrollHint hint = EnsureVisible) override;
     QModelIndex indexAt(const QPoint &p) const override;

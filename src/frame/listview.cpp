@@ -1,23 +1,23 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #include "listview.h"
 #include <QDebug>
 #include <QMouseEvent>
@@ -139,7 +139,6 @@ public:
     // item在窗口中位置(无滚动)
     QRect rectForIndex(const QModelIndex &index) const
     {
-        Q_Q(const ListView);
         QRect rect(0, 0, m_itemSize.width(), m_itemSize.height());
         if (index.row() == 0 && m_viewMode == ListView::IconMode) {
             rect.setHeight(m_itemSize.height() * 2 + m_spacing);
@@ -155,7 +154,7 @@ public:
             if (m_viewMode == ListView::ListMode && indexRow >= 1)
                 rect.translate(0, m_firstHeightDiff);
         }
-        return rect.translated(q->contentsMargins().left() + m_xOffset, q->contentsMargins().top() + m_yOffset);
+        return rect.translated(contentsMargins().left() + m_xOffset, contentsMargins().top() + m_yOffset);
     }
     // item在窗口中位置(无滚动)
     QModelIndex indexAt(const QPoint &p) const
@@ -197,13 +196,22 @@ public:
     }
     inline int marginsWidth() const
     {
-        Q_Q(const ListView);
-        return q->contentsMargins().left() + q->contentsMargins().right();
+        return contentsMargins().left() + contentsMargins().right();
     }
     inline int marginsHidget() const
     {
-        Q_Q(const ListView);
-        return q->contentsMargins().top() + q->contentsMargins().bottom();
+        return contentsMargins().top() + contentsMargins().bottom();
+    }
+    void setContentsMargins(int left, int top, int right, int bottom)
+    {
+        m_contentsMargins.setLeft(left);
+        m_contentsMargins.setTop(top);
+        m_contentsMargins.setRight(right);
+        m_contentsMargins.setBottom(bottom);
+    }
+    QMargins contentsMargins() const
+    {
+        return m_contentsMargins;
     }
 
 private:
@@ -221,6 +229,7 @@ private:
     QModelIndex m_hover;       // hover项
     Qt::Alignment m_alignment; //　对齐方式
     int m_firstHeightDiff;     // 第一行与其他行高差值
+    QMargins m_contentsMargins;
 };
 } // namespace DCC_NAMESPACE
 
@@ -294,6 +303,28 @@ Qt::Alignment ListView::alignment() const
 {
     Q_D(const ListView);
     return d->alignment();
+}
+
+void ListView::setContentsMargins(int left, int top, int right, int bottom)
+{
+    Q_D(ListView);
+    const QMargins &margins = d->contentsMargins();
+    if (margins.left() != left || margins.top() != top
+        || margins.right() != right || margins.bottom() != bottom) {
+        d->setContentsMargins(left, top, right, bottom);
+        scheduleDelayedItemsLayout();
+    }
+}
+
+void ListView::setContentsMargins(const QMargins &margins)
+{
+    setContentsMargins(margins.left(), margins.top(), margins.right(), margins.bottom());
+}
+
+QMargins ListView::contentsMargins() const
+{
+    Q_D(const ListView);
+    return d->contentsMargins();
 }
 /////////////////////////////////////////////////////////////////////////////
 // item在窗口中位置(加滚动偏移)

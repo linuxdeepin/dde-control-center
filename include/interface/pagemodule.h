@@ -43,7 +43,10 @@ public:
     void setSpacing(const int spacing);
     void getContentsMargins(int *left, int *top, int *right, int *bottom) const;
     void setContentsMargins(int left, int top, int right, int bottom);
-    void setMaximumWidth(int width);
+    int maximumWidth() const;
+    void setMaximumWidth(int maxw);
+    int minimumWidth() const;
+    void setMinimumWidth(int minw);
     // 无滚动条
     bool noScroll();
     void setNoScroll(bool value = true);

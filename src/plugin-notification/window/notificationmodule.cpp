@@ -47,6 +47,7 @@ ModuleObject *NotificationPlugin::module()
     moduleInterface->setDisplayName(tr("Notification"));
     moduleInterface->setDescription(tr("Notification"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_notification"));
+    moduleInterface->setNoScroll();
     moduleInterface->setNoStretch();
 
     NotificationModule *displayModule = new NotificationModule(moduleInterface);

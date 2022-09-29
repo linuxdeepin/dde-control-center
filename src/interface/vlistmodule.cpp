@@ -1,9 +1,12 @@
 #include "moduledatamodel.h"
 #include "vlistmodule.h"
+#include "pagemodule.h"
+#include "hlistmodule.h"
 
 #include <DListView>
 #include <DVerticalLine>
 #include <QHBoxLayout>
+#include <QSplitter>
 
 DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -15,28 +18,35 @@ public:
     explicit VListModulePrivate(VListModule *parent)
         : q_ptr(parent)
         , m_view(nullptr)
-        , m_layout(nullptr)
+        , m_splitter(nullptr)
+        , m_childMargin(20)
     {
     }
 
     void onCurrentModuleChanged(ModuleObject *child)
     {
-        if (!m_layout)
+        if (!m_splitter)
             return;
-        if (m_layout->count() > 2) {
-            QLayoutItem *item = m_layout->takeAt(2);
-            delete item->widget();
-            delete item;
-        }
         if (child) {
             QWidget *widget = nullptr;
-            if (child->extra() && child->hasChildrens())
-                widget = child->children(0)->activePage();
-            else
-                widget = child->activePage();
+            ModuleObject *activeModule = nullptr;
+            if (child->extra() && child->hasChildrens()) {
+                activeModule = child->children(0);
+            } else {
+                activeModule = child;
+            }
+
+            PageModule *module = qobject_cast<PageModule *>(activeModule);
+            if (module) {
+                module->setContentsMargins(m_childMargin, 0, m_childMargin, 0);
+                module->setMaximumWidth(720);
+            }
+            widget = child->activePage();
             if (widget) {
-                widget->setSizePolicy(QSizePolicy::Expanding, widget->sizePolicy().verticalPolicy());
-                m_layout->addWidget(widget, 5);
+                QWidget *oldWidget = m_splitter->replaceWidget(1, widget);
+                widget->setVisible(true);
+                if (oldWidget)
+                    delete oldWidget;
                 ModuleDataModel *model = static_cast<ModuleDataModel *>(m_view->model());
                 m_view->setCurrentIndex(model->index(child));
             }
@@ -77,25 +87,27 @@ public:
     QWidget *page()
     {
         Q_Q(VListModule);
-        QWidget *parentWidget = new QWidget();
-        m_layout = new QHBoxLayout(parentWidget);
-        parentWidget->setLayout(m_layout);
-        QObject::connect(parentWidget, &QObject::destroyed, q, [this]() { m_layout = nullptr; });
+        m_splitter = new QSplitter(Qt::Horizontal);
+        QObject::connect(m_splitter, &QObject::destroyed, q, [this]() { m_splitter = nullptr; });
 
-        DListView *view = new DListView(parentWidget);
-        QWidget *widget = new QWidget(parentWidget);
+        DListView *view = new DListView(m_splitter);
+        QWidget *widget = new QWidget(m_splitter);
         QVBoxLayout *vlayout = new QVBoxLayout;
         m_hlayout = new QHBoxLayout;
         widget->setLayout(vlayout);
         vlayout->addWidget(view);
         vlayout->addLayout(m_hlayout);
         widget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
-        m_layout->addWidget(widget, 1);
-        m_layout->addWidget(new DVerticalLine, 1);
+        widget->setMinimumWidth(158);
+        widget->setMaximumWidth(300);
+        m_splitter->addWidget(widget);
+        m_emptyWidget = new QWidget(m_splitter);
+        m_splitter->addWidget(m_emptyWidget);
+        m_splitter->setChildrenCollapsible(false);
 
         ModuleDataModel *model = new ModuleDataModel(view);
         model->setModuleObject(q);
-        QObject::connect(q, &VListModule::currentModuleChanged, m_layout, [this](ModuleObject *child) {
+        QObject::connect(q, &VListModule::currentModuleChanged, m_splitter, [this](ModuleObject *child) {
             onCurrentModuleChanged(child);
         });
 
@@ -104,8 +116,8 @@ public:
         view->setAutoScroll(true);
         view->setDragEnabled(false);
         view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        view->setSpacing(0);
-        view->setItemSpacing(2);
+        view->setSpacing(5);
+        view->setItemSpacing(0);
         view->setSelectionMode(QAbstractItemView::SingleSelection);
         m_view = view;
 
@@ -137,8 +149,14 @@ public:
                     onAddChild(tmpChild);
             }
         });
+        m_childMargin = 20;
+        if (qobject_cast<HListModule *>(q->getParent())) {
+            m_childMargin = 10;
+            m_view->setContentsMargins(10, 0, 10, 10);
+        }
         onCurrentModuleChanged(q->currentModule());
-        return parentWidget;
+        m_splitter->setSizes({200,600});
+        return m_splitter;
     }
 
 private:
@@ -146,9 +164,11 @@ private:
     Q_DECLARE_PUBLIC(VListModule)
 
     QAbstractItemView *m_view;
-    QHBoxLayout *m_layout;
+    QSplitter *m_splitter;
+    QWidget *m_emptyWidget;
     QHBoxLayout *m_hlayout;
     QList<DCC_NAMESPACE::ModuleObject *> m_extraModules;
+    int m_childMargin;
 };
 DCC_END_NAMESPACE
 

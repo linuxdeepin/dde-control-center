@@ -2,8 +2,10 @@
 #include "listview.h"
 #include "mainmodule.h"
 #include "src/interface/moduledatamodel.h"
+#include "pagemodule.h"
 
 #include <QHBoxLayout>
+#include <QSplitter>
 
 DCC_USE_NAMESPACE
 
@@ -22,52 +24,74 @@ public:
     explicit MainModulePrivate(MainModule *parent = nullptr)
         : q_ptr(parent)
         , m_view(nullptr)
-        , m_layout(nullptr)
+        , m_splitter(nullptr)
     {
     }
 
     void onCurrentModuleChanged(ModuleObject *child)
     {
-        if (!m_layout)
+        if (!m_splitter)
             return;
-        if (m_layout->count() > 1) {
-            QLayoutItem *item = m_layout->takeAt(1);
-            delete item->widget();
-            delete item;
-        }
+        QWidget *newWidget = nullptr;
+        QWidget *oldWidget = nullptr;
         if (child) {
-            m_view->setViewMode(ListView::ListMode);
-            m_view->setIconSize(ListViweItemIconSize_ListMode);
-            m_view->setGridSize(ListViweItemSize_ListMode);
-            m_view->setSpacing(0);
-            m_view->setAlignment(Qt::AlignLeft | Qt::AlignTop);
-            m_layout->addWidget(child->activePage(), 5);
+            if (m_view->viewMode() != ListView::ListMode) {
+                m_view->setViewMode(ListView::ListMode);
+                m_view->setIconSize(ListViweItemIconSize_ListMode);
+                m_view->setGridSize(ListViweItemSize_ListMode);
+                m_view->setContentsMargins(10, 0, 10, 0);
+                m_view->setSpacing(10);
+                m_view->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+                // 最小160,默认180
+                m_view->setMinimumWidth(160);
+                m_view->setMaximumWidth(330);
+                m_view->resize(180, -1);
+            }
             ModuleDataModel *model = static_cast<ModuleDataModel *>(m_view->model());
             m_view->setCurrentIndex(model->index(child));
-        } else {
+            PageModule *module = qobject_cast<PageModule *>(child);
+            if(module) {
+                module->setContentsMargins(60, 0, 60, 0);
+                module->setMaximumWidth(720);
+            }
+            newWidget = child->activePage();
+            oldWidget = m_splitter->replaceWidget(1, newWidget);
+
+            if (!m_splitter->handle(1)->isEnabled()) {
+                m_splitter->handle(1)->setEnabled(true);
+                m_splitter->setSizes({180,600});
+            }
+        } else if (m_view->viewMode() != ListView::IconMode) {
             m_view->setViewMode(ListView::IconMode);
             m_view->setIconSize(ListViweItemIconSize_IconMode);
             m_view->setGridSize(ListViweItemSize_IconMode);
+            m_view->setContentsMargins(0, 0, 0, 0);
             m_view->setSpacing(20);
             m_view->setAlignment(Qt::AlignCenter);
+            m_splitter->handle(1)->setEnabled(false);
+            newWidget = m_emptyWidget;
+            oldWidget = m_splitter->replaceWidget(1, newWidget);
+
+            m_view->setMinimumWidth(0);
+            m_view->setMaximumWidth(QWIDGETSIZE_MAX);
         }
+        if (newWidget)
+            newWidget->setVisible(newWidget != m_emptyWidget);
+        if (oldWidget && oldWidget != m_emptyWidget)
+            delete oldWidget;
     }
 
     QWidget *page()
     {
         Q_Q(MainModule);
-        QWidget *parentWidget = new QWidget();
-        m_layout = new QHBoxLayout(parentWidget);
-        m_layout->setContentsMargins(0, 0, 0, 0);
-        m_layout->setSpacing(0);
-        parentWidget->setLayout(m_layout);
+        m_splitter = new QSplitter(Qt::Horizontal);
 
-        m_view = new ListView(parentWidget);
+        m_view = new ListView(m_splitter);
         ListItemDelegate *delegate = new ListItemDelegate(m_view);
         m_view->setItemDelegate(delegate);
         ModuleDataModel *model = new ModuleDataModel(m_view);
         model->setModuleObject(q);
-        QObject::connect(q, &MainModule::currentModuleChanged, m_layout, [this](ModuleObject *child) {
+        QObject::connect(q, &MainModule::currentModuleChanged, m_splitter, [this](ModuleObject *child) {
             onCurrentModuleChanged(child);
         });
         m_view->setModel(model);
@@ -89,10 +113,17 @@ public:
 
         QObject::connect(m_view, &ListView::activated, m_view, &ListView::clicked);
         QObject::connect(m_view, &ListView::clicked, m_view, onClicked);
-        m_layout->addWidget(m_view, 1);
+        m_splitter->addWidget(m_view);
+        m_emptyWidget = new QWidget(m_splitter);
+        m_splitter->addWidget(m_emptyWidget);
+        m_emptyWidget->setVisible(false);
+
+        m_splitter->setCollapsible(0, false);
+        m_splitter->setCollapsible(1, true);
+        m_splitter->setChildrenCollapsible(true);
 
         onCurrentModuleChanged(q->currentModule());
-        return parentWidget;
+        return m_splitter;
     }
 
 private:
@@ -100,7 +131,8 @@ private:
     Q_DECLARE_PUBLIC(MainModule)
 
     ListView *m_view;
-    QHBoxLayout *m_layout;
+    QSplitter *m_splitter;
+    QWidget *m_emptyWidget;
 };
 DCC_END_NAMESPACE
 

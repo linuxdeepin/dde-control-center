@@ -20,6 +20,7 @@ public:
         : QObject(parent)
         , q_ptr(parent)
         , m_spacing(10)
+        , m_minimumWidth(0)
         , m_maximumWidth(QWIDGETSIZE_MAX)
     {
         clearData();
@@ -83,6 +84,7 @@ public:
         m_vlayout->setContentsMargins(m_contentsMargins);
         m_vlayout->setSpacing(m_spacing);
         areaWidget->setLayout(m_vlayout);
+        areaWidget->setMinimumWidth(m_minimumWidth);
         areaWidget->setMaximumWidth(m_maximumWidth);
 
         for (auto &&tmpChild : q->childrens()) {
@@ -202,6 +204,7 @@ private:
     QScrollArea *m_area;
     QMargins m_contentsMargins;
     int m_spacing;
+    int m_minimumWidth;
     int m_maximumWidth;
 };
 
@@ -295,10 +298,28 @@ void PageModule::setContentsMargins(int left, int top, int right, int bottom)
     d->m_contentsMargins.setBottom(bottom);
 }
 
-void PageModule::setMaximumWidth(int width)
+int PageModule::maximumWidth() const
+{
+    Q_D(const PageModule);
+    return d->m_maximumWidth;
+}
+
+void PageModule::setMaximumWidth(int maxw)
 {
     Q_D(PageModule);
-    d->m_maximumWidth = width;
+    d->m_maximumWidth = maxw;
+}
+
+int PageModule::minimumWidth() const
+{
+    Q_D(const PageModule);
+    return d->m_minimumWidth;
+}
+
+void PageModule::setMinimumWidth(int minw)
+{
+    Q_D(PageModule);
+    d->m_minimumWidth = minw;
 }
 
 bool PageModule::noScroll()
