@@ -35,6 +35,7 @@ class SearchInput;
 
 namespace dcc {
 namespace datetime {
+class DatetimeModel;
 
 class TimeZoneChooser : public QFrame
 {
@@ -44,6 +45,7 @@ public:
     void setIsAddZone(const bool isAdd);
     inline bool isAddZone() { return m_isAddZone; }
     void setCurrentTimeZoneText(const QString &zone);
+    void setMode(DatetimeModel* model);
 
 Q_SIGNALS:
     void confirmed(const QString &zone);
@@ -51,6 +53,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void setMarkedTimeZone(const QString &timezone);
+    void setRightBtnState(QString zone = "");
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
@@ -80,6 +83,7 @@ private:
     LangSelector *m_currLangSelector;
     QCompleter *m_completer;
     const installer::ZoneInfoList m_totalZones;
+    DatetimeModel* m_model;
 };
 
 } // namespace datetime

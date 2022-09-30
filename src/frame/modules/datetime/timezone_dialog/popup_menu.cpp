@@ -146,6 +146,7 @@ void PopupMenu::paintEvent(QPaintEvent* event) {
 
 void PopupMenu::showEvent(QShowEvent* event) {
   qApp->installEventFilter(this);
+  Q_EMIT onShow();
   QFrame::showEvent(event);
 }
 
