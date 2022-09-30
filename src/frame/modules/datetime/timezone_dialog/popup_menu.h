@@ -26,6 +26,7 @@ class PopupMenu : public QFrame {
  Q_SIGNALS:
   // Q_EMITted when window is hidden.
   void onHide();
+  void onShow();
 
   // Q_EMITted when a menu item at |index| is activated.
   void menuActivated(int index);

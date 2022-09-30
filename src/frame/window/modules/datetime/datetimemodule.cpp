@@ -393,6 +393,7 @@ void DatetimeModule::ensureZoneChooserDialog()
         return;
 
     m_dialog = new TimeZoneChooser(m_pMainWindow);
+    m_dialog->setMode(m_model);
     m_dialog->setAttribute(Qt::WA_DeleteOnClose);
 
     connect(m_dialog, &TimeZoneChooser::confirmed, this, [this](const QString & timezone) {

@@ -5,6 +5,7 @@
 #include "timezone_map.h"
 
 #include <QDebug>
+#include <QTimer>
 #include <QItemSelectionModel>
 #include <QLabel>
 #include <QListView>
@@ -58,7 +59,7 @@ TimezoneMap::~TimezoneMap() {
 }
 
 const QString TimezoneMap::getTimezone() const {
-  return current_zone_.timezone;
+    return current_zone_.timezone;
 }
 
 bool TimezoneMap::setTimezone(const QString &timezone)
@@ -117,7 +118,17 @@ void TimezoneMap::resizeEvent(QResizeEvent* event) {
 void TimezoneMap::initConnections() {
   // Hide dot when popup-zones window is hidden.
   connect(popup_window_, &PopupMenu::onHide,
-          dot_, &QLabel::hide);
+          dot_, [this]() {
+      dot_->setHidden(true);
+      Q_EMIT notifyPopupWindowVisibleChanged();
+  });
+
+  connect(popup_window_, &PopupMenu::onShow, this, [this]() {
+      QTimer::singleShot(50, [this]() {
+          // 确保该信号是在最后发送
+          Q_EMIT notifyPopupWindowVisibleChanged();
+      });
+  });
 
   // Hide popup_window_ and mark new timezone on map.
   connect(popup_window_, &PopupMenu::menuActivated,

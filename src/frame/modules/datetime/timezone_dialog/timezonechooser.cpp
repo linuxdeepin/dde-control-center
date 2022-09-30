@@ -5,6 +5,7 @@
 #include "timezonechooser.h"
 #include "timezone_map.h"
 #include "widgets/searchinput.h"
+#include "../datetimemodel.h"
 
 #include <dplatformwindowhandle.h>
 #include <DDialogCloseButton>
@@ -43,6 +44,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
                                           "/com/deepin/daemon/LangSelector",
                                           QDBusConnection::sessionBus(), this))
     , m_totalZones(installer::GetZoneInfoList())
+    , m_model(nullptr)
 {
     m_blurEffect->setAccessibleName("blurEffect");
 
@@ -117,15 +119,17 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
         QString timezone = m_searchInput->text();
         timezone = m_completionCache.value(timezone, timezone);
         if (m_map->setTimezone(timezone) && !m_confirmBtn->isEnabled())
-            m_confirmBtn->setEnabled(true);
+            qInfo() << " SearchInput editingFinished, currentZone : " << m_model->getTimeZone() << timezone;
+            m_confirmBtn->setEnabled(m_model->getTimeZone() != timezone);
     });
 
     connect(m_searchInput, &SearchInput::textChanged, m_searchInput, &SearchInput::editingFinished);
 
-    connect(m_map, &installer::TimezoneMap::timezoneUpdated, this, [this] {
-        m_searchInput->setText("");
-        m_searchInput->clearFocus();
-        m_confirmBtn->setEnabled(true);
+    connect(m_map, &installer::TimezoneMap::timezoneUpdated, this, [this] (const QString & _t1) {
+        setRightBtnState(_t1);
+    });
+    connect(m_map, &installer::TimezoneMap::notifyPopupWindowVisibleChanged, this, [this]() {
+        setRightBtnState();
     });
 
     QTimer::singleShot(0, [this] {
@@ -208,9 +212,26 @@ void TimeZoneChooser::setCurrentTimeZoneText(const QString &zone)
     const QString name = installer::GetLocalTimezoneName(zone, locale);
 }
 
+void TimeZoneChooser::setMode(DatetimeModel *model)
+{
+    m_model = model;
+}
+
 void TimeZoneChooser::setMarkedTimeZone(const QString &timezone)
 {
     m_map->setTimezone(timezone);
+}
+
+void TimeZoneChooser::setRightBtnState(QString zone)
+{
+    m_searchInput->setText("");
+    m_searchInput->clearFocus();
+
+    if (zone == "") {
+        m_confirmBtn->setEnabled(false);
+    } else {
+        m_confirmBtn->setEnabled(m_model->getTimeZone() != zone);
+    }
 }
 
 void TimeZoneChooser::resizeEvent(QResizeEvent *event)

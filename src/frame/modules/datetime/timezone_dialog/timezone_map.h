@@ -31,6 +31,7 @@ class TimezoneMap : public QFrame {
 
  Q_SIGNALS:
   void timezoneUpdated(const QString& timezone);
+  void notifyPopupWindowVisibleChanged();
 
  public Q_SLOTS:
   // Remark |timezone| on map.
