@@ -1833,6 +1833,10 @@ void UpdateWorker::onClassifiedUpdatablePackagesChanged(QMap<QString, QStringLis
 
 void UpdateWorker::onFixError(const ClassifyUpdateType &updateType, const QString &errorType)
 {
+    if (errorType == "noNetwork") {
+        this->checkForUpdates();
+        return;
+    }
     m_fixErrorUpdate.append(updateType);
     if (m_fixErrorJob != nullptr) {
         return;
