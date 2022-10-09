@@ -173,6 +173,8 @@ private:
     //全局搜索
     QList<QJsonObject> m_lstGrandSearchTasks;
     QPointer<QScreen> m_primaryScreen;
+    int m_currentIndex = -1;
+    bool m_bIsNeedChange = false;
 };
 }
 

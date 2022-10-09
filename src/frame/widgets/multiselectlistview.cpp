@@ -77,5 +77,12 @@ void MultiSelectListView::mousePressEvent(QMouseEvent *event)
         return;
     return DListView::mousePressEvent(event);
 }
+
+void MultiSelectListView::selectionChanged(const QItemSelection &selected, const QItemSelection &deselected)
+{
+    Q_EMIT notifySelectionChanged(currentIndex());
+    return DListView::selectionChanged(selected, deselected);
+}
+
 }
 }
