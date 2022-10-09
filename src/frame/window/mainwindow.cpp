@@ -148,9 +148,6 @@ MainWindow::MainWindow(QWidget *parent)
     m_searchWidget->lineEdit()->setAccessibleName("SearchModuleLineEdit");
     GSettingWatcher::instance()->bind("mainwindowSearchEdit", m_searchWidget);
 
-    m_currentIndex.first = m_navView->viewMode();
-    m_currentIndex.second = m_navView->currentIndex();
-
     DTitlebar *titlebar = this->titlebar();
     auto widhetlist = titlebar->children();
     for (auto child : widhetlist) {
@@ -755,16 +752,6 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
             openManual();
             return true;
         }
-    } else if (event->type() == QEvent::MouseButtonRelease) {
-        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-        if (mouseEvent->button() == Qt::MouseButton::LeftButton) {
-            if (m_currentIndex.first != m_navView->viewMode() ||
-                m_currentIndex.second != m_navView->currentIndex()) {
-                m_currentIndex.first = m_navView->viewMode();
-                m_currentIndex.second = m_navView->currentIndex();
-                onFirstItemClick(m_currentIndex.second);
-            }
-        }
     }
 
     return  DMainWindow::eventFilter(watched, event);
@@ -1235,10 +1222,6 @@ void MainWindow::updateViewBackground()
 
 void MainWindow::onFirstItemClick(const QModelIndex &index)
 {
-    if (index.row() < 0 || !m_modules[index.row()].first) {
-        return;
-    }
-
     ModuleInterface *inter = m_modules[index.row()].first;
 
     if (!m_contentStack.isEmpty() && m_contentStack.first().first == inter) {
