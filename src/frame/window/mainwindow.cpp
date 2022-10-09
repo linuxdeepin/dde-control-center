@@ -139,6 +139,16 @@ MainWindow::MainWindow(QWidget *parent)
     //Initialize top page view and model
     m_navModel = new QStandardItemModel(m_navView);
     m_navView->setModel(m_navModel);
+    connect(m_navView, &dcc::widgets::MultiSelectListView::notifySelectionChanged, this, [=](const QModelIndex &index) {
+        if (m_currentIndex != index.row()) {
+            m_currentIndex = index.row();
+            qInfo() << " [notifySelectionChanged] index.row : " << index.row();
+            if (!m_bIsNeedChange) {
+                m_bIsNeedChange = true;
+                qInfo() << " [notifySelectionChanged] index.row, m_bIsNeedChange : " << index.row() << m_bIsNeedChange;
+            }
+        }
+    });
     connect(m_navView, &DListView::activated, this, &MainWindow::onFirstItemClick);
     connect(m_navView, &DListView::clicked, m_navView, &DListView::activated);
 
@@ -752,6 +762,12 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
             openManual();
             return true;
         }
+    } else if (event->type() == QEvent::MouseButtonRelease) {
+        if (static_cast<QMouseEvent *>(event)->button() == Qt::MouseButton::LeftButton && m_bIsNeedChange) {
+            m_bIsNeedChange = false;
+            qInfo() << " [eventFilter] MouseButtonRelease, currentIndex : " << m_navView->currentIndex().row();
+            onFirstItemClick(m_navView->currentIndex());
+        }
     }
 
     return  DMainWindow::eventFilter(watched, event);
@@ -1222,7 +1238,13 @@ void MainWindow::updateViewBackground()
 
 void MainWindow::onFirstItemClick(const QModelIndex &index)
 {
+    if (index.row() < 0 || m_modules.count() <= 0) {
+        return;
+    }
     ModuleInterface *inter = m_modules[index.row()].first;
+    if (!inter) {
+        return;
+    }
 
     if (!m_contentStack.isEmpty() && m_contentStack.first().first == inter) {
         m_navView->setFocus();

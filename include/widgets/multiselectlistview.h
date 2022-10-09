@@ -19,11 +19,16 @@ public:
     explicit MultiSelectListView(QWidget *parent = nullptr);
     void resetStatus(const QModelIndex &index);
 
+Q_SIGNALS:
+    void notifySelectionChanged(const QModelIndex &index);
+
 protected:
     void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
     QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override;
     void keyPressEvent(QKeyEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
+    void selectionChanged(const QItemSelection &selected, const QItemSelection &deselected) override;
+
 private:
     int m_currentIndex;
 };
