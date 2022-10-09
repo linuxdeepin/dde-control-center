@@ -337,6 +337,12 @@ void UpdateSettingItem::onRetryUpdate()
         return;
     }
 
+    if (m_updateJobErrorMessage == UpdateErrorType::NoNetwork) {
+        Q_EMIT requestFixError(m_classifyUpdateType, "noNetwork");
+        return;
+    }
+
+
     onStartUpdate();
 }
 
