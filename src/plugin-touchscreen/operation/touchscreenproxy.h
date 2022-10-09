@@ -1,0 +1,47 @@
+#ifndef TOUCHSCREENPROXY_H
+#define TOUCHSCREENPROXY_H
+
+#include "interface/namespace.h"
+#include "types/touchscreeninfolist_v2.h"
+#include "types/touchscreenmap.h"
+
+#include <QDBusReply>
+#include <QObject>
+
+
+DCC_BEGIN_NAMESPACE
+class DCCDBusInterface;
+DCC_END_NAMESPACE
+class QDBusMessage;
+
+class TouchScreenProxy : public QObject
+{
+    Q_OBJECT
+public:
+    explicit TouchScreenProxy(QObject *parent = nullptr);
+
+    Q_PROPERTY(TouchscreenInfoList_V2 TouchscreensV2 READ touchscreensV2 NOTIFY TouchscreensV2Changed)
+    TouchscreenInfoList_V2 touchscreensV2();
+
+    Q_PROPERTY(TouchscreenMap TouchMap READ touchMap NOTIFY TouchMapChanged)
+    TouchscreenMap touchMap();
+
+    Q_PROPERTY(QList<QDBusObjectPath> Monitors READ monitors NOTIFY MonitorsChanged)
+    QList<QDBusObjectPath> monitors();
+
+Q_SIGNALS:
+    void TouchscreensV2Changed(TouchscreenInfoList_V2 value);
+    void MonitorsChanged(const QList<QDBusObjectPath> & value);
+    void TouchMapChanged(TouchscreenMap value);
+
+public Q_SLOTS:
+    QDBusPendingReply<> AssociateTouchByUUID(const QString &in0, const QString &in1);
+
+private:
+    DCC_NAMESPACE::DCCDBusInterface *m_displayInter;
+    TouchscreenInfoList_V2 m_TouchscreensList;
+    QList<QDBusObjectPath> m_Monitors;
+    TouchscreenMap m_TouchMap;
+};
+
+#endif // TOUCHSCREENPROXY_H

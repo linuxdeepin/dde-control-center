@@ -1104,6 +1104,45 @@ target_link_libraries(${Privacy_Name} PRIVATE
 
 install(TARGETS ${Privacy_Name} DESTINATION lib/dde-control-center/modules)
 
+#--------------------------plugin-touchscreen--------------------------
+set(Touchscreen_Name dcc-touchscreen-plugin)
+file(GLOB_RECURSE TOUCHSCREEN_SRCS
+    "src/plugin-touchscreen/*.cpp"
+    "src/plugin-touchscreen/operation/qrc/touchscreen.qrc"
+)
+
+add_library(${Touchscreen_Name} MODULE
+    ${TOUCHSCREEN_SRCS}
+)
+
+set(Touchscreen_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    src/plugin-touchscreen/window
+    src/plugin-touchscreen/operation
+)
+
+set(Touchscreen_Libraries
+    ${Dcc_Widgets_Name}
+    ${Interface_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+)
+
+target_include_directories(${Touchscreen_Name} PUBLIC
+    ${Touchscreen_Includes}
+)
+
+target_link_libraries(${Touchscreen_Name} PRIVATE
+    ${Touchscreen_Libraries}
+)
+
+install(TARGETS ${Touchscreen_Name} DESTINATION lib/dde-control-center/modules)
+
 #--------------------------plugin-adapterv20tov23--------------------------
 set(AdapterV20toV23_Name dcc-adapterv20tov23-plugin)
 file(GLOB_RECURSE ADAPTERV20TOV23_SRCS
