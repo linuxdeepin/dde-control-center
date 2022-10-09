@@ -65,7 +65,6 @@ QWidget *FormModule::page()
         if (page) {
             m_layout->addRow(tmpChild->displayName(), page);
             m_mapWidget.insert(tmpChild, page);
-            page->setDisabled(ModuleObject::IsDisabled(tmpChild));
         }
     }
 
@@ -78,10 +77,6 @@ QWidget *FormModule::page()
                 onRemoveChild(tmpChild);
             else
                 onAddChild(tmpChild);
-        } else if (ModuleObject::IsDisabledFlag(flag)) {
-            if (m_mapWidget.contains(tmpChild)) {
-                m_mapWidget.value(tmpChild)->setDisabled(state);
-            }
         }
     });
     // 处理子激活项
@@ -120,8 +115,6 @@ void FormModule::onAddChild(dccV23::ModuleObject *const childModule)
     auto newPage = childModule->activePage();
     if (newPage) {
         m_layout->insertRow(index, childModule->displayName(), newPage);
-
-        newPage->setDisabled(ModuleObject::IsDisabled(childModule));
         m_mapWidget.insert(childModule, newPage);
     }
 }

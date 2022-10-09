@@ -38,8 +38,8 @@
 |currentModule()|当前激活的子项|
 |setCurrentModule(child)|设置当前激活项，由框架调用。子项变化时会触发currentModuleChanged信号|
 |defultModule()|默认激活的子项（如第二级激活时，会根据该值展开到第三级、第四级），如果返回为nullptr则不向下展开|
-|isHiden()|是否为隐藏，默认不隐藏|
-|setHiden(hiden)|设置为隐藏，对应ModuleObject隐藏应通过该函数设置，不要自行设置QWidget的隐藏|
+|isHidden()|是否为隐藏，默认不隐藏|
+|setHidden(hidden)|设置为隐藏，对应ModuleObject隐藏应通过该函数设置，不要自行设置QWidget的隐藏|
 |isDisabled()|是否为禁用，默认为启用|
 |setDisabled(disabled)|设置为禁用，对应ModuleObject禁用应通过该函数设置，不要自行设置QWidget的禁用|
 |findChild(child)|查找子项，广度搜索优先，返回子项相对于当前模块所在的层级，-1为未找到，0为自己，>0为子项层级|
@@ -66,8 +66,8 @@
 * ModuleObject静态方法
 |名称|说明|
 |:----|:----|
-|IsHiden|返回module是否显示，判断了配置项和程序设置项|
-|IsHidenFlag|判断标志是否为隐藏标志|
+|IsHidden|返回module是否显示，判断了配置项和程序设置项|
+|IsHiddenFlag|判断标志是否为隐藏标志|
 |IsDisabled|返回module是否可用，判断了配置项和程序设置项|
 |IsDisabledFlag|判断标志是否为禁用标志|
 
@@ -185,7 +185,7 @@ Test1ModuleObject::Test1ModuleObject()
             buttonModule->setText(QString("我是页面%1的第%2个按钮").arg(i).arg(j));
             module->appendChild(buttonModule);
         }
-        module->children(1)->setHiden(true);
+        module->children(1)->setHidden(true);
         module->children(2)->setDisabled(true);
 ​
         appendChild(module);
@@ -338,7 +338,6 @@ QWidget *FormModule::page()
         if (page) {
             m_layout->addRow(tmpChild->displayName(), page);
             m_mapWidget.insert(tmpChild, page);
-            page->setDisabled(ModuleObject::IsDisabled(tmpChild));
         }
     }
 ​
@@ -350,15 +349,11 @@ QWidget *FormModule::page()
     connect(this, &ModuleObject::appendedChild, areaWidget, addModuleSlot);
     connect(this, &ModuleObject::removedChild, areaWidget, [this](ModuleObject *const childModule) { onRemoveChild(childModule); });
     connect(this, &ModuleObject::childStateChanged, areaWidget, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-        if (ModuleObject::IsHidenFlag(flag)) { // 显示隐藏同增加删除处理
+        if (ModuleObject::IsHiddenFlag(flag)) { // 显示隐藏同增加删除处理
             if (state)
                 onRemoveChild(tmpChild);
             else
                 onAddChild(tmpChild);
-        } else if (ModuleObject::IsDisabledFlag(flag)) {
-            if (m_mapWidget.contains(tmpChild)) {
-                m_mapWidget.value(tmpChild)->setDisabled(state);
-            }
         }
     });
     // 处理子激活项
@@ -384,21 +379,19 @@ void FormModule::onCurrentModuleChanged(dccV23::ModuleObject *child)
 // 动态的添加子项
 void FormModule::onAddChild(dccV23::ModuleObject *const childModule)
 {
-    if (ModuleObject::IsHiden(childModule) || m_mapWidget.contains(childModule))
+    if (ModuleObject::IsHidden(childModule) || m_mapWidget.contains(childModule))
         return;
 ​
     int index = 0;
     for (auto &&child : childrens()) {
         if (child == childModule)
             break;
-        if (!ModuleObject::IsHiden(child))
+        if (!ModuleObject::IsHidden(child))
             index++;
     }
     auto newPage = childModule->activePage();
     if (newPage) {
         m_layout->insertRow(index, childModule->displayName(), newPage);
-​
-        newPage->setDisabled(ModuleObject::IsDisabled(childModule));
         m_mapWidget.insert(childModule, newPage);
     }
 }
