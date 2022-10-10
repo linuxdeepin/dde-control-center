@@ -305,7 +305,10 @@ void MainWindow::setPrimaryScreen(QScreen *screen)
     m_primaryScreen = screen;
     updateWinsize();
     connect(m_primaryScreen, &QScreen::geometryChanged, this, &MainWindow::updateWinsize);
-    connect(m_primaryScreen, &QScreen::availableGeometryChanged, this, &MainWindow::updateWinsize);
+    // 主屏变化后，根据新主屏的分辨率移动窗口居中
+    connect(qApp, &QGuiApplication::primaryScreenChanged, this, [this] {
+        updateWinsize(m_primaryScreen->geometry());
+    });
 }
 
 QScreen *MainWindow::primaryScreen() const
