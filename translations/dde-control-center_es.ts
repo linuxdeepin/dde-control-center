@@ -109,87 +109,87 @@
         <translation>Ir a ajustes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="289"/>
         <source>Full Name</source>
         <translation>Nombre completo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="251"/>
         <source>The full name is too long</source>
         <translation>El nombre completo es muy largo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="357"/>
         <source>Validity Days</source>
         <translation>Días vigentes</translation>
         <extra-contents_path>/accounts/Validity Days</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="372"/>
         <source>Security Questions</source>
         <translation>Preguntas de seguridad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="424"/>
         <source>Account Settings</source>
         <translation>Ajustes de la cuenta</translation>
         <extra-contents_path>/accounts/Account Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
-        <source>Group</source>
-        <translation>Grupo</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="474"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="443"/>
         <source>Change Password</source>
         <translation>Cambiar contraseña</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="474"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="443"/>
         <source>Reset Password</source>
         <translation>Reestablecer contraseña</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="445"/>
         <source>Delete Account</source>
         <translation>Borrar cuenta</translation>
         <extra-contents_path>/accounts/Delete Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="478"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="447"/>
         <source>Auto Login</source>
         <translation>Inicio de sesión automático</translation>
         <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="481"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="450"/>
         <source>Login Without Password</source>
         <translation>Iniciar sesión sin contraseña</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="484"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="453"/>
         <source>Administrator</source>
         <translation>Administrador</translation>
         <extra-contents_path>/accounts/Administrator</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="531"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="500"/>
         <source>OK</source>
         <translation>Aceptar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="532"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="501"/>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
         <translation>El &quot;Inicio de sesión automático&quot; se puede habilitar solo para una cuenta, desactívelo primero para la cuenta &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="679"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="641"/>
+        <source>Group</source>
+        <translation>Grupo</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="687"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="696"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="695"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="704"/>
         <source>The full name has been used by other user accounts</source>
         <translation>El nombre completo ha sido utilizado por otras cuentas de usuario</translation>
     </message>
@@ -211,14 +211,14 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="147"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="253"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="301"/>
         <source>Auto Login</source>
         <translation>Inicio de sesión automático</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="148"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="257"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="305"/>
         <source>Login Without Password</source>
         <translation>Iniciar sesión sin contraseña</translation>
     </message>
@@ -231,14 +231,14 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="150"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="293"/>
         <source>Change Password</source>
         <translation>Cambiar contraseña</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="151"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="249"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="297"/>
         <source>Delete Account</source>
         <translation>Borrar cuenta</translation>
     </message>
@@ -258,6 +258,11 @@
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="260"/>
         <source>New Account</source>
         <translation>Nueva cuenta</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="266"/>
+        <source>Group</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -406,7 +411,7 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="311"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="314"/>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Opcional</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="400"/>
@@ -553,92 +558,92 @@
 <context>
     <name>dccV20::accounts::SecurityQuestionsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="54"/>
         <source>Security Questions</source>
         <translation>Preguntas de seguridad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="65"/>
         <source>These questions will be used to help reset your password in case you forget it.</source>
         <translation>Estas preguntas se utilizarán para ayudar a restablecer su contraseña en caso de que la olvide.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="84"/>
         <source>Security question 1</source>
         <translation>Pregunta de seguridad 1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="92"/>
         <source>Security question 2</source>
         <translation>Pregunta de seguridad 2</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="100"/>
         <source>Security question 3</source>
         <translation>Pregunta de seguridad 3</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="108"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="109"/>
         <source>Confirm</source>
         <translation>Confirmar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="146"/>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="147"/>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="290"/>
         <source>Keep the answer under 30 characters</source>
         <translation>Mantenga la respuesta por debajo de los 30 caracteres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="164"/>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="303"/>
         <source>Do not choose a duplicate question please</source>
         <translation>Por favor no elija una pregunta duplicada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="241"/>
         <source>Please select a question</source>
         <translation>Por favor, seleccione una pregunta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="242"/>
         <source>What&apos;s the name of the city where you were born?</source>
         <translation>¿Cómo se llama la ciudad donde naciste?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="243"/>
         <source>What&apos;s the name of the first school you attended?</source>
         <translation>¿Cómo se llama la primera escuela a la que asististe?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="244"/>
         <source>Who do you love the most in this world?</source>
         <translation>¿A quién amas más en este mundo?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="245"/>
         <source>What&apos;s your favorite animal?</source>
         <translation>¿Cuál es tu animal favorito?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="246"/>
         <source>What&apos;s your favorite song?</source>
         <translation>¿Cuál es tu canción favorita?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="247"/>
         <source>What&apos;s your nickname?</source>
         <translation>¿Cuál es tu apodo?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="259"/>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="272"/>
         <source>It cannot be empty</source>
         <translation>No puede estar vacío</translation>
     </message>
@@ -646,62 +651,64 @@
 <context>
     <name>dccV20::accounts::UserGroupsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="22"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="120"/>
         <source>Group</source>
         <translation>Grupo</translation>
+        <extra-child_page>Group</extra-child_page>
+        <extra-contents_path>/accounts/Group</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::authentication::AddFaceInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="68"/>
         <source>Enroll Face</source>
         <translation>Inscribir la cara</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="79"/>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="185"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
         <translation>Asegúrese de que todas las partes de su cara no estén cubiertas por objetos y sean claramente visibles. Su cara también debe estar bien iluminada.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="91"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="96"/>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="190"/>
         <source>Next</source>
         <translation>Siguiente</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="198"/>
         <source>Face enrolled</source>
         <translation>Cara inscrita</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="201"/>
         <source>Use your face to unlock the device and make settings later</source>
         <translation>Utiliza tu cara para desbloquear el dispositivo y hacer ajustes más tarde</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="207"/>
         <source>Done</source>
         <translation>Hecho</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
         <source>Failed to enroll your face</source>
         <translation>No se ha podido inscribir su cara</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="218"/>
         <source>Try Again</source>
         <translation>Inténtelo de nuevo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="222"/>
         <source>Close</source>
         <translation>Cerrar</translation>
     </message>
@@ -739,37 +746,37 @@
 <context>
     <name>dccV20::authentication::AddIrisInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="66"/>
         <source>Enroll Iris</source>
         <translation>Inscribir el iris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="87"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="89"/>
         <source>Next</source>
         <translation>Siguiente</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="157"/>
         <source>Iris enrolled</source>
         <translation>Iris inscrito</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
         <source>Done</source>
         <translation>Hecho</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="169"/>
         <source>Failed to enroll your iris</source>
         <translation>No se ha podido inscribir el iris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="174"/>
         <source>Try Again</source>
         <translation>Inténtelo de nuevo</translation>
     </message>
@@ -863,17 +870,17 @@
 <context>
     <name>dccV20::authentication::FingerDisclaimer</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="62"/>
         <source>Add Fingerprint</source>
         <translation>Añadir huella dactilar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="84"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
         <source>Next</source>
         <translation>Siguiente</translation>
     </message>
@@ -1327,7 +1334,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="138"/>
         <source>Please sign in to your UOS ID first</source>
-        <translation type="unfinished"/>
+        <translation>Inicie sesión primero con su ID de UOS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="140"/>
@@ -1386,7 +1393,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="82"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="196"/>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Inicie sesión primero con su ID de UOS y continúe</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="87"/>
@@ -1448,7 +1455,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="102"/>
         <source>Please sign in to your UOS ID first</source>
-        <translation type="unfinished"/>
+        <translation>Inicie sesión primero con su ID de UOS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="104"/>
@@ -1550,28 +1557,28 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="32"/>
         <source>Currency Format</source>
-        <translation type="unfinished"/>
+        <translation>Formato de Moneda</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="43"/>
         <source>Currency Symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo de Moneda</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="47"/>
         <source>Positive Currency Format</source>
-        <translation type="unfinished"/>
+        <translation>Formato de moneda positivo</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/currencyformat.cpp" line="51"/>
         <source>Negative Currency Format</source>
-        <translation type="unfinished"/>
+        <translation>Formato de moneda negativo</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
@@ -1739,42 +1746,42 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="268"/>
         <source>Currency Format</source>
-        <translation type="unfinished"/>
+        <translation>Formato de Moneda</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="269"/>
         <source>Currency Symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo de Moneda</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="270"/>
         <source>Positive Currency Format</source>
-        <translation type="unfinished"/>
+        <translation>Formato de moneda positivo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="271"/>
         <source>Negative Currency Format</source>
-        <translation type="unfinished"/>
+        <translation>Formato de moneda negativo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="276"/>
         <source>Number Format</source>
-        <translation type="unfinished"/>
+        <translation>Formato numérico</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="277"/>
         <source>Decimal Symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo decimal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="278"/>
         <source>Digit Grouping Symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo de agrupación de dígitos</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="279"/>
         <source>Digit Grouping</source>
-        <translation type="unfinished"/>
+        <translation>Agrupación de dígitos</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="291"/>
@@ -1969,12 +1976,12 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="245"/>
         <source>04.05.2020</source>
-        <translation type="unfinished"/>
+        <translation>04.05.2020</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="248"/>
         <source>05.04.2020</source>
-        <translation type="unfinished"/>
+        <translation>05.04.2020</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="251"/>
@@ -2026,21 +2033,21 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="51"/>
         <source>Decimal Symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo decimal</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="55"/>
         <source>Digit Grouping Symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo de agrupación de dígitos</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="59"/>
         <source>Digit Grouping</source>
-        <translation type="unfinished"/>
+        <translation>Agrupación de dígitos</translation>
         <extra-child_page>Time Format</extra-child_page>
         <extra-contents_path>/datetime/Time Format</extra-contents_path>
     </message>
@@ -2048,7 +2055,7 @@
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="67"/>
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="333"/>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Ejemplo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="142"/>
@@ -2056,7 +2063,7 @@
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="156"/>
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="268"/>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation>Espacio</translation>
     </message>
 </context>
 <context>
@@ -2311,87 +2318,87 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="544"/>
         <source>Brightness</source>
         <translation>Brillo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="545"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="618"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="542"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="615"/>
         <source>Auto Brightness</source>
         <translation>Brillo automático</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="549"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="622"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="546"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="619"/>
         <source>Color Temperature</source>
         <translation>Temperatura de color</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="550"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="623"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="620"/>
         <source>Night Shift</source>
         <translation>Modo nocturno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="551"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="624"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="548"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="621"/>
         <source>Change Color Temperature</source>
         <translation>Cambiar temperatura de color</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="189"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="529"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="560"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="591"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="526"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="557"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="588"/>
         <source>Multiple Displays</source>
         <translation>Múltiples pantallas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="527"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="558"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="589"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="524"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="555"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="586"/>
         <source>Mode</source>
         <translation>Modo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="528"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="590"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="525"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="556"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="587"/>
         <source>Main Screen</source>
         <translation>Pantalla principal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="562"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="593"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="590"/>
         <source>Refresh Rate</source>
         <translation>Tasa de refresco</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="563"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="560"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="592"/>
         <source>Resolution</source>
         <translation>Resolución</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="564"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="597"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="561"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="594"/>
         <source>Rotation</source>
         <translation>Rotación</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="565"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="599"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="562"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="596"/>
         <source>Display Scaling</source>
         <translation>Escalado de pantalla</translation>
     </message>
@@ -2417,17 +2424,17 @@
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="335"/>
         <source>Duplicate</source>
         <translation>Duplicado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="336"/>
         <source>Extend</source>
         <translation>Extendida</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="353"/>
         <source>Only on %1</source>
         <translation>Solo en %1</translation>
     </message>
@@ -2541,7 +2548,7 @@
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="126"/>
         <source>Brightness</source>
         <translation>Brillo</translation>
     </message>
@@ -3330,7 +3337,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="234"/>
         <source>Show transparency effects when a window is moved</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar efectos de transparencia cuando se mueve una ventana</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
@@ -3473,7 +3480,7 @@
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="310"/>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="319"/>
         <source>Show transparency effects when a window is moved</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar efectos de transparencia cuando se mueve una ventana</translation>
     </message>
 </context>
 <context>
@@ -4382,7 +4389,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="448"/>
         <source>Login expired, please sign in to the UOS ID again</source>
-        <translation type="unfinished"/>
+        <translation>El inicio de sesión ha caducado, por favor, inicie la sesión nuevamente en UOS ID</translation>
     </message>
 </context>
 <context>
@@ -4406,7 +4413,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="58"/>
         <source>UOS ID Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Iniciar sesión ID de UOS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="70"/>
@@ -4437,7 +4444,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="41"/>
         <source>UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>UOS ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="114"/>
@@ -4920,7 +4927,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="841"/>
         <source>Unable to perform system backup. Continue the update?</source>
-        <translation type="unfinished"/>
+        <translation>No se puede realizar la copia de seguridad del sistema. ¿Continuar con la actualización?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="842"/>
@@ -5016,7 +5023,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="286"/>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Actualizaciones desde fuentes de pruebas internas</translation>
     </message>
 </context>
 <context>
@@ -5312,7 +5319,7 @@
     <name>KeyLabel</name>
     <message>
         <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="23"/>
-        <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="71"/>
+        <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="72"/>
         <source>None</source>
         <translation>Ninguno</translation>
     </message>
@@ -5428,12 +5435,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="12"/>
         <source>The user account is not linked to UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>La cuenta de usuario no está vinculada a un UOS ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="13"/>
         <source>To reset passwords, you should authenticate your UOS ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Para restablecer las contraseñas, primero debe autenticar su ID de UOS. Haga clic en &quot;Ir al enlace&quot; para finalizar la configuración.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="20"/>
@@ -5579,12 +5586,12 @@
 <context>
     <name>dcc::authentication::DisclaimersDialog</name>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="43"/>
         <source>Disclaimer</source>
         <translation>Aviso legal</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="48"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="47"/>
         <source>Before using face recognition, please note that: 
 1. Your device may be unlocked by people or objects that look or appear similar to you.
 2. Face recognition is less secure than digital passwords and mixed passwords.
@@ -5610,7 +5617,7 @@ Para un mejor uso del reconocimiento facial, preste atención a los siguientes a
 3. Evite inclinar o bajar la cabeza, cerrar los ojos o mostrar solo un lado de la cara, y asegúrese de que su cara frontal aparezca clara y completamente en el cuadro de aviso.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="61"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="59"/>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
@@ -5620,12 +5627,12 @@ Tenga en cuenta que UnionTech Software no recopilará ni accederá a su informac
 UnionTech Software se compromete a investigar y mejorar la seguridad, precisión y estabilidad de la autenticación biométrica. Sin embargo, debido a factores ambientales, de equipo, técnicos y de otro tipo y al control de riesgos, no hay garantía de que pase la autenticación biométrica temporalmente. Por lo tanto, no tome la autenticación biométrica como la única forma de iniciar sesión en UnionTech OS. Si tiene alguna pregunta o sugerencia al usar la autenticación biométrica, puede enviar sus comentarios a través de &quot;Servicio y soporte&quot; en el sistema operativo UnionTech.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="87"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="84"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="88"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="85"/>
         <source>Next</source>
         <translation>Siguiente</translation>
     </message>
@@ -5633,12 +5640,12 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
 <context>
     <name>dcc::authentication::DisclaimersItem</name>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="30"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="29"/>
         <source>I have read and agree to the</source>
         <translation>He leído y acepto las</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="32"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="31"/>
         <source>Disclaimer</source>
         <translation>Aviso legal</translation>
     </message>
@@ -5725,7 +5732,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="128"/>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="129"/>
-        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="164"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="166"/>
         <source>Cannot recognize</source>
         <translation>No puedo reconocer</translation>
     </message>
@@ -5747,7 +5754,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="143"/>
-        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="161"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="163"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation>Limpie su dedo o ajuste la posición del mismo, e intente de nuevo</translation>
     </message>
@@ -5758,7 +5765,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="147"/>
-        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="158"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="159"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>Ajuste la posición del dedo para escanear su huella dactilar completamente</translation>
     </message>
@@ -5768,7 +5775,13 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
         <translation>Movió el dedo muy rápido. Por favor, no lo levante hasta que se indique</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="165"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="158"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="162"/>
+        <source>Place your finger flat on it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="167"/>
         <source>Lift your finger and place it on the sensor again</source>
         <translation>Suelte su dedico y colóquelo en el sensor de nuevo</translation>
     </message>
@@ -5859,28 +5872,28 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
 <context>
     <name>dcc::datetime::TimeZoneChooser</name>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="40"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="41"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="41"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="199"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="42"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="203"/>
         <source>Confirm</source>
         <translation>Confirmar</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="195"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="199"/>
         <source>Add Timezone</source>
         <translation>Añadir zona horaria</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="196"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="200"/>
         <source>Add</source>
         <translation>Añadir</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="198"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="202"/>
         <source>Change Timezone</source>
         <translation>Cambiar la zona horaria</translation>
     </message>
@@ -6197,12 +6210,12 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="206"/>
         <source>For Government</source>
-        <translation type="unfinished"/>
+        <translation>Para el Gobierno</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="208"/>
         <source>For Enterprise</source>
-        <translation type="unfinished"/>
+        <translation>Para Empresas</translation>
     </message>
 </context>
 <context>
@@ -6236,12 +6249,12 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <message>
         <location filename="../src/frame/window/modules/update/systemupdateitem.cpp" line="119"/>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/systemupdateitem.cpp" line="119"/>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Escritorio</translation>
     </message>
 </context>
 <context>
@@ -6341,15 +6354,15 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Servidor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="212"/>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Escritorio</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="219"/>
         <source>Version</source>
         <translation>Versión</translation>
     </message>
