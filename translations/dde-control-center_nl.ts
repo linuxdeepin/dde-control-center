@@ -109,87 +109,87 @@
         <translation>Ga naar de instellingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="289"/>
         <source>Full Name</source>
         <translation>Volledige naam</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="251"/>
         <source>The full name is too long</source>
         <translation>De volledige naam is te lang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="357"/>
         <source>Validity Days</source>
         <translation>Geldigheidsduur</translation>
         <extra-contents_path>/accounts/Validity Days</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="372"/>
         <source>Security Questions</source>
         <translation>Beveiligingsvragen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="424"/>
         <source>Account Settings</source>
         <translation>Accountinstellingen</translation>
         <extra-contents_path>/accounts/Account Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
-        <source>Group</source>
-        <translation>Groep</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="474"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="443"/>
         <source>Change Password</source>
         <translation>Wachtwoord wijzigen</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="474"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="443"/>
         <source>Reset Password</source>
         <translation>Wachtwoord herstellen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="445"/>
         <source>Delete Account</source>
         <translation>Account verwijderen</translation>
         <extra-contents_path>/accounts/Delete Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="478"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="447"/>
         <source>Auto Login</source>
         <translation>Automatisch aanmelden</translation>
         <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="481"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="450"/>
         <source>Login Without Password</source>
         <translation>Aanmelden zonder wachtwoord</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="484"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="453"/>
         <source>Administrator</source>
         <translation>Beheerder</translation>
         <extra-contents_path>/accounts/Administrator</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="531"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="500"/>
         <source>OK</source>
         <translation>Oké</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="532"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="501"/>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
         <translation>Automatisch inloggen kan slechts op één account worden ingeschakeld. Schakel deze functie uit bij het account ‘%1’.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="679"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="641"/>
+        <source>Group</source>
+        <translation>Groep</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="687"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="696"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="695"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="704"/>
         <source>The full name has been used by other user accounts</source>
         <translation>Deze volledige naam is al in gebruik door een ander account</translation>
     </message>
@@ -211,14 +211,14 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="147"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="253"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="301"/>
         <source>Auto Login</source>
         <translation>Automatisch aanmelden</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="148"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="257"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="305"/>
         <source>Login Without Password</source>
         <translation>Aanmelden zonder wachtwoord</translation>
     </message>
@@ -231,14 +231,14 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="150"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="293"/>
         <source>Change Password</source>
         <translation>Wachtwoord wijzigen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="151"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="249"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="297"/>
         <source>Delete Account</source>
         <translation>Account verwijderen</translation>
     </message>
@@ -258,6 +258,11 @@
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="260"/>
         <source>New Account</source>
         <translation>Nieuw account</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="266"/>
+        <source>Group</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -406,7 +411,7 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="311"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="314"/>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Optioneel</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="400"/>
@@ -553,92 +558,92 @@
 <context>
     <name>dccV20::accounts::SecurityQuestionsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="54"/>
         <source>Security Questions</source>
         <translation>Beveiligingsvragen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="65"/>
         <source>These questions will be used to help reset your password in case you forget it.</source>
         <translation>Aan de hand van deze vragen kun je je wachtwoord herstellen als je het vergeten bent.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="84"/>
         <source>Security question 1</source>
         <translation>Beveiligingsvraag 1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="92"/>
         <source>Security question 2</source>
         <translation>Beveiligingsvraag 2</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="100"/>
         <source>Security question 3</source>
         <translation>Beveiligingsvraag 3</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="108"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="109"/>
         <source>Confirm</source>
         <translation>Oké</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="146"/>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="147"/>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="290"/>
         <source>Keep the answer under 30 characters</source>
         <translation>Het antwoord mag maximaal 30 tekens bevatten</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="164"/>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="303"/>
         <source>Do not choose a duplicate question please</source>
         <translation>Elke vraag dient anders te zijn</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="241"/>
         <source>Please select a question</source>
         <translation>Kies een vraag</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="242"/>
         <source>What&apos;s the name of the city where you were born?</source>
         <translation>In welke plaats ben je geboren?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="243"/>
         <source>What&apos;s the name of the first school you attended?</source>
         <translation>Wat is de naam van de eerste school waar je op zat?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="244"/>
         <source>Who do you love the most in this world?</source>
         <translation>Wat is je favoriete bezigheid?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="245"/>
         <source>What&apos;s your favorite animal?</source>
         <translation>Wat is je favoriete huisdier?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="246"/>
         <source>What&apos;s your favorite song?</source>
         <translation>Wat is je favoriete nummer?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="247"/>
         <source>What&apos;s your nickname?</source>
         <translation>Wat is je bijnaam?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="259"/>
-        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="272"/>
         <source>It cannot be empty</source>
         <translation>Het veld mag niet leeg zijn</translation>
     </message>
@@ -646,62 +651,64 @@
 <context>
     <name>dccV20::accounts::UserGroupsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="22"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="120"/>
         <source>Group</source>
         <translation>Groep</translation>
+        <extra-child_page>Group</extra-child_page>
+        <extra-contents_path>/accounts/Group</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::authentication::AddFaceInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="68"/>
         <source>Enroll Face</source>
         <translation>Gezichtsherkenning</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="79"/>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="185"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
         <translation>Zorg er voor dat je gezicht volledig in beeld en onbedekt is, en zorg voor goede belichting.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="91"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="96"/>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="190"/>
         <source>Next</source>
         <translation>Volgende</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="198"/>
         <source>Face enrolled</source>
         <translation>Je gezicht is herkend</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="201"/>
         <source>Use your face to unlock the device and make settings later</source>
         <translation>Ontgrendel je apparaat met je gezicht</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="207"/>
         <source>Done</source>
         <translation>Klaar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="211"/>
         <source>Failed to enroll your face</source>
         <translation>Je gezicht is niet herkend</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="218"/>
         <source>Try Again</source>
         <translation>Opnieuw proberen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="222"/>
         <source>Close</source>
         <translation>Sluiten</translation>
     </message>
@@ -739,37 +746,37 @@
 <context>
     <name>dccV20::authentication::AddIrisInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="66"/>
         <source>Enroll Iris</source>
         <translation>Irisherkenning</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="87"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="89"/>
         <source>Next</source>
         <translation>Volgende</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="157"/>
         <source>Iris enrolled</source>
         <translation>Je iris is herkend</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
         <source>Done</source>
         <translation>Klaar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="169"/>
         <source>Failed to enroll your iris</source>
         <translation>Je iris is niet herkend</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="174"/>
         <source>Try Again</source>
         <translation>Opnieuw proberen</translation>
     </message>
@@ -863,17 +870,17 @@
 <context>
     <name>dccV20::authentication::FingerDisclaimer</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="62"/>
         <source>Add Fingerprint</source>
         <translation>Vingerafdruk toevoegen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="84"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/authentication/fingedisclaimer.cpp" line="86"/>
         <source>Next</source>
         <translation>Volgende</translation>
     </message>
@@ -2311,87 +2318,87 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="544"/>
         <source>Brightness</source>
         <translation>Helderheid</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="545"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="618"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="542"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="615"/>
         <source>Auto Brightness</source>
         <translation>Automatische helderheid</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="549"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="622"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="546"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="619"/>
         <source>Color Temperature</source>
         <translation>Kleurtemperatuur</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="550"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="623"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="620"/>
         <source>Night Shift</source>
         <translation>Nachtmodus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="551"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="624"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="548"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="621"/>
         <source>Change Color Temperature</source>
         <translation>Kleurtemperatuur aanpassen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="189"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="529"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="560"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="591"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="526"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="557"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="588"/>
         <source>Multiple Displays</source>
         <translation>Meerdere beeldschermen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="527"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="558"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="589"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="524"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="555"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="586"/>
         <source>Mode</source>
         <translation>Modus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="528"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="590"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="525"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="556"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="587"/>
         <source>Main Screen</source>
         <translation>Hoofdscherm</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="562"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="593"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="590"/>
         <source>Refresh Rate</source>
         <translation>Ververssnelheid</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="563"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="560"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="592"/>
         <source>Resolution</source>
         <translation>Resolutie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="564"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="597"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="561"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="594"/>
         <source>Rotation</source>
         <translation>Draaiing</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="565"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="599"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="562"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="596"/>
         <source>Display Scaling</source>
         <translation>Beeldgrootte</translation>
     </message>
@@ -2417,17 +2424,17 @@
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="335"/>
         <source>Duplicate</source>
         <translation>Klonen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="336"/>
         <source>Extend</source>
         <translation>Uitbreiden</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="353"/>
         <source>Only on %1</source>
         <translation>Alleen op %1</translation>
     </message>
@@ -2541,7 +2548,7 @@
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="126"/>
         <source>Brightness</source>
         <translation>Helderheid</translation>
     </message>
@@ -5016,7 +5023,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="286"/>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Updates uit interne testbronnen</translation>
     </message>
 </context>
 <context>
@@ -5312,7 +5319,7 @@
     <name>KeyLabel</name>
     <message>
         <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="23"/>
-        <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="71"/>
+        <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="72"/>
         <source>None</source>
         <translation>Geen</translation>
     </message>
@@ -5579,12 +5586,12 @@
 <context>
     <name>dcc::authentication::DisclaimersDialog</name>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="43"/>
         <source>Disclaimer</source>
         <translation>Verklaring</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="48"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="47"/>
         <source>Before using face recognition, please note that: 
 1. Your device may be unlocked by people or objects that look or appear similar to you.
 2. Face recognition is less secure than digital passwords and mixed passwords.
@@ -5601,7 +5608,7 @@ In order to better use of face recognition, please pay attention to the followin
 </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="61"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="59"/>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
@@ -5612,12 +5619,12 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
 </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="87"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="84"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="88"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="85"/>
         <source>Next</source>
         <translation>Volgende</translation>
     </message>
@@ -5625,12 +5632,12 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
 <context>
     <name>dcc::authentication::DisclaimersItem</name>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="30"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="29"/>
         <source>I have read and agree to the</source>
         <translation>Ik geef hierbij aan dat ik kennisgenomen heb van en akkoord ga met</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="32"/>
+        <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="31"/>
         <source>Disclaimer</source>
         <translation>Verklaring</translation>
     </message>
@@ -5717,7 +5724,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="128"/>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="129"/>
-        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="164"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="166"/>
         <source>Cannot recognize</source>
         <translation>Niet herkend</translation>
     </message>
@@ -5739,7 +5746,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="143"/>
-        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="161"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="163"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
         <translation>Maak je vinger schoon of pas je vingerpositie aan en probeer het opnieuw</translation>
     </message>
@@ -5750,7 +5757,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="147"/>
-        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="158"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="159"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
         <translation>Pas je vingerpositie aan om je gehele vinger te scannen</translation>
     </message>
@@ -5760,7 +5767,13 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <translation>De vinger is te snel bewogen - til niet op totdat dit wordt aangegeven</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="165"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="158"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="162"/>
+        <source>Place your finger flat on it</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="167"/>
         <source>Lift your finger and place it on the sensor again</source>
         <translation>Til je vinger op en plaats hem nogmaals op de lezer</translation>
     </message>
@@ -5851,28 +5864,28 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
 <context>
     <name>dcc::datetime::TimeZoneChooser</name>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="40"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="41"/>
         <source>Cancel</source>
         <translation>Annuleren</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="41"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="199"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="42"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="203"/>
         <source>Confirm</source>
         <translation>Oké</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="195"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="199"/>
         <source>Add Timezone</source>
         <translation>Tijdzone toevoegen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="196"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="200"/>
         <source>Add</source>
         <translation>Toevoegen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="198"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="202"/>
         <source>Change Timezone</source>
         <translation>Tijdzone wijzigen</translation>
     </message>
@@ -6341,7 +6354,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <translation>Computer</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="219"/>
         <source>Version</source>
         <translation>Versie</translation>
     </message>

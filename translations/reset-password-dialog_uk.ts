@@ -112,7 +112,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/reset-password-dialog/utils.h" line="55"/>
+        <location filename="../src/reset-password-dialog/utils.h" line="71"/>
         <source>It cannot be empty</source>
         <translation>Не може бути порожнім</translation>
     </message>
