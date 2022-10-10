@@ -514,6 +514,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //图像列表操作
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [ = ](const QString & avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
+        setFocus();
     });
 
     //切换账户类型
