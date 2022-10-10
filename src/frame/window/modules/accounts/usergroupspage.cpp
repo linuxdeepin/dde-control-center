@@ -21,7 +21,6 @@ DWIDGET_USE_NAMESPACE
 
 UserGroupsPage::UserGroupsPage(User *user, dcc::accounts::UserModel *userModel, ContentWidget *parent)
     : ContentWidget(parent)
-    , m_groupTip(new QLabel(tr("Group")))
     , m_layout (new QVBoxLayout(this))
     , m_curUser(user)
     , m_userModel(userModel)
@@ -116,6 +115,8 @@ void UserGroupsPage::onGidChanged(const QString &gid)
 
 void UserGroupsPage::initWidget()
 {
+    //~ contents_path /accounts/Group
+    m_groupTip = new QLabel(tr("Group"));
     this->setAccessibleName("UserGroupsPage");
     m_groupListView->setModel(m_groupItemModel);
     m_groupListView->setEditTriggers(QAbstractItemView::NoEditTriggers);

@@ -151,6 +151,7 @@ void AccountsModule::addChildPageTrans() const
         m_frameProxy->addChildPageTrans("Delete Account", tr("Delete Account"));
         m_frameProxy->addChildPageTrans("Account Settings", tr("Account Settings"));
         m_frameProxy->addChildPageTrans("Administrator", tr("Administrator"));
+        m_frameProxy->addChildPageTrans("Group", tr("Group"));
     }
 }
 
@@ -262,6 +263,8 @@ void AccountsModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, tr("Account Settings"), true);
         m_frameProxy->setWidgetVisible(module, tr("Administrator"), true);
         m_frameProxy->setWidgetVisible(module, tr("Validity Days"), true);
+        // 专业版或者服务器版本支持用户组搜索
+        m_frameProxy->setWidgetVisible(module, tr("Group"), IsProfessionalSystem || IsServerSystem);
     };
 
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
