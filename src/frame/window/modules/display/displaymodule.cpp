@@ -388,18 +388,20 @@ void DisplayModule::onRequestSetResolution(Monitor *monitor, const int mode)
     };
 
     tfunc(monitor, firstRes);
+    QString lastFillMode = "";
     if (m_displayModel->primaryMonitor() != nullptr) {
-        QString lastFillMode = m_displayModel->primaryMonitor()->currentFillMode();
-        //此处处理调用applyChanges的200ms延时, TimeoutDialog提前弹出的问题
-        QTimer::singleShot(300, monitor, [this, tfunc, monitor, lastRes,lastFillMode]{
-            if (showTimeoutDialog(monitor) == QDialog::Accepted) {
-                m_displayWorker->saveChanges();
-            } else {
-                tfunc(monitor, lastRes);
-                onSetFillMode(lastFillMode);
-            }
-        });
+        lastFillMode = m_displayModel->primaryMonitor()->currentFillMode();
     }
+    //此处处理调用applyChanges的200ms延时, TimeoutDialog提前弹出的问题
+    QTimer::singleShot(300, monitor, [this, tfunc, monitor, lastRes,lastFillMode]{
+        if (showTimeoutDialog(monitor) == QDialog::Accepted) {
+            m_displayWorker->saveChanges();
+        } else {
+            tfunc(monitor, lastRes);
+            onSetFillMode(lastFillMode);
+        }
+    });
+
 }
 
 void DisplayModule::onSetFillMode(QString currFullMode)
