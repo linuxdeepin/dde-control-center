@@ -61,7 +61,7 @@ private:
     QWidget *initStandardFont(DCC_NAMESPACE::ModuleObject *module);
     QWidget *initMonospacedFont(DCC_NAMESPACE::ModuleObject *module);
 
-    void initFontWidget(QComboBox *combox, FontModel *fontModel);
+    void initFontWidget(QComboBox *combox, FontModel *fontModel, QStandardItemModel *model);
     QString getGlobalThemeId(const QString &themeId, QString &mode);
 
 private:

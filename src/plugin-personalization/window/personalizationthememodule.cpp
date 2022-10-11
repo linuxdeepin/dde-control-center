@@ -403,7 +403,7 @@ QWidget *PersonalizationThemeModule::initStandardFont(ModuleObject *module)
 {
     QComboBox *comboBox = new QComboBox();
     comboBox->setModel(m_standardModel);
-    initFontWidget(comboBox, m_model->getStandFontModel());
+    initFontWidget(comboBox, m_model->getStandFontModel(), m_standardModel);
     return comboBox;
 }
 
@@ -411,14 +411,14 @@ QWidget *PersonalizationThemeModule::initMonospacedFont(ModuleObject *module)
 {
     QComboBox *comboBox = new QComboBox();
     comboBox->setModel(m_monospacedModel);
-    initFontWidget(comboBox, m_model->getMonoFontModel());
+    initFontWidget(comboBox, m_model->getMonoFontModel(), m_monospacedModel);
     return comboBox;
 }
 
-void PersonalizationThemeModule::initFontWidget(QComboBox *combox, FontModel *fontModel)
+void PersonalizationThemeModule::initFontWidget(QComboBox *combox, FontModel *fontModel, QStandardItemModel *model)
 {
     combox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    auto defaultFont = [combox, fontModel](const QString &name) {
+    auto defaultFont = [combox, fontModel, model](const QString &name) {
         for (const QJsonObject &obj : fontModel->getFontList()) {
             if (obj["Id"].toString() == name) {
                 combox->blockSignals(true);
@@ -427,8 +427,21 @@ void PersonalizationThemeModule::initFontWidget(QComboBox *combox, FontModel *fo
                 return;
             }
         }
+        bool hasItem = false;
+        for (int i = 0; i < model->rowCount(); ++i) {
+            if (model->item(i)->text() == name) {
+                hasItem = true;
+                break;
+            }
+        }
+        if (!hasItem) {
+            QStandardItem *modelItem = new QStandardItem(name);
+            modelItem->setFont(QFont(name));
+            model->appendRow(modelItem);
+        }
+
         combox->blockSignals(true);
-        combox->setCurrentText(fontModel->getFontName() + tr(" (Unsupported font)"));
+        combox->setCurrentText(name);
         combox->blockSignals(false);
     };
     defaultFont(fontModel->getFontName());
