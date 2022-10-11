@@ -4,6 +4,7 @@
 
 #include "usermodel.h"
 
+#include <QtDBus>
 #include <QDebug>
 
 using namespace dcc::accounts;
@@ -129,6 +130,27 @@ bool UserModel::getIsSecurityHighLever() const
 void UserModel::setIsSecurityHighLever(bool isSecurityHighLever)
 {
     m_isSecurityHighLever = isSecurityHighLever;
+}
+
+// 判断当前用户是否是域管账户
+bool UserModel::isDomainUser()
+{
+    QDBusInterface interface("com.deepin.udcp.iam",
+                             "/com/deepin/udcp/iam",
+                             "com.deepin.udcp.iam",
+                             QDBusConnection::systemBus());
+
+    if (!interface.isValid()) {
+        return false;
+    }
+
+    // 调用域管的接口获取当前用户的组，不为空为域管用户
+    QDBusReply<QStringList> reply = interface.call("GetUserGroups", m_currentUserName);
+    if (reply.error().type() == QDBusError::NoError && !reply.value().isEmpty()) {
+        return true;
+    }
+
+    return false;
 }
 
 #ifdef DCC_ENABLE_ADDOMAIN
