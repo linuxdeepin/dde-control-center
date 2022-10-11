@@ -96,5 +96,17 @@ void RoundColorWidget::paintEvent(QPaintEvent *event)
     painter.setClipPath(path);
     painter.setPen(Qt::NoPen);
     painter.drawPath(path);
-    painter.fillPath(path, QBrush(m_color));
+    if (m_color.isValid()) {
+        painter.fillPath(path, QBrush(m_color));
+    } else {
+        QConicalGradient gradient(r.center(), 0);
+        gradient.setColorAt(0, QColor(255, 0, 0));
+        gradient.setColorAt(0.167, QColor(255, 255, 0));
+        gradient.setColorAt(0.333, QColor(0, 255, 0));
+        gradient.setColorAt(0.5, QColor(0, 255, 255));
+        gradient.setColorAt(0.667, QColor(0, 0, 255));
+        gradient.setColorAt(0.833, QColor(255, 0, 255));
+        gradient.setColorAt(1, QColor(255, 0, 0));
+        painter.fillPath(path, QBrush(gradient));
+    }
 }

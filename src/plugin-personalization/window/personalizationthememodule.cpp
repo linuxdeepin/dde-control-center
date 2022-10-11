@@ -39,6 +39,7 @@
 #include <DGuiApplicationHelper>
 #include <DStyle>
 #include <QCheckBox>
+#include <QColorDialog>
 #include <QComboBox>
 #include <QGraphicsDropShadowEffect>
 #include <QHBoxLayout>
@@ -50,6 +51,7 @@ DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
+#define CUSTOM_ACTIVE_COLOR "CUSTOM"
 const QList<QString> ACTIVE_COLORS = {
     "#D8316C",
     "#FF5D00",
@@ -59,21 +61,11 @@ const QList<QString> ACTIVE_COLORS = {
     "#0081FF",
     "#3C02FF",
     "#8C00D4",
-    "#4D4D4D"
+    "#4D4D4D",
+    CUSTOM_ACTIVE_COLOR
 };
 
-struct ColorStru
-{
-    int r = 0;
-    int g = 0;
-    int b = 0;
-    bool operator==(const ColorStru b) const
-    {
-        return (b.r == this->r && b.g == this->g && b.b == this->b);
-    }
-};
-
-const QList<ColorStru> ACTIVE_COLORST = {
+const QList<QColor> ACTIVE_COLORST = {
     { 216, 49, 108 },
     { 255, 93, 0 },
     { 248, 203, 0 },
@@ -83,9 +75,10 @@ const QList<ColorStru> ACTIVE_COLORST = {
     { 60, 2, 215 },
     { 140, 0, 212 },
     { 77, 77, 77 },
+    QColor()
 };
 
-const QList<ColorStru> Dark_ACTIVE_COLORST = {
+const QList<QColor> Dark_ACTIVE_COLORST = {
     { 179, 33, 87 },
     { 204, 71, 0 },
     { 198, 162, 0 },
@@ -95,6 +88,7 @@ const QList<ColorStru> Dark_ACTIVE_COLORST = {
     { 44, 0, 206 },
     { 109, 0, 168 },
     { 61, 61, 61 },
+    QColor()
 };
 
 PersonalizationThemeModule::PersonalizationThemeModule(PersonalizationModel *model, PersonalizationWorker *work, QObject *parent)
@@ -150,7 +144,15 @@ void PersonalizationThemeModule::onActiveColorClicked()
     RoundColorWidget *pItem = dynamic_cast<RoundColorWidget *>(sender());
     //设置active color
     QString strColor = pItem->accessibleName();
-    m_work->setActiveColor(strColor);
+    if (strColor == CUSTOM_ACTIVE_COLOR) {
+        QColorDialog *colorDialog = new QColorDialog(pItem->palette().highlight().color(), pItem);
+        colorDialog->setAttribute(Qt::WA_DeleteOnClose);
+        if (QDialog::Accepted == colorDialog->exec()) {
+            m_work->setActiveColor(colorDialog->selectedColor().name());
+        }
+    } else {
+        m_work->setActiveColor(strColor);
+    }
 }
 
 void PersonalizationThemeModule::setStandList(const QList<QJsonObject> &list)
@@ -275,9 +277,9 @@ QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
     int totalSpace = borderWidth + borderSpacing + RoundColorWidget::EXTRA; // 2px extra space to avoid line cutted off
 
     DGuiApplicationHelper::ColorType themeType = DGuiApplicationHelper::instance()->themeType();
-    for (ColorStru aColor : (themeType == DGuiApplicationHelper::ColorType::LightType ? ACTIVE_COLORST : Dark_ACTIVE_COLORST)) {
-        QColor color;
-        color.setRgb(aColor.r, aColor.g, aColor.b);
+    const QList<QColor> &activeColors = (themeType == DGuiApplicationHelper::ColorType::LightType ? ACTIVE_COLORST : Dark_ACTIVE_COLORST);
+    for (int i = 0; i < activeColors.size(); ++i) {
+        QColor color = activeColors.at(i);
         RoundColorWidget *colorItem = new RoundColorWidget(color, bgWidget);
         QGraphicsDropShadowEffect *effect = new QGraphicsDropShadowEffect;
         effect->setBlurRadius(17); // 阴影圆角的大小
@@ -287,11 +289,7 @@ QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
         effect->setOffset(0, 5);
         colorItem->setGraphicsEffect(effect);
 
-        if (themeType == DGuiApplicationHelper::ColorType::LightType) {
-            colorItem->setAccessibleName(ACTIVE_COLORS[ACTIVE_COLORST.indexOf(aColor)]);
-        } else {
-            colorItem->setAccessibleName(ACTIVE_COLORS[Dark_ACTIVE_COLORST.indexOf(aColor)]);
-        }
+        colorItem->setAccessibleName(ACTIVE_COLORS[i]);
 
         DPalette pa = colorItem->palette();
         pa.setBrush(DPalette::Base, color);
@@ -303,8 +301,12 @@ QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
     colorLayout->addStretch();
     auto setColorFun = [bgWidget](const QString &newColor) {
         QLayout *lyt = bgWidget->layout();
-        for (int i = lyt->count() - 2; i > 0; --i) {
+        int endIndex = lyt->count() - 2;
+        for (int i = 1; i <= endIndex; ++i) {
             if (lyt->itemAt(i)->widget()->accessibleName() == newColor) {
+                bgWidget->setSelectedItem(qobject_cast<RoundColorWidget *>(lyt->itemAt(i)->widget()));
+                break;
+            } else if (i == endIndex) {
                 bgWidget->setSelectedItem(qobject_cast<RoundColorWidget *>(lyt->itemAt(i)->widget()));
             }
         }
