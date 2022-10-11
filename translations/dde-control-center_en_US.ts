@@ -203,66 +203,67 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="146"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="259"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="261"/>
         <source>Create Account</source>
         <translation>Create Account</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="253"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="302"/>
         <source>Auto Login</source>
         <translation>Auto Login</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="257"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="306"/>
         <source>Login Without Password</source>
         <translation>Login Without Password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="149"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="265"/>
         <source>Validity Days</source>
         <translation>Validity Days</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="150"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="294"/>
         <source>Change Password</source>
         <translation>Change Password</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="249"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="298"/>
         <source>Delete Account</source>
         <translation>Delete Account</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="263"/>
         <source>Account Settings</source>
         <translation>Account Settings</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="153"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
         <source>Administrator</source>
         <translation>Administrator</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="260"/>
-        <source>New Account</source>
-        <translation>New Account</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="267"/>
         <source>Group</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="261"/>
+        <source>New Account</source>
+        <translation>New Account</translation>
     </message>
 </context>
 <context>
@@ -651,10 +652,9 @@
 <context>
     <name>dccV20::accounts::UserGroupsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="119"/>
         <source>Group</source>
         <translation>Group</translation>
-        <extra-child_page>Group</extra-child_page>
         <extra-contents_path>/accounts/Group</extra-contents_path>
     </message>
 </context>

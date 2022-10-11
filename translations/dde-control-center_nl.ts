@@ -203,66 +203,67 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="146"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="259"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="261"/>
         <source>Create Account</source>
         <translation>Account aanmaken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="253"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="302"/>
         <source>Auto Login</source>
         <translation>Automatisch aanmelden</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="257"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="306"/>
         <source>Login Without Password</source>
         <translation>Aanmelden zonder wachtwoord</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="149"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="265"/>
         <source>Validity Days</source>
         <translation>Geldigheidsduur</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="150"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="294"/>
         <source>Change Password</source>
         <translation>Wachtwoord wijzigen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="249"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="298"/>
         <source>Delete Account</source>
         <translation>Account verwijderen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="263"/>
         <source>Account Settings</source>
         <translation>Accountinstellingen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="153"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
         <source>Administrator</source>
         <translation>Beheerder</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="260"/>
-        <source>New Account</source>
-        <translation>Nieuw account</translation>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="267"/>
+        <source>Group</source>
+        <translation>Groep</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="266"/>
-        <source>Group</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="261"/>
+        <source>New Account</source>
+        <translation>Nieuw account</translation>
     </message>
 </context>
 <context>
@@ -651,10 +652,9 @@
 <context>
     <name>dccV20::accounts::UserGroupsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="119"/>
         <source>Group</source>
         <translation>Groep</translation>
-        <extra-child_page>Group</extra-child_page>
         <extra-contents_path>/accounts/Group</extra-contents_path>
     </message>
 </context>
@@ -5770,7 +5770,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="158"/>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="162"/>
         <source>Place your finger flat on it</source>
-        <translation type="unfinished"/>
+        <translation>Leg je vinger er plat op</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="167"/>
