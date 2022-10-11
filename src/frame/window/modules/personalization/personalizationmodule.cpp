@@ -138,6 +138,9 @@ void PersonalizationModule::showGenaralWidget()
     m_work->refreshTheme();
 
     PersonalizationGeneral *widget = new PersonalizationGeneral;
+    connect(m_work, &dcc::personalization::PersonalizationWork::requestShowMiniEffect, widget, &PersonalizationGeneral::onShowMiniEffect);
+    connect(m_work, &dcc::personalization::PersonalizationWork::requestShowWindowMovedSwitch, widget, &PersonalizationGeneral::onShowWindowMovedSwitch);
+    m_work->refreshEffectModule();
     widget->setVisible(false);
     widget->setAccessibleName("personalizationgeneral");
 

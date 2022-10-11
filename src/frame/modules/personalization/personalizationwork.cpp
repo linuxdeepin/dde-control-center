@@ -405,6 +405,53 @@ void PersonalizationWork::refreshFontByType(const QString &type)
     connect(fontWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetFontFinished);
 }
 
+void PersonalizationWork::refreshEffectModule()
+{
+    QDBusInterface effects("org.kde.KWin", "/Effects", "org.kde.kwin.Effects", QDBusConnection::sessionBus(), this);
+    if (effects.isValid()) {
+        QDBusPendingCall scaleEffectReply = effects.asyncCall("isEffectSupported", "kwin4_effect_scale");
+        QDBusPendingCallWatcher *scaleEffectWatcher = new QDBusPendingCallWatcher(scaleEffectReply, this);
+        connect(scaleEffectWatcher, &QDBusPendingCallWatcher::finished, [this, scaleEffectReply, scaleEffectWatcher] {
+            if (!scaleEffectReply.isError()) {
+                QDBusReply<bool> reply = scaleEffectReply.reply();
+                if (reply.value()) {
+                    Q_EMIT requestShowMiniEffect("kwin4_effect_scale");
+                }
+            } else {
+                qWarning() << "Failed to get kwin4_effect_scale state: " << scaleEffectReply.error().message();
+            }
+            scaleEffectWatcher->deleteLater();
+        });
+
+        QDBusPendingCall magiclampEffectReply = effects.asyncCall("isEffectSupported", "magiclamp");
+        QDBusPendingCallWatcher *magiclampEffectWatcher = new QDBusPendingCallWatcher(magiclampEffectReply, this);
+        connect(magiclampEffectWatcher, &QDBusPendingCallWatcher::finished, [this, magiclampEffectReply, magiclampEffectWatcher] {
+            if (!magiclampEffectReply.isError()) {
+                QDBusReply<bool> reply = magiclampEffectReply.reply();
+                if (reply.value()) {
+                    Q_EMIT requestShowMiniEffect("magiclamp");
+                }
+            } else {
+                qWarning() << "Failed to get magiclamp state: " << magiclampEffectReply.error().message();
+            }
+            magiclampEffectWatcher->deleteLater();
+        });
+
+        QDBusPendingCall translucencyEffectReply = effects.asyncCall("isEffectSupported", "kwin4_effect_translucency");
+        QDBusPendingCallWatcher *translucencyEffectWatcher = new QDBusPendingCallWatcher(translucencyEffectReply, this);
+        connect(translucencyEffectWatcher, &QDBusPendingCallWatcher::finished, [this, translucencyEffectReply, translucencyEffectWatcher] {
+            if (!translucencyEffectReply.isError()) {
+                QDBusReply<bool> reply = translucencyEffectReply.reply();
+                if (reply.value())
+                    Q_EMIT requestShowWindowMovedSwitch();
+            } else {
+                qWarning() << "Failed to get kwin4_effect_translucency state: " << translucencyEffectReply.error().message();
+            }
+            translucencyEffectWatcher->deleteLater();
+        });
+    }
+}
+
 void PersonalizationWork::refreshActiveColor(const QString &color)
 {
     m_model->setActiveColor(color);
