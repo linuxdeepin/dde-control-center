@@ -203,66 +203,67 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="146"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="259"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="261"/>
         <source>Create Account</source>
         <translation>创建帐户</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="253"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="302"/>
         <source>Auto Login</source>
         <translation>自动登录</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="257"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="306"/>
         <source>Login Without Password</source>
         <translation>无密码登录</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="149"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="265"/>
         <source>Validity Days</source>
         <translation>密码有效天数</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="150"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="294"/>
         <source>Change Password</source>
         <translation>修改密码</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="249"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="298"/>
         <source>Delete Account</source>
         <translation>删除帐户</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="263"/>
         <source>Account Settings</source>
         <translation>帐户设置</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="153"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
         <source>Administrator</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="260"/>
-        <source>New Account</source>
-        <translation>新帐户</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="267"/>
         <source>Group</source>
         <translation>用户组</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="261"/>
+        <source>New Account</source>
+        <translation>新帐户</translation>
     </message>
 </context>
 <context>
@@ -651,10 +652,9 @@
 <context>
     <name>dccV20::accounts::UserGroupsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="119"/>
         <source>Group</source>
         <translation>用户组</translation>
-        <extra-child_page>Group</extra-child_page>
         <extra-contents_path>/accounts/Group</extra-contents_path>
     </message>
 </context>
