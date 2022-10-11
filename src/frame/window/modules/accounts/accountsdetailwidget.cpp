@@ -627,8 +627,8 @@ void AccountsDetailWidget::resizeEvent(QResizeEvent *event)
 
 void AccountsDetailWidget::initUserGroup(QVBoxLayout *layout)
 {
-    // 用户组入口，非专业版 且 非服务器 不显示
-    if (!IsProfessionalSystem && !IsServerSystem)
+    // 用户组入口，域管用户、非专业版、服务器版本不显示用户组
+    if (m_userModel->isDomainUser() || (!IsProfessionalSystem && !IsServerSystem))
         return;
 
     DViewItemAction *groupsEditAction = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter, QSize(14, 14), QSize(14, 14), true);

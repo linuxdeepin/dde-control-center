@@ -51,6 +51,7 @@ public:
     bool getIsSecurityHighLever() const;
     void setIsSecurityHighLever(bool isSecurityHighLever);
 
+    bool isDomainUser();
 Q_SIGNALS:
     void userAdded(User *user);
     void userRemoved(User *user);

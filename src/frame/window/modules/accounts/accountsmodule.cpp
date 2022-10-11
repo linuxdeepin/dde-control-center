@@ -264,7 +264,7 @@ void AccountsModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, tr("Administrator"), true);
         m_frameProxy->setWidgetVisible(module, tr("Validity Days"), true);
         // 专业版或者服务器版本支持用户组搜索
-        m_frameProxy->setWidgetVisible(module, tr("Group"), IsProfessionalSystem || IsServerSystem);
+        m_frameProxy->setWidgetVisible(module, tr("Group"), !m_userModel->isDomainUser() && (IsProfessionalSystem || IsServerSystem));
     };
 
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
