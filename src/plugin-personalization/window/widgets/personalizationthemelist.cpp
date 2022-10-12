@@ -30,7 +30,7 @@
 #include <QPushButton>
 #include <DSuggestButton>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 PersonalizationThemeList::PersonalizationThemeList(const QString &title, QWidget *parent)

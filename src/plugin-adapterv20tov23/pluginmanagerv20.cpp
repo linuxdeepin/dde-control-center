@@ -9,7 +9,7 @@
 #include <QPluginLoader>
 const QString &PluginDirectory = QStringLiteral("/usr/lib/dde-control-center/modules");
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 using namespace dccV20;
 
 PluginManagerV20::PluginManagerV20()

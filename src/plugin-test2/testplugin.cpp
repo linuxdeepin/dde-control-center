@@ -8,7 +8,7 @@
 #include <qwidget.h>
 
 #include <interface/pagemodule.h>
-
+using namespace DCC_NAMESPACE;
 QString Test2Plugin::name() const
 {
     return QStringLiteral("plugin-test2");

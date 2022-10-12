@@ -23,10 +23,10 @@
 #include "interface/pagemodule.h"
 #include <DTipLabel>
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class SwitchWidget;
 class SettingsGroup;
-DCC_END_NAMESPACE
+}
 
 class UpdateModel;
 class UpdateWorker;

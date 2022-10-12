@@ -37,8 +37,8 @@
 #include <QColor>
 #include <QGraphicsDropShadowEffect>
 
-DCC_USE_NAMESPACE
-SET_LABEL_ACCESSIBLE(AvatarWidget, "avatarwidget")
+using namespace DCC_NAMESPACE;
+//SET_LABEL_ACCESSIBLE(AvatarWidget, "avatarwidget")
 AvatarWidget::AvatarWidget(QWidget *parent)
     : QLabel(parent)
     , m_hover(false)

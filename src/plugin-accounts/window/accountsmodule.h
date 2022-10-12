@@ -49,6 +49,7 @@ class AccountsListWidget;
 class ModifyPasswdPage;
 class SettingsGroup;
 class DCCListView;
+class ModuleObjectItem;
 
 class AccountsPlugin : public PluginInterface
 {
@@ -107,7 +108,6 @@ protected Q_SLOTS:
     void initName(QWidget *w);
     void initModifyButton(QWidget *w);
     void initAccountType(SettingsGroup *accountSettingsGrp);
-    void initAutoLogin(DCCListView *listview);
     void initValidityDays(SettingsGroup *pwGroup);
 
     void onCreateAccount();
@@ -122,6 +122,8 @@ protected Q_SLOTS:
     bool onEditingFinished(bool isValid, DTK_WIDGET_NAMESPACE::DLineEdit *fullNameEdit);
     void setFullname(const QString &fullName, DTK_WIDGET_NAMESPACE::DLabel *fullNameLabel);
     void onShowSafetyPage(const QString &errorTips);
+    void onLoginModule(ModuleObject *module);
+    void updateLoginModule();
 
 protected:
     QString getOtherUserAutoLogin(); //获取其它用户是否开启自动登录开关
@@ -137,6 +139,9 @@ private:
     QStandardItemModel *m_groupItemModel;
     QString m_groupName;
     bool m_checkAuthorizationing;
+
+    DCC_NAMESPACE::ModuleObjectItem *m_autoLoginModule;
+    DCC_NAMESPACE::ModuleObjectItem *m_loginWithoutPasswordModule;
 };
 
 } // namespace DCC_NAMESPACE

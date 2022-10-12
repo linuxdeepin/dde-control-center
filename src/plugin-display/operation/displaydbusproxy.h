@@ -33,9 +33,9 @@
 #include <QDBusPendingReply>
 #include <QDBusReply>
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class DCCDBusInterface;
-DCC_END_NAMESPACE
+}
 class QDBusMessage;
 
 class DisplayDBusProxy : public QObject

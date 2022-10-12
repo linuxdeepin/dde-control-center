@@ -31,7 +31,7 @@
 #include <QLabel>
 #include <QPainter>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 SET_FORM_ACCESSIBLE(ComboxWidget,"ComboxWidget")
 ComboxWidget::ComboxWidget(QFrame *parent)
     : ComboxWidget(new QLabel, parent)

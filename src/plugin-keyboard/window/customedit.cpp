@@ -33,7 +33,7 @@
 #include <DIconButton>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
     QWidget(parent),
     m_model(model),

@@ -33,7 +33,7 @@
 #include <QDebug>
 #include <QApplication>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 MouseModule::MouseModule(QObject *parent)
     : HListModule(parent)

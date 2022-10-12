@@ -46,7 +46,7 @@
 
 Q_DECLARE_METATYPE(const Port *)
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 SpeakerPage::SpeakerPage(QWidget *parent)

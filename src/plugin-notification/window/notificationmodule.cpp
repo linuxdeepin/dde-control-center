@@ -33,7 +33,7 @@
 #include <QApplication>
 
 Q_DECLARE_METATYPE(QMargins)
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 QString NotificationPlugin::name() const
 {
     return QStringLiteral("notification");

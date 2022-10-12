@@ -30,7 +30,7 @@
 
 #include <QLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 SET_FORM_ACCESSIBLE(SettingsHeaderItem,"SettingsHeaderItem");
 SettingsHeaderItem::SettingsHeaderItem(QWidget *parent)
     : SettingsItem(parent),

@@ -23,10 +23,10 @@
 
 #define DCC_NAMESPACE dccV23
 
-#define DCC_USE_NAMESPACE using namespace DCC_NAMESPACE;
+//#define } using namespace DCC_NAMESPACE;
 
-#define DCC_BEGIN_NAMESPACE namespace DCC_NAMESPACE {
-#define DCC_END_NAMESPACE }
+//#define namespace DCC_NAMESPACE { namespace DCC_NAMESPACE {
+//#define } }
 ////////////////////////////////
 #define DCC_DECLARE_PRIVATE(Class) \
 private: \

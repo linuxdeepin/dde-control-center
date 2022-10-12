@@ -7,10 +7,10 @@
 #include <QAbstractItemModel>
 #include <QGraphicsDropShadowEffect>
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class User;
 class UserModel;
-DCC_END_NAMESPACE
+}
 
 
 class AccountsModel : public QAbstractItemModel

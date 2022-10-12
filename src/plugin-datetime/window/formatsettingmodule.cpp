@@ -26,7 +26,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/comboxwidget.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 FormatSettingModule::FormatSettingModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
     : PageModule("timeFormat", tr("Time Format"), parent)

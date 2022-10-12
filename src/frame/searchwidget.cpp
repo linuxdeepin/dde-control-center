@@ -30,7 +30,7 @@
 #include <QDebug>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 const QStringList &FilterText{"-", "--", "-->", "->", ">", "/"};
 
@@ -352,23 +352,6 @@ QString SearchWidget::convertPinyin(const QString& url)
         newSections.append(section);
     }
     return newSections.join('/');
-}
-
-QString SearchWidget::removeDigital(const QString &word)
-{
-    if (word.isEmpty())
-        return word;
-
-    QString value = "";
-    char *data = word.toLocal8Bit().data();
-    while (*data) {
-        if (!(*data >= '0' && *data <= '9')) {
-            value += *data;
-        }
-        data++;
-    }
-
-    return value;
 }
 
 void SearchWidget::onReturnPressed()

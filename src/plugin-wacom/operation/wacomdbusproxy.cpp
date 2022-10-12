@@ -31,7 +31,7 @@ const static QString WacomService = "com.deepin.daemon.InputDevices";
 const static QString WacomPath = "/com/deepin/daemon/InputDevice/Wacom";
 const static QString WacomInterface = "com.deepin.daemon.InputDevice.Wacom";
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 WacomDBusProxy::WacomDBusProxy(QObject *parent)
     : QObject (parent)

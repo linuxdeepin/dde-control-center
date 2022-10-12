@@ -32,6 +32,7 @@
 #include "devicemanagespage.h"
 
 DWIDGET_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 QString SoundPlugin::name() const
 {

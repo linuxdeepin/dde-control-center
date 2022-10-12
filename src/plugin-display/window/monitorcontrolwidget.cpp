@@ -32,7 +32,7 @@
 #include <QPushButton>
 #include <QIcon>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 MonitorControlWidget::MonitorControlWidget(int activateHeight, QWidget *parent)
     : QFrame(parent)

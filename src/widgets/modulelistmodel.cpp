@@ -5,8 +5,8 @@
 #include <QWidget>
 #include <QHBoxLayout>
 
-DCC_USE_NAMESPACE
-DCC_BEGIN_NAMESPACE
+using namespace DCC_NAMESPACE;
+namespace DCC_NAMESPACE {
 class ModuleListModelPrivate
 {
 public:
@@ -24,6 +24,14 @@ public:
         QObject::connect(m_module, &ModuleObject::childStateChanged, q_ptr, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
             onDataChanged(tmpChild, flag, state);
         });
+        for (auto &&childModule : m_module->childrens()) {
+            QObject::connect(childModule, &ModuleObject::moduleDataChanged, q_ptr, [this]() {
+                ModuleObject *module = qobject_cast<ModuleObject *>(q_ptr->sender());
+                int row = m_data.indexOf(module);
+                QModelIndex i = q_ptr->index(row, 0);
+                emit q_ptr->dataChanged(i, i);
+            });
+        }
     }
 
     void onInsertChild(ModuleObject *const module)
@@ -78,7 +86,7 @@ public:
     ModuleObject *m_module;
     QList<ModuleObject *> m_data;
 };
-DCC_END_NAMESPACE
+}
 
 ModuleListModel::ModuleListModel(ModuleObject *parent)
     : QAbstractItemModel(parent)

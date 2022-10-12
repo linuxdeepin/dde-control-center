@@ -25,12 +25,12 @@
 
 #include <DListView>
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class SettingsGroup;
 class ComboxWidget;
 class TitledSliderItem;
 class SwitchWidget;
-DCC_END_NAMESPACE
+}
 
 class PowerModel;
 class PowerWorker;

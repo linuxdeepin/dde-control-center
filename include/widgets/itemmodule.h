@@ -22,7 +22,7 @@
 #define ITEMMODULE_H
 #include "interface/moduleobject.h"
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class ItemModulePrivate;
 class ItemModule : public ModuleObject
 {
@@ -103,5 +103,5 @@ private:
 
     DCC_DECLARE_PRIVATE(ItemModule)
 };
-DCC_END_NAMESPACE
+}
 #endif // ITEMMODULE_H

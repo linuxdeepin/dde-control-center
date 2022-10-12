@@ -50,7 +50,7 @@ Q_DECLARE_METATYPE(QMargins)
 const QMargins ListViweItemMargin(10, 8, 10, 8);
 const QVariant VListViewItemMargin = QVariant::fromValue(ListViweItemMargin);
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 DTK_USE_NAMESPACE
 BootWidget::BootWidget(QWidget *parent)

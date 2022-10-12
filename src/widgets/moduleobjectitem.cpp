@@ -5,10 +5,10 @@
 
 #include <QApplication>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class ModuleObjectItemPrivate
 {
 public:
@@ -23,11 +23,13 @@ public:
     void setRightIcon(const QIcon &icon, int index = -1)
     {
         getRightItem(index)->setIcon(icon);
+        q_ptr->update();
     }
 
     void setRightText(const QString &text, int index = -1)
     {
         getRightItem(index)->setText(text);
+        q_ptr->update();
     }
     DViewItemAction *getRightItem(int index)
     {
@@ -53,7 +55,7 @@ public:
     DViewItemActionList m_rightItems;
     QMap<int, QVariant> m_mapData;
 };
-DCC_END_NAMESPACE
+}
 
 ModuleObjectItem::ModuleObjectItem(const QString &name, const QString &displayName, QObject *parent)
     : ModuleObject(name, displayName, parent)

@@ -32,7 +32,7 @@
 #include <QPushButton>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 AddIrisInfoDialog::AddIrisInfoDialog(CharaMangerModel *model, QWidget *parent)
     : DAbstractDialog(parent)

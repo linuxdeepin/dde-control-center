@@ -33,7 +33,7 @@
 #include <DSuggestButton>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 #define test false
 

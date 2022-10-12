@@ -40,7 +40,7 @@
 #include <QFileDialog>
 #include <QCheckBox>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 AdapterModule::AdapterModule(const BluetoothAdapter *adapter, BluetoothModel *model, BluetoothWorker *work, QObject *parent)

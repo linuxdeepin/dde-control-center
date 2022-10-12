@@ -32,7 +32,7 @@
 #include <random>
 
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 static void palrtteTransparency(QWidget *widget, qint8 alphaFloat)

@@ -79,7 +79,7 @@ const QStringList &assistiveToolsFilter = {"ai-assistant",
                                            "speech-to-text",
                                            "translation"};
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
 ShortcutModel::ShortcutModel(QObject *parent)
     : QObject(parent)

@@ -12,7 +12,7 @@
 #include <QPalette>
 #include <QSize>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 FingerDetailWidget::FingerDetailWidget(QWidget *parent)

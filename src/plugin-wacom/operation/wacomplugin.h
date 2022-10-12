@@ -27,8 +27,6 @@
 
 #include <QWidget>
 
-DCC_USE_NAMESPACE
-
 class WacomModel;
 
 class WacomPlugin : public DCC_NAMESPACE::PluginInterface
@@ -41,7 +39,7 @@ public:
     ~WacomPlugin() override;
 
     virtual QString name() const override;
-    virtual ModuleObject *module() override;
+    virtual DCC_NAMESPACE::ModuleObject *module() override;
     virtual QString location() const override;
 
 private:

@@ -38,7 +38,7 @@
 
 #include "widgets/dccslider.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 SET_FORM_ACCESSIBLE(TitledSliderItem,"TitledSliderItem");
 TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     : SettingsItem(parent)

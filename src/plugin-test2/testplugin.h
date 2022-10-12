@@ -3,25 +3,24 @@
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
 
-DCC_USE_NAMESPACE
 
-class Test2Plugin : public PluginInterface
+class Test2Plugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.test2" FILE "plugin-test.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
     virtual QString name() const override;
-    virtual ModuleObject *module() override;
+    virtual DCC_NAMESPACE::ModuleObject *module() override;
     virtual QString follow() const override;
     virtual QString location() const override;
 };
 
-class LabelModule : public ModuleObject
+class LabelModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
-    LabelModule(QObject *parent = nullptr) : ModuleObject(parent) {}
+    LabelModule(QObject *parent = nullptr) : DCC_NAMESPACE::ModuleObject(parent) {}
     LabelModule(const QString &name, const QString &displayName = {}, QObject *parent = nullptr) : ModuleObject(name, displayName, parent) {}
     virtual QWidget *page() override;
 

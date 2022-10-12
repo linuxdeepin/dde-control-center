@@ -74,9 +74,9 @@ public:
 };
 
 typedef QList<LocaleInfo> LocaleList;
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class DCCDBusInterface;
-DCC_END_NAMESPACE
+}
 
 class KeyboardDBusProxy : public QObject
 {

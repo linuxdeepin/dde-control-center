@@ -24,7 +24,7 @@
 #include <QLabel>
 #include <QHBoxLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 NotificationItem::NotificationItem(QWidget *parent)
     : SettingsItem(parent)

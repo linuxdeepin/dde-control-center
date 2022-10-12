@@ -12,6 +12,7 @@
 #include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 struct DATE {
     QString name;

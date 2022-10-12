@@ -30,7 +30,7 @@
 #include <QSpacerItem>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 const double BrightnessMaxScale = 100.0;
 const int PercentageNum = 100;

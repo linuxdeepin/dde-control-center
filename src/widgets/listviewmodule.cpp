@@ -6,9 +6,9 @@
 
 #include <DStyledItemDelegate>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class ListViewModulePrivate
 {
 public:
@@ -23,7 +23,7 @@ public:
     Q_DECLARE_PUBLIC(ListViewModule)
     ModuleListModel *m_model;
 };
-DCC_END_NAMESPACE
+}
 
 ListViewModule::ListViewModule(const QString &name, const QString &displayName, QObject *parent)
     : ModuleObject(name, displayName, parent)

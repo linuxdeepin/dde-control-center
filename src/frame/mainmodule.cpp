@@ -7,7 +7,7 @@
 #include <QHBoxLayout>
 #include <QSplitter>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 const int NavViewMaximumWidth = QWIDGETSIZE_MAX;
 const int NavViewMinimumWidth = 188;
@@ -17,7 +17,7 @@ const QSize ListViweItemSize_IconMode(280, 84);
 const QSize ListViweItemIconSize_ListMode(32, 32);
 const QSize ListViweItemSize_ListMode(168, 48);
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class MainModulePrivate
 {
 public:
@@ -134,7 +134,7 @@ private:
     QSplitter *m_splitter;
     QWidget *m_emptyWidget;
 };
-DCC_END_NAMESPACE
+}
 
 MainModule::MainModule(QObject *parent)
     : ModuleObject(parent)

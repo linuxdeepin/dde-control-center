@@ -26,11 +26,11 @@
 
 class QPluginLoader;
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class ModuleObject;
 class PluginInterface;
 class LayoutManager;
-DCC_END_NAMESPACE
+}
 
 struct PluginData
 {

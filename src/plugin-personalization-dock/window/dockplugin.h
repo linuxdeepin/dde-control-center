@@ -27,24 +27,23 @@
 
 #include "dtkwidget_global.h"
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class ComboxWidget;
 class TitledSliderItem;
 class TitleLabel;
-DCC_END_NAMESPACE
+}
 
 DWIDGET_BEGIN_NAMESPACE
 class DTipLabel;
 class DListView;
 DWIDGET_END_NAMESPACE
 
-DCC_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
 class DockDBusProxy;
 class QCheckBox;
 
-class DockPlugin : public PluginInterface
+class DockPlugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Dock" FILE "plugin-dock.json")
@@ -54,12 +53,12 @@ public:
     explicit DockPlugin(QObject *parent = nullptr);
 
     virtual QString name() const override;
-    virtual ModuleObject *module() override;
+    virtual DCC_NAMESPACE::ModuleObject *module() override;
     virtual QString follow() const override;
     virtual QString location() const override;
 };
 
-class DockModuleObject : public PageModule
+class DockModuleObject : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 
@@ -70,14 +69,14 @@ private:
     bool isCopyMode();
 
 private Q_SLOTS:
-    void initMode(ComboxWidget *widget);
-    void initPosition(ComboxWidget *widget);
-    void initStatus(ComboxWidget *widget);
+    void initMode(DCC_NAMESPACE::ComboxWidget *widget);
+    void initPosition(DCC_NAMESPACE::ComboxWidget *widget);
+    void initStatus(DCC_NAMESPACE::ComboxWidget *widget);
     void initShowRecent(QCheckBox *checkBox);
-    void initSizeSlider(TitledSliderItem *slider);
-    void initScreenTitle(TitleLabel *label);
-    void initScreen(ComboxWidget *widget);
-    void initPluginTitle(TitleLabel *label);
+    void initSizeSlider(DCC_NAMESPACE::TitledSliderItem *slider);
+    void initScreenTitle(DCC_NAMESPACE::TitleLabel *label);
+    void initScreen(DCC_NAMESPACE::ComboxWidget *widget);
+    void initPluginTitle(DCC_NAMESPACE::TitleLabel *label);
     void initPluginTips(DTipLabel *label);
     void initPluginView(DListView *view);
 

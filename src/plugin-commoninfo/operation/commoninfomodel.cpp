@@ -22,7 +22,7 @@
 #include "commoninfomodel.h"
 #include <QDebug>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 CommonInfoModel::CommonInfoModel(QObject *parent)
     : QObject(parent)

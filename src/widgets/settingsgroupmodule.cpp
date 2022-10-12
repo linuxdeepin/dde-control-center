@@ -4,9 +4,9 @@
 #include <QWidget>
 #include <QHBoxLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class SettingsGroupModulePrivate
 {
 public:
@@ -103,7 +103,7 @@ public:
     bool headerVisible;
     Q_DECLARE_PUBLIC(SettingsGroupModule)
 };
-DCC_END_NAMESPACE
+}
 
 SettingsGroupModule::SettingsGroupModule(const QString &name, const QString &displayName, QObject *parent)
     : ModuleObject(name, displayName, parent)

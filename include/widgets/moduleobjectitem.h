@@ -26,7 +26,7 @@
 #include <DStyle>
 #include <QVariant>
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class ModuleObjectItemPrivate;
 class ModuleObjectItem : public ModuleObject
 {
@@ -51,5 +51,5 @@ Q_SIGNALS:
 
     DCC_DECLARE_PRIVATE(ModuleObjectItem)
 };
-DCC_END_NAMESPACE
+}
 #endif // MODULEOBJECTITEM_H

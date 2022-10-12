@@ -25,7 +25,7 @@
 #include "timezonemodule.h"
 #include "formatsettingmodule.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 DatetimeModule::DatetimeModule(QObject *parent)
     : HListModule("datetime", tr("Datetime"), tr("Datetime"), QIcon::fromTheme("dcc_nav_datetime"), parent)

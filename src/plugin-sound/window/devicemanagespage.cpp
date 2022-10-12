@@ -36,6 +36,7 @@
 #include <QStandardItemModel>
 
 DWIDGET_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 DevicemanagesPage::DevicemanagesPage(Port::Direction direction, QWidget *parent)
     : QWidget(parent)

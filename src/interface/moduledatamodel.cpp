@@ -25,7 +25,7 @@
 
 #include <QSignalMapper>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 ModuleDataModel::ModuleDataModel(QObject *parent)
     : QAbstractItemModel(parent)

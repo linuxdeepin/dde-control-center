@@ -31,7 +31,7 @@
 #include <QPainterPath>
 #include <QApplication>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 QPixmap loadPixmap(const QString &path)
 {

@@ -32,7 +32,7 @@
 
 #include "avatarwidget.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 static QPixmap RoundPixmap(const QPixmap &pix) {
     QPixmap ret(pix.size());

@@ -36,7 +36,7 @@
 #include <QScreen>
 #include <QKeyEvent>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 const int ComboxWidth = 200;

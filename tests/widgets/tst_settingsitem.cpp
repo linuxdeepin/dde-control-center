@@ -4,7 +4,7 @@
 
 #include "widgets/settingsitem.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 class Tst_SettingsItem : public testing::Test
 {

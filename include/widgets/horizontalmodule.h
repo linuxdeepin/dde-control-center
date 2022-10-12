@@ -22,7 +22,7 @@
 #define HORIZONTALMODULE_H
 
 #include "interface/moduleobject.h"
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class HorizontalModulePrivate;
 class HorizontalModule : public ModuleObject
 {
@@ -55,5 +55,5 @@ public:
 
     DCC_DECLARE_PRIVATE(HorizontalModule)
 };
-DCC_END_NAMESPACE
+}
 #endif // HORIZONTALMODULE_H

@@ -6,13 +6,13 @@
 #include <QScrollBar>
 #include <QVBoxLayout>
 #include <QWidget>
-
-DCC_USE_NAMESPACE
+#include <QDebug>
+using namespace DCC_NAMESPACE;
 
 #define DCC_NO_Scroll 0x00080000  // 无滚动条(父项)
 #define DCC_NO_STRETCH 0x00040000 // 无下方弹簧(父项)
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class PageModulePrivate : public QObject
 {
 public:
@@ -183,10 +183,12 @@ private:
             int left, right, top, bottom;
             m_vlayout->getContentsMargins(&left, &top, &right, &bottom);
             int width = e->size().width() - left - right;
-            for (int i = 0; i < m_vlayout->count(); ++i) {
-                QAbstractScrollArea *w = qobject_cast<QAbstractScrollArea *>(m_vlayout->itemAt(i)->widget());
-                if (w && m_maximumWidth >= width) {
-                    w->setMaximumWidth(width);
+            if (m_maximumWidth >= width && width > 0) {
+                for (int i = 0; i < m_vlayout->count(); ++i) {
+                    QAbstractScrollArea *w = qobject_cast<QAbstractScrollArea *>(m_vlayout->itemAt(i)->widget());
+                    if (w) {
+                        w->setMaximumWidth(width);
+                    }
                 }
             }
         }
@@ -208,7 +210,7 @@ private:
     int m_maximumWidth;
 };
 
-DCC_END_NAMESPACE
+}
 
 PageModule::PageModule(QObject *parent)
     : ModuleObject(parent)

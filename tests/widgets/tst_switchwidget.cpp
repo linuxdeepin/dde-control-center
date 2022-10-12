@@ -4,7 +4,7 @@
 
 #include "widgets/switchwidget.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 class Tst_SwitchWidget : public testing::Test
 {

@@ -51,7 +51,7 @@
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 CreateAccountPage::CreateAccountPage(AccountsWorker *accountsWorker, QWidget *parent)
     : QDialog(parent)

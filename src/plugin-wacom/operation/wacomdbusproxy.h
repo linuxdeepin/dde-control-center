@@ -29,9 +29,9 @@ class QDBusInterface;
 class QDBusMessage;
 class QDBusObjectPath;
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class DCCDBusInterface;
-DCC_END_NAMESPACE
+}
 
 class WacomDBusProxy :public QObject
 {

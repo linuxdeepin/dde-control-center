@@ -32,7 +32,7 @@
 #include <QSpinBox>
 #include <DStackedWidget>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     : QWidget(parent)
     , m_bEdit(false)

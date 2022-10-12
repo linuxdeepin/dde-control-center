@@ -11,7 +11,7 @@
 #include <DSwitchButton>
 #include <QComboBox>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 

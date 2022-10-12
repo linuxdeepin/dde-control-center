@@ -8,7 +8,7 @@
 
 #include <gtest/gtest.h>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 class Tst_TrackPointSettingWidget : public testing::Test
 {
     void SetUp() override

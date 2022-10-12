@@ -36,8 +36,9 @@
 #include <QJsonArray>
 #include <QDBusInterface>
 #include <QDBusPendingCallWatcher>
+#include <QTranslator>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2);
 
 const QMap<QString, QString> &ModelKeycode = {{"minus", "-"}, {"equal", "="}, {"backslash", "\\"}, {"question", "?/"}, {"exclam", "1"}, {"numbersign", "3"},
@@ -52,6 +53,7 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
     , m_keyboardDBusProxy(new KeyboardDBusProxy(this))
+    , m_translatorLanguage(nullptr)
 {
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::compositingEnabledChanged, this, &KeyboardWorker::onGetWindowWM);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::Added, this, &KeyboardWorker::onAdded);
@@ -133,6 +135,12 @@ void KeyboardWorker::windowSwitch()
 
 void KeyboardWorker::active()
 {
+    if (!m_translatorLanguage) {
+        m_translatorLanguage = new QTranslator(this);
+        m_translatorLanguage->load("/usr/share/dde-control-center/translations/keyboard_language_" + QLocale::system().name());
+        qApp->installTranslator(m_translatorLanguage);
+    }
+
     m_keyboardDBusProxy->blockSignals(false);
 
     setModelRepeatDelay(m_keyboardDBusProxy->repeatDelay());

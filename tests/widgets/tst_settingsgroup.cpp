@@ -5,7 +5,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsitem.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 class Tst_SettingsGroup : public testing::Test
 {

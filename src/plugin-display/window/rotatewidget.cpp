@@ -32,7 +32,7 @@
 #include <QComboBox>
 #include <QHBoxLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 RotateWidget::RotateWidget(int comboxWidth, QWidget *parent)
     : SettingsItem(parent)
     , m_contentLayout(new QHBoxLayout(this))

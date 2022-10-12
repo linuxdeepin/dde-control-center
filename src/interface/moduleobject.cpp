@@ -39,8 +39,8 @@ const unsigned c_currentVersion = 10; // 1.0
 
 // DCORE_USE_NAMESPACE
 
-DCC_USE_NAMESPACE
-DCC_BEGIN_NAMESPACE
+using namespace DCC_NAMESPACE;
+namespace DCC_NAMESPACE {
 class ModuleObjectPrivate
 {
 public:
@@ -68,7 +68,7 @@ public:
 
     uint32_t m_flags;
 };
-DCC_END_NAMESPACE
+}
 ModuleObject::ModuleObject(QObject *parent)
     : ModuleObject(QString(), QString(), parent)
 {

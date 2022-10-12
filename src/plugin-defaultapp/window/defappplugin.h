@@ -26,12 +26,10 @@
 #include "interface/pagemodule.h"
 #include "interface/plugininterface.h"
 
-DCC_USE_NAMESPACE
-
 class DefAppModel;
 class DefAppWorker;
 // 默认程序插件
-class DefAppPlugin : public PluginInterface
+class DefAppPlugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.DefApp" FILE "defaultapp.json")
@@ -40,13 +38,13 @@ public:
     explicit DefAppPlugin() {}
 
     virtual QString name() const override;
-    virtual ModuleObject *module() override;
+    virtual DCC_NAMESPACE::ModuleObject *module() override;
     virtual QString location() const override;
 };
 
 
 // 一级菜单
-class DefAppModule : public VListModule
+class DefAppModule : public DCC_NAMESPACE::VListModule
 {
     Q_OBJECT
 public:

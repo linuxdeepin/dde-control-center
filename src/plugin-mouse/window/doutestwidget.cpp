@@ -33,7 +33,7 @@
 
 DWIDGET_USE_NAMESPACE
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 DouTestWidget::DouTestWidget(QWidget *parent)
     : SettingsItem(parent)

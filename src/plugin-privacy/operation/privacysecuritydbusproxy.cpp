@@ -34,7 +34,7 @@ const static QString PermissionService = QStringLiteral("org.desktopspec.permiss
 const static QString PermissionPath = QStringLiteral("/org/desktopspec/permission");
 const static QString PermissionInterface = QStringLiteral("org.desktopspec.permission");
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 PrivacySecurityDBusProxy::PrivacySecurityDBusProxy(QObject *parent)
     : QObject(parent)
     , m_privacyInter(new DCCDBusInterface(PermissionService, PermissionPath, PermissionInterface, QDBusConnection::sessionBus(), this))

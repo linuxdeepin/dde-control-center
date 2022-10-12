@@ -37,7 +37,7 @@
 #include <QPainterPath>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 AvatarItemDelegate::AvatarItemDelegate(QObject *parent)
     : QStyledItemDelegate(parent)

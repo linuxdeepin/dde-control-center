@@ -14,7 +14,7 @@
 #include <qsettings.h>
 #include <queue>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 const QString &PluginDirectory = QStringLiteral("/usr/lib/dde-control-center/modules");
 

@@ -26,7 +26,7 @@
 #include "creationresult.h"
 
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 CreationResult::CreationResult(QObject *parent)
     : CreationResult(NoError, QString(""), parent)

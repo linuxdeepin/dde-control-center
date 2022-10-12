@@ -33,9 +33,9 @@ class QVBoxLayout;
 class QLabel;
 QT_END_NAMESPACE
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class SettingsGroup;
-DCC_END_NAMESPACE
+}
 
 static const QString OfflineUpgraderService = "com.deepin.dde.OfflineUpgrader";
 

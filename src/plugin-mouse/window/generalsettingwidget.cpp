@@ -30,7 +30,7 @@
 #include <QDebug>
 #include <QVBoxLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     : QWidget(parent)
     , m_mouseModel(nullptr)

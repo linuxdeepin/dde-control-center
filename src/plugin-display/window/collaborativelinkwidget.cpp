@@ -36,7 +36,7 @@
 #include <src/plugin-display/operation/machine.h>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 Q_DECLARE_METATYPE(const Machine *)
 

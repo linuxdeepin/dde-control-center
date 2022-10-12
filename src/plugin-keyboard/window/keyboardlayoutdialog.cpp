@@ -36,7 +36,7 @@
 #include <DTipLabel>
 #include <DTitlebar>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 KeyboardLayoutDialog::KeyboardLayoutDialog(QWidget *parent)
     : DAbstractDialog(parent)
     , textLength(0)

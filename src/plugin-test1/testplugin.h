@@ -5,20 +5,19 @@
 #include "interface/hlistmodule.h"
 #include "interface/vlistmodule.h"
 
-DCC_USE_NAMESPACE
-
-class Test1Plugin : public PluginInterface
+class Test1Plugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Plugin_test" FILE "plugin-test.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
     virtual QString name() const override;
-    virtual ModuleObject *module() override;
+    virtual DCC_NAMESPACE::ModuleObject *module() override;
 };
 
-class Test1ModuleObject : public HListModule
+class Test1ModuleObject : public DCC_NAMESPACE::HListModule
 {
+    Q_OBJECT
 public:
     explicit Test1ModuleObject();
 
@@ -26,7 +25,7 @@ public:
     void addTestModule(ModuleObject *parent);
 };
 
-class LabelModule : public ModuleObject
+class LabelModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
@@ -43,7 +42,7 @@ private:
     QString m_text;
 };
 
-class ButtonModule : public VListModule
+class ButtonModule : public DCC_NAMESPACE::VListModule
 {
     Q_OBJECT
 public:

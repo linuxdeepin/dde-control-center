@@ -31,7 +31,7 @@
 强制重启设备、卸载应用、修改系统目录
 */
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 PrivacyModule::PrivacyModule(QObject *parent)
     : VListModule("privacyAndSecurity", tr("Privacy and Security"), tr("Privacy and Security"), QIcon::fromTheme("dcc_nav_privacy"),parent)

@@ -38,7 +38,7 @@
 const QString DisplayInterface("com.deepin.daemon.Display");
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     : QObject(parent)

@@ -26,7 +26,7 @@
 
 const QString Path  = "/com/deepin/dde/Notification";
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 NotificationWorker::NotificationWorker(NotificationModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)

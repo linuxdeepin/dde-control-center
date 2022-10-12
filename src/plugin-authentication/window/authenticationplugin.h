@@ -25,11 +25,9 @@
 #include "interface/hlistmodule.h"
 #include "interface/plugininterface.h"
 
-DCC_USE_NAMESPACE
-
 class CharaMangerWorker;
 class CharaMangerModel;
-class AuthenticationPlugin : public PluginInterface
+class AuthenticationPlugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Authentication" FILE "authentication.json")
@@ -38,12 +36,12 @@ public:
     explicit AuthenticationPlugin() {}
 
     virtual QString name() const override;
-    virtual ModuleObject *module() override;
+    virtual DCC_NAMESPACE::ModuleObject *module() override;
     virtual QString location() const override;
 };
 
 // 一级页面
-class AuthenticationModule : public HListModule
+class AuthenticationModule : public DCC_NAMESPACE::HListModule
 {
     Q_OBJECT
 public:
@@ -62,7 +60,7 @@ private:
 };
 
 // 指纹页面
-class FingerModule : public ModuleObject
+class FingerModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
@@ -77,7 +75,7 @@ private:
 };
 
 // 人脸页面
-class FaceModule : public ModuleObject
+class FaceModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
@@ -92,7 +90,7 @@ private:
 };
 
 // 虹膜页面
-class IrisModule : public ModuleObject
+class IrisModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:

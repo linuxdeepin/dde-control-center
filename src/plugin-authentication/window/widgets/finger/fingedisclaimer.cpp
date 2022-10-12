@@ -34,7 +34,7 @@
 #include <QDebug>
 #include <QDialog>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 FingerDisclaimer::FingerDisclaimer(QWidget *parent)

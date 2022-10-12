@@ -27,7 +27,7 @@
 
 /*数位板*/
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 WacomPlugin::WacomPlugin()
     : PluginInterface()

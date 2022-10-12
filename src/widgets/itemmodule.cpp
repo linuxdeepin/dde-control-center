@@ -9,9 +9,9 @@
 
 #include <widgets/settingsitem.h>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class ItemModulePrivate
 {
 public:
@@ -40,7 +40,7 @@ public:
     bool m_clickable;
     Q_DECLARE_PUBLIC(ItemModule)
 };
-DCC_END_NAMESPACE
+}
 
 ItemModule::ItemModule(QObject *parent)
     : ModuleObject(parent)

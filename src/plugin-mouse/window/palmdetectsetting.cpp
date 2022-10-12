@@ -21,7 +21,7 @@
 #include "widgets/settingsgroup.h"
 #include <QVBoxLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 PalmDetectSetting::PalmDetectSetting(QWidget *parent)
     : QFrame(parent)

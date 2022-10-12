@@ -36,10 +36,10 @@ class DSpinner;
 class DIconButton;
 DWIDGET_END_NAMESPACE
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class SettingsGroup;
 class DCCListView;
-DCC_END_NAMESPACE
+}
 
 class BluetoothWorker;
 class QCheckBox;

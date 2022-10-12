@@ -28,7 +28,7 @@
 
 #include <QLabel>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
 const QString gsetting_showSuspend = "showSuspend";
 const QString gsetting_showHiberante = "showHibernate";

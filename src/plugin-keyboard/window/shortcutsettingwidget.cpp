@@ -35,7 +35,7 @@
 #include <QPushButton>
 
 DCORE_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *parent)
     : QWidget(parent)
     , m_workspaceGroup(nullptr)

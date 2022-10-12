@@ -52,7 +52,7 @@
 #include <polkit-qt5-1/PolkitQt1/Authority>
 using namespace PolkitQt1;
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)

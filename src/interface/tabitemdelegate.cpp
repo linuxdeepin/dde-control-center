@@ -35,7 +35,7 @@
 
 DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 TabItemDelegate::TabItemDelegate(QAbstractItemView *parent)
     : DStyledItemDelegate(parent)

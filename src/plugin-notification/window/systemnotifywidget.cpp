@@ -37,7 +37,7 @@
 #include <QDebug>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 SystemNotifyWidget::SystemNotifyWidget(SysItemModel *model, QWidget *parent)
     : QWidget(parent)

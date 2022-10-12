@@ -34,7 +34,7 @@
 
 
 #define GSETTINGS_NUMLOCK_ENABLE "keyboardGeneralNumlockEnable"
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *parent)
     : QWidget(parent)

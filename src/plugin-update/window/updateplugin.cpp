@@ -11,7 +11,7 @@
 #include <DFontSizeManager>
 
 #include <widgets/switchwidget.h>
-
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 QString UpdatePlugin::name() const

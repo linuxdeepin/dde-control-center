@@ -12,7 +12,7 @@
 
 #include <QDebug>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 WacomModule::WacomModule(QObject *parent)
@@ -20,13 +20,13 @@ WacomModule::WacomModule(QObject *parent)
     , m_model(new WacomModel(this))
 {
     connect(m_model, &WacomModel::ExistChanged, this, [this](bool exist){
-        this->setHidden(!exist);
+        this->setHidden(!exist);qInfo()<<__FILE__<<__LINE__<<m_model->exist()<<exist;
     });
     // Mode
     appendChild(new ItemModule("Mode", tr("Mode"), this, &WacomModule::initModeModule,true));
     // Pressure
     appendChild(new ItemModule("Pressure",tr("Pressure"),this, &WacomModule::initPressureModule,false));
-    setHidden(!m_model->exist());
+    setHidden(!m_model->exist());qInfo()<<__FILE__<<__LINE__<<m_model->exist();
 }
 
 QWidget* WacomModule::initModeModule(ModuleObject *module)

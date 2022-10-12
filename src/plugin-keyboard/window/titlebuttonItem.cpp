@@ -28,7 +28,7 @@
 #include <QFileDialog>
 #include <QSpacerItem>
 #include <QTimer>
-
+using namespace DCC_NAMESPACE;
 TitleButtonItem::TitleButtonItem(QFrame *parent)
     :SettingsItem(parent)
 {

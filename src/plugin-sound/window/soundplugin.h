@@ -25,11 +25,9 @@
 #include "interface/hlistmodule.h"
 #include "interface/plugininterface.h"
 
-DCC_USE_NAMESPACE
-
 class SoundModel;
 class SoundWorker;
-class SoundPlugin : public PluginInterface
+class SoundPlugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Sound" FILE "sound.json")
@@ -38,12 +36,12 @@ public:
     explicit SoundPlugin() {}
 
     virtual QString name() const override;
-    virtual ModuleObject *module() override;
+    virtual DCC_NAMESPACE::ModuleObject *module() override;
     virtual QString location() const override;
 };
 
 // 一级页面
-class SoundModule : public HListModule
+class SoundModule : public DCC_NAMESPACE::HListModule
 {
     Q_OBJECT
 public:
@@ -62,7 +60,7 @@ private:
 };
 
 // 三级详情页
-class OutputModule : public ModuleObject
+class OutputModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
@@ -76,7 +74,7 @@ private:
     SoundWorker *m_worker;
 };
 
-class InputModule : public ModuleObject
+class InputModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
@@ -90,7 +88,7 @@ private:
     SoundWorker *m_worker;
 };
 
-class SoundEffectsModule : public ModuleObject
+class SoundEffectsModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
@@ -118,7 +116,7 @@ public:
 
 
 // 输入设备
-class InputDeviceModule : public ModuleObject
+class InputDeviceModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
@@ -133,7 +131,7 @@ private:
 };
 
 // 输出设备
-class OutputDeviceModule : public ModuleObject
+class OutputDeviceModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:

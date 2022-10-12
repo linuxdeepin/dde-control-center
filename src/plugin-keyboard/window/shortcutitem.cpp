@@ -35,7 +35,7 @@
 #include <QTimer>
 #include <QApplication>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 ShortcutItem::ShortcutItem(QFrame *parent)

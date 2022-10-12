@@ -10,7 +10,7 @@
 #include <QComboBox>
 #include <QPushButton>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 TouchScreenModule::TouchScreenModule(QObject *parent)

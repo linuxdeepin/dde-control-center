@@ -22,7 +22,7 @@
 #define PAGEMODULE_H
 #include "interface/moduleobject.h"
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class PageModulePrivate;
 class PageModule : public ModuleObject
 {
@@ -68,5 +68,5 @@ public:
 
     DCC_DECLARE_PRIVATE(PageModule)
 };
-DCC_END_NAMESPACE
+}
 #endif // PAGEMODULE_H

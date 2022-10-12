@@ -26,8 +26,6 @@
 
 #include <QWidget>
 
-DCC_USE_NAMESPACE
-
 class PrivacySecurityWorker;
 class PrivacySecurityModel;
 
@@ -41,7 +39,7 @@ public:
     ~PrivacyPlugin() override;
 
     virtual QString name() const override;
-    virtual ModuleObject *module() override;
+    virtual DCC_NAMESPACE::ModuleObject *module() override;
     virtual QString location() const override;
 
 private:

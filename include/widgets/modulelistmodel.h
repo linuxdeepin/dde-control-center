@@ -25,7 +25,7 @@
 
 #include <QAbstractItemModel>
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class ModuleListModelPrivate;
 class ModuleListModel : public QAbstractItemModel
 {
@@ -45,5 +45,5 @@ public:
 
     DCC_DECLARE_PRIVATE(ModuleListModel)
 };
-DCC_END_NAMESPACE
+}
 #endif // ModuleListModel_H

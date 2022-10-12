@@ -38,7 +38,7 @@ const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Propert
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 const static char *PropertyName = "propname";
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 DCCDBusInterfacePrivate::DCCDBusInterfacePrivate(DCCDBusInterface *interface)
     : QObject(interface)

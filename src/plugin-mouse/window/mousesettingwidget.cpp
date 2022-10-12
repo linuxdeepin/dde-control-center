@@ -29,7 +29,7 @@
 
 #include <QVBoxLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 MouseSettingWidget::MouseSettingWidget(QWidget *parent)
     : QWidget(parent)

@@ -4,7 +4,7 @@
 #include "interface/namespace.h"
 #include "src/plugin-mouse/operation/mouseworker.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 class Tst_MouseWorker : public testing::Test
 {

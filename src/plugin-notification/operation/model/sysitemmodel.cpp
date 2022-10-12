@@ -20,7 +20,7 @@
  */
 #include "sysitemmodel.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 SysItemModel::SysItemModel(QObject *parent)
     : QObject(parent)

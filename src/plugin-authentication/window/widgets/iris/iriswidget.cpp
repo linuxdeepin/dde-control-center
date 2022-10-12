@@ -12,7 +12,7 @@
 #define IRISID_NUM 5
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 IrisWidget::IrisWidget(CharaMangerModel *model, QWidget *parent)
     : QWidget (parent)

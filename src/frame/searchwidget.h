@@ -108,7 +108,6 @@ private:
     void configConnect(ModuleObject *const module);
     QString convertUrl(const QString& url);
     QString convertPinyin(const QString& url);
-    QString removeDigital(const QString &word);
 
 private slots:
     void onReturnPressed();

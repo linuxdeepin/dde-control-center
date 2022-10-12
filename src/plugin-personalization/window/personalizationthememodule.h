@@ -24,9 +24,9 @@
 
 #include <QJsonObject>
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class DCCListView;
-DCC_END_NAMESPACE;
+};
 class QStandardItemModel;
 class QComboBox;
 

@@ -37,7 +37,7 @@
 #include <QSound>
 #include <QScroller>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 const int AnimationDuration = 5000;

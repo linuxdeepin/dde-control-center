@@ -34,7 +34,7 @@
 #include <QLayout>
 #include <QDebug>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 

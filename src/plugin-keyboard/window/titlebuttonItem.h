@@ -33,8 +33,7 @@
 #include <QPushButton>
 #include <QLineEdit>
 
-DCC_USE_NAMESPACE
-class TitleButtonItem : public SettingsItem
+class TitleButtonItem : public DCC_NAMESPACE::SettingsItem
 {
     Q_OBJECT
 public:

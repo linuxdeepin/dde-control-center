@@ -18,7 +18,7 @@
 #include <QApplication>
 #include <DStyle>
 #include <QComboBox>
-
+using namespace DCC_NAMESPACE;
 QString Test1Plugin::name() const
 {
     return QStringLiteral("plugin-test1");

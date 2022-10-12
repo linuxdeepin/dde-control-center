@@ -21,7 +21,7 @@
 #include "bluetoothplugin.h"
 #include "bluetoothmodule.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 BluetoothPlugin::BluetoothPlugin(QObject *parent)
     : PluginInterface(parent)

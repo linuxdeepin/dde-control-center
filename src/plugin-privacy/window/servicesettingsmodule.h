@@ -6,10 +6,10 @@
 #include <QObject>
 #include <privacysecuritymodel.h>
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class SwitchWidget;
 class SettingsGroup;
-DCC_END_NAMESPACE
+}
 
 QT_BEGIN_NAMESPACE
 class QLabel;

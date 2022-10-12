@@ -24,7 +24,7 @@
 #include "interface/namespace.h"
 #include <QDBusAbstractInterface>
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 
 class DCCDBusInterfacePrivate;
 
@@ -50,6 +50,6 @@ Q_SIGNALS:
     DCC_DECLARE_PRIVATE(DCCDBusInterface)
 };
 
-DCC_END_NAMESPACE
+}
 
 #endif // DCCDBUSINTERFACE_H

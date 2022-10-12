@@ -35,9 +35,9 @@ class QPushButton;
 class QLabel;
 QT_END_NAMESPACE
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class SettingsGroup;
-DCC_END_NAMESPACE
+}
 
 DWIDGET_BEGIN_NAMESPACE
 class DSpinner;

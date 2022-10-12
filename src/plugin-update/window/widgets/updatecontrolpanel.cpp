@@ -14,7 +14,7 @@
 #include <DFontSizeManager>
 #include <QVBoxLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 updateControlPanel::updateControlPanel(QWidget *parent)

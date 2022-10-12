@@ -37,7 +37,7 @@
 #include <QProcess>
 #include <QFile>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)

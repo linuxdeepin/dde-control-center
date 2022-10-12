@@ -23,7 +23,7 @@
 
 #include "interface/moduleobject.h"
 #include "settingsgroup.h"
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class SettingsGroupModulePrivate;
 class SettingsGroupModule : public ModuleObject
 {
@@ -43,5 +43,5 @@ public:
 
     DCC_DECLARE_PRIVATE(SettingsGroupModule)
 };
-DCC_END_NAMESPACE
+}
 #endif // SETTINGSGROUPMODULE_H

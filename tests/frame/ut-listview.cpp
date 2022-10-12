@@ -5,7 +5,7 @@
 #include "src/frame/listitemdelegate.h"
 #include "src/interface/moduledatamodel.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 const static QString G_icons[] = {
     "chmsee-icon",
     "deepin-compressor",

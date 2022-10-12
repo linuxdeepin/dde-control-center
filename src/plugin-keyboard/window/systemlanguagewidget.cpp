@@ -38,7 +38,7 @@
 
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent)
     : QWidget(parent)

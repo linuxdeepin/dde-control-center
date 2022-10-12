@@ -4,7 +4,7 @@
 
 #include "widgets/lineeditwidget.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 class Tst_LineEditWidget : public testing::Test
 {

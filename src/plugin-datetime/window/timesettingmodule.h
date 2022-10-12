@@ -22,13 +22,13 @@
 #define TIMESETTINGMODULE_H
 #include "interface/pagemodule.h"
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class SettingsGroup;
 class SwitchWidget;
 class ComboxWidget;
 class LineEditWidget;
 class ButtonTuple;
-DCC_END_NAMESPACE
+}
 
 class DatetimeModel;
 class DatetimeWorker;

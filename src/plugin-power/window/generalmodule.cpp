@@ -36,7 +36,7 @@
 #define PERFORMANCE "performance" // 高性能模式
 #define POWERSAVE "powersave"     // 节能模式
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
     DWIDGET_USE_NAMESPACE
 
     GeneralModule::GeneralModule(PowerModel *model, PowerWorker *work, QObject *parent)

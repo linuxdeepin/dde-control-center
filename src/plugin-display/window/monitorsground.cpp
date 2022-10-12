@@ -37,7 +37,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 const int MIN_W = 484; //窗口的最小宽度
 const int MAX_W = 726; //窗口的最大宽度
 

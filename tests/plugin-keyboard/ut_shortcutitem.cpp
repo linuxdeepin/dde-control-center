@@ -5,7 +5,7 @@
 #include "gtest/gtest.h"
 #include <QtTest/QtTest>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 class Tst_ShortcutItem : public testing::Test

@@ -34,7 +34,7 @@
 #include <QLabel>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 SET_FORM_ACCESSIBLE(TitleValueItem,"TitleValueItem")
 ResizeEventFilter::ResizeEventFilter(QObject *parent) : QObject(parent) {}
 

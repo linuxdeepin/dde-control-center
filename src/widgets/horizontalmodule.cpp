@@ -4,9 +4,9 @@
 #include <QWidget>
 #include <QHBoxLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class HorizontalModulePrivate
 {
 public:
@@ -113,7 +113,7 @@ public:
     HorizontalModule::StretchType m_stretchType;
     int m_spacing;
 };
-DCC_END_NAMESPACE
+}
 
 HorizontalModule::HorizontalModule(const QString &name, const QString &displayName, QObject *parent)
     : ModuleObject(name, displayName, parent)

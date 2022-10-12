@@ -24,7 +24,7 @@
 #include <QObject>
 #include <QStandardPaths>
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class ModuleObject;
 
 __attribute__((unused)) static bool IsModulesLoaded = false;
@@ -34,4 +34,4 @@ QByteArray getFileMd5(const QString &filePath);
 ModuleObject *GetModuleByUrl(ModuleObject *const root, const QString &url);
 QString GetUrlByModule(ModuleObject *const module);
 
-DCC_END_NAMESPACE
+}

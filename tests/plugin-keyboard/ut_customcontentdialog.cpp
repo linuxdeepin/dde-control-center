@@ -6,7 +6,7 @@
 
 #include "gtest/gtest.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 class Tst_CustomContentDialog : public testing::Test

@@ -25,7 +25,7 @@
 
 #include "displaymodel.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 const double DoubleZero = 0.000001;
 bool contains(const QList<Resolution> &container, const Resolution &item)
 {

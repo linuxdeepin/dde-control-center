@@ -5,7 +5,7 @@
 
 #include <QDebug>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 class Tst_ModuleObject : public testing::Test
 {

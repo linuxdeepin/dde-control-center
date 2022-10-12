@@ -7,7 +7,7 @@
 #include <QVBoxLayout>
 #include <float.h>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 SystemUpdateItem::SystemUpdateItem(QWidget *parent)

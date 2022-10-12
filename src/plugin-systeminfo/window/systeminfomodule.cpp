@@ -41,7 +41,7 @@
 #include <qapplication.h>
 #include <qwidget.h>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
 
 SystemInfoModule::SystemInfoModule(QObject *parent)

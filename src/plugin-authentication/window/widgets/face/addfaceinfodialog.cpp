@@ -35,7 +35,7 @@
 #include <QDialog>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 AddFaceInfoDialog::AddFaceInfoDialog(CharaMangerModel *model, QWidget *parent)
     : DAbstractDialog(parent)

@@ -22,7 +22,7 @@
 #define LISTVIEWMODULE_H
 
 #include "interface/moduleobject.h"
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class ListViewModulePrivate;
 class ListViewModule : public ModuleObject
 {
@@ -39,5 +39,5 @@ Q_SIGNALS:
 
     DCC_DECLARE_PRIVATE(ListViewModule)
 };
-DCC_END_NAMESPACE
+}
 #endif // LISTVIEWMODULE_H

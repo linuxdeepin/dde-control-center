@@ -38,7 +38,7 @@
 #define PASSWORD_LEVEL_ICON_MIDDLE_PATH ":/accounts/icons/dcc_deepin_password_strength_middle.svg"
 #define PASSWORD_LEVEL_ICON_HIGH_PATH ":/accounts/icons/dcc_deepin_password_strength_high.svg"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 SET_FORM_ACCESSIBLE(SecurityLevelItem, "SecurityLevelItem")
 SecurityLevelItem::SecurityLevelItem(QWidget *parent)

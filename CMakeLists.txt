@@ -17,7 +17,7 @@ else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Ofast")
 
     # generate qm
-    execute_process(COMMAND bash "translate_generation.sh"
+    execute_process(COMMAND bash "misc/translate_generation.sh"
                     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
 

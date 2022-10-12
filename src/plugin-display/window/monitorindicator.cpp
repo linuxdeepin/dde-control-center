@@ -31,7 +31,7 @@
 
 #define LINE_WIDTH 10
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 MonitorIndicator::MonitorIndicator(QWidget *parent)
     : QFrame(nullptr)

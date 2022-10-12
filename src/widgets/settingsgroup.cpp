@@ -36,7 +36,7 @@
 #include <QDebug>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 SET_FORM_ACCESSIBLE(SettingsGroup,"SettingsGroup");
 SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
     : QFrame(parent)

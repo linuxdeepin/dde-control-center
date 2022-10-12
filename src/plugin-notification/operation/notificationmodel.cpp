@@ -22,7 +22,7 @@
 #include "model/sysitemmodel.h"
 #include "model/appitemmodel.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 #define SYSTEMNOTIFY_NAME "SystemNotify"
 

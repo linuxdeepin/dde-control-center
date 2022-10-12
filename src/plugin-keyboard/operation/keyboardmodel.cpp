@@ -26,7 +26,7 @@
 #include "keyboardmodel.h"
 #include <QDebug>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 KeyboardModel::KeyboardModel(QObject *parent)
     : QObject(parent)
     , m_capsLock(true)

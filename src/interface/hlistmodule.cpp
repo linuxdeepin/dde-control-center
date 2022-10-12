@@ -7,10 +7,10 @@
 #include <DFrame>
 #include <QVBoxLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class HListModulePrivate
 {
 public:
@@ -83,7 +83,7 @@ private:
     TabView *m_view;
     QVBoxLayout *m_layout;
 };
-DCC_END_NAMESPACE
+}
 
 HListModule::HListModule(QObject *parent)
     : ModuleObject(parent)

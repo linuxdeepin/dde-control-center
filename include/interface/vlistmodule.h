@@ -22,7 +22,7 @@
 #define VLISTMODULE_H
 #include "interface/moduleobject.h"
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class VListModulePrivate;
 class VListModule : public ModuleObject
 {
@@ -44,5 +44,5 @@ public:
 
     DCC_DECLARE_PRIVATE(VListModule)
 };
-DCC_END_NAMESPACE
+}
 #endif // VLISTMODULE_H

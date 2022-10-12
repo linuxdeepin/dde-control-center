@@ -24,7 +24,7 @@
 #include <DFontSizeManager>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 TitleModule::TitleModule(const QString &name, const QString &title, QObject *parent)
     : ModuleObject(parent)

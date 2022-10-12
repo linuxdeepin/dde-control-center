@@ -34,11 +34,11 @@ class QStandardItemModel;
 class QVBoxLayout;
 QT_END_NAMESPACE
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class TitledSliderItem;
 class SwitchWidget;
 class ComboxWidget;
-DCC_END_NAMESPACE
+}
 
 #define ICON_SIZE 24
 

@@ -31,7 +31,7 @@
 
 #include <QVBoxLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 ShortcutContentDialog::ShortcutContentDialog(ShortcutModel *model, QWidget *parent)
     : DAbstractDialog(parent)
     , m_model(model)

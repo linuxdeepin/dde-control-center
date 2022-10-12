@@ -36,7 +36,7 @@ const int VerticalMargin = 12;
 const int HorizentalMargin = 22;
 const int yoffset = 220;
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 RecognizeWidget::RecognizeWidget(Monitor *monitor, QString text, QWidget *parent)
     : DBlurEffectWidget(parent), m_monitor(monitor), m_text(text)
 {

@@ -22,9 +22,9 @@
 #define FORMATSETTINGMODULE_H
 #include "interface/pagemodule.h"
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class SettingsGroup;
-DCC_END_NAMESPACE
+}
 
 class DatetimeModel;
 class DatetimeWorker;

@@ -22,7 +22,7 @@
 
 #include <QVariant>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 AppItemModel::AppItemModel(QObject *parent)
     : QObject(parent)

@@ -7,7 +7,7 @@
 #include <QDateTime>
 #include <QDebug>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 TouchScreenModel::TouchScreenModel(QObject *parent)
     : QObject(parent)

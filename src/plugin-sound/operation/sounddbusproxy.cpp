@@ -27,7 +27,7 @@ const static QString MeterInterface = QStringLiteral("org.deepin.daemon.Audio1.M
 const static QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 SoundDBusProxy::SoundDBusProxy(QObject *parent)
     : QObject(parent)
     , m_audioInter(new DCCDBusInterface(AudioService, AudioPath, AudioInterface, QDBusConnection::sessionBus(), this))

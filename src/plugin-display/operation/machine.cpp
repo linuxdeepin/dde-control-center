@@ -21,7 +21,7 @@
 
 #include "machine.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 Machine::Machine(QObject *parent)
     : QObject(parent)

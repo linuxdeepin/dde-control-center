@@ -24,9 +24,9 @@
 #include <tuple>
 #include "interface/namespace.h"
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class DCCDBusInterface;
-DCC_END_NAMESPACE
+}
 
 class QDBusMessage;
 

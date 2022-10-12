@@ -35,6 +35,8 @@
 #include "window/accountsmodel.h"
 
 #include "widgets/widgetmodule.h"
+#include "widgets/listviewmodule.h"
+#include "widgets/moduleobjectitem.h"
 
 #include <DDialog>
 
@@ -64,7 +66,7 @@
 #include <DDBusSender>
 #include <grp.h>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
@@ -115,103 +117,6 @@ void AccountSpinBox::focusOutEvent(QFocusEvent *event)
     return DSpinBox::focusOutEvent(event);
 }
 ///////////////////////////////////////
-class AutoLoginModel : public QAbstractItemModel
-{
-
-public:
-    explicit AutoLoginModel(QObject *parent = nullptr)
-        : QAbstractItemModel(parent)
-        , m_user(nullptr)
-        , m_enable(true)
-    {
-        m_data.append({ tr("Auto Login"), { new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), false) } });
-        m_data.append({ tr("Login Without Password"), { new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), false) } });
-    }
-    ~AutoLoginModel()
-    {
-        for (auto &&it : m_data) {
-            qDeleteAll(it.second);
-        }
-    }
-
-    void setUser(DCC_NAMESPACE::User *user)
-    {
-        if (m_user) {
-            disconnect(m_user, 0, this, 0);
-        }
-        m_user = user;
-        onDataChanged();
-        connect(m_user, &User::autoLoginChanged, this, [this] { onDataChanged(); });
-        connect(m_user, &User::nopasswdLoginChanged, this, [this] { onDataChanged(); });
-    }
-    void setEnable(bool enable)
-    {
-        m_enable = enable;
-    }
-    // Basic functionality:
-    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override
-    {
-        Q_UNUSED(parent);
-        if (row < 0 || row >= 2)
-            return QModelIndex();
-        return createIndex(row, column);
-    }
-    QModelIndex parent(const QModelIndex &index) const override
-    {
-        Q_UNUSED(index);
-        return QModelIndex();
-    }
-
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override
-    {
-        if (!parent.isValid() && m_user)
-            return 2;
-
-        return 0;
-    }
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override
-    {
-        Q_UNUSED(parent);
-        return 1;
-    }
-
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override
-    {
-        if (m_data.isEmpty() || !index.isValid())
-            return QVariant();
-
-        int row = index.row();
-        switch (role) {
-        case Qt::DisplayRole:
-            return m_data.at(row).first;
-        case Dtk::RightActionListRole:
-            return QVariant::fromValue(m_data.at(row).second);
-        default:
-            break;
-        }
-        return QVariant();
-    }
-    Qt::ItemFlags flags(const QModelIndex &index) const override
-    {
-        Qt::ItemFlags flag = QAbstractItemModel::flags(index);
-        flag.setFlag(Qt::ItemIsEnabled, m_enable && m_user->isCurrentUser());
-        return flag;
-    }
-
-    void onDataChanged()
-    {
-        m_data.at(0).second.first()->setIcon(qobject_cast<DStyle *>(qApp->style())->standardIcon(m_user->autoLogin() ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked));
-        m_data.at(1).second.first()->setIcon(qobject_cast<DStyle *>(qApp->style())->standardIcon(m_user->nopasswdLogin() ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked));
-        beginResetModel();
-        endResetModel();
-    }
-
-private:
-    DCC_NAMESPACE::User *m_user;
-    QList<QPair<QString, DViewItemActionList>> m_data;
-    bool m_enable;
-};
-///////////////////////////////////////
 AccountsModule::AccountsModule(QObject *parent)
     : PageModule("accounts", tr("Accounts"), tr("Accounts"), QIcon::fromTheme("dcc_nav_accounts"), parent)
     , m_model(nullptr)
@@ -236,7 +141,15 @@ AccountsModule::AccountsModule(QObject *parent)
     appendChild(new WidgetModule<QWidget>("deleteAccount", tr("Delete Account"), this, &AccountsModule::initModifyButton));
     //
     appendChild(new WidgetModule<SettingsGroup>("accountType", tr("Account Type"), this, &AccountsModule::initAccountType));
-    appendChild(new WidgetModule<DCCListView>("autoLogin", tr("Auto Login"), this, &AccountsModule::initAutoLogin));
+
+    ListViewModule *listViewModule = new ListViewModule("autoLogin", tr("Auto Login"));
+    connect(listViewModule, &ListViewModule::clicked, this, &AccountsModule::onLoginModule);
+    appendChild(listViewModule);
+    m_autoLoginModule = new ModuleObjectItem("autoLogin", tr("Auto Login"));
+    listViewModule->appendChild(m_autoLoginModule);
+    m_loginWithoutPasswordModule = new ModuleObjectItem("loginWithoutPassword", tr("Login Without Password"));
+    listViewModule->appendChild(m_loginWithoutPasswordModule);
+
     appendChild(new WidgetModule<SettingsGroup>("validityDays", tr("Validity Days"), this, &AccountsModule::initValidityDays));
 
     if (DSysInfo::UosServer == DSysInfo::uosType()) {
@@ -272,13 +185,12 @@ void AccountsModule::active()
             break;
         }
     }
-    m_curUser = m_model->userList().first();
     m_checkAuthorizationing = false;
     if (!m_accountsmodel) {
         m_accountsmodel = new AccountsModel(this);
         m_accountsmodel->setUserModel(m_model);
-        setCurrentUser(m_accountsmodel->getUser(m_accountsmodel->index(0, 0)));
     }
+    setCurrentUser(m_accountsmodel->getUser(m_accountsmodel->index(0, 0)));
 }
 
 bool AccountsModule::isSystemAdmin(User *user)
@@ -546,56 +458,6 @@ void AccountsModule::initAccountType(SettingsGroup *accountSettingsGrp)
     });
 }
 
-void AccountsModule::initAutoLogin(DCCListView *listview)
-{
-    listview->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    listview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    listview->setSelectionMode(QListView::SelectionMode::NoSelection);
-    listview->setEditTriggers(DListView::NoEditTriggers);
-    listview->setFrameShape(DListView::NoFrame);
-    listview->setViewportMargins(10, 0, 10, 0);
-    listview->setItemSpacing(1);
-    QMargins itemMargins(listview->itemMargins());
-    itemMargins.setLeft(1);
-    listview->setItemMargins(itemMargins);
-    listview->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
-
-    AutoLoginModel *model = new AutoLoginModel(listview);
-    model->setUser(m_curUser);
-    model->setEnable(!(m_model->getIsSecurityHighLever() && m_curLoginUser->securityLever() != SecurityLever::Sysadm));
-    listview->setModel(model);
-    connect(this, &AccountsModule::currentUserChanged, model, [model](User *user, User *oldUser) { model->setUser(user); });
-
-    connect(listview, &DListView::clicked, this, [this, listview](const QModelIndex &index) {
-        if (!(index.flags() & Qt::ItemIsEnabled))
-            return;
-        if (index.row() == 0) {
-            bool autoLogin = !m_curUser->autoLogin();
-            if (autoLogin) {
-                const QString &existedAutoLoginUserName = getOtherUserAutoLogin();
-                if (existedAutoLoginUserName.isEmpty()) {
-                    m_worker->setAutoLogin(m_curUser, autoLogin);
-                } else {
-                    DDialog *tipDialog = new DDialog(listview);
-                    tipDialog->setIcon(QIcon::fromTheme("dialog-warning"));
-                    tipDialog->setModal(true);
-                    tipDialog->setAttribute(Qt::WA_DeleteOnClose);
-                    tipDialog->addButton(tr("OK"));
-                    tipDialog->setMessage(tr("\"Auto Login\" can be enabled for only one account, please disable it for the account \"%1\" first").arg(existedAutoLoginUserName));
-                    tipDialog->setFixedWidth(422);
-                    tipDialog->show();
-                }
-            } else {
-                m_worker->setAutoLogin(m_curUser, autoLogin);
-            }
-        }
-
-        if (index.row() == 1) {
-            m_worker->setNopasswdLogin(m_curUser, !m_curUser->nopasswdLogin());
-        }
-    });
-}
-
 void AccountsModule::initValidityDays(SettingsGroup *pwGroup)
 {
     // 设置密码有效期
@@ -656,7 +518,6 @@ void AccountsModule::initValidityDays(SettingsGroup *pwGroup)
     updateValidityDays(m_curUser, nullptr);
 
     connect(this, &AccountsModule::currentUserChanged, validityDaysBox, updateValidityDays);
-
 }
 
 void AccountsModule::onCreateAccount()
@@ -758,10 +619,15 @@ void AccountsModule::setCurrentUser(User *user)
     if (user && m_curUser != user) {
         User *oldUser = m_curUser;
         m_curUser = user;
-        if (oldUser)
-            disconnect(oldUser, &User::groupsChanged, this, 0);
+        if (oldUser) {
+            disconnect(oldUser, 0, this, 0);
+        }
         connect(m_curUser, &User::groupsChanged, this, &AccountsModule::changeUserGroup);
         changeUserGroup(m_curUser->groups());
+
+        connect(m_curUser, &User::autoLoginChanged, this, &AccountsModule::updateLoginModule);
+        connect(m_curUser, &User::nopasswdLoginChanged, this, &AccountsModule::updateLoginModule);
+        updateLoginModule();
         emit currentUserChanged(m_curUser, oldUser);
     }
 }
@@ -907,16 +773,48 @@ void AccountsModule::onShowSafetyPage(const QString &errorTips)
     connect(&dlg, &DDialog::buttonClicked, this, [=](int idx) {
         if (idx == 0) {
             DDBusSender()
-                .service("com.deepin.defender.hmiscreen")
-                .interface("com.deepin.defender.hmiscreen")
-                .path("/com/deepin/defender/hmiscreen")
-                .method(QString("ShowPage"))
-                .arg(QString("securitytools"))
-                .arg(QString("login-safety"))
-                .call();
+                    .service("com.deepin.defender.hmiscreen")
+                    .interface("com.deepin.defender.hmiscreen")
+                    .path("/com/deepin/defender/hmiscreen")
+                    .method(QString("ShowPage"))
+                    .arg(QString("securitytools"))
+                    .arg(QString("login-safety"))
+                    .call();
         }
     });
     dlg.exec();
+}
+
+void AccountsModule::onLoginModule(ModuleObject *module)
+{
+    if (module == m_autoLoginModule) {
+        bool autoLogin = !m_curUser->autoLogin();
+        if (autoLogin) {
+            const QString &existedAutoLoginUserName = getOtherUserAutoLogin();
+            if (existedAutoLoginUserName.isEmpty()) {
+                m_worker->setAutoLogin(m_curUser, autoLogin);
+            } else {
+                DDialog *tipDialog = new DDialog(qobject_cast<QWidget *>(sender()));
+                tipDialog->setIcon(QIcon::fromTheme("dialog-warning"));
+                tipDialog->setModal(true);
+                tipDialog->setAttribute(Qt::WA_DeleteOnClose);
+                tipDialog->addButton(tr("OK"));
+                tipDialog->setMessage(tr("\"Auto Login\" can be enabled for only one account, please disable it for the account \"%1\" first").arg(existedAutoLoginUserName));
+                tipDialog->setFixedWidth(422);
+                tipDialog->show();
+            }
+        } else {
+            m_worker->setAutoLogin(m_curUser, autoLogin);
+        }
+    } else if (module == m_loginWithoutPasswordModule) {
+        m_worker->setNopasswdLogin(m_curUser, !m_curUser->nopasswdLogin());
+    }
+}
+
+void AccountsModule::updateLoginModule()
+{
+    m_autoLoginModule->setRightIcon(m_curUser->autoLogin() ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked);
+    m_loginWithoutPasswordModule->setRightIcon(m_curUser->nopasswdLogin() ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked);
 }
 
 QString AccountsModule::getOtherUserAutoLogin()

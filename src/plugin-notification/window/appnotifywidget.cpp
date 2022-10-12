@@ -31,7 +31,7 @@
 #include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 AppNotifyWidget::AppNotifyWidget(AppItemModel *model, QWidget *parent)
     : QWidget(parent)

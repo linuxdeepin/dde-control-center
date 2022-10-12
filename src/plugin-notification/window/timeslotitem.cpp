@@ -26,7 +26,7 @@
 #include <QTime>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 //消息通知时间段项
 TimeSlotItem::TimeSlotItem(QWidget *parent)

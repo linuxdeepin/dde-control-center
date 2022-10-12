@@ -22,7 +22,7 @@
 #define MAINMODULE_H
 #include "interface/moduleobject.h"
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class MainModulePrivate;
 class MainModule : public ModuleObject
 {
@@ -45,5 +45,5 @@ public:
 
     DCC_DECLARE_PRIVATE(MainModule)
 };
-DCC_END_NAMESPACE
+}
 #endif // MAINMODULE_H

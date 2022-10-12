@@ -4,7 +4,7 @@
 
 #include "widgets/titlelabel.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 class Tst_TitleLabel : public testing::Test
 {

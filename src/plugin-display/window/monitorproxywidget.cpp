@@ -33,7 +33,7 @@
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, DisplayModel *model)
     : m_monitor(mon)
     , m_model(model)

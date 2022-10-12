@@ -26,7 +26,7 @@
 
 #include <QVBoxLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 TrackPointSettingWidget::TrackPointSettingWidget(QWidget *parent) : QWidget(parent)
 {
     m_trackPointSettingsGrp = new SettingsGroup;

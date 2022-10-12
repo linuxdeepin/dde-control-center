@@ -44,7 +44,7 @@ Q_DECLARE_METATYPE(DDciIcon)
 #endif
 DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 ListItemDelegate::ListItemDelegate(QAbstractItemView *parent)
     : DStyledItemDelegate(parent)

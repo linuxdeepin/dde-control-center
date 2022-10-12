@@ -25,11 +25,10 @@
 #include "interface/hlistmodule.h"
 #include "interface/plugininterface.h"
 
-DCC_USE_NAMESPACE
 
 class UpdateWorker;
 class UpdateModel;
-class UpdatePlugin : public PluginInterface
+class UpdatePlugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Update" FILE "update.json")
@@ -39,12 +38,12 @@ public:
     explicit UpdatePlugin() {}
 
     virtual QString name() const override;
-    virtual ModuleObject *module() override;
+    virtual DCC_NAMESPACE::ModuleObject *module() override;
     virtual QString location() const override;
 };
 
 // 一级页面
-class UpdateModule : public HListModule
+class UpdateModule : public DCC_NAMESPACE::HListModule
 {
     Q_OBJECT
 public:
@@ -64,7 +63,7 @@ private:
 };
 
 // 检查更新
-class checkUpdateModule : public ModuleObject
+class checkUpdateModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:

@@ -9,7 +9,7 @@
 #include <QTest>
 #include <gtest/gtest.h>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 class Test_CommonInfoWork: public testing::Test
 {
 public:

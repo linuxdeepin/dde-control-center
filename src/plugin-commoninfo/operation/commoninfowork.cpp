@@ -30,7 +30,7 @@
 #include <QDateTime>
 #include <QProcess>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 const QString &GRUB_EDIT_AUTH_ACCOUNT("root");
 

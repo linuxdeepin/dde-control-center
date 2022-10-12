@@ -4,7 +4,7 @@
 
 #include "widgets/titledslideritem.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 class Tst_TitledSliderItem : public testing::Test
 {

@@ -8,10 +8,10 @@
 #include <QHBoxLayout>
 #include <QSplitter>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class VListModulePrivate
 {
 public:
@@ -170,7 +170,7 @@ private:
     QList<DCC_NAMESPACE::ModuleObject *> m_extraModules;
     int m_childMargin;
 };
-DCC_END_NAMESPACE
+}
 
 VListModule::VListModule(QObject *parent)
     : ModuleObject(parent)

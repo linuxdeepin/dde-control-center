@@ -26,7 +26,7 @@
 #include <QFile>
 #include <QCryptographicHash>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 QByteArray DCC_NAMESPACE::getFileMd5(const QString &filePath)
 {

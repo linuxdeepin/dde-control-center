@@ -37,7 +37,7 @@
 
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 SET_FORM_ACCESSIBLE(SettingsItem, "SettingsItem");
 SettingsItem::SettingsItem(QWidget *parent)
     : QFrame(parent)

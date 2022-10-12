@@ -30,7 +30,7 @@
 #include <QDebug>
 #include <QScroller>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 IndexView::IndexView(QWidget *parent)
     :DListView(parent)
 {

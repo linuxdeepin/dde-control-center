@@ -34,7 +34,7 @@ const static QString AirPlaneModeService = "org.deepin.daemon.AirplaneMode1";
 const static QString AirPlaneModePath = "/org/deepin/daemon/AirplaneMode1";
 const static QString AirPlaneModeInterface = "org.deepin.daemon.AirplaneMode1";
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 BluetoothDBusProxy::BluetoothDBusProxy(QObject *parent)
     : QObject(parent)

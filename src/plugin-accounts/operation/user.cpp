@@ -25,7 +25,7 @@
 
 #include "user.h"
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 User::User(QObject *parent)
     : QObject(parent)
     , m_isCurrentUser(false)

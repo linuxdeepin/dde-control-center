@@ -11,7 +11,7 @@
 #include <DStyle>
 #include <QPainterPath>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 AccountsModel::AccountsModel(QObject *parent)

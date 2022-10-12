@@ -24,7 +24,7 @@
 
 #include <DListView>
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class DCCListView : public DTK_WIDGET_NAMESPACE::DListView
 {
     Q_OBJECT
@@ -34,5 +34,5 @@ public:
 protected slots:
     void updateGeometries() override;
 };
-DCC_END_NAMESPACE
+}
 #endif // DCCLISTVIEW_H

@@ -31,7 +31,7 @@
 #include <QVBoxLayout>
 #include <QTimer>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)

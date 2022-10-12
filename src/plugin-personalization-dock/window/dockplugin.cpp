@@ -45,6 +45,7 @@
 #include <QCheckBox>
 
 DWIDGET_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 enum DisplayMode {
     Fashion     = 0,    // 时尚模式

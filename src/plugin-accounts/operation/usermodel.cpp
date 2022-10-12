@@ -27,7 +27,7 @@
 
 #include <QDebug>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 UserModel::UserModel(QObject *parent)
     : QObject(parent)

@@ -28,7 +28,7 @@
 const float MinScreenWidth = 1024.0f;
 const float MinScreenHeight = 768.0f;
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 ScalingWidget::ScalingWidget(QWidget *parent)

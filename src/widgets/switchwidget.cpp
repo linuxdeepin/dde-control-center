@@ -33,7 +33,7 @@
 #include <QMouseEvent>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 SET_LABEL_ACCESSIBLE(SwitchLabel,"SwitchLabel");
 SwitchLabel::SwitchLabel(QWidget *parent, Qt::WindowFlags f)
     : QLabel (parent,f)

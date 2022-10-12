@@ -34,7 +34,7 @@
 #include <QStandardItemModel>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 fillModeCombox::fillModeCombox(QWidget *parent)
     : QComboBox(parent)

@@ -6,7 +6,7 @@
 #include "faceiddetailwidget.h"
 #include "fingerdetailwidget.h"
 #include "irisdetailwidget.h"
-
+using namespace DCC_NAMESPACE;
 QString AuthenticationPlugin::name() const
 {
     return QStringLiteral("Authentication");

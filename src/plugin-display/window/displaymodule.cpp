@@ -37,7 +37,7 @@
 #include <QDesktopWidget>
 #include <QVBoxLayout>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 QString DisplayPlugin::name() const
 {

@@ -38,7 +38,7 @@
 #include <QPushButton>
 #include <QSpinBox>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 const static int SpinBtnLength = 26;

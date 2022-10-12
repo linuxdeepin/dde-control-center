@@ -34,7 +34,8 @@
 namespace DCC_NAMESPACE {
 
 class ShortcutItem;
-struct ShortcutInfo {
+struct ShortcutInfo
+{
     QString accels;
     QString id;
     QString name;
@@ -43,6 +44,12 @@ struct ShortcutInfo {
     ShortcutInfo *replace = nullptr;
     ShortcutItem *item = nullptr;
 
+    ShortcutInfo()
+        : type(0)
+        , replace(nullptr)
+        , item(nullptr)
+    {
+    }
     bool operator==(const ShortcutInfo &info) const
     {
         return id == info.id && type == info.type;

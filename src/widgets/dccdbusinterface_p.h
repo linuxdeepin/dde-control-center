@@ -25,7 +25,7 @@
 
 class QDBusPendingCallWatcher;
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 
 class DCCDBusInterfacePrivate : public QObject
 {
@@ -55,6 +55,6 @@ public:
     Q_DECLARE_PUBLIC(DCCDBusInterface)
 };
 
-DCC_END_NAMESPACE
+}
 
 #endif // DCCDBUSINTERFACE_P_H

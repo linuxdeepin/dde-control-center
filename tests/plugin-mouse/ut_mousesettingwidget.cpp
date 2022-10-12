@@ -9,7 +9,7 @@
 
 #include <gtest/gtest.h>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 class Tst_MouseSettingWidget : public testing::Test
 {

@@ -40,7 +40,7 @@
 #include <QApplication>
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 Q_DECLARE_METATYPE(QMargins)
 NotificationWidget::NotificationWidget(NotificationModel *model, QStandardItemModel *softwaremodel, QWidget *parent)

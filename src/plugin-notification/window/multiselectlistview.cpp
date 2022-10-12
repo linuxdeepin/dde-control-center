@@ -4,7 +4,7 @@
 #include <QMouseEvent>
 #include <QDebug>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 MultiSelectListView::MultiSelectListView(QWidget *parent): DListView(parent) {
     setAccessibleName("MultiSelectListView");

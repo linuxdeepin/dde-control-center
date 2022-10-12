@@ -21,7 +21,7 @@
 #include "metadata.h"
 #include <QDebug>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 MetaData::MetaData(const QString &text, bool section)
     : m_text(text)

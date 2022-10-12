@@ -29,7 +29,7 @@
 #include <QDBusObjectPath>
 #include <QApplication>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 BluetoothModule::BluetoothModule(QObject *parent)
     : PageModule("bluetooth", tr("Bluetooth"), tr("Bluetooth"), QIcon::fromTheme("dcc_nav_bluetooth"), parent)

@@ -52,7 +52,7 @@
 #define UpgradeWarningSize 500
 #define FullUpdateBtnWidth 92
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
@@ -637,7 +637,6 @@ void UpdateCtrlWidget::showUpdateInfo()
 void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
 {
     showUpdateInfo();
-    //~ contents_path /update/Update
     setAllUpdateInfo(m_model->allDownloadInfo());
 
     setLowBattery(m_model->lowBattery());

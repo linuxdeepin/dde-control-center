@@ -25,7 +25,7 @@
 
 #include <DTitlebar>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 SystemLanguageSettingDialog::SystemLanguageSettingDialog(KeyboardModel *model, QWidget *parent)
     : DAbstractDialog(parent)
     , m_searchStatus(false)

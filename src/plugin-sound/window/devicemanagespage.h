@@ -37,13 +37,12 @@ class DTipLabel;
 DWIDGET_END_NAMESPACE
 
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class TitledSliderItem;
 class SettingsGroup;
-DCC_END_NAMESPACE
+}
 
 DWIDGET_USE_NAMESPACE
-DCC_USE_NAMESPACE
 
 class SoundModel;
 class DevicemanagesPage : public QWidget
@@ -72,7 +71,7 @@ private:
     SoundModel *m_model{ nullptr };
     QVBoxLayout *m_layout{ nullptr };
 
-    SettingsGroup *m_deviceGroup{ nullptr };
+    DCC_NAMESPACE::SettingsGroup *m_deviceGroup{ nullptr };
     QList<const Port *> m_devicePort;
 };
 

@@ -33,7 +33,7 @@
 #include <QEvent>
 #include <QPen>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 CustomItem::CustomItem(QWidget *parent)
     : SettingsItem(parent)
     , isAlert(false)

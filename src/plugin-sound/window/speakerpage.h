@@ -35,12 +35,12 @@ class QTimer;
 class QStandardItemModel;
 QT_END_NAMESPACE
 
-DCC_BEGIN_NAMESPACE
+namespace DCC_NAMESPACE {
 class TitledSliderItem;
 class SettingsGroup;
 class DCCSlider;
 class ComboxWidget;
-DCC_END_NAMESPACE
+}
 
 
 #define ICON_SIZE 24

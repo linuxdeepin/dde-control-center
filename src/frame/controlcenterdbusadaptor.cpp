@@ -38,7 +38,7 @@
 
 #include <unistd.h>
 
-DCC_USE_NAMESPACE
+using namespace DCC_NAMESPACE;
 
 /*
  * Implementation of adaptor class DBusControlCenter
