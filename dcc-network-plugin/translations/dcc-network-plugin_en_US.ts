@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Connecting</translation>
     </message>
     <message>
         <source>Disconnect</source>

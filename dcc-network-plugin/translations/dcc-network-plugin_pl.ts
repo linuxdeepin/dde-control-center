@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Łączenie</translation>
     </message>
     <message>
         <source>Disconnect</source>
@@ -444,7 +444,7 @@
     </message>
     <message>
         <source>The name already exists</source>
-        <translation>Nazwa już istnieje</translation>
+        <translation>Taka nazwa już istnieje</translation>
     </message>
     <message>
         <source>Name</source>
@@ -1894,7 +1894,7 @@
     </message>
     <message>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation>Jeśli chcesz połączyć się z siecią bezprzewodową, najpierw wyłącz Hotspot</translation>
+        <translation>Najpierw wyłącz Hotspot, aby połączyć się z siecią bezprzewodową</translation>
     </message>
     <message>
         <source>Connect to hidden network</source>

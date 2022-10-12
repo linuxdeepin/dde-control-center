@@ -10,7 +10,7 @@
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
-        <translation>Łączenie się z %1</translation>
+        <translation>Łączenie z %1</translation>
     </message>
     <message>
         <source>%1 connected</source>
@@ -30,7 +30,7 @@
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation>Połączenie nie powiodło się, nie można połączyć z %1, nieprawidłowe hasło</translation>
+        <translation>Połączenie nieudane, nie można połączyć się z %1, błędne hasło</translation>
     </message>
     <message>
         <source>Password is required to connect %1</source>

@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Povezujem se</translation>
     </message>
     <message>
         <source>Disconnect</source>
@@ -207,7 +207,7 @@
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation type="unfinished"/>
+        <translation>Zrakoplovni način</translation>
         <extra-child_page>Airplane Mode</extra-child_page>
         <extra-contents_path>/network/Airplane Mode</extra-contents_path>
     </message>
@@ -376,7 +376,7 @@
     <name>dccV20::network::AirplaneModepage</name>
     <message>
         <source>Airplane Mode</source>
-        <translation type="unfinished"/>
+        <translation>Zrakoplovni način</translation>
     </message>
     <message>
         <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
@@ -671,7 +671,7 @@
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation type="unfinished"/>
+        <translation>Zrakoplovni način</translation>
         <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>

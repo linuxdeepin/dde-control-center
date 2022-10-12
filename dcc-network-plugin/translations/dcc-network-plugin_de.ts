@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Wird verbunden</translation>
     </message>
     <message>
         <source>Disconnect</source>
@@ -380,7 +380,7 @@
     </message>
     <message>
         <source>Enabling the airplane mode turns off wireless network, personal hotspot and Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Wenn Sie den Flugzeugmodus aktivieren, werden Drahtlosnetzwerk, persönlicher Hotspot und Bluetooth ausgeschaltet</translation>
     </message>
 </context>
 <context>

@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>연결 중</translation>
     </message>
     <message>
         <source>Disconnect</source>

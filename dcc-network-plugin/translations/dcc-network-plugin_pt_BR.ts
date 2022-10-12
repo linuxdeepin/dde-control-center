@@ -80,7 +80,7 @@
     </message>
     <message>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Conectando</translation>
     </message>
     <message>
         <source>Disconnect</source>
@@ -2052,19 +2052,19 @@
     <name>dde::network::NetworkProcesser</name>
     <message>
         <source>Wired Network</source>
-        <translation>Rede via Cabo</translation>
+        <translation>Rede Cabeada</translation>
     </message>
     <message>
         <source>Wired Network %1</source>
-        <translation>Rede via Cabo %1</translation>
+        <translation>Rede Cabeada %1</translation>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation>Rede sem fio</translation>
+        <translation>Rede Wi-Fi</translation>
     </message>
     <message>
         <source>Wireless Network %1</source>
-        <translation>Rede sem fio %1</translation>
+        <translation>Rede Wi-Fi %1</translation>
     </message>
 </context>
 </TS>
