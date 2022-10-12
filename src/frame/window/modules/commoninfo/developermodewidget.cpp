@@ -157,10 +157,10 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
             Q_UNUSED(str);
             if (idx == 1) {
                 DDBusSender()
-                .service("com.deepin.SessionManager")
-                .interface("com.deepin.SessionManager")
-                .path("/com/deepin/SessionManager")
-                .method("RequestReboot")
+                .service("com.deepin.dde.shutdownFront")
+                .interface("com.deepin.dde.shutdownFront")
+                .path("/com/deepin/dde/shutdownFront")
+                .method("Restart")
                 .call();
             }
         });
