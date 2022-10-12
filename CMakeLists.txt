@@ -1143,6 +1143,44 @@ target_link_libraries(${Touchscreen_Name} PRIVATE
 
 install(TARGETS ${Touchscreen_Name} DESTINATION lib/dde-control-center/modules)
 
+#--------------------------plugin-wacom--------------------------
+set(Wacom_Name dcc-wacom-plugin)
+file(GLOB_RECURSE Wacom_SRCS
+    "src/plugin-wacom/window/*.cpp"
+    "src/plugin-wacom/operation/*.cpp"
+    "src/plugin-wacom/operation/qrc/wacom.qrc"
+)
+
+add_library(${Wacom_Name} MODULE
+    ${Wacom_SRCS}
+)
+
+set(Pricacy_Includes
+    ${DtkWidget_INCLUDE_DIRS}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    src/plugin-wacom/operation
+    src/plugin-wacom/window
+)
+set(Wacom_Libraries
+    ${Dcc_Widgets_Name}
+    ${DtkWidget_LIBRARIES}
+    Qt5::Widgets
+    Qt5::DBus
+    Qt5::Concurrent
+    ${Dcc_Widgets_Name}
+)
+target_include_directories(${Wacom_Name} PUBLIC
+    ${Pricacy_Includes}
+)
+
+target_link_libraries(${Wacom_Name} PRIVATE
+    ${Wacom_Libraries}
+)
+
+install(TARGETS ${Wacom_Name} DESTINATION lib/dde-control-center/modules)
+
 #--------------------------plugin-adapterv20tov23--------------------------
 set(AdapterV20toV23_Name dcc-adapterv20tov23-plugin)
 file(GLOB_RECURSE ADAPTERV20TOV23_SRCS
