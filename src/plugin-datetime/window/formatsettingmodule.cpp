@@ -50,7 +50,7 @@ FormatSettingModule::FormatSettingModule(DatetimeModel *model, DatetimeWorker *w
         connect(m_model, &DatetimeModel::hourTypeChanged, hourTypeSwitch, &SwitchWidget::setChecked);
     }));
 
-    appendChild(new WidgetModule<SettingsGroup>("timeFotmat", tr("Time Fotmat"), this, &FormatSettingModule::initTimeFotmat));
+    appendChild(new WidgetModule<SettingsGroup>("TimeFormat", tr("Time Format"), this, &FormatSettingModule::initTimeFotmat));
 }
 
 void FormatSettingModule::initTimeFotmat(DCC_NAMESPACE::SettingsGroup *timeGrp)

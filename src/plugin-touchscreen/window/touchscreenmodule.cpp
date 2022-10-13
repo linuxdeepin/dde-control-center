@@ -14,7 +14,7 @@ using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 TouchScreenModule::TouchScreenModule(QObject *parent)
-    : PageModule("touchscreen", tr("TouchScreen"), tr("TouchScreen"), QIcon::fromTheme("dcc_nav_bluetooth"), parent)
+    : PageModule("touchscreen", tr("Touch Screen"), tr("Touch Screen"), QIcon::fromTheme("dcc_nav_bluetooth"), parent)
 {
     m_model  = new TouchScreenModel(this);
     init();
@@ -47,18 +47,18 @@ void TouchScreenModule::init()
 {
     m_monitors = m_model->monitors();
     m_touchScreens = m_model->touchScreenList();
-    PageModule *page = new PageModule("touchScreenPage", tr("Touch Screen Page"));
+    PageModule *page = new PageModule("touchScreenPage", tr("Touch Screen"));
     page->setContentsMargins(0, 0, 0, 0);
     appendChild(page);
-    page->appendChild(new ItemModule("touchScreenTipLabel", tr("Touch Screen TipLabel"),
+    page->appendChild(new ItemModule("touchScreenTipLabel", tr("Select your touch screen when connected or set it here."),
         [] (ModuleObject *module) -> QWidget*{
-            DTipLabel *tipLabel = new DTipLabel("Select your touch screen when connected or set it here");
+            DTipLabel *tipLabel = new DTipLabel(module->displayName());
             tipLabel->setWordWrap(true);
             tipLabel->setContentsMargins(10, 0, 0, 0);
             tipLabel->setAlignment(Qt::AlignLeft);
             return tipLabel;
         }, false));
-    m_settingGroup = new SettingsGroupModule("touchScreenSettingGroup", tr("Touch Screen Setting Group"));
+    m_settingGroup = new SettingsGroupModule("touchScreenSettingGroup", QString());
     page->appendChild(m_settingGroup);
 
     connect(m_model, &TouchScreenModel::touchMapChanged, this, &TouchScreenModule::resetItems);
@@ -132,12 +132,7 @@ QString dccV23::TouchScreenPlugin::name() const
 
 ModuleObject *TouchScreenPlugin::module()
 {
-    TouchScreenModule *moduleInterface = new TouchScreenModule(this);
-    moduleInterface->setName("touchscreen");
-    moduleInterface->setDisplayName(tr("TouchScreen"));
-    moduleInterface->setDescription(tr("TouchScreen"));
-    moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_touchscreen"));
-    return moduleInterface;
+    return new TouchScreenModule(this);;
 }
 
 QString TouchScreenPlugin::location() const

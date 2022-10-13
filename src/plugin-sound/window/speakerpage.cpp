@@ -357,7 +357,7 @@ void SpeakerPage::initSlider()
     hlayout->setContentsMargins(0, 0, 0, 0);
 
     //下方提示
-    auto volumeBoostTip = new DTipLabel(tr("If the volume is louder than 100%, it may distort audio and be harmful to your speaker"), this);
+    auto volumeBoostTip = new DTipLabel(tr("If the volume is louder than 100%, it may distort audio and be harmful to output devices"), this);
     volumeBoostTip->setWordWrap(true);
     volumeBoostTip->setAlignment(Qt::AlignLeft);
     volumeBoostTip->setContentsMargins(10, 0, 0, 0);

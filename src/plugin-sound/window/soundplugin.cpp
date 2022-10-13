@@ -64,14 +64,14 @@ ModuleObject *SoundPlugin::module()
     soundInterface->appendChild(moduleSoundEffects);
 
     // 二级 -- 设备管理
-    ModuleObject *moduleDevices = new PageModule(tr("devices"), tr("Devices"), this);
+    ModuleObject *moduleDevices = new PageModule("devices", tr("Devices"), this);
 
-    DeviceTitleModule *inputTitle = new DeviceTitleModule(tr("inputDevices"), tr("Input Devices"), moduleDevices);
+    DeviceTitleModule *inputTitle = new DeviceTitleModule("inputDevices", tr("Input Devices"), moduleDevices);
     moduleDevices->appendChild(inputTitle);
     InputDeviceModule *inputDevWidget = new  InputDeviceModule(soundInterface->model(), soundInterface->work(), moduleDevices);
     moduleDevices->appendChild(inputDevWidget);
 
-    DeviceTitleModule *outputTitle = new DeviceTitleModule(tr("outputDevices"), tr("Output Devices"), moduleDevices);
+    DeviceTitleModule *outputTitle = new DeviceTitleModule("outputDevices", tr("Output Devices"), moduleDevices);
     moduleDevices->appendChild(outputTitle);
     OutputDeviceModule *outputDevWidget = new  OutputDeviceModule(soundInterface->model(), soundInterface->work(), moduleDevices);
     moduleDevices->appendChild(outputDevWidget);
@@ -86,7 +86,7 @@ QString SoundPlugin::location() const
 }
 
 SoundModule::SoundModule(QObject *parent)
-    : HListModule("sound", tr("sound"), tr("sound"), QIcon::fromTheme("dcc_nav_sound"), parent)
+    : HListModule("sound", tr("Sound"), tr("Sound"), QIcon::fromTheme("dcc_nav_sound"), parent)
     , m_model(new SoundModel(this))
     , m_work(new SoundWorker(m_model, this))
 {

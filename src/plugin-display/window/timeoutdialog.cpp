@@ -29,14 +29,14 @@ TimeoutDialog::TimeoutDialog(const int timeout, QString messageModel, QWidget *p
 {
     setWindowFlags(Qt::WindowStaysOnTopHint | (windowFlags()&~Qt::WindowMinMaxButtonsHint));
     // set default title, message icon
-    setTitle(tr("Do you want to save the display settings?"));
+    setTitle(tr("Save the display settings?"));
     if (messageModel.isEmpty()) {
-        m_messageModel = tr("If no operation, the display will be restored after %1s.");
+        m_messageModel = tr("Settings will be reverted in %1s.");
     }
     setMessage(m_messageModel.arg(m_timeout));
     setIcon(QIcon::fromTheme("preferences-system"));
 
-    addButton(tr("Restore"), true, DDialog::ButtonRecommend);
+    addButton(tr("Revert"), true, DDialog::ButtonRecommend);
     addButton(tr("Save"));
 
     m_timeoutRefreshTimer->setInterval(1000);

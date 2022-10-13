@@ -69,7 +69,7 @@ KeyboardLayoutDialog::KeyboardLayoutDialog(QWidget *parent)
 
     hlayout->addWidget(m_view);
 
-    QLabel *headTitle = new QLabel(tr("添加键盘布局"));
+    QLabel *headTitle = new QLabel(tr("Add Keyboard Layout"));
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
     headTitle->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     headTitle->setAlignment(Qt::AlignCenter);

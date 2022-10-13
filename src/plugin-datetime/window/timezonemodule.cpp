@@ -36,7 +36,7 @@ using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 TimezoneModule::TimezoneModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
-    : PageModule("timezoneList", tr("Timezone"), parent)
+    : PageModule("timezoneList", tr("Timezone List"), parent)
     , m_model(model)
     , m_work(work)
     , m_timezoneGroup(nullptr)
@@ -73,8 +73,8 @@ void TimezoneModule::initTimezoneListGroup(DCC_NAMESPACE::SettingsGroup *timezon
     SettingsItem *item = new SettingsItem;
     item->addBackground();
     QVBoxLayout *layout = new QVBoxLayout;
-    DCommandLinkButton *m_addTimezoneButton = new DCommandLinkButton(tr("Add Timezone ..."), m_timezoneGroup);
-    m_addTimezoneButton->setAccessibleName(tr("Add Timezone ..."));
+    DCommandLinkButton *m_addTimezoneButton = new DCommandLinkButton(tr("Add Timezone"), m_timezoneGroup);
+    m_addTimezoneButton->setAccessibleName(tr("Add Timezone"));
     layout->addWidget(m_addTimezoneButton, 0, Qt::AlignLeft);
     item->setLayout(layout);
     m_timezoneGroup->insertWidget(item);

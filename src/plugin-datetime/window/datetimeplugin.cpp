@@ -28,7 +28,7 @@
 using namespace DCC_NAMESPACE;
 
 DatetimeModule::DatetimeModule(QObject *parent)
-    : HListModule("datetime", tr("Datetime"), tr("Datetime"), QIcon::fromTheme("dcc_nav_datetime"), parent)
+    : HListModule("datetime", tr("Date and Time"), tr("Date and Time"), QIcon::fromTheme("dcc_nav_datetime"), parent)
     , m_model(nullptr)
 {
     m_model = new DatetimeModel(this);

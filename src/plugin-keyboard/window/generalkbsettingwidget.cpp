@@ -42,7 +42,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
 {
     SettingsHead *systemHead = new SettingsHead();
     systemHead->setEditEnable(false);
-    systemHead->setTitle(tr("Keyboard Setting"));
+    systemHead->setTitle(tr("Keyboard Settings"));
     systemHead->layout()->setContentsMargins(10, 0, 10, 0);
     m_generalSettingsGrp = new SettingsGroup();
     m_generalSettingsGrp->appendItem(systemHead, SettingsGroup::NoneBackground);

@@ -71,8 +71,8 @@ void SystemInfoModule::initChildModule()
     ModuleObject *moduleAboutPc = new PageModule("aboutThisPc", tr("About This PC"), QIcon::fromTheme("dcc_on_sel"), this);
     appendChild(moduleAboutPc);
 
-    moduleAboutPc->appendChild(new WidgetModule<LogoItem>("logo", tr("Logo"), this, &SystemInfoModule::initLogoModule));
-    moduleAboutPc->appendChild(new WidgetModule<HostNameItem>("hostName", tr("HostName"), this, &SystemInfoModule::initHostnameModule));
+    moduleAboutPc->appendChild(new WidgetModule<LogoItem>("logo", "", this, &SystemInfoModule::initLogoModule));
+    moduleAboutPc->appendChild(new WidgetModule<HostNameItem>("hostName", tr("Computer Name"), this, &SystemInfoModule::initHostnameModule));
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("osName", tr("OS Name"), this, &SystemInfoModule::initOSNameModule));
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("version", tr("Version"), this, &SystemInfoModule::initVersionModule));
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("edition", tr("Edition"), this, &SystemInfoModule::initEditionModule));
@@ -83,7 +83,7 @@ void SystemInfoModule::initChildModule()
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("memory", tr("Memory"), this, &SystemInfoModule::initMemoryModule));
 
     //二级菜单--协议与隐私政策
-    ModuleObject *moduleAgreement = new VListModule("agreement", tr("Agreement and privacy policy"), QIcon::fromTheme("dcc_version"), this);
+    ModuleObject *moduleAgreement = new VListModule("agreement", tr("Agreements and Privacy Policy"), QIcon::fromTheme("dcc_version"), this);
 
     //三级菜单--协议与隐私政策-版本协议
     ModuleObject *moduleEdition = new PageModule("editionLicense", tr("Edition License"), QIcon::fromTheme("dcc_version"), moduleAgreement);

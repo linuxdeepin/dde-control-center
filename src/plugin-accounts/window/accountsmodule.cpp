@@ -134,10 +134,10 @@ AccountsModule::AccountsModule(QObject *parent)
     connect(m_model, &UserModel::allGroupsChange, this, &AccountsModule::setGroupInfo);
     connect(m_worker, &AccountsWorker::showSafeyPage, this, &AccountsModule::onShowSafetyPage);
 
-    appendChild(new WidgetModule<QWidget>("accountsList", tr("accountsList"), this, &AccountsModule::initAccountsList));
-    appendChild(new WidgetModule<QWidget>("avatar", tr("avatar"), this, &AccountsModule::initAvatar));
+    appendChild(new WidgetModule<QWidget>("accountsList", "", this, &AccountsModule::initAccountsList));
+    appendChild(new WidgetModule<QWidget>("avatar", "", this, &AccountsModule::initAvatar));
     appendChild(new WidgetModule<QWidget>("fullName", tr("Full Name"), this, &AccountsModule::initFullName));
-    appendChild(new WidgetModule<QWidget>("name", tr("name"), this, &AccountsModule::initName));
+    appendChild(new WidgetModule<QWidget>("name", tr("Username"), this, &AccountsModule::initName));
     appendChild(new WidgetModule<QWidget>("deleteAccount", tr("Delete Account"), this, &AccountsModule::initModifyButton));
     //
     appendChild(new WidgetModule<SettingsGroup>("accountType", tr("Account Type"), this, &AccountsModule::initAccountType));

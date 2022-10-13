@@ -60,15 +60,15 @@ protected:
 };
 
 TimeSettingModule::TimeSettingModule(DatetimeModel *model, DatetimeWorker *work, QObject *parent)
-    : PageModule("timeSettings", tr("Time Setting"), QIcon::fromTheme("dcc_TimeSetting"), parent)
+    : PageModule("timeSettings", tr("Time Settings"), QIcon::fromTheme("dcc_TimeSetting"), parent)
     , m_model(model)
     , m_work(work)
 {
     deactive();
     appendChild(new WidgetModule<Clock>("time", tr("Time")));
-    appendChild(new WidgetModule<SettingsGroup>("ntpServer", tr("ntp server"), this, &TimeSettingModule::initAutoSyncTime));
-    appendChild(new WidgetModule<SettingsGroup>("time", tr("Time setting"), this, &TimeSettingModule::initTimeSetting));
-    appendChild(new WidgetModule<QWidget>("datetime", tr("datetime"), this, &TimeSettingModule::initDigitalClock));
+    appendChild(new WidgetModule<SettingsGroup>("ntpServer", tr("Auto Sync"), this, &TimeSettingModule::initAutoSyncTime));
+    appendChild(new WidgetModule<SettingsGroup>("time", QString(), this, &TimeSettingModule::initTimeSetting));
+    appendChild(new WidgetModule<QWidget>("datetime", QString(), this, &TimeSettingModule::initDigitalClock));
 
     ModuleObject *saveButton = new WidgetModule<ButtonTuple>("datetimeDatesettingConfirmbtn","",[this](ButtonTuple *buttonTuple){
         m_buttonTuple = buttonTuple;
@@ -320,9 +320,9 @@ void TimeSettingModule::initDigitalClock(QWidget *w)
         minLabel->setText(QString::number(time.minute()));
         hourLabel->setText(QString::number(time.hour()));
         QDate date = QDate::currentDate();
-        yearLabel->setText(tr("%1 year").arg(date.year()));
-        monthLabel->setText(tr("%1 month").arg(date.month()));
-        dayLabel->setText(tr("%1 day").arg(date.day()));
+        yearLabel->setText(QString("%1 %2").arg(date.year()).arg(tr("Year")));
+        monthLabel->setText(QString("%1 %2").arg(date.month()).arg(tr("Month")));
+        dayLabel->setText(QString("%1 %2").arg(date.day()).arg(tr("Day")));
     };
     connect(timer, &QTimer::timeout, w, updateTime);
     timer->start(1000);

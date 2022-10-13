@@ -102,7 +102,7 @@ PersonalizationThemeModule::PersonalizationThemeModule(PersonalizationModel *mod
     SettingsGroupModule *group = new SettingsGroupModule("theme", tr("Theme"));
     appendChild(group);
     group->appendChild(new ItemModule("themeList", tr("Theme"), this, &PersonalizationThemeModule::initThemeList, false));
-    group->appendChild(new ItemModule("themeMode", tr("Appearance mode"), this, &PersonalizationThemeModule::initThemeSwitch));
+    group->appendChild(new ItemModule("themeMode", tr("Appearance"), this, &PersonalizationThemeModule::initThemeSwitch));
 
     appendChild(new ItemModule("accentColorTitle", tr("Accent Color")));
     appendChild(new ItemModule("accentColor", tr("Accent Color"), this, &PersonalizationThemeModule::initAccentColor, false));

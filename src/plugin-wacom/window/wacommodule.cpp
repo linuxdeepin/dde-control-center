@@ -16,7 +16,7 @@ using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 WacomModule::WacomModule(QObject *parent)
-    : PageModule("wacom", tr("wacom") , tr("wacom"), QIcon::fromTheme("dcc_nav_wacom"), parent)
+    : PageModule("wacom", tr("Drawing Tablet") , tr("Drawing Tablet"), QIcon::fromTheme("dcc_nav_wacom"), parent)
     , m_model(new WacomModel(this))
 {
     connect(m_model, &WacomModel::ExistChanged, this, [this](bool exist){
@@ -25,7 +25,7 @@ WacomModule::WacomModule(QObject *parent)
     // Mode
     appendChild(new ItemModule("Mode", tr("Mode"), this, &WacomModule::initModeModule,true));
     // Pressure
-    appendChild(new ItemModule("Pressure",tr("Pressure"),this, &WacomModule::initPressureModule,false));
+    appendChild(new ItemModule("Pressure",tr("Pressure Sensitivity"),this, &WacomModule::initPressureModule,false));
     setHidden(!m_model->exist());qInfo()<<__FILE__<<__LINE__<<m_model->exist();
 }
 

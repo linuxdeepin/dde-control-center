@@ -70,8 +70,8 @@ ModuleObject *KeyboardPlugin::module()
     //为二级菜单-键盘添加children
     GeneralSettingModule *generalSettingModule = new GeneralSettingModule(moduleInterface->model(), moduleInterface->worker());
     generalSettingModule->setName("keyboardSetting");
-    generalSettingModule->setDescription(tr("Keyboard Setting"));
-    generalSettingModule->addContentText(tr("Keyboard Setting"));
+    generalSettingModule->setDescription(tr("Keyboard Settings"));
+    generalSettingModule->addContentText(tr("Keyboard Settings"));
     moduleKeyBoard->appendChild(generalSettingModule);
     //键盘布局
     KBLayoutSettingModule *kBLayoutSettingModule = new KBLayoutSettingModule(moduleInterface->model(), moduleInterface->worker());

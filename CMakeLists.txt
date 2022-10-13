@@ -19,6 +19,9 @@ else()
     # generate qm
     execute_process(COMMAND bash "misc/translate_generation.sh"
                     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+    # generate desktop translate
+    execute_process(COMMAND bash "misc/translate_ts2desktop.sh"
+                    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
 
 # GNU 默认
@@ -270,8 +273,8 @@ endif()
 if (UNITTEST)
     set(Plugin_Test1_Name plugin-test1)
     file(GLOB_RECURSE Plugin_Test1_SRCS
-        "src/plugin-test1/*.h"
-        "src/plugin-test1/*.cpp"
+        "tests/plugin-test1/*.h"
+        "tests/plugin-test1/*.cpp"
     )
 
     add_library(${Plugin_Test1_Name} MODULE
@@ -300,8 +303,8 @@ endif()
 if (UNITTEST)
     set(Plugin_Test2_Name plugin-test2)
     file(GLOB_RECURSE Plugin_Test2_SRCS
-        "src/plugin-test2/*.h"
-        "src/plugin-test2/*.cpp"
+        "tests/plugin-test2/*.h"
+        "tests/plugin-test2/*.cpp"
     )
 
     add_library(${Plugin_Test2_Name} MODULE

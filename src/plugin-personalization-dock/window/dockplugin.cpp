@@ -94,7 +94,7 @@ QString DockPlugin::location() const
 }
 
 DockModuleObject::DockModuleObject()
-    : PageModule("dock", tr("Dock"), tr("Dock plugin"), nullptr)
+    : PageModule("dock", tr("Dock"), QString(), nullptr)
 {
     setNoScroll();
     setNoStretch();
@@ -104,15 +104,15 @@ DockModuleObject::DockModuleObject()
     appendChild(new WidgetModule<ComboxWidget>("mode", tr("Mode"), this, &DockModuleObject::initMode));
     appendChild(new WidgetModule<ComboxWidget>("position", tr("Position"), this, &DockModuleObject::initPosition));
     appendChild(new WidgetModule<ComboxWidget>("status", tr("Status"), this, &DockModuleObject::initStatus));
-    appendChild(new WidgetModule<QCheckBox>("recent", tr("Show Recent App"), this, &DockModuleObject::initShowRecent));
+    appendChild(new WidgetModule<QCheckBox>("recent", tr("Show recent apps in Dock"), this, &DockModuleObject::initShowRecent));
     appendChild(new WidgetModule<TitledSliderItem>("size", tr("Size"), this, &DockModuleObject::initSizeSlider));
 
     // 当任务栏服务未注册或当前只有一个屏幕或当前有多个屏幕但设置为复制模式时均不显示多屏设置项
     if (QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.Dock")
             && QApplication::screens().size() > 1
             && !isCopyMode()) {
-        appendChild(new WidgetModule<TitleLabel>("screenTitle", tr("ScreenTitle"), this, &DockModuleObject::initScreenTitle));
-        appendChild(new WidgetModule<ComboxWidget>("screen", tr("Screen"), this, &DockModuleObject::initScreen));
+        appendChild(new WidgetModule<TitleLabel>("screenTitle", tr("Multiple Displays"), this, &DockModuleObject::initScreenTitle));
+        appendChild(new WidgetModule<ComboxWidget>("screen", tr("Show Dock"), this, &DockModuleObject::initScreen));
     }
 
     // @note 不使用m_dbusProxy的原因在于module函数的调用和m_dbusProxy指针的初始化分别在不同的线程中
@@ -122,9 +122,9 @@ DockModuleObject::DockModuleObject()
     QStringList plugins = reply.value();
     // 当対应服务异常或插件为空时，不显示对应模块信息
     if (reply.error().type() == QDBusError::ErrorType::NoError && reply.value().size() > 0) {
-        appendChild(new WidgetModule<TitleLabel>("pluginTitle", tr("PluginTitle"), this, &DockModuleObject::initPluginTitle));
-        appendChild(new WidgetModule<DTipLabel>("pluginTip", tr("PluginTip"), this, &DockModuleObject::initPluginTips));
-        appendChild(new WidgetModule<DListView>("pluginArea", tr("PluginArea"), this, &DockModuleObject::initPluginView));
+        appendChild(new WidgetModule<TitleLabel>("pluginTitle", tr("Plugin Area"), this, &DockModuleObject::initPluginTitle));
+        appendChild(new WidgetModule<DTipLabel>("pluginTip", tr("Select which icons appear in the Dock"), this, &DockModuleObject::initPluginTips));
+        appendChild(new WidgetModule<DListView>("pluginArea", QString(), this, &DockModuleObject::initPluginView));
     }
 }
 
@@ -217,7 +217,7 @@ void DockModuleObject::initShowRecent(QCheckBox *checkBox)
     checkBox->blockSignals(true);
     checkBox->setChecked(m_dbusProxy->showRecent());
     checkBox->blockSignals(false);
-    checkBox->setText(tr("Show Recent App"));
+    checkBox->setText(tr("Show recent apps in Dock"));
     connect(checkBox, &QCheckBox::toggled, checkBox, [ this ](bool checked) {
         m_dbusProxy->blockSignals(true);
         m_dbusProxy->SetShowRecent(checked);
