@@ -185,7 +185,7 @@ int main(int argc, char *argv[])
     app->setApplicationVersion("6.0");
 #endif
     app->setAttribute(Qt::AA_UseHighDpiPixmaps);
-    // app->loadTranslator();
+    app->loadTranslator();
     app->setStyle("chameleon");
     app->setProductIcon(QIcon::fromTheme("preferences-system"));
     app->setWindowIcon(QIcon::fromTheme("preferences-system"));
