@@ -552,15 +552,25 @@ void PersonalizationWork::movedWindowSwitchWM(bool value)
     }
 
     if (value) {
-        bool isload = m_effects->loadEffect(EffectMoveWindowArg);
-        qDebug() << Q_FUNC_INFO << " The effect of  kwin4_effect_translucency is : " << isload;
-        m_model->setIsMoveWindow(isload);
-        m_model->setIsMoveWindowDconfig(isload);
+        m_effects->loadEffect(EffectMoveWindowArg);
     } else {
         m_effects->unloadEffect(EffectMoveWindowArg);
-        m_model->setIsMoveWindow(false);
-        m_model->setIsMoveWindowDconfig(false);
     }
+
+    //设置kwin接口后, 等待50ms给kwin反应，根据isEffectLoaded调用的异步返回值确定真实状态
+    QTimer::singleShot(50, [this] {
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_effects->isEffectLoaded(EffectMoveWindowArg), this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] (QDBusPendingCallWatcher *watcher) {
+            if (!watcher->isError()) {
+                QDBusReply<bool> value = watcher->reply();
+                qDebug() << Q_FUNC_INFO << " isEffectLoaded('kwin4_effect_translucency') : " << value;
+                m_model->setIsMoveWindow(value);
+                m_model->setIsMoveWindowDconfig(value);
+            } else {
+                qWarning() << Q_FUNC_INFO << " isEffectLoaded('kwin4_effect_translucency'), error : " << watcher->error();;
+            }
+        });
+    });
 }
 
 void PersonalizationWork::setOpacity(int opacity)
