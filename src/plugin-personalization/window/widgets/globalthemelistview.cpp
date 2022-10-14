@@ -40,8 +40,9 @@ class GlobalThemeListViewPrivate
 public:
     explicit GlobalThemeListViewPrivate(GlobalThemeListView *parent)
         : q_ptr(parent)
-        , m_spacing(15)
-        , m_gridSize(280, 84)
+        , m_hSpacing(15)
+        , m_vSpacing(15)
+        , m_gridSize(160, 120)
         , m_itemSize(m_gridSize)
         , m_xOffset(0)
         , m_yOffset(0)
@@ -67,11 +68,11 @@ public:
 
     void setSpacing(int space)
     {
-        m_spacing = space;
+        m_vSpacing = space;
     }
     int spacing() const
     {
-        return m_spacing;
+        return m_vSpacing;
     }
 
     void setGridSize(const QSize &size)
@@ -98,7 +99,11 @@ public:
         updateTotal();
 
         m_itemSize = m_gridSize;
-        int itemWidth = m_colPerPage * (m_itemSize.width() + m_spacing) - m_spacing;
+        m_hSpacing = (q->viewport()->width() - (m_colPerPage * m_itemSize.width())) / (m_colPerPage + 1);
+        if (m_hSpacing < 0)
+            m_hSpacing = 0;
+
+        int itemWidth = m_colPerPage * (m_itemSize.width() + m_hSpacing) - m_hSpacing;
 
         if (m_alignment & Qt::AlignRight) {
             m_xOffset = q->viewport()->width() - itemWidth;
@@ -108,7 +113,7 @@ public:
             m_xOffset = 0;
         }
 
-        m_yOffset = m_spacing;
+        m_yOffset = m_vSpacing;
 
         int tabwidth = (m_constPage - 1) * m_drawSpaacing;
         m_drawStartPagePos.setX((q->width() - tabwidth) / 2);
@@ -125,7 +130,7 @@ public:
         int page = cnt / m_constPerPage;
         int row = (cnt % m_constPerPage) / m_colPerPage;
         int col = (cnt % m_constPerPage) % m_colPerPage;
-        rect.translate(q->width() * (page - m_currentPage) + m_xOffset + (m_itemSize.width() + m_spacing) * col, (m_itemSize.height() + m_spacing) * row);
+        rect.translate(q->width() * (page - m_currentPage) + m_xOffset + (m_itemSize.width() + m_hSpacing) * col, (m_itemSize.height() + m_vSpacing) * row);
 
         return rect.translated(q->contentsMargins().left(), q->contentsMargins().top() + m_yOffset);
     }
@@ -133,11 +138,11 @@ public:
     QModelIndex indexAt(const QPoint &p) const
     {
         Q_Q(const GlobalThemeListView);
-        if ((m_itemSize.height() + m_spacing) <= 0 || (m_itemSize.width() + m_spacing) <= 0 || !q->model())
+        if ((m_itemSize.height() + m_vSpacing) <= 0 || (m_itemSize.width() + m_hSpacing) <= 0 || !q->model())
             return QModelIndex();
         QRect rect(p.x() - m_xOffset, p.y() - m_yOffset, 1, 1);
-        int row = (rect.y()) / (m_itemSize.height() + m_spacing);
-        int col = (rect.x()) / (m_itemSize.width() + m_spacing);
+        int row = (rect.y()) / (m_itemSize.height() + m_vSpacing);
+        int col = (rect.x()) / (m_itemSize.width() + m_hSpacing);
 
         int indexRow = m_currentPage * m_constPerPage + row * m_colPerPage + col;
         QModelIndex index = q->model()->index(indexRow, 0);
@@ -254,7 +259,8 @@ public:
 private:
     GlobalThemeListView *const q_ptr;
     Q_DECLARE_PUBLIC(GlobalThemeListView)
-    int m_spacing;
+    int m_hSpacing;
+    int m_vSpacing;
     QSize m_gridSize;
 
     QSize m_itemSize;
@@ -294,8 +300,9 @@ GlobalThemeListView::GlobalThemeListView(QWidget *parent)
     setItemDelegate(delegate);
 
     setIconSize(QSize(155, 88));
-    setGridSize(QSize(200, 120));
+    setGridSize(QSize(160, 120));
     setFixedHeight(300);
+    setMinimumWidth(500);
 }
 
 GlobalThemeListView::~GlobalThemeListView()
@@ -397,7 +404,7 @@ QModelIndex GlobalThemeListView::moveCursor(CursorAction cursorAction, Qt::Keybo
         currentRow++;
         break;
     case MovePageUp: {
-        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing) / (d->m_itemSize.height() + d->m_spacing);
+        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_vSpacing) / (d->m_itemSize.height() + d->m_vSpacing);
         for (int i = 0; i < pageItem; i++) {
             currentRow = moveup(currentRow, d->m_colPerPage);
         }
@@ -406,7 +413,7 @@ QModelIndex GlobalThemeListView::moveCursor(CursorAction cursorAction, Qt::Keybo
         currentRow = moveup(currentRow, d->m_colPerPage);
         break;
     case MovePageDown: {
-        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing) / (d->m_itemSize.height() + d->m_spacing);
+        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_vSpacing) / (d->m_itemSize.height() + d->m_vSpacing);
         for (int i = 0; i < pageItem; i++) {
             int row = movedown(currentRow, d->m_colPerPage);
             if (row >= maxRow)
