@@ -131,9 +131,9 @@ void CollaborativeLinkWidget::setModel(DisplayModel *model)
 void CollaborativeLinkWidget::disconnectMachine()
 {
     m_deviceButton->setEnabled(false);
+    Q_EMIT requestCurrentMachineDisconnect(m_currentMachineDevcice);
     m_deviceCombox->setCurrentText(tr("请选择协同设备"));
     m_currentMachineDevcice = nullptr;
-    Q_EMIT requestCurrentMachineDisconnect(m_currentMachineDevcice);
 }
 
 void CollaborativeLinkWidget::changeComboxIndex(const int idx)

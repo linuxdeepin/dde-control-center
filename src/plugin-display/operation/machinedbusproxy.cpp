@@ -39,7 +39,12 @@ bool MachineDBusProxy::cooperating()
 
 void MachineDBusProxy::Disconnect()
 {
-    m_dBusMachineInter->asyncCall(QStringLiteral("Disconnect"));
+    qDebug() << " void MachineDBusProxy::Disconnect() " << qvariant_cast<QString>(m_dBusMachineInter->property("UUID"));;
+    QDBusReply<void> retPair = m_dBusMachineInter->call("Disconnect");
+    QString errorDate = retPair.error().message();
+    if (!errorDate.isEmpty()) {
+        qWarning() << "Disconnect failed:" << errorDate;
+    }
 }
 
 void MachineDBusProxy::Pair()

@@ -142,7 +142,6 @@ void DisplayModule::showSingleScreenWidget()
     linkWidget->setModel(m_model);
     contentLayout->addWidget(linkWidget);
     connect(linkWidget, &CollaborativeLinkWidget::requestCooperationEnable, m_worker, &DisplayWorker::setCooperationEnable);
-    connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachineDisconnect, m_worker, &DisplayWorker::setCurrentMachineDisconnect);
     connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachinePair, m_worker, &DisplayWorker::setCurrentMachinePair);
 
     BrightnessWidget *brightnessWidget = new BrightnessWidget(singleScreenWidget);
