@@ -82,6 +82,10 @@ public Q_SLOTS:
     void setCurrentMachinePair(Machine *mac);
     void setCurrentMachineDisconnect(Machine *mac);
 
+    void backupConfig();
+    void clearBackup();
+    void resetBackup();
+
 private Q_SLOTS:
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
@@ -108,6 +112,7 @@ private:
     bool m_updateScale;
     QTimer *m_timer;
     DTK_CORE_NAMESPACE::DConfig *m_dconfig;
+    QString m_displayConfig;
 };
 }
 

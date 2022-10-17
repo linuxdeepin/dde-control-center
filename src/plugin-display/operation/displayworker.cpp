@@ -33,6 +33,8 @@
 #include <dconfig.h>
 
 #include <QDebug>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 
 const QString DisplayInterface("com.deepin.daemon.Display");
@@ -127,6 +129,7 @@ void DisplayWorker::active()
 
 void DisplayWorker::saveChanges()
 {
+    clearBackup();
     m_displayInter->Save().waitForFinished();
     if (m_updateScale)
         setUiScale(m_currentScale);
@@ -289,11 +292,42 @@ void DisplayWorker::setCurrentMachineDisconnect(Machine *mac)
     inter->Disconnect();
 }
 
+void DisplayWorker::backupConfig()
+{
+    m_displayConfig = m_displayInter->GetConfig();
+}
+
+void DisplayWorker::clearBackup()
+{
+    m_displayConfig.clear();
+}
+
+void DisplayWorker::resetBackup()
+{
+    if (!m_displayConfig.isEmpty()) {
+
+        QJsonDocument doc = QJsonDocument::fromJson(m_displayConfig.toLatin1());
+        QJsonObject jsonObj = doc.object();
+
+        QDateTime time = QDateTime::currentDateTime();
+        int offset = time.offsetFromUtc()/60;
+        bool negative = offset <0;
+        if (negative)
+            offset = -offset;
+
+        jsonObj.insert("UpdateAt", QString("%1%2%3:%4").arg(time.toString("yyyy-MM-ddThh:mm:ss.zzz000000")).arg(negative ? '-' : '+').arg(offset / 60, 2, 10, QChar('0')).arg(offset % 60, 2, 10, QChar('0')));
+        doc.setObject(jsonObj);
+
+        m_displayInter->SetConfig(doc.toJson(QJsonDocument::Compact));
+        clearBackup();
+    }
+}
+
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 {
     MonitorDBusProxy *inter = m_monitors.value(mon);
-    Q_ASSERT(inter);
-    inter->SetMode(static_cast<uint>(mode)).waitForFinished();
+    if (inter)
+        inter->SetMode(static_cast<uint>(mode)).waitForFinished();
 }
 
 void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)

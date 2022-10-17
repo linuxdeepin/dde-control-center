@@ -139,6 +139,9 @@ public Q_SLOTS: // METHODS
     QDBusPendingReply<QMap<QString,double> > GetScreenScaleFactors();
     QDBusPendingReply<> SetScaleFactor(double in0);
     QDBusPendingReply<> SetScreenScaleFactors(const QMap<QString,double> &scaleFactors);
+    // SystemDisplay
+    QString GetConfig();
+    void SetConfig(QString cfgStr);
 
 Q_SIGNALS: // SIGNALS
     // begin property changed signals
@@ -169,6 +172,7 @@ Q_SIGNALS: // SIGNALS
 
 private:
     DCC_NAMESPACE::DCCDBusInterface *m_dBusDisplayInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_dBusSystemDisplayInter;
     DCC_NAMESPACE::DCCDBusInterface *m_dBusAppearanceInter;
     DCC_NAMESPACE::DCCDBusInterface *m_dBusPowerInter;
     DCC_NAMESPACE::DCCDBusInterface *m_dBusCooperationInter;  // 协同连接

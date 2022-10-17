@@ -56,6 +56,7 @@ DisplayDBusProxy::DisplayDBusProxy(QObject *parent)
 
 void DisplayDBusProxy::init()
 {
+    m_dBusSystemDisplayInter = new DCC_NAMESPACE::DCCDBusInterface("com.deepin.system.Display", "/com/deepin/system/Display", "com.deepin.system.Display", QDBusConnection::systemBus(), this);
     m_dBusDisplayInter = new DCC_NAMESPACE::DCCDBusInterface(DisplayService, DisplayPath, DisplayInterface, QDBusConnection::sessionBus(), this);
     m_dBusAppearanceInter = new DCC_NAMESPACE::DCCDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
     m_dBusPowerInter = new DCC_NAMESPACE::DCCDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
@@ -201,6 +202,18 @@ QDBusPendingReply<> DisplayDBusProxy::SetScreenScaleFactors(const QMap<QString,d
     return m_dBusAppearanceInter->asyncCallWithArgumentList(QStringLiteral("SetScreenScaleFactors"), argumentList);
 }
 
+QString DisplayDBusProxy::GetConfig()
+{
+    QList<QVariant> argumentList;
+    return QDBusPendingReply<QString>(m_dBusSystemDisplayInter->asyncCallWithArgumentList(QStringLiteral("GetConfig"), argumentList));
+}
+
+void DisplayDBusProxy::SetConfig(QString cfgStr)
+{
+    QList<QVariant> argumentList;
+    argumentList << cfgStr;
+    m_dBusSystemDisplayInter->asyncCallWithArgumentList(QStringLiteral("SetConfig"), argumentList);
+}
 
 QDBusPendingReply<> DisplayDBusProxy::ApplyChanges()
 {

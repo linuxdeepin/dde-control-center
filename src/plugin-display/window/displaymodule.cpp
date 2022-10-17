@@ -336,7 +336,6 @@ void DisplayModule::showMultiScreenWidget()
 
 void DisplayModule::onRequestSetResolution(Monitor *monitor, const uint mode)
 {
-    Resolution lastRes = monitor->currentMode();
     Resolution firstRes;
     QString lastFillMode = m_model->primaryMonitor()->currentFillMode();
 
@@ -372,16 +371,15 @@ void DisplayModule::onRequestSetResolution(Monitor *monitor, const uint mode)
         if (m_model->displayMode() != EXTEND_MODE || m_model->monitorList().size() < 2)
             m_worker->applyChanges();
     };
-
+    m_worker->backupConfig();
     tfunc(monitor, firstRes);
 
     //此处处理调用applyChanges的200ms延时, TimeoutDialog提前弹出的问题
-    QTimer::singleShot(300, monitor, [this, tfunc, monitor, lastRes,lastFillMode]{
+    QTimer::singleShot(300, monitor, [this, monitor, lastFillMode]{
         if (showTimeoutDialog(monitor) == QDialog::Accepted) {
             m_worker->saveChanges();
         } else {
-            tfunc(monitor, lastRes);
-            onSetFillMode(lastFillMode);
+            m_worker->resetBackup();
         }
     });
 }
@@ -409,40 +407,37 @@ void DisplayModule::onRequestSetFillMode(Monitor *monitor, const QString fillMod
 {
     auto lastFillMode = monitor->currentFillMode();
     if (m_model->displayMode() == MERGE_MODE) {
-        for (auto m : m_model->monitorList())
+        for (auto m : m_model->monitorList()) {
+            m_worker->backupConfig();
             m_worker->setCurrentFillMode(m, fillMode);
+        }
     } else {
+        m_worker->backupConfig();
         m_worker->setCurrentFillMode(monitor, fillMode);
     }
     //桌面显示增加15秒倒计时功能
     QTimer::singleShot(300, monitor, [this, monitor, lastFillMode]{
         if (showTimeoutDialog(monitor, true) != QDialog::Accepted) {
-            if (m_model->displayMode() == MERGE_MODE) {
-                for (auto m : m_model->monitorList())
-                    m_worker->setCurrentFillMode(m, lastFillMode);
-            }
-            else {
-               m_worker->setCurrentFillMode(monitor, lastFillMode);
-            }
+            m_worker->resetBackup();
         }
+        m_worker->clearBackup();
     });
 }
 
 void DisplayModule::onRequestSetRotate(Monitor *monitor, const int rotate)
 {
-    auto lastRotate = monitor->rotate();
+    m_worker->backupConfig();
     m_worker->setMonitorRotate(monitor, rotate);
     m_worker->applyChanges();
 
     //此处处理调用applyChanges的200ms延时, TimeoutDialog提前弹出的问题
-    QTimer::singleShot(300, monitor, [this, monitor, lastRotate]{
+    QTimer::singleShot(300, monitor, [this, monitor]{
         if (showTimeoutDialog(monitor) == QDialog::Accepted) {
             m_worker->saveChanges();
         } else {
             // 若是重力感应 调整后不对数据进行保存
             if (monitor->currentRotateMode() != Monitor::RotateMode::Gravity) {
-                m_worker->setMonitorRotate(monitor, lastRotate);
-                m_worker->applyChanges();
+                m_worker->resetBackup();
             }
         }
     });
@@ -476,7 +471,7 @@ int DisplayModule::showTimeoutDialog(Monitor *monitor, const bool isFillMode)
             timeoutDialog->moveToCenterByRect(rt.toRect());
         }
     });
-    connect(m_model, &DisplayModel::monitorListChanged, timeoutDialog, &TimeoutDialog::deleteLater);
+    connect(m_model, &DisplayModel::monitorListChanged, timeoutDialog, &TimeoutDialog::reject);
 
     return timeoutDialog->exec();
 }
