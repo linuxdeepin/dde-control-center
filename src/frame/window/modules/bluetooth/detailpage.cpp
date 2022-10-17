@@ -242,9 +242,16 @@ void DetailPage::onDeviceAliasChanged()
 {
     QString devAlias = m_editDevAlias->text();
     QString devName(m_device->name());
+    QString devAliasName(m_device->alias());
+
     if (devAlias.isEmpty()) {
-        m_editDevAlias->setPlaceholderText(m_device->name());
-        Q_EMIT requestSetDevAlias(m_device, devName);
+        // 当用户没有修改配对的蓝牙设备名称（编辑了但没有进行修改），显示之前配对的蓝牙设备名称
+        if (!devAliasName.isEmpty()) {
+            m_editDevAlias->setPlaceholderText(devAliasName);
+        } else {
+            m_editDevAlias->setPlaceholderText(devName);
+            Q_EMIT requestSetDevAlias(m_device, devName);
+        }
     } else if (devAlias != m_device->alias()) {
         Q_EMIT requestSetDevAlias(m_device, devAlias);
     }
