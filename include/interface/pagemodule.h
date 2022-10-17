@@ -22,6 +22,8 @@
 #define PAGEMODULE_H
 #include "interface/moduleobject.h"
 
+#define DCC_PAGEMODULE_MAX_WIDTH 1120
+
 namespace DCC_NAMESPACE {
 class PageModulePrivate;
 class PageModule : public ModuleObject

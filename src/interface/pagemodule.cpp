@@ -182,7 +182,7 @@ private:
             QResizeEvent *e = static_cast<QResizeEvent *>(event);
             int left, right, top, bottom;
             m_vlayout->getContentsMargins(&left, &top, &right, &bottom);
-            int width = e->size().width() - left - right;
+            int width = qMin(e->size().width() - left - right, m_maximumWidth);
             if (m_maximumWidth >= width && width > 0) {
                 for (int i = 0; i < m_vlayout->count(); ++i) {
                     QAbstractScrollArea *w = qobject_cast<QAbstractScrollArea *>(m_vlayout->itemAt(i)->widget());

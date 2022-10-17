@@ -39,7 +39,7 @@ public:
             PageModule *module = qobject_cast<PageModule *>(activeModule);
             if (module) {
                 module->setContentsMargins(m_childMargin, 0, m_childMargin, 0);
-                module->setMaximumWidth(720);
+                module->setMaximumWidth(DCC_PAGEMODULE_MAX_WIDTH);
             }
             widget = child->activePage();
             if (widget) {
