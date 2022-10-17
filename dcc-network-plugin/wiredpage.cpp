@@ -180,6 +180,9 @@ void WiredPage::onUpdateConnectionStatus()
     }
 
     m_modelprofiles->sort(0);
+
+    // 刷新网络状态时刷新网线是否插入提示信息
+    onDeviceStatusChanged(m_device->deviceStatus());
 }
 
 void WiredPage::onConnectionPropertyChanged(const QList<WiredConnection *> &changedConnection)
