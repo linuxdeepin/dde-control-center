@@ -36,12 +36,13 @@ const QList<int> FontSizeList {11, 12, 13, 14, 15, 16, 18, 20};
 #endif
 
 PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *parent)
-    : QObject(parent),
-      m_model(model),
-      m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus(), this)),
-      m_wmSwitcher(new WMSwitcher("com.deepin.WMSwitcher", "/com/deepin/WMSwitcher", QDBusConnection::sessionBus(), this)),
-      m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this)),
-      m_effects(new Effects("org.kde.KWin", "/Effects", QDBusConnection::sessionBus(), this))
+    : QObject(parent)
+    , m_model(model)
+    , m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus(), this))
+    , m_wmSwitcher(new WMSwitcher("com.deepin.WMSwitcher", "/com/deepin/WMSwitcher", QDBusConnection::sessionBus(), this))
+    , m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
+    , m_effects(new Effects("org.kde.KWin", "/Effects", QDBusConnection::sessionBus(), this))
+    , m_isWayland(qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland"))
 {
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();
@@ -84,7 +85,6 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     } else {
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_effects->isEffectLoaded("magiclamp"), this);
         connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] (QDBusPendingCallWatcher *watcher) {
-            qDebug() << watcher->error();
             if (!watcher->isError()) {
                 QDBusReply<bool> value = watcher->reply();
                 if (value) {
@@ -92,16 +92,11 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
                 } else {
                     m_model->setMiniEffect(0);
                 }
+            } else {
+                qWarning() << watcher->error();
             }
         });
     };
-
-    if (m_wmSwitcher && m_wmSwitcher->CurrentWM() == StrIsOpenWM && m_effects) {
-        bool isMoveWindow = m_effects->isEffectLoaded(EffectMoveWindowArg);
-        qDebug() << Q_FUNC_INFO << isMoveWindow;
-        m_model->setIsMoveWindow(isMoveWindow);
-        m_model->setIsMoveWindowDconfig(isMoveWindow);
-    }
 
     m_themeModels["gtk"]           = windowTheme;
     m_themeModels["icon"]          = iconTheme;
@@ -189,8 +184,29 @@ void PersonalizationWork::addList(ThemeModel *model, const QString &type, const 
 
 void PersonalizationWork::refreshWMState()
 {
-    QDBusPendingCallWatcher *wmWatcher = new QDBusPendingCallWatcher(m_wmSwitcher->CurrentWM(), this);
-    connect(wmWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetCurrentWMFinished);
+    // wayland默认支持且开启特效
+    if (m_isWayland) {
+        refreshMoveWindowState();
+    } else {
+        QDBusPendingCallWatcher *wmWatcher = new QDBusPendingCallWatcher(m_wmSwitcher->CurrentWM(), this);
+        connect(wmWatcher, &QDBusPendingCallWatcher::finished, this, &PersonalizationWork::onGetCurrentWMFinished);
+    }
+}
+
+void PersonalizationWork::refreshMoveWindowState()
+{
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_effects->isEffectLoaded(EffectMoveWindowArg), this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] (QDBusPendingCallWatcher *watcher) {
+        if (!watcher->isError()) {
+            QDBusReply<bool> isMoveWindow = watcher->reply();
+            qDebug() << Q_FUNC_INFO << isMoveWindow;
+            m_model->setIsMoveWindow(isMoveWindow);
+            m_model->setIsMoveWindowDconfig(isMoveWindow);
+        } else {
+            qWarning() << "[refreshMoveWindowState] isEffectLoaded err : " << watcher->error();
+        }
+        watcher->deleteLater();
+    });
 }
 
 void PersonalizationWork::FontSizeChanged(const double value) const
@@ -208,7 +224,7 @@ void PersonalizationWork::onGetFontFinished(QDBusPendingCallWatcher *w)
 
         setFontList(m_fontModels[category], category, reply.value());
     } else {
-        qDebug() << reply.error();
+        qWarning() << reply.error();
     }
 
     w->deleteLater();
@@ -224,7 +240,7 @@ void PersonalizationWork::onGetThemeFinished(QDBusPendingCallWatcher *w)
 
         addList(m_themeModels[category], category, array);
     } else {
-        qDebug() << reply.error();
+        qWarning() << reply.error();
     }
 
     w->deleteLater();
@@ -240,7 +256,7 @@ void PersonalizationWork::onGetPicFinished(QDBusPendingCallWatcher *w)
 
         m_themeModels[category]->addPic(id, reply.value());
     } else {
-        qDebug() << reply.error();
+        qWarning() << reply.error();
     }
 
     w->deleteLater();
@@ -253,7 +269,7 @@ void PersonalizationWork::onGetActiveColorFinished(QDBusPendingCallWatcher *w)
     if (!reply.isError()) {
         m_model->setActiveColor(reply.value());
     } else {
-        qDebug() << reply.error();
+        qWarning() << reply.error();
     }
 
     w->deleteLater();
@@ -275,6 +291,9 @@ void PersonalizationWork::onToggleWM(const QString &wm)
     bool is3D = wm == StrIsOpenWM;
     qDebug() << "onToggleWM: " << wm << is3D;
     m_model->setIs3DWm(is3D);
+    if (is3D) {
+        refreshMoveWindowState();
+    }
 }
 
 void PersonalizationWork::setMoveWindow(bool state)
