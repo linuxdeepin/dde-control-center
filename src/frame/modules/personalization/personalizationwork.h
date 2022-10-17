@@ -72,6 +72,7 @@ private:
     QList<QJsonObject> converToList(const QString &type, const QJsonArray &array);
     void addList(ThemeModel *model, const QString &type, const QJsonArray &array);
     void refreshWMState();
+    void refreshMoveWindowState();
     void refreshThemeByType(const QString &type);
     void refreshFontByType(const QString &type);
     void refreshOpacity(double opacity);
@@ -90,6 +91,7 @@ private:
     QMap<QString, ThemeModel*> m_themeModels;
     QMap<QString, FontModel*> m_fontModels;
     QGSettings *m_setting;
+    bool m_isWayland;
 };
 }
 }
