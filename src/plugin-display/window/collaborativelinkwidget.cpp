@@ -105,8 +105,8 @@ void CollaborativeLinkWidget::setModel(DisplayModel *model)
 {
     m_displayModel = model;
 
-    qDebug() << " =========  m_displayModel->enableCooperation() " << m_displayModel->enableCooperation();
-    m_deviceSwitch->setChecked(m_displayModel->enableCooperation());
+    connect(model, &DisplayModel::deviceSharingSwitchChanged, m_deviceSwitch, &SwitchWidget::setChecked);
+    m_deviceSwitch->setChecked(m_displayModel->DeviceSharingSwitch());
     auto AddMacFunc = [ = ](){
         auto machines = m_displayModel->machineList();
         qDebug() << " 获取设备数据： " << machines.size();

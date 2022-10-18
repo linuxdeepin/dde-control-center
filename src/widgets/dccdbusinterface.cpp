@@ -77,7 +77,7 @@ QVariant DCCDBusInterfacePrivate::demarshall(const QMetaProperty &metaProperty, 
 
 QVariant DCCDBusInterfacePrivate::updateProp(const char *propname, const QVariant &value)
 {
-    QVariant result;
+    QVariant result = value;
     const QMetaObject *metaObj = m_parent->metaObject();
     int i = metaObj->indexOfProperty(propname);
     if (i != -1) {

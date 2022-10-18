@@ -46,7 +46,7 @@ DisplayModel::DisplayModel(QObject *parent)
     , m_allowEnableMultiScaleRatio(false)
     , m_resolutionRefreshEnable(true)
     , m_brightnessEnable(true)
-    , m_enableCooperation(true)
+    , m_deviceSharingSwitch(true)
 {
 }
 
@@ -249,11 +249,11 @@ void DisplayModel::setmaxBacklightBrightness(const uint value)
     }
 }
 
-void DisplayModel::setEnableCooperation(bool enable)
+void DisplayModel::setDeviceSharingSwitch(bool enable)
 {
-    if (m_enableCooperation != enable) {
-        m_enableCooperation = enable;
-        Q_EMIT enableCooperationChanged(enable);
+    if (m_deviceSharingSwitch != enable) {
+        m_deviceSharingSwitch = enable;
+        Q_EMIT deviceSharingSwitchChanged(enable);
     }
 }
 

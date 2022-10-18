@@ -83,15 +83,15 @@ QList<QDBusObjectPath> DisplayDBusProxy::Machines()
     return qvariant_cast<QList<QDBusObjectPath>>(m_dBusCooperationInter->property("Machines"));
 }
 
-bool DisplayDBusProxy::enableCooperation()
+bool DisplayDBusProxy::deviceSharingSwitch()
 {
-    return qvariant_cast<bool>(m_dBusCooperationInter->property("EnableCooperation"));
+    return qvariant_cast<bool>(m_dBusCooperationInter->property("DeviceSharingSwitch"));
 }
 
-void DisplayDBusProxy::setCooperationEnable(const bool enable)
+void DisplayDBusProxy::setDeviceSharingSwitch(const bool enable)
 {
-    qDebug() << " TODO： setCooperationEnable begin " << enable ;
-    m_dBusCooperationInter->setProperty("EnableCooperation", QVariant::fromValue(enable));
+    qDebug() << " TODO： setDeviceSharingSwitch begin " << enable ;
+    m_dBusCooperationInter->setProperty("DeviceSharingSwitch", QVariant::fromValue(enable));
 }
 
 //display

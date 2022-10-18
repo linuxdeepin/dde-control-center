@@ -63,7 +63,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     connect(m_displayInter, &DisplayDBusProxy::MaxBacklightBrightnessChanged, model, &DisplayModel::setmaxBacklightBrightness);
     connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureModeChanged, model, &DisplayModel::setAdjustCCTmode);
     connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureManualChanged, model, &DisplayModel::setColorTemperature);
-    connect(m_displayInter, &DisplayDBusProxy::EnableCooperationChanged, m_model, &DisplayModel::setEnableCooperation);
+    connect(m_displayInter, &DisplayDBusProxy::DeviceSharingSwitchChanged, m_model, &DisplayModel::setDeviceSharingSwitch);
     connect(m_displayInter, static_cast<void (DisplayDBusProxy::*)(const QString &) const>(&DisplayDBusProxy::PrimaryChanged), model, &DisplayModel::setPrimary);
 
     //display redSfit/autoLight
@@ -109,7 +109,7 @@ void DisplayWorker::active()
     m_model->setColorTemperature(m_displayInter->colorTemperatureManual());
     m_model->setmaxBacklightBrightness(m_displayInter->maxBacklightBrightness());
     m_model->setAutoLightAdjustIsValid(m_displayInter->hasAmbientLightSensor());
-    m_model->setEnableCooperation(m_displayInter->enableCooperation());
+    m_model->setDeviceSharingSwitch(m_displayInter->deviceSharingSwitch());
 
     bool isRedshiftValid = true;
     QDBusReply<bool> reply = m_displayInter->SupportSetColorTemperatureSync();
@@ -267,9 +267,9 @@ void DisplayWorker::setCurrentFillMode(Monitor *mon,const QString fillMode)
     inter->setCurrentFillMode(fillMode);
 }
 
-void DisplayWorker::setCooperationEnable(const bool enable)
+void DisplayWorker::setDeviceSharingSwitch(const bool enable)
 {
-     m_displayInter->setCooperationEnable(enable);
+     m_displayInter->setDeviceSharingSwitch(enable);
 }
 
 void DisplayWorker::setCurrentMachinePair(Machine *mac)
