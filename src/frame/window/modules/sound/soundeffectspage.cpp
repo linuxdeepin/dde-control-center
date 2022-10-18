@@ -65,7 +65,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_effectList->setItemSpacing(1);
 
     QMargins itemMargins(m_effectList->itemMargins());
-    itemMargins.setLeft(14);
+    itemMargins.setLeft(4);
     m_effectList->setItemMargins(itemMargins);
 
     m_layout->addWidget(m_effectList, 1);
