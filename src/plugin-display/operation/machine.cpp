@@ -73,3 +73,8 @@ void Machine::setCooperating(const bool cooperating)
     }
 }
 
+void Machine::setDisconnectStatus(bool status)
+{
+    Q_EMIT disconnnectStatusChanged(status);
+}
+

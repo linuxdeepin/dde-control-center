@@ -38,6 +38,7 @@ Q_SIGNALS:
     void PairedChanged(bool paired);
     void UuidChanged(const QString& uuid);
     void CooperatingChanged(bool cooperating);
+    void disconnectStatusChanged(bool);
 
 private:
     void init();

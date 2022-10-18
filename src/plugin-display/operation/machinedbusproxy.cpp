@@ -42,7 +42,9 @@ void MachineDBusProxy::Disconnect()
     qDebug() << " void MachineDBusProxy::Disconnect() " << qvariant_cast<QString>(m_dBusMachineInter->property("UUID"));;
     QDBusReply<void> retPair = m_dBusMachineInter->call("Disconnect");
     QString errorDate = retPair.error().message();
-    if (!errorDate.isEmpty()) {
+    if (errorDate.isEmpty()) {
+        Q_EMIT disconnectStatusChanged(true);
+    } else {
         qWarning() << "Disconnect failed:" << errorDate;
     }
 }

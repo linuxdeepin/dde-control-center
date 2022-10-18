@@ -132,8 +132,6 @@ void CollaborativeLinkWidget::disconnectMachine()
 {
     m_deviceButton->setEnabled(false);
     Q_EMIT requestCurrentMachineDisconnect(m_currentMachineDevcice);
-    m_deviceCombox->setCurrentText(tr("请选择协同设备"));
-    m_currentMachineDevcice = nullptr;
 }
 
 void CollaborativeLinkWidget::changeComboxIndex(const int idx)
@@ -143,6 +141,7 @@ void CollaborativeLinkWidget::changeComboxIndex(const int idx)
 
     auto tmp = m_deviceComboxModel->index(idx, 0);
     auto machine = m_deviceComboxModel->data(tmp, Qt::WhatsThisPropertyRole).value<Machine*>();
+    m_currentMachineDevcice = machine;
     if (machine)
         Q_EMIT requestCurrentMachinePair(machine);
 }
@@ -175,6 +174,12 @@ void CollaborativeLinkWidget::addMachine(Machine *machine)
             m_currentMachineDevcice = nullptr;
 
     });
+
+    connect(machine, &Machine::disconnnectStatusChanged, m_deviceCombox, [this](bool status) {
+        m_deviceCombox->setCurrentText(tr("请选择协同设备"));
+        m_currentMachineDevcice = nullptr;
+    });
+
     if (machine->Cooperating()) {
         m_currentMachineDevcice = machine;
         m_deviceCombox->setCurrentText(machine->Name() + "(" + machine->IP() + ")");

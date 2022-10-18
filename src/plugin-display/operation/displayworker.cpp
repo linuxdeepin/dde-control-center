@@ -513,7 +513,7 @@ void DisplayWorker::machinesAdded(const QString &path)
         }
     });
     connect(interProxy, &MachineDBusProxy::CooperatingChanged, machine, &Machine::setCooperating);
-
+    connect(interProxy, &MachineDBusProxy::disconnectStatusChanged, machine, &Machine::setDisconnectStatus);
     machine->setPath(path);
     machine->setIP(interProxy->IP());
     machine->setName(interProxy->name());

@@ -47,12 +47,14 @@ public Q_SLOTS:
     void setIP(const QString& ip);
     void setPaired(const bool paired);
     void setCooperating(const bool cooperating);
+    void setDisconnectStatus(bool status);
 
 Q_SIGNALS:
     void pairedChanged(bool paired);
     void nameChanged(const QString& name);
     void IPChanged(const QString& Ip);
     void cooperatingChanged(bool cooperating);
+    void disconnnectStatusChanged(bool status);
 
 private:
     QString m_path;
