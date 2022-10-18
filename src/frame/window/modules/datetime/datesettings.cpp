@@ -169,7 +169,7 @@ DateSettings::DateSettings(QWidget *parent)
     layout->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
     TranslucentFrame *w = new TranslucentFrame;
     w->setLayout(layout);
-    setContentsMargins(0, 8, 0, 8);
+    setContentsMargins(0, 8, 0, 0);
     setContent(w);
 
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::requestSetAutoSyncdate);
