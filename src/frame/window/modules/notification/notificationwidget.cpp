@@ -69,6 +69,7 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
 
     //~ contents_path /notification/App Notifications
     m_appTitleLable = new QLabel(tr("App Notifications"));
+    DFontSizeManager::instance()->bind(m_appTitleLable, DFontSizeManager::T5, QFont::DemiBold);
     m_appTitleLable->setMargin(3);
     m_centralLayout->addWidget(m_appTitleLable);
     m_softwareListView->setResizeMode(QListView::Adjust);
