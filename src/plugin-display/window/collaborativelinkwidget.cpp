@@ -110,7 +110,6 @@ void CollaborativeLinkWidget::setModel(DisplayModel *model)
     auto AddMacFunc = [ = ](){
         auto machines = m_displayModel->machineList();
         qDebug() << " 获取设备数据： " << machines.size();
-        m_deviceCombox->setCurrentText(tr("请选择协同设备"));
         for (auto machine : machines) {
             addMachine(machine);
         }
@@ -126,6 +125,7 @@ void CollaborativeLinkWidget::setModel(DisplayModel *model)
             AddMacFunc();
         }
     });
+    m_deviceCombox->setCurrentText(m_currentMachineDevcice->Cooperating() ? (m_currentMachineDevcice->Name() + "(" + m_currentMachineDevcice->IP() + ")") : (tr("请选择协同设备")));
 }
 
 void CollaborativeLinkWidget::disconnectMachine()
