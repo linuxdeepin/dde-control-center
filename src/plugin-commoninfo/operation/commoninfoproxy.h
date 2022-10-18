@@ -20,9 +20,12 @@
 */
 #pragma once
 
+#include "interface/namespace.h"
 #include <QObject>
-class QDBusInterface;
-class QDBusMessage;
+
+namespace DCC_NAMESPACE {
+class DCCDBusInterface;
+}
 
 class CommonInfoProxy : public QObject
 {
@@ -95,19 +98,16 @@ Q_SIGNALS: // SIGNALS
 
     void DeepinIdError(const int code, const QString &msg);
 
-    //reset signals
+    // reset signals
     void resetEnableTheme();
     void resetGrubEditAuthEnabled();
 
-private Q_SLOTS:
-    void onPropertiesChanged(const QDBusMessage &message);
-
 private:
-    QDBusInterface *m_grubInter;
-    QDBusInterface *m_grubThemeInter;
-    QDBusInterface *m_grubEditAuthInter;
-    QDBusInterface *m_deepinIdInter;
-    QDBusInterface *m_licenseInter;
-    QDBusInterface *m_userexperienceInter;
-    QDBusInterface *m_notificationInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_grubInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_grubThemeInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_grubEditAuthInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_deepinIdInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_licenseInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_userexperienceInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_notificationInter;
 };

@@ -46,11 +46,9 @@ DCORE_USE_NAMESPACE
 
 SystemInfoModule::SystemInfoModule(QObject *parent)
     : HListModule(parent)
-    , m_model(new SystemInfoModel())
-    , m_work(new SystemInfoWork(m_model))
+    , m_model(new SystemInfoModel(this))
+    , m_work(new SystemInfoWork(m_model, this))
 {
-    m_work->moveToThread(qApp->thread());
-    m_model->moveToThread(qApp->thread());
     initChildModule();
 }
 

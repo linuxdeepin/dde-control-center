@@ -19,6 +19,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "commoninfoproxy.h"
+#include "widgets/dccdbusinterface.h"
 
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -56,24 +57,14 @@ const QString &PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 CommonInfoProxy::CommonInfoProxy(QObject *parent)
     : QObject(parent)
-    , m_grubInter(new QDBusInterface(GrubService, GrubPath, GrubInterface, QDBusConnection::systemBus(), this))
-    , m_grubThemeInter(new QDBusInterface(GrubService, GrubThemePath, GrubThemeInterface, QDBusConnection::systemBus(), this))
-    , m_grubEditAuthInter(new QDBusInterface(GrubService, GrubEditAuthPath, GrubEditAuthInterface, QDBusConnection::systemBus(), this))
-    , m_deepinIdInter(new QDBusInterface(DeepinIdService, DeepinIdPath, DeepinIdInterface, QDBusConnection::sessionBus(), this))
-    , m_licenseInter(new QDBusInterface(LicenseService, LicensePath, LicenseInterface, QDBusConnection::systemBus(), this))
-    , m_userexperienceInter(new QDBusInterface(UserexperienceService, UserexperiencePath, UserexperienceInterface, QDBusConnection::sessionBus(), this))
-    , m_notificationInter(new QDBusInterface(NotificationService, NotificationPath, NotificationInterface, QDBusConnection::sessionBus(), this))
+    , m_grubInter(new DCC_NAMESPACE::DCCDBusInterface(GrubService, GrubPath, GrubInterface, QDBusConnection::systemBus(), this))
+    , m_grubThemeInter(new DCC_NAMESPACE::DCCDBusInterface(GrubService, GrubThemePath, GrubThemeInterface, QDBusConnection::systemBus(), this))
+    , m_grubEditAuthInter(new DCC_NAMESPACE::DCCDBusInterface(GrubService, GrubEditAuthPath, GrubEditAuthInterface, QDBusConnection::systemBus(), this))
+    , m_deepinIdInter(new DCC_NAMESPACE::DCCDBusInterface(DeepinIdService, DeepinIdPath, DeepinIdInterface, QDBusConnection::sessionBus(), this))
+    , m_licenseInter(new DCC_NAMESPACE::DCCDBusInterface(LicenseService, LicensePath, LicenseInterface, QDBusConnection::systemBus(), this))
+    , m_userexperienceInter(new DCC_NAMESPACE::DCCDBusInterface(UserexperienceService, UserexperiencePath, UserexperienceInterface, QDBusConnection::sessionBus(), this))
+    , m_notificationInter(new DCC_NAMESPACE::DCCDBusInterface(NotificationService, NotificationPath, NotificationInterface, QDBusConnection::sessionBus(), this))
 {
-    QDBusConnection::systemBus().connect(GrubService, GrubPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    QDBusConnection::systemBus().connect(GrubService, GrubThemePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    QDBusConnection::systemBus().connect(GrubService, GrubEditAuthPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    QDBusConnection::sessionBus().connect(DeepinIdService, DeepinIdPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    QDBusConnection::sessionBus().connect(LicenseService, LicensePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-
-    QDBusConnection::sessionBus().connect(DeepinIdService, DeepinIdPath, DeepinIdInterface, "Error",
-                                          this, SIGNAL(DeepinIdError(const int, const QString&)));
-    QDBusConnection::systemBus().connect(GrubService, GrubThemePath, GrubThemeInterface, "BackgroundChanged",
-                                          this, SIGNAL(BackgroundChanged()));
 }
 
 bool CommonInfoProxy::IsLogin()
@@ -111,7 +102,7 @@ bool CommonInfoProxy::EnableTheme()
 
 void CommonInfoProxy::setEnableTheme(const bool value)
 {
-    QDBusPendingCall call = m_grubInter->asyncCallWithArgumentList("SetEnableTheme", {value});
+    QDBusPendingCall call = m_grubInter->asyncCallWithArgumentList("SetEnableTheme", { value });
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
@@ -133,7 +124,7 @@ QString CommonInfoProxy::DefaultEntry()
 
 void CommonInfoProxy::setDefaultEntry(const QString &entry)
 {
-    m_grubInter->asyncCallWithArgumentList("SetDefaultEntry", {entry});
+    m_grubInter->asyncCallWithArgumentList("SetDefaultEntry", { entry });
 }
 
 uint CommonInfoProxy::Timeout()
@@ -143,7 +134,7 @@ uint CommonInfoProxy::Timeout()
 
 void CommonInfoProxy::setTimeout(const uint timeout)
 {
-    m_grubInter->asyncCallWithArgumentList("SetTimeout", {timeout});
+    m_grubInter->asyncCallWithArgumentList("SetTimeout", { timeout });
 }
 
 QStringList CommonInfoProxy::EnabledUsers()
@@ -152,8 +143,8 @@ QStringList CommonInfoProxy::EnabledUsers()
 }
 
 void CommonInfoProxy::DisableUser(const QString &username)
-{  
-    QDBusPendingCall call = m_grubEditAuthInter->asyncCallWithArgumentList("Disable", {username});
+{
+    QDBusPendingCall call = m_grubEditAuthInter->asyncCallWithArgumentList("Disable", { username });
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
@@ -165,7 +156,7 @@ void CommonInfoProxy::DisableUser(const QString &username)
 
 void CommonInfoProxy::EnableUser(const QString &username, const QString &password)
 {
-    QDBusPendingCall call = m_grubEditAuthInter->asyncCallWithArgumentList("Enable", {username, password});
+    QDBusPendingCall call = m_grubEditAuthInter->asyncCallWithArgumentList("Enable", { username, password });
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
@@ -200,7 +191,7 @@ int CommonInfoProxy::LicenseState()
 
 void CommonInfoProxy::Enable(const bool value)
 {
-    m_userexperienceInter->asyncCallWithArgumentList("Enable", {value});
+    m_userexperienceInter->asyncCallWithArgumentList("Enable", { value });
 }
 
 bool CommonInfoProxy::IsEnabled()
@@ -214,12 +205,4 @@ bool CommonInfoProxy::IsEnabled()
 void CommonInfoProxy::Notify(const QString &in0, const uint in1, const QString &in2, const QString &in3, const QString &in4, const QStringList &in5, const QVariantMap &in6, const int in7)
 {
     m_notificationInter->asyncCall("Notify", in0, in1, in2, in3, in4, in5, in6, in7);
-}
-
-void CommonInfoProxy::onPropertiesChanged(const QDBusMessage &message)
-{
-    QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
-    for (QVariantMap::const_iterator it = changedProps.cbegin(); it != changedProps.cend(); ++it) {
-        QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
-    }
 }

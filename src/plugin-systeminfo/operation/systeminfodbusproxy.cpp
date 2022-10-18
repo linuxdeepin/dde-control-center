@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "systeminfodbusproxy.h"
+#include "widgets/dccdbusinterface.h"
 
 #include <QMetaObject>
 #include <QDBusMessage>
@@ -43,12 +44,10 @@ const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 SystemInfoDBusProxy::SystemInfoDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_hostname1Inter(new QDBusInterface(HostnameService, HostnamePath, HostnameInterface, QDBusConnection::systemBus(), this))
-    , m_licenseInfoInter(new QDBusInterface(LicenseInfoService, LicenseInfoPath, LicenseInfoInterface, QDBusConnection::systemBus(), this))
-    , m_licenseActivatorInter(new QDBusInterface(LicenseActivatorService, LicenseActivatorPath, LicenseActivatorInterface, QDBusConnection::sessionBus(), this))
+    , m_hostname1Inter(new DCC_NAMESPACE::DCCDBusInterface(HostnameService, HostnamePath, HostnameInterface, QDBusConnection::systemBus(), this))
+    , m_licenseInfoInter(new DCC_NAMESPACE::DCCDBusInterface(LicenseInfoService, LicenseInfoPath, LicenseInfoInterface, QDBusConnection::systemBus(), this))
+    , m_licenseActivatorInter(new DCC_NAMESPACE::DCCDBusInterface(LicenseActivatorService, LicenseActivatorPath, LicenseActivatorInterface, QDBusConnection::sessionBus(), this))
 {
-    QDBusConnection::systemBus().connect(HostnameService, HostnamePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    QDBusConnection::systemBus().connect(LicenseInfoService, LicenseInfoPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 }
 
 QString SystemInfoDBusProxy::staticHostname()
@@ -83,12 +82,4 @@ void SystemInfoDBusProxy::setAuthorizationState(const int value)
 void SystemInfoDBusProxy::Show()
 {
     m_licenseActivatorInter->asyncCall("Show");
-}
-
-void SystemInfoDBusProxy::onPropertiesChanged(const QDBusMessage &message)
-{
-    QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
-    for (QVariantMap::const_iterator it = changedProps.cbegin(); it != changedProps.cend(); ++it) {
-        QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
-    }
 }

@@ -21,9 +21,12 @@
 #ifndef SYSTEMINFODBUSPROXY_H
 #define SYSTEMINFODBUSPROXY_H
 
+#include "interface/namespace.h"
 #include <QObject>
-class QDBusInterface;
-class QDBusMessage;
+
+namespace DCC_NAMESPACE {
+class DCCDBusInterface;
+}
 
 class SystemInfoDBusProxy : public QObject
 {
@@ -47,13 +50,10 @@ signals:
 public slots:
     void Show();
 
-private slots:
-    void onPropertiesChanged(const QDBusMessage &message);
-
 private:
-    QDBusInterface *m_hostname1Inter;
-    QDBusInterface *m_licenseInfoInter;
-    QDBusInterface *m_licenseActivatorInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_hostname1Inter;
+    DCC_NAMESPACE::DCCDBusInterface *m_licenseInfoInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_licenseActivatorInter;
 };
 
 #endif // SYSTEMINFODBUSPROXY_H
