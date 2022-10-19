@@ -66,6 +66,7 @@ public Q_SLOTS:
 private:
     void initMachine();
     void addMachine(Machine * machine);
+    void cooperationStatusChanged(bool status);
 
 private:
     DisplayModel *m_displayModel;

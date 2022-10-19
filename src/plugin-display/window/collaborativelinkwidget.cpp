@@ -125,23 +125,36 @@ void CollaborativeLinkWidget::setModel(DisplayModel *model)
             AddMacFunc();
         }
     });
-    m_deviceCombox->setCurrentText(m_currentMachineDevcice->Cooperating() ? (m_currentMachineDevcice->Name() + "(" + m_currentMachineDevcice->IP() + ")") : (tr("请选择协同设备")));
+
+    if (m_currentMachineDevcice)
+        cooperationStatusChanged(m_currentMachineDevcice->Cooperating());
 }
 
 void CollaborativeLinkWidget::disconnectMachine()
 {
-    m_deviceButton->setEnabled(false);
+    cooperationStatusChanged(false);
     Q_EMIT requestCurrentMachineDisconnect(m_currentMachineDevcice);
 }
 
 void CollaborativeLinkWidget::changeComboxIndex(const int idx)
 {
-    qDebug() << " ---- Q_EMIT requestCurrentMachinePair" << idx << "size: " << m_deviceComboxModel->rowCount();
+    qDebug() << " ---- changeComboxIndex" << idx << "size: " << m_deviceComboxModel->rowCount();
     if (idx < 0 || m_deviceComboxModel->rowCount() <= 1) return;
+
+    if (idx == 0) {
+        disconnectMachine();
+        return;
+    }
 
     auto tmp = m_deviceComboxModel->index(idx, 0);
     auto machine = m_deviceComboxModel->data(tmp, Qt::WhatsThisPropertyRole).value<Machine*>();
     m_currentMachineDevcice = machine;
+    if (m_currentMachineDevcice) {
+        cooperationStatusChanged(m_currentMachineDevcice->Cooperating());
+    } else {
+        cooperationStatusChanged(false);
+    }
+
     if (machine)
         Q_EMIT requestCurrentMachinePair(machine);
 }
@@ -168,24 +181,32 @@ void CollaborativeLinkWidget::addMachine(Machine *machine)
     });
 
     connect(machine, &Machine::cooperatingChanged, this, [=](const bool cooperating){
-        m_deviceCombox->setCurrentText(cooperating ? (machine->Name() + "(" + machine->IP() + ")") : (tr("请选择协同设备")));
-        m_deviceButton->setEnabled(cooperating);
         if (!cooperating)
             m_currentMachineDevcice = nullptr;
+        cooperationStatusChanged(cooperating);
 
     });
 
     connect(machine, &Machine::disconnnectStatusChanged, m_deviceCombox, [this](bool status) {
-        m_deviceCombox->setCurrentText(tr("请选择协同设备"));
         m_currentMachineDevcice = nullptr;
+        cooperationStatusChanged(false);
     });
 
     if (machine->Cooperating()) {
         m_currentMachineDevcice = machine;
-        m_deviceCombox->setCurrentText(machine->Name() + "(" + machine->IP() + ")");
-    } else {
-        m_deviceCombox->setCurrentText(tr("请选择协同设备"));
+        cooperationStatusChanged(true);
     }
-    m_deviceButton->setEnabled(machine->Cooperating());
+    cooperationStatusChanged(machine->Cooperating());
     m_deviceComboxModel->appendRow(pi);
+}
+
+void CollaborativeLinkWidget::cooperationStatusChanged(bool status)
+{
+    if (m_currentMachineDevcice && status){
+        m_deviceCombox->setCurrentText(m_currentMachineDevcice->Name() + "(" + m_currentMachineDevcice->IP() + ")");
+        m_deviceButton->setEnabled(true);
+    } else {
+        m_deviceCombox->setCurrentText((tr("请选择协同设备")));
+        m_deviceButton->setEnabled(false);
+    }
 }
