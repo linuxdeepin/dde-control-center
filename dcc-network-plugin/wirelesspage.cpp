@@ -60,7 +60,7 @@ APItem::APItem(const QString &text, QStyle *style, DListView *parent)
     setFlags(Qt::ItemFlag::ItemIsEnabled | Qt::ItemFlag::ItemIsSelectable);
     setCheckable(false);
 
-    m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(), QSize(), false);
+    m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(20, 20), QSize(20, 20), false);
     setActionList(Qt::Edge::LeftEdge, { m_secureAction });
 
     m_parentView = parent;
@@ -96,8 +96,8 @@ APItem::~APItem()
 
 void APItem::setSecure(bool isSecure)
 {
-    if (m_secureAction)
-        m_secureAction->setIcon(m_dStyleHelper.standardIcon(isSecure ? DStyle::SP_LockElement : DStyle::SP_CustomBase, nullptr, nullptr));
+    if (m_secureAction && isSecure)
+        m_secureAction->setIcon(QIcon::fromTheme("dcc_wireless_security"));
 
     setData(isSecure, SecureRole);
 }
@@ -296,6 +296,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_lvAP->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_lvAP->setSelectionMode(QAbstractItemView::NoSelection);
+    QMargins itemMargins(m_lvAP->itemMargins());
+    itemMargins.setLeft(12);
+    m_lvAP->setItemMargins(itemMargins);
 
     QScroller *scroller = QScroller::scroller(m_lvAP->viewport());
     QScrollerProperties sp;
