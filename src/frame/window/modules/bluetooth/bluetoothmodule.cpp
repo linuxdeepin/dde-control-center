@@ -186,7 +186,7 @@ void BluetoothModule::initSearchData()
          m_frameProxy->setModuleVisible(module, bBluetoothModel);
          setSearchState(withoutNames, powered && bBluetoothModel, first);
          setSearchState(allowFind, powered && bBluetoothModel, first);
-         setSearchState(myDevices, powered && bBluetoothModel, first);
+         setSearchState(myDevices, powered && bBluetoothModel && m_bluetoothModel->myDeviceVisible(), first);
          setSearchState(otherDevices, powered && bBluetoothModel, first);
          setSearchState(explain, !powered && bBluetoothModel, first);
      };
