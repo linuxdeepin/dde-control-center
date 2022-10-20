@@ -310,6 +310,7 @@ void TimeSettingModule::initDigitalClock(QWidget *w)
     layout->addLayout(timeLayout);
     layout->addWidget(bggroup);
     layout->setSpacing(10);
+    layout->setContentsMargins(0, 0, 0, 0);
     w->setLayout(layout);
     w->setVisible(m_model->nTP());
     connect(m_model, &DatetimeModel::NTPChanged, w, &QWidget::setVisible);

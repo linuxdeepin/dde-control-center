@@ -43,7 +43,7 @@ DouTestWidget::DouTestWidget(QWidget *parent)
 {
     m_mainlayout = new QVBoxLayout;
     QLabel *title = new QLabel(tr("Double-click Test"));
-    m_mainlayout->setContentsMargins(20, 10, 10, 10);
+//    m_mainlayout->setContentsMargins(20, 10, 10, 10);
     m_mainlayout->addWidget(title, 0, Qt::AlignLeft);
     m_testWidget = new DPictureSequenceView;
     m_testWidget->setAccessibleName("DouTestWidget_testWidget");

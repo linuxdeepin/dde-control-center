@@ -136,7 +136,7 @@ void DisplayModule::showSingleScreenWidget()
 
     QVBoxLayout *contentLayout = new QVBoxLayout;
     contentLayout->setSpacing(0);
-    contentLayout->setContentsMargins(56, 20, 56, 0);
+    contentLayout->setContentsMargins(0, 20, 0, 0);
 
     CollaborativeLinkWidget *linkWidget = new CollaborativeLinkWidget(singleScreenWidget);
     linkWidget->setModel(m_model);

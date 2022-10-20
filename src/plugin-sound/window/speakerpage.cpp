@@ -75,7 +75,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     m_blueSoundCbx->comboBox()->setAccessibleName("blueSoundCbx");
     m_blueSoundCbx->setVisible(false);
 
-    m_layout->setContentsMargins(10, 0, 10, 10);
+    m_layout->setContentsMargins(0, 0, 0, 10);
     m_waitStatusChangeTimer->setSingleShot(true);
     connect(m_waitStatusChangeTimer, &QTimer::timeout, this, [ = ] {
         refreshActivePortShow(m_currentPort);

@@ -108,12 +108,12 @@ BootWidget::BootWidget(QWidget *parent)
     DTipLabel *backgroundLabel = new DTipLabel(mapBackgroundMessage[false], this);
     backgroundLabel->setText(mapBackgroundMessage[true]);
     backgroundLabel->setWordWrap(true);
-    backgroundLabel->setContentsMargins(5, 0, 10, 0);
+    backgroundLabel->setContentsMargins(0, 0, 0, 0);
     backgroundLabel->setAlignment(Qt::AlignLeft);
     m_themeLbl = new DTipLabel(tr("Switch theme on to view it in boot menu"), this);
     m_themeLbl->setAccessibleName("themeLbl");
     m_themeLbl->setWordWrap(true);
-    m_themeLbl->setContentsMargins(5, 0, 10, 0);
+    m_themeLbl->setContentsMargins(0, 0, 0, 0);
     m_themeLbl->setAlignment(Qt::AlignLeft);
     groupOther->appendItem(m_bootDelay);
     groupOther->setSpacing(10);
@@ -143,9 +143,9 @@ BootWidget::BootWidget(QWidget *parent)
     m_grubModifyPasswdLink = new DCommandLinkButton(tr("Change Password"), this);
     m_grubModifyPasswdLink->hide();
     hLayout->addWidget(m_grubModifyPasswdLink, 0);
-    hLayout->setContentsMargins(5, 0, 10, 0);
+    hLayout->setContentsMargins(0, 0, 0, 0);
     layout->addStretch();
-    layout->setContentsMargins(10, 10, 10, 10);
+    layout->setContentsMargins(0, 10, 0, 10);
     setWindowTitle(tr("Boot Menu"));
 
     connect(m_theme, &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);

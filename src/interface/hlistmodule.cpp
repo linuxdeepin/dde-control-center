@@ -34,7 +34,7 @@ public:
             PageModule *module = qobject_cast<PageModule *>(child);
             if(module) {
                 module->setContentsMargins(60, 0, 60, 0);
-                module->setMaximumWidth(DCC_PAGEMODULE_MAX_WIDTH);
+                module->setMaximumWidth(DCC_PAGEMODULE_MAX_WIDTH + 60 * 2);
             }
             m_layout->addWidget(child->activePage(), 60);
             ModuleDataModel *model = static_cast<ModuleDataModel *>(m_view->model());

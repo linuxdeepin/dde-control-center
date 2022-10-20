@@ -117,11 +117,10 @@ void DevicemanagesPage::initUI()
 {
     // 输入设备
     m_deviceGroup->getLayout()->setContentsMargins(0, 0, 0, 0);
-    m_deviceGroup->setContentsMargins(0, 0, 10, 0);
     m_layout->addWidget(m_deviceGroup);
     m_layout->addStretch();
 
-    m_layout->setContentsMargins(10, 0, 10, 0);
+    m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->setSpacing(0);
     setLayout(m_layout);
 }

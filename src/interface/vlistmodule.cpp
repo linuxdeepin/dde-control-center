@@ -39,7 +39,7 @@ public:
             PageModule *module = qobject_cast<PageModule *>(activeModule);
             if (module) {
                 module->setContentsMargins(m_childMargin, 0, m_childMargin, 0);
-                module->setMaximumWidth(DCC_PAGEMODULE_MAX_WIDTH);
+                module->setMaximumWidth(DCC_PAGEMODULE_MAX_WIDTH + m_childMargin * 2);
             }
             widget = child->activePage();
             if (widget) {
@@ -149,9 +149,9 @@ public:
                     onAddChild(tmpChild);
             }
         });
-        m_childMargin = 20;
+        m_childMargin = 0;//20;
         if (qobject_cast<HListModule *>(q->getParent())) {
-            m_childMargin = 10;
+            m_childMargin = 0;//10;
             m_view->setContentsMargins(10, 0, 10, 10);
         }
         onCurrentModuleChanged(q->currentModule());

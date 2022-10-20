@@ -79,11 +79,11 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     QMargins itemMargins(m_kbLayoutListView->itemMargins());
     itemMargins.setLeft(10);
     m_kbLayoutListView->setItemMargins(itemMargins);
-    m_kbLayoutListView->setContentsMargins(10, 0, 10, 0);
+    m_kbLayoutListView->setContentsMargins(0, 0, 0, 0);
     mainLayout->addWidget(m_kbLayoutListView);
     mainLayout->setAlignment(Qt::AlignTop);
     mainLayout->setSpacing(10);
-    mainLayout->setContentsMargins(10, 0, 10, 0);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(mainLayout);
 
     connect(static_cast<DCommandLinkButton *>(m_addLayoutAction->widget()), &DCommandLinkButton::clicked, this, &KBLayoutSettingWidget::onLayoutAdded);

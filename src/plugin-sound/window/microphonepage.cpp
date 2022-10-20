@@ -73,7 +73,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     m_inputModel  = new QStandardItemModel(m_inputSoundCbx->comboBox());
     m_inputSoundCbx->comboBox()->setModel(m_inputModel);
 
-    m_layout->setContentsMargins(10, 0, 10, 10);
+    m_layout->setContentsMargins(0, 0, 0, 10);
     // TODO: 配置 DCONFIG
     connect(m_waitStatusChangeTimer, &QTimer::timeout, [this](){
         refreshActivePortShow(m_currentPort);

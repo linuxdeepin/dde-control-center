@@ -85,7 +85,6 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_customGroup = new SettingsGroup();
     m_searchGroup = new SettingsGroup();
     m_searchInput = new SearchInput();
-    m_searchInput->setContentsMargins(0, 0, 10, 0);
     m_searchInput->setAccessibleName("KEYBOARD_LINEEDIT");
     m_searchInput->setObjectName("KeyboardLineEdit");
 
@@ -108,7 +107,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     //vlayout->addSpacing(10);
 
     m_layout = new QVBoxLayout;
-    m_layout->setContentsMargins(0, 0, 10, 0);
+    m_layout->setContentsMargins(0, 0, 0, 0);
     m_layout->addSpacing(3);
     m_layout->addWidget(m_systemGroup);
     m_layout->addSpacing(10);
@@ -140,7 +139,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     widget->hide();
     m_searchInput->hide();
 
-    vlayout->setContentsMargins(10, 10, 0, 5);
+    vlayout->setContentsMargins(0, 10, 0, 5);
     setLayout(vlayout);
 
     connect(m_resetBtn, &QPushButton::clicked, this, [ = ] {

@@ -48,7 +48,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     , m_effectList(new DCCListView(this))
     , m_sound(nullptr)
 {
-    m_layout->setContentsMargins(10, 0, 10, 10);
+    m_layout->setContentsMargins(0, 0, 0, 10);
 
     TitleLabel *lblTitle = new TitleLabel(tr("Sound Effects"));
     lblTitle->setContentsMargins(0, 0, 0, 0);

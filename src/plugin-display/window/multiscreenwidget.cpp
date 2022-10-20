@@ -77,7 +77,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     m_fullIndication->setAccessibleName("fullIndication");
 
     m_contentLayout->setSpacing(0);
-    m_contentLayout->setContentsMargins(56, 20, 56, 0);
+    m_contentLayout->setContentsMargins(0, 20, 0, 0);
     m_contentLayout->addWidget(m_monitorControlWidget);
     m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_multiSettingLabel);

@@ -420,6 +420,7 @@ void AccountsModule::initModifyButton(QWidget *w)
     layout->setSpacing(8);
     layout->addWidget(modifyPassword);
     layout->addWidget(deleteAccount);
+    layout->setContentsMargins(0, 0, 0, 0);
     w->setLayout(layout);
 }
 
@@ -427,7 +428,7 @@ void AccountsModule::initAccountType(SettingsGroup *accountSettingsGrp)
 {
     accountSettingsGrp->setBackgroundStyle(SettingsGroup::GroupBackground);
     accountSettingsGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
-    accountSettingsGrp->setContentsMargins(10, 0, 10, 0);
+    accountSettingsGrp->setContentsMargins(0, 0, 0, 0);
     accountSettingsGrp->layout()->setMargin(0);
     ComboxWidget *asAdministrator = new ComboxWidget;
     asAdministrator->setTitle(tr("Account Type"));
@@ -463,7 +464,7 @@ void AccountsModule::initValidityDays(SettingsGroup *pwGroup)
     // 设置密码有效期
     pwGroup->setBackgroundStyle(SettingsGroup::GroupBackground);
     pwGroup->getLayout()->setContentsMargins(0, 0, 0, 0);
-    pwGroup->setContentsMargins(10, 0, 10, 0);
+    pwGroup->setContentsMargins(0, 0, 0, 0);
     pwGroup->layout()->setMargin(0);
 
     auto pwHLayout = new QHBoxLayout;

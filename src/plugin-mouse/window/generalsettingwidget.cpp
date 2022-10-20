@@ -88,9 +88,8 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     m_contentLayout->addWidget(m_generalSettingsGrp);
     m_contentLayout->setAlignment(Qt::AlignTop);
     m_contentLayout->setSpacing(10);
-    m_contentLayout->setContentsMargins(10, 10, 2, 5); // 右侧间距为10 补下面的 8
+    m_contentLayout->setContentsMargins(0, 10, 0, 5); // 右侧间距为10 补下面的 8
     setLayout(m_contentLayout);
-    setContentsMargins(0, 0, 8, 0);
 
     connect(m_leftHand, &SwitchWidget::checkedChanged, this, &GeneralSettingWidget::requestSetLeftHand);
     connect(m_disInTyping, &SwitchWidget::checkedChanged, this, &GeneralSettingWidget::requestSetDisTyping);

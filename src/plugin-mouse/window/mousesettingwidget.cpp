@@ -67,10 +67,9 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent)
     m_contentLayout->addWidget(m_mouseSettingsGrp);
     m_contentLayout->setAlignment(Qt::AlignTop);
     m_contentLayout->setSpacing(10);
-    m_contentLayout->setContentsMargins(10, 10, 2, 5);
+    m_contentLayout->setContentsMargins(0, 10, 0, 5);
 
     setLayout(m_contentLayout);
-    setContentsMargins(0, 0, 8, 0);
 
     connect(m_mouseMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseSettingWidget::requestSetMouseMotionAcceleration);
     connect(m_adaptiveAccelProfile, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetAccelProfile);

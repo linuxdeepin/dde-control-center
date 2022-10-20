@@ -49,7 +49,7 @@ TrackPointSettingWidget::TrackPointSettingWidget(QWidget *parent) : QWidget(pare
     m_contentLayout->addStretch();
 
     setLayout(m_contentLayout);
-    setContentsMargins(10, 10, 10, 10);
+    setContentsMargins(0, 10, 0, 10);
     connect(m_trackMoveSlider->slider(), &DCCSlider::valueChanged, this, &TrackPointSettingWidget::requestSetTrackPointMotionAcceleration);
 }
 

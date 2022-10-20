@@ -59,7 +59,7 @@ DefappDetailWidget::DefappDetailWidget(DefAppWorker::DefaultAppsCategory categor
     m_defApps->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_defApps->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    m_centralLayout->setMargin(0);
+    m_centralLayout->setContentsMargins(0, 0, 20, 0);
     m_centralLayout->addWidget(m_defApps, 1);
     setLayout(m_centralLayout);
 }

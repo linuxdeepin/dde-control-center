@@ -84,7 +84,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
 
     layout->addLayout(headLayout);
     layout->addWidget(m_langListview);
-    layout->setContentsMargins(0, 0, 10, 0);
+    layout->setContentsMargins(0, 0, 0, 0);
     setLayout(layout);
 
     connect(m_langListview, &DListView::clicked, this, &SystemLanguageWidget::setCurLangChecked);

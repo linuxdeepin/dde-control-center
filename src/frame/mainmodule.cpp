@@ -52,7 +52,7 @@ public:
             PageModule *module = qobject_cast<PageModule *>(child);
             if(module) {
                 module->setContentsMargins(60, 0, 60, 0);
-                module->setMaximumWidth(DCC_PAGEMODULE_MAX_WIDTH);
+                module->setMaximumWidth(DCC_PAGEMODULE_MAX_WIDTH + 60 * 2);
             }
             newWidget = child->activePage();
             oldWidget = m_splitter->replaceWidget(1, newWidget);

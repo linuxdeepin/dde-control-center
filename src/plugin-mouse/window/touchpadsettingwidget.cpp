@@ -29,7 +29,7 @@
 #include <QDebug>
 #include <QVBoxLayout>
 
-const QMargins ThirdPageContentsMargins(10, 10, 10, 10);
+const QMargins ThirdPageContentsMargins(0, 10, 0, 10);
 
 using namespace DCC_NAMESPACE;
 TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
