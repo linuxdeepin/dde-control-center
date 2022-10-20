@@ -40,11 +40,11 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
     m_reducedBtn->setObjectName("DCC-Datetime-Datewidget-Reduce");
 
     DFontSizeManager::instance()->bind(m_label, DFontSizeManager::T8);
-    auto mpalette = this->palette();
-    QColor color = mpalette.color(QPalette::Text);
+    auto palette = this->palette();
+    QColor color = palette.color(QPalette::Text);
     color.setAlpha(153);
-    mpalette.setColor(QPalette::Text, color);
-    m_label->setPalette(mpalette);
+    palette.setColor(QPalette::Text, color);
+    m_label->setPalette(palette);
 
     m_label->setParent(m_lineEdit);
     m_label->move(0, 0);
