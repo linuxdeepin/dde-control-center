@@ -9,6 +9,8 @@
 #include <QHBoxLayout>
 #include <QMouseEvent>
 
+#include <DFontSizeManager>
+
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
@@ -36,6 +38,13 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
     m_lineEdit->setStyleSheet("background:transparent; border-width:0; border-style:outset");
     m_addBtn->setObjectName("DCC-Datetime-Datewidget-Add");
     m_reducedBtn->setObjectName("DCC-Datetime-Datewidget-Reduce");
+
+    DFontSizeManager::instance()->bind(m_label, DFontSizeManager::T8);
+    auto palette = this->palette();
+    QColor color = palette.color(QPalette::Text);
+    color.setAlpha(153);
+    palette.setColor(QPalette::Text, color);
+    m_label->setPalette(palette);
 
     m_label->setParent(m_lineEdit);
     m_label->move(0, 0);
