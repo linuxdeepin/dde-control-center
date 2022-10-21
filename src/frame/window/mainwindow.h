@@ -116,7 +116,7 @@ private Q_SLOTS:
     void openManual();
 
 public Q_SLOTS:
-    void updateWinsize(QRect rect = QRect(0,0,0,0));
+    void updateWinsize();
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
