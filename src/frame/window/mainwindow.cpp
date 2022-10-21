@@ -306,9 +306,7 @@ void MainWindow::setPrimaryScreen(QScreen *screen)
     updateWinsize();
     connect(m_primaryScreen, &QScreen::geometryChanged, this, &MainWindow::updateWinsize);
     // 主屏变化后，根据新主屏的分辨率移动窗口居中
-    connect(qApp, &QGuiApplication::primaryScreenChanged, this, [this] {
-        updateWinsize(m_primaryScreen->geometry());
-    });
+    connect(qApp, &QGuiApplication::primaryScreenChanged, this, &MainWindow::updateWinsize);
 }
 
 QScreen *MainWindow::primaryScreen() const
@@ -438,7 +436,7 @@ void MainWindow::initAllModule(const QString &m)
     qDebug() << QString("load search info with %1ms").arg(et.elapsed());
 }
 
-void MainWindow::updateWinsize(QRect rect)
+void MainWindow::updateWinsize()
 {
     if (!qApp->screens().contains(m_primaryScreen))
         return;
