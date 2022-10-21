@@ -159,8 +159,8 @@ void AdapterWidget::initUI()
     m_settingsGrp->appendItem(m_powerSwitch);
     m_settingsGrp->appendItem(m_discoverySwitch);
 
-    //~ contents_path /bluetooth/Enable Bluetooth
-    m_tip = new QLabel(tr("Enable Bluetooth"));
+    //~ contents_path /bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)
+    m_tip = new QLabel(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
     m_tip->setWordWrap(true);
     m_tip->setContentsMargins(16, 0, 10, 0);
 

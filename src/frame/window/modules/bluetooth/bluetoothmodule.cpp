@@ -106,7 +106,7 @@ void BluetoothModule::addChildPageTrans() const
         //bluetooth
         m_frameProxy->addChildPageTrans("My Devices", tr("My Devices"));
         m_frameProxy->addChildPageTrans("Other Devices", tr("Other Devices"));
-        m_frameProxy->addChildPageTrans("Enable Bluetooth", tr("Enable Bluetooth"));
+        m_frameProxy->addChildPageTrans("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)", tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
         m_frameProxy->addChildPageTrans("Show Bluetooth devices without names", tr("Show Bluetooth devices without names"));
         m_frameProxy->addChildPageTrans("Allow other Bluetooth devices to find this device", tr("Allow other Bluetooth devices to find this device"));
     }
@@ -121,7 +121,7 @@ void BluetoothModule::initSearchData()
     const QString& module = displayName();
     const QString& myDevices = tr("My Devices");
     const QString& otherDevices = tr("Other Devices");
-    const QString& explain = tr("Enable Bluetooth");
+    const QString& explain = tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)");
     const QString& withoutNames = tr("Show Bluetooth devices without names");
     const QString& allowFind = tr("Allow other Bluetooth devices to find this device");
 
