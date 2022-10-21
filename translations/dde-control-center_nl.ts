@@ -2,92 +2,92 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="182"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="172"/>
         <source>Help</source>
         <translation>Hulp</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
         <source>Biometric Authentication</source>
         <translation>Biometrische verificatie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
         <source>Accounts</source>
         <translation>Accounts</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Display</source>
         <translation>Beeldscherm</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
         <source>Touch Screen</source>
         <translation>Touchscreen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Default Applications</source>
         <translation>Standaardprogramma&apos;s</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Personalization</source>
         <translation>Vormgeving</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="357"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Notification</source>
         <translation>Meldingen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="358"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <source>Sound</source>
         <translation>Geluid</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="359"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="360"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Date and Time</source>
         <translation>Datum en tijd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>Power</source>
         <translation>Energie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
         <source>Mouse</source>
         <translation>Muis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="363"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>Drawing Tablet</source>
         <translation>Tekentablet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="364"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
         <source>Keyboard and Language</source>
         <translation>Toetsenbord en taal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="366"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
         <source>Updates</source>
         <translation>Updates</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="368"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
         <source>System Info</source>
         <translation>Systeeminformatie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="369"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
         <source>General Settings</source>
         <translation>Algemene instellingen</translation>
     </message>
@@ -182,14 +182,14 @@
         <translation>Automatisch inloggen kan slechts op één account worden ingeschakeld. Schakel deze functie uit bij het account ‘%1’.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="642"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="641"/>
         <source>Group</source>
         <translation>Groep</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="688"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="696"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="705"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="687"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="695"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="704"/>
         <source>The full name has been used by other user accounts</source>
         <translation>Deze volledige naam is al in gebruik door een ander account</translation>
     </message>
@@ -1044,9 +1044,9 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="163"/>
-        <source>Enable Bluetooth</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/bluetooth/Enable Bluetooth</extra-contents_path>
+        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
+        <translation>Schakel bluetooth in om apparaten in de buurt te vinden (zoals luidsprekers, toetsenborden en muizen)</translation>
+        <extra-contents_path>/bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1071,8 +1071,8 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="109"/>
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="124"/>
-        <source>Enable Bluetooth</source>
-        <translation type="unfinished"/>
+        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
+        <translation>Schakel bluetooth in om apparaten in de buurt te vinden (zoals luidsprekers, toetsenborden en muizen)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="110"/>
@@ -2318,87 +2318,87 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="544"/>
         <source>Brightness</source>
         <translation>Helderheid</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="545"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="618"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="542"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="615"/>
         <source>Auto Brightness</source>
         <translation>Automatische helderheid</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="549"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="622"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="546"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="619"/>
         <source>Color Temperature</source>
         <translation>Kleurtemperatuur</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="550"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="623"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="620"/>
         <source>Night Shift</source>
         <translation>Nachtmodus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="551"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="624"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="548"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="621"/>
         <source>Change Color Temperature</source>
         <translation>Kleurtemperatuur aanpassen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="189"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="529"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="560"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="591"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="526"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="557"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="588"/>
         <source>Multiple Displays</source>
         <translation>Meerdere beeldschermen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="527"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="558"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="589"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="524"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="555"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="586"/>
         <source>Mode</source>
         <translation>Modus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="528"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="590"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="525"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="556"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="587"/>
         <source>Main Screen</source>
         <translation>Hoofdscherm</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="562"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="593"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="590"/>
         <source>Refresh Rate</source>
         <translation>Ververssnelheid</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="563"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="560"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="592"/>
         <source>Resolution</source>
         <translation>Resolutie</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="564"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="597"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="561"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="594"/>
         <source>Rotation</source>
         <translation>Draaiing</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="565"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="599"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="562"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="596"/>
         <source>Display Scaling</source>
         <translation>Beeldgrootte</translation>
     </message>
@@ -3290,76 +3290,76 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="109"/>
         <source>Theme</source>
         <translation>Thema</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="120"/>
         <source>Accent Color</source>
         <translation>Accentuering</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="183"/>
         <source>Window Effect</source>
         <translation>Vensteranimaties</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="193"/>
         <source>Transparency</source>
         <translation>Doorzichtigheid</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="242"/>
-        <source>Rounded Corner</source>
-        <translation>Afgeronde hoeken</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="249"/>
-        <source>Small</source>
-        <translation>Klein</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="249"/>
-        <source>Medium</source>
-        <translation>Normaal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="249"/>
-        <source>Large</source>
-        <translation>Groot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="215"/>
         <source>Window Minimize Effect</source>
         <translation>Minimaliseeranimatie</translation>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="218"/>
         <source>Scale</source>
         <translation>Schalen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="317"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="218"/>
         <source>Magic Lamp</source>
         <translation>Magische lamp</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="234"/>
         <source>Show transparency effects when a window is moved</source>
         <translation>Vensters doorzichtig maken tijdens verslepen</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="283"/>
+        <source>Rounded Corner</source>
+        <translation>Afgeronde hoeken</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="290"/>
+        <source>Small</source>
+        <translation>Klein</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="290"/>
+        <source>Medium</source>
+        <translation>Normaal</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="290"/>
+        <source>Large</source>
+        <translation>Groot</translation>
     </message>
 </context>
 <context>
@@ -3396,89 +3396,89 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="129"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="207"/>
         <source>General</source>
         <translation>Algemeen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="130"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="208"/>
         <source>Icon Theme</source>
         <translation>Pictogramthema</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="131"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="209"/>
         <source>Cursor Theme</source>
         <translation>Cursorthema</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="132"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="206"/>
         <source>Font</source>
         <translation>Lettertype</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="227"/>
         <source>Size</source>
         <translation>Grootte</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="228"/>
         <source>Standard Font</source>
         <translation>Standaardlettertype</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="229"/>
         <source>Monospaced Font</source>
         <translation>Monospacelettertype</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="237"/>
         <source>Theme</source>
         <translation>Thema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="238"/>
         <source>Light</source>
         <translation>Licht</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="239"/>
         <source>Dark</source>
         <translation>Donker</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="240"/>
         <source>Auto</source>
         <translation>Automatisch</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="241"/>
         <source>Accent Color</source>
         <translation>Accentuering</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="242"/>
         <source>Window Effect</source>
         <translation>Vensteranimatie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="317"/>
         <source>Transparency</source>
         <translation>Doorzichtigheid</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="318"/>
         <source>Window Minimize Effect</source>
         <translation>Minimaliseeranimatie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="248"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="313"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="310"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="319"/>
         <source>Show transparency effects when a window is moved</source>
         <translation>Vensters doorzichtig maken tijdens verslepen</translation>
     </message>
