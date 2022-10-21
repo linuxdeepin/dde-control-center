@@ -133,7 +133,7 @@ void UserModel::setIsSecurityHighLever(bool isSecurityHighLever)
 }
 
 // 判断当前用户是否是域管账户
-bool UserModel::isDomainUser()
+bool UserModel::isDomainUser(const QString &userName)
 {
     QDBusInterface interface("com.deepin.udcp.iam",
                              "/com/deepin/udcp/iam",
@@ -145,7 +145,7 @@ bool UserModel::isDomainUser()
     }
 
     // 调用域管的接口获取当前用户的组，不为空为域管用户
-    QDBusReply<QStringList> reply = interface.call("GetUserGroups", m_currentUserName);
+    QDBusReply<QStringList> reply = interface.call("GetUserGroups", userName);
     if (reply.error().type() == QDBusError::NoError && !reply.value().isEmpty()) {
         return true;
     }
