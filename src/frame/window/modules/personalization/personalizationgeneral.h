@@ -73,9 +73,6 @@ public:
     void setModel(dcc::personalization::PersonalizationModel *model);
     inline PerssonalizationThemeWidget *getThemeWidget() { return m_Themes; }
 
-    void onShowMiniEffect(const QString &option);
-    void onShowWindowMovedSwitch();
-
 protected:
     void paintEvent(QPaintEvent *event);
     void resizeEvent(QResizeEvent *event) override;
@@ -124,9 +121,6 @@ private:
     Dtk::Gui::DGuiApplicationHelper::ColorType m_themeType;
     bool m_isWayland;
     dcc::widgets::SettingsItem *m_movedWinSwitchItem;
-    QVBoxLayout *m_winEffectVLayout;
-    bool m_isShowWinEffect;
-    QStringList m_options;
 };
 }
 }

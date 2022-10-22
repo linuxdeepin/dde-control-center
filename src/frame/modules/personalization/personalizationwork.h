@@ -38,11 +38,6 @@ public:
     void onGetList();
     void refreshTheme();
     void refreshFont();
-    void refreshEffectModule();
-
-Q_SIGNALS:
-    void requestShowMiniEffect(const QString &option);
-    void requestShowWindowMovedSwitch();
 
 public Q_SLOTS:
     void setDefault(const QJsonObject &value);
