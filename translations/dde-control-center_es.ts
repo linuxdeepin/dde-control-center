@@ -383,7 +383,7 @@
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Nombre de usuario</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -645,15 +645,15 @@
 <context>
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
-        <source>协同链接</source>
+        <source>Multi-Screen Collaboration</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>设备协同</source>
+        <source>Connect to</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>请选择协同设备</source>
+        <source>Select a device for collaboration</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1010,7 +1010,7 @@
     <name>dccV23::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de Teclado</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
@@ -1088,7 +1088,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Añadir distribución de teclado</translation>
     </message>
     <message>
         <source>Done</source>
@@ -1107,7 +1107,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Añadir distribución de teclado</translation>
     </message>
 </context>
 <context>
@@ -1122,7 +1122,7 @@
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de Teclado</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1226,8 +1226,8 @@
 <context>
     <name>dccV23::MonitorControlWidget</name>
     <message>
-        <source>Recognize</source>
-        <translation>Reconocer</translation>
+        <source>Identify</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1706,7 +1706,7 @@
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Nombre del Ordenador</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1742,7 +1742,7 @@
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Acuerdo y Política de privacidad</translation>
     </message>
     <message>
         <source>Edition License</source>
@@ -1853,19 +1853,19 @@
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla Táctil</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione su pantalla táctil cuando la conecte o configúrela aquí.</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
@@ -1927,7 +1927,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Fecha y Hora</translation>
     </message>
 </context>
 <context>
@@ -2059,7 +2059,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Show recent apps in Dock</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar aplicaciones recientes en el Dock</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2624,7 +2624,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Apariencia</translation>
     </message>
     <message>
         <source>Accent Color</source>
@@ -2803,11 +2803,11 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de pantalla táctil</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>La configuración de la pantalla táctil cambió</translation>
     </message>
 </context>
 <context>
@@ -2836,43 +2836,43 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>ServiceSettingsModule</name>
     <message>
         <source>Apps can access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicaciones con acceso a su cámara:</translation>
     </message>
     <message>
         <source>Apps can access your microphone:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicaciones con acceso a su microfono:</translation>
     </message>
     <message>
         <source>Apps can access user folders:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicaciones con acceso a su carpeta de usuario:</translation>
     </message>
     <message>
         <source>Apps can access Calendar:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicaciones con acceso al calendario:</translation>
     </message>
     <message>
         <source>Apps can access Screen Capture:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicaciones con acceso al capturador de pantalla:</translation>
     </message>
     <message>
         <source>No apps requested access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Sin aplicaciones solicitando acceso a la cámara</translation>
     </message>
     <message>
         <source>No apps requested access to the microphone</source>
-        <translation type="unfinished"/>
+        <translation>Sin aplicaciones solicitando acceso al microfono</translation>
     </message>
     <message>
         <source>No apps requested access to user folders</source>
-        <translation type="unfinished"/>
+        <translation>Sin aplicaciones solicitando acceso a las carpetas de usuario</translation>
     </message>
     <message>
         <source>No apps requested access to Calendar</source>
-        <translation type="unfinished"/>
+        <translation>Sin aplicaciones solicitando acceso al Calendario</translation>
     </message>
     <message>
         <source>No apps requested access to Screen Capture</source>
-        <translation type="unfinished"/>
+        <translation>Sin aplicaciones solicitando acceso al Capturador de pantalla</translation>
     </message>
 </context>
 <context>
@@ -2945,7 +2945,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Sonido</translation>
     </message>
 </context>
 <context>
@@ -2995,7 +2995,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Si el volumen es más fuerte que el 100%, puede distorsionar el audio y ser dañino para los dispositivos de salida</translation>
     </message>
     <message>
         <source>Left/Right Balance</source>
@@ -3014,7 +3014,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de Hora</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3050,15 +3050,15 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Año</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Mes</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Dia</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3092,15 +3092,15 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>¿Guardar los ajustes de pantalla?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Los ajustes se revertirán en %1s.</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Revertir</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3142,7 +3142,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Add Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Añadir zona horaria</translation>
     </message>
 </context>
 <context>
@@ -3262,7 +3262,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Actualizaciones</translation>
     </message>
 </context>
 <context>
@@ -3472,11 +3472,11 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla y Suspender</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Apagar el monitor después</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -3484,7 +3484,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Suspender la computadora después</translation>
     </message>
     <message>
         <source>Computer will suspend after</source>
@@ -3496,15 +3496,15 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Cuando se presiona el botón de encendido</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"/>
+        <translation>Batería baja</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificación de batería baja</translation>
     </message>
     <message>
         <source>Low battery level</source>
@@ -3516,7 +3516,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"/>
+        <translation>Gestor de la Bateria</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
@@ -3551,11 +3551,11 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla y Suspender</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Apagar el monitor después</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -3563,7 +3563,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Suspender la computadora después</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -3571,7 +3571,7 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Cuando se presiona el botón de encendido</translation>
     </message>
     <message>
         <source>Shut down</source>
@@ -3598,31 +3598,31 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>Tableta de Dibujo</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Sensibilidad a la presión</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Lápiz</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ratón</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Clara</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Intensa</translation>
     </message>
 </context>
 <context>

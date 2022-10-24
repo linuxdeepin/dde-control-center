@@ -383,7 +383,7 @@
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Gebruikersnaam</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -645,15 +645,15 @@
 <context>
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
-        <source>协同链接</source>
+        <source>Multi-Screen Collaboration</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>设备协同</source>
+        <source>Connect to</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>请选择协同设备</source>
+        <source>Select a device for collaboration</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1010,7 +1010,7 @@
     <name>dccV23::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Toetsenbordinstellingen</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
@@ -1088,7 +1088,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Toetsenbordindeling toevoegen</translation>
     </message>
     <message>
         <source>Done</source>
@@ -1107,7 +1107,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Toetsenbordindeling toevoegen</translation>
     </message>
 </context>
 <context>
@@ -1122,7 +1122,7 @@
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Toetsenbordinstellingen</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1226,8 +1226,8 @@
 <context>
     <name>dccV23::MonitorControlWidget</name>
     <message>
-        <source>Recognize</source>
-        <translation>Herkennen</translation>
+        <source>Identify</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1706,7 +1706,7 @@
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Computernaam</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1742,7 +1742,7 @@
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Algemene voorwaarden en privacybeleid</translation>
     </message>
     <message>
         <source>Edition License</source>
@@ -1853,19 +1853,19 @@
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Touchscreen</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Kies je touchscreen (indien verbonden) of stel het hier in.</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Bevestigen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Annuleren</translation>
     </message>
 </context>
 <context>
@@ -1927,7 +1927,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Datum en tijd</translation>
     </message>
 </context>
 <context>
@@ -2051,7 +2051,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <source>Show recent apps in Dock</source>
-        <translation type="unfinished"/>
+        <translation>Recente programma&apos;s op dock tonen</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2616,7 +2616,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Vormgeving</translation>
     </message>
     <message>
         <source>Accent Color</source>
@@ -2795,11 +2795,11 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>Touchscreeninstellingen</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>De touchscreeninstellingen zijn aangepast</translation>
     </message>
 </context>
 <context>
@@ -2937,7 +2937,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Geluid</translation>
     </message>
 </context>
 <context>
@@ -2987,7 +2987,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Als het volume hoger dan 100% wordt ingesteld, is er kans op vervormd geluid en luidsprekerschade</translation>
     </message>
     <message>
         <source>Left/Right Balance</source>
@@ -3006,7 +3006,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tijdinstellingen</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3042,15 +3042,15 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Jaar</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Maand</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Dag</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3084,15 +3084,15 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Wil je de beeldscherminstellingen opslaan?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>De instellingen worden over %1 sec. teruggezet.</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Herstellen</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3134,7 +3134,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <source>Add Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Tijdzone toevoegen</translation>
     </message>
 </context>
 <context>
@@ -3254,7 +3254,7 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Updates</translation>
     </message>
 </context>
 <context>
@@ -3590,31 +3590,31 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>Tekentablet</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modus</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Drukgevoeligheid</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Pen</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Muis</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Licht</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Zwaar</translation>
     </message>
 </context>
 <context>

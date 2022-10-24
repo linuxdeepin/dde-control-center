@@ -645,16 +645,16 @@
 <context>
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
-        <source>协同链接</source>
-        <translation type="unfinished"/>
+        <source>Multi-Screen Collaboration</source>
+        <translation>电脑协同设置</translation>
     </message>
     <message>
-        <source>设备协同</source>
-        <translation type="unfinished"/>
+        <source>Connect to</source>
+        <translation>连接设备</translation>
     </message>
     <message>
-        <source>请选择协同设备</source>
-        <translation type="unfinished"/>
+        <source>Select a device for collaboration</source>
+        <translation>请选择协同设备</translation>
     </message>
 </context>
 <context>
@@ -1226,7 +1226,7 @@
 <context>
     <name>dccV23::MonitorControlWidget</name>
     <message>
-        <source>Recognize</source>
+        <source>Identify</source>
         <translation>识别</translation>
     </message>
     <message>

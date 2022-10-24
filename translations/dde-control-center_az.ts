@@ -383,7 +383,7 @@
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>İstifadəçi adı</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -645,16 +645,16 @@
 <context>
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
-        <source>协同链接</source>
-        <translation>Ümumi şəbəkə</translation>
+        <source>Multi-Screen Collaboration</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>设备协同</source>
-        <translation>Cihazlararası əlaqə</translation>
+        <source>Connect to</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>请选择协同设备</source>
-        <translation>Lütfən ümumi cihazı seçin</translation>
+        <source>Select a device for collaboration</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1010,7 +1010,7 @@
     <name>dccV23::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Klaviatura ayarları</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
@@ -1088,7 +1088,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Klaviatura qatı əlavə edin</translation>
     </message>
     <message>
         <source>Done</source>
@@ -1107,7 +1107,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Klaviatura qatı əlavə edin</translation>
     </message>
 </context>
 <context>
@@ -1122,7 +1122,7 @@
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Klaviatura ayarları</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1226,8 +1226,8 @@
 <context>
     <name>dccV23::MonitorControlWidget</name>
     <message>
-        <source>Recognize</source>
-        <translation>Tanımaq</translation>
+        <source>Identify</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1706,7 +1706,7 @@
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Kompyuterin adı</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1742,7 +1742,7 @@
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Razılaşma və məxfilik qaydaları</translation>
     </message>
     <message>
         <source>Edition License</source>
@@ -1853,19 +1853,19 @@
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Toxunma ekranı</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Qoşulduğu zaman toxunma ekranını seçin və ya onu burada təyin edin.</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Təsdiqləyin</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>İmtina</translation>
     </message>
 </context>
 <context>
@@ -1927,7 +1927,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Tarix və Vaxt</translation>
     </message>
 </context>
 <context>
@@ -2060,7 +2060,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Show recent apps in Dock</source>
-        <translation type="unfinished"/>
+        <translation>Sonuncu tətbiqlər Dok paneldə göstərilsin</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2625,7 +2625,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Xarici görünüş</translation>
     </message>
     <message>
         <source>Accent Color</source>
@@ -2804,11 +2804,11 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>Toxunma ekranı ayarları</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>Toxunma ekranı ayarları dəyişdirildi</translation>
     </message>
 </context>
 <context>
@@ -2946,7 +2946,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Səs</translation>
     </message>
 </context>
 <context>
@@ -2996,7 +2996,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Əgər səs səviyyəsi 100%-dən çox olarsa, bu, səsi təhrif edə və səsucaldıcıları zədələyə bilər</translation>
     </message>
     <message>
         <source>Left/Right Balance</source>
@@ -3015,7 +3015,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Vaxt ayarları</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3051,15 +3051,15 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>İl</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Ay</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Gün</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3093,15 +3093,15 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Ekran ayarları saxlanılsın?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Ayarlar %1san ərzində geri qaytarılacaq.</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Geri qaytarın</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3143,7 +3143,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     </message>
     <message>
         <source>Add Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Saat qurşağı əlavə edin</translation>
     </message>
 </context>
 <context>
@@ -3263,7 +3263,7 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Yeniləmələr</translation>
     </message>
 </context>
 <context>
@@ -3599,31 +3599,31 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>Rəsm tableti</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Rejim</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Təzyiq həssaslığı</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Qələm</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Siçan</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>İşıqlı</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Ağır</translation>
     </message>
 </context>
 <context>

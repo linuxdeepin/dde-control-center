@@ -43,7 +43,7 @@ Q_DECLARE_METATYPE(const Machine *)
 CollaborativeLinkWidget::CollaborativeLinkWidget(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout(this))
-    , m_deviceTitle(new TitleLabel(tr("协同链接"), this))
+    , m_deviceTitle(new TitleLabel(tr("Multi-Screen Collaboration"), this))
     , m_settingsGroup(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
     , m_deviceSwitchItem(new SettingsItem)
     , m_deviceSwitch(new SwitchWidget(this))
@@ -69,7 +69,7 @@ void CollaborativeLinkWidget::initUI()
 
     QHBoxLayout *switchLayout = new QHBoxLayout(m_deviceSwitchItem);
     QLabel *deviceLabel = new QLabel(this);
-    deviceLabel->setText(tr("设备协同"));
+    deviceLabel->setText(tr("Connect to"));
     switchLayout->addWidget(deviceLabel);
     switchLayout->addWidget(m_deviceSwitch);
     m_deviceSwitchItem->setLayout(switchLayout);
@@ -81,7 +81,7 @@ void CollaborativeLinkWidget::initUI()
     m_deviceButton->setEnabled(false);
 
     m_deviceCombox->setModel(m_deviceComboxModel);
-    m_deviceCombox->setCurrentText(tr("请选择协同设备"));
+    m_deviceCombox->setCurrentText(tr("Select a device for collaboration"));
     comboxLayout->addStretch(1);
     comboxLayout->addWidget(m_deviceCombox, 1);
     comboxLayout->addWidget(m_deviceButton);
@@ -162,7 +162,7 @@ void CollaborativeLinkWidget::changeComboxIndex(const int idx)
 void CollaborativeLinkWidget::initMachine()
 {
     DStandardItem *pi = new DStandardItem;
-    pi->setText(tr("请选择协同设备"));
+    pi->setText(tr("Select a device for collaboration"));
     m_deviceComboxModel->appendRow(pi);
 }
 

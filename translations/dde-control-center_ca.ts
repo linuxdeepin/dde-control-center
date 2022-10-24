@@ -62,11 +62,11 @@
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"/>
+        <translation>Aplicacions (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Tots els fitxers (*)</translation>
     </message>
 </context>
 <context>
@@ -383,7 +383,7 @@
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Nom d&apos;usuari</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -645,15 +645,15 @@
 <context>
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
-        <source>协同链接</source>
+        <source>Multi-Screen Collaboration</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>设备协同</source>
+        <source>Connect to</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>请选择协同设备</source>
+        <source>Select a device for collaboration</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1010,7 +1010,7 @@
     <name>dccV23::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració del teclat</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
@@ -1088,7 +1088,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Afegiu una disposició de teclat</translation>
     </message>
     <message>
         <source>Done</source>
@@ -1107,7 +1107,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Afegiu una disposició de teclat</translation>
     </message>
 </context>
 <context>
@@ -1122,7 +1122,7 @@
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració del teclat</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1226,8 +1226,8 @@
 <context>
     <name>dccV23::MonitorControlWidget</name>
     <message>
-        <source>Recognize</source>
-        <translation>Reconeix</translation>
+        <source>Identify</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1706,7 +1706,7 @@
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Nom de l&apos;ordinador</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1742,7 +1742,7 @@
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Agraïments i política de privadesa</translation>
     </message>
     <message>
         <source>Edition License</source>
@@ -1853,19 +1853,19 @@
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla tàctil</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu la pantalla tàctil quan estigui connectada o configureu-la aquí.</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmeu-ho</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
 </context>
 <context>
@@ -1927,7 +1927,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Data i hora</translation>
     </message>
 </context>
 <context>
@@ -2052,7 +2052,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"/>
+        <translation>Posició</translation>
     </message>
     <message>
         <source>Status</source>
@@ -2060,7 +2060,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Show recent apps in Dock</source>
-        <translation type="unfinished"/>
+        <translation>Mostra les aplicacions recents a l&apos;acoblador.</translation>
     </message>
     <message>
         <source>Size</source>
@@ -2443,7 +2443,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Decrease Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Redueix-ne la brillantor</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
@@ -2625,7 +2625,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Aparença</translation>
     </message>
     <message>
         <source>Accent Color</source>
@@ -2633,7 +2633,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>Paràmetres de la icona</translation>
     </message>
     <message>
         <source>Icon Theme</source>
@@ -2645,7 +2645,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Text Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració del text</translation>
     </message>
     <message>
         <source>Font Size</source>
@@ -2738,7 +2738,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>PrivacyModule</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Privadesa i seguretat</translation>
     </message>
 </context>
 <context>
@@ -2753,7 +2753,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>User Folders</source>
-        <translation type="unfinished"/>
+        <translation>Carpetes de l&apos;usuari</translation>
     </message>
     <message>
         <source>Calendar</source>
@@ -2761,7 +2761,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Screen Capture</source>
-        <translation type="unfinished"/>
+        <translation>Captura de pantalla</translation>
     </message>
 </context>
 <context>
@@ -2804,11 +2804,11 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració de la pantalla tàctil</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>La configuració de la pantalla tàctil ha canviat.</translation>
     </message>
 </context>
 <context>
@@ -2837,43 +2837,43 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>ServiceSettingsModule</name>
     <message>
         <source>Apps can access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicacions que poden accedir a la càmera:</translation>
     </message>
     <message>
         <source>Apps can access your microphone:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicacions que poden accedir al micròfon:</translation>
     </message>
     <message>
         <source>Apps can access user folders:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicacions que poden accedir a les carpetes de l&apos;usuari:</translation>
     </message>
     <message>
         <source>Apps can access Calendar:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicacions que poden accedir al calendari:</translation>
     </message>
     <message>
         <source>Apps can access Screen Capture:</source>
-        <translation type="unfinished"/>
+        <translation>Aplicacions que poden accedir a la captura de pantalla:</translation>
     </message>
     <message>
         <source>No apps requested access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Cap aplicació ha demanat l&apos;accés a la càmera.</translation>
     </message>
     <message>
         <source>No apps requested access to the microphone</source>
-        <translation type="unfinished"/>
+        <translation>Cap aplicació ha demanat l&apos;accés al micròfon.</translation>
     </message>
     <message>
         <source>No apps requested access to user folders</source>
-        <translation type="unfinished"/>
+        <translation>Cap aplicació ha demanat l&apos;accés a les carpetes de l&apos;usuari.</translation>
     </message>
     <message>
         <source>No apps requested access to Calendar</source>
-        <translation type="unfinished"/>
+        <translation>Cap aplicació ha demanat l&apos;accés al calendari.</translation>
     </message>
     <message>
         <source>No apps requested access to Screen Capture</source>
-        <translation type="unfinished"/>
+        <translation>Cap aplicació ha demanat l&apos;accés a la captura de pantalla.</translation>
     </message>
 </context>
 <context>
@@ -2946,7 +2946,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>So</translation>
     </message>
 </context>
 <context>
@@ -2996,7 +2996,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Si el volum és superior al 100%, es pot distorsionar l&apos;àudio i perjudicar els dispositius de sortida.</translation>
     </message>
     <message>
         <source>Left/Right Balance</source>
@@ -3015,7 +3015,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuració del dia i l&apos;hora</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3051,15 +3051,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Any</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Mes</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Dia</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3093,15 +3093,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Voleu desar els paràmetres de la pantalla?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>La configuració es revertirà d&apos;aquí a %1 s.</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Reveteix</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3143,7 +3143,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Add Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Afegiu una zona horària</translation>
     </message>
 </context>
 <context>
@@ -3263,7 +3263,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Actualitzacions</translation>
     </message>
 </context>
 <context>
@@ -3473,11 +3473,11 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla i suspensió</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Atura el monitor després de</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -3485,7 +3485,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;ordinador entra en suspensió després de</translation>
     </message>
     <message>
         <source>Computer will suspend after</source>
@@ -3497,15 +3497,15 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Quan es premi el botó d&apos;engegada</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"/>
+        <translation>Bateria baixa</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificació de bateria baixa</translation>
     </message>
     <message>
         <source>Low battery level</source>
@@ -3517,7 +3517,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"/>
+        <translation>Gestió de la bateria</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
@@ -3552,11 +3552,11 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla i suspensió</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Atura el monitor després de</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -3564,7 +3564,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;ordinador entra en suspensió després de</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -3572,7 +3572,7 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Quan es premi el botó d&apos;engegada</translation>
     </message>
     <message>
         <source>Shut down</source>
@@ -3599,31 +3599,31 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>Tauleta de dibuix</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mode</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Sensibilitat de la pressió</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Bolígraf</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ratolí</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Lleugera</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Intensa</translation>
     </message>
 </context>
 <context>
