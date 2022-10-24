@@ -47,6 +47,8 @@ void PersonalizationModule::preInitialize(bool sync, FrameProxyInterface::PushTy
     }
     m_model  = new dcc::personalization::PersonalizationModel;
     m_work = new dcc::personalization::PersonalizationWork(m_model);
+    m_work->refreshWMState();
+    m_work->refreshEffectModule();
 
     addChildPageTrans();
     initSearchData();
@@ -137,17 +139,20 @@ void PersonalizationModule::showGenaralWidget()
 {
     m_work->refreshTheme();
 
-    PersonalizationGeneral *widget = new PersonalizationGeneral;
+    PersonalizationGeneral *widget = new PersonalizationGeneral(m_model);
     widget->setVisible(false);
     widget->setAccessibleName("personalizationgeneral");
-
-    widget->setModel(m_model);
     connect(widget->getThemeWidget(), &PerssonalizationThemeWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
     connect(widget, &PersonalizationGeneral::requestSetOpacity, m_work, &dcc::personalization::PersonalizationWork::setOpacity);
     connect(widget, &PersonalizationGeneral::requestSetMiniEffect, m_work, &dcc::personalization::PersonalizationWork::setMiniEffect);
     connect(widget, &PersonalizationGeneral::requestWindowSwitchWM, m_work, &dcc::personalization::PersonalizationWork::windowSwitchWM);
     connect(widget, &PersonalizationGeneral::requestMovedWindowSwitchWM, m_work, &dcc::personalization::PersonalizationWork::movedWindowSwitchWM);
     connect(widget, &PersonalizationGeneral::requestSetActiveColor, m_work, &dcc::personalization::PersonalizationWork::setActiveColor);
+    connect(m_model, &dcc::personalization::PersonalizationModel::onEffectSupportDisableChanged, widget, [this, widget] () {
+        widget->updateEffectDisable(m_model->getIsEffectSupportScale(), m_model->getIsEffectSupportMagiclamp(), m_model->getIsEffectSupportMoveWindow());
+    });
+    connect(widget, &PersonalizationGeneral::requestUpdateEffectStatus, m_work, &dcc::personalization::PersonalizationWork::refreshEffectModule);
+    m_work->refreshEffectModule();
     m_work->active();
 
     m_frameProxy->pushWidget(this, widget);
@@ -241,8 +246,8 @@ void PersonalizationModule::initSearchData()
         m_frameProxy->setDetailVisible(module, general, tr("Accent Color"), bGeneral);
         m_frameProxy->setDetailVisible(module, general, tr("Window Effect"), bGeneral && bEffects && !IsServerSystem && !QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive));
         m_frameProxy->setDetailVisible(module, general, tr("Transparency"), bGeneral && bEffects && is3DWm);
-        m_frameProxy->setDetailVisible(module, general, tr("Window Minimize Effect"), bGeneral && bEffects && is3DWm);
-        m_frameProxy->setDetailVisible(module, general, tr("Show transparency effects when a window is moved"), bGeneral && bEffects && is3DWm && func_isdconf_visible("effectMovewindowTranslucency"));
+        m_frameProxy->setDetailVisible(module, general, tr("Window Minimize Effect"), bGeneral && bEffects && is3DWm && (m_model->getIsEffectSupportScale() || m_model->getIsEffectSupportMagiclamp()));
+        m_frameProxy->setDetailVisible(module, general, tr("Show transparency effects when a window is moved"), bGeneral && bEffects && is3DWm && m_model->getIsEffectSupportMoveWindow() && func_isdconf_visible("effectMovewindowTranslucency"));
     };
 
     auto func_icontheme_changed = [ = ](bool bIconTheme) {
@@ -307,7 +312,7 @@ void PersonalizationModule::initSearchData()
 
         bool bGeneral = func_is_visible("personalizationGeneral");
         bool bEffects = func_is_visible("perssonalGeneralEffects");
-        m_frameProxy->setDetailVisible(module, general, tr("Show transparency effects when a window is moved"), bGeneral && bEffects && m_model->is3DWm() && func_isdconf_visible("effectMovewindowTranslucency"));
+        m_frameProxy->setDetailVisible(module, general, tr("Show transparency effects when a window is moved"), bGeneral && bEffects && m_model->is3DWm() && m_model->getIsEffectSupportMoveWindow() && func_isdconf_visible("effectMovewindowTranslucency"));
         m_frameProxy->updateSearchData(module);
     });
 
@@ -315,8 +320,14 @@ void PersonalizationModule::initSearchData()
         bool bGeneral = func_is_visible("personalizationGeneral");
         bool bEffects = func_is_visible("perssonalGeneralEffects");
         m_frameProxy->setDetailVisible(module, general, tr("Transparency"), bGeneral && bEffects && is3d);
-        m_frameProxy->setDetailVisible(module, general, tr("Window Minimize Effect"), bGeneral && bEffects && is3d);
-        m_frameProxy->setDetailVisible(module, general, tr("Show transparency effects when a window is moved"), bGeneral && bEffects && is3d && func_isdconf_visible("effectMovewindowTranslucency"));
+        //魔灯、缩放至少支持一个才显示
+        m_frameProxy->setDetailVisible(module, general, tr("Window Minimize Effect"), bGeneral && bEffects && is3d && (m_model->getIsEffectSupportScale() || m_model->getIsEffectSupportMagiclamp()));
+        m_frameProxy->setDetailVisible(module, general, tr("Show transparency effects when a window is moved"), bGeneral && bEffects && is3d && m_model->getIsEffectSupportMoveWindow() && func_isdconf_visible("effectMovewindowTranslucency"));
+        m_frameProxy->updateSearchData(module);
+    });
+
+    connect(m_model, &dcc::personalization::PersonalizationModel::onEffectSupportDisableChanged, this, [ = ] () {
+        func_general_changed(func_is_visible("personalizationGeneral"));
         m_frameProxy->updateSearchData(module);
     });
 

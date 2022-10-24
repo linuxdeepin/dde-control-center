@@ -86,6 +86,7 @@ void PerssonalizationThemeWidget::onAddItem(const QJsonObject &json)
     theme->setSelected(title == m_model->getDefault());
 
     m_valueMap.insert(theme, json);
+    if (!m_centerLayout) return;
     m_centerLayout->addWidget(theme);
     connect(theme, &ThemeItem::selectedChanged, this, &PerssonalizationThemeWidget::onItemClicked);
 }

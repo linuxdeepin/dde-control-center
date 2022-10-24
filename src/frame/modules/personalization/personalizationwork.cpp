@@ -19,6 +19,9 @@ using namespace dcc::personalization;
 const QString Service = "com.deepin.daemon.Appearance";
 const QString Path    = "/com/deepin/daemon/Appearance";
 const QString EffectMoveWindowArg = "kwin4_effect_translucency";
+const QString Scale = "kwin4_effect_scale";
+const QString Magiclamp = "magiclamp";
+const QString IsEffectSupported = "isEffectSupported";
 const QString StrIsOpenWM = "deepin wm";
 
 static const std::vector<int> OPACITY_SLIDER {
@@ -78,12 +81,12 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
         bool isMinEffect = m_setting->get(GSETTING_EFFECT_LOAD).toBool();
         m_model->setMiniEffect(isMinEffect);
         if (isMinEffect) {
-            m_effects->loadEffect("magiclamp");
+            m_effects->loadEffect(Magiclamp);
         } else {
-            m_effects->unloadEffect("magiclamp");
+            m_effects->unloadEffect(Magiclamp);
         }
     } else {
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_effects->isEffectLoaded("magiclamp"), this);
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_effects->isEffectLoaded(Magiclamp), this);
         connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] (QDBusPendingCallWatcher *watcher) {
             if (!watcher->isError()) {
                 QDBusReply<bool> value = watcher->reply();
@@ -106,6 +109,87 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
 
     m_dbus->setSync(false);
     m_wmSwitcher->setSync(false);
+}
+
+void PersonalizationWork::refreshEffectModule()
+{
+    QDBusInterface effects("org.kde.KWin", "/Effects", "org.kde.kwin.Effects", QDBusConnection::sessionBus(), this);
+    if (!effects.isValid()) {
+        qWarning() << " The interface of org.kde.kwin.Effects is invalid.";
+        return;
+    }
+
+    // 虚拟机同步调用接口后，不会有返回
+    // 需要先使用同步接口，在获取结果为false时，再使用异步接口
+    QDBusReply<bool> isScaleSupported = effects.call(IsEffectSupported, Scale);
+    m_model->setIsEffectSupportScale(isScaleSupported);
+    qInfo() << " [refreshEffectModule] effects.call(IsEffectSupported, Scale) : " << isScaleSupported.value();
+
+    QDBusReply<bool> isMagicSupported = effects.call(IsEffectSupported, Magiclamp);
+    m_model->setIsEffectSupportMagiclamp(isMagicSupported);
+    qInfo() << " [refreshEffectModule] effects.call(IsEffectSupported, Magiclamp) : " << isMagicSupported.value();
+
+    QDBusReply<bool> isMoveWinSupported = effects.call(IsEffectSupported, EffectMoveWindowArg);
+    m_model->setIsEffectSupportMoveWindow(isMoveWinSupported);
+    qInfo() << " [refreshEffectModule] effects.call(IsEffectSupported, EffectMoveWindowArg) : " << isMoveWinSupported.value();
+
+    // 当同步获取到数据为false，可能是kwin接口存在问题再用异步方式获取一次
+    if (!isScaleSupported) {
+        // 最小化时效果 : 缩放
+        QDBusPendingCall scaleEffectReply = effects.asyncCall(IsEffectSupported, Scale);
+        QDBusPendingCallWatcher *scaleEffectWatcher = new QDBusPendingCallWatcher(scaleEffectReply, this);
+        connect(scaleEffectWatcher, &QDBusPendingCallWatcher::finished, [this, scaleEffectReply, scaleEffectWatcher] {
+            scaleEffectWatcher->deleteLater();
+
+            if (scaleEffectReply.isError()) {
+                qWarning() << " isEffectSupported Failed to get kwin4_effect_scale state: " << scaleEffectReply.error().message();
+                return;
+            }
+
+            QDBusReply<bool> reply = scaleEffectReply.reply();
+            if (reply.value() && m_model) {
+                m_model->setIsEffectSupportScale(true);
+            }
+        });
+    }
+
+    if (!isMagicSupported) {
+        // 最小化时效果 : 魔灯
+        QDBusPendingCall magiclampEffectReply = effects.asyncCall(IsEffectSupported, Magiclamp);
+        QDBusPendingCallWatcher *magiclampEffectWatcher = new QDBusPendingCallWatcher(magiclampEffectReply, this);
+        connect(magiclampEffectWatcher, &QDBusPendingCallWatcher::finished, [this, magiclampEffectReply, magiclampEffectWatcher] {
+            magiclampEffectWatcher->deleteLater();
+
+            if (magiclampEffectReply.isError()) {
+                qWarning() << " isEffectSupported Failed to get magiclamp state: " << magiclampEffectReply.error().message();
+                return;
+            }
+
+            QDBusReply<bool> reply = magiclampEffectReply.reply();
+            if (reply.value() && m_model) {
+                m_model->setIsEffectSupportMagiclamp(true);
+            }
+        });
+    }
+
+    if (!isMoveWinSupported) {
+        // 移动窗口时启动特效
+        QDBusPendingCall translucencyEffectReply = effects.asyncCall(IsEffectSupported, EffectMoveWindowArg);
+        QDBusPendingCallWatcher *translucencyEffectWatcher = new QDBusPendingCallWatcher(translucencyEffectReply, this);
+        connect(translucencyEffectWatcher, &QDBusPendingCallWatcher::finished, [this, translucencyEffectReply, translucencyEffectWatcher] {
+            translucencyEffectWatcher->deleteLater();
+
+            if (translucencyEffectReply.isError()) {
+                qWarning() << " isEffectSupported Failed to get kwin4_effect_translucency state: " << translucencyEffectReply.error().message();
+                return;
+            }
+
+            QDBusReply<bool> reply = translucencyEffectReply.reply();
+            if (reply.value() && m_model) {
+                m_model->setIsEffectSupportMoveWindow(true);
+            }
+        });
+    }
 }
 
 void PersonalizationWork::active()

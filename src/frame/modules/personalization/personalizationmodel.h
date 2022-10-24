@@ -51,6 +51,15 @@ public:
     inline bool getAllowSwitch() {return m_allowSwitch;}
     void setCompositingAllowSwitch(bool value);
 
+    inline bool getIsEffectSupportScale() {return m_IsEffectSupportedScale;}
+    void setIsEffectSupportScale(bool value);
+
+    inline bool getIsEffectSupportMagiclamp() {return m_IsEffectSupportedMagiclamp;}
+    void setIsEffectSupportMagiclamp(bool value);
+
+    inline bool getIsEffectSupportMoveWindow() {return m_IsEffectSupportedMoveWindow;}
+    void setIsEffectSupportMoveWindow(bool value);
+
 Q_SIGNALS:
     void wmChanged(const bool is3d);
     void moveWindowChanged(const bool isMoveWindow);
@@ -60,6 +69,7 @@ Q_SIGNALS:
     void onCompositingAllowSwitch(bool value);
     void onWindowRadiusChanged(int radius);
     void onSaveWindowRadiusChanged(int radius);
+    void onEffectSupportDisableChanged();
 
 private:
     ThemeModel    *m_windowModel;
@@ -75,6 +85,9 @@ private:
     QString m_activeColor;
     bool m_allowSwitch;
     int m_windowRadius;
+    bool m_IsEffectSupportedScale;
+    bool m_IsEffectSupportedMagiclamp;
+    bool m_IsEffectSupportedMoveWindow;
 };
 }
 }

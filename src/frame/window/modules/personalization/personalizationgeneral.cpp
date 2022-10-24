@@ -85,7 +85,7 @@ const QList<ColorStru> Dark_ACTIVE_COLORST = {
     {61, 61, 61},
 };
 
-PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
+PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::PersonalizationModel *model, QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
     , m_wmSwitch(nullptr)
@@ -94,12 +94,14 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     , m_windowMovedSwitch(nullptr)
     , m_windowMovedLabel(nullptr)
     , m_displayData("")
+    , m_model(model)
     , m_winRoundSlider(nullptr)
     , m_Themes(new PerssonalizationThemeWidget())
     , m_bgWidget(new RingColorWidget)
     , m_switchWidget(new QWidget)
     , m_isWayland(qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland"))
     , m_movedWinSwitchItem(nullptr)
+    , m_wmSwitchTimer(new QTimer(this))
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
@@ -208,7 +210,12 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         slider->setTickInterval(1);
         slider->setPageStep(1);
         winEffectVLayout->addWidget(m_transparentSlider);
-        winEffectVLayout->addSpacing(10);
+
+        QLabel *placeholderLabel = new QLabel(this);
+        placeholderLabel->setFixedHeight(10);
+        if (m_model && (m_model->getIsEffectSupportMagiclamp() || m_model->getIsEffectSupportScale())) {
+            winEffectVLayout->addWidget(placeholderLabel);
+        }
 
         //~ contents_path /personalization/General
         //~ child_page General
@@ -219,8 +226,16 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         m_cmbMiniEffect->setComboxOption(options);
         winEffectVLayout->addWidget(m_cmbMiniEffect);
 
+        QLabel *placeholderLabel2 = new QLabel(this);
+        placeholderLabel2->setFixedHeight(10);
         //窗口移动时启用透明特效
-        winEffectVLayout->addSpacing(10);
+        if (m_model && m_model->getIsEffectSupportMoveWindow()) {
+            winEffectVLayout->addWidget(placeholderLabel2);
+        }
+        connect(m_model, &dcc::personalization::PersonalizationModel::onEffectSupportDisableChanged, this, [this, placeholderLabel, placeholderLabel2]() {
+            placeholderLabel->setVisible(m_model->getIsEffectSupportMagiclamp() || m_model->getIsEffectSupportScale());
+            placeholderLabel2->setVisible(m_model->getIsEffectSupportMoveWindow());
+        });
         m_windowMovedSwitch = new DSwitchButton();
         QHBoxLayout *movedWinSwitchLayout = new QHBoxLayout();
         m_movedWinSwitchItem = new dcc::widgets::SettingsItem;
@@ -242,7 +257,8 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         winEffectVLayout->addWidget(m_movedWinSwitchItem);
         winEffectVLayout->setContentsMargins(0, 0, 0, 0);
         DConfigWatcher::instance()->bind(DConfigWatcher::personalization, "effectMovewindowTranslucency", m_movedWinSwitchItem);
-        m_movedWinSwitchItem->setVisible(DConfigWatcher::instance()->getStatus(DConfigWatcher::personalization, "effectMovewindowTranslucency") != "Hidden");
+        m_movedWinSwitchItem->setVisible(DConfigWatcher::instance()->getStatus(DConfigWatcher::personalization, "effectMovewindowTranslucency") != "Hidden"
+                && m_model->is3DWm());
 
         connect(m_transparentSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this,
                 &PersonalizationGeneral::requestSetOpacity);
@@ -251,14 +267,32 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         connect(m_cmbMiniEffect, &dcc::widgets::ComboxWidget::onIndexChanged, this,
                 &PersonalizationGeneral::requestSetMiniEffect);
 
+        connect(m_wmSwitchTimer, &QTimer::timeout, this, [this]() {
+            m_wmSwitchTimer->stop();
+            if (!m_wmSwitch->isEnabled()) {
+                m_wmSwitch->blockSignals(true);
+                m_wmSwitch->setEnabled(true);
+                m_wmSwitch->blockSignals(false);
+            }
+            if (m_wmSwitch) {
+                if (m_wmSwitch->isChecked() != m_model->is3DWm()) {
+                    m_wmSwitch->setChecked(m_model->is3DWm());
+                }
+            }
+
+        });
         connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this, [this](bool checked) {
                 if (!m_model) {
                     return;
                 }
                 qDebug() << "DSwitchButton::clicked:" << checked << ",m_model->is3DWm():" << m_model->is3DWm();
-                m_wmSwitch->setChecked(m_model->is3DWm());
+                m_wmSwitch->blockSignals(true);
+                m_wmSwitch->setEnabled(false);
+                m_wmSwitch->blockSignals(false);
+                m_wmSwitchTimer->start(300);
                 Q_EMIT requestWindowSwitchWM(checked);
                 Q_EMIT requestSetMiniEffect(m_cmbMiniEffect->comboBox()->currentIndex());
+                Q_EMIT requestUpdateEffectStatus();
         });
 
         connect(m_windowMovedSwitch,  &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this, [this](bool checked) {
@@ -275,7 +309,10 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
                 return;
             }
             if (m_movedWinSwitchItem) {
-                m_movedWinSwitchItem->setVisible(m_model->is3DWm() && value && DConfigWatcher::instance()->getStatus(DConfigWatcher::personalization, "effectMovewindowTranslucency")  != "Hidden");
+                m_movedWinSwitchItem->setVisible(m_model->is3DWm()
+                                                 && value
+                                                 && m_model->getIsEffectSupportMoveWindow()
+                                                 && DConfigWatcher::instance()->getStatus(DConfigWatcher::personalization, "effectMovewindowTranslucency")  != "Hidden");
             }
         });
 
@@ -334,18 +371,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     tw->setLayout(m_centralLayout);
     m_centralLayout->setContentsMargins(0, 0, 0, 0);
     scrollArea->setWidget(tw);
-}
 
-PersonalizationGeneral::~PersonalizationGeneral()
-{
-    GSettingWatcher::instance()->erase("perssonalGeneralThemes", m_Themes);
-    GSettingWatcher::instance()->erase("perssonalGeneralEffects", m_switchWidget);
-    DConfigWatcher::instance()->erase(DConfigWatcher::personalization, "effectMovewindowTranslucency", m_movedWinSwitchItem);
-}
-
-void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel *model)
-{
-    m_model = model;
     m_Themes->setModel(model->getWindowModel());
     GSettingWatcher::instance()->bind("perssonalGeneralThemes", m_Themes);
 
@@ -388,7 +414,54 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
     connect(m_model, &dcc::personalization::PersonalizationModel::onWindowRadiusChanged, this,
             &PersonalizationGeneral::onWindowRadiusChanged);
     onWindowRadiusChanged(m_model->windowRadius());
+}
 
+PersonalizationGeneral::~PersonalizationGeneral()
+{
+    GSettingWatcher::instance()->erase("perssonalGeneralThemes", m_Themes);
+    GSettingWatcher::instance()->erase("perssonalGeneralEffects", m_switchWidget);
+    DConfigWatcher::instance()->erase(DConfigWatcher::personalization, "effectMovewindowTranslucency", m_movedWinSwitchItem);
+}
+
+void PersonalizationGeneral::updateEffectDisable(bool scale, bool magiclamp, bool movewin)
+{
+    qDebug() << " [updateEffectDisable] scale, magiclamp, movewin : " << scale << magiclamp << movewin << m_model->is3DWm();
+    // 在关闭特效时，不需要处理
+    if (!m_model->is3DWm()) {
+        return;
+    }
+
+    QString strScale = tr("Scale");
+    QString strMagicLamp = tr("Magic Lamp");
+    if (m_cmbMiniEffect) {
+        const QStringList &options = m_cmbMiniEffect->getComboxOptions();
+        qDebug() << Q_FUNC_INFO << "  Effect Disable options : " << options;
+        if (options.count() <= 0) {
+            m_cmbMiniEffect->setVisible(false);
+            return;
+        }
+
+        if (options.contains(strScale) && !scale) {
+            m_cmbMiniEffect->removeComboxItem(strScale);
+        } else if (!options.contains(strScale) && scale) {
+            //TODO: 结合配置文件
+            //m_cmbMiniEffect->addComboxItem(strScale);
+        }
+
+        if (options.contains(strMagicLamp) && !magiclamp) {
+            m_cmbMiniEffect->removeComboxItem(strMagicLamp);
+        } else if (!options.contains(strMagicLamp) && magiclamp) {
+            //TODO: 结合配置文件
+            //m_cmbMiniEffect->addComboxItem(strMagicLamp);
+        }
+
+        m_cmbMiniEffect->setVisible(options.count() && (magiclamp || scale));
+    }
+
+    if (m_movedWinSwitchItem) {
+        m_movedWinSwitchItem->setVisible(movewin
+                                      && DConfigWatcher::instance()->getStatus(DConfigWatcher::personalization, "effectMovewindowTranslucency") != "Hidden");
+    }
 }
 
 void PersonalizationGeneral::updateThemeColors(DGuiApplicationHelper::ColorType type)
@@ -442,18 +515,21 @@ void PersonalizationGeneral::updateWMSwitcher(bool checked)
 {
     if (m_wmSwitch) {
         m_wmSwitch->setChecked(m_model->is3DWm());
+        m_wmSwitch->setEnabled(true);
     }
 
     if (m_transparentSlider) {
         m_transparentSlider->setVisible(checked || m_isWayland);
-        m_cmbMiniEffect->setVisible(checked || m_isWayland);
+        m_cmbMiniEffect->setVisible((checked || m_isWayland) && (m_model->getIsEffectSupportScale() || m_model->getIsEffectSupportMagiclamp()));
     }
 
     if (m_winRoundSlider) {
         m_winRoundSlider->setVisible(checked || m_isWayland);
     }
 
-    if (m_windowMovedSwitch) {
+    updateEffectDisable(m_model->getIsEffectSupportScale(), m_model->getIsEffectSupportMagiclamp(), m_model->getIsEffectSupportMoveWindow());
+
+    if (m_windowMovedSwitch && m_model->getIsEffectSupportMoveWindow()) {
         m_windowMovedSwitch->setChecked(m_model->isMoveWindow());
     }
 
