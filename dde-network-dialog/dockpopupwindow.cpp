@@ -8,6 +8,8 @@
 
 #include <dregionmonitor.h>
 #include <DWindowManagerHelper>
+#include <DDBusSender>
+#include <DForeignWindow>
 
 #include <QScreen>
 #include <QApplication>
@@ -16,7 +18,7 @@
 #include <QAccessibleEvent>
 #include <QString>
 #include <QPainterPath>
-#include <DDBusSender>
+#include <qpa/qplatformwindow.h>
 
 #include <iostream>
 
@@ -182,6 +184,13 @@ void DockPopupWindow::onGlobMouseRelease(const QPoint &mousePos, const int flag)
     const QRect rect = QRect(pos(), size());
     if (rect.contains(mousePos))
         return;
+
+    // 如果点击的是屏幕键盘，则不隐藏
+    QList<DForeignWindow*> windowList = DWindowManagerHelper::instance()->currentWorkspaceWindows();
+    for (auto window : windowList) {
+        if (window->handle()->geometry().contains(mousePos) && window->wmClass() == "onboard")
+            return;
+    }
 
     closeDialog();
 }
