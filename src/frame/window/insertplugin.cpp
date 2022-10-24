@@ -8,7 +8,7 @@
 
 #include <DStandardItem>
 
-const QString ModuleDirectory = "/usr/lib/dde-control-center/modules";
+const QString ModuleDirectory = QStringLiteral(DefaultModuleDirectory);
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE

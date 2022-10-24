@@ -66,7 +66,7 @@ DTK_USE_NAMESPACE
 const QByteArray ControlCenterGSettings = "com.deepin.dde.control-center";
 const QString GSettinsWindowWidth = "window-width";
 const QString GSettinsWindowHeight = "window-height";
-const QString ModuleDirectory = "/usr/lib/dde-control-center/modules";
+const QString ModuleDirectory = QStringLiteral(DefaultModuleDirectory);
 const QString ControlCenterIconPath = "/usr/share/icons/bloom/apps/64/preferences-system.svg";
 const QString ControlCenterGroupName = "com.deepin.dde-grand-search.group.dde-control-center-setting";
 

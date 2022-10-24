@@ -33,3 +33,6 @@ build*/
 
 .transifexrc
 lupdate.sh
+
+# clangd
+.cache
