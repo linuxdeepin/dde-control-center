@@ -12,6 +12,7 @@
 
 #include <QWidget>
 #include <DGuiApplicationHelper>
+#include <QTimer>
 
 namespace dcc {
 namespace personalization {
@@ -68,10 +69,10 @@ class PersonalizationGeneral : public QWidget
 {
     Q_OBJECT
 public:
-    explicit PersonalizationGeneral(QWidget *parent = nullptr);
+    explicit PersonalizationGeneral(dcc::personalization::PersonalizationModel *model, QWidget *parent = nullptr);
     virtual ~PersonalizationGeneral();
-    void setModel(dcc::personalization::PersonalizationModel *model);
     inline PerssonalizationThemeWidget *getThemeWidget() { return m_Themes; }
+    void updateEffectDisable(bool scale = false, bool magiclamp = false, bool movewin = false);
 
 protected:
     void paintEvent(QPaintEvent *event);
@@ -93,6 +94,7 @@ Q_SIGNALS:
     void requestSetMiniEffect(int effect);
     void requestSetActiveColor(const QString &color);
     void windowRadiusChanged(int radius);
+    void requestUpdateEffectStatus();
 
 private:
     void onOpacityChanged(std::pair<int, double> value);
@@ -121,6 +123,7 @@ private:
     Dtk::Gui::DGuiApplicationHelper::ColorType m_themeType;
     bool m_isWayland;
     dcc::widgets::SettingsItem *m_movedWinSwitchItem;
+    QTimer *m_wmSwitchTimer;
 };
 }
 }

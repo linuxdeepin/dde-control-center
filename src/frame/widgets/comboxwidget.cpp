@@ -69,6 +69,46 @@ void ComboxWidget::setComboxOption(const QStringList &options)
     m_switchComboBox->blockSignals(false);
 }
 
+const QStringList ComboxWidget::getComboxOptions() const
+{
+    QStringList ret;
+    if (!m_switchComboBox) {
+        return ret;
+    }
+    for (int i = 0; i < m_switchComboBox->count(); i++) {
+        ret << m_switchComboBox->itemText(i);
+    }
+    return ret;
+}
+
+bool ComboxWidget::removeComboxItem(const QString &item)
+{
+    const QStringList &items = getComboxOptions();
+    int count = items.count();
+    if (count == 0 || !items.contains(item)) {
+        return false;
+    }
+    for (int i = 0; i < count; i++) {
+        if (items[i] == item) {
+            m_switchComboBox->blockSignals(true);
+            m_switchComboBox->removeItem(i);
+            m_switchComboBox->blockSignals(false);
+            return true;
+        }
+    }
+    return false;
+}
+
+void ComboxWidget::addComboxItem(const QString &item)
+{
+    const QStringList &items = getComboxOptions();
+    if (!items.contains(item)) {
+        m_switchComboBox->blockSignals(true);
+        m_switchComboBox->addItem(item);
+        m_switchComboBox->blockSignals(false);
+    }
+}
+
 void ComboxWidget::setCurrentText(const QString &curText)
 {
     m_switchComboBox->blockSignals(true);

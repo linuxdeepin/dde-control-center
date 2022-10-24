@@ -30,6 +30,9 @@ public:
     explicit ComboxWidget(QWidget *widget, QFrame *parent = nullptr);
 
     void setComboxOption(const QStringList &options);
+    const QStringList getComboxOptions() const;
+    bool removeComboxItem(const QString &item);
+    void addComboxItem(const QString &item);
     void setCurrentText(const QString &curText);
     void setCurrentIndex(const int index);
     void setTitle(const QString &title);

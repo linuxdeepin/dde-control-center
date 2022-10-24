@@ -38,6 +38,7 @@ public:
     void onGetList();
     void refreshTheme();
     void refreshFont();
+    void refreshWMState();
 
 public Q_SLOTS:
     void setDefault(const QJsonObject &value);
@@ -50,6 +51,7 @@ public Q_SLOTS:
     void setActiveColor(const QString &hexColor);
     void setWindowRadius(int radius);
     void handlePropertiesChanged(QDBusMessage msg);
+    void refreshEffectModule();
 
 private Q_SLOTS:
     void FontSizeChanged(const double value) const;
@@ -71,7 +73,6 @@ private:
     double sliderValutToOpacity(const int value) const;
     QList<QJsonObject> converToList(const QString &type, const QJsonArray &array);
     void addList(ThemeModel *model, const QString &type, const QJsonArray &array);
-    void refreshWMState();
     void refreshMoveWindowState();
     void refreshThemeByType(const QString &type);
     void refreshFontByType(const QString &type);

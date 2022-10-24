@@ -15,6 +15,10 @@ PersonalizationModel::PersonalizationModel(QObject *parent)
     : QObject(parent)
     , m_opacity(std::pair<int, double>(2, 0.4f))
     , m_allowSwitch(false)
+    , m_windowRadius(0)
+    , m_IsEffectSupportedScale(false)
+    , m_IsEffectSupportedMagiclamp(false)
+    , m_IsEffectSupportedMoveWindow(false)
 {
     m_windowModel    = new ThemeModel(this);
     m_iconModel      = new ThemeModel(this);
@@ -22,7 +26,7 @@ PersonalizationModel::PersonalizationModel(QObject *parent)
     m_standFontModel = new FontModel(this);
     m_monoFontModel  = new FontModel(this);
     m_fontSizeModel  = new FontSizeModel(this);
-    m_is3DWm = true;
+    m_is3DWm = qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland");
     m_isMoveWindow = false;
     m_miniEffect = 0;
 }
@@ -116,4 +120,28 @@ void PersonalizationModel::setCompositingAllowSwitch(bool value)
     m_allowSwitch = value;
 
     Q_EMIT onCompositingAllowSwitch(value);
+}
+
+void PersonalizationModel::setIsEffectSupportScale(bool value)
+{
+    if (m_IsEffectSupportedScale == value)
+        return;
+    m_IsEffectSupportedScale = value;
+    Q_EMIT onEffectSupportDisableChanged();
+}
+
+void PersonalizationModel::setIsEffectSupportMagiclamp(bool value)
+{
+    if (m_IsEffectSupportedMagiclamp == value)
+        return;
+    m_IsEffectSupportedMagiclamp = value;
+    Q_EMIT onEffectSupportDisableChanged();
+}
+
+void PersonalizationModel::setIsEffectSupportMoveWindow(bool value)
+{
+    if (m_IsEffectSupportedMoveWindow == value)
+        return;
+    m_IsEffectSupportedMoveWindow = value;
+    Q_EMIT onEffectSupportDisableChanged();
 }
