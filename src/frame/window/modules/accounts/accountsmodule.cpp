@@ -241,9 +241,10 @@ void AccountsModule::initSearchData()
 
     auto func_process_all = [=]() {
         //只存在二级页面，childpage为空，在判断是否加载数据时没有翻译，因此这个函数第二个参数不能添加翻译
+        bool isDomainUser = m_userModel->isDomainUser(m_userModel->getCurrentUserName());
         QString gsAccountUserModifypasswd = func_is_visible("accountUserModifypasswd").toString();
         gsettingsMap.insert("accountUserModifypasswd", gsAccountUserModifypasswd != "Hidden");
-        m_frameProxy->setWidgetVisible(module, tr("Change Password"), gsAccountUserModifypasswd != "Hidden");
+        m_frameProxy->setWidgetVisible(module, tr("Change Password"), gsAccountUserModifypasswd != "Hidden" && !isDomainUser);
 
         QString gsAccountUserDeleteaccount = func_is_visible("accountUserDeleteaccount").toString();
         gsettingsMap.insert("accountUserDeleteaccount", gsAccountUserDeleteaccount != "Hidden");
@@ -260,11 +261,11 @@ void AccountsModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, tr("Create Account"), true);
         m_frameProxy->setDetailVisible(module, tr("Create Account"), tr("New Account"), true);
 
-        m_frameProxy->setWidgetVisible(module, tr("Account Settings"), true);
-        m_frameProxy->setWidgetVisible(module, tr("Administrator"), true);
-        m_frameProxy->setWidgetVisible(module, tr("Validity Days"), true);
+        m_frameProxy->setWidgetVisible(module, tr("Account Settings"), !isDomainUser);
+        m_frameProxy->setWidgetVisible(module, tr("Administrator"), !isDomainUser);
+        m_frameProxy->setWidgetVisible(module, tr("Validity Days"), !isDomainUser);
         // 专业版或者服务器版本支持用户组搜索
-        m_frameProxy->setWidgetVisible(module, tr("Group"), !m_userModel->isDomainUser(m_userModel->getCurrentUserName()) && (IsProfessionalSystem || IsServerSystem));
+        m_frameProxy->setWidgetVisible(module, tr("Group"), !isDomainUser && (IsProfessionalSystem || IsServerSystem));
     };
 
     connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {

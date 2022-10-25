@@ -229,6 +229,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     layout->addLayout(fullnameLayout);
 
     GSettingWatcher::instance()->bind("accountUserFullnamebtn", m_fullNameBtn);
+    m_fullNameBtn->setEnabled(!m_userModel->isDomainUser(m_curUser->name()));
 
     m_avatarListWidget = new AvatarListWidget(m_curUser, this);
     m_avatarListWidget->setAccessibleName("List_useravatarlist");
@@ -328,10 +329,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 {
     QHBoxLayout *modifydelLayout = new QHBoxLayout;
     modifydelLayout->setContentsMargins(10, 0, 10, 0);
-    modifydelLayout->addWidget(m_modifyPassword);
-    modifydelLayout->addSpacing(10);
-    modifydelLayout->addWidget(m_deleteAccount);
-    layout->addSpacing(40);
+    modifydelLayout->setSpacing(10);
+    modifydelLayout->addWidget(m_modifyPassword, 5);
+    modifydelLayout->addWidget(m_deleteAccount, 5);
     layout->addLayout(modifydelLayout);
 
     m_autoLogin = new SwitchWidget;
@@ -353,14 +353,19 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     loginGrp->appendItem(pwWidget);
     pwWidget->setLayout(pwHLayout);
 
+    bool isDomainUser = m_userModel->isDomainUser(m_curUser->name());
+
     //~ contents_path /accounts/Validity Days
     QLabel *vlidityLabel = new QLabel(tr("Validity Days"));
+    vlidityLabel->setVisible(!isDomainUser);
     pwHLayout->addWidget(vlidityLabel, 0, Qt::AlignLeft);
     auto validityDaysBox = new AccountSpinBox();
     validityDaysBox->lineEdit()->setValidator(new QRegularExpressionValidator(QRegularExpression("[1-9]\\d{0,4}/^[1-9]\\d*$/"), validityDaysBox->lineEdit()));
     validityDaysBox->lineEdit()->setPlaceholderText("99999");
     validityDaysBox->setRange(1, 99999);
     pwHLayout->addWidget(validityDaysBox, 0, Qt::AlignRight);
+    pwWidget->setVisible(!isDomainUser);
+    validityDaysBox->setVisible(!isDomainUser);
 
     // 设置安全问题
     auto sqHLayout = new QHBoxLayout;
@@ -381,6 +386,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     if (m_curUser->isCurrentUser())
         DConfigWatcher::instance()->bind(DConfigWatcher::accounts, "securityQuestions", securityQuestionsWidget);
+
+    securityQuestionsWidget->setVisible(!isDomainUser);
 
     connect(securityQuestionsButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestShowSecurityQuestionsSettings(m_curUser);
@@ -416,6 +423,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         pwWidget->setVisible(isVisible);
     });
 
+    loginGrp->setVisible(!isDomainUser);
     layout->addWidget(loginGrp);
 
     //账户设置
@@ -429,9 +437,12 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     accountSettingsGrp->layout()->setMargin(0);
     accountSettingsGrp->appendItem(m_asAdministrator);
     layout->addSpacing(20);
+    m_accountSettingsTitle->setVisible(!isDomainUser);
     m_accountSettingsTitle->setContentsMargins(20, 0, 10, 0);
     layout->addWidget(m_accountSettingsTitle);
     layout->addWidget(accountSettingsGrp);
+    m_asAdministrator->setVisible(!isDomainUser);
+    accountSettingsGrp->setVisible(!isDomainUser);
 
     initUserGroup(layout);
 
@@ -747,8 +758,8 @@ void AccountsDetailWidget::setModifyPwdBtnStatus(const QString &key)
         return;
 
     const QString btnStatus = m_gsettings->get(key).toString();
-    // 若选择当前登录的账户，则允许修改，选择其他账户，当前登录账户必需是管理员且其他账户未登录时才允许修改密码
-    m_modifyPassword->setEnabled("Enabled" == btnStatus && ((!m_curUser->online() && isSystemAdmin(m_curLoginUser)) || m_curUser->isCurrentUser()));
+    // 若选择当前登录的账户，则允许修改，选择其他账户(非域管用户)，当前登录账户必需是管理员且其他账户未登录时才允许修改密码
+    m_modifyPassword->setEnabled("Enabled" == btnStatus && ((!m_curUser->online() && !m_userModel->isDomainUser(m_curUser->name()) && isSystemAdmin(m_curLoginUser)) || m_curUser->isCurrentUser()));
 
     m_modifyPassword->setVisible("Hidden" != btnStatus);
 }
