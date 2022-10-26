@@ -63,21 +63,37 @@ void SystemInfoWidget::initData()
         {"dcc_privacy_policy", tr("Privacy Policy"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowPrivacyPolicy), nullptr, "privacyPolicy"}
     };
 
-    for (auto m : m_itemList) {
+    for (int i = 0; i < m_itemList.size(); ++i) {
+        const auto &m = m_itemList[i];
         DStandardItem *item = new DStandardItem;
         item->setIcon(QIcon::fromTheme(m.itemIcon));
         item->setText(m.itemText);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_itemModel->appendRow(item);
         GSettingWatcher::instance()->bind(m.gsettingsName, m_listView, item);
+
+        // 服务器版本隐藏版本协议二级菜单
+        if (IsServerSystem) {
+            if (m.gsettingsName == "editionLicense") {
+                m_listView->setRowHidden(i, true);
+            }
+        }
     }
 
-   if(InsertPlugin::instance()->updatePluginInfo("systeminfo"))
-        InsertPlugin::instance()->pushPlugin(m_itemModel,m_itemList);
+    if (InsertPlugin::instance()->updatePluginInfo("systeminfo"))
+        InsertPlugin::instance()->pushPlugin(m_itemModel, m_itemList);
 
     connect(m_listView, &DListView::clicked, this, &SystemInfoWidget::onListClicked);
     connect(m_listView, &DListView::activated, m_listView, &DListView::clicked);
     connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, &SystemInfoWidget::onRequestUpdateSecondMenu);
+    if (IsServerSystem) {
+        connect(GSettingWatcher::instance(),
+                &GSettingWatcher::requestShowSecondMenu, this, [this](int row) {
+                    if (m_itemList[row].gsettingsName == "editionLicense") {
+                        m_listView->setRowHidden(row, true);
+                    }
+                });
+    }
 }
 
 DListView *SystemInfoWidget::getSystemListViewPointer()
@@ -160,7 +176,7 @@ void SystemInfoWidget::onRequestUpdateSecondMenu(int row, const QString & name)
 void SystemInfoWidget::onListClicked(const QModelIndex &index)
 {
     if (m_lastIndex == index)
-    	return;
+        return;
 
     m_lastIndex = index;
     m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].plugin ? m_itemList[index.row()].plugin : this);
