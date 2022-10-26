@@ -107,6 +107,7 @@ SearchWidget::SearchWidget(QWidget *parent)
             if (!jumpContentPathWidget(text())) {
                 //m_completer未关联部件时，currentCompletion只会获取到第一个选项并且不会在Edit中补全内容，需要通过popup()获取当前选择项并手动补全edit内容
                 QString currentCompletion = m_completer->popup()->currentIndex().data().toString();
+                currentCompletion = m_model->getRealTxt(currentCompletion);
                 //如果通过popup()未获取当前选择项,再通过currentCompletion获取第一个选项
                 if (m_completer->completionCount() > 0 && currentCompletion.isEmpty()) {
                     currentCompletion = m_completer->currentCompletion();
@@ -145,6 +146,7 @@ SearchWidget::~SearchWidget()
 void SearchWidget::onCompleterActivated(const QString &value)
 {
     qDebug() << Q_FUNC_INFO << value;
+    onSelectCompleterSacleData(value);
     Q_EMIT returnPressed();
 }
 
@@ -175,6 +177,22 @@ void SearchWidget::onSearchTextChange(const QString &text)
     Q_EMIT focusChanged(true);
     // 实现自动补全
     onAutoComplete(text);
+}
+
+// 处理显示数据过长替换为...结尾的数据，转换为真实数据设置到搜索框
+void SearchWidget::onSelectCompleterSacleData(QString text)
+{
+    if (!m_model || !m_completer)
+        return;
+
+    QString editTxt = m_completer->popup()->currentIndex().data().toString();
+    if (editTxt.contains("…")) {
+        QString value = m_model->getRealTxt(editTxt);
+        if (value != editTxt && value != "") {
+            qDebug() << Q_FUNC_INFO << " enter txt : "<< text << " , Real txt : " << value;
+            this->setText(value);
+        }
+    }
 }
 
 bool ddeCompleter::eventFilter(QObject *o, QEvent *e)

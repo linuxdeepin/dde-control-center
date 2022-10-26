@@ -19,6 +19,7 @@ const QString XML_Numerusform = "numerusform";
 const QString XML_Explain_Path = "extra-contents_path";
 const QString XML_Child_Path = "extra-child_page";
 const QString XML_ChildHide_Path = "extra-child_page_hide";
+const int TxtWidth = 315;
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -28,12 +29,20 @@ SearchModel::SearchModel(QObject *parent)
     , m_bIsChinese(false)
     , m_bIstextEdited(false)
     , m_dataUpdateCompleted(false)
+    , m_calLenthLabel(new QLabel)
 {
     //左边是从从xml解析出来的数据，右边是需要被翻译成的数据；
     //后续若还有相同模块还有一样的翻译文言，也可在此处添加类似处理，并在注释处添加　//~ child_page xxx
     m_transChildPageName = {
         { "Manage Input Methods", QObject::tr("Input Methods") },
     };
+}
+
+SearchModel::~SearchModel()
+{
+    if (m_calLenthLabel) {
+        m_calLenthLabel->deleteLater();
+    }
 }
 
 int SearchModel::getDataNum(QString source, char value)
@@ -262,11 +271,16 @@ void SearchModel::loadxml(const QString module)
             }
 
             if ("" == searchBoxStrcut->childPageName) {
-                appendRow(new QStandardItem(icon.value(), QString("%1 --> %2").arg(searchBoxStrcut->actualModuleName).arg(searchBoxStrcut->translateContent)));
+                appendRow(new QStandardItem(icon.value(), getNormalText(QString("%1 --> %2")
+                                                                        .arg(searchBoxStrcut->actualModuleName)
+                                                                        .arg(searchBoxStrcut->translateContent))));
             }
             else {
                 appendRow(new QStandardItem(
-                    icon.value(), QString("%1 --> %2 / %3").arg(searchBoxStrcut->actualModuleName).arg(searchBoxStrcut->childPageName).arg(searchBoxStrcut->translateContent)));
+                    icon.value(), getNormalText(QString("%1 --> %2 / %3")
+                                                .arg(searchBoxStrcut->actualModuleName)
+                                                .arg(searchBoxStrcut->childPageName)
+                                                .arg(searchBoxStrcut->translateContent))));
             }
 
             // 设置图标数据
@@ -395,7 +409,7 @@ void SearchModel::appendChineseData(SearchBoxStruct::Ptr data)
         //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
         //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
         appendRow(new QStandardItem(icon.value(),
-                                    QString("%1 --> %2").arg(dataBackup->actualModuleName).arg(dataBackup->translateContent)));
+                                    getNormalText(QString("%1 --> %2").arg(dataBackup->actualModuleName).arg(dataBackup->translateContent))));
 
         //设置汉字的Qt::UserRole数据
         setData(index(rowCount() - 1, 0),
@@ -416,7 +430,7 @@ void SearchModel::appendChineseData(SearchBoxStruct::Ptr data)
         if (data->actualModuleName == DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->actualModuleName)) return;
 
         //添加显示的汉字(用于拼音搜索显示)
-        appendRow(new QStandardItem(icon.value(), hanziTxt));
+        appendRow(new QStandardItem(icon.value(), getNormalText(hanziTxt)));
         //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
         setData(index(rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
         setData(index(rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
@@ -432,7 +446,10 @@ void SearchModel::appendChineseData(SearchBoxStruct::Ptr data)
         //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
         //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
         appendRow(new QStandardItem(icon.value(),
-                                    QString("%1 --> %2 / %3").arg(dataBackup->actualModuleName).arg(dataBackup->childPageName).arg(dataBackup->translateContent)));
+                                    getNormalText(QString("%1 --> %2 / %3")
+                                                  .arg(dataBackup->actualModuleName)
+                                                  .arg(dataBackup->childPageName)
+                                                  .arg(dataBackup->translateContent))));
 
         //设置汉字的Qt::UserRole数据
         setData(index(rowCount() - 1, 0),
@@ -453,7 +470,7 @@ void SearchModel::appendChineseData(SearchBoxStruct::Ptr data)
         if (icons == m_iconMap.end()) {
             return;
         }
-        appendRow(new QStandardItem(icons.value(), hanziTxt));
+        appendRow(new QStandardItem(icons.value(), getNormalText(hanziTxt)));
         //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
         setData(index(rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
         setData(index(rowCount() - 1, 0), icons->name(), Qt::UserRole + 1);
@@ -472,6 +489,18 @@ bool SearchModel::specialProcessData(SearchBoxStruct::Ptr data)
     bool ret = false;
     if (data->fullPagePath == "/keyboard/Manage Input Methods" && data->childPageName == "") {
         return true;
+    }
+    return ret;
+}
+
+QString SearchModel::getNormalText(QString value)
+{
+    m_calLenthLabel->setText(value);
+    QFontMetrics fontMetrics(m_calLenthLabel->font());
+    QString ret = value;
+    if (fontMetrics.boundingRect(value).width() >= TxtWidth) {
+        ret = fontMetrics.elidedText(value, Qt::ElideRight, TxtWidth);
+        m_scaleTxtMap.insert(ret, value);
     }
     return ret;
 }
@@ -782,4 +811,9 @@ void SearchModel::addChildPageTrans(const QString &menu, const QString &tran)
     if (!m_transChildPageName.contains(menu)) {
         m_transChildPageName.insert(menu, tran);
     }
+}
+
+QString SearchModel::getRealTxt(const QString &key) const
+{
+    return m_scaleTxtMap.value(key) == "" ? key : m_scaleTxtMap.value(key);
 }
