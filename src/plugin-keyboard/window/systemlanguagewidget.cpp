@@ -77,7 +77,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     btn->setObjectName("AddSystemLanguage");
     m_addLayoutAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter, QSize(10, 10), QSize(10, 10), false);
     m_addLayoutAction->setWidget(btn);
-    btn->setMaximumHeight(16);
+    btn->setMaximumHeight(20);
     DStandardItem *kbLayoutItem = new DStandardItem();
     kbLayoutItem->setActionList(Qt::LeftEdge, { m_addLayoutAction });
     m_langItemModel->appendRow(kbLayoutItem);

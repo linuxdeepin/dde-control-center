@@ -40,7 +40,6 @@
 
 #ifdef USE_DCIICON
 #    include <DDciIcon>
-Q_DECLARE_METATYPE(DDciIcon)
 #endif
 DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
