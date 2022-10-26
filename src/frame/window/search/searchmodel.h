@@ -8,6 +8,7 @@
 
 #include <QStandardItemModel>
 #include <QSet>
+#include <QLabel>
 
 #include <memory>
 
@@ -45,6 +46,7 @@ class SearchModel : public QStandardItemModel {
     friend class SearchWidget;
 public:
     explicit SearchModel(QObject* parent = nullptr);
+    ~SearchModel();
 
 public:
     int getDataNum(QString source, char value);
@@ -61,6 +63,7 @@ public:
     void getJumpPath(QString &moduleName, QString &pageName, const QString &searchName);
     inline bool getDataUpdateCompleted() { return m_dataUpdateCompleted; }
     void addChildPageTrans(const QString &menu, const QString &tran);
+    QString getRealTxt(const QString &key) const;
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);
@@ -74,6 +77,7 @@ private:
     void appendChineseData(SearchBoxStruct::Ptr data);
     SearchBoxStruct::Ptr getModuleBtnString(QString value);
     bool specialProcessData(SearchBoxStruct::Ptr data);
+    QString getNormalText(QString value);
 
 private:
     QList<SearchBoxStruct::Ptr> m_originList;
@@ -96,6 +100,8 @@ private:
     QMap<QString, QString> m_transChildPageName;
     bool m_dataUpdateCompleted;
     QMap<QString, QString> m_transPlusData;
+    QLabel *m_calLenthLabel;
+    QMap<QString, QString> m_scaleTxtMap;
 };
 
 }// namespace search
