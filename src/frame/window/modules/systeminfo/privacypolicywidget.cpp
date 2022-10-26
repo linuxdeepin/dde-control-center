@@ -38,6 +38,10 @@ PrivacyPolicyWidget::PrivacyPolicyWidget(QWidget *parent)
               "<p>You can <a href=\"%1\">click here</a> to view our latest privacy policy and/or view it online by visiting <a href=\"%1\"> %1</a>. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.</p>")
                .arg(http);
 
+    if (IsServerSystem) {
+        text = tr("UnionTech Software attach great importance to the protection of your personal information. To activate UnionTech OS Server Software and ensure your normal use, we will collect your device information (including CPU information, BIOS information, hard disk information, and memory information), system information, and MAC address. Please note that the personal information collected above is the necessary personal information to ensure the normal operation of the functions and services of the Software. If you refuse to provide the above information, the Software will not function normally. For specific personal information protection matters not listed, please refer to the relevant instructions in the <a href=\"%1\">UnionTech Software OS Privacy Policy</a>.").arg(http);
+    }
+
     DTipLabel *label = new DTipLabel(text);
 
     label->setTextFormat(Qt::RichText);
