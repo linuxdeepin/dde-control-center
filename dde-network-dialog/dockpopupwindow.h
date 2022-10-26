@@ -57,6 +57,7 @@ protected:
     void enterEvent(QEvent *e);
     bool eventFilter(QObject *o, QEvent *e);
     void paintEvent(QPaintEvent *event);
+    QPoint scalePoint(QPoint point);
 
 private slots:
     void compositeChanged();

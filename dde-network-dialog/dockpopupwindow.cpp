@@ -188,11 +188,42 @@ void DockPopupWindow::onGlobMouseRelease(const QPoint &mousePos, const int flag)
     // 如果点击的是屏幕键盘，则不隐藏
     QList<DForeignWindow*> windowList = DWindowManagerHelper::instance()->currentWorkspaceWindows();
     for (auto window : windowList) {
-        if (window->handle()->geometry().contains(mousePos) && window->wmClass() == "onboard")
+        if (window->wmClass() == "onboard" && window->handle()->geometry().contains(scalePoint(mousePos)))
             return;
     }
 
     closeDialog();
+}
+
+/**
+ * @brief 将缩放后的点的位置按照缩放比进行放大
+ *  之所以这么复杂，是因为qt在多屏缩放的情况下，非首屏（即topLeft为(0,0)的屏幕）上的点坐标错误
+ *  详见QTBUG-81695
+ * @param point
+ * @return QPoint
+ */
+QPoint DockPopupWindow::scalePoint(QPoint point)
+{
+    const qreal pixelRatio = qApp->devicePixelRatio();
+    QScreen * const screen = qApp->screenAt(point);
+    if (!screen) {
+        qWarning() << "Cannot find screen the point is located: " << point;
+        return point;
+    }
+
+    const QRect &screenRect = screen->geometry();
+
+    qreal pointX = point.x() * pixelRatio;
+    if (screenRect.x() != 0) {
+        pointX = (screenRect.x() / pixelRatio + point.x() - screenRect.x()) * pixelRatio;
+    }
+
+    qreal pointY = point.y() * pixelRatio;
+    if (screenRect.y() != 0) {
+        pointY = (screenRect.y() / pixelRatio + point.y() - screenRect.y()) * pixelRatio;
+    }
+
+    return QPoint(pointX, pointY);
 }
 
 void DockPopupWindow::closeDialog()
