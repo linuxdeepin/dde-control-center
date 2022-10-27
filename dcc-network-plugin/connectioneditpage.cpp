@@ -240,10 +240,9 @@ void ConnectionEditPage::initConnection()
         DDialog dialog(this);
         dialog.setAccessibleName("Form_delete_configuration?");
         dialog.setTitle(tr("Are you sure you want to delete this configuration?"));
-        QStringList btns;
-        btns << tr("Cancel", "button");
-        btns << tr("Delete", "button");
-        dialog.addButtons(btns);
+        dialog.addButton(tr("Cancel", "button"));
+        // 按设计要求，删除操作的危险行为，不管活动色是什么，删除按钮文字改为用红色的
+        dialog.addButton(tr("Delete", "button"), false, DDialog::ButtonWarning);
         int ret = dialog.exec();
         if (ret == QDialog::Accepted) {
             m_connection->remove();
