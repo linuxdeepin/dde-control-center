@@ -79,7 +79,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="68"/>
         <source>The password should differ from the username</source>
-        <translation type="unfinished"/>
+        <translation>Heslo by se mělo lišit od uživatelského jména</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="74"/>
