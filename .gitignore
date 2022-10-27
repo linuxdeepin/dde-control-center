@@ -33,3 +33,4 @@ build*/
 
 .transifexrc
 lupdate.sh
+.cache/
