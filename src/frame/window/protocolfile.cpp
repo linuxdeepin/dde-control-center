@@ -15,6 +15,7 @@ DCORE_USE_NAMESPACE
 const static QString serverEnduserAgreement_new = "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Server-CN-%1.txt";
 const static QString serverEnduserAgreement_old = "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Server/End-User-License-Agreement-Server-CN-%1.txt";
 const static QString eulerServerEnduserAgreement_new = "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Server-Euler-%1.txt";
+const static QString eulerServerEnduserAgreement_old = "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Server/End-User-License-Agreement-Server-Euler-%1.txt";
 const static QString homeEnduserAgreement_new = "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Home-CN-%1.txt";
 const static QString homeEnduserAgreement_old = "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/End-User-License-Agreement-Home-CN-%1.txt";
 const static QString professionalEnduserAgreement_new = "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Professional-CN-%1.txt";
@@ -128,12 +129,16 @@ QString ProtocolFile::getEnduserAgreement()
 
 QString ProtocolFile::getEulerEnduserAgreement()
 {
-    const QString bodypath_new = getLicensePath(eulerServerEnduserAgreement_new, "");
-    if (QFile::exists(bodypath_new)) {
-        const QString serverbody = getLicenseText(eulerServerEnduserAgreement_new, "");
-        return serverbody;
-    } else {
-        const QString oldBody = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-%1.txt", "");
-        return oldBody;
+    QString serverBody = QString("");
+
+    // 如果欧拉的最终用户许可协议文件获取不到，则使用服务器的最终用户许可协议
+    if (QFile::exists(getLicensePath(eulerServerEnduserAgreement_new, ""))) {
+        serverBody = getLicenseText(eulerServerEnduserAgreement_new, "");
+    } else if (QFile::exists(getLicensePath(eulerServerEnduserAgreement_old, ""))) {
+        serverBody = getLicenseText(eulerServerEnduserAgreement_old, "");
+    } else if (QFile::exists(getLicensePath(serverEnduserAgreement_new, ""))) {
+        serverBody = getLicenseText(serverEnduserAgreement_new, "");
     }
+
+    return serverBody;
 }
