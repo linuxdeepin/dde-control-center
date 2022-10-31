@@ -253,6 +253,7 @@ void DetailPage::onDeviceAliasChanged()
             Q_EMIT requestSetDevAlias(m_device, devName);
         }
     } else if (devAlias != m_device->alias()) {
+        m_editDevAlias->setPlaceholderText(devAlias);
         Q_EMIT requestSetDevAlias(m_device, devAlias);
     }
 }
