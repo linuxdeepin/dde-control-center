@@ -301,13 +301,13 @@ void SearchWidget::setDetailVisible(const QString &module, const QString &widget
     m_model->setDetailVisible(module, widget, detail, visible);
 }
 
-void SearchWidget::updateSearchdata(const QString &module)
+void SearchWidget::updateSearchdata(const QString &module, int fontSize)
 {
     if (!m_model) {
         return;
     }
 
-    m_model->updateSearchData(module);
+    m_model->updateSearchData(module, fontSize);
 }
 
 //返回搜索结果

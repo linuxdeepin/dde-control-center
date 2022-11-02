@@ -92,6 +92,8 @@ struct ListSubItem {
     QString gsettingsName;
 };
 
+const QList<int> FontSizeList {11, 12, 13, 14, 15, 16, 18, 20};
+
 inline bool compareVersion(const QString &targetVersion, const QString &baseVersion)
 {
     QStringList version1 = baseVersion.split(".");

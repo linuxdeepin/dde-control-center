@@ -19,7 +19,7 @@ const QString XML_Numerusform = "numerusform";
 const QString XML_Explain_Path = "extra-contents_path";
 const QString XML_Child_Path = "extra-child_page";
 const QString XML_ChildHide_Path = "extra-child_page_hide";
-const int TxtWidth = 315;
+const int TxtWidth = 310;
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -30,6 +30,7 @@ SearchModel::SearchModel(QObject *parent)
     , m_bIstextEdited(false)
     , m_dataUpdateCompleted(false)
     , m_calLenthLabel(new QLabel)
+    , m_fontSize(0)
 {
     //左边是从从xml解析出来的数据，右边是需要被翻译成的数据；
     //后续若还有相同模块还有一样的翻译文言，也可在此处添加类似处理，并在注释处添加　//~ child_page xxx
@@ -184,6 +185,7 @@ void SearchModel::loadxml(const QString module)
     m_EnterNewPagelist.clear();
     m_inputList.clear();
     m_TxtListAll.clear();
+    m_scaleTxtMap.clear();
 
     //添加一项空数据，为了防止使用setText输入错误数据时直接跳转到list中正确的第一个页面
     m_EnterNewPagelist.append(std::make_shared<SearchBoxStruct>());
@@ -496,11 +498,20 @@ bool SearchModel::specialProcessData(SearchBoxStruct::Ptr data)
 QString SearchModel::getNormalText(QString value)
 {
     m_calLenthLabel->setText(value);
-    QFontMetrics fontMetrics(m_calLenthLabel->font());
+    auto font = m_calLenthLabel->font();
+    font.setPixelSize(m_fontSize);
+    QFontMetrics fontMetrics(font);
     QString ret = value;
+
+    // 字体变化了，但是没变宽度
     if (fontMetrics.boundingRect(value).width() >= TxtWidth) {
         ret = fontMetrics.elidedText(value, Qt::ElideRight, TxtWidth);
         m_scaleTxtMap.insert(ret, value);
+        qDebug() << Q_FUNC_INFO << value
+                 << " font width : " << fontMetrics.boundingRect(value).width()
+                 << " font : " << m_calLenthLabel->font()
+                 << " fontSize : " << m_fontSize
+                 << " count : " << m_scaleTxtMap.count();
     }
     return ret;
 }
@@ -800,10 +811,13 @@ void SearchModel::setDetailVisible(const QString &module, const QString &widget,
     }
 }
 
-void SearchModel::updateSearchData(const QString &module)
+void SearchModel::updateSearchData(const QString &module, int fontSize)
 {
-    qDebug() << "updateSearchData:" << module;
-    loadxml(module);
+    qDebug() << "updateSearchData:" << module << fontSize;
+    if (fontSize > 0) {
+        m_fontSize = fontSize;
+        loadxml(module);
+    }
 }
 
 void SearchModel::addChildPageTrans(const QString &menu, const QString &tran)

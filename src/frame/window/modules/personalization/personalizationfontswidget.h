@@ -39,6 +39,7 @@ public:
 Q_SIGNALS:
     void requestSetFontSize(const int value);
     void requestSetDefault(const QJsonObject &value);
+    void notifyFontSizeChanged(int);
 
 public Q_SLOTS:
     void setModel(dcc::personalization::PersonalizationModel *const model);
@@ -58,6 +59,7 @@ private:
     bool m_isAppend; //true : comboBox is appending data, ignoring currentTextChange signal
     dcc::widgets::SettingsItem *m_sfontitem;
     dcc::widgets::SettingsItem *m_mfontitem;
+    int m_fontSize;
 };
 }
 }

@@ -37,6 +37,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     , m_standardFontsCbBox(new QComboBox(this))
     , m_monoFontsCbBox(new QComboBox(this))
     , m_isAppend(false)
+    , m_fontSize(11)
 {
     setAccessibleName("PersonalizationFontsWidget");
     m_centralLayout->setMargin(0);
@@ -157,7 +158,6 @@ void PersonalizationFontsWidget::setFontSize(int size)
     m_fontSizeSlider->slider()->setValue(size);
     m_fontSizeSlider->blockSignals(false);
     QTimer::singleShot(100, this, [&, size] {
-        QList<int> FontSizeList {11, 12, 13, 14, 15, 16, 18, 20};
         if (size >= 0 && size < FontSizeList.count()) {
             setCommboxItemFontSize(FontSizeList[size]);
         } else {
@@ -210,6 +210,12 @@ void PersonalizationFontsWidget::setCommboxItemFontSize(int fontSize)
 
     setCommboxSize(m_standardFontsCbBox);
     setCommboxSize(m_monoFontsCbBox);
+
+    if (m_fontSize != fontSize) {
+        m_fontSize = fontSize;
+        qDebug() << Q_FUNC_INFO << " notifyFontSizeChanged fontSize : " << fontSize;
+        Q_EMIT notifyFontSizeChanged(fontSize);
+    }
 }
 
 void PersonalizationFontsWidget::onSelectChanged(const QString &name)

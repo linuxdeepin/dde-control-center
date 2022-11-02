@@ -75,6 +75,7 @@ public:
     void setModuleVisible(const QString &module, bool visible) override;
     void setWidgetVisible(const QString &module, const QString &widget, bool visible) override;
     void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible) override;
+    void updateSearchFontData(const QString &module, int fontSize = 0) override;
     void updateSearchData(const QString &module) override;
     void showModulePage(const QString &module, const QString &page, bool animation) override;
     void setModuleSubscriptVisible(const QString &module, bool bIsDisplay) override;
@@ -114,6 +115,7 @@ private Q_SLOTS:
     void findFocusChild(QWidget *w, QWidget *&pre);
     void findFocusChild(QLayout *l, QWidget *&pre);
     void openManual();
+    int getAppearanceFontSize();
 
 public Q_SLOTS:
     void updateWinsize();
@@ -175,6 +177,8 @@ private:
     QPointer<QScreen> m_primaryScreen;
     int m_currentIndex = -1;
     bool m_bIsNeedChange = false;
+
+    int m_fontSize;
 };
 }
 
