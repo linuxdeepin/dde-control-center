@@ -59,7 +59,7 @@ public:
     void setModuleVisible(const QString &module, bool visible);
     void setWidgetVisible(const QString &module, const QString &widget, bool visible);
     void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible);
-    void updateSearchData(const QString &module);
+    void updateSearchData(const QString &module, int fontSize);
     void getJumpPath(QString &moduleName, QString &pageName, const QString &searchName);
     inline bool getDataUpdateCompleted() { return m_dataUpdateCompleted; }
     void addChildPageTrans(const QString &menu, const QString &tran);
@@ -102,6 +102,7 @@ private:
     QMap<QString, QString> m_transPlusData;
     QLabel *m_calLenthLabel;
     QMap<QString, QString> m_scaleTxtMap;
+    int m_fontSize;
 };
 
 }// namespace search

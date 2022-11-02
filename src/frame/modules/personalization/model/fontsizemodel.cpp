@@ -9,7 +9,7 @@ using namespace dcc::personalization;
 
 FontSizeModel::FontSizeModel(QObject *parent)
     : QObject(parent)
-    , m_size(0)
+    , m_size(-1)
 {
 
 }

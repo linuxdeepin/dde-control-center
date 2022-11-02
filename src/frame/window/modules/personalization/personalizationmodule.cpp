@@ -6,6 +6,7 @@
 #include "personalizationlist.h"
 #include "modules/personalization/personalizationmodel.h"
 #include "modules/personalization/personalizationwork.h"
+#include "modules/personalization/model/fontsizemodel.h"
 #include "personalizationgeneral.h"
 #include "perssonalizationthemewidget.h"
 #include "personalizationthemelist.h"
@@ -45,10 +46,17 @@ void PersonalizationModule::preInitialize(bool sync, FrameProxyInterface::PushTy
     if (m_model) {
         delete m_model;
     }
-    m_model  = new dcc::personalization::PersonalizationModel;
+    m_model = new dcc::personalization::PersonalizationModel;
     m_work = new dcc::personalization::PersonalizationWork(m_model);
     m_work->refreshWMState();
     m_work->refreshEffectModule();
+    connect(m_model->getFontSizeModel(), &dcc::personalization::FontSizeModel::sizeChanged, this, [this](int fontSize) {
+        if (m_frameProxy && fontSize >= 0 && fontSize <= 7) {
+            qDebug() << Q_FUNC_INFO << " fontSize : " << FontSizeList[fontSize];
+            m_frameProxy->updateSearchFontData(displayName(), FontSizeList[fontSize]);
+        }
+    });
+    m_work->refreshFont();
 
     addChildPageTrans();
     initSearchData();
@@ -199,6 +207,10 @@ void PersonalizationModule::showFontThemeWidget()
 
     connect(widget, &PersonalizationFontsWidget::requestSetFontSize, m_work, &dcc::personalization::PersonalizationWork::setFontSize);
     connect(widget, &PersonalizationFontsWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
+    connect(widget, &PersonalizationFontsWidget::notifyFontSizeChanged, this, [this](int fontSize) {
+        qDebug() << Q_FUNC_INFO << " fontSize : " << fontSize;
+        m_frameProxy->updateSearchFontData(displayName(), fontSize);
+    });
     m_work->active();
 
     m_frameProxy->pushWidget(this, widget);

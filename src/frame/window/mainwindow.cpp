@@ -103,6 +103,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_backwardBtn(nullptr)
     , m_lastSize(WidgetMinimumWidth, WidgetMinimumHeight)
     , m_primaryScreen(nullptr)
+    , m_fontSize(getAppearanceFontSize())
 {
     //Initialize view and layout structure
     DMainWindow::installEventFilter(this);
@@ -720,6 +721,25 @@ void MainWindow::openManual()
     }
 }
 
+int MainWindow::getAppearanceFontSize()
+{
+    QDBusInterface interface("com.deepin.daemon.Appearance",
+                             "/com/deepin/daemon/Appearance",
+                             "org.freedesktop.DBus.Properties",
+                             QDBusConnection::sessionBus());
+
+    QDBusMessage reply = interface.call("Get", "com.deepin.daemon.Appearance", "FontSize");
+
+    qDebug() << reply.errorMessage();
+    QList<QVariant> outArgs = reply.arguments();
+    if (outArgs.count() > 0) {
+        int size = static_cast<int>(outArgs.at(0).value<QDBusVariant>().variant().toDouble() / 72 * 96 + 0.5);
+        qDebug() << " [getAppearanceFontSize] fontSize : " << size;
+        return size;
+    }
+    return -1;
+}
+
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key()) {
@@ -1050,13 +1070,25 @@ void MainWindow::setDetailVisible(const QString &module, const QString &widget, 
     m_searchWidget->setDetailVisible(module, widget, detail, visible);
 }
 
+void MainWindow::updateSearchFontData(const QString &module, int fontSize)
+{
+    if (!m_searchWidget) {
+        return;
+    }
+
+    if (m_fontSize != fontSize) {
+        m_fontSize = fontSize;
+        m_searchWidget->updateSearchdata(module, fontSize);
+    }
+}
+
 void MainWindow::updateSearchData(const QString &module)
 {
     if (!m_searchWidget) {
         return;
     }
 
-    m_searchWidget->updateSearchdata(module);
+    m_searchWidget->updateSearchdata(module, m_fontSize);
 }
 
 void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type)
