@@ -43,6 +43,7 @@ struct BluetoothDeviceItemAction
     DViewItemAction *iconAction;
     DSpinner *loadingIndicator;
     DViewItemActionList actionList;
+    DStandardItem *item;
     explicit BluetoothDeviceItemAction(const BluetoothDevice *_device)
         : device(_device)
         , spinnerAction(new DViewItemAction(Qt::AlignLeft | Qt::AlignCenter, QSize(), QSize(), false))
@@ -50,19 +51,19 @@ struct BluetoothDeviceItemAction
         , spaceAction(new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), false))
         , iconAction(new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true))
         , loadingIndicator(nullptr)
+        , item(new DStandardItem())
     {
         iconAction->setData(static_cast<const void *>(device));
+        actionList.append(spinnerAction);
         actionList.append(textAction);
         actionList.append(spaceAction);
         actionList.append(iconAction);
         spinnerAction->setVisible(false);
+        item->setActionList(Qt::Edge::RightEdge, actionList);
     }
     ~BluetoothDeviceItemAction()
     {
-        delete spinnerAction;
-        delete textAction;
-        delete iconAction;
-        delete spaceAction;
+        delete item;
         if (loadingIndicator)
             delete loadingIndicator;
     }
@@ -87,7 +88,6 @@ struct BluetoothDeviceItemAction
         }
         spinnerAction->setVisible(isLoading);
         textAction->setVisible(!isLoading);
-        actionList[0] = isLoading ? spinnerAction : textAction;
     }
     Q_DISABLE_COPY(BluetoothDeviceItemAction)
 };
@@ -168,8 +168,7 @@ QVariant BluetoothDeviceModel::data(const QModelIndex &index, int role) const
         else
             return QIcon::fromTheme(QString("buletooth_other"));
     case Dtk::RightActionListRole:
-        return QVariant::fromValue(m_data.at(row)->actionList);
-
+        return m_data.at(row)->item->data(role);
     default:
         return QVariant();
     }
@@ -303,6 +302,7 @@ void BluetoothDeviceModel::updateItem(BluetoothDeviceItemAction *item)
             break;
         }
     }
+    item->iconAction->setVisible(m_paired);
     if (m_paired) {
         item->iconAction->setIcon(m_parent->style()->standardIcon(QStyle::SP_ArrowRight));
     }

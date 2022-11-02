@@ -21,6 +21,7 @@
 #ifndef MAINMODULE_H
 #define MAINMODULE_H
 #include "interface/moduleobject.h"
+#include <DMainWindow>
 
 namespace DCC_NAMESPACE {
 class MainModulePrivate;
@@ -28,15 +29,7 @@ class MainModule : public ModuleObject
 {
     Q_OBJECT
 public:
-    explicit MainModule(QObject *parent = nullptr);
-    MainModule(const QString &name, const QString &displayName = {}, QObject *parent = nullptr);
-    MainModule(const QString &name, const QStringList &contentText, QObject *parent = nullptr);
-    MainModule(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent = nullptr);
-    MainModule(const QString &name, const QString &displayName, const QVariant &icon, QObject *parent = nullptr);
-    MainModule(const QString &name, const QString &displayName, const QString &description, QObject *parent = nullptr);
-    MainModule(const QString &name, const QString &displayName, const QString &description, const QVariant &icon, QObject *parent = nullptr);
-    MainModule(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent = nullptr);
-    MainModule(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent = nullptr);
+    explicit MainModule(DTK_WIDGET_NAMESPACE::DMainWindow *parent = nullptr);
     ~MainModule() override;
 
     QWidget *page() override;

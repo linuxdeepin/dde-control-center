@@ -14,11 +14,12 @@ class ModuleObjectItemPrivate
 public:
     explicit ModuleObjectItemPrivate(ModuleObjectItem *object)
         : q_ptr(object)
+        , m_item(new DStandardItem())
     {
     }
     ~ModuleObjectItemPrivate()
     {
-        qDeleteAll(m_rightItems);
+        delete m_item;
     }
     void setRightIcon(const QIcon &icon, int index = -1)
     {
@@ -37,23 +38,41 @@ public:
         if (index < 0) {
             minCount = -index;
         }
-        if (m_rightItems.size() < minCount) {
-            for (int i = minCount - m_rightItems.size(); i > 0; --i) {
-                if (index < 0)
-                    m_rightItems.prepend(new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), false));
-                else
-                    m_rightItems.append(new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), false));
+        DViewItemActionList actions = m_item->actionList(Qt::RightEdge);
+        if (actions.size() < minCount) {
+            DViewItemActionList newActions;
+            for (auto &&action : actions) {
+                DViewItemAction *newAction = new DViewItemAction(action->alignment(), action->iconSize(), action->maximumSize(), action->isClickable());
+                newAction->setText(action->text());
+                newAction->setIcon(action->icon());
+                newAction->setDciIcon(action->dciIcon());
+                if (static_cast<int>(action->textColorRole()) != -1) {
+                    newAction->setTextColorRole(action->textColorRole());
+                }
+                if (static_cast<int>(action->textColorType()) != -1) {
+                    newAction->setTextColorRole(action->textColorType());
+                }
+
+                newActions.append(newAction);
             }
+
+            for (int i = minCount - actions.size(); i > 0; --i) {
+                if (index < 0)
+                    newActions.prepend(new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), false));
+                else
+                    newActions.append(new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), false));
+            }
+            m_item->setActionList(Qt::RightEdge, newActions);
         }
-        int itemIndex = index < 0 ? m_rightItems.size() + index : index;
-        return m_rightItems.at(itemIndex);
+        const DViewItemActionList itemActions = m_item->actionList(Qt::RightEdge);
+        int itemIndex = index < 0 ? itemActions.size() + index : index;
+        return itemActions.at(itemIndex);
     }
 
 public:
     ModuleObjectItem *q_ptr;
     Q_DECLARE_PUBLIC(ModuleObjectItem)
-    DViewItemActionList m_rightItems;
-    QMap<int, QVariant> m_mapData;
+    DStandardItem *m_item;
 };
 }
 
@@ -114,11 +133,8 @@ void ModuleObjectItem::setData(int role, const QVariant &value)
     case Qt::DecorationRole:
         setIcon(value.value<QIcon>());
         break;
-    case Dtk::RightActionListRole:
-        d->m_rightItems = value.value<DViewItemActionList>();
-        break;
     default:
-        d->m_mapData.insert(role, value);
+        d->m_item->setData(value, role);
         break;
     }
     update();
@@ -132,14 +148,8 @@ QVariant ModuleObjectItem::data(int role) const
         return displayName();
     case Qt::DecorationRole:
         return icon();
-    case Dtk::RightActionListRole:
-        if (!d->m_rightItems.isEmpty())
-            return QVariant::fromValue(d->m_rightItems);
-        break;
     default:
-        if (d->m_mapData.contains(role)) {
-            return d->m_mapData.value(role);
-        }
+        return d->m_item->data(role);
         break;
     }
     return QVariant();
