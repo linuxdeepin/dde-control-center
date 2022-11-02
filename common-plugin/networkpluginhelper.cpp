@@ -50,7 +50,6 @@ using DBusAirplaneMode = com::deepin::daemon::AirplaneMode;
 NetworkPluginHelper::NetworkPluginHelper(NetworkDialog *networkDialog, QObject *parent)
     : QObject(parent)
     , m_tipsWidget(new TipsWidget(nullptr))
-    , m_switchWire(true)
     , m_networkDialog(networkDialog)
 {
     qDBusRegisterMetaType<NMVariantMapMap>();
@@ -443,7 +442,7 @@ void NetworkPluginHelper::onActiveConnectionChanged()
 bool NetworkPluginHelper::needSetPassword(AccessPoints *accessPoint) const
 {
     // 如果当前热点不是隐藏热点，或者当前热点不是加密热点，则需要设置密码（因为这个函数只是处理隐藏且加密的热点）
-    if (!accessPoint->hidden() || !accessPoint->secured())
+    if (!accessPoint->hidden() || !accessPoint->secured() || accessPoint->status() != ConnectionStatus::Activating)
         return false;
 
     WirelessDevice *wirelessDevice = nullptr;

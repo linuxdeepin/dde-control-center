@@ -68,13 +68,6 @@ void TrayIcon::resizeEvent(QResizeEvent *e)
     refreshIcon();
 }
 
-void TrayIcon::showNetworkDialog()
-{
-    if (isVisible()) {
-        emit signalShowNetworkDialog(this);
-    }
-}
-
 QString TrayIcon::getStrengthStateString(int strength) const
 {
     if (5 >= strength)
@@ -145,12 +138,10 @@ void TrayIcon::refreshIcon()
 {
     QString stateString;
     QString iconString;
-    QString localPath = ":/";
+    QString localPath = isDarkIcon() ? ":/light/" : ":/dark/";
     const auto ratio = devicePixelRatioF();
     int iconSize = m_greeterStyle ? 26 : PLUGIN_ICON_MAX_SIZE;
     int strength = 0;
-
-    bool useDarkIcon = isDarkIcon();
 
     switch (m_networkHelper->getPluginState()) {
     case PluginState::Disabled:
@@ -173,7 +164,6 @@ void TrayIcon::refreshIcon()
 
         stateString = getStrengthStateString(strength);
         if (isWlan6) {
-            localPath = QString(":/wireless6/resources/wireless6/");
             iconString = QString("wireless6-%1-symbolic").arg(stateString);
         } else {
             iconString = QString("wireless-%1-symbolic").arg(stateString);
@@ -199,9 +189,7 @@ void TrayIcon::refreshIcon()
             strength = QTime::currentTime().msec() / 10 % 100;
             stateString = getStrengthStateString(strength);
             iconString = QString("wireless-%1-symbolic").arg(stateString);
-            if (useDarkIcon)
-                iconString.append(PLUGIN_MIN_ICON_NAME);
-            m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
+            m_iconPixmap = ImageUtil::loadSvg(iconString, localPath, iconSize, ratio);
             update();
             return;
         } else {
@@ -209,9 +197,7 @@ void TrayIcon::refreshIcon()
             const int index = QTime::currentTime().msec() / 200 % 10;
             const int num = index + 1;
             iconString = QString("network-wired-symbolic-connecting%1").arg(num);
-            if (useDarkIcon)
-                iconString.append(PLUGIN_MIN_ICON_NAME);
-            m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
+            m_iconPixmap = ImageUtil::loadSvg(iconString, localPath, iconSize, ratio);
             update();
             return;
         }
@@ -221,9 +207,7 @@ void TrayIcon::refreshIcon()
         strength = QTime::currentTime().msec() / 10 % 100;
         stateString = getStrengthStateString(strength);
         iconString = QString("wireless-%1-symbolic").arg(stateString);
-        if (useDarkIcon)
-            iconString.append(PLUGIN_MIN_ICON_NAME);
-        m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
+        m_iconPixmap = ImageUtil::loadSvg(iconString, localPath, iconSize, ratio);
         update();
         return;
     }
@@ -232,9 +216,7 @@ void TrayIcon::refreshIcon()
         const int index = QTime::currentTime().msec() / 200 % 10;
         const int num = index + 1;
         iconString = QString("network-wired-symbolic-connecting%1").arg(num);
-        if (useDarkIcon)
-            iconString.append(PLUGIN_MIN_ICON_NAME);
-        m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
+        m_iconPixmap = ImageUtil::loadSvg(iconString, localPath, iconSize, ratio);
         update();
         return;
     }
@@ -250,10 +232,9 @@ void TrayIcon::refreshIcon()
 
         stateString = "offline";
         if (isWlan6) {
-            localPath = QString(":/wireless6/resources/wireless6/");
             iconString = QString("wireless6-%1-symbolic").arg(stateString);
         } else {
-            iconString = QString("network-wireless-%1-symbolic").arg(stateString);
+            iconString = QString("wireless-%1-symbolic").arg(stateString);
         }
         break;
     }
@@ -276,7 +257,7 @@ void TrayIcon::refreshIcon()
     }
     case PluginState::WirelessIpConflicted: {
         stateString = "offline";
-        iconString = QString("network-wireless-%1-symbolic").arg(stateString);
+        iconString = QString("wireless-%1-symbolic").arg(stateString);
         break;
     }
     case PluginState::WiredIpConflicted: {
@@ -294,9 +275,6 @@ void TrayIcon::refreshIcon()
     }
 
     m_refreshIconTimer->stop();
-
-    if (useDarkIcon)
-        iconString.append(PLUGIN_MIN_ICON_NAME);
 
     m_iconPixmap = ImageUtil::loadSvg(iconString, localPath, iconSize, ratio);
 

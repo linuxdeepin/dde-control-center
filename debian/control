@@ -46,12 +46,6 @@ Depends: ${misc:Depends},${shlibs:Depends},libdde-network-core (= ${binary:Versi
 Description: the plugin of network for dde-dock
  dock-plugin module
 
-Package: dde-network-dialog
-Architecture: any
-Depends: ${misc:Depends},${shlibs:Depends},libdde-network-core (= ${binary:Version})
-Description: the executable of network
- dde-network-dialog module
-
 Package: dss-network-plugin
 Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},libdde-network-core (= ${binary:Version})

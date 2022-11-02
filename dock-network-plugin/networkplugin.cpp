@@ -10,6 +10,7 @@
 #include <DDBusSender>
 
 #include <QTime>
+#include <QMouseEvent>
 
 #include <networkcontroller.h>
 
@@ -53,14 +54,11 @@ void NetworkPlugin::init(PluginProxyInterface *proxyInter)
     m_networkDialog = new NetworkDialog(this);
     m_networkDialog->setServerName("dde-network-dialog" + QString::number(getuid()) + "dock");
     m_networkHelper.reset(new NetworkPluginHelper(m_networkDialog));
-    QDBusConnection::sessionBus().connect("com.deepin.dde.lockFront", "/com/deepin/dde/lockFront", "com.deepin.dde.lockFront", "Visible", this, SLOT(lockFrontVisible(bool)));
-
-    QDBusConnection::sessionBus().connect("com.deepin.dde.daemon.Dock", "/com/deepin/dde/daemon/Dock", "org.freedesktop.DBus.Properties",  "PropertiesChanged", this, SLOT(onDockPropertiesChanged(QString, QVariantMap, QStringList)));
 
     if (!pluginIsDisable())
         loadPlugin();
 
-    m_networkDialog->runServer(true);
+    connect(m_networkDialog, &NetworkDialog::requestShow, this, &NetworkPlugin::showNetworkDialog);
 }
 
 void NetworkPlugin::invokedMenuItem(const QString &itemKey, const QString &menuId, const bool checked)
@@ -116,11 +114,7 @@ QWidget *NetworkPlugin::itemWidget(const QString &itemKey)
     if (itemKey == NETWORK_KEY) {
         if (m_trayIcon.isNull()) {
             m_trayIcon.reset(new TrayIcon(m_networkHelper.data()));
-            connect(this, &NetworkPlugin::signalShowNetworkDialog, m_trayIcon.data(), &TrayIcon::showNetworkDialog);
-            connect(m_trayIcon.data(), &TrayIcon::signalShowNetworkDialog, this, &NetworkPlugin::showNetworkDialog);
-            connect(m_networkDialog, &NetworkDialog::requestPosition, m_trayIcon.data(), &TrayIcon::showNetworkDialog);
         }
-        QTimer::singleShot(100, this, &NetworkPlugin::updatePoint);
         return m_trayIcon.data();
     }
 
@@ -129,7 +123,7 @@ QWidget *NetworkPlugin::itemWidget(const QString &itemKey)
 
 QWidget *NetworkPlugin::itemTipsWidget(const QString &itemKey)
 {
-    if (itemKey == NETWORK_KEY && !m_networkDialog->isVisible())
+    if (itemKey == NETWORK_KEY && !m_networkDialog->panel()->isVisible())
         return m_networkHelper->itemTips();
 
     return Q_NULLPTR;
@@ -138,13 +132,7 @@ QWidget *NetworkPlugin::itemTipsWidget(const QString &itemKey)
 QWidget *NetworkPlugin::itemPopupApplet(const QString &itemKey)
 {
     Q_UNUSED(itemKey);
-    int msec = QTime::currentTime().msecsSinceStartOfDay();
-    if (!m_networkDialog->isVisible() && !m_networkHelper->needShowControlCenter() && abs(msec - m_clickTime) > 200) {
-        m_clickTime = msec;
-        emit signalShowNetworkDialog();
-        m_networkDialog->show();
-    }
-    return Q_NULLPTR;
+    return m_networkDialog->panel();
 }
 
 int NetworkPlugin::itemSortKey(const QString &itemKey)
@@ -177,83 +165,9 @@ void NetworkPlugin::refreshPluginItemsVisible()
         m_proxyInter->itemAdded(this, NETWORK_KEY);
 }
 
-void NetworkPlugin::positionChanged(const Dock::Position position)
+void NetworkPlugin::showNetworkDialog()
 {
-    Q_UNUSED(position);
-    updatePoint();
-}
-
-void NetworkPlugin::lockFrontVisible(bool visible)
-{
-    m_networkDialog->runServer(!visible);
-    if (!visible) {
-        updatePoint();
-    }
-}
-
-void NetworkPlugin::updatePoint()
-{
-    emit signalShowNetworkDialog();
-}
-
-void NetworkPlugin::showNetworkDialog(QWidget *widget) const
-{
-    const QWidget *w = qobject_cast<QWidget *>(widget->parentWidget());
-    const QWidget *parentWidget = w;
-    Dtk::Widget::DArrowRectangle::ArrowDirection position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowBottom;
-    QPoint point;
-    while (w) {
-        parentWidget = w;
-        w = qobject_cast<QWidget *>(w->parentWidget());
-    }
-
-    if (parentWidget) {
-        Dock::Position pos = qApp->property(PROP_POSITION).value<Dock::Position>();
-        QPoint p = widget->rect().center();
-        QRect rect = parentWidget->rect();
-
-        // 任务栏隐藏时不改变网络面板的位置,避免网络面板同步隐藏后不方便操作网络
-        if (rect.height() <= 0 || rect.width() <= 0) {
-            return;
-        }
-
-        switch (pos) {
-        case Dock::Position::Top:
-            p.ry() += rect.height() / 2;
-            position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowTop;
-            break;
-        case Dock::Position::Bottom:
-            p.ry() -= rect.height() / 2;
-            position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowBottom;
-            break;
-        case Dock::Position::Left:
-            p.rx() += rect.width() / 2;
-            position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowLeft;
-            break;
-        case Dock::Position::Right:
-            p.rx() -= rect.width() / 2;
-            position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowRight;
-            break;
-        }
-        p = widget->mapToGlobal(p);
-        point = p;
-    }
-
-    m_networkDialog->setPosition(point.x(), point.y(), position);
-}
-
-void NetworkPlugin::onDockPropertiesChanged(const QString &interfaceName, const QVariantMap &changedProperties, const QStringList &invalidatedProperties)
-{
-    qInfo() << Q_FUNC_INFO << ", network dialog is visible: " << m_networkDialog->isVisible();
-    if (!m_networkDialog || !m_networkDialog->isVisible()) {
+    if (m_trayIcon.isNull() || m_networkDialog->panel()->isVisible())
         return;
-    }
-
-    if (changedProperties.contains("FrontendWindowRect")) {
-        // 延迟100ms处理,避免获取到的坐标有误(dock移动位置有动态效果，不加延时的话可能会获取动画中的位置)
-        QTimer::singleShot(100, this, [this] {
-            showNetworkDialog(m_trayIcon.data());
-            m_networkDialog->updateDialogPosition();
-        });
-    }
+    m_proxyInter->requestSetAppletVisible(this, NETWORK_KEY, true);
 }

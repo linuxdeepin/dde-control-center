@@ -16,25 +16,22 @@ find_package(DtkWidget REQUIRED)
 find_package(DdeDock REQUIRED)
 
 aux_source_directory(../dock-network-plugin DOCKPLUGINDIR)
-aux_source_directory(../common-plugin COMMONPLUGINS)
-aux_source_directory(../common-plugin/widgets COMMONPLUGINWIDGET)
-aux_source_directory(../common-plugin/item COMMONPLUGINITEM)
+aux_source_directory(../common-plugin/* COMMONPLUGINS)
+
 aux_source_directory(. COMPILEFILES)
-file(GLOB_RECURSE QRCFILES "../common-plugin/network.qrc"
-    "../common-plugin/resources/common/*.svg"
-    "../common-plugin/resources/wired/*.svg"
-    "../common-plugin/resources/wireless/*.svg"
-    "../common-plugin/resources/wireless6/*.svg")
 
 get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
 
+file(GLOB_RECURSE COMMONPLUGINS_SRCS
+    ../common-plugin/*
+    ../dss-network-plugin/dockpopupwindow.h
+    ../dss-network-plugin/dockpopupwindow.cpp
+)
 add_executable(${PROJECT_NAME}
     ${COMPILEFILES}
     ${DOCKPLUGINDIR}
-    ${COMMONPLUGINS}
-    ${COMMONPLUGINWIDGET}
-    ${COMMONPLUGINITEM}
-    ${QRCFILES})
+    ${COMMONPLUGINS_SRCS}
+    )
 
 get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
 
@@ -61,6 +58,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     ../common-plugin/resources/common/
     ../common-plugin/resources/wired/
     ../common-plugin/resources/wireless/
+    ../dss-network-plugin
     ${DdeControlCenter_INCLUDE_DIR}
     ${DDE_DOCK_INCLUDE_DIR}
     ${DtkWidget_INCLUDE_DIRS}

@@ -47,7 +47,7 @@ public:
      */
     bool saveSecretsWithoutReply;
     QDBusMessage message;
-    QProcess *process = nullptr;
+    QString ssid;
 };
 
 class Q_DECL_EXPORT SecretAgent : public NetworkManager::SecretAgent
@@ -60,6 +60,7 @@ public:
 
 Q_SIGNALS:
     void secretsError(const QString &connectionPath, const QString &message) const;
+    void requestPassword(const QString &dev, const QString &ssid);
 
 public Q_SLOTS:
     NMVariantMapMap GetSecrets(const NMVariantMapMap &, const QDBusObjectPath &, const QString &, const QStringList &, uint) override;
@@ -67,9 +68,7 @@ public Q_SLOTS:
     void DeleteSecrets(const NMVariantMapMap &, const QDBusObjectPath &) override;
     void CancelGetSecrets(const QDBusObjectPath &, const QString &) override;
 
-private Q_SLOTS:
-    void dialogFinished();
-    void readProcessOutput();
+    void onInputPassword(const QString &key, const QString &password, bool input);
 
 private:
     void processNext();
@@ -80,7 +79,7 @@ private:
      * normally if it failed to open
      * @return true if the item was processed
      */
-    bool processGetSecrets(SecretsRequest &request) const;
+    bool processGetSecrets(SecretsRequest &request);
     bool processSaveSecrets(SecretsRequest &request) const;
     bool processDeleteSecrets(SecretsRequest &request) const;
 
@@ -93,9 +92,8 @@ private:
     void sendSecrets(const NMVariantMapMap &secrets, const QDBusMessage &message) const;
     bool needConnectNetwork(const NMVariantMapMap &connectionMap) const;
 
-    mutable QProcess *m_process = nullptr;
+    QString m_ssid;
     QList<SecretsRequest> m_calls;
-    QByteArray m_lastData; // 用于数据拼接
     bool m_greeter;
 };
 

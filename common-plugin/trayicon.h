@@ -30,9 +30,6 @@ class TrayIcon : public QWidget
 {
     Q_OBJECT
 
-Q_SIGNALS:
-    void signalShowNetworkDialog(QWidget *w);
-
 public:
     explicit TrayIcon(NetworkPluginHelper *networkHelper);
     void setGreeterStyle(bool greeterStyle);
@@ -46,7 +43,6 @@ protected:
     bool isDarkIcon() const;
 
 public Q_SLOTS:
-    void showNetworkDialog();
     void refreshIcon();
 
 protected:

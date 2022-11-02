@@ -109,10 +109,9 @@ void SecretAgent::CancelGetSecrets(const QDBusObjectPath &connection_path, const
     for (int i = 0; i < m_calls.size(); ++i) {
         SecretsRequest request = m_calls.at(i);
         if (request.type == SecretsRequest::GetSecrets && callId == request.callId) {
-            if (m_process == request.process) {
+            if (m_ssid == request.ssid) {
                 DEBUG_PRINT << "process finished (agent canceled)";
-                m_process->deleteLater();
-                m_process = nullptr;
+                m_ssid.clear();
             }
             sendError(SecretAgent::AgentCanceled, QStringLiteral("Agent canceled the password dialog"), request.message);
             m_calls.removeAt(i);
@@ -121,6 +120,34 @@ void SecretAgent::CancelGetSecrets(const QDBusObjectPath &connection_path, const
     }
 
     processNext();
+}
+
+void SecretAgent::onInputPassword(const QString &key, const QString &password, bool input)
+{
+    for (int i = 0; i < m_calls.size(); ++i) {
+        SecretsRequest &request = m_calls[i];
+        if (request.type == SecretsRequest::GetSecrets && request.ssid == key) {
+            if (input) {
+                QJsonObject resultJsonObj;
+                QJsonArray secretsJsonArray;
+                secretsJsonArray.append(password);
+                resultJsonObj.insert("secrets", secretsJsonArray);
+
+                NetworkManager::ConnectionSettings::Ptr connectionSettings =
+                        NetworkManager::ConnectionSettings::Ptr(new NetworkManager::ConnectionSettings(request.connection));
+                NetworkManager::Setting::Ptr setting = connectionSettings->setting(request.setting_name);
+                auto needSecrets = setting->needSecrets(request.flags & RequestNew);
+                if (!password.isEmpty() && !needSecrets.isEmpty()) {
+                    QVariantMap result;
+                    result.insert(needSecrets.first(), password);
+                    request.connection[request.setting_name] = result;
+                    sendSecrets(request.connection, request.message);
+                }
+            } else {
+                sendError(SecretAgent::UserCanceled, QStringLiteral("user canceled"), request.message);
+            }
+        }
+    }
 }
 
 void SecretAgent::processNext()
@@ -152,80 +179,9 @@ void SecretAgent::processNext()
     }
 }
 
-void SecretAgent::dialogFinished()
+bool SecretAgent::processGetSecrets(SecretsRequest &request)
 {
-    if (!m_process) return;
-
-    readProcessOutput();
-
-    for (int i = 0; i < m_calls.size(); ++i) {
-        SecretsRequest request = m_calls[i];
-        if (request.type == SecretsRequest::GetSecrets && request.process == m_process) {
-            m_calls.removeAt(i);
-            break;
-        }
-    }
-    DEBUG_PRINT << "process finished";
-    m_process->deleteLater();
-    m_process = nullptr;
-
-    processNext();
-}
-
-void SecretAgent::readProcessOutput()
-{
-    for (int i = 0; i < m_calls.size(); ++i) {
-        SecretsRequest request = m_calls[i];
-        if (request.type == SecretsRequest::GetSecrets && request.process == m_process) {
-            QByteArray outData;
-            QByteArray allData = m_process->readAllStandardOutput();
-
-            allData = m_lastData + allData;
-            QList<QByteArray> dataArray = allData.split('\n');
-            m_lastData = dataArray.last();
-            for (const QByteArray &data : dataArray) {
-                if (data.startsWith("password:")) {
-                    QByteArray cmd = data.mid(9);
-                    QJsonDocument doc = QJsonDocument::fromJson(cmd);
-                    if (doc.isObject()) {
-                        QJsonObject obj = doc.object();
-                        QString key = obj.value("key").toString();
-                        QString passwd = obj.value("password").toString();
-                        bool input = obj.value("input").toBool();
-                        DEBUG_PRINT << "key: " << key;
-                        DEBUG_PRINT << "password: " << passwd;
-                        DEBUG_PRINT << "input: " << input;
-                        if (input) {
-                            QJsonObject resultJsonObj;
-                            QJsonArray secretsJsonArray;
-                            secretsJsonArray.append(passwd);
-                            resultJsonObj.insert("secrets", secretsJsonArray);
-
-                            NetworkManager::ConnectionSettings::Ptr connectionSettings =
-                                            NetworkManager::ConnectionSettings::Ptr(new NetworkManager::ConnectionSettings(request.connection));
-                            NetworkManager::Setting::Ptr setting = connectionSettings->setting(request.setting_name);
-                            auto needSecrets = setting->needSecrets(request.flags & RequestNew);
-                            if (!passwd.isEmpty() && !needSecrets.isEmpty()) {
-                                QVariantMap result;
-                                result.insert(needSecrets.first(), passwd);
-                                request.connection[request.setting_name] = result;
-                                sendSecrets(request.connection, request.message);
-                            }
-                        } else {
-                            sendError(SecretAgent::UserCanceled, QStringLiteral("user canceled"), request.message);
-                        }
-
-                        break;
-                    }
-                }
-            }
-        }
-    }
-}
-
-bool SecretAgent::processGetSecrets(SecretsRequest &request) const
-{
-    if (m_process) {
+    if (!m_ssid.isEmpty()) {
         return false;
     }
 
@@ -292,27 +248,19 @@ bool SecretAgent::processGetSecrets(SecretsRequest &request) const
             return true;
         }
 
-        m_process = new QProcess;
-
-        connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &SecretAgent::dialogFinished);
-        connect(m_process, &QProcess::readyReadStandardOutput, this, &SecretAgent::readProcessOutput);
-
-        QStringList argList;
-        argList << "-w" << "-c" << connectionSettings->id();
-        m_process->start(NetworkDialogApp, argList);
-        m_process->waitForStarted();
-
-        if (m_process->state() == QProcess::Running) {
-            DEBUG_PRINT << "process begin";
-            request.process = m_process;
-            return false;
-        } else {
-            DEBUG_PRINT << "process can't running: " << NetworkDialogApp;
-            sendError(SecretAgent::InternalError, QStringLiteral("dss start process failed"), request.message);
-            delete m_process;
-            m_process = nullptr;
-            return true;
+        QString devPath;
+        NetworkManager::ActiveConnection::List actives = NetworkManager::activeConnections();
+        for (auto it = actives.begin(); it != actives.end(); ++it) {
+            if ((*it)->connection()->path() == request.connection_path.path()) {
+                devPath = (*it)->devices().first();
+                break;
+            }
         }
+        m_ssid = connectionSettings->id();
+        request.ssid = m_ssid;
+        DEBUG_PRINT << "requestPassword" << devPath << connectionSettings->id();
+        Q_EMIT requestPassword(devPath, connectionSettings->id());
+        return false;
     } else if (isVpn && userRequested) { // just return what we have
         NMVariantMapMap result;
         NetworkManager::VpnSetting::Ptr vpnSetting;

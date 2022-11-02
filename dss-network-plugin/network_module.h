@@ -21,7 +21,7 @@ NETWORKPLUGIN_END_NAMESPACE
 
 namespace dss {
 namespace module {
-
+class PopupAppletManager;
 /**
  * @brief The NetworkModule class
  * 用于处理插件差异
@@ -31,24 +31,24 @@ class NetworkModule : public QObject
 {
     Q_OBJECT
 
-Q_SIGNALS:
-    void signalShowNetworkDialog();
-
 public:
     explicit NetworkModule(QObject *parent = nullptr);
 
     QWidget *content();
-    QWidget *itemWidget() const;
     QWidget *itemTipsWidget() const;
     const QString itemContextMenu() const;
     void invokedMenuItem(const QString &menuId, const bool checked) const;
 
-public Q_SLOTS:
-    void showNetworkDialog(QWidget *w) const;
+    NETWORKPLUGIN_NAMESPACE::NetworkPluginHelper *networkHelper() const { return m_networkHelper; }
+
+protected Q_SLOTS:
     void updateLockScreenStatus(bool visible);
     void onDeviceStatusChanged(NetworkManager::Device::State newstate, NetworkManager::Device::State oldstate, NetworkManager::Device::StateChangeReason reason);
     void onAddDevice(const QString &path);
     void onUserChanged(QString json);
+
+protected:
+    bool eventFilter(QObject *watched, QEvent *e) override;
 
 private:
     void addFirstConnection(NetworkManager::WiredDevice *nmDevice);
@@ -71,7 +71,8 @@ private:
     QString m_lastConnectionUuid;
     NetworkManager::Device::State m_lastState;
     int m_clickTime;
-    mutable QList<QPointer<NETWORKPLUGIN_NAMESPACE::TrayIcon>> trayIcons;
+
+    PopupAppletManager *m_popupAppletManager;
 };
 
 class NetworkPlugin : public QObject

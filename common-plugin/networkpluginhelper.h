@@ -75,7 +75,6 @@ private Q_SLOTS:
 
 private:
     TipsWidget *m_tipsWidget;
-    bool m_switchWire;
     QPixmap m_iconPixmap;
 
     QSet<QString> m_devicePaths; // 记录无线设备Path,防止信号重复连接

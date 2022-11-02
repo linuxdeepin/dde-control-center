@@ -27,14 +27,8 @@ class NetworkPlugin : public QObject, PluginsItemInterface
     Q_INTERFACES(PluginsItemInterface)
     Q_PLUGIN_METADATA(IID "com.deepin.dock.PluginsItemInterface" FILE "network.json")
 
-Q_SIGNALS:
-    void signalShowNetworkDialog();
-
 public Q_SLOTS:
-    void showNetworkDialog(QWidget *w)  const;
-    void updatePoint();
-    void lockFrontVisible(bool visible);
-    void onDockPropertiesChanged(const QString &interfaceName, const QVariantMap &changedProperties, const QStringList &invalidatedProperties);
+    void showNetworkDialog();
 
 public:
     explicit NetworkPlugin(QObject *parent = Q_NULLPTR);
@@ -58,7 +52,6 @@ public:
     void setSortKey(const QString &itemKey, const int order) override;
 
     void pluginSettingsChanged() override;
-    void positionChanged(const Dock::Position position) override;
 
 private:
     void loadPlugin();
