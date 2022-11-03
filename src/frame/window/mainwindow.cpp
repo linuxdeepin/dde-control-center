@@ -476,12 +476,8 @@ void MainWindow::updateModuleVisible()
     m_hideModuleNames = m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();
     for (auto i : m_modules) {
 
-        if (m_hideModuleNames.contains((i.first->name()))) {
+        if (m_hideModuleNames.contains((i.first->name())) || i.first->deviceUnavailabel() || !i.first->isAvailable()) {
             setModuleVisible(i.second, false);
-        } else if (i.first->deviceUnavailabel()) {
-            setModuleVisible(i.second, false);
-        } else if (i.first->isAvailable()) {
-            setModuleVisible(i.second, true);
         }
     }
 }
