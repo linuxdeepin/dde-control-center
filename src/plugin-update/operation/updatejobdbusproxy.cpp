@@ -10,6 +10,10 @@
 const static QString UpdaterService = QStringLiteral("org.deepin.lastore1");
 const static QString UpdaterJobInterface = QStringLiteral("org.deepin.lastore1.Job");
 
+// Atomic Upgrade
+const static QString AtomicUpdaterService = QStringLiteral("org.deepin.AtomicUpgrade1");
+const static QString AtomicUpdaterJobInterface = QStringLiteral("org.deepin.AtomicUpgrade1");
+
 const static QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 

@@ -64,6 +64,10 @@ public:
     void setReleaseNoteStatus(const QString &releaseNoteStatus);
     bool hasRepositoriesUpdates();
 
+    void handleAtomicStateChanged(int operate, int state, QString version, QString message);
+    void onAtomicUpdateFinshed(bool successed);
+    void onAtomicUpdateing();
+
 Q_SIGNALS:
     void requestInit();
     void requestActive();
@@ -82,7 +86,6 @@ public Q_SLOTS:
 
     void testMirrorSpeed();
     void checkNetselect();
-    void recoveryCanBackup(ClassifyUpdateType type);
 
     void licenseStateChangeSlot();
     void refreshLastTimeAndCheckCircle();
@@ -142,6 +145,8 @@ private:
     QString getClassityUpdateDownloadJobName(ClassifyUpdateType updateType);
     void listenReleaseNoteFile();
     void checkUpdatablePackages(const QMap<QString, QStringList> &updatablePackages);
+
+    void backupToAtomicUpgrade();
 
 private:
     UpdateModel *m_model;

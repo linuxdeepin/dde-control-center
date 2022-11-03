@@ -126,10 +126,12 @@ void UpdateWorker::init()
         QMap<QString, QStringList> updatablePackages = m_updateInter->classifiedUpdatablePackages();
         checkUpdatablePackages(updatablePackages);
     });
-    connect(m_updateInter, &UpdateDBusProxy::ClassifiedUpdatablePackagesChanged, this, &UpdateWorker::onClassifiedUpdatablePackagesChanged);
+    connect(m_updateInter, &UpdateDBusProxy::RunningChanged, m_model, &UpdateModel::setAtomicBackingUp);
 
+    connect(m_updateInter, &UpdateDBusProxy::ClassifiedUpdatablePackagesChanged, this, &UpdateWorker::onClassifiedUpdatablePackagesChanged);
     connect(m_updateInter, &UpdateDBusProxy::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
     connect(m_updateInter, &UpdateDBusProxy::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
+    connect(m_updateInter, &UpdateDBusProxy::StateChanged, this, &UpdateWorker::handleAtomicStateChanged);
 }
 
 void UpdateWorker::licenseStateChangeSlot()
@@ -174,6 +176,7 @@ void UpdateWorker::activate()
     m_model->setAutoCheckUpdates(m_updateInter->autoCheckUpdates());
     m_model->setUpdateMode(m_updateInter->updateMode());
     m_model->setUpdateNotify(m_updateInter->updateNotify());
+    m_model->setAtomicBackingUp(m_updateInter->running());
 
     setOnBattery(m_updateInter->onBattery());
     setBatteryPercentage(m_updateInter->batteryPercentage());
@@ -524,11 +527,6 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
         return;
     }
 
-    m_backupStatus = BackupStatus::Backuped;
-    m_backupingClassifyType = ClassifyUpdateType::Invalid;
-    downloadAndInstallUpdates(updateType);
-    return;
-
     if (status == UpdatesStatus::Downloading) {
         QPointer<UpdateJobDBusProxy> job = getDownloadJob(updateType);
         if (job != nullptr) {
@@ -537,8 +535,17 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
         }
     }
 
-    m_backupStatus = BackupStatus::Backingup;
     m_backupingClassifyType = updateType;
+    // 开始进行原子更新  原子更新只有在失败 或者 第二此更新才可以进行备份
+    qDebug() << Q_FUNC_INFO << " == start Atomic Upgrade == ";
+    // 条件不足 1. 分区空间 就是 state = -2    2.  分区格式不支持仓库存储（忽略） 3. 第二更新后的失败更新
+    if (!m_model->atomicBackingUp()) {
+        backupToAtomicUpgrade();
+    } else {
+        // 系统环境配置不满足,则直接跳到下一步下载数据
+        m_backupStatus = BackupStatus::Backuped;
+        downloadAndInstallUpdates(updateType);
+    }
 }
 
 
@@ -1231,6 +1238,31 @@ void UpdateWorker::checkUpdatablePackages(const QMap<QString, QStringList> &upda
     m_model->isUpdatablePackages(showUpdateNotify);
 }
 
+// 可进行原子更新
+void UpdateWorker::backupToAtomicUpgrade()
+{
+    m_model->setStatus(UpdatesStatus::Updateing, __LINE__);
+    m_model->setClassifyUpdateTypeStatus(m_backupingClassifyType, UpdatesStatus::RecoveryBackingup);
+    /*
+        "{"SubmissionTime":"1653034897","SystemVersion":"UOS-V23-2000-107","SubmissionType":0,"UUID":"02eb924f-4f35-4880-b839-096c3a65f525","Note":"系统更新"}"
+    */
+    // 拼接json
+    QMap<QString, QVariant> commitDate;
+    commitDate.insert("SubmissionTime", m_model->commitSubmissionTime());
+    commitDate.insert("SystemVersion", m_model->systemVersion());
+    commitDate.insert("SubmissionType", m_model->submissionType());
+    commitDate.insert("UUID", m_model->UUID());
+    commitDate.insert("Note", "System Update");
+
+    QJsonDocument docCommitDate = QJsonDocument::fromVariant(QVariant(commitDate));
+    QJsonObject jsonObj = docCommitDate.object();
+    QString strjson= QJsonDocument(jsonObj).toJson(QJsonDocument::Compact);
+
+    // 异步调用 commit
+    onAtomicUpdateing();
+    m_updateInter->commit(strjson);
+}
+
 QString UpdateWorker::getReleaseNoteStatus() const
 {
     return m_releaseNoteJobStatus;
@@ -1253,6 +1285,90 @@ bool UpdateWorker::hasRepositoriesUpdates()
 {
     quint64 mode = m_model->updateMode();
     return (mode & ClassifyUpdateType::SystemUpdate) || (mode & ClassifyUpdateType::UnknownUpdate) || (mode & ClassifyUpdateType::SecurityUpdate);
+}
+
+void UpdateWorker::handleAtomicStateChanged(int operate, int state, QString version, QString message)
+{
+    /*
+        Int32 state: 当序⾏结束时状态码;
+        1： 当序⾏中;
+        0: 成功;
+        -1: 存放仓库路径不存在;
+        -2: 存放仓库磁盘间不⾜;
+        -3: grub更失败;
+        -4: 统磁盘挂载或载失败;
+        -5: ostree仓库初失败;
+        -6: ostree提交本发⽣错误;
+        -7: ostree检出本发⽣错误;
+        -8: 本作的仓库本不允许除;
+        -9: 本作的仓库本不存在;
+    */
+    qDebug() << " Atomic State : " << state << "operate: " << operate << " version: " << version << " message: " << message;
+    switch (state) {
+    case BackupResult::Success:
+        m_backupStatus = BackupStatus::Backuped;
+        m_model->setClassifyUpdateTypeStatus(m_backupingClassifyType, UpdatesStatus::RecoveryBackingSuccessed);
+        onAtomicUpdateFinshed(true);
+        break;
+    case BackupResult::BackingUp:
+        m_backupStatus = BackupStatus::Backingup;
+        onAtomicUpdateing();
+        break;
+    default:
+        m_backupStatus = BackupStatus::BackupFailed;
+        m_model->setClassifyUpdateTypeStatus(m_backupingClassifyType, UpdatesStatus::RecoveryBackupFailed);
+        qDebug() << Q_FUNC_INFO << " [Atomic Backup] 备份失败 , message : " << message;
+        m_backupStatus = BackupStatus::BackupFailed;
+        onAtomicUpdateFinshed(false);
+        break;
+    }
+}
+
+void UpdateWorker::onAtomicUpdateFinshed(bool successed)
+{
+    auto requestUpdate = [ = ](ClassifyUpdateType type)->bool{
+        if (m_model->getClassifyUpdateStatus(type) == UpdatesStatus::WaitRecoveryBackup
+                || m_model->getClassifyUpdateStatus(type) == UpdatesStatus::RecoveryBackingup
+                || m_model->getClassifyUpdateStatus(type) == UpdatesStatus::RecoveryBackingSuccessed)
+        {
+            distUpgrade(type);
+            return true;
+        }
+        return  false;
+    };
+    if (successed) {
+        requestUpdate(ClassifyUpdateType::SystemUpdate);
+        requestUpdate(ClassifyUpdateType::SecurityUpdate);
+        requestUpdate(ClassifyUpdateType::UnknownUpdate);
+    } else {
+        if (requestUpdate(ClassifyUpdateType::SystemUpdate)
+                ||  requestUpdate(ClassifyUpdateType::SecurityUpdate)
+                ||  requestUpdate(ClassifyUpdateType::UnknownUpdate)) {
+            return;
+        }
+    }
+}
+
+void UpdateWorker::onAtomicUpdateing()
+{
+    // 处理正在备份的状态
+    qDebug() << Q_FUNC_INFO << " [AtomicUpdateing] 可以备份, 开始备份...";
+    switch (m_backupingClassifyType) {
+    case ClassifyUpdateType::SystemUpdate:
+        setUpdateItemProgress(m_model->systemDownloadInfo(), 0.7);
+        m_model->setSystemUpdateStatus(UpdatesStatus::RecoveryBackingup);
+        break;
+    case ClassifyUpdateType::SecurityUpdate:
+        setUpdateItemProgress(m_model->safeDownloadInfo(), 0.7);
+        m_model->setSafeUpdateStatus(UpdatesStatus::RecoveryBackingup);
+        break;
+    case ClassifyUpdateType::UnknownUpdate:
+        setUpdateItemProgress(m_model->unknownDownloadInfo(), 0.7);
+        m_model->setUnkonowUpdateStatus(UpdatesStatus::RecoveryBackingup);
+        break;
+    default:
+        break;
+    }
 }
 
 void UpdateWorker::onClassifiedUpdatablePackagesChanged(QMap<QString, QStringList> packages)

@@ -1,12 +1,18 @@
 #ifndef UPDATEDBUSPROXY_H
 #define UPDATEDBUSPROXY_H
 
+#include "interface/namespace.h"
+
 #include <QDBusObjectPath>
 #include <QDBusPendingReply>
 #include <QObject>
 
 typedef QMap<QString, QStringList> LastoreUpdatePackagesInfo;
 typedef QMap<QString, double> BatteryPercentageInfo;
+
+namespace DCC_NAMESPACE {
+class DCCDBusInterface;
+}
 
 class QDBusMessage;
 class QDBusInterface;
@@ -60,6 +66,11 @@ public:
     bool onBattery();
     BatteryPercentageInfo batteryPercentage();
 
+    // Atomic Upgrade
+    void commit(const QString& commitDate);
+    Q_PROPERTY(bool Running READ running NOTIFY RunningChanged)
+    bool running();
+
 signals:
     // updater
     void UpdateNotifyChanged(bool  value) const;
@@ -79,6 +90,10 @@ signals:
     void OnBatteryChanged(bool  value) const;
     void BatteryPercentageChanged(BatteryPercentageInfo  value) const;
 
+    // Atomic Upgrade
+    void StateChanged(int operate, int state, QString version, QString message);
+    void RunningChanged(bool  value) const;
+
 public slots:
     void onPropertiesChanged(const QDBusMessage &message);
 
@@ -86,7 +101,7 @@ private:
     QDBusInterface *m_updateInter;
     QDBusInterface *m_managerInter;
     QDBusInterface *m_powerInter;
-
+    DCC_NAMESPACE::DCCDBusInterface *m_atomicUpgradeInter;
 };
 
 #endif // UPDATEDBUSPROXY_H

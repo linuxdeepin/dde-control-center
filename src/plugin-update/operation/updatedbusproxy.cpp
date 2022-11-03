@@ -1,4 +1,5 @@
 #include "updatedbusproxy.h"
+#include "widgets/dccdbusinterface.h"
 
 #include <QDBusArgument>
 #include <QDBusInterface>
@@ -21,6 +22,11 @@ const static QString PowerService = QStringLiteral("org.deepin.daemon.Power1");
 const static QString PowerPath = QStringLiteral("/org/deepin/daemon/Power1");
 const static QString PowerInterface = QStringLiteral("org.deepin.daemon.Power1");
 
+// Atomic Upgrade
+const static QString AtomicUpdaterService = QStringLiteral("org.deepin.AtomicUpgrade1");
+const static QString AtomicUpdaterPath = QStringLiteral("/org/deepin/AtomicUpgrade1");
+const static QString AtomicUpdaterJobInterface = QStringLiteral("org.deepin.AtomicUpgrade1");
+
 const static QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
@@ -29,6 +35,8 @@ UpdateDBusProxy::UpdateDBusProxy(QObject *parent)
     , m_updateInter(new QDBusInterface(UpdaterService, UpdaterPath, UpdaterInterface, QDBusConnection::systemBus(), this))
     , m_managerInter(new QDBusInterface(ManagerService, ManagerPath, ManagerInterface, QDBusConnection::systemBus(), this))
     , m_powerInter(new QDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
+    , m_atomicUpgradeInter(new DCC_NAMESPACE::DCCDBusInterface(AtomicUpdaterService, AtomicUpdaterPath, AtomicUpdaterJobInterface, QDBusConnection::systemBus(), this))
+
 {
     qRegisterMetaType<LastoreUpdatePackagesInfo>("LastoreUpdatePackagesInfo");
     qDBusRegisterMetaType<LastoreUpdatePackagesInfo>();
@@ -46,6 +54,7 @@ UpdateDBusProxy::~UpdateDBusProxy()
     m_updateInter->deleteLater();
     m_managerInter->deleteLater();
     m_powerInter->deleteLater();
+    m_atomicUpgradeInter->deleteLater();
 }
 
 bool UpdateDBusProxy::updateNotify()
@@ -213,6 +222,18 @@ BatteryPercentageInfo UpdateDBusProxy::batteryPercentage()
     BatteryPercentageInfo packagesInfo;
     arg>>packagesInfo;
     return packagesInfo;
+}
+
+void UpdateDBusProxy::commit(const QString& commitDate)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(commitDate);
+    m_atomicUpgradeInter->asyncCallWithArgumentList(QStringLiteral("Commit"), argumentList);
+}
+
+bool UpdateDBusProxy::running()
+{
+    return qvariant_cast<bool>(m_atomicUpgradeInter->property("HasAmbientLightSensor"));
 }
 
 void UpdateDBusProxy::onPropertiesChanged(const QDBusMessage &message)

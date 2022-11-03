@@ -107,6 +107,12 @@ enum BackupStatus {
     BackupFailed
 };
 
+// 原子更新结果 后期更具需求拓展
+enum BackupResult {
+    Success = 0,
+    BackingUp = 1
+};
+
 enum UiActiveState {
     Unknown = -1,  //未知
     Unauthorized = 0,  //未授权

@@ -207,6 +207,15 @@ public:
     bool getAutoCheckThirdpartyUpdates() const;
     void setAutoCheckThirdpartyUpdates(bool autoCheckThirdpartyUpdates);
 
+    // TODO : commit date update
+    QString commitSubmissionTime();
+    QString systemVersion();
+    int32_t submissionType();
+    QString UUID();
+
+    inline bool atomicBackingUp() const { return m_atomicBackingUp; }
+    void setAtomicBackingUp(bool atomicBackingUp);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void autoInstallUpdatesChanged(const bool &autoInstallUpdates);
@@ -253,6 +262,9 @@ Q_SIGNALS:
     void updateCheckUpdateTime();
     void updateNotifyChanged(const bool notify);
     void updatablePackagesChanged(const bool isUpdatablePackages);
+
+    // Atomic Upgrade
+    void atomicBackingUpChanged(const bool atomicBackingUp);
 
 private:
     UpdatesStatus m_status;
@@ -301,6 +313,8 @@ private:
     UpdateJobErrorMessage m_systemUpdateJobError;
     UpdateJobErrorMessage m_safeUpdateJobError;
     UpdateJobErrorMessage m_UnkonwUpdateJobError;
+
+    bool m_atomicBackingUp;
 };
 
 #endif // UPDATEMODEL_H

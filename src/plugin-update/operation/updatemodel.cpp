@@ -75,6 +75,7 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_lastCheckUpdateTime(QString())
     , m_autoCheckUpdateCircle(0)
     , m_isUpdatablePackages(false)
+    , m_atomicBackingUp(false)
 {
 
 }
@@ -570,6 +571,42 @@ void UpdateModel::setAutoCheckThirdpartyUpdates(bool autoCheckThirdpartyUpdates)
         Q_EMIT autoCheckThirdpartyUpdatesChanged(m_autoCheckThirdpartyUpdates);
     }
 
+}
+
+QString UpdateModel::commitSubmissionTime()
+{
+    //显示时间，⼗位时间度为秒;
+    QString currentTime = QDateTime::currentDateTime().toString("MMddhhmmss");
+    return currentTime;
+}
+
+QString UpdateModel::systemVersion()
+{
+    QString systemVer = QString("uos-%1-%2-%3").arg(DSysInfo::majorVersion())
+            .arg(DSysInfo::minorVersion()).arg(DSysInfo::buildVersion());
+    return systemVer;
+}
+
+int32_t UpdateModel::submissionType()
+{
+    // 控制中心 默认 0
+    // 0系统提交 1⽤户提交 2装器提交
+    return 0;
+}
+
+QString UpdateModel::UUID()
+{
+    return "02eb924f-4f35-4880-b839-096c3a65f525";
+}
+
+void UpdateModel::setAtomicBackingUp(bool atomicBackingUp)
+{
+    if (m_atomicBackingUp == atomicBackingUp)
+        return;
+
+    m_atomicBackingUp = atomicBackingUp;
+
+    Q_EMIT atomicBackingUpChanged(atomicBackingUp);
 }
 
 UpdatesStatus UpdateModel::getClassifyUpdateStatus(ClassifyUpdateType type)
