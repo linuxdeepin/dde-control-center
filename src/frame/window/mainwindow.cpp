@@ -210,6 +210,12 @@ MainWindow::MainWindow(QWidget *parent)
         resetNavList(m_contentStack.isEmpty());
     });
     updateViewBackground();
+    QDBusConnection::sessionBus().connect("com.deepin.daemon.Appearance",
+                                          "/com/deepin/daemon/Appearance",
+                                          "org.freedesktop.DBus.Properties",
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this, SLOT(handleAppearanceDbusSignal(QDBusMessage)));
 }
 
 MainWindow::~MainWindow()
@@ -478,6 +484,8 @@ void MainWindow::updateModuleVisible()
 
         if (m_hideModuleNames.contains((i.first->name())) || i.first->deviceUnavailabel() || !i.first->isAvailable()) {
             setModuleVisible(i.second, false);
+        } else if (i.first->isAvailable()) {
+            setModuleVisible(i.second, true);
         }
     }
 }
@@ -723,9 +731,7 @@ int MainWindow::getAppearanceFontSize()
                              "/com/deepin/daemon/Appearance",
                              "org.freedesktop.DBus.Properties",
                              QDBusConnection::sessionBus());
-
     QDBusMessage reply = interface.call("Get", "com.deepin.daemon.Appearance", "FontSize");
-
     qDebug() << reply.errorMessage();
     QList<QVariant> outArgs = reply.arguments();
     if (outArgs.count() > 0) {
@@ -734,6 +740,30 @@ int MainWindow::getAppearanceFontSize()
         return size;
     }
     return -1;
+}
+
+void MainWindow::handleAppearanceDbusSignal(QDBusMessage message)
+{
+    QList<QVariant> arguments = message.arguments();
+    if (3 != arguments.count()) {
+        return;
+    }
+    QString interfaceName = message.arguments().at(0).toString();
+    if (interfaceName == "com.deepin.daemon.Appearance") {
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        QStringList keys = changedProps.keys();
+        for (int i = 0; i < keys.size(); i++) {
+            if (keys.at(i) == "FontSize") {
+                int size = static_cast<int>(changedProps.value(keys.at(i)).toDouble() / 72 * 96 + 0.5);
+                qDebug() << " [handleAppearanceDbusSignal] fontSize : " << size;
+                if (m_fontSize != size) {
+                    m_fontSize = size;
+                    m_searchWidget->updateSearchdata("", m_fontSize);
+                }
+                return;
+            }
+        }
+    }
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -1064,18 +1094,6 @@ void MainWindow::setDetailVisible(const QString &module, const QString &widget, 
     }
 
     m_searchWidget->setDetailVisible(module, widget, detail, visible);
-}
-
-void MainWindow::updateSearchFontData(const QString &module, int fontSize)
-{
-    if (!m_searchWidget) {
-        return;
-    }
-
-    if (m_fontSize != fontSize) {
-        m_fontSize = fontSize;
-        m_searchWidget->updateSearchdata(module, fontSize);
-    }
 }
 
 void MainWindow::updateSearchData(const QString &module)
