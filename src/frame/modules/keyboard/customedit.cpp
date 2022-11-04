@@ -80,6 +80,18 @@ keyboard::CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
         }
         Q_EMIT CustomEdit::back();
     });
+    connect(m_name->dTextEdit(), &DLineEdit::textChanged, this, [=](const QString &text) {
+        okButton->setEnabled(true);
+
+        // 如果用户输入的快捷键名称和已有快捷键名称重复（冲突），置灰保存按钮
+        // 防止设置的快捷键名称和已有快捷键名称显示重复
+        for (auto info : model->infos()) {
+            if (info->name == text) {
+                okButton->setEnabled(false);
+                return;
+            }
+        }
+    });
     connect(pushbutton, &DIconButton::clicked, this, &CustomEdit::onOpenFile);
     connect(m_short, &CustomItem::requestUpdateKey, this, &CustomEdit::onUpdateKey);
     connect(okButton, &QPushButton::clicked, this, [this]{
