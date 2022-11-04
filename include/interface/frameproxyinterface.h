@@ -42,7 +42,6 @@ public:
     virtual void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible) = 0;
     virtual void updateSearchData(const QString &module) = 0;
     virtual QString moduleDisplayName(const QString &module) const = 0;
-    virtual void updateSearchFontData(const QString &module, const int fontSize = -1) = 0;
 public:
     ModuleInterface *currModule() const { return m_currModule; }
 

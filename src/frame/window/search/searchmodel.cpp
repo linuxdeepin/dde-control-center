@@ -497,6 +497,10 @@ bool SearchModel::specialProcessData(SearchBoxStruct::Ptr data)
 
 QString SearchModel::getNormalText(QString value)
 {
+    if (m_fontSize == 0) {
+        return value;
+    }
+
     m_calLenthLabel->setText(value);
     auto font = m_calLenthLabel->font();
     font.setPixelSize(m_fontSize);
@@ -513,6 +517,7 @@ QString SearchModel::getNormalText(QString value)
                  << " fontSize : " << m_fontSize
                  << " count : " << m_scaleTxtMap.count();
     }
+
     return ret;
 }
 
