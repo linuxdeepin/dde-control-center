@@ -38,6 +38,9 @@
 
 #include <DGuiApplicationHelper>
 #include <DStyle>
+#include <DLabel>
+
+#include <QDesktopServices>
 #include <QCheckBox>
 #include <QColorDialog>
 #include <QComboBox>
@@ -98,7 +101,7 @@ PersonalizationThemeModule::PersonalizationThemeModule(PersonalizationModel *mod
     , m_model(model)
     , m_work(work)
 {
-    appendChild(new ItemModule("themeTitle", tr("Theme")));
+    appendChild(new ItemModule("themeTitle", tr("Theme"), this, &PersonalizationThemeModule::initThemeTitle, false));
     SettingsGroupModule *group = new SettingsGroupModule("theme", tr("Theme"));
     appendChild(group);
     group->appendChild(new ItemModule("themeList", tr("Theme"), this, &PersonalizationThemeModule::initThemeList, false));
@@ -194,6 +197,28 @@ void PersonalizationThemeModule::setCursorTheme(QWidget *widget)
     themeList->setModel(m_model->getMouseModel());
     connect(themeList, &PersonalizationThemeList::requestSetDefault, m_work, &PersonalizationWorker::setDefault);
     themeList->exec();
+}
+
+QWidget *PersonalizationThemeModule::initThemeTitle(ModuleObject *module)
+{
+    QWidget *widget = new QWidget();
+    QHBoxLayout *layout = new QHBoxLayout(widget);
+
+    DLabel *leftWidget = new DLabel(module->displayName());
+    leftWidget->setAccessibleName(module->name());
+    leftWidget->setForegroundRole(DPalette::TextTitle);
+    DFontSizeManager::instance()->bind(leftWidget, DFontSizeManager::T5, QFont::DemiBold);
+    layout->addWidget(leftWidget);
+
+    QToolButton *button = new QToolButton();
+    button->setIcon(QIcon::fromTheme("help"));
+    button->setFixedSize(24, 24);
+    layout->addWidget(button);
+    layout->addStretch();
+    connect(button, &QToolButton::clicked, button, []() {
+        QDesktopServices::openUrl(QUrl("file:///usr/share/dde-control-center/developdocument.html"));
+    });
+    return widget;
 }
 
 QWidget *PersonalizationThemeModule::initThemeList(ModuleObject *module)

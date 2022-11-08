@@ -931,6 +931,7 @@ target_link_libraries(${Personalization_Name} PRIVATE
 )
 
 install(TARGETS ${Personalization_Name} DESTINATION lib/dde-control-center/modules)
+install(FILES misc/developdocument.html DESTINATION share/dde-control-center)
 
 #--------------------------dcc-personalization-dock-plugin--------------------------
 set(Plugin_Personalization_Dock_Name dcc-personalization-dock-plugin)

@@ -52,6 +52,7 @@ private Q_SLOTS:
     void setCursorTheme(QWidget *widget);
 
 private:
+    QWidget *initThemeTitle(DCC_NAMESPACE::ModuleObject *module);
     QWidget *initThemeList(DCC_NAMESPACE::ModuleObject *module);
     QWidget *initThemeSwitch(DCC_NAMESPACE::ModuleObject *module);
     QWidget *initAccentColor(DCC_NAMESPACE::ModuleObject *module);

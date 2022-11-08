@@ -8,5 +8,6 @@
         <file>texts/transparency_low_16px.svg</file>
         <file>texts/round_high_16px.svg</file>
         <file>texts/round_low_16px.svg</file>
+        <file>texts/help_16px.svg</file>
     </qresource>
 </RCC>
