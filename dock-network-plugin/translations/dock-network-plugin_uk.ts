@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="uk">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Бездротова мережа</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Провідна мережа</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>Мережа</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>Встановлення з&apos;єднання із прихованою мережею</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Пароль</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Скасувати</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>З&apos;єднатися</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>Назва (SSID)</translation>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation>Тип захисту</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Група</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Канал</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Група</translation>
     </message>
     <message>
         <source>Interface</source>

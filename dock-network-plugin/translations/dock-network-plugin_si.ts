@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="si" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="si">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>රැහැන් රහිත ජාලය</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>රැහැන්ගත ජාලය</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>ජාලය</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>සැඟවුණු ජාලයකට සම්බන්ධ වන්න</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>මුර පදය</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>අවලංගු කරන්න</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>සම්බන්ධ කරන්න</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation>ආරක්ෂක වර්ගය</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>කලාපය</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>නාලිකාව</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>කලාපය</translation>
     </message>
     <message>
         <source>Interface</source>

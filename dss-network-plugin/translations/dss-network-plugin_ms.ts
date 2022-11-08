@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ms" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ms">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation>1 mesej baharu</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Rangkaian Tanpa Wayar</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Rangkaian Berwayar</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>Sambungan Berwayar</translation>
+        <source>Connect to hidden network</source>
+        <translation>Sambung ke rangkaian tersembunyi</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Kata Laluan</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Batal</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Sambung</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>Jenis Keselamatan</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Jalur</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Saluran</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Jalur</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>Tetapan rangkaian</translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>Sambungan Berwayar</translation>
     </message>
 </context>
 </TS>

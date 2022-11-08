@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sq" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sq">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation>1 mesazh i ri</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Rrjet Pa Fill</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Rrjet Me Fill</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>Lidhje Me Fill</translation>
+        <source>Connect to hidden network</source>
+        <translation>Lidhu me rrjet të fshehur</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Fjalëkalim</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Anuloje</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Lidhu</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>Emër (SSID)</translation>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>Lloj Sigurie</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Bandë</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kanal</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Bandë</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>Rregullime rrjeti</translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>Lidhje Me Fill</translation>
     </message>
 </context>
 </TS>

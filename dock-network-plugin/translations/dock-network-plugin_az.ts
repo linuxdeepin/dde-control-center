@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="az" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="az">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Simsiz şəbəkə</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Naqilli şəbəkə</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>Şəbəkə</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>Gizli şəbəkəyə qoşulun</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Şifrə</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>İmtina</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Qoşulun</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>Ad (SSİD)</translation>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation>Təhlükəsizlik növü</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Aralıq</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kanal</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Aralıq</translation>
     </message>
     <message>
         <source>Interface</source>

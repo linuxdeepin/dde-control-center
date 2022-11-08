@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en_AU" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="en_AU">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation>1 new message</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Wireless Network</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Wired Network</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>Wired Connection</translation>
+        <source>Connect to hidden network</source>
+        <translation>Connect to hidden network</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Password</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Cancel</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Connect</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>Security Type</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Band</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Channel</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Band</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>Network settings</translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>Wired Connection</translation>
     </message>
 </context>
 </TS>

@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="da" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="da">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Trådløst netværk</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Kablet netværk</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>Netværk</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>Opret forbindelse til skjult netværk</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Adgangskode</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Annuller</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Opret forbindelse</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Bånd</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kanal</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Bånd</translation>
     </message>
     <message>
         <source>Interface</source>

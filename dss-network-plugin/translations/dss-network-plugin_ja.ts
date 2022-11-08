@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ja">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation>1件の新しいメッセージ</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>無線ネットワーク</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>有線ネットワーク</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>無線接続</translation>
+        <source>Connect to hidden network</source>
+        <translation>非表示のネットワークへ接続</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>パスワード</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>接続</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>セキュリティタイプ</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>バンド</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>チャンネル</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>バンド</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>ネットワーク設定</translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>無線接続</translation>
     </message>
 </context>
 </TS>

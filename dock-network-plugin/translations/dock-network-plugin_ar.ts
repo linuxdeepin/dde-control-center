@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ar" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ar">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>شبكة لاسلكية</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>شبكة سلكية</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>الشبكة</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>الإتصال بشبكة مخفية</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>كلمة المرور</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>اتصال</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Band</source>
-        <translation>الحزمة</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>القناة</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>الحزمة</translation>
     </message>
     <message>
         <source>Interface</source>

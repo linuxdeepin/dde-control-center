@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ko" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ko">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>무선 네트워크</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>유선 네트워크</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>네트워크</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>숨겨진 네트워크에 연결</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>비밀번호</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>취소</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>연결</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>명칭(SSID)</translation>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation>보안 유형</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>밴드</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>채널</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>밴드</translation>
     </message>
     <message>
         <source>Interface</source>

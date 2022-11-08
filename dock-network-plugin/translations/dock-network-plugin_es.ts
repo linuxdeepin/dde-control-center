@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="es">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Red inalámbrica</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Red cableada</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>Red</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>Conectarse a una red oculta</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Contraseña</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Conectar</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>Nombre (SSID)</translation>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation>Tipo de Seguridad</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Banda</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Canal</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Banda</translation>
     </message>
     <message>
         <source>Interface</source>

@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fi">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Langaton verkko</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Kaapeli</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>Verkko</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>Yhdistä piilotettuun verkkoon</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Salasana</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Peruuta</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Yhdistä</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>Nimi (SSID)</translation>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation>Suojaustyyppi</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Taajuusalue</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kanava</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Taajuusalue</translation>
     </message>
     <message>
         <source>Interface</source>

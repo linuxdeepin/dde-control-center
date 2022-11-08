@@ -1604,7 +1604,7 @@
     </message>
     <message>
         <source>Cipher</source>
-        <translation>Xifra</translation>
+        <translation>Encripta</translation>
     </message>
     <message>
         <source>HMAC Auth</source>
@@ -1753,7 +1753,7 @@
     </message>
     <message>
         <source>Enable Custom Cipher Proposals</source>
-        <translation>Activa les propostes personalitzades de xifrat</translation>
+        <translation>Activa les propostes personalitzades d&apos;encriptació</translation>
     </message>
     <message>
         <source>IKE</source>

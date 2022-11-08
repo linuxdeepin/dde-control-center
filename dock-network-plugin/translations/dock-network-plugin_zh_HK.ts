@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_HK" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_HK">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>無線網絡</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>有線網絡</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>網絡</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>連接到隱藏網絡</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>請輸入密碼</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>取 消</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>連 接</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>請輸入網絡名稱（SSID）</translation>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation>安全類型</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>頻段</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>聲道</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>頻段</translation>
     </message>
     <message>
         <source>Interface</source>

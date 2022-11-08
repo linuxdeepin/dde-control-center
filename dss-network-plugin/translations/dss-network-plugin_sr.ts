@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sr" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sr">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation>1 нова порука</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Бежична мрежа</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Жична мрежа</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>Жичана веза</translation>
+        <source>Connect to hidden network</source>
+        <translation>Повежи се на скривену мрежу</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Лозинка</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Откажи</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Повежи се</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>Врста безбедности</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Опсег</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Канал</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Опсег</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>Подешавање мреже</translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>Жичана веза</translation>
     </message>
 </context>
 </TS>

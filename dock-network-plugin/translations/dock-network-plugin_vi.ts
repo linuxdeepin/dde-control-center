@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="vi" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="vi">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Mạng không dây</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Mạng kết nối dây</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>Mạng</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>Kết nối với mạng ẩn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Mật mã</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Hủy</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Kết nối</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation>Loại bảo mật</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Băng tần</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kênh</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Băng tần</translation>
     </message>
     <message>
         <source>Interface</source>

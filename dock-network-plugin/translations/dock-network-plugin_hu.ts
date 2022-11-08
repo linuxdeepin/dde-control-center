@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="hu">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Vezeték nélküli hálózat</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Vezetékes hálózat </translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>Hálózat</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>Csatlakozás rejtett hálózathoz</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Jelszó</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Mégsem</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Kapcsolódás</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>Név (SSID)</translation>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation>Biztonság típusa</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Sáv</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Csatorna</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Sáv</translation>
     </message>
     <message>
         <source>Interface</source>

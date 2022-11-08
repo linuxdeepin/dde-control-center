@@ -187,7 +187,7 @@
     </message>
     <message>
         <source>Network Details</source>
-        <translation>Informacje o sieci</translation>
+        <translation>Szczegóły sieci</translation>
     </message>
     <message>
         <source>System Proxy</source>
@@ -1562,7 +1562,7 @@
     </message>
     <message>
         <source>Retry Indefinitely When Failed</source>
-        <translation>Ponawiaj nieustannie, gdy wystąpił błąd</translation>
+        <translation>Ponawiaj nieustannie, gdy wystąpi błąd</translation>
     </message>
     <message>
         <source>Username</source>

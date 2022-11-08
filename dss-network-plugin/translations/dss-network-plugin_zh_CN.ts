@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation>1条新消息</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>无线网络</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>有线网络</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>有线连接</translation>
+        <source>Connect to hidden network</source>
+        <translation>连接到隐藏网络</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>请输入密码</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>取 消</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>连 接</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>请输入网络名称（SSID）</translation>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>安全类型</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>频段</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>网络通道</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>频段</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>网络设置</translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>有线连接</translation>
     </message>
 </context>
 </TS>

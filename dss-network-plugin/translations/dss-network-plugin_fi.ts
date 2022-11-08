@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fi" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fi">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation>1 uusi viesti</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Langaton verkko</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Kaapeli</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>Verkkokaapeli</translation>
+        <source>Connect to hidden network</source>
+        <translation>Yhdistä piilotettuun verkkoon</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Salasana</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Peruuta</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Yhdistä</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>Nimi (SSID)</translation>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>Suojaustyyppi</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Taajuusalue</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kanava</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Taajuusalue</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>Verkon asetukset</translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>Verkkokaapeli</translation>
     </message>
 </context>
 </TS>

@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="sk" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sk">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Bezdrôtová sieť</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Drôtová sieť</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>Sieť</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>Pripojiť sa k skrytej sieti</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Heslo</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Zrušiť</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Pripojiť</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Pásmo</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kanál</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Pásmo</translation>
     </message>
     <message>
         <source>Interface</source>

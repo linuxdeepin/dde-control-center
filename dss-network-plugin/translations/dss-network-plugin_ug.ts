@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ug" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ug">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation>1 يېڭى ئۇچۇر</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>سىمسىز تور</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>سىملىق تور</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>سىملىق تور ئۇلىنىشى</translation>
+        <source>Connect to hidden network</source>
+        <translation>يوشۇرۇن تورغا ئۇلاش</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>پارولنى كىرگۈزۈڭ</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>بىكار قىلىش</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>ئۇلاش</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>تور نامىنى كىرگۈزۈڭ（SSID）</translation>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>بىخەتەرلىك تۈرى</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>دولقۇن بۆلىكى</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>قانال</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>دولقۇن بۆلىكى</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>تور تەڭشىكى </translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>سىملىق تور ئۇلىنىشى</translation>
     </message>
 </context>
 </TS>

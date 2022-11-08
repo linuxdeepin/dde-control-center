@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="nl">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation>1 nieuwe melding</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Draadloos netwerk</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Bekabeld netwerk</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>Bekabelde verbinding</translation>
+        <source>Connect to hidden network</source>
+        <translation>Verbinden met verborgen netwerk</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Wachtwoord</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Annuleren</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Verbinden</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>Naam (SSID)</translation>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>Soort beveiliging</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Band</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kanaal</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Band</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>Netwerkinstellingen</translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>Bekabelde verbinding</translation>
     </message>
 </context>
 </TS>

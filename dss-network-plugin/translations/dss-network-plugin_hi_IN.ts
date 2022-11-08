@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hi_IN" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="hi_IN">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>केबल रहित नेटवर्क</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>केबल नेटवर्क</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>वायर्ड कनेक्शन </translation>
+        <source>Connect to hidden network</source>
+        <translation>छुपे नेटवर्क से जुड़ें</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>कूटशब्द</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>रद्द करें</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>कनेक्ट करें</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>सुरक्षा प्रकार</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>बैंड </translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>चैनल </translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>बैंड </translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>नेटवर्क सेटिंग्स</translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>वायर्ड कनेक्शन </translation>
     </message>
 </context>
 </TS>

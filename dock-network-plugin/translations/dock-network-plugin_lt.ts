@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="lt" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="lt">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Belaidis tinklas</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Laidinis tinklas</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>Tinklas</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>Prisijungti prie paslėpto tinklo</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Slaptažodis</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Atsisakyti</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Prisijungti</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation>Saugumo tipas</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Juosta</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kanalas</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Juosta</translation>
     </message>
     <message>
         <source>Interface</source>

@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ca" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ca">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation>1 missatge nou</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Xarxa sense fil</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Xarxa amb fil</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>Connexió amb fil</translation>
+        <source>Connect to hidden network</source>
+        <translation>Connecta amb una xarxa oculta</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Contrasenya</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Cancel·la</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Connecta</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>Nom (SSID)</translation>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>Tipus de seguretat</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Banda</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Canal</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Banda</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>Configuració de la xarxa</translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>Connexió amb fil</translation>
     </message>
 </context>
 </TS>

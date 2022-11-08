@@ -1,9 +1,45 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ja">
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>無線ネットワーク</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>有線ネットワーク</translation>
+    </message>
+</context>
 <context>
     <name>NetworkPlugin</name>
     <message>
         <source>Network</source>
         <translation>ネットワーク</translation>
+    </message>
+</context>
+<context>
+    <name>WirelessItem</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation>非表示のネットワークへ接続</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>パスワード</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>接続</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -25,12 +61,12 @@
         <translation>セキュリティタイプ</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>バンド</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>チャンネル</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>バンド</translation>
     </message>
     <message>
         <source>Interface</source>

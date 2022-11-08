@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="pt_BR" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pt_BR">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation>1 nova mensagem</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Rede Wi-Fi</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Rede Cabeada</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>Conexão Cabeada</translation>
+        <source>Connect to hidden network</source>
+        <translation>Conectar-se à rede oculta</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Senha</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Conectar</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>Nome (SSID)</translation>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>Tipo de Segurança</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Frequência</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Canal</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Frequência</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>Configurações de rede</translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>Conexão Cabeada</translation>
     </message>
 </context>
 </TS>

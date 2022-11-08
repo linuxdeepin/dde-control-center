@@ -1,9 +1,20 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="el" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="el">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
         <translation>1 νέο μήνυμα</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControllItem</name>
+    <message>
+        <source>Wireless Network</source>
+        <translation>Ασύρματο Δίκτυο</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation>Ενσύρματο Δίκτυο</translation>
     </message>
 </context>
 <context>
@@ -42,10 +53,28 @@
     </message>
 </context>
 <context>
-    <name>dss::module::NetworkModule</name>
+    <name>WirelessItem</name>
     <message>
-        <source>Wired Connection</source>
-        <translation>Ενσύρματη Σύνδεση</translation>
+        <source>Connect to hidden network</source>
+        <translation>Σύνδεση σε κρυφό δίκτυο</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Κωδικός πρόσβασης</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Ακύρωση</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <comment>button</comment>
+        <translation>Σύνδεση</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -67,12 +96,12 @@
         <translation>Τύπος Ασφαλείας</translation>
     </message>
     <message>
-        <source>Band</source>
-        <translation>Mπάντα</translation>
-    </message>
-    <message>
         <source>Channel</source>
         <translation>Kανάλι</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation>Mπάντα</translation>
     </message>
     <message>
         <source>Interface</source>
@@ -238,6 +267,13 @@
     <message>
         <source>Network settings</source>
         <translation>Ρυθμίσεις δικτύου </translation>
+    </message>
+</context>
+<context>
+    <name>dss::module::NetworkModule</name>
+    <message>
+        <source>Wired Connection</source>
+        <translation>Ενσύρματη Σύνδεση</translation>
     </message>
 </context>
 </TS>
