@@ -206,8 +206,13 @@ void DeviceManagerRealize::disconnectNetwork()
 
 QList<AccessPoints *> DeviceManagerRealize::accessPointItems() const
 {
-    if (m_wDevice->type() == NetworkManager::Device::Wifi)
-        return m_accessPoints;
+    if (m_wDevice->type() == NetworkManager::Device::Wifi) {
+        QList<AccessPoints *> accessPoints;
+        for (QSharedPointer<AccessPoints> conn : m_accessPoints)
+            accessPoints << conn.data();
+
+        return accessPoints;
+    }
 
     return QList<AccessPoints *>();
 }
@@ -226,14 +231,18 @@ void DeviceManagerRealize::connectNetwork(const AccessPoints *item)
     if (m_wDevice->type() != NetworkManager::Device::Wifi)
         return;
 
-    WirelessConnection *conn = findConnectionByAccessPoint(item, m_wirelessConnections);
-    if (conn)
+    QSharedPointer<WirelessConnection> conn = findConnectionByAccessPoint(item, m_wirelessConnections);
+    if (!conn.isNull())
         NetworkManager::activateConnection(conn->connection()->path(), m_wDevice->uni(), "");
 }
 
 QList<WirelessConnection *> DeviceManagerRealize::wirelessItems() const
 {
-    return m_wirelessConnections;
+    QList<WirelessConnection *> items;
+    for (QSharedPointer<WirelessConnection> item : m_wirelessConnections)
+        items << item.data();
+
+    return items;
 }
 
 AccessPoints *DeviceManagerRealize::activeAccessPoints() const
@@ -244,9 +253,9 @@ AccessPoints *DeviceManagerRealize::activeAccessPoints() const
     QSharedPointer<NetworkManager::WirelessDevice> device = m_wDevice.staticCast<NetworkManager::WirelessDevice>();
     AccessPoint::Ptr currentActiveAp = device->activeAccessPoint();
     if (!currentActiveAp.isNull()) {
-        for (AccessPoints *ap : m_accessPoints) {
+        for (QSharedPointer<AccessPoints> ap : m_accessPoints) {
             if (ap->ssid() == currentActiveAp->ssid())
-                return ap;
+                return ap.data();
         }
     }
 
@@ -369,12 +378,12 @@ void DeviceManagerRealize::changeWirelessStatus(Device::State newstate)
         return;
 
     PRINT_DEBUG_MESSAGE(QString("Device:%1, new Status: %2").arg(m_wDevice->interfaceName()).arg(QMetaEnum::fromType<Device::State>().valueToKey(newstate)));
-    if (m_activeWirelessConnection && !m_wirelessConnections.contains(m_activeWirelessConnection))
+    if (m_activeWirelessConnection && !wirelessItems().contains(m_activeWirelessConnection))
         m_activeWirelessConnection = Q_NULLPTR;
 
     ConnectionStatus oldStatus = ConnectionStatus::Unknown;
     if (m_activeWirelessConnection) {
-        AccessPoints *activePoint = findAccessPoints(m_activeWirelessConnection->connection()->ssid());
+        QSharedPointer<AccessPoints> activePoint = findAccessPoints(m_activeWirelessConnection->connection()->ssid());
         if (activePoint)
             oldStatus = activePoint->status();
     }
@@ -382,7 +391,7 @@ void DeviceManagerRealize::changeWirelessStatus(Device::State newstate)
     NetworkManager::ActiveConnection::Ptr activeConn = m_wDevice->activeConnection();
     if (activeConn.isNull()) {
         if (m_activeWirelessConnection) {
-            AccessPoints *ap = findAccessPoints(m_activeWirelessConnection->connection()->ssid());
+            QSharedPointer<AccessPoints> ap = findAccessPoints(m_activeWirelessConnection->connection()->ssid());
             if (ap)
                 ap->updateConnectionStatus(ConnectionStatus::Deactivated);
 
@@ -393,25 +402,25 @@ void DeviceManagerRealize::changeWirelessStatus(Device::State newstate)
         return;
     }
 
-    WirelessConnection *currentConnection = findWirelessConnectionBySsid(activeConn->id());
-    if (!currentConnection) {
+    QSharedPointer<WirelessConnection> currentConnection = findWirelessConnectionBySsid(activeConn->id());
+    if (currentConnection.isNull()) {
         PRINT_DEBUG_MESSAGE(QString("cannot find connection id: %1").arg(activeConn->id()));
         Q_EMIT activeConnectionChanged();
         return;
     }
 
     if (m_activeWirelessConnection && m_activeWirelessConnection != currentConnection) {
-        AccessPoints *ap = findAccessPoints(m_activeWirelessConnection->connection()->ssid());
-        if (ap)
+        QSharedPointer<AccessPoints> ap = findAccessPoints(m_activeWirelessConnection->connection()->ssid());
+        if (!ap.isNull())
             ap->updateConnectionStatus(ConnectionStatus::Deactivated);
         oldStatus = ConnectionStatus::Unknown;
     }
 
     ConnectionStatus newStatus = convertStatus(newstate);
     if (newStatus != oldStatus) {
-        m_activeWirelessConnection = currentConnection;
-        AccessPoints *ap = findAccessPoints(currentConnection->connection()->ssid());
-        if (ap) {
+        m_activeWirelessConnection = currentConnection.data();
+        QSharedPointer<AccessPoints> ap = findAccessPoints(currentConnection->connection()->ssid());
+        if (!ap.isNull()) {
             ap->updateConnectionStatus(newStatus);
             Q_EMIT activeConnectionChanged();
         }
@@ -420,9 +429,9 @@ void DeviceManagerRealize::changeWirelessStatus(Device::State newstate)
 
 WirelessConnection *DeviceManagerRealize::findWirelessConnectionByUuid(const QString &uuid)
 {
-    for (WirelessConnection *conn : m_wirelessConnections) {
+    for (QSharedPointer<WirelessConnection> conn : m_wirelessConnections) {
         if (conn->connection()->uuid() == uuid)
-            return conn;
+            return conn.data();
     }
 
     return Q_NULLPTR;
@@ -480,51 +489,51 @@ void DeviceManagerRealize::onWirelessConnectionChanged()
 
     PRINT_DEBUG_MESSAGE(QString("Device:%1").arg(m_wDevice->interfaceName()));
     NetworkManager::Connection::List connections = m_wDevice->availableConnections();
-    QList<WirelessConnection *> newConnection;
-    QList<WirelessConnection *> allConnection;
+    QList<QSharedPointer<WirelessConnection>> allConnection;
     for (QSharedPointer<NetworkManager::Connection> conn : connections) {
         if (conn->settings()->connectionType() != ConnectionSettings::ConnectionType::Wireless)
             continue;
 
         const QJsonObject json = createConnectionJson(conn);
-        WirelessConnection *wirelessConn = findWirelessConnection(conn->path());
-        if (!wirelessConn) {
-            wirelessConn = new WirelessConnection();
-            newConnection << wirelessConn;
-        }
+        QSharedPointer<WirelessConnection> wirelessConn = findWirelessConnection(conn->path());
+        if (wirelessConn.isNull())
+            wirelessConn.reset(new WirelessConnection());
 
         wirelessConn->setConnection(json);
-        allConnection << wirelessConn;
+        QSharedPointer<WirelessConnection> a = wirelessConn;
+
+        allConnection.append(wirelessConn);
     }
 
     createWlans(allConnection);
 }
 
-void DeviceManagerRealize::createWlans(QList<WirelessConnection *> &allConnections)
+void DeviceManagerRealize::createWlans(QList<QSharedPointer<WirelessConnection>> &allConnections)
 {
     PRINT_DEBUG_MESSAGE(QString("allConnections size:%1").arg(allConnections.size()));
-    QList<AccessPoints *> newAps, allAccessPoints;
+    QList<QSharedPointer<AccessPoints >> allAccessPoints;
+    QList<AccessPoints *> newAps;
     NetworkManager::WirelessDevice::Ptr wirelessDevice = m_wDevice.staticCast<NetworkManager::WirelessDevice>();
     NetworkManager::WirelessNetwork::List networks = wirelessDevice->networks();
     for (QSharedPointer<NetworkManager::WirelessNetwork> network : networks) {
         QSharedPointer<AccessPoint> ap = network->referenceAccessPoint();
         const QJsonObject json = createWlanJson(ap);
-        AccessPoints *accessPoint = findAccessPoints(ap->ssid());
+        QSharedPointer<AccessPoints> accessPoint = findAccessPoints(ap->ssid());
         if (!accessPoint) {
-            accessPoint = new AccessPoints(json);
+            accessPoint.reset(new AccessPoints(json));
             accessPoint->m_devicePath = path();
-            newAps << accessPoint;
+            newAps << accessPoint.data();
         } else {
             accessPoint->updateAccessPoints(json);
         }
 
         allAccessPoints << accessPoint;
     }
-    QList<AccessPoints *> rmAps;
-    for (AccessPoints *ap : m_accessPoints) {
+    QList<QSharedPointer<AccessPoints>> rmAps;
+    for (QSharedPointer<AccessPoints> ap : m_accessPoints) {
         if (!allAccessPoints.contains(ap)) {
-            m_accessPoints.removeOne(ap);
             rmAps << ap;
+            m_accessPoints.removeOne(ap);
         }
     }
     // 在信号发送之前同步accessPoints数据，因为在抛出信号后，外面可能通过获取内部所有的WLAN数据来更新内容，此时需要保证WLAN列表是最新的
@@ -533,10 +542,10 @@ void DeviceManagerRealize::createWlans(QList<WirelessConnection *> &allConnectio
     AccessPoint::Ptr activeAp = wirelessDevice->activeAccessPoint();
     if (!activeAp.isNull()) {
         const QJsonObject json = createWlanJson(activeAp);
-        AccessPoints *accessPoint = findAccessPoints(activeAp->ssid());
+        QSharedPointer<AccessPoints> accessPoint = findAccessPoints(activeAp->ssid());
         if (!accessPoint) {
-            accessPoint = new AccessPoints(json);
-            newAps << accessPoint;
+            accessPoint.reset(new AccessPoints(json));
+            newAps << accessPoint.data();
             allAccessPoints << accessPoint;
             m_accessPoints << accessPoint;
         } else {
@@ -545,17 +554,10 @@ void DeviceManagerRealize::createWlans(QList<WirelessConnection *> &allConnectio
     }
     syncWlanAndConnections(allConnections);
 
-    // 删除不存在的Connections，也放在信号发送之前，原因和accessPoints一样
-    QList<WirelessConnection *> rmConnections;
-    for (WirelessConnection *conn : m_wirelessConnections) {
-        if (!allConnections.contains(conn) && !rmConnections.contains(conn))
-            rmConnections << conn;
-    }
-
-    if (rmConnections.contains(m_activeWirelessConnection))
-        m_activeWirelessConnection = Q_NULLPTR;
-
     m_wirelessConnections = allConnections;
+    // 如果当前的连接中不包含当前活动连击，认为当前活动连接为空
+    if (!wirelessItems().contains(m_activeWirelessConnection))
+        m_activeWirelessConnection = Q_NULLPTR;
 
     PRINT_DEBUG_MESSAGE(QString("new AccessPoint size:%1, remove AccessPoint Size: %2").arg(newAps.size()).arg(rmAps.size()));
     if (rmAps.size() > 0 || newAps.size() > 0) {
@@ -565,64 +567,44 @@ void DeviceManagerRealize::createWlans(QList<WirelessConnection *> &allConnectio
             changeStatus(m_wDevice->state());
         }
 
-        if (rmAps.size() > 0)
-            Q_EMIT networkRemoved(rmAps);
+        if (rmAps.size() > 0) {
+            QList<AccessPoints *> removeAccessPoints;
+            for (QSharedPointer<AccessPoints> ap : rmAps)
+                removeAccessPoints << ap.data();
 
-        for (AccessPoints *ap : rmAps)
-            delete ap;
+            Q_EMIT networkRemoved(removeAccessPoints);
+        }
     }
-
-    // 删除无用的数据
-    for (WirelessConnection *rmConn : rmConnections)
-        delete rmConn;
 }
 
-void DeviceManagerRealize::syncWlanAndConnections(QList<WirelessConnection *> &allConnections)
+void DeviceManagerRealize::syncWlanAndConnections(QList<QSharedPointer<WirelessConnection>> &allConnections)
 {
     PRINT_DEBUG_MESSAGE(QString("allConnections size:%1").arg(allConnections.size()));
     if (m_accessPoints.isEmpty()) {
-        clearListData(allConnections);
+        allConnections.clear();
         PRINT_INFO_MESSAGE("m_accessPoints is Empty");
         return;
     }
 
-    QList<WirelessConnection *> connections;
+    QList<QSharedPointer<WirelessConnection>> connections;
     // 找到每个热点对应的Connection，并将其赋值
-    for (AccessPoints *accessPoint : m_accessPoints) {
-        WirelessConnection *connection = findConnectionByAccessPoint(accessPoint, allConnections);
-        if (!connection) {
-            connection = WirelessConnection::createConnection(accessPoint);
-            m_wirelessConnections << connection;
+    for (QSharedPointer<AccessPoints> accessPoint : m_accessPoints) {
+        QSharedPointer<WirelessConnection> connection = findConnectionByAccessPoint(accessPoint.data(), allConnections);
+        if (connection.isNull()) {
+            connection.reset(WirelessConnection::createConnection(accessPoint.data()));
+            m_wirelessConnections.append(connection);
         }
 
-        connection->m_accessPoints = accessPoint;
+        connection->m_accessPoints = accessPoint.data();
         connections << connection;
-    }
-    // 删除列表中没有AccessPoints的Connection，让两边保持数据一致
-    QList<WirelessConnection *> rmConns;
-    for (WirelessConnection *connection : allConnections) {
-        if (!connections.contains(connection))
-            rmConns << connection;
-    }
-
-    for (WirelessConnection *rmConnection : rmConns) {
-        allConnections.removeOne(rmConnection);
-
-        // 如果当前所有的无线连接列表中有不存在的连接，那么需要将其从无线连接中移除，然后再delete
-        // 因为后面会将m_wirelessConnections中不存在于allConnections的连接delete，如果
-        // 此处不从m_wirelessConnections移除掉这个connection，那么后面就会出现删除两次引起报错
-        if (m_wirelessConnections.contains(rmConnection))
-            m_wirelessConnections.removeOne(rmConnection);
-
-        delete rmConnection;
     }
 
     allConnections = connections;
 }
 
-AccessPoints *DeviceManagerRealize::findAccessPoints(const QString &ssid)
+QSharedPointer<AccessPoints> DeviceManagerRealize::findAccessPoints(const QString &ssid)
 {
-    for (AccessPoints *ap : m_accessPoints) {
+    for (QSharedPointer<AccessPoints> ap : m_accessPoints) {
         if (ap->ssid() == ssid)
             return ap;
     }
@@ -657,9 +639,9 @@ QJsonObject DeviceManagerRealize::createConnectionJson(QSharedPointer<NetworkMan
     return json;
 }
 
-WirelessConnection *DeviceManagerRealize::findConnectionByAccessPoint(const AccessPoints *accessPoint, QList<WirelessConnection *> &allConnections)
+QSharedPointer<WirelessConnection> DeviceManagerRealize::findConnectionByAccessPoint(const AccessPoints *accessPoint, QList<QSharedPointer<WirelessConnection>> &allConnections)
 {
-    for (WirelessConnection *connection : allConnections) {
+    for (QSharedPointer<WirelessConnection> connection : allConnections) {
         if (connection->accessPoints() == accessPoint)
             return connection;
 
@@ -680,9 +662,9 @@ WiredConnection *DeviceManagerRealize::findWiredConnection(const QString &path)
     return Q_NULLPTR;
 }
 
-WirelessConnection *DeviceManagerRealize::findWirelessConnectionBySsid(const QString &ssid)
+QSharedPointer<WirelessConnection> DeviceManagerRealize::findWirelessConnectionBySsid(const QString &ssid)
 {
-    for (WirelessConnection *connection : m_wirelessConnections) {
+    for (QSharedPointer<WirelessConnection> connection : m_wirelessConnections) {
         if (connection->connection()->ssid() == ssid)
             return connection;
     }
@@ -690,9 +672,9 @@ WirelessConnection *DeviceManagerRealize::findWirelessConnectionBySsid(const QSt
     return Q_NULLPTR;
 }
 
-WirelessConnection *DeviceManagerRealize::findWirelessConnection(const QString &path)
+QSharedPointer<WirelessConnection> DeviceManagerRealize::findWirelessConnection(const QString &path)
 {
-    for (WirelessConnection *connection : m_wirelessConnections) {
+    for (QSharedPointer<WirelessConnection> connection : m_wirelessConnections) {
         if (connection->connection()->path() == path)
             return connection;
     }

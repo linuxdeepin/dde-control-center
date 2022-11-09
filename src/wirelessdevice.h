@@ -79,9 +79,9 @@ public:
 
 protected:
     AccessPoints(const QJsonObject &json, QObject *parent = Q_NULLPTR);
-    ~AccessPoints();
 
 public:
+    ~AccessPoints();
     QString ssid() const;                                           // 网络SSID，对应于返回接口中的Ssid
     int strength() const;                                           // 信号强度，对应于返回接口中的Strength
     bool secured() const;                                           // 是否加密，对应于返回接口中的Secured
@@ -120,13 +120,12 @@ class WirelessConnection: public ControllItems
     friend class DeviceManagerRealize;
 
 public:
+    WirelessConnection();
     AccessPoints *accessPoints() const;                             // 返回当前对应的wlan的指针
+    ~WirelessConnection();
     bool connected();                                               // 网络是否连接成功
 
 protected:
-    WirelessConnection();
-    ~WirelessConnection();
-
     static WirelessConnection *createConnection(AccessPoints *ap);
 
 private:

@@ -58,28 +58,19 @@ protected:
     QList<WiredConnection *> wiredItems() const override;                                 // 有线网络连接列表
 
 private:
-    template<class T>
-    void clearListData(QList<T *> &dataList) {
-        for (T *data : dataList)
-            delete data;
-
-        dataList.clear();
-    }
-
-private:
     void initSigSlotConnection();
-    void createWlans(QList<WirelessConnection *> &allConnections);
-    void syncWlanAndConnections(QList<WirelessConnection *> &allConnections);
+    void createWlans(QList<QSharedPointer<WirelessConnection >> &allConnections);
+    void syncWlanAndConnections(QList<QSharedPointer<WirelessConnection>> &allConnections);
 
-    AccessPoints *findAccessPoints(const QString &ssid);
+    QSharedPointer<AccessPoints> findAccessPoints(const QString &ssid);
     QJsonObject createWlanJson(QSharedPointer<NetworkManager::AccessPoint> ap);
     QJsonObject createConnectionJson(QSharedPointer<NetworkManager::Connection> networkConnection);
-    WirelessConnection *findConnectionByAccessPoint(const AccessPoints *accessPoint, QList<WirelessConnection *> &allConnections);
+    QSharedPointer<WirelessConnection> findConnectionByAccessPoint(const AccessPoints *accessPoint, QList<QSharedPointer<WirelessConnection>> &allConnections);
 
     WiredConnection *findWiredConnection(const QString &path);
     WiredConnection *findWiredConnectionByUuid(const QString &uuid);
-    WirelessConnection *findWirelessConnectionBySsid(const QString &ssid);
-    WirelessConnection *findWirelessConnection(const QString &path);
+    QSharedPointer<WirelessConnection> findWirelessConnectionBySsid(const QString &ssid);
+    QSharedPointer<WirelessConnection> findWirelessConnection(const QString &path);
     WirelessConnection *findWirelessConnectionByUuid(const QString &uuid);
     ConnectionStatus convertStatus(Device::State state);
     DeviceStatus convertDeviceStatus(Device::State state);
@@ -98,9 +89,9 @@ private slots:
 
 private:
     QSharedPointer<Device> m_wDevice;
-    QList<AccessPoints *> m_accessPoints;
+    QList<QSharedPointer<AccessPoints>> m_accessPoints;
     QList<WiredConnection *> m_wiredConnections;
-    QList<WirelessConnection *> m_wirelessConnections;
+    QList<QSharedPointer<WirelessConnection>> m_wirelessConnections;
     WiredConnection *m_activeWiredConnection;
     WirelessConnection *m_activeWirelessConnection;
     bool m_hotspotEnabled;
