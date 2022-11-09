@@ -5,6 +5,10 @@
 
 #include <QApplication>
 
+#if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 0, 0)
+#    define USE_DCIICON
+#endif
+
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
@@ -45,7 +49,9 @@ public:
                 DViewItemAction *newAction = new DViewItemAction(action->alignment(), action->iconSize(), action->maximumSize(), action->isClickable());
                 newAction->setText(action->text());
                 newAction->setIcon(action->icon());
+#ifdef USE_DCIICON
                 newAction->setDciIcon(action->dciIcon());
+#endif
                 if (static_cast<int>(action->textColorRole()) != -1) {
                     newAction->setTextColorRole(action->textColorRole());
                 }

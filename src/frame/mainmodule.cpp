@@ -7,6 +7,10 @@
 #include <QHBoxLayout>
 #include <QSplitter>
 
+#if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 2, 1)
+#    define USE_SIDEBAR
+#endif
+
 using namespace DCC_NAMESPACE;
 
 const int NavViewMaximumWidth = QWIDGETSIZE_MAX;
@@ -79,15 +83,21 @@ public:
             }
             while (!m_layout->isEmpty()) {
                 QLayoutItem *item = m_layout->takeAt(0);
-                if (item->widget() && item->widget() != m_view)
+                if (item->widget() && item->widget() != m_view && item->widget() != m_sidebarWidget)
                     delete item->widget();
                 delete item;
             }
-            m_layout->addWidget(child->activePage());
+            m_sidebarWidget->setVisible(true);
+#ifdef USE_SIDEBAR
             m_mainWindow->setSidebarWidget(m_sidebarWidget);
             m_mainWindow->setSidebarWidth(180);
             m_mainWindow->setSidebarVisible(true);
             m_mainWindow->setSidebarExpanded(true);
+#else
+            m_layout->addWidget(m_sidebarWidget);
+            m_sidebarWidget->setFixedWidth(200);
+#endif
+            m_layout->addWidget(child->activePage());
             m_view->setVisible(false);
         } else {
             m_view->setViewMode(ListView::IconMode);
@@ -99,7 +109,7 @@ public:
 
             while (!m_layout->isEmpty()) {
                 QLayoutItem *item = m_layout->takeAt(0);
-                if (item->widget() && item->widget() != m_view)
+                if (item->widget() && item->widget() != m_view && item->widget() != m_sidebarWidget)
                     delete item->widget();
                 delete item;
             }
@@ -109,8 +119,11 @@ public:
             m_view->setMaximumWidth(QWIDGETSIZE_MAX);
             m_view->setVisible(true);
             m_view->clearSelection();
+            m_sidebarWidget->setVisible(false);
+#ifdef USE_SIDEBAR
             m_mainWindow->setSidebarExpanded(false);
             m_mainWindow->setSidebarVisible(false);
+#endif
         }
     }
 
@@ -125,8 +138,9 @@ public:
         });
         m_view = createListView(parentWidget);
         m_sidebarWidget = createListView(parentWidget);
+#ifdef USE_SIDEBAR
         m_mainWindow->setSidebarWidget(m_sidebarWidget);
-
+#endif
         onCurrentModuleChanged(q->currentModule());
         return parentWidget;
     }
