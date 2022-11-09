@@ -318,6 +318,8 @@ void AdapterModule::contextMenu(const BluetoothAdapter *adapter, const Bluetooth
         } else {
             menu->removeAction(disconnectAction);
             menu->removeAction(transfileAction);
+            menu->removeAction(ignoreAction);
+            ignoreAction->setEnabled(false);
         }
         break;
     case BluetoothDevice::StateAvailable:
