@@ -14,6 +14,7 @@
         <file alias="network-warning-symbolic">resources/light/network-warning-symbolic.svg</file>
         <file alias="wireless-background">resources/light/wireless-background.svg</file>
         <file alias="wireless-disconnect">resources/light/wireless-disconnect.svg</file>
+        <file alias="wireless-offline-symbolic">resources/light/wireless-offline-symbolic.svg</file>
         <file alias="wireless-0-symbolic">resources/light/wireless-0-symbolic.svg</file>
         <file alias="wireless-20-symbolic">resources/light/wireless-20-symbolic.svg</file>
         <file alias="wireless-40-symbolic">resources/light/wireless-40-symbolic.svg</file>
@@ -49,6 +50,7 @@
         <file alias="network-warning-symbolic">resources/dark/network-warning-symbolic.svg</file>
         <file alias="wireless-background">resources/dark/wireless-background.svg</file>
         <file alias="wireless-disconnect">resources/dark/wireless-disconnect.svg</file>
+        <file alias="wireless-offline-symbolic">resources/dark/wireless-offline-symbolic.svg</file>
         <file alias="wireless-0-symbolic">resources/dark/wireless-0-symbolic.svg</file>
         <file alias="wireless-20-symbolic">resources/dark/wireless-20-symbolic.svg</file>
         <file alias="wireless-40-symbolic">resources/dark/wireless-40-symbolic.svg</file>
