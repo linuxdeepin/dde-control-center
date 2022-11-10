@@ -7,7 +7,7 @@
 #include <QHBoxLayout>
 #include <QSplitter>
 
-#if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 2, 1)
+#if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 2, 0)
 #    define USE_SIDEBAR
 #endif
 
