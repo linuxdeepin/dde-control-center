@@ -55,7 +55,7 @@ class AccountSpinBox : public DSpinBox
 public:
     explicit AccountSpinBox(QWidget *parent = nullptr);
 protected:
-    virtual QString textFromValue(int val) const;
+    virtual QString textFromValue(int val) const override;
     void focusInEvent(QFocusEvent *event) override;
     void focusOutEvent(QFocusEvent *event) override;
 };

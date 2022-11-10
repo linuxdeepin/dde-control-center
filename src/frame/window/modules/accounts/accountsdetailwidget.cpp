@@ -472,6 +472,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
             m_modifyPassword->setEnabled(false);
             m_autoLogin->switchButton()->setEnabled(false);
             m_nopasswdLogin->switchButton()->setEnabled(false);
+            m_bindStatusLabel->setEnabled(false);
+            securityQuestionsButton->setEnabled(false);
         }
     }
     //修改密码状态判断
@@ -662,6 +664,11 @@ void AccountsDetailWidget::initUserGroup(QVBoxLayout *layout)
     QMargins listItemmargin( lvgroups->itemMargins());
     listItemmargin.setLeft(2);
     lvgroups->setItemMargins(listItemmargin);
+
+    // 开启等保三级后，只有sysadm账户可以修改用户组
+    if (m_userModel->getIsSecurityHighLever() && m_curLoginUser->securityLever() != SecurityLever::Sysadm) {
+        lvgroups->setEnabled(false);
+    }
 
     connect(lvgroups, &QListView::clicked, this, [ this ] {
         Q_EMIT requestShowUserGroups(m_curUser);
