@@ -16,6 +16,7 @@ using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 
 const QString Sudo = "sudo";
+const QString Root = "root";
 
 DWIDGET_USE_NAMESPACE
 
@@ -108,6 +109,13 @@ void UserGroupsPage::onGidChanged(const QString &gid)
             } else {
                 value = true;
             }
+
+            // 等保三级系统管理员不能修改自己的sudo和root组选项
+            if (m_userModel->getIsSecurityHighLever() &&
+                m_curUser->securityLever() == SecurityLever::Sysadm &&
+                (item->text() == Sudo || item->text() == Root)) {
+                value = false;
+            }
         } while (0);
         item->setEnabled(value);
     }
@@ -150,6 +158,13 @@ void UserGroupsPage::initData()
     for (QString item : userGroup) {
         GroupItem *it = new GroupItem(item);
         it->setCheckable(false);
+        // 开启等保后，原来的管理员账户统一显示标准用户（但是账户对应的sudo和root组其实还在）
+        // 需要将这两个选项隐藏，防止用户修改后与账户设置/管理员和账户类型显示不一致
+        if (m_userModel->getIsSecurityHighLever() &&
+            m_curUser->securityLever() != SecurityLever::Sysadm &&
+            (it->text() == Sudo || it->text() == Root)) {
+            continue;
+        }
         m_groupItemModel->appendRow(it);
     }
 
