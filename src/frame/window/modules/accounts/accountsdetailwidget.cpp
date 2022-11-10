@@ -387,7 +387,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     if (m_curUser->isCurrentUser())
         DConfigWatcher::instance()->bind(DConfigWatcher::accounts, "securityQuestions", securityQuestionsWidget);
 
-    securityQuestionsWidget->setVisible(!isDomainUser);
+    if (isDomainUser) {
+        securityQuestionsWidget->setVisible(false);
+    }
 
     connect(securityQuestionsButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestShowSecurityQuestionsSettings(m_curUser);
