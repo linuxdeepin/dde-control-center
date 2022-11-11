@@ -326,6 +326,7 @@ void AdapterModule::contextMenu(const BluetoothAdapter *adapter, const Bluetooth
         connectAction->setText(tr("Connecting"));
         menu->removeAction(disconnectAction);
         menu->removeAction(transfileAction);
+        ignoreAction->setEnabled(false);
         break;
     case BluetoothDevice::StateDisconnecting:
         connectAction->setText(tr("Disconnecting"));
