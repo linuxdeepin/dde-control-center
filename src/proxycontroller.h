@@ -32,6 +32,10 @@ public:
     inline QString autoProxy() { return m_autoProxyURL; }                   // 返回自动代理的配置URL
     void setProxy(const SysProxyType &type,
                   const QString &addr, const QString &port);                // 设置代理信息，type是一个枚举类型，一般是manual模式下设置
+    void setProxyAuth(const SysProxyType &type,
+                      const QString &userName,
+                      const QString &password,
+                      const bool enable);                                   // 设置代理验证信息，type是一个枚举类型，一般是manual模式下设置
     SysProxyConfig proxy(const SysProxyType &type) const;                   // 获取对应类型下的系统代理数据
 
     /* 应用代理 */
@@ -43,6 +47,7 @@ Q_SIGNALS:
     /* 系统代理 */
     void autoProxyChanged(const QString &);                                 // 自动代理发生变化
     void proxyChanged(const SysProxyConfig &);                              // 某种代理数据发生变化的时候触发的信号
+    void proxyAuthChanged(const SysProxyConfig &);                         // 某种代理验证数据发生变化的时候触发的信号
     void proxyMethodChanged(const ProxyMethod &);                           // 代理模式发生变化
     void proxyIgnoreHostsChanged(const QString &);                          // 忽略的主机发生变化
     /* 应用代理 */
@@ -61,6 +66,7 @@ protected:
     void queryProxyIgnoreHosts();                                           // 查询代理忽略的主机
 
     void queryProxyDataByType(const QString &type);                         // 查询代理数据
+    void queryProxyAuthByType(const QString &type);                     // 查询代理验证数据
 
     ProxyMethod convertProxyMethod(const QString &method);                  // 将代理模式字符串转换为枚举
     QString convertProxyMethod(const ProxyMethod &method);                  // 将代理模式枚举转换为字符串

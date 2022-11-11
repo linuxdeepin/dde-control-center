@@ -79,6 +79,21 @@ void ProxyController::setProxy(const SysProxyType &type, const QString &addr, co
     });
 }
 
+void ProxyController::setProxyAuth(const SysProxyType &type, const QString &userName, const QString &password, const bool enable)
+{
+    QString uType = convertSysProxyType(type);
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter->asyncCall("SetProxyAuthentication", uType, userName, password, enable), this);
+    connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
+    connect(w, &QDBusPendingCallWatcher::finished, [ = ](QDBusPendingCallWatcher * self) {
+        Q_UNUSED(self);
+
+        QDBusPendingReply<QString, QString> reply = w->reply();
+        if (reply.isError()) return ;
+
+        queryProxyAuthByType(uType);
+    });
+}
+
 void ProxyController::setAppProxy(const AppProxyConfig &config)
 {
     m_chainsInter->Set(appProxyType(config.type), config.ip, config.port, config.username, config.password);
@@ -113,8 +128,10 @@ void ProxyController::querySysProxyData()
     static QStringList proxyTypes = {"http", "https", "ftp", "socks"};
 
     // 依次获取每种类型的数据，并填充到列表中
-    for (QString type : proxyTypes)
+    for (QString type : proxyTypes) {
         queryProxyDataByType(type);
+        queryProxyAuthByType(type);
+    }
 
     // 查询自动代理
     queryAutoProxy();
@@ -209,6 +226,49 @@ void ProxyController::queryProxyDataByType(const QString &type)
             proxyConfig.type = uType;
             m_sysProxyConfig << proxyConfig;
             Q_EMIT proxyChanged(proxyConfig);
+        }
+    });
+}
+
+void ProxyController::queryProxyAuthByType(const QString &type)
+{
+    SysProxyType uType = convertSysProxyType(type);
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter->asyncCall("GetProxyAuthentication", type), this);
+    connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
+    connect(w, &QDBusPendingCallWatcher::finished, [ = ](QDBusPendingCallWatcher * self) {
+        Q_UNUSED(self);
+
+        QDBusPendingReply<QString, QString> reply = w->reply();
+        if (reply.isError()) return ;
+
+        // 先查找原来是否存在响应的代理，如果存在，就直接更新最新的数据
+        auto iterator = std::find_if(m_sysProxyConfig.begin(), m_sysProxyConfig.end(), [ = ] (SysProxyConfig conf) {
+            if (conf.type == uType) {
+                QString userName = reply.argumentAt(0).toString();
+                QString password = reply.argumentAt(1).toString();
+                bool enableAuth = reply.argumentAt(2).toBool();
+                if (enableAuth != conf.enableAuth ||
+                    userName != conf.userName ||
+                    password != conf.password) {
+                    conf.enableAuth = enableAuth;
+                    conf.userName = userName;
+                    conf.password = password;
+                    Q_EMIT proxyAuthChanged(conf);
+                }
+                return true;
+            }
+
+            return false;
+        });
+
+        if (iterator == m_sysProxyConfig.end()) {
+            SysProxyConfig proxyConfig;
+            proxyConfig.userName = reply.argumentAt(0).toString();
+            proxyConfig.password = reply.argumentAt(1).toString();
+            proxyConfig.enableAuth = reply.argumentAt(2).toBool();
+            proxyConfig.type = uType;
+            m_sysProxyConfig << proxyConfig;
+            Q_EMIT proxyAuthChanged(proxyConfig);
         }
     });
 }

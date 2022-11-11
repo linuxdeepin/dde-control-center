@@ -134,6 +134,9 @@ struct SysProxyConfig {
     SysProxyType type;      // 系统代理类型，是一个枚举变量(http,https,ftp,socks)
     QString url;            // 代理的URL，一般用于自动代理的URL，手动代理的代理值
     uint port;              // 代理的端口，一般是手动代理
+    bool  enableAuth;       // 是否需要验证，一般是手动代理
+    QString userName;       // 验证用户名，一般是手动代理
+    QString password;       // 验证密码，一般是手动代理
 };
 /**
  * @brief 应用代理配置

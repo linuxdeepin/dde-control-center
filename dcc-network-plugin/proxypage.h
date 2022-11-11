@@ -25,6 +25,8 @@ namespace dcc {
   }
 }
 
+class PasswdLineEditWidget;
+
 DWIDGET_BEGIN_NAMESPACE
 class DButtonBox;
 class DTextEdit;
@@ -49,12 +51,14 @@ private Q_SLOTS:
     void onProxyMethodChanged(const ProxyMethod &method);
     void onIgnoreHostsChanged(const QString &hosts);
     void onProxyChanged(const SysProxyConfig &config);
+    void onProxyAuthChanged(const SysProxyConfig &config);
     void applySettings();
 
 private:
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
     void clearLineEditWidgetFocus();
+    bool checkValue();
 
 private:
     QWidget *m_autoWidget;
@@ -63,14 +67,29 @@ private:
 
     LineEditWidget *m_httpAddr;
     LineEditWidget *m_httpPort;
+    SwitchWidget *m_httpAuthSwitch;
+    LineEditWidget *m_httpUserName;
+    PasswdLineEditWidget *m_httpPassword;
+
     LineEditWidget *m_httpsAddr;
     LineEditWidget *m_httpsPort;
+    SwitchWidget *m_httpsAuthSwitch;
+    LineEditWidget *m_httpsUserName;
+    PasswdLineEditWidget *m_httpsPassword;
+
     LineEditWidget *m_ftpAddr;
     LineEditWidget *m_ftpPort;
+    SwitchWidget *m_ftpAuthSwitch;
+    LineEditWidget *m_ftpUserName;
+    PasswdLineEditWidget *m_ftpPassword;
+
     LineEditWidget *m_socksAddr;
     LineEditWidget *m_socksPort;
-    DTextEdit *m_ignoreList;
+    SwitchWidget *m_socksAuthSwitch;
+    LineEditWidget *m_socksUserName;
+    PasswdLineEditWidget *m_socksPassword;
 
+    DTextEdit *m_ignoreList;
     LineEditWidget *m_autoUrl;
 
     SwitchWidget* m_proxySwitch;
