@@ -28,9 +28,11 @@ Q_SIGNALS:
     void requestVerficationCodeCountReplied(int count);
     void requestVerficationCodeReplied(int result);
     void requestVerifyVerficationCodeReplied(int result);
+    void notifySecurityKey(QString);
 
 public Q_SLOTS:
     void getSecurityQuestions();
+    void getSecurityKey(QString name);
     void setPasswordHint(const QString &passwordHint);
     void verifySecretQuestions(const QMap<int, QString> &securityQuestions);
     void asyncBindCheck();

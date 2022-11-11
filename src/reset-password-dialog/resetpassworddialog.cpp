@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "resetpassworddialog.h"
-#include "securityquestionswidget.h"
+#include "securitykeywidget.h"
 #include "unionidwidget.h"
 #include "resetpasswordworker.h"
 #include "resetpassworddialog.h"
@@ -23,6 +23,7 @@ DGUI_USE_NAMESPACE
 
 ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, const QString &userName, const QString &appName, const int &fd)
     : DDialog()
+    , m_UnionIDWidget(nullptr)
     , m_isSecurityQuestionsExist(true)
     , m_screenGeometry(screenGeometry)
     , m_userName(userName)
@@ -33,6 +34,7 @@ ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, const QString &us
     , m_isClose(true)
     , m_stackedLayout(new QStackedLayout)
     , m_resetPasswordWorker(new ResetPasswordWorker(userName, this))
+    , m_securityKeyWidget(nullptr)
 {
     initWidget(userName);
     initData();
@@ -110,7 +112,10 @@ void ResetPasswordDialog::initWidget(const QString &userName)
     mainContentLayout->setMargin(0);
 
     m_buttonBox = new DButtonBox(this);
-    m_buttonBox->setButtonList({new DButtonBoxButton(tr("Security Questions")), new DButtonBoxButton("UOS ID")}, true);
+    DButtonBoxButton *SecurityKeyBtn = new DButtonBoxButton(tr("Security Key"));
+    DButtonBoxButton *uosIdBtn = new DButtonBoxButton("UOS ID");
+    uosIdBtn->setFixedSize(SecurityKeyBtn->sizeHint());
+    m_buttonBox->setButtonList({SecurityKeyBtn, uosIdBtn }, true);
     m_buttonBox->setId(m_buttonBox->buttonList().at(0), 0);
     m_buttonBox->setId(m_buttonBox->buttonList().at(1), 1);
     m_buttonBox->buttonList().at(0)->click();
@@ -120,11 +125,6 @@ void ResetPasswordDialog::initWidget(const QString &userName)
     connect(this, &ResetPasswordDialog::requestSecurityQuestions, m_resetPasswordWorker, &ResetPasswordWorker::getSecurityQuestions);
     connect(m_resetPasswordWorker, &ResetPasswordWorker::getSecurityQuestionsReplied, this, &ResetPasswordDialog::onGetSecurityQuestionsReplied);
     Q_EMIT requestSecurityQuestions();
-
-    m_SecurityQuestionsWidget = new SecurityQuestionsWidget(m_securityQuestions, userName, mainContentWidget);
-    connect(m_SecurityQuestionsWidget, &SecurityQuestionsWidget::requestSetPasswordHint, m_resetPasswordWorker, &ResetPasswordWorker::setPasswordHint);
-    connect(m_SecurityQuestionsWidget, &SecurityQuestionsWidget::requestVerifySecretQuestions, m_resetPasswordWorker, &ResetPasswordWorker::verifySecretQuestions);
-    connect(m_resetPasswordWorker, &ResetPasswordWorker::verifySecretQuestionsReplied, m_SecurityQuestionsWidget, &SecurityQuestionsWidget::onVerifySecretQuestionsReplied);
 
     m_UnionIDWidget = new UnionIDWidget(m_userPath, userName, mainContentWidget);
     connect(m_UnionIDWidget, &UnionIDWidget::requestAsyncBindCheck, m_resetPasswordWorker, &ResetPasswordWorker::asyncBindCheck);
@@ -136,25 +136,39 @@ void ResetPasswordDialog::initWidget(const QString &userName)
     connect(m_resetPasswordWorker, &ResetPasswordWorker::requestVerficationCodeReplied, m_UnionIDWidget, &UnionIDWidget::onRequestVerficationCodeReplied);
     connect(m_resetPasswordWorker, &ResetPasswordWorker::requestVerifyVerficationCodeReplied, m_UnionIDWidget, &UnionIDWidget::onRequestVerifyVerficationCodeReplied);
 
+    m_securityKeyWidget = new SecurityKeyWidget(userName, mainContentWidget);
     m_stackedLayout->setSpacing(0);
     m_stackedLayout->setMargin(0);
-    m_stackedLayout->addWidget(m_SecurityQuestionsWidget);
+    m_stackedLayout->addWidget(m_securityKeyWidget);
     m_stackedLayout->addWidget(m_UnionIDWidget);
     mainContentLayout->addLayout(m_stackedLayout);
+    connect(m_securityKeyWidget, &SecurityKeyWidget::notifyDebug, this, [=](QString value) {
+       qInfo() << " [SecurityKeyWidget] " << value;
+    });
+    connect(m_securityKeyWidget, &SecurityKeyWidget::requestGetSecurityKey, m_resetPasswordWorker, &ResetPasswordWorker::getSecurityKey);
+    connect( m_resetPasswordWorker, &ResetPasswordWorker::notifySecurityKey, m_securityKeyWidget, [=](QString key) {
+        //Obtain the encrypted security key data stored in the uadp according to the account dbus interface
+        const QByteArray salt = getCryptSalt(key.toLatin1());
+        QString inputKey = cryptUserPassword(m_securityKeyWidget->getUserInputSecurityKey(), salt);
+        //check input SecurityKey with save uadp data
+        if (inputKey != key) {
+            qWarning() << "Wrong security key.";
+            m_securityKeyWidget->showSecurityKeyAlertMessage(tr("Wrong security key"));
+            return;
+        }
+        //Repeat Password is same -> show dialog
+        if (m_securityKeyWidget->checkRepeatPassword()) {
+            updateResetPasswordDialog();
+        }
+    });
 
     this->insertContent(0, mainContentWidget);
 
-    if (!m_securityQuestions.isEmpty()) {
-        this->setTitle(tr("Reset Password"));
-        this->addButton(tr("Next"), true, ButtonRecommend);
-        m_stackedLayout->setCurrentIndex(0);
-    } else {
-        this->setTitle(tr("Reset Password By UOS ID"));
-        this->addButton(tr("Reset"), true, ButtonRecommend);
-        m_buttonBox->hide();
-        m_stackedLayout->setCurrentIndex(1);
-        m_UnionIDWidget->loadPage();
-    }
+    this->setTitle(tr("Reset Password By Security Key"));
+    this->clearButtons();
+    this->addButton(tr("Cancel"));
+    this->addButton(tr("Reset"));
+    m_stackedLayout->setCurrentIndex(0);
 
     m_tipDialog.setMessage(tr("Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance"));
     m_tipDialog.addButtons(QStringList() << tr("Cancel") << tr("Confirm and Reset"));
@@ -176,7 +190,7 @@ void ResetPasswordDialog::initWidget(const QString &userName)
         }
     }
     m_tipDialog.installEventFilter(this);
-    m_tipDialog.setFixedSize(380, 189);
+    m_tipDialog.setFixedSize(400, 189);
     m_tipDialog.setOnButtonClickedClose(false);
 }
 
@@ -185,23 +199,29 @@ void ResetPasswordDialog::initData()
     filein.open(stdin, QIODevice::ReadOnly);
     QSocketNotifier* sn = new QSocketNotifier(filein.handle(), QSocketNotifier::Read, this);
     sn->setEnabled(true);
+
     connect(m_buttonBox, &DButtonBox::buttonClicked, this, [this](QAbstractButton *button) {
-        if (m_buttonBox->id(button) == 0) {
+        switch (m_buttonBox->id(button)) {
+        case 0:
+            this->setTitle(tr("Reset Password By Security Key"));
             m_stackedLayout->setCurrentIndex(0);
-            if (buttonCount() == 1) {
-                this->addButton(m_SecurityQuestionsWidget->isAnswerRight() ? tr("Reset") : tr("Next"));
-                connect(getButton(1), &QPushButton::clicked, this, &ResetPasswordDialog::onResetPasswordBtnClicked);
-            } else {
-                getButton(1)->setText(m_SecurityQuestionsWidget->isAnswerRight() ? tr("Reset") : tr("Next"));
-            }
-        } else {
+            this->clearButtons();
+            this->addButton(tr("Cancel"));
+            connect(getButton(0), &QPushButton::clicked, this, &ResetPasswordDialog::onCancelBtnClicked);
+            this->addButton(tr("Reset"));
+            connect(getButton(1), &QPushButton::clicked, this, &ResetPasswordDialog::onResetPasswordBtnClicked);
+            m_securityKeyWidget->getPasswordWidget()->setEditNormal();
+            break;
+        case 1:
+            this->setTitle(tr("Reset Password By UOS ID"));
             m_stackedLayout->setCurrentIndex(1);
             m_UnionIDWidget->loadPage();
+            break;
+        default:
+            break;
         }
     });
-    connect(m_SecurityQuestionsWidget, &SecurityQuestionsWidget::answersRight, this, [this] {
-        getButton(1)->setText(tr("Reset"));
-    });
+
     connect(m_UnionIDWidget, &UnionIDWidget::pageChanged, this, [this](bool isResetPasswordPage) {
         this->clearButtons();
         this->addButton(tr("Cancel"));
@@ -229,6 +249,7 @@ void ResetPasswordDialog::initData()
             file.write((cryptUserPassword(getPassword())+ "\n").toStdString().c_str());
             file.flush();
             file.close();
+            onCancelBtnClicked();
         }
     });
     if (m_appName == "greeter" || m_appName == "lock") {
@@ -293,8 +314,16 @@ void ResetPasswordDialog::quit()
 
 const QString ResetPasswordDialog::getPassword()
 {
-    return (m_stackedLayout->currentIndex() == 0) ? m_SecurityQuestionsWidget->getPassword():
+    return (m_stackedLayout->currentIndex() == 0) ? m_securityKeyWidget->getPasswordWidget()->getPassword() :
                                                     m_UnionIDWidget->getPassword();
+}
+
+void ResetPasswordDialog::updateResetPasswordDialog()
+{
+    m_isClose = false;
+    updatePosition();
+    m_tipDialog.show();
+    this->hide();
 }
 
 void ResetPasswordDialog::onCancelBtnClicked()
@@ -313,17 +342,21 @@ void ResetPasswordDialog::onCancelBtnClicked()
 void ResetPasswordDialog::onResetPasswordBtnClicked()
 {
     bool success = false;
-    if (m_stackedLayout->currentIndex() == 0) {
-        success = m_SecurityQuestionsWidget->onResetPasswordBtnClicked();
-    } else {
+    switch (m_stackedLayout->currentIndex()) {
+    case 0:
+        //安全密钥需要通过dbus返回值进行判断是否验证通过
+        Q_EMIT m_securityKeyWidget->requestGetSecurityKey(m_userName);
+        break;
+    case 1:
         success = m_UnionIDWidget->onResetPasswordBtnClicked();
+        break;
+    default:
+        break;
     }
+
     qDebug() << "onResetPassowrdBtnClicked:" << success;
     if (success) {
-        m_isClose = false;
-        updatePosition();
-        m_tipDialog.show();
-        this->hide();
+        updateResetPasswordDialog();
     }
 }
 

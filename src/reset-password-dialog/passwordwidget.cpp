@@ -143,6 +143,19 @@ bool PasswordWidget::isPasswordEmpty()
     return isContentEmpty(m_newPasswordEdit) || isContentEmpty(m_repeatPasswordEdit);
 }
 
+void PasswordWidget::setEditNormal()
+{
+    if (m_newPasswordEdit) {
+        m_newPasswordEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
+    }
+    if (m_repeatPasswordEdit) {
+        m_repeatPasswordEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
+    }
+    if (m_passwordTipsEdit) {
+        m_passwordTipsEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", true);
+    }
+}
+
 void PasswordWidget::hideAlert(DLineEdit *edit)
 {
     if (edit->isAlert()) {

@@ -8,7 +8,18 @@
             "flags": [],
             "name": "security_Questions",
             "name[zh_CN]": "通过安全问题找回密码",
-            "description[zh_CN]": "通过回答设置的安全问题，重新设置密码；",
+            "description[zh_CN]": "通过回答设置的安全问题，重新设置密码",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "securityKeyStatus": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "security_Key_Status",
+            "name[zh_CN]": "安全密钥显示状态",
+            "description[zh_CN]": "安全密钥是否显示",
             "description": "",
             "permissions": "readwrite",
             "visibility": "private"

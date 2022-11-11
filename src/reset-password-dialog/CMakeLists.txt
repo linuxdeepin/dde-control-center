@@ -33,8 +33,8 @@ set(SRCS
         utils.h
         resetpassworddialog.h
         resetpassworddialog.cpp
-        securityquestionswidget.h
-        securityquestionswidget.cpp
+        securitykeywidget.h
+        securitykeywidget.cpp
         unionidwidget.h
         unionidwidget.cpp
         passwordwidget.h
@@ -47,6 +47,7 @@ set(DCC_SRCS
     ../frame/widgets/securitylevelitem.cpp
     ../frame/window/modules/accounts/pwqualitymanager.cpp
     ../frame/window/utils.h
+    ../frame/window/dconfigwatcher.cpp
 )
 
 set(QRC resetpassworddialog.qrc)

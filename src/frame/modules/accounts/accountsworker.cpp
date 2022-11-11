@@ -47,6 +47,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 #endif
     , m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager", QDBusConnection::systemBus(), this))
     , m_userModel(userList)
+    , m_login1SessionSelf(nullptr)
 {
     qRegisterMetaType<SecurityQuestions>("SecurityQuestions");
     qDBusRegisterMetaType<SecurityQuestions>();
@@ -97,6 +98,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 
     bool bShowCreateUser = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showCreateUser", true);
     m_userModel->setCreateUserValid(bShowCreateUser);
+    getLogin1SessionSelf();
 }
 
 void AccountsWorker::getAllGroups()
@@ -214,6 +216,31 @@ QList<int> AccountsWorker::securityQuestionsCheck()
     return {-1};
 }
 
+void AccountsWorker::getLogin1SessionSelf()
+{
+    QDBusInterface login1Inter("org.freedesktop.login1", "/org/freedesktop/login1",
+                                   "org.freedesktop.login1.Manager",
+                                   QDBusConnection::systemBus());
+    if(login1Inter.isValid()){
+        QDBusPendingReply<QDBusObjectPath> reply = login1Inter.asyncCall("GetSessionByPID" , uint(0));
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, [this, reply, watcher] {
+            if (!watcher->isError()) {
+               QString session_self = reply.value().path();
+               qDebug() << "session_self path" << session_self;
+               if (m_login1SessionSelf) {
+                   m_login1SessionSelf->deleteLater();
+                   m_login1SessionSelf = nullptr;
+               }
+               m_login1SessionSelf = new QDBusInterface("org.freedesktop.login1", session_self, "org.freedesktop.login1.Session", QDBusConnection::systemBus());
+            } else {
+                qWarning() << "m_login1Inter:" << watcher->error().message();
+            }
+            watcher->deleteLater();
+        });
+    }
+}
+
 void AccountsWorker::setPasswordHint(User *user, const QString &passwordHint)
 {
     AccountsUser *userInter = m_userInters.value(user);
@@ -312,6 +339,29 @@ QDBusPendingReply<bool, QString, int> AccountsWorker::isUsernameValid(const QStr
     QDBusPendingReply<bool, QString, int> reply = m_accountsInter->IsUsernameValid(name);
     reply.waitForFinished();
     return reply;
+}
+
+bool AccountsWorker::checkAuthorizationSync(const QString &path)
+{
+    return Authority::Result::Yes == Authority::instance()->checkAuthorizationSync(path, UnixProcessSubject(getpid()), Authority::AllowUserInteraction);
+}
+
+bool AccountsWorker::getIsSessionActive() const
+{
+    if (!m_login1SessionSelf) {
+        qWarning() << Q_FUNC_INFO << " m_login1SessionSelf is nullptr.";
+        return false;
+    }
+    return m_login1SessionSelf->property("Active").toBool();
+}
+
+const QString AccountsWorker::getActiveSessionName() const
+{
+    if (!m_login1SessionSelf) {
+        qWarning() << Q_FUNC_INFO << " m_login1SessionSelf is nullptr.";
+        return "";
+    }
+    return m_login1SessionSelf->property("Name").toString();
 }
 
 void AccountsWorker::randomUserIcon(User *user)
@@ -863,4 +913,39 @@ void AccountsWorker::checkPwdLimitLevel()
         QDBusReply<QString> errorTips = interface.call("GetPwdError");
         Q_EMIT showSafeyPage(errorTips);
     }
+}
+
+void AccountsWorker::setSecurityKey(const QString &key)
+{
+    if (!m_userQInter || key == "") {
+        return;
+    }
+    m_userQInter->call("SetSecretKey", QVariant::fromValue(key));
+}
+
+const QString AccountsWorker::getSecurityKey(const QString &name)
+{
+    QString ret = "";
+    if (!m_userQInter) {
+        return ret;
+    }
+    QString validName = name;
+    if (validName == "") {
+        validName = m_currentUserName;
+    }
+    QDBusReply<QString> reply = m_userQInter->call("GetSecretKey", QVariant::fromValue(validName));
+    if (reply.error().message().isEmpty()) {
+        ret = reply.value();
+    } else {
+        qWarning() << "GetSecretKey failed:" << reply.error().message();
+    }
+    return ret;
+}
+
+void AccountsWorker::deleteSecretKey()
+{
+    if (!m_userQInter) {
+        return;
+    }
+    m_userQInter->call("DeleteSecretKey");
 }

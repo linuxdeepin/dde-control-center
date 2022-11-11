@@ -11,6 +11,7 @@
 #include "modules/accounts/user.h"
 #include "modules/accounts/usermodel.h"
 #include "window/gsettingwatcher.h"
+#include "window/dconfigwatcher.h"
 #include "window/utils.h"
 #include "securityquestionspage.h"
 #include "usergroupspage.h"
@@ -158,7 +159,7 @@ void AccountsModule::addChildPageTrans() const
 //显示账户信息
 void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
-    AccountsDetailWidget *w = new AccountsDetailWidget(account, m_userModel);
+    AccountsDetailWidget *w = new AccountsDetailWidget(account, m_userModel, m_accountsWorker);
     w->setVisible(false);
 
     connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
@@ -192,6 +193,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     if (account->isCurrentUser()) {
         Q_EMIT w->requestSecurityQuestionsCheck(account);
     }
+    Q_EMIT w->notifySessionActive(m_accountsWorker->getActiveSessionName(), m_accountsWorker->getIsSessionActive());
     w->setVisible(true);
     m_isCreatePage = false;
     //当前页面为用户详情页面的时候允许跳转默认帐户，否则只响应用户点击。避免出现显示了创建账户页面，又被账户详情页面隐藏的问题。
@@ -238,10 +240,10 @@ void AccountsModule::initSearchData()
     };
 
     const QString& module = displayName();
+    bool isDomainUser = m_userModel->isDomainUser(m_userModel->getCurrentUserName());
 
     auto func_process_all = [=]() {
         //只存在二级页面，childpage为空，在判断是否加载数据时没有翻译，因此这个函数第二个参数不能添加翻译
-        bool isDomainUser = m_userModel->isDomainUser(m_userModel->getCurrentUserName());
         QString gsAccountUserModifypasswd = func_is_visible("accountUserModifypasswd").toString();
         gsettingsMap.insert("accountUserModifypasswd", gsAccountUserModifypasswd != "Hidden");
         m_frameProxy->setWidgetVisible(module, tr("Change Password"), gsAccountUserModifypasswd != "Hidden" && !isDomainUser);
@@ -264,6 +266,10 @@ void AccountsModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, tr("Account Settings"), !isDomainUser);
         m_frameProxy->setWidgetVisible(module, tr("Administrator"), !isDomainUser);
         m_frameProxy->setWidgetVisible(module, tr("Validity Days"), !isDomainUser);
+
+        m_frameProxy->setWidgetVisible(module, tr("Enable Security Keys for Accounts"),
+                                       DConfigWatcher::instance()->getValue(DConfigWatcher::accounts, "securityKeyStatus").toString() != "Hidden" && !isDomainUser);
+
         // 专业版或者服务器版本支持用户组搜索
         m_frameProxy->setWidgetVisible(module, tr("Group"), !isDomainUser && (IsProfessionalSystem || IsServerSystem));
     };
@@ -312,6 +318,14 @@ void AccountsModule::initSearchData()
 
         qInfo() << __FUNCTION__ << " [notifyGSettingsChanged]  gsetting, status :" << gsetting << func_is_visible(gsetting);
         m_frameProxy->updateSearchData(module);
+    });
+
+    connect(DConfigWatcher::instance(), &DConfigWatcher::notifyDConfigChanged, this, [=](const QString &moduleName, const QString &configName) {
+        if (moduleName == "accounts" && configName == "securityKeyStatus") {
+            m_frameProxy->setWidgetVisible(module, tr("Enable Security Keys for Accounts"),
+                                           DConfigWatcher::instance()->getValue(DConfigWatcher::accounts, "securityKeyStatus").toString() != "Hidden" && !isDomainUser);
+            m_frameProxy->updateSearchData(module);
+        }
     });
 
     func_process_all();

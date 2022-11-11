@@ -38,6 +38,32 @@ inline bool supportSM3()
     return crypt(password, salt) == cryptResult;
 }
 
+inline const QByteArray getCryptSalt(const QByteArray &key)
+{
+    QByteArray retsult = "";
+    int count = 0;
+    for (const auto value : key) {
+        if (value == '$') {
+            retsult += value;
+            count++;
+            if (count == 3) {
+                return retsult;
+            }
+        } else {
+            if (count > 0) {
+                retsult += value;
+            }
+        }
+    }
+
+    return retsult;
+}
+
+inline QString cryptUserPassword(const QString &password, const QByteArray &salt)
+{
+    return crypt(password.toUtf8().data(), salt);
+}
+
 inline QString cryptUserPassword(const QString &password)
 {
     /*

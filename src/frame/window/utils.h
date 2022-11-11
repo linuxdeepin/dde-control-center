@@ -136,6 +136,46 @@ inline QString utcDateTime2LocalDate(const QString& utcDateTime) {
     return dateTime.toLocalTime().toString("yyyy-MM-dd");
 }
 
+/**
+ * @brief 显示密钥数据格式化
+ *
+ * @param 输入无"-"的字符串
+ * @return 返回每个4个字符添加一个"-"的字符串
+ */
+inline QString getSecurityKeyDisplayData(QString key)
+{
+    key = key.remove(QRegExp("\\-"));
+    int keyLen = key.length();
+    QList<QString> list;
+    QString value = "";
+    int count = keyLen / 4;
+    for (int i = 0; i < count; i++) {
+        for (int j = 0; j < 4; j++) {
+            value += key[4*i+j];
+        }
+        list.append(value);
+        value = "";
+    }
+    int reset = keyLen % 4;
+    for (int i = 0; i < reset; i++) {
+        value += key[4*count+i];
+    }
+    if (value != "") {
+        list.append(value);
+    }
+    value = "";
+    int listCount = list.count();
+    for (int i = 0; i < listCount; i++) {
+        value += list.at(i);
+        value += "-";
+    }
+    int lastLen = value.length() - 1;
+    if ( lastLen > 0 && value[lastLen] == "-") {
+        value = value.left(value.length() - 1);
+    }
+    return value;
+}
+
 }
 
 #endif // V20_DISPLAY_UTILS_H

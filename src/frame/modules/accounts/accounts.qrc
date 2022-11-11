@@ -11,5 +11,6 @@
         <file>themes/dark/icons/default_avatar.svg</file>
         <file>themes/dark/icons/nav_accounts.svg</file>
         <file>themes/dark/icons/nav_accounts_normal.svg</file>
+        <file>themes/common/icons/security_key_copy.svg</file>
     </qresource>
 </RCC>

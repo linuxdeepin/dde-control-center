@@ -21,7 +21,7 @@ class DButtonBox;
 DWIDGET_END_NAMESPACE
 
 class UnionIDWidget;
-class SecurityQuestionsWidget;
+class SecurityKeyWidget;
 class ResetPasswordWorker;
 
 class ResetPasswordDialog : public DDialog
@@ -50,6 +50,7 @@ private:
     void startCount();
     void quit();
     const QString getPassword();
+    void updateResetPasswordDialog();
 
 Q_SIGNALS:
     void requestSecurityQuestions();
@@ -68,7 +69,6 @@ private Q_SLOTS:
 private:
     DButtonBox *m_buttonBox = nullptr;
     UnionIDWidget *m_UnionIDWidget;
-    SecurityQuestionsWidget *m_SecurityQuestionsWidget;
     bool m_isSecurityQuestionsExist;
     QRect m_screenGeometry;
     com::deepin::daemon::Accounts *m_accountInter;
@@ -86,6 +86,7 @@ private:
     QStackedLayout *m_stackedLayout;
     ResetPasswordWorker *m_resetPasswordWorker;
     QList<int> m_securityQuestions;
+    SecurityKeyWidget *m_securityKeyWidget;
 };
 
 class Manager : public QObject

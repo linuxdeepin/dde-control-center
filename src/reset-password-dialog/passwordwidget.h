@@ -27,6 +27,7 @@ public:
     bool checkPassword();
     inline const QString getPassword() { return m_newPasswordEdit->text(); }
     bool isPasswordEmpty();
+    void setEditNormal();
 
 private:
     void initWidget(int margin);
