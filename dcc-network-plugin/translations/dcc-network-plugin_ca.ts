@@ -843,6 +843,22 @@
         <translation>Port</translation>
     </message>
     <message>
+        <source>Authentication is required</source>
+        <translation>Cal autenticació</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Nom d&apos;usuari</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>Cal</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Contrasenya</translation>
+    </message>
+    <message>
         <source>HTTP Proxy</source>
         <translation>Servidor intermediari d&apos;HTTP</translation>
     </message>

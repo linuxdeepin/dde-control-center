@@ -843,6 +843,22 @@
         <translation>Prievadas</translation>
     </message>
     <message>
+        <source>Authentication is required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Naudotojo vardas</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Slaptažodis</translation>
+    </message>
+    <message>
         <source>HTTP Proxy</source>
         <translation>HTTP įgaliotasis serveris</translation>
     </message>
@@ -909,7 +925,7 @@
     </message>
     <message>
         <source>Ask me always</source>
-        <translation type="unfinished"/>
+        <translation>Visada klausti</translation>
     </message>
     <message>
         <source>Disabled</source>
@@ -1519,7 +1535,7 @@
     </message>
     <message>
         <source>File error</source>
-        <translation type="unfinished"/>
+        <translation>Failo klaida</translation>
     </message>
     <message>
         <source>OK</source>

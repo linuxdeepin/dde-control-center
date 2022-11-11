@@ -843,6 +843,22 @@
         <translation>Port</translation>
     </message>
     <message>
+        <source>Authentication is required</source>
+        <translation>Wymagane jest uwierzytelnienie</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Nazwa użytkownika</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>Wymagane</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Hasło</translation>
+    </message>
+    <message>
         <source>HTTP Proxy</source>
         <translation>HTTP Proxy</translation>
     </message>

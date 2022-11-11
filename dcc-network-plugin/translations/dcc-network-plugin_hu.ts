@@ -843,6 +843,22 @@
         <translation>Port</translation>
     </message>
     <message>
+        <source>Authentication is required</source>
+        <translation>Hitelesítés szükséges</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Felhasználónév</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>Kötelező</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Jelszó</translation>
+    </message>
+    <message>
         <source>HTTP Proxy</source>
         <translation>HTTP Proxy</translation>
     </message>

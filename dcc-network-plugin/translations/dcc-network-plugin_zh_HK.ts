@@ -843,6 +843,22 @@
         <translation>端口</translation>
     </message>
     <message>
+        <source>Authentication is required</source>
+        <translation>需要認證</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>用戶名</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>密碼</translation>
+    </message>
+    <message>
         <source>HTTP Proxy</source>
         <translation>HTTP代理</translation>
     </message>

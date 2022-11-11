@@ -402,7 +402,7 @@
     </message>
     <message>
         <source>Not Bind</source>
-        <translation>Jo e lidhur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Device MAC Addr</source>
@@ -790,7 +790,7 @@
     </message>
     <message>
         <source>Stateful MPPE</source>
-        <translation>Gjendje  MPPE</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -841,6 +841,22 @@
     <message>
         <source>Port</source>
         <translation>Portë</translation>
+    </message>
+    <message>
+        <source>Authentication is required</source>
+        <translation>Lypset mirëfilltësim</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Emër përdoruesi</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>E domosdoshme</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Fjalëkalim</translation>
     </message>
     <message>
         <source>HTTP Proxy</source>
@@ -973,7 +989,7 @@
     </message>
     <message>
         <source>Provisioning</source>
-        <translation>Provisioni</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>PAC file</source>
@@ -1149,7 +1165,7 @@
     </message>
     <message>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation>Kufizo Tunalin TCP MSS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Randomize Remote Hosts</source>
@@ -1168,7 +1184,7 @@
     </message>
     <message>
         <source>Netscreen</source>
-        <translation>Netscreen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Secure (default)</source>
@@ -1236,7 +1252,7 @@
     </message>
     <message>
         <source>NAT Traversal Mode</source>
-        <translation>menyra e udhetimit NAT</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>IKE DH Group</source>
@@ -1244,7 +1260,7 @@
     </message>
     <message>
         <source>Forward Secrecy</source>
-        <translation>Perpara sekretet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Local Port</source>
@@ -1275,7 +1291,7 @@
     </message>
     <message>
         <source>Pre-Shared Key</source>
-        <translation>Celes i para-shperndare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Phase1 Algorithms</source>
@@ -1496,7 +1512,7 @@
     </message>
     <message>
         <source>Stateful MPPE</source>
-        <translation>Gjendje  MPPE</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1709,7 +1725,7 @@
     </message>
     <message>
         <source>Pre-Shared Key</source>
-        <translation>Celes i para-shperndare</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Gateway</source>
@@ -1911,7 +1927,7 @@
     </message>
     <message>
         <source>Not Bind</source>
-        <translation>Jo e lidhur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>SSID</source>

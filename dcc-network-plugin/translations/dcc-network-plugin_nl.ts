@@ -843,6 +843,22 @@
         <translation>Poort</translation>
     </message>
     <message>
+        <source>Authentication is required</source>
+        <translation>Verificatie vereist</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Gebruikersnaam</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>Vereist</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Wachtwoord</translation>
+    </message>
+    <message>
         <source>HTTP Proxy</source>
         <translation>HTTP-proxy</translation>
     </message>

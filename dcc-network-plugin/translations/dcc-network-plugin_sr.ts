@@ -843,6 +843,22 @@
         <translation>Прикључaк</translation>
     </message>
     <message>
+        <source>Authentication is required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>HTTP Proxy</source>
         <translation>ХТТП посредник</translation>
     </message>
