@@ -28,9 +28,9 @@ const static QString DisplayService = "com.deepin.daemon.Display";
 const static QString DisplayPath = "/com/deepin/daemon/Display";
 const static QString DisplayInterface = "com.deepin.daemon.Display";
 
-const static QString AppearanceService = "com.deepin.daemon.Appearance";
-const static QString AppearancePath = "/com/deepin/daemon/Appearance";
-const static QString AppearanceInterface = "com.deepin.daemon.Appearance";
+const static QString AppearanceService = "org.deepin.daemon.Appearance1";
+const static QString AppearancePath = "/org/deepin/daemon/Appearance1";
+const static QString AppearanceInterface = "org.deepin.daemon.Appearance1";
 
 const static QString PowerService = "org.deepin.daemon.Power1";
 const static QString PowerPath = "/org/deepin/daemon/Power1";
