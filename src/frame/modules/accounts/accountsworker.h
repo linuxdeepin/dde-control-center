@@ -56,6 +56,9 @@ public:
     QString getCurrentUserName();
     void updateGroupinfo();
     QDBusPendingReply<bool, QString, int> isUsernameValid(const QString &name);
+    bool checkAuthorizationSync(const QString &path);
+    bool getIsSessionActive() const;
+    const QString getActiveSessionName() const;
 
 Q_SIGNALS:
     void requestFrameAutoHide(const bool autoHide) const;
@@ -100,6 +103,11 @@ public Q_SLOTS:
     bool hasOpenSecurity();
     SecurityLever getSecUserLeverbyname(QString userName);
     void checkPwdLimitLevel();
+
+    void setSecurityKey(const QString &key);
+    const QString getSecurityKey(const QString &name = "");
+    void deleteSecretKey();
+
 private Q_SLOTS:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> &paths);
     void getAllGroups();
@@ -115,6 +123,7 @@ private:
     CreationResult *createAccountInternal(const User *user);
     BindCheckResult checkLocalBind(const QString &uosid, const QString &uuid);
     QList<int> securityQuestionsCheck();
+    void getLogin1SessionSelf();
 
 private:
     Accounts *m_accountsInter;
@@ -129,6 +138,7 @@ private:
     DisplayManager *m_dmInter;
     QStringList m_onlineUsers;
     UserModel *m_userModel;
+    QDBusInterface*  m_login1SessionSelf;
 };
 
 }   // namespace accounts

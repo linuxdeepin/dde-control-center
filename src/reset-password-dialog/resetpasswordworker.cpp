@@ -27,14 +27,26 @@ ResetPasswordWorker::ResetPasswordWorker(const QString& userName, QObject *paren
 
 void ResetPasswordWorker::getSecurityQuestions()
 {
+    if (!m_userQInter) {
+        return;
+    }
     QDBusReply<QList<int>> reply = m_userQInter->call("GetSecretQuestions");
     if (reply.isValid()) {
         Q_EMIT getSecurityQuestionsReplied(reply.value());
-    }
-    if (!reply.error().message().isEmpty()) {
+    } else {
         qWarning() << QString("GetSecretQuestions failed:") << reply.error();
     }
     qDebug() << "security questions" << reply.value();
+}
+
+void ResetPasswordWorker::getSecurityKey(QString name)
+{
+    QDBusReply<QString> reply = m_userQInter->call("GetSecretKey", QVariant::fromValue(name));
+    if (reply.isValid()) {
+        Q_EMIT notifySecurityKey(reply.value());
+    } else {
+        qWarning() << "GetSecretKey failed:" << reply.error().message();
+    }
 }
 
 void ResetPasswordWorker::setPasswordHint(const QString &passwordHint)
@@ -49,13 +61,14 @@ void ResetPasswordWorker::setPasswordHint(const QString &passwordHint)
 
 void ResetPasswordWorker::verifySecretQuestions(const QMap<int, QString> &securityQuestions)
 {
+    if (!m_userQInter) {
+        return;
+    }
     QDBusReply<QList<int>> reply = m_userQInter->call("VerifySecretQuestions", QVariant::fromValue(securityQuestions));
     if (reply.isValid()) {
         Q_EMIT verifySecretQuestionsReplied(reply.value());
-    }
-    if (!reply.error().message().isEmpty()) {
+    } else {
         qWarning() << QString("VerifySecretQuestions failed:") << reply.error();
-        return;
     }
 }
 

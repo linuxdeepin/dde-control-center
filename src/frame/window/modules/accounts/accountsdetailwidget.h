@@ -13,6 +13,7 @@
 #include "widgets/switchwidget.h"
 #include "avatarlistwidget.h"
 #include "widgets/titlelabel.h"
+#include "securitykeydisplaydialog.h"
 
 #include <DLineEdit>
 #include <DWarningButton>
@@ -66,7 +67,7 @@ class AccountsDetailWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit AccountsDetailWidget(dcc::accounts::User *user, dcc::accounts::UserModel *model, QWidget *parent = nullptr);
+    explicit AccountsDetailWidget(dcc::accounts::User *user, dcc::accounts::UserModel *model, dcc::accounts::AccountsWorker *work, QWidget *parent = nullptr);
     virtual ~AccountsDetailWidget();
     void initHeadPart(QVBoxLayout *headLayout);
     void initBodyPart(QVBoxLayout *bodyLayout);
@@ -93,6 +94,7 @@ Q_SIGNALS:
     void editingFinished(const QString& userFullName);
     void requestSecurityQuestionsCheck(dcc::accounts::User *user);
     void requestShowUserGroups(dcc::accounts::User *user);
+    void notifySessionActive(QString, bool);
 
 public Q_SLOTS:
     void resetDelButtonState();
@@ -102,6 +104,7 @@ public Q_SLOTS:
 protected:
     void initUserInfo(QVBoxLayout *layout);
     void initSetting(QVBoxLayout *layout);
+    void initSecurityKey(QVBoxLayout *layout, bool isCurUser);
     bool eventFilter(QObject *obj, QEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
 
@@ -114,6 +117,7 @@ private Q_SLOTS:
 private:
     dcc::accounts::User *m_curUser;
     dcc::accounts::UserModel *m_userModel;
+    dcc::accounts::AccountsWorker *m_worker;
     DLabel *m_fullName;//账户全名
     DTK_WIDGET_NAMESPACE::DToolButton *m_fullNameBtn;//账户全名编辑按钮
     DLineEdit *m_inputLineEdit;//账户全名编辑框
@@ -131,6 +135,7 @@ private:
     QString m_groupName;
     dcc::accounts::User *m_curLoginUser;
     QLabel *m_bindStatusLabel;
+    SecurityKeyDisplayDialog *m_securityKeyDisplayDialog;
 };
 
 }   // namespace accounts

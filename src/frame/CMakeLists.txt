@@ -313,6 +313,7 @@ set(ACCOUNTS_FILES
                 window/modules/accounts/createaccountpage.cpp
                 window/modules/accounts/modifypasswdpage.cpp
                 window/modules/accounts/accountsdetailwidget.cpp
+                window/modules/accounts/securitykeydisplaydialog.cpp
                 window/modules/accounts/avatarlistwidget.cpp
                 window/modules/accounts/avataritemdelegate.cpp
                 window/modules/accounts/onlineicon.cpp

@@ -75,10 +75,11 @@ void AccountSpinBox::focusOutEvent(QFocusEvent *event)
     return DSpinBox::focusOutEvent(event);
 }
 
-AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget *parent)
+AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, AccountsWorker *work, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
     , m_userModel(model)
+    , m_worker(work)
     , m_avatarLayout(new QHBoxLayout)
     , m_deleteAccount(new DWarningButton)
     , m_modifyPassword(new QPushButton)
@@ -86,6 +87,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     , m_scrollArea(new QScrollArea)
     , m_curLoginUser(nullptr)
     , m_bindStatusLabel(new QLabel(tr("Go to Settings"), this))
+    , m_securityKeyDisplayDialog(new SecurityKeyDisplayDialog(work))
 {
     //整体布局
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
@@ -128,6 +130,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     initSetting(contentLayout);
 
     setAccountModel(model);
+    m_securityKeyDisplayDialog->setCurrentAccount(m_userModel->getCurrentUserName());
 }
 
 AccountsDetailWidget::~AccountsDetailWidget()
@@ -322,7 +325,6 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     if (m_userModel->getIsSecurityHighLever() && m_curLoginUser->securityLever() != SecurityLever::Sysadm && !m_curUser->isCurrentUser()) {
         avatar->setEnabled(false) ;
     }
-
 }
 
 void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
@@ -444,8 +446,12 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     initUserGroup(layout);
 
-    //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();
+    if (!isDomainUser) {
+        initSecurityKey(layout, isCurUser);
+    }
+
+    //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     m_autoLogin->switchButton()->setEnabled(isCurUser);
     m_nopasswdLogin->switchButton()->setEnabled(isCurUser);
     //~ contents_path /accounts/Change Password
@@ -537,6 +543,105 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     });
     connect(m_curUser, &User::startSecurityQuestionsCheckReplied, this, &AccountsDetailWidget::onSecurityQuestionsCheckReplied);
 
+
+}
+
+void AccountsDetailWidget::initSecurityKey(QVBoxLayout *layout, bool isCurUser)
+{
+    layout->addSpacing(10);
+    SwitchWidget *securityKeySwitch = new SwitchWidget;
+    securityKeySwitch->getMainLayout()->setContentsMargins(10, 0, 6, 0);
+    securityKeySwitch->setTitle(tr("Enable Security Keys for Accounts"));
+    DTipLabel *securityKeyLabel = new DTipLabel(tr("It is used to log in to the system if you forget your password"), this);
+    securityKeyLabel->setWordWrap(true);
+    securityKeyLabel->setContentsMargins(10, 0, 10, 0);
+    securityKeyLabel->setAlignment(Qt::AlignLeft);
+    securityKeySwitch->addBackground();
+
+    auto securityKeySwitchLayout = new QVBoxLayout;
+    securityKeySwitchLayout->setContentsMargins(10, 0, 10, 0);
+    securityKeySwitchLayout->addWidget(securityKeySwitch);
+    securityKeySwitchLayout->addWidget(securityKeyLabel);
+    QWidget *securityKey = new QWidget(this);
+    securityKey->setLayout(securityKeySwitchLayout);
+    layout->addWidget(securityKey);
+    layout->addStretch();
+
+    connect(DConfigWatcher::instance(), &DConfigWatcher::notifyDConfigChanged, this, [&securityKey](const QString &moduleName, const QString &configName) {
+        if (moduleName != "accounts") {
+            return;
+        }
+        if (configName == "securityKeyStatus") {
+            QString state = DConfigWatcher::instance()->getValue(DConfigWatcher::accounts, "securityKeyStatus").toString();
+            securityKey->setVisible(state != "Hidden");
+            securityKey->setEnabled(state != "Disabled");
+        }
+    });
+
+    //可以从dbus获取到数据，说明就开启了安全密钥
+    securityKeySwitch->setChecked(QString::compare(m_worker->getSecurityKey(m_curUser->name()), "") != 0);
+
+    DConfigWatcher::instance()->bind(DConfigWatcher::accounts, "securityKeyStatus", securityKey);
+    QString state = DConfigWatcher::instance()->getValue(DConfigWatcher::accounts, "securityKeyStatus").toString();
+    securityKey->setVisible(state != "Hidden");
+    securityKey->setEnabled(state != "Disabled");
+
+    static uint start = QDateTime::currentDateTime().toTime_t();
+    static uint subTime = QDateTime::currentDateTime().toTime_t();
+    // 开启/关闭 安全密钥
+    connect(securityKeySwitch, &SwitchWidget::checkedChanged, this, [=](const bool checked) {
+        subTime = QDateTime::currentDateTime().toTime_t();
+
+        // 1s内多次点击不响应
+        if (subTime - start < 1) {
+            securityKey->setEnabled(true);
+            securityKeySwitch->setEnabled(true);
+            securityKeySwitch->setChecked(false);
+            qWarning() << " securityKeySwitch checkedChanged time interval : " << subTime - start << subTime << start;
+            return;
+        }
+        if (!m_securityKeyDisplayDialog) {
+            return;
+        }
+        securityKey->setEnabled(false);
+        securityKeySwitch->setEnabled(!checked);
+        if (checked) {
+            // 开启密码认证
+            // TODO : user-administration modify
+            if (m_worker && m_worker->checkAuthorizationSync("com.deepin.daemon.accounts.change-own-user-data")) {
+                m_securityKeyDisplayDialog->updateSecurityKey();
+                m_securityKeyDisplayDialog->show();
+            } else {
+                qWarning() << " Authorization Failed.";
+                start = QDateTime::currentDateTime().toTime_t();
+                securityKey->setEnabled(true);
+                securityKeySwitch->setEnabled(true);
+                if (securityKeySwitch->checked()) {
+                    securityKeySwitch->setChecked(false);
+                }
+                return;
+            }
+        } else {
+            m_securityKeyDisplayDialog->clearSecurityKey();
+        }
+        securityKey->setEnabled(true);
+    });
+
+    // Dialog弹框，确认/取消/关闭
+    connect(m_securityKeyDisplayDialog, &SecurityKeyDisplayDialog::notifySaveSecurityKey, securityKeySwitch, [=](const bool state) {
+        securityKeySwitch->setEnabled(true);
+        securityKeySwitch->setChecked(state);
+        if (state) {
+            m_securityKeyDisplayDialog->saveSecurityKey(m_userModel->getCurrentUserName());
+        }
+    });
+
+    // 只允许激活账户可开启
+    securityKey->setEnabled(isCurUser);
+
+    connect(this, &AccountsDetailWidget::notifySessionActive, securityKey, [=](QString activeSessionName, bool active) {
+        securityKey->setEnabled(isCurUser && active && activeSessionName == m_curUser->name());
+    });
 
 }
 
@@ -652,7 +757,7 @@ void AccountsDetailWidget::initUserGroup(QVBoxLayout *layout)
 
     DStandardItem *groupItem = new DStandardItem(tr("Group"));
     groupItem->setActionList(Qt::Edge::RightEdge, { groupsEditAction });
-
+    groupItem->setSizeHint(QSize(-1, 36));
     QStandardItemModel *modelgroups = new QStandardItemModel(this);
     modelgroups->appendRow(groupItem);
 
@@ -664,6 +769,7 @@ void AccountsDetailWidget::initUserGroup(QVBoxLayout *layout)
     QMargins listItemmargin( lvgroups->itemMargins());
     listItemmargin.setLeft(2);
     lvgroups->setItemMargins(listItemmargin);
+    lvgroups->setFixedHeight(groupItem->sizeHint().height());
 
     // 开启等保三级后，只有sysadm账户可以修改用户组
     if (m_userModel->getIsSecurityHighLever() && m_curLoginUser->securityLever() != SecurityLever::Sysadm) {
