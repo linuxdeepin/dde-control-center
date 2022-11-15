@@ -14,7 +14,7 @@ using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 TouchScreenModule::TouchScreenModule(QObject *parent)
-    : PageModule("touchscreen", tr("Touch Screen"), tr("Touch Screen"), QIcon::fromTheme("dcc_nav_bluetooth"), parent)
+    : PageModule("touchscreen", tr("Touch Screen"), tr("Touch Screen"), QIcon::fromTheme("dcc_nav_touchscreen"), parent)
 {
     m_model  = new TouchScreenModel(this);
     init();
