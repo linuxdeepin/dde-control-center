@@ -150,6 +150,9 @@ Connectivity DeviceInterRealize::connectivity()
 
 DeviceStatus DeviceInterRealize::deviceStatus() const
 {
+    if (mode() == AP_MODE)
+        return DeviceStatus::Disconnected;
+
     NetworkManager::Device::Ptr dev(new NetworkManager::Device(path()));
     switch(dev->state()) {
     case NetworkManager::Device::State::UnknownState:
@@ -202,6 +205,7 @@ NetworkInter *DeviceInterRealize::networkInter()
 void DeviceInterRealize::updateDeviceInfo(const QJsonObject &info)
 {
     m_data = info;
+    NetworkDeviceRealize::setDeviceStatus(deviceStatus());
 }
 
 void DeviceInterRealize::initDeviceInfo()
@@ -251,6 +255,12 @@ void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &in
     }
     if (ipChanged)
         Q_EMIT ipV4Changed();
+}
+
+void DeviceInterRealize::setDeviceStatus(const DeviceStatus &status)
+{
+    Q_UNUSED(status);
+    NetworkDeviceRealize::setDeviceStatus(deviceStatus());
 }
 
 int DeviceInterRealize::mode() const
