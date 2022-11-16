@@ -87,9 +87,9 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
         //当返回信息为错误接口信息才处理
         if (msg.type() == QDBusMessage::MessageType::ErrorMessage) {
             //系统通知弹窗qdbus 接口
-            QDBusInterface  tInterNotify("com.deepin.dde.Notification",
-                                         "/com/deepin/dde/Notification",
-                                         "com.deepin.dde.Notification",
+            QDBusInterface  tInterNotify("org.deepin.dde.Notification1",
+                                         "/org/deepin/dde/Notification1",
+                                         "org.deepin.dde.Notification1",
                                          QDBusConnection::sessionBus());
 
             //初始化Notify 七个参数
@@ -165,9 +165,9 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
             Q_UNUSED(str);
             if (idx == 1) {
                 DDBusSender()
-                .service("com.deepin.SessionManager")
-                .interface("com.deepin.SessionManager")
-                .path("/com/deepin/SessionManager")
+                .service("org.deepin.dde.SessionManager1")
+                .interface("org.deepin.dde.SessionManager1")
+                .path("/org/deepin/dde/SessionManager1")
                 .method("RequestReboot")
                 .call();
             }

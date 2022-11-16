@@ -81,8 +81,8 @@ void MachineDBusProxy::SetFlowDirection(int direction)
 
 void MachineDBusProxy::init()
 {
-    const static QString CooperationService = "com.deepin.Cooperation";
-    const static QString CooperationInterface = "com.deepin.Cooperation.Machine";
+    const static QString CooperationService = "org.deepin.dde.Cooperation1";
+    const static QString CooperationInterface = "org.deepin.dde.Cooperation1.Machine";
     const QString PropertiesInterface = "org.freedesktop.DBus.Properties";
     const QString PropertiesChanged = "PropertiesChanged";
 

@@ -26,8 +26,8 @@
 #include <QDBusInterface>
 #include <QJsonDocument>
 
-#define NOTIFICATION_SERVICE_NAME "com.deepin.dde.Notification"
-#define NOTIFICATION_SERVICE_PATH "/com/deepin/dde/Notification"
+#define NOTIFICATION_SERVICE_NAME "org.deepin.dde.Notification1"
+#define NOTIFICATION_SERVICE_PATH "/org/deepin/dde/Notification1"
 
 class Notification_DBUS : public QObject, protected QDBusContext
 {

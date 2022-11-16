@@ -1,23 +1,23 @@
 /*
-* Copyright (C) 2021 ~ 2022 Uniontech Software Technology Co.,Ltd.
-*
-* Author:     fanpengcheng <fanpengcheng@uniontech.com>
-*
-* Maintainer: fanpengcheng <fanpengcheng@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2022 Uniontech Software Technology Co.,Ltd.
+ *
+ * Author:     fanpengcheng <fanpengcheng@uniontech.com>
+ *
+ * Maintainer: fanpengcheng <fanpengcheng@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #include "dockplugin.h"
 #include "dockdbusproxy.h"
@@ -49,28 +49,30 @@ DWIDGET_USE_NAMESPACE
 
 using namespace DCC_NAMESPACE;
 
-enum DisplayMode {
-    Fashion     = 0,    // 时尚模式
-    Efficient   = 1,    // 高效模式
+enum DisplayMode
+{
+    Fashion = 0,   // 时尚模式
+    Efficient = 1, // 高效模式
 };
 
-enum Position {
-    Top         = 0,    // 上
-    Right       = 1,    // 右
-    Bottom      = 2,    // 下
-    Left        = 3,    // 左
+enum Position
+{
+    Top = 0,    // 上
+    Right = 1,  // 右
+    Bottom = 2, // 下
+    Left = 3,   // 左
 };
 
-enum HideMode {
-    KeepShowing     = 0,    // 一直显示
-    KeepHidden      = 1,    // 一直隐藏
-    SmartHide       = 2,    // 智能隐藏
+enum HideMode
+{
+    KeepShowing = 0, // 一直显示
+    KeepHidden = 1,  // 一直隐藏
+    SmartHide = 2,   // 智能隐藏
 };
 
 DockPlugin::DockPlugin(QObject *parent)
     : PluginInterface(parent)
 {
-
 }
 
 QString DockPlugin::name() const
@@ -78,7 +80,7 @@ QString DockPlugin::name() const
     return QString("dock");
 }
 
-ModuleObject* DockPlugin::module()
+ModuleObject *DockPlugin::module()
 {
     return new DockModuleObject();
 }
@@ -96,9 +98,7 @@ QString DockPlugin::location() const
 }
 
 DockModuleObject::DockModuleObject()
-    : PageModule("dock", tr("Dock"), QString(), nullptr)
-    , m_screenTitle(new ItemModule("screenTitle", tr("Multiple Displays")))
-    , m_screen(new ItemModule("screen", tr("Show Dock"), this, &DockModuleObject::initScreen))
+    : PageModule("dock", tr("Dock"), QString(), nullptr), m_screenTitle(new ItemModule("screenTitle", tr("Multiple Displays"))), m_screen(new ItemModule("screen", tr("Show Dock"), this, &DockModuleObject::initScreen))
 {
     setNoScroll();
     setNoStretch();
@@ -127,12 +127,13 @@ DockModuleObject::DockModuleObject()
 
     DockDBusProxy::regiestDockItemType();
     // @note 不使用m_dbusProxy的原因在于module函数的调用和m_dbusProxy指针的初始化分别在不同的线程中
-    QDBusInterface dockInter("com.deepin.dde.Dock", "/com/deepin/dde/Dock", "com.deepin.dde.Dock", QDBusConnection::sessionBus(), this);
+    QDBusInterface dockInter("org.deepin.dde.Dock1", "/org/deepin/dde/Dock1", "org.deepin.dde.Dock1", QDBusConnection::sessionBus(), this);
     QDBusPendingReply<DockItemInfos> reply = dockInter.asyncCall(QStringLiteral("plugins"));
     reply.waitForFinished();
     DockItemInfos plugins = reply.value();
     // 当対应服务异常或插件为空时，不显示对应模块信息
-    if (reply.error().type() == QDBusError::ErrorType::NoError && plugins.size() > 0) {
+    if (reply.error().type() == QDBusError::ErrorType::NoError && plugins.size() > 0)
+    {
         appendChild(new WidgetModule<TitleLabel>("pluginTitle", tr("Plugin Area"), this, &DockModuleObject::initPluginTitle));
         appendChild(new WidgetModule<DTipLabel>("pluginTip", tr("Select which icons appear in the Dock"), this, &DockModuleObject::initPluginTips));
         appendChild(new WidgetModule<DListView>("pluginArea", QString(), this, &DockModuleObject::initPluginView));
@@ -141,15 +142,7 @@ DockModuleObject::DockModuleObject()
 
 QIcon DockModuleObject::getIcon(const DockItemInfo &dockItemInfo) const
 {
-    static const QMap<QString, QString> &pluginIconMap = {{"AiAssistant",      "dcc_dock_assistant"}
-                                                       , {"show-desktop",   "dcc_dock_desktop"}
-                                                       , {"onboard",        "dcc_dock_keyboard"}
-                                                       , {"notifications",  "dcc_dock_notify"}
-                                                       , {"shutdown",       "dcc_dock_power"}
-                                                       , {"multitasking",   "dcc_dock_task"}
-                                                       , {"system-monitor", "dcc_dock_systemmonitor"}
-                                                       , {"grand-search",   "dcc_dock_grandsearch"}
-                                                       , {"trash",          "dcc_dock_trash"}};
+    static const QMap<QString, QString> &pluginIconMap = {{"AiAssistant", "dcc_dock_assistant"}, {"show-desktop", "dcc_dock_desktop"}, {"onboard", "dcc_dock_keyboard"}, {"notifications", "dcc_dock_notify"}, {"shutdown", "dcc_dock_power"}, {"multitasking", "dcc_dock_task"}, {"system-monitor", "dcc_dock_systemmonitor"}, {"grand-search", "dcc_dock_grandsearch"}, {"trash", "dcc_dock_trash"}};
     QPixmap pixmap;
     if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::ColorType::LightType)
         pixmap.loadFromData(dockItemInfo.iconLight);
@@ -170,26 +163,23 @@ void DockModuleObject::initMode(ComboxWidget *widget)
     if (m_dbusProxy.isNull())
         m_dbusProxy.reset(new DockDBusProxy);
 
-    static QMap<QString, int> g_modeMap = {{tr("Fashion mode"), Fashion}
-                                           , {tr("Efficient mode"), Efficient}};
+    static QMap<QString, int> g_modeMap = {{tr("Fashion mode"), Fashion}, {tr("Efficient mode"), Efficient}};
     widget->setAccessibleName("Mode");
     widget->comboBox()->setAccessibleName("ModeCombox");
     widget->addBackground();
     widget->setTitle(tr("Mode"));
     widget->setComboxOption(QStringList() << tr("Fashion mode") << tr("Efficient mode"));
     widget->setCurrentText(g_modeMap.key(m_dbusProxy->displayMode()));
-    connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [ = ] (const QString &text) {
-        m_dbusProxy->setDisplayMode(g_modeMap.value(text));
-    });
+    connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [=](const QString &text)
+            { m_dbusProxy->setDisplayMode(g_modeMap.value(text)); });
 
-    connect(m_dbusProxy.get(), &DockDBusProxy::DisplayModeChanged, widget, [ = ] (int value) {
+    connect(m_dbusProxy.get(), &DockDBusProxy::DisplayModeChanged, widget, [=](int value)
+            {
         DisplayMode mode = static_cast<DisplayMode>(value);
         if (g_modeMap.key(mode) == widget->comboBox()->currentText())
             return;
 
-        widget->setCurrentText(g_modeMap.key(mode));
-    });
-
+        widget->setCurrentText(g_modeMap.key(mode)); });
 }
 
 void DockModuleObject::initPosition(ComboxWidget *widget)
@@ -197,27 +187,22 @@ void DockModuleObject::initPosition(ComboxWidget *widget)
     if (m_dbusProxy.isNull())
         m_dbusProxy.reset(new DockDBusProxy);
 
-    const QMap<QString, int> g_positionMap = {{tr("Top"), Top}
-                                               , {tr("Bottom"), Bottom}
-                                               , {tr("Left"), Left}
-                                               , {tr("Right"), Right}};
+    const QMap<QString, int> g_positionMap = {{tr("Top"), Top}, {tr("Bottom"), Bottom}, {tr("Left"), Left}, {tr("Right"), Right}};
     widget->setAccessibleName("Location");
     widget->comboBox()->setAccessibleName("LocationCombox");
     widget->addBackground();
     widget->setTitle(tr("Location"));
     widget->setComboxOption(QStringList() << tr("Top") << tr("Bottom") << tr("Left") << tr("Right"));
     widget->setCurrentText(g_positionMap.key(m_dbusProxy->position()));
-    connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [ = ] (const QString &text) {
-        m_dbusProxy->setPosition(g_positionMap.value(text));
-    });
+    connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [=](const QString &text)
+            { m_dbusProxy->setPosition(g_positionMap.value(text)); });
 
-    connect(m_dbusProxy.get(), &DockDBusProxy::PositionChanged, widget, [ = ] (int position) {
+    connect(m_dbusProxy.get(), &DockDBusProxy::PositionChanged, widget, [=](int position)
+            {
         if (g_positionMap.key(position) == widget->comboBox()->currentText())
             return;
 
-        widget->setCurrentText(g_positionMap.key(position));
-    });
-
+        widget->setCurrentText(g_positionMap.key(position)); });
 }
 
 void DockModuleObject::initStatus(ComboxWidget *widget)
@@ -225,25 +210,22 @@ void DockModuleObject::initStatus(ComboxWidget *widget)
     if (m_dbusProxy.isNull())
         m_dbusProxy.reset(new DockDBusProxy);
 
-    const QMap<QString, int> g_stateMap = {{tr("Keep shown"), KeepShowing}
-                                            , {tr("Keep hidden"), KeepHidden}
-                                            , {tr("Smart hide"), SmartHide}};
+    const QMap<QString, int> g_stateMap = {{tr("Keep shown"), KeepShowing}, {tr("Keep hidden"), KeepHidden}, {tr("Smart hide"), SmartHide}};
     widget->setAccessibleName("Status");
     widget->comboBox()->setAccessibleName("StatusCombox");
     widget->addBackground();
     widget->setTitle(tr("Status"));
     widget->setComboxOption(QStringList() << tr("Keep shown") << tr("Keep hidden") << tr("Smart hide"));
     widget->setCurrentText(g_stateMap.key(m_dbusProxy->hideMode()));
-    connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [ = ] (const QString &text) {
-        m_dbusProxy->setHideMode(g_stateMap.value(text));
-    });
+    connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [=](const QString &text)
+            { m_dbusProxy->setHideMode(g_stateMap.value(text)); });
 
-    connect(m_dbusProxy.get(), &DockDBusProxy::HideModeChanged, widget, [ = ] (int hideMode) {
+    connect(m_dbusProxy.get(), &DockDBusProxy::HideModeChanged, widget, [=](int hideMode)
+            {
         if (g_stateMap.key(hideMode) == widget->comboBox()->currentText())
             return;
 
-        widget->setCurrentText(g_stateMap.key(hideMode));
-    });
+        widget->setCurrentText(g_stateMap.key(hideMode)); });
 }
 
 void DockModuleObject::initShowRecent(QCheckBox *checkBox)
@@ -255,16 +237,16 @@ void DockModuleObject::initShowRecent(QCheckBox *checkBox)
     checkBox->setChecked(m_dbusProxy->showRecent());
     checkBox->blockSignals(false);
     checkBox->setText(tr("Show recent apps in Dock"));
-    connect(checkBox, &QCheckBox::toggled, checkBox, [ this ](bool checked) {
+    connect(checkBox, &QCheckBox::toggled, checkBox, [this](bool checked)
+            {
         m_dbusProxy->blockSignals(true);
         m_dbusProxy->SetShowRecent(checked);
-        m_dbusProxy->blockSignals(false);
-    });
-    connect(m_dbusProxy.get(), &DockDBusProxy::showRecentChanged, checkBox, [ = ](bool checked) {
+        m_dbusProxy->blockSignals(false); });
+    connect(m_dbusProxy.get(), &DockDBusProxy::showRecentChanged, checkBox, [=](bool checked)
+            {
         checkBox->blockSignals(true);
         checkBox->setChecked(checked);
-        checkBox->blockSignals(false);
-    });
+        checkBox->blockSignals(false); });
 }
 
 void DockModuleObject::initSizeSlider(TitledSliderItem *slider)
@@ -279,39 +261,44 @@ void DockModuleObject::initSizeSlider(TitledSliderItem *slider)
     ranges << tr("Small") << "" << tr("Large");
     slider->setAnnotations(ranges);
 
-    auto updateSliderValue = [ = ] {
+    auto updateSliderValue = [=]
+    {
         auto displayMode = m_dbusProxy->displayMode();
 
         slider->slider()->blockSignals(true);
-        if (displayMode == DisplayMode::Fashion) {
+        if (displayMode == DisplayMode::Fashion)
+        {
             if (int(m_dbusProxy->windowSizeFashion()) != slider->slider()->value())
                 slider->slider()->setValue(int(m_dbusProxy->windowSizeFashion()));
-        } else if (displayMode == DisplayMode::Efficient) {
+        }
+        else if (displayMode == DisplayMode::Efficient)
+        {
             if (int(m_dbusProxy->windowSizeEfficient()) != slider->slider()->value())
                 slider->slider()->setValue(int(m_dbusProxy->windowSizeEfficient()));
         }
         slider->slider()->blockSignals(false);
     };
 
-    connect(m_dbusProxy.get(), &DockDBusProxy::DisplayModeChanged, slider, [ = ] {updateSliderValue();});
-    connect(m_dbusProxy.get(), &DockDBusProxy::WindowSizeFashionChanged, slider, [ = ] {updateSliderValue();});
-    connect(m_dbusProxy.get(), &DockDBusProxy::WindowSizeEfficientChanged, slider, [ = ] {updateSliderValue();});
+    connect(m_dbusProxy.get(), &DockDBusProxy::DisplayModeChanged, slider, [=]
+            { updateSliderValue(); });
+    connect(m_dbusProxy.get(), &DockDBusProxy::WindowSizeFashionChanged, slider, [=]
+            { updateSliderValue(); });
+    connect(m_dbusProxy.get(), &DockDBusProxy::WindowSizeEfficientChanged, slider, [=]
+            { updateSliderValue(); });
     connect(slider->slider(), &DSlider::sliderMoved, slider->slider(), &DSlider::valueChanged);
-    connect(slider->slider(), &DSlider::valueChanged, m_dbusProxy.get(), [ = ] (int value) {
-        m_dbusProxy->resizeDock(value, true);
-    });
-    connect(slider->slider(), &DSlider::sliderPressed, m_dbusProxy.get(), [ = ] {
-        m_dbusProxy->blockSignals(true);
-    });
-    connect(slider->slider(), &DSlider::sliderReleased, m_dbusProxy.get(), [ = ] {
+    connect(slider->slider(), &DSlider::valueChanged, m_dbusProxy.get(), [=](int value)
+            { m_dbusProxy->resizeDock(value, true); });
+    connect(slider->slider(), &DSlider::sliderPressed, m_dbusProxy.get(), [=]
+            { m_dbusProxy->blockSignals(true); });
+    connect(slider->slider(), &DSlider::sliderReleased, m_dbusProxy.get(), [=]
+            {
         m_dbusProxy->blockSignals(false);
 
         // 松开手后通知dock拖拽状态解除
         QMetaObject::invokeMethod(this, [ = ] {
             int offset = slider->slider()->value();
             m_dbusProxy->resizeDock(offset, false);
-        }, Qt::QueuedConnection);
-    });
+        }, Qt::QueuedConnection); });
 
     updateSliderValue();
 }
@@ -321,12 +308,10 @@ void DockModuleObject::initScreenTitle(TitleLabel *label)
     label->setAccessibleName("MultipleDisplays");
     label->setText(tr("Multiple Displays"));
 
-    connect(qApp, &QApplication::screenAdded, label, [ = ] {
-        label->setVisible(qApp->screens().count() > 1);
-    });
-    connect(qApp, &QApplication::screenRemoved, label, [ = ] {
-        label->setVisible(qApp->screens().count() > 1);
-    });
+    connect(qApp, &QApplication::screenAdded, label, [=]
+            { label->setVisible(qApp->screens().count() > 1); });
+    connect(qApp, &QApplication::screenRemoved, label, [=]
+            { label->setVisible(qApp->screens().count() > 1); });
 }
 
 QWidget *DockModuleObject::initScreen(DCC_NAMESPACE::ModuleObject *module)
@@ -334,34 +319,31 @@ QWidget *DockModuleObject::initScreen(DCC_NAMESPACE::ModuleObject *module)
     if (m_dbusProxy.isNull())
         m_dbusProxy.reset(new DockDBusProxy);
 
-    const QMap<QString, bool> g_screenSettingMap = {{tr("On screen where the cursor is"), false}
-                                                     , {tr("Only on main screen"), true}};
+    const QMap<QString, bool> g_screenSettingMap = {{tr("On screen where the cursor is"), false}, {tr("Only on main screen"), true}};
 
     QComboBox *widget = new QComboBox();
     widget->setAccessibleName("ShowDock");
     widget->setAccessibleName("ShowDockCombox");
     widget->addItems(QStringList() << tr("On screen where the cursor is") << tr("Only on main screen"));
     widget->setCurrentText(g_screenSettingMap.key(m_dbusProxy->showInPrimary()));
-    connect(widget, static_cast<void (QComboBox::*)(int )>(&QComboBox::currentIndexChanged), m_dbusProxy.get(), [ = ] (int index) {
+    connect(widget, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), m_dbusProxy.get(), [=](int index)
+            {
         const QString &text = widget->itemText(index);
-        m_dbusProxy->setShowInPrimary(g_screenSettingMap.value(text));
-    });
-    connect(qApp, &QApplication::screenAdded, widget, [ widget ] {
-        widget->setVisible(qApp->screens().count() > 1);
-    });
-    connect(qApp, &QApplication::screenRemoved, widget, [ widget ] {
-        widget->setVisible(qApp->screens().count() > 1);
-    });
+        m_dbusProxy->setShowInPrimary(g_screenSettingMap.value(text)); });
+    connect(qApp, &QApplication::screenAdded, widget, [widget]
+            { widget->setVisible(qApp->screens().count() > 1); });
+    connect(qApp, &QApplication::screenRemoved, widget, [widget]
+            { widget->setVisible(qApp->screens().count() > 1); });
 
     // 这里不会生效，但实际场景中也不存在有其他可配置的地方，暂时不用处理
-    connect(m_dbusProxy.get(), &DockDBusProxy::ShowInPrimaryChanged, widget, [ widget,g_screenSettingMap ] (bool showInPrimary) {
+    connect(m_dbusProxy.get(), &DockDBusProxy::ShowInPrimaryChanged, widget, [widget, g_screenSettingMap](bool showInPrimary)
+            {
         if (widget->currentText() == g_screenSettingMap.key(showInPrimary))
             return;
 
         widget->blockSignals(true);
         widget->setCurrentText(g_screenSettingMap.key(showInPrimary));
-        widget->blockSignals(false);
-    });
+        widget->blockSignals(false); });
     return widget;
 }
 
@@ -413,14 +395,16 @@ void DockModuleObject::initPluginView(DListView *view)
     QStandardItemModel *pluginModel = new QStandardItemModel(this);
     view->setModel(pluginModel);
 
-    auto updateItemCheckStatus = [ = ] (const QString &name, bool visible) {
-        for (int i = 0; i < pluginModel->rowCount(); ++i) {
+    auto updateItemCheckStatus = [=](const QString &name, bool visible)
+    {
+        for (int i = 0; i < pluginModel->rowCount(); ++i)
+        {
             auto item = static_cast<DStandardItem *>(pluginModel->item(i));
             if (item->text() != name || item->actionList(Qt::Edge::RightEdge).size() < 1)
                 continue;
 
             auto action = item->actionList(Qt::Edge::RightEdge).first();
-            auto checkstatus = visible ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
+            auto checkstatus = visible ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked;
             auto icon = qobject_cast<DStyle *>(qApp->style())->standardIcon(checkstatus);
             action->setIcon(icon);
             view->update(item->index());
@@ -428,7 +412,8 @@ void DockModuleObject::initPluginView(DListView *view)
         }
     };
 
-    for (DockItemInfo dockItem : plugins) {
+    for (DockItemInfo dockItem : plugins)
+    {
         DStandardItem *item = new DStandardItem(dockItem.displayName);
         item->setFontSize(DFontSizeManager::T8);
         QSize size(16, 16);
@@ -439,7 +424,7 @@ void DockModuleObject::initPluginView(DListView *view)
         item->setActionList(Qt::Edge::LeftEdge, {leftAction});
 
         auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-        auto checkstatus = dockItem.visible ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
+        auto checkstatus = dockItem.visible ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked;
         auto checkIcon = qobject_cast<DStyle *>(qApp->style())->standardIcon(checkstatus);
         rightAction->setIcon(checkIcon);
         item->setActionList(Qt::Edge::RightEdge, {rightAction});
@@ -447,16 +432,15 @@ void DockModuleObject::initPluginView(DListView *view)
 
         item->setData(dockItem.visible, Dtk::UserRole + 1);
 
-        connect(rightAction, &DViewItemAction::triggered, view, [ = ] {
+        connect(rightAction, &DViewItemAction::triggered, view, [=]
+                {
             bool visible = !item->data(Dtk::UserRole + 1).toBool();
             m_dbusProxy->setItemOnDock(dockItem.settingKey, dockItem.itemKey, visible);
             updateItemCheckStatus(dockItem.displayName, visible);
-            item->setData(visible, Dtk::UserRole + 1);
-        });
+            item->setData(visible, Dtk::UserRole + 1); });
         // 主题发生变化触发的信号
-        connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, leftAction, [ leftAction, this, dockItem ]() {
-            leftAction->setIcon(getIcon(dockItem));
-        });
+        connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, leftAction, [leftAction, this, dockItem]()
+                { leftAction->setIcon(getIcon(dockItem)); });
     }
     // 固定大小,防止滚动
     int lineHeight = view->visualRect(view->indexAt(QPoint(0, 0))).height();
@@ -485,11 +469,8 @@ void DockModuleObject::onDisplayPropertiesChanged(const QDBusMessage &dbusMessag
 void DockModuleObject::updateScreenVisible()
 {
     uint displayMode = m_displayProxy->property("DisplayMode").toUInt();
-    bool screenIsShow = (QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.Dock")
-            && QApplication::screens().size() > 1
-            && displayMode == 2);
+    bool screenIsShow = (QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.Dock") && QApplication::screens().size() > 1 && displayMode == 2);
 
     m_screenTitle->setHidden(!screenIsShow);
     m_screen->setHidden(!screenIsShow);
 }
-

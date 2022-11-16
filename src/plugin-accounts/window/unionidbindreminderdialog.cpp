@@ -38,9 +38,9 @@ UnionIDBindReminderDialog::UnionIDBindReminderDialog(QWidget *parent)
 
     connect(getButton(1), &QPushButton::clicked, this, []{
         DDBusSender()
-        .service("com.deepin.dde.ControlCenter")
-        .interface("com.deepin.dde.ControlCenter")
-        .path("/com/deepin/dde/ControlCenter")
+        .service("org.deepin.dde.ControlCenter1")
+        .interface("org.deepin.dde.ControlCenter1")
+        .path("/org/deepin/dde/ControlCenter1")
         .method("ShowPage")
         .arg(QStringLiteral("cloudsync"))
         .arg(tr(""))

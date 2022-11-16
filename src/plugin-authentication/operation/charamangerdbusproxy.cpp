@@ -7,17 +7,17 @@
 #include <QDBusReply>
 #include <QDebug>
 
-const static QString CharaMangerService = QStringLiteral("com.deepin.daemon.Authenticate");
+const static QString CharaMangerService = QStringLiteral("org.deepin.dde.Authenticate1");
 
-const static QString CharaMangerPath = QStringLiteral("/com/deepin/daemon/Authenticate/CharaManger");
-const static QString CharaMangerInterface = QStringLiteral("com.deepin.daemon.Authenticate.CharaManger");
+const static QString CharaMangerPath = QStringLiteral("/org/deepin/dde/Authenticate1/CharaManger");
+const static QString CharaMangerInterface = QStringLiteral("org.deepin.dde.Authenticate1.CharaManger");
 
-const static QString FingerprintPath = QStringLiteral("/com/deepin/daemon/Authenticate/Fingerprint");
-const static QString FingerprintInterface = QStringLiteral("com.deepin.daemon.Authenticate.Fingerprint");
+const static QString FingerprintPath = QStringLiteral("/org/deepin/dde/Authenticate1/Fingerprint");
+const static QString FingerprintInterface = QStringLiteral("org.deepin.dde.Authenticate1.Fingerprint");
 
-const static QString SessionManagerService = QStringLiteral("com.deepin.SessionManager");
-const static QString SessionManagerPath = QStringLiteral("/com/deepin/SessionManager");
-const static QString SessionManagerInterface = QStringLiteral("com.deepin.SessionManager");
+const static QString SessionManagerService = QStringLiteral("org.deepin.dde.SessionManager1");
+const static QString SessionManagerPath = QStringLiteral("/org/deepin/dde/SessionManager1");
+const static QString SessionManagerInterface = QStringLiteral("org.deepin.dde.SessionManager1");
 
 const static QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");

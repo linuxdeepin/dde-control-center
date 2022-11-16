@@ -26,7 +26,7 @@
 #include "mouseworker.h"
 
 using namespace DCC_NAMESPACE;
-const QString Service = "com.deepin.daemon.InputDevices";
+const QString Service = "org.deepin.dde.InputDevices1";
 
 MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
     : QObject(parent)

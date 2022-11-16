@@ -47,8 +47,6 @@ private:
     QMap<QString, uint> parseDriverNameJsonData(const QString& mangerInfo);
     QStringList parseCharaNameJsonData(const QString& mangerInfo);
 
-    QString getControlCenterDbusSender();
-
 Q_SIGNALS:
     void tryStartInputFace(const int &fd);
     void tryStartInputIris(CharaMangerModel::AddInfoState state);
@@ -111,7 +109,6 @@ private:
      */
     QTimer *m_stopTimer;
     QDBusPendingReply<QDBusUnixFileDescriptor>* m_fileDescriptor;
-    QString m_dbusSenderID;
     /**
      * @brief m_currentInputCharaType  当前录入方式 注：确保唯一性
      */

@@ -27,9 +27,9 @@
 #include <QDBusInterface>
 #include <QDBusPendingReply>
 
-const static QString WacomService = "com.deepin.daemon.InputDevices";
-const static QString WacomPath = "/com/deepin/daemon/InputDevice/Wacom";
-const static QString WacomInterface = "com.deepin.daemon.InputDevice.Wacom";
+const static QString WacomService = "org.deepin.dde.InputDevices1";
+const static QString WacomPath = "/org/deepin/dde/InputDevice1/Wacom";
+const static QString WacomInterface = "org.deepin.dde.InputDevice1.Wacom";
 
 using namespace DCC_NAMESPACE;
 

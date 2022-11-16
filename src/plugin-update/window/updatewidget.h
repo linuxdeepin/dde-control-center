@@ -37,8 +37,6 @@ namespace DCC_NAMESPACE {
 class SettingsGroup;
 }
 
-static const QString OfflineUpgraderService = "com.deepin.dde.OfflineUpgrader";
-
 class UpdateCtrlWidget;
 class UpdateHistoryButton;
 class RecentHistoryApplist;

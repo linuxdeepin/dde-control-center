@@ -44,10 +44,8 @@ CharaMangerWorker::CharaMangerWorker(CharaMangerModel *model, QObject *parent)
     , m_charaMangerInter(new CharaMangerDBusProxy(this))
     , m_stopTimer(new QTimer(this))
     , m_fileDescriptor(nullptr)
-    , m_dbusSenderID("")
     , m_currentInputCharaType(0)
 {
-    m_dbusSenderID = getControlCenterDbusSender();
     m_stopTimer->setSingleShot(true);
     // 监测录入状态
     connect(m_charaMangerInter, &CharaMangerDBusProxy::EnrollStatusCharaManger, this, &CharaMangerWorker::refreshUserEnrollStatus);
@@ -84,11 +82,11 @@ CharaMangerWorker::~CharaMangerWorker()
 void CharaMangerWorker::initCharaManger()
 {
     // 获取DeviceInfo属性
-    QDBusInterface charaManagerInter("com.deepin.daemon.Authenticate",
-                             "/com/deepin/daemon/Authenticate/CharaManger",
+    QDBusInterface charaManagerInter("org.deepin.dde.Authenticate1",
+                             "/org/deepin/dde/Authenticate1/CharaManger",
                              "org.freedesktop.DBus.Properties",
                              QDBusConnection::systemBus());
-    QDBusPendingCall call = charaManagerInter.asyncCall("Get", "com.deepin.daemon.Authenticate.CharaManger", "DriverInfo");
+    QDBusPendingCall call = charaManagerInter.asyncCall("Get", "org.deepin.dde.Authenticate1.CharaManger", "DriverInfo");
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call, watcher] {
         if (!call.isError()) {
@@ -174,18 +172,6 @@ QStringList CharaMangerWorker::parseCharaNameJsonData(const QString &mangerInfo)
     }
 
     return userInfoList;
-}
-
-QString CharaMangerWorker::getControlCenterDbusSender()
-{
-    QDBusInterface Interface("org.freedesktop.DBus",
-                             "/org/freedesktop/DBus",
-                             "org.freedesktop.DBus",
-                             QDBusConnection::sessionBus());
-    QDBusMessage reply = Interface.call("GetNameOwner", "com.deepin.dde.ControlCenter");
-    QString dbusSenderID = reply.arguments()[0].toString();
-
-    return dbusSenderID;
 }
 
 void CharaMangerWorker::predefineDriverInfo(const QString &driverInfo)

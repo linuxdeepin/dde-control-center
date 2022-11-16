@@ -119,8 +119,6 @@ void UpdateWidget::showCheckUpdate()
         m_label->setVisible(true);
     }
     Q_EMIT showUpdateCtrl();
-    // prohibit dde-offline-upgrader from showing while this page is showing.
-    QDBusConnection::sessionBus().registerService(OfflineUpgraderService);
 }
 
 void UpdateWidget::showUpdateSetting()

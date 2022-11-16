@@ -7,8 +7,8 @@
 #include <QDebug>
 
 // Updater Job
-const static QString UpdaterService = QStringLiteral("org.deepin.lastore1");
-const static QString UpdaterJobInterface = QStringLiteral("org.deepin.lastore1.Job");
+const static QString UpdaterService = QStringLiteral("org.deepin.dde.Lastore1");
+const static QString UpdaterJobInterface = QStringLiteral("org.deepin.dde.Lastore1.Job");
 
 // Atomic Upgrade
 const static QString AtomicUpdaterService = QStringLiteral("org.deepin.AtomicUpgrade1");

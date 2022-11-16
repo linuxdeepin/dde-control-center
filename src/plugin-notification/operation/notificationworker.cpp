@@ -24,7 +24,7 @@
 
 #include <QtConcurrent>
 
-const QString Path  = "/com/deepin/dde/Notification";
+const QString Path  = "/org/deepin/dde/Notification1";
 
 using namespace DCC_NAMESPACE;
 NotificationWorker::NotificationWorker(NotificationModel *model, QObject *parent)

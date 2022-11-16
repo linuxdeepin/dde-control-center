@@ -8,21 +8,21 @@
 #include <QDBusMetaType>
 #include <QDBusReply>
 
-const static QString AudioService = QStringLiteral("org.deepin.daemon.Audio1");
-const static QString AudioPath = QStringLiteral("/org/deepin/daemon/Audio1");
-const static QString AudioInterface = QStringLiteral("org.deepin.daemon.Audio1");
+const static QString AudioService = QStringLiteral("org.deepin.dde.Audio1");
+const static QString AudioPath = QStringLiteral("/org/deepin/dde/Audio1");
+const static QString AudioInterface = QStringLiteral("org.deepin.dde.Audio1");
 
-const static QString SoundEffectService = QStringLiteral("org.deepin.daemon.SoundEffect1");
-const static QString SoundEffectPath = QStringLiteral("/org/deepin/daemon/SoundEffect1");
-const static QString SoundEffectInterface = QStringLiteral("org.deepin.daemon.SoundEffect1");
+const static QString SoundEffectService = QStringLiteral("org.deepin.dde.SoundEffect1");
+const static QString SoundEffectPath = QStringLiteral("/org/deepin/dde/SoundEffect1");
+const static QString SoundEffectInterface = QStringLiteral("org.deepin.dde.SoundEffect1");
 
-const static QString PowerService = QStringLiteral("org.deepin.system.Power1");
-const static QString PowerPath = QStringLiteral("/org/deepin/system/Power1");
-const static QString PowerInterface = QStringLiteral("org.deepin.system.Power1");
+const static QString PowerService = QStringLiteral("org.deepin.dde.Power1");
+const static QString PowerPath = QStringLiteral("/org/deepin/dde/Power1");
+const static QString PowerInterface = QStringLiteral("org.deepin.dde.Power1");
 
-const static QString SinkInterface = QStringLiteral("org.deepin.daemon.Audio1.Sink");
-const static QString SourceInterface = QStringLiteral("org.deepin.daemon.Audio1.Source");
-const static QString MeterInterface = QStringLiteral("org.deepin.daemon.Audio1.Meter");
+const static QString SinkInterface = QStringLiteral("org.deepin.dde.Audio1.Sink");
+const static QString SourceInterface = QStringLiteral("org.deepin.dde.Audio1.Source");
+const static QString MeterInterface = QStringLiteral("org.deepin.dde.Audio1.Meter");
 
 const static QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");

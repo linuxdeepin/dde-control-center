@@ -8,7 +8,7 @@ using namespace DCC_NAMESPACE;
 
 TouchScreenProxy::TouchScreenProxy(QObject *parent)
     : QObject(parent)
-    , m_displayInter(new DCCDBusInterface("com.deepin.daemon.Display", "/com/deepin/daemon/Display", "com.deepin.daemon.Display", QDBusConnection::sessionBus(), this))
+    , m_displayInter(new DCCDBusInterface("org.deepin.dde.Display1", "/org/deepin/dde/Display1", "org.deepin.dde.Display1", QDBusConnection::sessionBus(), this))
 {
     registerTouchscreenInfoList_V2MetaType();
 }

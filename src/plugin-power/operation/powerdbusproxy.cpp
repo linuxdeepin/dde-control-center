@@ -27,13 +27,13 @@
 
 #include <QFile>
 
-const QString PowerService = QStringLiteral("org.deepin.daemon.Power1");
-const QString PowerPath = QStringLiteral("/org/deepin/daemon/Power1");
-const QString PowerInterface = QStringLiteral("org.deepin.daemon.Power1");
+const QString PowerService = QStringLiteral("org.deepin.dde.Power1");
+const QString PowerPath = QStringLiteral("/org/deepin/dde/Power1");
+const QString PowerInterface = QStringLiteral("org.deepin.dde.Power1");
 
-const QString SysPowerService = QStringLiteral("org.deepin.system.Power1");
-const QString SysPowerPath = QStringLiteral("/org/deepin/system/Power1");
-const QString SysPowerInterface = QStringLiteral("org.deepin.system.Power1");
+const QString SysPowerService = QStringLiteral("org.deepin.dde.Power1");
+const QString SysPowerPath = QStringLiteral("/org/deepin/dde/Power1");
+const QString SysPowerInterface = QStringLiteral("org.deepin.dde.Power1");
 
 const QString Login1ManagerService = QStringLiteral("org.freedesktop.login1");
 const QString Login1ManagerPath = QStringLiteral("/org/freedesktop/login1");
@@ -286,9 +286,9 @@ double PowerDBusProxy::batteryCapacity()
 
 int PowerDBusProxy::maxBacklightBrightness()
 {
-    QDBusInterface Interface("com.deepin.daemon.Display",
-                             "/com/deepin/daemon/Display",
-                             "com.deepin.daemon.Display",
+    QDBusInterface Interface("org.deepin.dde.Display1",
+                             "/org/deepin/dde/Display1",
+                             "org.deepin.dde.Display1",
                              QDBusConnection::sessionBus());
     return Interface.property("MaxBacklightBrightness").toInt();
 }

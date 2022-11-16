@@ -8,19 +8,19 @@
 #include <QDBusReply>
 
 // Updater
-const static QString UpdaterService = QStringLiteral("org.deepin.lastore1");
-const static QString UpdaterPath = QStringLiteral("/org/deepin/lastore1");
-const static QString UpdaterInterface = QStringLiteral("org.deepin.lastore1.Updater");
+const static QString UpdaterService = QStringLiteral("org.deepin.dde.Lastore1");
+const static QString UpdaterPath = QStringLiteral("/org/deepin/dde/Lastore1");
+const static QString UpdaterInterface = QStringLiteral("org.deepin.dde.Lastore1.Updater");
 
 // Manager
-const static QString ManagerService = QStringLiteral("org.deepin.lastore1");
-const static QString ManagerPath = QStringLiteral("/org/deepin/lastore1");
-const static QString ManagerInterface = QStringLiteral("org.deepin.lastore1.Manager");
+const static QString ManagerService = QStringLiteral("org.deepin.dde.Lastore1");
+const static QString ManagerPath = QStringLiteral("/org/deepin/dde/Lastore1");
+const static QString ManagerInterface = QStringLiteral("org.deepin.dde.Lastore1.Manager");
 
 // PowerInter
-const static QString PowerService = QStringLiteral("org.deepin.daemon.Power1");
-const static QString PowerPath = QStringLiteral("/org/deepin/daemon/Power1");
-const static QString PowerInterface = QStringLiteral("org.deepin.daemon.Power1");
+const static QString PowerService = QStringLiteral("org.deepin.dde.Power1");
+const static QString PowerPath = QStringLiteral("/org/deepin/dde/Power1");
+const static QString PowerInterface = QStringLiteral("org.deepin.dde.Power1");
 
 // Atomic Upgrade
 const static QString AtomicUpdaterService = QStringLiteral("org.deepin.AtomicUpgrade1");

@@ -27,9 +27,9 @@
 #include <QDBusMetaType>
 #include <QDebug>
 
-const static QString NotificationService = "com.deepin.dde.Notification";
-const static QString NotificationPath = "/com/deepin/dde/Notification";
-const static QString NotificationInterface = "com.deepin.dde.Notification";
+const static QString NotificationService = "org.deepin.dde.Notification1";
+const static QString NotificationPath = "/org/deepin/dde/Notification1";
+const static QString NotificationInterface = "org.deepin.dde.Notification1";
 
 const static QString PropertiesInterface = "org.freedesktop.DBus.Properties";
 const static QString PropertiesChanged = "PropertiesChanged";

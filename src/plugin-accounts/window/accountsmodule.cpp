@@ -527,7 +527,7 @@ void AccountsModule::onCreateAccount()
         return;
     m_checkAuthorizationing = true;
     QWidget *w = qobject_cast<QWidget *>(sender());
-    PolkitQt1::Authority::instance()->checkAuthorization("com.deepin.daemon.accounts.user-administration", PolkitQt1::UnixProcessSubject(getpid()),
+    PolkitQt1::Authority::instance()->checkAuthorization("org.deepin.dde.accounts.user-administration", PolkitQt1::UnixProcessSubject(getpid()),
                                                          PolkitQt1::Authority::AllowUserInteraction);
 
     connect(PolkitQt1::Authority::instance(), &PolkitQt1::Authority::checkAuthorizationFinished, w, [this, w](PolkitQt1::Authority::Result authenticationResult) {
@@ -561,7 +561,7 @@ void AccountsModule::onModifyPassword()
         return;
     m_checkAuthorizationing = true;
     QWidget *w = qobject_cast<QWidget *>(sender());
-    PolkitQt1::Authority::instance()->checkAuthorization("com.deepin.daemon.accounts.user-administration", PolkitQt1::UnixProcessSubject(getpid()),
+    PolkitQt1::Authority::instance()->checkAuthorization("org.deepin.dde.accounts.user-administration", PolkitQt1::UnixProcessSubject(getpid()),
                                                          PolkitQt1::Authority::AllowUserInteraction);
 
     connect(PolkitQt1::Authority::instance(), &PolkitQt1::Authority::checkAuthorizationFinished, w, [this, w](PolkitQt1::Authority::Result authenticationResult) {

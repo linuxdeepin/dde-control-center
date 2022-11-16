@@ -37,7 +37,7 @@
 #include <QJsonObject>
 
 
-const QString DisplayInterface("com.deepin.daemon.Display");
+const QString DisplayInterface("org.deepin.dde.Display1");
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
 using namespace DCC_NAMESPACE;

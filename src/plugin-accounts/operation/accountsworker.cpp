@@ -57,7 +57,7 @@ using namespace DCC_NAMESPACE;
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new AccountsDBusProxy(this))
-    , m_userQInter(new UserDBusProxy(QString("/org/deepin/daemon/Accounts1/User%1").arg(getuid()), this))
+    , m_userQInter(new UserDBusProxy(QString("/org/deepin/dde/Accounts1/User%1").arg(getuid()), this))
     , m_syncInter(new SyncDBusProxy(this))
     , m_securityInter(new SecurityDBusProxy(this))
     , m_userModel(userList)
@@ -490,7 +490,7 @@ void AccountsWorker::addUser(const QString &userPath)
     if (userPath.contains("User0", Qt::CaseInsensitive) || m_userModel->contains(userPath))
         return;
 
-    if(!userPath.contains("/org/deepin/daemon/Accounts1"))
+    if(!userPath.contains("/org/deepin/dde/Accounts1"))
         return;
 
     UserDBusProxy *userInter = new UserDBusProxy(userPath, this);
@@ -752,7 +752,7 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     }
 
     Authority::Result authenticationResult;
-    authenticationResult = Authority::instance()->checkAuthorizationSync("com.deepin.daemon.accounts.user-administration", UnixProcessSubject(getpid()),
+    authenticationResult = Authority::instance()->checkAuthorizationSync("org.deepin.dde.accounts.user-administration", UnixProcessSubject(getpid()),
                                                            Authority::AllowUserInteraction);
 
     if (Authority::Result::Yes != authenticationResult) {

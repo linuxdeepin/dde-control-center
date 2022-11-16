@@ -28,17 +28,17 @@
 #include <QDBusMetaType>
 #include <QDebug>
 
-const static QString LangSelectorService = "org.deepin.daemon.LangSelector1";
-const static QString LangSelectorPath = "/org/deepin/daemon/LangSelector1";
-const static QString LangSelectorInterface = "org.deepin.daemon.LangSelector1";
+const static QString LangSelectorService = "org.deepin.dde.LangSelector1";
+const static QString LangSelectorPath = "/org/deepin/dde/LangSelector1";
+const static QString LangSelectorInterface = "org.deepin.dde.LangSelector1";
 
-const static QString KeyboardService = "com.deepin.daemon.InputDevices";
-const static QString KeyboardPath = "/com/deepin/daemon/InputDevice/Keyboard";
-const static QString KeyboardInterface = "com.deepin.daemon.InputDevice.Keyboard";
+const static QString KeyboardService = "org.deepin.dde.InputDevices1";
+const static QString KeyboardPath = "/org/deepin/dde/InputDevice1/Keyboard";
+const static QString KeyboardInterface = "org.deepin.dde.InputDevice1.Keyboard";
 
-const static QString KeybingdingService = "com.deepin.daemon.Keybinding";
-const static QString KeybingdingPath = "/com/deepin/daemon/Keybinding";
-const static QString KeybingdingInterface = "com.deepin.daemon.Keybinding";
+const static QString KeybingdingService = "org.deepin.dde.Keybinding1";
+const static QString KeybingdingPath = "/org/deepin/dde/Keybinding1";
+const static QString KeybingdingInterface = "org.deepin.dde.Keybinding1";
 
 const static QString WMService = "com.deepin.wm";
 const static QString WMPath = "/com/deepin/wm";

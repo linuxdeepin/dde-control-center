@@ -32,16 +32,16 @@
 
 using namespace DCC_NAMESPACE;
 
-const QString Service = "com.deepin.daemon.InputDevices";
-const QString MousePath = "/com/deepin/daemon/InputDevice/Mouse";
-const QString TouchpadPath = "/com/deepin/daemon/InputDevice/TouchPad";
-const QString TrackpointPath = "/com/deepin/daemon/InputDevice/Mouse";
-const QString InputDevicesPath = "/com/deepin/daemon/InputDevices";
+const QString Service = "org.deepin.dde.InputDevices1";
+const QString MousePath = "/org/deepin/dde/InputDevice1/Mouse";
+const QString TouchpadPath = "/org/deepin/dde/InputDevice1/TouchPad";
+const QString TrackpointPath = "/org/deepin/dde/InputDevice1/Mouse";
+const QString InputDevicesPath = "/org/deepin/dde/InputDevices1";
 const QString PropertiesInterface = "org.freedesktop.DBus.Properties";
-const QString MouseInterface = "com.deepin.daemon.InputDevice.Mouse";
-const QString TouchpadInterface = "com.deepin.daemon.InputDevice.TouchPad";
-const QString TrackpointInterface = "com.deepin.daemon.InputDevice.TrackPoint";
-const QString InputDevicesInterface = "com.deepin.daemon.InputDevices";
+const QString MouseInterface = "org.deepin.dde.InputDevice1.Mouse";
+const QString TouchpadInterface = "org.deepin.dde.InputDevice1.TouchPad";
+const QString TrackpointInterface = "org.deepin.dde.InputDevice1.TrackPoint";
+const QString InputDevicesInterface = "org.deepin.dde.InputDevices1";
 
 MouseDBusProxy::MouseDBusProxy(MouseWorker *worker, QObject *parent)
     : QObject(parent)

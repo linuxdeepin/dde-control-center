@@ -26,15 +26,15 @@
 #include <QDBusArgument>
 #include <QDBusReply>
 
-const QString &GrubService = QStringLiteral("org.deepin.daemon.Grub2");
-const QString &GrubPath = QStringLiteral("/org/deepin/daemon/Grub2");
-const QString &GrubInterface = QStringLiteral("org.deepin.daemon.Grub2");
+const QString &GrubService = QStringLiteral("org.deepin.dde.Grub2");
+const QString &GrubPath = QStringLiteral("/org/deepin/dde/Grub2");
+const QString &GrubInterface = QStringLiteral("org.deepin.dde.Grub2");
 
-const QString &GrubThemePath = QStringLiteral("/org/deepin/daemon/Grub2/Theme");
-const QString &GrubThemeInterface = QStringLiteral("org.deepin.daemon.Grub2.Theme");
+const QString &GrubThemePath = QStringLiteral("/org/deepin/dde/Grub2/Theme");
+const QString &GrubThemeInterface = QStringLiteral("org.deepin.dde.Grub2.Theme");
 
-const QString &GrubEditAuthPath = QStringLiteral("/org/deepin/daemon/Grub2/EditAuthentication");
-const QString &GrubEditAuthInterface = QStringLiteral("org.deepin.daemon.Grub2.EditAuthentication");
+const QString &GrubEditAuthPath = QStringLiteral("/org/deepin/dde/Grub2/EditAuthentication");
+const QString &GrubEditAuthInterface = QStringLiteral("org.deepin.dde.Grub2.EditAuthentication");
 
 const QString &DeepinIdService = QStringLiteral("com.deepin.deepinid");
 const QString &DeepinIdPath = QStringLiteral("/com/deepin/deepinid");
@@ -48,9 +48,9 @@ const QString &UserexperienceService = QStringLiteral("com.deepin.userexperience
 const QString &UserexperiencePath = QStringLiteral("/com/deepin/userexperience/Daemon");
 const QString &UserexperienceInterface = QStringLiteral("com.deepin.userexperience.Daemon");
 
-const QString &NotificationService = QStringLiteral("com.deepin.dde.Notification");
-const QString &NotificationPath = QStringLiteral("/com/deepin/dde/Notification");
-const QString &NotificationInterface = QStringLiteral("com.deepin.dde.Notification");
+const QString &NotificationService = QStringLiteral("org.deepin.dde.Notification1");
+const QString &NotificationPath = QStringLiteral("/org/deepin/dde/Notification1");
+const QString &NotificationInterface = QStringLiteral("org.deepin.dde.Notification");
 
 const QString &PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString &PropertiesChanged = QStringLiteral("PropertiesChanged");

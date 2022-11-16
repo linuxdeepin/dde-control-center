@@ -5,9 +5,9 @@
 #include <QDBusInterface>
 #include <QDBusPendingReply>
 
-const QString MimeService = QStringLiteral("com.deepin.daemon.Mime");
-const QString MimePath = QStringLiteral("/com/deepin/daemon/Mime");
-const QString MimeInterface = QStringLiteral("com.deepin.daemon.Mime");
+const QString MimeService = QStringLiteral("org.deepin.dde.Mime1");
+const QString MimePath = QStringLiteral("/org/deepin/dde/Mime1");
+const QString MimeInterface = QStringLiteral("org.deepin.dde.Mime1");
 
 MimeDBusProxy::MimeDBusProxy(QObject *parent)
     : QObject(parent)

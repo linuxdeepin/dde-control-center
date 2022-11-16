@@ -24,21 +24,21 @@
 #include <QDBusPendingReply>
 #include <QDBusMetaType>
 
-const static QString DisplayService = "com.deepin.daemon.Display";
-const static QString DisplayPath = "/com/deepin/daemon/Display";
-const static QString DisplayInterface = "com.deepin.daemon.Display";
+const static QString DisplayService = "org.deepin.dde.Display1";
+const static QString DisplayPath = "/org/deepin/dde/Display1";
+const static QString DisplayInterface = "org.deepin.dde.Display1";
 
-const static QString AppearanceService = "org.deepin.daemon.Appearance1";
-const static QString AppearancePath = "/org/deepin/daemon/Appearance1";
-const static QString AppearanceInterface = "org.deepin.daemon.Appearance1";
+const static QString AppearanceService = "org.deepin.dde.Appearance1";
+const static QString AppearancePath = "/org/deepin/dde/Appearance1";
+const static QString AppearanceInterface = "org.deepin.dde.Appearance1";
 
-const static QString PowerService = "org.deepin.daemon.Power1";
-const static QString PowerPath = "/org/deepin/daemon/Power1";
-const static QString PowerInterface = "org.deepin.daemon.Power1";
+const static QString PowerService = "org.deepin.dde.Power1";
+const static QString PowerPath = "/org/deepin/dde/Power1";
+const static QString PowerInterface = "org.deepin.dde.Power1";
 
-const static QString CooperationService = "com.deepin.Cooperation";
-const static QString CooperationPath = "/com/deepin/Cooperation";
-const static QString CooperationInterface = "com.deepin.Cooperation";
+const static QString CooperationService = "org.deepin.dde.Cooperation1";
+const static QString CooperationPath = "/org/deepin/dde/Cooperation1";
+const static QString CooperationInterface = "org.deepin.dde.Cooperation1";
 
 DisplayDBusProxy::DisplayDBusProxy(QObject *parent)
     : QObject(parent)
@@ -56,7 +56,7 @@ DisplayDBusProxy::DisplayDBusProxy(QObject *parent)
 
 void DisplayDBusProxy::init()
 {
-    m_dBusSystemDisplayInter = new DCC_NAMESPACE::DCCDBusInterface("com.deepin.system.Display", "/com/deepin/system/Display", "com.deepin.system.Display", QDBusConnection::systemBus(), this);
+    m_dBusSystemDisplayInter = new DCC_NAMESPACE::DCCDBusInterface("org.deepin.dde.Display1", "/org/deepin/dde/Display1", "org.deepin.dde.Display1", QDBusConnection::systemBus(), this);
     m_dBusDisplayInter = new DCC_NAMESPACE::DCCDBusInterface(DisplayService, DisplayPath, DisplayInterface, QDBusConnection::sessionBus(), this);
     m_dBusAppearanceInter = new DCC_NAMESPACE::DCCDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
     m_dBusPowerInter = new DCC_NAMESPACE::DCCDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);

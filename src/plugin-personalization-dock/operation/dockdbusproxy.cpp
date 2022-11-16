@@ -31,9 +31,9 @@
 const static QString DaemonDockService = "org.deepin.dde.daemon.Dock1";
 const static QString DaemonDockPath = "/org/deepin/dde/daemon/Dock1";
 const static QString DaemonDockInterface = "org.deepin.dde.daemon.Dock1";
-const static QString DockService = "com.deepin.dde.Dock";
-const static QString DockPath = "/com/deepin/dde/Dock";
-const static QString DockInterface = "com.deepin.dde.Dock";
+const static QString DockService = "org.deepin.dde.Dock1";
+const static QString DockPath = "/org/deepin/dde/Dock1";
+const static QString DockInterface = "org.deepin.dde.Dock1";
 
 const static QString PropertiesInterface = "org.freedesktop.DBus.Properties";
 const static QString PropertiesChanged = "PropertiesChanged";

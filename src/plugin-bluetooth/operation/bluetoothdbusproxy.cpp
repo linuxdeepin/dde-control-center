@@ -26,13 +26,13 @@
 #include <QDBusInterface>
 #include <QDBusPendingReply>
 
-const static QString BluetoothService = "org.deepin.daemon.Bluetooth1";
-const static QString BluetoothPath = "/org/deepin/daemon/Bluetooth1";
-const static QString BluetoothInterface = "org.deepin.daemon.Bluetooth1";
+const static QString BluetoothService = "org.deepin.dde.Bluetooth1";
+const static QString BluetoothPath = "/org/deepin/dde/Bluetooth1";
+const static QString BluetoothInterface = "org.deepin.dde.Bluetooth1";
 
-const static QString AirPlaneModeService = "org.deepin.daemon.AirplaneMode1";
-const static QString AirPlaneModePath = "/org/deepin/daemon/AirplaneMode1";
-const static QString AirPlaneModeInterface = "org.deepin.daemon.AirplaneMode1";
+const static QString AirPlaneModeService = "org.deepin.dde.AirplaneMode1";
+const static QString AirPlaneModePath = "/org/deepin/dde/AirplaneMode1";
+const static QString AirPlaneModeInterface = "org.deepin.dde.AirplaneMode1";
 
 using namespace DCC_NAMESPACE;
 

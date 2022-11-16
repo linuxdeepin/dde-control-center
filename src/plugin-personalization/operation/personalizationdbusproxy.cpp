@@ -25,13 +25,13 @@
 #include <QDBusInterface>
 #include <QDBusPendingReply>
 
-const QString AppearanceService = QStringLiteral("org.deepin.daemon.Appearance1");
-const QString AppearancePath = QStringLiteral("/org/deepin/daemon/Appearance1");
-const QString AppearanceInterface = QStringLiteral("org.deepin.daemon.Appearance1");
+const QString AppearanceService = QStringLiteral("org.deepin.dde.Appearance1");
+const QString AppearancePath = QStringLiteral("/org/deepin/dde/Appearance1");
+const QString AppearanceInterface = QStringLiteral("org.deepin.dde.Appearance1");
 
-const QString WMSwitcherService = QStringLiteral("com.deepin.WMSwitcher");
-const QString WMSwitcherPath = QStringLiteral("/com/deepin/WMSwitcher");
-const QString WMSwitcherInterface = QStringLiteral("com.deepin.WMSwitcher");
+const QString WMSwitcherService = QStringLiteral("org.deepin.dde.WMSwitcher1");
+const QString WMSwitcherPath = QStringLiteral("/org/deepin/dde/WMSwitcher1");
+const QString WMSwitcherInterface = QStringLiteral("org.deepin.dde.WMSwitcher1");
 
 const QString WMService = QStringLiteral("com.deepin.wm");
 const QString WMPath = QStringLiteral("/com/deepin/wm");
