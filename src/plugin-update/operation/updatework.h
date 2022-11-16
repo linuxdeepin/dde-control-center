@@ -31,12 +31,43 @@
 #include "updatedbusproxy.h"
 #include "updatejobdbusproxy.h"
 
+#include <QNetworkReply>
 #include <QObject>
 
 struct CheckUpdateJobRet {
     QString status;
     QString jobID;
     QString jobDescription;
+};
+
+/**
+ * @brief 更新日志中一个版本的信息
+ *
+ * 示例数据：
+ * {
+        "id": 1,
+        "platformType": 1,
+        "cnLog": "<p>中文日志</p>",
+        "enLog": "<p>英文日志</p>",
+        "serverType": 0,
+        "systemVersion": "1070U1",
+        "createdAt": "2022-08-10T17:45:54+08:00",
+        "logType": 1,
+        "publishTime": "2022-08-06T00:00:00+08:00"
+    }
+ */
+struct UpdateLogItem
+{
+    int id = -1;
+    int platformType = 1;
+    int serverType = 0;
+    int logType = 1;
+    QString systemVersion = "";
+    QString cnLog = "";
+    QString enLog = "";
+    QString publishTime = "";
+
+    bool isValid() const { return -1 != id; }
 };
 
 class UpdateWorker : public QObject
@@ -60,8 +91,6 @@ public:
     void setSafeUpdateDownloadJobName(const QString &safeUpdateDownloadJobName);
     void setUnknownUpdateDownloadJobName(const QString &unknownUpdateDownloadJobName);
 
-    QString getReleaseNoteStatus() const;
-    void setReleaseNoteStatus(const QString &releaseNoteStatus);
     bool hasRepositoriesUpdates();
 
     void handleAtomicStateChanged(int operate, int state, QString version, QString message);
@@ -77,12 +106,18 @@ Q_SIGNALS:
 public Q_SLOTS:
     void init();
     void checkForUpdates();
+    void requestUpdateLog();
     void distUpgrade(ClassifyUpdateType updateType);
     void setAutoCheckUpdates(const bool autoCheckUpdates);
     void setUpdateMode(const quint64 updateMode);
     void setAutoCleanCache(const bool autoCleanCache);
     void setAutoDownloadUpdates(const bool &autoDownload);
     void setAutoInstallUpdates(const bool &autoInstall);
+
+    void handleUpdateLogsReply(QNetworkReply *reply);
+    QString getUpdateLogAddress() const;
+    int isUnstableResource() const;
+    void setUpdateLogs(const QJsonArray &array);
 
     void testMirrorSpeed();
     void checkNetselect();
@@ -129,7 +164,6 @@ private:
 
     void setDownloadJob(const QString &jobPath, ClassifyUpdateType updateType);
     void setDistUpgradeJob(const QString &jobPath, ClassifyUpdateType updateType);
-    void setReleaseNoteInstallJob(const QString &jobPath);
     void setUpdateItemProgress(UpdateItemInfo *itemInfo, double value);
 
     QPointer<UpdateJobDBusProxy> getDownloadJob(ClassifyUpdateType updateType);
@@ -143,10 +177,10 @@ private:
     void cleanLastoreJob(QPointer<UpdateJobDBusProxy> dbusJob);
     UpdateErrorType analyzeJobErrorMessage(QString jobDescription);
     QString getClassityUpdateDownloadJobName(ClassifyUpdateType updateType);
-    void listenReleaseNoteFile();
     void checkUpdatablePackages(const QMap<QString, QStringList> &updatablePackages);
 
     void backupToAtomicUpgrade();
+    void updateItemInfo(const UpdateLogItem &logItem, UpdateItemInfo *itemInfo);
 
 private:
     UpdateModel *m_model;
@@ -185,13 +219,12 @@ private:
     BackupStatus m_backupStatus;
     // 当前正在备份的更新分类类型
     ClassifyUpdateType m_backupingClassifyType;
-    QString m_releaseNoteJobStatus;
-    bool m_releaseNoteUpdated;
-    QFileSystemWatcher *m_fileSystemWatcher;
     QList<ClassifyUpdateType> m_fixErrorUpdate;
 
     QMutex m_mutex;
     QMutex m_downloadMutex;
+
+    QList<UpdateLogItem> m_updateLogs;
 };
 
 #endif // UPDATEWORK_H

@@ -213,8 +213,16 @@ void UpdateSettingItem::setData(UpdateItemInfo *updateItemInfo)
 
     QString value = updateItemInfo->updateTime().isEmpty() ? "" : tr("Release date: ") + updateItemInfo->updateTime();
     m_controlWidget->setDate(value);
-    value = updateItemInfo->availableVersion().isEmpty() ? "" : tr("Version") + ": " + updateItemInfo->availableVersion();
-    m_controlWidget->setVersion(value);
+    const QString &systemVersionType = IsServerSystem ? tr("Server") : tr("Desktop");
+    QString version;
+    if (!updateItemInfo->availableVersion().isEmpty()) {
+        QString avaVersion = updateItemInfo->availableVersion();
+        QString tmpVersion = avaVersion;
+        if (IsProfessionalSystem)
+            tmpVersion = avaVersion.replace(avaVersion.length() - 1, 1, '0'); // 替换版本号的最后一位为‘0‘
+        version = tr("Version") + ": " + systemVersionType + tmpVersion;
+    }
+    m_controlWidget->setVersion(version);
     m_controlWidget->setTitle(updateItemInfo->name());
     m_controlWidget->setDetail(updateItemInfo->explain());
 

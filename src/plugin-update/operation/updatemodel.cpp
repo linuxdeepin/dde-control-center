@@ -609,6 +609,18 @@ void UpdateModel::setAtomicBackingUp(bool atomicBackingUp)
     Q_EMIT atomicBackingUpChanged(atomicBackingUp);
 }
 
+QString UpdateModel::utcDateTime2LocalDate(const QString &utcDateTime)
+{
+    if (utcDateTime.isEmpty())
+        return "";
+
+    QDateTime dateTime = QDateTime::fromString(utcDateTime, "yyyy-MM-ddTHH:mm:ss+08:00");
+    if (!dateTime.isValid())
+        return "";
+
+    return dateTime.toLocalTime().toString("yyyy-MM-dd");
+}
+
 UpdatesStatus UpdateModel::getClassifyUpdateStatus(ClassifyUpdateType type)
 {
     UpdatesStatus status = UpdatesStatus::Default;

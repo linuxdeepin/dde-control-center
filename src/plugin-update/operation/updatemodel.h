@@ -216,6 +216,8 @@ public:
     inline bool atomicBackingUp() const { return m_atomicBackingUp; }
     void setAtomicBackingUp(bool atomicBackingUp);
 
+    QString utcDateTime2LocalDate(const QString& utcDateTime);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void autoInstallUpdatesChanged(const bool &autoInstallUpdates);

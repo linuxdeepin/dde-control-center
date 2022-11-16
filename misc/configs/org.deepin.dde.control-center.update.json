@@ -1,0 +1,17 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "updateLogAddress": {
+            "value": "https://update-platform.uniontech.com/api/v1/systemupdatelogs",
+            "serial": 0,
+            "flags": ["global"],
+            "name": "Update log api address",
+            "name[zh_CN]": "更新日志地址",
+            "description[zh_CN]": "获取更新日志的地址",
+            "description": "",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+  }

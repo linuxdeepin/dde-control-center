@@ -133,6 +133,9 @@ void SystemUpdateItem::createDetailInfoItem(const QList<DetailInfo> &detailInfoL
     }
     DetailInfo item = detailInfoList.at(index);
     DetailInfoItem *detailInfoItem = new DetailInfoItem(this);
+    // 根据需求，将最后一个字符替换为0（原因是不想用户看到版本频繁的更新）
+    if (IsProfessionalSystem)
+          item.name.replace(item.name.length() - 1, 1, '0');
     detailInfoItem->setTitle(item.name);
     detailInfoItem->setDate(item.updateTime);
     detailInfoItem->setLinkData(item.link);
