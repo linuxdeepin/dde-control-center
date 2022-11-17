@@ -286,6 +286,13 @@ void DisplayWorker::setCurrentMachinePair(Machine *mac)
     }
 }
 
+void DisplayWorker::setCurrentMachineRequestCooperate(Machine *mac)
+{
+    MachineDBusProxy *inter = m_machines.value(mac);
+    if (mac->Paired())
+        inter->RequestCooperate();
+}
+
 void DisplayWorker::setCurrentMachineDisconnect(Machine *mac)
 {
     MachineDBusProxy *inter = m_machines.value(mac);
@@ -506,12 +513,6 @@ void DisplayWorker::machinesAdded(const QString &path)
     connect(interProxy, &MachineDBusProxy::IpChanged, machine, &Machine::setIP);
     connect(interProxy, &MachineDBusProxy::NameChanged, machine, &Machine::setName);
     connect(interProxy, &MachineDBusProxy::PairedChanged, machine, &Machine::setPaired);
-    connect(interProxy, &MachineDBusProxy::PairedChanged, machine, [this, machine](bool pair){
-        // TODO : 若无返回值 根据cooperat处理
-        if (pair) {
-            this->setCurrentMachinePair(machine);
-        }
-    });
     connect(interProxy, &MachineDBusProxy::CooperatingChanged, machine, &Machine::setCooperating);
     connect(interProxy, &MachineDBusProxy::disconnectStatusChanged, machine, &Machine::setDisconnectStatus);
     machine->setPath(path);

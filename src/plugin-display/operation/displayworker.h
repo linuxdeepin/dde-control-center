@@ -80,6 +80,7 @@ public Q_SLOTS:
     // Cooperation Machine
     void setDeviceSharingSwitch(const bool enable);
     void setCurrentMachinePair(Machine *mac);
+    void setCurrentMachineRequestCooperate(Machine *mac);
     void setCurrentMachineDisconnect(Machine *mac);
 
     void backupConfig();

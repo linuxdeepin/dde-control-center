@@ -81,7 +81,7 @@ Q_SIGNALS:
     void requestCooperationEnable(const bool enabled);
     void requestCurrentMachineDisconnect(Machine * machine);
     void requestCurrentMachinePair(Machine * machine);
-
+    void requsetCooperation(Machine * machine);
 private:
     void initModeList();
     void initPrimaryList();

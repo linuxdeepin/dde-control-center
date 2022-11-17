@@ -274,6 +274,7 @@ void DisplayModule::showMultiScreenWidget()
     connect(multiScreenWidget, &MultiScreenWidget::requestCooperationEnable, m_worker, &DisplayWorker::setDeviceSharingSwitch);
     connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachineDisconnect, m_worker, &DisplayWorker::setCurrentMachineDisconnect);
     connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachinePair, m_worker, &DisplayWorker::setCurrentMachinePair);
+    connect(multiScreenWidget, &MultiScreenWidget::requsetCooperation, m_worker, &DisplayWorker::setCurrentMachineRequestCooperate);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetResolution, this, [=](Monitor *monitor, const int mode) {
         onRequestSetResolution(monitor, mode);
         updateWinsize();

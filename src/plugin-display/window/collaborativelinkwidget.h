@@ -58,6 +58,7 @@ Q_SIGNALS:
     void requestCooperationEnable(const bool enabled);
     void requestCurrentMachinePair(Machine * machine);
     void requestCurrentMachineDisconnect(Machine *mac);
+    void requsetCooperation(Machine *machine);
 
 public Q_SLOTS:
     void disconnectMachine();

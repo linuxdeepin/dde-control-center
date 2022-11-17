@@ -273,6 +273,7 @@ void MultiScreenWidget::setModel(DisplayModel *model)
     connect(m_linkWidget, &CollaborativeLinkWidget::requestCooperationEnable, this, &MultiScreenWidget::requestCooperationEnable);
     connect(m_linkWidget, &CollaborativeLinkWidget::requestCurrentMachineDisconnect, this, &MultiScreenWidget::requestCurrentMachineDisconnect);
     connect(m_linkWidget, &CollaborativeLinkWidget::requestCurrentMachinePair, this, &MultiScreenWidget::requestCurrentMachinePair);
+    connect(m_linkWidget, &CollaborativeLinkWidget::requsetCooperation, this, &MultiScreenWidget::requsetCooperation);
     connect(m_brightnessWidget, &BrightnessWidget::requestSetColorTemperature, this, &MultiScreenWidget::requestSetColorTemperature);
     connect(m_brightnessWidget, &BrightnessWidget::requestSetMonitorBrightness, this, &MultiScreenWidget::requestSetMonitorBrightness);
     connect(m_brightnessWidget, &BrightnessWidget::requestAmbientLightAdjustBrightness, this, &MultiScreenWidget::requestAmbientLightAdjustBrightness);

@@ -192,6 +192,16 @@ void CollaborativeLinkWidget::addMachine(Machine *machine)
         cooperationStatusChanged(false);
     });
 
+    connect(machine, &Machine::pairedChanged, m_deviceCombox, [this, machine](bool status) {
+        if (status) {
+            if (machine->IP() == m_currentMachineDevcice->IP()) {
+                Q_EMIT requsetCooperation(machine);
+            }
+        } else {
+            cooperationStatusChanged(false);
+        }
+    });
+
     if (machine->Cooperating()) {
         m_currentMachineDevcice = machine;
         cooperationStatusChanged(true);
