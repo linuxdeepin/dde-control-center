@@ -29,6 +29,15 @@ public:
 public:
     explicit PowerModel(QObject *parent = 0);
 
+    QStringList getDconfValue(const bool isSleepDelay, const QString& key) const;
+    QStringList getLinePowerSleepDelayConf() const;
+    QStringList getLinePowerScreenBlackDelayConf() const;
+    QStringList getLinePowerLockDelayConf() const;
+
+    QStringList getBatterySleepDelayConf() const;
+    QStringList getBatteryScreenBlackDelayConf() const;
+    QStringList getBatteryLockDelayConf() const;
+
     inline bool screenBlackLock() const { return m_screenBlackLock; }
     void setScreenBlackLock(const bool lock);
 

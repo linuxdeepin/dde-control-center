@@ -43,7 +43,7 @@ public:
     void setModel(const dcc::power::PowerModel *model);
 
 private:
-    QString delayToLiteralString(const int delay) const;
+    QString delayToLiteralString(const QStringList& conf, const int delay) const;
     void setComboxOption(dcc::widgets::ComboxWidget *combox, ActionList options);
 
 private:
@@ -64,6 +64,9 @@ private:
     dcc::widgets::TitledSliderItem *m_sldAutoSuspend;
     dcc::power::PowerModel *m_model;
     dcc::power::PowerWorker *m_work;
+    QStringList m_batterySleepDelayConf;
+    QStringList m_batteryScreenBlackDelayConf;
+    QStringList m_batteryLockDelayConf;
 
 Q_SIGNALS:
     void requestSetScreenBlackDelayOnBattery(const int delay) const;

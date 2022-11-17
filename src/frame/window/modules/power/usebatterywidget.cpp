@@ -77,7 +77,9 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
     m_monitorSleepOnBattery->slider()->setTickPosition(QSlider::TicksBelow);
     m_monitorSleepOnBattery->slider()->setTickInterval(1);
     m_monitorSleepOnBattery->slider()->setPageStep(1);
-    m_monitorSleepOnBattery->setAnnotations(annos);
+    m_batteryScreenBlackDelayConf = m_model->getBatteryScreenBlackDelayConf();
+    m_batteryScreenBlackDelayConf << tr("Never");
+    m_monitorSleepOnBattery->setAnnotations(m_batteryScreenBlackDelayConf);
     m_monitorSleepOnBattery->addBackground();
     m_layout->addWidget(m_monitorSleepOnBattery);
 
@@ -90,7 +92,9 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
     m_computerSleepOnBattery->slider()->setTickPosition(QSlider::TicksBelow);
     m_computerSleepOnBattery->slider()->setTickInterval(1);
     m_computerSleepOnBattery->slider()->setPageStep(1);
-    m_computerSleepOnBattery->setAnnotations(annos);
+    m_batterySleepDelayConf = m_model->getBatterySleepDelayConf();
+    m_batterySleepDelayConf << tr("Never");
+    m_computerSleepOnBattery->setAnnotations(m_batterySleepDelayConf);
     m_computerSleepOnBattery->addBackground();
     m_layout->addWidget(m_computerSleepOnBattery);
 
@@ -103,6 +107,8 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent, dcc::powe
     m_autoLockScreen->slider()->setTickPosition(QSlider::TicksBelow);
     m_autoLockScreen->slider()->setTickInterval(1);
     m_autoLockScreen->slider()->setPageStep(1);
+    m_batteryLockDelayConf = m_model->getBatteryLockDelayConf();
+    m_batteryLockDelayConf << tr("Never");
     m_autoLockScreen->setAnnotations(annos);
     m_autoLockScreen->addBackground();
     m_layout->addWidget(m_autoLockScreen);
@@ -327,7 +333,7 @@ void UseBatteryWidget::setScreenBlackDelayOnBattery(const int delay)
 {
     m_monitorSleepOnBattery->slider()->blockSignals(true);
     m_monitorSleepOnBattery->slider()->setValue(delay);
-    m_monitorSleepOnBattery->setValueLiteral(delayToLiteralString(delay));
+    m_monitorSleepOnBattery->setValueLiteral(delayToLiteralString(m_batteryScreenBlackDelayConf, delay));
     m_monitorSleepOnBattery->slider()->blockSignals(false);
 }
 
@@ -335,7 +341,7 @@ void UseBatteryWidget::setSleepDelayOnBattery(const int delay)
 {
     m_computerSleepOnBattery->slider()->blockSignals(true);
     m_computerSleepOnBattery->slider()->setValue(delay);
-    m_computerSleepOnBattery->setValueLiteral(delayToLiteralString(delay));
+    m_computerSleepOnBattery->setValueLiteral(delayToLiteralString(m_batterySleepDelayConf, delay));
     m_computerSleepOnBattery->slider()->blockSignals(false);
 }
 
@@ -343,7 +349,7 @@ void UseBatteryWidget::setAutoLockScreenOnBattery(const int delay)
 {
     m_autoLockScreen->slider()->blockSignals(true);
     m_autoLockScreen->slider()->setValue(delay);
-    m_autoLockScreen->setValueLiteral(delayToLiteralString(delay));
+    m_autoLockScreen->setValueLiteral(delayToLiteralString(m_batteryLockDelayConf, delay));
     m_autoLockScreen->slider()->blockSignals(false);
 }
 
@@ -435,37 +441,34 @@ void UseBatteryWidget::updatePowerButtonActionList()
     m_cmbCloseLid->addBackground();
 }
 
-QString UseBatteryWidget::delayToLiteralString(const int delay) const
+QString UseBatteryWidget::delayToLiteralString(const QStringList& conf, const int delay) const
 {
-    QString strData = "";
-
-    switch (delay) {
-    case 1:
-        strData = tr("1 Minute");
-        break;
-    case 2:
-        strData = tr("%1 Minutes").arg(5);
-        break;
-    case 3:
-        strData = tr("%1 Minutes").arg(10);
-        break;
-    case 4:
-        strData = tr("%1 Minutes").arg(15);
-        break;
-    case 5:
-        strData = tr("%1 Minutes").arg(30);
-        break;
-    case 6:
-        strData = tr("1 Hour");
-        break;
-    case 7:
-        strData = tr("Never");
-        break;
-    default:
-        strData = tr("%1 Minutes").arg(15);
-        break;
+    if (delay > conf.size()) {
+        return tr("Never");
     }
-
+    int num;
+    if (conf[delay - 1].isEmpty()) {
+        qWarning() << "config is empty!";
+        num = 0;
+    }
+    bool ok;
+    num = conf[delay - 1].mid(0, conf[delay - 1].length() - 1).toInt(&ok);
+    if (!ok) {
+        qWarning() << "change to int failed!";
+        num = 0;
+    }
+    if (num == 0) {
+        return tr("Never");
+    }
+    QString strData;
+    if (conf[delay - 1].contains("m")) {
+        strData = num > 1 ? tr("%1 Minutes").arg(num) : tr("1 Minute");
+    } else if (conf[delay - 1].contains("h")) {
+        strData = num > 1 ? tr("%1 Hours").arg(num) : tr("1 Hour");
+    } else {
+        return tr("Never");
+    }
+    qDebug() << "strData:" << strData;
     return strData;
 }
 

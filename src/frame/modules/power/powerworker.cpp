@@ -34,9 +34,22 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     connect(m_powerInter, &PowerInter::LidClosedSleepChanged, m_powerModel, &PowerModel::setSleepOnLidOnPowerClose);
 //    connect(m_powerInter, &PowerInter::BatteryLidClosedSleepChanged, m_powerModel, &PowerModel::setSleepOnLidOnBatteryClose);
     connect(m_powerInter, &PowerInter::LinePowerScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModelOnPower);
-    connect(m_powerInter, &PowerInter::LinePowerSleepDelayChanged, this, &PowerWorker::setSleepDelayToModelOnPower);
+    // 异步获取初始化时获取到的是0，这里在收到变化信号后设置一次
+    connect(m_powerInter, &PowerInter::LinePowerSleepDelayChanged, this, [this] (int value) {
+        setSleepDelayToModelOnPower(value);
+        const QStringList& conf = m_powerModel->getLinePowerSleepDelayConf();
+        if (value != converToDelayDBus(conf, converToDelayModel(conf, value))) {
+            setSleepDelayOnPower(converToDelayModel(conf, value));
+        }
+    });
     connect(m_powerInter, &PowerInter::BatteryScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModelOnBattery);
-    connect(m_powerInter, &PowerInter::BatterySleepDelayChanged, this, &PowerWorker::setSleepDelayToModelOnBattery);
+    connect(m_powerInter, &PowerInter::BatterySleepDelayChanged, this, [this] (int value) {
+        setSleepDelayToModelOnBattery(value);
+        const QStringList& conf = m_powerModel->getBatterySleepDelayConf();
+        if (value != converToDelayDBus(conf, converToDelayModel(conf, value))) {
+            setSleepDelayOnBattery(converToDelayModel(conf, value));
+        }
+    });
     connect(m_powerInter, &PowerInter::BatteryLockDelayChanged, this, &PowerWorker::setResponseBatteryLockScreenDelay);
     connect(m_powerInter, &PowerInter::LinePowerLockDelayChanged, this, &PowerWorker::setResponsePowerLockScreenDelay);
     connect(m_powerInter, &PowerInter::IsHighPerformanceSupportedChanged, this, &PowerWorker::setHighPerformanceSupported);
@@ -178,51 +191,52 @@ void PowerWorker::setSleepOnLidOnPowerClosed(const bool sleep)
 
 void PowerWorker::setSleepDelayOnPower(const int delay)
 {
-    qDebug() << "m_powerInter->setLinePowerSleepDelay: " << converToDelayDBus(delay);
-    m_powerInter->setLinePowerSleepDelay(converToDelayDBus(delay));
+    qDebug() << "m_powerInter->setLinePowerSleepDelay: " << converToDelayDBus(m_powerModel->getLinePowerSleepDelayConf(), delay);
+    m_powerInter->setLinePowerSleepDelay(converToDelayDBus(m_powerModel->getLinePowerSleepDelayConf(), delay));
 }
 
 void PowerWorker::setSleepDelayOnBattery(const int delay)
 {
-    qDebug() << "m_powerInter->setBatterySleepDelay: " << converToDelayDBus(delay);
-    m_powerInter->setBatterySleepDelay(converToDelayDBus(delay));
+    qDebug() << "m_powerInter->setBatterySleepDelay: " << converToDelayDBus(m_powerModel->getBatterySleepDelayConf(), delay);
+    m_powerInter->setBatterySleepDelay(converToDelayDBus(m_powerModel->getBatterySleepDelayConf(), delay));
 }
 
 void PowerWorker::setScreenBlackDelayOnPower(const int delay)
 {
-    qDebug() << "m_powerInter->setLinePowerScreenBlackDelay: " << converToDelayDBus(delay);
-    m_powerInter->setLinePowerScreenBlackDelay(converToDelayDBus(delay));
+    qDebug() << "m_powerInter->setLinePowerScreenBlackDelay: " << converToDelayDBus(m_powerModel->getLinePowerScreenBlackDelayConf(), delay);
+    m_powerInter->setLinePowerScreenBlackDelay(converToDelayDBus(m_powerModel->getLinePowerScreenBlackDelayConf(), delay));
 }
 
 void PowerWorker::setScreenBlackDelayOnBattery(const int delay)
 {
-    qDebug() << "m_powerInter->setBatteryScreenBlackDelay: " << converToDelayDBus(delay);
-    m_powerInter->setBatteryScreenBlackDelay(converToDelayDBus(delay));
+    qDebug() << "m_powerInter->setBatteryScreenBlackDelay: " << converToDelayDBus(m_powerModel->getBatteryScreenBlackDelayConf(), delay);
+    m_powerInter->setBatteryScreenBlackDelay(converToDelayDBus(m_powerModel->getBatteryScreenBlackDelayConf(), delay));
 }
 
 void PowerWorker::setSleepDelayToModelOnPower(const int delay)
 {
-    m_powerModel->setSleepDelayOnPower(converToDelayModel(delay));
+    qDebug() << "m_powerModel->setLinePowerSleepDelay: " << converToDelayModel(m_powerModel->getLinePowerSleepDelayConf(), delay);
+    m_powerModel->setSleepDelayOnPower(converToDelayModel(m_powerModel->getLinePowerSleepDelayConf(), delay));
 }
 
 void PowerWorker::setScreenBlackDelayToModelOnPower(const int delay)
 {
-    m_powerModel->setScreenBlackDelayOnPower(converToDelayModel(delay));
+    m_powerModel->setScreenBlackDelayOnPower(converToDelayModel(m_powerModel->getLinePowerScreenBlackDelayConf(), delay));
 }
 
 void PowerWorker::setSleepDelayToModelOnBattery(const int delay)
 {
-    m_powerModel->setSleepDelayOnBattery(converToDelayModel(delay));
+    m_powerModel->setSleepDelayOnBattery(converToDelayModel(m_powerModel->getBatterySleepDelayConf(), delay));
 }
 
 void PowerWorker::setResponseBatteryLockScreenDelay(const int delay)
 {
-    m_powerModel->setBatteryLockScreenDelay(converToDelayModel(delay));
+    m_powerModel->setBatteryLockScreenDelay(converToDelayModel(m_powerModel->getBatteryLockDelayConf(), delay));
 }
 
 void PowerWorker::setResponsePowerLockScreenDelay(const int delay)
 {
-    m_powerModel->setPowerLockScreenDelay(converToDelayModel(delay));
+    m_powerModel->setPowerLockScreenDelay(converToDelayModel(m_powerModel->getLinePowerLockDelayConf(), delay));
 }
 
 void PowerWorker::setHighPerformanceSupported(bool state)
@@ -302,19 +316,19 @@ bool PowerWorker::getCurCanHibernate()
 
 void PowerWorker::setScreenBlackDelayToModelOnBattery(const int delay)
 {
-    m_powerModel->setScreenBlackDelayOnBattery(converToDelayModel(delay));
+    m_powerModel->setScreenBlackDelayOnBattery(converToDelayModel(m_powerModel->getBatteryScreenBlackDelayConf(), delay));
 }
 
 void PowerWorker::setLockScreenDelayOnBattery(const int delay)
 {
-    qDebug() << "m_powerInter->setBatteryLockDelay: " << converToDelayDBus(delay);
-    m_powerInter->setBatteryLockDelay(converToDelayDBus(delay));
+    qDebug() << "m_powerInter->setBatteryLockDelay: " << converToDelayDBus(m_powerModel->getBatteryLockDelayConf(), delay);
+    m_powerInter->setBatteryLockDelay(converToDelayDBus(m_powerModel->getBatteryLockDelayConf(), delay));
 }
 
 void PowerWorker::setLockScreenDelayOnPower(const int delay)
 {
-    qDebug() << "m_powerInter->setLinePowerLockDelay: " << converToDelayDBus(delay);
-    m_powerInter->setLinePowerLockDelay(converToDelayDBus(delay));
+    qDebug() << "m_powerInter->setLinePowerLockDelay: " << converToDelayDBus(m_powerModel->getLinePowerLockDelayConf(), delay);
+    m_powerInter->setLinePowerLockDelay(converToDelayDBus(m_powerModel->getLinePowerLockDelayConf(), delay));
 }
 
 #ifndef DCC_DISABLE_POWERSAVE
@@ -329,45 +343,56 @@ void PowerWorker::setAutoEnablePowerSave(const bool isEnable)
 }
 #endif
 
-int PowerWorker::converToDelayModel(int value)
+QVector<int> PowerWorker::converToNum(const QStringList& conf) const
 {
-    if (value == 0) {
+    QVector<int> numConf;
+    for(const QString& numStr : conf) {
+        int num;
+        if (numStr.isEmpty()) {
+            qWarning() << "config is empty!";
+            num = 0;
+        }
+        bool ok;
+        num = numStr.mid(0, numStr.length() - 1).toInt(&ok);
+        if (!ok) {
+            qWarning() << "change to int failed!";
+            num = 0;
+        }
+        if (numStr.contains("m")) {
+            num = num * 60;
+        } else if (numStr.contains("h")) {
+            num = num * 3600;
+        }
+        numConf.push_back(num);
+    }
+    return numConf;
+}
+
+int PowerWorker::converToDelayModel(const QStringList& conf, int value)
+{
+    if (value == 0 || conf.size() != 6) {
         return 7;
     }
-
-    if (value <= 60) {
+    QVector<int> numConf = converToNum(conf);
+    if (value <= numConf[0]) {
         return 1;
-    } else if (value <= 300) {
+    } else if (value <= numConf[1]) {
         return 2;
-    } else if (value <= 600) {
+    } else if (value <= numConf[2]) {
         return 3;
-    } else if (value <= 900) {
+    } else if (value <= numConf[3]) {
         return 4;
-    } else if (value <= 1800) {
+    } else if (value <= numConf[4]) {
         return 5;
     } else {
         return 6;
     }
 }
 
-int PowerWorker::converToDelayDBus(int value)
+int PowerWorker::converToDelayDBus(const QStringList& conf, int value)
 {
-    switch (value) {
-    case 1:
-        return 60;
-    case 2:
-        return 300;
-    case 3:
-        return 600;
-    case 4:
-        return 900;
-    case 5:
-        return 1800;
-    case 6:
-        return 3600;
-    case 7:
+    if (value >= 7 || conf.size() != 6) {
         return 0;
-    default:
-        return 900;
     }
+    return converToNum(conf)[value - 1];
 }

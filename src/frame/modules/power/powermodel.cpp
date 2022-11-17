@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "powermodel.h"
+#include "window/dconfigwatcher.h"
 
 #include <QDebug>
 
@@ -364,3 +365,47 @@ void PowerModel::setShutdown(bool shutdown)
         Q_EMIT shutdownChanged(shutdown);
     }
 }
+
+QStringList PowerModel::getDconfValue(const bool isSleepDelay, const QString& key) const
+{
+    QStringList value = DConfigWatcher::instance()->getValue(DConfigWatcher::ModuleType::power, key).toStringList();
+    if (value.size() != 6) {
+        value.clear();
+        if (isSleepDelay) {
+            value << "10m" << "15m" << "30m" << "1h" << "2h" << "3h";
+        } else {
+            value << "1m" << "5m" << "10m" << "15m" << "30m" << "1h";
+        }
+    }
+    return value;
+}
+
+QStringList PowerModel::getLinePowerSleepDelayConf() const
+{
+    return getDconfValue(true, "linePowerSleepDelay");
+}
+
+QStringList PowerModel::getLinePowerScreenBlackDelayConf() const
+{
+    return getDconfValue(false, "linePowerScreenBlackDelay");
+}
+
+QStringList PowerModel::getLinePowerLockDelayConf() const
+{
+    return getDconfValue(false, "linePowerLockDelay");
+}
+
+QStringList PowerModel::getBatterySleepDelayConf() const
+{
+    return getDconfValue(true, "batterySleepDelay");
+}
+
+QStringList PowerModel::getBatteryScreenBlackDelayConf() const
+{
+    return getDconfValue(false, "batteryScreenBlackDelay");
+}
+QStringList PowerModel::getBatteryLockDelayConf() const
+{
+    return getDconfValue(false, "batteryLockDelay");
+}
+

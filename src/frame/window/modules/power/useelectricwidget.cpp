@@ -104,19 +104,23 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::po
     mainLayout->setContentsMargins(0, 0, 8, 8);
     setLayout(mainLayout);
 
-    QStringList annos;
-    annos << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
     if (!IsServerSystem) {
-        m_computerSleepOnPower->setAnnotations(annos);
+        m_linePowerSleepDelayConf = m_model->getLinePowerSleepDelayConf();
+        m_linePowerSleepDelayConf << tr("Never");
+        m_computerSleepOnPower->setAnnotations(m_linePowerSleepDelayConf);
     }
-    m_monitorSleepOnPower->setAnnotations(annos);
+    m_linePowerScreenBlackDelayConf = m_model->getLinePowerScreenBlackDelayConf();
+    m_linePowerScreenBlackDelayConf << tr("Never");
+    m_monitorSleepOnPower->setAnnotations(m_linePowerScreenBlackDelayConf);
 
     m_autoLockScreen->slider()->setType(DCCSlider::Vernier);
     m_autoLockScreen->slider()->setRange(1, 7);
     m_autoLockScreen->slider()->setTickPosition(QSlider::TicksBelow);
     m_autoLockScreen->slider()->setTickInterval(1);
     m_autoLockScreen->slider()->setPageStep(1);
-    m_autoLockScreen->setAnnotations(annos);
+    m_linePowerLockDelayConf = m_model->getLinePowerLockDelayConf();
+    m_linePowerLockDelayConf << tr("Never");
+    m_autoLockScreen->setAnnotations(m_linePowerLockDelayConf);
 
     setModel(model);
 
@@ -255,7 +259,7 @@ void UseElectricWidget::setScreenBlackDelayOnPower(const int delay)
 {
     m_monitorSleepOnPower->slider()->blockSignals(true);
     m_monitorSleepOnPower->slider()->setValue(delay);
-    m_monitorSleepOnPower->setValueLiteral(delayToLiteralString(delay));
+    m_monitorSleepOnPower->setValueLiteral(delayToLiteralString(m_linePowerScreenBlackDelayConf, delay));
     m_monitorSleepOnPower->slider()->blockSignals(false);
 }
 
@@ -263,7 +267,7 @@ void UseElectricWidget::setSleepDelayOnPower(const int delay)
 {
     m_computerSleepOnPower->slider()->blockSignals(true);
     m_computerSleepOnPower->slider()->setValue(delay);
-    m_computerSleepOnPower->setValueLiteral(delayToLiteralString(delay));
+    m_computerSleepOnPower->setValueLiteral(delayToLiteralString(m_linePowerSleepDelayConf, delay));
     m_computerSleepOnPower->slider()->blockSignals(false);
 }
 
@@ -271,7 +275,7 @@ void UseElectricWidget::setLockScreenAfter(const int delay)
 {
     m_autoLockScreen->slider()->blockSignals(true);
     m_autoLockScreen->slider()->setValue(delay);
-    m_autoLockScreen->setValueLiteral(delayToLiteralString(delay));
+    m_autoLockScreen->setValueLiteral(delayToLiteralString(m_linePowerLockDelayConf, delay));
     m_autoLockScreen->slider()->blockSignals(false);
 }
 
@@ -279,7 +283,7 @@ void UseElectricWidget::setAutoLockScreenOnPower(const int delay)
 {
     m_autoLockScreen->slider()->blockSignals(true);
     m_autoLockScreen->slider()->setValue(delay);
-    m_autoLockScreen->setValueLiteral(delayToLiteralString(delay));
+    m_autoLockScreen->setValueLiteral(delayToLiteralString(m_linePowerLockDelayConf, delay));
     m_autoLockScreen->slider()->blockSignals(false);
 }
 
@@ -343,37 +347,34 @@ void UseElectricWidget::updatePowerButtonActionList()
     m_cmbCloseLid->addBackground();
 }
 
-QString UseElectricWidget::delayToLiteralString(const int delay) const
+QString UseElectricWidget::delayToLiteralString(const QStringList& conf, const int delay) const
 {
-    QString strData = "";
-
-    switch (delay) {
-    case 1:
-        strData = tr("1 Minute");
-        break;
-    case 2:
-        strData = tr("%1 Minutes").arg(5);
-        break;
-    case 3:
-        strData = tr("%1 Minutes").arg(10);
-        break;
-    case 4:
-        strData = tr("%1 Minutes").arg(15);
-        break;
-    case 5:
-        strData = tr("%1 Minutes").arg(30);
-        break;
-    case 6:
-        strData = tr("1 Hour");
-        break;
-    case 7:
-        strData = tr("Never");
-        break;
-    default:
-        strData = tr("%1 Minutes").arg(15);
-        break;
+    if (delay > conf.size()) {
+        return tr("Never");
     }
-
+    int num;
+    if (conf[delay - 1].isEmpty()) {
+        qWarning() << "config is empty!";
+        num = 0;
+    }
+    bool ok;
+    num = conf[delay - 1].mid(0, conf[delay - 1].length() - 1).toInt(&ok);
+    if (!ok) {
+        qWarning() << "change to int failed!";
+        num = 0;
+    }
+    if (num == 0) {
+        return tr("Never");
+    }
+    QString strData;
+    if (conf[delay - 1].contains("m")) {
+        strData = num > 1 ? tr("%1 Minutes").arg(num) : tr("1 Minute");
+    } else if (conf[delay - 1].contains("h")) {
+        strData = num > 1 ? tr("%1 Hours").arg(num) : tr("1 Hour");
+    } else {
+        return tr("Never");
+    }
+    qDebug() << "strData:" << strData;
     return strData;
 }
 
