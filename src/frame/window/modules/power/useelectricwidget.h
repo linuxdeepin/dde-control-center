@@ -61,7 +61,7 @@ public Q_SLOTS:
     void updatePowerButtonActionList();
 
 private:
-    QString delayToLiteralString(const int delay) const;
+    QString delayToLiteralString(const QStringList& conf, const int delay) const;
     void setComboxOption(dcc::widgets::ComboxWidget *combox, const ActionList options);
 
 private:
@@ -74,6 +74,9 @@ private:
 
     dcc::widgets::ComboxWidget *m_cmbPowerBtn;    //电源按钮
     dcc::widgets::ComboxWidget *m_cmbCloseLid;    //盒盖
+    QStringList m_linePowerSleepDelayConf;
+    QStringList m_linePowerScreenBlackDelayConf;
+    QStringList m_linePowerLockDelayConf;
 };
 
 }// namespace datetime

@@ -69,8 +69,9 @@ public Q_SLOTS:
 #endif
 
 private:
-    int  converToDelayModel(int value);
-    int  converToDelayDBus(int value);
+    int converToDelayModel(const QStringList& conf, int value);
+    int converToDelayDBus(const QStringList& conf, int value);
+    QVector<int> converToNum(const QStringList& conf) const;
 
 private:
     PowerModel *m_powerModel;
