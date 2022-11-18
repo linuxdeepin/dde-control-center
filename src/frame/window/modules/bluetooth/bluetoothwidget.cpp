@@ -135,6 +135,7 @@ void BluetoothWidget::updateWidget()
     vLayout->addStretch();
     m_tFrame->setLayout(vLayout);
     setContent(m_tFrame);
+    this->setFocus();
 }
 
 void BluetoothWidget::setVisibleState()
