@@ -6,6 +6,11 @@
 #define INSTALLER_UI_WIDGETS_TIMEZONE_MAP_H
 
 #include <QFrame>
+
+#include <com_deepin_daemon_appearance.h>
+
+using Appearance = com::deepin::daemon::Appearance;
+
 class QLabel;
 class QListView;
 class QResizeEvent;
@@ -53,6 +58,9 @@ class TimezoneMap : public QFrame {
   // Mark current zone on the map.
   void remark();
 
+  // get dot image.
+  QPixmap getDotImage();
+
   // Currently selected/marked timezone.
   ZoneInfo current_zone_;
 
@@ -70,6 +78,8 @@ class TimezoneMap : public QFrame {
 
   // To display a list of zones on map.
   PopupMenu* popup_window_ = nullptr;
+
+  Appearance *m_appearanceInter;
 
  private Q_SLOTS:
   void onPopupWindowActivated(int index);

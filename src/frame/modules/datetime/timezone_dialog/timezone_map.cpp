@@ -42,6 +42,7 @@ QPoint ZoneInfoToPosition(const ZoneInfo& zone, int map_width, int map_height) {
 
 TimezoneMap::TimezoneMap(QWidget* parent)
     : QFrame(parent),
+      m_appearanceInter(new Appearance(Appearance::staticInterfaceName(), "/com/deepin/daemon/Appearance", QDBusConnection::sessionBus(), this)),
       current_zone_(),
       total_zones_(GetZoneInfoList()),
       nearest_zones_() {
@@ -144,7 +145,7 @@ void TimezoneMap::initUI() {
 
   // Set parent widget of dot_ to SystemInfoTimezoneFrame.
   dot_ = new QLabel(this->parentWidget());
-  const QPixmap dot_pixmap(kDotFile);
+  const QPixmap dot_pixmap = getDotImage();
   Q_ASSERT(!dot_pixmap.isNull());
   dot_->setPixmap(dot_pixmap);
   dot_->setFixedSize(dot_pixmap.size());
@@ -228,6 +229,31 @@ void TimezoneMap::remark() {
     dot_->move(dot_pos);
     dot_->show();
   }
+}
+
+QPixmap TimezoneMap::getDotImage()
+{
+    // 将地图上选中的点标识颜色替换成成系统活动色
+
+    QPixmap sourcePixmap(kDotFile);
+    QImage image = sourcePixmap.toImage();
+
+    if (m_appearanceInter->isValid()) {
+        QString strColor = m_appearanceInter->qtActiveColor();
+        QColor destColor = QColor(strColor);
+
+        for (int w = 0; w < image.width(); ++w) {
+            for (int h = 0; h < image.height(); ++h) {
+                // 资源文件图片中原颜色
+                QColor oldColor(44, 167, 248);
+                QRgb rgb = image.pixel(w, h);
+                if (rgb == oldColor.rgb()) {
+                    image.setPixel(w, h, destColor.rgba());
+                }
+            }
+        }
+    }
+    return QPixmap::fromImage(image);
 }
 
 // 鼠标点击位置有多个时区，弹出菜单选择后
