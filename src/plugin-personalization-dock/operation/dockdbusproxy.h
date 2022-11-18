@@ -28,6 +28,25 @@
 class QDBusInterface;
 class QDBusMessage;
 
+struct DockItemInfo
+{
+    QString name;
+    QString displayName;
+    QString itemKey;
+    QString settingKey;
+    QByteArray icon;
+    bool visible;
+};
+
+QDBusArgument &operator<<(QDBusArgument &arg, const DockItemInfo &info);
+const QDBusArgument &operator>>(const QDBusArgument &arg, DockItemInfo &info);
+
+Q_DECLARE_METATYPE(DockItemInfo)
+
+typedef QList<DockItemInfo> DockItemInfos;
+
+Q_DECLARE_METATYPE(DockItemInfos)
+
 class DockDBusProxy : public QObject
 {
     Q_OBJECT
@@ -69,6 +88,8 @@ public Q_SLOTS:
     QDBusPendingReply<bool> getPluginVisible(const QString &pluginName);
     QDBusPendingReply<> setPluginVisible(const QString &pluginName, bool visible);
     QDBusPendingReply<> SetShowRecent(bool visible);
+    QDBusPendingReply<DockItemInfos> plugins();
+    QDBusPendingReply<> setItemOnDock(const QString settingKey, const QString &itemKey, bool visible);
 
 Q_SIGNALS:
     // property changed signals

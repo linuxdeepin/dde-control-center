@@ -24,6 +24,7 @@
 #include <QMetaObject>
 #include <QDBusConnection>
 #include <QDBusInterface>
+#include <QDBusMetaType>
 #include <QTimer>
 #include <QApplication>
 
@@ -36,6 +37,22 @@ const static QString DockInterface = "com.deepin.dde.Dock";
 
 const static QString PropertiesInterface = "org.freedesktop.DBus.Properties";
 const static QString PropertiesChanged = "PropertiesChanged";
+
+QDBusArgument &operator<<(QDBusArgument &arg, const DockItemInfo &info)
+{
+    arg.beginStructure();
+    arg << info.name << info.displayName << info.itemKey << info.settingKey << info.icon << info.visible;
+    arg.endStructure();
+    return arg;
+}
+
+const QDBusArgument &operator>>(const QDBusArgument &arg, DockItemInfo &info)
+{
+    arg.beginStructure();
+    arg >> info.name >> info.displayName >> info.itemKey >> info.settingKey >> info.icon >> info.visible;
+    arg.endStructure();
+    return arg;
+}
 
 DockDBusProxy::DockDBusProxy(QObject *parent)
     : QObject(parent)
@@ -51,6 +68,11 @@ DockDBusProxy::DockDBusProxy(QObject *parent)
 
     QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "showInPrimaryChanged", this, SLOT(ShowInPrimaryChanged(bool)));
     QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "pluginVisibleChanged", this, SLOT(pluginVisibleChanged(const QString &, bool)));
+
+    qRegisterMetaType<DockItemInfo>("DockItemInfo");
+    qDBusRegisterMetaType<DockItemInfo>();
+    qRegisterMetaType<DockItemInfos>("DockItemInfos");
+    qDBusRegisterMetaType<DockItemInfos>();
 }
 
 int DockDBusProxy::displayMode()
@@ -158,4 +180,18 @@ QDBusPendingReply<> DockDBusProxy::SetShowRecent(bool visible)
     QList<QVariant> argumengList;
     argumengList << QVariant::fromValue(visible);
     return m_daemonDockInter->asyncCallWithArgumentList(QStringLiteral("SetShowRecent"), argumengList);
+}
+
+QDBusPendingReply<DockItemInfos> DockDBusProxy::plugins()
+{
+    QDBusPendingReply<DockItemInfos> reply = m_dockInter->asyncCall(QStringLiteral("plugins"));
+    reply.waitForFinished();
+    return reply;
+}
+
+QDBusPendingReply<> DockDBusProxy::setItemOnDock(const QString settingKey, const QString &itemKey, bool visible)
+{
+    QList<QVariant> argumengList;
+    argumengList << settingKey << itemKey << QVariant::fromValue(visible);
+    return m_dockInter->asyncCallWithArgumentList("setItemOnDock", argumengList);
 }

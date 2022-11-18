@@ -347,18 +347,8 @@ void DockModuleObject::initPluginView(DListView *view)
     if (m_dbusProxy.isNull())
         m_dbusProxy.reset(new DockDBusProxy);
 
-    QDBusPendingReply<QStringList> reply = m_dbusProxy->GetLoadedPlugins();
-    QStringList plugins = reply.value();
-    const QMap<QString, QString> &pluginIconMap = {{"AiAssistant",      "dcc_dock_assistant"}
-                                                   , {"show-desktop",   "dcc_dock_desktop"}
-                                                   , {"onboard",        "dcc_dock_keyboard"}
-                                                   , {"notifications",  "dcc_dock_notify"}
-                                                   , {"shutdown",       "dcc_dock_power"}
-                                                   , {"multitasking",   "dcc_dock_task"}
-                                                   , {"datetime",       "dcc_dock_time"}
-                                                   , {"system-monitor", "dcc_dock_systemmonitor"}
-                                                   , {"grand-search",   "dcc_dock_grandsearch"}
-                                                   , {"trash",          "dcc_dock_trash"}};
+    QDBusPendingReply<DockItemInfos> reply = m_dbusProxy->plugins();
+    DockItemInfos plugins = reply.value();
 
     view->setAccessibleName("PluginList");
     view->setAccessibleName("pluginList");
@@ -399,28 +389,31 @@ void DockModuleObject::initPluginView(DListView *view)
         }
     };
 
-    for (auto name : plugins) {
-        DStandardItem *item = new DStandardItem(name);
+    for (DockItemInfo dockItem : plugins) {
+        DStandardItem *item = new DStandardItem(dockItem.displayName);
         item->setFontSize(DFontSizeManager::T8);
         QSize size(16, 16);
 
         // 插件图标
         auto leftAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-        leftAction->setIcon(QIcon::fromTheme(pluginIconMap.value(m_dbusProxy->getPluginKey(name), "dcc_dock_plug_in")));
+        QPixmap pixmap;
+        pixmap.loadFromData(dockItem.icon);
+        QIcon icon(pixmap);
+        if (icon.isNull())
+            icon = QIcon::fromTheme("dcc_dock_plug_in");
+        leftAction->setIcon(icon);
         item->setActionList(Qt::Edge::LeftEdge, {leftAction});
 
         auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-        bool visible = m_dbusProxy->getPluginVisible(name);
-        auto checkstatus = visible ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
+        auto checkstatus = dockItem.visible ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
         auto checkIcon = qobject_cast<DStyle *>(qApp->style())->standardIcon(checkstatus);
         rightAction->setIcon(checkIcon);
         item->setActionList(Qt::Edge::RightEdge, {rightAction});
         pluginModel->appendRow(item);
 
         connect(rightAction, &DViewItemAction::triggered, view, [ = ] {
-            bool checked = m_dbusProxy->getPluginVisible(name);
-            m_dbusProxy->setPluginVisible(name, !checked);
-            updateItemCheckStatus(name, !checked);
+            m_dbusProxy->setItemOnDock(dockItem.settingKey, dockItem.itemKey, !dockItem.visible);
+            updateItemCheckStatus(dockItem.itemKey, !dockItem.visible);
         });
     }
     // 固定大小,防止滚动
