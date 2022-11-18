@@ -24,10 +24,6 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     , searchStatus(false)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
 {
-    //~ contents_path /keyboard/Keyboard Layout/Add Keyboard Layout
-    //~ child_page Keyboard Layout
-    setTitle(tr("Add Keyboard Layout"));
-
     m_mainWidget = new TranslucentFrame();
 
     QHBoxLayout *hlayout = new QHBoxLayout();
@@ -38,11 +34,9 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
 
     m_model = new IndexModel();
     m_view = new IndexView();
-
     m_view->setAccessibleName("List_keyboardmenulist");
     m_view->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_view->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    //m_view->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -66,23 +60,31 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     }
 
     m_search = new SearchInput();
+    //~ contents_path /keyboard/Keyboard Layout/Add Keyboard Layout
+    //~ child_page Keyboard Layout
+    m_title = new QLabel(tr("Add Keyboard Layout"));
+    m_title->setAlignment(Qt::AlignCenter | Qt::AlignHCenter | Qt::AlignVCenter);
+    m_contentTopLayout->addSpacing(10);
+    m_contentTopLayout->addWidget(m_title);
     m_contentTopLayout->addSpacing(10);
     m_contentTopLayout->addWidget(m_search);
     m_contentTopLayout->addSpacing(10);
 
     QVBoxLayout *mainVLayout = new QVBoxLayout();
+    mainVLayout->setContentsMargins(0, 0, 0, 0);
     mainVLayout->addLayout(hlayout);
     mainVLayout->addSpacing(10);
     mainVLayout->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
 
     m_mainWidget->setLayout(mainVLayout);
-    m_mainWidget->setContentsMargins(DCC_NAMESPACE::ListViweItemMargin);
+    m_mainWidget->setContentsMargins(0, 8, 0, 8);
 
     m_clipEffectWidget = new DGraphicsClipEffect(m_mainWidget);
     m_mainWidget->installEventFilter(this);
     m_mainWidget->setGraphicsEffect(m_clipEffectWidget);
 
     setContent(m_mainWidget);
+    setContentsMargins(10, 0, 10, 0);
 
     m_mainWidget->setAttribute(Qt::WA_TranslucentBackground);
 
