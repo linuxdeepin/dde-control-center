@@ -6,6 +6,7 @@
 #define INSTALLER_UI_WIDGETS_TIMEZONE_MAP_H
 
 #include <QFrame>
+
 class QLabel;
 class QListView;
 class QResizeEvent;
@@ -28,6 +29,7 @@ class TimezoneMap : public QFrame {
 
   // Get current selected timezone, might be empty.
   const QString getTimezone() const;
+  void setSystemActiveColor(const QString &color);
 
  Q_SIGNALS:
   void timezoneUpdated(const QString& timezone);
@@ -53,6 +55,9 @@ class TimezoneMap : public QFrame {
   // Mark current zone on the map.
   void remark();
 
+  // get dot image.
+  QPixmap getDotImage();
+
   // Currently selected/marked timezone.
   ZoneInfo current_zone_;
 
@@ -70,6 +75,8 @@ class TimezoneMap : public QFrame {
 
   // To display a list of zones on map.
   PopupMenu* popup_window_ = nullptr;
+
+  QString m_systemActiveColor;
 
  private Q_SLOTS:
   void onPopupWindowActivated(int index);

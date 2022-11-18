@@ -215,6 +215,7 @@ void TimeZoneChooser::setCurrentTimeZoneText(const QString &zone)
 void TimeZoneChooser::setMode(DatetimeModel *model)
 {
     m_model = model;
+    m_map->setSystemActiveColor(m_model->systemActiveColor());
 }
 
 void TimeZoneChooser::setMarkedTimeZone(const QString &timezone)
