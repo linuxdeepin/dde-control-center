@@ -123,7 +123,7 @@ QStringList CommonInfoModule::availPage() const
     sl << "Boot Menu";
 
     if (!IsServerSystem && !IsCommunitySystem) {
-        sl << "User Experience Program" << "Developer Mode";
+        sl << "Developer Mode" << "User Experience Program";
     }
     sl.append(InsertPlugin::instance()->availPages(name()));
     return sl;
