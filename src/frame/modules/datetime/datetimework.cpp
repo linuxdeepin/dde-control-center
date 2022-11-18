@@ -21,6 +21,7 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     , m_model(model)
     , m_timedateInter(new Timedate("com.deepin.daemon.Timedate", "/com/deepin/daemon/Timedate", QDBusConnection::sessionBus(), this))
     , m_systemtimedatedInter(new Timedated("com.deepin.daemon.Timedated", "/com/deepin/daemon/Timedated", QDBusConnection::systemBus(), this))
+    , m_appearanceInter(new Appearance(Appearance::staticInterfaceName(), "/com/deepin/daemon/Appearance", QDBusConnection::sessionBus(), this))
 {
     m_timedateInter->setSync(false);
 
@@ -66,6 +67,8 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     connect(m_timedateInter, &Timedate::ShortTimeFormatChanged, m_model, &DatetimeModel::setShorTimeFormat);
     connect(m_timedateInter, &Timedate::LongTimeFormatChanged, m_model, &DatetimeModel::setLongTimeFormat);
     connect(m_timedateInter, &Timedate::WeekBeginsChanged, m_model, &DatetimeModel::setWeekStartDayFormat);
+    connect(m_appearanceInter, &Appearance::QtActiveColorChanged, m_model, &DatetimeModel::setSystemActiveColor);
+
     refreshNtpServerList();
     m_model->setNtpServerAddress(m_timedateInter->nTPServer());
     m_model->setTimeZoneInfo(m_timedateInter->timezone());
@@ -93,6 +96,7 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     m_model->setDigitGroupingSymbol(static_cast<QString>(formatInter.property("DigitGroupingSymbol").toString()));
     m_model->setNegativeCurrencyFormat(static_cast<QString>(formatInter.property("NegativeCurrencyFormat").toString()));
     m_model->setPositiveCurrencyFormat(static_cast<QString>(formatInter.property("PositiveCurrencyFormat").toString()));
+    m_model->setSystemActiveColor(m_appearanceInter->qtActiveColor());
 
     //关联属性信号变化
     QDBusConnection::sessionBus().connect("com.deepin.daemon.Format",

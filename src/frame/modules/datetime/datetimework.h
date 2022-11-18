@@ -9,6 +9,7 @@
 
 #include <com_deepin_daemon_timedate.h>
 #include <com_deepin_daemon_timedated.h>
+#include <com_deepin_daemon_appearance.h>
 
 #include <QObject>
 
@@ -17,6 +18,7 @@ namespace datetime {
 
 using Timedate = com::deepin::daemon::Timedate;
 using Timedated = com::deepin::daemon::Timedated;
+using Appearance = com::deepin::daemon::Appearance;
 
 class DatetimeWork : public QObject
 {
@@ -66,6 +68,7 @@ private:
     Timedate *m_timedateInter;
     Timedated *m_systemtimedatedInter;
     QStringList m_formatList;
+    Appearance *m_appearanceInter;
 };
 }
 }

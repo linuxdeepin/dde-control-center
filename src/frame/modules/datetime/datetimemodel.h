@@ -64,6 +64,7 @@ public:
     inline QString digitGroupingSymbol() const { return  m_digitGroupingSymbol; }
     inline QString negativeCurrencyFormat() const { return  m_negativeCurrencyFormat; }
     inline QString positiveCurrencyFormat() const { return  m_positiveCurrencyFormat; }
+    inline QString systemActiveColor() const { return  m_systemActiveColor; }
 
     void setWeekdayFormatType(int type);
     void setShortDateFormat(int type);
@@ -84,6 +85,7 @@ public:
     void setDigitGroupingSymbol(const QString &value);
     void setNegativeCurrencyFormat(const QString &value);
     void setPositiveCurrencyFormat(const QString &value);
+    void setSystemActiveColor(const QString &color);
 
 Q_SIGNALS:
     void NTPChanged(bool value);
@@ -146,6 +148,7 @@ private:
     QString m_digitGroupingSymbol{""};
     QString m_negativeCurrencyFormat{""};
     QString m_positiveCurrencyFormat{""};
+    QString m_systemActiveColor{""};
 };
 
 }
