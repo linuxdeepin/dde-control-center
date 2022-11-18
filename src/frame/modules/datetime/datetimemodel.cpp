@@ -264,5 +264,10 @@ void DatetimeModel::setPositiveCurrencyFormat(const QString &value)
         Q_EMIT PositiveCurrencyFormatChanged(value);
     }
 }
+
+void DatetimeModel::setSystemActiveColor(const QString &color)
+{
+    m_systemActiveColor = color;
+}
 }
 }
