@@ -7,10 +7,6 @@
 
 #include <QFrame>
 
-#include <com_deepin_daemon_appearance.h>
-
-using Appearance = com::deepin::daemon::Appearance;
-
 class QLabel;
 class QListView;
 class QResizeEvent;
@@ -33,6 +29,7 @@ class TimezoneMap : public QFrame {
 
   // Get current selected timezone, might be empty.
   const QString getTimezone() const;
+  void setSystemActiveColor(const QString &color);
 
  Q_SIGNALS:
   void timezoneUpdated(const QString& timezone);
@@ -79,7 +76,7 @@ class TimezoneMap : public QFrame {
   // To display a list of zones on map.
   PopupMenu* popup_window_ = nullptr;
 
-  Appearance *m_appearanceInter;
+  QString m_systemActiveColor;
 
  private Q_SLOTS:
   void onPopupWindowActivated(int index);

@@ -42,7 +42,7 @@ QPoint ZoneInfoToPosition(const ZoneInfo& zone, int map_width, int map_height) {
 
 TimezoneMap::TimezoneMap(QWidget* parent)
     : QFrame(parent),
-      m_appearanceInter(new Appearance(Appearance::staticInterfaceName(), "/com/deepin/daemon/Appearance", QDBusConnection::sessionBus(), this)),
+      m_systemActiveColor(QString("")),
       current_zone_(),
       total_zones_(GetZoneInfoList()),
       nearest_zones_() {
@@ -61,6 +61,15 @@ TimezoneMap::~TimezoneMap() {
 
 const QString TimezoneMap::getTimezone() const {
     return current_zone_.timezone;
+}
+
+void TimezoneMap::setSystemActiveColor(const QString &color)
+{
+    m_systemActiveColor = color;
+    const QPixmap dot_pixmap = getDotImage();
+    dot_->setPixmap(dot_pixmap);
+    dot_->setFixedSize(dot_pixmap.size());
+    update();
 }
 
 bool TimezoneMap::setTimezone(const QString &timezone)
@@ -234,13 +243,11 @@ void TimezoneMap::remark() {
 QPixmap TimezoneMap::getDotImage()
 {
     // 将地图上选中的点标识颜色替换成成系统活动色
-
     QPixmap sourcePixmap(kDotFile);
     QImage image = sourcePixmap.toImage();
 
-    if (m_appearanceInter->isValid()) {
-        QString strColor = m_appearanceInter->qtActiveColor();
-        QColor destColor = QColor(strColor);
+    if (!m_systemActiveColor.isEmpty()) {
+        QColor destColor = QColor(m_systemActiveColor);
 
         for (int w = 0; w < image.width(); ++w) {
             for (int h = 0; h < image.height(); ++h) {
