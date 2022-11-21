@@ -11,12 +11,17 @@
 #include <QListView>
 #include <QMouseEvent>
 #include <QVBoxLayout>
+
+#include <DGuiApplicationHelper>
+
 #include "widgets/basiclistdelegate.h"
 
 #include "file_util.h"
 #include "timezone_map_util.h"
 #include "popup_menu.h"
 #include "tooltip_pin.h"
+
+DGUI_USE_NAMESPACE
 
 namespace installer {
 
@@ -29,6 +34,7 @@ const int kZonePinMinimumWidth = 60;
 const double kDistanceThreshold = 64.0;
 const char kDotFile[] = ":/timezone_dialog/images/indicator_active.png";
 const char kTimezoneMapFile[] = ":/timezone_dialog/images/timezone_map_big@1x.svg";
+const char kTimezoneMapFile_Light[] = ":/timezone_dialog/images/timezone_map_big_light@1x.svg";
 
 // At absolute position of |zone| on a map with size (map_width, map_height).
 QPoint ZoneInfoToPosition(const ZoneInfo& zone, int map_width, int map_height) {
@@ -119,6 +125,9 @@ void TimezoneMap::resizeEvent(QResizeEvent* event) {
   QLabel *background_label = findChild<QLabel*>("background_label");
   if (background_label) {
       QPixmap timezone_pixmap = loadPixmap(kTimezoneMapFile);
+      if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+          timezone_pixmap = loadPixmap(kTimezoneMapFile_Light);
+      }
       background_label->setPixmap(timezone_pixmap.scaled(event->size() * devicePixelRatioF(), Qt::KeepAspectRatio, Qt::FastTransformation));
   }
 
