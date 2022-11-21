@@ -137,6 +137,7 @@ private:
     void judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *const w);
     void updateViewBackground();
     void updateModuleVisible();
+    bool showSyncModule();
 
 private:
     bool m_bInit{false};
