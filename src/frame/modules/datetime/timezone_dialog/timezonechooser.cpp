@@ -36,7 +36,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
     : QFrame(parent)
     , m_blurEffect(new DBlurEffectWidget(this))
     , m_map(new installer::TimezoneMap(this))
-    , m_searchInput(new SearchInput)
+    , m_searchInput(new SearchInput(this))
     , m_title(new QLabel)
     , m_cancelBtn(new QPushButton(tr("Cancel")))
     , m_confirmBtn(new DSuggestButton(tr("Confirm")))
@@ -66,7 +66,11 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
     handle.setWindowRadius(18);
 
     m_blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
-    m_blurEffect->setMaskColor(Qt::black);
+    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
+        m_blurEffect->setMaskColor(Qt::black);
+    } else {
+        m_blurEffect->setMaskColor(Qt::white);
+    }
 
     DDialogCloseButton *closeButton = new DDialogCloseButton;
     closeButton->setFixedSize(QSize(20, 20));
