@@ -5,5 +5,6 @@
         <file>timezone_dialog/images/timezone_map_big.png</file>
         <file>timezone_dialog/images/timezone_map_big@2x.png</file>
         <file>timezone_dialog/images/timezone_map_big@1x.svg</file>
+        <file>timezone_dialog/images/timezone_map_big_light@1x.svg</file>
     </qresource>
 </RCC>
