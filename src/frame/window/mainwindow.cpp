@@ -40,6 +40,7 @@
 #include <DIconButton>
 #include <DApplicationHelper>
 #include <DSlider>
+#include <DConfig>
 
 #include <QScrollArea>
 #include <QHBoxLayout>
@@ -374,7 +375,7 @@ void MainWindow::initAllModule(const QString &m)
         { new CommonInfoModule(this), tr("General Settings")},
     };
     // V20 对Deepinid 进行差异化处理  UnionID 走插件化
-    if (!IsProfessionalSystem) {
+    if (showSyncModule()) {
          m_modules.insert(3, {new SyncModule(this), DSysInfo::isCommunityEdition() ? "Deepin ID" : "UOS ID"});
     }
     //读取加载一级菜单的插件
@@ -1495,4 +1496,14 @@ bool MainWindow::event(QEvent *event)
         Q_EMIT mainwindowStateChange(event->type());
     }
     return DMainWindow::event(event);
+}
+
+bool MainWindow::showSyncModule()
+{
+    if (IsProfessionalSystem)
+        return false;
+
+    QObject raii;
+    DConfig *config = DConfig::create("com.deepin.system.mil.dconfig", "com.deepin.system.mil.dconfig", QString(), &raii);
+    return !(config && config->keyList().contains("Use_mil") && config->value("Use_mil", 1).toInt());
 }

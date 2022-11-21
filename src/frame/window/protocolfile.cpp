@@ -6,6 +6,7 @@
 #include "../include/widgets/utils.h"
 
 #include <DSysInfo>
+#include <DConfig>
 
 #include <QFile>
 
@@ -110,6 +111,24 @@ QString ProtocolFile::getEnduserAgreement()
             return educationbody;
         }
     } else {
+        do {
+            QObject raii;
+            DConfig *config = DConfig::create("com.deepin.system.mil.dconfig", "com.deepin.system.mil.dconfig", QString(), &raii);
+            if (!config) {
+                qDebug() << "Can not find com.deepin.system.mil.dconfig or an error occurred in DTK";
+                break;
+            }
+            if (!config->keyList().contains("Use_mil") || !config->keyList().contains("Mil_enduserAgreement_txt")) {
+                qDebug() << "Mil enduser agreement was not found ";
+                break;
+            }
+            const int &useMil = config->value("Use_mil", 1).toInt();
+            const QString &agreementPath = config->value("Mil_enduserAgreement_txt", "").toString();
+            if (useMil && !agreementPath.isEmpty() && QFile::exists(getLicensePath(agreementPath, ""))) {
+                return getLicenseText(agreementPath, "");
+            }
+        } while (0);
+
         const QString bodypath_new = getLicensePath(professionalEnduserAgreement_new, "");
         if (QFile::exists(bodypath_new)) {
             const QString serverbody = getLicenseText(professionalEnduserAgreement_new, "");
