@@ -27,10 +27,13 @@
 
 #include "dtkwidget_global.h"
 
+#include <QDBusInterface>
+
 namespace DCC_NAMESPACE {
 class ComboxWidget;
 class TitledSliderItem;
 class TitleLabel;
+class ItemModule;
 }
 
 DWIDGET_BEGIN_NAMESPACE
@@ -42,6 +45,7 @@ DWIDGET_USE_NAMESPACE
 
 class DockDBusProxy;
 class QCheckBox;
+class QDBusMessage;
 
 class DockPlugin : public DCC_NAMESPACE::PluginInterface
 {
@@ -65,9 +69,6 @@ class DockModuleObject : public DCC_NAMESPACE::PageModule
 public:
     explicit DockModuleObject();
 
-private:
-    bool isCopyMode();
-
 private Q_SLOTS:
     void initMode(DCC_NAMESPACE::ComboxWidget *widget);
     void initPosition(DCC_NAMESPACE::ComboxWidget *widget);
@@ -75,13 +76,18 @@ private Q_SLOTS:
     void initShowRecent(QCheckBox *checkBox);
     void initSizeSlider(DCC_NAMESPACE::TitledSliderItem *slider);
     void initScreenTitle(DCC_NAMESPACE::TitleLabel *label);
-    void initScreen(DCC_NAMESPACE::ComboxWidget *widget);
+    QWidget *initScreen(DCC_NAMESPACE::ModuleObject *module);
     void initPluginTitle(DCC_NAMESPACE::TitleLabel *label);
     void initPluginTips(DTipLabel *label);
     void initPluginView(DListView *view);
+    void onDisplayPropertiesChanged(const QDBusMessage &dbusMessage);
+    void updateScreenVisible();
 
 private:
     QScopedPointer<DockDBusProxy> m_dbusProxy;
+    QScopedPointer<QDBusInterface> m_displayProxy;
+    DCC_NAMESPACE::ItemModule *m_screenTitle;
+    DCC_NAMESPACE::ItemModule *m_screen;
 };
 
 #endif // DOCKPLUGIN_H

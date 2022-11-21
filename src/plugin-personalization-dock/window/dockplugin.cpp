@@ -37,14 +37,15 @@
 #include <QApplication>
 #include <QScreen>
 #include <QScroller>
-#include <QDBusInterface>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusPendingReply>
+#include <QDBusMessage>
 #include <QStyle>
 #include <QCheckBox>
 
 DWIDGET_USE_NAMESPACE
+
 using namespace DCC_NAMESPACE;
 
 enum DisplayMode {
@@ -95,6 +96,8 @@ QString DockPlugin::location() const
 
 DockModuleObject::DockModuleObject()
     : PageModule("dock", tr("Dock"), QString(), nullptr)
+    , m_screenTitle(new ItemModule("screenTitle", tr("Multiple Displays")))
+    , m_screen(new ItemModule("screen", tr("Show Dock"), this, &DockModuleObject::initScreen))
 {
     setNoScroll();
     setNoStretch();
@@ -107,21 +110,28 @@ DockModuleObject::DockModuleObject()
     appendChild(new WidgetModule<QCheckBox>("recent", tr("Show recent apps in Dock"), this, &DockModuleObject::initShowRecent));
     appendChild(new WidgetModule<TitledSliderItem>("size", tr("Size"), this, &DockModuleObject::initSizeSlider));
 
-    // 当任务栏服务未注册或当前只有一个屏幕或当前有多个屏幕但设置为复制模式时均不显示多屏设置项
-    if (QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.Dock")
-            && QApplication::screens().size() > 1
-            && !isCopyMode()) {
-        appendChild(new WidgetModule<TitleLabel>("screenTitle", tr("Multiple Displays"), this, &DockModuleObject::initScreenTitle));
-        appendChild(new WidgetModule<ComboxWidget>("screen", tr("Show Dock"), this, &DockModuleObject::initScreen));
-    }
+    m_screen->setBackground(true);
+    appendChild(m_screenTitle);
+    appendChild(m_screen);
 
+    m_displayProxy.reset(new QDBusInterface("com.deepin.daemon.Display", "/com/deepin/daemon/Display",
+                                            "com.deepin.daemon.Display", QDBusConnection::sessionBus(), this));
+    // 当任务栏服务未注册或当前只有一个屏幕或当前有多个屏幕但设置为复制模式时均不显示多屏设置项
+    connect(qApp, &QApplication::screenAdded, this, &DockModuleObject::updateScreenVisible);
+    connect(qApp, &QApplication::screenRemoved, this, &DockModuleObject::updateScreenVisible);
+    QDBusConnection::sessionBus().connect("com.deepin.daemon.Display", "/com/deepin/daemon/Display",
+                                          "org.freedesktop.DBus.Properties", "PropertiesChanged", "sa{sv}as",
+                                          this, SLOT(onDisplayPropertiesChanged(const QDBusMessage &)));
+    updateScreenVisible();
+
+    DockDBusProxy::regiestDockItemType();
     // @note 不使用m_dbusProxy的原因在于module函数的调用和m_dbusProxy指针的初始化分别在不同的线程中
     QDBusInterface dockInter("com.deepin.dde.Dock", "/com/deepin/dde/Dock", "com.deepin.dde.Dock", QDBusConnection::sessionBus(), this);
-    QDBusPendingReply<QStringList> reply = dockInter.asyncCall(QStringLiteral("GetLoadedPlugins"));
+    QDBusPendingReply<DockItemInfos> reply = dockInter.asyncCall(QStringLiteral("plugins"));
     reply.waitForFinished();
-    QStringList plugins = reply.value();
+    DockItemInfos plugins = reply.value();
     // 当対应服务异常或插件为空时，不显示对应模块信息
-    if (reply.error().type() == QDBusError::ErrorType::NoError && reply.value().size() > 0) {
+    if (reply.error().type() == QDBusError::ErrorType::NoError && plugins.size() > 0) {
         appendChild(new WidgetModule<TitleLabel>("pluginTitle", tr("Plugin Area"), this, &DockModuleObject::initPluginTitle));
         appendChild(new WidgetModule<DTipLabel>("pluginTip", tr("Select which icons appear in the Dock"), this, &DockModuleObject::initPluginTips));
         appendChild(new WidgetModule<DListView>("pluginArea", QString(), this, &DockModuleObject::initPluginView));
@@ -292,38 +302,40 @@ void DockModuleObject::initScreenTitle(TitleLabel *label)
     });
 }
 
-void DockModuleObject::initScreen(ComboxWidget *widget)
+QWidget *DockModuleObject::initScreen(DCC_NAMESPACE::ModuleObject *module)
 {
     if (m_dbusProxy.isNull())
         m_dbusProxy.reset(new DockDBusProxy);
 
     const QMap<QString, bool> g_screenSettingMap = {{tr("On screen where the cursor is"), false}
                                                      , {tr("Only on main screen"), true}};
+
+    QComboBox *widget = new QComboBox();
     widget->setAccessibleName("ShowDock");
-    widget->comboBox()->setAccessibleName("ShowDockCombox");
-    widget->setTitle(tr("Show Dock"));
-    widget->addBackground();
-    widget->setComboxOption(QStringList() << tr("On screen where the cursor is") << tr("Only on main screen"));
+    widget->setAccessibleName("ShowDockCombox");
+    widget->addItems(QStringList() << tr("On screen where the cursor is") << tr("Only on main screen"));
     widget->setCurrentText(g_screenSettingMap.key(m_dbusProxy->showInPrimary()));
-    connect(widget, &ComboxWidget::onSelectChanged, m_dbusProxy.get(), [ = ] (const QString &text) {
+    connect(widget, static_cast<void (QComboBox::*)(int )>(&QComboBox::currentIndexChanged), m_dbusProxy.get(), [ = ] (int index) {
+        const QString &text = widget->itemText(index);
         m_dbusProxy->setShowInPrimary(g_screenSettingMap.value(text));
     });
-    connect(qApp, &QApplication::screenAdded, widget, [ = ] {
+    connect(qApp, &QApplication::screenAdded, widget, [ widget ] {
         widget->setVisible(qApp->screens().count() > 1);
     });
-    connect(qApp, &QApplication::screenRemoved, widget, [ = ] {
+    connect(qApp, &QApplication::screenRemoved, widget, [ widget ] {
         widget->setVisible(qApp->screens().count() > 1);
     });
 
     // 这里不会生效，但实际场景中也不存在有其他可配置的地方，暂时不用处理
-    connect(m_dbusProxy.get(), &DockDBusProxy::ShowInPrimaryChanged, widget, [ = ] (bool showInPrimary) {
-        if (widget->comboBox()->currentText() == g_screenSettingMap.key(showInPrimary))
+    connect(m_dbusProxy.get(), &DockDBusProxy::ShowInPrimaryChanged, widget, [ widget,g_screenSettingMap ] (bool showInPrimary) {
+        if (widget->currentText() == g_screenSettingMap.key(showInPrimary))
             return;
 
         widget->blockSignals(true);
         widget->setCurrentText(g_screenSettingMap.key(showInPrimary));
         widget->blockSignals(false);
     });
+    return widget;
 }
 
 void DockModuleObject::initPluginTitle(TitleLabel *label)
@@ -423,25 +435,31 @@ void DockModuleObject::initPluginView(DListView *view)
     connect(m_dbusProxy.get(), &DockDBusProxy::pluginVisibleChanged, view, std::bind(updateItemCheckStatus, std::placeholders::_1, std::placeholders::_2));
 }
 
-/**判断屏幕是否为复制模式的依据，第一个屏幕的X和Y值是否和其他的屏幕的X和Y值相等
- * 对于复制模式，这两个值肯定是相等的，如果不是复制模式，这两个值肯定不等，目前支持双屏
- * @brief DisplayManager::isCopyMode
- * @return
- */
-bool DockModuleObject::isCopyMode()
+void DockModuleObject::onDisplayPropertiesChanged(const QDBusMessage &dbusMessage)
 {
-    QList<QScreen *> screens = qApp->screens();
-    if (screens.size() < 2)
-        return false;
+    QList<QVariant> arguments = dbusMessage.arguments();
+    // 参数固定长度
+    if (3 != arguments.count())
+        return;
 
-    // 在多个屏幕的情况下，如果所有屏幕的位置的X和Y值都相等，则认为是复制模式
-    QRect screenRect = screens[0]->availableGeometry();
-    for (int i = 1; i < screens.size(); i++) {
-        QRect rect = screens[i]->availableGeometry();
-        if (screenRect.x() != rect.x() || screenRect.y() != rect.y())
-            return false;
-    }
+    QString interfaceName = arguments.first().toString();
+    if (interfaceName != "com.deepin.daemon.Display")
+        return;
 
-    return true;
+    QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+    QStringList keys = changedProps.keys();
+    if (keys.contains("DisplayMode"))
+        updateScreenVisible();
+}
+
+void DockModuleObject::updateScreenVisible()
+{
+    uint displayMode = m_displayProxy->property("DisplayMode").toUInt();
+    bool screenIsShow = (QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.Dock")
+            && QApplication::screens().size() > 1
+            && displayMode == 2);
+
+    m_screenTitle->setHidden(!screenIsShow);
+    m_screen->setHidden(!screenIsShow);
 }
 

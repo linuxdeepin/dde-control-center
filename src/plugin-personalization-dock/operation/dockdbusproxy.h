@@ -81,6 +81,8 @@ public:
     Q_PROPERTY(bool ShowRecent READ showRecent NOTIFY showRecentChanged)
     bool showRecent();
 
+    static void regiestDockItemType();
+
 public Q_SLOTS:
     void resizeDock(int offset, bool dragging);
     QDBusPendingReply<QStringList> GetLoadedPlugins();

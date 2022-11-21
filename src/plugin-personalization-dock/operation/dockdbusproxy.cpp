@@ -69,10 +69,7 @@ DockDBusProxy::DockDBusProxy(QObject *parent)
     QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "showInPrimaryChanged", this, SLOT(ShowInPrimaryChanged(bool)));
     QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "pluginVisibleChanged", this, SLOT(pluginVisibleChanged(const QString &, bool)));
 
-    qRegisterMetaType<DockItemInfo>("DockItemInfo");
-    qDBusRegisterMetaType<DockItemInfo>();
-    qRegisterMetaType<DockItemInfos>("DockItemInfos");
-    qDBusRegisterMetaType<DockItemInfos>();
+    regiestDockItemType();
 }
 
 int DockDBusProxy::displayMode()
@@ -138,6 +135,19 @@ void DockDBusProxy::setShowInPrimary(bool value)
 bool DockDBusProxy::showRecent()
 {
     return qvariant_cast<bool>(m_daemonDockInter->property("ShowRecent"));
+}
+
+void DockDBusProxy::regiestDockItemType()
+{
+    static bool isRegister = false;
+    if (isRegister)
+        return;
+
+    qRegisterMetaType<DockItemInfo>("DockItemInfo");
+    qDBusRegisterMetaType<DockItemInfo>();
+    qRegisterMetaType<DockItemInfos>("DockItemInfos");
+    qDBusRegisterMetaType<DockItemInfos>();
+    isRegister = true;
 }
 
 void DockDBusProxy::resizeDock(int offset, bool dragging)
