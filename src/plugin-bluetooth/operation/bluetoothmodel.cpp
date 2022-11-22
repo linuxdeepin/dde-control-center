@@ -39,6 +39,7 @@ void BluetoothModel::addAdapter(BluetoothAdapter *adapter)
 {
     if (!adapterById(adapter->id())) {
         m_adapters[adapter->id()] = adapter;
+        m_adapterIds.push_front(adapter->id());
         Q_EMIT adapterAdded(adapter);
         Q_EMIT adpaterListChanged();
         return;
@@ -54,6 +55,7 @@ const BluetoothAdapter *BluetoothModel::removeAdapater(const QString &adapterId)
     adapter = adapterById(adapterId);
     if (adapter) {
         m_adapters.remove(adapterId);
+        m_adapterIds.removeOne(adapterId);
         Q_EMIT adapterRemoved(adapter);
         Q_EMIT adpaterListChanged();
     }
@@ -61,9 +63,14 @@ const BluetoothAdapter *BluetoothModel::removeAdapater(const QString &adapterId)
     return adapter;
 }
 
-QMap<QString, const BluetoothAdapter *> BluetoothModel::adapters() const
+QList<const BluetoothAdapter *> BluetoothModel::adapters() const
 {
-    return m_adapters;
+    QList<const BluetoothAdapter *> allAdapters = m_adapters.values();
+    std::sort(allAdapters.begin(), allAdapters.end(), [ & ](const BluetoothAdapter *adapter1, const BluetoothAdapter *adapter2) {
+        return m_adapterIds.indexOf(adapter1->id()) < m_adapterIds.indexOf(adapter2->id());
+    });
+
+    return allAdapters;
 }
 
 const BluetoothAdapter *BluetoothModel::adapterById(const QString &id)

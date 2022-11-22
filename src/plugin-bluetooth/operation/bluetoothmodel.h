@@ -36,7 +36,7 @@ class BluetoothModel : public QObject
 public:
     explicit BluetoothModel(QObject *parent = nullptr);
 
-    QMap<QString, const BluetoothAdapter *> adapters() const;
+    QList<const BluetoothAdapter *> adapters() const;
     const BluetoothAdapter *adapterById(const QString &id);
 
     bool canTransportable() const;
@@ -72,6 +72,7 @@ Q_SIGNALS:
 
 private:
     QMap<QString, const BluetoothAdapter *> m_adapters;
+    QStringList m_adapterIds;
     bool m_transPortable;
     bool m_canSendFile;
     bool m_airplaneEnable;
