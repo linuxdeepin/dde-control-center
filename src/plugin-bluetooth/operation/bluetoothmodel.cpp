@@ -39,7 +39,7 @@ void BluetoothModel::addAdapter(BluetoothAdapter *adapter)
 {
     if (!adapterById(adapter->id())) {
         m_adapters[adapter->id()] = adapter;
-        m_adapterIds.push_front(adapter->id());
+        m_adapterIds << adapter->id();
         Q_EMIT adapterAdded(adapter);
         Q_EMIT adpaterListChanged();
         return;
