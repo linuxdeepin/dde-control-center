@@ -290,13 +290,15 @@ bool Monitor::hasRatefresh(const double r)
 
 QScreen *Monitor::getQScreen()
 {
-    auto screens = QGuiApplication::screens();
-
-    for(auto screen : screens) {
-        //x11下，qt获取的名字和后端给的名字一致 wayland下，qt获取的序列号中包含名称
-        if(screen->name() == name() || screen->model().contains(name()))
+    const auto screens = QGuiApplication::screens();
+    QScreen *res = nullptr;
+    for(const auto screen : screens) {
+        // x11下，qt获取的名字和后端给的名字一致 wayland下，qt获取的序列号中包含名称,优先获取名称完全一致的屏幕
+        // 例如eDP-1和DP-1，精准找到DP-1
+        if(screen->name() == name())
             return screen;
+        if(screen->model().contains(name()))
+            res = screen;
     }
-
-    return nullptr;
+    return res;
 }
