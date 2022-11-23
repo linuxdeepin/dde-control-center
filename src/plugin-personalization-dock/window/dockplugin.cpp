@@ -33,6 +33,7 @@
 #include <DTipLabel>
 #include <DListView>
 #include <DStyle>
+#include <DGuiApplicationHelper>
 
 #include <QApplication>
 #include <QScreen>
@@ -136,6 +137,32 @@ DockModuleObject::DockModuleObject()
         appendChild(new WidgetModule<DTipLabel>("pluginTip", tr("Select which icons appear in the Dock"), this, &DockModuleObject::initPluginTips));
         appendChild(new WidgetModule<DListView>("pluginArea", QString(), this, &DockModuleObject::initPluginView));
     }
+}
+
+QIcon DockModuleObject::getIcon(const DockItemInfo &dockItemInfo) const
+{
+    static const QMap<QString, QString> &pluginIconMap = {{"AiAssistant",      "dcc_dock_assistant"}
+                                                       , {"show-desktop",   "dcc_dock_desktop"}
+                                                       , {"onboard",        "dcc_dock_keyboard"}
+                                                       , {"notifications",  "dcc_dock_notify"}
+                                                       , {"shutdown",       "dcc_dock_power"}
+                                                       , {"multitasking",   "dcc_dock_task"}
+                                                       , {"system-monitor", "dcc_dock_systemmonitor"}
+                                                       , {"grand-search",   "dcc_dock_grandsearch"}
+                                                       , {"trash",          "dcc_dock_trash"}};
+    QPixmap pixmap;
+    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::ColorType::LightType)
+        pixmap.loadFromData(dockItemInfo.iconLight);
+    else
+        pixmap.loadFromData(dockItemInfo.iconDark);
+
+    QIcon icon(pixmap);
+    if (icon.isNull())
+        icon = QIcon::fromTheme(pluginIconMap.value(dockItemInfo.name));
+    if (icon.isNull())
+        icon = QIcon::fromTheme("dcc_dock_plug_in");
+
+    return icon;
 }
 
 void DockModuleObject::initMode(ComboxWidget *widget)
@@ -408,12 +435,7 @@ void DockModuleObject::initPluginView(DListView *view)
 
         // 插件图标
         auto leftAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-        QPixmap pixmap;
-        pixmap.loadFromData(dockItem.icon);
-        QIcon icon(pixmap);
-        if (icon.isNull())
-            icon = QIcon::fromTheme("dcc_dock_plug_in");
-        leftAction->setIcon(icon);
+        leftAction->setIcon(getIcon(dockItem));
         item->setActionList(Qt::Edge::LeftEdge, {leftAction});
 
         auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
@@ -423,9 +445,17 @@ void DockModuleObject::initPluginView(DListView *view)
         item->setActionList(Qt::Edge::RightEdge, {rightAction});
         pluginModel->appendRow(item);
 
+        item->setData(dockItem.visible, Dtk::UserRole + 1);
+
         connect(rightAction, &DViewItemAction::triggered, view, [ = ] {
-            m_dbusProxy->setItemOnDock(dockItem.settingKey, dockItem.itemKey, !dockItem.visible);
-            updateItemCheckStatus(dockItem.itemKey, !dockItem.visible);
+            bool visible = !item->data(Dtk::UserRole + 1).toBool();
+            m_dbusProxy->setItemOnDock(dockItem.settingKey, dockItem.itemKey, visible);
+            updateItemCheckStatus(dockItem.displayName, visible);
+            item->setData(visible, Dtk::UserRole + 1);
+        });
+        // 主题发生变化触发的信号
+        connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, leftAction, [ leftAction, this, dockItem ]() {
+            leftAction->setIcon(getIcon(dockItem));
         });
     }
     // 固定大小,防止滚动

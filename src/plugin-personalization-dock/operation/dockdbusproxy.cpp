@@ -41,7 +41,7 @@ const static QString PropertiesChanged = "PropertiesChanged";
 QDBusArgument &operator<<(QDBusArgument &arg, const DockItemInfo &info)
 {
     arg.beginStructure();
-    arg << info.name << info.displayName << info.itemKey << info.settingKey << info.icon << info.visible;
+    arg << info.name << info.displayName << info.itemKey << info.settingKey << info.iconLight << info.iconDark << info.visible;
     arg.endStructure();
     return arg;
 }
@@ -49,7 +49,7 @@ QDBusArgument &operator<<(QDBusArgument &arg, const DockItemInfo &info)
 const QDBusArgument &operator>>(const QDBusArgument &arg, DockItemInfo &info)
 {
     arg.beginStructure();
-    arg >> info.name >> info.displayName >> info.itemKey >> info.settingKey >> info.icon >> info.visible;
+    arg >> info.name >> info.displayName >> info.itemKey >> info.settingKey >> info.iconLight >> info.iconDark >> info.visible;
     arg.endStructure();
     return arg;
 }

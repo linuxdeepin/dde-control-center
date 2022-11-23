@@ -46,6 +46,7 @@ DWIDGET_USE_NAMESPACE
 class DockDBusProxy;
 class QCheckBox;
 class QDBusMessage;
+class DockItemInfo;
 
 class DockPlugin : public DCC_NAMESPACE::PluginInterface
 {
@@ -68,6 +69,9 @@ class DockModuleObject : public DCC_NAMESPACE::PageModule
 
 public:
     explicit DockModuleObject();
+
+private:
+    QIcon getIcon(const DockItemInfo &dockItemInfo) const;
 
 private Q_SLOTS:
     void initMode(DCC_NAMESPACE::ComboxWidget *widget);
