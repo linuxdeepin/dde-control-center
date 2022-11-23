@@ -1061,7 +1061,7 @@ void NetworkDelegate::drawRefreshButton(QPainter *painter, const QStyleOptionVie
         return;
 
     QRect rctIcon(option.rect.width() - SWITCH_WIDTH - 36, option.rect.top() + (option.rect.height() - 20) / 2, 20, 20);
-    QPixmap pixmap = DHiDPIHelper::loadNxPixmap(ThemeManager::instance()->getIcon("wireless/refresh"));
+    QPixmap pixmap = DHiDPIHelper::loadNxPixmap(ThemeManager::instance()->getIcon("refresh"));
     painter->save();
     painter->setRenderHint(QPainter::Antialiasing, true);
     if (m_refreshAngle.contains(index)) {
