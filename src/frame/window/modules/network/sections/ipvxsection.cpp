@@ -22,8 +22,16 @@
 #include "ipvxsection.h"
 #include "widgets/contentwidget.h"
 
+#include <com_deepin_daemon_network.h>
+#include <org_freedesktop_notifications.h>
+
 #include <dspinbox.h>
 #include <QDBusMetaType>
+
+const unsigned int ipConflictCheckTime = 500;
+
+// check ip conflict
+using Notifications = org::freedesktop::Notifications;
 
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
@@ -41,6 +49,7 @@ IpvxSection::IpvxSection(NetworkManager::Ipv4Setting::Ptr ipv4Setting, QFrame *p
     , m_neverDefault(new SwitchWidget(this))
     , m_currentIpvx(Ipv4)
     , m_ipvxSetting(ipv4Setting)
+    , m_isIPConflict(false)
 {
     initStrMaps();
     initUI();
@@ -378,6 +387,7 @@ void IpvxSection::initConnection()
                 m_netmaskIpv4->dTextEdit()->setAlert(false);
             }
         });
+
         break;
     case Ipv6:
         connect(m_methodChooser, static_cast<void(QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [ = ] {
@@ -385,6 +395,7 @@ void IpvxSection::initConnection()
         });
         break;
     }
+
 }
 
 void IpvxSection::onIpv4MethodChanged(NetworkManager::Ipv4Setting::ConfigMethod method)
@@ -438,8 +449,8 @@ bool IpvxSection::ipv4InputIsValid()
 {
     bool valid = true;
 
+    const QString &ip = m_ipAddress->text();
     if (Ipv4ConfigMethodStrMap.value(m_methodChooser->currentText()) == NetworkManager::Ipv4Setting::Manual) {
-        const QString &ip = m_ipAddress->text();
         if (m_ipAddress->text().isEmpty()) {
             m_ipAddress->dTextEdit()->setAlert(true);
         }
@@ -493,6 +504,21 @@ bool IpvxSection::ipv4InputIsValid()
             m_dnsPrimary->setIsErr(true);
         }
         m_dnsSecond->setIsErr(false);
+    }
+    if (valid) {
+        QDBusInterface networkInterface("com.deepin.daemon.Network", "/com/deepin/daemon/Network", "com.deepin.daemon.Network", QDBusConnection::sessionBus(), this);
+        networkInterface.asyncCall("RequestIPConflictCheck", ip, "");
+        QDBusConnection::sessionBus().connect("com.deepin.daemon.Network",
+                                              "/com/deepin/daemon/Network",
+                                              "com.deepin.daemon.Network",
+                                              "IPConflict",
+                                              this, SLOT(ipConflict(QString, QString)));
+        QElapsedTimer et;
+        et.start();
+        while (!m_isIPConflict && et.elapsed() < ipConflictCheckTime) {
+            QThread::msleep(50);
+            QCoreApplication::sendPostedEvents(&networkInterface);
+        }
     }
 
     return valid;
@@ -616,4 +642,14 @@ QList<QHostAddress> IpvxSection::dnsList()
     }
 
     return dnsList;
+}
+
+void IpvxSection::ipConflict(const QString &ip, const QString &mac)
+{
+    const QString strCurrentIP = m_ipAddress->text();
+    if (!mac.isEmpty() && ip == strCurrentIP) {
+        Notifications notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus());
+        notifications.Notify("dde-control-center", static_cast<uint>(QDateTime::currentMSecsSinceEpoch()), "preferences-system", tr("Network"), tr("IP conflict"), QStringList(), QVariantMap(), 3000);
+    }
+    m_isIPConflict = true;
 }

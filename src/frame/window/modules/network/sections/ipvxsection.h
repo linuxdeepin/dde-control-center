@@ -57,7 +57,7 @@ public:
 
     void setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod method, const bool enabled);
     void setIpv6ConfigMethodEnable(NetworkManager::Ipv6Setting::ConfigMethod method, const bool enabled);
-    void setNeverDefaultEnable(const bool neverDefault);
+    void setNeverDefaultEnable(const bool neverDefault);      
 
 private:
     void initStrMaps();
@@ -76,6 +76,8 @@ private:
     bool isIpv4SubnetMask(const QString &ip);
 
     QList<QHostAddress> dnsList();
+public Q_SLOTS:
+    void ipConflict(const QString &ip, const QString &mac);
 
 private:
     QMap<QString, NetworkManager::Ipv4Setting::ConfigMethod> Ipv4ConfigMethodStrMap;
@@ -95,6 +97,7 @@ private:
 
     Ipvx m_currentIpvx;
     NetworkManager::Setting::Ptr m_ipvxSetting;
+    bool m_isIPConflict;
 };
 
 } /* network */

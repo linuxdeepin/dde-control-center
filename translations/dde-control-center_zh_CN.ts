@@ -2218,6 +2218,11 @@
         <source>Invalid DNS address</source>
         <translation>无效的DNS地址</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="652"/>
+        <source>IP conflict</source>
+        <translation>IP地址冲突</translation>
+    </message>
 </context>
 <context>
     <name>dccV20::network::NetworkDetailPage</name>
