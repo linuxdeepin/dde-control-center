@@ -191,6 +191,10 @@ void WirelessConnect::setPassword(const QString &password)
                || keyMgmt == WirelessSecuritySetting::KeyMgmt::SAE) {
 #endif
         wsSetting->setPsk(password);
+
+        if (isHidden && keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaPsk) {
+            wsSetting->setAuthAlg(WirelessSecuritySetting::AuthAlg::Open);
+        }
     }
     wsSetting->setInitialized(true);
     m_needUpdate = true;
@@ -224,11 +228,19 @@ void WirelessConnect::connectNetwork()
     activateConnection();
 }
 
-void WirelessConnect::connectNetworkPassword(const QString password)
+bool WirelessConnect::connectNetworkPassword(const QString password)
 {
     initConnection();
+
+    WirelessSecuritySetting::Ptr wsSetting = m_connectionSettings->setting(Setting::WirelessSecurity).dynamicCast<WirelessSecuritySetting>();
+    if (wsSetting && !wsSetting->isNull()) {
+        return false;
+    }
+
     setPassword(password);
     activateConnection();
+
+    return true;
 }
 
 void WirelessConnect::activateConnection()

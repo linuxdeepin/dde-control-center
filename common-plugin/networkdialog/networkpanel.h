@@ -49,7 +49,7 @@ public:
     QWidget *itemApplet();
     void passwordError(const QString &dev, const QString &ssid);
 
-    bool changePassword(const QString &key, const QString &password, bool input);
+    void changePassword(const QString &key, const QString &password, bool input);
     QString ssidWaitingForPassword() const;
     bool closeOnClear() const;
     void setCloseOnClear(bool closeOnClear);
@@ -97,7 +97,6 @@ private:
     QSet<QString> m_wirelessDevicePath;
     QString m_reconnectDev;
     QString m_reconnectSsid;
-    bool m_waitPassword;
     DBusAirplaneMode *m_airplaneMode;
     QTimer *m_updateTimer;
 };

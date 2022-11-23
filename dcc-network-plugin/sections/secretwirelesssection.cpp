@@ -145,7 +145,11 @@ void SecretWirelessSection::saveSettings()
             m_wsSetting->setPsk(QString());
 
         m_wsSetting->setWepKeyType(WirelessSecuritySetting::WepKeyType::NotSpecified);
-        m_wsSetting->setAuthAlg(WirelessSecuritySetting::AuthAlg::None);
+        if (m_currentKeyMgmt == WirelessSecuritySetting::KeyMgmt::WpaPsk) {
+            m_wsSetting->setAuthAlg(WirelessSecuritySetting::AuthAlg::Open);
+        } else {
+            m_wsSetting->setAuthAlg(WirelessSecuritySetting::AuthAlg::None);
+        }
     } else if (m_currentKeyMgmt == WirelessSecuritySetting::KeyMgmt::WpaEap) {
         m_wsSetting->setAuthAlg(WirelessSecuritySetting::AuthAlg::None);
     }
