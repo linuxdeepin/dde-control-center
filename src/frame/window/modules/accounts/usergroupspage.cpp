@@ -16,7 +16,10 @@ using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
 
 const QString Sudo = "sudo";
-const QString Root = "root";
+const QString SysadmGroup = "sysadm";
+const QString SecadmGroup = "secadm";
+const QString AudadmGroup = "audadm";
+const QList <QString> IgoreGroups= {Sudo, "root", SecadmGroup, AudadmGroup};
 
 DWIDGET_USE_NAMESPACE
 
@@ -110,11 +113,18 @@ void UserGroupsPage::onGidChanged(const QString &gid)
                 value = true;
             }
 
-            // 等保三级系统管理员不能修改自己的sudo和root组选项
-            if (m_userModel->getIsSecurityHighLever() &&
-                m_curUser->securityLever() == SecurityLever::Sysadm &&
-                (item->text() == Sudo || item->text() == Root)) {
+            // 对于sysadm组，不管有没有加入等保，都需要将其置灰
+            if (item->text() == SysadmGroup) {
                 value = false;
+            }
+
+            // 等保三级系统模式下，置灰sudo, root, secadm, audadm组
+            if (m_userModel->getIsSecurityHighLever()) {
+                for (auto &group : IgoreGroups) {
+                    if (item->text() == group) {
+                        value = false;
+                    }
+                }
             }
         } while (0);
         item->setEnabled(value);
@@ -158,12 +168,12 @@ void UserGroupsPage::initData()
     for (QString item : userGroup) {
         GroupItem *it = new GroupItem(item);
         it->setCheckable(false);
-        // 开启等保后，原来的管理员账户统一显示标准用户（但是账户对应的sudo和root组其实还在）
-        // 需要将这两个选项隐藏，防止用户修改后与账户设置/管理员和账户类型显示不一致
-        if (m_userModel->getIsSecurityHighLever() &&
-            m_curUser->securityLever() != SecurityLever::Sysadm &&
-            (it->text() == Sudo || it->text() == Root)) {
-            continue;
+        // 退出等保后，之前等保用户的用户组信息并没有被清除, 需要进行对应处理
+        // 对于secadm和audadm,隐藏处理
+        if (!m_userModel->getIsSecurityHighLever()) {
+            if (it->text() == SecadmGroup || it->text() == AudadmGroup) {
+                continue;
+            }
         }
         m_groupItemModel->appendRow(it);
     }
