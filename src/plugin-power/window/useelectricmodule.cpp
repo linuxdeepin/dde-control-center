@@ -177,42 +177,41 @@ void UseElectricModule::initUI()
     }
 
     //combox
+    ItemModule *itemLidIsClosed =
+            new ItemModule("whenTheLidIsClosed", tr("When the lid is closed"),
+                           [this](ModuleObject *module) -> QWidget * {
+                               AlertComboBox *cmbCloseLid = new AlertComboBox();
 
-    group->appendChild(new ItemModule("whenTheLidIsClosed", tr("When the lid is closed"),
-        [this] (ModuleObject *module) -> QWidget*{
-            AlertComboBox *cmbCloseLid = new AlertComboBox();
-            module->setHidden(!m_model->lidPresent());
-            connect(m_model, &PowerModel::lidPresentChanged, cmbCloseLid, [this, module] (const bool lidPresent){
-                module->setHidden(!m_model->lidPresent());
-            });
+                               auto setCloseLidData = [this, cmbCloseLid]() {
+                                   updateComboxActionList();
+                                   cmbCloseLid->blockSignals(true);
+                                   cmbCloseLid->clear();
+                                   for (const auto &it : qAsConst(m_comboxOptions)) {
+                                       if (it == m_comboxOptions.first())
+                                           continue;
+                                       cmbCloseLid->addItem(it.first, it.second);
+                                   }
+                                   for (int i = 0; i < cmbCloseLid->count(); i++) {
+                                       if (cmbCloseLid->itemData(i).toInt() == m_model->linePowerLidClosedAction()) {
+                                           cmbCloseLid->setCurrentIndex(i);
+                                           break;
+                                       }
+                                   }
+                                   cmbCloseLid->blockSignals(false);
+                               };
 
-            auto setCloseLidData = [this, cmbCloseLid] () {
-                updateComboxActionList();
-                cmbCloseLid->blockSignals(true);
-                cmbCloseLid->clear();
-                for (const auto &it : qAsConst(m_comboxOptions)) {
-                    if (it == m_comboxOptions.first())
-                        continue;
-                    cmbCloseLid->addItem(it.first, it.second);
-                }
-                for (int i = 0; i < cmbCloseLid->count(); i++) {
-                    if (cmbCloseLid->itemData(i).toInt() == m_model->linePowerLidClosedAction()) {
-                        cmbCloseLid->setCurrentIndex(i);
-                        break;
-                    }
-                }
-                cmbCloseLid->blockSignals(false);
-            };
-
-            setCloseLidData();
-            connect(m_model, &PowerModel::hibernateChanged, cmbCloseLid, setCloseLidData);
-            connect(m_model, &PowerModel::suspendChanged, cmbCloseLid, setCloseLidData);
-            connect(m_model, &PowerModel::linePowerLidClosedActionChanged, cmbCloseLid, setCloseLidData);
-            connect(cmbCloseLid, QOverload<int>::of(&AlertComboBox::currentIndexChanged), this, [this, cmbCloseLid](int index) {
-                Q_EMIT requestSetLinePowerLidClosedAction(cmbCloseLid->itemData(index).toInt());
-            });
-            return cmbCloseLid;
-        }));
+                               setCloseLidData();
+                               connect(m_model, &PowerModel::hibernateChanged, cmbCloseLid, setCloseLidData);
+                               connect(m_model, &PowerModel::suspendChanged, cmbCloseLid, setCloseLidData);
+                               connect(m_model, &PowerModel::linePowerLidClosedActionChanged, cmbCloseLid, setCloseLidData);
+                               connect(cmbCloseLid, QOverload<int>::of(&AlertComboBox::currentIndexChanged), this, [this, cmbCloseLid](int index) {
+                                   Q_EMIT requestSetLinePowerLidClosedAction(cmbCloseLid->itemData(index).toInt());
+                               });
+                               return cmbCloseLid;
+                           });
+    itemLidIsClosed->setVisible(m_model->lidPresent());
+    connect(m_model, &PowerModel::lidPresentChanged, itemLidIsClosed, &ItemModule::setVisible);
+    group->appendChild(itemLidIsClosed);
 
     group->appendChild(new ItemModule("whenThePowerButtonIsPressed", tr("When the power button is pressed"),
         [this] (ModuleObject *module) -> QWidget*{

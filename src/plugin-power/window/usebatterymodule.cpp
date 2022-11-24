@@ -198,7 +198,8 @@ void UseBatteryModule::initUI()
             return computerSleepOnBattery;
         }, false));
 
-    group->appendChild(new ItemModule("whenTheLidIsClosed", tr("When the lid is closed"),
+    ItemModule *itemLidIsClosed =
+        new ItemModule("whenTheLidIsClosed", tr("When the lid is closed"),
         [this] (ModuleObject *module) -> QWidget*{
             AlertComboBox *cmbCloseLid = new AlertComboBox();
             auto setCloseLidData = [this, cmbCloseLid] () {
@@ -219,15 +220,16 @@ void UseBatteryModule::initUI()
                 cmbCloseLid->blockSignals(false);
             };
 
-            module->setHidden(!m_model->lidPresent());
             setCloseLidData();
             connect(cmbCloseLid, QOverload<int>::of(&AlertComboBox::currentIndexChanged), this, [this, cmbCloseLid](int index) {
                 Q_EMIT requestSetBatteryLidClosedAction(cmbCloseLid->itemData(index).toInt());
             });
             connect(m_model, &PowerModel::batteryLidClosedActionChanged, cmbCloseLid, setCloseLidData);
             return cmbCloseLid;
-        }));
-
+        });
+    itemLidIsClosed->setVisible(m_model->lidPresent());
+    connect(m_model, &PowerModel::lidPresentChanged, itemLidIsClosed, &ItemModule::setVisible);
+    group->appendChild(itemLidIsClosed);
     group->appendChild(new ItemModule("whenThePowerButtonIsPressed", tr("When the power button is pressed"),
         [this] (ModuleObject *module) -> QWidget*{
             AlertComboBox *cmbPowerBtn = new AlertComboBox();
@@ -299,29 +301,31 @@ void UseBatteryModule::initUI()
     });
     group->appendChild(itemLowBatteryHint);
 
-    group->appendChild(new ItemModule("autoSuspendBatteryLevel", tr("Auto suspend battery level"),
-        [this] (ModuleObject *module) -> QWidget*{
-            DComboBox *cmbAutoSuspend = new DComboBox();
-            cmbAutoSuspend->setAccessibleName("Auto suspend battery level");
-            module->setHidden(!m_model->getSuspend());
-            QStringList levels;
-            for (int i = 0; i < 9; i++) {
-                levels.append(QString("%1\%").arg(i + 1));
-            }
-            cmbAutoSuspend->addItems(levels);
-            if (m_model->lowPowerAutoSleepThreshold() < cmbAutoSuspend->count()) {
-                cmbAutoSuspend->setCurrentIndex(m_model->lowPowerAutoSleepThreshold());
-            }
-            connect(cmbAutoSuspend, QOverload<int>::of(&DComboBox::currentIndexChanged), this, [=](int value) {
-                if (value < cmbAutoSuspend->count())
-                    Q_EMIT requestSetLowPowerAutoSleepThreshold(value);
+    ItemModule *itemAutoSuspendBatteryLevel =
+        new ItemModule("autoSuspendBatteryLevel", tr("Auto suspend battery level"),
+            [this] (ModuleObject *module) -> QWidget*{
+                DComboBox *cmbAutoSuspend = new DComboBox();
+                cmbAutoSuspend->setAccessibleName("Auto suspend battery level");
+                QStringList levels;
+                for (int i = 0; i < 9; i++) {
+                    levels.append(QString("%1\%").arg(i + 1));
+                }
+                cmbAutoSuspend->addItems(levels);
+                if (m_model->lowPowerAutoSleepThreshold() < cmbAutoSuspend->count()) {
+                    cmbAutoSuspend->setCurrentIndex(m_model->lowPowerAutoSleepThreshold());
+                }
+                connect(cmbAutoSuspend, QOverload<int>::of(&DComboBox::currentIndexChanged), this, [=](int value) {
+                    if (value < cmbAutoSuspend->count())
+                        Q_EMIT requestSetLowPowerAutoSleepThreshold(value);
+                });
+                connect(m_model, &PowerModel::lowPowerAutoSleepThresholdChanged, cmbAutoSuspend, [=] (const int value){
+                    cmbAutoSuspend->setCurrentIndex(value);
+                });
+                return cmbAutoSuspend;
             });
-            connect(m_model, &PowerModel::lowPowerAutoSleepThresholdChanged, cmbAutoSuspend, [=] (const int value){
-                cmbAutoSuspend->setCurrentIndex(value);
-            });
-            return cmbAutoSuspend;
-        }));
-
+    itemAutoSuspendBatteryLevel->setVisible(m_model->getSuspend());
+    connect(m_model, &PowerModel::suspendChanged, itemAutoSuspendBatteryLevel, &ItemModule::setVisible);
+    group->appendChild(itemAutoSuspendBatteryLevel);
     //　电池管理
     appendChild(new TitleModule("batteryManagementTitle", tr("Battery Management")));
     group = new SettingsGroupModule("batteryManagementGroup", tr("Battery Management"));

@@ -131,6 +131,12 @@ QWidget *ModuleObject::activePage(bool autoActive)
     if (autoActive)
         active();
     QWidget *w = ModuleObject::IsHidden(this) ? nullptr : page();
+    // 处理page中修改隐藏状态
+    if (w && ModuleObject::IsHidden(this)) {
+        delete w;
+        w = nullptr;
+    }
+
     if (w) {
         connect(w, &QObject::destroyed, this, &ModuleObject::deactive);
         connect(this, &ModuleObject::stateChanged, w, [w](uint32_t flag, bool state) {

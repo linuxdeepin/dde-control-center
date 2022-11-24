@@ -26,11 +26,17 @@ PersonalizationDesktopModule::PersonalizationDesktopModule(PersonalizationModel 
         appendChild(group);
         if (!qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland"))
             group->appendChild(new ItemModule("windowEffect", tr("Window Effect"), this, &PersonalizationDesktopModule::initWindowEffect));
-        group->appendChild(new ItemModule("minimizeEffect", tr("Window Minimize Effect"), this, &PersonalizationDesktopModule::initMiniEffect));
-        HorizontalModule *hor = new HorizontalModule("", tr(""));
+
+        ItemModule *itemMinimizeEffect = new ItemModule("minimizeEffect", tr("Window Minimize Effect"), this, &PersonalizationDesktopModule::initMiniEffect);
+        group->appendChild(itemMinimizeEffect);
+        HorizontalModule *hor = new HorizontalModule(QString(), QString());
         appendChild(hor);
         hor->appendChild(new ItemModule("transparencyEffect", tr("Transparency"), this, &PersonalizationDesktopModule::initTransparentEffect, false));
         hor->appendChild(new ItemModule("roundedEffect", tr("Rounded Corner"), this, &PersonalizationDesktopModule::initRoundEffect, false));
+        itemMinimizeEffect->setVisible(m_model->is3DWm());
+        hor->setVisible(m_model->is3DWm());
+        connect(m_model, &PersonalizationModel::wmChanged, itemMinimizeEffect, &ItemModule::setVisible);
+        connect(m_model, &PersonalizationModel::wmChanged, hor, &ItemModule::setVisible);
     }
 }
 

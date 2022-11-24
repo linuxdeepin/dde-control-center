@@ -151,9 +151,8 @@ void GeneralModule::initUI()
         },false));
     //　节能设置
     auto powerLowerBrightnessLabel = new TitleModule("powerSavingSettingsTitle", tr("Power Saving Settings"));
-    connect(m_model, &PowerModel::haveBettaryChanged, powerLowerBrightnessLabel, [powerLowerBrightnessLabel] (bool haveBettary) {
-        powerLowerBrightnessLabel->setHidden(!haveBettary);
-    });
+    powerLowerBrightnessLabel->setVisible(m_model->haveBettary());
+    connect(m_model, &PowerModel::haveBettaryChanged, powerLowerBrightnessLabel, &TitleModule::setVisible);
 
     appendChild(powerLowerBrightnessLabel);
     SettingsGroupModule *group = new SettingsGroupModule("powerSavingSettingsGroup", tr("Power Saving Settings"));
@@ -169,10 +168,8 @@ void GeneralModule::initUI()
                            connect(lowPowerAutoIntoSaveEnergyMode, &DSwitchButton::checkedChanged, this, &GeneralModule::requestSetPowerSavingModeAutoWhenQuantifyLow);
                            return lowPowerAutoIntoSaveEnergyMode;
                        });
-    itemAutoPowerSavingOnLowBattery->setHidden(!m_model->haveBettary());
-    connect(m_model, &PowerModel::haveBettaryChanged, itemAutoPowerSavingOnLowBattery, [itemAutoPowerSavingOnLowBattery] (bool haveBettary) {
-        itemAutoPowerSavingOnLowBattery->setHidden(!haveBettary);
-    });
+    itemAutoPowerSavingOnLowBattery->setVisible(m_model->haveBettary());
+    connect(m_model, &PowerModel::haveBettaryChanged, itemAutoPowerSavingOnLowBattery, &ItemModule::setVisible);
     group->appendChild(itemAutoPowerSavingOnLowBattery);
 
     ItemModule *itemAutoPowerSavingOnBattery =
@@ -184,12 +181,9 @@ void GeneralModule::initUI()
                            connect(autoIntoSaveEnergyMode, &DSwitchButton::checkedChanged, this, &GeneralModule::requestSetPowerSavingModeAuto);
                            return autoIntoSaveEnergyMode;
                        });
-    itemAutoPowerSavingOnBattery->setHidden(!m_model->haveBettary());
-    connect(m_model, &PowerModel::haveBettaryChanged, itemAutoPowerSavingOnBattery, [itemAutoPowerSavingOnBattery] (bool haveBettary) {
-        itemAutoPowerSavingOnBattery->setHidden(!haveBettary);
-    });
+    itemAutoPowerSavingOnBattery->setVisible(m_model->haveBettary());
+    connect(m_model, &PowerModel::haveBettaryChanged, itemAutoPowerSavingOnBattery, &ItemModule::setVisible);
     group->appendChild(itemAutoPowerSavingOnBattery);
-
 
     group->appendChild(new ItemModule("decreaseBrightness", tr("Decrease Brightness"),
         [this] (ModuleObject *module) -> QWidget*{
