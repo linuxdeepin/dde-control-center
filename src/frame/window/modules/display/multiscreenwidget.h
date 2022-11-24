@@ -7,6 +7,7 @@
 
 #include "interface/namespace.h"
 #include "widgets/titlelabel.h"
+#include <DTipLabel>
 
 class Resolution;
 
@@ -36,6 +37,7 @@ namespace DCC_NAMESPACE {
 
 namespace display {
 class BrightnessWidget;
+class ColorTempWidget;
 class ScalingWidget;
 class ResolutionWidget;
 class RefreshRateWidget;
@@ -109,6 +111,9 @@ private:
     ResolutionWidget *m_resolutionWidget;
     RefreshRateWidget *m_refreshRateWidget;
     RotateWidget *m_rotateWidget;
+    ColorTempWidget *m_colortempWidget;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_multiTips;
+    QSpacerItem *m_multiTipsSpacerItem;
 
     dcc::display::DisplayModel *m_model;
 

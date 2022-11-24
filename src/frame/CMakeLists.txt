@@ -109,6 +109,7 @@ set(WINDOW_FILES
     window/modules/display/scalingwidget.cpp
     window/modules/display/resolutionwidget.cpp
     window/modules/display/brightnesswidget.cpp
+    window/modules/display/colortempwidget.cpp
     window/modules/display/rotatewidget.cpp
     window/modules/display/refreshratewidget.cpp
     window/modules/display/multiscreenwidget.cpp
