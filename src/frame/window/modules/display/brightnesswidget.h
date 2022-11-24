@@ -21,9 +21,7 @@ QT_END_NAMESPACE
 namespace dcc {
 
 namespace widgets {
-class TipsLabel;
 class SwitchWidget;
-class SettingsGroup;
 class TitledSliderItem;
 } // namespace widgets
 
@@ -47,20 +45,15 @@ public:
 
 public:
     void setMode(dcc::display::DisplayModel *model);
-    void setAdjustCCTmode(int mode);
     void showBrightness(dcc::display::Monitor *monitor = nullptr);
 
 Q_SIGNALS:
     void requestSetMonitorBrightness(dcc::display::Monitor *monitor, const double brightness);
     void requestAmbientLightAdjustBrightness(const bool able);
-    void requestSetColorTemperature(const int value);
-    void requestSetMethodAdjustCCT(const int mode);
 
 private:
     void addSlider();
-    int colorTemperatureToValue(int kelvin);
     QString brightnessToTickInterval(const double tb) const;
-    void setColorTemperatureVisible(bool visible);
 
 private:
     dcc::display::DisplayModel *m_displayModel;
@@ -69,17 +62,6 @@ private:
     TitleLabel *m_brightnessTitle;
     QSpacerItem *m_autoLightSpacerItem;
     dcc::widgets::SwitchWidget *m_autoLightMode;
-    QSpacerItem *m_colorSpacerItem;
-    QWidget *m_tempratureColorWidget;
-    TitleLabel *m_tempratureColorTitle;
-    dcc::widgets::SwitchWidget *m_nightShift;
-    DTK_WIDGET_NAMESPACE::DTipLabel *m_nightTips;
-    dcc::widgets::SettingsGroup *m_settingsGroup;
-    dcc::widgets::SwitchWidget *m_nightManual;
-    dcc::widgets::TitledSliderItem *m_cctItem;
-    QSpacerItem *m_nightShiftSpacerItem;
-    QSpacerItem *m_nightTipsSpacerItem;
-    QSpacerItem *m_nightManualSpacerItem;
 
     int m_miniScales = 0;
     QMap<dcc::display::Monitor *, QWidget *> m_monitorBrightnessMap;

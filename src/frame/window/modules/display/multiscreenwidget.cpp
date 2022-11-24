@@ -4,6 +4,7 @@
 
 #include "multiscreenwidget.h"
 #include "brightnesswidget.h"
+#include "colortempwidget.h"
 #include "scalingwidget.h"
 #include "resolutionwidget.h"
 #include "refreshratewidget.h"
@@ -43,11 +44,13 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_primaryCombox(new QComboBox(m_primarySettingsItem))
     , m_brightnessSpacerItem(new QSpacerItem(0, 20))
     , m_brightnessWidget(new BrightnessWidget(this))
+    , m_colortempWidget(new ColorTempWidget(this))
     , m_scalingWidget(new ScalingWidget(this))
     , m_resolutionWidget(new ResolutionWidget(300, this))
     , m_refreshRateWidget(new RefreshRateWidget(300, this))
     , m_rotateWidget(new RotateWidget(300, this))
     , m_model(nullptr)
+    , m_multiTipsSpacerItem(new QSpacerItem(0,6))
 {
     //初始化列表无法进行静态翻译
     //~ contents_path /display/Multiple Displays
@@ -91,16 +94,28 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_primarySettingsItem);
 
+    m_multiTips = new DTipLabel(tr("Set the display settings of other screens in the windows on corresponding screens."));
+    m_multiTips->setForegroundRole(DPalette::TextTips);
+    m_multiTips->setWordWrap(true);
+    m_multiTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    m_multiTips->adjustSize();
+    m_multiTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+    m_multiTips->setContentsMargins(10, 0, 0, 0);
+    m_contentLayout->addSpacerItem(m_multiTipsSpacerItem);
+    m_contentLayout->addWidget(m_multiTips);
+
     m_contentLayout->addSpacerItem(m_brightnessSpacerItem);
     m_contentLayout->addWidget(m_brightnessWidget);
     m_contentLayout->addSpacing(20);
-    m_contentLayout->addWidget(m_scalingWidget);
-    m_contentLayout->addSpacing(30);
     m_contentLayout->addWidget(m_resolutionWidget);
     m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_refreshRateWidget);
     m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_rotateWidget);
+    m_contentLayout->addSpacing(20);
+    m_contentLayout->addWidget(m_scalingWidget);
+    m_contentLayout->addSpacing(20);
+    m_contentLayout->addWidget(m_colortempWidget);
     m_contentLayout->addStretch();
 
     setLayout(m_contentLayout);
@@ -163,13 +178,21 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     initModeList();
     initPrimaryList();
 
+    bool showTips = (model->displayMode() == EXTEND_MODE);
+    m_multiTips->setVisible(showTips);
+    m_multiTipsSpacerItem->changeSize(0, showTips ? 6 : 0);
+
     connect(m_model, &DisplayModel::displayModeChanged, m_monitorControlWidget, &MonitorControlWidget::setScreensMerged);
     connect(m_model, &DisplayModel::displayModeChanged, this, [=](const int mode) {
+        bool showTips = (mode == EXTEND_MODE);
+        m_multiTips->setVisible(showTips);
+        m_multiTipsSpacerItem->changeSize(0, showTips ? 6 : 0);
         if (mode == MERGE_MODE) {
             m_modeCombox->setCurrentIndex(0);
             m_primarySettingsItem->setVisible(false);
             m_brightnessWidget->showBrightness();
             m_brightnessWidget->setVisible(m_model->brightnessEnable());
+            m_colortempWidget->setVisible(m_model->brightnessEnable());
             m_monitorControlWidget->setModel(m_model);
             for (auto dlg : m_secondaryScreenDlgList) {
                 dlg->deleteLater();
@@ -249,6 +272,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
                 QTimer::singleShot(1000, this, [=] { m_fullIndication->setVisible(false); });
                 m_brightnessSpacerItem->changeSize(0, monitor->canBrightness() ? 20 : 0);
                 m_brightnessWidget->setVisible(monitor->canBrightness());
+                m_colortempWidget->setVisible(monitor->canBrightness());
                 break;
             }
         }
@@ -263,6 +287,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
         const bool visible = enable && m_model->primaryMonitor() && m_model->primaryMonitor()->canBrightness();
         m_brightnessSpacerItem->changeSize(0, visible ? 20 : 0);
         m_brightnessWidget->setVisible(visible);
+        m_colortempWidget->setVisible(visible);
     });
 
     connect(m_monitorControlWidget, &MonitorControlWidget::requestMonitorPress, this, &MultiScreenWidget::onMonitorPress);
@@ -285,16 +310,16 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
         Q_EMIT requestSetPrimary(m_primaryCombox->itemText(idx));
     });
 
-    connect(m_brightnessWidget, &BrightnessWidget::requestSetColorTemperature, this, &MultiScreenWidget::requestSetColorTemperature);
     connect(m_brightnessWidget, &BrightnessWidget::requestSetMonitorBrightness, this, &MultiScreenWidget::requestSetMonitorBrightness);
     connect(m_brightnessWidget, &BrightnessWidget::requestAmbientLightAdjustBrightness, this, &MultiScreenWidget::requestAmbientLightAdjustBrightness);
-    connect(m_brightnessWidget, &BrightnessWidget::requestSetMethodAdjustCCT, this, &MultiScreenWidget::requestSetMethodAdjustCCT);
     connect(m_scalingWidget, &ScalingWidget::requestUiScaleChange, this, &MultiScreenWidget::requestUiScaleChange);
     connect(m_resolutionWidget, &ResolutionWidget::requestSetResolution, this, &MultiScreenWidget::requestSetResolution);
     connect(m_resolutionWidget, &ResolutionWidget::requestSetFillMode, this, &MultiScreenWidget::requestSetFillMode);
     connect(m_resolutionWidget, &ResolutionWidget::requestCurrFillModeChanged, this, &MultiScreenWidget::requestCurrFillModeChanged);
     connect(m_refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &MultiScreenWidget::requestSetResolution);
     connect(m_rotateWidget, &RotateWidget::requestSetRotate, this, &MultiScreenWidget::requestSetRotate);
+    connect(m_colortempWidget, &ColorTempWidget::requestSetColorTemperature, this, &MultiScreenWidget::requestSetColorTemperature);
+    connect(m_colortempWidget, &ColorTempWidget::requestSetMethodAdjustCCT, this, &MultiScreenWidget::requestSetMethodAdjustCCT);
 
     connect(this, &MultiScreenWidget::requestRecognize, this, &MultiScreenWidget::onRequestRecognize);
 
@@ -312,6 +337,8 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     m_resolutionWidget->setModel(m_model, m_model->primaryMonitor());
     m_refreshRateWidget->setModel(m_model, m_model->primaryMonitor());
     m_rotateWidget->setModel(m_model, m_model->primaryMonitor());
+    m_colortempWidget->setMode(m_model);
+    m_colortempWidget->setVisible(brightnessIsEnabled);
 
     initSecondaryScreenDialog();
 }

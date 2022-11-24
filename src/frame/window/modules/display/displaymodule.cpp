@@ -5,6 +5,7 @@
 #include "displaymodule.h"
 #include "displaywidget.h"
 #include "brightnesswidget.h"
+#include "colortempwidget.h"
 #include "scalingwidget.h"
 #include "resolutionwidget.h"
 #include "refreshratewidget.h"
@@ -215,20 +216,10 @@ void DisplayModule::showSingleScreenWidget()
     });
     const bool brightnessIsEnabled = m_displayModel->brightnessEnable() && canBrightness;
     brightnessWidget->setVisible(brightnessIsEnabled);
-    connect(brightnessWidget, &BrightnessWidget::requestSetColorTemperature, m_displayWorker, &DisplayWorker::setColorTemperature);
     connect(brightnessWidget, &BrightnessWidget::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
     connect(brightnessWidget, &BrightnessWidget::requestAmbientLightAdjustBrightness, m_displayWorker, &DisplayWorker::setAmbientLightAdjustBrightness);
-    connect(brightnessWidget, &BrightnessWidget::requestSetMethodAdjustCCT, m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
 
-    QSpacerItem *scalingSpacerItem = new QSpacerItem(0, brightnessIsEnabled? 20 : 0);
-    contentLayout->addSpacerItem(scalingSpacerItem);
-
-    ScalingWidget *scalingWidget = new ScalingWidget(singleScreenWidget);
-    scalingWidget->setModel(m_displayModel);
-    contentLayout->addWidget(scalingWidget);
-    connect(scalingWidget, &ScalingWidget::requestUiScaleChange, m_displayWorker, &DisplayWorker::setUiScale);
-
-    QSpacerItem *resolutionSpacerItem = new QSpacerItem(0, 30);
+    QSpacerItem *resolutionSpacerItem = new QSpacerItem(0, 20);
     contentLayout->addSpacerItem(resolutionSpacerItem);
 
     ResolutionWidget *resolutionWidget = new ResolutionWidget(300, singleScreenWidget);
@@ -258,12 +249,28 @@ void DisplayModule::showSingleScreenWidget()
     contentLayout->addWidget(rotateWidget);
     connect(rotateWidget, &RotateWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
 
+    ScalingWidget *scalingWidget = new ScalingWidget(singleScreenWidget);
+    scalingWidget->setModel(m_displayModel);
+    contentLayout->addSpacing(20);
+    contentLayout->addWidget(scalingWidget);
+    connect(scalingWidget, &ScalingWidget::requestUiScaleChange, m_displayWorker, &DisplayWorker::setUiScale);
+
+    QSpacerItem *colortempSpacerItem = new QSpacerItem(0, 20);
+    contentLayout->addSpacerItem(colortempSpacerItem);
+
+    ColorTempWidget *colortempWidget = new ColorTempWidget(singleScreenWidget);
+    colortempWidget->setMode(m_displayModel);
+    contentLayout->addWidget(colortempWidget);
+    colortempWidget->setVisible(brightnessIsEnabled);
+    connect(colortempWidget, &ColorTempWidget::requestSetColorTemperature, m_displayWorker, &DisplayWorker::setColorTemperature);
+    connect(colortempWidget, &ColorTempWidget::requestSetMethodAdjustCCT, m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
+
     contentLayout->addStretch();
 
     singleScreenWidget->setLayout(contentLayout);
     m_displayWidget->setContent(singleScreenWidget);
 
-    connect(m_displayModel, &DisplayModel::brightnessEnableChanged, this, [brightnessWidget, scalingSpacerItem, this](const bool enable) {
+    connect(m_displayModel, &DisplayModel::brightnessEnableChanged, this, [brightnessWidget, colortempWidget, resolutionSpacerItem, this](const bool enable) {
         bool canBrightness = std::any_of(m_displayModel->monitorList().begin(), m_displayModel->monitorList().end(), [](Monitor* moi){
             if(moi->enable()){
                 return moi->canBrightness();
@@ -272,8 +279,9 @@ void DisplayModule::showSingleScreenWidget()
         });
 
         const bool visible = enable && canBrightness;
-        scalingSpacerItem->changeSize(0, visible ? 20 : 0);
+        resolutionSpacerItem->changeSize(0, visible ? 20 : 0);
         brightnessWidget->setVisible(visible);
+        colortempWidget->setVisible(visible);
     });
 }
 
