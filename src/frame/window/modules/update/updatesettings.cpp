@@ -401,7 +401,7 @@ void UpdateSettings::setModel(UpdateModel *model)
     setAutoCheckEnable(m_autoCheckSecureUpdate->checked() || m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {
+    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem  && !IsEducationSystem && !IsDeepinDesktop) {
         connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
         m_sourceCheck->setChecked(model->sourceCheck());
     }

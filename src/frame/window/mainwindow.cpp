@@ -374,7 +374,7 @@ void MainWindow::initAllModule(const QString &m)
         { new CommonInfoModule(this), tr("General Settings")},
     };
     // V20 对Deepinid 进行差异化处理  UnionID 走插件化
-    if (!IsProfessionalSystem) {
+    if (!IsProfessionalSystem && !IsEducationSystem && !IsHomeSystem) {
          m_modules.insert(3, {new SyncModule(this), DSysInfo::isCommunityEdition() ? "Deepin ID" : "UOS ID"});
     }
     //读取加载一级菜单的插件
