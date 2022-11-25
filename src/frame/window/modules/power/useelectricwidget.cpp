@@ -140,7 +140,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::po
 
         int option = m_cmbPowerBtn->comboBox()->itemData(nIndex).toInt();
 
-        if (option < PowerModel::Shutdown || option > PowerModel::ShowSessionUI) {
+        if (option < PowerModel::Shutdown || option > PowerModel::DoNothing) {
             return;
         }
 
@@ -159,7 +159,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent, dcc::po
 
         int option = m_cmbCloseLid->comboBox()->itemData(nIndex).toInt();
 
-        if (option < PowerModel::Shutdown || option > PowerModel::ShowSessionUI) {
+        if (option < PowerModel::Shutdown || option > PowerModel::DoNothing) {
             return;
         }
 
@@ -336,13 +336,13 @@ void UseElectricWidget::updatePowerButtonActionList()
         options.insert(PowerModel::Hibernate, tr("Hibernate"));
     }
     options.insert(PowerModel::TurnOffScreen, tr("Turn off the monitor"));
-    options.insert(PowerModel::ShowSessionUI, tr("Do nothing"));
+    options.insert(PowerModel::ShowSessionUI, tr("Show the shutdown interface"));
+    options.insert(PowerModel::DoNothing, tr("Do nothing"));
     setComboxOption(m_cmbPowerBtn, options);
     m_cmbPowerBtn->addBackground();
     // 合盖操作无关机选项
-    if (m_model->getShutdown()) {
-        options.remove(PowerModel::Shutdown);
-    }
+    options.remove(PowerModel::Shutdown);
+    options.remove(PowerModel::ShowSessionUI);
     setComboxOption(m_cmbCloseLid, options);
     m_cmbCloseLid->addBackground();
 }

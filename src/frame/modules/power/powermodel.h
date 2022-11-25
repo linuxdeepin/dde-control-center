@@ -23,7 +23,8 @@ public:
         Suspend = 1,
         Hibernate = 2,
         TurnOffScreen = 3,
-        ShowSessionUI = 4
+        ShowSessionUI = 4,
+        DoNothing = 5
     };
 
 public:
