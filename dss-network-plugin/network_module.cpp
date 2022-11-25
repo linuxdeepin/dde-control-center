@@ -223,7 +223,9 @@ bool NetworkModule::eventFilter(QObject *watched, QEvent *e)
     switch (e->type()) {
     case QEvent::ParentChange: {
         TrayIcon *trayIcon = qobject_cast<TrayIcon *>(watched);
-        if (!trayIcon || !trayIcon->parent() || (trayIcon->parent()->metaObject()->className() != QString("FlotingButton")))
+        // ParentChange可能会进来多次，只需要处理父对象是FloatingButton的情况
+        // FIXME 这种写法增加了与dde-session-shell的耦合性
+        if (!trayIcon || !trayIcon->parent() || (trayIcon->parent()->metaObject()->className() != QString("FloatingButton")))
             break;
         if (!m_isLockModel)
             NotificationManager::InstallEventFilter(trayIcon);
