@@ -25,7 +25,6 @@
 #include "powermodel.h"
 #include "powerworker.h"
 #include "settingsgroupmodule.h"
-#include "src/plugin-notification/window/notificationwidget.h"
 #include "titlemodule.h"
 #include "titlevalueitem.h"
 #include "widgets/comboxwidget.h"
@@ -284,15 +283,19 @@ void UseBatteryModule::initUI()
                                   << "15%"
                                   << "20%"
                                   << "25%";
+                           QVector<int> bindValues{10, 15, 20, 25};
                            cmbLowBatteryHint->addItems(levels);
-                           if (m_model->lowPowerNotifyThreshold() < cmbLowBatteryHint->count()) {
-                               cmbLowBatteryHint->setCurrentIndex(m_model->lowPowerNotifyThreshold());
+                           if (bindValues.indexOf(m_model->lowPowerNotifyThreshold()) < cmbLowBatteryHint->count()) {
+                               cmbLowBatteryHint->setCurrentIndex(bindValues.indexOf(m_model->lowPowerNotifyThreshold()));
                            }
-                           connect(cmbLowBatteryHint, QOverload<int>::of(&DComboBox::currentIndexChanged), this, [=](int value) {
-                               if (value < cmbLowBatteryHint->count())
-                                   Q_EMIT requestSetLowPowerNotifyThreshold(value);
+                           connect(cmbLowBatteryHint, QOverload<int>::of(&DComboBox::currentIndexChanged), this, [=](int index) {
+                               if (bindValues.count() > index)
+                                   Q_EMIT requestSetLowPowerNotifyThreshold(bindValues.value(index));
                            });
-                           connect(m_model, &PowerModel::lowPowerNotifyThresholdChanged, cmbLowBatteryHint, &DComboBox::setCurrentIndex);
+                           connect(m_model, &PowerModel::lowPowerNotifyThresholdChanged, cmbLowBatteryHint, [=](int value) {
+                               if (bindValues.contains(value))
+                                   cmbLowBatteryHint->setCurrentIndex(bindValues.indexOf(value));
+                           });
                            return cmbLowBatteryHint;
                        });
     itemLowBatteryHint->setHidden(!(m_model->haveBettary() && m_model->lowPowerNotifyEnable()));
@@ -311,15 +314,15 @@ void UseBatteryModule::initUI()
                     levels.append(QString("%1\%").arg(i + 1));
                 }
                 cmbAutoSuspend->addItems(levels);
-                if (m_model->lowPowerAutoSleepThreshold() < cmbAutoSuspend->count()) {
-                    cmbAutoSuspend->setCurrentIndex(m_model->lowPowerAutoSleepThreshold());
+                if (m_model->lowPowerAutoSleepThreshold() <= cmbAutoSuspend->count()) {
+                    cmbAutoSuspend->setCurrentIndex(m_model->lowPowerAutoSleepThreshold() - 1);
                 }
-                connect(cmbAutoSuspend, QOverload<int>::of(&DComboBox::currentIndexChanged), this, [=](int value) {
-                    if (value < cmbAutoSuspend->count())
-                        Q_EMIT requestSetLowPowerAutoSleepThreshold(value);
+                connect(cmbAutoSuspend, QOverload<int>::of(&DComboBox::currentIndexChanged), this, [=](int index) {
+                    if (index < cmbAutoSuspend->count())
+                        Q_EMIT requestSetLowPowerAutoSleepThreshold(index + 1);
                 });
                 connect(m_model, &PowerModel::lowPowerAutoSleepThresholdChanged, cmbAutoSuspend, [=] (const int value){
-                    cmbAutoSuspend->setCurrentIndex(value);
+                    cmbAutoSuspend->setCurrentIndex(value - 1);
                 });
                 return cmbAutoSuspend;
             });
