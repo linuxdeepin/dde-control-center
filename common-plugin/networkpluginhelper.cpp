@@ -427,7 +427,8 @@ void NetworkPluginHelper::onActiveConnectionChanged()
                 if (wsSetting && NetworkManager::WirelessSecuritySetting::KeyMgmt::Unknown == wsSetting->keyMgmt()) {
                     for (auto ap : wireless->accessPointItems()) {
                         if (ap->ssid() == wSetting->ssid() && ap->secured() && ap->strength() > 0) {
-                            m_networkDialog->setConnectWireless(wireless->path(), ap->ssid());
+                            // 隐藏网络逻辑是要输入密码重连，所以后端无等待，前端重连
+                            m_networkDialog->setConnectWireless(wireless->path(), ap->ssid(), false);
                             break;
                         }
                     }

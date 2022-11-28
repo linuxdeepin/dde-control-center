@@ -228,19 +228,11 @@ void WirelessConnect::connectNetwork()
     activateConnection();
 }
 
-bool WirelessConnect::connectNetworkPassword(const QString password)
+void WirelessConnect::connectNetworkPassword(const QString password)
 {
     initConnection();
-
-    WirelessSecuritySetting::Ptr wsSetting = m_connectionSettings->setting(Setting::WirelessSecurity).dynamicCast<WirelessSecuritySetting>();
-    if (wsSetting && !wsSetting->isNull()) {
-        return false;
-    }
-
     setPassword(password);
     activateConnection();
-
-    return true;
 }
 
 void WirelessConnect::activateConnection()

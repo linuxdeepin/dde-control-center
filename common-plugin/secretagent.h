@@ -60,7 +60,7 @@ public:
 
 Q_SIGNALS:
     void secretsError(const QString &connectionPath, const QString &message) const;
-    void requestPassword(const QString &dev, const QString &ssid);
+    void requestPassword(const QString &dev, const QString &ssid, bool wait);
 
 public Q_SLOTS:
     NMVariantMapMap GetSecrets(const NMVariantMapMap &, const QDBusObjectPath &, const QString &, const QStringList &, uint) override;

@@ -66,12 +66,12 @@ QWidget *NetworkDialog::panel()
     return m_panel->itemApplet();
 }
 
-void NetworkDialog::setConnectWireless(const QString &dev, const QString &ssid)
+void NetworkDialog::setConnectWireless(const QString &dev, const QString &ssid, bool wait)
 {
     m_connectDev = dev;
     m_connectSsid = ssid;
     Q_EMIT requestShow();
-    m_panel->passwordError(dev,ssid);
+    m_panel->passwordError(dev, ssid, wait);
 }
 
 void NetworkDialog::newConnectionHandler()

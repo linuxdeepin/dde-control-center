@@ -47,9 +47,9 @@ public:
     ~NetworkPanel() override;
 
     QWidget *itemApplet();
-    void passwordError(const QString &dev, const QString &ssid);
+    void passwordError(const QString &dev, const QString &ssid, bool wait = true);
 
-    void changePassword(const QString &key, const QString &password, bool input);
+    bool changePassword(const QString &key, const QString &password, bool input);
     QString ssidWaitingForPassword() const;
     bool closeOnClear() const;
     void setCloseOnClear(bool closeOnClear);
@@ -97,6 +97,7 @@ private:
     QSet<QString> m_wirelessDevicePath;
     QString m_reconnectDev;
     QString m_reconnectSsid;
+    bool m_waitPassword;
     DBusAirplaneMode *m_airplaneMode;
     QTimer *m_updateTimer;
 };

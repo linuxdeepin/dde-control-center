@@ -259,7 +259,7 @@ bool SecretAgent::processGetSecrets(SecretsRequest &request)
         m_ssid = connectionSettings->id();
         request.ssid = m_ssid;
         DEBUG_PRINT << "requestPassword" << devPath << connectionSettings->id();
-        Q_EMIT requestPassword(devPath, connectionSettings->id());
+        Q_EMIT requestPassword(devPath, connectionSettings->id(), true);
         return false;
     } else if (isVpn && userRequested) { // just return what we have
         NMVariantMapMap result;

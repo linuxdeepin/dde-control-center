@@ -27,7 +27,7 @@ Q_SIGNALS:
 
 public:
     QWidget *panel();
-    void setConnectWireless(const QString &dev, const QString &ssid);
+    void setConnectWireless(const QString &dev, const QString &ssid, bool wait = true);
     void setServerName(const QString &name);
 
     bool closeOnClear() const;

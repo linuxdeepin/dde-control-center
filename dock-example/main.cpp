@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
     DockTestWidget testPluginWidget;
     QDesktopWidget *deskdop = QApplication::desktop();
-    testPluginWidget.move((deskdop->width() - testPluginWidget.width()) / 2, (deskdop->height() - testPluginWidget.height()) / 2);
+    testPluginWidget.move(100, deskdop->height() - 100);
 
     testPluginWidget.show();
 

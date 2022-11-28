@@ -687,11 +687,12 @@ int NetworkPanel::getStrongestAp()
     return retStrength;
 }
 
-void NetworkPanel::passwordError(const QString &dev, const QString &ssid)
+void NetworkPanel::passwordError(const QString &dev, const QString &ssid, bool wait)
 {
     if (!ssid.isEmpty()) {
         m_reconnectSsid = ssid;
         m_reconnectDev = dev;
+        m_waitPassword = wait;
         clear();
     }
     if (!m_reconnectSsid.isEmpty()) {
@@ -699,9 +700,14 @@ void NetworkPanel::passwordError(const QString &dev, const QString &ssid)
     }
 }
 
-void NetworkPanel::changePassword(const QString &key, const QString &password, bool input)
+bool NetworkPanel::changePassword(const QString &key, const QString &password, bool input)
 {
-    Q_EMIT passwordChanged(key,password,input);
+    if (m_waitPassword) {
+        Q_EMIT passwordChanged(key, password, input);
+        m_waitPassword = false;
+        return true;
+    }
+    return false;
 }
 
 QString NetworkPanel::ssidWaitingForPassword() const

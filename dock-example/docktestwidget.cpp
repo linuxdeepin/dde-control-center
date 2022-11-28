@@ -8,7 +8,7 @@
 #include <QHBoxLayout>
 
 QPointer<DockPopupWindow> DockTestWidget::PopupWindow = nullptr;
-Dock::Position DockTestWidget::DockPosition = Dock::Position::Top;
+Dock::Position DockTestWidget::DockPosition = Dock::Position::Bottom;
 
 DockTestWidget::DockTestWidget(QWidget *parent)
     : QWidget(parent)

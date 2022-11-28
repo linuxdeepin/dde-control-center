@@ -74,7 +74,6 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
-    ${DdeControlCenter_LIBRARIES}
     ${DDE_DOCK_LIBRARIES}
     ${DtkWidget_LIBRARIES}
     ${Qt5Core_LIBRARIES}

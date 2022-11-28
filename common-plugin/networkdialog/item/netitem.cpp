@@ -616,9 +616,13 @@ void WirelessItem::onConnectNetwork()
     QString password = m_passwdEdit->text();
     // 输入无效在checkInputValid里已判断
     if (m_wirelessConnect->passwordIsValid(password)) {
-        if (!m_wirelessConnect->connectNetworkPassword(m_passwdEdit->text()) && m_accessPoint) {
-            m_panel->changePassword(m_accessPoint->ssid(), password, true);
+        if (m_accessPoint) {
+            if (m_panel->changePassword(m_accessPoint->ssid(), password, true)) {
+                expandWidget(ExpandWidget::Hide, false);
+                return;
+            }
         }
+        m_wirelessConnect->connectNetworkPassword(m_passwdEdit->text());
         expandWidget(ExpandWidget::Hide, false);
     }
 }

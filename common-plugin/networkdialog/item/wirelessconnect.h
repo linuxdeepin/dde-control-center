@@ -41,7 +41,7 @@ protected:
 
 public Q_SLOTS:
     void connectNetwork();
-    bool connectNetworkPassword(const QString password);
+    void connectNetworkPassword(const QString password);
 
 Q_SIGNALS:
     void passwordError(const QString oldPassword);
