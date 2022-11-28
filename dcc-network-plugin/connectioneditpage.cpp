@@ -416,8 +416,6 @@ void ConnectionEditPage::createConnSettings()
     case ConnectionSettings::ConnectionType::Wireless: {
         if (m_isHotSpot) {
             connName = tr("Hotspot");
-        } else {
-            connName = tr("Wireless Connection %1");
         }
         m_connectionSettings->setting(Setting::Security8021x).staticCast<Security8021xSetting>()->setPasswordFlags(Setting::None);
         break;

@@ -31,6 +31,9 @@ void WirelessSettings::initSections()
 {
     GenericSection *genericSection = new GenericSection(m_connSettings);
     genericSection->setConnectionNameEditable(false);
+    if (genericSection->connectionName().isEmpty()) {
+        genericSection->setConnectionNameEditable(true);
+    }
 
     SecretWirelessSection *secretSection = new SecretWirelessSection(
         m_connSettings->setting(Setting::SettingType::WirelessSecurity).staticCast<WirelessSecuritySetting>(),
@@ -42,9 +45,6 @@ void WirelessSettings::initSections()
     DNSSection *dnsSection = new DNSSection(m_connSettings);
 
     WirelessSection *wirelessSection = new WirelessSection(m_connSettings, m_connSettings->setting(Setting::SettingType::Wireless).staticCast<WirelessSetting>(), ConnectionEditPage::devicePath());
-    // we need enable ssid text edit since it is a hidden wifi edit page if ssid is empty
-    if (!wirelessSection->ssid().isEmpty())
-        wirelessSection->setSsidEditable(false);
 
     // 不用解绑，需要监控的控件有限，不会无限增长
     GSettingWatcher::instance()->bind("wirelessAutoConnect", genericSection->autoConnItem());
@@ -54,6 +54,7 @@ void WirelessSettings::initSections()
     GSettingWatcher::instance()->bind("wirelessWlan", wirelessSection);
 
     connect(genericSection, &GenericSection::editClicked, this, &WirelessSettings::anyEditClicked);
+    connect(genericSection, &GenericSection::ssidChanged, wirelessSection, &WirelessSection::setSsid);
     connect(secretSection, &Secret8021xSection::editClicked, this, &WirelessSettings::anyEditClicked);
     connect(ipv4Section, &MultiIpvxSection::editClicked, this, &WirelessSettings::anyEditClicked);
     connect(ipv6Section, &MultiIpvxSection::editClicked, this, &WirelessSettings::anyEditClicked);
@@ -71,8 +72,6 @@ void WirelessSettings::initSections()
     connect(ipv4Section, &MultiIpvxSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
     connect(ipv6Section, &MultiIpvxSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
     connect(dnsSection, &DNSSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
-
-    connect(wirelessSection, &WirelessSection::ssidChanged, genericSection, &GenericSection::setConnectionName);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(secretSection);

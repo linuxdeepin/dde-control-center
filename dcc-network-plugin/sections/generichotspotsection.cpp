@@ -42,7 +42,7 @@ void GenericHotspotSection::saveSettings()
 
 void GenericHotspotSection::initUI()
 {
-    m_connIdItem->setTitle(tr("Name"));
+    m_connIdItem->setTitle(tr("Name (SSID)"));
     m_connIdItem->setPlaceholderText(tr("Required"));
     m_connIdItem->setText(m_connSettings->id());
 

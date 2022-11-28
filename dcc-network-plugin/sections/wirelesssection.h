@@ -34,24 +34,16 @@ public:
 
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
-
-    void setSsidEditable(const bool editable);
-    bool ssidIsEditable() const;
-    const QString ssid() const;
     void setSsid(const QString &ssid);
-
-Q_SIGNALS:
-    void ssidChanged(const QString &ssid);
 
 private:
     void initUI();
     void initConnection();
 
     void onCostomMtuChanged(const bool enable);
-    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
-    LineEditWidget *m_apSsid;
+    QString m_ssid;
     QComboBox *m_deviceMacComboBox;
     ComboxWidget *m_deviceMacLine;
     SwitchWidget *m_customMtuSwitch;
