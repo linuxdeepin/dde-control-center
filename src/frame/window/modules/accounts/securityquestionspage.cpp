@@ -62,7 +62,7 @@ void SecurityQuestionsPage::initWidget()
     fontManager->bind(titleLabel, DFontSizeManager::T5, QFont::Medium);
     palrtteTransparency(titleLabel, -10);
 
-    QLabel *messageLabel = new QLabel(tr("These questions will be used to help reset your password in case you forget it."));
+    QLabel *messageLabel = new QLabel(tr("These questions will be used to help reset your password in case you forgot it."));
     fontManager->bind(messageLabel, DFontSizeManager::T6, QFont::Medium);
     messageLabel->setObjectName("MessageLabel");
     messageLabel->setAccessibleName("DDialogMessageLabel");

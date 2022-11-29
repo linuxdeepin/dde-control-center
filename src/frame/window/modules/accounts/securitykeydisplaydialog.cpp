@@ -54,7 +54,7 @@ void SecurityKeyDisplayDialog::initWidget()
     QWidget *widget = new QWidget;
     addContent(widget);
 
-    DLabel *txt = new DLabel(tr("An account security key is a code that can be used to log in to the system if you forget your password. Please copy the code and save it in a safe place."));
+    DLabel *txt = new DLabel(tr("An account security key is a code that can be used to log in to the system if you forgot your password. Please copy the code and save it in a safe place."));
     txt->setAlignment(Qt::AlignHCenter);
     txt->setWordWrap(true);
 
