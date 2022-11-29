@@ -23,6 +23,7 @@
         <file>texts/dcc_wireless6-2_16px.svg</file>
         <file>texts/dcc_wireless6-0_16px.svg</file>
         <file>texts/dcc_wireless_security_20px.svg</file>
+        <file>actions/dcc_importvpn_32px.svg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon_import</title>
+    <g id="桌面版" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="网络5" transform="translate(-1104.000000, -933.000000)">
+            <g id="控制中心备份" transform="translate(0.000000, 1.000000)">
+                <g id="分组-4" transform="translate(739.000000, 60.000000)">
+                    <g id="circlebutton_import备份-4" transform="translate(351.000000, 858.000000)">
+                        <g id="icon_import" transform="translate(14.000000, 14.000000)">
+                            <polygon id="矩形" points="0 0 20 0 20 11.8181818 20 20 0 20"></polygon>
+                            <path d="M8,0 L8,2 L2,2 L2,17 L18,17 L18,12 L20,12 L20,19 L0,19 L0,0 L8,0 Z M18.2221825,0.222182541 L19.7778175,1.77781746 L14.555,6.999 L19,7 L19,9 L11,9 L11,1 L13,1 L12.999,5.445 L18.2221825,0.222182541 Z" id="形状结合" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

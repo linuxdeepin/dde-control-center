@@ -124,10 +124,11 @@ VpnPage::VpnPage(QWidget *parent)
     GSettingWatcher::instance()->bind("createVpn", createVpnBtn);
     buttonsLayout->addWidget(createVpnBtn);
 
-    DFloatingButton *importVpnBtn = new DFloatingButton("\342\206\223", this);
+    DFloatingButton *importVpnBtn = new DFloatingButton(this);
     importVpnBtn->setMinimumSize(QSize(47, 47));
     importVpnBtn->setToolTip(tr("Import VPN"));
     importVpnBtn->setAccessibleName(tr("Import VPN"));
+    importVpnBtn->setIcon(QIcon::fromTheme("dcc_importvpn"));
     GSettingWatcher::instance()->bind("importVpn", importVpnBtn);
     buttonsLayout->addWidget(importVpnBtn);
     buttonsLayout->addStretch();
