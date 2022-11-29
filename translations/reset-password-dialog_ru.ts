@@ -112,7 +112,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/reset-password-dialog/utils.h" line="71"/>
+        <location filename="../src/reset-password-dialog/utils.h" line="97"/>
         <source>It cannot be empty</source>
         <translation>Не может быть пустым</translation>
     </message>
@@ -120,62 +120,74 @@
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="102"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
         <translation>Сброс пароля очистит данные, хранящиеся в связке ключей.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="160"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="207"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="106"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="169"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="227"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="113"/>
-        <source>Security Questions</source>
-        <translation>Секретные вопросы</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="148"/>
-        <source>Reset Password</source>
-        <translation>Сброс пароля</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="149"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="192"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="195"/>
-        <source>Next</source>
-        <translation>Далее</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="152"/>
-        <source>Reset Password By UOS ID</source>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="115"/>
+        <source>Security Keys</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="153"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="192"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="195"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="203"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="210"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="156"/>
+        <source>Wrong security key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <source>Reset Password By Security Key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="211"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="230"/>
         <source>Reset</source>
         <translation>Сброс</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="173"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
         <translation>Сброс пароля приведет к удалению данных, хранящихся в вашей связке ключей, и вам придется снова войти в систему, пожалуйста, сохраните заранее файлы.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="160"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
         <source>Confirm and Reset</source>
         <translation>Подтвердить и Восстановить</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="285"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="216"/>
+        <source>Reset Password By UOS ID</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="306"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Сброс выполнен успешно. Войдите в систему и разблокируйте с помощью нового пароля.</translation>
+    </message>
+</context>
+<context>
+    <name>SecurityKeyWidget</name>
+    <message>
+        <location filename="../src/reset-password-dialog/securitykeywidget.cpp" line="36"/>
+        <source>Security Keys</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/securitykeywidget.cpp" line="42"/>
+        <source>Enter the account security key</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -194,56 +206,6 @@
         <location filename="../src/frame/widgets/securitylevelitem.cpp" line="77"/>
         <source>Strong</source>
         <translation>Сильный</translation>
-    </message>
-</context>
-<context>
-    <name>SecurityQuestionsWidget</name>
-    <message>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="109"/>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="110"/>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="111"/>
-        <source>Required</source>
-        <translation>Требуется</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="113"/>
-        <source>What&apos;s the name of the city where you were born?</source>
-        <translation>Как называется город, где вы родились?</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="114"/>
-        <source>What&apos;s the name of the first school you attended?</source>
-        <translation>Как называется первая школа, в которую ты пошел?</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="115"/>
-        <source>Who do you love the most in this world?</source>
-        <translation>Кого ты любишь больше всего в этом мире?</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="116"/>
-        <source>What&apos;s your favorite animal?</source>
-        <translation>Какое твое любимое животное?</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="117"/>
-        <source>What&apos;s your favorite song?</source>
-        <translation>Какая твоя любимая песня?</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="118"/>
-        <source>What&apos;s your nickname?</source>
-        <translation>Какое у тебя прозвище?</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="168"/>
-        <source>Wrong answer</source>
-        <translation>Неправильный ответ</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="183"/>
-        <source>Keep the answer under 30 characters</source>
-        <translation>В ответе не более 30 символов</translation>
     </message>
 </context>
 <context>
