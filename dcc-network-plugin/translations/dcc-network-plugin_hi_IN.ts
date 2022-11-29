@@ -99,10 +99,6 @@
         <translation>हॉटस्पॉट</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Wireless Connection %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE Connection %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>सामान्य</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>नाम</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -444,6 +440,10 @@
     </message>
     <message>
         <source>The name already exists</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>आवश्यक</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

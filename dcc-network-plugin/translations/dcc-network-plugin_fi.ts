@@ -99,10 +99,6 @@
         <translation>Tukiasema</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Langaton %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE yhteys %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>Yleinen</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>Nimi</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>Nimi on jo olemassa</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>Ei sido</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>Vaadittu</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

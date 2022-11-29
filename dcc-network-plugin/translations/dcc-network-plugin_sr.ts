@@ -99,10 +99,6 @@
         <translation>Врућа тачка</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Бежична веза %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>ПППоЕ веза %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>Опште</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>Име</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>Име већ постоји</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>Није везан</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>ССИД</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>Неопходно</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

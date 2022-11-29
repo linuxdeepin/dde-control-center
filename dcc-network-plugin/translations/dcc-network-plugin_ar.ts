@@ -99,10 +99,6 @@
         <translation>نقطة الإتصال</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>اتصال لاسلكي  %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>اتصال PPPoE %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>عام</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>الاسم</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>الاسم موجود بالفعل</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>لا يوجد جهاز مرتبط بعنوان ال MAC</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID </translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>مطلوب</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

@@ -99,10 +99,6 @@
         <translation>Bağlantı Noktası</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Kablosuz Bağlantı %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE Bağlantısı %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>Genel</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>İsim</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>İsim zaten var</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>Bağlı Değil</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>Gerekli</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

@@ -99,10 +99,6 @@
         <translation>Punto de acceso</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Conexión sen fíos% 1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>Conexión PPPoE% 1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>Xeral</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>Nome</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>O nome xa existe</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>Non vinculante</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>Requirido</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

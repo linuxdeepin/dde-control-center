@@ -99,10 +99,6 @@
         <translation>無線熱點</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>無線網路 %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE 連線 %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>一般</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>名稱</translation>
+        <source>Name (SSID)</source>
+        <translation>名稱（SSID）</translation>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>名稱已存在</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>名稱（SSID）</translation>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>未連結</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>必填</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

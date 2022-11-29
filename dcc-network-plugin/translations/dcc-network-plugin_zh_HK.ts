@@ -99,10 +99,6 @@
         <translation>熱點</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>無線連接 %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE連接 %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>常規設置</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>名稱</translation>
+        <source>Name (SSID)</source>
+        <translation>名稱（SSID）</translation>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>名稱已被佔用</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>名稱（SSID）</translation>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>不指定設備</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>必填</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

@@ -99,10 +99,6 @@
         <translation>Hotspot</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Trådlös Anslutning %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE Anslutning %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>Allmänt</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>Namn</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -444,6 +440,10 @@
     </message>
     <message>
         <source>The name already exists</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>Krävs</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

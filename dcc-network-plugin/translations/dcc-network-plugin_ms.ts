@@ -99,10 +99,6 @@
         <translation>Kawasan Khas</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Sambungan Tanpa Wayar %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>Sambungan PPPoE %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>Am</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>Nama</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>Nama sudah wujud</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>Tidak Diikat</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>Diperlukan</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

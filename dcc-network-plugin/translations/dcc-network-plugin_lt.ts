@@ -99,10 +99,6 @@
         <translation>Prieigos taškas</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Belaidis ryšys %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE ryšys %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>Bendra</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>Pavadinimas</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>Pavadinimas jau yra</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>Nesusietas</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>Būtina</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

@@ -99,10 +99,6 @@
         <translation>Dostopna točka</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Brezžična povezava %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE povezava %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>Splošno</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>Ime</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>To ime že obstaja</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>Brez vezave</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>Obvezno</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

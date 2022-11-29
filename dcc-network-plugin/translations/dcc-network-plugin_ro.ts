@@ -99,10 +99,6 @@
         <translation>Hotspot</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Conexiune fără fir %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>Conexiune PPPoE %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>General</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>Nume</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>Numele există deja</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>Nelegat</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>Necesar</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

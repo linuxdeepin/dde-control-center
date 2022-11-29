@@ -99,10 +99,6 @@
         <translation>Qoşulma nöqtəsi</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Simsiz bağlantı %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE bağlantı %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>Ümumi</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>Ad</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>Bu ad artıq var</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -844,19 +844,19 @@
     </message>
     <message>
         <source>Authentication is required</source>
-        <translation type="unfinished"/>
+        <translation>Kimlik doğrulaması tələb olunur</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>İstifadəçi adı</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Tələb olunur</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Şifrə</translation>
     </message>
     <message>
         <source>HTTP Proxy</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>Qoşulu deyil</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>Tələb olunur</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

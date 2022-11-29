@@ -99,10 +99,6 @@
         <translation>핫스팟</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>무선 연결 %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE 연결 %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>일반</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>이름</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>이름이 이미 존재합니다</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>바인딩 안함</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>필수 항목</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

@@ -99,10 +99,6 @@
         <translation>Điểm truy cập</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Kết nối Không dây: %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>Kết nối PPPoE: %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>Tổng quát</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>tên</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>Tên người dùng đã được sử dụng</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>Not Bind</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>Cần thiết</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

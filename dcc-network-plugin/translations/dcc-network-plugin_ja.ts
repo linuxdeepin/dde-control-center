@@ -99,10 +99,6 @@
         <translation>ホットスポット</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>無線接続 %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE 接続 %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>一般</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>名前</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>この名前はすでに存在します</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>バインドされていません</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>必須</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

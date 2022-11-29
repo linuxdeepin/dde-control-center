@@ -99,10 +99,6 @@
         <translation>ཚ་གནས།</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>སྐུད་མེད་འབྲེལ་མཐུད་%1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoEའབྲེལ་མཐུད་%1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>ཀུན་སྤྱོད།</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>མིང་།</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>མིང་ཡོད་པ།</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>སྒྲིག་ཆས་དམིགས་འཛུགས་མི་བྱེད།</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>ངེས་པར་འབྲི་དགོས། </translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

@@ -99,10 +99,6 @@
         <translation>හොට්ස්පොට්</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>රැහැන් රහිත සම්බන්ධතාවය: %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE සම්බන්ධතාවය %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>පොදු</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>නම</translation>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>නම දැනටමත් පවතී</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>බැඳී නොමැත</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>

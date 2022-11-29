@@ -99,10 +99,6 @@
         <translation>Hotspot</translation>
     </message>
     <message>
-        <source>Wireless Connection %1</source>
-        <translation>Draadloze verbinding %1</translation>
-    </message>
-    <message>
         <source>PPPoE Connection %1</source>
         <translation>PPPoE-verbinding %1</translation>
     </message>
@@ -428,8 +424,8 @@
         <translation>Algemeen</translation>
     </message>
     <message>
-        <source>Name</source>
-        <translation>Naam</translation>
+        <source>Name (SSID)</source>
+        <translation>Naam (SSID)</translation>
     </message>
     <message>
         <source>Required</source>
@@ -445,6 +441,10 @@
     <message>
         <source>The name already exists</source>
         <translation>Deze naam is al in gebruik</translation>
+    </message>
+    <message>
+        <source>Name (SSID)</source>
+        <translation>Naam (SSID)</translation>
     </message>
     <message>
         <source>Name</source>
@@ -1928,14 +1928,6 @@
     <message>
         <source>Not Bind</source>
         <translation>Niet verbonden</translation>
-    </message>
-    <message>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>Vereist</translation>
     </message>
     <message>
         <source>Device MAC Addr</source>
