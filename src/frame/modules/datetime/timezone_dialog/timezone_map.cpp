@@ -124,9 +124,11 @@ void TimezoneMap::resizeEvent(QResizeEvent* event) {
 
   QLabel *background_label = findChild<QLabel*>("background_label");
   if (background_label) {
-      QPixmap timezone_pixmap = loadPixmap(kTimezoneMapFile);
+      // kTimezoneMapFile_Light图片地图区域为黑色，其他区域为白色透明，与浅色主题界面保持一致
+      QPixmap timezone_pixmap = loadPixmap(kTimezoneMapFile_Light);
       if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
-          timezone_pixmap = loadPixmap(kTimezoneMapFile_Light);
+          // kTimezoneMapFile 图片地图区域为白色，其他空白区域为黑色，与深色主题界面保持一致
+          timezone_pixmap = loadPixmap(kTimezoneMapFile);
       }
       background_label->setPixmap(timezone_pixmap.scaled(event->size() * devicePixelRatioF(), Qt::KeepAspectRatio, Qt::FastTransformation));
   }
@@ -157,7 +159,12 @@ void TimezoneMap::initConnections() {
 void TimezoneMap::initUI() {
   QLabel* background_label = new QLabel(this);
   background_label->setObjectName("background_label");
-  QPixmap timezone_pixmap = loadPixmap(kTimezoneMapFile);
+  // kTimezoneMapFile_Light 地图区域为黑色，其他区域为白色透明，与浅色主题界面保持一致
+  QPixmap timezone_pixmap = loadPixmap(kTimezoneMapFile_Light);
+  if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+      // kTimezoneMapFile 地图区域为白色，其他空白区域为黑色，与深色主题界面保持一致
+      timezone_pixmap = loadPixmap(kTimezoneMapFile);
+  }
   Q_ASSERT(!timezone_pixmap.isNull());
   background_label->setPixmap(timezone_pixmap);
 
