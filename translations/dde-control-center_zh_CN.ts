@@ -2,92 +2,92 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="182"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="184"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
         <source>Biometric Authentication</source>
         <translation>生物认证</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="358"/>
         <source>Accounts</source>
         <translation>帐户</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="359"/>
         <source>Display</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="360"/>
         <source>Touch Screen</source>
         <translation>触控屏</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="363"/>
         <source>Notification</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="364"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="357"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="365"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="358"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="366"/>
         <source>Date and Time</source>
         <translation>时间日期</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="359"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="367"/>
         <source>Power</source>
         <translation>电源管理</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="360"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="368"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="369"/>
         <source>Drawing Tablet</source>
         <translation>数位板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="370"/>
         <source>Keyboard and Language</source>
         <translation>键盘和语言</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="364"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="372"/>
         <source>Updates</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="366"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <source>System Info</source>
         <translation>系统信息</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="367"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="375"/>
         <source>General Settings</source>
         <translation>通用</translation>
     </message>
@@ -104,29 +104,29 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="89"/>
         <source>Go to Settings</source>
         <translation>前往设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="293"/>
         <source>Full Name</source>
         <translation>设置全名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="255"/>
         <source>The full name is too long</source>
         <translation>名称过长</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="361"/>
         <source>Validity Days</source>
         <translation>密码有效天数</translation>
         <extra-contents_path>/accounts/Validity Days</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="379"/>
         <source>Security Questions</source>
         <translation>安全问题</translation>
     </message>
@@ -137,59 +137,69 @@
         <extra-contents_path>/accounts/Account Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="458"/>
         <source>Change Password</source>
         <translation>修改密码</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="458"/>
         <source>Reset Password</source>
         <translation>重设密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="456"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="460"/>
         <source>Delete Account</source>
         <translation>删除帐户</translation>
         <extra-contents_path>/accounts/Delete Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="458"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="462"/>
         <source>Auto Login</source>
         <translation>自动登录</translation>
         <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="461"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="465"/>
         <source>Login Without Password</source>
         <translation>无密码登录</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
         <source>Administrator</source>
         <translation>管理员</translation>
         <extra-contents_path>/accounts/Administrator</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="511"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="517"/>
         <source>OK</source>
         <translation>确 定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="512"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="518"/>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
         <translation>只允许一个帐户开启自动登录，请先关闭%1帐户的自动登录，再进行操作</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="653"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="554"/>
+        <source>Enable Security Keys for Accounts</source>
+        <translation>启用帐户安全密钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="555"/>
+        <source>It is used to log in to the system if you forgot your password</source>
+        <translation>用于在忘记密码的时候登录系统</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="758"/>
         <source>Group</source>
         <translation>用户组</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="699"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="707"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="716"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="810"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="818"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="827"/>
         <source>The full name has been used by other user accounts</source>
         <translation>全名与其他帐户的全名/用户名重复</translation>
     </message>
@@ -197,73 +207,79 @@
 <context>
     <name>dccV20::accounts::AccountsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="74"/>
         <source>Accounts</source>
         <translation>帐户</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="146"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
         <source>Create Account</source>
         <translation>创建帐户</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="255"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="309"/>
         <source>Auto Login</source>
         <translation>自动登录</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="259"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="313"/>
         <source>Login Without Password</source>
         <translation>无密码登录</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="149"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="268"/>
         <source>Validity Days</source>
         <translation>密码有效天数</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="150"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="247"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="301"/>
         <source>Change Password</source>
         <translation>修改密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="151"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="251"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="305"/>
         <source>Delete Account</source>
         <translation>删除帐户</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="266"/>
         <source>Account Settings</source>
         <translation>帐户设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="153"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="267"/>
         <source>Administrator</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="154"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="274"/>
         <source>Group</source>
         <translation>用户组</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
         <source>New Account</source>
         <translation>新帐户</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="325"/>
+        <source>Enable Security Keys for Accounts</source>
+        <translation>启用帐户安全密钥</translation>
     </message>
 </context>
 <context>
@@ -565,7 +581,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="65"/>
-        <source>These questions will be used to help reset your password in case you forget it.</source>
+        <source>These questions will be used to help reset your password in case you forgot it.</source>
         <translation>忘记密码时，可使用安全问题重置密码。</translation>
     </message>
     <message>
@@ -652,7 +668,7 @@
 <context>
     <name>dccV20::accounts::UserGroupsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="137"/>
         <source>Group</source>
         <translation>用户组</translation>
         <extra-contents_path>/accounts/Group</extra-contents_path>
@@ -2264,47 +2280,49 @@
 <context>
     <name>dccV20::display::BrightnessWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="42"/>
         <source>Brightness</source>
         <translation>亮度</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="55"/>
-        <source>Color Temperature</source>
-        <translation>色温</translation>
-        <extra-contents_path>/display/Color Temperature</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="50"/>
         <source>Auto Brightness</source>
         <translation>自动调节亮度</translation>
         <extra-contents_path>/display/Auto Brightness</extra-contents_path>
     </message>
+</context>
+<context>
+    <name>dccV20::display::ColorTempWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="48"/>
+        <source>Color Temperature</source>
+        <translation>色温</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="53"/>
         <source>Night Shift</source>
         <translation>自动调节色温</translation>
         <extra-contents_path>/display/Night Shift</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="58"/>
         <source>The screen hue will be auto adjusted according to your location</source>
         <translation>通过获取地址位置来辅助系统实现自动调节屏幕颜色偏色</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="70"/>
         <source>Change Color Temperature</source>
         <translation>手动调节</translation>
         <extra-contents_path>/display/Change Color Temperature</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="71"/>
         <source>Cool</source>
         <translation>较冷</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="71"/>
         <source>Warm</source>
         <translation>较暖</translation>
     </message>
@@ -2312,93 +2330,93 @@
 <context>
     <name>dccV20::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="66"/>
         <source>Display</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="555"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="545"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="618"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="553"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="626"/>
         <source>Auto Brightness</source>
         <translation>自动调节亮度</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="549"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="622"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="557"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="630"/>
         <source>Color Temperature</source>
         <translation>色温</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="550"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="623"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="558"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="631"/>
         <source>Night Shift</source>
         <translation>自动调节色温</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="551"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="624"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="632"/>
         <source>Change Color Temperature</source>
         <translation>手动调节</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="189"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="529"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="560"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="591"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="537"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="568"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="599"/>
         <source>Multiple Displays</source>
         <translation>多屏设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="527"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="558"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="589"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="535"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="566"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="597"/>
         <source>Mode</source>
         <translation>模式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="528"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="559"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="590"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="536"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="567"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="598"/>
         <source>Main Screen</source>
         <translation>主屏幕</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="562"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="593"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="570"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="601"/>
         <source>Refresh Rate</source>
         <translation>刷新率</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="563"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="571"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="603"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="564"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="597"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="572"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="605"/>
         <source>Rotation</source>
         <translation>方向</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="565"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="599"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="573"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="607"/>
         <source>Display Scaling</source>
         <translation>屏幕缩放</translation>
     </message>
@@ -2406,35 +2424,40 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="57"/>
         <source>Multiple Displays</source>
         <translation>多屏设置</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="59"/>
         <source>Mode</source>
         <translation>模式</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="61"/>
         <source>Main Screen</source>
         <translation>主屏幕</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="97"/>
+        <source>Set the display settings of other screens in the windows on corresponding screens.</source>
+        <translation>其他屏幕显示设置请在对应屏幕窗口中设置</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="362"/>
         <source>Duplicate</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="363"/>
         <source>Extend</source>
         <translation>扩展</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="380"/>
         <source>Only on %1</source>
         <translation>仅%1屏</translation>
     </message>
@@ -3261,28 +3284,28 @@
 <context>
     <name>dccV20::personalization::PersonalizationFontsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="49"/>
         <source>Size</source>
         <translation>字号</translation>
         <extra-child_page>Font</extra-child_page>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="74"/>
         <source>Standard Font</source>
         <translation>标准字体</translation>
         <extra-child_page>Font</extra-child_page>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="95"/>
         <source>Monospaced Font</source>
         <translation>等宽字体</translation>
         <extra-child_page>Font</extra-child_page>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="253"/>
         <source> (Unsupported font)</source>
         <translation>(不支持的字体)</translation>
     </message>
@@ -3290,74 +3313,76 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="111"/>
         <source>Theme</source>
         <translation>主题</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="122"/>
         <source>Accent Color</source>
         <translation>活动用色</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="185"/>
         <source>Window Effect</source>
         <translation>窗口特效</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="195"/>
         <source>Transparency</source>
         <translation>透明度调节</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="222"/>
         <source>Window Minimize Effect</source>
         <translation>最小化时效果</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="434"/>
         <source>Scale</source>
         <translation>缩放</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="435"/>
         <source>Magic Lamp</source>
         <translation>魔灯</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="234"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="249"/>
         <source>Show transparency effects when a window is moved</source>
         <translation>窗口移动时启用透明特效</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="320"/>
         <source>Rounded Corner</source>
         <translation>窗口圆角</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="327"/>
         <source>Small</source>
         <translation>小</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="327"/>
         <source>Medium</source>
         <translation>中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="327"/>
         <source>Large</source>
         <translation>大</translation>
     </message>
@@ -3390,95 +3415,95 @@
 <context>
     <name>dccV20::personalization::PersonalizationModule</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="78"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="129"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="224"/>
         <source>General</source>
         <translation>通用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="130"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="225"/>
         <source>Icon Theme</source>
         <translation>图标主题</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="131"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="226"/>
         <source>Cursor Theme</source>
         <translation>光标主题</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="132"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="223"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="244"/>
         <source>Size</source>
         <translation>字号</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
         <source>Standard Font</source>
         <translation>标准字体</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
         <source>Monospaced Font</source>
         <translation>等宽字体</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="254"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="255"/>
         <source>Light</source>
         <translation>浅色</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="256"/>
         <source>Dark</source>
         <translation>深色</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="257"/>
         <source>Auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="258"/>
         <source>Accent Color</source>
         <translation>活动用色</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="259"/>
         <source>Window Effect</source>
         <translation>窗口特效</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="243"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="334"/>
         <source>Transparency</source>
         <translation>透明度调节</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="244"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="318"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="336"/>
         <source>Window Minimize Effect</source>
         <translation>最小化时效果</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="310"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="337"/>
         <source>Show transparency effects when a window is moved</source>
         <translation>窗口移动时启用透明特效</translation>
     </message>
@@ -3843,7 +3868,12 @@
     <name>dccV20::power::UseBatteryWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="45"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="462"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="447"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="461"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="469"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
@@ -3857,7 +3887,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="52"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="89"/>
         <source>Computer will suspend after</source>
         <translation>电脑进入待机模式</translation>
         <extra-child_page>On Battery</extra-child_page>
@@ -3865,7 +3895,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="55"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="104"/>
         <source>Lock screen after</source>
         <translation>自动锁屏</translation>
         <extra-child_page>On Battery</extra-child_page>
@@ -3907,46 +3937,52 @@
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="424"/>
         <source>Shut down</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="421"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="427"/>
         <source>Suspend</source>
         <translation>待机</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="430"/>
         <source>Hibernate</source>
         <translation>休眠</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="426"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="432"/>
         <source>Turn off the monitor</source>
         <translation>关闭显示器</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="433"/>
+        <source>Show the shutdown interface</source>
+        <translation>进入关机界面</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="434"/>
         <source>Do nothing</source>
         <translation>无任何操作</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="444"/>
-        <source>1 Minute</source>
-        <translation>1 分钟</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="447"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="450"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="453"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="456"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="465"/>
         <source>%1 Minutes</source>
         <translation>%1 分钟</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="459"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="465"/>
+        <source>1 Minute</source>
+        <translation>1 分钟</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="467"/>
+        <source>%1 Hours</source>
+        <translation>%1 小时</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="467"/>
         <source>1 Hour</source>
         <translation>1 小时</translation>
     </message>
@@ -3992,52 +4028,62 @@
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="108"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="370"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="375"/>
         <source>Never</source>
         <translation>从不</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="330"/>
         <source>Shut down</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="333"/>
         <source>Suspend</source>
         <translation>待机</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="336"/>
         <source>Hibernate</source>
         <translation>休眠</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="334"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="338"/>
         <source>Turn off the monitor</source>
         <translation>关闭显示器</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="339"/>
+        <source>Show the shutdown interface</source>
+        <translation>进入关机界面</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="340"/>
         <source>Do nothing</source>
         <translation>无任何操作</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="352"/>
-        <source>1 Minute</source>
-        <translation>1 分钟</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="355"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="358"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="361"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="364"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="371"/>
         <source>%1 Minutes</source>
         <translation>%1 分钟</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="371"/>
+        <source>1 Minute</source>
+        <translation>1 分钟</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="373"/>
+        <source>%1 Hours</source>
+        <translation>%1 小时</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="373"/>
         <source>1 Hour</source>
         <translation>1 小时</translation>
     </message>
@@ -5407,9 +5453,27 @@
         <translation>控制中心</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="37"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="38"/>
         <source>Input Methods</source>
         <translation>输入法</translation>
+    </message>
+</context>
+<context>
+    <name>SecurityKeyDisplayDialog</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
+        <source>Confirm</source>
+        <translation>确定</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="57"/>
+        <source>An account security key is a code that can be used to log in to the system if you forgot your password. Please copy the code and save it in a safe place.</source>
+        <translation>帐户安全密钥是一串代码，用于在忘记密码时登录系统，请拷贝此代码并保存到安全的位置</translation>
     </message>
 </context>
 <context>
@@ -5461,32 +5525,32 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="674"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="724"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>您的主机成功退出了域服务器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="675"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="725"/>
         <source>Your host joins the domain server successfully</source>
         <translation>您的主机成功加入了域服务器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="703"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="753"/>
         <source>Your host failed to leave the domain server</source>
         <translation>您的主机退出域服务器失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="704"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="754"/>
         <source>Your host failed to join the domain server</source>
         <translation>您的主机加入域服务器失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="707"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="757"/>
         <source>AD domain settings</source>
         <translation>AD域设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="776"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="826"/>
         <source>Password not match</source>
         <translation>密码不一致</translation>
     </message>
@@ -5866,12 +5930,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>dcc::datetime::DatetimeWork</name>
     <message>
-        <location filename="../src/frame/modules/datetime/datetimework.cpp" line="254"/>
+        <location filename="../src/frame/modules/datetime/datetimework.cpp" line="258"/>
         <source>Authentication is required to set the system timezone</source>
         <translation>设置系统时区需要认证</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/datetimework.cpp" line="274"/>
+        <location filename="../src/frame/modules/datetime/datetimework.cpp" line="278"/>
         <source>Authentication is required to change NTP server</source>
         <translation>修改时间服务器需要认证</translation>
     </message>
@@ -5885,22 +5949,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="42"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="203"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="199"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="203"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="200"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="202"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="206"/>
         <source>Change Timezone</source>
         <translation>修改系统时区</translation>
     </message>
@@ -5974,22 +6038,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="99"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="111"/>
         <source>Shortcut</source>
         <translation>快捷键</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="102"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="114"/>
         <source>Name</source>
         <translation>名称</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="103"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="115"/>
         <source>Command</source>
         <translation>命令</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="120"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="132"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
@@ -6010,21 +6074,21 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>dcc::keyboard::KeyboardLayoutWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="29"/>
-        <source>Add Keyboard Layout</source>
-        <translation>添加键盘布局</translation>
-        <extra-child_page>Keyboard Layout</extra-child_page>
-        <extra-contents_path>/keyboard/Keyboard Layout/Add Keyboard Layout</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="46"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="48"/>
         <source>Add</source>
         <translation>添加</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="65"/>
+        <source>Add Keyboard Layout</source>
+        <translation>添加键盘布局</translation>
+        <extra-child_page>Keyboard Layout</extra-child_page>
+        <extra-contents_path>/keyboard/Keyboard Layout/Add Keyboard Layout</extra-contents_path>
     </message>
 </context>
 <context>
