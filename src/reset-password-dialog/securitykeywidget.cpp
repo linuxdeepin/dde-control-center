@@ -33,7 +33,7 @@ QString SecurityKeyWidget::getInputSecurityKey()
 void SecurityKeyWidget::initWidget()
 {
     QVBoxLayout *layout = new QVBoxLayout;
-    QLabel *securityKeyLabel = new QLabel(tr("Security Key") + ":");
+    QLabel *securityKeyLabel = new QLabel(tr("Security Keys") + ":");
     QHBoxLayout *securityKeyLabelLayout = new QHBoxLayout;
     securityKeyLabelLayout->addWidget(securityKeyLabel);
     securityKeyLabelLayout->addSpacing(80);

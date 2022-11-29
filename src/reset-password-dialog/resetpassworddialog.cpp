@@ -112,7 +112,7 @@ void ResetPasswordDialog::initWidget(const QString &userName)
     mainContentLayout->setMargin(0);
 
     m_buttonBox = new DButtonBox(this);
-    DButtonBoxButton *SecurityKeyBtn = new DButtonBoxButton(tr("Security Key"));
+    DButtonBoxButton *SecurityKeyBtn = new DButtonBoxButton(tr("Security Keys"));
     DButtonBoxButton *uosIdBtn = new DButtonBoxButton("UOS ID");
     uosIdBtn->setFixedSize(SecurityKeyBtn->sizeHint());
     m_buttonBox->setButtonList({SecurityKeyBtn, uosIdBtn }, true);

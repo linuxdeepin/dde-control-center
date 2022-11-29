@@ -552,7 +552,7 @@ void AccountsDetailWidget::initSecurityKey(QVBoxLayout *layout, bool isCurUser)
     SwitchWidget *securityKeySwitch = new SwitchWidget;
     securityKeySwitch->getMainLayout()->setContentsMargins(10, 0, 6, 0);
     securityKeySwitch->setTitle(tr("Enable Security Keys for Accounts"));
-    DTipLabel *securityKeyLabel = new DTipLabel(tr("It is used to log in to the system if you forget your password"), this);
+    DTipLabel *securityKeyLabel = new DTipLabel(tr("It is used to log in to the system if you forgot your password"), this);
     securityKeyLabel->setWordWrap(true);
     securityKeyLabel->setContentsMargins(10, 0, 10, 0);
     securityKeyLabel->setAlignment(Qt::AlignLeft);
