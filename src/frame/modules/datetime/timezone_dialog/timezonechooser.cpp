@@ -66,10 +66,11 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
     handle.setWindowRadius(18);
 
     m_blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
+    // 浅色主题时使用白色透明，让地图空白区域与界面保持一致，而深色主题时使用黑色透明与界面保持一致
     if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
-        m_blurEffect->setMaskColor(Qt::black);
-    } else {
         m_blurEffect->setMaskColor(Qt::white);
+    } else {
+        m_blurEffect->setMaskColor(Qt::black);
     }
 
     DDialogCloseButton *closeButton = new DDialogCloseButton;
