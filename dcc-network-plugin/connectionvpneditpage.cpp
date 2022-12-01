@@ -248,6 +248,7 @@ void ConnectionVpnEditPage::resetConnectionIdByType(ConnectionVpnEditPage::VpnTy
 void ConnectionVpnEditPage::exportConnConfig()
 {
     Q_EMIT requestFrameAutoHide(false);
+    m_saveConfig->selectFile(this->m_connectionSettings->id());
     m_saveConfig->show();
 }
 
