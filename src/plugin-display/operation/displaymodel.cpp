@@ -47,6 +47,8 @@ DisplayModel::DisplayModel(QObject *parent)
     , m_resolutionRefreshEnable(true)
     , m_brightnessEnable(true)
     , m_deviceSharingSwitch(true)
+    , m_openSharedDevices(false)
+    , m_openSharedClipboard(false)
 {
 }
 
@@ -282,4 +284,29 @@ void DisplayModel::checkAllSupportFillModes()
         }
     }
     m_allSupportFillModes = true;
+}
+
+void DisplayModel::setOpenSharedDevices(bool open)
+{
+    if (m_openSharedDevices != open) {
+        m_openSharedDevices = open;
+        Q_EMIT sharedDevicesChanged(m_openSharedDevices);
+    }
+}
+
+void DisplayModel::setOpenSharedClipboard(bool open)
+{
+    if (m_openSharedClipboard != open) {
+        m_openSharedClipboard = open;
+        Q_EMIT sharedClipboardChanged(m_openSharedClipboard);
+    }
+}
+
+void DisplayModel::setFilesStoragePath(const QString &path)
+{
+    if (m_filesStoragePath != path) {
+        m_filesStoragePath = path;
+        Q_EMIT filesStoragePathChanged(m_filesStoragePath);
+    }
+
 }

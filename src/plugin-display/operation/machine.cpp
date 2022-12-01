@@ -27,6 +27,7 @@ Machine::Machine(QObject *parent)
     : QObject(parent)
     , m_paired(false)
     , m_cooperating(false)
+    , m_isHistoryDev(false)
 {
 
 }
@@ -76,5 +77,18 @@ void Machine::setCooperating(const bool cooperating)
 void Machine::setDisconnectStatus(bool status)
 {
     Q_EMIT disconnnectStatusChanged(status);
+}
+
+void Machine::setHistoryStates(bool isHistory)
+{
+    if (m_isHistoryDev != isHistory) {
+        m_isHistoryDev = isHistory;
+        Q_EMIT historyStatusChanged(isHistory);
+    }
+}
+
+void Machine::setUUID(const QString &uuid)
+{
+    m_UUID = uuid;
 }
 

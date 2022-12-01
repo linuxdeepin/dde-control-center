@@ -22,9 +22,12 @@
 #ifndef COLLABORATIVELINKWIDGET_H
 #define COLLABORATIVELINKWIDGET_H
 
+#include <DComboBox>
 #include <QStandardItem>
 #include <QWidget>
 #include "interface/plugininterface.h"
+#include "cooperationsettingsdialog.h"
+#include "treecombox.h"
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -60,14 +63,23 @@ Q_SIGNALS:
     void requestCurrentMachineDisconnect(Machine *mac);
     void requsetCooperation(Machine *machine);
 
+    void requestOpenSharedDevices(bool open);
+    void requestOpenSharedClipboard(bool open);
+    void requestFilesStoragePath(const QString &path);
+
+    void requestFlowDirection(Machine *machine, const int& idx);
+
 public Q_SLOTS:
     void disconnectMachine();
-    void changeComboxIndex(const int idx);
+    void changeTreeComboxIndex(const QModelIndex &index);
+    void changeDirectionComboxIndex(const int idx);
 
 private:
     void initMachine();
     void addMachine(Machine * machine);
     void cooperationStatusChanged(bool status);
+    void initDirectionItem();
+    void refreshRowItem();
 
 private:
     DisplayModel *m_displayModel;
@@ -79,10 +91,16 @@ private:
     DCC_NAMESPACE::SwitchWidget *m_deviceSwitch;
 
     DCC_NAMESPACE::SettingsItem *m_deviceComboBoxItem;
-    QComboBox *m_deviceCombox;
-    QStandardItemModel *m_deviceComboxModel;
 
+    QStandardItemModel *m_deviceComboxModel;
+    TreeCombox *m_deviceCombox;
     QPushButton *m_deviceButton;
+    CooperationSettingsDialog *m_moreSettingsDialog;
+
+    // 连接方向
+    DCC_NAMESPACE::SettingsItem *m_directionComboxItem;
+    DTK_WIDGET_NAMESPACE::DComboBox *m_directionCombox;
+    QStandardItemModel *m_directionComboxModel;
 
     Machine *m_currentMachineDevcice;
 };

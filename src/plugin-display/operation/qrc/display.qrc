@@ -3,6 +3,10 @@
         <file>icons/dcc_nav_display_42px.svg</file>
         <file>icons/dcc_nav_display_84px.svg</file>
         <file>actions/dcc_break_32px.svg</file>
+        <file>actions/dcc_display_left.dci</file>
+        <file>actions/dcc_display_right.dci</file>
+        <file>actions/dcc_display_bottom.dci</file>
+        <file>actions/dcc_display_top.dci</file>
     </qresource>
     <qresource prefix="/display">
         <file>icons/dark/icons/dark/Center.svg</file>

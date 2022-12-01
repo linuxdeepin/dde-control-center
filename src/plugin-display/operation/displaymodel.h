@@ -113,6 +113,15 @@ public:
     inline bool allSupportFillModes() const { return m_allSupportFillModes; }
     void checkAllSupportFillModes();
 
+    inline bool SharedDevices() const { return m_openSharedDevices; }
+    void setOpenSharedDevices(bool open);
+
+    inline bool SharedClipboard() const { return m_openSharedClipboard; }
+    void setOpenSharedClipboard(bool open);
+
+    inline QString filesStoragePath() const { return m_filesStoragePath; }
+    void setFilesStoragePath(const QString& path);
+
 Q_SIGNALS:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
@@ -134,6 +143,9 @@ Q_SIGNALS:
     void resolutionRefreshEnableChanged(const bool enable);
     void brightnessEnableChanged(const bool enable);
     void deviceSharingSwitchChanged(const bool enable);
+    void sharedClipboardChanged(bool on) const;
+    void sharedDevicesChanged(bool on) const;
+    void filesStoragePathChanged(const QString& path) const;
 
 private Q_SLOTS:
     void setScreenHeight(const int h);
@@ -174,6 +186,9 @@ private:
     uint m_maxBacklightBrightness {0};
     bool m_allSupportFillModes;
     bool m_deviceSharingSwitch;
+    bool m_openSharedDevices;
+    bool m_openSharedClipboard;
+    QString m_filesStoragePath;
 };
 }
 

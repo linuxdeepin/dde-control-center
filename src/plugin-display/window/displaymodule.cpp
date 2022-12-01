@@ -143,6 +143,10 @@ void DisplayModule::showSingleScreenWidget()
     contentLayout->addWidget(linkWidget);
     connect(linkWidget, &CollaborativeLinkWidget::requestCooperationEnable, m_worker, &DisplayWorker::setDeviceSharingSwitch);
     connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachinePair, m_worker, &DisplayWorker::setCurrentMachinePair);
+    connect(linkWidget, &CollaborativeLinkWidget::requestOpenSharedDevices, m_worker, &DisplayWorker::setOpenSharedDevices);
+    connect(linkWidget, &CollaborativeLinkWidget::requestOpenSharedClipboard, m_worker, &DisplayWorker::setOpenSharedClipboard);
+    connect(linkWidget, &CollaborativeLinkWidget::requestFilesStoragePath, m_worker, &DisplayWorker::setFilesStoragePath);
+    connect(linkWidget, &CollaborativeLinkWidget::requestFlowDirection, m_worker, &DisplayWorker::setFlowDirection);
 
     BrightnessWidget *brightnessWidget = new BrightnessWidget(singleScreenWidget);
     brightnessWidget->setMode(m_model);
@@ -275,6 +279,11 @@ void DisplayModule::showMultiScreenWidget()
     connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachineDisconnect, m_worker, &DisplayWorker::setCurrentMachineDisconnect);
     connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachinePair, m_worker, &DisplayWorker::setCurrentMachinePair);
     connect(multiScreenWidget, &MultiScreenWidget::requsetCooperation, m_worker, &DisplayWorker::setCurrentMachineRequestCooperate);
+    connect(multiScreenWidget, &MultiScreenWidget::requestOpenSharedDevices, m_worker, &DisplayWorker::setOpenSharedDevices);
+    connect(multiScreenWidget, &MultiScreenWidget::requestOpenSharedClipboard, m_worker, &DisplayWorker::setOpenSharedClipboard);
+    connect(multiScreenWidget, &MultiScreenWidget::requestFilesStoragePath, m_worker, &DisplayWorker::setFilesStoragePath);
+    connect(multiScreenWidget, &MultiScreenWidget::requestFlowDirection, m_worker, &DisplayWorker::setFlowDirection);
+
     connect(multiScreenWidget, &MultiScreenWidget::requestSetResolution, this, [=](Monitor *monitor, const int mode) {
         onRequestSetResolution(monitor, mode);
         updateWinsize();

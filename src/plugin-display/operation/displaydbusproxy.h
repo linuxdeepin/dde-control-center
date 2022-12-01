@@ -103,10 +103,25 @@ public:
     Q_PROPERTY(QList<QDBusObjectPath> Machines READ Machines NOTIFY MachinesChanged)
     QList<QDBusObjectPath> Machines();
 
+    Q_PROPERTY(QList<QString> CooperatedMachines READ CooperatedMachines NOTIFY CooperatedMachinesChanged)
+    QList<QString> CooperatedMachines();
+
     Q_PROPERTY(bool DeviceSharingSwitch READ deviceSharingSwitch NOTIFY DeviceSharingSwitchChanged)
     bool deviceSharingSwitch();
 
     void setDeviceSharingSwitch(const bool enable);
+
+    void setOpenSharedDevices(bool on);
+    Q_PROPERTY(bool SharedDevices READ SharedDevices NOTIFY SharedDevicesChanged)
+    bool SharedDevices();
+
+    void setOpenSharedClipboard(bool on);
+    Q_PROPERTY(bool SharedClipboard READ SharedClipboard NOTIFY SharedClipboardChanged)
+    bool SharedClipboard();
+
+    void setFilesStoragePath(const QString& path);
+    Q_PROPERTY(QString FilesStoragePath READ FilesStoragePath NOTIFY FilesStoragePathChanged)
+    QString FilesStoragePath();
 
 private:
     void init();
@@ -168,7 +183,11 @@ Q_SIGNALS: // SIGNALS
 
     // Cooperation
     void MachinesChanged(const QList<QDBusObjectPath> &value) const;
+    void CooperatedMachinesChanged(const QList<QString> &value) const;
     void DeviceSharingSwitchChanged(bool value) const;
+    void SharedClipboardChanged(bool on) const;
+    void SharedDevicesChanged(bool on) const;
+    void FilesStoragePathChanged(const QString& path) const;
 
 private:
     DCC_NAMESPACE::DCCDBusInterface *m_dBusDisplayInter;

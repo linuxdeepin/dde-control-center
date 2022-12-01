@@ -82,6 +82,10 @@ public Q_SLOTS:
     void setCurrentMachinePair(Machine *mac);
     void setCurrentMachineRequestCooperate(Machine *mac);
     void setCurrentMachineDisconnect(Machine *mac);
+    void setOpenSharedDevices(bool on);
+    void setOpenSharedClipboard(bool on);
+    void setFilesStoragePath(const QString& path);
+    void setFlowDirection(Machine *mac, const int& dir);
 
     void backupConfig();
     void clearBackup();
@@ -93,6 +97,7 @@ private Q_SLOTS:
     void onGetScaleFinished(QDBusPendingCallWatcher *w);
     void onGetScreenScalesFinished(QDBusPendingCallWatcher *w);
     void onMachinesChanged(const QList<QDBusObjectPath> &machines);
+    void onHistoryDevChanged(const QList<QString> &machines);
 
 private:
     void monitorAdded(const QString &path);

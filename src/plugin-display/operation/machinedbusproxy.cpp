@@ -37,6 +37,11 @@ bool MachineDBusProxy::cooperating()
     return qvariant_cast<bool>(m_dBusMachineInter->property("Cooperating"));
 }
 
+int MachineDBusProxy::direction()
+{
+    return qvariant_cast<int>(m_dBusMachineInter->property("Direction"));
+}
+
 void MachineDBusProxy::Disconnect()
 {
     qDebug() << " void MachineDBusProxy::Disconnect() " << qvariant_cast<QString>(m_dBusMachineInter->property("UUID"));;
@@ -65,6 +70,13 @@ void MachineDBusProxy::RequestCooperate()
     if (!errorDate.isEmpty()) {
         qWarning() << "RequestCooperate failed:" << errorDate;
     }
+}
+
+void MachineDBusProxy::SetFlowDirection(int direction)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(direction);
+    m_dBusMachineInter->asyncCallWithArgumentList(QStringLiteral("SetFlowDirection"), argumentList);
 }
 
 void MachineDBusProxy::init()

@@ -84,6 +84,12 @@ QList<QDBusObjectPath> DisplayDBusProxy::Machines()
     return qvariant_cast<QList<QDBusObjectPath>>(m_dBusCooperationInter->property("Machines"));
 }
 
+QList<QString> DisplayDBusProxy::CooperatedMachines()
+{
+    qDebug() << " CooperatedMachines:  " << qvariant_cast<QList<QString>>(m_dBusCooperationInter->property("CooperatedMachines"));
+    return qvariant_cast<QList<QString>>(m_dBusCooperationInter->property("CooperatedMachines"));
+}
+
 bool DisplayDBusProxy::deviceSharingSwitch()
 {
     return qvariant_cast<bool>(m_dBusCooperationInter->property("DeviceSharingSwitch"));
@@ -93,6 +99,42 @@ void DisplayDBusProxy::setDeviceSharingSwitch(const bool enable)
 {
     qDebug() << " TODO： setDeviceSharingSwitch begin " << enable ;
     m_dBusCooperationInter->setProperty("DeviceSharingSwitch", QVariant::fromValue(enable));
+}
+
+void DisplayDBusProxy::setOpenSharedClipboard(bool on)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(on);
+    m_dBusCooperationInter->asyncCallWithArgumentList(QStringLiteral("OpenSharedClipboard"), argumentList);
+}
+
+bool DisplayDBusProxy::SharedClipboard()
+{
+    return qvariant_cast<bool>(m_dBusCooperationInter->property("SharedClipboard"));
+}
+
+void DisplayDBusProxy::setFilesStoragePath(const QString &path)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(path);
+    m_dBusCooperationInter->asyncCallWithArgumentList(QStringLiteral("SetFilesStoragePath"), argumentList);
+}
+
+QString DisplayDBusProxy::FilesStoragePath()
+{
+    return qvariant_cast<QString>(m_dBusCooperationInter->property("FilesStoragePath"));
+}
+
+void DisplayDBusProxy::setOpenSharedDevices(bool on)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(on);
+    m_dBusCooperationInter->asyncCallWithArgumentList(QStringLiteral("OpenSharedDevices"), argumentList);
+}
+
+bool DisplayDBusProxy::SharedDevices()
+{
+    return qvariant_cast<bool>(m_dBusCooperationInter->property("SharedDevices"));
 }
 
 //display
@@ -255,23 +297,17 @@ QDBusPendingReply<uchar> DisplayDBusProxy::GetRealDisplayMode()
     return m_dBusDisplayInter->asyncCallWithArgumentList(QStringLiteral("GetRealDisplayMode"), argumentList);
 }
 
-
-
 QDBusPendingReply<QStringList> DisplayDBusProxy::ListOutputNames()
 {
     QList<QVariant> argumentList;
     return m_dBusDisplayInter->asyncCallWithArgumentList(QStringLiteral("ListOutputNames"), argumentList);
 }
 
-
-
 QDBusPendingReply<ResolutionList> DisplayDBusProxy::ListOutputsCommonModes()
 {
     QList<QVariant> argumentList;
     return m_dBusDisplayInter->asyncCallWithArgumentList(QStringLiteral("ListOutputsCommonModes"), argumentList);
 }
-
-
 
 QDBusPendingReply<> DisplayDBusProxy::ModifyConfigName(const QString &in0, const QString &in1)
 {

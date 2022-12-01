@@ -274,6 +274,11 @@ void MultiScreenWidget::setModel(DisplayModel *model)
     connect(m_linkWidget, &CollaborativeLinkWidget::requestCurrentMachineDisconnect, this, &MultiScreenWidget::requestCurrentMachineDisconnect);
     connect(m_linkWidget, &CollaborativeLinkWidget::requestCurrentMachinePair, this, &MultiScreenWidget::requestCurrentMachinePair);
     connect(m_linkWidget, &CollaborativeLinkWidget::requsetCooperation, this, &MultiScreenWidget::requsetCooperation);
+    connect(m_linkWidget, &CollaborativeLinkWidget::requestOpenSharedDevices, this, &MultiScreenWidget::requestOpenSharedDevices);
+    connect(m_linkWidget, &CollaborativeLinkWidget::requestOpenSharedClipboard, this, &MultiScreenWidget::requestOpenSharedClipboard);
+    connect(m_linkWidget, &CollaborativeLinkWidget::requestFilesStoragePath, this, &MultiScreenWidget::requestFilesStoragePath);
+    connect(m_linkWidget, &CollaborativeLinkWidget::requestFlowDirection, this, &MultiScreenWidget::requestFlowDirection);
+
     connect(m_brightnessWidget, &BrightnessWidget::requestSetColorTemperature, this, &MultiScreenWidget::requestSetColorTemperature);
     connect(m_brightnessWidget, &BrightnessWidget::requestSetMonitorBrightness, this, &MultiScreenWidget::requestSetMonitorBrightness);
     connect(m_brightnessWidget, &BrightnessWidget::requestAmbientLightAdjustBrightness, this, &MultiScreenWidget::requestAmbientLightAdjustBrightness);

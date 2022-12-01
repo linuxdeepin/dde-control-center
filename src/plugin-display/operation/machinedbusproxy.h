@@ -28,9 +28,13 @@ public:
     Q_PROPERTY(bool Cooperating READ cooperating NOTIFY CooperatingChanged)
     bool cooperating(); // 默认设备
 
+    Q_PROPERTY(int Direction READ direction NOTIFY directionChanged)
+    int direction();
+
     void Disconnect();
     void Pair();
     void RequestCooperate();
+    void SetFlowDirection(int direction);
 
 Q_SIGNALS:
     void IpChanged(const QString& ip);
@@ -39,6 +43,7 @@ Q_SIGNALS:
     void UuidChanged(const QString& uuid);
     void CooperatingChanged(bool cooperating);
     void disconnectStatusChanged(bool);
+    void directionChanged(int direction);
 
 private:
     void init();

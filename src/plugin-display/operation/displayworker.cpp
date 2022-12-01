@@ -55,6 +55,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
 
     connect(m_displayInter, &DisplayDBusProxy::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
     connect(m_displayInter, &DisplayDBusProxy::MachinesChanged, this, &DisplayWorker::onMachinesChanged);
+    connect(m_displayInter, &DisplayDBusProxy::CooperatedMachinesChanged, this, &DisplayWorker::onHistoryDevChanged);
     connect(m_displayInter, &DisplayDBusProxy::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
     connect(m_displayInter, &DisplayDBusProxy::BrightnessChanged, model, &DisplayModel::setBrightnessMap);
     connect(m_displayInter, &DisplayDBusProxy::TouchscreensV2Changed, model, &DisplayModel::setTouchscreenList);
@@ -100,6 +101,7 @@ void DisplayWorker::active()
     m_model->setBrightnessMap(m_displayInter->brightness());
     onMonitorListChanged(m_displayInter->monitors());
     onMachinesChanged(m_displayInter->Machines());
+    onHistoryDevChanged(m_displayInter->CooperatedMachines());
 
     m_model->setDisplayMode(m_displayInter->displayMode());
     m_model->setTouchscreenList(m_displayInter->touchscreensV2());
@@ -112,6 +114,9 @@ void DisplayWorker::active()
     m_model->setmaxBacklightBrightness(m_displayInter->maxBacklightBrightness());
     m_model->setAutoLightAdjustIsValid(m_displayInter->hasAmbientLightSensor());
     m_model->setDeviceSharingSwitch(m_displayInter->deviceSharingSwitch());
+    m_model->setOpenSharedDevices(m_displayInter->SharedDevices());
+    m_model->setOpenSharedClipboard(m_displayInter->SharedClipboard());
+    m_model->setFilesStoragePath(m_displayInter->FilesStoragePath());
 
     bool isRedshiftValid = true;
     QDBusReply<bool> reply = m_displayInter->SupportSetColorTemperatureSync();
@@ -220,6 +225,16 @@ void DisplayWorker::onMachinesChanged(const QList<QDBusObjectPath> &machines)
     }
 }
 
+void DisplayWorker::onHistoryDevChanged(const QList<QString> &machines)
+{
+    for (const auto &hisdevPath : machines) {
+        const QString path = hisdevPath;
+        for (auto&& machine : m_machines.keys()) {
+            machine->setHistoryStates(machine->UUID() == path);
+        }
+    }
+}
+
 #ifndef DCC_DISABLE_ROTATE
 void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 {
@@ -297,6 +312,27 @@ void DisplayWorker::setCurrentMachineDisconnect(Machine *mac)
 {
     MachineDBusProxy *inter = m_machines.value(mac);
     inter->Disconnect();
+}
+
+void DisplayWorker::setOpenSharedDevices(bool on)
+{
+    m_displayInter->setOpenSharedDevices(on);
+}
+
+void DisplayWorker::setOpenSharedClipboard(bool on)
+{
+    m_displayInter->setOpenSharedClipboard(on);
+}
+
+void DisplayWorker::setFilesStoragePath(const QString &path)
+{
+    m_displayInter->setFilesStoragePath(path);
+}
+
+void DisplayWorker::setFlowDirection(Machine *mac, const int &dir)
+{
+    MachineDBusProxy *inter = m_machines.value(mac);
+    inter->SetFlowDirection(dir);
 }
 
 void DisplayWorker::backupConfig()
@@ -515,11 +551,21 @@ void DisplayWorker::machinesAdded(const QString &path)
     connect(interProxy, &MachineDBusProxy::PairedChanged, machine, &Machine::setPaired);
     connect(interProxy, &MachineDBusProxy::CooperatingChanged, machine, &Machine::setCooperating);
     connect(interProxy, &MachineDBusProxy::disconnectStatusChanged, machine, &Machine::setDisconnectStatus);
+    connect(interProxy, &MachineDBusProxy::disconnectStatusChanged, machine, &Machine::setDisconnectStatus);
     machine->setPath(path);
     machine->setIP(interProxy->IP());
     machine->setName(interProxy->name());
     machine->setPaired(interProxy->paired());
     machine->setCooperating(interProxy->cooperating());
+    machine->setUUID(interProxy->UUID());
+    // 标记历史设备
+    const QList<QString> &historyDev = m_displayInter->CooperatedMachines();
+    for (auto &hisdevPath : historyDev) {
+        const QString path = hisdevPath;
+        qDebug() << " hisdevPath UUID： " << path << machine->UUID();
+        if (machine->UUID() == path)
+            machine->setHistoryStates(true);
+    }
 
     m_model->machinesAdded(machine);
     m_machines.insert(machine, interProxy);
