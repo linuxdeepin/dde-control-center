@@ -42,7 +42,7 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     //~ contents_path /commoninfo/Developer Mode
     //~ child_page Developer Mode
     m_devBtn = new QPushButton(tr("Request Root Access"));
-    m_dtip = new DTipLabel(tr("Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully."));
+    m_dtip = new DTipLabel(tr("Developer mode enables you to get root privileges, but your system integrity may also be damaged, please use it carefully."));
     m_dtip->setAccessibleName("DeveloperModeWidget_dtip ");
     m_dtip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     m_dtip->setWordWrap(true);
