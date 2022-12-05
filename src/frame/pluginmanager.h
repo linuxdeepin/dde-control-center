@@ -37,6 +37,7 @@ struct PluginData
     QString Follow;
     QString Location;
     DCC_NAMESPACE::ModuleObject *Module;
+    DCC_NAMESPACE::PluginInterface *Plugin;
 };
 
 Q_DECLARE_METATYPE(PluginData)
@@ -57,6 +58,7 @@ Q_SIGNALS:
 private:
     ModuleObject *findModule(ModuleObject *module, const QString &name);
     void initModules(const PluginData &data);
+    void insertChild(bool force);
 
     QList<PluginData> m_datas;      //cache for other plugin
     ModuleObject *m_rootModule;     //root module from MainWindow

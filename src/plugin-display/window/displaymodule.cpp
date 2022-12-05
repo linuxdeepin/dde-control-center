@@ -47,7 +47,7 @@ QString DisplayPlugin::name() const
 ModuleObject * DisplayPlugin::module()
 {
     //一级菜单--显示
-    ModuleObject *moduleInterface = new PageModule(this);
+    ModuleObject *moduleInterface = new PageModule();
     moduleInterface->setName("display");
     moduleInterface->setDisplayName(tr("Display"));
     moduleInterface->setDescription(tr("Display"));

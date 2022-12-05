@@ -1,5 +1,4 @@
 #include "pluginmanager.h"
-//#include "layout/layoutmanager.h"
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
 #include "utils.h"
@@ -10,8 +9,8 @@
 #include <QPluginLoader>
 #include <QCoreApplication>
 #include <QtConcurrent>
-#include <qfileinfo.h>
-#include <qsettings.h>
+#include <QFileInfo>
+#include <QSettings>
 #include <queue>
 
 using namespace DCC_NAMESPACE;
@@ -46,9 +45,25 @@ bool comparePluginLocation(PluginInterface const *target1, PluginInterface const
     return target1->location() < target2->location();
 }
 
-PluginData loadModule(const QPair<PluginManager *, QString> &pair)
+PluginData getModule(const QPair<PluginManager *, PluginData> &pair)
+{
+    PluginData data = pair.second;
+    if (data.Plugin) {
+        QElapsedTimer et;
+        et.start();
+        data.Module = data.Plugin->module();
+        data.Module->setParent(nullptr);
+        data.Module->moveToThread(qApp->thread());
+        qInfo() << QString("get module: %1 end, using time: %2 ms").arg(data.Module->name()).arg(et.elapsed());
+        emit pair.first->loadedModule(data);
+    }
+    return data;
+}
+
+PluginData loadPlugin(const QPair<PluginManager *, QString> &pair)
 {
     PluginData data;
+    data.Plugin = nullptr;
     data.Module = nullptr;
     data.Location = -1;
     auto &&fileName = pair.second;
@@ -83,14 +98,26 @@ PluginData loadModule(const QPair<PluginManager *, QString> &pair)
         return data;
     }
 
-    data.Module = plugin->module();
+    data.Plugin = plugin;
     data.Follow = plugin->follow();
     data.Location = plugin->location();
-
-    data.Module->setParent(nullptr);
-    data.Module->moveToThread(qApp->thread());
-    emit pair.first->loadedModule(data);
+    data.Plugin->setParent(nullptr);
+    data.Plugin->moveToThread(qApp->thread());
     qInfo() << QString("load plugin: %1 end, using time: %2 ms").arg(fileName).arg(et.elapsed());
+    return data;
+}
+
+PluginData loadModule(const QPair<PluginManager *, QString> &pair)
+{
+    return loadPlugin(pair);
+}
+
+PluginData loadAndGetModule(const QPair<PluginManager *, QString> &pair)
+{
+    PluginData &&data = loadPlugin(pair);
+    if (data.Plugin) {
+        getModule({ pair.first, data });
+    }
     return data;
 }
 
@@ -106,7 +133,6 @@ void PluginManager::loadModules(ModuleObject *root, bool async)
     if (!root)
         return;
     m_rootModule = root;
-//    m_layoutManager = layoutManager;
 
     connect(this, &PluginManager::loadedModule, root, [this](const PluginData &data) {
         initModules(data);
@@ -131,46 +157,32 @@ void PluginManager::loadModules(ModuleObject *root, bool async)
     }
 
     QFutureWatcher<PluginData> *watcher = new QFutureWatcher<PluginData>(this);
-    QFuture<PluginData> future = QtConcurrent::mapped(libraryNames, loadModule);
-    connect(watcher, &QFutureWatcher<PluginData>::finished, this, [this] {
-        // 加载非一级插件
-        bool loop = true;
-        while (loop) {
-            loop = false;
-            for (auto it = m_datas.begin(); it != m_datas.end();) {
-                auto &&module = DCC_NAMESPACE::GetModuleByUrl(m_rootModule, it->Follow);
-                if (module) {
-                    bool isInt;
-                    int locationIndex = it->Location.toInt(&isInt);
-                    if (!isInt) {
-                        for (locationIndex = 0; locationIndex < module->getChildrenSize(); ++locationIndex) {
-                            if (module->children(locationIndex)->name() == it->Location) {
-                                ++locationIndex;
-                                break;
-                            }
-                        }
-                    }
-                    module->insertChild(locationIndex, it->Module);
-                    loop = true;
-                    it = m_datas.erase(it);
-                } else
-                    ++it;
-            }
-        }
-        // 释放加不进去的module
-        for (auto &&data : m_datas) {
-            qWarning() << "Unkown Module! name:" << data.Module->name() << "follow:" << data.Follow << "location:" << data.Location;
-            delete data.Module;
-        }
-        m_datas.clear();
+    if (async) {
+        QFuture<PluginData> future = QtConcurrent::mapped(libraryNames, loadAndGetModule);
+        connect(watcher, &QFutureWatcher<PluginData>::finished, this, [this] {
+            // 加载非一级插件
+            insertChild(true);
 
-        // save variable
-        IsModulesLoaded = true;
-        emit loadAllFinished();
-    });
-    watcher->setFuture(future);
-    if (!async)
+            emit loadAllFinished();
+        });
+        watcher->setFuture(future);
+    } else {
+        QFuture<PluginData> future = QtConcurrent::mapped(libraryNames, loadModule);
         watcher->waitForFinished();
+        future.results();
+        QList<QPair<PluginManager *, PluginData>> pluginDatas;
+        for (auto &&data : future.results()) {
+            pluginDatas.append({ this, data });
+        }
+        QFuture<PluginData> moduleFuture = QtConcurrent::mapped(pluginDatas, getModule);
+        connect(watcher, &QFutureWatcher<PluginData>::finished, this, [this] {
+            // 加载非一级插件
+            insertChild(true);
+
+            emit loadAllFinished();
+        });
+        watcher->setFuture(moduleFuture);
+    }
 }
 
 ModuleObject *PluginManager::findModule(ModuleObject *module, const QString &name)
@@ -198,10 +210,12 @@ void PluginManager::initModules(const PluginData &data)
         data.Module->setProperty("location", data.Location);
         if (!m_rootModule->hasChildrens()) {
             m_rootModule->appendChild(data.Module);
+            insertChild(false);
             return;
         }
         if (data.Location.isEmpty()) {
             m_rootModule->appendChild(data.Module);
+            insertChild(false);
             return;
         }
         bool isInt;
@@ -222,7 +236,43 @@ void PluginManager::initModules(const PluginData &data)
             }
         }
         m_rootModule->insertChild(i + 1, data.Module);
+        insertChild(false);
     } else { // other plugin
         m_datas.append(data);
+    }
+}
+
+void PluginManager::insertChild(bool force)
+{
+    bool loop = true;
+    while (loop) {
+        loop = false;
+        for (auto it = m_datas.begin(); it != m_datas.end();) {
+            auto &&module = DCC_NAMESPACE::GetModuleByUrl(m_rootModule, it->Follow);
+            if (module) {
+                bool isInt;
+                int locationIndex = it->Location.toInt(&isInt);
+                if (!isInt) {
+                    for (locationIndex = 0; locationIndex < module->getChildrenSize(); ++locationIndex) {
+                        if (module->children(locationIndex)->name() == it->Location) {
+                            ++locationIndex;
+                            break;
+                        }
+                    }
+                }
+                module->insertChild(locationIndex, it->Module);
+                loop = true;
+                it = m_datas.erase(it);
+            } else
+                ++it;
+        }
+    }
+    if (force) {
+        // 释放加不进去的module
+        for (auto &&data : m_datas) {
+            qWarning() << "Unkown Module! name:" << data.Module->name() << "follow:" << data.Follow << "location:" << data.Location;
+            delete data.Module;
+        }
+        m_datas.clear();
     }
 }

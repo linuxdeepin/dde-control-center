@@ -28,7 +28,7 @@ ModuleObject *UpdatePlugin::module()
     UpdateModule *updateInterface = new UpdateModule;
 
     // 检查更新
-    ModuleObject *moduleUpdate = new PageModule("checkForUpdates", tr("Check for Updates"), this);
+    ModuleObject *moduleUpdate = new PageModule("checkForUpdates", tr("Check for Updates"));
     checkUpdateModule *checkUpdatePage = new checkUpdateModule(updateInterface->model(), updateInterface->work(), moduleUpdate);
     moduleUpdate->appendChild(checkUpdatePage);
     updateInterface->appendChild(moduleUpdate);

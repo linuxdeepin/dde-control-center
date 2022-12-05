@@ -72,7 +72,7 @@ const QString HeightConfig = QStringLiteral("height");
 const QString HideConfig = QStringLiteral("hideModule");
 const QString DisableConfig = QStringLiteral("disableModule");
 
-MainWindow::MainWindow(bool async, QWidget *parent)
+MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
     , m_backwardBtn(new DIconButton(QStyle::SP_ArrowBack, this))
     , m_dconfig(DConfig::create("org.deepin.dde.control-center", ControlCenterConfig, QString(), this))
@@ -85,7 +85,6 @@ MainWindow::MainWindow(bool async, QWidget *parent)
 
     initUI();
     initConfig();
-    loadModules(async);
 
     connect(m_searchWidget, &SearchWidget::notifySearchUrl, this, [this](const QString &url) {
         showPage(url, UrlType::DisplayName);
@@ -104,7 +103,6 @@ MainWindow::~MainWindow()
         m_dconfig->setValue(HeightConfig, height());
     }
     resizeCurrentModule(0);
-    //    delete m_layoutManager;
 }
 
 void MainWindow::showPage(const QString &url, const UrlType &uType)

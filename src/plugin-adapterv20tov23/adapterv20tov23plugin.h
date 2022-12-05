@@ -34,9 +34,10 @@ class AdapterV20toV23Root : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
-    explicit AdapterV20toV23Root();
+    explicit AdapterV20toV23Root(QObject *parent = nullptr);
     ~AdapterV20toV23Root();
 
+    void init();
     bool loadFinished() const;
     ModuleObject *moduleRoot() const;
 
@@ -44,9 +45,6 @@ public Q_SLOTS:
     void timerTask();
     void pushModule();
     void insertModule(bool append);
-
-private:
-    void registerDBus();
 
 private:
     enum Status{
@@ -78,10 +76,11 @@ public:
     ~AdapterV20toV23Plugin();
 
     virtual QString name() const override;
+    virtual QString follow() const override;
     virtual DCC_NAMESPACE::ModuleObject *module() override;
 
 private:
-    DCC_NAMESPACE::ModuleObject *m_moduleRoot;
+    AdapterV20toV23Root* m_moduleRoot;
 };
 
 #endif // ADAPTERV20TOV23PLUGIN_H

@@ -17,7 +17,7 @@ QString Test2Plugin::name() const
 ModuleObject* Test2Plugin::module()
 {
     //-----------创建根节点----------
-    ModuleObject *moduleRoot = new PageModule("menu3", tr("菜单3"), tr("我是菜单3"), QIcon::fromTheme("preferences-system"), this);
+    ModuleObject *moduleRoot = new PageModule("menu3", tr("菜单3"), tr("我是菜单3"), QIcon::fromTheme("preferences-system"));
 //    moduleRoot->setChildType(ModuleObject::Page);
 
     for (int j = 0; j < 4; j++) {

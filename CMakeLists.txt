@@ -974,7 +974,7 @@ if (BUILD_PLUDIN)
         src/plugin-personalization-dock/operation
     )
     set(Plugin_Personalization_Dock_Libraries
-        ${DtkWidget_INCLUDE_DIRS}
+        ${DtkWidget_LIBRARIES}
         ${Dcc_Widgets_Name}
         ${Interface_Name}
         Qt5::Widgets

@@ -58,14 +58,14 @@ QString KeyboardPlugin::name() const
 ModuleObject *KeyboardPlugin::module()
 {
     //一级菜单--键盘与语言
-    KeyboardModule *moduleInterface = new KeyboardModule(this);
+    KeyboardModule *moduleInterface = new KeyboardModule();
     moduleInterface->setName("keyboard");
     moduleInterface->setDisplayName(tr("Keyboard and Language"));
     moduleInterface->setDescription(tr("Keyboard and Language"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_keyboard"));
 
     //二级菜单--键盘
-    ModuleObject *moduleKeyBoard = new PageModule("keyboardGeneral", tr("Keyboard"), this);
+    ModuleObject *moduleKeyBoard = new PageModule("keyboardGeneral", tr("Keyboard"));
 
     //为二级菜单-键盘添加children
     GeneralSettingModule *generalSettingModule = new GeneralSettingModule(moduleInterface->model(), moduleInterface->worker());
@@ -83,13 +83,13 @@ ModuleObject *KeyboardPlugin::module()
     moduleInterface->appendChild(moduleKeyBoard);
 
     //二级菜单--系统语言
-    ModuleObject *moduleSystemLanguageSetting = new PageModule("keyboardLanguage", tr("Language"), this);
+    ModuleObject *moduleSystemLanguageSetting = new PageModule("keyboardLanguage", tr("Language"));
     SystemLanguageSettingModule *systemLanguageSettingModule = new SystemLanguageSettingModule(moduleInterface->model(), moduleInterface->worker());
     moduleSystemLanguageSetting->appendChild(systemLanguageSettingModule);
     moduleInterface->appendChild(moduleSystemLanguageSetting);
 
     //二级菜单--快捷键
-    ShortCutSettingMenuModule *moduleShortCutSetting = new ShortCutSettingMenuModule("keyboardShortcuts", tr("Shortcuts"), this);
+    ShortCutSettingMenuModule *moduleShortCutSetting = new ShortCutSettingMenuModule("keyboardShortcuts", tr("Shortcuts"));
     ShortCutSettingModule *shortCutSettingModule = new ShortCutSettingModule(moduleInterface->model(), moduleInterface->worker(), moduleInterface->shortcutModel());
     moduleShortCutSetting->appendChild(shortCutSettingModule);
     ModuleObject *customShortcutModule = new WidgetModule<KeyboardFloatingButton>("AddCustomShortCut","AddCustomShortCut",[shortCutSettingModule](KeyboardFloatingButton *customShortcut){

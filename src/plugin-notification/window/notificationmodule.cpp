@@ -42,7 +42,7 @@ QString NotificationPlugin::name() const
 ModuleObject *NotificationPlugin::module()
 {
     //一级菜单--通知
-    PageModule *moduleInterface = new PageModule(this);
+    PageModule *moduleInterface = new PageModule();
     moduleInterface->setName("notification");
     moduleInterface->setDisplayName(tr("Notification"));
     moduleInterface->setDescription(tr("Notification"));

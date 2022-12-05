@@ -234,7 +234,7 @@ QString SystemInfoPlugin::name() const
 ModuleObject *SystemInfoPlugin::module()
 {
     //一级菜单--系统信息
-    SystemInfoModule *moduleInterface = new SystemInfoModule(this);
+    SystemInfoModule *moduleInterface = new SystemInfoModule();
     moduleInterface->setName("systeminfo");
     moduleInterface->setDisplayName(tr("System Info"));
     moduleInterface->setDescription(tr("System Info"));

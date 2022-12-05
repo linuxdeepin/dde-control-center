@@ -132,7 +132,7 @@ QString dccV23::TouchScreenPlugin::name() const
 
 ModuleObject *TouchScreenPlugin::module()
 {
-    return new TouchScreenModule(this);;
+    return new TouchScreenModule();;
 }
 
 QString TouchScreenPlugin::location() const

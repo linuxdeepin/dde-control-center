@@ -46,25 +46,25 @@ ModuleObject *SoundPlugin::module()
     SoundModule *soundInterface = new SoundModule;
 
     // 二级 -- 输出
-    ModuleObject *moduleOutput = new PageModule("output", tr("Output"), this);
+    ModuleObject *moduleOutput = new PageModule("output", tr("Output"));
     OutputModule *outputPage = new OutputModule(soundInterface->model(), soundInterface->work(), moduleOutput);
     moduleOutput->appendChild(outputPage);
     soundInterface->appendChild(moduleOutput);
 
     // 二级 -- 输入
-    ModuleObject *moduleInput = new PageModule("input", tr("Input"), this);
+    ModuleObject *moduleInput = new PageModule("input", tr("Input"));
     InputModule *inputPage = new InputModule(soundInterface->model(), soundInterface->work(), moduleInput);
     moduleInput->appendChild(inputPage);
     soundInterface->appendChild(moduleInput);
 
     // 二级 -- 系统音效
-    ModuleObject *moduleSoundEffects = new PageModule("soundEffects", tr("Sound Effects"), this);
+    ModuleObject *moduleSoundEffects = new PageModule("soundEffects", tr("Sound Effects"));
     SoundEffectsModule *effectsPage = new SoundEffectsModule(soundInterface->model(), soundInterface->work(), moduleSoundEffects);
     moduleSoundEffects->appendChild(effectsPage);
     soundInterface->appendChild(moduleSoundEffects);
 
     // 二级 -- 设备管理
-    ModuleObject *moduleDevices = new PageModule("devices", tr("Devices"), this);
+    ModuleObject *moduleDevices = new PageModule("devices", tr("Devices"));
 
     DeviceTitleModule *inputTitle = new DeviceTitleModule("inputDevices", tr("Input Devices"), moduleDevices);
     moduleDevices->appendChild(inputTitle);

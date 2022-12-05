@@ -60,7 +60,7 @@ public:
         Name,
         DisplayName
     };
-    explicit MainWindow(bool async = true, QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     virtual ~MainWindow() override;
 
     /**
@@ -74,6 +74,7 @@ public:
      */
     void showPage(const QString &url);
     QString getAllModule() const;
+    void loadModules(bool async);
 
 protected:
     void changeEvent(QEvent *event) override;
@@ -83,7 +84,6 @@ private:
     void initUI();
     void initConfig();
     void configModule(QString url,ModuleObject *module);
-    void loadModules(bool async);
     void toHome();
     void updateMainView();
     void clearPage(QWidget *const widget);

@@ -62,26 +62,26 @@ QString CommonInfoPlugin::name() const
 ModuleObject *CommonInfoPlugin::module()
 {   
     //一级菜单--通用设置
-    CommonInfoModule *moduleInterface = new CommonInfoModule(this);
+    CommonInfoModule *moduleInterface = new CommonInfoModule();
     moduleInterface->setName("commoninfo");
     moduleInterface->setDisplayName(tr("General Settings"));
     moduleInterface->setDescription(tr("General Settings"));
     moduleInterface->setIcon(QIcon::fromTheme("dcc_nav_commoninfo"));
 
     //二级菜单--启动菜单
-    ModuleObject *moduleBootMenu = new PageModule("bootMenu", tr("Boot Menu"), this);
+    ModuleObject *moduleBootMenu = new PageModule("bootMenu", tr("Boot Menu"));
     BootModule *bootModule = new BootModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
     moduleBootMenu->appendChild(bootModule);
     moduleInterface->appendChild(moduleBootMenu);
 
     //二级菜单--开发者模式
-    ModuleObject *moduleDeveloperMode = new PageModule("developerMode", tr("Developer Mode"), this);
+    ModuleObject *moduleDeveloperMode = new PageModule("developerMode", tr("Developer Mode"));
     DeveloperModeModule *developerModeModule = new DeveloperModeModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
     moduleDeveloperMode->appendChild(developerModeModule);
     moduleInterface->appendChild(moduleDeveloperMode);
 
     //二级菜单--开发者模式
-    ModuleObject *moduleUserExperienceProgram = new PageModule("userExperienceProgram", tr("User Experience Program"), this);
+    ModuleObject *moduleUserExperienceProgram = new PageModule("userExperienceProgram", tr("User Experience Program"));
     UserExperienceProgramModule *userExperienceProgramModule = new UserExperienceProgramModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
     moduleUserExperienceProgram->appendChild(userExperienceProgramModule);
     moduleInterface->appendChild(moduleUserExperienceProgram);

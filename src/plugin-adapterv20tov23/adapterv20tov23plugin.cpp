@@ -31,19 +31,16 @@
 #include <qdbusconnection.h>
 #include <qdebug.h>
 
-AdapterV20toV23Root::AdapterV20toV23Root()
-    : ModuleObject("adapterV20toV23")
+AdapterV20toV23Root::AdapterV20toV23Root(QObject *parent)
+    : ModuleObject("adapterV20toV23", QString(), parent)
     , m_root(nullptr)
-    , m_timer(new QTimer(this))
+    , m_timer(nullptr)
     , m_prameProxy(nullptr)
     , m_pluginManagerV20(nullptr)
     , m_status(WaitParent)
     , m_tryCount(50)
 {
     setHidden(true);
-    connect(m_timer, &QTimer::timeout, this, &AdapterV20toV23Root::timerTask);
-    m_timer->start(10);
-    registerDBus();
 }
 
 AdapterV20toV23Root::~AdapterV20toV23Root()
@@ -54,6 +51,13 @@ AdapterV20toV23Root::~AdapterV20toV23Root()
         delete m_pluginManagerV20;
     if (m_prameProxy)
         delete m_prameProxy;
+}
+
+void AdapterV20toV23Root::init()
+{
+    m_timer = new QTimer(this);
+    connect(m_timer, &QTimer::timeout, this, &AdapterV20toV23Root::timerTask);
+    m_timer->start(10);
 }
 
 bool AdapterV20toV23Root::loadFinished() const
@@ -172,20 +176,10 @@ void AdapterV20toV23Root::insertModule(bool append)
     }
 }
 
-void AdapterV20toV23Root::registerDBus()
-{
-    DBusControlCenterService *dbus = new DBusControlCenterService(this);
-    QDBusConnection conn = QDBusConnection::sessionBus();
-    if (!conn.registerService("com.deepin.dde.ControlCenter") ||
-        !conn.registerObject("/com/deepin/dde/ControlCenter", dbus, QDBusConnection::ExportAllSlots)) {
-        qDebug() << "can't regist dbus!";
-    }
-}
-
 ///////////////////////////
 AdapterV20toV23Plugin::AdapterV20toV23Plugin(QObject *parent)
     : PluginInterface(parent)
-    , m_moduleRoot(nullptr)
+    , m_moduleRoot(new AdapterV20toV23Root())
 {
 }
 
@@ -198,7 +192,19 @@ QString AdapterV20toV23Plugin::name() const
     return "adapterv20tov23";
 }
 
+QString AdapterV20toV23Plugin::follow() const
+{
+
+    DBusControlCenterService *dbus = new DBusControlCenterService(m_moduleRoot);
+    QDBusConnection conn = QDBusConnection::sessionBus();
+    if (!conn.registerService("com.deepin.dde.ControlCenter") || !conn.registerObject("/com/deepin/dde/ControlCenter", dbus, QDBusConnection::ExportAllSlots)) {
+        qDebug() << "can't regist dbus!";
+    }
+    return PluginInterface::follow();
+}
+
 DCC_NAMESPACE::ModuleObject *AdapterV20toV23Plugin::module()
 {
-    return new AdapterV20toV23Root();
+    m_moduleRoot->init();
+    return m_moduleRoot;
 }
