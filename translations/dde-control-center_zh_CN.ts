@@ -1454,8 +1454,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
-        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>进入开发者模式后可以获得root使用权限，安装和运行非商店签名应用，但同时也可能导致系统完整性遭到破坏，请谨慎使用。</translation>
+        <source>Developer mode enables you to get root privileges, but your system integrity may also be damaged, please use it carefully.</source>
+        <translation>进入开发者模式后可以获得root使用权限，但同时也可能导致系统完整性遭到破坏，请谨慎使用。</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="50"/>
@@ -5949,22 +5949,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="42"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="208"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="203"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="205"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="206"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
         <source>Change Timezone</source>
         <translation>修改系统时区</translation>
     </message>

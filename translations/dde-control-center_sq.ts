@@ -184,12 +184,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="554"/>
         <source>Enable Security Keys for Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Aktivizo Kyçe Sigurie për Llogari</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="555"/>
         <source>It is used to log in to the system if you forgot your password</source>
-        <translation type="unfinished"/>
+        <translation>Përdoret për hyrje në sistem, nëse harruat fjalëkalimin tuaj</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="758"/>
@@ -279,7 +279,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="270"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="325"/>
         <source>Enable Security Keys for Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Aktivizo Kyçe Sigurie për Llogari</translation>
     </message>
 </context>
 <context>
@@ -582,7 +582,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="65"/>
         <source>These questions will be used to help reset your password in case you forgot it.</source>
-        <translation type="unfinished"/>
+        <translation>Këto pyetje do të përdoren për t’ju ndihmuar të ricaktoni fjalëkalimin tuaj, nëse e harruat.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="84"/>
@@ -1454,8 +1454,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
-        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>Mënyra zhvillues ju lejon të merrni privilegje rrënje, të instaloni dhe xhironi aplikacione të panënshkruar që s’gjenden te shitore aplikacionesh, por gjithashtu mund të dëmtohet integriteti i sistemit tuaj, ju lutemi, përdoreni me kujdes.</translation>
+        <source>Developer mode enables you to get root privileges, but your system integrity may also be damaged, please use it carefully.</source>
+        <translation>Mënyra zhvillues ju lejon të merrni privilegje rrënje, por gjithashtu mund të dëmtohet integriteti i sistemit tuaj, ju lutemi, përdoreni me kujdes.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="50"/>
@@ -3959,7 +3959,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="433"/>
         <source>Show the shutdown interface</source>
-        <translation type="unfinished"/>
+        <translation>Shfaq ndërfaqe fikjesh</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="434"/>
@@ -4060,7 +4060,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="339"/>
         <source>Show the shutdown interface</source>
-        <translation type="unfinished"/>
+        <translation>Shfaq ndërfaqe fikjesh</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="340"/>
@@ -5463,17 +5463,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="57"/>
         <source>An account security key is a code that can be used to log in to the system if you forgot your password. Please copy the code and save it in a safe place.</source>
-        <translation type="unfinished"/>
+        <translation>Një kyç sigurie llogarie është një kod që mund të përdoret për t’u futur në sistem, nëse harruat fjalëkalimin tuaj. Ju lutemi, kopjojeni kodin dhe ruajeni në një vend të parrezik.</translation>
     </message>
 </context>
 <context>
@@ -5948,22 +5948,22 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="42"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="208"/>
         <source>Confirm</source>
         <translation>Ripohojeni</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="203"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
         <source>Add Timezone</source>
         <translation>Shtoni Zonë Kohore</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="205"/>
         <source>Add</source>
         <translation>Shto</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="206"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
         <source>Change Timezone</source>
         <translation>Ndryshoni Zonë Kohore</translation>
     </message>

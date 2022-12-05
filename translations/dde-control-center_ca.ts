@@ -184,12 +184,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="554"/>
         <source>Enable Security Keys for Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Habilita les claus de seguretat per als comptes.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="555"/>
         <source>It is used to log in to the system if you forgot your password</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;usa per iniciar sessió al sistema si heu oblidat la contrasenya.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="758"/>
@@ -279,7 +279,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="270"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="325"/>
         <source>Enable Security Keys for Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Habilita les claus de seguretat per als comptes.</translation>
     </message>
 </context>
 <context>
@@ -582,7 +582,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="65"/>
         <source>These questions will be used to help reset your password in case you forgot it.</source>
-        <translation type="unfinished"/>
+        <translation>Aquestes preguntes s&apos;usaran per ajudar-vos a restablir la contrasenya en cas que l&apos;oblideu.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="84"/>
@@ -1454,8 +1454,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
-        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>El mode de desenvolupador permet usar els privilegis d&apos;arrel, instal·lar i executar aplicacions no llistades a la Botiga d&apos;aplicacions, però també podeu danyar la integritat del sistema. Si us plau, feu-ne ús amb cura.</translation>
+        <source>Developer mode enables you to get root privileges, but your system integrity may also be damaged, please use it carefully.</source>
+        <translation>El mode de desenvolupador us permet obtenir privilegis d&apos;arrel, però la integritat del vostre sistema també es pot danyar. Feu-lo servir amb cura.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="50"/>
@@ -3959,7 +3959,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="433"/>
         <source>Show the shutdown interface</source>
-        <translation type="unfinished"/>
+        <translation>Mostra la interfície d&apos;aturada.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="434"/>
@@ -4060,7 +4060,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="339"/>
         <source>Show the shutdown interface</source>
-        <translation type="unfinished"/>
+        <translation>Mostra la interfície d&apos;aturada.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="340"/>
@@ -5463,17 +5463,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancel·la</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmeu-ho</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="57"/>
         <source>An account security key is a code that can be used to log in to the system if you forgot your password. Please copy the code and save it in a safe place.</source>
-        <translation type="unfinished"/>
+        <translation>Una clau de seguretat del compte és un codi que es pot usar per iniciar sessió al sistema si oblideu la contrasenya. Copieu el codi i deseu-lo en un lloc segur.</translation>
     </message>
 </context>
 <context>
@@ -5948,22 +5948,22 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="42"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="208"/>
         <source>Confirm</source>
         <translation>Confirmeu-ho</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="203"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
         <source>Add Timezone</source>
         <translation>Afegiu una zona horària</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="205"/>
         <source>Add</source>
         <translation>Afegeix</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="206"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
         <source>Change Timezone</source>
         <translation>Canvia la zona horària</translation>
     </message>

@@ -184,12 +184,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="554"/>
         <source>Enable Security Keys for Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Włącz klucze bezpieczeństwa dla kont użytkownika</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="555"/>
         <source>It is used to log in to the system if you forgot your password</source>
-        <translation type="unfinished"/>
+        <translation>Pomogą ci się zalogować do systemu w przypadku utraty hasła</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="758"/>
@@ -279,7 +279,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="270"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="325"/>
         <source>Enable Security Keys for Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Włącz klucze bezpieczeństwa dla kont użytkownika</translation>
     </message>
 </context>
 <context>
@@ -582,7 +582,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="65"/>
         <source>These questions will be used to help reset your password in case you forgot it.</source>
-        <translation type="unfinished"/>
+        <translation>Przedstawione pytania pomogą ci zresetować hasło, jeśli uda ci się je zapomnieć.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="84"/>
@@ -1313,7 +1313,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="270"/>
         <source>Request Root Access</source>
-        <translation>Poproś o dostęp do konta administratora</translation>
+        <translation>Poproś o dostęp do konta root</translation>
     </message>
 </context>
 <context>
@@ -1345,7 +1345,7 @@
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="136"/>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="148"/>
         <source>Failed to get root access</source>
-        <translation>Nie można uzyskać dostępu do konta root</translation>
+        <translation>Nie udało się uzyskać dostępu do konta root</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="138"/>
@@ -1365,7 +1365,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="144"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Ładowanie certyfikatu nie powiodło się, nie można uzyskać dostępu do konta root</translation>
+        <translation>Wczytywanie certyfikatu nie powiodło się, nie można uzyskać dostępu do konta root</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="146"/>
@@ -1375,7 +1375,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="346"/>
         <source>Agree and Join User Experience Program</source>
-        <translation>Zgadzam się i dołącz do programu doświadczeń użytkownika</translation>
+        <translation>Zaakceptuj i dołącz do programu doświadczeń użytkownika</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="410"/>
@@ -1385,7 +1385,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="411"/>
         <source>Agree and Request Root Access</source>
-        <translation>Zgadzam się i żądaj dostępu do katalogu głównego</translation>
+        <translation>Zaakceptuj i poproś o dostęp do konta root</translation>
     </message>
 </context>
 <context>
@@ -1393,7 +1393,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="54"/>
         <source>Request Root Access</source>
-        <translation>Poproś o dostęp do konta administratora</translation>
+        <translation>Poproś o dostęp do konta root</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="64"/>
@@ -1448,14 +1448,14 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="200"/>
         <source>Request Root Access</source>
-        <translation>Poproś o dostęp do konta administratora</translation>
+        <translation>Poproś o dostęp do konta root</translation>
         <extra-child_page>Developer Mode</extra-child_page>
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
-        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>Tryb programisty umożliwia uzyskanie uprawnień administratora, instalowanie i uruchamianie niepodpisanych aplikacji niewymienionych w sklepie z aplikacjami, jednakże integralność systemu może ulec naruszeniu, korzystaj z rozwagą.</translation>
+        <source>Developer mode enables you to get root privileges, but your system integrity may also be damaged, please use it carefully.</source>
+        <translation>Tryb dewelopera umożliwia uzyskanie uprawnień administratora, jednakże może doprowadzić do naruszenia integralności systemu. Prosimy zachować ostrożność.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="50"/>
@@ -1466,7 +1466,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="100"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="112"/>
         <source>Failed to get root access</source>
-        <translation>Nie można uzyskać dostępu do konta root</translation>
+        <translation>Nie udało się uzyskać dostępu do konta root</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="102"/>
@@ -1486,7 +1486,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Ładowanie certyfikatu nie powiodło się, nie można uzyskać dostępu do konta root</translation>
+        <translation>Wczytywanie certyfikatu nie powiodło się, nie można uzyskać dostępu do konta root</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
@@ -1511,7 +1511,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="193"/>
         <source>Root Access Allowed</source>
-        <translation>Dostęp do konta administratora dozwolony</translation>
+        <translation>Dostęp do konta root dozwolony</translation>
     </message>
 </context>
 <context>
@@ -3959,7 +3959,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="433"/>
         <source>Show the shutdown interface</source>
-        <translation type="unfinished"/>
+        <translation>Pokaż interfejs wyłączania</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="434"/>
@@ -4060,7 +4060,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="339"/>
         <source>Show the shutdown interface</source>
-        <translation type="unfinished"/>
+        <translation>Pokaż interfejs wyłączania</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="340"/>
@@ -5464,17 +5464,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuluj</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Potwierdź</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="57"/>
         <source>An account security key is a code that can be used to log in to the system if you forgot your password. Please copy the code and save it in a safe place.</source>
-        <translation type="unfinished"/>
+        <translation>Klucz bezpieczeństwa konta użytkownika jest kodem, którego można użyć w celu zalogowania się, gdy zapomnisz swojego hasła. Skopiuj kod i zapisz w bezpiecznym miejscu.</translation>
     </message>
 </context>
 <context>
@@ -5714,7 +5714,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="29"/>
         <source>I have read and agree to the</source>
-        <translation>Przeczytałem i zgadzam się na</translation>
+        <translation>Przeczytałem i akceptuję</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="31"/>
@@ -5950,22 +5950,22 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="42"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="208"/>
         <source>Confirm</source>
         <translation>Potwierdź</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="203"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
         <source>Add Timezone</source>
         <translation>Dodaj strefę czasową</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="205"/>
         <source>Add</source>
         <translation>Dodaj</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="206"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
         <source>Change Timezone</source>
         <translation>Zmień strefę czasową</translation>
     </message>

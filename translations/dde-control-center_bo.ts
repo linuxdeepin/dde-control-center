@@ -1454,8 +1454,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
-        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>གསར་སྤེལ་བའི་དཔེ་རྣམ་ནང་མཛུལ་རྗེས་rootཡི་བེད་སྤྱོད་དབང་ཚད་ཐོབ་པས་ཚོང་ཁང་གི་མིང་རྟགས་མིན་པའི་ཉེར་སྤྱོད་སྒྲིག་འཇུག་དང་འཁོར་སྐྱོད་བྱེད་ཐུབ། འོན་ཀྱང་དེ་དང་དུས་མཚུངས་རྒྱུད་ཁོངས་ཆ་ཚང་བར་གཏོར་བཤིག་གཏོང་སྲིད་པས། གཟབ་ནན་བྱེད་རོགགས། </translation>
+        <source>Developer mode enables you to get root privileges, but your system integrity may also be damaged, please use it carefully.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="50"/>
@@ -5950,22 +5950,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="42"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="208"/>
         <source>Confirm</source>
         <translation>གཏན་ཁེལ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="203"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
         <source>Add Timezone</source>
         <translation>དུས་ཁུལ་སྣོན་པ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="205"/>
         <source>Add</source>
         <translation>ཁ་སྣོན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="206"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
         <source>Change Timezone</source>
         <translation>རྒྱུད་ཁོངས་ཀྱི་དུས་ཁུལ་བཟོ་བཅོས།</translation>
     </message>

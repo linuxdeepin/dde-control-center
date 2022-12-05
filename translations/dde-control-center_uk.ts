@@ -184,12 +184,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="554"/>
         <source>Enable Security Keys for Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути ключі захисту для облікових записів</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="555"/>
         <source>It is used to log in to the system if you forgot your password</source>
-        <translation type="unfinished"/>
+        <translation>Його буде використано для входу до системи, якщо ви забудете ваш пароль</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="758"/>
@@ -279,7 +279,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="270"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="325"/>
         <source>Enable Security Keys for Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути ключі захисту для облікових записів</translation>
     </message>
 </context>
 <context>
@@ -582,7 +582,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="65"/>
         <source>These questions will be used to help reset your password in case you forgot it.</source>
-        <translation type="unfinished"/>
+        <translation>Ці питання буде використано як допоміжні у процедурі скиданні вашого пароля, якщо ви його забудете.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="84"/>
@@ -1454,8 +1454,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
-        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>У режимі розробника ви отримаєте права адміністратора системи, зможете встановлювати і запускати непідписані програми. Втім, у цьому режимі ви можете зашкодити цілісності системи. Будь ласка, будьте обережні із його використанням.</translation>
+        <source>Developer mode enables you to get root privileges, but your system integrity may also be damaged, please use it carefully.</source>
+        <translation>У режимі розробника ви отримаєте права адміністратора системи. Втім, у цьому режимі ви можете зашкодити цілісності системи. Будь ласка, будьте обережні із його використанням.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="50"/>
@@ -2297,34 +2297,34 @@
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="48"/>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Температура кольорів</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="53"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Нічна зміна</translation>
         <extra-contents_path>/display/Night Shift</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="58"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>Відтінок екрана буде автоматично налаштовано відповідно до вашого розташування</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="70"/>
         <source>Change Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Змінити температуру кольорів</translation>
         <extra-contents_path>/display/Change Color Temperature</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="71"/>
         <source>Cool</source>
-        <translation type="unfinished"/>
+        <translation>Холодні</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="71"/>
         <source>Warm</source>
-        <translation type="unfinished"/>
+        <translation>Теплі</translation>
     </message>
 </context>
 <context>
@@ -2444,7 +2444,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="97"/>
         <source>Set the display settings of other screens in the windows on corresponding screens.</source>
-        <translation type="unfinished"/>
+        <translation>Встановити параметри показу інших екранів у вікнах на відповідних екранах.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="362"/>
@@ -3959,7 +3959,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="433"/>
         <source>Show the shutdown interface</source>
-        <translation type="unfinished"/>
+        <translation>Показувати інтерфейс завершення роботи</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="434"/>
@@ -3979,7 +3979,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="467"/>
         <source>%1 Hours</source>
-        <translation type="unfinished"/>
+        <translation>%1 годин</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="467"/>
@@ -4060,7 +4060,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="339"/>
         <source>Show the shutdown interface</source>
-        <translation type="unfinished"/>
+        <translation>Показувати інтерфейс завершення роботи</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="340"/>
@@ -4080,7 +4080,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="373"/>
         <source>%1 Hours</source>
-        <translation type="unfinished"/>
+        <translation>%1 годин</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="373"/>
@@ -5463,17 +5463,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Підтвердити</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="57"/>
         <source>An account security key is a code that can be used to log in to the system if you forgot your password. Please copy the code and save it in a safe place.</source>
-        <translation type="unfinished"/>
+        <translation>Ключ захисту облікового запису є кодом, яким можна скористатися для входу до системи, якщо ви забудете ваш пароль. Будь ласка, скопіюйте код і збережіть його у безпечному місці.</translation>
     </message>
 </context>
 <context>
@@ -5949,22 +5949,22 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="42"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="208"/>
         <source>Confirm</source>
         <translation>Підтвердити</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="203"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
         <source>Add Timezone</source>
         <translation>Додати часовий пояс</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="205"/>
         <source>Add</source>
         <translation>Додати</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="206"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
         <source>Change Timezone</source>
         <translation>Змінити часовий пояс</translation>
     </message>
