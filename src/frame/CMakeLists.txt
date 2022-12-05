@@ -438,6 +438,7 @@ set(PERSONALIZATION_FILES
                 modules/personalization/personalizationmodel.cpp
 
                 window/modules/personalization/personalizationmodule.cpp
+                window/modules/personalization/personalizationdelegate.cpp
                 window/modules/personalization/personalizationlist.cpp
                 window/modules/personalization/themeitempic.cpp
                 window/modules/personalization/roundcolorwidget.cpp

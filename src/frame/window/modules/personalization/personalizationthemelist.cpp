@@ -5,6 +5,7 @@
 #include "personalizationthemelist.h"
 #include "modules/personalization/model/thememodel.h"
 #include "window/utils.h"
+#include "personalizationdelegate.h"
 
 #include <DListView>
 
@@ -43,6 +44,9 @@ PerssonalizationThemeList::PerssonalizationThemeList(QWidget *parent)
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
+
+    DStyledItemDelegate *d = qobject_cast<DStyledItemDelegate*>(m_listview->itemDelegate());
+    m_listview->setItemDelegate(d);
 }
 
 PerssonalizationThemeList::~PerssonalizationThemeList()
@@ -103,6 +107,13 @@ void PerssonalizationThemeList::onAddItem(const QJsonObject &json)
 
     item->setData(title, IDRole); //set id data
     item->setCheckState(title == m_model->getDefault() ? Qt::Checked : Qt::Unchecked);
+
+    if (json["type"] == "cursor") {
+        m_listview->model()->setObjectName("cursor");
+    } else if (json["type"] == "icon") {
+        m_listview->model()->setObjectName("icon");
+    }
+
     qobject_cast<QStandardItemModel *>(m_listview->model())->appendRow(item);
 }
 
@@ -119,7 +130,6 @@ void PerssonalizationThemeList::setDefault(const QString &name)
 void PerssonalizationThemeList::onSetPic(const QString &id, const QString &picPath)
 {
     QStandardItemModel *model = qobject_cast<QStandardItemModel *>(m_listview->model());
-
     for (int i = 0; i < model->rowCount(); ++i) {
         DStandardItem *item = dynamic_cast<DStandardItem *>(model->item(i, 0));
 
