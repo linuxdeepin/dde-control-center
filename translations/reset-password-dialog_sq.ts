@@ -136,18 +136,18 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="115"/>
         <source>Security Keys</source>
-        <translation type="unfinished"/>
+        <translation>Kyçe Sigurie</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="156"/>
         <source>Wrong security key</source>
-        <translation type="unfinished"/>
+        <translation>Kyç i gabuar sigurie</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
         <source>Reset Password By Security Key</source>
-        <translation type="unfinished"/>
+        <translation>Ricaktoni Fjalëkalim Përmes Kyçi Sigurie</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
@@ -182,12 +182,12 @@
     <message>
         <location filename="../src/reset-password-dialog/securitykeywidget.cpp" line="36"/>
         <source>Security Keys</source>
-        <translation type="unfinished"/>
+        <translation>Kyçe Sigurie</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securitykeywidget.cpp" line="42"/>
         <source>Enter the account security key</source>
-        <translation type="unfinished"/>
+        <translation>Jepni kyçin e sigurisë së llogarisë</translation>
     </message>
 </context>
 <context>

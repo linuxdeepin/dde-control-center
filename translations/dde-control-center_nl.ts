@@ -184,12 +184,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="554"/>
         <source>Enable Security Keys for Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Beveiligingssleutels toekennen aan accounts</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="555"/>
         <source>It is used to log in to the system if you forgot your password</source>
-        <translation type="unfinished"/>
+        <translation>Er kan een sleutel worden gebruikt om in te loggen als je je wachtwoord vergeten bent</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="758"/>
@@ -279,7 +279,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="270"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="325"/>
         <source>Enable Security Keys for Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Beveiligingssleutels toekennen aan accounts</translation>
     </message>
 </context>
 <context>
@@ -582,7 +582,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="65"/>
         <source>These questions will be used to help reset your password in case you forgot it.</source>
-        <translation type="unfinished"/>
+        <translation>Aan de hand van deze vragen kun je je wachtwoord herstellen als je het vergeten bent.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="84"/>
@@ -1454,8 +1454,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
-        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>De ontwikkelaarsmodus stelt je in staat administratortoegang te verkrijgen en niet-ondertekende programma&apos;s, die niet in de appwinkel te vinden zijn, te installeren en uit te voeren. Hierdoor komt de systeemintegriteit in het gedrang - wees dus voorzichtig.</translation>
+        <source>Developer mode enables you to get root privileges, but your system integrity may also be damaged, please use it carefully.</source>
+        <translation>De ontwikkelaarsmodus stelt je in staat administratortoegang te verkrijgen, waardoor de systeemintegriteit in het gedrang kan komen. Ga dus voorzichtig te werk.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="50"/>
@@ -3959,7 +3959,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="433"/>
         <source>Show the shutdown interface</source>
-        <translation type="unfinished"/>
+        <translation>Afsluitscherm tonen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="434"/>
@@ -4060,7 +4060,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="339"/>
         <source>Show the shutdown interface</source>
-        <translation type="unfinished"/>
+        <translation>Afsluitscherm tonen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="340"/>
@@ -5463,17 +5463,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Annuleren</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Oké</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="57"/>
         <source>An account security key is a code that can be used to log in to the system if you forgot your password. Please copy the code and save it in a safe place.</source>
-        <translation type="unfinished"/>
+        <translation>Een beveiligingssleutel is een code die kan worden gebruikt om in te loggen als je je wachtwoord vergeten bent. Kopieer de code en bewaar hem op een veilige plek.</translation>
     </message>
 </context>
 <context>
@@ -5939,22 +5939,22 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="42"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="208"/>
         <source>Confirm</source>
         <translation>Oké</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="203"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
         <source>Add Timezone</source>
         <translation>Tijdzone toevoegen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="205"/>
         <source>Add</source>
         <translation>Toevoegen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="206"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
         <source>Change Timezone</source>
         <translation>Tijdzone wijzigen</translation>
     </message>
