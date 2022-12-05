@@ -44,6 +44,7 @@ class TimezoneMap : public QFrame {
 
   // Hide tooltips when window is resized.
   void resizeEvent(QResizeEvent* event) override;
+  bool eventFilter(QObject *watcher, QEvent *event) override;
 
  private:
   void initConnections();
@@ -54,9 +55,6 @@ class TimezoneMap : public QFrame {
 
   // Mark current zone on the map.
   void remark();
-
-  // get dot image.
-  QPixmap getDotImage();
 
   // Currently selected/marked timezone.
   ZoneInfo current_zone_;
