@@ -11,6 +11,8 @@
 #include <QListView>
 #include <QMouseEvent>
 #include <QVBoxLayout>
+#include <QEvent>
+#include <QPainter>
 
 #include <DGuiApplicationHelper>
 
@@ -32,7 +34,6 @@ const int kZonePinHeight = 30;
 const int kZonePinMinimumWidth = 60;
 
 const double kDistanceThreshold = 64.0;
-const char kDotFile[] = ":/timezone_dialog/images/indicator_active.png";
 const char kTimezoneMapFile[] = ":/timezone_dialog/images/timezone_map_big@1x.svg";
 const char kTimezoneMapFile_Light[] = ":/timezone_dialog/images/timezone_map_big_light@1x.svg";
 
@@ -72,9 +73,7 @@ const QString TimezoneMap::getTimezone() const {
 void TimezoneMap::setSystemActiveColor(const QString &color)
 {
     m_systemActiveColor = color;
-    const QPixmap dot_pixmap = getDotImage();
-    dot_->setPixmap(dot_pixmap);
-    dot_->setFixedSize(dot_pixmap.size());
+    dot_->setFixedSize(QSize(12, 12));
     update();
 }
 
@@ -136,6 +135,33 @@ void TimezoneMap::resizeEvent(QResizeEvent* event) {
   QWidget::resizeEvent(event);
 }
 
+bool TimezoneMap::eventFilter(QObject *watcher, QEvent *event)
+{
+    if (watcher == dot_ && event->type() == QEvent::Paint) {
+        QPainter painter(dot_);
+        painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
+
+        QColor destColor = QColor(m_systemActiveColor);
+
+        // 给dot_绘制透明背景
+        painter.setBrush(QBrush(Qt::white));
+        painter.setOpacity(0);
+        painter.drawRect(this->rect());
+
+        // 设置系统活动色
+        painter.setPen(QPen(QBrush(destColor),2,Qt::SolidLine));//设置画笔颜色
+        painter.setBrush(QBrush(destColor));//设置画刷颜色
+        painter.setOpacity(1);
+
+        // 绘制大小为10像素的圆形标记点
+        painter.drawEllipse(dot_->rect().adjusted(+1, +1, -1, -1));
+
+        return true;
+    }
+
+    return QFrame::eventFilter(watcher, event);
+}
+
 void TimezoneMap::initConnections() {
   // Hide dot when popup-zones window is hidden.
   connect(popup_window_, &PopupMenu::onHide,
@@ -170,10 +196,8 @@ void TimezoneMap::initUI() {
 
   // Set parent widget of dot_ to SystemInfoTimezoneFrame.
   dot_ = new QLabel(this->parentWidget());
-  const QPixmap dot_pixmap = getDotImage();
-  Q_ASSERT(!dot_pixmap.isNull());
-  dot_->setPixmap(dot_pixmap);
-  dot_->setFixedSize(dot_pixmap.size());
+  dot_->installEventFilter(this);
+  dot_->setFixedSize(QSize(12, 12));
   dot_->hide();
 
   // Set parent widget of zone_pin_ to SystemInfoTimezoneFrame.
@@ -254,29 +278,6 @@ void TimezoneMap::remark() {
     dot_->move(dot_pos);
     dot_->show();
   }
-}
-
-QPixmap TimezoneMap::getDotImage()
-{
-    // 将地图上选中的点标识颜色替换成成系统活动色
-    QPixmap sourcePixmap(kDotFile);
-    QImage image = sourcePixmap.toImage();
-
-    if (!m_systemActiveColor.isEmpty()) {
-        QColor destColor = QColor(m_systemActiveColor);
-
-        for (int w = 0; w < image.width(); ++w) {
-            for (int h = 0; h < image.height(); ++h) {
-                // 资源文件图片中原颜色
-                QColor oldColor(44, 167, 248);
-                QRgb rgb = image.pixel(w, h);
-                if (rgb == oldColor.rgb()) {
-                    image.setPixel(w, h, destColor.rgba());
-                }
-            }
-        }
-    }
-    return QPixmap::fromImage(image);
 }
 
 // 鼠标点击位置有多个时区，弹出菜单选择后
