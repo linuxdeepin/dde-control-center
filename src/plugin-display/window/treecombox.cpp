@@ -2,6 +2,7 @@
 #include "treecombox.h"
 
 #include <DStyle>
+#include <DApplicationHelper>
 #include <QLabel>
 #include <QPushButton>
 
@@ -28,6 +29,10 @@ TreeCombox::~TreeCombox()
 void TreeCombox::initUI()
 {
     this->setMaxVisibleItems(16);
+    TreeComboxDelegate *delegate = new TreeComboxDelegate(m_deviceItemsListView);
+    delegate->setMargins(QMargins(0, 0, 0, 0));
+    m_deviceItemsListView->setItemDelegate(delegate);
+
     m_deviceItemsListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_deviceItemsListView->setFrameShape(QFrame::WinPanel);
     m_deviceItemsListView->setViewportMargins(10, 0, 10, 0);
@@ -51,57 +56,27 @@ void TreeCombox::initConnect()
 void TreeCombox::addDivicesTitel(const QString &devTitel)
 {
     QLabel *devLabel = new QLabel(devTitel, m_deviceItemsListView->viewport());
-    QFont labelFt;
-    labelFt.setPointSize(12);
-    devLabel->setFont(labelFt);
-
     DStandardItem *item = new DStandardItem;
-    DViewItemAction *action = new DViewItemAction();
+    DViewItemAction *action = new DViewItemAction;
     action->setWidget(devLabel);
 
     item->setActionList(Qt::Edge::LeftEdge,{action});
+    item->setFontSize(DFontSizeManager::SizeType::T6);
     item->setFlags(Qt::ItemIsUserCheckable);
     m_itemsmodel->appendRow(item);
 }
 
 void TreeCombox::addDevicesSettingsItem()
 {
-    QWidget *wid = new QWidget(m_deviceItemsListView->viewport());
-    wid->setSizePolicy(QSizePolicy::Expanding,  QSizePolicy::Fixed);
-    wid->setMinimumWidth(this->width());
-    QVBoxLayout *layout = new QVBoxLayout(wid);
-    layout->setMargin(0);
-    layout->setSpacing(0);
-    layout->setContentsMargins(0, 0, 0, 0);
+    DStandardItem *pi = new DStandardItem;
+    pi->setText(tr("Collaboration Settings"));
+    pi->setTextColorRole(DPalette::ColorType::TextTitle);
+    pi->setFontSize(DFontSizeManager::SizeType::T5);
 
-    QFrame *seperator = new QFrame(wid);
-
-    seperator->setFrameStyle(QFrame::HLine | QFrame::Plain);
-    seperator->setFrameShape(QFrame::HLine);
-    seperator->setGeometry(m_deviceItemsListView->viewport()->rect());
-    seperator->setMidLineWidth(m_deviceItemsListView->viewport()->width());
-    seperator->setFixedHeight(2);
-
-    QLabel *devLabel = new QLabel(tr("Collaboration Settings"), m_deviceItemsListView->viewport());
-    QFont labelFt;
-    labelFt.setPointSize(14);
-    devLabel->setFont(labelFt);
-    devLabel->setMinimumWidth(this->width());
-    // TODO: 分隔符
-    layout->addWidget(seperator);
-    layout->addWidget(devLabel);
-
-    wid->setLayout(layout);
-
-    DStandardItem *item = new DStandardItem;
-    DViewItemAction *action = new DViewItemAction;
-    action->setWidget(wid);
-
-    item->setActionList(Qt::Edge::LeftEdge, {action});
-    item->setData(DevViewItemType::MoreSettingsItem, Qt::WhatsThisPropertyRole);
-    item->setCheckable(true);
-
-    m_itemsmodel->appendRow(item);
+    QSize size(14, 14);
+    auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
+    pi->setActionList(Qt::Edge::LeftEdge, {rightAction});
+    m_itemsmodel->appendRow(pi);
 }
 
 void TreeCombox::addDeviceCheckedIcon(Dtk::Widget::DStandardItem *pi,  bool initChecked)
@@ -129,4 +104,28 @@ void TreeCombox::updateItemCheckStatus(const QString &name, bool visible)
         m_deviceItemsListView->update(item->index());
         break;
     }
+}
+
+TreeComboxDelegate::TreeComboxDelegate(QAbstractItemView *parent)
+    : Dtk::Widget::DStyledItemDelegate(parent)
+    , m_parentWidget(parent)
+{
+    m_parentWidget->update();
+}
+
+TreeComboxDelegate::~TreeComboxDelegate()
+{
+
+}
+
+void TreeComboxDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+{
+    if (index.row() == m_parentWidget->model()->rowCount() - 2) {
+        // 绘制间隔线
+        QRect rct = option.rect;
+        rct.setY(rct.top() + rct.height() - 1);
+        rct.setHeight(2);
+        painter->fillRect(rct, QColor(0, 0, 0, static_cast<int>(0.1 * 255)));
+    }
+    DStyledItemDelegate::paint(painter, option, index);
 }

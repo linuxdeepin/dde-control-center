@@ -19,6 +19,18 @@ enum DevViewItemType {
 
 Q_DECLARE_METATYPE(DevViewItemType)
 
+class TreeComboxDelegate : public DTK_WIDGET_NAMESPACE::DStyledItemDelegate
+{
+public:
+    explicit TreeComboxDelegate(QAbstractItemView *parent = Q_NULLPTR);
+    ~TreeComboxDelegate() ;
+protected:
+    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+
+private:
+    QAbstractItemView *m_parentWidget;
+};
+
 class Machine;
 class DisplayModel;
 class TreeCombox : public DTK_WIDGET_NAMESPACE::DComboBox
