@@ -135,7 +135,7 @@ void RefreshRateWidget::initRefreshRate()
         }
 
         auto rate = mode.rate();
-        DStandardItem *item = new DStandardItem;
+        auto *item = new DStandardItem;
         auto ref = QString::number(rate, 'g', 4) + tr("Hz");
         if (Monitor::isSameResolution(mode, m_monitor->bestMode())) {
             if (Monitor::isSameRatefresh(mode, m_monitor->bestMode())) {
@@ -165,4 +165,9 @@ void RefreshRateWidget::initRefreshRate()
             Q_EMIT requestSetResolution(m_monitor, r);
         }
     });
+
+    if (m_refreshItemModel->rowCount() == 0) {
+        m_refreshLabel->setDisabled(true);
+        m_refreshCombox->setDisabled(true);
+    }
 }
