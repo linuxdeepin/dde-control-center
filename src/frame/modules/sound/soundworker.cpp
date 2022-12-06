@@ -275,6 +275,24 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
     activeSourcePortChanged(m_defaultSource->activePort());
     onSourceCardChanged(m_defaultSource->card());
     m_model->setMicrophoneName(m_defaultSource->name());
+
+    // 检查是否需要重新调整meter
+    for (auto iter = m_sourceMeterMap.begin(); iter != m_sourceMeterMap.end(); iter++) {
+        if (iter.key() == path && iter.value() != m_defaultSourceMeter) {
+            qDebug() << "need change meter to " << path.path();
+            if (!m_defaultSourceMeter.isNull())
+                m_defaultSourceMeter->disconnect(m_defaultSourceMeter, &Meter::VolumeChanged, m_model, &SoundModel::setMicrophoneFeedback);
+            m_defaultSourceMeter = iter.value();
+            connect(m_defaultSourceMeter, &Meter::VolumeChanged, m_model, &SoundModel::setMicrophoneFeedback);
+            m_model->setMicrophoneFeedback(m_defaultSourceMeter->volume());
+            break;
+        }
+    }
+
+    if (m_defaultSourceMeter.isNull()) {
+        qInfo() << "default meter is empty, create it";
+        sourcesChanged(m_model->sources());
+    }
 }
 
 void SoundWorker::cardsChanged(const QString &cards)
@@ -366,8 +384,9 @@ void SoundWorker::sourcesChanged(const QList<QDBusObjectPath> &sources)
                 m_sourceMeterMap[source] = sourceMeter;
 
                 if (source == m_model->defaultSource()) {
-                    connect(sourceMeter, &Meter::VolumeChanged, m_model, &SoundModel::setMicrophoneFeedback);
-                    m_model->setMicrophoneFeedback(sourceMeter->volume());
+                    m_defaultSourceMeter = sourceMeter;
+                    connect(m_defaultSourceMeter, &Meter::VolumeChanged, m_model, &SoundModel::setMicrophoneFeedback);
+                    m_model->setMicrophoneFeedback(m_defaultSourceMeter->volume());
                 }
             } else {
                 qDebug() << "get meter failed " << call.error().message();
@@ -383,6 +402,9 @@ void SoundWorker::sourcesChanged(const QList<QDBusObjectPath> &sources)
             continue;
         }
 
+        if (m_defaultSourceMeter == iter.value()) {
+            m_defaultSourceMeter.clear();
+        }
         iter.value()->deleteLater();
         m_sourceMeterMap.erase(iter++);
     }
