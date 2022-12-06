@@ -152,9 +152,7 @@ void DockDBusProxy::regiestDockItemType()
 
 void DockDBusProxy::resizeDock(int offset, bool dragging)
 {
-    QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(offset) << QVariant::fromValue(dragging);
-    m_dockInter->asyncCallWithArgumentList(QStringLiteral("resizeDock"), argumentList);
+    m_dockInter->call(QDBus::CallMode::Block, QStringLiteral("resizeDock"), QVariant::fromValue(offset), QVariant::fromValue(dragging));
 }
 
 QDBusPendingReply<QStringList> DockDBusProxy::GetLoadedPlugins()
