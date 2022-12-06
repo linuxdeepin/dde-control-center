@@ -24,7 +24,6 @@
 #include "moduleinterface.h"
 #include "frameproxyv20.h"
 #include "pluginmanagerv20.h"
-#include "dbuscontrolcenterservice.h"
 
 #include <QEvent>
 #include <QTimer>
@@ -194,12 +193,6 @@ QString AdapterV20toV23Plugin::name() const
 
 QString AdapterV20toV23Plugin::follow() const
 {
-
-    DBusControlCenterService *dbus = new DBusControlCenterService(m_moduleRoot);
-    QDBusConnection conn = QDBusConnection::sessionBus();
-    if (!conn.registerService("com.deepin.dde.ControlCenter") || !conn.registerObject("/com/deepin/dde/ControlCenter", dbus, QDBusConnection::ExportAllSlots)) {
-        qDebug() << "can't regist dbus!";
-    }
     return PluginInterface::follow();
 }
 

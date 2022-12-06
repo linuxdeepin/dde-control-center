@@ -1245,5 +1245,4 @@ if (BUILD_PLUDIN)
     )
 
     install(TARGETS ${AdapterV20toV23_Name} DESTINATION lib/dde-control-center/modules)
-    install(FILES misc/com.deepin.dde.ControlCenter.service DESTINATION share/dbus-1/services)
 endif()
