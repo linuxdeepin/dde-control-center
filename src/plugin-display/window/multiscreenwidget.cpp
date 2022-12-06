@@ -272,7 +272,7 @@ void MultiScreenWidget::setModel(DisplayModel *model)
 
     connect(m_linkWidget, &CollaborativeLinkWidget::requestCooperationEnable, this, &MultiScreenWidget::requestCooperationEnable);
     connect(m_linkWidget, &CollaborativeLinkWidget::requestCurrentMachineDisconnect, this, &MultiScreenWidget::requestCurrentMachineDisconnect);
-    connect(m_linkWidget, &CollaborativeLinkWidget::requestCurrentMachineConnect, this, &MultiScreenWidget::requestCurrentMachineConnect);
+    connect(m_linkWidget, &CollaborativeLinkWidget::requestCurrentMachinePair, this, &MultiScreenWidget::requestCurrentMachinePair);
     connect(m_linkWidget, &CollaborativeLinkWidget::requestOpenSharedDevices, this, &MultiScreenWidget::requestOpenSharedDevices);
     connect(m_linkWidget, &CollaborativeLinkWidget::requestOpenSharedClipboard, this, &MultiScreenWidget::requestOpenSharedClipboard);
     connect(m_linkWidget, &CollaborativeLinkWidget::requestFilesStoragePath, this, &MultiScreenWidget::requestFilesStoragePath);

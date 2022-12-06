@@ -22,9 +22,9 @@ QString MachineDBusProxy::name()
     return qvariant_cast<QString>(m_dBusMachineInter->property("Name"));
 }
 
-bool MachineDBusProxy::connected()
+bool MachineDBusProxy::paired()
 {
-    return qvariant_cast<bool>(m_dBusMachineInter->property("Connected"));
+    return qvariant_cast<bool>(m_dBusMachineInter->property("Paired"));
 }
 
 QString MachineDBusProxy::UUID()
@@ -54,12 +54,12 @@ void MachineDBusProxy::Disconnect()
     }
 }
 
-void MachineDBusProxy::Connect()
+void MachineDBusProxy::Pair()
 {
-    QDBusReply<void> retConnect = m_dBusMachineInter->call("Connect");
-    QString errorDate = retConnect.error().message();
+    QDBusReply<void> retPair = m_dBusMachineInter->call("Pair");
+    QString errorDate = retPair.error().message();
     if (!errorDate.isEmpty()) {
-        qWarning() << "Connect failed:" << errorDate;
+        qWarning() << "Pair failed:" << errorDate;
     }
 }
 

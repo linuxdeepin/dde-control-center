@@ -25,7 +25,7 @@ using namespace DCC_NAMESPACE;
 
 Machine::Machine(QObject *parent)
     : QObject(parent)
-    , m_connected(false)
+    , m_paired(false)
     , m_cooperating(false)
     , m_isHistoryDev(false)
 {
@@ -58,11 +58,11 @@ void Machine::setIP(const QString &ip)
     }
 }
 
-void Machine::setConnected(const bool connected)
+void Machine::setPaired(const bool paired)
 {
-    if (m_connected != connected) {
-        m_connected = connected;
-        Q_EMIT connectedChanged(m_connected);
+    if (m_paired != paired) {
+        m_paired = paired;
+        Q_EMIT pairedChanged(paired);
     }
 }
 

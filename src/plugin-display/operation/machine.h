@@ -39,7 +39,7 @@ public:
 
     inline const QString Name() { return m_name; }
     inline const QString IP() { return m_IP; }
-    inline const bool Connected() { return m_connected; }
+    inline const bool Paired() { return m_paired; }
     inline const bool Cooperating() { return m_cooperating; }
     inline const bool isHistory() { return m_isHistoryDev; }
     inline const QString UUID() { return m_UUID; }
@@ -47,14 +47,14 @@ public:
 public Q_SLOTS:
     void setName(const QString& name);
     void setIP(const QString& ip);
-    void setConnected(const bool connected);
+    void setPaired(const bool paired);
     void setCooperating(const bool cooperating);
     void setDisconnectStatus(bool status);
     void setHistoryStates(bool isHistory);
     void setUUID(const QString& uuid);
 
 Q_SIGNALS:
-    void connectedChanged(bool connected);
+    void pairedChanged(bool paired);
     void nameChanged(const QString& name);
     void IPChanged(const QString& Ip);
     void cooperatingChanged(bool cooperating);
@@ -65,7 +65,7 @@ private:
     QString m_path;
     QString m_name;
     QString m_IP;
-    bool m_connected;
+    bool m_paired;
     bool m_cooperating;
     // 判断是否是历史设备
     bool m_isHistoryDev;

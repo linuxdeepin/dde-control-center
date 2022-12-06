@@ -79,7 +79,7 @@ public Q_SLOTS:
     void setCurrentFillMode(Monitor *mon, const QString fillMode);
     // Cooperation Machine
     void setDeviceSharingSwitch(const bool enable);
-    void setCurrentMachineConnect(Machine *mac);
+    void setCurrentMachinePair(Machine *mac);
     void setCurrentMachineRequestCooperate(Machine *mac);
     void setCurrentMachineDisconnect(Machine *mac);
     void setOpenSharedDevices(bool on);

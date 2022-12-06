@@ -290,14 +290,14 @@ void DisplayWorker::setDeviceSharingSwitch(const bool enable)
      m_displayInter->setDeviceSharingSwitch(enable);
 }
 
-void DisplayWorker::setCurrentMachineConnect(Machine *mac)
+void DisplayWorker::setCurrentMachinePair(Machine *mac)
 {
-    qDebug() << " 设置Connect： " << mac->Name();
+    qDebug() << " 设置pair： " << mac->Name();
     MachineDBusProxy *inter = m_machines.value(mac);
-    if (mac->Connected()) {
+    if (mac->Paired()) {
         inter->RequestCooperate();
     } else {
-        inter->Connect();
+        inter->Pair();
     }
 }
 
@@ -541,14 +541,14 @@ void DisplayWorker::machinesAdded(const QString &path)
 
     connect(interProxy, &MachineDBusProxy::IpChanged, machine, &Machine::setIP);
     connect(interProxy, &MachineDBusProxy::NameChanged, machine, &Machine::setName);
-    connect(interProxy, &MachineDBusProxy::ConnectedChanged, machine, &Machine::setConnected);
+    connect(interProxy, &MachineDBusProxy::PairedChanged, machine, &Machine::setPaired);
     connect(interProxy, &MachineDBusProxy::CooperatingChanged, machine, &Machine::setCooperating);
     connect(interProxy, &MachineDBusProxy::disconnectStatusChanged, machine, &Machine::setDisconnectStatus);
     connect(interProxy, &MachineDBusProxy::disconnectStatusChanged, machine, &Machine::setDisconnectStatus);
     machine->setPath(path);
     machine->setIP(interProxy->IP());
     machine->setName(interProxy->name());
-    machine->setConnected(interProxy->connected());
+    machine->setPaired(interProxy->paired());
     machine->setCooperating(interProxy->cooperating());
     machine->setUUID(interProxy->UUID());
     // 标记历史设备

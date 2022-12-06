@@ -142,7 +142,7 @@ void DisplayModule::showSingleScreenWidget()
     linkWidget->setModel(m_model);
     contentLayout->addWidget(linkWidget);
     connect(linkWidget, &CollaborativeLinkWidget::requestCooperationEnable, m_worker, &DisplayWorker::setDeviceSharingSwitch);
-    connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachineConnect, m_worker, &DisplayWorker::setCurrentMachineConnect);
+    connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachinePair, m_worker, &DisplayWorker::setCurrentMachinePair);
     connect(linkWidget, &CollaborativeLinkWidget::requestOpenSharedDevices, m_worker, &DisplayWorker::setOpenSharedDevices);
     connect(linkWidget, &CollaborativeLinkWidget::requestOpenSharedClipboard, m_worker, &DisplayWorker::setOpenSharedClipboard);
     connect(linkWidget, &CollaborativeLinkWidget::requestFilesStoragePath, m_worker, &DisplayWorker::setFilesStoragePath);
@@ -277,7 +277,7 @@ void DisplayModule::showMultiScreenWidget()
     // 跨端协同
     connect(multiScreenWidget, &MultiScreenWidget::requestCooperationEnable, m_worker, &DisplayWorker::setDeviceSharingSwitch);
     connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachineDisconnect, m_worker, &DisplayWorker::setCurrentMachineDisconnect);
-    connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachineConnect, m_worker, &DisplayWorker::setCurrentMachineConnect);
+    connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachinePair, m_worker, &DisplayWorker::setCurrentMachinePair);
     connect(multiScreenWidget, &MultiScreenWidget::requestOpenSharedDevices, m_worker, &DisplayWorker::setOpenSharedDevices);
     connect(multiScreenWidget, &MultiScreenWidget::requestOpenSharedClipboard, m_worker, &DisplayWorker::setOpenSharedClipboard);
     connect(multiScreenWidget, &MultiScreenWidget::requestFilesStoragePath, m_worker, &DisplayWorker::setFilesStoragePath);

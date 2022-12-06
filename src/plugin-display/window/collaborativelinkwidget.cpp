@@ -191,7 +191,7 @@ void CollaborativeLinkWidget::changeTreeComboxIndex(const QModelIndex &index)
     }
 
     if (machine)
-        Q_EMIT requestCurrentMachineConnect(machine);
+        Q_EMIT requestCurrentMachinePair(machine);
 }
 
 void CollaborativeLinkWidget::changeDirectionComboxIndex(const int idx)
@@ -233,9 +233,9 @@ void CollaborativeLinkWidget::addMachine(Machine *machine)
         cooperationStatusChanged(false);
     });
 
-    connect(machine, &Machine::connectedChanged, m_deviceCombox, [this, machine](bool status) {
+    connect(machine, &Machine::pairedChanged, m_deviceCombox, [this, machine](bool status) {
         if (status) {
-            Q_EMIT requestCurrentMachineConnect(machine);
+            Q_EMIT requestCurrentMachinePair(machine);
         }
     });
 
