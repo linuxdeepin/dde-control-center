@@ -124,6 +124,7 @@ PluginData loadAndGetModule(const QPair<PluginManager *, QString> &pair)
 PluginManager::PluginManager(QObject *parent)
     : QObject(parent)
     , m_rootModule(nullptr)
+    , m_loadAllFinished(false)
 {
     qRegisterMetaType<PluginData>("PluginData");
 }
@@ -158,14 +159,14 @@ void PluginManager::loadModules(ModuleObject *root, bool async)
 
     QFutureWatcher<PluginData> *watcher = new QFutureWatcher<PluginData>(this);
     if (async) {
-        QFuture<PluginData> future = QtConcurrent::mapped(libraryNames, loadAndGetModule);
+        m_future = QtConcurrent::mapped(libraryNames, loadAndGetModule);
         connect(watcher, &QFutureWatcher<PluginData>::finished, this, [this] {
             // 加载非一级插件
             insertChild(true);
-
+            m_loadAllFinished = true;
             emit loadAllFinished();
         });
-        watcher->setFuture(future);
+        watcher->setFuture(m_future);
     } else {
         QFuture<PluginData> future = QtConcurrent::mapped(libraryNames, loadModule);
         watcher->waitForFinished();
@@ -174,15 +175,27 @@ void PluginManager::loadModules(ModuleObject *root, bool async)
         for (auto &&data : future.results()) {
             pluginDatas.append({ this, data });
         }
-        QFuture<PluginData> moduleFuture = QtConcurrent::mapped(pluginDatas, getModule);
+        m_future = QtConcurrent::mapped(pluginDatas, getModule);
         connect(watcher, &QFutureWatcher<PluginData>::finished, this, [this] {
             // 加载非一级插件
             insertChild(true);
-
+            m_loadAllFinished = true;
             emit loadAllFinished();
         });
-        watcher->setFuture(moduleFuture);
+        watcher->setFuture(m_future);
     }
+}
+
+void PluginManager::cancelLoad()
+{
+    if (!loadFinished()) {
+        m_future.cancel();
+    }
+}
+
+bool PluginManager::loadFinished() const
+{
+    return m_loadAllFinished;
 }
 
 ModuleObject *PluginManager::findModule(ModuleObject *module, const QString &name)

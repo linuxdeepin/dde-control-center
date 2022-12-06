@@ -22,6 +22,7 @@
 
 #include "interface/namespace.h"
 
+#include <QFuture>
 #include <QObject>
 
 class QPluginLoader;
@@ -50,6 +51,10 @@ class PluginManager : public QObject
 public:
     explicit PluginManager(QObject *parent = nullptr);
     void loadModules(ModuleObject *root, bool async = true);
+    bool loadFinished() const;
+
+public Q_SLOTS:
+    void cancelLoad();
 
 Q_SIGNALS:
     void loadedModule(const PluginData &data);
@@ -62,6 +67,8 @@ private:
 
     QList<PluginData> m_datas;      //cache for other plugin
     ModuleObject *m_rootModule;     //root module from MainWindow
+    bool m_loadAllFinished;
+    QFuture<PluginData> m_future;
 };
 
 } // namespace DCC_NAMESPACE

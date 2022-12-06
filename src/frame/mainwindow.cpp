@@ -79,7 +79,6 @@ MainWindow::MainWindow(QWidget *parent)
     , m_searchWidget(new SearchWidget(this))
     , m_rootModule(new MainModule(this))
     , m_pluginManager(new PluginManager(this))
-    , m_loadAllFinished(false)
 {
     qRegisterMetaType<ModuleObject *>("ModuleObject *");
 
@@ -90,7 +89,6 @@ MainWindow::MainWindow(QWidget *parent)
         showPage(url, UrlType::DisplayName);
     });
     connect(m_pluginManager, &PluginManager::loadAllFinished, this, [this]() {
-        m_loadAllFinished = true;
         // 搜索没实时更新，插件并行加载，此处在插件加载完后更新，待修改为实时更新
         m_searchWidget->setModuleObject(m_rootModule);
     });
@@ -122,7 +120,7 @@ void MainWindow::showPage(const QString &url, const UrlType &uType)
 
 void MainWindow::showPage(const QString &url)
 {
-    if (m_loadAllFinished) {
+    if (findModule(m_rootModule, url, UrlType::Name, false)) {
         showPage(url, UrlType::Name);
         return;
     }
@@ -133,23 +131,40 @@ void MainWindow::showPage(const QString &url)
 
 void MainWindow::showPage(ModuleObject *const module, const QString &url, const UrlType &uType)
 {
+    showModule(findModule(module, url, uType));
+}
+
+ModuleObject *MainWindow::findModule(ModuleObject * const module, const QString &url, const UrlType &uType, bool fuzzy)
+{
     ModuleObject *obj = module;
     QStringList names = url.split('/');
     while (!names.isEmpty() && obj) {
         const QString &name = names.takeFirst();
         QString childName;
+        ModuleObject *objChild = nullptr;
         for (auto child : obj->childrens()) {
-            if (uType == UrlType::Name)
-                childName = child->name();
-            if (uType == UrlType::DisplayName)
+            switch (uType) {
+            case UrlType::DisplayName:
                 childName = child->displayName();
+                break;
+            default:
+                childName = child->name();
+                break;
+            }
             if (childName == name || child->contentText().contains(name)) {
-                obj = child;
+                objChild = child;
+                break;
             }
         }
+        if (objChild) {
+            obj = objChild;
+        } else if (fuzzy) {
+            break;
+        } else {
+            return nullptr;
+        }
     }
-
-    showModule(obj);
+    return obj;
 }
 
 void MainWindow::changeEvent(QEvent *event)
@@ -158,6 +173,11 @@ void MainWindow::changeEvent(QEvent *event)
         updateMainView();
     }
     return DMainWindow::changeEvent(event);
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    m_pluginManager->cancelLoad();
 }
 
 void MainWindow::initUI()

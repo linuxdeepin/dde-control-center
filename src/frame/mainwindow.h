@@ -78,6 +78,7 @@ public:
 
 protected:
     void changeEvent(QEvent *event) override;
+    void closeEvent(QCloseEvent *event) override;
 
 private:
     void openManual();
@@ -89,6 +90,7 @@ private:
     void clearPage(QWidget *const widget);
     void configLayout(QBoxLayout *const layout);
     void showPage(ModuleObject *const module, const QString &url, const UrlType &uType);
+    ModuleObject *findModule(ModuleObject *const module, const QString &url, const UrlType &uType, bool fuzzy = true);
     void showModule(ModuleObject *const module);
     void resizeCurrentModule(int size);
 
@@ -106,7 +108,6 @@ private:
     ModuleObject                        *m_rootModule;
     QList<ModuleObject *>               m_currentModule;
     PluginManager                       *m_pluginManager;
-    bool                                m_loadAllFinished;
 
     QSet<QString> m_hideModule;
     QSet<QString> m_disableModule;
