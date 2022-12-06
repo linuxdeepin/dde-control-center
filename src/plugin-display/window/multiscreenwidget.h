@@ -81,7 +81,6 @@ Q_SIGNALS:
     void requestCooperationEnable(const bool enabled);
     void requestCurrentMachineDisconnect(Machine * machine);
     void requestCurrentMachinePair(Machine * machine);
-    void requsetCooperation(Machine * machine);
     void requestOpenSharedDevices(bool open);
     void requestOpenSharedClipboard(bool open);
     void requestFilesStoragePath(const QString &path);

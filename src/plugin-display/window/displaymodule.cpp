@@ -278,7 +278,6 @@ void DisplayModule::showMultiScreenWidget()
     connect(multiScreenWidget, &MultiScreenWidget::requestCooperationEnable, m_worker, &DisplayWorker::setDeviceSharingSwitch);
     connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachineDisconnect, m_worker, &DisplayWorker::setCurrentMachineDisconnect);
     connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachinePair, m_worker, &DisplayWorker::setCurrentMachinePair);
-    connect(multiScreenWidget, &MultiScreenWidget::requsetCooperation, m_worker, &DisplayWorker::setCurrentMachineRequestCooperate);
     connect(multiScreenWidget, &MultiScreenWidget::requestOpenSharedDevices, m_worker, &DisplayWorker::setOpenSharedDevices);
     connect(multiScreenWidget, &MultiScreenWidget::requestOpenSharedClipboard, m_worker, &DisplayWorker::setOpenSharedClipboard);
     connect(multiScreenWidget, &MultiScreenWidget::requestFilesStoragePath, m_worker, &DisplayWorker::setFilesStoragePath);

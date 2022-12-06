@@ -301,13 +301,6 @@ void DisplayWorker::setCurrentMachinePair(Machine *mac)
     }
 }
 
-void DisplayWorker::setCurrentMachineRequestCooperate(Machine *mac)
-{
-    MachineDBusProxy *inter = m_machines.value(mac);
-    if (mac->Paired())
-        inter->RequestCooperate();
-}
-
 void DisplayWorker::setCurrentMachineDisconnect(Machine *mac)
 {
     MachineDBusProxy *inter = m_machines.value(mac);

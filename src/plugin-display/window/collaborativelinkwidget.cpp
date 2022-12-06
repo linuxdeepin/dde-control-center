@@ -224,8 +224,7 @@ void CollaborativeLinkWidget::addMachine(Machine *machine)
     });
 
     connect(machine, &Machine::cooperatingChanged, this, [=](const bool cooperating){
-        if (!cooperating)
-            m_currentMachineDevcice = nullptr;
+        cooperating ? m_currentMachineDevcice = machine : m_currentMachineDevcice = nullptr;
         cooperationStatusChanged(cooperating);
     });
 
@@ -236,11 +235,7 @@ void CollaborativeLinkWidget::addMachine(Machine *machine)
 
     connect(machine, &Machine::pairedChanged, m_deviceCombox, [this, machine](bool status) {
         if (status) {
-            if (machine->IP() == m_currentMachineDevcice->IP()) {
-                Q_EMIT requsetCooperation(machine);
-            }
-        } else {
-            cooperationStatusChanged(false);
+            Q_EMIT requestCurrentMachinePair(machine);
         }
     });
 
