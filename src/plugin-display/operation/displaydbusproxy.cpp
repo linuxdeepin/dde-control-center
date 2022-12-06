@@ -36,9 +36,15 @@ const static QString PowerService = "org.deepin.dde.Power1";
 const static QString PowerPath = "/org/deepin/dde/Power1";
 const static QString PowerInterface = "org.deepin.dde.Power1";
 
+/* TODO
 const static QString CooperationService = "org.deepin.dde.Cooperation1";
 const static QString CooperationPath = "/org/deepin/dde/Cooperation1";
 const static QString CooperationInterface = "org.deepin.dde.Cooperation1";
+*/
+
+const static QString CooperationService = "com.deepin.Cooperation";
+const static QString CooperationPath = "/com/deepin/Cooperation";
+const static QString CooperationInterface = "com.deepin.Cooperation";
 
 DisplayDBusProxy::DisplayDBusProxy(QObject *parent)
     : QObject(parent)
