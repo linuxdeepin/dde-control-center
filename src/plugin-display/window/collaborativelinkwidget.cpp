@@ -271,13 +271,10 @@ enum FlowDirection {
 void CollaborativeLinkWidget::initDirectionItem()
 {
     QStringList dirList {"top", "right", "bottom", "left"};
+    QStringList textList { tr("On the top"), tr("On the right"), tr("On the bottom"), tr("On the left")};
+
     for (int idx = 0; idx < dirList.size(); idx++) {
-        DStandardItem *pi = new DStandardItem;
-        // TODO: dci
-        pi->setDciIcon(DDciIcon::fromTheme(QString(":/icons/deepin/builtin/actions/dcc_display_%1.dci").arg(dirList[idx])));
-        QString titel = QString(tr("On the %1").arg(dirList[idx]));
-        pi->setText(titel);
-        m_directionComboxModel->appendRow(pi);
+        m_directionCombox->addItem(QIcon::fromTheme(QString("dcc_display_%1").arg(dirList[idx])), textList[idx]);
     }
 }
 
