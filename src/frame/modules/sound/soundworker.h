@@ -91,6 +91,7 @@ private:
     SoundEffect *m_soundEffectInter;
     QPointer<Sink> m_defaultSink;
     QPointer<Source> m_defaultSource;
+    QPointer<Meter> m_defaultSourceMeter;
     QList<Sink*> m_sinks;
     QList<Source*> m_sources;
     SystemPowerInter *m_powerInter;
