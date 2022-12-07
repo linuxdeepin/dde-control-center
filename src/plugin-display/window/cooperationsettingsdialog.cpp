@@ -150,7 +150,10 @@ void CooperationSettingsDialog::initWidget()
 
 void CooperationSettingsDialog::initConnect()
 {
-    connect(m_storageItem->edit()->lineEdit(), &QLineEdit::textChanged, [this](){
+    connect(m_storageItem->edit()->lineEdit(), &QLineEdit::textChanged, [this](const QString& filePath){
+        if (filePath != m_storagePath) {
+            setFilesStoragePath(filePath);
+        }
         setButtonTupleState(true);
     });
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &CooperationSettingsDialog::close);

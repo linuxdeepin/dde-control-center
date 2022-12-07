@@ -670,9 +670,10 @@ QString UpdateWorker::getUpdateLogAddress() const
     const DConfig *dconfig = DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.update"));
     if (dconfig && dconfig->isValid()) {
         const QString &updateLogAddress = dconfig->value("updateLogAddress").toString();
-        if (!updateLogAddress.isEmpty())
+        if (!updateLogAddress.isEmpty()) {
             qDebug() << " updateLogAddress " << updateLogAddress;
             return updateLogAddress;
+        }
     }
 
     return "https://update-platform.uniontech.com/api/v1/systemupdatelogs";

@@ -95,7 +95,6 @@ void CollaborativeLinkWidget::initUI()
     comboxLayout->addStretch(1);
     comboxLayout->addWidget(m_deviceCombox, 1);
     comboxLayout->addWidget(m_deviceButton);
-//    initMachine();
 
     QHBoxLayout *directionLayout = new QHBoxLayout(m_directionComboxItem);
     QLabel *directionLabel = new QLabel(this);
