@@ -45,8 +45,9 @@ void UserGroupsPage::changeUserGroup(const QStringList &groups)
     int row_count = m_groupItemModel->rowCount();
     for (int i = 0; i < row_count; ++i) {
         QStandardItem *item = m_groupItemModel->item(i, 0);
-        item->setCheckState(item && groups.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
-        item->setEnabled(item->text() != m_groupName);
+        if (item) {
+            item->setCheckState(groups.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
+        }
     }
     m_groupItemModel->sort(0);
 }
