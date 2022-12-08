@@ -11,6 +11,7 @@
 #include <DCommandLinkButton>
 
 #include <DListView>
+#include <DFloatingButton>
 
 #include <QWidget>
 
@@ -51,6 +52,7 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_langListview;
     DCommandLinkButton *m_editSystemLang;
     SystemLanguageSettingWidget *m_settingWidget;
+    DFloatingButton *m_addSystemLanguage;
     bool m_bEdit{false};
 };
 }

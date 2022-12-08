@@ -80,18 +80,18 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     vLayout->addWidget(contentWidget);
     vLayout->setAlignment(Qt::AlignTop);
 
-    DFloatingButton *addSystemLanguage = new DFloatingButton(DStyle::SP_IncreaseElement, this);
-    addSystemLanguage->setObjectName("AddSystemLanguage");
+    m_addSystemLanguage = new DFloatingButton(DStyle::SP_IncreaseElement, this);
+    m_addSystemLanguage->setObjectName("AddSystemLanguage");
     QHBoxLayout *btnLayout = new QHBoxLayout;
     btnLayout->setMargin(0);
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
-    btnLayout->addWidget(addSystemLanguage);
+    btnLayout->addWidget(m_addSystemLanguage);
     vLayout->addLayout(btnLayout);
     vLayout->setContentsMargins(10, 10, 10, 5);
     setLayout(vLayout);
 
     connect(m_langListview, &DListView::clicked, this, &SystemLanguageWidget::setCurLangChecked);
-    connect(addSystemLanguage, &DFloatingButton::clicked, this, &SystemLanguageWidget::onSystemLanguageAdded);
+    connect(m_addSystemLanguage, &DFloatingButton::clicked, this, &SystemLanguageWidget::onSystemLanguageAdded);
     connect(m_editSystemLang, &QPushButton::clicked, this, &SystemLanguageWidget::onEditClicked);
 
     connect(m_model, &KeyboardModel::curLocalLangChanged, this, [this](const QStringList &curLocalLang) {
@@ -191,6 +191,7 @@ void SystemLanguageWidget::onDefault(const QString &curLang)
 void SystemLanguageWidget::onSetCurLang(int value)
 {
     qDebug() << "m_langListview & m_editSystemLang" << value;
+    m_addSystemLanguage->setFocusPolicy(value ? Qt::NoFocus : Qt::TabFocus);
     m_langListview->setEnabled(!value);
     m_editSystemLang->setEnabled(!value);
 }
