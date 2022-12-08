@@ -9,6 +9,7 @@
 #include "widgets/contentwidget.h"
 
 namespace dcc {
+class ContentWidget;
 namespace mouse {
 class MouseModel;
 class MouseWorker;
@@ -39,6 +40,7 @@ Q_SIGNALS:
     void requestDetectState(bool enable);
     void requestContact(int value);
     void requestPressure(int value);
+    void requestSetTouchpadEnable(const bool state);
 
 private Q_SLOTS:
     void onTouchMoveSpeedChanged(int speed);
@@ -46,10 +48,12 @@ private Q_SLOTS:
 private:
     dcc::mouse::MouseModel *m_mouseModel;
     dcc::mouse::PalmDetectSetting *m_palmDetectSetting;
+    dcc::widgets::SwitchWidget *m_touchPadEnable;
     dcc::widgets::TitledSliderItem *m_touchMoveSlider;
     dcc::widgets::SwitchWidget *m_touchClickStn;
     dcc::widgets::SwitchWidget *m_touchNaturalScroll;
     QVBoxLayout *m_contentLayout;
+    dcc::ContentWidget *m_contentWidget;
 };
 }
 }

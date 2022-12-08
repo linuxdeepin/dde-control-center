@@ -204,6 +204,23 @@ void MouseModel::setTapClick(bool tapclick)
     Q_EMIT tapClickChanged(tapclick);
 }
 
+void MouseModel::setTouchpadEnable(const bool touchpadEnable)
+{
+    if (m_touchpadEnable == touchpadEnable)
+        return;
+
+    m_touchpadEnable = touchpadEnable;
+    Q_EMIT touchpadEnableChanged(touchpadEnable);
+}
+
+void MouseModel::setSystemTouchpadExist(const bool exist)
+{
+    if (m_systemTouchpadExist == exist)
+        return;
+
+    m_systemTouchpadExist = exist;
+}
+
 void MouseModel::setScrollSpeed(uint speed)
 {
     if (m_scrollSpeed == speed)
