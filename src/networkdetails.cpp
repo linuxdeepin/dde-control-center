@@ -106,7 +106,7 @@ void NetworkDetails::updateData(const QJsonObject &info)
     if (isWireless || isHotspot) {
         // 频段
         const QString &band = hotspotInfo.value("Band").toString();
-        QString bandInfo = band == "a" ? "5G" : (band == "bg" ? "2.4G" : "automatic");
+        QString bandInfo = band == "a" ? "5 GHz" : (band == "bg" ? "2.4 GHz" : "automatic");
         appendInfo(tr("Band"), bandInfo);
     }
     if (isHotspot) {
