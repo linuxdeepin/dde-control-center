@@ -254,6 +254,7 @@ void UpdateSettingsModule::setUpdateMode()
 
     updateMode = updateMode | m_autoCheckSecureUpdate->checked();
     updateMode = (updateMode << 1) | m_autoCheckThirdpartyUpdate->checked();
+    updateMode = (updateMode << 2);
     updateMode = (updateMode << 1) | m_autoCheckUniontechUpdate->checked();
 
     setAutoCheckEnable();

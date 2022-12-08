@@ -50,8 +50,8 @@ public:
     bool autoClean();
 
     Q_PROPERTY(qulonglong UpdateMode READ updateMode WRITE setUpdateMode NOTIFY UpdateModeChanged)
-    qulonglong updateMode();
-    void setUpdateMode(qulonglong value);
+    uint updateMode();
+    void setUpdateMode(uint value);
 
     QList<QDBusObjectPath> jobList();
     QDBusPendingReply<QDBusObjectPath> UpdateSource();

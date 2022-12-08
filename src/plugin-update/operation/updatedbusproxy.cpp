@@ -143,16 +143,14 @@ bool UpdateDBusProxy::autoClean()
     return qvariant_cast<bool>(m_managerInter->property("AutoCheckUpdates"));
 }
 
-qulonglong UpdateDBusProxy::updateMode()
+uint UpdateDBusProxy::updateMode()
 {
-    return qvariant_cast<qulonglong>(m_managerInter->property("UpdateMode"));
+    return qvariant_cast<uint>(m_managerInter->property("UpdateMode"));
 }
 
-void UpdateDBusProxy::setUpdateMode(qulonglong value)
+void UpdateDBusProxy::setUpdateMode(uint value)
 {
-    QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(value);
-    m_managerInter->asyncCallWithArgumentList(QStringLiteral("SetUpdateMode"), argumentList);
+    m_managerInter->setProperty("UpdateMode", value);
 }
 
 QList<QDBusObjectPath> UpdateDBusProxy::jobList()
