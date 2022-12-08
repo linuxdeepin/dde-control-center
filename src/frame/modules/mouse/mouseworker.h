@@ -32,6 +32,8 @@ public Q_SLOTS:
     void setDisTouchPad(const bool state);
     void setTapClick(const bool state);
     void setDouClick(const int &value);
+    void setTouchpadEnable(const bool state);
+    void setSystemTouchpadExist(const bool exist);
     void setMouseMotionAcceleration(const double &value);
     void setAccelProfile(const bool state);
     void setTouchpadMotionAcceleration(const double &value);
@@ -47,6 +49,7 @@ public Q_SLOTS:
     void onDisTypingChanged(const bool state);
     void onDisTouchPadChanged(const bool state);
     void onTapClick(const bool state);
+    void onTouchpadEnable(const bool state);
     void onDouClickChanged(const int &value);
     void onMouseMotionAccelerationChanged(const int &value);
     void onAccelProfileChanged(const bool state);
@@ -69,6 +72,7 @@ Q_SIGNALS:
     void requestSetDisTouchPad(const bool state);
     void requestSetTapClick(const bool state);
     void requestSetDouClick(const int &value);
+    void requestSetTouchpadEnable(const bool state);
     void requestSetMouseMotionAcceleration(const double &value);
     void requestSetAccelProfile(const bool state);
     void requestSetTouchpadMotionAcceleration(const double &value);
