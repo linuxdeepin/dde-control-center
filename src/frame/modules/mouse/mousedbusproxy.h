@@ -46,6 +46,7 @@ public Q_SLOTS:
     void setDisTyping(const bool state);
     void setTouchpadMotionAcceleration(const double &value);
     void setTapClick(const bool state);
+    void setTouchpadEnable(const bool state);
     void setPalmDetect(bool palmDetect);
     void setPalmMinWidth(int palmMinWidth);
     void setPalmMinz(int palmMinz);
@@ -56,12 +57,15 @@ public Q_SLOTS:
     // device properties
     void setScrollSpeed(uint speed);
 
+    void onSystemTouchpadEnableChanged(const QString &interfaceName, const QVariantMap &changedProperties, const QStringList &invalidatedProperties);
+
 private:
     Mouse        *m_dbusMouse;
     TouchPad     *m_dbusTouchPad;
     TrackPoint   *m_dbusTrackPoint;
     InputDevices *m_dbusDevices;
     MouseWorker  *m_worker;
+    QDBusInterface *m_systemTouchpad;
 };
 }
 }

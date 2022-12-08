@@ -124,6 +124,7 @@ void MouseModule::showTouchpadSetting()
     m_touchpadSettingWidget->setVisible(false);
     m_touchpadSettingWidget->setModel(m_model);
 
+    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestSetTouchpadEnable, m_worker, &MouseWorker::onTouchpadEnable);
     connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestSetTouchpadMotionAcceleration, m_worker, &MouseWorker::onTouchpadMotionAccelerationChanged);
     connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestSetTapClick, m_worker, &MouseWorker::onTapClick);
     connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestSetTouchNaturalScroll, m_worker, &MouseWorker::onTouchNaturalScrollStateChanged);
@@ -271,7 +272,11 @@ void MouseModule::initSearchData()
 
         func_mouse_changed();
 
-        func_touchpad_changed(m_model->tpadExist());
+        if (m_model->systemTouchpadExist()) {
+            func_touchpad_changed(m_model->tpadExist() && m_model->touchpadEnable());
+        } else {
+            func_touchpad_changed(m_model->tpadExist());
+        }
 
         func_trackPoint_changed(m_model->redPointExist());
      };
@@ -288,6 +293,13 @@ void MouseModule::initSearchData()
             m_frameProxy->updateSearchData(module);
         });
     });
+
+    if (m_model->systemTouchpadExist()) {
+        connect(m_model, &MouseModel::touchpadEnableChanged, this, [ = ](bool state) {
+            func_touchpad_changed(state);
+            m_frameProxy->updateSearchData(module);
+        });
+    }
 
     //mouseGeneral,mouseMouse,mouseTrackpoint,mouseTouch
     //mouseLeftHand, mouseTouchpad, mouseSpeedSlider(鼠标/指针速度)
