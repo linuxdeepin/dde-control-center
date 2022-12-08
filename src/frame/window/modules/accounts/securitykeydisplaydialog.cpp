@@ -34,6 +34,7 @@ SecurityKeyDisplayDialog::SecurityKeyDisplayDialog(dcc::accounts::AccountsWorker
 
 void SecurityKeyDisplayDialog::initWidget()
 {
+    setTitle(tr("Security Keys"));
     addButtons(QStringList() << tr("Cancel") << tr("Confirm"));
     setIcon(QIcon::fromTheme("dialog-warning"));
 
@@ -47,7 +48,6 @@ void SecurityKeyDisplayDialog::initWidget()
         setWindowFlags(Qt::Tool | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint);
     }
     installEventFilter(this);
-    setFixedSize(530, 272);
     setOnButtonClickedClose(true);
     setCloseButtonVisible(true);
 
@@ -57,6 +57,10 @@ void SecurityKeyDisplayDialog::initWidget()
     DLabel *txt = new DLabel(tr("An account security key is a code that can be used to log in to the system if you forgot your password. Please copy the code and save it in a safe place."));
     txt->setAlignment(Qt::AlignHCenter);
     txt->setWordWrap(true);
+
+    QFontMetrics fontMetrics(txt->fontMetrics());
+    int txtWidth = fontMetrics.width(txt->text());
+    setFixedSize(530, 248 + 10 * (txtWidth / 480 + (txtWidth % 480 > 0) + 1));
 
     m_securityKeyDisplayTxt = new DLabel;
     QHBoxLayout *securityKeyLayout = new QHBoxLayout;
@@ -72,6 +76,7 @@ void SecurityKeyDisplayDialog::initWidget()
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(txt);
+    layout->addStretch();
     layout->addSpacing(5);
     layout->addLayout(securityKeyLayout);
     widget->setLayout(layout);
