@@ -7,6 +7,7 @@
 #include "window/utils.h"
 
 #include <DListView>
+#include <DStyledItemDelegate>
 
 #include <QVBoxLayout>
 #include <QScroller>
@@ -38,6 +39,13 @@ PerssonalizationThemeList::PerssonalizationThemeList(QWidget *parent)
     layout->setContentsMargins(pageMargins);
     this->setLayout(layout);
     connect(m_listview, &DListView::clicked, this, &PerssonalizationThemeList::onClicked);
+
+    DStyledItemDelegate *itemDelegate = qobject_cast<DStyledItemDelegate *>(m_listview->itemDelegate());
+    if (itemDelegate) {
+        QMargins margins = itemDelegate->margins();
+        margins.setLeft(16);
+        itemDelegate->setMargins(margins);
+    }
 
     QScroller *scroller = QScroller::scroller(m_listview->viewport());
     QScrollerProperties sp;
