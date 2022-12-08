@@ -7,6 +7,10 @@ using namespace dcc;
 using namespace dcc::mouse;
 const QString Service = "com.deepin.daemon.InputDevices";
 
+const QString SystemTouchpadService = "com.deepin.system.InputDevices";
+const QString SystemTouchpadPath = "/com/deepin/system/InputDevices/Touchpad";
+const QString SystemTouchpadInterface = "com.deepin.system.InputDevices.Touchpad";
+
 MouseDBusProxy::MouseDBusProxy(MouseWorker *worker, QObject *parent)
     : QObject(parent)
     , m_dbusMouse(new Mouse(Service, "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
@@ -14,6 +18,7 @@ MouseDBusProxy::MouseDBusProxy(MouseWorker *worker, QObject *parent)
     , m_dbusTrackPoint(new TrackPoint(Service, "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
     , m_dbusDevices(new InputDevices(Service, "/com/deepin/daemon/InputDevices", QDBusConnection::sessionBus(), this))
     , m_worker(worker)
+    , m_systemTouchpad(new QDBusInterface(SystemTouchpadService, SystemTouchpadPath, SystemTouchpadInterface, QDBusConnection::systemBus(), this))
 {
     m_dbusMouse->setSync(false);
     m_dbusTouchPad->setSync(false);
@@ -37,6 +42,9 @@ void MouseDBusProxy::active()
     // initial touchpad settings
     m_worker->setTouchpadMotionAcceleration(m_dbusTouchPad->motionAcceleration());
     m_worker->setTapClick(m_dbusTouchPad->tapClick());
+    qInfo() << "m_systemTouchpad->property----->" << m_systemTouchpad->property("IsExist").toBool();
+    m_worker->setSystemTouchpadExist(m_systemTouchpad->property("IsExist").toBool());
+    m_worker->setTouchpadEnable(m_systemTouchpad->property("Enable").toBool());
     m_worker->setTpadExist(m_dbusTouchPad->exist());
     m_worker->setTouchNaturalScrollState(m_dbusTouchPad->naturalScroll());
     m_worker->setDisTyping(m_dbusTouchPad->disableIfTyping());
@@ -81,6 +89,8 @@ void MouseDBusProxy::init()
     connect(m_dbusTouchPad, &TouchPad::PalmMinWidthChanged, m_worker, &MouseWorker::setPalmMinWidth);
     connect(m_dbusTouchPad, &TouchPad::PalmMinZChanged, m_worker, &MouseWorker::setPalmMinz);
 
+    QDBusConnection::systemBus().connect(SystemTouchpadService, SystemTouchpadPath, "org.freedesktop.DBus.Properties", "PropertiesChanged", this, SLOT(onSystemTouchpadEnableChanged(QString, QVariantMap, QStringList)));
+
     // get redpoint settings from daemon
     connect(m_dbusTrackPoint, &TrackPoint::ExistChanged, m_worker, &MouseWorker::setRedPointExist);
     connect(m_dbusTrackPoint, &TrackPoint::MotionAccelerationChanged, m_worker, &MouseWorker::setTrackPointMotionAcceleration);
@@ -101,6 +111,7 @@ void MouseDBusProxy::init()
     connect(m_worker, &MouseWorker::requestSetDisTyping, this, &MouseDBusProxy::setDisTyping);
     connect(m_worker, &MouseWorker::requestSetTouchpadMotionAcceleration, this, &MouseDBusProxy::setTouchpadMotionAcceleration);
     connect(m_worker, &MouseWorker::requestSetTapClick, this, &MouseDBusProxy::setTapClick);
+    connect(m_worker, &MouseWorker::requestSetTouchpadEnable, this, &MouseDBusProxy::setTouchpadEnable);
     connect(m_worker, &MouseWorker::requestSetPalmDetect, this, &MouseDBusProxy::setPalmDetect);
     connect(m_worker, &MouseWorker::requestSetPalmMinWidth, this, &MouseDBusProxy::setPalmMinWidth);
     connect(m_worker, &MouseWorker::requestSetPalmMinz, this, &MouseDBusProxy::setPalmMinz);
@@ -110,6 +121,14 @@ void MouseDBusProxy::init()
 
     // set Device properties from dde-control-center
     connect(m_worker, &MouseWorker::requestSetScrollSpeed, this, &MouseDBusProxy::setScrollSpeed);
+}
+
+void MouseDBusProxy::onSystemTouchpadEnableChanged(const QString &interfaceName, const QVariantMap &changedProperties, const QStringList &invalidatedProperties)
+{
+    if (changedProperties.contains("Enable")) {
+        qInfo() << "m_systemTouchpad enable changed";
+        m_worker->setTouchpadEnable(m_systemTouchpad->property("Enable").toBool());
+    }
 }
 
 void MouseDBusProxy::onDefaultReset()
@@ -170,6 +189,11 @@ void MouseDBusProxy::setTouchpadMotionAcceleration(const double &value)
 void MouseDBusProxy::setTapClick(const bool state)
 {
     m_dbusTouchPad->setTapClick(state);
+}
+
+void MouseDBusProxy::setTouchpadEnable(const bool state)
+{
+    m_systemTouchpad->asyncCall("SetTouchpadEnable", state);
 }
 
 void MouseDBusProxy::setPalmDetect(bool palmDetect)

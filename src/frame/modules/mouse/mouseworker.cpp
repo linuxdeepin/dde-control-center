@@ -59,6 +59,16 @@ void MouseWorker::setTapClick(const bool state)
     m_model->setTapClick(state);
 }
 
+void MouseWorker::setTouchpadEnable(const bool state)
+{
+    m_model->setTouchpadEnable(state);
+}
+
+void MouseWorker::setSystemTouchpadExist(const bool exist)
+{
+    m_model->setSystemTouchpadExist(exist);
+}
+
 void MouseWorker::setDouClick(const int &value)
 {
     m_model->setDoubleSpeed(converToDoubleModel(value));
@@ -153,6 +163,11 @@ void MouseWorker::onDisTouchPadChanged(const bool state)
 void MouseWorker::onTapClick(const bool state)
 {
     Q_EMIT requestSetTapClick(state);
+}
+
+void MouseWorker::onTouchpadEnable(const bool state)
+{
+    Q_EMIT requestSetTouchpadEnable(state);
 }
 
 void MouseWorker::onDouClickChanged(const int &value)
