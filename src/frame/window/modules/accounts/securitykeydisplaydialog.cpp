@@ -34,6 +34,7 @@ SecurityKeyDisplayDialog::SecurityKeyDisplayDialog(dcc::accounts::AccountsWorker
 
 void SecurityKeyDisplayDialog::initWidget()
 {
+    setTitle(tr("Security Keys"));
     addButtons(QStringList() << tr("Cancel") << tr("Confirm"));
     setIcon(QIcon::fromTheme("dialog-warning"));
 
@@ -47,7 +48,6 @@ void SecurityKeyDisplayDialog::initWidget()
         setWindowFlags(Qt::Tool | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::CustomizeWindowHint);
     }
     installEventFilter(this);
-    setFixedSize(530, 272);
     setOnButtonClickedClose(true);
     setCloseButtonVisible(true);
 
@@ -57,6 +57,16 @@ void SecurityKeyDisplayDialog::initWidget()
     DLabel *txt = new DLabel(tr("An account security key is a code that can be used to log in to the system if you forgot your password. Please copy the code and save it in a safe place."));
     txt->setAlignment(Qt::AlignHCenter);
     txt->setWordWrap(true);
+
+    QFontMetrics fontMetrics(txt->fontMetrics());
+    int lineHeight = fontMetrics.height();
+    QRect rect = fontMetrics.boundingRect(QRect(0, 0, width(), lineHeight), Qt::TextWordWrap, txt->text());
+    int lineCount = rect.height() / lineHeight + (rect.height() % lineHeight > 0);
+    if (!QLocale::system().name().contains("zh") || QString::compare(txt->text(), "An account security key is a code that can be used to log in to the system if you forgot your password. Please copy the code and save it in a safe place.")) {
+        lineCount += 2;
+    }
+    qInfo() << " [initWidget] lineCount : " << lineCount << lineHeight << rect.height();
+    setFixedSize(530, 248 + 10 * lineCount);
 
     m_securityKeyDisplayTxt = new DLabel;
     QHBoxLayout *securityKeyLayout = new QHBoxLayout;
@@ -72,6 +82,7 @@ void SecurityKeyDisplayDialog::initWidget()
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addWidget(txt);
+    layout->addStretch();
     layout->addSpacing(5);
     layout->addLayout(securityKeyLayout);
     widget->setLayout(layout);
