@@ -151,6 +151,12 @@ void SystemInfoWork::activate()
         QString versionNumber = QString("%1").arg(DSysInfo::majorVersion());
         m_model->setVersionNumber(versionNumber);
     }
+    if (!DSysInfo::isDeepin())  {
+        // is not deepin or uos
+        m_model->setProductName(DSysInfo::productTypeString());
+        m_model->setVersionNumber(DSysInfo::productVersion());
+    }
+
     QString version;
     if (DSysInfo::uosType() == DSysInfo::UosServer || DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
         version = QString("%1%2").arg(DSysInfo::minorVersion())
@@ -169,7 +175,7 @@ void SystemInfoWork::activate()
     }
     m_model->setType(QSysInfo::WordSize);
 
-    if (m_systemInfo->isValid()) {
+    if (m_systemInfo->isValid() && m_systemInfo->property("MemorySize").toULongLong() > 0) {
         m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), m_systemInfo->property("MemorySize").toULongLong());
     } else {
         m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), static_cast<qulonglong>(DSysInfo::memoryInstalledSize()));

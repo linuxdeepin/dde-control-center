@@ -79,7 +79,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
 
     licenseStateChangeSlot();
 
-    if (!IsCommunitySystem) {
+    if (!IsCommunitySystem && !IsNotDeepinUos) {
         QDBusInterface dbusInterface("org.freedesktop.DBus",
             "/org/freedesktop/DBus",
             "org.freedesktop.DBus",

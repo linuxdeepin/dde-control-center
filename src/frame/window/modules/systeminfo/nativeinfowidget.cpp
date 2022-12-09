@@ -109,7 +109,7 @@ void NativeInfoWidget::initWidget()
     logo->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
     logo->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal));
 
-    if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
+    if (!DSysInfo::isDeepin() || DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
             (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
         m_productName = new TitleValueItem(frame);
         //~ contents_path /systeminfo/About This PC
@@ -173,6 +173,11 @@ void NativeInfoWidget::initWidget()
         connect(m_model, &SystemInfoModel::hostNameChanged, this, &NativeInfoWidget::onHostNameChanged);
         connect(m_model, &SystemInfoModel::setHostNameError, this, &NativeInfoWidget::onSetHostNameError);
 
+        if (DSysInfo::productTypeString().compare("nixos", Qt::CaseInsensitive) == 0) {
+            m_hostNameBtn->setVisible(false);
+            m_hostNameLayout->setContentsMargins(10, 10, 10, 10);
+        }
+
         //~ contents_path /systeminfo/About This PC
         //~ child_page About This PC
         m_productName->setTitle(tr("OS Name") + ':');
@@ -190,6 +195,8 @@ void NativeInfoWidget::initWidget()
     m_version->setTitle(tr("Edition") + ':');
     m_version->setValue(m_model->version());
     GSettingWatcher::instance()->bind("edition", m_version);
+    if (!DSysInfo::isDeepin())
+        m_version->setVisible(false);
     m_type = new TitleValueItem(frame);
     //~ contents_path /systeminfo/About This PC
     //~ child_page About This PC
@@ -232,7 +239,7 @@ void NativeInfoWidget::initWidget()
     GSettingWatcher::instance()->bind("systeminfoNativeinfoMemory", m_memory);
 
     logoGroup->appendItem(logo);
-    if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
+    if (!DSysInfo::isDeepin() || DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
             (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
         infoGroup->appendItem(m_productName);
         infoGroup->appendItem(m_versionNumber);
