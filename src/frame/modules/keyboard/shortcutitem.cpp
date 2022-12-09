@@ -38,6 +38,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     m_title->setText("");
     m_title->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     m_title->setWordWrap(false);
+    m_title->setTextFormat(Qt::TextFormat::PlainText);
     m_title->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
     layout->addWidget(m_title);
@@ -208,7 +209,6 @@ void ShortcutItem::resizeEvent(QResizeEvent *event)
         m_title->setToolTip(m_info->name);
         QTimer::singleShot(0, this, &ShortcutItem::updateTitleSize);
     }
-    
 }
 
 bool ShortcutItem::eventFilter(QObject *watched, QEvent *event)
