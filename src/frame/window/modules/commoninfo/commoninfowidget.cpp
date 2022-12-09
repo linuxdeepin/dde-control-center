@@ -87,7 +87,7 @@ void CommonInfoWidget::initData()
                        QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget), nullptr, "bootMenu"});
 
     //以下模块只在非服务器版本使用
-    if (!IsServerSystem && !IsCommunitySystem) {
+    if (!IsServerSystem && !IsCommunitySystem && !IsNotDeepinUos) {
         if (DSysInfo::uosEditionType() != DSysInfo::UosEuler || DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC) {
             if (!DisableDeveloperMode) {
                 m_itemList.append({ "dcc_developer_mode",

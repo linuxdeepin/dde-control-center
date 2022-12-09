@@ -61,7 +61,7 @@ Q_SIGNALS:
     void backgroundChanged(const QPixmap &pixmap);
     void distroidChanged(const QString& distroid);
     void distroverChanged(const QString& distrover);
-    void productNameChanged(const QString& version);
+    void productNameChanged(const QString& name);
     void versionNumberChanged(const QString& version);
     void versionChanged(const QString& version);
     void typeChanged(const QString& type);
