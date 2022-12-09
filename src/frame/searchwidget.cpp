@@ -29,59 +29,35 @@
 #include <QStandardItemModel>
 #include <QDebug>
 
+#if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 0, 0)
+#    define USE_DCIICON
+#endif
+
+#ifdef USE_DCIICON
+#    include <DDciIcon>
+#    include <DGuiApplicationHelper>
+#endif
+
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
-const QStringList &FilterText{"-", "--", "-->", "->", ">", "/"};
-
-SearchData::SearchData(QObject *parent)
-    : QObject(parent) {}
-
-SearchData::SearchData(const QString &url, const QString &searchUrl, const QString &pinYin, const QList<ModuleObject *> &moduleUrl, QObject *parent)
-    : QObject(parent), Url(url), SearchUrl(searchUrl), PinYin(pinYin), ModuleUrl(moduleUrl) {}
-
-SearchData::SearchData(const SearchData &m)
-{
-    Url = m.Url;
-    SearchUrl = m.SearchUrl;
-    PinYin = m.PinYin;
-    ModuleUrl = m.ModuleUrl;
-}
-
-SearchData &SearchData::operator=(const SearchData &other)
-{
-    if (this != &other) {
-        Url = other.Url;
-        SearchUrl = other.SearchUrl;
-        PinYin = other.PinYin;
-        ModuleUrl = other.ModuleUrl;
-    }
-    return *this;
-}
-
-bool SearchData::operator==(const SearchData &other) const
-{
-    return Url == other.Url && SearchUrl == other.SearchUrl && PinYin == other.PinYin;
-}
-
-QDebug SearchData::operator<<(QDebug d) const
-{
-    d << QString("SearchData(Url:%1, SearchUrl:%2, PinYin:%3)")
-            .arg(Url).arg(SearchUrl).arg(PinYin);
-    return d;
-}
-
+const QStringList &FilterText{ "-", "--", "-->", "->", ">", "/" };
+enum CompleterRole {
+    UrlRole = Qt::UserRole + 1,
+    SearchRole,
+    DisplayNameRole,
+    ModuleRole,
+};
 
 DccCompleter::DccCompleter(QObject *parent)
     : QCompleter(parent)
 {
-
 }
 
 DccCompleter::DccCompleter(QAbstractItemModel *model, QObject *parent)
     : QCompleter(model, parent)
 {
-
 }
 
 bool DccCompleter::eventFilter(QObject *o, QEvent *e)
@@ -137,17 +113,16 @@ bool DccCompleter::eventFilter(QObject *o, QEvent *e)
     return QCompleter::eventFilter(o, e);
 }
 
-
 DccCompleterStyledItemDelegate::DccCompleterStyledItemDelegate(QObject *parent)
     : QStyledItemDelegate(parent)
 {
-
 }
 
 void DccCompleterStyledItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
-                              ? QPalette::Normal : QPalette::Disabled;
+            ? QPalette::Normal
+            : QPalette::Disabled;
     if (cg == QPalette::Normal && !(option.state & QStyle::State_Active)) {
         cg = QPalette::Inactive;
     }
@@ -155,15 +130,73 @@ void DccCompleterStyledItemDelegate::paint(QPainter *painter, const QStyleOption
     if (option.showDecorationSelected && (option.state & (QStyle::State_Selected | QStyle::State_MouseOver))) {
         painter->fillRect(option.rect, option.palette.brush(cg, QPalette::Highlight));
     }
-    QIcon itemIcon = QIcon::fromTheme(index.data(Qt::UserRole + 1).toString());
-    QSize iconSize = QSize(option.rect.height() - 2, option.rect.height() - 2);
-    painter->drawPixmap(QRect(0, option.rect.y(), option.rect.height() - 0, option.rect.height() - 2), itemIcon.pixmap(iconSize));
 
+    ModuleObject *p = index.data(CompleterRole::ModuleRole).value<ModuleObject *>();
+    if (p->getParent()) {
+        while (p->getParent()->getParent()) {
+            p = p->getParent();
+        }
+    }
+    QVariant iconVar = p->icon();
+    QRect iconRect = QRect(1, option.rect.y() + 1, option.rect.height() - 2, option.rect.height() - 2);
+#ifdef USE_DCIICON
+    DDciIcon dciIcon;
+    if (iconVar.canConvert<DDciIcon>()) {
+        dciIcon = iconVar.value<DDciIcon>();
+    } else if (iconVar.type() == QVariant::String) {
+        QString iconstr = iconVar.toString();
+        if (!iconstr.isEmpty()) {
+            dciIcon = DDciIcon::fromTheme(iconstr);
+            if (dciIcon.isNull())
+                dciIcon = DDciIcon(iconstr);
+        }
+    }
+    if (!dciIcon.isNull()) {
+        DDciIcon::Mode dciMode = DDciIcon::Normal;
+        if (option.state & QStyle::State_Enabled) {
+            if (option.state & (QStyle::State_Sunken | QStyle::State_Selected)) {
+                dciMode = DDciIcon::Pressed;
+            } else if (option.state & QStyle::State_MouseOver) {
+                dciMode = DDciIcon::Hover;
+            }
+        } else {
+            dciMode = DDciIcon::Disabled;
+        }
+
+        DDciIcon::Theme theme = DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType ? DDciIcon::Dark : DDciIcon::Light;
+
+        painter->save();
+        painter->setBrush(Qt::NoBrush);
+        dciIcon.paint(painter, iconRect, painter->device() ? painter->device()->devicePixelRatioF() : qApp->devicePixelRatio(), theme, dciMode, option.decorationAlignment);
+        painter->restore();
+        iconVar.clear();
+    }
+#endif
+    if (iconVar.isValid()) {
+        QIcon icon;
+        if (iconVar.type() == QVariant::Icon) {
+            icon = iconVar.value<QIcon>();
+        } else if (iconVar.type() == QVariant::String) {
+            const QString &iconstr = iconVar.toString();
+            icon = QIcon::fromTheme(iconstr);
+            if (icon.isNull())
+                icon = QIcon(iconstr);
+        }
+        if (!icon.isNull()) {
+            QIcon::Mode mode = QIcon::Normal;
+            if (!(option.state & QStyle::State_Enabled))
+                mode = QIcon::Disabled;
+            else if (option.state & QStyle::State_Selected)
+                mode = QIcon::Selected;
+
+            QIcon::State state = (option.state & QStyle::State_Open) ? QIcon::On : QIcon::Off;
+            icon.paint(painter, iconRect, option.decorationAlignment, mode, state);
+        }
+    }
     // draw text
     if (option.state & (QStyle::State_Selected | QStyle::State_MouseOver)) {
         painter->setPen(option.palette.color(cg, QPalette::HighlightedText));
-    }
-    else {
+    } else {
         painter->setPen(option.palette.color(cg, QPalette::Text));
     }
     painter->setFont(option.font);
@@ -177,12 +210,10 @@ QSize DccCompleterStyledItemDelegate::sizeHint(const QStyleOptionViewItem &optio
     return s;
 }
 
-
 SearchWidget::SearchWidget(QWidget *parent)
     : DSearchEdit(parent)
     , m_model(new QStandardItemModel(this))
     , m_completer(new DccCompleter(m_model, this))
-    , m_insertIndex(0)
     , m_bIsChinese(false)
 {
     const QString &language = QLocale::system().name();
@@ -192,16 +223,13 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_completer->popup()->setItemDelegate(delegate);
     m_completer->popup()->setAttribute(Qt::WA_InputMethodEnabled);
 
-    m_completer->setFilterMode(Qt::MatchContains);//设置QCompleter支持匹配字符搜索
-    m_completer->setCaseSensitivity(Qt::CaseInsensitive);//这个属性可设置进行匹配时的大小写敏感性
+    m_completer->setFilterMode(Qt::MatchContains);        //设置QCompleter支持匹配字符搜索
+    m_completer->setCaseSensitivity(Qt::CaseInsensitive); //这个属性可设置进行匹配时的大小写敏感性
     m_completer->setWrapAround(false);
     m_completer->installEventFilter(this);
-    m_completer->setWidget(lineEdit());  //设置自动补全时弹出时相应位置的widget
+    m_completer->setWidget(lineEdit()); //设置自动补全时弹出时相应位置的widget
 
-    if (m_bIsChinese)
-        m_completer->setCompletionRole(Qt::UserRole);//设置Pinyin参与搜索
-    else
-        m_completer->setCompletionRole(Qt::DisplayRole);
+    m_completer->setCompletionRole(CompleterRole::SearchRole);
 
     connect(this, &DSearchEdit::textChanged, this, &SearchWidget::onSearchTextChange);
 
@@ -214,125 +242,88 @@ SearchWidget::SearchWidget(QWidget *parent)
 void SearchWidget::setModuleObject(ModuleObject *const module)
 {
     m_rootModule = module;
-    addUrl(module);
-    refreshModel();
-    configConnect(module);
 }
 
-void SearchWidget::refreshModel()
+QList<QPair<QString, QString>> SearchWidget::searchResults(const QString text)
 {
-    for (auto &&data : m_searchData) {
-        auto res = std::find_if(m_rootModule->childrens().cbegin(), m_rootModule->childrens().cend()
-            , [data] (ModuleObject *child) ->bool {
-            return child->displayName() == data.Url.split('/').first();
-        });
-
-        if (res != m_rootModule->childrens().cend()) {
-            QStandardItem *item1 = new QStandardItem;
-            item1->setIcon((*res)->icon().value<QIcon>());
-            item1->setText(data.SearchUrl);
-            item1->setData((*res)->icon(), Qt::UserRole + 1);
-            if (m_bIsChinese) {
-                item1->setData(data.SearchUrl, Qt::UserRole);
-            }
-            m_model->appendRow(item1);
-            if (m_bIsChinese) {// 中文环境添加拼音数据
-                QStandardItem *item2 = new QStandardItem;
-                item2->setIcon((*res)->icon().value<QIcon>());
-                item2->setText(data.SearchUrl);
-                item2->setData(data.PinYin, Qt::UserRole);
-                item2->setData((*res)->icon(), Qt::UserRole + 1);
-                m_model->appendRow(item2);
-            }
-        }
+    QList<QPair<QString, QString>> result;
+    m_completer->setCompletionPrefix(text);
+    QAbstractItemModel *model = m_completer->completionModel();
+    for (int i = 0; i < model->rowCount(); i++) {
+        const QModelIndex &index = model->index(i, 0);
+        result.append({ index.data(CompleterRole::UrlRole).toString(), index.data().toString() });
     }
+    return result;
 }
 
-void SearchWidget::addUrl(ModuleObject * module, const QString &prefix, QList<ModuleObject *> moduleUrl)
+void SearchWidget::addModule(ModuleObject *const module)
 {
-    QString tempStr;
-    QStringList strlist;
-    if (!prefix.isEmpty())
-        strlist.append(prefix);
-    if (!module->displayName().isEmpty())
-        strlist.append(module->displayName());
-    if (!strlist.isEmpty())
-        tempStr = strlist.join('/');
-    moduleUrl.append(module);
-    if (module->hasChildrens()) {
-        for (auto child : module->childrens()) {
-            addUrl(child, tempStr, moduleUrl);
+    if (ModuleObject::IsHidden(module) || module->noSearch() || (module->displayName().isEmpty() && module->contentText().isEmpty()))
+        return;
+
+    QStandardItem *item = new QStandardItem;
+
+    QList<ModuleObject *> moduleurl;
+    QStringList urls;
+    QStringList displayNames;
+    ModuleObject *p = module;
+    while (p->getParent()) {
+        if (ModuleObject::IsHidden(p))
+            return;
+        moduleurl.prepend(p);
+        urls.prepend(p->name());
+        const QString &&displayName = p->displayName();
+        if (!displayName.isEmpty()) {
+            displayNames.prepend(displayName);
         }
+        p = p->getParent();
+    }
+
+    QString text = convertUrl(displayNames);
+    if (m_allText.contains(text)) {
         return;
     }
-    if (!tempStr.isEmpty()) {
-        auto &&data = SearchData(tempStr, convertUrl(tempStr), convertUrl(convertPinyin(tempStr)), moduleUrl);
-        if (!m_searchData.contains(data))
-            m_searchData.insert(m_insertIndex++, data);
-    }
-    for (auto &&text : module->contentText()) {
-        tempStr = tempStr + '/' + text;
-        auto &&data = SearchData(tempStr, convertUrl(tempStr), convertUrl(convertPinyin(tempStr)), moduleUrl);
-        if (!m_searchData.contains(data))
-            m_searchData.insert(m_insertIndex++, data);
-    }
-}
+    m_allText.insert(text);
+    item->setText(text);
+    item->setToolTip(text);
+    item->setData(urls.join("/"), CompleterRole::UrlRole);
+    item->setData(QVariant::fromValue((ModuleObject *)(module)), CompleterRole::ModuleRole);
+    QString searchStr = module->displayName();
+    item->setData(searchStr, CompleterRole::DisplayNameRole);
 
-void SearchWidget::replaceUrl(ModuleObject *const module)
-{
-    int urlIndex = -1;
-    QString prefix;
-    for (auto &&data : m_searchData) {
-        if (!data.ModuleUrl.contains(module))
-            return;
-        if (urlIndex < 0)
-            urlIndex = m_searchData.indexOf(data);
-        if (prefix.isEmpty()) {
-            prefix = getPrefix(module, m_rootModule);
-        }
-        m_searchData.removeOne(data);
-    }
-    if (urlIndex >= 0 && !prefix.isEmpty()) {
-        m_insertIndex = urlIndex;
-        addUrl(module, prefix);
-        refreshModel();
-    }
-}
-
-QString SearchWidget::getPrefix(ModuleObject *const module, ModuleObject *const child, const QString &prefix)
-{
-    QString tempStr;
-    QStringList strlist;
-    if (!prefix.isEmpty())
-        strlist.append(prefix);
-    if (!module->displayName().isEmpty())
-        strlist.append(module->displayName());
-    if (!strlist.isEmpty())
-        tempStr = strlist.join('/');
-    for (auto ch : child->childrens()) {
-        if (ch->findChild(module) > 0) {
-            getPrefix(module, ch, tempStr);
+    searchStr.remove(' ');
+    QStringList searchList(searchStr);
+    if (m_bIsChinese) {
+        searchStr.remove(QRegularExpression(R"([a-zA-Z\d]+)"));
+        QStringList displaynameList = Dtk::Core::Chinese2Pinyin(searchStr).split(QRegularExpression(R"(\d+)"));
+        if (!displaynameList.isEmpty()) {
+            searchList << displaynameList.join(QString());
+            QString initial;
+            for (auto &&str : displaynameList) {
+                if (!str.isEmpty())
+                    initial.append(str.at(0));
+            }
+            searchList << initial;
         }
     }
-    return tempStr;
+    item->setData(searchList.join("\n"), CompleterRole::SearchRole);
+    m_model->appendRow(item);
 }
 
-void SearchWidget::configConnect(ModuleObject *const module)
+void SearchWidget::removeModule(ModuleObject *const module)
 {
-    connect(module, &ModuleObject::moduleDataChanged, this, [this, module] {
-        replaceUrl(module);
-    });
-    connect(module, &ModuleObject::childrenSizeChanged, this, [this, module] {
-        replaceUrl(module);
-    });
-    for (auto child : module->childrens()) {
-        configConnect(child);
+    for (int i = 0; i < m_model->rowCount(); i++) {
+        if (m_model->index(i, 0).data(CompleterRole::ModuleRole).value<ModuleObject *>() == module) {
+            m_allText.remove(m_model->index(i, 0).data().toString());
+            m_model->removeRow(i);
+            break;
+        }
     }
 }
 
-QString SearchWidget::convertUrl(const QString& url)
+QString SearchWidget::convertUrl(const QStringList &displayNames)
 {
-    QStringList sections = url.split('/');
+    QStringList sections = displayNames;
     QString result = sections.takeAt(0);
     if (!sections.isEmpty()) {
         result += " --> ";
@@ -341,32 +332,16 @@ QString SearchWidget::convertUrl(const QString& url)
     return result;
 }
 
-QString SearchWidget::convertPinyin(const QString& url)
-{
-    const QStringList &sections = url.split('/');
-    QStringList newSections;
-    for (auto section : sections) {
-        section = section.remove(QRegularExpression(R"([a-zA-Z]+)"));
-        section = Dtk::Core::Chinese2Pinyin(section);
-        // section = removeDigital(section);
-        newSections.append(section);
-    }
-    return newSections.join('/');
-}
-
 void SearchWidget::onReturnPressed()
 {
     if (!text().isEmpty()) {
-        //enter defalt set first
-        const QString &completion = m_completer->popup()->currentIndex().data().toString();
-        auto res = std::find_if(m_searchData.cbegin(), m_searchData.cend(), [&completion] (const SearchData &data) ->bool {
-            return data.SearchUrl == completion || data.PinYin == completion;
-        });
-        if (res != m_searchData.cend()) {
+        // enter defalt set first
+        const QString &url = m_completer->popup()->currentIndex().data(CompleterRole::UrlRole).toString();
+        if (!url.isEmpty()) {
             blockSignals(true);
-            setText(res->SearchUrl);
+            setText(m_completer->popup()->currentIndex().data(CompleterRole::DisplayNameRole).toString());
             blockSignals(false);
-            Q_EMIT notifySearchUrl(res->Url);
+            Q_EMIT notifySearchUrl(url);
         }
     }
 }
@@ -388,7 +363,9 @@ void SearchWidget::onAutoComplete(const QString &text)
     if (widget && text.isEmpty()) {
         widget->hide();
     } else {
-        m_completer->setCompletionPrefix(text);
+        QString str = text;
+        str.remove(' ');
+        m_completer->setCompletionPrefix(str);
         m_completer->complete();
     }
 }

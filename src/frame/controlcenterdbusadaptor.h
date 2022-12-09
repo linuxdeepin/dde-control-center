@@ -68,4 +68,24 @@ public Q_SLOTS: // METHODS
 
 };
 
+class DBusControlCenterGrandSearchService: public QDBusAbstractAdaptor
+{
+    Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "org.deepin.dde.ControlCenter1.GrandSearch")
+
+public:
+    explicit DBusControlCenterGrandSearchService(MainWindow *parent);
+    virtual ~DBusControlCenterGrandSearchService();
+
+    inline MainWindow *parent() const;
+
+public Q_SLOTS: // METHODS
+    QString Search(const QString json);
+    bool Stop(const QString json);
+    bool Action(const QString json);
+
+private:
+    QTimer *m_autoExitTimer;
+};
+
 } // namespace DCC_NAMESPACE

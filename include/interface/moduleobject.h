@@ -60,6 +60,12 @@ enum : DCC_MODULE_TYPE {
 };
 
 class ModuleObjectPrivate;
+
+// 不参与搜索
+#define DCC_NOSEARCH 0x08000000
+#define setSearch(search) setFlagState(DCC_NOSEARCH, !search)
+#define noSearch() getFlagState(DCC_NOSEARCH)
+
 /**
  * @brief ModuleObject作为规范每个Module的接口，每个Module必须提供其基本的信息
  */

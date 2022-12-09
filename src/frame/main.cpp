@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
     DCC_NAMESPACE::MainWindow mw;
 
     DCC_NAMESPACE::ControlCenterDBusAdaptor adaptor(&mw);
-    // DBusControlCenterGrandSearchService grandSearchadAptor(&mw);
+    DCC_NAMESPACE::DBusControlCenterGrandSearchService grandSearchadAptor(&mw);
 
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("org.deepin.dde.ControlCenter1") ||

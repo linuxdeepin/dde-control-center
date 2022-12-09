@@ -71,6 +71,8 @@ const QString WidthConfig = QStringLiteral("width");
 const QString HeightConfig = QStringLiteral("height");
 const QString HideConfig = QStringLiteral("hideModule");
 const QString DisableConfig = QStringLiteral("disableModule");
+const QString ControlCenterIcon = QStringLiteral("preferences-system");
+const QString ControlCenterGroupName = "org.deepin.dde-grand-search.group.dde-control-center-setting";
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
@@ -86,11 +88,7 @@ MainWindow::MainWindow(QWidget *parent)
     initConfig();
 
     connect(m_searchWidget, &SearchWidget::notifySearchUrl, this, [this](const QString &url) {
-        showPage(url, UrlType::DisplayName);
-    });
-    connect(m_pluginManager, &PluginManager::loadAllFinished, this, [this]() {
-        // 搜索没实时更新，插件并行加载，此处在插件加载完后更新，待修改为实时更新
-        m_searchWidget->setModuleObject(m_rootModule);
+        showPage(url, UrlType::Name);
     });
 }
 
@@ -293,10 +291,75 @@ void MainWindow::loadModules(bool async)
     onAddModule(m_rootModule);
     m_pluginManager->loadModules(m_rootModule, async);
     showModule(m_rootModule);
-    // 搜索没实时更新，插件并行加载，此处暂延时设置，待修改
-    // QTimer::singleShot(3000, this, [this]() {
-    //     m_searchWidget->setModuleObject(m_rootModule);
-    // });
+}
+
+QString MainWindow::GrandSearchSearch(const QString json)
+{
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(json.toLocal8Bit().data());
+    if(!jsonDocument.isNull()) {
+        QJsonObject jsonObject = jsonDocument.object();
+
+        //处理搜索任务, 返回搜索结果
+        QList<QPair<QString, QString>> lstMsg = m_searchWidget->searchResults(jsonObject.value("cont").toString());
+
+        for(auto msg : lstMsg) {
+            qDebug() << "name:" << msg;
+        }
+
+        QJsonObject jsonResults;
+        QJsonArray items;
+        for (int i = 0; i < lstMsg.size(); i++) {
+            QJsonObject jsonObj;
+            jsonObj.insert("item", lstMsg[i].first);
+            jsonObj.insert("name", lstMsg[i].second);
+            jsonObj.insert("icon", ControlCenterIcon);
+            jsonObj.insert("type", "application/x-dde-control-center-xx");
+
+            items.insert(i, jsonObj);
+        }
+
+        QJsonObject objCont;
+        objCont.insert("group",ControlCenterGroupName);
+        objCont.insert("items", items);
+
+        QJsonArray arrConts;
+        arrConts.insert(0, objCont);
+
+        jsonResults.insert("ver", jsonObject.value("ver"));
+        jsonResults.insert("mID", jsonObject.value("mID"));
+        jsonResults.insert("cont", arrConts);
+
+        QJsonDocument document;
+        document.setObject(jsonResults);
+
+        return document.toJson(QJsonDocument::Compact);
+    }
+
+    return QString();
+}
+
+bool MainWindow::GrandSearchStop(const QString json)
+{
+    Q_UNUSED(json)
+    return true;
+}
+
+bool MainWindow::GrandSearchAction(const QString json)
+{
+    QString searchName;
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(json.toLocal8Bit().data());
+    if(!jsonDocument.isNull()) {
+        QJsonObject jsonObject = jsonDocument.object();
+        if (jsonObject.value("action") == "openitem") {
+            //打开item的操作
+            searchName = jsonObject.value("item").toString();
+        }
+    }
+
+    show();
+    activateWindow();
+    showPage(searchName,UrlType::Name);
+    return true;
 }
 
 void MainWindow::toHome()
@@ -394,7 +457,9 @@ void MainWindow::onAddModule(ModuleObject *const module)
         connect(obj, &ModuleObject::insertedChild, this, &MainWindow::onAddModule);
         connect(obj, &ModuleObject::removedChild, this, &MainWindow::onRemoveModule);
         connect(obj, &ModuleObject::childStateChanged, this, &MainWindow::onChildStateChanged);
+        connect(obj, &ModuleObject::moduleDataChanged, this, &MainWindow::onModuleDataChanged);
         connect(obj, &ModuleObject::triggered, this, &MainWindow::onTriggered, Qt::QueuedConnection);
+        m_searchWidget->addModule(obj);
         for (auto &&tmpObj : obj->childrens()) {
             modules.append({ it.first + "/" + tmpObj->name(), tmpObj });
         }
@@ -408,6 +473,7 @@ void MainWindow::onRemoveModule(ModuleObject *const module)
     while (!modules.isEmpty()) {
         ModuleObject *obj = modules.takeFirst();
         disconnect(obj, nullptr, this, nullptr);
+        m_searchWidget->removeModule(obj);
         modules.append(obj->childrens());
     }
     // 最后一个是滚动到，不参与比较
@@ -432,6 +498,15 @@ void MainWindow::onChildStateChanged(ModuleObject *const child, uint32_t flag, b
             onRemoveModule(child);
         else
             onAddModule(child);
+    }
+}
+
+void MainWindow::onModuleDataChanged()
+{
+    ModuleObject *module = qobject_cast<ModuleObject *>(sender());
+    if (module) {
+        m_searchWidget->removeModule(module);
+        m_searchWidget->addModule(module);
     }
 }
 

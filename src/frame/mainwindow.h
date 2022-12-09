@@ -76,6 +76,10 @@ public:
     QString getAllModule() const;
     void loadModules(bool async);
 
+    QString GrandSearchSearch(const QString json);
+    bool GrandSearchStop(const QString json);
+    bool GrandSearchAction(const QString json);
+
 protected:
     void changeEvent(QEvent *event) override;
     void closeEvent(QCloseEvent *event) override;
@@ -99,6 +103,7 @@ private Q_SLOTS:
     void onRemoveModule(ModuleObject *const module);
     void onTriggered();
     void onChildStateChanged(ModuleObject *const child, uint32_t flag, bool state);
+    void onModuleDataChanged();
     void updateModuleConfig(const QString &key);
 
 private:

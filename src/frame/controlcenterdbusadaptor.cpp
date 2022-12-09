@@ -106,3 +106,47 @@ QString ControlCenterDBusAdaptor::GetAllModule()
 {
     return parent()->getAllModule();
 }
+
+DBusControlCenterGrandSearchService::DBusControlCenterGrandSearchService(MainWindow *parent)
+    : QDBusAbstractAdaptor(parent)
+    , m_autoExitTimer(new QTimer(this))
+{
+    m_autoExitTimer->setInterval(10000);
+    m_autoExitTimer->setSingleShot(true);
+    connect(m_autoExitTimer, &QTimer::timeout, this, [this]() {
+        //当主界面show出来之后不再执行自动退出
+        if (!this->parent()->isVisible())
+            QCoreApplication::quit();
+    });
+    m_autoExitTimer->start();
+}
+
+DBusControlCenterGrandSearchService::~DBusControlCenterGrandSearchService()
+{
+}
+
+MainWindow *DBusControlCenterGrandSearchService::parent() const
+{
+    return static_cast<MainWindow *>(QObject::parent());
+}
+//匹配搜索结果
+QString DBusControlCenterGrandSearchService::Search(const QString json)
+{
+    QString val = parent()->GrandSearchSearch(json);
+    m_autoExitTimer->start();
+    return val;
+}
+//停止搜索
+bool DBusControlCenterGrandSearchService::Stop(const QString json)
+{
+    bool val = parent()->GrandSearchStop(json);
+    m_autoExitTimer->start();
+    return val;
+}
+//执行搜索
+bool DBusControlCenterGrandSearchService::Action(const QString json)
+{
+    bool val = parent()->GrandSearchAction(json);
+    m_autoExitTimer->start();
+    return val;
+}
