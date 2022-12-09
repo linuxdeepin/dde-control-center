@@ -668,7 +668,7 @@
 <context>
     <name>dccV20::accounts::UserGroupsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="138"/>
         <source>Group</source>
         <translation>Grupo</translation>
         <extra-contents_path>/accounts/Group</extra-contents_path>
@@ -2071,7 +2071,7 @@
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="67"/>
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="333"/>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Exemplo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="142"/>
@@ -2079,7 +2079,7 @@
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="156"/>
         <location filename="../src/frame/window/modules/datetime/numberformat.cpp" line="268"/>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation>Espaço</translation>
     </message>
 </context>
 <context>
@@ -2319,12 +2319,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="71"/>
         <source>Cool</source>
-        <translation type="unfinished"/>
+        <translation>Fria</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="71"/>
         <source>Warm</source>
-        <translation type="unfinished"/>
+        <translation>Quente</translation>
     </message>
 </context>
 <context>
@@ -5092,7 +5092,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="41"/>
         <source>Join the internal testing channel to get deepin latest updates</source>
-        <translation type="unfinished"/>
+        <translation>Junte-se ao canal de testes interno para obter as últimas atualizações</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="48"/>
@@ -5149,14 +5149,14 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
         <source>Join Internal Testing Channel</source>
-        <translation type="unfinished"/>
+        <translation>Junte-se ao canal de testes interno</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="72"/>
         <source>Updates from Internal Testing Sources</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações a partir de fontes de teste internas</translation>
         <extra-child_page>Update Settings</extra-child_page>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
@@ -5249,22 +5249,22 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="431"/>
         <source>Click %1 to complete the application</source>
-        <translation type="unfinished"/>
+        <translation>Clique em %1 para completar o pedido</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="472"/>
         <source>Checking system versions, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>A verificar versões do sistema, por favor aguarde...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="500"/>
         <source>If you leave the internal testing channel now, you may not be able to get the latest bug fixes and updates. Please leave after the official version is released to keep your system stable!</source>
-        <translation type="unfinished"/>
+        <translation>Se sair agora do canal de testes interno, poderá não conseguir obter as últimas correções e atualizações de problemas. Saia após a versão oficial ser lançada para manter o seu sistema estável!</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="502"/>
         <source>Leave</source>
-        <translation type="unfinished"/>
+        <translation>Sair</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="503"/>
@@ -5462,11 +5462,16 @@
     <name>SecurityKeyDisplayDialog</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
+        <source>Security Keys</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="38"/>
         <source>Cancel</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="38"/>
         <source>Confirm</source>
         <translation type="unfinished"/>
     </message>

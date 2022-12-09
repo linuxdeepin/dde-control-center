@@ -184,12 +184,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="554"/>
         <source>Enable Security Keys for Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Hesablar üçün təhlükəsizlik açarını aktiv et</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="555"/>
         <source>It is used to log in to the system if you forgot your password</source>
-        <translation type="unfinished"/>
+        <translation>Bu, şifrənizi unutduğunuz halda sistemə daxil olmanız üçün istifdə olunur</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="758"/>
@@ -279,7 +279,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="270"/>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="325"/>
         <source>Enable Security Keys for Accounts</source>
-        <translation type="unfinished"/>
+        <translation>Hesablar üçün təhlükəsizlik açarını aktiv et</translation>
     </message>
 </context>
 <context>
@@ -582,7 +582,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="65"/>
         <source>These questions will be used to help reset your password in case you forgot it.</source>
-        <translation type="unfinished"/>
+        <translation>Şifrənizi unutduğunuz halda, bu suallar onu sıfırlamaq üçün istifadə olunur.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="84"/>
@@ -668,7 +668,7 @@
 <context>
     <name>dccV20::accounts::UserGroupsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="138"/>
         <source>Group</source>
         <translation>Qrup</translation>
         <extra-contents_path>/accounts/Group</extra-contents_path>
@@ -1455,7 +1455,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="45"/>
         <source>Developer mode enables you to get root privileges, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation type="unfinished"/>
+        <translation>Tərtibatçı rejimi sizə kök (root) imtiyazları verir. Buna görə də sisteminizin bütövlüyünü zədələməmək üçün bu rejimdən ehtiyyatla istifadə edin.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="50"/>
@@ -2297,34 +2297,34 @@
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="48"/>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Rəng temperaturu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="53"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Gecə rejimi</translation>
         <extra-contents_path>/display/Night Shift</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="58"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>Ekran tonu yerləşdiyiniz yerə görə avtomatik tənzimlənəcəkdir</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="70"/>
         <source>Change Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Rəng temperaturunu dəyiş</translation>
         <extra-contents_path>/display/Change Color Temperature</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="71"/>
         <source>Cool</source>
-        <translation type="unfinished"/>
+        <translation>Sərin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/colortempwidget.cpp" line="71"/>
         <source>Warm</source>
-        <translation type="unfinished"/>
+        <translation>İsti</translation>
     </message>
 </context>
 <context>
@@ -2444,7 +2444,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="97"/>
         <source>Set the display settings of other screens in the windows on corresponding screens.</source>
-        <translation type="unfinished"/>
+        <translation>Müvafiq ekranlardakı pəncərələrdə olan digər ekranların görüntü ayarlarını təyin et.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="362"/>
@@ -3959,7 +3959,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="433"/>
         <source>Show the shutdown interface</source>
-        <translation type="unfinished"/>
+        <translation>Söndürmə interfeysini göstər</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="434"/>
@@ -3979,7 +3979,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="467"/>
         <source>%1 Hours</source>
-        <translation type="unfinished"/>
+        <translation>%1 saat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="467"/>
@@ -4060,7 +4060,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="339"/>
         <source>Show the shutdown interface</source>
-        <translation type="unfinished"/>
+        <translation>Söndürmə interfeysini göstər</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="340"/>
@@ -4080,7 +4080,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="373"/>
         <source>%1 Hours</source>
-        <translation type="unfinished"/>
+        <translation>%1 saat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="373"/>
@@ -5462,18 +5462,23 @@
     <name>SecurityKeyDisplayDialog</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
-        <source>Cancel</source>
+        <source>Security Keys</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="38"/>
+        <source>Cancel</source>
+        <translation>İmtina</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="38"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Təsdiqlə</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="57"/>
         <source>An account security key is a code that can be used to log in to the system if you forgot your password. Please copy the code and save it in a safe place.</source>
-        <translation type="unfinished"/>
+        <translation>Hesabın təhlükəszilik kodu, şifrənizi unutduğunuz halda sistemə daxil olmaq üçün istifadə olunur. Lütfən bu kodun surətini etibarlı yerdə saxlayın.</translation>
     </message>
 </context>
 <context>

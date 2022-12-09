@@ -668,7 +668,7 @@
 <context>
     <name>dccV20::accounts::UserGroupsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="138"/>
         <source>Group</source>
         <translation>用户组</translation>
         <extra-contents_path>/accounts/Group</extra-contents_path>
@@ -5462,11 +5462,16 @@
     <name>SecurityKeyDisplayDialog</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
+        <source>Security Keys</source>
+        <translation>安全密钥</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="38"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="38"/>
         <source>Confirm</source>
         <translation>确定</translation>
     </message>

@@ -668,7 +668,7 @@
 <context>
     <name>dccV20::accounts::UserGroupsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="138"/>
         <source>Group</source>
         <translation>Csoport</translation>
         <extra-contents_path>/accounts/Group</extra-contents_path>
@@ -5477,11 +5477,16 @@ lecsukásakor</translation>
     <name>SecurityKeyDisplayDialog</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
+        <source>Security Keys</source>
+        <translation>Biztonsági Kulcsok</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="38"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="38"/>
         <source>Confirm</source>
         <translation>Megerősítés</translation>
     </message>
