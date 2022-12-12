@@ -31,11 +31,12 @@
 #include <QFileDialog>
 
 #include <DIconButton>
+#include <DTitlebar>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
-    QWidget(parent),
+    DAbstractDialog(parent),
     m_model(model),
     m_commandGroup(new SettingsGroup),
     m_name(new LineEditWidget),
@@ -44,10 +45,10 @@ CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
     m_tip(new QLabel),
     m_conflict(nullptr)
 {
+    setFixedSize(QSize(400, 388));
     m_tip->setVisible(false);
     m_tip->setWordWrap(true);
 
-    QFrame *widget = new QFrame;
     QVBoxLayout *mainlayout = new QVBoxLayout;
     QHBoxLayout *buttonlayout = new QHBoxLayout;
 
@@ -73,18 +74,23 @@ CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
     buttonlayout->addWidget(cancelButton);
     buttonlayout->addWidget(okButton);
 
+    DTitlebar *titleIcon = new DTitlebar();
+    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
+    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setMenuVisible(false);
+    titleIcon->setTitle(tr(""));
+
+    mainlayout->addWidget(titleIcon);
     mainlayout->addSpacing(10);
     mainlayout->addWidget(m_commandGroup);
     mainlayout->addWidget(m_tip);
-    mainlayout->addSpacing(10);
-    mainlayout->addLayout(buttonlayout);
     mainlayout->addStretch();
+    mainlayout->addLayout(buttonlayout);
+    mainlayout->setContentsMargins(20, 10, 20, 10);
 
-    widget->setLayout(mainlayout);
+    setLayout(mainlayout);
 
-    //setContent(widget);
-
-    connect(cancelButton, &QPushButton::clicked, this, &CustomEdit::back);
+    connect(cancelButton, &QPushButton::clicked, this, &CustomEdit::reject);
     connect(pushbutton, &DIconButton::clicked, this, &CustomEdit::onOpenFile);
     connect(m_short, &CustomItem::requestUpdateKey, this, &CustomEdit::onUpdateKey);
     connect(okButton, &QPushButton::clicked, this, &CustomEdit::onSaveAccels);
@@ -185,7 +191,7 @@ void CustomEdit::onSaveAccels()
 
     Q_EMIT requestSaveShortcut(m_info);
 
-    Q_EMIT back();
+    accept();
 }
 
 void CustomEdit::onUpdateKey()

@@ -32,11 +32,12 @@
 #include "shortcutitem.h"
 #include "operation/shortcutmodel.h"
 #include <QObject>
+#include <DAbstractDialog>
 
 namespace DCC_NAMESPACE {
 struct ShortcutInfo;
 class CustomItem;
-class CustomEdit : public QWidget
+class CustomEdit : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
 public:
@@ -47,7 +48,6 @@ Q_SIGNALS:
     void requestUpdateKey(ShortcutInfo *info);
     void requestSaveShortcut(ShortcutInfo *info);
     void requestFrameAutoHide(const bool autoHide) const;
-    void back();
 
 public Q_SLOTS:
     void setBottomTip(ShortcutInfo *conflict);

@@ -247,7 +247,7 @@ QWidget *ShortCutSettingModule::page()
 
 void ShortCutSettingModule::onPushCustomShortcut()
 {
-    CustomContentDialog *content = new CustomContentDialog(m_shortcutModel);
+    CustomContentDialog *content = new CustomContentDialog(m_shortcutModel, qobject_cast<QWidget *>(sender()));
     connect(content, &CustomContentDialog::requestUpdateKey, m_worker, &KeyboardWorker::updateKey);
     connect(content, &CustomContentDialog::requestAddKey, m_worker, &KeyboardWorker::addCustomShortcut);
     connect(content, &CustomContentDialog::requestForceSubs, m_worker, &KeyboardWorker::onDisableShortcut);
@@ -273,7 +273,7 @@ void ShortCutSettingModule::onPushConflict(ShortcutInfo *info, const QString &sh
 
 void ShortCutSettingModule::onShortcutEdit(ShortcutInfo *info)
 {
-    CustomEdit *customEdit = new CustomEdit(m_shortcutModel);
+    CustomEdit *customEdit = new CustomEdit(m_shortcutModel, qobject_cast<QWidget *>(sender()));
     customEdit->setVisible(false);
     customEdit->setShortcut(info);
 
@@ -284,7 +284,8 @@ void ShortCutSettingModule::onShortcutEdit(ShortcutInfo *info)
     connect(customEdit, &CustomEdit::requestSaveShortcut, head, &SettingsHead::toCancel);
     connect(customEdit, &CustomEdit::requestSaveShortcut, m_worker, &KeyboardWorker::modifyCustomShortcut);
 
-    customEdit->setVisible(true);
     customEdit->setFocus();
+    customEdit->exec();
+    head->toCancel();
 }
 
