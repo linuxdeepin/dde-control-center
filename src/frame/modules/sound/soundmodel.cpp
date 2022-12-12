@@ -82,9 +82,7 @@ SoundModel::SoundModel(QObject *parent)
     , m_microphoneVolume(75)
     , m_maxUIVolume(0.0)
     , m_waitSoundReceiptTime(0)
-#ifndef DCC_DISABLE_FEEDBACK
     , m_microphoneFeedback(50)
-#endif
     , m_soundEffectMapBattery{}
     , m_inputVisibled(false)
     , m_outputVisibled(false)
@@ -185,15 +183,16 @@ void SoundModel::setMicrophoneVolume(double microphoneVolume)
         Q_EMIT microphoneVolumeChanged(microphoneVolume);
     }
 }
-#ifndef DCC_DISABLE_FEEDBACK
+
 void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
 {
+#ifndef DCC_DISABLE_FEEDBACK
     if (!qFuzzyCompare(microphoneFeedback, m_microphoneFeedback)) {
         m_microphoneFeedback = microphoneFeedback;
         Q_EMIT microphoneFeedbackChanged(microphoneFeedback);
     }
-}
 #endif
+}
 
 void SoundModel::setPort(const Port *port)
 {
