@@ -110,6 +110,7 @@ QWidget *UserExperienceProgramModule::page()
     UserExperienceProgramWidget *w = new UserExperienceProgramWidget();
     w->setModel(m_model);
     connect(w, &UserExperienceProgramWidget::enableUeProgram, m_worker, &CommonInfoWork::setUeProgram);
+    connect(w, &UserExperienceProgramWidget::destroyed, m_worker, &CommonInfoWork::closeUeProgram);
     return w;
 }
 

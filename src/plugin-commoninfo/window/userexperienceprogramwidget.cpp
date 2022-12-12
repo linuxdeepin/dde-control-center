@@ -80,6 +80,7 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     setLayout(vBoxLayout);
 
     connect(m_joinUeProgram, &SwitchWidget::checkedChanged, this, [this](bool state) {
+        m_joinUeProgram->setEnabled(false);
         QTimer::singleShot(0, this, [ = ] {
             this->enableUeProgram(state);
         });
@@ -89,7 +90,10 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
 void UserExperienceProgramWidget::setModel(CommonInfoModel *model)
 {
     setDefaultUeProgram(model->ueProgram());
-    connect(model, &CommonInfoModel::ueProgramChanged, m_joinUeProgram, &SwitchWidget::setChecked);
+    connect(model, &CommonInfoModel::ueProgramChanged, m_joinUeProgram, [this](const bool enable) {
+        m_joinUeProgram->setEnabled(true);
+        m_joinUeProgram->setChecked(enable);
+    });
 }
 
 void UserExperienceProgramWidget::setDefaultUeProgram(const bool enabled)

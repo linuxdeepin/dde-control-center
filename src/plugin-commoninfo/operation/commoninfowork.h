@@ -48,6 +48,7 @@ public Q_SLOTS:
     void onSetGrubEditPasswd(const QString &password, const bool &isReset);
     void setBackground(const QString &path);
     void setUeProgram(bool enabled);
+    void closeUeProgram();
     void setEnableDeveloperMode(bool enabled);
     void login();
     void deepinIdErrorSlot(int code, const QString &msg);

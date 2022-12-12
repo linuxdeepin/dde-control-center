@@ -239,6 +239,13 @@ void CommonInfoWork::setUeProgram(bool enabled)
     }
 }
 
+void CommonInfoWork::closeUeProgram()
+{
+    if (m_process) {
+        m_process->kill();
+    }
+}
+
 void CommonInfoWork::setEnableDeveloperMode(bool enabled)
 {
     QDateTime current_date_time = QDateTime::currentDateTime();
