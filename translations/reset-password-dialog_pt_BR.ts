@@ -136,7 +136,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="115"/>
         <source>Security Keys</source>
-        <translation type="unfinished"/>
+        <translation>Chaves de segurança</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="156"/>
@@ -182,7 +182,7 @@
     <message>
         <location filename="../src/reset-password-dialog/securitykeywidget.cpp" line="36"/>
         <source>Security Keys</source>
-        <translation type="unfinished"/>
+        <translation>Chaves de segurança</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securitykeywidget.cpp" line="42"/>
