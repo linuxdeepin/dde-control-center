@@ -30,9 +30,9 @@ const QString TimedateService = QStringLiteral("org.deepin.dde.Timedate1");
 const QString TimedatePath = QStringLiteral("/org/deepin/dde/Timedate1");
 const QString TimedateInterface = QStringLiteral("org.deepin.dde.Timedate1");
 
-const QString SystemTimedatedService = QStringLiteral("org.deepin.dde.Timedated1");
-const QString SystemTimedatedPath = QStringLiteral("/org/deepin/dde/Timedated1");
-const QString SystemTimedatedInterface = QStringLiteral("org.deepin.dde.Timedated1");
+const QString SystemTimedatedService = QStringLiteral("org.deepin.dde.Timedate1");
+const QString SystemTimedatedPath = QStringLiteral("/org/deepin/dde/Timedate1");
+const QString SystemTimedatedInterface = QStringLiteral("org.deepin.dde.Timedate1");
 
 const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
