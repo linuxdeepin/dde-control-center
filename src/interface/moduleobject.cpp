@@ -31,6 +31,7 @@
 #define DCC_ALL_DISABLED 0x50000000
 
 #define DCC_EXTRA 0x00800000 // 扩展按钮(子项)
+#define DCC_NOSEARCH 0x08000000 // 不参与搜索
 
 /** Versions:
     V1.0 - 2022/05/24 - create
@@ -377,7 +378,7 @@ uint32_t ModuleObject::getFlag() const
     return d->m_flags;
 }
 
-bool ModuleObject::extra()
+bool ModuleObject::extra() const
 {
     return getFlagState(DCC_EXTRA);
 }
@@ -385,6 +386,16 @@ bool ModuleObject::extra()
 void ModuleObject::setExtra(bool value)
 {
     setFlagState(DCC_EXTRA, value);
+}
+
+bool ModuleObject::noSearch() const
+{
+    return getFlagState(DCC_NOSEARCH);
+}
+
+void ModuleObject::setNoSearch(bool noSearch)
+{
+    setFlagState(DCC_NOSEARCH, noSearch);
 }
 
 ModuleObject *ModuleObject::currentModule() const

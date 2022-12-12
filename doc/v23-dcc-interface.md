@@ -1,3 +1,13 @@
+## 接口变更记录
+
+| 时间| 版本|说明| 控制中心版本号|
+|:----|:----|:----|:----|
+|2022.4.13|1.0|创建|6.0.0.0|
+|2022.6.1|1.1|1.接口增加版本号控制<br>2.增加布局类LayoutBase|6.0.0.1+u013|
+|2022.8.8|1.2|1.PluginInterface类里location返回值由int型改为QString，返回插件位置索引或前一个ModuleObject的name<br>2.去掉了ModuleObject类里的setChildType等函数。替代方案是用PageModule、VListModule、HListModule或其继承类<br>3.ModuleObject里的icon支持DDciIcon(DTK>5.6.0),icon接口兼容QIcon类型，同时可设置DDciIcon或QString。当为QString时，会在资源里查找对应图标<br>4.去掉了LayoutBase类，相关静态函数移到ModuleObject中，用PageModule等类替代其功能|6.0.3+u021|
+|2022.10.8|1.3|1.修改hidden拼写错误<br>2.扩展添加一些ModuleObject类|6.0.3+u043|
+|2022.12.12|1.4|1.规范插件IId名<br>2.扩展ModuleObject类不参与搜索接口|6.0.4.1+u039|
+
 ## V23控制中心新特性
 
 1. V23控制中心只负责框架设计，具体功能全部由插件实现
@@ -49,6 +59,9 @@
 |appendChild(child)|添加子项|
 |removeChild(child/index)|删除子项|
 |insertChild(before/index, child)|插入子项|
+|getFlagState/getFlag<br>/*setFlagState*|处理状态标志，状态标志为uint32_t型，高16位(0xFFFF0000)为控制中心定义，低16位(0x0000FFFF)可由用户设置|
+|extra/setExtra|*扩展标志，在VList和Page布局中放在最下面，横向排列*|
+|noSearch/setNoSearch|*是否参与搜索，默认参与搜索*|
 
 * ModuleObject信号
 |名称|说明|
@@ -94,6 +107,8 @@
 6. 准备一个以上的Module继承自ModuleObject，并实现其page()方法，然后添加到PageModule中，注意，page()方法中需返回新的QWidget对象。
 7. 当某个菜单为PageModule时，使用其appendChild方法将上方的Module添加到其子项中，此时，控制中心会根据page的大小添加滚动条，并将多个page进行垂直排列进行显示。PageModule持支嵌套，并且其有默认边距，如果嵌套使用，嵌套的PageModule边距建议设置为0（ getContentsMargins(0, 0, 0, 0)）
 8. 若某个VListModule或PageModule页面需要附加按钮时，可调其子项ModuleObject的setExtra，该ModuleObject的page提供按钮，这样该ModuleObject将显示在VListModule或PageModule页面的最下方。
+***注意：插件加载是在线程中进行的，在加载完成后会随ModuleObject移到主线程中。加载时(ModuleObject的构造函数中)创建的对象******必须******将ModuleObject设置为父对象，否则会导致没有父对象的对象不会被移到主线程中，其中的信号槽等不到对应的线程而一直不执行。***
+
 ### 代码示例：
 
 * 准备Page，LabelModule继承自ModuleObject
