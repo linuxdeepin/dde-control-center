@@ -128,10 +128,8 @@ public:
     inline double microphoneVolume() const { return m_microphoneVolume; }
     void setMicrophoneVolume(double microphoneVolume);
 
-#ifndef DCC_DISABLE_FEEDBACK
     inline double microphoneFeedback() const { return m_microphoneFeedback; }
     void setMicrophoneFeedback(double microphoneFeedback);
-#endif
 
     void setPort(const Port *port);
     void addPort(Port *port);
@@ -235,9 +233,7 @@ Q_SIGNALS:
     //声音输出设备是否可见
     void outputDevicesVisibleChanged(QString name, bool flag);
 
-#ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
-#endif
     void portAdded(const Port *port);
     void portRemoved(const QString & portId, const uint &cardId, const Port::Direction &direction);
     void soundDeviceStatusChanged();
@@ -260,10 +256,7 @@ private:
     int m_waitSoundReceiptTime;
     QString m_speakerName;
     QString m_microphoneName;
-
-#ifndef DCC_DISABLE_FEEDBACK
     double m_microphoneFeedback;
-#endif
     QList<Port *> m_ports;
     QList<Port *> m_inputPorts;
     QList<Port *> m_outputPorts;
