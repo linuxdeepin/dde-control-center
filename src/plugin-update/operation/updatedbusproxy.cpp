@@ -32,9 +32,9 @@ const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 UpdateDBusProxy::UpdateDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_updateInter(new QDBusInterface(UpdaterService, UpdaterPath, UpdaterInterface, QDBusConnection::systemBus(), this))
-    , m_managerInter(new QDBusInterface(ManagerService, ManagerPath, ManagerInterface, QDBusConnection::systemBus(), this))
-    , m_powerInter(new QDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
+    , m_updateInter(new DCC_NAMESPACE::DCCDBusInterface(UpdaterService, UpdaterPath, UpdaterInterface, QDBusConnection::systemBus(), this))
+    , m_managerInter(new DCC_NAMESPACE::DCCDBusInterface(ManagerService, ManagerPath, ManagerInterface, QDBusConnection::systemBus(), this))
+    , m_powerInter(new DCC_NAMESPACE::DCCDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
     , m_atomicUpgradeInter(new DCC_NAMESPACE::DCCDBusInterface(AtomicUpdaterService, AtomicUpdaterPath, AtomicUpdaterJobInterface, QDBusConnection::systemBus(), this))
 
 {
@@ -43,10 +43,6 @@ UpdateDBusProxy::UpdateDBusProxy(QObject *parent)
 
     qRegisterMetaType<BatteryPercentageInfo>("BatteryPercentageInfo");
     qDBusRegisterMetaType<BatteryPercentageInfo>();
-
-    QDBusConnection::systemBus().connect(UpdaterService, UpdaterPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    QDBusConnection::systemBus().connect(ManagerService, ManagerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    QDBusConnection::sessionBus().connect(PowerService, PowerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 }
 
 UpdateDBusProxy::~UpdateDBusProxy()
@@ -232,12 +228,4 @@ void UpdateDBusProxy::commit(const QString& commitDate)
 bool UpdateDBusProxy::running()
 {
     return qvariant_cast<bool>(m_atomicUpgradeInter->property("HasAmbientLightSensor"));
-}
-
-void UpdateDBusProxy::onPropertiesChanged(const QDBusMessage &message)
-{
-    QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
-    for (QVariantMap::const_iterator it = changedProps.begin(); it != changedProps.end(); ++it) {
-        QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
-    }
 }

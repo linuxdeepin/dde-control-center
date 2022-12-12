@@ -53,7 +53,9 @@ public:
     uint updateMode();
     void setUpdateMode(uint value);
 
+    Q_PROPERTY(QList<QDBusObjectPath> JobList READ jobList NOTIFY JobListChanged)
     QList<QDBusObjectPath> jobList();
+
     QDBusPendingReply<QDBusObjectPath> UpdateSource();
     void CleanJob(const QString &in0);
     void SetAutoClean(bool in0);
@@ -94,13 +96,10 @@ signals:
     void StateChanged(int operate, int state, QString version, QString message);
     void RunningChanged(bool  value) const;
 
-public slots:
-    void onPropertiesChanged(const QDBusMessage &message);
-
 private:
-    QDBusInterface *m_updateInter;
-    QDBusInterface *m_managerInter;
-    QDBusInterface *m_powerInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_updateInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_managerInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_powerInter;
     DCC_NAMESPACE::DCCDBusInterface *m_atomicUpgradeInter;
 };
 
