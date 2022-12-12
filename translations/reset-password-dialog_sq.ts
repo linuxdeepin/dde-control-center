@@ -208,7 +208,7 @@
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="113"/>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation>Cili është emri i qytetit ku lindët?</translation>
+        <translation>Cili është emri i qytetit ku u lindët?</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securityquestionswidget.cpp" line="114"/>
