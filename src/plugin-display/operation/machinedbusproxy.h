@@ -19,8 +19,8 @@ public:
     Q_PROPERTY(QString Name READ name NOTIFY NameChanged)
     QString name();
 
-    Q_PROPERTY(bool Paired READ paired NOTIFY PairedChanged)
-    bool paired();
+    Q_PROPERTY(bool Connected READ connected NOTIFY ConnectedChanged)
+    bool connected();
 
     Q_PROPERTY(QString UUID READ UUID NOTIFY UuidChanged)
     QString UUID();
@@ -32,14 +32,14 @@ public:
     int direction();
 
     void Disconnect();
-    void Pair();
+    void Connect();
     void RequestCooperate();
     void SetFlowDirection(int direction);
 
 Q_SIGNALS:
     void IpChanged(const QString& ip);
     void NameChanged(const QString& name);
-    void PairedChanged(bool paired);
+    void ConnectedChanged(bool connecteded);
     void UuidChanged(const QString& uuid);
     void CooperatingChanged(bool cooperating);
     void disconnectStatusChanged(bool);

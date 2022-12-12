@@ -59,7 +59,7 @@ public:
 
 Q_SIGNALS:
     void requestCooperationEnable(const bool enabled);
-    void requestCurrentMachinePair(Machine * machine);
+    void requestCurrentMachineConnect(Machine * machine);
     void requestCurrentMachineDisconnect(Machine *mac);
     void requsetCooperation(Machine *machine);
 
