@@ -211,6 +211,7 @@ void TimezoneMap::initUI() {
   popup_window_ = new PopupMenu();
   popup_window_->hide();
 
+  this->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
   this->setContentsMargins(0, 0, 0, 0);
 }
 
