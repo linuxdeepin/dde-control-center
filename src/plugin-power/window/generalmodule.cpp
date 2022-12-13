@@ -151,8 +151,6 @@ void GeneralModule::initUI()
         },false));
     //　节能设置
     auto powerLowerBrightnessLabel = new TitleModule("powerSavingSettingsTitle", tr("Power Saving Settings"));
-    powerLowerBrightnessLabel->setVisible(m_model->haveBettary());
-    connect(m_model, &PowerModel::haveBettaryChanged, powerLowerBrightnessLabel, &TitleModule::setVisible);
 
     appendChild(powerLowerBrightnessLabel);
     SettingsGroupModule *group = new SettingsGroupModule("powerSavingSettingsGroup", tr("Power Saving Settings"));
