@@ -24,6 +24,7 @@
 #include "pwqualitymanager.h"
 #include "src/plugin-commoninfo/operation/commoninfowork.h"
 #include "src/plugin-commoninfo/operation/commoninfomodel.h"
+#include "src/frame/utils.h"
 
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
@@ -34,6 +35,7 @@
 #include <DPasswordEdit>
 #include <DCommandLinkButton>
 #include <DPaletteHelper>
+#include <DSysInfo>
 
 #include <QVBoxLayout>
 #include <QScrollBar>
@@ -52,7 +54,8 @@ const QVariant VListViewItemMargin = QVariant::fromValue(ListViweItemMargin);
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
-DTK_USE_NAMESPACE
+DCORE_USE_NAMESPACE
+
 BootWidget::BootWidget(QWidget *parent)
     : QWidget(parent)
     , m_isCommoninfoBootWallpaperConfigValid(true)
@@ -147,6 +150,11 @@ BootWidget::BootWidget(QWidget *parent)
     layout->addStretch();
     layout->setContentsMargins(0, 10, 0, 10);
     setWindowTitle(tr("Boot Menu"));
+
+    if (IS_COMMUNITY_SYSTEM) {
+        m_grubVerification->hide();
+        m_grubVerifyLbl->hide();
+    }
 
     connect(m_theme, &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);
     connect(m_bootDelay, &SwitchWidget::checkedChanged, this, &BootWidget::bootdelay);
@@ -290,8 +298,9 @@ void BootWidget::setGrubEditAuthVisible(bool show)
     if (!show) {
         m_grubModifyPasswdLink->hide();
     }
-    m_grubVerifyLbl->setVisible(show);
-    m_grubVerification->setVisible(show);
+    bool isShow = (!IS_COMMUNITY_SYSTEM) && show;
+    m_grubVerifyLbl->setVisible(isShow);
+    m_grubVerification->setVisible(isShow);
 }
 
 void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)

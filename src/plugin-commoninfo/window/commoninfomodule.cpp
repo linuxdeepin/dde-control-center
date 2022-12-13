@@ -23,6 +23,7 @@
 #include "interface/pagemodule.h"
 #include "src/plugin-commoninfo/operation/commoninfomodel.h"
 #include "src/plugin-commoninfo/operation/commoninfowork.h"
+#include "src/frame/utils.h"
 
 #include "bootwidget.h"
 #include "userexperienceprogramwidget.h"
@@ -74,17 +75,22 @@ ModuleObject *CommonInfoPlugin::module()
     moduleBootMenu->appendChild(bootModule);
     moduleInterface->appendChild(moduleBootMenu);
 
-    //二级菜单--开发者模式
-    ModuleObject *moduleDeveloperMode = new PageModule("developerMode", tr("Developer Mode"));
-    DeveloperModeModule *developerModeModule = new DeveloperModeModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
-    moduleDeveloperMode->appendChild(developerModeModule);
-    moduleInterface->appendChild(moduleDeveloperMode);
+    // 服务器版/社区版
+    if (!IS_SERVER_SYSTEM && !IS_COMMUNITY_SYSTEM) {
+        if (DSysInfo::uosEditionType() != DSysInfo::UosEuler || DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC) {
+            //二级菜单--开发者模式
+            ModuleObject *moduleDeveloperMode = new PageModule("developerMode", tr("Developer Mode"));
+            DeveloperModeModule *developerModeModule = new DeveloperModeModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
+            moduleDeveloperMode->appendChild(developerModeModule);
+            moduleInterface->appendChild(moduleDeveloperMode);
+        }
 
-    //二级菜单--开发者模式
-    ModuleObject *moduleUserExperienceProgram = new PageModule("userExperienceProgram", tr("User Experience Program"));
-    UserExperienceProgramModule *userExperienceProgramModule = new UserExperienceProgramModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
-    moduleUserExperienceProgram->appendChild(userExperienceProgramModule);
-    moduleInterface->appendChild(moduleUserExperienceProgram);
+        //二级菜单--用户体验计划
+        ModuleObject *moduleUserExperienceProgram = new PageModule("userExperienceProgram", tr("User Experience Program"));
+        UserExperienceProgramModule *userExperienceProgramModule = new UserExperienceProgramModule(moduleInterface->model(), moduleInterface->worker(), moduleBootMenu);
+        moduleUserExperienceProgram->appendChild(userExperienceProgramModule);
+        moduleInterface->appendChild(moduleUserExperienceProgram);
+    }
 
     return moduleInterface;
 }

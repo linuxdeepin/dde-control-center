@@ -21,6 +21,7 @@
 
 #include "userexperienceprogramwidget.h"
 #include "src/plugin-commoninfo/operation/commoninfomodel.h"
+#include "src/frame/utils.h"
 #include "widgets/switchwidget.h"
 
 #include <DTipLabel>
@@ -47,8 +48,8 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     m_joinUeProgram->setTitle(tr("Join User Experience Program"));
 
     QString text = "";
-    QString http = (DSysInfo::UosCommunity == DSysInfo::uosEditionType()) ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/privacy-en");
-    if (DSysInfo::UosCommunity == DSysInfo::uosEditionType()) {
+    QString http = IS_COMMUNITY_SYSTEM ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/privacy-en");
+    if (IS_COMMUNITY_SYSTEM) {
         text = tr("<p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
                   "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
                   "For details, please refer to Deepin Privacy Policy (<a href=\"%1\"> %1</a>).</p>")
