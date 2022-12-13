@@ -7,9 +7,10 @@
 #include "widgets/searchinput.h"
 #include "../datetimemodel.h"
 
-#include <dplatformwindowhandle.h>
+#include <DPlatformWindowHandle>
 #include <DDialogCloseButton>
 #include <DApplicationHelper>
+#include <DTitlebar>
 
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -26,6 +27,7 @@
 #include <QLabel>
 #include <QStyleFactory>
 #include <QAbstractItemView>
+#include <QGraphicsOpacityEffect>
 
 DWIDGET_USE_NAMESPACE
 
@@ -33,7 +35,7 @@ using namespace dcc::widgets;
 using namespace dcc::datetime;
 
 TimeZoneChooser::TimeZoneChooser(QWidget* parent)
-    : QFrame(parent)
+    : DAbstractDialog(parent)
     , m_blurEffect(new DBlurEffectWidget(this))
     , m_map(new installer::TimezoneMap(this))
     , m_searchInput(new SearchInput(this))
@@ -46,17 +48,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
     , m_totalZones(installer::GetZoneInfoList())
     , m_model(nullptr)
 {
-    m_blurEffect->setAccessibleName("blurEffect");
-
-    setWindowFlags(Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
-    setupSize();
-
-    //删除部分重复设置的代码，并移动部分代码到合适位置，尽量将相同功能的代码放在一起
-    m_searchInput->setMinimumSize(350, 36);
-    m_cancelBtn->setMinimumSize(200, 36);
-    m_confirmBtn->setMinimumSize(200, 36);
-    m_confirmBtn->setEnabled(false);
 
     DPalette pa = DApplicationHelper::instance()->palette(m_title);
     pa.setBrush(QPalette::WindowText, pa.windowText());
@@ -65,6 +57,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
     DPlatformWindowHandle handle(this);
     handle.setWindowRadius(18);
 
+    m_blurEffect->setAccessibleName("blurEffect");
     m_blurEffect->setBlendMode(DBlurEffectWidget::BehindWindowBlend);
     // 浅色主题时使用白色透明，让地图空白区域与界面保持一致，而深色主题时使用黑色透明与界面保持一致
     if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
@@ -73,14 +66,25 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
         m_blurEffect->setMaskColor(Qt::black);
     }
 
-    DDialogCloseButton *closeButton = new DDialogCloseButton;
-    closeButton->setFixedSize(QSize(20, 20));
+    //删除部分重复设置的代码，并移动部分代码到合适位置，尽量将相同功能的代码放在一起
+    m_searchInput->setContentsMargins(0, 0, 0, 0);
+    m_searchInput->setFixedSize(350, 36);
 
-    QHBoxLayout *wbLayout = new QHBoxLayout;
-    wbLayout->setMargin(6);
-    wbLayout->setSpacing(0);
-    wbLayout->addStretch();
-    wbLayout->addWidget(closeButton);
+    QGraphicsOpacityEffect *opacityEffect = new QGraphicsOpacityEffect(m_searchInput);
+    opacityEffect->setOpacity(0.7);
+    m_searchInput->setGraphicsEffect(opacityEffect);
+
+    m_cancelBtn->setFixedSize(200, 36);
+    m_confirmBtn->setFixedSize(200, 36);
+    m_confirmBtn->setEnabled(false);
+
+    // 标题栏
+    DTitlebar *titleBar = new DTitlebar(this);
+    titleBar->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    titleBar->setAccessibleName("DDialogTitleBar");
+    titleBar->setMenuVisible(false);
+    titleBar->setBackgroundTransparent(true);
+    titleBar->setFixedHeight(50);
 
     QHBoxLayout *hLayout = new QHBoxLayout;
     hLayout->addStretch();
@@ -89,34 +93,34 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
     hLayout->addWidget(m_confirmBtn, 0, Qt::AlignHCenter);
     hLayout->addStretch();
 
+    QHBoxLayout *mapLayout = new QHBoxLayout();
+    mapLayout->setContentsMargins(40, 0, 40, 0);
+    mapLayout->setSpacing(0);
+    mapLayout->addWidget(m_map);
+
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
-    layout->addLayout(wbLayout);
+    layout->addWidget(titleBar);
     layout->addWidget(m_title, 0, Qt::AlignHCenter | Qt::AlignTop);
-    layout->addSpacing(10);
-    layout->addWidget(m_searchInput, 0, Qt::AlignHCenter | Qt::AlignTop);
-    layout->addSpacing(10);
-    layout->addWidget(m_map, 0, Qt::AlignHCenter);
-    layout->addSpacing(10);
+    layout->addSpacing(20);
+    layout->addWidget(m_searchInput, 0, Qt::AlignCenter);
+    layout->addSpacing(20);
+    layout->addLayout(mapLayout);
+    layout->addSpacing(20);
     layout->addLayout(hLayout);
-    layout->addSpacing(10);
+    layout->addSpacing(20);
+
     setLayout(layout);
+
+    setupSize();
 
     connect(m_confirmBtn, &DSuggestButton::clicked, [this] {
         QString zone = m_map->getTimezone();
         Q_EMIT confirmed(zone);
     });
 
-    connect(closeButton, &DDialogCloseButton::clicked, this, [this] {
-        Q_EMIT cancelled();
-
-        close();
-    });
-
     connect(m_cancelBtn, &QPushButton::clicked, this, [this] {
-        Q_EMIT cancelled();
-
         close();
     });
 
@@ -242,7 +246,7 @@ void TimeZoneChooser::setRightBtnState(QString zone)
 
 void TimeZoneChooser::resizeEvent(QResizeEvent *event)
 {
-    QFrame::resizeEvent(event);
+    DAbstractDialog::resizeEvent(event);
 
     m_blurEffect->resize(event->size());
     m_blurEffect->lower();
@@ -251,7 +255,7 @@ void TimeZoneChooser::resizeEvent(QResizeEvent *event)
 void TimeZoneChooser::keyReleaseEvent(QKeyEvent *event)
 {
     if (event->matches(QKeySequence::Cancel)) {
-        Q_EMIT cancelled();
+       // Q_EMIT cancelled();
 
         close();
     }
@@ -276,7 +280,7 @@ bool TimeZoneChooser::eventFilter(QObject *watched, QEvent *event)
 
 void TimeZoneChooser::showEvent(QShowEvent *event)
 {
-    QFrame::showEvent(event);
+    DAbstractDialog::showEvent(event);
 
     move(qApp->primaryScreen()->geometry().center() - rect().center());
 }
@@ -287,13 +291,14 @@ void TimeZoneChooser::mouseMoveEvent(QMouseEvent *event)
     return;
 }
 
-QSize TimeZoneChooser::getFitSize() const
+QSize TimeZoneChooser::getScreenSize() const
 {
     const QDesktopWidget *desktop = QApplication::desktop();
     const QRect primaryRect = desktop->availableGeometry(desktop->primaryScreen());
 
-    double width = primaryRect.width() - 360/* dcc */ - 20 * 2;
-    double height = primaryRect.height() - 70/* dock */ - 20 * 2;
+    // 界面和屏幕左右上下有20像素间隔,再减去任务栏在左右或上下位置时所占区域
+    double width = primaryRect.width() - 100 - 20 * 2;
+    double height = primaryRect.height() - 100/* dock */ - 20 * 2;
 
     return QSize(static_cast<int>(width), static_cast<int>(height));
 }
@@ -324,17 +329,17 @@ void TimeZoneChooser::setupSize()
     font.setPointSizeF(getFontSize());
     m_title->setFont(font);
     //获取标题部分根据字体大小计算得到的字体高度
-    double fontHeight =  m_title->fontMetrics().height() + 10.0;
+    double fontHeight =  m_title->fontMetrics().height();
 
-    QSize fitSize = getFitSize();
+    QSize ScreenSize = getScreenSize();
     //先根据屏幕大小，计算出大小合适的地图尺寸
-    const double offsetW = 20 * 2.0;
-    //close Button height and margin 6.0 * 2 + 20, layout spacing * 4 , title font height, search and btn height 36
-    const double offsetH = 6.0 * 2 + 20 + 10.0 * 4 + fontHeight + 36 * 2;
+    const double offsetW = 40 * 2.0;
+    // 标题栏高度 + 标题高度 + 搜索框和确认按钮高度 + 四个间隔高度
+    const double offsetH =50 + fontHeight + 36 * 2.0 + 20 * 4.0;
 
     //比对地图和屏幕大小，取其中最小的大小
-    const float mapWidth = qMin(MapPixWidth, fitSize.width() - offsetW);
-    const float mapHeight = qMin(MapPixHeight, fitSize.height() - offsetH);
+    const float mapWidth = qMin(MapPixWidth, ScreenSize.width() - offsetW);
+    const float mapHeight = qMin(MapPixHeight, ScreenSize.height() - offsetH);
 
     //再计算地图和界面宽高比，取其中最小最大缩放比
     const double widthScale = MapPictureWidth / mapWidth;
