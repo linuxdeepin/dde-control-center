@@ -210,7 +210,7 @@ bool UpdateDBusProxy::onBattery()
 BatteryPercentageInfo UpdateDBusProxy::batteryPercentage()
 {
     QDBusInterface powerInter(m_powerInter->service(), m_powerInter->path(), PropertiesInterface, m_powerInter->connection());
-    QDBusMessage mess = powerInter.call(QStringLiteral("Get"),m_updateInter->interface(),QStringLiteral("BatteryPercentage"));
+    QDBusMessage mess = powerInter.call(QStringLiteral("Get"),m_powerInter->interface(),QStringLiteral("BatteryPercentage"));
     QVariant v  = mess.arguments().first();
     const QDBusArgument arg = v.value<QDBusVariant>().variant().value<QDBusArgument>();
     BatteryPercentageInfo packagesInfo;
