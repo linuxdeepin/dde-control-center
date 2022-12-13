@@ -121,8 +121,9 @@ void DCCDBusInterfacePrivate::onPropertiesChanged(const QString &interfaceName, 
 {
     Q_UNUSED(interfaceName)
     Q_UNUSED(invalidatedProperties)
-    for (QVariantMap::const_iterator it = changedProperties.cbegin(); it != changedProperties.cend(); ++it)
+    for (QVariantMap::const_iterator it = changedProperties.cbegin(); it != changedProperties.cend(); ++it) {
         updateProp((it.key() + m_suffix).toLatin1(), it.value());
+    }
 }
 
 void DCCDBusInterfacePrivate::onAsyncPropertyFinished(QDBusPendingCallWatcher *w)

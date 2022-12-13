@@ -60,6 +60,7 @@ public:
 Q_SIGNALS:
     void requestCooperationEnable(const bool enabled);
     void requestCurrentMachineConnect(Machine * machine);
+    void requestCurrentDeviceSharingConnect(Machine * machine);
     void requestCurrentMachineDisconnect(Machine *mac);
     void requsetCooperation(Machine *machine);
 
@@ -78,6 +79,7 @@ private:
     void initMachine();
     void addMachine(Machine * machine);
     void cooperationStatusChanged(bool status);
+    void directionItemVisible(bool status);
     void initDirectionItem();
     void refreshRowItem();
 

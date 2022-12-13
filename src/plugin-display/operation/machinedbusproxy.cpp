@@ -9,7 +9,10 @@ MachineDBusProxy::MachineDBusProxy(QString cooperationMachinePath, QObject *pare
     : QObject(parent)
     , m_cooperationMachinePath(cooperationMachinePath)
 {
-    init();
+    const static QString CooperationService = "org.deepin.dde.Cooperation1";
+    const static QString CooperationInterface = "org.deepin.dde.Cooperation1.Machine";
+
+    m_dBusMachineInter = new DCC_NAMESPACE::DCCDBusInterface(CooperationService, m_cooperationMachinePath, CooperationInterface, QDBusConnection::sessionBus(), this);
 }
 
 QString MachineDBusProxy::IP()
@@ -32,17 +35,18 @@ QString MachineDBusProxy::UUID()
     return qvariant_cast<QString>(m_dBusMachineInter->property("UUID"));
 }
 
-bool MachineDBusProxy::cooperating()
+bool MachineDBusProxy::deviceSharing()
 {
-    return qvariant_cast<bool>(m_dBusMachineInter->property("Cooperating"));
+    return qvariant_cast<bool>(m_dBusMachineInter->property("DeviceSharing"));
 }
 
 int MachineDBusProxy::direction()
 {
-    return qvariant_cast<int>(m_dBusMachineInter->property("Direction"));
+    QDBusInterface in("org.deepin.dde.Cooperation1", m_cooperationMachinePath, "org.deepin.dde.Cooperation1.Machine", QDBusConnection::sessionBus());
+    return in.property("Direction").toUInt();
 }
 
-void MachineDBusProxy::Disconnect()
+void MachineDBusProxy::disconnect()
 {
     qDebug() << " void MachineDBusProxy::Disconnect() " << qvariant_cast<QString>(m_dBusMachineInter->property("UUID"));;
     QDBusReply<void> retPair = m_dBusMachineInter->call("Disconnect");
@@ -54,7 +58,7 @@ void MachineDBusProxy::Disconnect()
     }
 }
 
-void MachineDBusProxy::Connect()
+void MachineDBusProxy::connect()
 {
     QDBusReply<void> retConnect = m_dBusMachineInter->call("Connect");
     QString errorDate = retConnect.error().message();
@@ -63,37 +67,32 @@ void MachineDBusProxy::Connect()
     }
 }
 
-void MachineDBusProxy::RequestCooperate()
+void MachineDBusProxy::requestDeviceSharing()
 {
-    QDBusReply<void> retPair = m_dBusMachineInter->call("RequestCooperate");
+    QDBusReply<void> retPair = m_dBusMachineInter->call("RequestDeviceSharing");
     QString errorDate = retPair.error().message();
     if (!errorDate.isEmpty()) {
         qWarning() << "RequestCooperate failed:" << errorDate;
     }
 }
 
-void MachineDBusProxy::SetFlowDirection(int direction)
+void MachineDBusProxy::setFlowDirection(int direction)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(direction);
     m_dBusMachineInter->asyncCallWithArgumentList(QStringLiteral("SetFlowDirection"), argumentList);
 }
 
-void MachineDBusProxy::init()
+void MachineDBusProxy::stopDeviceSharing()
 {
-    /* TODO:
-    const static QString CooperationService = "org.deepin.dde.Cooperation1";
-    const static QString CooperationInterface = "org.deepin.dde.Cooperation1.Machine";
-    */
-    const static QString CooperationService = "com.deepin.Cooperation";
-    const static QString CooperationInterface = "com.deepin.Cooperation.Machine";
-
-    const QString PropertiesInterface = "org.freedesktop.DBus.Properties";
-    const QString PropertiesChanged = "PropertiesChanged";
-
-    m_dBusMachineInter = new QDBusInterface(CooperationService, m_cooperationMachinePath, CooperationInterface, QDBusConnection::sessionBus(), this);
-    QDBusConnection dbusConnection = m_dBusMachineInter->connection();
-    dbusConnection.connect(CooperationService, m_cooperationMachinePath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
+    qDebug() << " StopDeviceSharing " << qvariant_cast<QString>(m_dBusMachineInter->property("UUID"));;
+    QDBusReply<void> retPair = m_dBusMachineInter->call("StopDeviceSharing");
+    QString errorDate = retPair.error().message();
+    if (errorDate.isEmpty()) {
+        Q_EMIT disconnectStatusChanged(true);
+    } else {
+        qWarning() << "Disconnect failed:" << errorDate;
+    }
 }
 
 void MachineDBusProxy::onPropertiesChanged(const QDBusMessage &message)

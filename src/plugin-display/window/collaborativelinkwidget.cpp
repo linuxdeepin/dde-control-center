@@ -134,19 +134,19 @@ void CollaborativeLinkWidget::setModel(DisplayModel *model)
 
     connect(model, &DisplayModel::deviceSharingSwitchChanged, m_deviceSwitch, &SwitchWidget::setChecked);
     m_deviceSwitch->setChecked(m_displayModel->DeviceSharingSwitch());
+    m_directionComboxItem->setVisible(m_displayModel->DeviceSharingSwitch());
 
     refreshRowItem();
     connect(m_displayModel, &DisplayModel::machinesListChanged, this, [=](){
         if (m_currentMachineDevcice) {
             refreshRowItem();
         } else {
-//            initMachine();
             refreshRowItem();
         }
     });
 
     if (m_currentMachineDevcice)
-        cooperationStatusChanged(m_currentMachineDevcice->Cooperating());
+        cooperationStatusChanged(m_currentMachineDevcice->deviceSharing());
 
     connect(model, &DisplayModel::sharedDevicesChanged, m_moreSettingsDialog, &CooperationSettingsDialog::setOpenSharedDevices);
     connect(model, &DisplayModel::sharedClipboardChanged, m_moreSettingsDialog, &CooperationSettingsDialog::setOpenSharedClipboard);
@@ -171,20 +171,21 @@ void CollaborativeLinkWidget::changeTreeComboxIndex(const QModelIndex &index)
     // 处理更多配置项
     if (index.row() == m_deviceComboxModel->rowCount() - 1) {
         m_moreSettingsDialog->show();
-    }
-
-    DevViewItemType type = index.data(Qt::DisplayRole).value<DevViewItemType>();
-    qDebug() << " type: " << type;
-    if (type == DevViewItemType::MoreSettingsItem) {
-        m_moreSettingsDialog->show();
         return;
     }
+
+//    DevViewItemType type = index.data(Qt::DisplayRole).value<DevViewItemType>();
+//    qDebug() << " type: " << type;
+//    if (type == DevViewItemType::MoreSettingsItem) {
+//        m_moreSettingsDialog->show();
+//        return;
+//    }
 
     auto tmp = m_deviceComboxModel->index(index.row(), 0);
     auto machine = m_deviceComboxModel->data(tmp, Qt::WhatsThisPropertyRole).value<Machine*>();
     m_currentMachineDevcice = machine;
     if (m_currentMachineDevcice) {
-        cooperationStatusChanged(m_currentMachineDevcice->Cooperating());
+        cooperationStatusChanged(m_currentMachineDevcice->deviceSharing());
     } else {
         cooperationStatusChanged(false);
     }
@@ -210,7 +211,7 @@ void CollaborativeLinkWidget::initMachine()
 void CollaborativeLinkWidget::addMachine(Machine *machine)
 {
     DStandardItem *pi = new DStandardItem;
-    m_deviceCombox->addDeviceCheckedIcon(pi, machine->Cooperating());
+    m_deviceCombox->addDeviceCheckedIcon(pi, machine->deviceSharing());
     pi->setText(machine->Name() + "(" + machine->IP() + ")");
     pi->setData(QVariant::fromValue<Machine *>(machine), Qt::WhatsThisPropertyRole);
 
@@ -222,9 +223,9 @@ void CollaborativeLinkWidget::addMachine(Machine *machine)
         pi->setText(machine->Name() + "(" + IP + ")");
     });
 
-    connect(machine, &Machine::cooperatingChanged, this, [=](const bool cooperating){
-        cooperating ? m_currentMachineDevcice = machine : m_currentMachineDevcice = nullptr;
-        cooperationStatusChanged(cooperating);
+    connect(machine, &Machine::deviceSharingChanged, this, [=](const bool deviceSharing){
+        deviceSharing ? m_currentMachineDevcice = machine : m_currentMachineDevcice = nullptr;
+        cooperationStatusChanged(deviceSharing);
     });
 
     connect(machine, &Machine::disconnnectStatusChanged, m_deviceCombox, [this](bool status) {
@@ -234,15 +235,21 @@ void CollaborativeLinkWidget::addMachine(Machine *machine)
 
     connect(machine, &Machine::connectedChanged, m_deviceCombox, [this, machine](bool status) {
         if (status) {
-            Q_EMIT requestCurrentMachineConnect(machine);
+            Q_EMIT requestCurrentDeviceSharingConnect(machine);
+        } else {
+            cooperationStatusChanged(false);
         }
     });
 
-    if (machine->Cooperating()) {
+    connect(machine, &Machine::directionChanged, m_directionCombox, [this](int dir){
+        m_directionCombox->setCurrentIndex(dir);
+    });
+
+    if (machine->deviceSharing()) {
         m_currentMachineDevcice = machine;
         cooperationStatusChanged(true);
     }
-    cooperationStatusChanged(machine->Cooperating());
+    cooperationStatusChanged(machine->deviceSharing());
     m_deviceComboxModel->appendRow(pi);
 }
 
@@ -252,12 +259,21 @@ void CollaborativeLinkWidget::cooperationStatusChanged(bool status)
         const QString& name = m_currentMachineDevcice->Name() + "(" + m_currentMachineDevcice->IP() + ")";
         qDebug() << "cooperationStatusChanged: " << name;
         m_deviceCombox->setCurrentText(name);
+        m_directionCombox->setCurrentIndex(m_currentMachineDevcice->direction());
         m_deviceButton->setEnabled(true);
         m_deviceCombox->updateItemCheckStatus(name, status);
+        m_directionComboxItem->setVisible(true);
     } else {
-        m_deviceCombox->setEditText((tr("Select a device for collaboration")));
+        m_deviceCombox->setCurrentIndex(-1);
+        m_deviceCombox->updateItemCheckStatus(QString(), false);
         m_deviceButton->setEnabled(false);
+        m_directionComboxItem->setVisible(false);
     }
+}
+
+void CollaborativeLinkWidget::directionItemVisible(bool status)
+{
+    m_directionComboxItem->setVisible(status);
 }
 
 /*

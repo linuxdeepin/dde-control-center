@@ -40,36 +40,40 @@ public:
     inline const QString Name() { return m_name; }
     inline const QString IP() { return m_IP; }
     inline const bool Connected() { return m_connected; }
-    inline const bool Cooperating() { return m_cooperating; }
+    inline const bool deviceSharing() { return m_deviceSharing; }
     inline const bool isHistory() { return m_isHistoryDev; }
     inline const QString UUID() { return m_UUID; }
+    inline const int direction() { return m_direction; }
 
 public Q_SLOTS:
     void setName(const QString& name);
     void setIP(const QString& ip);
     void setConnected(const bool connected);
-    void setCooperating(const bool cooperating);
+    void setDeviceSharing(const bool deviceSharing);
     void setDisconnectStatus(bool status);
     void setHistoryStates(bool isHistory);
     void setUUID(const QString& uuid);
+    void setDirection(const int dir);
 
 Q_SIGNALS:
     void connectedChanged(bool connected);
     void nameChanged(const QString& name);
     void IPChanged(const QString& Ip);
-    void cooperatingChanged(bool cooperating);
+    void deviceSharingChanged(bool deviceSharing);
     void disconnnectStatusChanged(bool status);
     void historyStatusChanged(bool status);
+    void directionChanged(const int& dir);
 
 private:
     QString m_path;
     QString m_name;
     QString m_IP;
     bool m_connected;
-    bool m_cooperating;
+    bool m_deviceSharing;
     // 判断是否是历史设备
     bool m_isHistoryDev;
     QString m_UUID;
+    int m_direction;
 };
 
 }

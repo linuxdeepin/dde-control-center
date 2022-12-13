@@ -80,8 +80,9 @@ public Q_SLOTS:
     // Cooperation Machine
     void setDeviceSharingSwitch(const bool enable);
     void setCurrentMachineConnect(Machine *mac);
-    void setCurrentMachineRequestCooperate(Machine *mac);
+    void setCurrentRequestDeviceSharing(Machine *mac);
     void setCurrentMachineDisconnect(Machine *mac);
+    void setCurrentStopDeviceSharing(Machine *mac);
     void setOpenSharedDevices(bool on);
     void setOpenSharedClipboard(bool on);
     void setFilesStoragePath(const QString& path);

@@ -39,7 +39,6 @@ class TreeCombox : public DTK_WIDGET_NAMESPACE::DComboBox
 public:
     explicit TreeCombox(QStandardItemModel *model, QWidget *parent = nullptr);
     ~TreeCombox();
-//    inline DTK_WIDGET_NAMESPACE::DListView* diviceItemsListView() { return m_deviceItemsListView;}
     void addDivicesTitel(const QString& devTitel);
     void addDevicesSettingsItem();
 
@@ -59,6 +58,5 @@ private:
 
     QList<QStandardItem *> m_historyDeviceItems;
     QList<QStandardItem *> m_MoreDeviceItems;
-
 };
 

@@ -108,20 +108,19 @@ public:
 
     Q_PROPERTY(bool DeviceSharingSwitch READ deviceSharingSwitch NOTIFY DeviceSharingSwitchChanged)
     bool deviceSharingSwitch();
-
     void setDeviceSharingSwitch(const bool enable);
 
     void setOpenSharedDevices(bool on);
-    Q_PROPERTY(bool SharedDevices READ SharedDevices NOTIFY SharedDevicesChanged)
-    bool SharedDevices();
+    Q_PROPERTY(bool SharedDevices READ sharedDevices NOTIFY SharedDevicesChanged)
+    bool sharedDevices();
 
     void setOpenSharedClipboard(bool on);
-    Q_PROPERTY(bool SharedClipboard READ SharedClipboard NOTIFY SharedClipboardChanged)
-    bool SharedClipboard();
+    Q_PROPERTY(bool SharedClipboard READ sharedClipboard NOTIFY SharedClipboardChanged)
+    bool sharedClipboard();
 
     void setFilesStoragePath(const QString& path);
-    Q_PROPERTY(QString FilesStoragePath READ FilesStoragePath NOTIFY FilesStoragePathChanged)
-    QString FilesStoragePath();
+    Q_PROPERTY(QString FilesStoragePath READ filesStoragePath NOTIFY FilesStoragePathChanged)
+    QString filesStoragePath();
 
 private:
     void init();

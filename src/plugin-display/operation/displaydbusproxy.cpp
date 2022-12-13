@@ -21,6 +21,7 @@
 #include "displaydbusproxy.h"
 #include "widgets/dccdbusinterface.h"
 
+#include <QDBusInterface>
 #include <QDBusPendingReply>
 #include <QDBusMetaType>
 
@@ -36,15 +37,9 @@ const static QString PowerService = "org.deepin.dde.Power1";
 const static QString PowerPath = "/org/deepin/dde/Power1";
 const static QString PowerInterface = "org.deepin.dde.Power1";
 
-/* TODO
 const static QString CooperationService = "org.deepin.dde.Cooperation1";
 const static QString CooperationPath = "/org/deepin/dde/Cooperation1";
 const static QString CooperationInterface = "org.deepin.dde.Cooperation1";
-*/
-
-const static QString CooperationService = "com.deepin.Cooperation";
-const static QString CooperationPath = "/com/deepin/Cooperation";
-const static QString CooperationInterface = "com.deepin.Cooperation";
 
 DisplayDBusProxy::DisplayDBusProxy(QObject *parent)
     : QObject(parent)
@@ -92,8 +87,8 @@ QList<QDBusObjectPath> DisplayDBusProxy::Machines()
 
 QList<QString> DisplayDBusProxy::CooperatedMachines()
 {
-    qDebug() << " CooperatedMachines:  " << qvariant_cast<QList<QString>>(m_dBusCooperationInter->property("CooperatedMachines"));
-    return qvariant_cast<QList<QString>>(m_dBusCooperationInter->property("CooperatedMachines"));
+    QDBusInterface in("org.deepin.dde.Cooperation1", "/org/deepin/dde/Cooperation1", "org.deepin.dde.Cooperation1", QDBusConnection::sessionBus());
+    return in.property("CooperatedMachines").toStringList();
 }
 
 bool DisplayDBusProxy::deviceSharingSwitch()
@@ -103,8 +98,9 @@ bool DisplayDBusProxy::deviceSharingSwitch()
 
 void DisplayDBusProxy::setDeviceSharingSwitch(const bool enable)
 {
-    qDebug() << " TODO： setDeviceSharingSwitch begin " << enable ;
-    m_dBusCooperationInter->setProperty("DeviceSharingSwitch", QVariant::fromValue(enable));
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(enable);
+    m_dBusCooperationInter->asyncCallWithArgumentList(QStringLiteral("SetDeviceSharingSwitch"), argumentList);
 }
 
 void DisplayDBusProxy::setOpenSharedClipboard(bool on)
@@ -114,7 +110,7 @@ void DisplayDBusProxy::setOpenSharedClipboard(bool on)
     m_dBusCooperationInter->asyncCallWithArgumentList(QStringLiteral("OpenSharedClipboard"), argumentList);
 }
 
-bool DisplayDBusProxy::SharedClipboard()
+bool DisplayDBusProxy::sharedClipboard()
 {
     return qvariant_cast<bool>(m_dBusCooperationInter->property("SharedClipboard"));
 }
@@ -126,7 +122,7 @@ void DisplayDBusProxy::setFilesStoragePath(const QString &path)
     m_dBusCooperationInter->asyncCallWithArgumentList(QStringLiteral("SetFilesStoragePath"), argumentList);
 }
 
-QString DisplayDBusProxy::FilesStoragePath()
+QString DisplayDBusProxy::filesStoragePath()
 {
     return qvariant_cast<QString>(m_dBusCooperationInter->property("FilesStoragePath"));
 }
@@ -138,7 +134,7 @@ void DisplayDBusProxy::setOpenSharedDevices(bool on)
     m_dBusCooperationInter->asyncCallWithArgumentList(QStringLiteral("OpenSharedDevices"), argumentList);
 }
 
-bool DisplayDBusProxy::SharedDevices()
+bool DisplayDBusProxy::sharedDevices()
 {
     return qvariant_cast<bool>(m_dBusCooperationInter->property("SharedDevices"));
 }

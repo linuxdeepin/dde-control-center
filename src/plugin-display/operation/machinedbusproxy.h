@@ -3,9 +3,14 @@
 
 #include <QObject>
 #include <QDBusPendingReply>
+#include "widgets/dccdbusinterface.h"
 
 class QDBusInterface;
 class QDBusMessage;
+
+namespace DCC_NAMESPACE {
+class DCCDBusInterface;
+}
 
 class MachineDBusProxy : public QObject
 {
@@ -25,34 +30,32 @@ public:
     Q_PROPERTY(QString UUID READ UUID NOTIFY UuidChanged)
     QString UUID();
 
-    Q_PROPERTY(bool Cooperating READ cooperating NOTIFY CooperatingChanged)
-    bool cooperating(); // 默认设备
+    Q_PROPERTY(bool DeviceSharing READ deviceSharing NOTIFY DeviceSharingChanged)
+    bool deviceSharing(); // 默认设备
 
     Q_PROPERTY(int Direction READ direction NOTIFY directionChanged)
     int direction();
 
-    void Disconnect();
-    void Connect();
-    void RequestCooperate();
-    void SetFlowDirection(int direction);
+    void disconnect();
+    void connect();
+    void requestDeviceSharing();
+    void setFlowDirection(int direction);
+    void stopDeviceSharing();
 
 Q_SIGNALS:
     void IpChanged(const QString& ip);
     void NameChanged(const QString& name);
     void ConnectedChanged(bool connecteded);
     void UuidChanged(const QString& uuid);
-    void CooperatingChanged(bool cooperating);
+    void DeviceSharingChanged(bool cooperating);
     void disconnectStatusChanged(bool);
-    void directionChanged(int direction);
-
-private:
-    void init();
+    void directionChanged(int dir);
 
 private slots:
     void onPropertiesChanged(const QDBusMessage &message);
 
 private:
-    QDBusInterface *m_dBusMachineInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_dBusMachineInter;
     QString m_cooperationMachinePath;
 };
 

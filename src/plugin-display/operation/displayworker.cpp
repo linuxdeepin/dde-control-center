@@ -114,9 +114,9 @@ void DisplayWorker::active()
     m_model->setmaxBacklightBrightness(m_displayInter->maxBacklightBrightness());
     m_model->setAutoLightAdjustIsValid(m_displayInter->hasAmbientLightSensor());
     m_model->setDeviceSharingSwitch(m_displayInter->deviceSharingSwitch());
-    m_model->setOpenSharedDevices(m_displayInter->SharedDevices());
-    m_model->setOpenSharedClipboard(m_displayInter->SharedClipboard());
-    m_model->setFilesStoragePath(m_displayInter->FilesStoragePath());
+    m_model->setOpenSharedDevices(m_displayInter->sharedDevices());
+    m_model->setOpenSharedClipboard(m_displayInter->sharedClipboard());
+    m_model->setFilesStoragePath(m_displayInter->filesStoragePath());
 
     bool isRedshiftValid = true;
     QDBusReply<bool> reply = m_displayInter->SupportSetColorTemperatureSync();
@@ -294,17 +294,26 @@ void DisplayWorker::setCurrentMachineConnect(Machine *mac)
 {
     qDebug() << " 设置Connect： " << mac->Name();
     MachineDBusProxy *inter = m_machines.value(mac);
-    if (mac->Connected()) {
-        inter->RequestCooperate();
-    } else {
-        inter->Connect();
-    }
+    inter->connect();
+}
+
+void DisplayWorker::setCurrentRequestDeviceSharing(Machine *mac)
+{
+    qDebug() << " 设置 DeviceSharing： " << mac->Name();
+    MachineDBusProxy *inter = m_machines.value(mac);
+    inter->requestDeviceSharing();
 }
 
 void DisplayWorker::setCurrentMachineDisconnect(Machine *mac)
 {
     MachineDBusProxy *inter = m_machines.value(mac);
-    inter->Disconnect();
+    inter->disconnect();
+}
+
+void DisplayWorker::setCurrentStopDeviceSharing(Machine *mac)
+{
+    MachineDBusProxy *inter = m_machines.value(mac);
+    inter->stopDeviceSharing();
 }
 
 void DisplayWorker::setOpenSharedDevices(bool on)
@@ -325,7 +334,7 @@ void DisplayWorker::setFilesStoragePath(const QString &path)
 void DisplayWorker::setFlowDirection(Machine *mac, const int &dir)
 {
     MachineDBusProxy *inter = m_machines.value(mac);
-    inter->SetFlowDirection(dir);
+    inter->setFlowDirection(dir);
 }
 
 void DisplayWorker::backupConfig()
@@ -542,15 +551,16 @@ void DisplayWorker::machinesAdded(const QString &path)
     connect(interProxy, &MachineDBusProxy::IpChanged, machine, &Machine::setIP);
     connect(interProxy, &MachineDBusProxy::NameChanged, machine, &Machine::setName);
     connect(interProxy, &MachineDBusProxy::ConnectedChanged, machine, &Machine::setConnected);
-    connect(interProxy, &MachineDBusProxy::CooperatingChanged, machine, &Machine::setCooperating);
+    connect(interProxy, &MachineDBusProxy::DeviceSharingChanged, machine, &Machine::setDeviceSharing);
     connect(interProxy, &MachineDBusProxy::disconnectStatusChanged, machine, &Machine::setDisconnectStatus);
-    connect(interProxy, &MachineDBusProxy::disconnectStatusChanged, machine, &Machine::setDisconnectStatus);
+    connect(interProxy, &MachineDBusProxy::directionChanged, machine, &Machine::setDirection);
     machine->setPath(path);
     machine->setIP(interProxy->IP());
     machine->setName(interProxy->name());
     machine->setConnected(interProxy->connected());
-    machine->setCooperating(interProxy->cooperating());
+    machine->setDeviceSharing(interProxy->deviceSharing());
     machine->setUUID(interProxy->UUID());
+    machine->setDirection(interProxy->direction());
     // 标记历史设备
     const QList<QString> &historyDev = m_displayInter->CooperatedMachines();
     for (auto &hisdevPath : historyDev) {

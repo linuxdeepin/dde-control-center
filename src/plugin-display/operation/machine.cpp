@@ -26,8 +26,9 @@ using namespace DCC_NAMESPACE;
 Machine::Machine(QObject *parent)
     : QObject(parent)
     , m_connected(false)
-    , m_cooperating(false)
+    , m_deviceSharing(false)
     , m_isHistoryDev(false)
+    , m_direction(1)
 {
 
 }
@@ -66,11 +67,11 @@ void Machine::setConnected(const bool connected)
     }
 }
 
-void Machine::setCooperating(const bool cooperating)
+void Machine::setDeviceSharing(const bool deviceSharing)
 {
-    if (m_cooperating != cooperating) {
-        m_cooperating = cooperating;
-        Q_EMIT  cooperatingChanged(cooperating);
+    if (m_deviceSharing != deviceSharing) {
+        m_deviceSharing = deviceSharing;
+        Q_EMIT  deviceSharingChanged(deviceSharing);
     }
 }
 
@@ -90,5 +91,13 @@ void Machine::setHistoryStates(bool isHistory)
 void Machine::setUUID(const QString &uuid)
 {
     m_UUID = uuid;
+}
+
+void Machine::setDirection(const int dir)
+{
+    if (m_direction != dir) {
+        m_direction = dir;
+        Q_EMIT directionChanged(dir);
+    }
 }
 
