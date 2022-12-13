@@ -7,6 +7,7 @@
 
 #include <DBlurEffectWidget>
 #include <DSuggestButton>
+#include <DAbstractDialog>
 
 #include <QFrame>
 #include <QMap>
@@ -37,7 +38,7 @@ namespace dcc {
 namespace datetime {
 class DatetimeModel;
 
-class TimeZoneChooser : public QFrame
+class TimeZoneChooser : public DAbstractDialog
 {
     Q_OBJECT
 public:
@@ -49,7 +50,7 @@ public:
 
 Q_SIGNALS:
     void confirmed(const QString &zone);
-    void cancelled();
+   // void cancelled();
 
 public Q_SLOTS:
     void setMarkedTimeZone(const QString &timezone);
@@ -63,7 +64,7 @@ protected:
     void mouseMoveEvent(QMouseEvent *event) override;
 
 private:
-    QSize getFitSize() const;
+    QSize getScreenSize() const;
     int getFontSize() const;
     void setupSize();
 
