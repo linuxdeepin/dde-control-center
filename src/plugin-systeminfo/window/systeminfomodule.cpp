@@ -29,6 +29,7 @@
 #include "widgets/titlevalueitem.h"
 #include "interface/pagemodule.h"
 #include "interface/vlistmodule.h"
+#include "src/frame/utils.h"
 
 #include "operation/systeminfowork.h"
 #include "operation/systeminfomodel.h"
@@ -70,12 +71,16 @@ void SystemInfoModule::initChildModule()
     appendChild(moduleAboutPc);
 
     moduleAboutPc->appendChild(new WidgetModule<LogoItem>("logo", "", this, &SystemInfoModule::initLogoModule));
-    moduleAboutPc->appendChild(new WidgetModule<HostNameItem>("hostName", tr("Computer Name"), this, &SystemInfoModule::initHostnameModule));
-    moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("osName", tr("OS Name"), this, &SystemInfoModule::initOSNameModule));
-    moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("version", tr("Version"), this, &SystemInfoModule::initVersionModule));
+    if (DSysInfo::uosType() == DSysInfo::UosType::UosServer || (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
+        moduleAboutPc->appendChild(new WidgetModule<HostNameItem>("hostName", tr("Computer Name"), this, &SystemInfoModule::initHostnameModule));
+        moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("osName", tr("OS Name"), this, &SystemInfoModule::initOSNameModule));
+        moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("version", tr("Version"), this, &SystemInfoModule::initVersionModule));
+    }
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("edition", tr("Edition"), this, &SystemInfoModule::initEditionModule));
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("type", tr("Type"), this, &SystemInfoModule::initTypeModule));
-    moduleAboutPc->appendChild(new WidgetModule<TitleAuthorizedItem>("authorization", tr("Authorization"), this, &SystemInfoModule::initAuthorizationModule));
+    if (!IS_COMMUNITY_SYSTEM && DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC) {
+        moduleAboutPc->appendChild(new WidgetModule<TitleAuthorizedItem>("authorization", tr("Authorization"), this, &SystemInfoModule::initAuthorizationModule));
+    }
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("kernel", tr("Kernel"), this, &SystemInfoModule::initKernelModule));
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("processor", tr("Processor"), this, &SystemInfoModule::initProcessorModule));
     moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("memory", tr("Memory"), this, &SystemInfoModule::initMemoryModule));
@@ -104,14 +109,16 @@ void SystemInfoModule::initChildModule()
 
 const QString systemCopyright()
 {
-  if (DSysInfo::isCommunityEdition())
-    return QApplication::translate("LogoModule",
-        "Copyright© 2011-%1 Deepin Community")
-        .arg(2022);
-  else
-    return QApplication::translate("LogoModule",
-        "Copyright© 2019-%1 UnionTech Software Technology Co., LTD")
-        .arg(2022);
+    const QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
+    const QString &oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
+    if (oem_copyright.isEmpty()) {
+        if (IS_COMMUNITY_SYSTEM)
+            return QApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Community").arg(2022);
+        else
+            return QApplication::translate("LogoModule", "Copyright© 2019-%1 UnionTech Software Technology Co., LTD").arg(2022);
+    } else {
+        return oem_copyright;
+    }
 }
 
 void SystemInfoModule::initLogoModule(LogoItem *item)
