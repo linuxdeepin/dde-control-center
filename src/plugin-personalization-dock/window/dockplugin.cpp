@@ -115,12 +115,12 @@ DockModuleObject::DockModuleObject()
     appendChild(m_screenTitle);
     appendChild(m_screen);
 
-    m_displayProxy.reset(new QDBusInterface("com.deepin.daemon.Display", "/com/deepin/daemon/Display",
-                                            "com.deepin.daemon.Display", QDBusConnection::sessionBus(), this));
+    m_displayProxy.reset(new QDBusInterface("org.deepin.dde.Display1", "/org/deepin/dde/Display1",
+                                            "org.deepin.dde.Display1", QDBusConnection::sessionBus(), this));
     // 当任务栏服务未注册或当前只有一个屏幕或当前有多个屏幕但设置为复制模式时均不显示多屏设置项
     connect(qApp, &QApplication::screenAdded, this, &DockModuleObject::updateScreenVisible);
     connect(qApp, &QApplication::screenRemoved, this, &DockModuleObject::updateScreenVisible);
-    QDBusConnection::sessionBus().connect("com.deepin.daemon.Display", "/com/deepin/daemon/Display",
+    QDBusConnection::sessionBus().connect("org.deepin.dde.Display1", "/org/deepin/dde/Display1",
                                           "org.freedesktop.DBus.Properties", "PropertiesChanged", "sa{sv}as",
                                           this, SLOT(onDisplayPropertiesChanged(const QDBusMessage &)));
     updateScreenVisible();
@@ -457,7 +457,7 @@ void DockModuleObject::onDisplayPropertiesChanged(const QDBusMessage &dbusMessag
         return;
 
     QString interfaceName = arguments.first().toString();
-    if (interfaceName != "com.deepin.daemon.Display")
+    if (interfaceName != "org.deepin.dde.Display1")
         return;
 
     QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
@@ -469,7 +469,7 @@ void DockModuleObject::onDisplayPropertiesChanged(const QDBusMessage &dbusMessag
 void DockModuleObject::updateScreenVisible()
 {
     uint displayMode = m_displayProxy->property("DisplayMode").toUInt();
-    bool screenIsShow = (QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.Dock") && QApplication::screens().size() > 1 && displayMode == 2);
+    bool screenIsShow = (QDBusConnection::sessionBus().interface()->isServiceRegistered("org.deepin.dde.Dock1") && QApplication::screens().size() > 1 && displayMode == 2);
 
     m_screenTitle->setHidden(!screenIsShow);
     m_screen->setHidden(!screenIsShow);
