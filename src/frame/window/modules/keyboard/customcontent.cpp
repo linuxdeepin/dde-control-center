@@ -106,6 +106,7 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
             }
         }
         m_buttonTuple->rightButton()->setEnabled(!exist);
+        m_shortCutNameEdit->setAlert(exist);
     });
 
     mainLayout->addWidget(m_shortCutCmdEdit);
