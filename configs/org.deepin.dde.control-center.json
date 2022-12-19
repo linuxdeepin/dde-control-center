@@ -1,0 +1,16 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "showSyncModule": {
+            "value": true,
+            "serial": 0,
+            "flags": ["global"],
+            "name": "showSyncModule",
+            "description[zh_CN]": "是否显示控制中心内建同步模块",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        }
+    }
+  }
