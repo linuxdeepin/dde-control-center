@@ -1489,7 +1489,6 @@ QString MainWindow::moduleDisplayName(const QString &module) const
     return find_it->second;
 }
 
-
 bool MainWindow::event(QEvent *event)
 {
     if(event->type() == QEvent::Show || event->type() == QEvent::Hide ){
@@ -1503,7 +1502,13 @@ bool MainWindow::showSyncModule()
     if (IsProfessionalSystem)
         return false;
 
-    QObject raii;
-    DConfig *config = DConfig::create("com.deepin.system.mil.dconfig", "com.deepin.system.mil.dconfig", QString(), &raii);
-    return !(config && config->keyList().contains("Use_mil") && config->value("Use_mil", 1).toInt());
+    QObject raii0;
+    DConfig *config0 = DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center", QString(), &raii0);
+    if (!(config0 && config0->keyList().contains("showSyncModule") && config0->value("showSyncModule",true).toBool())) {
+        return false;
+    }
+
+    QObject raii1;
+    DConfig *config1 = DConfig::create("com.deepin.system.mil.dconfig", "com.deepin.system.mil.dconfig", QString(), &raii1);
+    return !(config1 && config1->keyList().contains("Use_mil") && config1->value("Use_mil", 1).toInt());
 }
