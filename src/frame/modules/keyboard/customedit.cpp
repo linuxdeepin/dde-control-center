@@ -82,15 +82,27 @@ keyboard::CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
     });
     connect(m_name->dTextEdit(), &DLineEdit::textChanged, this, [=](const QString &text) {
         okButton->setEnabled(true);
+        m_nameChanged = m_info->name != text;
 
         // 如果用户输入的快捷键名称和已有快捷键名称重复（冲突），置灰保存按钮
         // 防止设置的快捷键名称和已有快捷键名称显示重复
         for (auto info : model->infos()) {
-            if (info->name == text) {
+            if (info->name == text && m_nameChanged) {
+                m_nameRepeated = true;
                 okButton->setEnabled(false);
                 return;
             }
         }
+        m_nameRepeated = false;
+        okButton->setEnabled(!m_nameRepeated && (m_nameChanged || m_commandChanged || m_accelsChanged));
+    });
+    connect(m_command->dTextEdit(), &DLineEdit::textChanged, this, [=](const QString &text) {
+        m_commandChanged = m_info->command != text;
+        okButton->setEnabled(!m_nameRepeated && (m_nameChanged || m_commandChanged || m_accelsChanged));
+    });
+    connect(m_short, &CustomItem::changeAlert, this, [=] {
+        m_accelsChanged = m_info->accels != m_short->text();
+        okButton->setEnabled(!m_nameRepeated && (m_nameChanged || m_commandChanged || m_accelsChanged));
     });
     connect(pushbutton, &DIconButton::clicked, this, &CustomEdit::onOpenFile);
     connect(m_short, &CustomItem::requestUpdateKey, this, &CustomEdit::onUpdateKey);
