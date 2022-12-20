@@ -59,6 +59,10 @@ private:
     QLabel         *m_tip;
     ShortcutInfo *m_conflict;
     WaylandGrab *m_waylandGrab;
+    bool         m_nameChanged;
+    bool         m_nameRepeated;
+    bool         m_commandChanged;
+    bool         m_accelsChanged;
 };
 }
 }
