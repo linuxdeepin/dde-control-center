@@ -25,15 +25,24 @@
 
 #include "thememodel.h"
 
-ThemeModel::ThemeModel(QObject * parent) : QObject(parent)
+ThemeModel::ThemeModel(QObject *parent)
+    : QObject(parent)
 {
+}
+
+QStringList ThemeModel::keys()
+{
+    return m_keys;
 }
 
 void ThemeModel::addItem(const QString &id, const QJsonObject &json)
 {
-    if (m_list.contains(id))
+    if (m_list.contains(id)) {
+        m_keys.removeOne(id);
+        m_keys.append(id);
         return;
-
+    }
+    m_keys.append(id);
     m_list.insert(id, json);
     Q_EMIT itemAdded(json);
 }
@@ -58,5 +67,6 @@ void ThemeModel::addPic(const QString &id, const QString &picPath)
 void ThemeModel::removeItem(const QString &id)
 {
     m_list.remove(id);
+    m_keys.removeOne(id);
     Q_EMIT itemRemoved(id);
 }

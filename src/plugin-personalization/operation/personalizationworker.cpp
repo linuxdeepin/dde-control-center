@@ -132,12 +132,6 @@ void PersonalizationWorker::addList(ThemeModel *model, const QString &type, cons
         m_personalizationDBusProxy->Thumbnail(type, object["Id"].toString(), watcher, SLOT(onThumbnail(const QString &)), SLOT(errorSlot(const QDBusError &)));
     }
 
-    // sort for display name
-    std::sort(objList.begin(), objList.end(), [=](const QJsonObject &obj1, const QJsonObject &obj2) {
-        QCollator qc;
-        return qc.compare(obj1["Id"].toString(), obj2["Id"].toString()) < 0;
-    });
-
     for (const QJsonObject &obj : objList) {
         model->addItem(obj["Id"].toString(), obj);
     }

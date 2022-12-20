@@ -37,11 +37,12 @@ class ThemeModel : public QObject
 public:
     explicit ThemeModel(QObject *parent = 0);
 
+    QStringList keys();
     void addItem(const QString &id, const QJsonObject &json);
-    QMap<QString, QJsonObject> getList() {return m_list;}
+    QMap<QString, QJsonObject> getList() { return m_list; }
 
     void setDefault(const QString &value);
-    inline QString getDefault() {return m_default;}
+    inline QString getDefault() { return m_default; }
 
     QMap<QString, QString> getPicList() const;
     void addPic(const QString &id, const QString &picPath);
@@ -58,6 +59,7 @@ private:
     QMap<QString, QJsonObject> m_list;
     QString m_default;
     QMap<QString, QString> m_picList;
+    QStringList m_keys;
 };
 
 #endif // THEMEMODEL_H

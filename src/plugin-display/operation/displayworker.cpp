@@ -33,6 +33,7 @@
 #include <dconfig.h>
 
 #include <QDebug>
+#include <QDateTime>
 #include <QJsonDocument>
 #include <QJsonObject>
 

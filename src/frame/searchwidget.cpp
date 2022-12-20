@@ -36,10 +36,10 @@
 #ifdef USE_DCIICON
 #    include <DDciIcon>
 #    include <DGuiApplicationHelper>
+DGUI_USE_NAMESPACE
 #endif
 
 DWIDGET_USE_NAMESPACE
-DGUI_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 const QStringList &FilterText{ "-", "--", "-->", "->", ">", "/" };

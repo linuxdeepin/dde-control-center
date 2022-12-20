@@ -93,8 +93,8 @@ void PersonalizationThemeList::setModel(ThemeModel *const model)
 
     QMap<QString, QJsonObject> itemList = m_model->getList();
 
-    for (auto it(itemList.constBegin()); it != itemList.constEnd(); ++it) {
-        onAddItem(it.value());
+    for (auto &&key : m_model->keys()) {
+        onAddItem(itemList.value(key));
     }
 
     setDefault(m_model->getDefault());

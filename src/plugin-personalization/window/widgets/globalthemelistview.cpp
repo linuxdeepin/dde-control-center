@@ -735,7 +735,7 @@ QVariant GlobalThemeModel::data(const QModelIndex &index, int role) const
 
 void GlobalThemeModel::updateData()
 {
-    QStringList keys = m_themeModel->getList().keys();
+    QStringList keys = m_themeModel->keys();
     if (keys.contains("custom")) {
         keys.removeAll("custom");
         int i = keys.size() > 5 ? 5 : keys.size();
