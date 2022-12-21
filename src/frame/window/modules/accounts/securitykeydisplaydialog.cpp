@@ -6,6 +6,7 @@
 #include "window/dconfigwatcher.h"
 #include "window/utils.h"
 #include "widgets/utils.h"
+#include <DMessageManager>
 
 #include <QEvent>
 #include <QVBoxLayout>
@@ -134,6 +135,10 @@ void SecurityKeyDisplayDialog::copySecurityKeyToClip()
     QClipboard *clip = QApplication::clipboard();
     if (clip && m_securityKeyDisplayTxt) {
         clip->setText(m_securityKeyDisplayTxt->text());
+        DMessageManager::instance()->sendMessage(this,
+                                                 style()->standardIcon(QStyle::SP_DialogOkButton),
+                                                 tr("Copied successfully"));
+
     } else {
         qWarning() << Q_FUNC_INFO << " get clipboard failed.";
     }
