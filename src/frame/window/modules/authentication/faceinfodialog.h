@@ -52,6 +52,7 @@ Q_SIGNALS:
 protected:
     void closeEvent(QCloseEvent *event) override;
     bool eventFilter(QObject *o, QEvent *e) override;
+    void keyPressEvent(QKeyEvent *event) override;
 
 private:
     dcc::authentication::CharaMangerModel *m_faceModel;
