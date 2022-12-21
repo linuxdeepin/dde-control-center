@@ -601,8 +601,20 @@ void AccountsDetailWidget::initSecurityKey(QVBoxLayout *layout, bool isCurUser)
             return;
         }
         if (!m_securityKeyDisplayDialog) {
-            return;
+            m_securityKeyDisplayDialog = new SecurityKeyDisplayDialog(m_worker);
+            if (m_userModel)
+                m_securityKeyDisplayDialog->setCurrentAccount(m_userModel->getCurrentUserName());
         }
+        // Dialog弹框，确认/取消/关闭
+        connect(m_securityKeyDisplayDialog, &SecurityKeyDisplayDialog::notifySaveSecurityKey, securityKeySwitch, [=](const bool state) {
+            securityKeySwitch->setEnabled(true);
+            securityKeySwitch->setChecked(state);
+            if (state) {
+                m_securityKeyDisplayDialog->saveSecurityKey(m_userModel->getCurrentUserName());
+            }
+            m_securityKeyDisplayDialog->deleteLater();
+            m_securityKeyDisplayDialog = nullptr;
+        });
         securityKey->setEnabled(false);
         securityKeySwitch->setEnabled(!checked);
         if (checked) {
@@ -623,17 +635,10 @@ void AccountsDetailWidget::initSecurityKey(QVBoxLayout *layout, bool isCurUser)
             }
         } else {
             m_securityKeyDisplayDialog->clearSecurityKey();
+            m_securityKeyDisplayDialog->deleteLater();
+            m_securityKeyDisplayDialog = nullptr;
         }
         securityKey->setEnabled(true);
-    });
-
-    // Dialog弹框，确认/取消/关闭
-    connect(m_securityKeyDisplayDialog, &SecurityKeyDisplayDialog::notifySaveSecurityKey, securityKeySwitch, [=](const bool state) {
-        securityKeySwitch->setEnabled(true);
-        securityKeySwitch->setChecked(state);
-        if (state) {
-            m_securityKeyDisplayDialog->saveSecurityKey(m_userModel->getCurrentUserName());
-        }
     });
 
     // 只允许激活账户可开启
