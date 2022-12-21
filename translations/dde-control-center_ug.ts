@@ -128,7 +128,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="379"/>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك سوئاللىرى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="432"/>
@@ -179,7 +179,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="518"/>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation>پەقەت بىر ھېساباتنىڭ ئاپتوماتىك تىزىملىنىشىنى ئېچىشقا يول قويۇلىدۇ، ئالدى بىلەن %1 نىڭ ئاپتوماتىك تىزىملىنىشىنى تاقاپ ئاندىن مەشغۇلات قىلىڭ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="554"/>
@@ -201,7 +201,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="818"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="827"/>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>تولۇق نامى باشقا ھېسابات نومۇرىنىڭ تولۇق نامى / ئىشلەتكۈچى نامى بىلەن تەكرارلىنىپ قالدى</translation>
     </message>
 </context>
 <context>
@@ -459,14 +459,14 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="494"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="502"/>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>ھېسابات نامى باشقا ھېسابات نومۇرىنىڭ تولۇق نامى / ئىشلەتكۈچى نامى بىلەن تەكرارلىنىپ قالدى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="531"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="545"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="557"/>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>تولۇق نامى باشقا ھېسابات نومۇرىنىڭ تولۇق نامى / ئىشلەتكۈچى نامى بىلەن تەكرارلىنىپ قالدى</translation>
     </message>
 </context>
 <context>
@@ -577,7 +577,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="54"/>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك سوئاللىرى</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="65"/>
@@ -587,17 +587,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="84"/>
         <source>Security question 1</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك سوئالى1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="92"/>
         <source>Security question 2</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك سوئالى2</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="100"/>
         <source>Security question 3</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك سوئالى3</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="108"/>
@@ -615,48 +615,48 @@
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="149"/>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="290"/>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>جاۋابىڭىز 30 ھەرپتىن ئاز بولسۇن</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="165"/>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="303"/>
         <source>Do not choose a duplicate question please</source>
-        <translation type="unfinished"/>
+        <translation>ئوخشاش سوئالنى تاللىيالمايسىز</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="241"/>
         <source>Please select a question</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك سوئالىنى تاللاڭ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="242"/>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>سىز تۇغۇلغان شەھەرنىڭ نامى نېمە؟</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="243"/>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>مەكتىپىڭىزنىڭ نامى نېمە؟</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="244"/>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>سىز كىمنى ئەڭ ياخشى كۆرىسىز؟</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="245"/>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>سىز ئەڭ ياخشى كۆرىدىغان ھايۋان قايسى؟</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="246"/>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>سىز ئەڭ ياخشى كۆرىدىغان مۇزىكا قايسى؟</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="247"/>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>تەخەللۇسىڭىز نېمە؟</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/securityquestionspage.cpp" line="260"/>
@@ -2602,17 +2602,17 @@
         <translation>بۇيرۇق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="121"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="122"/>
         <source>Cancel</source>
         <translation>بىكار قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="124"/>
         <source>Add</source>
         <translation>قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="163"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>بۇ تىزلەتمە كۇنۇپكا %1 بىلەن توقۇنۇشۇپ قالدى، قوشۇش كۇنۇپكىسىنى بېسىپ باشقا تىزلەتمە كۇنۇپكا بېكىتىڭ</translation>
     </message>
@@ -3120,7 +3120,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="31"/>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>سېزىمچان تاختا</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -5469,23 +5469,28 @@
 <context>
     <name>SecurityKeyDisplayDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="37"/>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="38"/>
         <source>Security Keys</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="38"/>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="39"/>
         <source>Cancel</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="38"/>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="39"/>
         <source>Confirm</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="58"/>
         <source>An account security key is a code that can be used to log in to the system if you forgot your password. Please copy the code and save it in a safe place.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="140"/>
+        <source>Copied successfully</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -5956,28 +5961,28 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>dcc::datetime::TimeZoneChooser</name>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="41"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="43"/>
         <source>Cancel</source>
         <translation>بىكار قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="42"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="208"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="44"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="212"/>
         <source>Confirm</source>
         <translation>جەزملەشتۈرۈش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="204"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="208"/>
         <source>Add Timezone</source>
         <translation> ۋاقىت رايونى قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="205"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="209"/>
         <source>Add</source>
         <translation>قوشۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="207"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="211"/>
         <source>Change Timezone</source>
         <translation>ۋاقىت رايونىنى ئۆزگەرتىش</translation>
     </message>
@@ -6051,22 +6056,22 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>ساقلاش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="111"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="123"/>
         <source>Shortcut</source>
         <translation>تىزلەتمە كۇنۇپكا</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="114"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="126"/>
         <source>Name</source>
         <translation>ئىسمى</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="115"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="127"/>
         <source>Command</source>
         <translation>بۇيرۇق</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="132"/>
+        <location filename="../src/frame/modules/keyboard/customedit.cpp" line="144"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>بۇ تىزلەتمە كۇنۇپكا %1 بىلەن توقۇنۇشۇپ قالدى، قوشۇش كۇنۇپكىسىنى بېسىپ باشقا تىزلەتمە كۇنۇپكا بېكىتىڭ</translation>
     </message>
@@ -6185,85 +6190,85 @@ UnionTech Software is committed to research and improve the security, accuracy a
 <context>
     <name>dcc::sound::SoundModel</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="93"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="110"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="91"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="108"/>
         <source>Boot up</source>
         <translation>ئېچىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="94"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="111"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="92"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="109"/>
         <source>Shut down</source>
         <translation>تاقاش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="95"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="112"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="93"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="110"/>
         <source>Log out</source>
         <translation>تىزىمدىن چېكىنىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="96"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="113"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="124"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="125"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="94"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="111"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="122"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
         <source>Wake up</source>
         <translation>ئويغىتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="97"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="95"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="112"/>
         <source>Volume +/-</source>
         <translation>ئاۋازنى تەڭشەش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="98"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="96"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="113"/>
         <source>Notification</source>
         <translation>ئۇقتۇرۇش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="99"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="97"/>
         <source>Low battery</source>
         <translation>توك ئاز قالدى</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="100"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="98"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation>سىنبەلگىنى قوزغاتقۇچتىن ئۈستەليۈزىگە يوللاش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="101"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="117"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="99"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
         <source>Empty Trash</source>
         <translation>ئەخلەت ساندۇقىنى تازىلاش</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="102"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="100"/>
         <source>Plug in</source>
         <translation>توك ئۇلاندى</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="103"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="101"/>
         <source>Plug out</source>
         <translation>توك ئۈزۈلدى</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="104"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="118"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="102"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
         <source>Removable device connected</source>
         <translation>كۆچمە ئۈسكۈنە ئۇلاندى</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="105"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="119"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="103"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="117"/>
         <source>Removable device removed</source>
         <translation>كۆچمە ئۈسكۈنە ئۈزۈلدى</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="106"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="104"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="118"/>
         <source>Error</source>
         <translation>خاتالىق ئۇچۇرى</translation>
     </message>
