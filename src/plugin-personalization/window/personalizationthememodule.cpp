@@ -69,28 +69,28 @@ const QList<QString> ACTIVE_COLORS = {
 };
 
 const QList<QColor> ACTIVE_COLORST = {
-    { 216, 49, 108 },
-    { 255, 93, 0 },
-    { 248, 203, 0 },
-    { 35, 196, 0 },
+    { 223, 65, 135 },
+    { 234, 105, 31 },
+    { 243, 181, 23 },
+    { 73, 177, 37 },
     { 0, 164, 138 },
     { 0, 129, 255 },
-    { 60, 2, 215 },
-    { 140, 0, 212 },
-    { 77, 77, 77 },
+    { 64, 47, 219 },
+    { 119, 36, 177 },
+    { 117, 117, 117 },
     QColor()
 };
 
 const QList<QColor> Dark_ACTIVE_COLORST = {
-    { 179, 33, 87 },
-    { 204, 71, 0 },
-    { 198, 162, 0 },
-    { 28, 156, 0 },
-    { 0, 130, 108 },
-    { 0, 105, 204 },
-    { 44, 0, 206 },
-    { 109, 0, 168 },
-    { 61, 61, 61 },
+    { 168, 43, 98 },
+    { 204, 77, 3 },
+    { 208, 156, 0 },
+    { 69, 159, 41 },
+    { 24, 136, 118 },
+    { 2, 76, 202 },
+    { 56, 48, 167 },
+    { 106, 36, 135 },
+    { 134, 134, 134 },
     QColor()
 };
 
@@ -235,8 +235,6 @@ QWidget *PersonalizationThemeModule::initThemeList(ModuleObject *module)
         const QMap<QString, QJsonObject> &itemList = globalTheme->getList();
         if (itemList.contains(id))
             m_work->setDefaultByType(itemList.value(id)["type"].toString(), id + mode);
-
-        m_work->setDefault(m_model->getGlobalThemeModel()->getList().value(index.data(GlobalThemeModel::IdRole).toString()));
     });
     return view;
 }
