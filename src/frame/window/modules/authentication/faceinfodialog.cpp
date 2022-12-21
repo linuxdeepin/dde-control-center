@@ -13,6 +13,7 @@
 #include <QPointer>
 #include <QTimer>
 #include <QLabel>
+#include <QKeyEvent>
 
 DWIDGET_USE_NAMESPACE
 
@@ -90,4 +91,12 @@ bool FaceInfoDialog::eventFilter(QObject *o, QEvent *e)
     return false;
 }
 
+void FaceInfoDialog::keyPressEvent(QKeyEvent *e)
+{
+    if(e->key() == Qt::Key_Escape) {
+         Q_EMIT requestCloseDlg();
+    }
+
+    QDialog::keyPressEvent(e);
+}
 
