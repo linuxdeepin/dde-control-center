@@ -423,10 +423,13 @@ void ModifyPasswdPage::onLocalBindCheckError(const QString &error)
     m_isBindCheckError = true;
     m_forgetPasswordBtn->setEnabled(true);
     QString tips;
+    qWarning() << Q_FUNC_INFO << error;
     if (error.contains("7500")) {
         tips = tr("System error");
     } else if (error.contains("7506")) {
         tips = tr("Network error");
+    } else {
+        tips = error;
     }
     if (!tips.isEmpty()) {
         DMessageManager::instance()->sendMessage(this,

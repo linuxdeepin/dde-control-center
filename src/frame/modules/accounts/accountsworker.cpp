@@ -169,6 +169,11 @@ void AccountsWorker::getUUID(QString &uuid)
 
 void AccountsWorker::localBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid)
 {
+    //安全密钥开启了，则不需要检查后面流程
+    if (getSecurityKeyStatus()) {
+        Q_EMIT notifyDisplaySecurityKey();
+        return;
+    }
     QFutureWatcher<BindCheckResult> *watcher = new QFutureWatcher<BindCheckResult>(this);
     connect(watcher, &QFutureWatcher<BindCheckResult>::finished, [this, watcher] {
         BindCheckResult result = watcher->result();
@@ -362,6 +367,11 @@ const QString AccountsWorker::getActiveSessionName() const
         return "";
     }
     return m_login1SessionSelf->property("Name").toString();
+}
+
+bool AccountsWorker::getSecurityKeyStatus()
+{
+    return QString::compare(getSecurityKey(m_currentUserName), "") != 0;
 }
 
 void AccountsWorker::randomUserIcon(User *user)
