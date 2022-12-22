@@ -49,6 +49,17 @@ void ResetPasswordWorker::getSecurityKey(QString name)
     }
 }
 
+QString ResetPasswordWorker::getSecurityKeySync(QString name)
+{
+    QDBusReply<QString> reply = m_userQInter->call("GetSecretKey", QVariant::fromValue(name));
+    if (reply.isValid()) {
+        return reply.value();
+    } else {
+        qWarning() << "GetSecretKey failed:" << reply.error().message();
+    }
+    return "";
+}
+
 void ResetPasswordWorker::setPasswordHint(const QString &passwordHint)
 {
     auto reply = m_userInter->SetPasswordHint(passwordHint);

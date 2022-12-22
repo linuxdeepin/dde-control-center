@@ -33,6 +33,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void getSecurityQuestions();
     void getSecurityKey(QString name);
+    QString getSecurityKeySync(QString name);
     void setPasswordHint(const QString &passwordHint);
     void verifySecretQuestions(const QMap<int, QString> &securityQuestions);
     void asyncBindCheck();
