@@ -86,7 +86,6 @@ private:
     DCommandLinkButton *m_forgetPasswordBtn;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_passwordTipsEdit;
     bool m_isCurrent;
-    bool m_isBindCheckError;
     QTimer m_enableBtnTimer;
     QLocalServer *m_localServer;
     QLocalSocket *m_client;
