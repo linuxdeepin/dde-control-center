@@ -348,6 +348,10 @@ void AccountsModule::onShowPasswordPage(User *account)
     connect(w, &ModifyPasswdPage::requestCheckPwdLimitLevel, m_accountsWorker, &AccountsWorker::checkPwdLimitLevel);
     connect(m_accountsWorker, &AccountsWorker::localBindUbid, w, &ModifyPasswdPage::onLocalBindCheckUbid);
     connect(m_accountsWorker, &AccountsWorker::localBindError, w, &ModifyPasswdPage::onLocalBindCheckError);
+    connect(m_accountsWorker, &AccountsWorker::notifyDisplaySecurityKey, w, [=]() {
+        qInfo() << " [onNotifyDisplaySecurityKey] start reset-password-dialog.";
+        Q_EMIT w->requestStartResetPasswordExec(account);
+    });
 
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);

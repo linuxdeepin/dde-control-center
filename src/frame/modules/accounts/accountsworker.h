@@ -59,6 +59,7 @@ public:
     bool checkAuthorizationSync(const QString &path);
     bool getIsSessionActive() const;
     const QString getActiveSessionName() const;
+    bool getSecurityKeyStatus();
 
 Q_SIGNALS:
     void requestFrameAutoHide(const bool autoHide) const;
@@ -67,6 +68,7 @@ Q_SIGNALS:
     void requestMainWindowEnabled(const bool isEnabled) const;
     void localBindUbid(const QString &ubid);
     void localBindError(const QString &error);
+    void notifyDisplaySecurityKey(void);
     void showSafeyPage(const QString &errorTips);
 
 public Q_SLOTS:
