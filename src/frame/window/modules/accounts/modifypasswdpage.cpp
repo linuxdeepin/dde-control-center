@@ -43,7 +43,6 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     , m_forgetPasswordBtn(new DCommandLinkButton(tr("Forgot password?"), this))
     , m_passwordTipsEdit(new DLineEdit)
     , m_isCurrent(isCurrent)
-    , m_isBindCheckError(false)
     , m_localServer(new QLocalServer(this))
 {
     initWidget();
@@ -408,10 +407,10 @@ void ModifyPasswdPage::onSecurityQuestionsCheckReplied(const QList<int> &questio
 
 void ModifyPasswdPage::onLocalBindCheckUbid(const QString &ubid)
 {
+    // 检查结果返回ubid为空时需要提示用户绑定UOS ID
     if (!ubid.isEmpty()) {
-        m_isBindCheckError = false;
         Q_EMIT requestStartResetPasswordExec(m_curUser);
-    } else if (!m_isBindCheckError) {
+    } else {
         UnionIDBindReminderDialog dlg;
         dlg.exec();
         m_forgetPasswordBtn->setEnabled(true);
@@ -420,7 +419,6 @@ void ModifyPasswdPage::onLocalBindCheckUbid(const QString &ubid)
 
 void ModifyPasswdPage::onLocalBindCheckError(const QString &error)
 {
-    m_isBindCheckError = true;
     m_forgetPasswordBtn->setEnabled(true);
     QString tips;
     qWarning() << Q_FUNC_INFO << error;
