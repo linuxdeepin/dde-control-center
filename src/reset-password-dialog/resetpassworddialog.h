@@ -29,6 +29,12 @@ class ResetPasswordDialog : public DDialog
     Q_OBJECT
 
 public:
+    enum ResetPasswordType {
+        SecurityKey = 0,
+        UosID = 1,
+        Count,
+    };
+
     explicit ResetPasswordDialog(QRect screenGeometry, const QString &userName, const QString &appName, const int &fd);
     ~ResetPasswordDialog() {}
 
@@ -87,6 +93,7 @@ private:
     ResetPasswordWorker *m_resetPasswordWorker;
     QList<int> m_securityQuestions;
     SecurityKeyWidget *m_securityKeyWidget;
+    bool m_isValidSecurityKey;
 };
 
 class Manager : public QObject
