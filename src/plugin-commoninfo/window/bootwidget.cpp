@@ -58,7 +58,7 @@ DCORE_USE_NAMESPACE
 
 BootWidget::BootWidget(QWidget *parent)
     : QWidget(parent)
-    , m_isCommoninfoBootWallpaperConfigValid(true)
+    , m_isCommoninfoBootWallpaperConfigValid(!QSysInfo::currentCpuArchitecture().contains("arm"))
 {
     QVBoxLayout *layout = new QVBoxLayout;
     setLayout(layout);
@@ -130,6 +130,12 @@ BootWidget::BootWidget(QWidget *parent)
     layout->addSpacing(10);
     layout->addWidget(groupOther);
     layout->addWidget(m_themeLbl);
+
+    if (!m_isCommoninfoBootWallpaperConfigValid) {
+        m_theme->setVisible(false);
+        m_themeLbl->setVisible(false);
+    }
+
     m_grubVerification = new SwitchWidget(this);
     m_grubVerification->setTitle(tr("GRUB Authentication"));
     m_grubVerification->addBackground();

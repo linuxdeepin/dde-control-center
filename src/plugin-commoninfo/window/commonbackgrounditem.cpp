@@ -48,11 +48,11 @@ CommonBackgroundItem::CommonBackgroundItem(QWidget *parent)
     : SettingsItem(parent)
 {
     setMinimumHeight(ItemHeight);
-    setAcceptDrops(true);
 }
 
 void CommonBackgroundItem::setThemeEnable(const bool state)
 {
+    setAcceptDrops(state);
     m_themeEnable = state;
     update();
 }
