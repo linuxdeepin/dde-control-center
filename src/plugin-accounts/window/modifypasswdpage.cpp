@@ -49,7 +49,7 @@ DCORE_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 SET_FORM_ACCESSIBLE(ModifyPasswdPage,"ModifyPasswdPage")
 ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
-    : QDialog(parent)
+    : DAbstractDialog(false, parent)
     , m_curUser(user)
     , m_oldPasswordEdit(new DPasswordEdit)
     , m_newPasswordEdit(new DPasswordEdit)

@@ -25,8 +25,8 @@
 #include "src/plugin-accounts/operation/user.h"
 
 #include <DListView>
+#include <DDialog>
 
-#include <QDialog>
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -92,7 +92,7 @@ private:
     DTK_CORE_NAMESPACE::DConfig *m_dconfig;
 };
 
-class AvatarListDialog : public QDialog
+class AvatarListDialog : public DTK_WIDGET_NAMESPACE::DDialog
 {
     Q_OBJECT
 public:

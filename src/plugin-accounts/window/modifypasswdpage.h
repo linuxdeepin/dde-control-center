@@ -26,12 +26,12 @@
 #include "src/plugin-accounts/operation/usermodel.h"
 
 #include <QTimer>
-#include <QDialog>
 
 #include <DSuggestButton>
 #include <DLineEdit>
 #include <DCommandLinkButton>
 #include <DPasswordEdit>
+#include <DAbstractDialog>
 
 DWIDGET_USE_NAMESPACE
 
@@ -55,7 +55,7 @@ class SecurityLevelItem;
 
 namespace DCC_NAMESPACE {
 //修改密码页面
-class ModifyPasswdPage : public QDialog
+class ModifyPasswdPage : public DAbstractDialog
 {
     Q_OBJECT
 

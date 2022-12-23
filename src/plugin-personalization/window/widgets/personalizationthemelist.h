@@ -24,6 +24,7 @@
 
 #include <dtkwidget_global.h>
 #include <DStyleOption>
+#include <DAbstractDialog>
 
 #include <QDialog>
 #include <QJsonObject>
@@ -34,7 +35,7 @@ DWIDGET_BEGIN_NAMESPACE
 class DListView;
 DWIDGET_END_NAMESPACE
 
-class PersonalizationThemeList : public QDialog
+class PersonalizationThemeList : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
 public:

@@ -33,6 +33,7 @@
 #include <DPasswordEdit>
 #include <DComboBox>
 #include <DSuggestButton>
+#include <DAbstractDialog>
 
 #include <QDialog>
 
@@ -52,7 +53,7 @@ class SecurityLevelItem;
 
 const int PwdLimitLowestLevel = 1;
 //创建账户页面
-class CreateAccountPage : public QDialog
+class CreateAccountPage : public DAbstractDialog
 {
     Q_OBJECT
 

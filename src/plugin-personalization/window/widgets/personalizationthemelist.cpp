@@ -21,7 +21,6 @@
 #include "personalizationthemelist.h"
 #include "model/thememodel.h"
 #include "titlelabel.h"
-//#include "window/utils.h"
 
 #include <DListView>
 
@@ -29,20 +28,26 @@
 #include <QScroller>
 #include <QPushButton>
 #include <DSuggestButton>
+#include <DTitlebar>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 PersonalizationThemeList::PersonalizationThemeList(const QString &title, QWidget *parent)
-    : QDialog(parent)
+    : DAbstractDialog(false, parent)
     , m_listview(new DListView)
 {
     setAccessibleName("PersonalizationThemeList");
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
-    TitleLabel *titleLabel = new TitleLabel(title);
-    titleLabel->setAlignment(Qt::AlignCenter);
-    layout->addWidget(titleLabel);
+    DTitlebar *titleIcon = new DTitlebar();
+    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
+    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setMenuVisible(false);
+    titleIcon->setIcon(qApp->windowIcon());
+    titleIcon->setTitle(title);
+    layout->addWidget(titleIcon);
+
     QStandardItemModel *model = new QStandardItemModel(this);
     m_listview->setAccessibleName("List_PersonalizationThemeList");
     m_listview->setModel(model);

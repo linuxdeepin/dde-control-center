@@ -42,6 +42,7 @@
 #include <QRandomGenerator>
 #include <DSuggestButton>
 #include <DConfig>
+#include <DTitlebar>
 
 const int MaxAvatarSize = 14;
 
@@ -332,26 +333,16 @@ void AvatarListWidget::setAvatarSize(const QSize &size)
 }
 
 AvatarListDialog::AvatarListDialog(User *usr, QWidget *parent)
-    : QDialog(parent)
+    : DDialog(parent)
     , m_avatarList(new AvatarListWidget(usr, this))
 {
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->addWidget(m_avatarList);
+    setIcon(qApp->windowIcon());
+    addContent(m_avatarList);
 
-    QHBoxLayout *btnLayout = new QHBoxLayout;
-    btnLayout->setMargin(0);
-    QPushButton *cancleBtn = new QPushButton(tr("Cancel"));
-    DSuggestButton *addBtn = new DSuggestButton(tr("Modify"));
-    cancleBtn->setDefault(true);
-    addBtn->setDefault(true);
-    btnLayout->addWidget(cancleBtn);
-    btnLayout->addWidget(addBtn);
-    mainLayout->addSpacing(0);
-    mainLayout->addLayout(btnLayout);
+    addButton(tr("Cancel"));
+    addButton(tr("Modify"), true, DDialog::ButtonRecommend);
 
-    connect(cancleBtn, &QPushButton::clicked, this, &AvatarListDialog::reject);
-    connect(addBtn, &DSuggestButton::clicked, this, &AvatarListDialog::accept);
-    resize(510, 365);
+    setFixedSize(510, 390);
 }
 
 AvatarListDialog::~AvatarListDialog()

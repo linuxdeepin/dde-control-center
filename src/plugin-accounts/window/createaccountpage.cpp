@@ -44,6 +44,7 @@
 #include <QScroller>
 #include <QScrollArea>
 #include <QDBusReply>
+#include <DTitlebar>
 
 #include <widgets/comboxwidget.h>
 #include <widgets/lineeditwidget.h>
@@ -54,7 +55,7 @@ DCORE_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 CreateAccountPage::CreateAccountPage(AccountsWorker *accountsWorker, QWidget *parent)
-    : QDialog(parent)
+    : DAbstractDialog(false, parent)
     , m_newUser{nullptr}
     , m_accountWorker(accountsWorker)
     , m_nameEdit(new LineEditWidget)
@@ -78,6 +79,12 @@ CreateAccountPage::CreateAccountPage(AccountsWorker *accountsWorker, QWidget *pa
     m_isServerSystem = DSysInfo::UosServer == DSysInfo::uosType();
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+    DTitlebar *titleIcon = new DTitlebar();
+    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
+    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setMenuVisible(false);
+    titleIcon->setIcon(qApp->windowIcon());
+    mainContentLayout->addWidget(titleIcon);
     setLayout(mainContentLayout);
 
     m_tw = new QWidget(this);
@@ -152,8 +159,8 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
 {
     TitleLabel *titleLabel = new TitleLabel(tr("New Account"));
     titleLabel->setAlignment(Qt::AlignCenter);
-    layout->setContentsMargins(10, 10, 10, 10);
     layout->addWidget(titleLabel);
+    layout->addSpacing(30);
 
     /* 用户类型 */
     m_accountChooser->setTitle(tr("Account Type"));
