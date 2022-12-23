@@ -99,6 +99,7 @@ public:
 #endif
             m_layout->addWidget(child->activePage());
             m_view->setVisible(false);
+            m_sidebarWidget->setFocus();
         } else {
             m_view->setViewMode(ListView::IconMode);
             m_view->setIconSize(ListViweItemIconSize_IconMode);
