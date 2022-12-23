@@ -78,37 +78,42 @@ void UpdateSettingsModule::initModuleList()
         m_autoCheckUniontechUpdate->setChecked(m_model->autoCheckSystemUpdates());
     }));
 
-    appendChild(new WidgetModule<SwitchWidget>("securityUpdatesOnly", tr("Security Updates Only"), [this](SwitchWidget *systemSwitch) {
-        m_autoCheckSecureUpdate = systemSwitch;
-        connect(m_model, &UpdateModel::autoCheckSecureUpdatesChanged, m_autoCheckSecureUpdate, [=](const bool status) {
-            m_autoCheckSecureUpdate->setChecked(status);
-            setAutoCheckEnable();
-        });
-        connect(m_autoCheckSecureUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettingsModule::onAutoSecureUpdateCheckChanged);
+    if (IsProfessionalSystem) {
+        appendChild(new WidgetModule<SwitchWidget>("securityUpdatesOnly", tr("Security Updates Only"), [this](SwitchWidget *systemSwitch) {
+            m_autoCheckSecureUpdate = systemSwitch;
+            connect(m_model, &UpdateModel::autoCheckSecureUpdatesChanged, m_autoCheckSecureUpdate, [=](const bool status) {
+                m_autoCheckSecureUpdate->setChecked(status);
+                setAutoCheckEnable();
+            });
+            connect(m_autoCheckSecureUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettingsModule::onAutoSecureUpdateCheckChanged);
 
-        m_autoCheckSecureUpdate->setTitle(tr("Security Updates Only"));
-        m_autoCheckSecureUpdate->addBackground();
-        m_autoCheckSecureUpdate->setChecked(m_model->autoCheckSecureUpdates());
-    }));
-    appendChild(new WidgetModule<DTipLabel>("securityUpdatesOnlyTips", tr("Switch it on to only update security vulnerabilities and compatibility issues"), [this](DTipLabel *systemLabel) {
-        m_autoCheckSecureUpdateTips = systemLabel;
-        m_autoCheckSecureUpdateTips->setWordWrap(true);
-        m_autoCheckSecureUpdateTips->setAlignment(Qt::AlignLeft);
-        m_autoCheckSecureUpdateTips->setContentsMargins(10, 0, 10, 0);
-        m_autoCheckSecureUpdateTips->setText(tr("Switch it on to only update security vulnerabilities and compatibility issues"));
-    }));
-    appendChild(new WidgetModule<SwitchWidget>("thirdpartyRepositories", tr("Third-party Repositories"), [this](SwitchWidget *systemSwitch) {
-        m_autoCheckThirdpartyUpdate = systemSwitch;
-        connect(m_model, &UpdateModel::autoCheckThirdpartyUpdatesChanged, m_autoCheckThirdpartyUpdate, [=](const bool status) {
-            m_autoCheckThirdpartyUpdate->setChecked(status);
-            setAutoCheckEnable();
-        });
-        connect(m_autoCheckThirdpartyUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettingsModule::onAutoUpdateCheckChanged);
+            m_autoCheckSecureUpdate->setTitle(tr("Security Updates Only"));
+            m_autoCheckSecureUpdate->addBackground();
+            m_autoCheckSecureUpdate->setChecked(m_model->autoCheckSecureUpdates());
+        }));
+        appendChild(new WidgetModule<DTipLabel>("securityUpdatesOnlyTips", tr("Switch it on to only update security vulnerabilities and compatibility issues"), [this](DTipLabel *systemLabel) {
+            m_autoCheckSecureUpdateTips = systemLabel;
+            m_autoCheckSecureUpdateTips->setWordWrap(true);
+            m_autoCheckSecureUpdateTips->setAlignment(Qt::AlignLeft);
+            m_autoCheckSecureUpdateTips->setContentsMargins(10, 0, 10, 0);
+            m_autoCheckSecureUpdateTips->setText(tr("Switch it on to only update security vulnerabilities and compatibility issues"));
+        }));
+    }
 
-        m_autoCheckThirdpartyUpdate->setTitle(tr("Third-party Repositories"));
-        m_autoCheckThirdpartyUpdate->addBackground();
-        m_autoCheckThirdpartyUpdate->setChecked(m_model->getAutoCheckThirdpartyUpdates());
-    }));
+    if (IsCommunitySystem) {
+        appendChild(new WidgetModule<SwitchWidget>("thirdpartyRepositories", tr("Third-party Repositories"), [this](SwitchWidget *systemSwitch) {
+            m_autoCheckThirdpartyUpdate = systemSwitch;
+            connect(m_model, &UpdateModel::autoCheckThirdpartyUpdatesChanged, m_autoCheckThirdpartyUpdate, [=](const bool status) {
+                m_autoCheckThirdpartyUpdate->setChecked(status);
+                setAutoCheckEnable();
+            });
+            connect(m_autoCheckThirdpartyUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettingsModule::onAutoUpdateCheckChanged);
+
+            m_autoCheckThirdpartyUpdate->setTitle(tr("Third-party Repositories"));
+            m_autoCheckThirdpartyUpdate->addBackground();
+            m_autoCheckThirdpartyUpdate->setChecked(m_model->getAutoCheckThirdpartyUpdates());
+        }));
+    }
 
     // 其他设置
     appendChild(new UpdateTitleModule("otherSettings", tr("Other settings")));
