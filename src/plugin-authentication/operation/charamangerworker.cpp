@@ -176,10 +176,10 @@ QStringList CharaMangerWorker::parseCharaNameJsonData(const QString &mangerInfo)
 
 void CharaMangerWorker::predefineDriverInfo(const QString &driverInfo)
 {
+    // 处理界面显示空设备
+    m_model->setFaceDriverVaild(false);
+    m_model->setIrisDriverVaild(false);
     if (driverInfo.isNull()) {
-        // 处理界面显示空设备
-        m_model->setFaceDriverVaild(false);
-        m_model->setIrisDriverVaild(false);
         return;
     }
     QStringList faceDriverNames;
@@ -195,17 +195,12 @@ void CharaMangerWorker::predefineDriverInfo(const QString &driverInfo)
         // 可用人脸driverName
         if (it.value() & FACE_CHARA) {
             faceDriverNames.append(it.key());
+            m_model->setFaceDriverVaild(false);
         }
 
         if (it.value() & IRIS_CHARA) {
             irisDriverNames.append(it.key());
-        }
-
-        if (it.value() == 0) {
-            // 处理界面显示空设备
-            m_model->setFaceDriverVaild(false);
             m_model->setIrisDriverVaild(false);
-            return;
         }
     }
 
