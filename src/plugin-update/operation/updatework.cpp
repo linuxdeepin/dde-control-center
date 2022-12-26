@@ -256,32 +256,24 @@ void UpdateWorker::requestUpdateLog()
     // 接收并处理respond
     QNetworkAccessManager *http = new QNetworkAccessManager(this);
     connect(http, &QNetworkAccessManager::finished, this, [ this, http ] (QNetworkReply *reply) {
+        handleUpdateLogsReply(reply);
         reply->deleteLater();
         http->deleteLater();
-
-        handleUpdateLogsReply(reply);
     });
 
     // 请求头
     QNetworkRequest request;
     QUrl url(getUpdateLogAddress());
     QUrlQuery urlQuery;
-    urlQuery.addQueryItem("rt", QByteArray::number(QDateTime::currentDateTime().toTime_t()));
+    urlQuery.addQueryItem("platformType", QByteArray::number(getPlatform()));
+    urlQuery.addQueryItem("isUnstable", QByteArray::number(isUnstableResource()));
+    urlQuery.addQueryItem("mainVersion", QString("V%1").arg(DSysInfo::majorVersion()));
+
     url.setQuery(urlQuery);
     request.setUrl(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
     qDebug() << "request url : " << url;
-
-    // 请求体
-    QJsonObject requestBody;
-    requestBody["platformType"] = getPlatform();
-    requestBody["isUnstable"] = isUnstableResource();
-    QJsonDocument doc;
-    doc.setObject(requestBody);
-    const QByteArray &body = doc.toJson();
-
-    http->post(request, body);
-    qInfo() << "Pose request to get update log, request body: " << body;
+    http->get(request);
 }
 
 void UpdateWorker::setUpdateInfo()
@@ -641,6 +633,7 @@ void UpdateWorker::handleUpdateLogsReply(QNetworkReply *reply)
         return;
     }
 
+    qDebug() << " Get: respondBody " << respondBody;
     const QJsonDocument &doc = QJsonDocument::fromJson(respondBody);
     const QJsonObject &obj = doc.object();
     if (obj.isEmpty()) {

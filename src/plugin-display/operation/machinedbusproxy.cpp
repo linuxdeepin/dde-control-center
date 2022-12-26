@@ -48,7 +48,7 @@ int MachineDBusProxy::direction()
 
 void MachineDBusProxy::disconnect()
 {
-    qDebug() << " void MachineDBusProxy::Disconnect() " << qvariant_cast<QString>(m_dBusMachineInter->property("UUID"));;
+    qDebug() << " void MachineDBusProxy::Disconnect() " << qvariant_cast<QString>(m_dBusMachineInter->property("UUID"));
     QDBusReply<void> retPair = m_dBusMachineInter->call("Disconnect");
     QString errorDate = retPair.error().message();
     if (errorDate.isEmpty()) {
