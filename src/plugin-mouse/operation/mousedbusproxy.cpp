@@ -276,13 +276,13 @@ void MouseDBusProxy::onMousePathPropertiesChanged(QDBusMessage msg)
             } else if(keys.at(i) == "NaturalScroll") {
                 m_worker->setMouseNaturalScrollState(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "DoubleClick") {
-                m_worker->setDouClick(changedProps.value(keys.at(i)).toBool());
+                m_worker->setDouClick(changedProps.value(keys.at(i)).toInt());
             } else if(keys.at(i) == "DisableTpad") {
                 m_worker->setDisTouchPad(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "AdaptiveAccelProfile") {
                 m_worker->setAccelProfile(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "MotionAcceleration") {
-                m_worker->setMouseMotionAcceleration(changedProps.value(keys.at(i)).toBool());
+                m_worker->setMouseMotionAcceleration(changedProps.value(keys.at(i)).toDouble());
             }
         }
     }
@@ -306,17 +306,17 @@ void MouseDBusProxy::onTouchpadPathPropertiesChanged(QDBusMessage msg)
             } else if(keys.at(i) == "DisableIfTyping") {
                 m_worker->setDisTyping(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "DoubleClick") {
-                m_worker->setDouClick(changedProps.value(keys.at(i)).toBool());
+                m_worker->setDouClick(changedProps.value(keys.at(i)).toInt());
             } else if(keys.at(i) == "MotionAcceleration") {
-                m_worker->setTouchpadMotionAcceleration(changedProps.value(keys.at(i)).toBool());
+                m_worker->setTouchpadMotionAcceleration(changedProps.value(keys.at(i)).toDouble());
             } else if(keys.at(i) == "TapClick") {
                 m_worker->setTapClick(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "PalmDetect") {
                 m_worker->setPalmDetect(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "PalmMinWidth") {
-                m_worker->setPalmMinWidth(changedProps.value(keys.at(i)).toBool());
+                m_worker->setPalmMinWidth(changedProps.value(keys.at(i)).toInt());
             } else if(keys.at(i) == "PalmMinZ") {
-                m_worker->setPalmMinz(changedProps.value(keys.at(i)).toBool());
+                m_worker->setPalmMinz(changedProps.value(keys.at(i)).toInt());
             }
         }
     }
@@ -336,7 +336,7 @@ void MouseDBusProxy::onTrackpointPathPropertiesChanged(QDBusMessage msg)
             if (keys.at(i) == "Exist") {
                 m_worker->setRedPointExist(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "MotionAcceleration") {
-                m_worker->setTrackPointMotionAcceleration(changedProps.value(keys.at(i)).toBool());
+                m_worker->setTrackPointMotionAcceleration(changedProps.value(keys.at(i)).toDouble());
             }
         }
     }
@@ -354,7 +354,7 @@ void MouseDBusProxy::onInputDevicesPathPropertiesChanged(QDBusMessage msg)
         QStringList keys = changedProps.keys();
         for (int i = 0; i < keys.size(); i++) {
             if (keys.at(i) == "WheelSpeed") {
-                m_worker->setScrollSpeed(changedProps.value(keys.at(i)).toBool());
+                m_worker->setScrollSpeed(changedProps.value(keys.at(i)).toUInt());
             }
         }
     }
