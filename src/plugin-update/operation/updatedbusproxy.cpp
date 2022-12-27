@@ -144,9 +144,9 @@ uint UpdateDBusProxy::updateMode()
     return qvariant_cast<uint>(m_managerInter->property("UpdateMode"));
 }
 
-void UpdateDBusProxy::setUpdateMode(uint value)
+void UpdateDBusProxy::setUpdateMode(qulonglong value)
 {
-    m_managerInter->setProperty("UpdateMode", value);
+    m_managerInter->setProperty("UpdateMode", QVariant::fromValue(value));
 }
 
 QList<QDBusObjectPath> UpdateDBusProxy::jobList()

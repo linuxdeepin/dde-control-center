@@ -51,7 +51,7 @@ public:
 
     Q_PROPERTY(qulonglong UpdateMode READ updateMode WRITE setUpdateMode NOTIFY UpdateModeChanged)
     uint updateMode();
-    void setUpdateMode(uint value);
+    void setUpdateMode(qulonglong value);
 
     Q_PROPERTY(QList<QDBusObjectPath> JobList READ jobList NOTIFY JobListChanged)
     QList<QDBusObjectPath> jobList();

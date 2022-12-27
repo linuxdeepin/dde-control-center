@@ -131,8 +131,8 @@ public:
     inline bool autoCheckUpdates() const { return m_autoCheckUpdates; }
     void setAutoCheckUpdates(bool autoCheckUpdates);
 
-    inline quint64 updateMode() const { return m_updateMode; }
-    void setUpdateMode(quint64 updateMode);
+    inline qulonglong updateMode() const { return m_updateMode; }
+    void setUpdateMode(qulonglong updateMode);
 
     inline bool autoCheckSecureUpdates() const { return m_autoCheckSecureUpdates; }
     void setAutoCheckSecureUpdates(bool autoCheckSecureUpdates);
@@ -292,7 +292,7 @@ private:
     bool m_autoInstallUpdates;
     quint64 m_autoInstallUpdateType;
     bool m_autoCheckUpdates;
-    quint64 m_updateMode;
+    qulonglong m_updateMode;
     bool m_autoCheckSecureUpdates;
     bool m_autoCheckSystemUpdates;
     bool m_autoCheckAppUpdates;

@@ -279,7 +279,7 @@ void UpdateModel::setAutoCheckUpdates(bool autoCheckUpdates)
     Q_EMIT autoCheckUpdatesChanged(autoCheckUpdates);
 }
 
-void UpdateModel::setUpdateMode(quint64 updateMode)
+void UpdateModel::setUpdateMode(qulonglong updateMode)
 {
     qDebug() << Q_FUNC_INFO << "get UpdateMode from dbus:" << updateMode;
 

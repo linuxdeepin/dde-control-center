@@ -377,7 +377,7 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
     updateDailyKeyMap.insert(ClassifyUpdateType::SecurityUpdate, "safeUpdateInfo");
     updateDailyKeyMap.insert(ClassifyUpdateType::UnknownUpdate, "otherUpdateInfo");
 
-    quint64 updateMode = m_model->updateMode();
+    qulonglong updateMode = m_model->updateMode();
 
     if (m_systemPackages.count() > 0 && (updateMode & ClassifyUpdateType::SystemUpdate)) {
         UpdateItemInfo *systemItemInfo = new UpdateItemInfo;
@@ -1423,7 +1423,7 @@ void UpdateWorker::updateItemInfo(const UpdateLogItem &logItem, UpdateItemInfo *
 
 bool UpdateWorker::hasRepositoriesUpdates()
 {
-    quint64 mode = m_model->updateMode();
+    qulonglong mode = m_model->updateMode();
     return (mode & ClassifyUpdateType::SystemUpdate) || (mode & ClassifyUpdateType::UnknownUpdate) || (mode & ClassifyUpdateType::SecurityUpdate);
 }
 
