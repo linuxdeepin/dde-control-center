@@ -35,6 +35,7 @@ set(SRCS
 find_package(PkgConfig REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5DBus REQUIRED)
+find_package(DtkCore REQUIRED)
 
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
@@ -42,11 +43,13 @@ add_executable(${BIN_NAME} ${SRCS})
 target_include_directories(${BIN_NAME} PUBLIC
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
     ${PROJECT_BINARY_DIR}
+    ${DtkCore_INCLUDE_DIRS}
 )
 
 target_link_libraries(${BIN_NAME} PRIVATE
     ${Qt5Widgets_LIBRARIES}
     ${Qt5DBus_LIBRARIES}
+    ${DtkCore_LIBRARIES}
 )
 
 # bin
