@@ -253,6 +253,7 @@ void MouseModule::initSearchData()
     auto func_touchpad_changed = [ = ](bool tpadExist) {
         bool bTouchpad = func_is_visible("mouseTouch") && tpadExist;
         m_frameProxy->setWidgetVisible(module, touchpad, bTouchpad);
+        m_frameProxy->setDetailVisible(module, touchpad, tr("Touchpad"), bTouchpad);
         m_frameProxy->setDetailVisible(module, touchpad, tr("Pointer Speed"), bTouchpad);
         m_frameProxy->setDetailVisible(module, touchpad, tr("Tap to Click"), bTouchpad);
         m_frameProxy->setDetailVisible(module, touchpad, tr("Natural Scrolling"), bTouchpad);
