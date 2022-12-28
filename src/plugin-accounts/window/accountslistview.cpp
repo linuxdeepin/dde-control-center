@@ -475,7 +475,7 @@ void AccountsListView::paintEvent(QPaintEvent *e)
     QScrollBar *hbar = horizontalScrollBar();
     int gradualW = d->m_itemSize.width() * 2;
     QRect lRect(0, 0, gradualW, height());
-    QRect rRect(width() - gradualW, 0, gradualW, height());
+    QRect rRect(width() - gradualW, 0, gradualW + 1, height());
     if (!e->rect().intersected(lRect).isEmpty() && hbar->minimum() != hbar->value()) { //左边
         QLinearGradient linearGradient(lRect.left(), 0, lRect.right(), 0);
         linearGradient.setColorAt(0, option.palette.window().color());

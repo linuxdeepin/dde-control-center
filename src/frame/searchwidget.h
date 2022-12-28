@@ -56,7 +56,7 @@ class SearchWidget : public Dtk::Widget::DSearchEdit
 {
     Q_OBJECT
 public:
-    SearchWidget(QWidget *parent = nullptr);
+    explicit SearchWidget(QWidget *parent = nullptr);
 
     void setModuleObject(ModuleObject *const module);
     QList<QPair<QString, QString>> searchResults(const QString text);

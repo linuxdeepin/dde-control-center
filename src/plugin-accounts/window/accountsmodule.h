@@ -95,20 +95,26 @@ public:
     UserModel *model() { return m_model; }
 
 protected:
-    virtual void active() override;
+    void active() override;
+    void deactive() override;
     bool isSystemAdmin(User *user);
 
 Q_SIGNALS:
     void currentUserChanged(User *user, User *oldUser);
+    void deactivated();
 
 protected Q_SLOTS:
-    void initAccountsList(QWidget *w);
-    void initAvatar(QWidget *w);
-    void initFullName(QWidget *w);
-    void initName(QWidget *w);
-    void initModifyButton(QWidget *w);
-    void initAccountType(SettingsGroup *accountSettingsGrp);
-    void initValidityDays(SettingsGroup *pwGroup);
+    QWidget *initAccountsList(ModuleObject *module);
+    QWidget *initCreateAccount(ModuleObject *module);
+    QWidget *initAvatar(ModuleObject *module);
+    QWidget *initFullName(ModuleObject *module);
+    QWidget *initFullNameEdit(ModuleObject *module);
+    QWidget *initFullNameIcon(ModuleObject *module);
+    QWidget *initName(ModuleObject *module);
+    QWidget *initChangePassword(ModuleObject *module);
+    QWidget *initDeleteAccount(ModuleObject *module);
+    QWidget *initAccountType(ModuleObject *module);
+    QWidget *initValidityDays(ModuleObject *module);
 
     void onCreateAccount();
     void onModifyPassword();
@@ -121,6 +127,7 @@ protected Q_SLOTS:
     void onGidChanged(const QString &gid);
     bool onEditingFinished(bool isValid, DTK_WIDGET_NAMESPACE::DLineEdit *fullNameEdit);
     void setFullname(const QString &fullName, DTK_WIDGET_NAMESPACE::DLabel *fullNameLabel);
+    void updateFullnameVisible(uint32_t flag, bool state);
     void onShowSafetyPage(const QString &errorTips);
     void onLoginModule(ModuleObject *module);
     void updateLoginModule();
@@ -142,6 +149,14 @@ private:
 
     DCC_NAMESPACE::ModuleObjectItem *m_autoLoginModule;
     DCC_NAMESPACE::ModuleObjectItem *m_loginWithoutPasswordModule;
+
+    DCC_NAMESPACE::ModuleObject *m_fullNameModule;
+    DCC_NAMESPACE::ModuleObject *m_fullNameEditModule;
+    DCC_NAMESPACE::ModuleObject *m_fullNameIconModule;
+    DCC_NAMESPACE::ModuleObject *m_changePasswordModule;
+    DCC_NAMESPACE::ModuleObject *m_deleteAccountModule;
+    DCC_NAMESPACE::ModuleObject *m_accountTypeModule;
+    DCC_NAMESPACE::ModuleObject *m_validityDaysModule;
 };
 
 } // namespace DCC_NAMESPACE

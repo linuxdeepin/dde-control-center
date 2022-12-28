@@ -33,7 +33,6 @@ ListViewModule::ListViewModule(const QString &name, const QString &displayName, 
 
 ListViewModule::~ListViewModule()
 {
-
 }
 
 QWidget *ListViewModule::page()
@@ -41,9 +40,9 @@ QWidget *ListViewModule::page()
     Q_D(ListViewModule);
     DCCListView *view = new DCCListView();
     view->setModel(d->m_model);
-    connect(view,&DCCListView::clicked,this,[this](const QModelIndex &index){
+    connect(view, &DCCListView::clicked, this, [this](const QModelIndex &index) {
         ModuleObject *module = static_cast<ModuleObject *>(index.internalPointer());
-        if (!module)
+        if (!module || ModuleObject::IsDisabled(module))
             return;
         emit clicked(module);
         ModuleObjectItem *item = qobject_cast<ModuleObjectItem *>(module);

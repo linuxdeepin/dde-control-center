@@ -204,7 +204,7 @@ QString UserDBusProxy::fullName()
 }
 QString UserDBusProxy::gid()
 {
-    return qvariant_cast<QString>(m_dBusAccountsUserInter->property("RepeatInterval"));
+    return qvariant_cast<QString>(m_dBusAccountsUserInter->property("Gid"));
 }
 QString UserDBusProxy::greeterBackground()
 {

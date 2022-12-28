@@ -261,8 +261,6 @@ void SearchWidget::addModule(ModuleObject *const module)
     if (ModuleObject::IsHidden(module) || module->noSearch() || (module->displayName().isEmpty() && module->contentText().isEmpty()))
         return;
 
-    QStandardItem *item = new QStandardItem;
-
     QList<ModuleObject *> moduleurl;
     QStringList urls;
     QStringList displayNames;
@@ -284,6 +282,7 @@ void SearchWidget::addModule(ModuleObject *const module)
         return;
     }
     m_allText.insert(text);
+    QStandardItem *item = new QStandardItem;
     item->setText(text);
     item->setToolTip(text);
     item->setData(urls.join("/"), CompleterRole::UrlRole);
