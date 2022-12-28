@@ -112,6 +112,7 @@ void AddIrisInfoDialog::initBioWidget()
 
 void AddIrisInfoDialog::initWidget()
 {
+    initBioWidget();
     setFixedSize(QSize(340, 404));
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setAlignment(Qt::AlignHCenter);
