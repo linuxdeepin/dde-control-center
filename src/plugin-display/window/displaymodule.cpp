@@ -142,6 +142,7 @@ void DisplayModule::showSingleScreenWidget()
     linkWidget->setModel(m_model);
     contentLayout->addWidget(linkWidget);
     connect(linkWidget, &CollaborativeLinkWidget::requestCooperationEnable, m_worker, &DisplayWorker::setDeviceSharingSwitch);
+    connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachineDisconnect, m_worker, &DisplayWorker::setCurrentMachineDisconnect);
     connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachineConnect, m_worker, &DisplayWorker::setCurrentMachineConnect);
     connect(linkWidget, &CollaborativeLinkWidget::requestCurrentDeviceSharingConnect, m_worker, &DisplayWorker::setCurrentRequestDeviceSharing);
     connect(linkWidget, &CollaborativeLinkWidget::requestOpenSharedDevices, m_worker, &DisplayWorker::setOpenSharedDevices);
