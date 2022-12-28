@@ -56,6 +56,7 @@ TimezoneModule::TimezoneModule(DatetimeModel *model, DatetimeWorker *work, QObje
     }));
     appendChild(new WidgetModule<TimezoneItem>("systemTimezone", tr("System Timezone"), [this](TimezoneItem *w) {
         w->setTimeZone(m_model->currentSystemTimeZone());
+        w->setDetailVisible(false);
         connect(m_model, &DatetimeModel::currentSystemTimeZoneChanged, w, &TimezoneItem::setTimeZone);
     }));
     appendChild(new WidgetModule<SettingsHead>("timezoneList", tr("Timezone List"), [this](SettingsHead *w) {
