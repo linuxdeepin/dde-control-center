@@ -1,3 +1,22 @@
+dde-control-center (6.0.6.3) unstable; urgency=medium
+
+  [ TagBuilder ]
+  * fix: 修复当人脸识别设备正常时，接入虹膜识别设备后，控制中心生物识别模块消失 当某个生物识别设备type未0时，不应屏蔽所有生物识别模块(Bug: 231313)(Influence: 控制中心生物识别模块)
+  * fix: 修复arm机器grub界面不显示启动菜单主题背景(Bug: 134461)(Influence: 控制中心通用模块功能)
+  * fix: 修改主题显示顺序(Bug: 160505)(Influence: 控制中心-个性化-主题、图标主题、光标主题显示顺序)
+  * fix: 修改切换主题时外观切换为自动(Bug: 176377)(Influence: 控制中心-个性化-深色模式下修改主题)
+  * fix: 修改打开二级菜单焦点问题(Task: 224777)(Influence: 控制中心-打开二级菜单)
+  * fix: 修改控制中心弹窗title为控制中心<2>问题(Task: 230721)(Influence: 控制中心-个性化-图标主题等弹窗标题)
+  * fix: 修改鼠标触控板指针速度设置问题(Task: 231047)(Influence: 控制中心-鼠标/触控板-设置指针速度、双击、滚动速度，数位板最小接触面、最小压力值)
+  * fix: 社区版专业版差异内容控件展示(Task: 225017)(Influence: 控制中心-更新)
+  * fix: 修改接口类型，处理无法设置属性值的问题(Task: 173629)(Influence: 控制中心-更新)
+  * feat: 更新平台获取系统更新日志(Task: 230289)(Influence: 控制中心-更新日志)
+  * fix: 拆分帐户模块(Task: 231049)(Influence: 控制中心-帐户-无密码登录和自动登录禁用逻辑)
+  * fix: 处理控制中心信号链接问题(Bug: 171779)(Influence: 控制中心-协同连接)
+  * fix: 修改系统时区不显示时区细节(Bug: 179243)(Influence: 控制中心-时间日期-时区列表-系统时区-不显示比本地晚了0.0个小时)
+
+ -- zhaoyingzhen <zhaoyingzhen@uniontech.com>  Thu, 29 Dec 2022 15:09:35 +0800
+
 dde-control-center (6.0.5) unstable; urgency=medium
 
   [ TagBuilder ]
