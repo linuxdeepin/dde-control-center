@@ -149,15 +149,22 @@ void FingerDetailWidget::showAddFingeDialog(const QString &name, const QString &
             dlg->setFocus();
             dlg->activateWindow();
         } else if (res == FingerModel::Enroll_Failed) {
-            qDebug() << "FingerModel::Enroll_Failed";
+            qWarning() << "FingerModel::Enroll_Failed";
             Q_EMIT requestStopEnroll(name);
             if (m_disclaimer != nullptr) {
                 closeFingerDisclaimer();
             }
             dlg->deleteLater();
         } else if (res == FingerModel::Enroll_AuthFailed) {
-            qDebug() << "FingerModel::Enroll_AuthFailed";
+            qWarning() << "FingerModel::Enroll_AuthFailed";
             dlg->deleteLater();
+        }else if (res == FingerModel::Enroll_ClaimFailed) {
+            qWarning() << "FingerModel::Enroll_ClaimFailed";
+            dlg->setFingerModel(m_model);
+            dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+            dlg->show();
+            dlg->setFocus();
+            dlg->activateWindow();
         }
     });
 
