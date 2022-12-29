@@ -48,6 +48,7 @@ public:
     void enrollFocusOut();
     void enrollOverTime();
     void enrollRetry(QString title, QString msg);
+    void claimFailed();
 
 private:
     void initWidget();

@@ -103,6 +103,7 @@ void AddFingeDialog::setFingerModel(FingerModel *model)
     connect(m_model, &FingerModel::enrollFailed, this, &AddFingeDialog::enrollFailed);
     connect(m_model, &FingerModel::enrollDisconnected, this, &AddFingeDialog::enrollDisconnected);
     connect(m_model, &FingerModel::enrollRetry, this, &AddFingeDialog::enrollRetry);
+    connect(m_model, &FingerModel::claimFailed, this, &AddFingeDialog::claimFailed);
     connect(m_model, &FingerModel::lockedChanged, this, [=](bool locked) {
         if (locked) {
 //            close();
@@ -161,6 +162,13 @@ void AddFingeDialog::enrollFailed(QString title, QString msg)
     m_timer->stop();
     Q_EMIT requestStopEnroll(m_username);
 }
+
+void AddFingeDialog::claimFailed()
+{
+    m_fingeWidget->setStatueMsg(tr("The device is unavailabl"), tr(""), true);
+    m_spaceWidget->setVisible(true);
+}
+
 void AddFingeDialog::enrollDisconnected()
 {
     Q_EMIT requestStopEnroll(m_username);
