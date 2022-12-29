@@ -576,7 +576,7 @@ void UpdateModel::setAutoCheckThirdpartyUpdates(bool autoCheckThirdpartyUpdates)
 QString UpdateModel::commitSubmissionTime()
 {
     //显示时间，⼗位时间度为秒;
-    QString currentTime = QDateTime::currentDateTime().toString("MMddhhmmss");
+    QString currentTime = QByteArray::number(QDateTime::currentDateTime().toTime_t());
     return currentTime;
 }
 
