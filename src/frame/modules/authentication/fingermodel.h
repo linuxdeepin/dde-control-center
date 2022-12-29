@@ -55,6 +55,7 @@ Q_SIGNALS:
     void enrollResult(EnrollResult enrollRes);
 
     void lockedChanged(bool locked);
+    void claimFailed();
 
 private:
     QString m_userName;
