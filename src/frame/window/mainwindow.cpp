@@ -435,7 +435,6 @@ void MainWindow::initAllModule(const QString &m)
     resetNavList(isIcon);
 
     modulePreInitialize(m);
-    updateModuleVisible();
 
     QElapsedTimer et;
     et.start();
@@ -493,6 +492,9 @@ void MainWindow::updateModuleVisible()
 
 void MainWindow::modulePreInitialize(const QString &m)
 {
+    // 初始化后模块后直接设置模块是否显示，不需要在updateModuleVisible()中处理，避免再次遍历循环
+    m_hideModuleNames = m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();
+
     for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
         QElapsedTimer et;
         et.start();
@@ -503,6 +505,9 @@ void MainWindow::modulePreInitialize(const QString &m)
         if (it->first->isAvailable()) {
             // 模块有效时先初始化模块和搜索数据
             InsertPlugin::instance()->preInitialize(it->first->name());
+            setModuleVisible(it->second, !m_hideModuleNames.contains(it->first->name()) && !it->first->deviceUnavailabel());
+        } else {
+            setModuleVisible(it->second, false);
         }
     }
 }
