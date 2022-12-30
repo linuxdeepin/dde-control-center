@@ -54,6 +54,7 @@
 #include <QColor>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QShortcutEvent>
 
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -90,6 +91,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_searchWidget, &SearchWidget::notifySearchUrl, this, [this](const QString &url) {
         showPage(url, UrlType::Name);
     });
+    qApp->installEventFilter(this);
 }
 
 MainWindow::~MainWindow()
@@ -176,6 +178,18 @@ void MainWindow::changeEvent(QEvent *event)
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     m_pluginManager->cancelLoad();
+}
+
+bool MainWindow::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() == QEvent::Shortcut) {
+        auto ke = static_cast<QShortcutEvent *>(event);
+        if (ke->key() == Qt::Key_F1) {
+            openManual();
+            return true;
+        }
+    }
+    return  DMainWindow::eventFilter(watched, event);
 }
 
 void MainWindow::initUI()
@@ -513,8 +527,8 @@ void MainWindow::onModuleDataChanged()
 void MainWindow::openManual()
 {
     QString helpTitle;
-    if (!m_currentModule.isEmpty())
-        helpTitle = m_currentModule.last()->name();
+    if (1 < m_currentModule.count())
+        helpTitle = m_currentModule[1]->name();
     if (helpTitle.isEmpty())
         helpTitle = "controlcenter";
 

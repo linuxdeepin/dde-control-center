@@ -83,6 +83,7 @@ public:
 protected:
     void changeEvent(QEvent *event) override;
     void closeEvent(QCloseEvent *event) override;
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     void openManual();
