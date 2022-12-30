@@ -238,7 +238,12 @@ QString UpdateSettingsModule::getAutoInstallUpdateType(quint64 type)
 void UpdateSettingsModule::setAutoCheckEnable()
 {
     // TODO: 更新全部关闭 显示关闭
-    bool enable = (m_model->autoCheckSecureUpdates() || m_model->getAutoCheckThirdpartyUpdates() || m_model->autoCheckSystemUpdates());
+    bool enable;
+    if (IsProfessionalSystem) {
+        enable = m_autoCheckSecureUpdate->checked() || m_autoCheckUniontechUpdate->checked();
+    } else {
+        enable = m_autoCheckUniontechUpdate->checked();
+    }
 
     auto setCheckEnable = [ = ](QWidget * widget) {
         // TODO: Dconfing to setting
@@ -256,12 +261,12 @@ void UpdateSettingsModule::setAutoCheckEnable()
 void UpdateSettingsModule::setUpdateMode()
 {
     quint64 updateMode = 0;
-
-    updateMode = updateMode | m_model->autoCheckSecureUpdates();
-    updateMode = (updateMode << 1) | m_model->getAutoCheckThirdpartyUpdates();
-
+    bool autoCheck = IsProfessionalSystem ? m_autoCheckSecureUpdate->checked() : false;
+    updateMode = updateMode | autoCheck;
+    bool checkThird = IsCommunitySystem ? m_autoCheckThirdpartyUpdate->checked() : false;
+    updateMode = (updateMode << 1) | checkThird;
     updateMode = (updateMode << 2);
-    updateMode = (updateMode << 1) | m_model->autoCheckSystemUpdates();
+    updateMode = (updateMode << 1) | m_autoCheckUniontechUpdate->checked();
 
     setAutoCheckEnable();
     requestSetUpdateMode(updateMode);
@@ -269,7 +274,7 @@ void UpdateSettingsModule::setUpdateMode()
 
 void UpdateSettingsModule::onAutoUpdateCheckChanged()
 {
-    if (m_autoCheckSecureUpdate->checked()) {
+    if (IsProfessionalSystem && m_autoCheckSecureUpdate->checked()) {
         m_autoCheckSecureUpdate->setChecked(false);
     }
 
@@ -278,7 +283,7 @@ void UpdateSettingsModule::onAutoUpdateCheckChanged()
 
 void UpdateSettingsModule::onAutoSecureUpdateCheckChanged()
 {
-    if (m_autoCheckSecureUpdate->checked()) {
+    if (IsProfessionalSystem && m_autoCheckSecureUpdate->checked()) {
         m_autoCheckUniontechUpdate->setChecked(false);
     }
 
