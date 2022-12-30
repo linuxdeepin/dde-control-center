@@ -238,7 +238,7 @@ QString UpdateSettingsModule::getAutoInstallUpdateType(quint64 type)
 void UpdateSettingsModule::setAutoCheckEnable()
 {
     // TODO: 更新全部关闭 显示关闭
-    bool enable = (m_autoCheckSecureUpdate->checked() || m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked());
+    bool enable = (m_model->autoCheckSecureUpdates() || m_model->getAutoCheckThirdpartyUpdates() || m_model->autoCheckSystemUpdates());
 
     auto setCheckEnable = [ = ](QWidget * widget) {
         // TODO: Dconfing to setting
@@ -257,10 +257,11 @@ void UpdateSettingsModule::setUpdateMode()
 {
     quint64 updateMode = 0;
 
-    updateMode = updateMode | m_autoCheckSecureUpdate->checked();
-    updateMode = (updateMode << 1) | m_autoCheckThirdpartyUpdate->checked();
+    updateMode = updateMode | m_model->autoCheckSecureUpdates();
+    updateMode = (updateMode << 1) | m_model->getAutoCheckThirdpartyUpdates();
+
     updateMode = (updateMode << 2);
-    updateMode = (updateMode << 1) | m_autoCheckUniontechUpdate->checked();
+    updateMode = (updateMode << 1) | m_model->autoCheckSystemUpdates();
 
     setAutoCheckEnable();
     requestSetUpdateMode(updateMode);
