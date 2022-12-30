@@ -42,11 +42,6 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                         "/com/deepin/daemon/Grub2/Theme",
                                         QDBusConnection::systemBus(), this);
 
-    m_dbusHostName = new HostNameDbus("org.freedesktop.hostname1",
-                                      "/org/freedesktop/hostname1",
-                                      QDBusConnection::systemBus(), this);
-
-
 
 #if 0
     //预留接口
@@ -77,8 +72,6 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
         }
     }
 
-    m_model->setHostName(m_dbusHostName->staticHostname());
-
     QDBusConnection::sessionBus().connect("com.deepin.daemon.SystemInfo",
                                           "/com/deepin/daemon/SystemInfo",
                                           "org.freedesktop.DBus.Properties",
@@ -88,7 +81,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
     m_dbusGrub->setSync(false, false);
     m_dbusGrubTheme->setSync(false, false);
-    m_dbusHostName->setSync(false, false);
+
 
     if (DSysInfo::isDeepin()) {
         QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
@@ -109,22 +102,12 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     }, Qt::QueuedConnection);
 
     connect(m_dbusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &SystemInfoWork::onBackgroundChanged);
-    connect(m_dbusHostName, &HostNameDbus::StaticHostnameChanged, m_model, &SystemInfoModel::setHostName);
+
     connect(m_systemInfoInter, &__SystemInfo::DistroIDChanged, m_model, &SystemInfoModel::setDistroID);
     connect(m_systemInfoInter, &__SystemInfo::DistroVerChanged, m_model, &SystemInfoModel::setDistroVer);
     connect(m_systemInfoInter, &__SystemInfo::DiskCapChanged, m_model, &SystemInfoModel::setDisk);
 
-    connect(m_model,&SystemInfoModel::setHostNameChanged, this, [this](const QString& hostName){
-        m_dbusHostName->SetStaticHostname(hostName,1);
-        QDBusPendingReply<QString> reply = m_dbusHostName->asyncCall("SetStaticHostname",hostName,true);
-        reply.waitForFinished();
-        if (reply.isError()) {
-            qDebug()<<"E:"<<(reply.error().message());
-            QString str = reply.error().message();
-            if(str.contains("hostname"))
-                m_model->setHostNameError(str);
-        }
-    });
+
 
     QProcess process;
     process.start("uname -r");
@@ -140,6 +123,28 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 void SystemInfoWork::activate()
 {
     qRegisterMetaType<ActiveState>("ActiveState");
+
+    // 优化SystemInfo加载速度，避免初始化时启动hostname1接口影响程序启动
+    m_dbusHostName = new HostNameDbus("org.freedesktop.hostname1",
+                                      "/org/freedesktop/hostname1",
+                                      QDBusConnection::systemBus(), this);
+
+    m_model->setHostName(m_dbusHostName->staticHostname());
+
+    m_dbusHostName->setSync(false, false);
+    connect(m_dbusHostName, &HostNameDbus::StaticHostnameChanged, m_model, &SystemInfoModel::setHostName);
+    connect(m_model,&SystemInfoModel::setHostNameChanged, this, [this](const QString& hostName){
+        m_dbusHostName->SetStaticHostname(hostName,1);
+        QDBusPendingReply<QString> reply = m_dbusHostName->asyncCall("SetStaticHostname",hostName,true);
+        reply.waitForFinished();
+        if (reply.isError()) {
+            qDebug()<<"E:"<<(reply.error().message());
+            QString str = reply.error().message();
+            if(str.contains("hostname"))
+                m_model->setHostNameError(str);
+        }
+    });
+
     m_model->setDistroID(m_systemInfoInter->distroID());
     m_model->setDistroVer(m_systemInfoInter->distroVer());
     m_model->setDisk(m_systemInfoInter->diskCap());
