@@ -2,6 +2,7 @@
 #define UPDATEJOBDBUSPROXY_H
 
 #include <QObject>
+#include <dccdbusinterface.h>
 
 class QDBusMessage;
 class QDBusInterface;
@@ -66,11 +67,8 @@ signals:
     void StatusChanged(const QString & value) const;
     void TypeChanged(const QString & value) const;
 
-public slots:
-    void onPropertiesChanged(const QDBusMessage &message);
-
 private:
-    QDBusInterface *m_updateJobInter;
+    DCC_NAMESPACE::DCCDBusInterface *m_updateJobInter;
 };
 
 #endif // UPDATEJOBDBUSPROXY_H

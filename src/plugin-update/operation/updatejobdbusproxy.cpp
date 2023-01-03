@@ -19,9 +19,8 @@ const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 UpdateJobDBusProxy::UpdateJobDBusProxy(const QString &jobPath, QObject *parent)
     : QObject(parent)
-    , m_updateJobInter(new QDBusInterface(UpdaterService, jobPath, UpdaterJobInterface, QDBusConnection::systemBus(), this))
+    , m_updateJobInter(new DCC_NAMESPACE::DCCDBusInterface(UpdaterService, jobPath, UpdaterJobInterface, QDBusConnection::systemBus(), this))
 {
-    QDBusConnection::systemBus().connect(UpdaterService, jobPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 }
 
 UpdateJobDBusProxy::~UpdateJobDBusProxy()
@@ -93,13 +92,4 @@ QString UpdateJobDBusProxy::status()
 QString UpdateJobDBusProxy::type()
 {
     return qvariant_cast<QString>(m_updateJobInter->property("Type"));
-}
-
-void UpdateJobDBusProxy::onPropertiesChanged(const QDBusMessage &message)
-{
-    QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
-    for (QVariantMap::const_iterator it = changedProps.begin(); it != changedProps.end(); ++it) {
-        QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
-        qInfo()<<"===UpdateJobDBusProxy::onPropertiesChanged==="<<it.key()<<it.value()<<message.interface()<<message.path();
-    }
 }
