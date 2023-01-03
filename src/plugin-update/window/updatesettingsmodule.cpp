@@ -69,7 +69,7 @@ void UpdateSettingsModule::initModuleList()
         m_autoCheckUniontechUpdate = systemSwitch;
         connect(m_model, &UpdateModel::autoCheckSystemUpdatesChanged, m_autoCheckUniontechUpdate, [=](const bool status) {
             m_autoCheckUniontechUpdate->setChecked(status);
-            setAutoCheckEnable();
+            setAutoCheckEnable(m_model->autoCheckSecureUpdates() || m_model->getAutoCheckThirdpartyUpdates() || m_autoCheckUniontechUpdate->checked());
         });
         connect(m_autoCheckUniontechUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettingsModule::onAutoUpdateCheckChanged);
 
@@ -83,7 +83,7 @@ void UpdateSettingsModule::initModuleList()
             m_autoCheckSecureUpdate = systemSwitch;
             connect(m_model, &UpdateModel::autoCheckSecureUpdatesChanged, m_autoCheckSecureUpdate, [=](const bool status) {
                 m_autoCheckSecureUpdate->setChecked(status);
-                setAutoCheckEnable();
+                setAutoCheckEnable(m_autoCheckSecureUpdate->checked() || m_autoCheckUniontechUpdate->checked());
             });
             connect(m_autoCheckSecureUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettingsModule::onAutoSecureUpdateCheckChanged);
 
@@ -105,7 +105,7 @@ void UpdateSettingsModule::initModuleList()
             m_autoCheckThirdpartyUpdate = systemSwitch;
             connect(m_model, &UpdateModel::autoCheckThirdpartyUpdatesChanged, m_autoCheckThirdpartyUpdate, [=](const bool status) {
                 m_autoCheckThirdpartyUpdate->setChecked(status);
-                setAutoCheckEnable();
+                setAutoCheckEnable(m_autoCheckThirdpartyUpdate->checked() || m_autoCheckUniontechUpdate->checked());
             });
             connect(m_autoCheckThirdpartyUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettingsModule::onAutoUpdateCheckChanged);
 
@@ -175,6 +175,8 @@ void UpdateSettingsModule::initModuleList()
         m_updateNotify->setTitle(tr("Updates Notification"));
         m_updateNotify->addBackground();
         m_updateNotify->setChecked(m_model->updateNotify());
+
+        setAutoCheckEnable(m_model->autoCheckSecureUpdates() || m_model->getAutoCheckThirdpartyUpdates() || m_model->autoCheckSystemUpdates());
     }));
     appendChild(new WidgetModule<SwitchWidget>("updateCleanCache", tr("Clear Package Cache"), [this](SwitchWidget *systemSwitch) {
         m_autoCleanCache = systemSwitch;
@@ -235,19 +237,10 @@ QString UpdateSettingsModule::getAutoInstallUpdateType(quint64 type)
     return text;
 }
 
-void UpdateSettingsModule::setAutoCheckEnable()
+void UpdateSettingsModule::setAutoCheckEnable(bool checkstatus)
 {
-    // TODO: 更新全部关闭 显示关闭
-    bool enable;
-    if (IsProfessionalSystem) {
-        enable = m_autoCheckSecureUpdate->checked() || m_autoCheckUniontechUpdate->checked();
-    } else {
-        enable = m_autoCheckUniontechUpdate->checked();
-    }
-
     auto setCheckEnable = [ = ](QWidget * widget) {
-        // TODO: Dconfing to setting
-        widget->setEnabled(enable);
+        widget->setEnabled(checkstatus);
     };
 
     setCheckEnable(m_autoCheckUpdate);
@@ -268,7 +261,7 @@ void UpdateSettingsModule::setUpdateMode()
     updateMode = (updateMode << 2);
     updateMode = (updateMode << 1) | m_autoCheckUniontechUpdate->checked();
 
-    setAutoCheckEnable();
+    setAutoCheckEnable(m_model->autoCheckSecureUpdates() || m_model->getAutoCheckThirdpartyUpdates() || m_model->autoCheckSystemUpdates());
     requestSetUpdateMode(updateMode);
 }
 

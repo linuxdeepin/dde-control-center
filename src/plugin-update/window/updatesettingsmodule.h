@@ -81,7 +81,7 @@ private:
     /**
      * @brief setAutoCheckEnable  更新全部关闭 显示关闭
      */
-    void setAutoCheckEnable();
+    void setAutoCheckEnable(bool checkstatus);
 
 private:
     UpdateModel *m_model;
