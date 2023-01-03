@@ -48,7 +48,6 @@ void NotificationModule::preInitialize(bool sync, FrameProxyInterface::PushType 
     m_worker = new NotificationWorker(m_model, this);
     m_worker->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
-    m_worker->active(true); //refresh data
 
     addChildPageTrans();
     initSearchData();
@@ -57,7 +56,8 @@ void NotificationModule::preInitialize(bool sync, FrameProxyInterface::PushType 
 // 仅在进入模块是会被调用
 void NotificationModule::initialize()
 {
-
+    // 第一次进入消息通知模块时初始化数据,避免初始化时影响程序启动速度
+    m_worker->active(true); //refresh data
 }
 
 const QString NotificationModule::name() const
