@@ -72,6 +72,7 @@ void DetailInfoItem::initUi()
     DFontSizeManager::instance()->bind(m_dataLable, DFontSizeManager::T8);
     m_dataLable->setForegroundRole(DPalette::TextTips);
     m_dataLable->setWordWrap(true);
+    m_dataLable->setOpenExternalLinks(true);
 
     QHBoxLayout *bomboxlayout = new QHBoxLayout;
     m_linkDataLabel->setText(tr("For more details, visit:"));
