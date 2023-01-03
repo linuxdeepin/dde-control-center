@@ -34,11 +34,11 @@ class NotificationDBusProxy : public QObject
 public:
     explicit NotificationDBusProxy(QObject *parent = nullptr);
 
-    Q_PROPERTY(QString allSetting READ allSetting WRITE setAllSetting NOTIFY AllSettingChanged)
+    Q_PROPERTY(QString allSetting READ allSetting WRITE setAllSetting NOTIFY allSettingChanged)
     QString allSetting();
     void setAllSetting(const QString &value);
 
-    Q_PROPERTY(QString systemSetting READ systemSetting WRITE setSystemSetting NOTIFY SystemSettingChanged)
+    Q_PROPERTY(QString systemSetting READ systemSetting WRITE setSystemSetting NOTIFY systemSettingChanged)
     QString systemSetting();
     void setSystemSetting(const QString &value);
 
@@ -85,8 +85,8 @@ Q_SIGNALS: // SIGNALS
     void appSettingChanged(const QString &in0);
     void systemSettingChanged(const QString &in0);
     // begin property changed signals
-    void AllSettingChanged(const QString & value) const;
-    void SystemSettingChanged(const QString & value) const;
+    void allSettingChanged(const QString & value) const;
+    void systemSettingChanged(const QString & value) const;
 
 private:
     QDBusInterface *m_dBusNotificationInter;

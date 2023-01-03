@@ -47,26 +47,37 @@ void NotificationDBusProxy::init()
 
     QDBusConnection dbusConnection = m_dBusNotificationInter->connection();
     dbusConnection.connect(NotificationService, NotificationPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
+    dbusConnection.connect(NotificationService, NotificationPath, NotificationInterface, "ActionInvoked", this, SIGNAL(ActionInvoked(uint, QString)));
+    dbusConnection.connect(NotificationService, NotificationPath, NotificationInterface, "AppAddedSignal", this, SIGNAL(AppAddedSignal(QString)));
+    dbusConnection.connect(NotificationService, NotificationPath, NotificationInterface, "AppInfoChanged", this, SIGNAL(AppInfoChanged(QString, uint, QDBusVariant)));
+    dbusConnection.connect(NotificationService, NotificationPath, NotificationInterface, "AppRemovedSignal", this, SIGNAL(AppRemovedSignal(QString)));
+    dbusConnection.connect(NotificationService, NotificationPath, NotificationInterface, "NotificationClosed", this, SIGNAL(NotificationClosed(uint, uint)));
+    dbusConnection.connect(NotificationService, NotificationPath, NotificationInterface, "RecordAdded", this, SIGNAL(RecordAdded(QString)));
+    dbusConnection.connect(NotificationService, NotificationPath, NotificationInterface, "SystemInfoChanged", this, SIGNAL(SystemInfoChanged(uint, QDBusVariant)));
+    dbusConnection.connect(NotificationService, NotificationPath, NotificationInterface, "appAdded", this, SIGNAL(appAdded(QString)));
+    dbusConnection.connect(NotificationService, NotificationPath, NotificationInterface, "appRemoved", this, SIGNAL(appRemoved(QString)));
+    dbusConnection.connect(NotificationService, NotificationPath, NotificationInterface, "appSettingChanged", this, SIGNAL(appSettingChanged(QString)));
+    dbusConnection.connect(NotificationService, NotificationPath, NotificationInterface, "systemSettingChanged", this, SIGNAL(systemSettingChanged(QString)));
 }
 
 QString NotificationDBusProxy::allSetting()
 {
-    return qvariant_cast<QString>(m_dBusNotificationInter->property("AllSetting"));
+    return qvariant_cast<QString>(m_dBusNotificationInter->property("allSetting"));
 }
 
 void NotificationDBusProxy::setAllSetting(const QString &value)
 {
-    m_dBusNotificationInter->setProperty("AllSetting", QVariant::fromValue(value));
+    m_dBusNotificationInter->setProperty("allSetting", QVariant::fromValue(value));
 }
 
 QString NotificationDBusProxy::systemSetting()
 {
-    return qvariant_cast<QString>(m_dBusNotificationInter->property("SystemSetting"));
+    return qvariant_cast<QString>(m_dBusNotificationInter->property("systemSetting"));
 }
 
 void NotificationDBusProxy::setSystemSetting(const QString &value)
 {
-    m_dBusNotificationInter->setProperty("SystemSetting", QVariant::fromValue(value));
+    m_dBusNotificationInter->setProperty("systemSetting", QVariant::fromValue(value));
 }
 
 
