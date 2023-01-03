@@ -976,6 +976,7 @@ void UpdateWorker::onCheckUpdateStatusChanged(const QString &value)
         setUpdateInfo();
     } else if (value == "end") {
         deleteJob(m_checkUpdateJob);
+        setUpdateInfo();
     }
 }
 
