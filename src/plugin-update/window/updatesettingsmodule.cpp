@@ -117,7 +117,7 @@ void UpdateSettingsModule::initModuleList()
 
     // 其他设置
     appendChild(new UpdateTitleModule("otherSettings", tr("Other settings")));
-    appendChild(new WidgetModule<SwitchWidget>("updateAutoCheck", tr("Auto Check for Updates"), [this](SwitchWidget *systemSwitch) {
+    m_autoCheckUpdateModule = new WidgetModule<SwitchWidget>("updateAutoCheck", tr("Auto Check for Updates"), [this](SwitchWidget *systemSwitch) {
         m_autoCheckUpdate = systemSwitch;
         connect(m_model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckUpdate, &SwitchWidget::setChecked);
         connect(m_autoCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettingsModule::requestSetAutoCheckUpdates);
@@ -125,9 +125,10 @@ void UpdateSettingsModule::initModuleList()
         m_autoCheckUpdate->setTitle(tr("Auto Check for Updates"));
         m_autoCheckUpdate->addBackground();
         m_autoCheckUpdate->setChecked(m_model->autoCheckUpdates());
-    }));
+    });
+    appendChild(m_autoCheckUpdateModule);
 
-    appendChild(new WidgetModule<SwitchWidget>("updateAutoDownlaod", tr("Auto Download Updates"), [this](SwitchWidget *systemSwitch) {
+    m_autoDownloadUpdateModule = new WidgetModule<SwitchWidget>("updateAutoDownlaod", tr("Auto Download Updates"), [this](SwitchWidget *systemSwitch) {
         m_autoDownloadUpdate = systemSwitch;
         connect(m_model, &UpdateModel::autoDownloadUpdatesChanged, m_autoDownloadUpdate, &SwitchWidget::setChecked);
         connect(m_autoDownloadUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettingsModule::requestSetAutoDownloadUpdates);
@@ -138,14 +139,18 @@ void UpdateSettingsModule::initModuleList()
         m_autoDownloadUpdate->setTitle(tr("Auto Download Updates"));
         m_autoDownloadUpdate->addBackground();
         m_autoDownloadUpdate->setChecked(m_model->autoDownloadUpdates());
-    }));
-    appendChild(new WidgetModule<DTipLabel>("updateAutoDownlaodTips", tr(""), [this](DTipLabel *systemLabel) {
+    });
+    appendChild(m_autoDownloadUpdateModule);
+
+    m_autoDownloadUpdateTipsModule = new WidgetModule<DTipLabel>("updateAutoDownlaodTips", tr(""), [this](DTipLabel *systemLabel) {
         m_autoDownloadUpdateTips = systemLabel;
         m_autoDownloadUpdateTips->setWordWrap(true);
         m_autoDownloadUpdateTips->setAlignment(Qt::AlignLeft);
         m_autoDownloadUpdateTips->setContentsMargins(10, 0, 10, 0);
         m_autoDownloadUpdateTips->setText(tr("Switch it on to automatically download the updates in wireless or wired network"));
-    }));
+    });
+    appendChild(m_autoDownloadUpdateTipsModule);
+
     m_autoInstallUpdateModule = new WidgetModule<SwitchWidget>("autoInstallUpdates", tr("Auto Install Updates"), [this](SwitchWidget *systemSwitch) {
         m_autoInstallUpdate = systemSwitch;
         connect(m_model, &UpdateModel::autoInstallUpdatesChanged, m_autoInstallUpdate, &SwitchWidget::setChecked);
@@ -167,7 +172,7 @@ void UpdateSettingsModule::initModuleList()
     });
     appendChild(m_autoInstallUpdatesTipsModule);
 
-    appendChild(new WidgetModule<SwitchWidget>("updateUpdateNotify", tr("Updates Notification"), [this](SwitchWidget *systemSwitch) {
+    m_updateNotifyModule = new WidgetModule<SwitchWidget>("updateUpdateNotify", tr("Updates Notification"), [this](SwitchWidget *systemSwitch) {
         m_updateNotify = systemSwitch;
         connect(m_model, &UpdateModel::updateNotifyChanged, m_updateNotify, &SwitchWidget::setChecked);
         connect(m_updateNotify, &SwitchWidget::checkedChanged, this, &UpdateSettingsModule::requestSetUpdateNotify);
@@ -176,8 +181,9 @@ void UpdateSettingsModule::initModuleList()
         m_updateNotify->addBackground();
         m_updateNotify->setChecked(m_model->updateNotify());
 
-        setAutoCheckEnable(m_model->autoCheckSecureUpdates() || m_model->getAutoCheckThirdpartyUpdates() || m_model->autoCheckSystemUpdates());
-    }));
+    });
+    appendChild(m_updateNotifyModule);
+
     appendChild(new WidgetModule<SwitchWidget>("updateCleanCache", tr("Clear Package Cache"), [this](SwitchWidget *systemSwitch) {
         m_autoCleanCache = systemSwitch;
         connect(m_model, &UpdateModel::autoCleanCacheChanged, m_autoCleanCache, &SwitchWidget::setChecked);
@@ -187,6 +193,7 @@ void UpdateSettingsModule::initModuleList()
         m_autoCleanCache->addBackground();
         m_autoCleanCache->setChecked(m_model->autoCleanCache());
     }));
+    setAutoCheckEnable(m_model->autoCheckSecureUpdates() || m_model->getAutoCheckThirdpartyUpdates() || m_model->autoCheckSystemUpdates());
 }
 
 void UpdateSettingsModule::uiMethodChanged(SettingsMethod uiMethod)
@@ -239,16 +246,16 @@ QString UpdateSettingsModule::getAutoInstallUpdateType(quint64 type)
 
 void UpdateSettingsModule::setAutoCheckEnable(bool checkstatus)
 {
-    auto setCheckEnable = [ = ](QWidget * widget) {
-        widget->setEnabled(checkstatus);
+    auto setCheckEnable = [ = ](DCC_NAMESPACE::ModuleObject  * widgetModule) {
+        widgetModule->setEnabled(checkstatus);
     };
 
-    setCheckEnable(m_autoCheckUpdate);
-    setCheckEnable(m_autoDownloadUpdate);
-    setCheckEnable(m_autoDownloadUpdateTips);
-    setCheckEnable(m_autoInstallUpdate);
-    setCheckEnable(m_autoInstallUpdatesTips);
-    setCheckEnable(m_updateNotify);
+    setCheckEnable(m_autoCheckUpdateModule);
+    setCheckEnable(m_autoDownloadUpdateModule);
+    setCheckEnable(m_autoDownloadUpdateTipsModule);
+    setCheckEnable(m_autoInstallUpdateModule);
+    setCheckEnable(m_autoInstallUpdatesTipsModule);
+    setCheckEnable(m_updateNotifyModule);
 }
 
 void UpdateSettingsModule::setUpdateMode()

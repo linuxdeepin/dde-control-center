@@ -102,6 +102,10 @@ private:
     DCC_NAMESPACE::SwitchWidget *m_updateNotify;          // 更新提醒
     DCC_NAMESPACE::SwitchWidget *m_autoCleanCache; // 清除软件包
 
+    DCC_NAMESPACE::ModuleObject *m_autoCheckUpdateModule;
+    DCC_NAMESPACE::ModuleObject *m_autoDownloadUpdateModule;
+    DCC_NAMESPACE::ModuleObject *m_autoDownloadUpdateTipsModule;
     DCC_NAMESPACE::ModuleObject *m_autoInstallUpdateModule;
     DCC_NAMESPACE::ModuleObject *m_autoInstallUpdatesTipsModule;
+    DCC_NAMESPACE::ModuleObject *m_updateNotifyModule;
 };
