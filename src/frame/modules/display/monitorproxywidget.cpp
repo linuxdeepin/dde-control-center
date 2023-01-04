@@ -9,8 +9,13 @@
 #include <QMouseEvent>
 #include <QScroller>
 #include <QScrollArea>
+#include <QIcon>
+
+#include <DGuiApplicationHelper>
 
 using namespace dcc::display;
+
+DGUI_USE_NAMESPACE
 
 MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, DisplayModel *model)
     : m_monitor(mon)
@@ -36,7 +41,7 @@ void MonitorProxyWidget::setMovedY(const int y)
 
 
 int MonitorProxyWidget::w() const
-{   
+{
     //90度和270度
     if (m_monitor->rotate() == 2 || m_monitor->rotate() == 8) {
         return m_monitor->currentMode().height();
@@ -65,12 +70,27 @@ void MonitorProxyWidget::paint(QPainter *painter, const QStyleOptionGraphicsItem
     Q_UNUSED(option);
     Q_UNUSED(widget);
 
-    painter->save();
+    // 根据主题颜色设置屏幕示意图背景色和边框色
+    QColor borderColor;
+    QColor backgroundColor(137, 137, 137);
+    if (DGuiApplicationHelper::DarkType == DGuiApplicationHelper::instance()->themeType()) {
+        borderColor.setRgb(255, 255, 255);
+    } else {
+        borderColor.setRgb(0, 0, 0);
+    }
+
+    if (m_monitor->isPrimary()) {
+        backgroundColor.setAlpha(255);
+    } else {
+        backgroundColor.setAlpha(125);
+    }
+
     QRectF r = this->boundingRect();
-    painter->setRenderHint(QPainter::Antialiasing, true);
-    painter->setBrush(QColor("#5f5f5f"));
-    painter->setPen(QColor("#2e2e2e"));
     auto radius = std::max(r.width(), r.height()) / 20;
+
+    painter->save();
+    painter->setRenderHint(QPainter::Antialiasing, true);
+    painter->setBrush(backgroundColor);
     painter->drawRoundedRect(r, radius, radius);
     painter->setClipRect(r);
 
@@ -81,39 +101,45 @@ void MonitorProxyWidget::paint(QPainter *painter, const QStyleOptionGraphicsItem
     //修复在数字为0的时候，计算的字体宽度偏小导致显示遮挡的问题
     const int width = fm.boundingRect(name()).width() + 100;
     const int height = fm.boundingRect(name()).height();
+
     painter->setPen(Qt::white);
     if (m_model->displayMode() != MERGE_MODE) {
         if (width > this->w()) {
             QString elidedText = fm.elidedText(name(), Qt::ElideRight, this->w() - height);
-            painter->drawText(QRectF(r.x() + r.width() - width, r.y() + height, width, height), Qt::AlignRight, elidedText);
+            painter->drawText(QRectF(r.x() + 100, r.y() + 100, width, height), Qt::AlignRight, elidedText);
         } else {
-            painter->drawText(QRectF(r.x() + r.width() - width - height / 2, r.y() + height, width, height), Qt::AlignCenter, name());
+            painter->drawText(QRectF(r.x() + 100, r.y() + 100, width, height), Qt::AlignCenter, name());
         }
     }
 
     // draw dock pattern if it's primary screen
     if (m_model->displayMode() == EXTEND_MODE) {
-
-        if(m_monitor->isPrimary()) {
-            QPen penWhite(Qt::white);
-            const qreal width = r.width() / 2.0;
-            const qreal height = r.height() / 2.0;
-            painter->setBrush(Qt::white);
-            painter->drawRoundedRect(QRectF(r.x() + r.width() / 4.0, r.y() + r.height() * 9.0 / 10.0,width, height), radius, radius);
+        // 绘制主屏标识
+        if (m_monitor->isPrimary()) {
+            QIcon icon = QIcon::fromTheme(":/display/themes/common/dcc-primary.svg");
+            if (!icon.isNull()) {
+                const auto iconSize = std::min(r.width(), r.height()) / 10;
+                const QRect iconRect(r.right() - iconSize * 1.5, r.bottom() - iconSize * 1.5, iconSize, iconSize);
+                icon.paint(painter, iconRect, Qt::AlignCenter);
+            }
         }
 
-        //根据是否焦点绘制选中状态
+        // 根据是否选中设置边框颜色
         if (m_selected) {
             // draw blue border if the mode is EXTEND_MODE
-            QPen penWhite(QColor("#2ca7f8"));
-            penWhite.setWidthF(radius/5.0);
-            painter->setPen(penWhite);
-            painter->setBrush(Qt::transparent);
-            r.adjust(penWhite.width() /2, penWhite.width() / 2, -penWhite.width() /2, -penWhite.width() / 2);
-            painter->drawRoundedRect(r, radius, radius);
+            borderColor = QColor("#2ca7f8");
         }
     }
-    
+
+    // 绘制边框
+    QPen borderPen(borderColor);
+    borderPen.setWidth(4);
+    borderPen.setWidthF(radius/5.0);
+    painter->setPen(borderPen);
+    painter->setBrush(Qt::transparent);
+    r.adjust(borderPen.width() /2, borderPen.width() / 2, -borderPen.width() /2, -borderPen.width() / 2);
+    painter->drawRoundedRect(r, radius, radius);
+
     painter->restore();
 }
 
@@ -155,7 +181,7 @@ void MonitorProxyWidget::focusInEvent(QFocusEvent *event)
 
     QGraphicsItem::focusInEvent(event);
 }
-void MonitorProxyWidget::focusOutEvent(QFocusEvent *event) 
+void MonitorProxyWidget::focusOutEvent(QFocusEvent *event)
 {
     //增加选中的效果
     m_selected = false;
