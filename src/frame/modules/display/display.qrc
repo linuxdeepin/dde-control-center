@@ -28,5 +28,6 @@
         <file>themes/light/icon/hover/Default.svg</file>
         <file>themes/light/icon/light/Default.svg</file>
         <file>themes/light/icon/white/Default.svg</file>
+        <file>themes/common/dcc-primary.svg</file>
     </qresource>
 </RCC>

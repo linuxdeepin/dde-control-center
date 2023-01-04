@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-主屏</title>
+    <defs>
+        <path d="M7.32427537,3.11941424 L2.94753862,7.13142293 C2.74397913,7.31801913 2.73022766,7.63430282 2.91682387,7.83786231 C3.01152883,7.94117682 3.14524775,8 3.28540094,8 L4.5,8 L4.5,8 L4.5,11.5 C4.5,11.7761424 4.72385763,12 5,12 L6.5,12 C6.77614237,12 7,11.7761424 7,11.5 L7,10 C7,9.72385763 7.22385763,9.5 7.5,9.5 L8.5,9.5 C8.77614237,9.5 9,9.72385763 9,10 L9,11.5 C9,11.7761424 9.22385763,12 9.5,12 L11,12 C11.2761424,12 11.5,11.7761424 11.5,11.5 L11.5,8 L11.5,8 L12.7145991,8 C12.9907414,8 13.2145991,7.77614237 13.2145991,7.5 C13.2145991,7.35984681 13.1557759,7.22612789 13.0524614,7.13142293 L8.67572463,3.11941424 C8.29340338,2.7689531 7.70659662,2.7689531 7.32427537,3.11941424 Z" id="path-1"></path>
+        <filter x="-50.0%" y="-63.2%" width="200.0%" height="226.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="icon-主屏" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g>
+            <circle id="椭圆形" fill-opacity="0.254961347" fill="#000000" cx="8" cy="8" r="7"></circle>
+            <path d="M8,0 C3.581722,0 0,3.581722 0,8 C0,12.418278 3.581722,16 8,16 C12.418278,16 16,12.418278 16,8 C16,3.581722 12.418278,0 8,0 Z M8,1 C11.8659932,1 15,4.13400675 15,8 C15,11.8659932 11.8659932,15 8,15 C4.13400675,15 1,11.8659932 1,8 C1,4.13400675 4.13400675,1 8,1 Z" id="椭圆形" fill-opacity="0.15" fill="#FFFFFF" fill-rule="nonzero"></path>
+            <g id="路径-2">
+                <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                <use fill-opacity="0.953048173" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>
