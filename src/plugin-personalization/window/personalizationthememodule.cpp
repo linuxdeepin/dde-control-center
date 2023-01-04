@@ -149,7 +149,7 @@ void PersonalizationThemeModule::onActiveColorClicked()
     QString strColor = pItem->accessibleName();
     if (strColor == CUSTOM_ACTIVE_COLOR) {
         QColorDialog *colorDialog = new QColorDialog(pItem->palette().highlight().color(), pItem);
-        colorDialog->setAttribute(Qt::WA_DeleteOnClose);
+        colorDialog->deleteLater();
         if (QDialog::Accepted == colorDialog->exec()) {
             m_work->setActiveColor(colorDialog->selectedColor().name());
         }

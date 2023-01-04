@@ -556,7 +556,7 @@ void AccountsModule::onDeleteUser()
     if (!w)
         return;
     RemoveUserDialog *d =  new RemoveUserDialog(m_curUser, w);
-    d->setAttribute(Qt::WA_DeleteOnClose);
+    d->deleteLater();
     if (d->exec() == QDialog::Accepted) {
         m_worker->deleteAccount(m_curUser, d->deleteHome());
     }
@@ -568,7 +568,7 @@ void AccountsModule::onModifyIcon()
     if (!w)
         return;
     AvatarListDialog *avatarListDialog = new AvatarListDialog(m_curUser, w);
-    avatarListDialog->setAttribute(Qt::WA_DeleteOnClose);
+    avatarListDialog->deleteLater();
     if (avatarListDialog->exec() == QDialog::Accepted) {
         QString avatarpath = avatarListDialog->getAvatarPath();
         if (!avatarpath.isEmpty() && avatarpath != m_curUser->currentAvatar())
