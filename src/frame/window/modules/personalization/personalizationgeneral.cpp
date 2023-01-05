@@ -89,16 +89,19 @@ PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::Personaliza
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
     , m_wmSwitch(nullptr)
+    , m_wmSwitchWidget(nullptr)
     , m_transparentSlider(nullptr)
     , m_cmbMiniEffect(new ComboxWidget)
     , m_windowMovedSwitch(nullptr)
+    , m_cmbScrollBarPolicy(new ComboxWidget)
     , m_windowMovedLabel(nullptr)
     , m_displayData("")
     , m_model(model)
     , m_winRoundSlider(nullptr)
     , m_Themes(new PerssonalizationThemeWidget())
     , m_bgWidget(new RingColorWidget)
-    , m_switchWidget(new QWidget)
+    , m_winEffectWidget(nullptr)
+    , m_switchMainWidget(nullptr)
     , m_isWayland(qEnvironmentVariable("XDG_SESSION_TYPE").contains("wayland"))
     , m_movedWinSwitchItem(nullptr)
     , m_wmSwitchTimer(new QTimer(this))
@@ -163,30 +166,44 @@ PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::Personaliza
     m_bSystemIsServer = IsServerSystem;
 
     if (!m_bSystemIsServer) {
-        //sw switch
-        QVBoxLayout *winEffectVLayout = new QVBoxLayout();
-        winEffectVLayout->addSpacing(20);
-        m_switchWidget->setLayout(winEffectVLayout);
-        m_switchWidget->setAccessibleName("switchWidget");
+        // 窗口特效的开启或关闭的控制布局，在各设置项之间添加了Spacing，关闭特效后这些设置项会隐藏，
+        // 但是Spacing不会隐藏，会导致后面主界面上添加的其他设置项和特效开关之间的间隔很大
+        // 特效开关和其他特效设置项需要分开放到不同的widget中，需要分开控制显示
+        QVBoxLayout *switchMainLayout = new QVBoxLayout;
+        switchMainLayout->setContentsMargins(0, 0, 0, 0);
+        switchMainLayout->addStretch();
 
+        // 窗口特效开关
         m_wmSwitch = new DSwitchButton();
         m_wmSwitch->setAccessibleName("switchbutton");
+
         QHBoxLayout *swswitchLayout = new QHBoxLayout();
+        //~ contents_path /personalization/General
+        //~ child_page General
+        swswitchLayout->addWidget(new QLabel(tr("Window Effect")));
+        swswitchLayout->addWidget(m_wmSwitch);
+        swswitchLayout->setContentsMargins(10, 0, 10, 0);
+
         SettingsItem *switem = new dcc::widgets::SettingsItem;
         switem->setFixedHeight(SwitchWidgetHeight);
         switem->addBackground();
         switem->setLayout(swswitchLayout);
-        if (m_isWayland) {
-            switem->setVisible(false);
-        }
 
-        //~ contents_path /personalization/General
-        //~ child_page General
-        swswitchLayout->addWidget(new QLabel(tr("Window Effect")));
-        swswitchLayout->addStretch();
-        swswitchLayout->addWidget(m_wmSwitch);
-        swswitchLayout->setContentsMargins(10, 0, 10, 0);
-        winEffectVLayout->addWidget(switem);
+        QVBoxLayout * wmSwitchLayout = new QVBoxLayout;
+        wmSwitchLayout->setContentsMargins(0, 0, 0, 0);
+        wmSwitchLayout->addSpacing(10);
+        wmSwitchLayout->addWidget(switem);
+
+        m_wmSwitchWidget = new QWidget(this);
+        m_wmSwitchWidget->setAccessibleName("wmSwitchWidget");
+        m_wmSwitchWidget->setLayout(wmSwitchLayout);
+        // wayland环境下不允许关闭特效，禁用窗口特效开关
+        if (m_isWayland) {
+            m_wmSwitchWidget->setVisible(false);
+        }
+         switchMainLayout->addWidget(m_wmSwitchWidget);
+
+        QVBoxLayout *winEffectVLayout = new QVBoxLayout();
         winEffectVLayout->setContentsMargins(0, 0, 0, 0);
         winEffectVLayout->addSpacing(10);
 
@@ -280,6 +297,9 @@ PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::Personaliza
                 }
             }
 
+            if (m_winEffectWidget) {
+                m_winEffectWidget->setVisible(m_model->is3DWm());
+            }
         });
         connect(m_wmSwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this, [this](bool checked) {
                 if (!m_model) {
@@ -302,18 +322,6 @@ PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::Personaliza
             qDebug() << "DSwitchButton::clicked:" << checked << ",m_model->isMoveWindow():" << m_model->isMoveWindow();
             m_windowMovedSwitch->setChecked(m_model->isMoveWindow());
             Q_EMIT requestMovedWindowSwitchWM(checked);
-        });
-
-        connect(this, &PersonalizationGeneral::windowMovedVisibleChanged, this, [this](bool value) {
-            if (!m_model) {
-                return;
-            }
-            if (m_movedWinSwitchItem) {
-                m_movedWinSwitchItem->setVisible(m_model->is3DWm()
-                                                 && value
-                                                 && m_model->getIsEffectSupportMoveWindow()
-                                                 && DConfigWatcher::instance()->getStatus(DConfigWatcher::personalization, "effectMovewindowTranslucency")  != "Hidden");
-            }
         });
 
         winEffectVLayout->addSpacing(10);
@@ -346,10 +354,41 @@ PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::Personaliza
 
             Q_EMIT windowRadiusChanged(val);
         });
+
+        m_winEffectWidget = new QWidget(this);
+        m_winEffectWidget->setLayout(winEffectVLayout);
+        m_winEffectWidget->setAccessibleName("switchWidget");
+        switchMainLayout->addWidget(m_winEffectWidget);
+
+        // 根据gsettings配置项整体控制显示或隐藏的widget
+        m_switchMainWidget = new QWidget();
+        m_switchMainWidget->setAccessibleName("switchMainWidget");
+        m_switchMainWidget->setLayout(switchMainLayout);
+
+        m_centralLayout->addWidget(m_switchMainWidget);
         update();
     }
 
-    m_centralLayout->addWidget(m_switchWidget);
+    // 滚动条设置
+    m_centralLayout->addSpacing(10);
+    //~ contents_path /personalization/General
+    //~ child_page General
+    m_cmbScrollBarPolicy->setTitle(tr("Scroll Bars"));
+    m_cmbScrollBarPolicy->addBackground();
+    m_cmbScrollBarPolicy->blockSignals(true);
+    m_cmbScrollBarPolicy->comboBox()->addItem(tr("Keep shown"), dcc::personalization::PersonalizationModel::KeepShown);
+    m_cmbScrollBarPolicy->comboBox()->addItem(tr("Show on scrolling"), dcc::personalization::PersonalizationModel::ShowOnScrolling);
+    m_cmbScrollBarPolicy->blockSignals(false);
+    m_centralLayout->addWidget(m_cmbScrollBarPolicy);
+
+    connect(m_cmbScrollBarPolicy, &dcc::widgets::ComboxWidget::onIndexChanged, this, [ = ] (int index) {
+        bool ok = false;
+        const int policy = m_cmbScrollBarPolicy->comboBox()->itemData(index).toInt(&ok);
+        if (ok) {
+            Q_EMIT requestSetScrollBarPolicy(policy);
+        }
+    });
+
     m_centralLayout->addStretch(20);
 
     QScrollArea *scrollArea = new QScrollArea;
@@ -378,9 +417,7 @@ PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::Personaliza
     if (!m_bSystemIsServer) {
         connect(model, &dcc::personalization::PersonalizationModel::wmChanged, this,
                 [this](bool checked) {
-            m_wmSwitch->blockSignals(true);
             updateWMSwitcher(checked);
-            m_wmSwitch->blockSignals(false);
         });
 
         connect(model, &dcc::personalization::PersonalizationModel::moveWindowChanged, this,
@@ -414,12 +451,18 @@ PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::Personaliza
     connect(m_model, &dcc::personalization::PersonalizationModel::onWindowRadiusChanged, this,
             &PersonalizationGeneral::onWindowRadiusChanged);
     onWindowRadiusChanged(m_model->windowRadius());
+
+    connect(model, &dcc::personalization::PersonalizationModel::onScrollBarPolicyChanged, this,
+            &PersonalizationGeneral::onScrollBarPolicyChanged);
+    onScrollBarPolicyChanged(model->scrollBarPolicy());
 }
 
 PersonalizationGeneral::~PersonalizationGeneral()
 {
     GSettingWatcher::instance()->erase("perssonalGeneralThemes", m_Themes);
-    GSettingWatcher::instance()->erase("perssonalGeneralEffects", m_switchWidget);
+    if (m_switchMainWidget) {
+        GSettingWatcher::instance()->erase("perssonalGeneralEffects", m_switchMainWidget);
+    }
     DConfigWatcher::instance()->erase(DConfigWatcher::personalization, "effectMovewindowTranslucency", m_movedWinSwitchItem);
 }
 
@@ -514,12 +557,17 @@ void PersonalizationGeneral::updateActiveColors(RoundColorWidget *selectedWidget
 void PersonalizationGeneral::updateWMSwitcher(bool checked)
 {
     if (m_wmSwitch) {
-        m_wmSwitch->setChecked(m_model->is3DWm());
+        m_wmSwitch->blockSignals(true);
+        m_wmSwitch->setChecked(checked);
+        m_wmSwitch->blockSignals(false);
         m_wmSwitch->setEnabled(true);
     }
 
     if (m_transparentSlider) {
         m_transparentSlider->setVisible(checked || m_isWayland);
+    }
+
+    if (m_cmbMiniEffect) {
         m_cmbMiniEffect->setVisible((checked || m_isWayland) && (m_model->getIsEffectSupportScale() || m_model->getIsEffectSupportMagiclamp()));
     }
 
@@ -533,16 +581,32 @@ void PersonalizationGeneral::updateWMSwitcher(bool checked)
         m_windowMovedSwitch->setChecked(m_model->isMoveWindow());
     }
 
-    Q_EMIT windowMovedVisibleChanged(checked);
+    if (m_movedWinSwitchItem && m_model) {
+        m_movedWinSwitchItem->setVisible(m_model->is3DWm()
+                                         && checked
+                                         && m_model->getIsEffectSupportMoveWindow()
+                                         && DConfigWatcher::instance()->getStatus(DConfigWatcher::personalization, "effectMovewindowTranslucency")  != "Hidden");
+    }
+
+    // 窗口特效打开或关闭时，一起控制其他依赖特效开启的设置项是否显示
+    // 避免主布局上的配置项和特效开关之间的间隔很大
+    if (m_winEffectWidget) {
+        m_winEffectWidget->setVisible(checked || m_isWayland);
+    }
 }
 
 void PersonalizationGeneral::onCompositingAllowSwitchChanged(bool value)
 {
     if (QGuiApplication::platformName().startsWith("wayland", Qt::CaseInsensitive) || (!m_bSystemIsServer && value)) {
-        m_switchWidget->setVisible(true);
-        GSettingWatcher::instance()->bind("perssonalGeneralEffects", m_switchWidget);
+        if (m_switchMainWidget) {
+            // wayland环境下不允许关闭特效，禁用窗口特效开关
+            m_switchMainWidget->setVisible(true);
+            GSettingWatcher::instance()->bind("perssonalGeneralEffects", m_switchMainWidget);
+        }
     } else {
-        m_switchWidget->setVisible(false);
+        if (m_switchMainWidget) {
+            m_switchMainWidget->setVisible(false);
+        }
     }
 }
 
@@ -563,6 +627,22 @@ void PersonalizationGeneral::onWindowRadiusChanged(int radius)
             m_winRoundSlider->slider()->setValue(2);
         }
     }
+}
+
+void PersonalizationGeneral::onScrollBarPolicyChanged(int policy)
+{
+    m_cmbScrollBarPolicy->blockSignals(true);
+    int index = 0;
+    bool ok = false;
+    for (int i = 0; i < m_cmbScrollBarPolicy->comboBox()->count(); ++i) {
+        int tmpPolicy = m_cmbScrollBarPolicy->comboBox()->itemData(i).toInt(&ok);
+        if (ok && tmpPolicy == policy) {
+            index = i;
+            break;
+        }
+    }
+    m_cmbScrollBarPolicy->setCurrentIndex(index);
+    m_cmbScrollBarPolicy->blockSignals(false);
 }
 
 void PersonalizationGeneral::onOpacityChanged(std::pair<int, double> value)

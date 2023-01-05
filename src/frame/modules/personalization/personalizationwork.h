@@ -52,6 +52,7 @@ public Q_SLOTS:
     void setWindowRadius(int radius);
     void handlePropertiesChanged(QDBusMessage msg);
     void refreshEffectModule();
+    void setScrollBarPolicy(int policy);
 
 private Q_SLOTS:
     void FontSizeChanged(const double value) const;

@@ -89,12 +89,12 @@ Q_SIGNALS:
     void requestSwitchWM();
     void requestWindowSwitchWM(bool value);
     void requestMovedWindowSwitchWM(bool value);
-    void windowMovedVisibleChanged(bool value);
     void requestSetOpacity(int value);
     void requestSetMiniEffect(int effect);
     void requestSetActiveColor(const QString &color);
     void windowRadiusChanged(int radius);
     void requestUpdateEffectStatus();
+    void requestSetScrollBarPolicy(int policy);
 
 private:
     void onOpacityChanged(std::pair<int, double> value);
@@ -103,13 +103,16 @@ private:
     void onActiveColorClicked();
     void onCompositingAllowSwitchChanged(bool value);
     void onWindowRadiusChanged(int radius);
+    void onScrollBarPolicyChanged(int policy);
 
 private:
     QVBoxLayout *m_centralLayout;             //主布局
     DTK_WIDGET_NAMESPACE::DSwitchButton *m_wmSwitch;  //是否开启特效
+    QWidget *m_wmSwitchWidget;                         // 是否开启特效控制显示widget
     dcc::widgets::TitledSliderItem *m_transparentSlider;  //透明度调节
     dcc::widgets::ComboxWidget *m_cmbMiniEffect;    //最小化效果
     DTK_WIDGET_NAMESPACE::DSwitchButton *m_windowMovedSwitch;  //是否开启“窗口移动时启用透明特效”
+    dcc::widgets::ComboxWidget *m_cmbScrollBarPolicy;          // 滚动条显示策略
     QLabel *m_windowMovedLabel;
     QString m_displayData;
     dcc::personalization::PersonalizationModel *m_model;
@@ -117,7 +120,8 @@ private:
     PerssonalizationThemeWidget *m_Themes;
     QList<RoundColorWidget *> m_activeColorsList;
     RingColorWidget *m_bgWidget;
-    QWidget *m_switchWidget;
+    QWidget *m_winEffectWidget;
+    QWidget *m_switchMainWidget;
     bool m_bSystemIsServer;
     int m_windowRadius;
     Dtk::Gui::DGuiApplicationHelper::ColorType m_themeType;
