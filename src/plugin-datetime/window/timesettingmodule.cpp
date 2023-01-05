@@ -75,11 +75,19 @@ TimeSettingModule::TimeSettingModule(DatetimeModel *model, DatetimeWorker *work,
         m_buttonTuple->setButtonType(ButtonTuple::Save);
         QPushButton *cancelButton = m_buttonTuple->leftButton();
         QPushButton *confirmButton = m_buttonTuple->rightButton();
-        cancelButton->setText(tr("Cancel"));
-        confirmButton->setText(tr("Confirm"));
+        cancelButton->setText(tr("Reset"));
+        confirmButton->setText(tr("Save"));
+        connect(cancelButton, &QPushButton::clicked, this, &TimeSettingModule::onCancelButtonClicked);
         connect(cancelButton, &QPushButton::clicked, this, &TimeSettingModule::onCancelButtonClicked);
         connect(confirmButton, &QPushButton::clicked, this, &TimeSettingModule::onConfirmButtonClicked);
+        connect(cancelButton, &QPushButton::clicked, this, [this] {
+            setBtnEnable(false);
+        });
+        connect(confirmButton, &QPushButton::clicked, this, [this] {
+            setBtnEnable(false);
+        });
         setButtonShowState(m_model->nTP());
+        setBtnEnable(false);
     });
     saveButton->setExtra();
     appendChild(saveButton);
@@ -144,6 +152,9 @@ void TimeSettingModule::initAutoSyncTime(SettingsGroup *ntpGroup)
     m_autoSyncTimeSwitch->setChecked(isNtp);
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, m_work, &DatetimeWorker::setNTP);
     connect(m_model, &DatetimeModel::NTPChanged, this, &TimeSettingModule::setControlVisible);
+    connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, [this] {
+        setBtnEnable(false);
+    });
 
     connect(m_ntpServerList->comboBox(), QOverload<const int>::of(&QComboBox::currentIndexChanged), this, [this](const int index) {
         const QString &text = m_ntpServerList->comboBox()->itemText(index);
@@ -261,6 +272,21 @@ void TimeSettingModule::initTimeSetting(SettingsGroup *datetimeGroup)
     connect(m_yearWidget, &DateWidget::notifyClickedState, this, updateDayRange);
     updateDayRange();
     datetimeGroup->setVisible(!m_model->nTP());
+    connect(m_timeHourWidget, qOverload<int>(&QSpinBox::valueChanged), this, [this] {
+        setBtnEnable(true);
+    });
+    connect(m_timeMinWidget, qOverload<int>(&QSpinBox::valueChanged), this, [this] {
+        setBtnEnable(true);
+    });
+    connect(m_yearWidget, &DateWidget::chenged, this, [this] {
+        setBtnEnable(true);
+    });
+    connect(m_monthWidget, &DateWidget::chenged, this, [this] {
+        setBtnEnable(true);
+    });
+    connect(m_dayWidget, &DateWidget::chenged, this, [this] {
+        setBtnEnable(true);
+    });
 }
 
 void TimeSettingModule::initDigitalClock(QWidget *w)
@@ -337,8 +363,7 @@ void TimeSettingModule::setButtonShowState(bool state)
     }
     m_buttonTuple->leftButton()->setVisible(!state);
     m_buttonTuple->rightButton()->setVisible(!state || m_ntpServerList->comboBox()->currentText() == tr("Customize"));
-    m_buttonTuple->rightButton()->setText(state ? tr("Save") : tr("Confirm"));
-    m_buttonTuple->rightButton()->setEnabled(!state);
+//    m_buttonTuple->rightButton()->setText(state ? tr("Save") : tr("Confirm"));
 }
 
 void TimeSettingModule::setControlVisible(bool state)
@@ -422,4 +447,10 @@ void TimeSettingModule::isUserOperate()
     if (!m_bIsUserOperate) {
         m_bIsUserOperate = true;
     }
+}
+
+void TimeSettingModule::setBtnEnable(bool state)
+{
+    m_buttonTuple->leftButton()->setEnabled(state);
+    m_buttonTuple->rightButton()->setEnabled(state);
 }

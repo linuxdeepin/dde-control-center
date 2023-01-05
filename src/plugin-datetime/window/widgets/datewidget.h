@@ -56,6 +56,7 @@ protected:
 Q_SIGNALS:
     void editingFinished();
     void notifyClickedState(bool);
+    void chenged();
 
 public Q_SLOTS:
     void slotAdd();

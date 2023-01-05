@@ -58,6 +58,7 @@ public Q_SLOTS:
     void onCancelButtonClicked();
     void onConfirmButtonClicked();
     void isUserOperate();
+    void setBtnEnable(bool state);
 
 private:
     QSpinBox *createDSpinBox(QWidget *parent, int min, int max);

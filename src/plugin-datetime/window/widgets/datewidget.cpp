@@ -109,6 +109,9 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QWidget *parent)
         fixup();
         Q_EMIT editingFinished();
     });
+    connect(m_lineEdit, &QLineEdit::textChanged, this, [this] {
+        Q_EMIT chenged();
+    });
 }
 
 void DateWidget::setValue(const int &value)
