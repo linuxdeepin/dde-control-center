@@ -73,7 +73,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     m_langListview->setModel(m_langItemModel);
 
     //add btn
-    DCommandLinkButton *btn = new DCommandLinkButton("添加语言...",m_langListview);
+    DCommandLinkButton *btn = new DCommandLinkButton(tr("Add Language") + "...", m_langListview);
     btn->setObjectName("AddSystemLanguage");
     m_addLayoutAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter, QSize(10, 10), QSize(10, 10), false);
     m_addLayoutAction->setWidget(btn);
