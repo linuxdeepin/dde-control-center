@@ -12,6 +12,7 @@
 #include <QIcon>
 
 #include <DGuiApplicationHelper>
+#include <DPlatformTheme>
 
 using namespace dcc::display;
 
@@ -70,26 +71,37 @@ void MonitorProxyWidget::paint(QPainter *painter, const QStyleOptionGraphicsItem
     Q_UNUSED(option);
     Q_UNUSED(widget);
 
-    // 根据主题颜色设置屏幕示意图背景色和边框色
-    QColor borderColor;
-    QColor backgroundColor(137, 137, 137);
+    // 根据系统主题颜色设置屏幕示意图背景色和边框色
+    QColor outsideBorderColor;
+    QColor insideBorderColor;
+    QColor backgroundColor;
     if (DGuiApplicationHelper::DarkType == DGuiApplicationHelper::instance()->themeType()) {
-        borderColor.setRgb(255, 255, 255);
-    } else {
-        borderColor.setRgb(0, 0, 0);
-    }
+        outsideBorderColor.setRgb(124, 124, 124);
+        insideBorderColor.setRgb(0, 0, 0);
 
-    if (m_monitor->isPrimary()) {
-        backgroundColor.setAlpha(255);
+        if (m_monitor->isPrimary()) {
+            backgroundColor.setRgb(177, 177, 177);
+        } else {
+            backgroundColor.setRgb(85, 85, 85);
+        }
     } else {
-        backgroundColor.setAlpha(125);
+        outsideBorderColor.setRgb(46, 46, 46);
+        insideBorderColor.setRgb(255, 255, 255);
+
+        if (m_monitor->isPrimary()) {
+            backgroundColor.setRgb(85, 85, 85);
+        } else {
+            backgroundColor.setRgb(177, 177, 177);
+        }
     }
 
     QRectF r = this->boundingRect();
     auto radius = std::max(r.width(), r.height()) / 20;
 
     painter->save();
+    // 绘制背景底色
     painter->setRenderHint(QPainter::Antialiasing, true);
+    painter->setRenderHint(QPainter::SmoothPixmapTransform, true);
     painter->setBrush(backgroundColor);
     painter->drawRoundedRect(r, radius, radius);
     painter->setClipRect(r);
@@ -102,6 +114,7 @@ void MonitorProxyWidget::paint(QPainter *painter, const QStyleOptionGraphicsItem
     const int width = fm.boundingRect(name()).width() + 100;
     const int height = fm.boundingRect(name()).height();
 
+    // 绘制屏幕名称
     painter->setPen(Qt::white);
     if (m_model->displayMode() != MERGE_MODE) {
         if (width > this->w()) {
@@ -119,26 +132,43 @@ void MonitorProxyWidget::paint(QPainter *painter, const QStyleOptionGraphicsItem
             QIcon icon = QIcon::fromTheme(":/display/themes/common/dcc-primary.svg");
             if (!icon.isNull()) {
                 const auto iconSize = std::min(r.width(), r.height()) / 10;
-                const QRect iconRect(r.right() - iconSize * 1.5, r.bottom() - iconSize * 1.5, iconSize, iconSize);
+                const QRect iconRect(r.right() - iconSize * 1.7, r.bottom() - iconSize * 1.7, iconSize, iconSize);
                 icon.paint(painter, iconRect, Qt::AlignCenter);
             }
         }
-
-        // 根据是否选中设置边框颜色
-        if (m_selected) {
-            // draw blue border if the mode is EXTEND_MODE
-            borderColor = QColor("#2ca7f8");
-        }
     }
 
-    // 绘制边框
-    QPen borderPen(borderColor);
-    borderPen.setWidth(4);
-    borderPen.setWidthF(radius/5.0);
-    painter->setPen(borderPen);
-    painter->setBrush(Qt::transparent);
-    r.adjust(borderPen.width() /2, borderPen.width() / 2, -borderPen.width() /2, -borderPen.width() / 2);
-    painter->drawRoundedRect(r, radius, radius);
+    // 根据是否选中绘制不同颜色边框
+    if (m_selected) {
+        // 使用系统活动色绘制选中边框
+        outsideBorderColor = DGuiApplicationHelper::instance()->systemTheme()->activeColor();
+        // 绘制外边框
+        QPen borderPen(outsideBorderColor);
+        borderPen.setWidth(4);
+        borderPen.setWidthF(radius/5.0);
+        painter->setPen(borderPen);
+        painter->setBrush(Qt::transparent);
+        r = r.adjusted(borderPen.width() /2, borderPen.width() / 2, -borderPen.width() /2, -borderPen.width() / 2);
+        painter->drawRoundedRect(r, radius, radius);
+
+        // 绘制内边框
+        borderPen.setColor(insideBorderColor);
+        borderPen.setWidth(4);
+        borderPen.setWidthF(radius/5.0);
+        painter->setPen(borderPen);
+        painter->setBrush(Qt::transparent);
+        r = r.adjusted(borderPen.width(), borderPen.width(), -borderPen.width(), -borderPen.width());
+        painter->drawRoundedRect(r, radius - 10, radius - 10);
+    } else {
+        // 绘制单边框
+        QPen borderPen(outsideBorderColor);
+        borderPen.setWidth(4);
+        borderPen.setWidthF(radius/5.0);
+        painter->setPen(borderPen);
+        painter->setBrush(Qt::transparent);
+        r.adjust(borderPen.width() /2, borderPen.width() / 2, -borderPen.width() /2, -borderPen.width() / 2);
+        painter->drawRoundedRect(r, radius, radius);
+    }
 
     painter->restore();
 }
