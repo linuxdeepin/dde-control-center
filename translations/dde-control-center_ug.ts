@@ -62,11 +62,11 @@
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"/>
+        <translation>ئەپلەر (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>بارلىق ھۆججەتلەر (*)</translation>
     </message>
 </context>
 <context>
@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>ھېساباتلار</translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>تولۇق نامى</translation>
+        <source>Create Account</source>
+        <translation>ئىشلەتكۈچى قۇرۇش</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>ئىشلەتكۈچى نامى</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>پارولنى ئۆزگەرتىش</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>گۇرۇپپا</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>ئىشلەتكۈچى قۇرۇش</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>تولۇق ئىسمى بەك ئۇزۇن</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>پارولنى ئۆزگەرتىش</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation>قايتا پارول تەكشەش</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>باشقۇرغۇچى</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation>قايتا پارول تەكشەش</translation>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>تولۇق نامى باشقا ھېسابات نومۇرىنىڭ تولۇق نامى / ئىشلەتكۈچى نامى بىلەن تەكرارلىنىپ قالدى</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>تولۇق نامى</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -451,7 +488,7 @@
     </message>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation>پەقەت بىر ھېساباتنىڭ ئاپتوماتىك تىزىملىنىشىنى ئېچىشقا يول قويۇلىدۇ، ئالدى بىلەن %1 نىڭ ئاپتوماتىك تىزىملىنىشىنى تاقاپ ئاندىن مەشغۇلات قىلىڭ</translation>
     </message>
 </context>
 <context>
@@ -646,14 +683,46 @@
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
         <source>Multi-Screen Collaboration</source>
+        <translation>كومپيۇتېرلار ئارا ھەمكارلىشىش</translation>
+    </message>
+    <message>
+        <source>PC Collaboration</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to</source>
-        <translation type="unfinished"/>
+        <translation>ئۈسكۈنە ئۇلاش</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
+        <translation>ھەمكارلىشىدىغان ئۈسكۈنىنى تاللاڭ</translation>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -807,11 +876,11 @@
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>ھېسابات نامى باشقا ھېسابات نومۇرىنىڭ تولۇق نامى / ئىشلەتكۈچى نامى بىلەن تەكرارلىنىپ قالدى</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>تولۇق نامى باشقا ھېسابات نومۇرىنىڭ تولۇق نامى / ئىشلەتكۈچى نامى بىلەن تەكرارلىنىپ قالدى</translation>
     </message>
 </context>
 <context>
@@ -1010,7 +1079,7 @@
     <name>dccV23::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>كۇنۇپكا تاختىسى تەڭشىكى</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
@@ -1088,7 +1157,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>كۇنۇپكا ئورۇنلاشتۇرۇلۇشى قوشۇش</translation>
     </message>
     <message>
         <source>Done</source>
@@ -1107,7 +1176,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>كۇنۇپكا ئورۇنلاشتۇرۇلۇشى قوشۇش</translation>
     </message>
 </context>
 <context>
@@ -1122,7 +1191,7 @@
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>كۇنۇپكا تاختىسى تەڭشىكى</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1227,7 +1296,7 @@
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>تونۇش</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1556,23 +1625,23 @@
     <name>dccV23::SecurityQuestionsPage</name>
     <message>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك سوئاللىرى</translation>
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>مەخپىي نومۇرنى ئۇنتۇپ قالغاندا، بىخەتەرلىك سوئاللىرى ئارقىلىق پارولىڭىزنى قايتا ئورنىتالايسىز.</translation>
     </message>
     <message>
         <source>Security question 1</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك سوئالى1</translation>
     </message>
     <message>
         <source>Security question 2</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك سوئالى2</translation>
     </message>
     <message>
         <source>Security question 3</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك سوئالى3</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1584,39 +1653,39 @@
     </message>
     <message>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>جاۋابىڭىز 30 ھەرپتىن ئاز بولسۇن</translation>
     </message>
     <message>
         <source>Do not choose a duplicate question please</source>
-        <translation type="unfinished"/>
+        <translation>ئوخشاش سوئالنى تاللىيالمايسىز</translation>
     </message>
     <message>
         <source>Please select a question</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك سوئالىنى تاللاڭ</translation>
     </message>
     <message>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>سىز تۇغۇلغان شەھەرنىڭ نامى نېمە؟</translation>
     </message>
     <message>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>مەكتىپىڭىزنىڭ نامى نېمە؟</translation>
     </message>
     <message>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>سىز كىمنى ئەڭ ياخشى كۆرىسىز؟</translation>
     </message>
     <message>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>سىز ئەڭ ياخشى كۆرىدىغان ھايۋان قايسى؟</translation>
     </message>
     <message>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>سىز ئەڭ ياخشى كۆرىدىغان مۇزىكا قايسى؟</translation>
     </message>
     <message>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>تەخەللۇسىڭىز نېمە؟</translation>
     </message>
     <message>
         <source>It cannot be empty</source>
@@ -1706,7 +1775,7 @@
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation> كومپيۇتېر نامى</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1742,7 +1811,7 @@
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>كېلىشىم ۋە شەخسىيەت سىياسىتى</translation>
     </message>
     <message>
         <source>Edition License</source>
@@ -1792,6 +1861,10 @@
     <message>
         <source>Edit</source>
         <translation>تەھرىرلەش</translation>
+    </message>
+    <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
@@ -1853,19 +1926,19 @@
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>چەكمە ئېكران</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>ئۇلانغاندا سېزىمچان ئېكرانىڭىزنى تاللاڭ ياكى بۇ يەردىن تەڭشەڭ.</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>جەزملەشتۈرۈش</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>بىكار قىلىش</translation>
     </message>
 </context>
 <context>
@@ -1927,7 +2000,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>چېسلا ۋە ۋاقىت</translation>
     </message>
 </context>
 <context>
@@ -2048,12 +2121,20 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>ۋەزىپە ئىستونى</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>كۆپ ئېكرانلىق كۆرسىتىش تەڭشىكى</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation>ۋەزىپە ئىستونىنىڭ ئورنى</translation>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>ھالىتى</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"/>
+        <translation>ئورۇن</translation>
     </message>
     <message>
         <source>Status</source>
@@ -2066,14 +2147,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Size</source>
         <translation>چوڭلۇقى</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>كۆپ ئېكرانلىق كۆرسىتىش تەڭشىكى</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation>ۋەزىپە ئىستونىنىڭ ئورنى</translation>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -2626,7 +2699,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>كۆرۈنمە</translation>
     </message>
     <message>
         <source>Accent Color</source>
@@ -2805,11 +2878,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>چەكمە ئېكران تەڭشىكى</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>چەكمە ئېكران تەڭشىكى ئۆزگەردى</translation>
     </message>
 </context>
 <context>
@@ -2947,7 +3020,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>ئاۋاز</translation>
     </message>
 </context>
 <context>
@@ -3016,7 +3089,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>ۋاقىت تەڭشىكى</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3052,15 +3125,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>يىل</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>ئاي</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>كۈن</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3144,6 +3217,13 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Add Timezone</source>
+        <translation> ۋاقىت رايونى قوشۇش</translation>
+    </message>
+</context>
+<context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3264,7 +3344,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلانمىلار</translation>
     </message>
 </context>
 <context>
@@ -3331,6 +3411,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Release date: </source>
         <translation>تارقىتىلغان ۋاقتى:</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Version</source>
@@ -3601,31 +3689,31 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>سېزىمچان تاختا</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>ھالىتى</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>بېسىش سېزىمى</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>قەلەم</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>مائۇس</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>سۇس رەڭ</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>ئېغىرلىقى</translation>
     </message>
 </context>
 <context>

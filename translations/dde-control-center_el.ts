@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>Λογαριασμοί </translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>Πλήρες Όνομα</translation>
+        <source>Create Account</source>
+        <translation>Δημιουργία Λογαριασμού</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Όνομα χρήστη</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Αλλαγή Κωδικού Πρόσβασης</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>Ομάδα</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Δημιουργία Λογαριασμού</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>Το πλήρες όνομα είναι πολύ μεγάλο</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>Αλλαγή Κωδικού Πρόσβασης</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>Διαχειριστής</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Πλήρες Όνομα</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -649,11 +686,43 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>PC Collaboration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Connect to</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Select a device for collaboration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1088,7 +1157,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Προσθήκη Διάταξης Πληκτρολογίου</translation>
     </message>
     <message>
         <source>Done</source>
@@ -1107,7 +1176,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Προσθήκη Διάταξης Πληκτρολογίου</translation>
     </message>
 </context>
 <context>
@@ -1706,7 +1775,7 @@
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Όνομα Υπολογιστή</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1794,6 +1863,10 @@
         <translation>Επεξεργασία</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Done</source>
         <translation>Τέλος</translation>
     </message>
@@ -1853,19 +1926,19 @@
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Οθόνη Αφής</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Επιλέξτε την οθόνη αφής σας όταν συνδεθεί ή ορίστε την εδώ.</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Επιβεβαίωση</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Ακύρωση</translation>
     </message>
 </context>
 <context>
@@ -1927,7 +2000,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Ημερομηνία και Ώρα</translation>
     </message>
 </context>
 <context>
@@ -2034,6 +2107,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Προσθήκη στην γραμμή εργασιών</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>Πολλαπλές Οθόνες</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>Λειτουργία</translation>
     </message>
@@ -2052,14 +2133,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Size</source>
         <translation>Μέγεθος</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Πολλαπλές Οθόνες</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -2791,11 +2864,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ρυθμίσεις Οθόνης Αφής</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>Οι ρυθμίσεις της οθόνης αφής άλλαξαν</translation>
     </message>
 </context>
 <context>
@@ -2933,7 +3006,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Ήχος</translation>
     </message>
 </context>
 <context>
@@ -3002,7 +3075,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ρυθμίσεις ώρας </translation>
     </message>
     <message>
         <source>Time</source>
@@ -3038,15 +3111,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Έτος </translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Μήνας</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Ημέρα</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3088,7 +3161,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Επαναφορά</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3130,6 +3203,13 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Add Timezone</source>
+        <translation>Προσθέστε Ζώνη ώρας</translation>
+    </message>
+</context>
+<context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3250,7 +3330,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Ενημερώσεις</translation>
     </message>
 </context>
 <context>
@@ -3316,6 +3396,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Release date: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3586,31 +3674,31 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>Ταμπλέτα Σχεδιασμού</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Λειτουργία</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Ευαισθησία Πίεσης</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Γραφίδα</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ποντίκι</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Ελαφριά</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Βαρύς</translation>
     </message>
 </context>
 <context>

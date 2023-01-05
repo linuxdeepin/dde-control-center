@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation>协同设置</translation>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation>共享鼠标和键盘</translation>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation>开启后支持在协同设备间共享鼠标和键盘</translation>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation>剪贴板共享</translation>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation>共享文件夹</translation>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation>开启后支持在协同设备间共享复制内容</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>取 消</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation>确 定</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>帐户</translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>设置全名</translation>
+        <source>Create Account</source>
+        <translation>创建帐户</translation>
     </message>
     <message>
         <source>Username</source>
         <translation>用户名</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>修改密码</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>用户组</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>创建帐户</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>名称过长</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>修改密码</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation>重置密码</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>管理员</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation>重置密码</translation>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation>全名与其他帐户的全名/用户名重复</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>设置全名</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -649,12 +686,44 @@
         <translation>电脑协同设置</translation>
     </message>
     <message>
+        <source>PC Collaboration</source>
+        <translation>电脑协同</translation>
+    </message>
+    <message>
         <source>Connect to</source>
         <translation>连接设备</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
         <translation>请选择协同设备</translation>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation>连接方向</translation>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation>屏幕上方</translation>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation>屏幕右侧</translation>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation>屏幕下方</translation>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation>屏幕左侧</translation>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation>我的设备</translation>
+    </message>
+    <message>
+        <source>Other Devices</source>
+        <translation>其他设备</translation>
     </message>
 </context>
 <context>
@@ -1794,6 +1863,10 @@
         <translation>编 辑</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation>添加语言</translation>
+    </message>
+    <message>
         <source>Done</source>
         <translation>完成</translation>
     </message>
@@ -2048,6 +2121,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>任务栏</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>多屏显示设置</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation>任务栏位置</translation>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>模式</translation>
     </message>
@@ -2068,14 +2149,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>大小</translation>
     </message>
     <message>
-        <source>Multiple Displays</source>
-        <translation>多屏显示设置</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation>任务栏位置</translation>
-    </message>
-    <message>
         <source>Plugin Area</source>
         <translation>插件区域</translation>
     </message>
@@ -2093,7 +2166,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Top</source>
-        <translation>回到顶部</translation>
+        <translation>上</translation>
     </message>
     <message>
         <source>Bottom</source>
@@ -3148,6 +3221,13 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation>协同设置</translation>
+    </message>
+</context>
+<context>
     <name>UnionIDBindReminderDialog</name>
     <message>
         <source>The user account is not linked to Union ID</source>
@@ -3331,6 +3411,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Release date: </source>
         <translation>发布时间：</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation>服务器</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>桌面</translation>
     </message>
     <message>
         <source>Version</source>

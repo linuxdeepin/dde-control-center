@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,11 +415,15 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Full Name</source>
+        <source>Create Account</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change Password</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -410,19 +451,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reset Password</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -434,7 +463,15 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full Name</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -649,11 +686,43 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>PC Collaboration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Connect to</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Select a device for collaboration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1794,6 +1863,10 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Done</source>
         <translation type="unfinished"/>
     </message>
@@ -2034,6 +2107,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Mode</source>
         <translation type="unfinished"/>
     </message>
@@ -2051,14 +2132,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show Dock</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3002,7 +3075,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>ಸಮಯದ ಸೆಟ್ಟಿಂಗ್ ಗಳು</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3130,6 +3203,13 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Add Timezone</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3316,6 +3396,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Release date: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
         <translation type="unfinished"/>
     </message>
     <message>

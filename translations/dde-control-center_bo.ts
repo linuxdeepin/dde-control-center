@@ -62,11 +62,11 @@
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"/>
+        <translation>ཉེར་སྤྱོད་བྱ་རིམ།(*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>ཡིག་ཆ་ཆ་ཚང་། (*)</translation>
     </message>
 </context>
 <context>
@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>རྩིས་ཁྲ། </translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>མིང་ཆ་ཚང་བཟོ་བ།</translation>
+        <source>Create Account</source>
+        <translation>རྩིས་ཁྲ་བཟོ་བ། </translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་མིང་། </translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>གསང་ཨང་བཟོ་བཅོས།</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>སྤྱོད་མཁན། </translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>རྩིས་ཁྲ་བཟོ་བ། </translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>མིང་རིང་དྲག་འདུག </translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>གསང་ཨང་བཟོ་བཅོས།</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation>གསང་ཨང་བསྐྱར་བཟོ།</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>དོ་དམ་པ། </translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation>གསང་ཨང་བསྐྱར་བཟོ།</translation>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>མིང་ཆ་ཚང་དེ་རྩིས་ཐོ་གཞན་གྱི་མིང་ཆ་ཚང་དང་ཡང་ན་སྤྱོད་མཁན་མིང་གཞན་དང་བསྐྱར་ཟློས་བྱས་འདུག</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>མིང་ཆ་ཚང་བཟོ་བ།</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -451,7 +488,7 @@
     </message>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation>རྩིས་ཐོ་གཅིག་ཁོ་ན་ཐོ་རང་འཇུག་བྱེད་ཆོག སྔོན་ལ་རྩིས་ཐོ་%1སྒོ་བརྒྱབ་རྗེས་སླར་བཀོལ་སྤྱོད་བྱོས།</translation>
     </message>
 </context>
 <context>
@@ -646,14 +683,46 @@
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
         <source>Multi-Screen Collaboration</source>
+        <translation>གློག་ཀླད་མཐུན་སྦྱོར་སྒྲིག་འགོད།</translation>
+    </message>
+    <message>
+        <source>PC Collaboration</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to</source>
-        <translation type="unfinished"/>
+        <translation>སྦྲེལ་མཐུད་པ།</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
+        <translation>མཐུན་སྦྱོར་སྒྲིག་ཆས་འདེམས་རོགས།</translation>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -807,11 +876,11 @@
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་མིང་དེ་རྩིས་ཐོ་གཞན་གྱི་མིང་ཆ་ཚང་དང་ཡང་ན་སྤྱོད་མཁན་མིང་གཞན་དང་བསྐྱར་ཟློས་བྱས་འདུག</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>མིང་ཆ་ཚང་དེ་རྩིས་ཐོ་གཞན་གྱི་མིང་ཆ་ཚང་དང་ཡང་ན་སྤྱོད་མཁན་མིང་གཞན་དང་བསྐྱར་ཟློས་བྱས་འདུག</translation>
     </message>
 </context>
 <context>
@@ -1010,7 +1079,7 @@
     <name>dccV23::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>མཐེབ་གཞོང་སྒྲིག་འགོད།</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
@@ -1088,7 +1157,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>མཐེབ་གཞོང་བཀོད་པ་སྣོན་པ།</translation>
     </message>
     <message>
         <source>Done</source>
@@ -1107,7 +1176,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>མཐེབ་གཞོང་བཀོད་པ་སྣོན་པ།</translation>
     </message>
 </context>
 <context>
@@ -1122,7 +1191,7 @@
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>མཐེབ་གཞོང་སྒྲིག་འགོད།</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
@@ -1130,7 +1199,7 @@
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>སྐད་ཡིག</translation>
     </message>
     <message>
         <source>Shortcuts</source>
@@ -1227,7 +1296,7 @@
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>དབྱེ་འབྱེད་ངོས་འཛིན།</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1556,23 +1625,23 @@
     <name>dccV23::SecurityQuestionsPage</name>
     <message>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>བདེ་འཇགས་གནད་དོན།</translation>
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་བརྗེད་པའི་སྐབས། བདེ་འཇགས་གནད་དོན་སྤྱད་དེ་གསང་ཨང་ཡང་བསྐྱར་བཟོ་ཆོག</translation>
     </message>
     <message>
         <source>Security question 1</source>
-        <translation type="unfinished"/>
+        <translation>བདེ་འཇགས་གནད་དོན།1</translation>
     </message>
     <message>
         <source>Security question 2</source>
-        <translation type="unfinished"/>
+        <translation>བདེ་འཇགས་གནད་དོན།2</translation>
     </message>
     <message>
         <source>Security question 3</source>
-        <translation type="unfinished"/>
+        <translation>བདེ་འཇགས་གནད་དོན།3</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1584,39 +1653,39 @@
     </message>
     <message>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>ལན་ཡིག་འབྲུ་30ནང་ཚུན་ཡིན་དགོས།</translation>
     </message>
     <message>
         <source>Do not choose a duplicate question please</source>
-        <translation type="unfinished"/>
+        <translation>འདྲི་བ་བསྐྱར་ཟློས་བྱས་པ་འདེམས་མི་ཆོག</translation>
     </message>
     <message>
         <source>Please select a question</source>
-        <translation type="unfinished"/>
+        <translation>བདེ་འཇགས་སྐོར་གྱི་འདྲི་བ་འདེམས་རོགས།</translation>
     </message>
     <message>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>ཁྱེད་རང་སྐྱེ་སའི་གྲོང་ཁྱེར་མིང་ལ་གང་ཟེར།</translation>
     </message>
     <message>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>ཁྱེད་ཀྱི་མ་ཡུམ་སློབ་གྲྭའི་མིང་ལ་གང་ཟེར།</translation>
     </message>
     <message>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>ཁྱེད་རང་དགའ་ཤོས་ཀྱི་མི་སུ་ཡིན།</translation>
     </message>
     <message>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>ཁྱེད་དགའ་ཤོས་ཀྱི་སྲོག་ཆགས་གང་རེད།</translation>
     </message>
     <message>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>ཁྱེད་རང་དགའ་ཤོས་ཀྱི་གླུ་དབྱངས་གང་རེད།</translation>
     </message>
     <message>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>ཁྱེད་ཀྱི་མིང་འདོགས་ལ་ཅི་ཟེར།</translation>
     </message>
     <message>
         <source>It cannot be empty</source>
@@ -1706,7 +1775,7 @@
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>རྩིས་འཁོར་གྱི་མིང་།</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1742,7 +1811,7 @@
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>གྲོས་མཐུན་དང་གསང་དོན་སྲིད་ཇུས།</translation>
     </message>
     <message>
         <source>Edition License</source>
@@ -1792,6 +1861,10 @@
     <message>
         <source>Edit</source>
         <translation>རྩོམ་སྒྲིག</translation>
+    </message>
+    <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
@@ -1853,19 +1926,19 @@
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>ཐུག་རེག་བརྙན་ཡོལ།</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>ཁྱེད་ཀྱིས་ཐུག་རེག་བརྙན་ཡོལ་དང་སྦྲེལ་སྐབས་དེ་གནས་སའི་བརྙན་ཡོལ་དང་ཡང་ན་འདི་ག་ནས་ལེགས་སྒྲིག་བྱེད་ཆོག</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>གཏན་ཁེལ། </translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>འདོར་བ།</translation>
     </message>
 </context>
 <context>
@@ -1928,7 +2001,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>དུས་ཚོད་དང་ཚེས་གྲངས། </translation>
     </message>
 </context>
 <context>
@@ -2049,12 +2122,20 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>སྡོད་པ།</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>བརྙན་མང་མངོན་སྟོན་སྒྲིག་འགོད།</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation>ལས་འགན་ཚན་བྱང་གི་གནས་ས།</translation>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>དཔེ་རྣམ།</translation>
     </message>
     <message>
         <source>Position</source>
-        <translation type="unfinished"/>
+        <translation>གནས་ཡུལ།</translation>
     </message>
     <message>
         <source>Status</source>
@@ -2062,19 +2143,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Show recent apps in Dock</source>
-        <translation type="unfinished"/>
+        <translation>ཉེ་ཆར་བེད་སྤྱོད་བྱས་པའི་ཉེར་སྤྱད་མངོན་པ།</translation>
     </message>
     <message>
         <source>Size</source>
         <translation>ཆེ་ཆུང་།</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>བརྙན་མང་མངོན་སྟོན་སྒྲིག་འགོད།</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation>ལས་འགན་ཚན་བྱང་གི་གནས་ས།</translation>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -2445,7 +2518,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Decrease Brightness</source>
-        <translation type="unfinished"/>
+        <translation>གསལ་ཚད་རང་བཞིན་གྱིས་དམའ་རུ་གཏོང་བ།</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
@@ -2554,7 +2627,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>PersonalizationDesktopModule</name>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>ཅོག་ངོས།</translation>
     </message>
     <message>
         <source>Window</source>
@@ -2627,7 +2700,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>ཕྱི་ཚུལ།</translation>
     </message>
     <message>
         <source>Accent Color</source>
@@ -2635,7 +2708,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>པར་རིས་སྒྲིག་འགོད།</translation>
     </message>
     <message>
         <source>Icon Theme</source>
@@ -2647,7 +2720,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Text Settings</source>
-        <translation type="unfinished"/>
+        <translation>ཡི་གེ་སྒྲིག་འགོད།</translation>
     </message>
     <message>
         <source>Font Size</source>
@@ -2740,14 +2813,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>PrivacyModule</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>གསང་དོན་དང་བདེ་འཇགས།</translation>
     </message>
 </context>
 <context>
     <name>PrivacySecurityModel</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>རི་མོ་སྒྲིག་འགོད།</translation>
     </message>
     <message>
         <source>Microphone</source>
@@ -2755,7 +2828,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>User Folders</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་ཡིག་ཁུག</translation>
     </message>
     <message>
         <source>Calendar</source>
@@ -2763,7 +2836,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Screen Capture</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་ཡོལ་དྲས་པ།</translation>
     </message>
 </context>
 <context>
@@ -2806,11 +2879,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>ཐུག་རེག་བརྙན་ཡོལ་སྒྲིག་འགོད།</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>ཐུག་རེག་བརྙན་ཡོལ་གྱི་སྒྲིག་བཀོད་སྒྱུར་ཟིན།</translation>
     </message>
 </context>
 <context>
@@ -2839,23 +2912,23 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>ServiceSettingsModule</name>
     <message>
         <source>Apps can access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>པར་ཆས་ཀྱི་དབང་མཚམས་སྤྱོད་རེ་ཞུ་བའི་ཉེར་སྤྱོད།</translation>
     </message>
     <message>
         <source>Apps can access your microphone:</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲ་དུང་གི་དབང་མཚམས་སྤྱོད་རེ་ཞུ་བའི་ཉེར་སྤྱོད།</translation>
     </message>
     <message>
         <source>Apps can access user folders:</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་ཡིག་ཁུག་གི་དབང་མཚམས་འདྲི་རྩད་བྱེད་རེ་ཞུ་བའི་ཉེར་སྤྱོད།</translation>
     </message>
     <message>
         <source>Apps can access Calendar:</source>
-        <translation type="unfinished"/>
+        <translation>ཉིན་ཐོའི་དབང་མཚམས་ལ་འདྲི་རྩད་བྱེད་རེ་ཞུ་བའི་ཉེར་སྤྱོད།</translation>
     </message>
     <message>
         <source>Apps can access Screen Capture:</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་ཡོལ་འདྲ་པའི་དབང་མཚམས་བེད་སྤྱོད་བྱེད་རེ་ཞུ་བའི་ཉེར་སྤྱོད།</translation>
     </message>
     <message>
         <source>No apps requested access to the camera</source>
@@ -2948,7 +3021,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲ།</translation>
     </message>
 </context>
 <context>
@@ -3017,7 +3090,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>དུས་ཚོད་སྒྲིག་འགོད། </translation>
     </message>
     <message>
         <source>Time</source>
@@ -3053,15 +3126,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>ལོ། </translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>ཟླ། </translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>ཚེས་གྲངས། </translation>
     </message>
     <message>
         <source>Save</source>
@@ -3145,6 +3218,13 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Add Timezone</source>
+        <translation>དུས་ཁུལ་སྣོན་པ།</translation>
+    </message>
+</context>
+<context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3265,7 +3345,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>ཞིབ་བཤེར་གསར་སྒྱུར། </translation>
     </message>
 </context>
 <context>
@@ -3332,6 +3412,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Release date: </source>
         <translation>ཁྲོམ་བསྒྲགས་དུས་ཚོད། </translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Version</source>
@@ -3601,31 +3689,31 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>དཔེ་རིས་འབྲི་ས།</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>དཔེ་རྣམ།</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>གནོན་ཚོར།</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>སྨྱུ་གུ།</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>ཙི་གུ། </translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>མདོག་ཧར་པོ།</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>ལྗིད་པོ།</translation>
     </message>
 </context>
 <context>

@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation>Configuración de colaboración</translation>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation>Comparte ratón y teclado</translation>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation>Comparta su mouse y teclado a otros dispositivos</translation>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation>Compartir portapapeles</translation>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation>Ruta de almacenamiento para archivos compartidos</translation>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation>Comparta el contenido copiado a otros dispositivos</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation>Confirmar</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>Cuentas</translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>Nombre completo</translation>
+        <source>Create Account</source>
+        <translation>Crear cuenta</translation>
     </message>
     <message>
         <source>Username</source>
         <translation>Nombre de usuario</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Cambiar contraseña</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>Grupo</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Crear cuenta</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>El nombre completo es muy largo</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>Cambiar contraseña</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation>Restablecer contraseña</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>Administrador</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation>Restablecer contraseña</translation>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation>El nombre completo ha sido utilizado por otras cuentas de usuario</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Nombre completo</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -646,15 +683,47 @@
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
         <source>Multi-Screen Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Colaboración multipantalla</translation>
+    </message>
+    <message>
+        <source>PC Collaboration</source>
+        <translation>Colaboración de PC</translation>
     </message>
     <message>
         <source>Connect to</source>
-        <translation type="unfinished"/>
+        <translation>Conectar a</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione un dispositivo para colaborar</translation>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation>Orientación del dispositivo</translation>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation>Arriba</translation>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation>A la derecha</translation>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation>Abajo</translation>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation>A la izquierda</translation>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation>Mis dispositivos</translation>
+    </message>
+    <message>
+        <source>Other Devices</source>
+        <translation>Otros dispositivos</translation>
     </message>
 </context>
 <context>
@@ -1227,7 +1296,7 @@
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Identificar</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1794,6 +1863,10 @@
         <translation>Editar</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Done</source>
         <translation>Finalizar</translation>
     </message>
@@ -2046,6 +2119,14 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
         <translation>Anclar</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>Múltiples pantallas</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation>Mostrar el dock</translation>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>Modo</translation>
     </message>
@@ -2064,14 +2145,6 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <message>
         <source>Size</source>
         <translation>Tamaño</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Múltiples pantallas</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation>Mostrar el dock</translation>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -3146,6 +3219,13 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     </message>
 </context>
 <context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation>Configuración de colaboración</translation>
+    </message>
+</context>
+<context>
     <name>UnionIDBindReminderDialog</name>
     <message>
         <source>The user account is not linked to Union ID</source>
@@ -3329,6 +3409,14 @@ UnionTech Software se compromete a investigar y mejorar la seguridad, precisión
     <message>
         <source>Release date: </source>
         <translation>Fecha de publicación: </translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation>Servidor</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>Escritorio</translation>
     </message>
     <message>
         <source>Version</source>

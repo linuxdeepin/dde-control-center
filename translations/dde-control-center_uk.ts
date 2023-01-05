@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>Облікові записи</translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>Повне ім&apos;я</translation>
+        <source>Create Account</source>
+        <translation>Створити обліковий запис</translation>
     </message>
     <message>
         <source>Username</source>
         <translation>Користувач</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Зміна пароля</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>Група</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Створити обліковий запис</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>Ім&apos;я повністю є надто довгим</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>Зміна пароля</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation>Скинути пароль</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>Адміністратор</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation>Скинути пароль</translation>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation>Це ім&apos;я повністю було використано в інших облікових записах користувачів</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Повне ім&apos;я</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -646,14 +683,46 @@
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
         <source>Multi-Screen Collaboration</source>
+        <translation>Сумісне використання декількох екранів</translation>
+    </message>
+    <message>
+        <source>PC Collaboration</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to</source>
-        <translation type="unfinished"/>
+        <translation>З&apos;єднатися</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
+        <translation>Виберіть пристрій для сумісного використання</translation>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1227,7 +1296,7 @@
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Ідентифікувати</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1794,6 +1863,10 @@
         <translation>Змінити</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Done</source>
         <translation>Виконано</translation>
     </message>
@@ -1861,7 +1934,7 @@
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Підтвредити</translation>
+        <translation>Підтвердити</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2048,6 +2121,14 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Док</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>Кілька дисплеїв</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation>Показувати панель</translation>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>Режим</translation>
     </message>
@@ -2066,14 +2147,6 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>Size</source>
         <translation>Розмір</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Кілька дисплеїв</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation>Показувати панель</translation>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -3148,6 +3221,13 @@ UnionTech Software працює над вивченням і удосконал�
     </message>
 </context>
 <context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>UnionIDBindReminderDialog</name>
     <message>
         <source>The user account is not linked to Union ID</source>
@@ -3331,6 +3411,14 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>Release date: </source>
         <translation>Дата випуску:</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Version</source>

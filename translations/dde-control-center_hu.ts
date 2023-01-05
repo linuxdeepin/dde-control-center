@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation>Együttműködési beállítások</translation>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation>Egér és Billentyűzet megosztása</translation>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation>Ossza meg az egerét és a billentyűzetét az eszközök között</translation>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation>Vágólap megosztása</translation>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation>Megosztott fájlok tárolási útvonala</translation>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation>Ossza meg a másolt tartalmat az eszközök között</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Mégsem</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation>Megerősítés</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>Felhasználói fiókok</translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>Teljes név</translation>
+        <source>Create Account</source>
+        <translation>Felhasználói fiók létrehozása</translation>
     </message>
     <message>
         <source>Username</source>
         <translation>Felhasználónév</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Jelszó megváltoztatása</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>Csoport</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Felhasználói fiók létrehozása</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>A teljes név túl hosszú</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>Jelszó megváltoztatása</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation>Jelszó visszaállítása</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>Rendszergazda</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation>Jelszó visszaállítása</translation>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation>Ez a Teljes név már használatban van egy másik felhasználói fiók által</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Teljes név</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -646,15 +683,47 @@
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
         <source>Multi-Screen Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Többképernyős együttműködés</translation>
+    </message>
+    <message>
+        <source>PC Collaboration</source>
+        <translation>PC együttműködés</translation>
     </message>
     <message>
         <source>Connect to</source>
-        <translation type="unfinished"/>
+        <translation>Csatlakozás a</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Válasszon eszközt az együttműködéshez</translation>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation>Eszköz orientáció</translation>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation>A tetejére</translation>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation>A jobb oldalra</translation>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation>Az aljára</translation>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation>A bal oldalra</translation>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation>Eszközeim</translation>
+    </message>
+    <message>
+        <source>Other Devices</source>
+        <translation>Egyéb eszközök</translation>
     </message>
 </context>
 <context>
@@ -1227,7 +1296,7 @@
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Azonosítás</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1794,6 +1863,10 @@
         <translation>Szerkesztés</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Done</source>
         <translation>Kész</translation>
     </message>
@@ -2048,6 +2121,14 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
         <translation>Kitűzés a Dokkolóra</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>Többképernyős mód</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation>Dokkoló mutatása</translation>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>Mód</translation>
     </message>
@@ -2066,14 +2147,6 @@ Az UnionTech® elkötelezett a biometrikus hitelesítés biztonságának, pontos
     <message>
         <source>Size</source>
         <translation>Méret</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Többképernyős mód</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation>Dokkoló mutatása</translation>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -3152,6 +3225,13 @@ időformátum</translation>
     </message>
 </context>
 <context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation>Együttműködési beállítások</translation>
+    </message>
+</context>
+<context>
     <name>UnionIDBindReminderDialog</name>
     <message>
         <source>The user account is not linked to Union ID</source>
@@ -3335,6 +3415,14 @@ időformátum</translation>
     <message>
         <source>Release date: </source>
         <translation>Kiadási dátum:</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation>Szerver</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>Asztal</translation>
     </message>
     <message>
         <source>Version</source>

@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>Профили</translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>Пълно име</translation>
+        <source>Create Account</source>
+        <translation>Създаване на профил</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Потребителско име</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Смяна на паролата</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>Група</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Създаване на профил</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>Пълното име е прекалено дълго</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>Смяна на паролата</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>Администратор</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Пълно име</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -649,11 +686,43 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>PC Collaboration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Connect to</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Select a device for collaboration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1088,7 +1157,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Добавяне на клавиатурна подредба</translation>
     </message>
     <message>
         <source>Done</source>
@@ -1107,7 +1176,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Добавяне на клавиатурна подредба</translation>
     </message>
 </context>
 <context>
@@ -1706,7 +1775,7 @@
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Име на компютър</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1794,6 +1863,10 @@
         <translation>Редактиране</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
@@ -1861,11 +1934,11 @@
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Потвърждение</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отказ</translation>
     </message>
 </context>
 <context>
@@ -1927,7 +2000,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Дата и час</translation>
     </message>
 </context>
 <context>
@@ -2034,6 +2107,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Док</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>Режим</translation>
     </message>
@@ -2052,14 +2133,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Size</source>
         <translation>Размер</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -2933,7 +3006,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Звук</translation>
     </message>
 </context>
 <context>
@@ -3002,7 +3075,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Настройки на времето</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3038,15 +3111,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Година</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Месец</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Ден</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3088,7 +3161,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Връщане</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3130,6 +3203,13 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Add Timezone</source>
+        <translation>Добавяне на часова зона</translation>
+    </message>
+</context>
+<context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3250,7 +3330,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Актуализации</translation>
     </message>
 </context>
 <context>
@@ -3316,6 +3396,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Release date: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3586,31 +3674,31 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>Плоча за чертане</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Режим</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Чувствителност към налягане</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Молив</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Мишка</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Светлина</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Тежко</translation>
     </message>
 </context>
 <context>

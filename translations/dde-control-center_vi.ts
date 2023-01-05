@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>Tài khoản </translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>Tên đầy đủ</translation>
+        <source>Create Account</source>
+        <translation>Tạo Tài khoản</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Tên người dùng</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Đổi mật khẩu</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>Nhóm</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Tạo Tài khoản</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>Tên quá dài</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>Đổi mật khẩu</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>Quản trị viên</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Tên đầy đủ</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -649,11 +686,43 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>PC Collaboration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Connect to</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Select a device for collaboration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1088,7 +1157,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Thêm Bố trí Bàn phím</translation>
     </message>
     <message>
         <source>Done</source>
@@ -1107,7 +1176,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Thêm Bố trí Bàn phím</translation>
     </message>
 </context>
 <context>
@@ -1794,6 +1863,10 @@
         <translation>Chỉnh sửa</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Done</source>
         <translation>Xong</translation>
     </message>
@@ -1853,19 +1926,19 @@
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Màn hình cảm ứng</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Chọn màn hình cảm ứng khi kết nối và cài đặt nó ở đây</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Xác nhận</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Hủy</translation>
     </message>
 </context>
 <context>
@@ -1927,7 +2000,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Ngày và Thời gian</translation>
     </message>
 </context>
 <context>
@@ -2034,6 +2107,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Dock</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>Nhiều màn hình</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>Chế độ</translation>
     </message>
@@ -2052,14 +2133,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Size</source>
         <translation>Kích thước</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Nhiều màn hình</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -2791,7 +2864,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>Cài đặt màn hình cảm ứng</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
@@ -2933,7 +3006,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Âm thanh</translation>
     </message>
 </context>
 <context>
@@ -3002,7 +3075,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Những Thiết lập Thời gian</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3038,15 +3111,15 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Năm</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Tháng</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Ngày</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3088,7 +3161,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Trở lại</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3130,6 +3203,13 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Add Timezone</source>
+        <translation>Thêm múi giờ</translation>
+    </message>
+</context>
+<context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3250,7 +3330,7 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Cập nhật</translation>
     </message>
 </context>
 <context>
@@ -3316,6 +3396,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Release date: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3586,31 +3674,31 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>Drawing Tablet</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Chế độ</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Cảm biến Áp lực</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Pen</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Chuột</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Sáng</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Heavy</translation>
     </message>
 </context>
 <context>

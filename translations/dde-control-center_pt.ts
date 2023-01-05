@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>Contas</translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>Nome completo</translation>
+        <source>Create Account</source>
+        <translation>Criar Conta</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Nome de utilizador</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Alterar palavra-passe</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>Grupo</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Criar Conta</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>O nome completo é muito comprido</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>Alterar palavra-passe</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation>Repor palavra-passe</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>Administrador</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation>Repor palavra-passe</translation>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation>Nome completo já em uso em outra conta</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Nome completo</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -649,11 +686,43 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>PC Collaboration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Connect to</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Select a device for collaboration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1088,7 +1157,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar esquema de teclado</translation>
     </message>
     <message>
         <source>Done</source>
@@ -1107,7 +1176,7 @@
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar esquema de teclado</translation>
     </message>
 </context>
 <context>
@@ -1706,7 +1775,7 @@
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Nome do Computador</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -1794,6 +1863,10 @@
         <translation>Editar</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Done</source>
         <translation>Concluído</translation>
     </message>
@@ -1853,19 +1926,19 @@
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ecrã tátil</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Selecione o seu ecrã tátil quando ligado ou defina-o aqui</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
@@ -1927,7 +2000,7 @@
     <name>DatetimeModule</name>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Data e Hora</translation>
     </message>
 </context>
 <context>
@@ -2048,6 +2121,14 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
         <translation>Afixar na doca</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>Vários ecrãs</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation>Mostrar Doca</translation>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>Modo</translation>
     </message>
@@ -2066,14 +2147,6 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
     <message>
         <source>Size</source>
         <translation>Tamanho</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Vários ecrãs</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation>Mostrar Doca</translation>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -2805,11 +2878,11 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições do ecrã tátil</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>As definições do ecrã tátil foram alteradas</translation>
     </message>
 </context>
 <context>
@@ -2947,7 +3020,7 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Som</translation>
     </message>
 </context>
 <context>
@@ -3016,7 +3089,7 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições horárias</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3052,15 +3125,15 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Ano</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Mês</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Dia</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3102,7 +3175,7 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Reverter</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3144,6 +3217,13 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
     </message>
     <message>
         <source>Add Timezone</source>
+        <translation>Adicionar Fuso Horário</translation>
+    </message>
+</context>
+<context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3264,7 +3344,7 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações</translation>
     </message>
 </context>
 <context>
@@ -3331,6 +3411,14 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
     <message>
         <source>Release date: </source>
         <translation>Data de lançamento: </translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Version</source>
@@ -3600,31 +3688,31 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>Tablet de Desenho</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Sensibilidade da pressão</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Caneta</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Rato</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Claro</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Pesada</translation>
     </message>
 </context>
 <context>

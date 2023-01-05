@@ -77,7 +77,7 @@
     </message>
     <message>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Sigurohuni se krejt pjesët e fytyrës tuaj janë të pambuluara nga objekte dhe të dukshme qartësisht.Fytyra juaj duhet të jetë gjithashtu e ndriçuar mirë. </translation>
+        <translation>Sigurohuni se krejt pjesët e fytyrës tuaj janë të pambuluara nga objekte dhe të dukshme qartësisht.Fytyra juaj duhet të jetë gjithashtu e ndriçuar mirë.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -317,275 +317,77 @@
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>Vendoseni fytyrën tuaj brenda kuadrit</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Fytyra u dha</translation>
     </message>
     <message>
         <source>Position a human face please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, vendosni një fytyrë njeriu</translation>
     </message>
     <message>
         <source>Keep away from the camera</source>
-        <translation type="unfinished"/>
+        <translation>Mbajeni kamerën larg vetes</translation>
     </message>
     <message>
         <source>Get closer to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Afrojuni kamerës</translation>
     </message>
     <message>
         <source>Do not position multiple faces inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>Mos vendosni brenda kuadrit disa fytyra</translation>
     </message>
     <message>
         <source>Make sure the camera lens is clean</source>
-        <translation type="unfinished"/>
+        <translation>Sigurohuni se thjerrat e kamerës janë të pastra</translation>
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation type="unfinished"/>
+        <translation>Mos bëni dhënie fytyre në mjedise të errët, të ndritshëm, apo të ndriçuar nga pas</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
-        <translation type="unfinished"/>
+        <translation>Mbajeni zbuluar fytyrën tuaj</translation>
     </message>
     <message>
         <source>Scan timed out</source>
-        <translation type="unfinished"/>
+        <translation>Skanimit i mbaroi koha</translation>
     </message>
     <message>
         <source>Device crashed, please scan again!</source>
-        <translation type="unfinished"/>
+        <translation>Pajisja u vithis, ju lutemi, ribëni skanimin!</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
 </context>
 <context>
-    <name>dccV23::AccountSpinBox</name>
+    <name>CooperationSettingsDialog</name>
     <message>
-        <source>Always</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV23::AccountsModule</name>
-    <message>
-        <source>Accounts</source>
+        <source>Collaboration Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Full Name</source>
+        <source>Share mouse and keyboard</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Username</source>
+        <source>Share your mouse and keyboard across devices</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Delete Account</source>
+        <source>Share clipboard</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Account Type</source>
+        <source>Storage path for shared files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Auto Login</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Login Without Password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Validity Days</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Group</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Create Account</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The full name is too long</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Standard User</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Administrator</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Go to Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>OK</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV23::AccountsWorker</name>
-    <message>
-        <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>AD domain settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password not match</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV23::AppNotifyWidget</name>
-    <message>
-        <source>Show notifications from %1 on desktop and in the notification center.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Play a sound</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show messages on lockscreen</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show in notification center</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show message preview</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV23::AvatarListDialog</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Modify</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV23::AvatarListWidget</name>
-    <message>
-        <source>Images</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV23::BootWidget</name>
-    <message>
-        <source>Updating...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Startup Delay</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Theme</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Click the option in boot menu to set it as the first boot</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Switch theme on to view it in boot menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>GRUB Authentication</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>GRUB password is required to edit its configuration</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Boot Menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Change GRUB password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Username:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>root</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>New password:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Repeat password:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Required</source>
+        <source>Share the copied content across devices</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -598,48 +400,283 @@
         <comment>button</comment>
         <translation type="unfinished"/>
     </message>
+</context>
+<context>
+    <name>dccV23::AccountSpinBox</name>
+    <message>
+        <source>Always</source>
+        <translation>Përherë</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::AccountsModule</name>
+    <message>
+        <source>Accounts</source>
+        <translation>Llogari</translation>
+    </message>
+    <message>
+        <source>Create Account</source>
+        <translation>Krijoni Llogari</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation>Emër përdoruesi</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Ndryshoni Fjalëkalimin</translation>
+    </message>
+    <message>
+        <source>Delete Account</source>
+        <translation>Fshini Llogarinë</translation>
+    </message>
+    <message>
+        <source>Account Type</source>
+        <translation>Lloj Llogarie</translation>
+    </message>
+    <message>
+        <source>Auto Login</source>
+        <translation>Vetëhyrje</translation>
+    </message>
+    <message>
+        <source>Login Without Password</source>
+        <translation>Hyrje Pa Fjalëkalim</translation>
+    </message>
+    <message>
+        <source>Validity Days</source>
+        <translation>Ditë Vlefshmërie</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation>Grupe</translation>
+    </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation>Emri i plotë është shumë i gjatë</translation>
+    </message>
+    <message>
+        <source>Standard User</source>
+        <translation>Përdorues Standard</translation>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation>Përgjegjës</translation>
+    </message>
+    <message>
+        <source>Reset Password</source>
+        <translation>Ricaktoni Fjalëkalimin</translation>
+    </message>
+    <message>
+        <source>The full name has been used by other user accounts</source>
+        <translation>Emri i plotë është përdorur nga llogari të tjera përdoruesi</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Emër i Plotë</translation>
+    </message>
+    <message>
+        <source>Go to Settings</source>
+        <translation>Kalo te Rregullimet</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuloje</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
+        <translation>“Hyrje Vetvetiu” mund të aktivizohet vetëm për një llogari, ju lutemi, së pari, çaktivizojeni për llogarinë “%1”</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::AccountsWorker</name>
+    <message>
+        <source>Your host was removed from the domain server successfully</source>
+        <translation>Streha juaj u hoq me sukses nga shërbyesi i përkatësive</translation>
+    </message>
+    <message>
+        <source>Your host joins the domain server successfully</source>
+        <translation>Streha juaj u bë pjesë me sukses e shërbyesit të përkatësive</translation>
+    </message>
+    <message>
+        <source>Your host failed to leave the domain server</source>
+        <translation>Streha juaj s’arriti të braktisë shërbyesin e përkatësive</translation>
+    </message>
+    <message>
+        <source>Your host failed to join the domain server</source>
+        <translation>Streha juaj s’arriti të lidhet me shërbyesin e përkatësive</translation>
+    </message>
+    <message>
+        <source>AD domain settings</source>
+        <translation>Rregullime përkatësie AD</translation>
+    </message>
+    <message>
+        <source>Password not match</source>
+        <translation>Fjalëkalimi s’përputhet</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::AppNotifyWidget</name>
+    <message>
+        <source>Show notifications from %1 on desktop and in the notification center.</source>
+        <translation>Shfaq njoftime prej %1 në desktop dhe te qendra e njoftimeve.</translation>
+    </message>
+    <message>
+        <source>Play a sound</source>
+        <translation>Luaj një tingull</translation>
+    </message>
+    <message>
+        <source>Show messages on lockscreen</source>
+        <translation>Shfaq mesazhe, kur ekrani është i kyçur</translation>
+    </message>
+    <message>
+        <source>Show in notification center</source>
+        <translation>Shfaqe në qendër njoftimesh</translation>
+    </message>
+    <message>
+        <source>Show message preview</source>
+        <translation>Shfaq paraparje mesazhi</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::AvatarListDialog</name>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuloje</translation>
+    </message>
+    <message>
+        <source>Modify</source>
+        <translation>Ndryshojeni</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::AvatarListWidget</name>
+    <message>
+        <source>Images</source>
+        <translation>Figura</translation>
+    </message>
+</context>
+<context>
+    <name>dccV23::BootWidget</name>
+    <message>
+        <source>Updating...</source>
+        <translation>Po përditësohet…</translation>
+    </message>
+    <message>
+        <source>Startup Delay</source>
+        <translation>Vonesë Nisjeje</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Temë</translation>
+    </message>
+    <message>
+        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
+        <translation>Klikoni mbi mundësinë te menuja e nisjeve, për ta caktuar si nisjen e parë dhe për të tërhequr dhe lënë një foto që të ndryshohet sfondi</translation>
+    </message>
+    <message>
+        <source>Click the option in boot menu to set it as the first boot</source>
+        <translation>Klikoni mundësinë te menuja e nisjes, për ta caktuar si nisjen e parë</translation>
+    </message>
+    <message>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation>Aktivizoni temën që ta shihni te menu nisjesh</translation>
+    </message>
+    <message>
+        <source>GRUB Authentication</source>
+        <translation>Mirëfilltësim GRUB</translation>
+    </message>
+    <message>
+        <source>GRUB password is required to edit its configuration</source>
+        <translation>Që të përpunohet formësimi i tij, lypset fjalëkalim GRUB-i</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Ndryshoni Fjalëkalimin</translation>
+    </message>
+    <message>
+        <source>Boot Menu</source>
+        <translation>Menu Nisjesh</translation>
+    </message>
+    <message>
+        <source>Change GRUB password</source>
+        <translation>Ndryshoni fjalëkalim GRUB-i</translation>
+    </message>
+    <message>
+        <source>Username:</source>
+        <translation>Emër përdoruesi:</translation>
+    </message>
+    <message>
+        <source>root</source>
+        <translation>rrënjë</translation>
+    </message>
+    <message>
+        <source>New password:</source>
+        <translation>Fjalëkalimi i ri:</translation>
+    </message>
+    <message>
+        <source>Repeat password:</source>
+        <translation>Përsëriteni fjalëkalimin:</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>I domosdoshëm</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Anuloje</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation>Ripohojeni</translation>
+    </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Falëkalimet nuk përputhen</translation>
     </message>
 </context>
 <context>
     <name>dccV23::BrightnessWidget</name>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Ndriçim</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Temperaturë Ngjyre</translation>
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Ndriçim i Automatizuar</translation>
     </message>
     <message>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Turn Nate</translation>
     </message>
     <message>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>Ngjyrimi i ekranit do të përshtatet sipas vendndodhjes tuaj</translation>
     </message>
     <message>
         <source>Change Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Ndryshoni Temperaturë Ngjyre</translation>
     </message>
     <message>
         <source>Cool</source>
-        <translation type="unfinished"/>
+        <translation>E ftohtë</translation>
     </message>
     <message>
         <source>Warm</source>
-        <translation type="unfinished"/>
+        <translation>E ngrohtë</translation>
     </message>
 </context>
 <context>
@@ -649,11 +686,43 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Connect to</source>
+        <source>PC Collaboration</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Connect to</source>
+        <translation>Lidhu te</translation>
+    </message>
+    <message>
         <source>Select a device for collaboration</source>
+        <translation>Përzgjidhni një pajisje për bashkëpunim</translation>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -661,566 +730,566 @@
     <name>dccV23::CommonInfoPlugin</name>
     <message>
         <source>General Settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime të Përgjithshme</translation>
     </message>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu Nisjesh</translation>
     </message>
     <message>
         <source>Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mënyra Zhvillues</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Program Përshtypjesh Përdoruesi</translation>
     </message>
 </context>
 <context>
     <name>dccV23::CommonInfoWork</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Shprehni Pajtimin dhe Merrni Pjesë Te programi “User Experience Program”</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>Klauzola e Mënyrës Zhvillues</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Shprehni Pajtimin dhe Kërkoni Hyrje Si Rrënjë</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të hyhej si rrënjë</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, së pari hyni te ID Union juaj</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>S’lexohen dot hollësi mbi PC-në tuaj</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>S’ka lidhje rrjeti</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Ngarkimi i dëshmisë dështoi, s’arrihet të merret hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Verifikimi i nënshkrimit dështoi, s’arrihet të merret hyrje si rrënjë</translation>
     </message>
 </context>
 <context>
     <name>dccV23::CreateAccountPage</name>
     <message>
         <source>Group</source>
-        <translation type="unfinished"/>
+        <translation>Grup</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Create</source>
-        <translation type="unfinished"/>
+        <translation>Krijoje</translation>
     </message>
     <message>
         <source>New Account</source>
-        <translation type="unfinished"/>
+        <translation>Llogari e Re</translation>
     </message>
     <message>
         <source>Account Type</source>
-        <translation type="unfinished"/>
+        <translation>Lloj Llogarie</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation type="unfinished"/>
+        <translation>Emër përdoruesi</translation>
     </message>
     <message>
         <source>Full Name</source>
-        <translation type="unfinished"/>
+        <translation>Emër i Plotë</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalim</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="unfinished"/>
+        <translation>Rijepeni Fjalëkalimin</translation>
     </message>
     <message>
         <source>Password Hint</source>
-        <translation type="unfinished"/>
+        <translation>Ndihmëz Fjalëkalimi</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Emri i plotë është shumë i gjatë</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimet nuk përputhen</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Përdorues Standard</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Përgjegjës</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation type="unfinished"/>
+        <translation>E përshtatur</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>optional</source>
-        <translation type="unfinished"/>
+        <translation>opsionale</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Ndihmëza do të jetë e dukshme për krejt përdoruesit. Mos përfshini fjalëkalimin këtu.</translation>
     </message>
     <message>
         <source>Policykit authentication failed</source>
-        <translation type="unfinished"/>
+        <translation>Mirëfilltësimi me Policykit dështoi</translation>
     </message>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Emri i përdoruesit duhet të jetë mes 3 dhe 32 shenja i gjatë</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Shenja e parë duhet të jetë shkronjë, ose numër</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Emri juaj i përdoruesit s’duhet të ketë vetëm numra</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Emri i përdoruesi është përdorur nga llogari të tjera përdoruesish</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Emri i plotë është përdorur nga llogari të tjera përdoruesi</translation>
     </message>
 </context>
 <context>
     <name>dccV23::CustomContentDialog</name>
     <message>
         <source>Add Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni Shkurtore Vetjake</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Emër</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"/>
+        <translation>Urdhër</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni</translation>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Kjo shkurtore ka përplasje me %1, klikoni mbi “Shtoje”, për ta bërë këtë shkurtore të hyjë në fuqi menjëherë</translation>
     </message>
 </context>
 <context>
     <name>dccV23::CustomEdit</name>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>E dmosdoshme</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Ruaje</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Shkurtore</translation>
     </message>
     <message>
         <source>Name</source>
-        <translation type="unfinished"/>
+        <translation>Emër</translation>
     </message>
     <message>
         <source>Command</source>
-        <translation type="unfinished"/>
+        <translation>Urdhër</translation>
     </message>
     <message>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Kjo shkurtore ka përplasje me %1, klikoni mbi “Shtoje”, për ta bërë këtë shkurtore të hyjë në fuqi menjëherë</translation>
     </message>
 </context>
 <context>
     <name>dccV23::CustomItem</name>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Shkurtore</translation>
     </message>
     <message>
         <source>Please enter a shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, jepni një shkurtore</translation>
     </message>
 </context>
 <context>
     <name>dccV23::DetailInfoItem</name>
     <message>
         <source>For more details, visit:</source>
-        <translation type="unfinished"/>
+        <translation>Për më tepër hollësi, vizitoni:</translation>
     </message>
 </context>
 <context>
     <name>dccV23::DeveloperModeDialog</name>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Kërko Hyrje Si Rrënjë</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>Në linjë</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Jo në linjë</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, së pari hyni te ID Union juaj dhe vazhdoni</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Pasuesi</translation>
     </message>
     <message>
         <source>Export PC Info</source>
-        <translation type="unfinished"/>
+        <translation>Eksporto Hollësi PC-je</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>Importoni Dëshmi</translation>
     </message>
     <message>
         <source>1. Export your PC information</source>
-        <translation type="unfinished"/>
+        <translation>1. Eksportoni hollësi të PC-së tuaj</translation>
     </message>
     <message>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation type="unfinished"/>
+        <translation>2. Shkoni te https://www.chinauos.com/developMode që të shkarkoni një dëshmi &lt;em&gt;offline&lt;/em&gt;</translation>
     </message>
     <message>
         <source>3. Import the certificate</source>
-        <translation type="unfinished"/>
+        <translation>3. Importoni dëshminë</translation>
     </message>
 </context>
 <context>
     <name>dccV23::DeveloperModeWidget</name>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Kërko Hyrje Si Rrënjë</translation>
     </message>
     <message>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation type="unfinished"/>
+        <translation>Mënyra zhvillues ju lejon të merrni privilegje rrënje, të instaloni dhe xhironi aplikacione të panënshkruar që s’gjenden te shitore aplikacionesh, por gjithashtu mund të dëmtohet integriteti i sistemit tuaj, ju lutemi, përdoreni me kujdes.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Veçoria s’është e passhme tani, ju lutemi, së pari aktivizoni sistemin tuaj</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të hyhej si rrënjë</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, së pari hyni te ID Union juaj</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>S’lexohen dot hollësi mbi PC-në tuaj</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>S’ka lidhje rrjeti</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Ngarkimi i dëshmisë dështoi, s’arrihet të merret hyrje si rrënjë</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Verifikimi i nënshkrimit dështoi, s’arrihet të merret hyrje si rrënjë</translation>
     </message>
     <message>
         <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation type="unfinished"/>
+        <translation>Për t’i vënë në fuqi disa veçori, lypset rinisje. Të bëhet rinisje tani?</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Restart Now</source>
-        <translation type="unfinished"/>
+        <translation>Rinise Tani</translation>
     </message>
     <message>
         <source>Root Access Allowed</source>
-        <translation type="unfinished"/>
+        <translation>Hyrje Si Rrënjë e Lejuar</translation>
     </message>
 </context>
 <context>
     <name>dccV23::DisplayPlugin</name>
     <message>
         <source>Display</source>
-        <translation type="unfinished"/>
+        <translation>Shfaqe</translation>
     </message>
 </context>
 <context>
     <name>dccV23::DouTestWidget</name>
     <message>
         <source>Double-click Test</source>
-        <translation type="unfinished"/>
+        <translation>Provoni Dyklikimin</translation>
     </message>
 </context>
 <context>
     <name>dccV23::GeneralKBSettingWidget</name>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime Tastiere</translation>
     </message>
     <message>
         <source>Repeat Delay</source>
-        <translation type="unfinished"/>
+        <translation>Vonesë Përsëritjesh</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>E shkurtër</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>E gjatë</translation>
     </message>
     <message>
         <source>Repeat Rate</source>
-        <translation type="unfinished"/>
+        <translation>Shpejtësi Përsëritjesh</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Ngadalë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Shpejt</translation>
     </message>
     <message>
         <source>Test here</source>
-        <translation type="unfinished"/>
+        <translation>Provojeni këtu</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Pjesa Numerike</translation>
     </message>
     <message>
         <source>Caps Lock Prompt</source>
-        <translation type="unfinished"/>
+        <translation>Kycja e kapakeve</translation>
     </message>
 </context>
 <context>
     <name>dccV23::GeneralSettingWidget</name>
     <message>
         <source>Left Hand</source>
-        <translation type="unfinished"/>
+        <translation>Mëngjarash</translation>
     </message>
     <message>
         <source>Disable touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Çaktivizoje touchpad-in teksa shtypet</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Shpejtësi Rrëshqitjeje</translation>
     </message>
     <message>
         <source>Double-click Speed</source>
-        <translation type="unfinished"/>
+        <translation>Shpejtësi Dyklikimi</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Ngadalë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Shpejt</translation>
     </message>
 </context>
 <context>
     <name>dccV23::KBLayoutSettingWidget</name>
     <message>
         <source>Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Skemë Tastiere</translation>
     </message>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Përpunoni</translation>
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni Skemë Tastiere</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>U bë</translation>
     </message>
 </context>
 <context>
     <name>dccV23::KeyboardLayoutDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni</translation>
     </message>
     <message>
         <source>Add Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni Skemë Tastiere</translation>
     </message>
 </context>
 <context>
     <name>dccV23::KeyboardPlugin</name>
     <message>
         <source>Keyboard and Language</source>
-        <translation type="unfinished"/>
+        <translation>Tastierë dhe Gjuhë</translation>
     </message>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Tastierë</translation>
     </message>
     <message>
         <source>Keyboard Settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime Tastiere</translation>
     </message>
     <message>
         <source>Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>Skemë Tastiere</translation>
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Gjuhë</translation>
     </message>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Shkurtore</translation>
     </message>
 </context>
 <context>
     <name>dccV23::MainWindow</name>
     <message>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Ndihmë</translation>
     </message>
 </context>
 <context>
     <name>dccV23::ModifyPasswdPage</name>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>Ndryshoni Fjalëkalimin</translation>
     </message>
     <message>
         <source>Reset Password</source>
-        <translation type="unfinished"/>
+        <translation>Ricaktoni Fjalëkalimin</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Ricaktimi i fjalëkalimit do të spastrojë të dhënat e depozituara te vargu i kyçeve.</translation>
     </message>
     <message>
         <source>Current Password</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi i Tanishëm</translation>
     </message>
     <message>
         <source>Forgot password?</source>
-        <translation type="unfinished"/>
+        <translation>Harruat fjalëkalimin?</translation>
     </message>
     <message>
         <source>New Password</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi i Ri</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="unfinished"/>
+        <translation>Rijepeni Fjalëkalimin</translation>
     </message>
     <message>
         <source>Password Hint</source>
-        <translation type="unfinished"/>
+        <translation>Ndihmëz Fjalëkalimi</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Ruaje</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimet nuk përputhen</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Opsional</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Ndihmëza do të jetë e dukshme për krejt përdoruesit. Mos përfshini fjalëkalimin këtu.</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalim i gabuar</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi i ri duhet të jetë i ndryshëm nga ai i tanishmi</translation>
     </message>
     <message>
         <source>System error</source>
-        <translation type="unfinished"/>
+        <translation>Gabim sistemi</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Gabim rrjeti</translation>
     </message>
 </context>
 <context>
@@ -1235,755 +1304,759 @@
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>Risistemimi i ekranit do të hyjë në fuqi pas %1s pas ndryshimeve</translation>
     </message>
 </context>
 <context>
     <name>dccV23::MousePlugin</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Mi</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Të Përgjithshme</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad</translation>
     </message>
     <message>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>TrackPoint</translation>
     </message>
 </context>
 <context>
     <name>dccV23::MouseSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Shpejtësi Kursori</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Përshpejtim Miu</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Çaktivizoje touchpad-in, kur lidhet një mi</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Rrëshqitje Natyrale</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Ngadalë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Shpejt</translation>
     </message>
 </context>
 <context>
     <name>dccV23::MultiScreenWidget</name>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Disa Ekrane</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mënyrë</translation>
         <extra-contents_path>/display/Mode</extra-contents_path>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ekrani Kryesor</translation>
         <extra-contents_path>/display/Main Scree</extra-contents_path>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Përsëdyte</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Zgjeroje</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Vetëm në %1</translation>
     </message>
 </context>
 <context>
     <name>dccV23::NotificationPlugin</name>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Njoftim</translation>
     </message>
 </context>
 <context>
     <name>dccV23::NotificationWidget</name>
     <message>
         <source>System Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Njoftime Sistemi</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Njoftime Aplikacionesh</translation>
     </message>
 </context>
 <context>
     <name>dccV23::PalmDetectSetting</name>
     <message>
         <source>Palm Detection</source>
-        <translation type="unfinished"/>
+        <translation>Pikasje Shpute</translation>
     </message>
     <message>
         <source>Minimum Contact Surface</source>
-        <translation type="unfinished"/>
+        <translation>Sipërfaqe Kontakti Minimum</translation>
     </message>
     <message>
         <source>Minimum Pressure Value</source>
-        <translation type="unfinished"/>
+        <translation>Vlerë Trysnie Minimum</translation>
     </message>
     <message>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation type="unfinished"/>
+        <translation>Nëse touchpad-i, pas aktivizimit s’funksionon, çaktivizojeni mundësinë</translation>
     </message>
 </context>
 <context>
     <name>dccV23::PrivacyPolicyWidget</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Rregulla Privatësie</translation>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Jemi thellësisht të ndërgjegjshëm për rëndësinë e të dhënave personale për ju. Ndaj kemi Rregullat e Privatësisë që mbulojnë si i grumbullojmë, përdorim, japim, shpërngulim, i tregojmë publikisht dhe depozitojmë të dhënat tuaja.&lt;/p&gt;&lt;p&gt;Që të shihni rregullat tona më të reja për privatësinë, mund të &lt;a href=&quot;%1&quot;&gt;klikoni këtu&lt;/a&gt; dhe/ose shihini në internet, duke vizituar &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Ju lutemi, lexojini me kujdes dhe kuptojini plotësisht praktikat tona për privatësinë e klientëve. Nëse keni çfarëdo pyetje, ju lutemi, lidhuni me ne te: support@uniontech.com.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
     <name>dccV23::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi s’mund të jetë i zbrazët</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi duhet të ketë të paktën %1 shenja</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi s’duhet të jetë më i madh se %1 shenja</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi mund të përmbajë vetëm shkronja anglisht (bëhet dallimi mes shkrimit me të mëdha dhe të vogla), numra ose simbole speciale (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, jo më shumë se %1 shenja palindromike</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, jo më shumë se %1 shenja monotonike</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, jo më shumë se %1 shenja të përsëritura</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi duhet të përmbajë vetëm shkronja të mëdha, shkronja të vogla, numra dhe simbole (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi s’duhet të përmbajë më shumë se 4 shenja palindromike</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>Mos përdorni si fjalëkalim fjalë dhe kombinime të zakonshme</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, krijoni një fjalëkalim të fortë</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>S’plotëson rregullat për fjalëkalime</translation>
     </message>
 </context>
 <context>
     <name>dccV23::RefreshRateWidget</name>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Shpejtësi Rifreskimi</translation>
     </message>
     <message>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>E rekomanduar</translation>
     </message>
 </context>
 <context>
     <name>dccV23::RemoveUserDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation>Jeni i sigurt se doni të fshihet kjo llogari?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Fshi drejtorinë e llogarisë</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Fshije</translation>
     </message>
 </context>
 <context>
     <name>dccV23::ResolutionWidget</name>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Qartësi</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Ripërmasoni Desktopin</translation>
         <extra-contents_path>/display/Resize Desktop</extra-contents_path>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Parazgjedhje</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Sa Ta Nxërë</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Shformoje</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Në qendër</translation>
     </message>
     <message>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Rekomanduar</translation>
     </message>
 </context>
 <context>
     <name>dccV23::RotateWidget</name>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Rrotullim</translation>
         <extra-contents_path>/display/Rotation</extra-contents_path>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
 </context>
 <context>
     <name>dccV23::ScalingWidget</name>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Monitori mbulon vetëm ripërmasim 100% të ekranit</translation>
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Ripërmasim Ekrani</translation>
     </message>
 </context>
 <context>
     <name>dccV23::SearchInput</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Kërko</translation>
     </message>
 </context>
 <context>
     <name>dccV23::SecondaryScreenDialog</name>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Ndriçim</translation>
     </message>
 </context>
 <context>
     <name>dccV23::SecurityLevelItem</name>
     <message>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>I dobët</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Mesatar</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>I fortë</translation>
     </message>
 </context>
 <context>
     <name>dccV23::SecurityQuestionsPage</name>
     <message>
         <source>Security Questions</source>
-        <translation type="unfinished"/>
+        <translation>Pyetje Sigurie</translation>
     </message>
     <message>
         <source>These questions will be used to help reset your password in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Këto pyetje do të përdoren për t’ju ndihmuar të ricaktoni fjalëkalimin tuaj, në rast se e harroni.</translation>
     </message>
     <message>
         <source>Security question 1</source>
-        <translation type="unfinished"/>
+        <translation>Pyetje sigurie 1</translation>
     </message>
     <message>
         <source>Security question 2</source>
-        <translation type="unfinished"/>
+        <translation>Pyetje sigurie 2</translation>
     </message>
     <message>
         <source>Security question 3</source>
-        <translation type="unfinished"/>
+        <translation>Pyetje sigurie 3</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <source>Keep the answer under 30 characters</source>
-        <translation type="unfinished"/>
+        <translation>Përgjigjen mbajeni nën 30 shenja</translation>
     </message>
     <message>
         <source>Do not choose a duplicate question please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, mos zgjidhni një pyetje të përsëdytur</translation>
     </message>
     <message>
         <source>Please select a question</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, përzgjidhni një pyetje</translation>
     </message>
     <message>
         <source>What&apos;s the name of the city where you were born?</source>
-        <translation type="unfinished"/>
+        <translation>Cili është emri i qytetit ku lindët?</translation>
     </message>
     <message>
         <source>What&apos;s the name of the first school you attended?</source>
-        <translation type="unfinished"/>
+        <translation>Cili është emri i shkollës së parë që ndoqët?</translation>
     </message>
     <message>
         <source>Who do you love the most in this world?</source>
-        <translation type="unfinished"/>
+        <translation>Kë doni më shumë në këtë botë?</translation>
     </message>
     <message>
         <source>What&apos;s your favorite animal?</source>
-        <translation type="unfinished"/>
+        <translation>Cila është kafsha juaj e parapëlqyer?</translation>
     </message>
     <message>
         <source>What&apos;s your favorite song?</source>
-        <translation type="unfinished"/>
+        <translation>Cila është kënga juaj e parapëlqyer?</translation>
     </message>
     <message>
         <source>What&apos;s your nickname?</source>
-        <translation type="unfinished"/>
+        <translation>Cila është nofka juaj?</translation>
     </message>
     <message>
         <source>It cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>S’mund të jetë e zbrazët</translation>
     </message>
 </context>
 <context>
     <name>dccV23::SettingsHead</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Përpunojeni</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>U bë</translation>
     </message>
 </context>
 <context>
     <name>dccV23::ShortCutSettingWidget</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistem</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"/>
+        <translation>Dritare</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished"/>
+        <translation>Hapësirë pune</translation>
     </message>
     <message>
         <source>Assistive Tools</source>
-        <translation type="unfinished"/>
+        <translation>Mjete Ndihmuese</translation>
     </message>
     <message>
         <source>Custom Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Shkurtore Vetjake</translation>
     </message>
     <message>
         <source>Restore Defaults</source>
-        <translation type="unfinished"/>
+        <translation>Rikthe Parazgjedhjet</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Shkurtore</translation>
     </message>
 </context>
 <context>
     <name>dccV23::ShortcutContentDialog</name>
     <message>
         <source>Please Reset Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, Riujdisni Shkurtore</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Zëvendësoje</translation>
     </message>
     <message>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation type="unfinished"/>
+        <translation>Kjo shkurtore ka përplasje me %1, klikoni mbi “Zëvendësoje” për ta bërë këtë shkurtore të hyjë në fuqi menjëherë</translation>
     </message>
 </context>
 <context>
     <name>dccV23::ShortcutItem</name>
     <message>
         <source>Enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Jepni shkurtore të re</translation>
     </message>
 </context>
 <context>
     <name>dccV23::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"/>
+        <translation>i passhëm</translation>
     </message>
 </context>
 <context>
     <name>dccV23::SystemInfoModule</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Mbi Këtë PC</translation>
     </message>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Emër Kompjuteri</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>Emër OS-i</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>Edicion</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Lloj</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>Autorizim</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>Procesor</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Kujtesë</translation>
     </message>
     <message>
         <source>Agreements and Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Marrëveshje dhe Rregulla Privatësie</translation>
     </message>
     <message>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>Licencë Edicioni</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Marrëveshje Licence Përdoruesi (EULA)</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Rregulla Privatësie</translation>
     </message>
     <message>
         <source>%1-bit</source>
-        <translation type="unfinished"/>
+        <translation>%1-bit</translation>
     </message>
 </context>
 <context>
     <name>dccV23::SystemInfoPlugin</name>
     <message>
         <source>System Info</source>
-        <translation type="unfinished"/>
+        <translation>Hollësi Sistemi</translation>
     </message>
 </context>
 <context>
     <name>dccV23::SystemLanguageSettingDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni</translation>
     </message>
     <message>
         <source>Add System Language</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni Gjuhë Sistemi</translation>
     </message>
 </context>
 <context>
     <name>dccV23::SystemLanguageWidget</name>
     <message>
         <source>Language List</source>
-        <translation type="unfinished"/>
+        <translation>Listë Gjuhësh</translation>
     </message>
     <message>
         <source>Edit</source>
+        <translation>Përpunoni</translation>
+    </message>
+    <message>
+        <source>Add Language</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>U bë</translation>
     </message>
 </context>
 <context>
     <name>dccV23::SystemNotifyWidget</name>
     <message>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Mos Më Bezdisni</translation>
         <extra-child_page>System Notifications</extra-child_page>
         <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Njoftimet e aplikacioneve s’do të shfaqen në desktop dhe tingujt do të heshtohen, por mund të shihni krejt mesazhet te qendra e njoftimeve.</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Kur ekrani është i kyçur</translation>
     </message>
 </context>
 <context>
     <name>dccV23::TimeSlotItem</name>
     <message>
         <source>From</source>
-        <translation type="unfinished"/>
+        <translation>Nga</translation>
     </message>
     <message>
         <source>To</source>
-        <translation type="unfinished"/>
+        <translation>Për</translation>
     </message>
 </context>
 <context>
     <name>dccV23::TouchPadSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Shpejtësi Kursori</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Për Klikim, prekeni</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Rrëshqitje Natyrale</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Ngadalë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Shpejt</translation>
     </message>
 </context>
 <context>
     <name>dccV23::TouchScreenModule</name>
     <message>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ekran Me Prekje</translation>
     </message>
     <message>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Përzgjidheni ekranin tuaj me prekje, kur lidhet një i tillë, ose caktojeni këtu.</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
 </context>
 <context>
     <name>dccV23::TrackPointSettingWidget</name>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Shpejtësi Kursori</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Ngadalë</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Shpejt</translation>
     </message>
 </context>
 <context>
     <name>dccV23::UserExperienceProgramWidget</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Merrni Pjesë Te programi “User Experience Program”</translation>
         <extra-child_page>User Experience Program</extra-child_page>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Pjesëmarrja te programi “User Experience Program” do të thotë se na akordoni leje dhe autorizoni grumbullimin dhe përdorimin e hollësive mbi pajisjen, sistemin dhe aplikacionet tuaja. Nëse refuzoni grumbullimin dhe përdorimin e hollësive të përmendura më sipër, mos merrni pjesë te “User Experience Program”. Për hollësi, ju lutemi, referojuni Rregullave të Privatësisë për Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Pjesëmarrja te programi “User Experience Program” do të thotë se na akordoni leje dhe autorizoni grumbullimin dhe përdorimin e hollësive mbi pajisjen, sistemin dhe aplikacionet tuaja. Nëse refuzoni grumbullimin dhe përdorimin nga ne të hollësive të përmendura më sipër, mos merrni pjesë te “User Experience Program”. Për të ditur më tepër rreth administrimit të të dhënave tuaja, ju lutemi, referojuni Rregullave të Privatësisë për UnionTech OS (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
     <name>DateWidget</name>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Vit</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Muaj</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Ditë</translation>
     </message>
 </context>
 <context>
     <name>DatetimeModule</name>
     <message>
         <source>Date and Time</source>
-        <translation type="unfinished"/>
+        <translation>Datë dhe Kohë</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
     <message>
         <source>Authentication is required to set the system timezone</source>
-        <translation type="unfinished"/>
+        <translation>Që të ujdisni zonën kohore të sistemit, lypset mirëfilltësim</translation>
     </message>
     <message>
         <source>Authentication is required to change NTP server</source>
-        <translation type="unfinished"/>
+        <translation>Që të ndryshoni shërbyes NTP, lypset mirëfilltësim</translation>
     </message>
 </context>
 <context>
     <name>DefAppModule</name>
     <message>
         <source>Default Applications</source>
-        <translation type="unfinished"/>
+        <translation>Aplikacione Parazgjedhje</translation>
     </message>
 </context>
 <context>
     <name>DefAppPlugin</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Sajt</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="unfinished"/>
+        <translation>Postë</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Tekst</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Muzikë</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>Foto</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished"/>
+        <translation>Terminal</translation>
     </message>
 </context>
 <context>
     <name>DisclaimersDialog</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Klauzolë</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -1998,170 +2071,183 @@ In order to better use of face recognition, please pay attention to the followin
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.
 </source>
-        <translation type="unfinished"/>
+        <translation>Para se të përdorni njohje fytyrash, ju lutemi, kini parasysh se: 
+1. Pajisja juaj mund të shkyçet nga persona ose objekte që duken ose shfaqen të ngjashëm me ju.
+2. Njohja e fytyrave është më pak e sigurt se sa fjalëkalimet dixhitale dhe fjalëkalimet e përziera.
+3. Shkalla e suksesit në shkyçjen e pajisjes tuaj përmes njohjes së fytyrave do të ulet në rast ndriçimi të ulët, ndriçimi të lartë, ndriçimi nga pas, vendosje nën kënde të mëdhenj dhe raste të tjera.
+4. Ju lutemi, mos ua jepni pajisjen tuaj të tjerëve ku të jetë, që të shmangni përdorim dashakeq të njohjes së fytyrave.
+5. Përtej rasteve më sipër, duhet të bëni kujdes në situata të tjera që mund të kenë ndikim në përdorimin normak të njohjes së fytyrave.
+
+Me qëllim përdorimin më të mirë të njohjes së fytyrave, ju lutemi, bëni kujdes të ndiqni sa vijon, kur jepen të dhëna fytyre:
+1. Ju lutemi, qëndroni në një mjedis të ndriçuar mirë, shmangni dritën e drejtpërdrejtë të diellit dhe persona të tjerë që shfaqen në ekranin që po regjistrohet.
+2. Ju lutemi, bëni kujdes te fytyra, kur jepen të dhëna, dhe mos lini kapele, flokë, syze dielli, maska, grim të rëndë dhe faktorë të tjerë të mbulojnë fytyrën tuaj.
+3. Ju lutemi, shmangni animin ose uljen e kokës, mbylljen e syve, ose shfaqjen vetëm të njërës anë të fytyrës tuaj dhe garantoni që pjesa ballore e fytyrës të shfaqet qartë dhe plotësisht te kuadrati i regjistrimit.
+</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
-        <translation type="unfinished"/>
+        <translation>“Mirëfilltësimi biometrik” është një funksion për mirëfilltësim identiteti përdoruesi, i furnizuar nga UnionTech Software Technology Co., Ltd. Përmes “mirëfilltësimit biometrik”, të dhënat biometrike të grumbulluara do të krahasohen me ato të depozituara te pajisja dhe identiteti i përdoruesit do të verifikohet bazuar në përfundimin e dalë nga krahasimi.
+Ju lutemi, mbani parasysh se UnionTech Software s’do të grumbullojë ose hyjë në të dhënat tuaja biometrike, të cilat do të depozitohen në pajisjen tuaj vendore. Ju lutemi, mirëfilltësimin biometrik aktivizojeni vetëm te pajisja juaj personale dhe përdorini të dhënat tuaja biometrike për veprime përkatëse dhe çaktivizojeni menjëherë ose fshini të dhëna biometrike personash të tjerë në atë pajisje, përndryshe jeni përgjegjës për rrezikun e lindur prej kësaj. 
+UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të sigurisë, përpikërisë dhe qëndrueshmërisë së mirëfilltësimit biometrik. Sidoqoftë, për shkak faktorësh mjedisorë, pajisjesh, teknikë dhe të tjerë, si dhe kontroll rreziqesh, s’ka garanci se do ta kaloni mirëfilltësimin biometrik me sukses. Ndaj, ju lutemi, mos e mbani mirëfilltësimin biometrik si të vetmen mënyrë për bërjen e hyrjes në UnionTech OS. Nëse keni ndonjë pyetje apo sugjerim lidhur me përdorimin e mirëfilltësimit biometrik, mund të na i jepni përmes “Shërbim dhe Asistencë” te UnionTech OS.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Pasuesi</translation>
     </message>
 </context>
 <context>
     <name>DisclaimersItem</name>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>E kam lexuar dhe pajtohem me</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Klauzolë</translation>
     </message>
 </context>
 <context>
     <name>DockModuleObject</name>
     <message>
         <source>Dock</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Position</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show recent apps in Dock</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Panel</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Disa Ekrane</translation>
     </message>
     <message>
         <source>Show Dock</source>
-        <translation type="unfinished"/>
+        <translation>Shfaq Panel</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Mënyrë</translation>
+    </message>
+    <message>
+        <source>Position</source>
+        <translation>Vendndodhje</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Gjendje</translation>
+    </message>
+    <message>
+        <source>Show recent apps in Dock</source>
+        <translation>Shfaq në Panel aplikacione të përdorur së fundi</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Madhësi</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"/>
+        <translation>Zonë Shtojcash</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Përzgjidhni cilat ikona shfaqen te Paneli</translation>
     </message>
     <message>
         <source>Fashion mode</source>
-        <translation type="unfinished"/>
+        <translation>Mënyra modë</translation>
     </message>
     <message>
         <source>Efficient mode</source>
-        <translation type="unfinished"/>
+        <translation>Mënyra efikase</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"/>
+        <translation>Në Krye</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"/>
+        <translation>Në Fund</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>Majtas</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>Djathtas</translation>
     </message>
     <message>
         <source>Location</source>
-        <translation type="unfinished"/>
+        <translation>Vendndodhje</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Mbaje të shfaqur</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation type="unfinished"/>
+        <translation>Mbaje të fshehur</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation type="unfinished"/>
+        <translation>Fshehje e Mençur</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>I vogël</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>I madh</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation type="unfinished"/>
+        <translation>Në ekranin ku gjendet kursori</translation>
     </message>
     <message>
         <source>Only on main screen</source>
-        <translation type="unfinished"/>
+        <translation>Vetëm te ekrani kryesor</translation>
     </message>
 </context>
 <context>
     <name>FaceInfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation type="unfinished"/>
+        <translation>Jepni Fytyrë</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>Vendoseni fytyrën tuaj brenda kornizës</translation>
     </message>
 </context>
 <context>
     <name>FaceWidget</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Përpunoni</translation>
     </message>
     <message>
         <source>Manage Faces</source>
-        <translation type="unfinished"/>
+        <translation>Administroni Fytyra</translation>
     </message>
     <message>
         <source>You can add up to 5 faces</source>
-        <translation type="unfinished"/>
+        <translation>Mund të shtoni deri në 5 fytyra</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>U bë</translation>
     </message>
     <message>
         <source>Add Face</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni Fytyrë</translation>
     </message>
     <message>
         <source>The name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Emri ekziston tashmë</translation>
     </message>
     <message>
         <source>Faceprint</source>
@@ -2172,237 +2258,237 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>FaceidDetailWidget</name>
     <message>
         <source>No supported devices found</source>
-        <translation type="unfinished"/>
+        <translation>S’u gjetën pajisje të mbuluara</translation>
     </message>
 </context>
 <context>
     <name>FingerDetailWidget</name>
     <message>
         <source>No supported devices found</source>
-        <translation type="unfinished"/>
+        <translation>S’u gjetën pajisje të mbuluara</translation>
     </message>
 </context>
 <context>
     <name>FingerDisclaimer</name>
     <message>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni Shenja Gishtash</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Pasuesi</translation>
     </message>
 </context>
 <context>
     <name>FingerInfoWidget</name>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Vendosni gishtin tuaj</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Vendoseni gishtin tuaj te ndijuesi pa e lëvizur, deri sa t’ju kërkohet ta hiqni</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Skanoni skajet e shenjës tuaj të gishtit</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Vendosni te ndijuesi skajet e mollëzës së gishtit tuaj</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Hiqeni gishtin</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Ngrijeni gishtin dhe rivendoseni te ndijuesi</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Rregullojeni pozicionin që të skanohen skajet e shenjës së gishtit tuaj</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Ngrijeni gishtin dhe ribëjeni</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>U shtuan shenja gishtash</translation>
     </message>
 </context>
 <context>
     <name>FingerWidget</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Përpunoni</translation>
     </message>
     <message>
         <source>Fingerprint Password</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalim Shenjash Gishtash</translation>
     </message>
     <message>
         <source>You can add up to 10 fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Mund të shtoni deri në 10 shenja gishtash</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>U bë</translation>
     </message>
     <message>
         <source>The name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Emri ekziston tashmë</translation>
     </message>
     <message>
         <source>Add Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni Shenja Gishtash</translation>
     </message>
 </context>
 <context>
     <name>FormatSettingModule</name>
     <message>
         <source>Time Format</source>
-        <translation type="unfinished"/>
+        <translation>Format Kohe</translation>
     </message>
     <message>
         <source>Monday</source>
-        <translation type="unfinished"/>
+        <translation>E hënë</translation>
     </message>
     <message>
         <source>monday</source>
-        <translation type="unfinished"/>
+        <translation>e hënë</translation>
     </message>
     <message>
         <source>April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>Prill 5, 2020</translation>
     </message>
     <message>
         <source>April 5, 2020, Sunday</source>
-        <translation type="unfinished"/>
+        <translation>Prill 5, 2020, E diel</translation>
     </message>
     <message>
         <source>Sunday, April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>E diel, 5 prill 2020</translation>
     </message>
     <message>
         <source>2020/4/5</source>
-        <translation type="unfinished"/>
+        <translation>2020/4/5</translation>
     </message>
     <message>
         <source>2020-4-5</source>
-        <translation type="unfinished"/>
+        <translation>2020-4-5</translation>
     </message>
     <message>
         <source>2020.4.5</source>
-        <translation type="unfinished"/>
+        <translation>2020.4.5</translation>
     </message>
     <message>
         <source>2020/04/05</source>
-        <translation type="unfinished"/>
+        <translation>2020/04/05</translation>
     </message>
     <message>
         <source>2020-04-05</source>
-        <translation type="unfinished"/>
+        <translation>2020-04-05</translation>
     </message>
     <message>
         <source>2020.04.05</source>
-        <translation type="unfinished"/>
+        <translation>2020.04.05</translation>
     </message>
     <message>
         <source>20/4/5</source>
-        <translation type="unfinished"/>
+        <translation>20/4/5</translation>
     </message>
     <message>
         <source>20-4-5</source>
-        <translation type="unfinished"/>
+        <translation>20-4-5</translation>
     </message>
     <message>
         <source>20.4.5</source>
-        <translation type="unfinished"/>
+        <translation>20.4.5</translation>
     </message>
     <message>
         <source>9:40:07</source>
-        <translation type="unfinished"/>
+        <translation>9:40:07</translation>
     </message>
     <message>
         <source>09:40:07</source>
-        <translation type="unfinished"/>
+        <translation>09:40:07</translation>
     </message>
     <message>
         <source>9:40</source>
-        <translation type="unfinished"/>
+        <translation>9:40</translation>
     </message>
     <message>
         <source>09:40</source>
-        <translation type="unfinished"/>
+        <translation>09:40</translation>
     </message>
     <message>
         <source>Tuesday</source>
-        <translation type="unfinished"/>
+        <translation>E martë</translation>
     </message>
     <message>
         <source>Wednesday</source>
-        <translation type="unfinished"/>
+        <translation>E mërkurë</translation>
     </message>
     <message>
         <source>Thursday</source>
-        <translation type="unfinished"/>
+        <translation>E enjte</translation>
     </message>
     <message>
         <source>Friday</source>
-        <translation type="unfinished"/>
+        <translation>E premte</translation>
     </message>
     <message>
         <source>Saturday</source>
-        <translation type="unfinished"/>
+        <translation>E shtunë</translation>
     </message>
     <message>
         <source>Sunday</source>
-        <translation type="unfinished"/>
+        <translation>E diel</translation>
     </message>
     <message>
         <source>24-hour Time</source>
-        <translation type="unfinished"/>
+        <translation>Kohë 24-orëshe</translation>
     </message>
     <message>
         <source>Weeks</source>
-        <translation type="unfinished"/>
+        <translation>Javë</translation>
     </message>
     <message>
         <source>First Day of Week</source>
-        <translation type="unfinished"/>
+        <translation>Dita e Parë e Javës</translation>
     </message>
     <message>
         <source>Short Date</source>
-        <translation type="unfinished"/>
+        <translation>Datë e Shkurtër</translation>
     </message>
     <message>
         <source>Long Date</source>
-        <translation type="unfinished"/>
+        <translation>Datë e Gjatë</translation>
     </message>
     <message>
         <source>Short Time</source>
-        <translation type="unfinished"/>
+        <translation>Kohë e Shkurtër</translation>
     </message>
     <message>
         <source>Long Time</source>
-        <translation type="unfinished"/>
+        <translation>Kohë e Gjatë</translation>
     </message>
 </context>
 <context>
     <name>GeneralModule</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Të Përgjithshme</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"/>
+        <translation>E drejtpeshuar</translation>
     </message>
     <message>
         <source>High Performance</source>
@@ -2410,92 +2496,92 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Power Saver</source>
-        <translation type="unfinished"/>
+        <translation>Kursyes Energjie</translation>
     </message>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>Plane Energjie</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime Kursimi Energjie</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>Kursim i automatizuar energjie, kur bateria është e pakët</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>Kursim i automatizuar energjie, kur është nën bateri</translation>
     </message>
     <message>
         <source>Decrease Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Ule Ndriçimin</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime Zgjimi</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Që të zgjohet kompjuteri, lypset fjalëkalim</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Që të zgjohet monitori, lypset fjalëkalim</translation>
     </message>
 </context>
 <context>
     <name>HostNameItem</name>
     <message>
         <source>Computer Name</source>
-        <translation type="unfinished"/>
+        <translation>Emër Kompjuteri</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"/>
+        <translation>S’mund të fillojë, ose përfundojë me vija ndarëse në mes</translation>
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, 1~63 shenja</translation>
     </message>
 </context>
 <context>
     <name>IrisDetailWidget</name>
     <message>
         <source>No supported devices found</source>
-        <translation type="unfinished"/>
+        <translation>S’u gjetën pajisje të mbuluara</translation>
     </message>
 </context>
 <context>
     <name>IrisWidget</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Përpunoni</translation>
     </message>
     <message>
         <source>Manage Irises</source>
-        <translation type="unfinished"/>
+        <translation>Administroni Bebe Sysh</translation>
     </message>
     <message>
         <source>You can add up to 5 irises</source>
-        <translation type="unfinished"/>
+        <translation>Mund të shtoni deri në 5 bebe sysh</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>U bë</translation>
     </message>
     <message>
         <source>Add Iris</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni Bebe Sysh</translation>
     </message>
     <message>
         <source>The name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Emri ekziston tashmë</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Bebe Syri</translation>
     </message>
 </context>
 <context>
@@ -2509,246 +2595,246 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Të drejta kopjimi© 2011-%1 Bashkësia Deepin</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"/>
+        <translation>Të drejta kopjimi© 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
     <name>MicrophonePage</name>
     <message>
         <source>Input Device</source>
-        <translation type="unfinished"/>
+        <translation>Pajisje Në Hyrje</translation>
     </message>
     <message>
         <source>Automatic Noise Suppression</source>
-        <translation type="unfinished"/>
+        <translation>Mbytje e Automatizuar Zhurmash</translation>
     </message>
     <message>
         <source>Input Volume</source>
-        <translation type="unfinished"/>
+        <translation>Volum Në Hyrje</translation>
     </message>
     <message>
         <source>Input Level</source>
-        <translation type="unfinished"/>
+        <translation>Nivel Në Hyrje</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationDesktopModule</name>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Desktop</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"/>
+        <translation>Dritare</translation>
     </message>
     <message>
         <source>Window Effect</source>
-        <translation type="unfinished"/>
+        <translation>Efekt Dritaresh</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation type="unfinished"/>
+        <translation>Efekt Minimizimi Dritaresh</translation>
     </message>
     <message>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>Tejdukshmëri</translation>
     </message>
     <message>
         <source>Rounded Corner</source>
-        <translation type="unfinished"/>
+        <translation>Cep i Rrumbullakosur</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"/>
+        <translation>Ripërmasojeni</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation type="unfinished"/>
+        <translation>Llambë Magjike</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationModule</name>
     <message>
         <source>Personalization</source>
-        <translation type="unfinished"/>
+        <translation>Personalizim</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationThemeList</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Ruaje</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>E çelët</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>E errët</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Parazgjedhje</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationThemeModule</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Temë</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Dukje</translation>
     </message>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>Ngjyrë Theksimi</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime Ikonash</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>Temë Ikonash</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>Temë Kursori</translation>
     </message>
     <message>
         <source>Text Settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime Teksti</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"/>
+        <translation>Madhësi Gërmash</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Shkronja Standarde</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Shkronja Monospace</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>E çelët</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>E errët</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationThemeWidget</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>E çelët</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>E errët</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Auto</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Parazgjedhje</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>Vetjake</translation>
     </message>
 </context>
 <context>
     <name>PinCodeDialog</name>
     <message>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation type="unfinished"/>
+        <translation>PIN-i për lidhje me pajisjen Bluetooth është:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anulojeni</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Ripohojeni</translation>
     </message>
 </context>
 <context>
     <name>PowerModule</name>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Energji</translation>
     </message>
     <message>
         <source>Battery low, please plug in</source>
-        <translation type="unfinished"/>
+        <translation>Bateri e pakët, ju lutemi, vëreni në prizë</translation>
     </message>
     <message>
         <source>Battery critically low</source>
-        <translation type="unfinished"/>
+        <translation>Bateri e pakët në nivel kritik</translation>
     </message>
 </context>
 <context>
     <name>PrivacyModule</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Privatësi dhe Siguri</translation>
     </message>
 </context>
 <context>
     <name>PrivacySecurityModel</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Kamerë</translation>
     </message>
     <message>
         <source>Microphone</source>
-        <translation type="unfinished"/>
+        <translation>Mikrofon</translation>
     </message>
     <message>
         <source>User Folders</source>
-        <translation type="unfinished"/>
+        <translation>Dosje Përdoruesi</translation>
     </message>
     <message>
         <source>Calendar</source>
-        <translation type="unfinished"/>
+        <translation>Kalendar</translation>
     </message>
     <message>
         <source>Screen Capture</source>
-        <translation type="unfinished"/>
+        <translation>Regjistrim Ekrani</translation>
     </message>
 </context>
 <context>
@@ -2759,58 +2845,58 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Error occurred when reading the configuration files of password rules!</source>
-        <translation type="unfinished"/>
+        <translation>Ndodhi një gabim teksa lexoheshin kartelat e formësimit të rregullave të fjalëkalimit!</translation>
     </message>
     <message>
         <source>Activated</source>
-        <translation type="unfinished"/>
+        <translation>E aktivizuar</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"/>
+        <translation>Shiheni</translation>
     </message>
     <message>
         <source>To be activated</source>
-        <translation type="unfinished"/>
+        <translation>Për t’u aktivizuar</translation>
     </message>
     <message>
         <source>Activate</source>
-        <translation type="unfinished"/>
+        <translation>Aktivizoje</translation>
     </message>
     <message>
         <source>Expired</source>
-        <translation type="unfinished"/>
+        <translation>Ka skaduar</translation>
     </message>
     <message>
         <source>In trial period</source>
-        <translation type="unfinished"/>
+        <translation>Në periudhë prove</translation>
     </message>
     <message>
         <source>Trial expired</source>
-        <translation type="unfinished"/>
+        <translation>Prova skadoi</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime Ekrani Me Prekje</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>Rregullimet për ekranin me prekje u ndryshuan</translation>
     </message>
 </context>
 <context>
     <name>ResultItem</name>
     <message>
         <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"/>
+        <translation>Sistemi juaj s’është i autorizuar, ju lutemi, së pari aktivizojeni</translation>
     </message>
     <message>
         <source>Update successful</source>
-        <translation type="unfinished"/>
+        <translation>Përditësim i suksesshëm</translation>
     </message>
     <message>
         <source>Failed to update</source>
-        <translation type="unfinished"/>
+        <translation>S’u përditësua dot</translation>
     </message>
 </context>
 <context>
@@ -2824,271 +2910,271 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>ServiceSettingsModule</name>
     <message>
         <source>Apps can access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Aplikacionet mund të përdorin kamerën tuaj:</translation>
     </message>
     <message>
         <source>Apps can access your microphone:</source>
-        <translation type="unfinished"/>
+        <translation>Aplikacionet mund të përdorin mikrofonin tuaj:</translation>
     </message>
     <message>
         <source>Apps can access user folders:</source>
-        <translation type="unfinished"/>
+        <translation>Aplikacionet mund të përdorin dosje përdoruesish:</translation>
     </message>
     <message>
         <source>Apps can access Calendar:</source>
-        <translation type="unfinished"/>
+        <translation>Aplikacionet mund të përdorin Kalendarin:</translation>
     </message>
     <message>
         <source>Apps can access Screen Capture:</source>
-        <translation type="unfinished"/>
+        <translation>Aplikacionet mund të përdorin Regjistrim Ekrani:</translation>
     </message>
     <message>
         <source>No apps requested access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>S’ka aplikacion që ka kërkuar përdorimin e kamerës</translation>
     </message>
     <message>
         <source>No apps requested access to the microphone</source>
-        <translation type="unfinished"/>
+        <translation>S’ka aplikacion që ka kërkuar përdorimin e mikrofonit</translation>
     </message>
     <message>
         <source>No apps requested access to user folders</source>
-        <translation type="unfinished"/>
+        <translation>S’ka aplikacion që ka kërkuar përdorimin e dosjeve të përdoruesit</translation>
     </message>
     <message>
         <source>No apps requested access to Calendar</source>
-        <translation type="unfinished"/>
+        <translation>S’ka aplikacion që ka kërkuar përdorimin e Kalendarit</translation>
     </message>
     <message>
         <source>No apps requested access to Screen Capture</source>
-        <translation type="unfinished"/>
+        <translation>S’ka aplikacion që ka kërkuar përdorimin e Regjistrimit të Ekranit</translation>
     </message>
 </context>
 <context>
     <name>SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Efekte Zanore</translation>
     </message>
 </context>
 <context>
     <name>SoundModel</name>
     <message>
         <source>Boot up</source>
-        <translation type="unfinished"/>
+        <translation>Nisu</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>Fike</translation>
     </message>
     <message>
         <source>Log out</source>
-        <translation type="unfinished"/>
+        <translation>Dalje</translation>
     </message>
     <message>
         <source>Wake up</source>
-        <translation type="unfinished"/>
+        <translation>Zgjohu</translation>
     </message>
     <message>
         <source>Volume +/-</source>
-        <translation type="unfinished"/>
+        <translation>Volum +/-</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Njoftim</translation>
     </message>
     <message>
         <source>Low battery</source>
-        <translation type="unfinished"/>
+        <translation>Bateri e pakët</translation>
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Dërgoje ikonën te Nisës në Desktop</translation>
     </message>
     <message>
         <source>Empty Trash</source>
-        <translation type="unfinished"/>
+        <translation>Zbraz Hedhurinat</translation>
     </message>
     <message>
         <source>Plug in</source>
-        <translation type="unfinished"/>
+        <translation>Fute</translation>
     </message>
     <message>
         <source>Plug out</source>
-        <translation type="unfinished"/>
+        <translation>Nxirre</translation>
     </message>
     <message>
         <source>Removable device connected</source>
-        <translation type="unfinished"/>
+        <translation>U lidh pajisje e heqshme</translation>
     </message>
     <message>
         <source>Removable device removed</source>
-        <translation type="unfinished"/>
+        <translation>U hoq pajisje e heqshme</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Gabim</translation>
     </message>
 </context>
 <context>
     <name>SoundModule</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Tingull</translation>
     </message>
 </context>
 <context>
     <name>SoundPlugin</name>
     <message>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Në Dalje</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Në Hyrje</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Efekte Zanore</translation>
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>Pajisje</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"/>
+        <translation>Pajisje Në Hyrje</translation>
     </message>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>Pajisje Në Dalje</translation>
     </message>
 </context>
 <context>
     <name>SpeakerPage</name>
     <message>
         <source>Output Device</source>
-        <translation type="unfinished"/>
+        <translation>Pajisje Në Dalje</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mënyrë</translation>
     </message>
     <message>
         <source>Output Volume</source>
-        <translation type="unfinished"/>
+        <translation>Volum Në Dalje</translation>
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation type="unfinished"/>
+        <translation>Përforcim Volumi</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Nëse volumi është më i fortë se 100%, mund të shformohen tingujt dhe të jetë e dëmshme për altoparlantët tuaj</translation>
     </message>
     <message>
         <source>Left/Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Balancë Majtas/Djathtas</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>Majtas</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>Djathtas</translation>
     </message>
 </context>
 <context>
     <name>TimeSettingModule</name>
     <message>
         <source>Time Settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime Kohe</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Kohë</translation>
     </message>
     <message>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>Vetë-njëkohësohu</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Shërbyes</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation type="unfinished"/>
+        <translation>Adresë</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>E domosdoshme</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>Përshtateni</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Vit</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Muaj</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Ditë</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Ruaje</translation>
     </message>
 </context>
 <context>
     <name>TimeZoneChooser</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Ripohojeni</translation>
     </message>
     <message>
         <source>Add Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni Zonë Kohore</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni</translation>
     </message>
     <message>
         <source>Change Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Ndryshoni Zonë Kohore</translation>
     </message>
 </context>
 <context>
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Të ruhen rregullimet për ekranin?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Rregullimet do të kthehen te $1s.</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>Riktheji</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3099,37 +3185,44 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>TimezoneItem</name>
     <message>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>Nesër</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Dje</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Sot</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 orë më herët se sa vendorja</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 orë më vonë se sa vendorja</translation>
     </message>
 </context>
 <context>
     <name>TimezoneModule</name>
     <message>
         <source>Timezone List</source>
-        <translation type="unfinished"/>
+        <translation>Listë Zonash Kohore</translation>
     </message>
     <message>
         <source>System Timezone</source>
-        <translation type="unfinished"/>
+        <translation>Zonë Kohore Sistemi</translation>
     </message>
     <message>
         <source>Add Timezone</source>
+        <translation>Shtoni Zonë Kohore</translation>
+    </message>
+</context>
+<context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3156,307 +3249,315 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>UnknownUpdateItem</name>
     <message>
         <source>Release date: </source>
-        <translation type="unfinished"/>
+        <translation>Datë hedhjeje në qarkullim: </translation>
     </message>
 </context>
 <context>
     <name>UpdateCtrlWidget</name>
     <message>
         <source>Check Again</source>
-        <translation type="unfinished"/>
+        <translation>Rikontrollo</translation>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Përditësimi dështoi: hapësirë disku e pamjaftueshme</translation>
     </message>
     <message>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>Gabim varësish, s’u arrit të zbulohen përditësimet</translation>
     </message>
     <message>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="unfinished"/>
+        <translation>Që të përdorni sistemin dhe aplikacionet si duhet, rinisni kompjuterin</translation>
     </message>
     <message>
         <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <translation>Rrjeti u shkëput, ju lutemi, riprovoni pasi të jetë lidhur</translation>
     </message>
     <message>
         <source>Your system is not authorized, please activate first</source>
-        <translation type="unfinished"/>
+        <translation>Sistemi juaj s’është i autorizuar, ju lutemi, së pari aktivizojeni</translation>
     </message>
     <message>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished"/>
+        <translation>Ky përditësim mund të zgjasë një kohë të gjatë, ju lutemi, mos e fikni apo rinisni gjatë procesit</translation>
     </message>
     <message>
         <source>Updates Available</source>
-        <translation type="unfinished"/>
+        <translation>Ka Përditësime</translation>
     </message>
     <message>
         <source>Current Edition</source>
-        <translation type="unfinished"/>
+        <translation>Edicioni i Tanishëm</translation>
     </message>
     <message>
         <source>Updating...</source>
-        <translation type="unfinished"/>
+        <translation>Po përditësohet</translation>
     </message>
     <message>
         <source>Update All</source>
-        <translation type="unfinished"/>
+        <translation>Përditësoji Krejt</translation>
     </message>
     <message>
         <source>Last checking time: </source>
-        <translation type="unfinished"/>
+        <translation>Koha e kontrollit të fundit: </translation>
     </message>
     <message>
         <source>Your system is up to date</source>
-        <translation type="unfinished"/>
+        <translation>Sistemi juaj është i përditësuar</translation>
     </message>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished"/>
+        <translation>Kontrollo për Përditësime</translation>
     </message>
     <message>
         <source>Checking for updates, please wait...</source>
-        <translation type="unfinished"/>
+        <translation>Po kontrollohet për përditësime, ju lutemi, pritni…</translation>
     </message>
     <message>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>U instalua sistemi më i ri, riniseni që të hyjë në fuqi</translation>
     </message>
     <message>
         <source>%1% downloaded (Click to pause)</source>
-        <translation type="unfinished"/>
+        <translation>%1% të shkarkuara (Klikoni që të ndalet)</translation>
     </message>
     <message>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1% të shkarkuara (Klikoni që të vazhdohet)</translation>
     </message>
     <message>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation type="unfinished"/>
+        <translation>Bateria juaj është më pak se 50%, ju lutemi, që të vazhdohet, vëreni në prizë</translation>
     </message>
     <message>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, që të riniset, sigurohuni për energji të mjaftueshme dhe mos e fikni apo të hiqni prizën e makinës tuaj</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Madhësi</translation>
     </message>
 </context>
 <context>
     <name>UpdateModule</name>
     <message>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Përditësime</translation>
     </message>
 </context>
 <context>
     <name>UpdatePlugin</name>
     <message>
         <source>Check for Updates</source>
-        <translation type="unfinished"/>
+        <translation>Kontrollo për Përditësime</translation>
     </message>
 </context>
 <context>
     <name>UpdateSettingItem</name>
     <message>
         <source>Insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Hapësirë disku e pamjaftueshme</translation>
     </message>
     <message>
         <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Përditësimi dështoi: hapësirë disku e pamjaftueshme</translation>
     </message>
     <message>
         <source>Update failed</source>
-        <translation type="unfinished"/>
+        <translation>Përditësimi dështoi</translation>
     </message>
     <message>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Gabim rrjeti</translation>
     </message>
     <message>
         <source>Network error, please check and try again</source>
-        <translation type="unfinished"/>
+        <translation>Gabim rrjeti, ju lutemi, riprovoni</translation>
     </message>
     <message>
         <source>Packages error</source>
-        <translation type="unfinished"/>
+        <translation>Gabim paketash</translation>
     </message>
     <message>
         <source>Packages error, please try again</source>
-        <translation type="unfinished"/>
+        <translation>Gabim paketash, ju lutemi, riprovoni</translation>
     </message>
     <message>
         <source>Dependency error</source>
-        <translation type="unfinished"/>
+        <translation>Gabim varësish</translation>
     </message>
     <message>
         <source>Unmet dependencies</source>
-        <translation type="unfinished"/>
+        <translation>Varësi të paplotësuara</translation>
     </message>
     <message>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>U instalua sistemi më i ri, riniseni që të hyjë në fuqi</translation>
     </message>
     <message>
         <source>Waiting</source>
-        <translation type="unfinished"/>
+        <translation>Në pritje</translation>
     </message>
     <message>
         <source>Backing up</source>
-        <translation type="unfinished"/>
+        <translation>Po kryhet kopjeruajtje</translation>
     </message>
     <message>
         <source>System backup failed</source>
-        <translation type="unfinished"/>
+        <translation>Kopjeruajtja e sistemit dështoi</translation>
     </message>
     <message>
         <source>Release date: </source>
+        <translation>Datë hedhjeje në qarkullim: </translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
 </context>
 <context>
     <name>UpdateSettingsModule</name>
     <message>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>Përditësoni Rregullimet</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistem</translation>
     </message>
     <message>
         <source>Security Updates Only</source>
-        <translation type="unfinished"/>
+        <translation>Vetëm Përditësime Sigurie</translation>
     </message>
     <message>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
-        <translation type="unfinished"/>
+        <translation>Aktivizojeni, që të bëhen përditësime vetëm për cenueshmëri sigurie dhe probleme përputhshmërie</translation>
     </message>
     <message>
         <source>Third-party Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Depo Palësh të Treta</translation>
     </message>
     <message>
         <source>Other settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime të tjera</translation>
     </message>
     <message>
         <source>Auto Check for Updates</source>
-        <translation type="unfinished"/>
+        <translation>Kontrollo Vetvetiu për Përditësime</translation>
     </message>
     <message>
         <source>Auto Download Updates</source>
-        <translation type="unfinished"/>
+        <translation>Përidtësimet Vetëshkarkoji</translation>
     </message>
     <message>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished"/>
+        <translation>Aktivizojeni që të shkarkohen automatikisht përditësimet në rrjet me ose pa fill</translation>
     </message>
     <message>
         <source>Auto Install Updates</source>
-        <translation type="unfinished"/>
+        <translation>Përditësimet Vetëinstaloji</translation>
     </message>
     <message>
         <source>Updates Notification</source>
-        <translation type="unfinished"/>
+        <translation>Njoftim Përditësimesh</translation>
     </message>
     <message>
         <source>Clear Package Cache</source>
-        <translation type="unfinished"/>
+        <translation>Spastro Fshehtinë Paketash</translation>
     </message>
     <message>
         <source>System Updates</source>
-        <translation type="unfinished"/>
+        <translation>Përditësime Sistemi</translation>
     </message>
     <message>
         <source>Security Updates</source>
-        <translation type="unfinished"/>
+        <translation>Përditësime Sigurie</translation>
     </message>
     <message>
         <source>Install updates automatically when the download is complete</source>
-        <translation type="unfinished"/>
+        <translation>Instaloji përditësimet automatikisht, kur të jetë plotësuar shkarkimi</translation>
     </message>
     <message>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
-        <translation type="unfinished"/>
+        <translation>Instaloje “%1” automatikisht, kur të jetë plotësuar shkarkimi</translation>
     </message>
 </context>
 <context>
     <name>UpdateWidget</name>
     <message>
         <source>Current Edition</source>
-        <translation type="unfinished"/>
+        <translation>Edicioni i Tanishëm</translation>
     </message>
 </context>
 <context>
     <name>UpdateWorker</name>
     <message>
         <source>System Updates</source>
-        <translation type="unfinished"/>
+        <translation>Përditësime Sistemi</translation>
     </message>
     <message>
         <source>Fixed some known bugs and security vulnerabilities</source>
-        <translation type="unfinished"/>
+        <translation>U ndreqën disa të meta të ditura dhe cenueshmëri sigurie</translation>
     </message>
     <message>
         <source>Security Updates</source>
-        <translation type="unfinished"/>
+        <translation>Përditësime Sigurie</translation>
     </message>
     <message>
         <source>Third-party Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Depo Palësh të Treta</translation>
     </message>
 </context>
 <context>
     <name>UseBatteryModule</name>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Nën Bateri</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>Kurrë</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>Fike</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pezulloje</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Plogështoje</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Fike monitorin</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Mos bëj gjë</translation>
     </message>
     <message>
         <source>1 Minute</source>
-        <translation type="unfinished"/>
+        <translation>1 Minute</translation>
     </message>
     <message>
         <source>%1 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>%1 Minutash</translation>
     </message>
     <message>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 Orë</translation>
     </message>
     <message>
         <source>Screen and Suspend</source>
@@ -3464,78 +3565,78 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Fike monitorin pas</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Kyçe ekranin pas</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Kompjuteri pezullohet pas</translation>
     </message>
     <message>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Kompjuteri do të pezullohet pas</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Kur mbyllet kapaku</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Kur shtypet butoni i energjisë</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"/>
+        <translation>Bateri e Pakët</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>Njoftim për bateri të pakët</translation>
     </message>
     <message>
         <source>Low battery level</source>
-        <translation type="unfinished"/>
+        <translation>Nivel i ulët baterie</translation>
     </message>
     <message>
         <source>Auto suspend battery level</source>
-        <translation type="unfinished"/>
+        <translation>Nivel baterie për pezullim të automatizuar</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"/>
+        <translation>Administrim Baterie</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation type="unfinished"/>
+        <translation>Shfaq kohën e mbetur për përdorimin dhe atë për ngarkimin</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation type="unfinished"/>
+        <translation>Kapacitet maksimum</translation>
     </message>
 </context>
 <context>
     <name>UseElectricModule</name>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Në Prizë</translation>
     </message>
     <message>
         <source>1 Minute</source>
-        <translation type="unfinished"/>
+        <translation>1 Minute</translation>
     </message>
     <message>
         <source>%1 Minutes</source>
-        <translation type="unfinished"/>
+        <translation>%1 Minutash</translation>
     </message>
     <message>
         <source>1 Hour</source>
-        <translation type="unfinished"/>
+        <translation>1 Orë</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>Kurrë</translation>
     </message>
     <message>
         <source>Screen and Suspend</source>
@@ -3543,74 +3644,74 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Fike monitorin pas</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Kyçe ekranin pas</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Kompjuteri pezullohet pas</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Kur mbyllet kapaku</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Kur shtypet butoni i energjisë</translation>
     </message>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>Fike</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pezulloje</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Plogështoje</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Fike monitorin</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Mos bëj gjë</translation>
     </message>
 </context>
 <context>
     <name>WacomModule</name>
     <message>
         <source>Drawing Tablet</source>
-        <translation type="unfinished"/>
+        <translation>Tablet Vizatimi</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mënyrë</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Ndjeshmëri Trysnie</translation>
     </message>
     <message>
         <source>Pen</source>
-        <translation type="unfinished"/>
+        <translation>Penë</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Mi</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>E çelët</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>E fortë</translation>
     </message>
 </context>
 <context>
@@ -3624,27 +3725,27 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <name>updateControlPanel</name>
     <message>
         <source>Downloading </source>
-        <translation type="unfinished"/>
+        <translation>Po shkarkohet </translation>
     </message>
     <message>
         <source>Waiting </source>
-        <translation type="unfinished"/>
+        <translation>Po pritet </translation>
     </message>
     <message>
         <source>Installing </source>
-        <translation type="unfinished"/>
+        <translation>Po instalohet </translation>
     </message>
     <message>
         <source>Backing up </source>
-        <translation type="unfinished"/>
+        <translation>Po kryhet kopjeruajtje </translation>
     </message>
     <message>
         <source>Download and install</source>
-        <translation type="unfinished"/>
+        <translation>Shkarkojeni dhe instalojeni</translation>
     </message>
     <message>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Mësoni më tepër</translation>
     </message>
 </context>
 </TS>

@@ -3,7 +3,7 @@
     <name>AdapterModule</name>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation>Pozwól innym urządzeniom Bluetooth znaleźć to urządzenie</translation>
+        <translation>Zezwól innym urządzeniom Bluetooth znaleźć to urządzenie</translation>
     </message>
     <message>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation>Ustawienia kolaboracji</translation>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation>Udostępnij myszkę i klawiaturę</translation>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation>Udostępnij myszkę i klawiaturę pomiędzy urządzeniami</translation>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation>Udostępnij schowek</translation>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation>Ścieżka zapisu dla plików współdzielonych</translation>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation>Udostępnij skopiowaną zawartość pomiędzy urządzeniami</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation>Potwierdź</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>Konta</translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>Imię i nazwisko</translation>
+        <source>Create Account</source>
+        <translation>Utwórz konto</translation>
     </message>
     <message>
         <source>Username</source>
         <translation>Nazwa użytkownika</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Zmień hasło</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>Grupa</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Utwórz konto</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>Imię i nazwisko jest za długie</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>Zmień hasło</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation>Zresetuj hasło</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>Administrator</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation>Zresetuj hasło</translation>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation>Imię i nazwisko jest już w użyciu przez innych użytkowników</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Imię i nazwisko</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -646,15 +683,47 @@
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
         <source>Multi-Screen Collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Kolaboracja wieloekranowa</translation>
+    </message>
+    <message>
+        <source>PC Collaboration</source>
+        <translation>Kolaboracja PC</translation>
     </message>
     <message>
         <source>Connect to</source>
-        <translation type="unfinished"/>
+        <translation>Połącz z</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz urządzenie do kolaboracji</translation>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation>Orientacja urządzenia</translation>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation>Na górze</translation>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation>Po prawej</translation>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation>Na dole</translation>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation>Po lewej</translation>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation>Moje urządzenia</translation>
+    </message>
+    <message>
+        <source>Other Devices</source>
+        <translation>Inne urządzenia</translation>
     </message>
 </context>
 <context>
@@ -680,7 +749,7 @@
     <name>dccV23::CommonInfoWork</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Wyraź zgodę i dołącz do programu doświadczeń użytkownika</translation>
+        <translation>Zaakceptuj i dołącz do programu doświadczeń użytkownika</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
@@ -688,11 +757,11 @@
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation>Wyraź zgodę i poproś o dostęp do konta root</translation>
+        <translation>Zaakceptuj i poproś o dostęp do konta root</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>Nie można uzyskać dostępu do konta root</translation>
+        <translation>Nie udało się uzyskać dostępu do konta root</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
@@ -708,7 +777,7 @@
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Ładowanie certyfikatu nie powiodło się, nie można uzyskać dostępu do konta root</translation>
+        <translation>Wczytywanie certyfikatu nie powiodło się, nie można uzyskać dostępu do konta root</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
@@ -945,7 +1014,7 @@
     </message>
     <message>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>Tryb programisty umożliwia uzyskanie uprawnień administratora, instalowanie i uruchamianie niepodpisanych aplikacji niewymienionych w sklepie z aplikacjami, jednakże integralność systemu może ulec naruszeniu, korzystaj z rozwagą.</translation>
+        <translation>Tryb dewelopera umożliwia uzyskanie uprawnień administratora, instalowanie i uruchamianie niepodpisanych aplikacji niewymienionych w sklepie z aplikacjami, jednakże integralność systemu może ulec naruszeniu, prosimy zachować ostrożność.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
@@ -953,7 +1022,7 @@
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>Nie można uzyskać dostępu do konta root</translation>
+        <translation>Nie udało się uzyskać dostępu do konta root</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
@@ -969,7 +1038,7 @@
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Ładowanie certyfikatu nie powiodło się, nie można uzyskać dostępu do konta root</translation>
+        <translation>Wczytywanie certyfikatu nie powiodło się, nie można uzyskać dostępu do konta root</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
@@ -989,7 +1058,7 @@
     </message>
     <message>
         <source>Root Access Allowed</source>
-        <translation>Dostęp do konta administratora dozwolony</translation>
+        <translation>Dostęp do konta root dozwolony</translation>
     </message>
 </context>
 <context>
@@ -1227,7 +1296,7 @@
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Identyfikuj</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1794,6 +1863,10 @@
         <translation>Edytuj</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Done</source>
         <translation>Gotowe</translation>
     </message>
@@ -2034,7 +2107,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <name>DisclaimersItem</name>
     <message>
         <source>I have read and agree to the</source>
-        <translation>Przeczytałem i zgadzam się na</translation>
+        <translation>Przeczytałem i akceptuję</translation>
     </message>
     <message>
         <source>Disclaimer</source>
@@ -2046,6 +2119,14 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <source>Dock</source>
         <translation>Dodaj do doku</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Wiele ekranów</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation>Pokaż dok</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -2066,14 +2147,6 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <source>Size</source>
         <translation>Rozmiar</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Wiele ekranów</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation>Pokaż dok</translation>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -2630,7 +2703,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Accent Color</source>
-        <translation>Akcent Kolor</translation>
+        <translation>Kolor akcentu</translation>
     </message>
     <message>
         <source>Icon Settings</source>
@@ -3148,6 +3221,13 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
 </context>
 <context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation>Ustawienia kolaboracji</translation>
+    </message>
+</context>
+<context>
     <name>UnionIDBindReminderDialog</name>
     <message>
         <source>The user account is not linked to Union ID</source>
@@ -3286,7 +3366,7 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     </message>
     <message>
         <source>Update failed</source>
-        <translation>Niepowodzenie aktualizacji</translation>
+        <translation>Błąd aktualizacji</translation>
     </message>
     <message>
         <source>Network error</source>
@@ -3331,6 +3411,14 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <source>Release date: </source>
         <translation>Data wydania:</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation>Serwer</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>Pulpit</translation>
     </message>
     <message>
         <source>Version</source>

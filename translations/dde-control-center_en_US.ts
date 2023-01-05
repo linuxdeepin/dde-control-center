@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation>Collaboration Settings</translation>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation>Share mouse and keyboard</translation>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation>Share your mouse and keyboard across devices</translation>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation>Share clipboard</translation>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation>Storage path for shared files</translation>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation>Share the copied content across devices</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation>Cancel</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation>Confirm</translation>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>Accounts</translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>Full Name</translation>
+        <source>Create Account</source>
+        <translation>Create Account</translation>
     </message>
     <message>
         <source>Username</source>
         <translation>Username</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Change Password</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>Group</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Create Account</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>The full name is too long</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>Change Password</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation>Reset Password</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>Administrator</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation>Reset Password</translation>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation>The full name has been used by other user accounts</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Full Name</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -649,12 +686,44 @@
         <translation>Multi-Screen Collaboration</translation>
     </message>
     <message>
+        <source>PC Collaboration</source>
+        <translation>PC Collaboration</translation>
+    </message>
+    <message>
         <source>Connect to</source>
         <translation>Connect to</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
         <translation>Select a device for collaboration</translation>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation>Device Orientation</translation>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation>On the top</translation>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation>On the right</translation>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation>On the bottom</translation>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation>On the left</translation>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation>My Devices</translation>
+    </message>
+    <message>
+        <source>Other Devices</source>
+        <translation>Other Devices</translation>
     </message>
 </context>
 <context>
@@ -1794,6 +1863,10 @@
         <translation>Edit</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation>Add Language</translation>
+    </message>
+    <message>
         <source>Done</source>
         <translation>Done</translation>
     </message>
@@ -2048,6 +2121,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Dock</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>Multiple Displays</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation>Show Dock</translation>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>Mode</translation>
     </message>
@@ -2066,14 +2147,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Size</source>
         <translation>Size</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Multiple Displays</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation>Show Dock</translation>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -3148,6 +3221,13 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
 </context>
 <context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation>Collaboration Settings</translation>
+    </message>
+</context>
+<context>
     <name>UnionIDBindReminderDialog</name>
     <message>
         <source>The user account is not linked to Union ID</source>
@@ -3331,6 +3411,14 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Release date: </source>
         <translation>Release date: </translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation>Server</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>Desktop</translation>
     </message>
     <message>
         <source>Version</source>
