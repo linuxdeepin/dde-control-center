@@ -192,14 +192,14 @@
         <translation>Pomogą ci się zalogować do systemu w przypadku utraty hasła</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="758"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="763"/>
         <source>Group</source>
         <translation>Grupa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="810"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="818"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="827"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="815"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="823"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="832"/>
         <source>The full name has been used by other user accounts</source>
         <translation>Imię i nazwisko jest już w użyciu przez innych użytkowników</translation>
     </message>
@@ -477,97 +477,97 @@
         <translation>Zapomniałeś hasła?</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="64"/>
         <source>Change Password</source>
         <translation>Zmień hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
         <source>Reset Password</source>
         <translation>Zresetuj hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="68"/>
         <source>Resetting the password will clear the data stored in the keyring.</source>
         <translation>Zresetowanie hasła spowoduje usunięcie danych zapisanych w keyringu.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="76"/>
         <source>Current Password</source>
         <translation>Bieżące hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="93"/>
         <source>New Password</source>
         <translation>Nowe hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="104"/>
         <source>Repeat Password</source>
         <translation>Powtórz hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="109"/>
         <source>Password Hint</source>
         <translation>Wskazówka do hasła</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="115"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
         <source>Save</source>
         <translation>Zapisz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="271"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="314"/>
         <source>Passwords do not match</source>
         <translation>Hasła nie pasują do siebie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
         <source>Required</source>
         <translation>Wymagane</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
         <source>Optional</source>
         <translation>Opcjonalne</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="220"/>
         <source>Password cannot be empty</source>
         <translation>Pole na hasło nie może być puste</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="237"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="321"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Wskazówka jest widoczna dla wszystkich użytkowników. Nie podawaj tutaj swojego hasła. </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="257"/>
         <source>Wrong password</source>
         <translation>Błędne hasło</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="263"/>
         <source>New password should differ from the current one</source>
         <translation>Nowe hasło powinno różnić się od bieżącego</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="426"/>
         <source>System error</source>
         <translation>Błąd systemu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="429"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="428"/>
         <source>Network error</source>
         <translation>Błąd sieci</translation>
     </message>
@@ -738,23 +738,28 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="88"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="129"/>
         <source>Done</source>
         <translation>Gotowe</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="90"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="158"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="211"/>
         <source>Scan Again</source>
         <translation>Skanuj ponownie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="168"/>
+        <source>The device is unavailable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="209"/>
         <source>Scan Suspended</source>
         <translation>Skanowanie zatrzymane</translation>
     </message>
@@ -777,22 +782,22 @@
         <translation>Dalej</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="158"/>
         <source>Iris enrolled</source>
         <translation>Tęczówka zapisana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="161"/>
         <source>Done</source>
         <translation>Gotowe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="170"/>
         <source>Failed to enroll your iris</source>
         <translation>Nie udało się zapisać Twojej tęczówki</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="175"/>
         <source>Try Again</source>
         <translation>Spróbuj ponownie</translation>
     </message>
@@ -818,12 +823,12 @@
 <context>
     <name>dccV20::authentication::FaceInfoDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/faceinfodialog.cpp" line="49"/>
+        <location filename="../src/frame/window/modules/authentication/faceinfodialog.cpp" line="50"/>
         <source>Enroll Face</source>
         <translation>Zapisz twarz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/authentication/faceinfodialog.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/authentication/faceinfodialog.cpp" line="58"/>
         <source>Position your face inside the frame</source>
         <translation>Ustaw swoją twarz wewnątrz ramki</translation>
     </message>
@@ -2978,6 +2983,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="200"/>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="256"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
@@ -2994,7 +3000,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="334"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="335"/>
         <source>Left Hand</source>
         <translation>Tryb dla leworęcznych</translation>
     </message>
@@ -3010,9 +3016,9 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="248"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="256"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="267"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="337"/>
         <source>Pointer Speed</source>
         <translation>Szybkość wskaźnika</translation>
     </message>
@@ -3023,22 +3029,22 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="250"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="259"/>
         <source>Natural Scrolling</source>
         <translation>Naturalne przewijanie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="258"/>
         <source>Tap to Click</source>
         <translation>Klikaj przy użyciu stuknięcia</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="261"/>
         <source>Disable touchpad while typing</source>
         <translation>Wyłącz touchpad podczas pisania</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="262"/>
         <source>Disable touchpad when a mouse is connected</source>
         <translation>Wyłącz touchpad po podłączeniu myszki</translation>
     </message>
@@ -3320,78 +3326,95 @@
 <context>
     <name>dccV20::personalization::PersonalizationGeneral</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="114"/>
         <source>Theme</source>
         <translation>Motyw</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="122"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="125"/>
         <source>Accent Color</source>
         <translation>Kolor akcentu</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="183"/>
         <source>Window Effect</source>
         <translation>Efekt okna</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="212"/>
         <source>Transparency</source>
         <translation>Przezroczystość</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="239"/>
         <source>Window Minimize Effect</source>
         <translation>Efekt minimalizacji okna</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="225"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="479"/>
         <source>Scale</source>
         <translation>Skalowanie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="225"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="435"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="242"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="480"/>
         <source>Magic Lamp</source>
         <translation>Magiczna lampa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="266"/>
         <source>Show transparency effects when a window is moved</source>
         <translation>Pokaż efekty przezroczystości podczas ruszania oknem</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="328"/>
         <source>Rounded Corner</source>
         <translation>Zaokrąglony róg</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="335"/>
         <source>Small</source>
         <translation>Mały</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="335"/>
         <source>Medium</source>
         <translation>Średni</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="335"/>
         <source>Large</source>
         <translation>Duży</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="376"/>
+        <source>Scroll Bars</source>
+        <translation type="unfinished"/>
+        <extra-child_page>General</extra-child_page>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="379"/>
+        <source>Keep shown</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="380"/>
+        <source>Show on scrolling</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3428,91 +3451,97 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="139"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="225"/>
         <source>General</source>
         <translation>Ogólne</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="226"/>
         <source>Icon Theme</source>
         <translation>Motyw ikon</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="227"/>
         <source>Cursor Theme</source>
         <translation>Motyw kursora</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="142"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="224"/>
         <source>Font</source>
         <translation>Czcionka</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
         <source>Size</source>
         <translation>Rozmiar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
         <source>Standard Font</source>
         <translation>Czcionka zwykła</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
         <source>Monospaced Font</source>
         <translation>Czcionka o stałej szerokości</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="256"/>
         <source>Theme</source>
         <translation>Motyw</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="257"/>
         <source>Light</source>
         <translation>Jasny</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="258"/>
         <source>Dark</source>
         <translation>Ciemny</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="259"/>
         <source>Auto</source>
         <translation>Automatycznie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="260"/>
         <source>Accent Color</source>
         <translation>Kolor akcentu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="261"/>
         <source>Window Effect</source>
         <translation>Efekt okna</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="260"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="334"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="339"/>
         <source>Transparency</source>
         <translation>Przezroczystość</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="341"/>
         <source>Window Minimize Effect</source>
         <translation>Efekt minimalizacji okna</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="262"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="327"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="342"/>
         <source>Show transparency effects when a window is moved</source>
         <translation>Pokaż efekty przezroczystości podczas ruszania oknem</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="332"/>
+        <source>Scroll Bars</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4517,119 +4546,119 @@
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
         <source>OS Name</source>
         <translation>Nazwa OS</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
         <source>Version</source>
         <translation>Wersja</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
         <source>Edition</source>
         <translation>Wydanie</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="203"/>
         <source>Type</source>
         <translation>Typ</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="208"/>
         <source>Authorization</source>
         <translation>Autoryzacja</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="202"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="351"/>
         <source>To be activated</source>
         <translation>Do aktywacji</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="204"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="346"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="354"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="365"/>
         <source>Activate</source>
         <translation>Aktywuj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="221"/>
         <source>Kernel</source>
         <translation>Kernel</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="227"/>
         <source>Processor</source>
         <translation>Procesor</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="233"/>
         <source>Memory</source>
         <translation>Pamięć</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="331"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="347"/>
         <source>Activated</source>
         <translation>Aktywowany</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="342"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="357"/>
         <source>View</source>
         <translation>Wyświetl</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="355"/>
         <source>Expired</source>
         <translation>Wygasł</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="352"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="359"/>
         <source>In trial period</source>
         <translation>W okresie próbnym</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
         <source>Trial expired</source>
         <translation>Okres próbny wygasł</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="430"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="431"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="489"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="490"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="437"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="496"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="497"/>
         <source>It cannot start or end with dashes</source>
         <translation>Nie może rozpoczynać lub kończyć się myślnikiem </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="464"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="465"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="494"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="495"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="471"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="472"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="502"/>
         <source>1~63 characters please</source>
         <translation>1~63 znaków proszę</translation>
     </message>
@@ -5491,7 +5520,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/securitykeydisplaydialog.cpp" line="140"/>
         <source>Copied successfully</source>
-        <translation type="unfinished"/>
+        <translation>Skopiowano pomyślnie</translation>
     </message>
 </context>
 <context>
@@ -5543,32 +5572,32 @@
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="724"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="734"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Twój host został pomyślnie usunięty z serwera domeny</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="725"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="735"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Twój host pomyślnie dołącza do serwera domeny</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="753"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="763"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Twój host nie mógł opuścić serwera domeny</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="754"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="764"/>
         <source>Your host failed to join the domain server</source>
         <translation>Twój host nie przyłączył się do serwera domeny</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="757"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="767"/>
         <source>AD domain settings</source>
         <translation>Ustawienia domeny AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="826"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="836"/>
         <source>Password not match</source>
         <translation>Hasło nie pasuje</translation>
     </message>
@@ -6284,12 +6313,12 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="376"/>
         <source>Copyright© 2011-%1 Deepin Community</source>
         <translation>Copyright© 2011-%1 Deepin Community</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="378"/>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
         <translation>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
@@ -6297,12 +6326,12 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
 <context>
     <name>dcc::systeminfo::SystemInfoWork</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="206"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="217"/>
         <source>For Government</source>
         <translation>Dla placówek rządowych</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="208"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfowork.cpp" line="219"/>
         <source>For Enterprise</source>
         <translation>Dla biznesu</translation>
     </message>

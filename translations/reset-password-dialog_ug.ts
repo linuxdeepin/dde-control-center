@@ -79,7 +79,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="68"/>
         <source>The password should differ from the username</source>
-        <translation type="unfinished"/>
+        <translation>پارول ئىشلەتكۈچى نامى بىلەن ئوخشاش بولسا بولمايدۇ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="74"/>
@@ -120,59 +120,61 @@
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="105"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
         <translation>پارولنى قايتا بېكىتسىڭىز مەخپىي ئاچقۇچ ھالقىسىدا ساقلانغان سانلىق مەلۇماتلار تازىلىنىدۇ</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="106"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="169"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="227"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="107"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="177"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="182"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="218"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="242"/>
         <source>Cancel</source>
         <translation>بىكار قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="115"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="119"/>
         <source>Security Keys</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك ئاچقۇچى</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="156"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
         <source>Wrong security key</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك ئاچقۇچى خاتا</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="215"/>
         <source>Reset Password By Security Key</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك ئاچقۇچىنى قايتا بېكىتىش</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="211"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="230"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="169"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="226"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="235"/>
+        <source>Reset Password By UOS ID</source>
+        <translation>Union ID نىڭ پارولىنى قايتا بېكىتىش</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="178"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="220"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="245"/>
         <source>Reset</source>
         <translation>قايتا بېكىتىش</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="173"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="181"/>
         <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
         <translation>پارولنى قايتا بېكىستسىڭىز مەخپىي ئاچقۇچ ھالقىسىدا ساقلانغان سانلىق مەلۇماتلار تازىلىنىدۇ، ھەمدە بۇ ئىشلەتكۈچى قايتىدىن كىرىدۇ، ھۆججەتلىرىڭىزنى ئالدىن ساقلاشقا دىققەت قىلىڭ</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="182"/>
         <source>Confirm and Reset</source>
         <translation>قايتا بېكىتشىنى جەزملەش</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="216"/>
-        <source>Reset Password By UOS ID</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="306"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="321"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>پارول قايتا بېكىتىلدى، يېڭى پارولدا كىرىڭ</translation>
     </message>
@@ -182,12 +184,12 @@
     <message>
         <location filename="../src/reset-password-dialog/securitykeywidget.cpp" line="36"/>
         <source>Security Keys</source>
-        <translation type="unfinished"/>
+        <translation>بىخەتەرلىك ئاچقۇچى</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/securitykeywidget.cpp" line="42"/>
         <source>Enter the account security key</source>
-        <translation type="unfinished"/>
+        <translation>ھېساباتنىڭ بىخەتەرلىك ئاچقۇچىنى كىرگۈزۈڭ</translation>
     </message>
 </context>
 <context>
@@ -230,7 +232,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="83"/>
         <source>The user account is not linked to UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>نۆۋەتتىكى  ھېسابات  نومۇرى UOS IDغا ئۇلانمىغان</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="96"/>
@@ -257,7 +259,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="231"/>
         <source>Login expired, please sign in to the UOS ID again</source>
-        <translation type="unfinished"/>
+        <translation>كىرىش ۋاقتى ئۆتۈپ كەتكەن، UOS ID غا قايتا كىرىڭ</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="233"/>
@@ -272,7 +274,7 @@
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="236"/>
         <source>The UOS ID is not linked to a user account</source>
-        <translation type="unfinished"/>
+        <translation>بۇ UOS ID غا يەرلىك ھېسابات نومۇرى باغلانمىغان</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/unionidwidget.cpp" line="270"/>

@@ -120,59 +120,61 @@
 <context>
     <name>ResetPasswordDialog</name>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="105"/>
         <source>Resetting the password will clear the data stored in the keyring</source>
         <translation>Restablir la contrasenya esborrarà les dades emmagatzemades al clauer.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="106"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="169"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="209"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="227"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="107"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="177"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="182"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="218"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="242"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="115"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="119"/>
         <source>Security Keys</source>
         <translation>Claus de seguretat</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="156"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="159"/>
         <source>Wrong security key</source>
         <translation>Clau de seguretat incorrecta</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="167"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="206"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="215"/>
         <source>Reset Password By Security Key</source>
         <translation>Restableix la contrasenya mitjançant la clau de seguretat.</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="170"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="211"/>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="230"/>
-        <source>Reset</source>
-        <translation>Restableix</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="173"/>
-        <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
-        <translation>Restablir la contrasenya eliminarà les dades emmagatzemades al clauer i haureu d&apos;iniciar sessió de nou. Si us plau, deseu els fitxers amb antelació.</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="174"/>
-        <source>Confirm and Reset</source>
-        <translation>Confirmeu-ho i reinicieu</translation>
-    </message>
-    <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="216"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="169"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="226"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="235"/>
         <source>Reset Password By UOS ID</source>
         <translation>Restableix la contrasenya amb l&apos;ID d&apos;UOS..</translation>
     </message>
     <message>
-        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="306"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="178"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="220"/>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="245"/>
+        <source>Reset</source>
+        <translation>Restableix</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="181"/>
+        <source>Resetting the password will clear the data stored in your keyring, and you should log in again, please save files in advance</source>
+        <translation>Restablir la contrasenya eliminarà les dades emmagatzemades al clauer i haureu d&apos;iniciar sessió de nou. Si us plau, deseu els fitxers amb antelació.</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="182"/>
+        <source>Confirm and Reset</source>
+        <translation>Confirmeu-ho i reinicieu</translation>
+    </message>
+    <message>
+        <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="321"/>
         <source>Successfully reset, please log in and unlock with the new password</source>
         <translation>Restabliment correcte. Inicieu la sessió i desbloqueu-la amb la contrasenya nova.</translation>
     </message>
