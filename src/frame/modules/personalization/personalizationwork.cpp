@@ -192,6 +192,14 @@ void PersonalizationWork::refreshEffectModule()
     }
 }
 
+void PersonalizationWork::setScrollBarPolicy(int policy)
+{
+    QDBusInterface interface(Service, Path, Service, QDBusConnection::sessionBus());
+    if (interface.isValid()) {
+        interface.setProperty("QtScrollBarPolicy", policy);
+    }
+}
+
 void PersonalizationWork::active()
 {
     m_dbus->blockSignals(false);
@@ -213,6 +221,12 @@ void PersonalizationWork::active()
     int radius = interface.property("WindowRadius").toInt(&ok);
     if (ok)
         m_model->setWindowRadius(radius);
+
+    int policy = interface.property("QtScrollBarPolicy").toInt(&ok);
+    if (ok)
+        m_model->setScrollBarPolicy(policy);
+    else
+        m_model->setScrollBarPolicy(PersonalizationModel::ShowOnScrolling);
 }
 
 void PersonalizationWork::deactive()
@@ -726,7 +740,9 @@ void PersonalizationWork::handlePropertiesChanged(QDBusMessage msg)
             if (keys.at(i) == "WindowRadius") {
                 int radius = static_cast<int>(changedProps.value(keys.at(i)).toInt());
                 m_model->setWindowRadius(radius);
-                return;
+            } else if (keys.at(i) == "QtScrollBarPolicy") {
+                int policy = static_cast<int>(changedProps.value(keys.at(i)).toInt());
+                m_model->setScrollBarPolicy(policy);
             }
         }
     }

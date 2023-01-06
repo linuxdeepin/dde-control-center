@@ -156,6 +156,7 @@ void PersonalizationModule::showGenaralWidget()
     connect(widget, &PersonalizationGeneral::requestWindowSwitchWM, m_work, &dcc::personalization::PersonalizationWork::windowSwitchWM);
     connect(widget, &PersonalizationGeneral::requestMovedWindowSwitchWM, m_work, &dcc::personalization::PersonalizationWork::movedWindowSwitchWM);
     connect(widget, &PersonalizationGeneral::requestSetActiveColor, m_work, &dcc::personalization::PersonalizationWork::setActiveColor);
+    connect(widget, &PersonalizationGeneral::requestSetScrollBarPolicy, m_work, &dcc::personalization::PersonalizationWork::setScrollBarPolicy);
     connect(m_model, &dcc::personalization::PersonalizationModel::onEffectSupportDisableChanged, widget, [this, widget] () {
         widget->updateEffectDisable(m_model->getIsEffectSupportScale(), m_model->getIsEffectSupportMagiclamp(), m_model->getIsEffectSupportMoveWindow());
     });

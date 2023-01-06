@@ -20,6 +20,12 @@ class PersonalizationModel : public QObject
     Q_OBJECT
     friend class MouseWorker;
 public:
+    enum ScrollBarPolicy {
+        KeepShown = 0,
+        ShowOnScrolling = 1
+    };
+
+public:
     explicit PersonalizationModel(QObject *parent = nullptr);
     ~PersonalizationModel();
     inline ThemeModel    *getWindowModel()    const {return m_windowModel;}
@@ -60,6 +66,9 @@ public:
     inline bool getIsEffectSupportMoveWindow() {return m_IsEffectSupportedMoveWindow;}
     void setIsEffectSupportMoveWindow(bool value);
 
+    inline int scrollBarPolicy() const { return m_scrollBarPolicy;}
+    void setScrollBarPolicy(int policy);
+
 Q_SIGNALS:
     void wmChanged(const bool is3d);
     void moveWindowChanged(const bool isMoveWindow);
@@ -70,6 +79,7 @@ Q_SIGNALS:
     void onWindowRadiusChanged(int radius);
     void onSaveWindowRadiusChanged(int radius);
     void onEffectSupportDisableChanged();
+    void onScrollBarPolicyChanged(int policy);
 
 private:
     ThemeModel    *m_windowModel;
@@ -88,6 +98,7 @@ private:
     bool m_IsEffectSupportedScale;
     bool m_IsEffectSupportedMagiclamp;
     bool m_IsEffectSupportedMoveWindow;
+    int m_scrollBarPolicy;
 };
 }
 }
