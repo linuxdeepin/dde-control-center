@@ -3086,12 +3086,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>自動同期</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>確認</translation>
+        <source>Save</source>
+        <translation>保存</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3120,10 +3120,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation>日</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>保存</translation>
     </message>
 </context>
 <context>

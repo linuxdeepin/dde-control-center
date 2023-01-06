@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>Comptes</translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>Nom complet</translation>
+        <source>Create Account</source>
+        <translation>Crea un compte</translation>
     </message>
     <message>
         <source>Username</source>
         <translation>Nom d&apos;usuari</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Canvia la contrasenya</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>Grup</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Crea un compte</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>El nom complet és massa llarg.</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>Canvia la contrasenya</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation>Restableix la contrasenya</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>Administrador/a</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation>Restableix la contrasenya</translation>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation>El nom complet ha estat usat per altres comptes d&apos;usuari.</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Nom complet</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -646,14 +683,46 @@
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
         <source>Multi-Screen Collaboration</source>
+        <translation>Col·laboració multipantalla</translation>
+    </message>
+    <message>
+        <source>PC Collaboration</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to</source>
-        <translation type="unfinished"/>
+        <translation>Connecta amb</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
+        <translation>Seleccioneu un dispositiu per a la col·laboració</translation>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1227,7 +1296,7 @@
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Identifica</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1794,6 +1863,10 @@
         <translation>Edita</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Done</source>
         <translation>Fet</translation>
     </message>
@@ -2047,6 +2120,14 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
         <translation>Acoblador</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>Pantalles múltiples</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation>Mostra l&apos;acoblador</translation>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>Mode</translation>
     </message>
@@ -2065,14 +2146,6 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <message>
         <source>Size</source>
         <translation>Mida</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Pantalles múltiples</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation>Mostra l&apos;acoblador</translation>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -3026,12 +3099,12 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
         <translation>Sincronització automàtica</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Cancel·la</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Confirmeu-ho</translation>
+        <source>Save</source>
+        <translation>Desa</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3060,10 +3133,6 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <message>
         <source>Day</source>
         <translation>Dia</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Desa</translation>
     </message>
 </context>
 <context>
@@ -3144,6 +3213,13 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <message>
         <source>Add Timezone</source>
         <translation>Afegiu una zona horària</translation>
+    </message>
+</context>
+<context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3330,6 +3406,14 @@ UnionTech Software es compromet a investigar i millorar la seguretat, la precisi
     <message>
         <source>Release date: </source>
         <translation>Data de publicació:</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Version</source>

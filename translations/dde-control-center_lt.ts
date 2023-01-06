@@ -3086,12 +3086,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Automatinis sinchronizavimas</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Atsisakyti</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Patvirtinti</translation>
+        <source>Save</source>
+        <translation>Įrašyti</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3120,10 +3120,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation>Diena</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Įrašyti</translation>
     </message>
 </context>
 <context>

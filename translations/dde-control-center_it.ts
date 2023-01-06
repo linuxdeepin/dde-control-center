@@ -3100,12 +3100,12 @@ UnionTech Software si impegna a ricercare e migliorare la sicurezza, l&apos;accu
         <translation>Sincronizza automaticamente</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Annulla</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Conferma</translation>
+        <source>Save</source>
+        <translation>Salva</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3134,10 +3134,6 @@ UnionTech Software si impegna a ricercare e migliorare la sicurezza, l&apos;accu
     <message>
         <source>Day</source>
         <translation>Giorno</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Salva</translation>
     </message>
 </context>
 <context>

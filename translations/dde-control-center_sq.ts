@@ -3099,12 +3099,12 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
         <translation>Vetë-njëkohësohu</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Anuloje</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Ripohojeni</translation>
+        <source>Save</source>
+        <translation>Ruaje</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3133,10 +3133,6 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <source>Day</source>
         <translation>Ditë</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Ruaje</translation>
     </message>
 </context>
 <context>

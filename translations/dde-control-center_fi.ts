@@ -3100,12 +3100,12 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
         <translation>Automaattinen synkronointi</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Peruuta</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Vahvista</translation>
+        <source>Save</source>
+        <translation>Tallenna</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3134,10 +3134,6 @@ UnionTech Software on sitoutunut tutkimaan ja parantamaan biometrisen todennukse
     <message>
         <source>Day</source>
         <translation>Päivä</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Tallenna</translation>
     </message>
 </context>
 <context>

@@ -3101,12 +3101,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>རང་འགུལ་མཉམ་བགྲོད་སྡེབ་སྒྲིག </translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>འདོར་བ། </translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>གཏན་ཁེལ། </translation>
+        <source>Save</source>
+        <translation>ཉར་ཚགས། </translation>
     </message>
     <message>
         <source>Server</source>
@@ -3135,10 +3135,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation>ཚེས་གྲངས། </translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>ཉར་ཚགས། </translation>
     </message>
 </context>
 <context>

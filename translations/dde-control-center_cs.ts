@@ -3100,12 +3100,12 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
         <translation>Automatická synchronizace</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Potvrdit</translation>
+        <source>Save</source>
+        <translation>Uložit</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3134,10 +3134,6 @@ UnionTech Software věnuje úsilí výzkumu a zlepšování zabezpečení, přes
     <message>
         <source>Day</source>
         <translation>Den</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Uložit</translation>
     </message>
 </context>
 <context>

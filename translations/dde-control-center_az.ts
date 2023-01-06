@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>Hesablar</translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>Tam ad</translation>
+        <source>Create Account</source>
+        <translation>Hesab yaradın</translation>
     </message>
     <message>
         <source>Username</source>
         <translation>İstifadəçi adı</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Şifrəni dəyişin</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>Qrup</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Hesab yaradın</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>Tam ad çox uzundur</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>Şifrəni dəyişin</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation>Şifrəni sıfırlayın</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>Administrator</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation>Şifrəni sıfırlayın</translation>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation>Tam ad başqa istifadəçi hesabları tərəfindən istifadə olunub</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Tam ad</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -646,14 +683,46 @@
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
         <source>Multi-Screen Collaboration</source>
+        <translation>Çoxekranlı mübadilə</translation>
+    </message>
+    <message>
+        <source>PC Collaboration</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to</source>
-        <translation type="unfinished"/>
+        <translation>Qoşul:</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
+        <translation>Mübadilə üçün bu cihazı seç</translation>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1227,7 +1296,7 @@
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Müəyyən et</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1794,6 +1863,10 @@
         <translation>Düzəliş edin</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Done</source>
         <translation>Tamamlandı</translation>
     </message>
@@ -2047,6 +2120,14 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <translation>Dok panel</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>Çoxsaylı ekran</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation>Dok paneli göstərmək</translation>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>Rejim</translation>
     </message>
@@ -2065,14 +2146,6 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <source>Size</source>
         <translation>Ölçü</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Çoxsaylı ekran</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation>Dok paneli göstərmək</translation>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -3026,12 +3099,12 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
         <translation>Avtomatik eyniləşdirmə</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>İmtina</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Təsdiqləyin</translation>
+        <source>Save</source>
+        <translation>Saxla</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3060,10 +3133,6 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <source>Day</source>
         <translation>Gün</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Saxla</translation>
     </message>
 </context>
 <context>
@@ -3144,6 +3213,13 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <source>Add Timezone</source>
         <translation>Saat qurşağı əlavə edin</translation>
+    </message>
+</context>
+<context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3330,6 +3406,14 @@ UnionTech Software, biometrik kimlik doğrulamasının təhlükəsizlik, stabill
     <message>
         <source>Release date: </source>
         <translation>Buraxılış tarixi:</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Version</source>

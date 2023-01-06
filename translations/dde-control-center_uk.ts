@@ -3100,12 +3100,12 @@ UnionTech Software працює над вивченням і удосконал�
         <translation>Авто-синхронізація</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Підтвердити</translation>
+        <source>Save</source>
+        <translation>Зберегти</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3134,10 +3134,6 @@ UnionTech Software працює над вивченням і удосконал�
     <message>
         <source>Day</source>
         <translation>День</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Зберегти</translation>
     </message>
 </context>
 <context>

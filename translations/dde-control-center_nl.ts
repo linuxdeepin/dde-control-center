@@ -365,6 +365,43 @@
     </message>
 </context>
 <context>
+    <name>CooperationSettingsDialog</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share mouse and keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share your mouse and keyboard across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share clipboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Storage path for shared files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Share the copied content across devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <comment>button</comment>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dccV23::AccountSpinBox</name>
     <message>
         <source>Always</source>
@@ -378,12 +415,16 @@
         <translation>Accounts</translation>
     </message>
     <message>
-        <source>Full Name</source>
-        <translation>Volledige naam</translation>
+        <source>Create Account</source>
+        <translation>Account aanmaken</translation>
     </message>
     <message>
         <source>Username</source>
         <translation>Gebruikersnaam</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation>Wachtwoord wijzigen</translation>
     </message>
     <message>
         <source>Delete Account</source>
@@ -410,20 +451,8 @@
         <translation>Groep</translation>
     </message>
     <message>
-        <source>Create Account</source>
-        <translation>Account aanmaken</translation>
-    </message>
-    <message>
         <source>The full name is too long</source>
         <translation>De volledige naam is te lang</translation>
-    </message>
-    <message>
-        <source>Change Password</source>
-        <translation>Wachtwoord wijzigen</translation>
-    </message>
-    <message>
-        <source>Reset Password</source>
-        <translation>Wachtwoord herstellen</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -434,8 +463,16 @@
         <translation>Beheerder</translation>
     </message>
     <message>
+        <source>Reset Password</source>
+        <translation>Wachtwoord herstellen</translation>
+    </message>
+    <message>
         <source>The full name has been used by other user accounts</source>
         <translation>Deze volledige naam is al in gebruik door een ander account</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation>Volledige naam</translation>
     </message>
     <message>
         <source>Go to Settings</source>
@@ -646,14 +683,46 @@
     <name>dccV23::CollaborativeLinkWidget</name>
     <message>
         <source>Multi-Screen Collaboration</source>
+        <translation>Samenwerken op meerdere schermen</translation>
+    </message>
+    <message>
+        <source>PC Collaboration</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect to</source>
-        <translation type="unfinished"/>
+        <translation>Verbinden met</translation>
     </message>
     <message>
         <source>Select a device for collaboration</source>
+        <translation>Kies een apparaat voor samenwerking</translation>
+    </message>
+    <message>
+        <source>Device Orientation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On the left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Other Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1227,7 +1296,7 @@
     <name>dccV23::MonitorControlWidget</name>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Identificeren</translation>
     </message>
     <message>
         <source>Gather Windows</source>
@@ -1794,6 +1863,10 @@
         <translation>Bewerken</translation>
     </message>
     <message>
+        <source>Add Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Done</source>
         <translation>Klaar</translation>
     </message>
@@ -2038,6 +2111,14 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <translation>Vastmaken</translation>
     </message>
     <message>
+        <source>Multiple Displays</source>
+        <translation>Meerdere beeldschermen</translation>
+    </message>
+    <message>
+        <source>Show Dock</source>
+        <translation>Dock tonen</translation>
+    </message>
+    <message>
         <source>Mode</source>
         <translation>Modus</translation>
     </message>
@@ -2056,14 +2137,6 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <source>Size</source>
         <translation>Grootte</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Meerdere beeldschermen</translation>
-    </message>
-    <message>
-        <source>Show Dock</source>
-        <translation>Dock tonen</translation>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -3017,12 +3090,12 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
         <translation>Automatisch synchroniseren</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Annuleren</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Bevestigen</translation>
+        <source>Save</source>
+        <translation>Opslaan</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3051,10 +3124,6 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <source>Day</source>
         <translation>Dag</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Opslaan</translation>
     </message>
 </context>
 <context>
@@ -3135,6 +3204,13 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <source>Add Timezone</source>
         <translation>Tijdzone toevoegen</translation>
+    </message>
+</context>
+<context>
+    <name>TreeCombox</name>
+    <message>
+        <source>Collaboration Settings</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3321,6 +3397,14 @@ UnionTech Software is doet onderzoek naar de verbetering en beveiliging van de f
     <message>
         <source>Release date: </source>
         <translation>Uitgebracht op:</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Version</source>

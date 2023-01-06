@@ -3086,12 +3086,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Avbryt</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Bekreft</translation>
+        <source>Save</source>
+        <translation>Lagre</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3120,10 +3120,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation>Dag</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Lagre</translation>
     </message>
 </context>
 <context>

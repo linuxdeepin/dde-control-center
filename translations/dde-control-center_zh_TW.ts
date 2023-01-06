@@ -3100,12 +3100,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>自動同步配置</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>取消</translation>
+        <source>Reset</source>
+        <translation>重設</translation>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>確定</translation>
+        <source>Save</source>
+        <translation>儲存</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3134,10 +3134,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation>日</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>儲存</translation>
     </message>
 </context>
 <context>

@@ -3088,11 +3088,11 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
+        <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Confirm</source>
+        <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3121,10 +3121,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

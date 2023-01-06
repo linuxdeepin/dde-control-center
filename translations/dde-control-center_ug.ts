@@ -3100,12 +3100,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>ئاپتوماتىك ماسقەدەملەش</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>بىكار قىلىش</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>جەزملەشتۈرۈش</translation>
+        <source>Save</source>
+        <translation>ساقلاش</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3134,10 +3134,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation>كۈن</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>ساقلاش</translation>
     </message>
 </context>
 <context>

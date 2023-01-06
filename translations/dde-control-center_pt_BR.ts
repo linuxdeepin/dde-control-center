@@ -3086,12 +3086,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Sincronizar com Servidor NTP</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Confirmar</translation>
+        <source>Save</source>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3120,10 +3120,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation>Dia</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Salvar</translation>
     </message>
 </context>
 <context>

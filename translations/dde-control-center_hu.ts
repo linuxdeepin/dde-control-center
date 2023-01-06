@@ -1864,7 +1864,7 @@
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Nyelv hozzáadása</translation>
     </message>
     <message>
         <source>Done</source>
@@ -3104,12 +3104,12 @@ időformátum</translation>
         <translation>Automatikus szinkronizálás</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
+        <source>Reset</source>
+        <translation>Visszaállítás</translation>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Megerősítés</translation>
+        <source>Save</source>
+        <translation>Mentés</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3138,10 +3138,6 @@ időformátum</translation>
     <message>
         <source>Day</source>
         <translation>Nap</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Mentés</translation>
     </message>
 </context>
 <context>

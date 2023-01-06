@@ -3100,12 +3100,12 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
         <translation>Otomatik Eşitle</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>İptal</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Onayla</translation>
+        <source>Save</source>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3134,10 +3134,6 @@ UnionTech Software, biyometrik kimlik doğrulamanın güvenliğini, doğruluğun
     <message>
         <source>Day</source>
         <translation>Gün</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Kaydet</translation>
     </message>
 </context>
 <context>

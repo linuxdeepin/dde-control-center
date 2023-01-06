@@ -3086,12 +3086,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>ავტომატური სინქრონიზაცია</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>გაუქმება</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>დადასტურება</translation>
+        <source>Save</source>
+        <translation>შენახვა</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3120,10 +3120,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation>დღე</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>შენახვა</translation>
     </message>
 </context>
 <context>

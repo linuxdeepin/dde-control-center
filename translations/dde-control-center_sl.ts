@@ -3086,12 +3086,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Samodejna sinhronizacija</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Prekini</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Potrdi</translation>
+        <source>Save</source>
+        <translation>Shrani</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3120,10 +3120,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation>Dan</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Shrani</translation>
     </message>
 </context>
 <context>

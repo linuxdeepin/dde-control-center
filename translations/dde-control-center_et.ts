@@ -3086,12 +3086,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Automaatne sünkroonimine</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Loobu</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Kinnita</translation>
+        <source>Save</source>
+        <translation>Salvesta</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3120,10 +3120,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation>Päev</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Salvesta</translation>
     </message>
 </context>
 <context>

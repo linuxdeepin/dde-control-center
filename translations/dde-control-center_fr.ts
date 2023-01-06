@@ -3098,12 +3098,12 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
         <translation>Synchronisation automatique</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Annuler</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Confirmer</translation>
+        <source>Save</source>
+        <translation>Sauvegarder</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3132,10 +3132,6 @@ UnionTech Software s&apos;engage à rechercher et à améliorer la sécurité, l
     <message>
         <source>Day</source>
         <translation>Jour</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Sauvegarder</translation>
     </message>
 </context>
 <context>

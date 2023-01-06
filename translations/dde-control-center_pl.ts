@@ -1864,7 +1864,7 @@
     </message>
     <message>
         <source>Add Language</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj język</translation>
     </message>
     <message>
         <source>Done</source>
@@ -3100,12 +3100,12 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
         <translation>Automatyczna synchronizacja</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Anuluj</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Potwierdź</translation>
+        <source>Save</source>
+        <translation>Zapisz</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3134,10 +3134,6 @@ Firma UnionTech Software jest zaangażowana w badania i poprawę jakości bezpie
     <message>
         <source>Day</source>
         <translation>Dzień</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Zapisz</translation>
     </message>
 </context>
 <context>

@@ -3086,12 +3086,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>Hevdemiya Otomatîk</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Betal Bike</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation type="unfinished"/>
+        <source>Save</source>
+        <translation>Qeyd Bike</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3120,10 +3120,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Qeyd Bike</translation>
     </message>
 </context>
 <context>

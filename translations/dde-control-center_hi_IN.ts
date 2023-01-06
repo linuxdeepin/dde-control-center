@@ -3086,12 +3086,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>स्वतः समकालीन</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>रद्द करें</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>पुष्टि करें</translation>
+        <source>Save</source>
+        <translation>संचित करें</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3120,10 +3120,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation>दिन</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>संचित करें</translation>
     </message>
 </context>
 <context>

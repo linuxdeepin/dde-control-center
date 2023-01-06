@@ -3099,12 +3099,12 @@ UnionTech Software er forpligtet til at forske i og forbedre sikkerheden, nøjag
         <translation>Automatisk Synkronisering</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Annuller</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Bekræft</translation>
+        <source>Save</source>
+        <translation>Gem</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3133,10 +3133,6 @@ UnionTech Software er forpligtet til at forske i og forbedre sikkerheden, nøjag
     <message>
         <source>Day</source>
         <translation>Dag</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Gem</translation>
     </message>
 </context>
 <context>

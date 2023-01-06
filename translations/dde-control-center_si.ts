@@ -3086,12 +3086,12 @@ UnionTech Software is committed to research and improve the security, accuracy a
         <translation>ස්වයංක්‍රීය සමමුහුර්තකරණය</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>අවලංගු කරන්න</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>තහවුරු කරන්න</translation>
+        <source>Save</source>
+        <translation>සුරකින්න</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3120,10 +3120,6 @@ UnionTech Software is committed to research and improve the security, accuracy a
     <message>
         <source>Day</source>
         <translation>දිනය</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>සුරකින්න</translation>
     </message>
 </context>
 <context>

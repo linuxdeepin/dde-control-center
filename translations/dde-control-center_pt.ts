@@ -3100,12 +3100,12 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
         <translation>Sincronização Automática</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <source>Reset</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Confirm</source>
-        <translation>Confirmar</translation>
+        <source>Save</source>
+        <translation>Guardar</translation>
     </message>
     <message>
         <source>Server</source>
@@ -3134,10 +3134,6 @@ A UnionTech Software é empenhada em pesquisa e melhoramento da segurança, efic
     <message>
         <source>Day</source>
         <translation>Dia</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>Guardar</translation>
     </message>
 </context>
 <context>
