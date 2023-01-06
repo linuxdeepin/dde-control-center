@@ -1,3 +1,17 @@
+dde-control-center (6.0.7) unstable; urgency=medium
+
+  [ TagBuilder ]
+  * fix: 修复控制中心无法通过快捷键唤起帮助手册(Bug: 175349)(Influence: 控制中心帮助快捷键)
+  * chore: 修改copyright为读取当前年份(Task: 234481)(Influence: 控制中心系统信息关于本机copyright年份)
+  * chore: 屏蔽隐私与安全模块(Task: 234689)(Influence: 控制中心隐私与安全)
+  * fix: 修改添加语言文案(Bug: 181689)(Influence: 控制中心-键盘语言-语言-添加语言文案)
+  * fix: 更新翻译(Bug: 181689)(Influence: 控制中心-键盘语言-语言-添加语言文案)
+  * fix: 修改通知设置结果更新不及时问题(Bug: 181037)(Influence: 修改通知设置-切换其他模块再切回通知-设置项结果正确)
+  * fix: 修复手动设置时间后，点击确定和 点击取消均无响应(Bug: 182049)(Influence: 时间日期模块界面及业务逻辑)
+  * fix: 更新时间日期按钮翻译(Bug: 182049)(Influence: 控制中心-时间日期-修改时间-保存按钮文案)
+
+ -- lvpeilong <lvpeilong@uniontech.com>  Fri, 06 Jan 2023 16:44:35 +0800
+
 dde-control-center (6.0.6.3) unstable; urgency=medium
 
   [ TagBuilder ]
