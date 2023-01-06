@@ -249,6 +249,7 @@ void PersonalizationModule::initSearchData()
 
     auto func_general_changed = [ = ](bool bGeneral) {
         bool bEffects = func_is_visible("perssonalGeneralEffects");
+        bool bScrollbarPolicy = func_is_visible("scrollbarPolicyStatus");
         bool is3DWm = m_model->is3DWm();
 
         m_frameProxy->setWidgetVisible(module, general, bGeneral);
@@ -261,6 +262,7 @@ void PersonalizationModule::initSearchData()
         m_frameProxy->setDetailVisible(module, general, tr("Transparency"), bGeneral && bEffects && is3DWm);
         m_frameProxy->setDetailVisible(module, general, tr("Window Minimize Effect"), bGeneral && bEffects && is3DWm && (m_model->getIsEffectSupportScale() || m_model->getIsEffectSupportMagiclamp()));
         m_frameProxy->setDetailVisible(module, general, tr("Show transparency effects when a window is moved"), bGeneral && bEffects && is3DWm && m_model->getIsEffectSupportMoveWindow() && func_isdconf_visible("effectMovewindowTranslucency"));
+        m_frameProxy->setDetailVisible(module, general, tr("Scroll Bars"), bGeneral && bScrollbarPolicy);
     };
 
     auto func_icontheme_changed = [ = ](bool bIconTheme) {
@@ -325,7 +327,9 @@ void PersonalizationModule::initSearchData()
 
         bool bGeneral = func_is_visible("personalizationGeneral");
         bool bEffects = func_is_visible("perssonalGeneralEffects");
+        bool bScrollbarPolicy = func_is_visible("scrollbarPolicyStatus");
         m_frameProxy->setDetailVisible(module, general, tr("Show transparency effects when a window is moved"), bGeneral && bEffects && m_model->is3DWm() && m_model->getIsEffectSupportMoveWindow() && func_isdconf_visible("effectMovewindowTranslucency"));
+        m_frameProxy->setDetailVisible(module, general, tr("Scroll Bars"), bGeneral && bScrollbarPolicy);
         m_frameProxy->updateSearchData(module);
     });
 

@@ -389,6 +389,8 @@ PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::Personaliza
         }
     });
 
+    DConfigWatcher::instance()->bind(DConfigWatcher::personalization, "scrollbarPolicyStatus", m_cmbScrollBarPolicy);
+
     m_centralLayout->addStretch(20);
 
     QScrollArea *scrollArea = new QScrollArea;
