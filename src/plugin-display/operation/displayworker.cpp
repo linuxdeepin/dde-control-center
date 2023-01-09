@@ -118,6 +118,9 @@ void DisplayWorker::active()
     m_model->setOpenSharedDevices(m_displayInter->sharedDevices());
     m_model->setOpenSharedClipboard(m_displayInter->sharedClipboard());
     m_model->setFilesStoragePath(m_displayInter->filesStoragePath());
+    connect(m_displayInter, &DisplayDBusProxy::SharedClipboardChanged, m_model, &DisplayModel::setOpenSharedClipboard);
+    connect(m_displayInter, &DisplayDBusProxy::SharedDevicesChanged, m_model, &DisplayModel::setOpenSharedDevices);
+    connect(m_displayInter, &DisplayDBusProxy::FilesStoragePathChanged, m_model, &DisplayModel::setFilesStoragePath);
 
     bool isRedshiftValid = true;
     QDBusReply<bool> reply = m_displayInter->SupportSetColorTemperatureSync();

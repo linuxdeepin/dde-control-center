@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <DFontSizeManager>
 #include <DFileChooserEdit>
+#include <DSwitchButton>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -59,8 +60,7 @@ bool CooperationSettingsDialog::eventFilter(QObject *o, QEvent *e)
     // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
     if (e->type() == QEvent::FocusIn) {
         if (dynamic_cast<QLineEdit *>(o)) {
-            m_buttonTuple->leftButton()->setEnabled(true);
-            m_buttonTuple->rightButton()->setEnabled(true);
+            setButtonEnabled();
         }
     }
 
@@ -120,8 +120,7 @@ void CooperationSettingsDialog::initWidget()
 
     cancelBtn->setText(tr("Cancel", "button"));
     acceptBtn->setText(tr("Confirm", "button"));
-    m_buttonTuple->leftButton()->setEnabled(false);
-    m_buttonTuple->rightButton()->setEnabled(false);
+    setButtonDisabled();
     m_buttonTuple->setContentsMargins(75, 0, 75, 0);
 
     m_mainLayout->addWidget(titleIcon, Qt::AlignTop);
@@ -156,13 +155,25 @@ void CooperationSettingsDialog::initConnect()
         }
         setButtonTupleState(true);
     });
+    connect(m_shearSwitch, &SwitchWidget::checkedChanged, this, &CooperationSettingsDialog::setButtonEnabled);
+    connect(m_mousekeyboardSwitch, &SwitchWidget::checkedChanged, this, &CooperationSettingsDialog::setButtonEnabled);
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &CooperationSettingsDialog::close);
-    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, [this](){
-        Q_EMIT requestFilesStoragePath(m_storagePath);
-    });
+    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &CooperationSettingsDialog::accept);
 }
 
 void CooperationSettingsDialog::setButtonTupleState(bool state)
 {
     m_buttonTuple->rightButton()->setChecked(state);
+}
+
+void CooperationSettingsDialog::setButtonEnabled()
+{
+    m_buttonTuple->leftButton()->setEnabled(true);
+    m_buttonTuple->rightButton()->setEnabled(true);
+}
+
+void CooperationSettingsDialog::setButtonDisabled()
+{
+    m_buttonTuple->leftButton()->setDisabled(true);
+    m_buttonTuple->rightButton()->setDisabled(true);
 }

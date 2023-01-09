@@ -59,6 +59,8 @@ public Q_SLOTS:
     void setOpenSharedDevices(bool on);
     void setOpenSharedClipboard(bool on);
     void setFilesStoragePath(const QString& path);
+    void setButtonEnabled();
+    void setButtonDisabled();
 
 protected:
     void closeEvent(QCloseEvent *event) override;

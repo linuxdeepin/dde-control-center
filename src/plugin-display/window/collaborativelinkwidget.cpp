@@ -121,9 +121,14 @@ void CollaborativeLinkWidget::initConnect()
     connect(m_deviceCombox, &TreeCombox::viewItemPressed, this, &CollaborativeLinkWidget::changeTreeComboxIndex);
 
     // 对话框
-    connect(m_moreSettingsDialog->mousekeyboardSwitch(), &SwitchWidget::checkedChanged, this, &CollaborativeLinkWidget::requestOpenSharedDevices);
-    connect(m_moreSettingsDialog->shearClipboardSwitch(), &SwitchWidget::checkedChanged, this, &CollaborativeLinkWidget::requestOpenSharedClipboard);
-    connect(m_moreSettingsDialog, &CooperationSettingsDialog::requestFilesStoragePath, this, &CollaborativeLinkWidget::requestFilesStoragePath);
+    connect(m_moreSettingsDialog, &CooperationSettingsDialog::accepted, this, [this]() {
+        if (m_displayModel->SharedClipboard() != m_moreSettingsDialog->shearClipboardSwitch()->checked()){
+            emit requestOpenSharedClipboard(m_moreSettingsDialog->shearClipboardSwitch()->checked());}
+        if (m_displayModel->SharedDevices() != m_moreSettingsDialog->mousekeyboardSwitch()->checked()){
+            emit requestOpenSharedDevices(m_moreSettingsDialog->mousekeyboardSwitch()->checked());}
+        if (m_displayModel->filesStoragePath() != m_moreSettingsDialog->storagePath())
+            emit requestFilesStoragePath(m_moreSettingsDialog->storagePath());
+    });
 
     connect(m_directionCombox, static_cast<void (DComboBox::*)(int)>(&DComboBox::activated), this, &CollaborativeLinkWidget::changeDirectionComboxIndex, Qt::QueuedConnection);
 }
@@ -152,9 +157,6 @@ void CollaborativeLinkWidget::setModel(DisplayModel *model)
     connect(model, &DisplayModel::sharedClipboardChanged, m_moreSettingsDialog, &CooperationSettingsDialog::setOpenSharedClipboard);
     connect(model, &DisplayModel::filesStoragePathChanged, m_moreSettingsDialog, &CooperationSettingsDialog::setFilesStoragePath);
     qDebug() << " CooperationSettingsDialog settings: " << m_displayModel->SharedDevices() << m_displayModel->SharedClipboard();
-    m_moreSettingsDialog->setOpenSharedDevices(m_displayModel->SharedDevices());
-    m_moreSettingsDialog->setOpenSharedClipboard(m_displayModel->SharedClipboard());
-    m_moreSettingsDialog->setFilesStoragePath(m_displayModel->filesStoragePath());
 }
 
 void CollaborativeLinkWidget::disconnectMachine()
@@ -170,6 +172,10 @@ void CollaborativeLinkWidget::changeTreeComboxIndex(const QModelIndex &index)
 
     // 处理更多配置项
     if (index.row() == m_deviceComboxModel->rowCount() - 1) {
+        m_moreSettingsDialog->setOpenSharedDevices(m_displayModel->SharedDevices());
+        m_moreSettingsDialog->setOpenSharedClipboard(m_displayModel->SharedClipboard());
+        m_moreSettingsDialog->setFilesStoragePath(m_displayModel->filesStoragePath());
+        m_moreSettingsDialog->setButtonDisabled();
         m_moreSettingsDialog->show();
         return;
     }
