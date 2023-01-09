@@ -41,7 +41,6 @@
 #include <qtimer.h>
 #include <qapplication.h>
 #include <qwidget.h>
-#include <QDate>
 
 using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
@@ -114,9 +113,9 @@ const QString systemCopyright()
     const QString &oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
     if (oem_copyright.isEmpty()) {
         if (IS_COMMUNITY_SYSTEM)
-            return QApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Community").arg(QDate::currentDate().year());
+            return QApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Community").arg(QString(__DATE__).right(4));
         else
-            return QApplication::translate("LogoModule", "Copyright© 2019-%1 UnionTech Software Technology Co., LTD").arg(QDate::currentDate().year());
+            return QApplication::translate("LogoModule", "Copyright© 2019-%1 UnionTech Software Technology Co., LTD").arg(QString(__DATE__).right(4));
     } else {
         return oem_copyright;
     }
