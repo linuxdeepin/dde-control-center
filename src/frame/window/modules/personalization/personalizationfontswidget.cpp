@@ -118,10 +118,13 @@ PersonalizationFontsWidget::~PersonalizationFontsWidget()
 void PersonalizationFontsWidget::setModel(dcc::personalization::PersonalizationModel *const model)
 {
     m_model = model;
+    // 根据窗口显示模式刷新Slide
+    updateFontSizeSlide();
 
     //font size
+    connect(m_model, &dcc::personalization::PersonalizationModel::onCompactDisplayChanged, this, &PersonalizationFontsWidget::updateFontSizeSlide);
     connect(m_model->getFontSizeModel(), &dcc::personalization::FontSizeModel::sizeChanged, this, &PersonalizationFontsWidget::setFontSize);
-    setFontSize(m_model->getFontSizeModel()->getFontSize());
+
     GSettingWatcher::instance()->bind("perssonalFontSize", m_fontSizeSlider);
 
     //standard font & mono font
@@ -155,7 +158,9 @@ void PersonalizationFontsWidget::setModel(dcc::personalization::PersonalizationM
 void PersonalizationFontsWidget::setFontSize(int size)
 {
     m_fontSizeSlider->blockSignals(true);
+    m_fontSizeSlider->slider()->blockSignals(true);
     m_fontSizeSlider->slider()->setValue(size);
+    m_fontSizeSlider->slider()->blockSignals(false);
     m_fontSizeSlider->blockSignals(false);
     QTimer::singleShot(100, this, [&, size] {
         if (size >= 0 && size < FontSizeList.count()) {
@@ -164,6 +169,7 @@ void PersonalizationFontsWidget::setFontSize(int size)
             qWarning() << __FUNCTION__ << " out range of font size. ";
         }
     });
+    update();
 }
 
 void PersonalizationFontsWidget::setList(const QList<QJsonObject> &list, dcc::personalization::FontModel *model)
@@ -216,6 +222,29 @@ void PersonalizationFontsWidget::setCommboxItemFontSize(int fontSize)
         qDebug() << Q_FUNC_INFO << " notifyFontSizeChanged fontSize : " << fontSize;
         Q_EMIT notifyFontSizeChanged(fontSize);
     }
+}
+
+void PersonalizationFontsWidget::updateFontSizeSlide()
+{
+    // 紧凑模式开启或关闭，刷新字体滑动条，并重新获取当前系统字体大小
+    m_fontSizeSlider->blockSignals(true);
+    m_fontSizeSlider->slider()->blockSignals(true);
+
+    QStringList annotions;
+    if (m_model->compactDisplay()) {
+        annotions << "10" << "11" << "12" << "13" << "14" << "15" << "16";
+    } else {
+        annotions << "11" << "12" << "13" << "14" << "15" << "16" << "18" << "20";
+    }
+    m_fontSizeSlider->setAnnotations(annotions);
+
+    DCCSlider *slider = m_fontSizeSlider->slider();
+    slider->setRange(0, annotions.size() - 1);
+
+    m_fontSizeSlider->slider()->blockSignals(false);
+    m_fontSizeSlider->blockSignals(false);
+
+    setFontSize(m_model->getFontSizeModel()->getFontSize());
 }
 
 void PersonalizationFontsWidget::onSelectChanged(const QString &name)

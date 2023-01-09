@@ -55,7 +55,7 @@ const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//�
 const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
 const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition); // 是否是教育版
 const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
-const bool IsNotDeepinUos = !DSysInfo::isDeepin(); // 是否是 Deepin/Uos 以外的发行版 
+const bool IsNotDeepinUos = !DSysInfo::isDeepin(); // 是否是 Deepin/Uos 以外的发行版
 const bool DisableDeveloperMode = {
 #ifdef DISABLE_DEVELOPER_MODE
   true
@@ -94,6 +94,7 @@ struct ListSubItem {
 };
 
 const QList<int> FontSizeList {11, 12, 13, 14, 15, 16, 18, 20};
+const QList<int> FontSizeList_Compact {10, 11, 12, 13, 14, 15, 16};
 
 inline bool compareVersion(const QString &targetVersion, const QString &baseVersion)
 {

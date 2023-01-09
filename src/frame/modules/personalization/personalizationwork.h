@@ -53,6 +53,7 @@ public Q_SLOTS:
     void handlePropertiesChanged(QDBusMessage msg);
     void refreshEffectModule();
     void setScrollBarPolicy(int policy);
+    void setCompactDisplay(bool enabled);
 
 private Q_SLOTS:
     void FontSizeChanged(const double value) const;
@@ -87,6 +88,7 @@ private:
 private:
     PersonalizationModel *m_model;
     Appearance           *m_dbus;
+    QDBusInterface       *m_interface;
     WMSwitcher *m_wmSwitcher;
     WM *m_wm;
     Effects *m_effects;

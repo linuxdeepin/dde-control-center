@@ -50,6 +50,10 @@ private Q_SLOTS:
     void onDefaultFontChanged(const QString &name, dcc::personalization::FontModel *sender = nullptr);
     void setList(const QList<QJsonObject> &list, dcc::personalization::FontModel *model = nullptr);
     void setCommboxItemFontSize(int fontSize);
+
+private:
+    void updateFontSizeSlide();
+
 private:
     dcc::personalization::PersonalizationModel *m_model;
     QVBoxLayout *m_centralLayout;

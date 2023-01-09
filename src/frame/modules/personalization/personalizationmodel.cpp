@@ -20,6 +20,7 @@ PersonalizationModel::PersonalizationModel(QObject *parent)
     , m_IsEffectSupportedMagiclamp(false)
     , m_IsEffectSupportedMoveWindow(false)
     , m_scrollBarPolicy(ShowOnScrolling)
+    , m_compactDisplay(false)
 {
     m_windowModel    = new ThemeModel(this);
     m_iconModel      = new ThemeModel(this);
@@ -152,5 +153,13 @@ void PersonalizationModel::setScrollBarPolicy(int policy)
     if (m_scrollBarPolicy != policy) {
         m_scrollBarPolicy = policy;
         Q_EMIT onScrollBarPolicyChanged(m_scrollBarPolicy);
+    }
+}
+
+void PersonalizationModel::setCompactDisplay(bool enabled)
+{
+    if (m_compactDisplay != enabled) {
+        m_compactDisplay = enabled;
+        Q_EMIT onCompactDisplayChanged(m_compactDisplay);
     }
 }

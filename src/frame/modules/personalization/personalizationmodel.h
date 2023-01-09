@@ -69,6 +69,9 @@ public:
     inline int scrollBarPolicy() const { return m_scrollBarPolicy;}
     void setScrollBarPolicy(int policy);
 
+    inline bool compactDisplay() const { return  m_compactDisplay;}
+    void setCompactDisplay(bool enabled);
+
 Q_SIGNALS:
     void wmChanged(const bool is3d);
     void moveWindowChanged(const bool isMoveWindow);
@@ -80,6 +83,7 @@ Q_SIGNALS:
     void onSaveWindowRadiusChanged(int radius);
     void onEffectSupportDisableChanged();
     void onScrollBarPolicyChanged(int policy);
+    void onCompactDisplayChanged(bool enabled);
 
 private:
     ThemeModel    *m_windowModel;
@@ -99,6 +103,7 @@ private:
     bool m_IsEffectSupportedMagiclamp;
     bool m_IsEffectSupportedMoveWindow;
     int m_scrollBarPolicy;
+    bool m_compactDisplay;
 };
 }
 }

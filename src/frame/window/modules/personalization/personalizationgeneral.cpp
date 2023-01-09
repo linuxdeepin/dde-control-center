@@ -253,6 +253,8 @@ PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::Personaliza
             placeholderLabel->setVisible(m_model->getIsEffectSupportMagiclamp() || m_model->getIsEffectSupportScale());
             placeholderLabel2->setVisible(m_model->getIsEffectSupportMoveWindow());
         });
+
+        // 移动窗口时透明
         m_windowMovedSwitch = new DSwitchButton();
         QHBoxLayout *movedWinSwitchLayout = new QHBoxLayout();
         m_movedWinSwitchItem = new dcc::widgets::SettingsItem;
@@ -272,7 +274,7 @@ PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::Personaliza
         movedWinSwitchLayout->addWidget(m_windowMovedSwitch);
         movedWinSwitchLayout->setContentsMargins(10, 0, 10, 0);
         winEffectVLayout->addWidget(m_movedWinSwitchItem);
-        winEffectVLayout->setContentsMargins(0, 0, 0, 0);
+
         DConfigWatcher::instance()->bind(DConfigWatcher::personalization, "effectMovewindowTranslucency", m_movedWinSwitchItem);
         m_movedWinSwitchItem->setVisible(DConfigWatcher::instance()->getStatus(DConfigWatcher::personalization, "effectMovewindowTranslucency") != "Hidden"
                 && m_model->is3DWm());
@@ -388,8 +390,41 @@ PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::Personaliza
             Q_EMIT requestSetScrollBarPolicy(policy);
         }
     });
-
     DConfigWatcher::instance()->bind(DConfigWatcher::personalization, "scrollbarPolicyStatus", m_cmbScrollBarPolicy);
+
+    // 紧凑模式
+    m_centralLayout->addSpacing(10);
+    m_compactDisplaySwitch = new DSwitchButton();
+    m_compactDisplaySwitch->setAccessibleName("compactDisplaySwitch");
+
+    QHBoxLayout *compactDisplaySwitchLayout = new QHBoxLayout();
+    compactDisplaySwitchLayout->addWidget(new QLabel(tr("Compact Display"), this));
+    compactDisplaySwitchLayout->addStretch();
+    compactDisplaySwitchLayout->addWidget(m_compactDisplaySwitch);
+    compactDisplaySwitchLayout->setContentsMargins(10, 0, 10, 0);
+
+    dcc::widgets::SettingsItem *compactDisplaySwitchItem = new dcc::widgets::SettingsItem(this);
+    compactDisplaySwitchItem->setAccessibleName("compactDisplaySwitchItem");
+    compactDisplaySwitchItem->setFixedHeight(MovedWindowWidgetHeight);
+    compactDisplaySwitchItem->addBackground();
+    compactDisplaySwitchItem->setLayout(compactDisplaySwitchLayout);
+
+    QLabel *compactDisplayTips = new QLabel(tr("If enabled, more content is displayed in the window."), this);
+    compactDisplayTips->setAccessibleName("compactDisplayTips");
+    compactDisplayTips->setContentsMargins(10, 0, 0, 0);
+
+    QVBoxLayout *compactDisplayLayout = new QVBoxLayout;
+    compactDisplayLayout->setContentsMargins(0, 0, 0, 0);
+    compactDisplayLayout->addWidget(compactDisplaySwitchItem);
+    compactDisplayLayout->addWidget(compactDisplayTips);
+
+    m_compactDisplaWidget = new QWidget(this);
+    m_compactDisplaWidget->setAccessibleName("");
+    m_compactDisplaWidget->setLayout(compactDisplayLayout);
+    connect(m_compactDisplaySwitch, &DTK_WIDGET_NAMESPACE::DSwitchButton::clicked, this, &PersonalizationGeneral::requestSetCompactDisplay);
+    DConfigWatcher::instance()->bind(DConfigWatcher::personalization, "compactDisplayStatus", m_compactDisplaWidget);
+
+    m_centralLayout->addWidget(m_compactDisplaWidget);
 
     m_centralLayout->addStretch(20);
 
@@ -457,6 +492,10 @@ PersonalizationGeneral::PersonalizationGeneral(dcc::personalization::Personaliza
     connect(model, &dcc::personalization::PersonalizationModel::onScrollBarPolicyChanged, this,
             &PersonalizationGeneral::onScrollBarPolicyChanged);
     onScrollBarPolicyChanged(model->scrollBarPolicy());
+
+    connect(model, &dcc::personalization::PersonalizationModel::onCompactDisplayChanged, this,
+            &PersonalizationGeneral::onCompactDisplayChanged);
+    onCompactDisplayChanged(model->compactDisplay());
 }
 
 PersonalizationGeneral::~PersonalizationGeneral()
@@ -645,6 +684,15 @@ void PersonalizationGeneral::onScrollBarPolicyChanged(int policy)
     }
     m_cmbScrollBarPolicy->setCurrentIndex(index);
     m_cmbScrollBarPolicy->blockSignals(false);
+}
+
+void PersonalizationGeneral::onCompactDisplayChanged(bool enabled)
+{
+    if (m_compactDisplaySwitch) {
+        m_compactDisplaySwitch->blockSignals(true);
+        m_compactDisplaySwitch->setChecked(enabled);
+        m_compactDisplaySwitch->blockSignals(false);
+    }
 }
 
 void PersonalizationGeneral::onOpacityChanged(std::pair<int, double> value)
