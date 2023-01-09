@@ -40,7 +40,7 @@ bool MachineDBusProxy::deviceSharing()
     return qvariant_cast<bool>(m_dBusMachineInter->property("DeviceSharing"));
 }
 
-int MachineDBusProxy::direction()
+quint16 MachineDBusProxy::direction()
 {
     QDBusInterface in("org.deepin.dde.Cooperation1", m_cooperationMachinePath, "org.deepin.dde.Cooperation1.Machine", QDBusConnection::sessionBus());
     return in.property("Direction").toUInt();
@@ -76,7 +76,7 @@ void MachineDBusProxy::requestDeviceSharing()
     }
 }
 
-void MachineDBusProxy::setFlowDirection(int direction)
+void MachineDBusProxy::setFlowDirection(quint16 direction)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(direction);

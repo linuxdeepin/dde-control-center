@@ -34,12 +34,12 @@ public:
     bool deviceSharing(); // 默认设备
 
     Q_PROPERTY(int Direction READ direction NOTIFY directionChanged)
-    int direction();
+    quint16 direction();
 
     void disconnect();
     void connect();
     void requestDeviceSharing();
-    void setFlowDirection(int direction);
+    void setFlowDirection(quint16 direction);
     void stopDeviceSharing();
 
 Q_SIGNALS:
@@ -49,7 +49,7 @@ Q_SIGNALS:
     void UuidChanged(const QString& uuid);
     void DeviceSharingChanged(bool cooperating);
     void disconnectStatusChanged(bool);
-    void directionChanged(int dir);
+    void directionChanged(quint16 dir);
 
 private slots:
     void onPropertiesChanged(const QDBusMessage &message);

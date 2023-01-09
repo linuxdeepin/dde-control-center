@@ -43,7 +43,7 @@ public:
     inline const bool deviceSharing() { return m_deviceSharing; }
     inline const bool isHistory() { return m_isHistoryDev; }
     inline const QString UUID() { return m_UUID; }
-    inline const int direction() { return m_direction; }
+    inline const quint16 direction() { return m_direction; }
 
 public Q_SLOTS:
     void setName(const QString& name);
@@ -53,7 +53,7 @@ public Q_SLOTS:
     void setDisconnectStatus(bool status);
     void setHistoryStates(bool isHistory);
     void setUUID(const QString& uuid);
-    void setDirection(const int dir);
+    void setDirection(const quint16 dir);
 
 Q_SIGNALS:
     void connectedChanged(bool connected);
@@ -62,7 +62,7 @@ Q_SIGNALS:
     void deviceSharingChanged(bool deviceSharing);
     void disconnnectStatusChanged(bool status);
     void historyStatusChanged(bool status);
-    void directionChanged(const int& dir);
+    void directionChanged(const quint16& dir);
 
 private:
     QString m_path;
@@ -73,7 +73,7 @@ private:
     // 判断是否是历史设备
     bool m_isHistoryDev;
     QString m_UUID;
-    int m_direction;
+    quint16 m_direction;
 };
 
 }

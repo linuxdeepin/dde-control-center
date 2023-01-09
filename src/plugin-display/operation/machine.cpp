@@ -93,7 +93,7 @@ void Machine::setUUID(const QString &uuid)
     m_UUID = uuid;
 }
 
-void Machine::setDirection(const int dir)
+void Machine::setDirection(const quint16 dir)
 {
     if (m_direction != dir) {
         m_direction = dir;
