@@ -763,8 +763,8 @@ void AccountsDetailWidget::setModifyPwdBtnStatus(const QString &key)
         return;
 
     const QString btnStatus = m_gsettings->get(key).toString();
-    // 若选择当前登录的账户，则允许修改，选择其他账户(非域管用户)，当前登录账户必需是管理员且其他账户未登录时才允许修改密码
-    m_modifyPassword->setEnabled("Enabled" == btnStatus && ((!m_curUser->online() && !m_userModel->isDomainUser(m_curUser->name()) && isSystemAdmin(m_curLoginUser)) || m_curUser->isCurrentUser()));
+    // 若选择当前登录的账户(非域用户），则允许修改，选择其他账户，当前登录账户必需是管理员且其他账户未登录时才允许修改密码
+    m_modifyPassword->setEnabled("Enabled" == btnStatus && !m_userModel->isDomainUser(m_curUser->name()) && ((!m_curUser->online() && isSystemAdmin(m_curLoginUser)) || m_curUser->isCurrentUser()));
 
     m_modifyPassword->setVisible("Hidden" != btnStatus);
 }
