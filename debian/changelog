@@ -1,3 +1,12 @@
+dde-control-center (6.0.7.1) unstable; urgency=medium
+
+  [ Deepin Packages Builder ]
+  * chore: 修改copyright为读取当前年份(Task: 234481)(Influence: 控制中心系统信息关于本机copyright年份)
+  * fix: 修复控制中心调整连接方向不生效(Bug: 179251)(Influence: 显示模块跨端协同方向设置涉及功能及流程)
+  * fix: 修改协同设置界面按钮置灰问题(Bug: 176345)(Influence: 控制中心-显示-跨端协同-设置界面)
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Tue, 10 Jan 2023 09:19:21 +0800
+
 dde-control-center (6.0.7) unstable; urgency=medium
 
   [ TagBuilder ]
