@@ -350,7 +350,9 @@ QWidget *PersonalizationThemeModule::initIconTheme(ModuleObject *module)
     auto setPic = [pic, this]() {
         ThemeModel *model = m_model->getIconModel();
         QString picPath = model->getPicList().value(model->getDefault());
-        pic->setPixmap(QPixmap(picPath));
+        QPixmap pixmap(picPath);
+        pixmap.setDevicePixelRatio(pic->devicePixelRatioF());
+        pic->setPixmap(pixmap);
     };
     setPic();
     connect(m_model->getIconModel(), &ThemeModel::defaultChanged, pic, setPic);
@@ -372,7 +374,9 @@ QWidget *PersonalizationThemeModule::initCursorTheme(ModuleObject *module)
     auto setPic = [pic, this]() {
         ThemeModel *model = m_model->getMouseModel();
         QString picPath = model->getPicList().value(model->getDefault());
-        pic->setPixmap(QPixmap(picPath));
+        QPixmap pixmap(picPath);
+        pixmap.setDevicePixelRatio(pic->devicePixelRatioF());
+        pic->setPixmap(pixmap);
     };
     setPic();
     connect(m_model->getMouseModel(), &ThemeModel::defaultChanged, pic, setPic);
