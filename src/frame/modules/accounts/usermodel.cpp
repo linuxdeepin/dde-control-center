@@ -132,9 +132,18 @@ void UserModel::setIsSecurityHighLever(bool isSecurityHighLever)
     m_isSecurityHighLever = isSecurityHighLever;
 }
 
-// 判断当前用户是否是域管账户
+// 判断当前用户是否是域账户
 bool UserModel::isDomainUser(const QString &userName)
 {
+    // LDAP域账户
+    for(const auto &user : userList()) {
+        if (user->name() == userName) {
+            if (user->groups().contains("domain users")) {
+                return true;
+            }
+        }
+    }
+
     QDBusInterface interface("com.deepin.udcp.iam",
                              "/com/deepin/udcp/iam",
                              "com.deepin.udcp.iam",
