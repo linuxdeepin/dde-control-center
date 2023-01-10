@@ -165,7 +165,7 @@ void AddFingeDialog::enrollFailed(QString title, QString msg)
 
 void AddFingeDialog::claimFailed()
 {
-    m_fingeWidget->setStatueMsg(tr("The device is unavailabl"), tr(""), true);
+    m_fingeWidget->setStatueMsg(tr("The device is unavailable"), tr(""), true);
     m_spaceWidget->setVisible(true);
 }
 
