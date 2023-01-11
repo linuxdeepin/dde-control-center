@@ -119,6 +119,7 @@ void IrisDetailWidget::onShowAddIrisDialog(const QString &driverName, const int 
 
     // 点击下一步开始录入
     connect(irisDlg, &AddIrisInfoDialog::requestInputIris, this, [ = ](){
+        irisDlg->hide();
         Q_EMIT requestEnrollStart(driverName, charaType, charaName);
     });
 
