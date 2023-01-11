@@ -142,6 +142,7 @@ void AddIrisInfoDialog::initConnect()
 
 void AddIrisInfoDialog::refreshInfoStatusDisplay(CharaMangerModel::AddInfoState state)
 {
+    this->show();
     m_irisInfo->updateState(state);
     m_state = state;
     switch (state) {
