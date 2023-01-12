@@ -3318,7 +3318,7 @@
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="282"/>
         <source> (Unsupported font)</source>
         <translation>(Неподдерживаемый шрифт)</translation>
     </message>
@@ -3362,58 +3362,68 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="242"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="479"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="518"/>
         <source>Scale</source>
         <translation>Масштаб</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="242"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="480"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="519"/>
         <source>Magic Lamp</source>
         <translation>Волшебная лампа</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="268"/>
         <source>Show transparency effects when a window is moved</source>
         <translation>Показать эффекты прозрачности при перемещении окна</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="330"/>
         <source>Rounded Corner</source>
         <translation>Закругленный угол</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="337"/>
         <source>Small</source>
         <translation>Маленький</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="337"/>
         <source>Medium</source>
         <translation>Средний</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="337"/>
         <source>Large</source>
         <translation>Большой</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="378"/>
         <source>Scroll Bars</source>
         <translation type="unfinished"/>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="381"/>
         <source>Keep shown</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="382"/>
         <source>Show on scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="401"/>
+        <source>Compact Display</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="412"/>
+        <source>If enabled, more content is displayed in the window.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3451,96 +3461,102 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="139"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="226"/>
         <source>General</source>
         <translation>Основной</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="227"/>
         <source>Icon Theme</source>
         <translation>Тема значков</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="228"/>
         <source>Cursor Theme</source>
         <translation>Тема курсора</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="142"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="225"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
         <source>Standard Font</source>
         <translation>Стандартный шрифт</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="248"/>
         <source>Monospaced Font</source>
         <translation>Моноширный шрифт</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="258"/>
         <source>Theme</source>
         <translation>Тема</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="259"/>
         <source>Light</source>
         <translation>Светлая</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="260"/>
         <source>Dark</source>
         <translation>Темная</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="261"/>
         <source>Auto</source>
         <translation>Автоматически</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="262"/>
         <source>Accent Color</source>
         <translation>Акцентный цвет</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="263"/>
         <source>Window Effect</source>
         <translation>Эффект окна</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="262"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="344"/>
         <source>Transparency</source>
         <translation>Прозрачность</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="263"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="346"/>
         <source>Window Minimize Effect</source>
         <translation>Эффект сворачивания окна</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="264"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="331"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="347"/>
         <source>Show transparency effects when a window is moved</source>
         <translation>Показать эффекты прозрачности при перемещении окна</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="265"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="336"/>
         <source>Scroll Bars</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="337"/>
+        <source>Compact Display</source>
         <translation type="unfinished"/>
     </message>
 </context>

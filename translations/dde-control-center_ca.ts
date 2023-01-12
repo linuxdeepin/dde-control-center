@@ -754,7 +754,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="168"/>
         <source>The device is unavailable</source>
-        <translation type="unfinished"/>
+        <translation>El dispositiu no està disponible.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="177"/>
@@ -3318,7 +3318,7 @@
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="282"/>
         <source> (Unsupported font)</source>
         <translation>(Lletra no admesa)</translation>
     </message>
@@ -3362,58 +3362,68 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="242"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="479"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="518"/>
         <source>Scale</source>
         <translation>Escala</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="242"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="480"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="519"/>
         <source>Magic Lamp</source>
         <translation>Làmpada màgica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="268"/>
         <source>Show transparency effects when a window is moved</source>
         <translation>Mostra efectes de transparència quan es mou una finestra.</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="330"/>
         <source>Rounded Corner</source>
         <translation>Cantonada arrodonida</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="337"/>
         <source>Small</source>
         <translation>Petit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="337"/>
         <source>Medium</source>
         <translation>Mitjà</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="337"/>
         <source>Large</source>
         <translation>Gros</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="378"/>
         <source>Scroll Bars</source>
-        <translation type="unfinished"/>
+        <translation>Barres de desplaçament</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="381"/>
         <source>Keep shown</source>
+        <translation>Mantén-ho visible</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="382"/>
+        <source>Show on scrolling</source>
+        <translation>Mostra-ho durant el desplaçament</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="401"/>
+        <source>Compact Display</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="380"/>
-        <source>Show on scrolling</source>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="412"/>
+        <source>If enabled, more content is displayed in the window.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3451,96 +3461,102 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="139"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="226"/>
         <source>General</source>
         <translation>General</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="227"/>
         <source>Icon Theme</source>
         <translation>Tema de les icones</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="228"/>
         <source>Cursor Theme</source>
         <translation>Tema del cursor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="142"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="225"/>
         <source>Font</source>
         <translation>Lletra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
         <source>Size</source>
         <translation>Mida</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
         <source>Standard Font</source>
         <translation>Lletra estàndard</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="248"/>
         <source>Monospaced Font</source>
         <translation>Lletra d&apos;un sol espai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="258"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="259"/>
         <source>Light</source>
         <translation>Lleugera</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="260"/>
         <source>Dark</source>
         <translation>Fosc</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="261"/>
         <source>Auto</source>
         <translation>Automàtic</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="262"/>
         <source>Accent Color</source>
         <translation>Color del realçament</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="263"/>
         <source>Window Effect</source>
         <translation>Efecte de la finestra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="262"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="344"/>
         <source>Transparency</source>
         <translation>Transparència</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="263"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="346"/>
         <source>Window Minimize Effect</source>
         <translation>Efecte de minimització de la finestra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="264"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="331"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="347"/>
         <source>Show transparency effects when a window is moved</source>
         <translation>Mostra efectes de transparència quan es mou una finestra.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="265"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="336"/>
         <source>Scroll Bars</source>
+        <translation>Barres de desplaçament</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="337"/>
+        <source>Compact Display</source>
         <translation type="unfinished"/>
     </message>
 </context>
