@@ -171,7 +171,7 @@ void AddIrisInfoDialog::refreshInfoStatusDisplay(CharaMangerModel::AddInfoState 
         m_resultTips->setText(tr("Failed to enroll your iris"));
         m_disclaimersItem->setVisible(false);
         m_cancelBtn->setVisible(true);
-        m_cancelBtn->setText("Done");
+        m_cancelBtn->setText(tr("Done"));
         m_acceptBtn->setVisible(true);
         m_acceptBtn->setText(tr("Try Again"));
         m_explainTips->setVisible(false);
