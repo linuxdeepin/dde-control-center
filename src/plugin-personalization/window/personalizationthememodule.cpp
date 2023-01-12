@@ -210,14 +210,14 @@ QWidget *PersonalizationThemeModule::initThemeTitle(ModuleObject *module)
     DFontSizeManager::instance()->bind(leftWidget, DFontSizeManager::T5, QFont::DemiBold);
     layout->addWidget(leftWidget);
 
-    QToolButton *button = new QToolButton();
-    button->setIcon(QIcon::fromTheme("help"));
-    button->setFixedSize(24, 24);
-    layout->addWidget(button);
-    layout->addStretch();
-    connect(button, &QToolButton::clicked, button, []() {
-        QDesktopServices::openUrl(QUrl("file:///usr/share/dde-control-center/developdocument.html"));
-    });
+//    QToolButton *button = new QToolButton();
+//    button->setIcon(QIcon::fromTheme("help"));
+//    button->setFixedSize(24, 24);
+//    layout->addWidget(button);
+//    layout->addStretch();
+//    connect(button, &QToolButton::clicked, button, []() {
+//        QDesktopServices::openUrl(QUrl("file:///usr/share/dde-control-center/developdocument.html"));
+//    });
     return widget;
 }
 
