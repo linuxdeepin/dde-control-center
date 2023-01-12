@@ -122,9 +122,7 @@ void UpdateDBusProxy::SetAutoDownloadUpdates(bool in0)
 
 void UpdateDBusProxy::setAutoInstallUpdates(bool value)
 {
-    QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(value);
-    m_updateInter->asyncCallWithArgumentList(QStringLiteral("setAutoInstallUpdates"), argumentList);
+    m_updateInter->setProperty("AutoInstallUpdates", QVariant::fromValue(value));
 }
 
 void UpdateDBusProxy::SetMirrorSource(const QString &in0)
@@ -136,7 +134,7 @@ void UpdateDBusProxy::SetMirrorSource(const QString &in0)
 
 bool UpdateDBusProxy::autoClean()
 {
-    return qvariant_cast<bool>(m_managerInter->property("AutoCheckUpdates"));
+    return qvariant_cast<bool>(m_managerInter->property("AutoClean"));
 }
 
 uint UpdateDBusProxy::updateMode()

@@ -47,6 +47,7 @@ public:
     void SetMirrorSource(const QString &in0);
 
     // ManagerInter
+    Q_PROPERTY(bool AutoClean READ autoClean NOTIFY AutoCleanChanged)
     bool autoClean();
 
     Q_PROPERTY(qulonglong UpdateMode READ updateMode WRITE setUpdateMode NOTIFY UpdateModeChanged)
