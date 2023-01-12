@@ -3318,7 +3318,7 @@
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="282"/>
         <source> (Unsupported font)</source>
         <translation> (Shkronja të pambuluara)</translation>
     </message>
@@ -3362,58 +3362,68 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="242"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="479"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="518"/>
         <source>Scale</source>
         <translation>Shkallë</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="242"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="480"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="519"/>
         <source>Magic Lamp</source>
         <translation>Llambë Magjike</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="268"/>
         <source>Show transparency effects when a window is moved</source>
         <translation>Shfaq efekte tejdukshmërie, kur lëvizet një dritare</translation>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="330"/>
         <source>Rounded Corner</source>
         <translation>Cep i Rrumbullakosur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="337"/>
         <source>Small</source>
         <translation>E vogël</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="337"/>
         <source>Medium</source>
         <translation>Mesatare</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="337"/>
         <source>Large</source>
         <translation>E madhe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="378"/>
         <source>Scroll Bars</source>
         <translation type="unfinished"/>
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="381"/>
         <source>Keep shown</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="382"/>
         <source>Show on scrolling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="401"/>
+        <source>Compact Display</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="412"/>
+        <source>If enabled, more content is displayed in the window.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3451,96 +3461,102 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="139"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="226"/>
         <source>General</source>
         <translation>Të përgjithshme</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="227"/>
         <source>Icon Theme</source>
         <translation>Temë Ikonash</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="228"/>
         <source>Cursor Theme</source>
         <translation>Temë Kursori</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="142"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="225"/>
         <source>Font</source>
         <translation>Shkronja</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
         <source>Size</source>
         <translation>Madhësi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
         <source>Standard Font</source>
         <translation>Shkronja Standarde</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="248"/>
         <source>Monospaced Font</source>
         <translation>Shkronja Monospace</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="258"/>
         <source>Theme</source>
         <translation>Temë</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="259"/>
         <source>Light</source>
         <translation>E çelët</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="260"/>
         <source>Dark</source>
         <translation>E errët</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="261"/>
         <source>Auto</source>
         <translation>Auto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="262"/>
         <source>Accent Color</source>
         <translation>Ngjyrë Theksimi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="263"/>
         <source>Window Effect</source>
         <translation>Efekt Dritareje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="262"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="344"/>
         <source>Transparency</source>
         <translation>Tejdukshmëri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="263"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="346"/>
         <source>Window Minimize Effect</source>
         <translation>Efekt Minimizimi Dritaresh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="264"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="331"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="347"/>
         <source>Show transparency effects when a window is moved</source>
         <translation>Shfaq efekte tejdukshmërie, kur lëvizet një dritare</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="265"/>
-        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="336"/>
         <source>Scroll Bars</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="337"/>
+        <source>Compact Display</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -6058,7 +6074,7 @@ UnionTech Software është i përkushtuar kërkimeve dhe të përmirësimit të 
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="80"/>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Pas ndryshimesh, risistemimi i ekrani do të hyjë në fuqi në %1s</translation>
+        <translation>Pas ndryshimesh, risistemimi i ekranit do të hyjë në fuqi pas %1s</translation>
     </message>
 </context>
 <context>
