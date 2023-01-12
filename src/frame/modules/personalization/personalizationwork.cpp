@@ -6,6 +6,8 @@
 #include "model/thememodel.h"
 #include "model/fontmodel.h"
 #include "model/fontsizemodel.h"
+#include "window/dconfigwatcher.h"
+#include "window/utils.h"
 
 #include <QGuiApplication>
 #include <QScreen>
@@ -34,14 +36,11 @@ static const std::vector<int> OPACITY_SLIDER {
     100
 };
 
-#ifdef WINDOW_MODE
-const QList<int> FontSizeList {11, 12, 13, 14, 15, 16, 18, 20};
-#endif
-
 PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
     , m_dbus(new Appearance(Service, Path, QDBusConnection::sessionBus(), this))
+    , m_interface(new QDBusInterface(Service, Path, Service, QDBusConnection::sessionBus()))
     , m_wmSwitcher(new WMSwitcher("com.deepin.WMSwitcher", "/com/deepin/WMSwitcher", QDBusConnection::sessionBus(), this))
     , m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
     , m_effects(new Effects("org.kde.KWin", "/Effects", QDBusConnection::sessionBus(), this))
@@ -194,9 +193,15 @@ void PersonalizationWork::refreshEffectModule()
 
 void PersonalizationWork::setScrollBarPolicy(int policy)
 {
-    QDBusInterface interface(Service, Path, Service, QDBusConnection::sessionBus());
-    if (interface.isValid()) {
-        interface.setProperty("QtScrollBarPolicy", policy);
+    if (m_interface->isValid()) {
+        m_interface->setProperty("QtScrollBarPolicy", policy);
+    }
+}
+
+void PersonalizationWork::setCompactDisplay(bool enabled)
+{
+    if (m_interface->isValid()) {
+        m_interface->setProperty("DTKSizeMode", int(enabled));
     }
 }
 
@@ -216,17 +221,16 @@ void PersonalizationWork::active()
     m_model->getMonoFontModel()->setFontName(m_dbus->monospaceFont());
     m_model->getStandFontModel()->setFontName(m_dbus->standardFont());
 
-    bool ok = false;
-    QDBusInterface interface(Service, Path, Service, QDBusConnection::sessionBus());
-    int radius = interface.property("WindowRadius").toInt(&ok);
-    if (ok)
-        m_model->setWindowRadius(radius);
+    if (m_interface->isValid()) {
+        bool ok = false;
+        int radius = m_interface->property("WindowRadius").toInt(&ok);
+        if (ok)
+            m_model->setWindowRadius(radius);
 
-    int policy = interface.property("QtScrollBarPolicy").toInt(&ok);
-    if (ok)
-        m_model->setScrollBarPolicy(policy);
-    else
-        m_model->setScrollBarPolicy(PersonalizationModel::ShowOnScrolling);
+        int policy = m_interface->property("QtScrollBarPolicy").toInt(&ok);
+        m_model->setScrollBarPolicy(ok ? policy : PersonalizationModel::ShowOnScrolling);
+    }
+
 }
 
 void PersonalizationWork::deactive()
@@ -491,7 +495,7 @@ void PersonalizationWork::refreshFont()
     for (QMap<QString, FontModel *>::const_iterator it = m_fontModels.begin(); it != m_fontModels.end(); it++) {
         refreshFontByType(it.key());
     }
-
+    m_model->setCompactDisplay(m_interface->isValid() ? m_interface->property("DTKSizeMode").toBool() : false);
     FontSizeChanged(m_dbus->fontSize());
 }
 
@@ -552,18 +556,27 @@ int PersonalizationWork::sizeToSliderValue(const double value) const
 {
     int px = static_cast<int>(ptToPx(value));
 
-    if (px < FontSizeList.first()) {
-        return 0;
-    } else if (px > FontSizeList.last()){
-        return (FontSizeList.size() - 1);
+    QList<int> sizeList = DCC_NAMESPACE::FontSizeList;
+    if (m_model->compactDisplay()) {
+        sizeList = DCC_NAMESPACE::FontSizeList_Compact;
     }
 
-    return FontSizeList.indexOf(px);
+    if (px < sizeList.first()) {
+        return 0;
+    } else if (px > sizeList.last()){
+        return (sizeList.size() - 1);
+    }
+
+    return sizeList.indexOf(px);
 }
 
 double PersonalizationWork::sliderValueToSize(const int value) const
 {
-    return pxToPt(FontSizeList.at(value));
+    QList<int> sizeList = DCC_NAMESPACE::FontSizeList;
+    if (m_model->compactDisplay()) {
+        sizeList = DCC_NAMESPACE::FontSizeList_Compact;
+    }
+    return pxToPt(sizeList.at(value));
 }
 #else
 int PersonalizationWork::sizeToSliderValue(const double value) const
@@ -721,8 +734,9 @@ void PersonalizationWork::setActiveColor(const QString &hexColor)
 
 void PersonalizationWork::setWindowRadius(int radius)
 {
-    QDBusInterface interface(Service, Path, Service, QDBusConnection::sessionBus());
-    interface.setProperty("WindowRadius", radius);
+    if (m_interface->isValid()) {
+        m_interface->setProperty("WindowRadius", radius);
+    }
 }
 
 void PersonalizationWork::handlePropertiesChanged(QDBusMessage msg)
@@ -743,6 +757,9 @@ void PersonalizationWork::handlePropertiesChanged(QDBusMessage msg)
             } else if (keys.at(i) == "QtScrollBarPolicy") {
                 int policy = static_cast<int>(changedProps.value(keys.at(i)).toInt());
                 m_model->setScrollBarPolicy(policy);
+            } else if (keys.at(i) == "DTKSizeMode") {
+                int enabled = static_cast<int>(changedProps.value(keys.at(i)).toBool());
+                m_model->setCompactDisplay(enabled);
             }
         }
     }

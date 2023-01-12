@@ -95,6 +95,7 @@ Q_SIGNALS:
     void windowRadiusChanged(int radius);
     void requestUpdateEffectStatus();
     void requestSetScrollBarPolicy(int policy);
+    void requestSetCompactDisplay(bool enabled);
 
 private:
     void onOpacityChanged(std::pair<int, double> value);
@@ -104,6 +105,7 @@ private:
     void onCompositingAllowSwitchChanged(bool value);
     void onWindowRadiusChanged(int radius);
     void onScrollBarPolicyChanged(int policy);
+    void onCompactDisplayChanged(bool enabled);
 
 private:
     QVBoxLayout *m_centralLayout;             //主布局
@@ -113,6 +115,8 @@ private:
     dcc::widgets::ComboxWidget *m_cmbMiniEffect;    //最小化效果
     DTK_WIDGET_NAMESPACE::DSwitchButton *m_windowMovedSwitch;  //是否开启“窗口移动时启用透明特效”
     dcc::widgets::ComboxWidget *m_cmbScrollBarPolicy;          // 滚动条显示策略
+    DTK_WIDGET_NAMESPACE::DSwitchButton *m_compactDisplaySwitch; // 紧凑模式
+    QWidget *m_compactDisplaWidget;
     QLabel *m_windowMovedLabel;
     QString m_displayData;
     dcc::personalization::PersonalizationModel *m_model;
