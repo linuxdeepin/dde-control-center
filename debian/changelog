@@ -1,3 +1,13 @@
+dde-control-center (6.0.8) unstable; urgency=medium
+
+  [ TagBuilder ]
+  * fix: 修改主题缩略图模糊问题(Bug: 182545)(Influence: 屏幕缩放不为1时，控制中心-个性化-图标主题-缩略图)
+  * fix: 更新主题开发者文档(Bug: 182241)(Influence: 控制中心-个性化-主题-开发者文档)
+  * fix: 屏蔽主题开发者文档按钮(Bug: 182241)(Influence: 控制中心-个性化-开发者文档按钮)
+  * fix: 修改更新设置自动安装和清除软件包按钮状态不同步问题(Bug: 182923)(Influence: 控制中心-更新-自动安装和清除软件包按钮状态)
+
+ -- zhaoyingzhen <zhaoyingzhen@uniontech.com>  Fri, 13 Jan 2023 10:21:17 +0800
+
 dde-control-center (6.0.7.1) unstable; urgency=medium
 
   [ Deepin Packages Builder ]
