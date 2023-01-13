@@ -194,4 +194,5 @@ void SystemLanguageWidget::onSetCurLang(int value)
     m_addSystemLanguage->setFocusPolicy(value ? Qt::NoFocus : Qt::TabFocus);
     m_langListview->setEnabled(!value);
     m_editSystemLang->setEnabled(!value);
+    setFocus();
 }
