@@ -59,6 +59,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged, Qt::QueuedConnection);
     connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser, Qt::QueuedConnection);
     connect(m_accountsInter, &Accounts::UserDeleted, this, &AccountsWorker::removeUser, Qt::QueuedConnection);
+    connect(m_accountsInter, &Accounts::GroupListChanged, this, &AccountsWorker::onGroupListChanged, Qt::QueuedConnection);
 
     connect(m_dmInter, &DisplayManager::SessionsChanged, this, &AccountsWorker::updateUserOnlineStatus);
 
@@ -231,6 +232,39 @@ void AccountsWorker::setSecurityQuestions(User *user, const QMap<int, QByteArray
     if (!reply.error().message().isEmpty()) {
         Q_EMIT user->setSecurityQuestionsReplied(reply.error().message() + "error");
     }
+}
+
+void AccountsWorker::deleteGroup(const QString &group)
+{
+    QDBusPendingCall call = m_accountsInter->DeleteGroup(group, true);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [] (QDBusPendingCallWatcher* call) {
+        if (call->isError()) {
+            qDebug() << Q_FUNC_INFO << call->error().message();
+        }
+    });
+}
+
+void AccountsWorker::createGroup(const QString &group, uint32_t gid, bool isSystem)
+{
+    QDBusPendingCall call = m_accountsInter->CreateGroup(group, gid, isSystem);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [] (QDBusPendingCallWatcher* call) {
+        if (call->isError()) {
+            qDebug() << Q_FUNC_INFO << call->error().message();
+        }
+    });
+}
+
+void AccountsWorker::modifyGroup(const QString &oldGroup, const QString &newGroup, uint32_t gid)
+{
+    QDBusPendingCall call = m_accountsInter->ModifyGroup(oldGroup, newGroup, gid);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [] (QDBusPendingCallWatcher* call) {
+        if (call->isError()) {
+            qDebug() << Q_FUNC_INFO << call->error().message();
+        }
+    });
 }
 
 bool AccountsWorker::hasOpenSecurity()

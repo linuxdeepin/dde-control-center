@@ -97,6 +97,9 @@ void AccountsModule::active()
     connect(m_accountsWidget, &AccountsWidget::requestLoadUserList, m_accountsWorker, &AccountsWorker::loadUserList);
     connect(m_accountsWidget, &AccountsWidget::requestUpdatGroupList, m_accountsWorker, &AccountsWorker::updateGroupinfo);
     connect(m_accountsWorker, &AccountsWorker::showSafeyPage, m_accountsWidget, &AccountsWidget::onShowSafetyPage);
+
+    connect(m_accountsWorker, &AccountsWorker::onGroupListChanged, m_userModel, &UserModel::setAllGroups);
+
     m_frameProxy->pushWidget(this, m_accountsWidget);
     m_accountsWidget->setVisible(true);
     m_accountsWidget->showDefaultAccountInfo();
@@ -359,6 +362,10 @@ void AccountsModule::onShowUserGroupsPage(User *account)
     w->setVisible(false);
 
     connect(w, &UserGroupsPage::requestSetGroups, m_accountsWorker, &AccountsWorker::setGroups);
+    connect(w, &UserGroupsPage::requestDeleteGroup, m_accountsWorker, &AccountsWorker::deleteGroup);
+    connect(w, &UserGroupsPage::requestCreateGroup, m_accountsWorker, &AccountsWorker::createGroup);
+    connect(w, &UserGroupsPage::requestModifyGroup, m_accountsWorker, &AccountsWorker::modifyGroup);
+    connect(m_userModel, &UserModel::allGroupsChange, w, &UserGroupsPage::onGroupListChanged);
 
     m_frameProxy->pushWidget(this, w, FrameProxyInterface::PushType::CoverTop);
 

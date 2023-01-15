@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>dccV20::MainWindow</name>
     <message>
@@ -650,9 +652,46 @@
     </message>
 </context>
 <context>
+    <name>dccV20::accounts::UserGroupsInfoItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="471"/>
+        <source>Use letters, numbers and underscores only</source>
+        <translation type="unfinished">只能由字母、数字、中文、下划线组成</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::accounts::UserGroupsPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="36"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="272"/>
+        <source>Edit</source>
+        <translation>编辑</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="37"/>
+        <source>Add UserGroup</source>
+        <translation>添加用户组</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="180"/>
+        <source>please enter group name!</source>
+        <translation>请输入组名！</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="185"/>
+        <source>also has this group!</source>
+        <translation>组名与其他组名重复！</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="272"/>
+        <source>Done</source>
+        <translation>完成</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/usergroupspage.cpp" line="244"/>
         <source>Group</source>
         <translation>用户组</translation>
         <extra-contents_path>/accounts/Group</extra-contents_path>
@@ -5640,7 +5679,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="59"/>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
-Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom. 
+Please be noted that UnionTech Software will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom. 
 UnionTech Software is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UnionTech OS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UnionTech OS. 
 </source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。

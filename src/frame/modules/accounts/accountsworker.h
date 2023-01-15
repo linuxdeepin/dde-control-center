@@ -65,6 +65,7 @@ Q_SIGNALS:
     void localBindUbid(const QString &ubid);
     void localBindError(const QString &error);
     void showSafeyPage(const QString &errorTips);
+    void onGroupListChanged(const QStringList & value);
 
 public Q_SLOTS:
     void randomUserIcon(User *user);
@@ -96,6 +97,9 @@ public Q_SLOTS:
     void setGroups(User *user, const QStringList &usrGroups);
     void setPasswordHint(User *user, const QString &passwordHint);
     void setSecurityQuestions(User *user, const QMap<int, QByteArray> &securityQuestions);
+    void deleteGroup(const QString &group);
+    void createGroup(const QString &group, uint32_t gid, bool isSystem);
+    void modifyGroup(const QString &oldGroup, const QString &newGroup, uint32_t gid);
 
     bool hasOpenSecurity();
     SecurityLever getSecUserLeverbyname(QString userName);
