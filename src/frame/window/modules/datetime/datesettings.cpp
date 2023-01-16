@@ -172,7 +172,10 @@ DateSettings::DateSettings(QWidget *parent)
     setContentsMargins(0, 8, 0, 0);
     setContent(w);
 
-    connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::requestSetAutoSyncdate);
+    connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, [this] {
+        m_autoSyncTimeSwitch->setEnabled(false);
+        requestSetAutoSyncdate(m_autoSyncTimeSwitch->checked());
+    });
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::setControlVisible);
     GSettingWatcher::instance()->bind("datetimeDatesettingAutosync", m_autoSyncTimeSwitch);
 
@@ -443,6 +446,8 @@ void DateSettings::updateRealAutoSyncCheckState(const bool &state)
     } else {
         m_syncSettingTimer->stop();
     }
+
+    m_autoSyncTimeSwitch->setEnabled(true);
 }
 
 void DateSettings::updateNTPServerList(const QStringList &list)
