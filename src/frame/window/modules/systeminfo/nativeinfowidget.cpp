@@ -366,9 +366,9 @@ const QString NativeInfoWidget::systemCopyright() const
 
     if (oem_copyright.isEmpty()) {
         if (DSysInfo::isCommunityEdition())
-            return QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2011-%1 Deepin Community").arg(2022);
+            return QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2011-%1 Deepin Community").arg(QString(__DATE__).right(4));
         else
-            return QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2019-%1 UnionTech Software Technology Co., LTD").arg(2022);
+            return QApplication::translate("dcc::systeminfo::SystemInfoWidget", "Copyright© 2019-%1 UnionTech Software Technology Co., LTD").arg(QString(__DATE__).right(4));
     } else {
         return oem_copyright;
     }
