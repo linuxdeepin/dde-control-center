@@ -155,7 +155,9 @@ void PersonalizationFontsWidget::setModel(dcc::personalization::PersonalizationM
 void PersonalizationFontsWidget::setFontSize(int size)
 {
     m_fontSizeSlider->blockSignals(true);
+    m_fontSizeSlider->slider()->blockSignals(true);
     m_fontSizeSlider->slider()->setValue(size);
+    m_fontSizeSlider->slider()->blockSignals(false);
     m_fontSizeSlider->blockSignals(false);
     QTimer::singleShot(100, this, [&, size] {
         if (size >= 0 && size < FontSizeList.count()) {
