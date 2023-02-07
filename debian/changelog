@@ -1,3 +1,10 @@
+dde-control-center (6.0.9) unstable; urgency=medium
+
+  [ TagBuilder ]
+  * chore: 修改deepin下系统信息图标(Task: 185303)(Influence: 系统信息图标)
+
+ -- chenhongtao <chenhongtao@uniontech.com>  Tue, 07 Feb 2023 15:14:17 +0800
+
 dde-control-center (6.0.8) unstable; urgency=medium
 
   [ TagBuilder ]
