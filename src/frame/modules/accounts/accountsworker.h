@@ -104,6 +104,9 @@ public Q_SLOTS:
     bool hasOpenSecurity();
     SecurityLever getSecUserLeverbyname(QString userName);
     void checkPwdLimitLevel();
+
+    void handlePropertiesChanged(QDBusMessage msg);
+
 private Q_SLOTS:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> &paths);
     void getAllGroups();
@@ -122,6 +125,7 @@ private:
 
 private:
     Accounts *m_accountsInter;
+    QDBusInterface *m_accountsQInter;
     QDBusInterface *m_syncHelperInter;
     QDBusInterface *m_userQInter;
     Fingerprint *m_fingerPrint;

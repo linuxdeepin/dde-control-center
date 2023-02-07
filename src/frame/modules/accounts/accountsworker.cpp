@@ -39,6 +39,7 @@ const QString Auditadm_u = "auditadm_u";
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
+    , m_accountsQInter(new QDBusInterface("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts", "com.deepin.daemon.Accounts", QDBusConnection::systemBus(), this))
     , m_syncHelperInter(new QDBusInterface("com.deepin.sync.Helper", "/com/deepin/sync/Helper", "com.deepin.sync.Helper", QDBusConnection::systemBus(), this))
     , m_userQInter(new QDBusInterface("com.deepin.daemon.Accounts", QString("/com/deepin/daemon/Accounts/User%1").arg(getuid()), "com.deepin.daemon.Accounts.User", QDBusConnection::systemBus(), this))
     , m_fingerPrint(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint", QDBusConnection::systemBus(), this))
@@ -59,7 +60,9 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged, Qt::QueuedConnection);
     connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser, Qt::QueuedConnection);
     connect(m_accountsInter, &Accounts::UserDeleted, this, &AccountsWorker::removeUser, Qt::QueuedConnection);
-    connect(m_accountsInter, &Accounts::GroupListChanged, this, &AccountsWorker::onGroupListChanged, Qt::QueuedConnection);
+    QDBusConnection::systemBus().connect("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts",
+                                                  "org.freedesktop.DBus.Properties", "PropertiesChanged",
+                                                  "sa{sv}as", this, SLOT(handlePropertiesChanged(QDBusMessage)));
 
     connect(m_dmInter, &DisplayManager::SessionsChanged, this, &AccountsWorker::updateUserOnlineStatus);
 
@@ -236,7 +239,7 @@ void AccountsWorker::setSecurityQuestions(User *user, const QMap<int, QByteArray
 
 void AccountsWorker::deleteGroup(const QString &group)
 {
-    QDBusPendingCall call = m_accountsInter->DeleteGroup(group, true);
+    QDBusPendingCall call = m_accountsQInter->asyncCall("DeleteGroup", group, true);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [] (QDBusPendingCallWatcher* call) {
         if (call->isError()) {
@@ -247,7 +250,7 @@ void AccountsWorker::deleteGroup(const QString &group)
 
 void AccountsWorker::createGroup(const QString &group, uint32_t gid, bool isSystem)
 {
-    QDBusPendingCall call = m_accountsInter->CreateGroup(group, gid, isSystem);
+    QDBusPendingCall call = m_accountsQInter->asyncCall("CreateGroup", group, gid, isSystem);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [] (QDBusPendingCallWatcher* call) {
         if (call->isError()) {
@@ -258,7 +261,7 @@ void AccountsWorker::createGroup(const QString &group, uint32_t gid, bool isSyst
 
 void AccountsWorker::modifyGroup(const QString &oldGroup, const QString &newGroup, uint32_t gid)
 {
-    QDBusPendingCall call = m_accountsInter->ModifyGroup(oldGroup, newGroup, gid);
+    QDBusPendingCall call = m_accountsQInter->asyncCall("ModifyGroup",oldGroup, newGroup, gid);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [] (QDBusPendingCallWatcher* call) {
         if (call->isError()) {
@@ -896,5 +899,25 @@ void AccountsWorker::checkPwdLimitLevel()
     if (level.error().type() == QDBusError::NoError && level != 1) {
         QDBusReply<QString> errorTips = interface.call("GetPwdError");
         Q_EMIT showSafeyPage(errorTips);
+    }
+}
+
+void AccountsWorker::handlePropertiesChanged(QDBusMessage msg)
+{
+    QList<QVariant> arguments = msg.arguments();
+    if (3 != arguments.count()) {
+        return;
+    }
+
+    QString interfaceName = msg.arguments().at(0).toString();
+    if (interfaceName == "com.deepin.daemon.Accounts") {
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        QStringList keys = changedProps.keys();
+        for (int i = 0; i < keys.size(); i++) {
+            if (keys.at(i) == "GroupList") {
+                Q_EMIT onGroupListChanged(changedProps.value(keys.at(i)).toStringList());
+                return;
+            }
+        }
     }
 }
