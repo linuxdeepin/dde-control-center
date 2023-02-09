@@ -9,6 +9,12 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_FLAGS "-g -Wall -Werror=return-type")
 
+# INFO:
+# plugins can be disabled and their options
+# plugin-authentication : DISABLE_AUTHENTICATION
+
+option(DISABLE_AUTHENTICATION "build private plugins" OFF)
+
 # asan 自己有内存泄露，暂不使用
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(UNITTEST ON)
@@ -791,7 +797,12 @@ if (BUILD_PLUDIN)
     install(TARGETS ${Sound_Name} DESTINATION lib/dde-control-center/modules)
 endif()
 #--------------------------plugin-authentication--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUDIN AND NOT DISABLE_AUTHENTICATION)
+    message(STATUS "===================================")
+    message(STATUS "")
+    message(STATUS "WILL BUILD dcc-authentication-plugin")
+    message(STATUS "")
+    message(STATUS "WILL BUILD dcc-authentication-plugin")
     set(Authentication_Name dcc-authentication-plugin)
     pkg_check_modules(DaReader dareader)
 
