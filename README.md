@@ -62,7 +62,7 @@ $ make
 $ sudo make install
 ```
 
-The executable binary file could be found at `/usr/bin/dde-control-center` after the installation is finished, and plugins will be placed into `/usr/lib/dde-control-center/modules/`.
+The executable binary file could be found at `/usr/bin/dde-control-center` after the installation is finished, and plugins will be placed into `${CMAKE_INSTALL_FULL_LIBDIR}/dde-control-center/modules/`, usually is `/usr/lib/dde-control-center/modules/`.
 
 ## Usage
 
