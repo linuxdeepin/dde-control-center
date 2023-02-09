@@ -288,11 +288,13 @@ if (UNITTEST)
     set(Plugin_Test1_Includes
         Qt5::Widgets
         Qt5::DBus
+        Dtk::Widget
     )
     set(Plugin_Test1_Libraries
         ${Interface_Name}
         Qt5::Widgets
         Qt5::DBus
+        Dtk::Widget
     )
     target_include_directories(${Plugin_Test1_Name} PUBLIC
         ${Plugin_Test1_Includes}
