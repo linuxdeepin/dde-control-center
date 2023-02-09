@@ -15,7 +15,7 @@
 
 using namespace DCC_NAMESPACE;
 
-const QString &PluginDirectory = QStringLiteral("/usr/lib/dde-control-center/modules");
+const QString &PluginDirectory = QStringLiteral(DefaultModuleDirectory);
 
 bool compareVersion(const QString &targetVersion, const QString &baseVersion)
 {

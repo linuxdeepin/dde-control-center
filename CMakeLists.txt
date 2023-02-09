@@ -46,9 +46,14 @@ if (DEFINED ENABLE_MIEEE)
 endif()
 
 # Install settings
+include(GNUInstallDirs)
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
 endif ()
+
+set (MODULE_INSTALL_DIR "${CMAKE_INSTALL_FULL_LIBDIR}/dde-control-center/modules" CACHE STRING "Install dir for dde-control-center modules")
+
+add_definitions(-DDefaultModuleDirectory="${MODULE_INSTALL_DIR}")
 
 # Find the library
 find_package(PkgConfig REQUIRED)
@@ -136,7 +141,7 @@ target_link_libraries(${Dcc_Widgets_Name} PRIVATE
 )
 
 # so
-install(TARGETS ${Dcc_Widgets_Name} DESTINATION lib)
+install(TARGETS ${Dcc_Widgets_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 #------------------------dccwidgets library test--------------------------
 if (UNITTEST)
@@ -197,7 +202,7 @@ target_link_libraries(${Control_Center_Name} PRIVATE
 )
 
 # bin
-install(TARGETS ${Control_Center_Name} DESTINATION bin)
+install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 #----------------------------install config------------------------------
 # qm files
@@ -373,7 +378,7 @@ if (BUILD_PLUDIN)
         ${SystemInfo_Libraries}
     )
 
-    install(TARGETS ${SystemInfo_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${SystemInfo_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #-------------------------ut-dcc-systeminfo-plugin-------------------------
 if (UNITTEST)
@@ -436,7 +441,7 @@ if (BUILD_PLUDIN)
         ${Power_Libraries}
     )
 
-    install(TARGETS ${Power_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Power_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------plugin-mouse--------------------------
 if (BUILD_PLUDIN)
@@ -475,7 +480,7 @@ if (BUILD_PLUDIN)
         ${Mouse_Libraries}
     )
 
-    install(TARGETS ${Mouse_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Mouse_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #-------------------------ut-dcc-mouse-plugin-------------------------
 if (UNITTEST)
@@ -540,7 +545,7 @@ if (BUILD_PLUDIN)
         ${CommonInfo_Libraries}
     )
 
-    install(TARGETS ${CommonInfo_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${CommonInfo_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #-------------------------ut-dcc-commoninfo-plugin-------------------------
 if (UNITTEST)
@@ -604,7 +609,7 @@ if (BUILD_PLUDIN)
         ${Bluetooth_Libraries}
     )
 
-    install(TARGETS ${Bluetooth_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Bluetooth_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------dcc-defaultapp-plugin--------------------------
 if (BUILD_PLUDIN)
@@ -644,7 +649,7 @@ if (BUILD_PLUDIN)
         ${DefaultApp_Libraries}
     )
 
-    install(TARGETS ${DefaultApp_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${DefaultApp_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------dcc-datetime-plugin--------------------------
 if (BUILD_PLUDIN)
@@ -686,7 +691,7 @@ if (BUILD_PLUDIN)
         ${Datetime_Libraries}
     )
 
-    install(TARGETS ${Datetime_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Datetime_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------plugin-keyboard--------------------------
 if (BUILD_PLUDIN)
@@ -724,7 +729,7 @@ if (BUILD_PLUDIN)
         ${KeyBoard_Libraries}
     )
 
-    install(TARGETS ${KeyBoard_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${KeyBoard_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #-------------------------ut-dcc-keyboard-plugin-------------------------
 if (UNITTEST)
@@ -788,7 +793,7 @@ if (BUILD_PLUDIN)
         ${Sound_Libraries}
     )
 
-    install(TARGETS ${Sound_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Sound_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------plugin-authentication--------------------------
 if (BUILD_PLUDIN)
@@ -831,7 +836,7 @@ if (BUILD_PLUDIN)
         ${Authentication_Libraries}
     )
 
-    install(TARGETS ${Authentication_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Authentication_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------plugin-accounts--------------------------
 if (BUILD_PLUDIN)
@@ -876,7 +881,7 @@ if (BUILD_PLUDIN)
         ${Accounts_Libraries}
     )
 
-    install(TARGETS ${Accounts_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Accounts_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------plugin-display--------------------------
 if (BUILD_PLUDIN)
@@ -915,7 +920,7 @@ if (BUILD_PLUDIN)
         ${Display_Libraries}
     )
 
-    install(TARGETS ${Display_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Display_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------dcc-personalization-plugin--------------------------
 if (BUILD_PLUDIN)
@@ -953,7 +958,7 @@ if (BUILD_PLUDIN)
         ${Personalization_Libraries}
     )
 
-    install(TARGETS ${Personalization_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Personalization_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
     install(FILES misc/developdocument.html DESTINATION share/dde-control-center)
 endif()
 #--------------------------dcc-personalization-dock-plugin--------------------------
@@ -990,7 +995,7 @@ if (BUILD_PLUDIN)
         ${Plugin_Personalization_Dock_Libraries}
     )
 
-    install(TARGETS ${Plugin_Personalization_Dock_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Plugin_Personalization_Dock_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------plugin-Update--------------------------
 if (BUILD_PLUDIN)
@@ -1030,7 +1035,7 @@ if (BUILD_PLUDIN)
         ${Update_Libraries}
     )
 
-    install(TARGETS ${Update_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Update_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------plugin-notification--------------------------
 if (BUILD_PLUDIN)
@@ -1069,7 +1074,7 @@ if (BUILD_PLUDIN)
         ${Notification_Libraries}
     )
 
-    install(TARGETS ${Notification_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Notification_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #-------------------------ut-dcc-notification-plugin-------------------------
 if (UNITTEST)
@@ -1133,7 +1138,7 @@ endif()
 #        ${Privacy_Libraries}
 #    )
 
-#    install(TARGETS ${Privacy_Name} DESTINATION lib/dde-control-center/modules)
+#    install(TARGETS ${Privacy_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 #endif()
 #--------------------------plugin-touchscreen--------------------------
 if (BUILD_PLUDIN)
@@ -1173,7 +1178,7 @@ if (BUILD_PLUDIN)
         ${Touchscreen_Libraries}
     )
 
-    install(TARGETS ${Touchscreen_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Touchscreen_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------plugin-wacom--------------------------
 if (BUILD_PLUDIN)
@@ -1212,7 +1217,7 @@ if (BUILD_PLUDIN)
         ${Wacom_Libraries}
     )
 
-    install(TARGETS ${Wacom_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${Wacom_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------plugin-adapterv20tov23--------------------------
 if (BUILD_PLUDIN)
@@ -1246,5 +1251,5 @@ if (BUILD_PLUDIN)
         ${AdapterV20toV23_Libraries}
     )
 
-    install(TARGETS ${AdapterV20toV23_Name} DESTINATION lib/dde-control-center/modules)
+    install(TARGETS ${AdapterV20toV23_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()

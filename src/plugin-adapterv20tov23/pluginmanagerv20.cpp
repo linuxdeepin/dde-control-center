@@ -7,7 +7,7 @@
 #include <QLibrary>
 #include <QElapsedTimer>
 #include <QPluginLoader>
-const QString &PluginDirectory = QStringLiteral("/usr/lib/dde-control-center/modules");
+const QString &PluginDirectory = QStringLiteral(DefaultModuleDirectory);
 
 using namespace DCC_NAMESPACE;
 using namespace dccV20;
