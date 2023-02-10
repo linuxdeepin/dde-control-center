@@ -1,8 +1,9 @@
-#include <QApplication>
 #include <gtest/gtest.h>
 
+#include <QApplication>
+
 #ifdef QT_DEBUG
-#include <sanitizer/asan_interface.h>
+#  include <sanitizer/asan_interface.h>
 #endif
 
 int main(int argc, char **argv)
@@ -12,7 +13,7 @@ int main(int argc, char **argv)
 
     ::testing::InitGoogleTest(&argc, argv);
 
-    int ret =  RUN_ALL_TESTS();
+    int ret = RUN_ALL_TESTS();
 #ifdef QT_DEBUG
     __sanitizer_set_report_path("asan_commoninfo.log");
 #endif

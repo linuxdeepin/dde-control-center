@@ -19,17 +19,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "updatewidget.h"
+
 #include "updatemodel.h"
 #include "updatework.h"
 #include "widgets/settingsgroup.h"
-#include "widgets/settingsgroup.h"
+
+#include <DSysInfo>
 
 #include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QStandardItemModel>
-#include <QStackedLayout>
-#include <DSysInfo>
 #include <QLabel>
+#include <QStackedLayout>
+#include <QStandardItemModel>
+#include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
 DCORE_USE_NAMESPACE
@@ -63,12 +64,15 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
     m_lastoreHeartBeatTimer->setInterval(60000);
     m_lastoreHeartBeatTimer->start();
-    connect(m_lastoreHeartBeatTimer, &QTimer::timeout, this, &UpdateWidget::requestLastoreHeartBeat);
+    connect(m_lastoreHeartBeatTimer,
+            &QTimer::timeout,
+            this,
+            &UpdateWidget::requestLastoreHeartBeat);
 }
 
 UpdateWidget::~UpdateWidget()
 {
-    delete  m_centerLayout;
+    delete m_centerLayout;
     m_centerLayout = nullptr;
 
     if (m_lastoreHeartBeatTimer != nullptr) {
@@ -89,10 +93,19 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
     UpdateCtrlWidget *updateWidget = new UpdateCtrlWidget(m_model);
     updateWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     connect(this, &UpdateWidget::showUpdateCtrl, updateWidget, &UpdateCtrlWidget::onShowUpdateCtrl);
-    connect(updateWidget, &UpdateCtrlWidget::notifyUpdateState, this, &UpdateWidget::onNotifyUpdateState);
+    connect(updateWidget,
+            &UpdateCtrlWidget::notifyUpdateState,
+            this,
+            &UpdateWidget::onNotifyUpdateState);
     connect(updateWidget, &UpdateCtrlWidget::requestUpdates, this, &UpdateWidget::requestUpdates);
-    connect(updateWidget, &UpdateCtrlWidget::requestUpdateCtrl, this, &UpdateWidget::requestUpdateCtrl);
-    connect(updateWidget, &UpdateCtrlWidget::requestOpenAppStroe, this, &UpdateWidget::requestOpenAppStroe);
+    connect(updateWidget,
+            &UpdateCtrlWidget::requestUpdateCtrl,
+            this,
+            &UpdateWidget::requestUpdateCtrl);
+    connect(updateWidget,
+            &UpdateCtrlWidget::requestOpenAppStroe,
+            this,
+            &UpdateWidget::requestOpenAppStroe);
     connect(updateWidget, &UpdateCtrlWidget::requestFixError, this, &UpdateWidget::requestFixError);
     updateWidget->setSystemVersion(m_systemVersion);
 
@@ -101,7 +114,8 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
 
 void UpdateWidget::setSystemVersion(QString version)
 {
-    qDebug() << Q_FUNC_INFO << QString("%1 %2").arg(tr("Current Edition")).arg(version.toLatin1().data());
+    qDebug() << Q_FUNC_INFO
+             << QString("%1 %2").arg(tr("Current Edition")).arg(version.toLatin1().data());
 
     if (m_systemVersion != version) {
         m_systemVersion = version;
@@ -167,8 +181,8 @@ void UpdateWidget::onNotifyUpdateState(int state)
     case Updated:
     case UpdateSucceeded:
     case NeedRestart:
-        //更新历史,暂时屏蔽显示入口,待后期再觉得是否需要此功能
-//        m_historyBtn->setVisible(true);
+        // 更新历史,暂时屏蔽显示入口,待后期再觉得是否需要此功能
+        //        m_historyBtn->setVisible(true);
         break;
     case UpdatesAvailable:
     case Downloading:
@@ -176,7 +190,7 @@ void UpdateWidget::onNotifyUpdateState(int state)
     case Downloaded:
     case Installing:
     case UpdateFailed:
-        //now donothing
+        // now donothing
         break;
     default:
         break;

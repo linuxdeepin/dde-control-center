@@ -20,14 +20,17 @@
  */
 
 #include "unionidbindreminderdialog.h"
-#include <QPushButton>
+
 #include <DDBusSender>
+
+#include <QPushButton>
 
 DCORE_USE_NAMESPACE
 
 UnionIDBindReminderDialog::UnionIDBindReminderDialog(QWidget *parent)
     : DDialog(tr("The user account is not linked to Union ID"),
-              tr("To reset passwords, you should authenticate your Union ID first. Click \"Go to Link\" to finish the settings."))
+              tr("To reset passwords, you should authenticate your Union ID first. Click \"Go to "
+                 "Link\" to finish the settings."))
 {
     setParent(parent);
     setIcon(QIcon::fromTheme("dialog-warning"));
@@ -36,15 +39,14 @@ UnionIDBindReminderDialog::UnionIDBindReminderDialog(QWidget *parent)
     addButtons(buttons);
     addButton(tr("Go to Link"), true, ButtonRecommend);
 
-    connect(getButton(1), &QPushButton::clicked, this, []{
+    connect(getButton(1), &QPushButton::clicked, this, [] {
         DDBusSender()
-        .service("org.deepin.dde.ControlCenter1")
-        .interface("org.deepin.dde.ControlCenter1")
-        .path("/org/deepin/dde/ControlCenter1")
-        .method("ShowPage")
-        .arg(QStringLiteral("cloudsync"))
-        .arg(tr(""))
-        .call();
+                .service("org.deepin.dde.ControlCenter1")
+                .interface("org.deepin.dde.ControlCenter1")
+                .path("/org/deepin/dde/ControlCenter1")
+                .method("ShowPage")
+                .arg(QStringLiteral("cloudsync"))
+                .arg(tr(""))
+                .call();
     });
 }
-

@@ -1,33 +1,34 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     duanhongyu <duanhongyu@uniontech.com>
-*
-* Maintainer: duanhongyu <duanhongyu@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     duanhongyu <duanhongyu@uniontech.com>
+ *
+ * Maintainer: duanhongyu <duanhongyu@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #ifndef DEFAPPPLUGIN_H
 #define DEFAPPPLUGIN_H
 
-#include "interface/vlistmodule.h"
 #include "interface/pagemodule.h"
 #include "interface/plugininterface.h"
+#include "interface/vlistmodule.h"
 
 class DefAppModel;
 class DefAppWorker;
+
 // 默认程序插件
 class DefAppPlugin : public DCC_NAMESPACE::PluginInterface
 {
@@ -35,13 +36,12 @@ class DefAppPlugin : public DCC_NAMESPACE::PluginInterface
     Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.DefApp" FILE "defaultapp.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
-    explicit DefAppPlugin() {}
+    explicit DefAppPlugin() { }
 
     virtual QString name() const override;
     virtual DCC_NAMESPACE::ModuleObject *module() override;
     virtual QString location() const override;
 };
-
 
 // 一级菜单
 class DefAppModule : public DCC_NAMESPACE::VListModule
@@ -50,7 +50,9 @@ class DefAppModule : public DCC_NAMESPACE::VListModule
 public:
     explicit DefAppModule(QObject *parent = nullptr);
     ~DefAppModule() override;
+
     DefAppWorker *work() { return m_work; }
+
     DefAppModel *model() { return m_model; }
 
 protected:
@@ -60,7 +62,6 @@ private:
     DefAppModel *m_model;
     DefAppWorker *m_work;
     ModuleObject *m_defApps;
-
 };
 
 // 二级按钮菜单
@@ -69,11 +70,14 @@ class DefAppsButtonModule : public DCC_NAMESPACE::PageModule
     Q_OBJECT
 public:
     explicit DefAppsButtonModule(DefAppWorker::DefaultAppsCategory category,
-                               const QString &name, const QString &displayName, const QString &icon,
-                               DefAppModel *model, DefAppWorker *work);
+                                 const QString &name,
+                                 const QString &displayName,
+                                 const QString &icon,
+                                 DefAppModel *model,
+                                 DefAppWorker *work);
     ~DefAppsButtonModule();
 
-//    virtual QWidget *page() override;
+    //    virtual QWidget *page() override;
 
 Q_SIGNALS:
     void onButtonClicked();
@@ -89,7 +93,9 @@ class DefappDetailModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
-    DefappDetailModule(DefAppWorker::DefaultAppsCategory category, DefAppModel *model, DefAppWorker *work);
+    DefappDetailModule(DefAppWorker::DefaultAppsCategory category,
+                       DefAppModel *model,
+                       DefAppWorker *work);
     virtual QWidget *page() override;
 
 private:

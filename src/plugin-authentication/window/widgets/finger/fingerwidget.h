@@ -24,16 +24,18 @@
 #include "interface/namespace.h"
 #include "widgets/authenticationinfoitem.h"
 #include "widgets/settingsgroup.h"
+
 #include <dtkwidget_global.h>
 
-#include <QWidget>
 #include <QVector>
+#include <QWidget>
 
 DWIDGET_BEGIN_NAMESPACE
 class DCommandLinkButton;
 DWIDGET_END_NAMESPACE
 
 class CharaMangerModel;
+
 class FingerWidget : public QWidget
 {
     Q_OBJECT
@@ -42,12 +44,14 @@ public:
     ~FingerWidget();
     void setFingerModel(CharaMangerModel *model);
     void addFingerButton(const QString &newFingerName);
-    bool eventFilter(QObject *watched, QEvent *event)override;
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 Q_SIGNALS:
     void requestAddThumbs(const QString &name, const QString &thumb);
-    void requestDeleteFingerItem(const QString &userName, const QString& finger);
-    void requestRenameFingerItem(const QString &userName, const QString& finger, const QString& newName);
+    void requestDeleteFingerItem(const QString &userName, const QString &finger);
+    void requestRenameFingerItem(const QString &userName,
+                                 const QString &finger,
+                                 const QString &newName);
     void noticeEnrollCompleted(QString userName);
 
 public Q_SLOTS:
@@ -58,5 +62,5 @@ private:
     CharaMangerModel *m_model;
     DCC_NAMESPACE::SettingsGroup *m_listGrp;
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_clearBtn;
-    QVector<AuthenticationInfoItem*> m_vecItem;
+    QVector<AuthenticationInfoItem *> m_vecItem;
 };

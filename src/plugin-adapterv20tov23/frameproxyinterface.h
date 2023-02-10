@@ -7,20 +7,17 @@ class QString;
 
 namespace dccV20 {
 class ModuleInterface;
+
 class FrameProxyInterface
 {
 public:
-    enum PushType {
-        Replace,
-        CoverTop,
-        Normal,
-        DirectTop,
-        Count
-    };
+    enum PushType { Replace, CoverTop, Normal, DirectTop, Count };
 
 public:
     // Module request to into next page
-    virtual void pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type = Normal) = 0;
+    virtual void pushWidget(ModuleInterface *const inter,
+                            QWidget *const w,
+                            PushType type = Normal) = 0;
     virtual void popWidget(ModuleInterface *const inter) = 0;
     virtual void setModuleVisible(ModuleInterface *const inter, const bool visible) = 0;
     virtual void showModulePage(const QString &module, const QString &page, bool animation) = 0;
@@ -34,9 +31,13 @@ public:
 
     virtual void setModuleVisible(const QString &module, bool visible) = 0;
     virtual void setWidgetVisible(const QString &module, const QString &widget, bool visible) = 0;
-    virtual void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible) = 0;
+    virtual void setDetailVisible(const QString &module,
+                                  const QString &widget,
+                                  const QString &detail,
+                                  bool visible) = 0;
     virtual void updateSearchData(const QString &module) = 0;
     virtual QString moduleDisplayName(const QString &module) const = 0;
+
 public:
     ModuleInterface *currModule() const { return m_currModule; }
 
@@ -44,6 +45,6 @@ protected:
     void setCurrModule(ModuleInterface *const m) { m_currModule = m; }
 
 private:
-    ModuleInterface *m_currModule{nullptr};
+    ModuleInterface *m_currModule{ nullptr };
 };
-}
+} // namespace dccV20

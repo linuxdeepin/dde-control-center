@@ -24,20 +24,22 @@
  */
 
 #include "widgets/lineeditwidget.h"
+
 #include "widgets/accessibleinterface.h"
 
-#include <DPasswordEdit>
 #include <DLineEdit>
+#include <DPasswordEdit>
 
 #include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
-SET_FORM_ACCESSIBLE(ErrorTip,"ErrorTip");
-ErrorTip::ErrorTip(QWidget *parent) :
-    DArrowRectangle(DArrowRectangle::ArrowTop, parent),
-    m_label(new QLabel)
+SET_FORM_ACCESSIBLE(ErrorTip, "ErrorTip");
+
+ErrorTip::ErrorTip(QWidget *parent)
+    : DArrowRectangle(DArrowRectangle::ArrowTop, parent)
+    , m_label(new QLabel)
 {
     m_label->setObjectName("New_Account_errorTip");
     m_label->setAccessibleName(m_label->objectName());
@@ -150,7 +152,8 @@ void LineEditWidget::setIsErr(const bool err)
 
 void LineEditWidget::showAlertMessage(const QString &message)
 {
-    if (message.isEmpty()) return;
+    if (message.isEmpty())
+        return;
 
     const QPoint &p = m_edit->mapToGlobal(m_edit->rect().bottomLeft());
     m_errTip->setText(message);

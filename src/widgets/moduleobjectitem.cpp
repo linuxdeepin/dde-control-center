@@ -6,7 +6,7 @@
 #include <QApplication>
 
 #if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 0, 0)
-#    define USE_DCIICON
+#  define USE_DCIICON
 #endif
 
 using namespace DCC_NAMESPACE;
@@ -21,10 +21,9 @@ public:
         , m_item(new DStandardItem())
     {
     }
-    ~ModuleObjectItemPrivate()
-    {
-        delete m_item;
-    }
+
+    ~ModuleObjectItemPrivate() { delete m_item; }
+
     void setRightIcon(const QIcon &icon, int index = -1)
     {
         getRightItem(index)->setIcon(icon);
@@ -36,6 +35,7 @@ public:
         getRightItem(index)->setText(text);
         q_ptr->update();
     }
+
     DViewItemAction *getRightItem(int index)
     {
         int minCount = index;
@@ -46,7 +46,10 @@ public:
         if (actions.size() < minCount) {
             DViewItemActionList newActions;
             for (auto &&action : actions) {
-                DViewItemAction *newAction = new DViewItemAction(action->alignment(), action->iconSize(), action->maximumSize(), action->isClickable());
+                DViewItemAction *newAction = new DViewItemAction(action->alignment(),
+                                                                 action->iconSize(),
+                                                                 action->maximumSize(),
+                                                                 action->isClickable());
                 newAction->setText(action->text());
                 newAction->setIcon(action->icon());
 #ifdef USE_DCIICON
@@ -64,9 +67,15 @@ public:
 
             for (int i = minCount - actions.size(); i > 0; --i) {
                 if (index < 0)
-                    newActions.prepend(new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), false));
+                    newActions.prepend(new DViewItemAction(Qt::AlignVCenter,
+                                                           QSize(16, 16),
+                                                           QSize(16, 16),
+                                                           false));
                 else
-                    newActions.append(new DViewItemAction(Qt::AlignVCenter, QSize(16, 16), QSize(16, 16), false));
+                    newActions.append(new DViewItemAction(Qt::AlignVCenter,
+                                                          QSize(16, 16),
+                                                          QSize(16, 16),
+                                                          false));
             }
             m_item->setActionList(Qt::RightEdge, newActions);
         }
@@ -80,7 +89,7 @@ public:
     Q_DECLARE_PUBLIC(ModuleObjectItem)
     DStandardItem *m_item;
 };
-}
+} // namespace DCC_NAMESPACE
 
 ModuleObjectItem::ModuleObjectItem(const QString &name, const QString &displayName, QObject *parent)
     : ModuleObject(name, displayName, parent)
@@ -88,9 +97,7 @@ ModuleObjectItem::ModuleObjectItem(const QString &name, const QString &displayNa
 {
 }
 
-ModuleObjectItem::~ModuleObjectItem()
-{
-}
+ModuleObjectItem::~ModuleObjectItem() { }
 
 void ModuleObjectItem::setRightIcon(DStyle::StandardPixmap st, int index)
 {

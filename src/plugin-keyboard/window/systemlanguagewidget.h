@@ -24,14 +24,15 @@
 #include "interface/namespace.h"
 
 #include <DCommandLinkButton>
-#include <DListView>
-#include <DFontSizeManager>
 #include <DFloatingButton>
+#include <DFontSizeManager>
+#include <DListView>
 
-#include <QWidget>
 #include <QMouseEvent>
+#include <QWidget>
 
 DWIDGET_USE_NAMESPACE
+
 namespace DCC_NAMESPACE {
 class SystemLanguageSettingWidget;
 class KeyboardModel;
@@ -40,12 +41,15 @@ class SystemLanguageListView : public DListView
 {
     Q_OBJECT
 public:
-    explicit SystemLanguageListView(QWidget *parent = nullptr): DListView(parent) {}
+    explicit SystemLanguageListView(QWidget *parent = nullptr)
+        : DListView(parent)
+    {
+    }
 
 protected:
     void mousePressEvent(QMouseEvent *event)
     {
-        if(indexAt(event->pos()).row() == count() - 1)
+        if (indexAt(event->pos()).row() == count() - 1)
             return;
 
         DListView::mousePressEvent(event);
@@ -68,6 +72,7 @@ public Q_SLOTS:
     void onDefault(const QString &curLang);
     void setCurLangChecked(const QModelIndex &index);
     void onSetCurLang(int value);
+
 private:
     KeyboardModel *m_model;
     QStringList m_sysLanglist;
@@ -75,8 +80,8 @@ private:
     SystemLanguageListView *m_langListview;
     DCommandLinkButton *m_editSystemLang;
     SystemLanguageSettingWidget *m_settingWidget;
-    bool m_bEdit{false};
+    bool m_bEdit{ false };
     DViewItemAction *m_addLayoutAction;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // SYSTEMLANGUAGEWIDGET_H

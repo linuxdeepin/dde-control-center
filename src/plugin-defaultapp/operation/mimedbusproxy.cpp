@@ -1,9 +1,9 @@
 #include "mimedbusproxy.h"
 
-#include <QMetaObject>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusPendingReply>
+#include <QMetaObject>
 
 const QString MimeService = QStringLiteral("org.deepin.dde.Mime1");
 const QString MimePath = QStringLiteral("/org/deepin/dde/Mime1");
@@ -11,7 +11,8 @@ const QString MimeInterface = QStringLiteral("org.deepin.dde.Mime1");
 
 MimeDBusProxy::MimeDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_mimeInter(new QDBusInterface(MimeService, MimePath, MimeInterface, QDBusConnection::sessionBus(), this))
+    , m_mimeInter(new QDBusInterface(
+              MimeService, MimePath, MimeInterface, QDBusConnection::sessionBus(), this))
 {
     connect(m_mimeInter, SIGNAL(Change()), this, SIGNAL(Change()), Qt::QueuedConnection);
 }
@@ -52,5 +53,3 @@ QString MimeDBusProxy::ListUserApps(const QString &mimeType)
 {
     return QDBusPendingReply<QString>(m_mimeInter->asyncCall("ListUserApps", mimeType));
 }
-
-

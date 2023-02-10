@@ -4,14 +4,15 @@
 
 #include "updatecontrolpanel.h"
 
-#include <DFloatingButton>
 #include <DCommandLinkButton>
-#include <DLabel>
+#include <DFloatingButton>
+#include <DFontSizeManager>
 #include <DIconButton>
-#include <DTipLabel>
+#include <DLabel>
 #include <DProgressBar>
 #include <DSysInfo>
-#include <DFontSizeManager>
+#include <DTipLabel>
+
 #include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
@@ -94,7 +95,6 @@ void updateControlPanel::setButtonIcon(ButtonStatus status)
     default:
         m_startButton->setIcon(static_cast<QStyle::StandardPixmap>(-1));
         break;
-
     }
 }
 
@@ -140,6 +140,7 @@ void updateControlPanel::setDetailEnable(bool enable)
 {
     m_showMoreBUtton->setEnabled(enable);
 }
+
 void updateControlPanel::setShowMoreButtonVisible(bool visible)
 {
     m_showMoreBUtton->setVisible(visible);
@@ -210,12 +211,18 @@ void updateControlPanel::setDate(QString date)
 
 void updateControlPanel::setProgressText(const QString &text, const QString &toolTip)
 {
-    m_progressLabel->setText(getElidedText(m_progressLabel, text, Qt::ElideRight, m_progressLabel->maximumWidth() - 10, 0, __LINE__));
+    m_progressLabel->setText(getElidedText(m_progressLabel,
+                                           text,
+                                           Qt::ElideRight,
+                                           m_progressLabel->maximumWidth() - 10,
+                                           0,
+                                           __LINE__));
     m_progressLabel->setToolTip(toolTip);
 }
 
-//used to display long string: "12345678" -> "12345..."
-const QString updateControlPanel::getElidedText(QWidget *widget, QString data, Qt::TextElideMode mode, int width, int flags, int line)
+// used to display long string: "12345678" -> "12345..."
+const QString updateControlPanel::getElidedText(
+        QWidget *widget, QString data, Qt::TextElideMode mode, int width, int flags, int line)
 {
     QString retTxt = data;
     if (retTxt == "")
@@ -224,7 +231,8 @@ const QString updateControlPanel::getElidedText(QWidget *widget, QString data, Q
     QFontMetrics fontMetrics(font());
     int fontWidth = fontMetrics.horizontalAdvance(data);
 
-    qInfo() << Q_FUNC_INFO << " [Enter], data, width, fontWidth : " << data << width << fontWidth << line;
+    qInfo() << Q_FUNC_INFO << " [Enter], data, width, fontWidth : " << data << width << fontWidth
+            << line;
 
     if (fontWidth > width) {
         retTxt = widget->fontMetrics().elidedText(data, mode, width, flags);
@@ -304,7 +312,7 @@ void updateControlPanel::initUi()
 
     m_startButton->setIcon(QIcon::fromTheme("dcc_start"));
     m_startButton->setIconSize(QSize(32, 32));
-    m_startButton->setFlat(true);//设置背景透明
+    m_startButton->setFlat(true); // 设置背景透明
     m_startButton->setFixedSize(32, 32);
     m_startButton->hide();
 
@@ -320,7 +328,6 @@ void updateControlPanel::initUi()
     m_progressLabel->setFixedWidth(100);
     m_progressLabel->setScaledContents(true);
     m_progressLabel->setAlignment(Qt::AlignHCenter);
-
 
     QVBoxLayout *progressVlay = new QVBoxLayout;
     progressVlay->setSpacing(0);
@@ -387,4 +394,3 @@ void updateControlPanel::initConnect()
     connect(m_updateButton, &DCommandLinkButton::clicked, this, &updateControlPanel::onStartUpdate);
     connect(m_startButton, &DIconButton::clicked, this, &updateControlPanel::onButtonClicked);
 }
-

@@ -32,19 +32,19 @@ QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 
-class TimeSlotItem: public SettingsItem
+class TimeSlotItem : public SettingsItem
 {
     Q_OBJECT
 public:
     explicit TimeSlotItem(QWidget *parent = nullptr);
 
-    bool getState()const;
+    bool getState() const;
     void setState(const bool &state);
 
-    QTime getTimeStart()const;
+    QTime getTimeStart() const;
     void setTimeStart(const QTime &time);
 
-    QTime getTimeEnd()const;
+    QTime getTimeEnd() const;
     void setTimeEnd(const QTime &time);
 
 Q_SIGNALS:
@@ -57,4 +57,4 @@ private:
     Dtk::Widget::DTimeEdit *m_editStart;
     Dtk::Widget::DTimeEdit *m_editEnd;
 };
-}
+} // namespace DCC_NAMESPACE

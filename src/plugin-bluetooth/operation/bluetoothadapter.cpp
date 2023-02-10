@@ -24,6 +24,7 @@
  */
 
 #include "bluetoothadapter.h"
+
 #include "bluetoothdbusproxy.h"
 
 #include <QDBusObjectPath>
@@ -55,7 +56,7 @@ void BluetoothAdapter::addDevice(const BluetoothDevice *device)
     if (!deviceById(device->id())) {
         m_devicesId << device->id();
         m_devices[device->id()] = device;
-        //打印配对设备信息,方便查看设备显示顺序
+        // 打印配对设备信息,方便查看设备显示顺序
         if (!device->name().isEmpty() && device->paired())
             qDebug() << "BluetoothAdapter add device " << device->name();
         Q_EMIT deviceAdded(device);
@@ -90,7 +91,11 @@ void BluetoothAdapter::setAdapterPowered(const bool &powered)
 {
     // 关闭蓝牙之前删除历史蓝牙设备列表，确保完全是删除后再设置开关
     if (powered) {
-        m_bluetoothDBusProxy->SetAdapterPowered(QDBusObjectPath(id()), true, this, SLOT(onSetAdapterPowered()), SLOT(onSetAdapterPoweredError()));
+        m_bluetoothDBusProxy->SetAdapterPowered(QDBusObjectPath(id()),
+                                                true,
+                                                this,
+                                                SLOT(onSetAdapterPowered()),
+                                                SLOT(onSetAdapterPoweredError()));
     } else {
         m_bluetoothDBusProxy->ClearUnpairedDevice(this, SLOT(onClearUnpairedDevice()));
     }
@@ -98,7 +103,11 @@ void BluetoothAdapter::setAdapterPowered(const bool &powered)
 
 void BluetoothAdapter::onClearUnpairedDevice()
 {
-    m_bluetoothDBusProxy->SetAdapterPowered(QDBusObjectPath(id()), false, this, SLOT(onSetAdapterPowered()), SLOT(onSetAdapterPoweredError()));
+    m_bluetoothDBusProxy->SetAdapterPowered(QDBusObjectPath(id()),
+                                            false,
+                                            this,
+                                            SLOT(onSetAdapterPowered()),
+                                            SLOT(onSetAdapterPoweredError()));
 }
 
 void BluetoothAdapter::onSetAdapterPowered()
@@ -172,8 +181,8 @@ void BluetoothAdapter::inflateDevice(BluetoothDevice *device, const QJsonObject 
     //        m_connectingAudioDevice = (BluetoothDevice::StateAvailable == state);
     //    }
 
-    // FIXME: If the name and alias of the Bluetooth device are both empty, it will not be updated by default.
-    // To solve the problem of blank device name display.
+    // FIXME: If the name and alias of the Bluetooth device are both empty, it will not be updated
+    // by default. To solve the problem of blank device name display.
     if (alias.isEmpty() && name.isEmpty())
         return;
 

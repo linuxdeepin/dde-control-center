@@ -22,6 +22,7 @@
 #define TRACKPOINTSETTINGWIDGET_H
 
 #include "interface/namespace.h"
+
 #include <QWidget>
 
 class QVBoxLayout;
@@ -51,5 +52,5 @@ private:
     TitledSliderItem *m_trackMoveSlider;
     QVBoxLayout *m_contentLayout;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // TRACKPOINTSETTINGWIDGET_H

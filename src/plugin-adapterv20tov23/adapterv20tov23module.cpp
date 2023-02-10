@@ -20,7 +20,9 @@
  */
 
 #include "adapterv20tov23module.h"
+
 #include "moduleinterface.h"
+
 #include <QEvent>
 #include <QHBoxLayout>
 

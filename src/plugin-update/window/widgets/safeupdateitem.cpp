@@ -21,5 +21,3 @@ void SafeUpdateItem::setData(UpdateItemInfo *updateItemInfo)
 
     m_controlWidget->setDatetimeVisible(false);
 }
-
-

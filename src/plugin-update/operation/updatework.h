@@ -27,14 +27,15 @@
 #define UPDATEWORK_H
 
 #include "common.h"
-#include "updatemodel.h"
 #include "updatedbusproxy.h"
 #include "updatejobdbusproxy.h"
+#include "updatemodel.h"
 
 #include <QNetworkReply>
 #include <QObject>
 
-struct CheckUpdateJobRet {
+struct CheckUpdateJobRet
+{
     QString status;
     QString jobID;
     QString jobDescription;

@@ -21,8 +21,8 @@
 #pragma once
 #include "interface/namespace.h"
 
-#include <QObject>
 #include <QMap>
+#include <QObject>
 
 QT_BEGIN_NAMESPACE
 class QJsonArray;
@@ -38,24 +38,28 @@ class NotificationModel : public QObject
     Q_OBJECT
 public:
     explicit NotificationModel(QObject *parent = nullptr);
-    void setSysSetting(SysItemModel* item);
-    inline int getAppSize()const {return m_appItemModels.size();}
-    inline SysItemModel *getSystemModel()const {return m_sysItemModel;}
-    inline AppItemModel *getAppModel(const int &index) {return m_appItemModels[index];}
+    void setSysSetting(SysItemModel *item);
+
+    inline int getAppSize() const { return m_appItemModels.size(); }
+
+    inline SysItemModel *getSystemModel() const { return m_sysItemModel; }
+
+    inline AppItemModel *getAppModel(const int &index) { return m_appItemModels[index]; }
+
     void clearModel();
 
 public Q_SLOTS:
-    void appAdded(AppItemModel* item);
+    void appAdded(AppItemModel *item);
     void appRemoved(const QString &appName);
 
 Q_SIGNALS:
     void appListChanged();
-    void appListAdded(AppItemModel* item);
-    void appListRemoved(AppItemModel* item);
+    void appListAdded(AppItemModel *item);
+    void appListRemoved(AppItemModel *item);
 
 private:
     SysItemModel *m_sysItemModel;
     QList<AppItemModel *> m_appItemModels;
     QString m_theme;
 };
-}
+} // namespace DCC_NAMESPACE

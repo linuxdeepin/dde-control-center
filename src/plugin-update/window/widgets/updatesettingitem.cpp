@@ -4,21 +4,22 @@
 
 #include "updatesettingitem.h"
 
-#include <QWidget>
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QScrollArea>
 #include <qpushbutton.h>
-#include <QIcon>
 
-#include <DFloatingButton>
 #include <DCommandLinkButton>
+#include <DFloatingButton>
 #include <DLabel>
 #include <DLineEdit>
+#include <DShadowLine>
 #include <DTextEdit>
 #include <DTipLabel>
-#include <DShadowLine>
+
+#include <QHBoxLayout>
+#include <QIcon>
+#include <QLabel>
+#include <QScrollArea>
+#include <QVBoxLayout>
+#include <QWidget>
 
 UpdateSettingItem::UpdateSettingItem(QWidget *parent)
     : SettingsItem(parent)
@@ -28,14 +29,28 @@ UpdateSettingItem::UpdateSettingItem(QWidget *parent)
     , m_progressVlaue(0)
     , m_updateJobErrorMessage(UpdateErrorType::NoError)
     , m_controlWidget(new updateControlPanel(this))
-    , m_settingsGroup(new DCC_NAMESPACE::SettingsGroup(this, DCC_NAMESPACE::SettingsGroup::BackgroundStyle::NoneBackground))
+    , m_settingsGroup(new DCC_NAMESPACE::SettingsGroup(
+              this, DCC_NAMESPACE::SettingsGroup::BackgroundStyle::NoneBackground))
 {
     m_UpdateErrorInfoMap.insert(UpdateErrorType::NoError, { UpdateErrorType::NoError, "", "" });
-    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoSpace, { UpdateErrorType::NoSpace, tr("Insufficient disk space"), tr("Update failed: insufficient disk space") });
-    m_UpdateErrorInfoMap.insert(UpdateErrorType::UnKnown, { UpdateErrorType::UnKnown, tr("Update failed"), "" });
-    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoNetwork, { UpdateErrorType::NoNetwork, tr("Network error"), tr("Network error, please check and try again") });
-    m_UpdateErrorInfoMap.insert(UpdateErrorType::DpkgInterrupted, { UpdateErrorType::DpkgInterrupted, tr("Packages error"), tr("Packages error, please try again") });
-    m_UpdateErrorInfoMap.insert(UpdateErrorType::DeependenciesBrokenError, { UpdateErrorType::DeependenciesBrokenError, tr("Dependency error"), tr("Unmet dependencies") });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoSpace,
+                                { UpdateErrorType::NoSpace,
+                                  tr("Insufficient disk space"),
+                                  tr("Update failed: insufficient disk space") });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::UnKnown,
+                                { UpdateErrorType::UnKnown, tr("Update failed"), "" });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoNetwork,
+                                { UpdateErrorType::NoNetwork,
+                                  tr("Network error"),
+                                  tr("Network error, please check and try again") });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::DpkgInterrupted,
+                                { UpdateErrorType::DpkgInterrupted,
+                                  tr("Packages error"),
+                                  tr("Packages error, please try again") });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::DeependenciesBrokenError,
+                                { UpdateErrorType::DeependenciesBrokenError,
+                                  tr("Dependency error"),
+                                  tr("Unmet dependencies") });
 
     initUi();
     initConnect();
@@ -60,7 +75,6 @@ void UpdateSettingItem::initUi()
     main->addWidget(widget, 0, Qt::AlignTop);
     main->addWidget(m_settingsGroup, 0, Qt::AlignTop);
     setLayout(main);
-
 }
 
 void UpdateSettingItem::setIconVisible(bool show)
@@ -114,7 +128,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         setVisible(true);
         break;
     case UpdatesStatus::Downloading:
-        m_controlWidget-> setButtonStatus(ButtonStatus::pause);
+        m_controlWidget->setButtonStatus(ButtonStatus::pause);
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Download);
         setProgress(m_progressVlaue);
@@ -211,7 +225,9 @@ void UpdateSettingItem::setData(UpdateItemInfo *updateItemInfo)
         return;
     }
 
-    QString value = updateItemInfo->updateTime().isEmpty() ? "" : tr("Release date: ") + updateItemInfo->updateTime();
+    QString value = updateItemInfo->updateTime().isEmpty()
+            ? ""
+            : tr("Release date: ") + updateItemInfo->updateTime();
     m_controlWidget->setDate(value);
     const QString &systemVersionType = IsServerSystem ? tr("Server") : tr("Desktop");
     QString version;
@@ -219,7 +235,9 @@ void UpdateSettingItem::setData(UpdateItemInfo *updateItemInfo)
         QString avaVersion = updateItemInfo->availableVersion();
         QString tmpVersion = avaVersion;
         if (IsProfessionalSystem)
-            tmpVersion = avaVersion.replace(avaVersion.length() - 1, 1, '0'); // 替换版本号的最后一位为‘0‘
+            tmpVersion = avaVersion.replace(avaVersion.length() - 1,
+                                            1,
+                                            '0'); // 替换版本号的最后一位为‘0‘
         version = tr("Version") + ": " + systemVersionType + tmpVersion;
     }
     m_controlWidget->setVersion(version);
@@ -302,10 +320,22 @@ void UpdateSettingItem::setLowBattery(bool lowBattery)
 void UpdateSettingItem::initConnect()
 {
     connect(m_controlWidget, &updateControlPanel::showDetail, this, &UpdateSettingItem::showMore);
-    connect(m_controlWidget, &updateControlPanel::startUpdate, this, &UpdateSettingItem::onStartUpdate);
-    connect(m_controlWidget, &updateControlPanel::StartDownload, this, &UpdateSettingItem::onStartDownload);
-    connect(m_controlWidget, &updateControlPanel::PauseDownload, this, &UpdateSettingItem::onPauseDownload);
-    connect(m_controlWidget, &updateControlPanel::RetryUpdate, this, &UpdateSettingItem::onRetryUpdate);
+    connect(m_controlWidget,
+            &updateControlPanel::startUpdate,
+            this,
+            &UpdateSettingItem::onStartUpdate);
+    connect(m_controlWidget,
+            &updateControlPanel::StartDownload,
+            this,
+            &UpdateSettingItem::onStartDownload);
+    connect(m_controlWidget,
+            &updateControlPanel::PauseDownload,
+            this,
+            &UpdateSettingItem::onPauseDownload);
+    connect(m_controlWidget,
+            &updateControlPanel::RetryUpdate,
+            this,
+            &UpdateSettingItem::onRetryUpdate);
 }
 
 void UpdateSettingItem::onStartUpdate()

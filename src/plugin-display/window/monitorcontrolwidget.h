@@ -42,6 +42,7 @@ namespace DCC_NAMESPACE {
 class Monitor;
 class DisplayModel;
 class MonitorsGround;
+
 class MonitorControlWidget : public QFrame
 {
     Q_OBJECT
@@ -69,9 +70,9 @@ private:
     MonitorsGround *m_screensGround;
     QPushButton *m_recognize;
     QPushButton *m_gather;
-    //多屏设置生效提示
+    // 多屏设置生效提示
     QLabel *m_effectiveReminder;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // MONITORCONTROLWIDGET_H

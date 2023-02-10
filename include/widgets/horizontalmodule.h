@@ -22,8 +22,10 @@
 #define HORIZONTALMODULE_H
 
 #include "interface/moduleobject.h"
+
 namespace DCC_NAMESPACE {
 class HorizontalModulePrivate;
+
 class HorizontalModule : public ModuleObject
 {
     Q_OBJECT
@@ -34,7 +36,10 @@ public:
         RightStretch = 2,
         AllStretch = LeftStretch | RightStretch,
     };
-    explicit HorizontalModule(const QString &name, const QString &displayName, QObject *parent = nullptr);
+
+    explicit HorizontalModule(const QString &name,
+                              const QString &displayName,
+                              QObject *parent = nullptr);
     ~HorizontalModule() override;
 
     void setStretchType(StretchType stretchType);
@@ -46,14 +51,23 @@ public:
     void removeChild(ModuleObject *const module) override;
     void removeChild(const int index) override;
 
-    void appendChild(ModuleObject *const module, int stretch, Qt::Alignment alignment = Qt::Alignment());
-    void insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module, int stretch, Qt::Alignment alignment = Qt::Alignment());
-    void insertChild(const int index, ModuleObject *const module, int stretch, Qt::Alignment alignment = Qt::Alignment());
+    void appendChild(ModuleObject *const module,
+                     int stretch,
+                     Qt::Alignment alignment = Qt::Alignment());
+    void insertChild(QList<ModuleObject *>::iterator before,
+                     ModuleObject *const module,
+                     int stretch,
+                     Qt::Alignment alignment = Qt::Alignment());
+    void insertChild(const int index,
+                     ModuleObject *const module,
+                     int stretch,
+                     Qt::Alignment alignment = Qt::Alignment());
 
     QWidget *page() override;
+
     inline DCC_MODULE_TYPE getClassID() const override { return HORIZONTAL; }
 
     DCC_DECLARE_PRIVATE(HorizontalModule)
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // HORIZONTALMODULE_H

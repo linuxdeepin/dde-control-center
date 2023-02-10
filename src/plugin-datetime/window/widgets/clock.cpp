@@ -21,9 +21,9 @@
 
 #include "clock.h"
 
+#include <QIcon>
 #include <QPainter>
 #include <QPainterPath>
-#include <QIcon>
 #include <QTimer>
 
 static const QSize clockSize = QSize(224, 224);
@@ -45,15 +45,14 @@ Clock::Clock(QWidget *parent)
     timer->start(1000);
 }
 
-Clock::~Clock()
-{
-}
+Clock::~Clock() { }
 
 QPixmap Clock::getPixmap(const QString &name, const QSize size)
 {
     const QIcon &icon = QIcon::fromTheme(name);
     const qreal ratio = devicePixelRatioF();
-    QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    QPixmap pixmap = icon.pixmap(size * ratio)
+                             .scaled(size * ratio, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     QPainter p(&pixmap);
     p.setRenderHints(QPainter::Antialiasing);
     p.drawPixmap(0, 0, pixmap);
@@ -90,10 +89,11 @@ void Clock::paintEvent(QPaintEvent *event)
     painter.restore();
 
     int nHour = (time.hour() >= 12) ? (time.hour() - 12) : time.hour();
-    int nStartAngle = 90; //The image from 0 start , but the clock need from -90 start
+    int nStartAngle = 90; // The image from 0 start , but the clock need from -90 start
 
     // draw hour hand
-    const qreal hourAngle = qreal(nHour * 30 + time.minute() * 30 / 60 + time.second() * 30 / 60 / 60 - nStartAngle);
+    const qreal hourAngle = qreal(nHour * 30 + time.minute() * 30 / 60
+                                  + time.second() * 30 / 60 / 60 - nStartAngle);
     painter.save();
     painter.translate(width() / 2.0, height() / 2.0);
     painter.rotate(hourAngle);
@@ -118,6 +118,7 @@ void Clock::paintEvent(QPaintEvent *event)
 
     painter.end();
 }
+
 ////////////////////////////////////////////////////////////
 bool Clock::autoNightMode() const
 {

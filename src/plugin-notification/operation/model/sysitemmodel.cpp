@@ -92,4 +92,3 @@ void SysItemModel::onSettingChanged(uint item, const QDBusVariant &var)
         break;
     }
 }
-

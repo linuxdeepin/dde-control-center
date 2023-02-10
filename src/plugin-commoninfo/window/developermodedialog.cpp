@@ -19,26 +19,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "developermodedialog.h"
+
 #include "src/plugin-commoninfo/operation/commoninfomodel.h"
 #include "widgets/titlelabel.h"
 
+#include <DTextBrowser>
 #include <DTipLabel>
 #include <DTitlebar>
 #include <DWindowCloseButton>
-#include <DTextBrowser>
 
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QPushButton>
-#include <QTimer>
 #include <QDBusInterface>
-#include <QDebug>
 #include <QDBusReply>
+#include <QDebug>
 #include <QFileDialog>
+#include <QHBoxLayout>
 #include <QJsonArray>
-#include <QStandardPaths>
-#include <QJsonObject>
 #include <QJsonDocument>
+#include <QJsonObject>
+#include <QPushButton>
+#include <QStandardPaths>
+#include <QTimer>
+#include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -48,7 +49,7 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
     , m_importFile(new QFileDialog(this))
     , m_exportFile(new QFileDialog(this))
 {
-    //注册类型
+    // 注册类型
     qRegisterMetaType<DMIInfo>("DMIInfo");
     qDBusRegisterMetaType<DMIInfo>();
     qRegisterMetaType<HardwareInfo>("HardwareInfo");
@@ -56,19 +57,19 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
 
     setAccessibleName("DeveloperModeDialog");
     setMinimumSize(QSize(350, 380));
-    //总布局
+    // 总布局
     QVBoxLayout *vBoxLayout = new QVBoxLayout(this);
-    //图标和关闭按钮布局
+    // 图标和关闭按钮布局
     QHBoxLayout *titleHBoxLayout = new QHBoxLayout();
     DTitlebar *titleIcon = new DTitlebar();
     titleIcon->setAccessibleName("DeveloperModeDialog_titleIcon");
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setIcon(QIcon::fromTheme("preferences-system"));
     titleHBoxLayout->addWidget(titleIcon, Qt::AlignTop);
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle("");
-    //内容布局
+    // 内容布局
     QVBoxLayout *contentVBoxLayout = new QVBoxLayout();
     auto chooseModeTip = new TitleLabel(tr("Request Root Access"), this);
     chooseModeTip->setAlignment(Qt::AlignHCenter | Qt::AlignTop);
@@ -90,7 +91,7 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
     hBoxLayout->addWidget(m_offlineBtn, 0, Qt::AlignCenter);
     contentVBoxLayout->addWidget(hw, 0, Qt::AlignTop | Qt::AlignHCenter);
 
-    //在线激活模式提示
+    // 在线激活模式提示
     auto chooseModeCommonts = new DTextBrowser();
     chooseModeCommonts->setAccessibleName("DeveloperModeDialog_DTextBrowser");
     auto mpalette = this->palette();
@@ -102,11 +103,11 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
 
     contentVBoxLayout->addWidget(chooseModeCommonts, 1, Qt::AlignTop | Qt::AlignHCenter);
 
-    //在线激活模式下一步按钮
-    m_nextButton  = new DSuggestButton(tr("Next"));
+    // 在线激活模式下一步按钮
+    m_nextButton = new DSuggestButton(tr("Next"));
     contentVBoxLayout->addWidget(m_nextButton, 0, Qt::AlignBottom);
 
-    //离线激活模式导出机器信息和导入证书按钮
+    // 离线激活模式导出机器信息和导入证书按钮
     auto exportBtn = new QPushButton(tr("Export PC Info"));
     auto importBtn = new DSuggestButton(tr("Import Certificate"));
     importBtn->setAccessibleName("importBtn");
@@ -116,7 +117,7 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
     contentVBoxLayout->addWidget(exportBtn, 0, Qt::AlignBottom);
     contentVBoxLayout->addWidget(importBtn, 0, Qt::AlignBottom);
 
-    //加入布局
+    // 加入布局
     vBoxLayout->addLayout(titleHBoxLayout);
     vBoxLayout->addLayout(contentVBoxLayout);
     vBoxLayout->setMargin(0);
@@ -139,14 +140,15 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
         m_exportFile->setDirectory(directory.first());
     }
 
-    connect(m_importFile, &QFileDialog::finished, this, [ = ](int result) {
+    connect(m_importFile, &QFileDialog::finished, this, [=](int result) {
         if (result == QFileDialog::Accepted) {
             QDBusInterface licenseInfo("com.deepin.sync.Helper",
                                        "/com/deepin/sync/Helper",
                                        "com.deepin.sync.Helper",
                                        QDBusConnection::systemBus());
 
-            QDBusReply<HardwareInfo> hardwareInfo = licenseInfo.call(QDBus::AutoDetect, "GetHardware");
+            QDBusReply<HardwareInfo> hardwareInfo =
+                    licenseInfo.call(QDBus::AutoDetect, "GetHardware");
             QString fileName = m_importFile->selectedFiles().first();
             if (fileName.isEmpty())
                 return;
@@ -184,17 +186,17 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
             objectDMI.insert("product_version", hardwareDMIValue.productVersion);
 
             jsonObject.insert("dmi", objectDMI);
-            //使用QJsonDocument设置该json对象
+            // 使用QJsonDocument设置该json对象
             QJsonDocument jsonDoc;
             jsonDoc.setObject(jsonObject);
 
-            //将json以文本形式写入文件并关闭文件
+            // 将json以文本形式写入文件并关闭文件
             file.write(jsonDoc.toJson());
             file.close();
         }
     });
 
-    connect(m_exportFile, &QFileDialog::finished, this, [ = ](int result) {
+    connect(m_exportFile, &QFileDialog::finished, this, [=](int result) {
         if (result == QFileDialog::Accepted) {
             QString fileName = m_exportFile->selectedFiles().first();
             if (fileName.isEmpty())
@@ -205,8 +207,8 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
         }
     });
 
-    //选择激活在线模式或离线模式
-    connect(m_onlineBtn, &QAbstractButton::toggled, [ = ] {
+    // 选择激活在线模式或离线模式
+    connect(m_onlineBtn, &QAbstractButton::toggled, [=] {
         if (m_onlineBtn->isChecked()) {
             exportBtn->setVisible(false);
             importBtn->setVisible(false);
@@ -219,18 +221,19 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
             exportBtn->setVisible(true);
             importBtn->setVisible(true);
             chooseModeCommonts->setText(tr("1. Export your PC information") + '\n'
-                                        + tr("2. Go to https://www.chinauos.com/developMode to download an offline certificate") + '\n'
-                                        + tr("3. Import the certificate"));
+                                        + tr("2. Go to https://www.chinauos.com/developMode to "
+                                             "download an offline certificate")
+                                        + '\n' + tr("3. Import the certificate"));
         }
     });
 
     connect(m_nextButton, &QPushButton::clicked, this, &DeveloperModeDialog::setLogin);
-    connect(exportBtn, &QPushButton::clicked, [ this ] {
+    connect(exportBtn, &QPushButton::clicked, [this] {
         m_importFile->show();
     });
 
-    //离线模式导入证书
-    connect(importBtn, &QPushButton::clicked, [ this ] {
+    // 离线模式导入证书
+    connect(importBtn, &QPushButton::clicked, [this] {
         m_exportFile->show();
     });
 }
@@ -254,7 +257,7 @@ void DeveloperModeDialog::shutdown()
     if (m_importFile && m_importFile->isVisible())
         m_importFile->reject();
 
-    if (m_exportFile  && m_exportFile->isVisible())
+    if (m_exportFile && m_exportFile->isVisible())
         m_exportFile->reject();
 }
 
@@ -265,9 +268,9 @@ void DeveloperModeDialog::setLogin()
     Q_ASSERT(model);
     auto requestDev = [this, btn] {
         btn->clearFocus();
-        //防止出现弹窗时可以再次点击按钮
+        // 防止出现弹窗时可以再次点击按钮
         hide();
-        QTimer::singleShot(100, this, [ this ] {
+        QTimer::singleShot(100, this, [this] {
             Q_EMIT requestDeveloperMode(true);
         });
     };

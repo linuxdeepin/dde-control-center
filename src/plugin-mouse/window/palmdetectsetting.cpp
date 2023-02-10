@@ -17,8 +17,10 @@
  */
 
 #include "palmdetectsetting.h"
+
 #include "src/plugin-mouse/operation/mousemodel.h"
 #include "widgets/settingsgroup.h"
+
 #include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
@@ -92,7 +94,10 @@ PalmDetectSetting::PalmDetectSetting(QWidget *parent)
 
     setLayout(layout);
 
-    connect(m_detectSwitchBtn, &SwitchWidget::checkedChanged, this, &PalmDetectSetting::requestDetectState);
+    connect(m_detectSwitchBtn,
+            &SwitchWidget::checkedChanged,
+            this,
+            &PalmDetectSetting::requestDetectState);
     connect(contactSlider, &DCCSlider::valueChanged, this, &PalmDetectSetting::requestContact);
     connect(pressureSlider, &DCCSlider::valueChanged, this, [=](int value) {
         // the valid value is 100-200 and step should be 20
@@ -100,7 +105,7 @@ PalmDetectSetting::PalmDetectSetting(QWidget *parent)
     });
 }
 
-void PalmDetectSetting::setModel(MouseModel * const model)
+void PalmDetectSetting::setModel(MouseModel *const model)
 {
     connect(model, &MouseModel::palmDetectChanged, this, &PalmDetectSetting::setDetectState);
     connect(model, &MouseModel::palmMinWidthChanged, this, &PalmDetectSetting::setContactValue);

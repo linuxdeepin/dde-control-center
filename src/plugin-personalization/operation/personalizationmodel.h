@@ -26,12 +26,13 @@
 #ifndef PERSONALIZATIONMODEL_H
 #define PERSONALIZATIONMODEL_H
 
-#include <QObject>
 #include <QDebug>
+#include <QObject>
 
 class ThemeModel;
 class FontModel;
 class FontSizeModel;
+
 class PersonalizationModel : public QObject
 {
     Q_OBJECT
@@ -40,13 +41,21 @@ class PersonalizationModel : public QObject
 public:
     explicit PersonalizationModel(QObject *parent = nullptr);
     ~PersonalizationModel();
+
     inline ThemeModel *getWindowModel() const { return m_windowModel; }
+
     inline ThemeModel *getIconModel() const { return m_iconModel; }
+
     inline ThemeModel *getMouseModel() const { return m_mouseModel; }
+
     inline ThemeModel *getGlobalThemeModel() const { return m_globalThemeModel; }
+
     inline FontModel *getStandFontModel() const { return m_standFontModel; }
+
     inline FontModel *getMonoFontModel() const { return m_monoFontModel; }
+
     inline FontSizeModel *getFontSizeModel() const { return m_fontSizeModel; }
+
     void setIs3DWm(const bool is3d);
     bool is3DWm() const;
 
@@ -54,15 +63,19 @@ public:
     int windowRadius();
 
     inline std::pair<int, double> opacity() const { return m_opacity; }
+
     void setOpacity(std::pair<int, double> opacity);
 
     inline int miniEffect() const { return m_miniEffect; }
+
     void setMiniEffect(const int &effect);
 
     inline QString getActiveColor() { return m_activeColor; }
+
     void setActiveColor(const QString &color);
 
     inline bool getAllowSwitch() { return m_allowSwitch; }
+
     void setCompositingAllowSwitch(bool value);
 
 Q_SIGNALS:

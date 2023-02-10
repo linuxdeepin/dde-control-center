@@ -20,18 +20,20 @@
  */
 
 #include "widgets/detailinfoitem.h"
+
 #include "widgets/accessibleinterface.h"
 
 #include <DFontSizeManager>
 #include <DLabel>
 
-#include <QVBoxLayout>
 #include <QScrollArea>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
-SET_FORM_ACCESSIBLE(DetailInfoItem,"DetailInfoItem");
+SET_FORM_ACCESSIBLE(DetailInfoItem, "DetailInfoItem");
+
 DetailInfoItem::DetailInfoItem(QWidget *parent)
     : SettingsItem(parent)
     , m_dateLabel(new DLabel(this))
@@ -125,4 +127,3 @@ void DetailInfoItem::setDetailData(QString data)
     m_dataLable->clear();
     m_dataLable->setText(data);
 }
-

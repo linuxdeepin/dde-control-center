@@ -31,6 +31,7 @@
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
+
 class Tst_CustomItem : public testing::Test
 {
     void SetUp() override;

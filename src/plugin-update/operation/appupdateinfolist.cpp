@@ -25,10 +25,7 @@
 
 #include "appupdateinfolist.h"
 
-AppUpdateInfo::AppUpdateInfo()
-{
-
-}
+AppUpdateInfo::AppUpdateInfo() { }
 
 const QDBusArgument &operator>>(const QDBusArgument &argument, AppUpdateInfo &info)
 {

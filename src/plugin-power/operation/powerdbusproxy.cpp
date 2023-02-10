@@ -1,31 +1,30 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #include "powerdbusproxy.h"
 
-#include <QMetaObject>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusPendingReply>
-
 #include <QFile>
+#include <QMetaObject>
 
 const QString PowerService = QStringLiteral("org.deepin.dde.Power1");
 const QString PowerPath = QStringLiteral("/org/deepin/dde/Power1");
@@ -48,14 +47,31 @@ const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 PowerDBusProxy::PowerDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_powerInter(new QDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
-    , m_sysPowerInter(new QDBusInterface(SysPowerService, SysPowerPath, SysPowerInterface, QDBusConnection::systemBus(), this))
-    , m_login1ManagerInter(new QDBusInterface(Login1ManagerService, Login1ManagerPath, Login1ManagerInterface, QDBusConnection::systemBus(), this))
-    , m_upowerInter(new QDBusInterface(UPowerService, UPowerPath, UPowerInterface, QDBusConnection::systemBus(), this))
+    , m_powerInter(new QDBusInterface(
+              PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
+    , m_sysPowerInter(new QDBusInterface(
+              SysPowerService, SysPowerPath, SysPowerInterface, QDBusConnection::systemBus(), this))
+    , m_login1ManagerInter(new QDBusInterface(Login1ManagerService,
+                                              Login1ManagerPath,
+                                              Login1ManagerInterface,
+                                              QDBusConnection::systemBus(),
+                                              this))
+    , m_upowerInter(new QDBusInterface(
+              UPowerService, UPowerPath, UPowerInterface, QDBusConnection::systemBus(), this))
 
 {
-    QDBusConnection::sessionBus().connect(PowerService, PowerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
-    QDBusConnection::systemBus().connect(SysPowerService, SysPowerPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
+    QDBusConnection::sessionBus().connect(PowerService,
+                                          PowerPath,
+                                          PropertiesInterface,
+                                          PropertiesChanged,
+                                          this,
+                                          SLOT(onPropertiesChanged(QDBusMessage)));
+    QDBusConnection::systemBus().connect(SysPowerService,
+                                         SysPowerPath,
+                                         PropertiesInterface,
+                                         PropertiesChanged,
+                                         this,
+                                         SLOT(onPropertiesChanged(QDBusMessage)));
 }
 
 // power
@@ -228,6 +244,7 @@ void PowerDBusProxy::setLinePowerLockDelay(int value)
 {
     m_powerInter->setProperty("LinePowerLockDelay", QVariant::fromValue(value));
 }
+
 // sysPower
 bool PowerDBusProxy::hasBattery()
 {
@@ -251,7 +268,8 @@ uint PowerDBusProxy::powerSavingModeBrightnessDropPercent()
 
 void PowerDBusProxy::setPowerSavingModeBrightnessDropPercent(uint value)
 {
-    m_sysPowerInter->setProperty("PowerSavingModeBrightnessDropPercent", QVariant::fromValue(value));
+    m_sysPowerInter->setProperty("PowerSavingModeBrightnessDropPercent",
+                                 QVariant::fromValue(value));
 }
 
 QString PowerDBusProxy::mode()
@@ -316,7 +334,9 @@ bool PowerDBusProxy::CanHibernate()
 bool PowerDBusProxy::login1ManagerCanSuspend()
 {
     QList<QVariant> argumentList;
-    QDBusPendingReply<QString> reply = m_login1ManagerInter->asyncCallWithArgumentList(QStringLiteral("CanSuspend"), argumentList);
+    QDBusPendingReply<QString> reply =
+            m_login1ManagerInter->asyncCallWithArgumentList(QStringLiteral("CanSuspend"),
+                                                            argumentList);
     reply.waitForFinished();
     return reply.value().contains("yes");
 }
@@ -324,15 +344,21 @@ bool PowerDBusProxy::login1ManagerCanSuspend()
 bool PowerDBusProxy::login1ManagerCanHibernate()
 {
     QList<QVariant> argumentList;
-    QDBusPendingReply<QString> reply = m_login1ManagerInter->asyncCallWithArgumentList(QStringLiteral("CanHibernate"), argumentList);
+    QDBusPendingReply<QString> reply =
+            m_login1ManagerInter->asyncCallWithArgumentList(QStringLiteral("CanHibernate"),
+                                                            argumentList);
     reply.waitForFinished();
     return reply.value().contains("yes");
 }
 
 void PowerDBusProxy::onPropertiesChanged(const QDBusMessage &message)
 {
-    QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
+    QVariantMap changedProps =
+            qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
     for (QVariantMap::const_iterator it = changedProps.cbegin(); it != changedProps.cend(); ++it) {
-        QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
+        QMetaObject::invokeMethod(this,
+                                  it.key().toLatin1() + "Changed",
+                                  Qt::DirectConnection,
+                                  QGenericArgument(it.value().typeName(), it.value().data()));
     }
 }

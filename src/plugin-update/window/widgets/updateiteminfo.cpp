@@ -12,7 +12,6 @@ UpdateItemInfo::UpdateItemInfo(QObject *parent)
     , m_explain("")
     , m_updateTime("")
 {
-
 }
 
 void UpdateItemInfo::setDownloadProgress(double downloadProgress)
@@ -88,7 +87,6 @@ void UpdateItemInfo::setExplain(const QString &explain)
 {
     m_explain = explain;
 }
-
 
 QString UpdateItemInfo::updateTime() const
 {

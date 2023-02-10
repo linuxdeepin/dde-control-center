@@ -1,35 +1,34 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     Tinalu Shao <shaotianlu@uniontech.com>
-*
-* Maintainer: Tinalu Shao <shaotianlu@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     Tinalu Shao <shaotianlu@uniontech.com>
+ *
+ * Maintainer: Tinalu Shao <shaotianlu@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #ifndef MONITORDBUSPROXY_H
 #define MONITORDBUSPROXY_H
 
-#include "types/resolutionlist.h"
 #include "types/reflectlist.h"
-#include "types/rotationlist.h"
 #include "types/resolution.h"
+#include "types/resolutionlist.h"
+#include "types/rotationlist.h"
 
-
-#include <QObject>
 #include <QDBusPendingReply>
 #include <QDBusReply>
+#include <QObject>
 
 class QDBusInterface;
 class QDBusMessage;
@@ -38,12 +37,12 @@ class MonitorDBusProxy : public QObject
 {
     Q_OBJECT
 public:
-    static inline const char *staticInterfaceName()
-    { return "org.deepin.dde.Display1.Monitor"; }
+    static inline const char *staticInterfaceName() { return "org.deepin.dde.Display1.Monitor"; }
 
 public:
     explicit MonitorDBusProxy(QString monitorPath, QObject *parent = nullptr);
-    Q_PROPERTY(QStringList AvailableFillModes READ availableFillModes NOTIFY AvailableFillModesChanged)
+    Q_PROPERTY(
+            QStringList AvailableFillModes READ availableFillModes NOTIFY AvailableFillModesChanged)
     QStringList availableFillModes();
 
     Q_PROPERTY(Resolution BestMode READ bestMode NOTIFY BestModeChanged)
@@ -52,7 +51,8 @@ public:
     Q_PROPERTY(bool Connected READ connected NOTIFY ConnectedChanged)
     bool connected();
 
-    Q_PROPERTY(QString CurrentFillMode READ currentFillMode WRITE setCurrentFillMode NOTIFY CurrentFillModeChanged)
+    Q_PROPERTY(QString CurrentFillMode READ currentFillMode WRITE setCurrentFillMode NOTIFY
+                       CurrentFillModeChanged)
     QString currentFillMode();
     void setCurrentFillMode(const QString &value);
 
@@ -125,28 +125,28 @@ public Q_SLOTS: // METHODS
 
 Q_SIGNALS: // SIGNALS
     // begin property changed signals
-    void AvailableFillModesChanged(const QStringList & value) const;
-    void BestModeChanged(Resolution  value) const;
-    void ConnectedChanged(bool  value) const;
-    void CurrentFillModeChanged(const QString & value) const;
-    void CurrentModeChanged(Resolution  value) const;
-    void CurrentRotateModeChanged(uchar  value) const;
-    void EnabledChanged(bool  value) const;
-    void HeightChanged(ushort  value) const;
-    void ManufacturerChanged(const QString & value) const;
-    void MmHeightChanged(uint  value) const;
-    void MmWidthChanged(uint  value) const;
-    void ModelChanged(const QString & value) const;
-    void ModesChanged(ResolutionList  value) const;
-    void NameChanged(const QString & value) const;
-    void ReflectChanged(ushort  value) const;
-    void ReflectsChanged(ReflectList  value) const;
-    void RefreshRateChanged(double  value) const;
-    void RotationChanged(ushort  value) const;
-    void RotationsChanged(RotationList  value) const;
-    void WidthChanged(ushort  value) const;
-    void XChanged(short  value) const;
-    void YChanged(short  value) const;
+    void AvailableFillModesChanged(const QStringList &value) const;
+    void BestModeChanged(Resolution value) const;
+    void ConnectedChanged(bool value) const;
+    void CurrentFillModeChanged(const QString &value) const;
+    void CurrentModeChanged(Resolution value) const;
+    void CurrentRotateModeChanged(uchar value) const;
+    void EnabledChanged(bool value) const;
+    void HeightChanged(ushort value) const;
+    void ManufacturerChanged(const QString &value) const;
+    void MmHeightChanged(uint value) const;
+    void MmWidthChanged(uint value) const;
+    void ModelChanged(const QString &value) const;
+    void ModesChanged(ResolutionList value) const;
+    void NameChanged(const QString &value) const;
+    void ReflectChanged(ushort value) const;
+    void ReflectsChanged(ReflectList value) const;
+    void RefreshRateChanged(double value) const;
+    void RotationChanged(ushort value) const;
+    void RotationsChanged(RotationList value) const;
+    void WidthChanged(ushort value) const;
+    void XChanged(short value) const;
+    void YChanged(short value) const;
 
 private:
     QDBusInterface *m_dBusMonitorInter;

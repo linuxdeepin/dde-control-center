@@ -21,8 +21,8 @@
 
 #pragma once
 
-#include "interface/namespace.h"
 #include "charamangermodel.h"
+#include "interface/namespace.h"
 #include "widgets/face/faceinfowidget.h"
 
 #include <DAbstractDialog>
@@ -41,6 +41,7 @@ DWIDGET_END_NAMESPACE
 
 // 人脸视频录入对话框
 class FaceInfoWidget;
+
 class FaceInfoDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
@@ -48,7 +49,7 @@ public:
     explicit FaceInfoDialog(CharaMangerModel *model, QWidget *parent = nullptr);
     ~FaceInfoDialog();
 
-    inline FaceInfoWidget* faceInfoLabel() { return m_faceLabel; }
+    inline FaceInfoWidget *faceInfoLabel() { return m_faceLabel; }
 
 private:
     void initWidget();

@@ -25,9 +25,9 @@
 
 #include "doutestwidget.h"
 
+#include <QDebug>
 #include <QLabel>
 #include <QMouseEvent>
-#include <QDebug>
 #include <QTimer>
 #include <QVBoxLayout>
 
@@ -43,7 +43,7 @@ DouTestWidget::DouTestWidget(QWidget *parent)
 {
     m_mainlayout = new QVBoxLayout;
     QLabel *title = new QLabel(tr("Double-click Test"));
-//    m_mainlayout->setContentsMargins(20, 10, 10, 10);
+    //    m_mainlayout->setContentsMargins(20, 10, 10, 10);
     m_mainlayout->addWidget(title, 0, Qt::AlignLeft);
     m_testWidget = new DPictureSequenceView;
     m_testWidget->setAccessibleName("DouTestWidget_testWidget");
@@ -52,26 +52,27 @@ DouTestWidget::DouTestWidget(QWidget *parent)
     m_mainlayout->addWidget(m_testWidget, 0, Qt::AlignCenter);
     setLayout(m_mainlayout);
 
-    //raise head
+    // raise head
     for (int i = 1; i < 38; i++) {
         QString arg = QString::asprintf("%5.d", i).replace(' ', '0');
         QString path = QString(":/mouse/double_test/raise_head/raise_head_%1.png").arg(arg);
         m_doubleTest.double_1 << path;
     }
 
-    //bow head
+    // bow head
     for (int i = 1; i < 18; i++) {
         QString arg = QString::asprintf("%5.d", i).replace(' ', '0');
         QString path = QString(":/mouse/double_test/bow_head/bow_head_%1.png").arg(arg);
         m_doubleTest.double_2 << path;
     }
-    //raise head ears
+    // raise head ears
     for (int i = 1; i < 10; i++) {
         QString arg = QString::asprintf("%5.d", i).replace(' ', '0');
-        QString path = QString(":/mouse/double_test/raise_head_ears/raise_head_ears_%1.png").arg(arg);
+        QString path =
+                QString(":/mouse/double_test/raise_head_ears/raise_head_ears_%1.png").arg(arg);
         m_doubleTest.click_2 << path;
     }
-    //bow head ears
+    // bow head ears
     for (int i = 1; i < 10; i++) {
         QString arg = QString::asprintf("%5.d", i).replace(' ', '0');
         QString path = QString(":/mouse/double_test/bow_head_ears/bow_head_ears_%1.png").arg(arg);
@@ -81,9 +82,8 @@ DouTestWidget::DouTestWidget(QWidget *parent)
     m_state = State::BOW;
     m_testWidget->setPictureSequence(m_doubleTest.click_1);
 
-    connect(m_testWidget, &DPictureSequenceView::playEnd, [ = ] {
-        switch (m_state)
-        {
+    connect(m_testWidget, &DPictureSequenceView::playEnd, [=] {
+        switch (m_state) {
         case BOW:
             m_testWidget->setPictureSequence(m_doubleTest.double_1);
             return;
@@ -92,7 +92,6 @@ DouTestWidget::DouTestWidget(QWidget *parent)
             return;
         }
     });
-
 }
 
 void DouTestWidget::mousePressEvent(QMouseEvent *)
@@ -124,5 +123,3 @@ void DouTestWidget::mouseDoubleClickEvent(QMouseEvent *)
         return;
     }
 }
-
-

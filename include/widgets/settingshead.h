@@ -36,15 +36,13 @@ DWIDGET_END_NAMESPACE
 namespace DCC_NAMESPACE {
 
 class TitleLabel;
+
 class SettingsHead : public SettingsItem
 {
     Q_OBJECT
 
 public:
-    enum State {
-        Edit,
-        Cancel
-    };
+    enum State { Edit, Cancel };
 
 public:
     explicit SettingsHead(QFrame *parent = nullptr);
@@ -70,4 +68,4 @@ private:
     State m_state;
 };
 
-}
+} // namespace DCC_NAMESPACE

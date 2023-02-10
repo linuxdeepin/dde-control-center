@@ -24,12 +24,12 @@
  */
 
 #include "category.h"
+
 #include <QDebug>
 
 Category::Category(QObject *parent)
     : QObject(parent)
 {
-
 }
 
 void Category::setDefault(const App &def)
@@ -68,10 +68,12 @@ void Category::addUserItem(const App &value)
                 return;
             }
         }
-        if (m_userAppList.contains(value)) return;
+        if (m_userAppList.contains(value))
+            return;
         m_userAppList << value;
     } else {
-        if (m_systemAppList.contains(value)) return;
+        if (m_systemAppList.contains(value))
+            return;
         m_systemAppList << value;
     }
 

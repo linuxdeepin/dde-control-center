@@ -19,23 +19,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <interface/moduleobject.h>
-#include "widgets/dcclistview.h"
-
 #include "defappdetailwidget.h"
+
 #include "defappmodel.h"
 #include "defappworker.h"
+#include "widgets/dcclistview.h"
+
+#include <interface/moduleobject.h>
 
 #include <DFloatingButton>
 #include <DListView>
 #include <DStyle>
 
-#include <QVBoxLayout>
 #include <QDebug>
-#include <QStandardItemModel>
 #include <QIcon>
 #include <QMimeDatabase>
 #include <QPointer>
+#include <QStandardItemModel>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 
@@ -64,9 +65,7 @@ DefappDetailWidget::DefappDetailWidget(DefAppWorker::DefaultAppsCategory categor
     setLayout(m_centralLayout);
 }
 
-DefappDetailWidget::~DefappDetailWidget()
-{
-}
+DefappDetailWidget::~DefappDetailWidget() { }
 
 void DefappDetailWidget::setModel(DefAppModel *const model)
 {
@@ -120,7 +119,8 @@ QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size)
         icon = QIcon::fromTheme(appIcon, QIcon::fromTheme("application-x-desktop"));
 
     const qreal ratio = devicePixelRatioF();
-    QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    QPixmap pixmap = icon.pixmap(size * ratio)
+                             .scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     pixmap.setDevicePixelRatio(ratio);
 
     return pixmap;
@@ -136,7 +136,7 @@ void DefappDetailWidget::addItem(const App &item)
 void DefappDetailWidget::removeItem(const App &item)
 {
     qDebug() << "DefappDetailWidget::removeItem id " << item.Id;
-    //update model
+    // update model
     int cnt = m_model->rowCount();
     for (int row = 0; row < cnt; row++) {
         QString id = m_model->data(m_model->index(row, 0), DefAppIdRole).toString();
@@ -155,13 +155,16 @@ void DefappDetailWidget::removeItem(const App &item)
     updateListView(m_category->getDefault());
 }
 
-void DefappDetailWidget::showInvalidText(DStandardItem *modelItem, const QString &name, const QString &iconName)
+void DefappDetailWidget::showInvalidText(DStandardItem *modelItem,
+                                         const QString &name,
+                                         const QString &iconName)
 {
     if (name.isEmpty())
         return;
 
     DViewItemActionList actions;
-    QPointer<DViewItemAction> act(new DViewItemAction(Qt::AlignVCenter | Qt::AlignLeft, QSize(32, 32), QSize(), false));
+    QPointer<DViewItemAction> act(
+            new DViewItemAction(Qt::AlignVCenter | Qt::AlignLeft, QSize(32, 32), QSize(), false));
     QIcon icon = getAppIcon(iconName, QSize(32, 32));
     act->setIcon(icon);
     act->setTextColorRole(DPalette::TextWarning);
@@ -188,7 +191,7 @@ void DefappDetailWidget::updateListView(const App &defaultApp)
 
         if (id == defaultApp.Id) {
             modelItem->setCheckState(Qt::Checked);
-            //remove user clear button
+            // remove user clear button
             if (!isUser && !canDelete)
                 continue;
 
@@ -197,14 +200,19 @@ void DefappDetailWidget::updateListView(const App &defaultApp)
             showInvalidText(modelItem, name, iconName);
         } else {
             modelItem->setCheckState(Qt::Unchecked);
-            //add user clear button
+            // add user clear button
             if (!isUser && !canDelete)
                 continue;
 
             DViewItemActionList btnActList;
-            QPointer<DViewItemAction> delAction(new DViewItemAction(Qt::AlignVCenter | Qt::AlignRight, QSize(21, 21), QSize(19, 19), true));
+            QPointer<DViewItemAction> delAction(
+                    new DViewItemAction(Qt::AlignVCenter | Qt::AlignRight,
+                                        QSize(21, 21),
+                                        QSize(19, 19),
+                                        true));
 
-            delAction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_CloseButton, nullptr, this));
+            delAction->setIcon(
+                    DStyleHelper(style()).standardIcon(DStyle::SP_CloseButton, nullptr, this));
             connect(delAction, &QAction::triggered, this, &DefappDetailWidget::onDelBtnClicked);
             btnActList << delAction;
             modelItem->setActionList(Qt::RightEdge, btnActList);
@@ -219,7 +227,6 @@ void DefappDetailWidget::onDefaultAppSet(const App &app)
     qDebug() << Q_FUNC_INFO << app.Name;
     updateListView(app);
 }
-
 
 void DefappDetailWidget::AppsItemChanged(const QList<App> &list)
 {
@@ -241,13 +248,13 @@ void DefappDetailWidget::onListViewClicked(const QModelIndex &index)
     if (!isValid(app))
         return;
 
-    qDebug()  <<  "set default app "  << app.Name;
+    qDebug() << "set default app " << app.Name;
     updateListView(app);
-    //set default app
+    // set default app
     Q_EMIT requestSetDefaultApp(m_categoryName, app);
 }
 
-void  DefappDetailWidget::onDelBtnClicked()
+void DefappDetailWidget::onDelBtnClicked()
 {
     DViewItemAction *action = qobject_cast<DViewItemAction *>(sender());
     if (!m_actionMap.contains(action))
@@ -260,7 +267,7 @@ void  DefappDetailWidget::onDelBtnClicked()
         return;
 
     qDebug() << "delete app " << app.Id;
-    //delete user app
+    // delete user app
     Q_EMIT requestDelUserApp(m_categoryName, app);
 }
 
@@ -274,9 +281,11 @@ void DefappDetailWidget::onClearAll()
 
 App DefappDetailWidget::getAppById(const QString &appId)
 {
-    auto res = std::find_if(m_category->getappItem().cbegin(), m_category->getappItem().cend(), [ = ](const App & item)->bool{
-        return item.Id == appId;
-    });
+    auto res = std::find_if(m_category->getappItem().cbegin(),
+                            m_category->getappItem().cend(),
+                            [=](const App &item) -> bool {
+                                return item.Id == appId;
+                            });
 
     if (res != m_category->getappItem().cend()) {
         return *res;
@@ -331,5 +340,3 @@ bool DefappDetailWidget::isValid(const App &app)
 {
     return (!app.Id.isNull() && !app.Id.isEmpty());
 }
-
-

@@ -24,31 +24,28 @@
  */
 
 #include "personalizationmodel.h"
-#include "model/thememodel.h"
+
 #include "model/fontmodel.h"
 #include "model/fontsizemodel.h"
-
+#include "model/thememodel.h"
 
 PersonalizationModel::PersonalizationModel(QObject *parent)
     : QObject(parent)
     , m_opacity(std::pair<int, double>(2, 0.4f))
     , m_allowSwitch(false)
 {
-    m_windowModel    = new ThemeModel(this);
-    m_iconModel      = new ThemeModel(this);
-    m_mouseModel     = new ThemeModel(this);
+    m_windowModel = new ThemeModel(this);
+    m_iconModel = new ThemeModel(this);
+    m_mouseModel = new ThemeModel(this);
     m_globalThemeModel = new ThemeModel(this);
     m_standFontModel = new FontModel(this);
-    m_monoFontModel  = new FontModel(this);
-    m_fontSizeModel  = new FontSizeModel(this);
+    m_monoFontModel = new FontModel(this);
+    m_fontSizeModel = new FontSizeModel(this);
     m_is3DWm = true;
     m_miniEffect = 0;
 }
 
-PersonalizationModel::~PersonalizationModel()
-{
-
-}
+PersonalizationModel::~PersonalizationModel() { }
 
 void PersonalizationModel::setIs3DWm(const bool is3d)
 {
@@ -68,7 +65,7 @@ void PersonalizationModel::setWindowRadius(int radius)
     if (m_windowRadius != radius)
         m_windowRadius = radius;
 
-    Q_EMIT  onWindowRadiusChanged(radius);
+    Q_EMIT onWindowRadiusChanged(radius);
 }
 
 int PersonalizationModel::windowRadius()
@@ -78,7 +75,8 @@ int PersonalizationModel::windowRadius()
 
 void PersonalizationModel::setOpacity(std::pair<int, double> opacity)
 {
-    if (m_opacity == opacity) return;
+    if (m_opacity == opacity)
+        return;
 
     m_opacity = opacity;
 
@@ -87,9 +85,10 @@ void PersonalizationModel::setOpacity(std::pair<int, double> opacity)
 
 void PersonalizationModel::setMiniEffect(const int &effect)
 {
-    if(m_miniEffect == effect) return;
+    if (m_miniEffect == effect)
+        return;
 
-    m_miniEffect=effect;
+    m_miniEffect = effect;
 
     Q_EMIT onMiniEffectChanged(effect);
 }

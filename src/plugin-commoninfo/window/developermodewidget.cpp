@@ -20,22 +20,22 @@
  */
 
 #include "developermodewidget.h"
+
 #include "src/plugin-commoninfo/operation/commoninfomodel.h"
 #include "widgets/switchwidget.h"
 
-#include <DTipLabel>
-#include <DTipLabel>
-#include <DDialog>
 #include <DDBusSender>
+#include <DDialog>
+#include <DTipLabel>
 
-#include <QVBoxLayout>
-#include <QTimer>
-#include <QPushButton>
-#include <QDebug>
 #include <QDBusInterface>
 #include <QDBusReply>
-#include <QProcess>
+#include <QDebug>
 #include <QFile>
+#include <QProcess>
+#include <QPushButton>
+#include <QTimer>
+#include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -46,17 +46,21 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     , m_inter(new QDBusInterface("com.deepin.sync.Helper",
                                  "/com/deepin/sync/Helper",
                                  "com.deepin.sync.Helper",
-                                 QDBusConnection::systemBus(), this))
+                                 QDBusConnection::systemBus(),
+                                 this))
     , m_developerDialog(new DeveloperModeDialog(this))
 {
     setAccessibleName("DeveloperModeWidget");
     m_devBtn = new QPushButton(tr("Request Root Access"));
-    m_dtip = new DTipLabel(tr("Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully."));
+    m_dtip = new DTipLabel(tr("Developer mode enables you to get root privileges, install and run "
+                              "unsigned apps not listed in app store, but your system integrity "
+                              "may also be damaged, please use it carefully."));
     m_dtip->setAccessibleName("DeveloperModeWidget_dtip ");
     m_dtip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     m_dtip->setWordWrap(true);
 
-    m_lab = new DLabel(tr("The feature is not available at present, please activate your system first"));
+    m_lab = new DLabel(
+            tr("The feature is not available at present, please activate your system first"));
     m_lab->setAccessibleName("DeveloperModeWidget_lab");
     m_lab->setWordWrap(true);
     m_lab->setVisible(false);
@@ -71,28 +75,37 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     vBoxLayout->addStretch();
     setLayout(vBoxLayout);
 
-    connect(m_developerDialog, &DeveloperModeDialog::requestDeveloperMode, this, &DeveloperModeWidget::enableDeveloperMode);
-    connect(this, &DeveloperModeWidget::enableDeveloperMode, m_developerDialog, &DeveloperModeDialog::close);
-    connect(m_developerDialog, &DeveloperModeDialog::requestLogin, this, &DeveloperModeWidget::requestLogin);
-    connect(m_developerDialog, &DeveloperModeDialog::requestCommit, [ this ](QString filePathName) {
-        //读取机器信息证书
+    connect(m_developerDialog,
+            &DeveloperModeDialog::requestDeveloperMode,
+            this,
+            &DeveloperModeWidget::enableDeveloperMode);
+    connect(this,
+            &DeveloperModeWidget::enableDeveloperMode,
+            m_developerDialog,
+            &DeveloperModeDialog::close);
+    connect(m_developerDialog,
+            &DeveloperModeDialog::requestLogin,
+            this,
+            &DeveloperModeWidget::requestLogin);
+    connect(m_developerDialog, &DeveloperModeDialog::requestCommit, [this](QString filePathName) {
+        // 读取机器信息证书
         QFile fFile(filePathName);
         if (!fFile.open(QIODevice::ReadOnly)) {
             qDebug() << "Can't open file for writing";
         }
 
         QByteArray data = fFile.readAll();
-        QDBusMessage msg =  m_inter->call("EnableDeveloperMode", data);
+        QDBusMessage msg = m_inter->call("EnableDeveloperMode", data);
 
-        //当返回信息为错误接口信息才处理
+        // 当返回信息为错误接口信息才处理
         if (msg.type() == QDBusMessage::MessageType::ErrorMessage) {
-            //系统通知弹窗qdbus 接口
-            QDBusInterface  tInterNotify("org.deepin.dde.Notification1",
-                                         "/org/deepin/dde/Notification1",
-                                         "org.deepin.dde.Notification1",
-                                         QDBusConnection::sessionBus());
+            // 系统通知弹窗qdbus 接口
+            QDBusInterface tInterNotify("org.deepin.dde.Notification1",
+                                        "/org/deepin/dde/Notification1",
+                                        "org.deepin.dde.Notification1",
+                                        QDBusConnection::sessionBus());
 
-            //初始化Notify 七个参数
+            // 初始化Notify 七个参数
             QString in0("dde-control-center");
             uint in1 = 101;
             QString in2("preferences-system");
@@ -102,7 +115,8 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
             QVariantMap in6;
             int in7 = 5000;
 
-            //截取error接口 1001:未导入证书 1002:未登录 1003:无法获取硬件信息 1004:网络异常 1005:证书加载失败 1006:签名验证失败 1007:文件保存失败
+            // 截取error接口 1001:未导入证书 1002:未登录 1003:无法获取硬件信息 1004:网络异常
+            // 1005:证书加载失败 1006:签名验证失败 1007:文件保存失败
             QString msgcode = msg.errorMessage();
             msgcode = msgcode.split(":").at(0);
             if (msgcode == "1001") {
@@ -121,13 +135,13 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
                 in3 = tr("Failed to get root access");
             }
 
-            //系统通知认证失败 无法进入开发模式
+            // 系统通知认证失败 无法进入开发模式
             tInterNotify.call("Notify", in0, in1, in2, in3, in4, in5, in6, in7);
         }
     });
 
-    //绑定选择激活开发模式窗口
-    connect(m_devBtn, &QPushButton::clicked, [ this ] {
+    // 绑定选择激活开发模式窗口
+    connect(m_devBtn, &QPushButton::clicked, [this] {
         m_developerDialog->show();
     });
 }
@@ -135,7 +149,7 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
 DeveloperModeWidget::~DeveloperModeWidget()
 {
     if (m_developerDialog) {
-        m_developerDialog->shutdown();  // 若存在可显示对话框，则需强制关闭
+        m_developerDialog->shutdown(); // 若存在可显示对话框，则需强制关闭
         m_developerDialog->deleteLater();
     }
 }
@@ -151,32 +165,34 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
         m_dtip->setVisible(model->isActivate());
     }
     updateDeveloperModeState(model->developerModeState());
-    connect(model, &CommonInfoModel::developerModeStateChanged, this, [ this ](const bool state) {
-        //更新界面
+    connect(model, &CommonInfoModel::developerModeStateChanged, this, [this](const bool state) {
+        // 更新界面
         updateDeveloperModeState(state);
 
         if (!state)
             return;
 
-        //弹窗提示重启
-        DDialog dlg("", tr("To make some features effective, a restart is required. Restart now?"), this);
-        dlg.addButtons({tr("Cancel"), tr("Restart Now")});
-        connect(&dlg, &DDialog::buttonClicked, this, [ = ](int idx, QString str) {
+        // 弹窗提示重启
+        DDialog dlg("",
+                    tr("To make some features effective, a restart is required. Restart now?"),
+                    this);
+        dlg.addButtons({ tr("Cancel"), tr("Restart Now") });
+        connect(&dlg, &DDialog::buttonClicked, this, [=](int idx, QString str) {
             Q_UNUSED(str);
             if (idx == 1) {
                 DDBusSender()
-                .service("org.deepin.dde.SessionManager1")
-                .interface("org.deepin.dde.SessionManager1")
-                .path("/org/deepin/dde/SessionManager1")
-                .method("RequestReboot")
-                .call();
+                        .service("org.deepin.dde.SessionManager1")
+                        .interface("org.deepin.dde.SessionManager1")
+                        .path("/org/deepin/dde/SessionManager1")
+                        .method("RequestReboot")
+                        .call();
             }
         });
         dlg.exec();
     });
     connect(model, &CommonInfoModel::isLoginChenged, this, &DeveloperModeWidget::onLoginChanged);
     if (!model->developerModeState()) {
-        connect(model, &CommonInfoModel::LicenseStateChanged, this, [ = ](const bool & value) {
+        connect(model, &CommonInfoModel::LicenseStateChanged, this, [=](const bool &value) {
             m_devBtn->setEnabled(value);
             m_lab->setVisible(!value);
             m_dtip->setVisible(value);
@@ -184,16 +200,14 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
     }
 }
 
-void DeveloperModeWidget::onLoginChanged()
-{
-}
+void DeveloperModeWidget::onLoginChanged() { }
 
-//开发者模式变化时，更新界面
+// 开发者模式变化时，更新界面
 void DeveloperModeWidget::updateDeveloperModeState(const bool state)
 {
     QDBusReply<bool> reply = m_inter->call("IsDeveloperMode");
     if (state || reply.value()) {
-        //开发者模式不可逆,这里将控件disable
+        // 开发者模式不可逆,这里将控件disable
         m_devBtn->clearFocus();
         m_devBtn->setEnabled(false);
         m_devBtn->setText(tr("Root Access Allowed"));

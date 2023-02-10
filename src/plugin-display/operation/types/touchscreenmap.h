@@ -22,8 +22,8 @@
 #ifndef TOUCHSCREENMAP_H
 #define TOUCHSCREENMAP_H
 
-#include <QMap>
 #include <QDBusMetaType>
+#include <QMap>
 
 typedef QMap<QString, QString> TouchscreenMap;
 

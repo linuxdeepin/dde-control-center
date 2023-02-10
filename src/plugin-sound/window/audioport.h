@@ -1,23 +1,25 @@
 #ifndef AUDIOPORT_H
 #define AUDIOPORT_H
 
-#include <QDBusMetaType>
-#include <QString>
 #include <QDBusArgument>
+#include <QDBusMetaType>
 #include <QDebug>
-
+#include <QString>
 
 class AudioPort
 {
 public:
-    AudioPort() {}
-    friend QDebug operator<<(QDebug argument, const AudioPort &port) {
+    AudioPort() { }
+
+    friend QDebug operator<<(QDebug argument, const AudioPort &port)
+    {
         argument << port.name << port.description << port.availability;
 
         return argument;
     }
 
-    friend QDBusArgument &operator<<(QDBusArgument &argument, const AudioPort &port) {
+    friend QDBusArgument &operator<<(QDBusArgument &argument, const AudioPort &port)
+    {
         argument.beginStructure();
         argument << port.name << port.description << port.availability;
         argument.endStructure();
@@ -25,7 +27,8 @@ public:
         return argument;
     }
 
-    friend const QDBusArgument &operator>>(const QDBusArgument &argument, AudioPort &port) {
+    friend const QDBusArgument &operator>>(const QDBusArgument &argument, AudioPort &port)
+    {
 
         argument.beginStructure();
         argument >> port.name >> port.description >> port.availability;
@@ -33,13 +36,18 @@ public:
         return argument;
     }
 
-    bool operator==(const AudioPort what) const {
-        return what.name == name && what.description == description && what.availability == availability;
+    bool operator==(const AudioPort what) const
+    {
+        return what.name == name && what.description == description
+                && what.availability == availability;
     }
 
-    bool operator!=(const AudioPort what) const {
-        return what.name != name || what.description != description || what.availability != availability;
+    bool operator!=(const AudioPort what) const
+    {
+        return what.name != name || what.description != description
+                || what.availability != availability;
     }
+
 public:
     QString name;
     QString description;

@@ -34,7 +34,8 @@ class FontSizeModel : public QObject
 public:
     explicit FontSizeModel(QObject *parent = 0);
     void setFontSize(const int size);
-    inline int getFontSize() const {return m_size;}
+
+    inline int getFontSize() const { return m_size; }
 
 Q_SIGNALS:
     void sizeChanged(int size);

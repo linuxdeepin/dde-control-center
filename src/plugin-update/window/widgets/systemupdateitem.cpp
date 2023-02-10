@@ -1,10 +1,13 @@
 #include "systemupdateitem.h"
+
 #include "common.h"
 
 #include <DFontSizeManager>
 #include <DFrame>
 #include <DLabel>
+
 #include <QVBoxLayout>
+
 #include <float.h>
 
 using namespace DCC_NAMESPACE;
@@ -74,15 +77,18 @@ void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
 
     int lastIndex = -1;
 
-    const QString systemVer = IsCommunitySystem ? Dtk::Core::DSysInfo::deepinVersion() : Dtk::Core::DSysInfo::minorVersion();
+    const QString systemVer = IsCommunitySystem ? Dtk::Core::DSysInfo::deepinVersion()
+                                                : Dtk::Core::DSysInfo::minorVersion();
     for (int i = 0; i < detailInfoList.count(); i++) {
         const QString currentVersion = detailInfoList.at(i).name;
-        if (subVersion(systemVer, currentVersion) > DBL_MIN || subVersion(currentVersion, updateItemInfo->availableVersion()) > DBL_MIN) {
+        if (subVersion(systemVer, currentVersion) > DBL_MIN
+            || subVersion(currentVersion, updateItemInfo->availableVersion()) > DBL_MIN) {
             continue;
         }
 
         if (IsProfessionalSystem && getLastNumForString(currentVersion) != '0') {
-            if (lastIndex < 0 ||  subVersion(currentVersion, detailInfoList.at(lastIndex).name) > DBL_MIN) {
+            if (lastIndex < 0
+                || subVersion(currentVersion, detailInfoList.at(lastIndex).name) > DBL_MIN) {
                 lastIndex = i;
             }
             continue;
@@ -95,7 +101,8 @@ void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
         vector<double> firstVersionVec = getNumListFromStr(updateItemInfo->availableVersion());
         vector<double> secondVersionVec = getNumListFromStr(detailInfoList.at(lastIndex).name);
         // 当前版本是 1061的话 则不显示1051等类似的小版本
-        if (static_cast<int>(firstVersionVec.at(0) / 10) == static_cast<int>(secondVersionVec.at(0) / 10)) {
+        if (static_cast<int>(firstVersionVec.at(0) / 10)
+            == static_cast<int>(secondVersionVec.at(0) / 10)) {
             createDetailInfoItem(detailInfoList, lastIndex, 0);
         }
     }
@@ -126,7 +133,9 @@ double SystemUpdateItem::subVersion(const QString &firstVersion, const QString &
     return firstVersionVec.at(0) - secondVersionVec.at(0);
 }
 
-void SystemUpdateItem::createDetailInfoItem(const QList<DetailInfo> &detailInfoList, int index, int groupIndex)
+void SystemUpdateItem::createDetailInfoItem(const QList<DetailInfo> &detailInfoList,
+                                            int index,
+                                            int groupIndex)
 {
     if (index >= detailInfoList.count() || index < 0) {
         return;
@@ -135,7 +144,7 @@ void SystemUpdateItem::createDetailInfoItem(const QList<DetailInfo> &detailInfoL
     DetailInfoItem *detailInfoItem = new DetailInfoItem(this);
     // 根据需求，将最后一个字符替换为0（原因是不想用户看到版本频繁的更新）
     if (IsProfessionalSystem)
-          item.name.replace(item.name.length() - 1, 1, '0');
+        item.name.replace(item.name.length() - 1, 1, '0');
     detailInfoItem->setTitle(item.name);
     detailInfoItem->setDate(item.updateTime);
     detailInfoItem->setLinkData(item.link);

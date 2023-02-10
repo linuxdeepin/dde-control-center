@@ -21,16 +21,16 @@
 
 #include "authenticationinfoitem.h"
 
-#include <QWidget>
-#include <QHBoxLayout>
-#include <QLabel>
-#include <QDebug>
-
 #include <DApplicationHelper>
-#include <DPaletteHelper>
 #include <DIconButton>
 #include <DLineEdit>
+#include <DPaletteHelper>
 #include <DStyleHelper>
+
+#include <QDebug>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QWidget>
 
 using namespace DCC_NAMESPACE;
 DGUI_USE_NAMESPACE
@@ -49,7 +49,7 @@ AuthenticationInfoItem::AuthenticationInfoItem(QWidget *parent)
     setFixedHeight(36);
 
     m_editBtn->setIcon(QIcon::fromTheme("dcc_edit"));
-    m_editBtn->setFlat(true);//设置背景透明
+    m_editBtn->setFlat(true); // 设置背景透明
     m_editBtn->setVisible(false);
 
     m_editTitle->setClearButtonEnabled(false);
@@ -66,7 +66,7 @@ AuthenticationInfoItem::AuthenticationInfoItem(QWidget *parent)
     m_layout->setContentsMargins(10, 5, 10, 5);
     m_layout->addWidget(m_title, 0, Qt::AlignLeft);
     m_layout->addWidget(m_editBtn, 0, Qt::AlignLeft);
-    m_layout->addWidget(m_editTitle, 0 , Qt::AlignLeft);
+    m_layout->addWidget(m_editTitle, 0, Qt::AlignLeft);
     m_layout->addStretch();
     m_layout->addWidget(m_removeBtn, 0, Qt::AlignVCenter);
     setLayout(m_layout);
@@ -93,12 +93,14 @@ AuthenticationInfoItem::AuthenticationInfoItem(QWidget *parent)
         setEditTitle(false);
     });
 
-    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
-        this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
-        Q_UNUSED(themeType);
-        DPaletteHelper::instance()->resetPalette(this);
-        m_currentpa = DPaletteHelper::instance()->palette(this);
-    });
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(),
+            &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
+            this,
+            [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
+                Q_UNUSED(themeType);
+                DPaletteHelper::instance()->resetPalette(this);
+                m_currentpa = DPaletteHelper::instance()->palette(this);
+            });
 }
 
 void AuthenticationInfoItem::setTitle(const QString &title)
@@ -131,8 +133,8 @@ void AuthenticationInfoItem::setHideTitle(bool state)
 
 bool AuthenticationInfoItem::validateName(const QString &password)
 {
-    QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
-                              QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("_");
+    QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz")
+            + QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("_");
     for (const QChar &p : password) {
         if (!validate_policy.contains(p)) {
             ushort uNum = p.unicode();
@@ -150,10 +152,12 @@ bool AuthenticationInfoItem::onNameEditFinished()
     QString editName = m_editTitle->lineEdit()->text();
     if (editName.isEmpty())
         return false;
-    //正则表达式判断是否由字母、数字、中文、下划线组成
+    // 正则表达式判断是否由字母、数字、中文、下划线组成
     bool regResult = editName.contains(QRegularExpression("(^[\\w\u4e00-\u9fa5]+$)"));
     if (editName.size() > 15) {
-        QString errMsg = regResult ? tr("No more than 15 characters") : tr("Use letters, numbers and underscores only, and no more than 15 characters");
+        QString errMsg = regResult
+                ? tr("No more than 15 characters")
+                : tr("Use letters, numbers and underscores only, and no more than 15 characters");
         showAlertMessage(errMsg);
         return false;
     } else {
@@ -181,7 +185,10 @@ void AuthenticationInfoItem::enterEvent(QEvent *event)
 
     QBrush brush;
     if (styleHelper.dstyle()) {
-        brush = styleHelper.dstyle()->generatedBrush(DStyle::SS_HoverState, pa.itemBackground(), DPalette::Normal, DPalette::ItemBackground);
+        brush = styleHelper.dstyle()->generatedBrush(DStyle::SS_HoverState,
+                                                     pa.itemBackground(),
+                                                     DPalette::Normal,
+                                                     DPalette::ItemBackground);
     }
     pa.setBrush(DPalette::Window, Qt::transparent);
     pa.setBrush(DPalette::ItemBackground, brush);
@@ -208,12 +215,14 @@ AuthenticationLinkButtonItem::AuthenticationLinkButtonItem(QWidget *parent)
 {
     setFixedHeight(36);
 
-    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
-        this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
-        Q_UNUSED(themeType);
-        DPaletteHelper::instance()->resetPalette(this);
-        m_currentpa = DPaletteHelper::instance()->palette(this);
-    });
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(),
+            &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
+            this,
+            [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
+                Q_UNUSED(themeType);
+                DPaletteHelper::instance()->resetPalette(this);
+                m_currentpa = DPaletteHelper::instance()->palette(this);
+            });
 }
 
 void AuthenticationLinkButtonItem::enterEvent(QEvent *event)
@@ -224,7 +233,10 @@ void AuthenticationLinkButtonItem::enterEvent(QEvent *event)
 
     QBrush brush;
     if (styleHelper.dstyle()) {
-        brush = styleHelper.dstyle()->generatedBrush(DStyle::SS_HoverState, pa.itemBackground(), DPalette::Normal, DPalette::ItemBackground);
+        brush = styleHelper.dstyle()->generatedBrush(DStyle::SS_HoverState,
+                                                     pa.itemBackground(),
+                                                     DPalette::Normal,
+                                                     DPalette::ItemBackground);
     }
     pa.setBrush(DPalette::Window, Qt::transparent);
     pa.setBrush(DPalette::ItemBackground, brush);

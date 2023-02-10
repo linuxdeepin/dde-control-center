@@ -21,8 +21,8 @@
 
 #pragma once
 
-#include "interface/namespace.h"
 #include "interface/hlistmodule.h"
+#include "interface/namespace.h"
 #include "interface/plugininterface.h"
 
 class HostNameItem;
@@ -33,6 +33,7 @@ class SystemInfoWork;
 class TitleValueItem;
 class LogoItem;
 class TitleAuthorizedItem;
+
 class SystemInfoPlugin : public PluginInterface
 {
     Q_OBJECT
@@ -82,4 +83,4 @@ private:
     SystemInfoWork *m_work;
 };
 
-}
+} // namespace DCC_NAMESPACE

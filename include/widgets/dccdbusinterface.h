@@ -22,6 +22,7 @@
 #define DCCDBUSINTERFACE_H
 
 #include "interface/namespace.h"
+
 #include <QDBusAbstractInterface>
 
 namespace DCC_NAMESPACE {
@@ -33,8 +34,11 @@ class DCCDBusInterface : public QDBusAbstractInterface
     Q_OBJECT
 
 public:
-    explicit DCCDBusInterface(const QString &service, const QString &path, const QString &interface = QString(),
-                              const QDBusConnection &connection = QDBusConnection::sessionBus(), QObject *parent = nullptr);
+    explicit DCCDBusInterface(const QString &service,
+                              const QString &path,
+                              const QString &interface = QString(),
+                              const QDBusConnection &connection = QDBusConnection::sessionBus(),
+                              QObject *parent = nullptr);
     virtual ~DCCDBusInterface() override;
 
     bool serviceValid() const;
@@ -50,6 +54,6 @@ Q_SIGNALS:
     DCC_DECLARE_PRIVATE(DCCDBusInterface)
 };
 
-}
+} // namespace DCC_NAMESPACE
 
 #endif // DCCDBUSINTERFACE_H

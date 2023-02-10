@@ -20,13 +20,13 @@
  */
 #pragma once
 
-#include "src/plugin-notification/operation/notificationmodel.h"
 #include "interface/namespace.h"
+#include "src/plugin-notification/operation/notificationmodel.h"
 
 #include <dtkwidget_global.h>
 
-#include <QWidget>
 #include <QModelIndex>
+#include <QWidget>
 
 DWIDGET_BEGIN_NAMESPACE
 class DListView;
@@ -41,11 +41,14 @@ QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 class MultiSelectListView;
+
 class NotificationWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NotificationWidget(NotificationModel *model, QStandardItemModel *softwaremodel, QWidget *parent = nullptr);
+    explicit NotificationWidget(NotificationModel *model,
+                                QStandardItemModel *softwaremodel,
+                                QWidget *parent = nullptr);
     static QIcon getAppIcon(const QString &appIcon, const QSize &size);
 
 Q_SIGNALS:
@@ -56,8 +59,14 @@ public Q_SLOTS:
     void onAppClicked(const QModelIndex &index);
     void setAppCurrentIndex(int row);
     void onSystemClicked(const QModelIndex &index);
-    Dtk::Widget::DListView* getAppListview() const {return (Dtk::Widget::DListView*)m_softwareListView;}
-    Dtk::Widget::DListView* getSysListview() const {return m_systemListView;}
+
+    Dtk::Widget::DListView *getAppListview() const
+    {
+        return (Dtk::Widget::DListView *)m_softwareListView;
+    }
+
+    Dtk::Widget::DListView *getSysListview() const { return m_systemListView; }
+
     void showDefaultWidget();
 
 private:
@@ -74,4 +83,4 @@ private:
     QModelIndex m_lastIndex;
     QLabel *m_appTitleLable;
 };
-}
+} // namespace DCC_NAMESPACE

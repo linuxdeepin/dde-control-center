@@ -27,11 +27,10 @@
 #define USERMODEL_H
 
 #include "interface/namespace.h"
-
-#include <QObject>
-#include <QMap>
-
 #include "user.h"
+
+#include <QMap>
+#include <QObject>
 
 namespace DCC_NAMESPACE {
 
@@ -49,17 +48,23 @@ public:
     bool contains(const QString &id);
 
     inline bool isAutoLoginVisable() const { return m_autoLoginVisable; }
+
     void setAutoLoginVisable(const bool visable);
 
     inline bool isCreateUserValid() const { return m_bCreateUserValid; }
+
     void setCreateUserValid(bool bValid);
 
     inline bool isNoPassWordLoginVisable() const { return m_noPassWordLoginVisable; }
+
     void setNoPassWordLoginVisable(const bool visable);
+
     bool isJoinADDomain() const { return m_isJoinADDomain; }
+
     void setIsJoinADDomain(bool isJoinADDomain);
 
     bool isADUserLogind() const { return m_isADUserLogind; }
+
     void setADUserLogind(bool isADUserLogind);
     void setAllGroups(const QStringList &groups);
     QStringList getAllGroups();
@@ -72,13 +77,10 @@ public:
     void setIsSecurityHighLever(bool isSecurityHighLever);
 
     inline QStringList getOnlineUsers() { return m_onlineUsers; }
+
     void SetOnlineUsers(QStringList onlineUsers);
 
-    enum ActionOption {
-        ClickCancel = 0,
-        CreateUserSuccess,
-        ModifyPwdSuccess
-    };
+    enum ActionOption { ClickCancel = 0, CreateUserSuccess, ModifyPwdSuccess };
 
 Q_SIGNALS:
     void userAdded(User *user);
@@ -91,6 +93,7 @@ Q_SIGNALS:
     void noPassWordLoginVisableChanged(bool noPassword);
     void isCancelChanged();
     void adminCntChange(const int adminCnt);
+
 private:
     bool m_autoLoginVisable;
     bool m_noPassWordLoginVisable;

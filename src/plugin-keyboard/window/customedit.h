@@ -27,22 +27,25 @@
 #define CUSTOMEDIT_H
 
 #include "interface/namespace.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/lineeditwidget.h"
-#include "shortcutitem.h"
 #include "operation/shortcutmodel.h"
-#include <QObject>
+#include "shortcutitem.h"
+#include "widgets/lineeditwidget.h"
+#include "widgets/settingsgroup.h"
+
 #include <DAbstractDialog>
+
+#include <QObject>
 
 namespace DCC_NAMESPACE {
 struct ShortcutInfo;
 class CustomItem;
+
 class CustomEdit : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
 public:
     explicit CustomEdit(ShortcutModel *model, QWidget *parent = nullptr);
-    void setShortcut(ShortcutInfo* info);
+    void setShortcut(ShortcutInfo *info);
 
 Q_SIGNALS:
     void requestUpdateKey(ShortcutInfo *info);
@@ -59,15 +62,15 @@ private Q_SLOTS:
     void onUpdateKey();
 
 private:
-    ShortcutModel   *m_model;
-    SettingsGroup   *m_commandGroup;
-    LineEditWidget  *m_name;
-    LineEditWidget  *m_command;
-    CustomItem      *m_short;
-    ShortcutInfo    *m_info;
-    QLabel          *m_tip;
-    ShortcutInfo    *m_conflict;
+    ShortcutModel *m_model;
+    SettingsGroup *m_commandGroup;
+    LineEditWidget *m_name;
+    LineEditWidget *m_command;
+    CustomItem *m_short;
+    ShortcutInfo *m_info;
+    QLabel *m_tip;
+    ShortcutInfo *m_conflict;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // CUSTOMEDIT_H

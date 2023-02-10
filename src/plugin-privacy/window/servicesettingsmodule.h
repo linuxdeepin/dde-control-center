@@ -2,14 +2,16 @@
 #define SERVICESETTINGSMODULE_H
 
 #include "interface/pagemodule.h"
+
 #include <dtkwidget_global.h>
-#include <QObject>
 #include <privacysecuritymodel.h>
+
+#include <QObject>
 
 namespace DCC_NAMESPACE {
 class SwitchWidget;
 class SettingsGroup;
-}
+} // namespace DCC_NAMESPACE
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -26,7 +28,10 @@ class ServiceSettingsModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:
-    explicit ServiceSettingsModule(DCC_PRIVACY_NAMESPACE::DATE& serviceDate, PrivacySecurityModel *model, PrivacySecurityWorker *work, QObject *parent = nullptr);
+    explicit ServiceSettingsModule(DCC_PRIVACY_NAMESPACE::DATE &serviceDate,
+                                   PrivacySecurityModel *model,
+                                   PrivacySecurityWorker *work,
+                                   QObject *parent = nullptr);
     ~ServiceSettingsModule();
 
     void initTopTipsLabel(QLabel *tipsLabel);

@@ -26,11 +26,12 @@
 #ifndef TIMEZONECLOCK_H
 #define TIMEZONECLOCK_H
 
-#include <QWidget>
-#include <QTimeZone>
 #include "zoneinfo.h"
 
-class TimezoneClock: public QWidget
+#include <QTimeZone>
+#include <QWidget>
+
+class TimezoneClock : public QWidget
 {
     Q_OBJECT
 public:

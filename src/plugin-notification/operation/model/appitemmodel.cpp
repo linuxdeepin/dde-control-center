@@ -33,7 +33,6 @@ AppItemModel::AppItemModel(QObject *parent)
     , m_isShowInNotifyCenter(false)
     , m_isShowNotifyPreview(false)
 {
-
 }
 
 void AppItemModel::setActName(const QString &name)
@@ -72,7 +71,8 @@ void AppItemModel::onSettingChanged(const QString &id, const uint &item, QDBusVa
     }
 }
 
-void AppItemModel::setSoftName(const QString &name) {
+void AppItemModel::setSoftName(const QString &name)
+{
     if (m_softName == name)
         return;
     m_softName = name;
@@ -93,7 +93,6 @@ void AppItemModel::setAllowNotify(const bool &state)
         return;
     m_isAllowNotify = state;
     Q_EMIT allowNotifyChanged(state);
-
 }
 
 void AppItemModel::setNotifySound(const bool &state)

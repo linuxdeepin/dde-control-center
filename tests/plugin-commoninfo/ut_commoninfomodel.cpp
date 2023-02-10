@@ -1,12 +1,14 @@
+#include <gtest/gtest.h>
+
 #include "interface/namespace.h"
 #include "src/plugin-commoninfo/operation/commoninfomodel.h"
 
 #include <QSignalSpy>
 #include <QTest>
-#include <gtest/gtest.h>
 
 using namespace DCC_NAMESPACE;
-class Test_CommonInfoModel: public testing::Test
+
+class Test_CommonInfoModel : public testing::Test
 {
 public:
     virtual void SetUp() override;
@@ -28,12 +30,12 @@ void Test_CommonInfoModel::TearDown()
     m_model = nullptr;
 }
 
-
 TEST_F(Test_CommonInfoModel, setEntryLists)
 {
-    QSignalSpy spy1(m_model, SIGNAL(entryListsChanged(const QStringList&)));
+    QSignalSpy spy1(m_model, SIGNAL(entryListsChanged(const QStringList &)));
     QStringList list;
-    list << "备份" << "还原";
+    list << "备份"
+         << "还原";
     m_model->setEntryLists(list);
     EXPECT_EQ(spy1.count(), 1);
     QStringList value = m_model->entryLists();
@@ -67,7 +69,7 @@ TEST_F(Test_CommonInfoModel, setGrubEditAuthEnabled)
 
 TEST_F(Test_CommonInfoModel, setDefaultEntry)
 {
-    QSignalSpy spy1(m_model, SIGNAL(defaultEntryChanged(const QString&)));
+    QSignalSpy spy1(m_model, SIGNAL(defaultEntryChanged(const QString &)));
     m_model->setDefaultEntry("uos-v23");
     EXPECT_EQ(spy1.count(), 1);
     auto value = m_model->defaultEntry();
@@ -134,19 +136,9 @@ TEST_F(Test_CommonInfoModel, setActivation)
 
 TEST_F(Test_CommonInfoModel, setBackground)
 {
-    QSignalSpy spy1(m_model, SIGNAL(backgroundChanged(const QPixmap&)));
+    QSignalSpy spy1(m_model, SIGNAL(backgroundChanged(const QPixmap &)));
     m_model->setBackground(QPixmap());
     EXPECT_EQ(spy1.count(), 1);
     auto value = m_model->background();
     EXPECT_EQ(value, QPixmap());
 }
-
-
-
-
-
-
-
-
-
-

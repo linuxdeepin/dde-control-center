@@ -24,12 +24,12 @@
 #include <DFontSizeManager>
 #include <DTitlebar>
 
-#include <QObject>
 #include <QBoxLayout>
 #include <QElapsedTimer>
+#include <QLabel>
+#include <QObject>
 #include <QPointer>
 #include <QTimer>
-#include <QLabel>
 
 DWIDGET_USE_NAMESPACE
 
@@ -42,14 +42,15 @@ FaceInfoDialog::FaceInfoDialog(CharaMangerModel *model, QWidget *parent)
     initWidget();
 
     connect(m_faceModel, &CharaMangerModel::enrollInfoState, this, &FaceInfoDialog::close);
-    connect(m_faceModel, &CharaMangerModel::enrollStatusTips, this, &FaceInfoDialog::refreshExplainTips);
+    connect(m_faceModel,
+            &CharaMangerModel::enrollStatusTips,
+            this,
+            &FaceInfoDialog::refreshExplainTips);
 
     QWidget::installEventFilter(this);
 }
 
-FaceInfoDialog::~FaceInfoDialog()
-{
-}
+FaceInfoDialog::~FaceInfoDialog() { }
 
 void FaceInfoDialog::initWidget()
 {
@@ -57,8 +58,8 @@ void FaceInfoDialog::initWidget()
     m_mainLayout->setAlignment(Qt::AlignHCenter);
 
     DTitlebar *titleIcon = new DTitlebar(this);
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle(tr("Enroll Face"));
 
@@ -99,8 +100,6 @@ bool FaceInfoDialog::eventFilter(QObject *o, QEvent *e)
         clearFocus();
         setFocus();
         return true;
-       }
+    }
     return false;
 }
-
-

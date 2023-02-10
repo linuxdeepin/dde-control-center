@@ -1,16 +1,18 @@
+#include <gtest/gtest.h>
+
 #include "interface/namespace.h"
-#include "src/plugin-commoninfo/window/userexperienceprogramwidget.h"
 #include "src/plugin-commoninfo/operation/commoninfomodel.h"
+#include "src/plugin-commoninfo/window/userexperienceprogramwidget.h"
 
 #include <DListView>
+
 #include <QSignalSpy>
 #include <QTest>
-#include <gtest/gtest.h>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
-class Test_UserExperienceProgramWidget: public testing::Test
+class Test_UserExperienceProgramWidget : public testing::Test
 {
 public:
     virtual void SetUp() override;
@@ -22,10 +24,7 @@ public:
     CommonInfoModel *m_model;
 };
 
-void Test_UserExperienceProgramWidget::SetUp()
-{
-
-}
+void Test_UserExperienceProgramWidget::SetUp() { }
 
 void Test_UserExperienceProgramWidget::TearDown()
 {
@@ -43,5 +42,3 @@ TEST_F(Test_UserExperienceProgramWidget, full)
     EXPECT_NO_THROW(m_widget->setModel(m_model));
     EXPECT_NO_THROW(m_widget->setDefaultUeProgram(false));
 }
-
-

@@ -26,31 +26,24 @@
 #ifndef DEFAPPWORKER_H
 #define DEFAPPWORKER_H
 
-#include <QObject>
-#include <QMap>
-
-#include "mimedbusproxy.h"
 #include "category.h"
+#include "mimedbusproxy.h"
+
+#include <QMap>
+#include <QObject>
 
 class QFileInfo;
 
 class DefAppModel;
 class Category;
+
 class DefAppWorker : public QObject
 {
     Q_OBJECT
 public:
     explicit DefAppWorker(DefAppModel *m_defAppModel, QObject *parent = 0);
 
-    enum DefaultAppsCategory {
-        Browser,
-        Mail,
-        Text,
-        Music,
-        Video,
-        Picture,
-        Terminal
-    };
+    enum DefaultAppsCategory { Browser, Mail, Text, Music, Video, Picture, Terminal };
 
     void active();
     void deactive();
@@ -69,14 +62,14 @@ private Q_SLOTS:
 
 private:
     DefAppModel *m_defAppModel;
-    MimeDBusProxy  *m_dbusManager;
+    MimeDBusProxy *m_dbusManager;
     QMap<QString, DefaultAppsCategory> m_stringToCategory;
     QString m_userLocalPath;
 
 private:
     const QString getTypeByCategory(const DefAppWorker::DefaultAppsCategory &category);
     const QStringList getTypeListByCategory(const DefAppWorker::DefaultAppsCategory &category);
-    Category* getCategory(const QString &mime) const;
+    Category *getCategory(const QString &mime) const;
 };
 
 #endif // DEFAPPWORKER_H

@@ -25,17 +25,15 @@
 
 #include "fontsizemodel.h"
 
-
 FontSizeModel::FontSizeModel(QObject *parent)
     : QObject(parent)
     , m_size(0)
 {
-
 }
 
 void FontSizeModel::setFontSize(const int size)
 {
-    if (m_size!=size) {
+    if (m_size != size) {
         m_size = size;
         Q_EMIT sizeChanged(size);
     }

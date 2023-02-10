@@ -26,10 +26,10 @@
 #ifndef THEMEMODEL_H
 #define THEMEMODEL_H
 
-#include <QObject>
-#include <QMap>
-#include <QJsonObject>
 #include <QDebug>
+#include <QJsonObject>
+#include <QMap>
+#include <QObject>
 
 class ThemeModel : public QObject
 {
@@ -39,9 +39,11 @@ public:
 
     QStringList keys();
     void addItem(const QString &id, const QJsonObject &json);
+
     QMap<QString, QJsonObject> getList() { return m_list; }
 
     void setDefault(const QString &value);
+
     inline QString getDefault() { return m_default; }
 
     QMap<QString, QString> getPicList() const;

@@ -33,7 +33,7 @@ namespace DCC_NAMESPACE {
 class DCCDBusInterface;
 }
 
-class WacomDBusProxy :public QObject
+class WacomDBusProxy : public QObject
 {
     Q_OBJECT
 public:
@@ -42,7 +42,8 @@ public:
     Q_PROPERTY(bool Exist READ exist NOTIFY ExistChanged)
     bool exist();
 
-    Q_PROPERTY(uint StylusPressureSensitive READ stylusPressureSensitive WRITE setStylusPressureSensitive NOTIFY StylusPressureSensitiveChanged)
+    Q_PROPERTY(uint StylusPressureSensitive READ stylusPressureSensitive WRITE
+                       setStylusPressureSensitive NOTIFY StylusPressureSensitiveChanged)
     uint stylusPressureSensitive();
     void setStylusPressureSensitive(uint value);
 
@@ -50,15 +51,16 @@ public:
     bool cursorMode();
     void setCursorMode(bool value);
 
-    Q_PROPERTY(uint EraserPressureSensitive READ eraserPressureSensitive WRITE setEraserPressureSensitive NOTIFY EraserPressureSensitiveChanged)
+    Q_PROPERTY(uint EraserPressureSensitive READ eraserPressureSensitive WRITE
+                       setEraserPressureSensitive NOTIFY EraserPressureSensitiveChanged)
     uint eraserPressureSensitive();
     void setEraserPressureSensitive(uint value);
 
 Q_SIGNALS:
     void ExistChanged(bool value) const;
-    void StylusPressureSensitiveChanged(uint  value) const;
-    void CursorModeChanged(bool  value) const;
-    void EraserPressureSensitiveChanged(uint  value) const;
+    void StylusPressureSensitiveChanged(uint value) const;
+    void CursorModeChanged(bool value) const;
+    void EraserPressureSensitiveChanged(uint value) const;
 
 private:
     DCC_NAMESPACE::DCCDBusInterface *m_inputWacomInter;

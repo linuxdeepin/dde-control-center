@@ -27,12 +27,12 @@
 #pragma once
 
 #include <interface/namespace.h>
+
 #include <QWidget>
 
 class QPushButton;
 
-namespace DCC_NAMESPACE
-{
+namespace DCC_NAMESPACE {
 /**
  * @brief ButtonTuple 提供一个按钮组合，可以通过leftButton和rightButton来访问按钮对象
  */
@@ -45,6 +45,7 @@ public:
         Save = 1,   // 使用DSuggestButton实现
         Delete = 2, // 使用DWarningButton实现
     };
+
     explicit ButtonTuple(ButtonType type = Normal, QWidget *parent = nullptr);
 
     void setButtonType(const ButtonType type);

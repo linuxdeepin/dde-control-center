@@ -26,8 +26,8 @@
 #ifndef BRIGHTNESSMAP_H
 #define BRIGHTNESSMAP_H
 
-#include <QMap>
 #include <QDBusMetaType>
+#include <QMap>
 
 typedef QMap<QString, double> BrightnessMap;
 

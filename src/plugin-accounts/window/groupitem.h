@@ -23,21 +23,23 @@
 
 #include "interface/namespace.h"
 
-#include <DStyleOption>
-#include <DStyleHelper>
 #include <DListView>
+#include <DStyleHelper>
+#include <DStyleOption>
 
 namespace DCC_NAMESPACE {
 class GroupItem : public DTK_WIDGET_NAMESPACE::DStandardItem
 {
 public:
     using DStandardItem::DStandardItem;
-    bool operator<(const QStandardItem &other) const override {
-        if ( checkState() != other.checkState()) {
+
+    bool operator<(const QStandardItem &other) const override
+    {
+        if (checkState() != other.checkState()) {
             return checkState() > other.checkState();
         }
         return text().toLower() < other.text().toLower();
     }
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // GROUPITEM_H

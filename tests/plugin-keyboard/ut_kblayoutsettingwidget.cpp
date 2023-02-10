@@ -1,11 +1,11 @@
-#include "src/plugin-keyboard/window/kblayoutsettingwidget.h"
-#include "src/plugin-keyboard/operation/keyboardmodel.h"
-
-#include <QSignalSpy>
-#include <DCommandLinkButton>
-#include <QModelIndex>
-
 #include "gtest/gtest.h"
+#include "src/plugin-keyboard/operation/keyboardmodel.h"
+#include "src/plugin-keyboard/window/kblayoutsettingwidget.h"
+
+#include <DCommandLinkButton>
+
+#include <QModelIndex>
+#include <QSignalSpy>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -48,8 +48,8 @@ TEST_F(Tst_KBLayoutSettingWidget, emitSignal)
     KBLayoutListView *myListView = widget->findChild<KBLayoutListView *>("KbLayoutListView");
     ASSERT_TRUE(nullptr != myListView);
 
-    widget->onAddKeyboard("cn","汉语");
-    widget->onAddKeyboard("cn;altgr-pinyin","Hanyu Pinyin (altgr)");
+    widget->onAddKeyboard("cn", "汉语");
+    widget->onAddKeyboard("cn;altgr-pinyin", "Hanyu Pinyin (altgr)");
     widget->onDefault("汉语");
     DCommandLinkButton *m_editKBLayout = widget->findChild<DCommandLinkButton *>("Edit");
     m_editKBLayout->click();

@@ -20,32 +20,31 @@
  */
 
 #include "bootwidget.h"
+
 #include "commonbackgrounditem.h"
 #include "pwqualitymanager.h"
-#include "src/plugin-commoninfo/operation/commoninfowork.h"
-#include "src/plugin-commoninfo/operation/commoninfomodel.h"
 #include "src/frame/utils.h"
-
-#include "widgets/switchwidget.h"
+#include "src/plugin-commoninfo/operation/commoninfomodel.h"
+#include "src/plugin-commoninfo/operation/commoninfowork.h"
 #include "widgets/settingsgroup.h"
+#include "widgets/switchwidget.h"
 
-#include <DDialog>
-#include <DWidget>
-#include <DTipLabel>
-#include <DPasswordEdit>
 #include <DCommandLinkButton>
+#include <DDialog>
 #include <DPaletteHelper>
+#include <DPasswordEdit>
 #include <DSysInfo>
+#include <DTipLabel>
+#include <DWidget>
 
-#include <QVBoxLayout>
-#include <QScrollBar>
-#include <QListView>
 #include <QDebug>
-#include <QSizePolicy>
-#include <QScroller>
-#include <QVBoxLayout>
-#include <QResizeEvent>
 #include <QLabel>
+#include <QListView>
+#include <QResizeEvent>
+#include <QScrollBar>
+#include <QScroller>
+#include <QSizePolicy>
+#include <QVBoxLayout>
 
 Q_DECLARE_METATYPE(QMargins)
 
@@ -106,7 +105,8 @@ BootWidget::BootWidget(QWidget *parent)
     m_theme->setTitle(tr("Theme"));
 
     QMap<bool, QString> mapBackgroundMessage;
-    mapBackgroundMessage[true] = tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background");
+    mapBackgroundMessage[true] = tr("Click the option in boot menu to set it as the first boot, "
+                                    "and drag and drop a picture to change the background");
     mapBackgroundMessage[false] = tr("Click the option in boot menu to set it as the first boot");
     DTipLabel *backgroundLabel = new DTipLabel(mapBackgroundMessage[false], this);
     backgroundLabel->setText(mapBackgroundMessage[true]);
@@ -142,7 +142,8 @@ BootWidget::BootWidget(QWidget *parent)
     layout->addSpacing(10);
     layout->addWidget(m_grubVerification);
 
-    m_grubVerifyLbl = new DTipLabel(tr("GRUB password is required to edit its configuration"), this);
+    m_grubVerifyLbl =
+            new DTipLabel(tr("GRUB password is required to edit its configuration"), this);
     m_grubVerifyLbl->setAccessibleName("grubVerifyLbl");
     m_grubVerifyLbl->setWordWrap(true);
     m_grubVerifyLbl->setAlignment(Qt::AlignLeft);
@@ -164,22 +165,29 @@ BootWidget::BootWidget(QWidget *parent)
 
     connect(m_theme, &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);
     connect(m_bootDelay, &SwitchWidget::checkedChanged, this, &BootWidget::bootdelay);
-    connect(m_bootList, &DListView::clicked, this ,&BootWidget::onCurrentItem);
-    connect(m_background, &CommonBackgroundItem::requestEnableTheme, this, &BootWidget::enableTheme);
-    connect(m_background, &CommonBackgroundItem::requestSetBackground, this, &BootWidget::requestSetBackground);
+    connect(m_bootList, &DListView::clicked, this, &BootWidget::onCurrentItem);
+    connect(m_background,
+            &CommonBackgroundItem::requestEnableTheme,
+            this,
+            &BootWidget::enableTheme);
+    connect(m_background,
+            &CommonBackgroundItem::requestSetBackground,
+            this,
+            &BootWidget::requestSetBackground);
 
     m_background->setThemeEnable(m_isCommoninfoBootWallpaperConfigValid);
     backgroundLabel->setText(mapBackgroundMessage[m_isCommoninfoBootWallpaperConfigValid]);
     // 修改grub密码
-    connect(m_grubVerification, &SwitchWidget::checkedChanged, this, &BootWidget::enableGrubEditAuth);
-    connect(m_grubModifyPasswdLink, &DCommandLinkButton::clicked, this, [this]{
+    connect(m_grubVerification,
+            &SwitchWidget::checkedChanged,
+            this,
+            &BootWidget::enableGrubEditAuth);
+    connect(m_grubModifyPasswdLink, &DCommandLinkButton::clicked, this, [this] {
         showGrubEditAuthPasswdDialog(true);
     });
 }
 
-BootWidget::~BootWidget()
-{
-}
+BootWidget::~BootWidget() { }
 
 void BootWidget::setDefaultEntry(const QString &value)
 {
@@ -214,7 +222,10 @@ void BootWidget::setModel(CommonInfoModel *model)
             m_background->updateBackground(m_commonInfoModel->background());
         }
     });
-    connect(model, &CommonInfoModel::backgroundChanged, m_background, &CommonBackgroundItem::updateBackground);
+    connect(model,
+            &CommonInfoModel::backgroundChanged,
+            m_background,
+            &CommonBackgroundItem::updateBackground);
 
     // modified by wuchuanfei 20190909 for 8613
     m_bootDelay->setChecked(model->bootDelay());
@@ -225,20 +236,22 @@ void BootWidget::setModel(CommonInfoModel *model)
     setEntryList(model->entryLists());
     setDefaultEntry(model->defaultEntry());
 
-    if(m_isCommoninfoBootWallpaperConfigValid)
+    if (m_isCommoninfoBootWallpaperConfigValid)
         m_background->updateBackground(model->background());
 
     m_grubVerification->setChecked(m_commonInfoModel->grubEditAuthEnabled());
-    m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && m_grubVerification->checked());
+    m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth()
+                                       && m_grubVerification->checked());
     connect(model, &CommonInfoModel::grubEditAuthEnabledChanged, this, [&](const bool &value) {
         // from CommonInfoWork::onEnabledUsersChanged
         m_grubVerification->setChecked(value);
         m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && value);
     });
 
-    connect(m_grubVerification, &SwitchWidget::checkedChanged, this, [&](const bool &value){
+    connect(m_grubVerification, &SwitchWidget::checkedChanged, this, [&](const bool &value) {
         Q_UNUSED(value);
-        m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && m_grubVerification->checked());
+        m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth()
+                                           && m_grubVerification->checked());
     });
 }
 
@@ -343,71 +356,87 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
     m_grubEditAuthDialog->addButton(tr("Cancel", "button"), false, DDialog::ButtonNormal);
     m_grubEditAuthDialog->addButton(tr("Confirm", "button"), true, DDialog::ButtonRecommend);
 
-    QList<QAbstractButton*> buttons = m_grubEditAuthDialog->getButtons();
+    QList<QAbstractButton *> buttons = m_grubEditAuthDialog->getButtons();
     buttons[1]->setEnabled(false);
 
-    QObject::connect(edit1, &DPasswordEdit::textChanged, [edit1, edit2, buttons](const QString &text){
-        if (text.isEmpty()) {
-            buttons[1]->setEnabled(false);
-            if (!edit2->text().isEmpty()) {
-                edit1->setAlert(true);
-                edit1->showAlertMessage(tr("Password cannot be empty"));
-            }
-            return;
-        }
-        // "root" 是设置/修改 grub 密码默认的账户, 同 GRUB_EDIT_AUTH_ACCOUNT
-        PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword("", edit1->lineEdit()->text(), PwqualityManager::CheckType::Grub2);
-        if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
-            edit1->showAlertMessage(PwqualityManager::instance()->getErrorTips(error, PwqualityManager::CheckType::Grub2));
-            buttons[1]->setEnabled(false);
-            edit1->setAlert(true);
-        } else {
-            if (!edit2->text().isEmpty() && text != edit2->text()) {
-                edit1->setAlert(true);
-                edit1->showAlertMessage(tr("Passwords do not match"));
-            }
-            bool isAlert = text != edit2->text() && !edit2->text().isEmpty();
-            if (!isAlert) {
-                edit1->hideAlertMessage();
-                edit2->hideAlertMessage();
-                edit2->setAlert(false);
-            }
-            edit1->setAlert(isAlert);
-            buttons[1]->setEnabled(!isAlert && text == edit2->text());
-        }
-    });
-    QObject::connect(edit2, &DPasswordEdit::textChanged, [edit1, edit2, buttons](const QString &text){
-        if (text.isEmpty()) {
-            buttons[1]->setEnabled(false);
-            if (!edit1->text().isEmpty()) {
-                edit2->setAlert(true);
-                edit2->showAlertMessage(tr("Password cannot be empty"));
-            }
-            return;
-        }
-        PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword("", text, PwqualityManager::CheckType::Grub2);
-        if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
-            edit2->showAlertMessage(PwqualityManager::instance()->getErrorTips(error, PwqualityManager::CheckType::Grub2));
-            buttons[1]->setEnabled(false);
-            edit2->setAlert(true);
-            return;
-        }
+    QObject::connect(edit1,
+                     &DPasswordEdit::textChanged,
+                     [edit1, edit2, buttons](const QString &text) {
+                         if (text.isEmpty()) {
+                             buttons[1]->setEnabled(false);
+                             if (!edit2->text().isEmpty()) {
+                                 edit1->setAlert(true);
+                                 edit1->showAlertMessage(tr("Password cannot be empty"));
+                             }
+                             return;
+                         }
+                         // "root" 是设置/修改 grub 密码默认的账户, 同 GRUB_EDIT_AUTH_ACCOUNT
+                         PwqualityManager::ERROR_TYPE error =
+                                 PwqualityManager::instance()->verifyPassword(
+                                         "",
+                                         edit1->lineEdit()->text(),
+                                         PwqualityManager::CheckType::Grub2);
+                         if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+                             edit1->showAlertMessage(PwqualityManager::instance()->getErrorTips(
+                                     error,
+                                     PwqualityManager::CheckType::Grub2));
+                             buttons[1]->setEnabled(false);
+                             edit1->setAlert(true);
+                         } else {
+                             if (!edit2->text().isEmpty() && text != edit2->text()) {
+                                 edit1->setAlert(true);
+                                 edit1->showAlertMessage(tr("Passwords do not match"));
+                             }
+                             bool isAlert = text != edit2->text() && !edit2->text().isEmpty();
+                             if (!isAlert) {
+                                 edit1->hideAlertMessage();
+                                 edit2->hideAlertMessage();
+                                 edit2->setAlert(false);
+                             }
+                             edit1->setAlert(isAlert);
+                             buttons[1]->setEnabled(!isAlert && text == edit2->text());
+                         }
+                     });
+    QObject::connect(edit2,
+                     &DPasswordEdit::textChanged,
+                     [edit1, edit2, buttons](const QString &text) {
+                         if (text.isEmpty()) {
+                             buttons[1]->setEnabled(false);
+                             if (!edit1->text().isEmpty()) {
+                                 edit2->setAlert(true);
+                                 edit2->showAlertMessage(tr("Password cannot be empty"));
+                             }
+                             return;
+                         }
+                         PwqualityManager::ERROR_TYPE error =
+                                 PwqualityManager::instance()->verifyPassword(
+                                         "",
+                                         text,
+                                         PwqualityManager::CheckType::Grub2);
+                         if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+                             edit2->showAlertMessage(PwqualityManager::instance()->getErrorTips(
+                                     error,
+                                     PwqualityManager::CheckType::Grub2));
+                             buttons[1]->setEnabled(false);
+                             edit2->setAlert(true);
+                             return;
+                         }
 
-        if (text != edit1->text()) {
-            edit2->showAlertMessage(tr("Passwords do not match"));
-        }
+                         if (text != edit1->text()) {
+                             edit2->showAlertMessage(tr("Passwords do not match"));
+                         }
 
-        bool isValid = !edit1->text().isEmpty() && text == edit1->text();
-        edit2->setAlert(!isValid);
-        if (isValid) {
-            edit1->hideAlertMessage();
-            edit2->hideAlertMessage();
-            edit1->setAlert(false);
-        }
-        buttons[1]->setEnabled(isValid);
-    });
+                         bool isValid = !edit1->text().isEmpty() && text == edit1->text();
+                         edit2->setAlert(!isValid);
+                         if (isValid) {
+                             edit1->hideAlertMessage();
+                             edit2->hideAlertMessage();
+                             edit1->setAlert(false);
+                         }
+                         buttons[1]->setEnabled(isValid);
+                     });
 
-    QObject::connect(m_grubEditAuthDialog, &DDialog::buttonClicked, [=](int index){
+    QObject::connect(m_grubEditAuthDialog, &DDialog::buttonClicked, [=](int index) {
         if (index == 1) {
             // 需要将密码发送后在worker里加密
             Q_EMIT setGrubEditPasswd(edit1->text(), isReset);
@@ -417,7 +446,7 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
             }
         }
     });
-    QObject::connect(m_grubEditAuthDialog, &DDialog::closed, [=](){
+    QObject::connect(m_grubEditAuthDialog, &DDialog::closed, [=]() {
         if (!isReset) {
             m_grubVerification->setChecked(false);
         }

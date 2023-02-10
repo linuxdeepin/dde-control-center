@@ -24,8 +24,8 @@
 
 #include <DLineEdit>
 
-#include <QWidget>
 #include <QVBoxLayout>
+#include <QWidget>
 
 DWIDGET_BEGIN_NAMESPACE
 class DLineEdit;
@@ -62,11 +62,11 @@ private:
 
 private:
     SysItemModel *m_model;
-    Dtk::Widget::DSwitchButton *m_btnDisturbMode;//勿扰模式
-    TimeSlotItem *m_itemTimeSlot;//时间段
+    Dtk::Widget::DSwitchButton *m_btnDisturbMode; // 勿扰模式
+    TimeSlotItem *m_itemTimeSlot;                 // 时间段
     NotificationItem *m_itemLockScreen;
-    SettingsGroup *m_settingsGrp;//自选项
-    Dtk::Widget::DLineEdit *m_editTimeStart;//时间段开始
-    Dtk::Widget::DLineEdit *m_editTimeEnd;//时间段结束
+    SettingsGroup *m_settingsGrp;            // 自选项
+    Dtk::Widget::DLineEdit *m_editTimeStart; // 时间段开始
+    Dtk::Widget::DLineEdit *m_editTimeEnd;   // 时间段结束
 };
-}
+} // namespace DCC_NAMESPACE

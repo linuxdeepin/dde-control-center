@@ -22,8 +22,9 @@
 #ifndef TIMEOUTDIALOG_H
 #define TIMEOUTDIALOG_H
 
-#include <QTimer>
 #include <ddialog.h>
+
+#include <QTimer>
 
 DWIDGET_USE_NAMESPACE
 
@@ -31,7 +32,9 @@ class TimeoutDialog : public DDialog
 {
     Q_OBJECT
 public:
-    explicit TimeoutDialog(const int timeout, QString messageModel = QString(), QWidget *parent = 0);
+    explicit TimeoutDialog(const int timeout,
+                           QString messageModel = QString(),
+                           QWidget *parent = 0);
 
     QString messageModel() const;
     void setMessageModel(const QString &messageModel);

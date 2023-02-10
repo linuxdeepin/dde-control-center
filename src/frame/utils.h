@@ -21,15 +21,16 @@
 #pragma once
 #include "interface/namespace.h"
 
-#include <QObject>
 #include <QDir>
+#include <QObject>
 
-#define IS_SERVER_SYSTEM (DSysInfo::UosServer == DSysInfo::uosType())                    // 是否是服务器版
-#define IS_COMMUNITY_SYSTEM (DSysInfo::UosCommunity == DSysInfo::uosEditionType())       // 是否是社区版
-#define IS_PROFESSIONAL_SYSTEM (DSysInfo::UosProfessional == DSysInfo::uosEditionType()) // 是否是专业版
-#define IS_HOME_SYSTEM (DSysInfo::UosHome == DSysInfo::uosEditionType())                 // 是否是个人版
-#define IS_EDUCATION_SYSTEM (DSysInfo::UosEducation == DSysInfo::uosEditionType())       // 是否是教育版
-#define IS_DEEPIN_DESKTOP (DSysInfo::DeepinDesktop == DSysInfo::deepinType())            // 是否是Deepin桌面
+#define IS_SERVER_SYSTEM (DSysInfo::UosServer == DSysInfo::uosType()) // 是否是服务器版
+#define IS_COMMUNITY_SYSTEM (DSysInfo::UosCommunity == DSysInfo::uosEditionType()) // 是否是社区版
+#define IS_PROFESSIONAL_SYSTEM \
+  (DSysInfo::UosProfessional == DSysInfo::uosEditionType())              // 是否是专业版
+#define IS_HOME_SYSTEM (DSysInfo::UosHome == DSysInfo::uosEditionType()) // 是否是个人版
+#define IS_EDUCATION_SYSTEM (DSysInfo::UosEducation == DSysInfo::uosEditionType()) // 是否是教育版
+#define IS_DEEPIN_DESKTOP (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) // 是否是Deepin桌面
 
 namespace DCC_NAMESPACE {
 class ModuleObject;
@@ -39,4 +40,4 @@ QByteArray getFileMd5(const QString &filePath);
 ModuleObject *GetModuleByUrl(ModuleObject *const root, const QString &url);
 QString GetUrlByModule(ModuleObject *const module);
 
-}
+} // namespace DCC_NAMESPACE

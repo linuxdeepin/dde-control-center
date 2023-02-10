@@ -24,19 +24,21 @@
  */
 
 #include "keyboardlayoutdialog.h"
+
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsitem.h"
-
-#include <QHBoxLayout>
-#include <QLineEdit>
-#include <QEvent>
-#include <QLocale>
-#include <QPushButton>
 
 #include <DTipLabel>
 #include <DTitlebar>
 
+#include <QEvent>
+#include <QHBoxLayout>
+#include <QLineEdit>
+#include <QLocale>
+#include <QPushButton>
+
 using namespace DCC_NAMESPACE;
+
 KeyboardLayoutDialog::KeyboardLayoutDialog(QWidget *parent)
     : DAbstractDialog(parent)
     , textLength(0)
@@ -70,7 +72,9 @@ KeyboardLayoutDialog::KeyboardLayoutDialog(QWidget *parent)
     hlayout->addWidget(m_view);
 
     QLabel *headTitle = new QLabel(tr("Add Keyboard Layout"));
-    DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
+    DFontSizeManager::instance()->bind(headTitle,
+                                       DFontSizeManager::T5,
+                                       QFont::DemiBold); // 设置label字体
     headTitle->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     headTitle->setAlignment(Qt::AlignCenter);
 
@@ -79,8 +83,8 @@ KeyboardLayoutDialog::KeyboardLayoutDialog(QWidget *parent)
     QVBoxLayout *listVLayout = new QVBoxLayout();
     listVLayout->setAlignment(Qt::AlignHCenter);
     DTitlebar *titleIcon = new DTitlebar();
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle(tr(""));
 
@@ -139,12 +143,15 @@ void KeyboardLayoutDialog::onKBLayoutSelect(const QModelIndex &index)
 {
     if (searchStatus) {
         setDataModel(m_searchModel, m_selectSearchIndex, index);
-    } else{
+    } else {
         setDataModel(m_model, m_selectIndex, index);
     }
 }
 
-void KeyboardLayoutDialog::setDataModel(IndexModel *model, QModelIndex &selectedIndex, const QModelIndex &index) {
+void KeyboardLayoutDialog::setDataModel(IndexModel *model,
+                                        QModelIndex &selectedIndex,
+                                        const QModelIndex &index)
+{
 
     if (selectedIndex.isValid()) {
         model->itemFromIndex(selectedIndex)->setCheckState(Qt::Unchecked);
@@ -171,12 +178,12 @@ void KeyboardLayoutDialog::setMetaData(const QList<MetaData> &datas)
     int count = datas.count();
     m_data.clear();
     for (int i = 0; i < count; i++) {
-        //当前key不为空，直接添加到list
+        // 当前key不为空，直接添加到list
         if ("" != datas[i].key()) {
             m_data.append(datas[i]);
         } else {
-            //当前key为空，但是下一个key不为空(表示这是一个字母，如"H"),需要添加到list
-            //添加前要进行list数量判断， 需要满足　: i　< count -1
+            // 当前key为空，但是下一个key不为空(表示这是一个字母，如"H"),需要添加到list
+            // 添加前要进行list数量判断， 需要满足　: i　< count -1
             if ((i < count - 1) && ("" != datas[i + 1].key())) {
                 m_data.append(datas[i]);
             }
@@ -191,9 +198,9 @@ void KeyboardLayoutDialog::setLetters(QList<QString> letters)
 {
     QLocale locale;
     if (locale.language() == QLocale::Chinese) {
-        //根据有效list，决定显示右边的索引
+        // 根据有效list，决定显示右边的索引
         QList<QString> validLetters;
-        //遍历有效list和letters list，遇到相同的就添加到新的valid letters list
+        // 遍历有效list和letters list，遇到相同的就添加到新的valid letters list
         for (auto value : m_data) {
             for (auto letter : letters) {
                 if (value.text() == letter) {
@@ -221,7 +228,7 @@ void KeyboardLayoutDialog::onSearch(const QString &text)
         for (; it != datas.end(); ++it) {
             if ((*it).text().contains(text, Qt::CaseInsensitive)) {
                 if (!(*it).key().isEmpty()) {
-                   sdatas.append(*it);
+                    sdatas.append(*it);
                 }
             }
         }

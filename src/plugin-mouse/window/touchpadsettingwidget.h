@@ -22,6 +22,7 @@
 #define TOUCHPADSETTINGWIDGET_H
 
 #include "interface/namespace.h"
+
 #include <QWidget>
 
 class QVBoxLayout;
@@ -35,7 +36,7 @@ class PalmDetectSetting;
 class SettingsGroup;
 class SwitchWidget;
 class TitledSliderItem;
-}
+} // namespace DCC_NAMESPACE
 
 namespace DCC_NAMESPACE {
 class TouchPadSettingWidget : public QWidget
@@ -64,5 +65,5 @@ private:
     SwitchWidget *m_touchNaturalScroll;
     QVBoxLayout *m_contentLayout;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // TOUCHPADSETTINGWIDGET_H

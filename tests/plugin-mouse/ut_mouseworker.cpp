@@ -1,8 +1,9 @@
 #include <gtest/gtest.h>
-#include <QProcess>
 
 #include "interface/namespace.h"
 #include "src/plugin-mouse/operation/mouseworker.h"
+
+#include <QProcess>
 
 using namespace DCC_NAMESPACE;
 
@@ -43,6 +44,7 @@ TEST_F(Tst_MouseWorker, leftHandStateSignal)
     worker->onLeftHandStateChanged(!leftHandState);
     EXPECT_EQ(!leftHandState, model->leftHandState());
 }
+
 TEST_F(Tst_MouseWorker, mouseNaturalScrollSignal)
 {
     bool mouseNaturalScroll = model->mouseNaturalScroll();
@@ -106,7 +108,6 @@ TEST_F(Tst_MouseWorker, disIfTypingSignal)
     worker->onDisTypingChanged(!disIfTyping);
     EXPECT_EQ(!disIfTyping, model->disIfTyping());
 }
-
 
 TEST_F(Tst_MouseWorker, tpadMoveSpeedSignal)
 {

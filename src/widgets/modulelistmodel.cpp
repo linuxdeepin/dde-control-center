@@ -1,11 +1,13 @@
 #include "widgets/modulelistmodel.h"
+
 #include "widgets/moduleobjectitem.h"
 
+#include <QHBoxLayout>
 #include <QMap>
 #include <QWidget>
-#include <QHBoxLayout>
 
 using namespace DCC_NAMESPACE;
+
 namespace DCC_NAMESPACE {
 class ModuleListModelPrivate
 {
@@ -19,11 +21,24 @@ public:
     void init(ModuleObject *module)
     {
         m_module = module;
-        QObject::connect(m_module, &ModuleObject::insertedChild, q_ptr, [this](ModuleObject *const module) { onInsertChild(module); });
-        QObject::connect(m_module, &ModuleObject::removedChild, q_ptr, [this](ModuleObject *const module) { onRemovedChild(module); });
-        QObject::connect(m_module, &ModuleObject::childStateChanged, q_ptr, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-            onDataChanged(tmpChild, flag, state);
-        });
+        QObject::connect(m_module,
+                         &ModuleObject::insertedChild,
+                         q_ptr,
+                         [this](ModuleObject *const module) {
+                             onInsertChild(module);
+                         });
+        QObject::connect(m_module,
+                         &ModuleObject::removedChild,
+                         q_ptr,
+                         [this](ModuleObject *const module) {
+                             onRemovedChild(module);
+                         });
+        QObject::connect(m_module,
+                         &ModuleObject::childStateChanged,
+                         q_ptr,
+                         [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+                             onDataChanged(tmpChild, flag, state);
+                         });
         for (auto &&childModule : m_module->childrens()) {
             QObject::connect(childModule, &ModuleObject::moduleDataChanged, q_ptr, [this]() {
                 ModuleObject *module = qobject_cast<ModuleObject *>(q_ptr->sender());
@@ -55,6 +70,7 @@ public:
         m_data.insert(row, module);
         q->endInsertRows();
     }
+
     void onRemovedChild(ModuleObject *const module)
     {
         QObject::disconnect(module, nullptr, q_ptr, nullptr);
@@ -66,6 +82,7 @@ public:
             q->endRemoveRows();
         }
     }
+
     void onDataChanged(ModuleObject *const module, uint32_t flag, bool state)
     {
         Q_Q(ModuleListModel);
@@ -86,7 +103,7 @@ public:
     ModuleObject *m_module;
     QList<ModuleObject *> m_data;
 };
-}
+} // namespace DCC_NAMESPACE
 
 ModuleListModel::ModuleListModel(ModuleObject *parent)
     : QAbstractItemModel(parent)
@@ -96,9 +113,7 @@ ModuleListModel::ModuleListModel(ModuleObject *parent)
     d->init(parent);
 }
 
-ModuleListModel::~ModuleListModel()
-{
-}
+ModuleListModel::~ModuleListModel() { }
 
 QModelIndex ModuleListModel::index(int row, int column, const QModelIndex &parent) const
 {
@@ -136,7 +151,8 @@ QVariant ModuleListModel::data(const QModelIndex &index, int role) const
     if (!module)
         return QVariant();
 
-    ModuleObjectItem *item = module->getClassID() == ITEM ? qobject_cast<ModuleObjectItem *>(module) : nullptr;
+    ModuleObjectItem *item =
+            module->getClassID() == ITEM ? qobject_cast<ModuleObjectItem *>(module) : nullptr;
     if (item)
         return item->data(role);
 

@@ -1,22 +1,25 @@
 #ifndef ADDBUTTONWIDGET_H
 #define ADDBUTTONWIDGET_H
 
-#include "interface/namespace.h"
 #include "defappworker.h"
-#include <QWidget>
+#include "interface/namespace.h"
 
 #include <DFloatingButton>
+
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 class QFileDialog;
 QT_END_NAMESPACE
 
 class DefAppWorker;
+
 class AddButtonWidget : public QWidget
 {
     Q_OBJECT
 public:
-    AddButtonWidget(DefAppWorker::DefaultAppsCategory category = DefAppWorker::Browser, QWidget *parent = nullptr);
+    AddButtonWidget(DefAppWorker::DefaultAppsCategory category = DefAppWorker::Browser,
+                    QWidget *parent = nullptr);
     ~AddButtonWidget();
 
     void setModel(DefAppModel *const model);

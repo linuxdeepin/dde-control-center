@@ -19,19 +19,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "listview.h"
-#include <QDebug>
-#include <QMouseEvent>
-#include <QPainter>
-#include <QScrollBar>
-#include <QModelIndex>
 
 #include <DApplicationHelper>
 #include <DPalette>
+
+#include <QDebug>
+#include <QModelIndex>
+#include <QMouseEvent>
+#include <QPainter>
+#include <QScrollBar>
 
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
+
 /////////////////////////////////////////
 namespace DCC_NAMESPACE {
 
@@ -54,48 +56,33 @@ public:
         setGridSize(m_gridSize);
     }
 
-    void setSpacing(int space)
-    {
-        m_spacing = space;
-    }
-    int spacing() const
-    {
-        return m_spacing;
-    }
+    void setSpacing(int space) { m_spacing = space; }
+
+    int spacing() const { return m_spacing; }
 
     void setGridSize(const QSize &size)
     {
         m_gridSize = size;
         m_firstHeightDiff = m_viewMode == ListView::IconMode ? 0 : 18;
     }
-    QSize gridSize() const
-    {
-        return m_gridSize;
-    }
 
-    void setViewMode(ListView::ViewMode mode)
-    {
-        m_viewMode = mode;
-    }
-    ListView::ViewMode viewMode() const
-    {
-        return m_viewMode;
-    }
-    void setAlignment(Qt::Alignment alignment)
-    {
-        m_alignment = alignment;
-    }
-    Qt::Alignment alignment() const
-    {
-        return m_alignment;
-    }
+    QSize gridSize() const { return m_gridSize; }
+
+    void setViewMode(ListView::ViewMode mode) { m_viewMode = mode; }
+
+    ListView::ViewMode viewMode() const { return m_viewMode; }
+
+    void setAlignment(Qt::Alignment alignment) { m_alignment = alignment; }
+
+    Qt::Alignment alignment() const { return m_alignment; }
 
     void updateGeometries()
     {
         Q_Q(ListView);
         m_maxColumnCount = 1;
         if (m_viewMode == ListView::IconMode && (m_gridSize.width() + m_spacing) > 0)
-            m_maxColumnCount = (q->viewport()->width() - m_spacing) / (m_gridSize.width() + m_spacing);
+            m_maxColumnCount =
+                    (q->viewport()->width() - m_spacing) / (m_gridSize.width() + m_spacing);
 
         int count = q->model() ? q->model()->rowCount() : 0;
         if (count < m_maxColumnCount)
@@ -115,7 +102,9 @@ public:
             m_maxRowCount = (count <= m_maxColumnCount) ? 1 : count / m_maxColumnCount;
         }
 
-        m_itemSize = (m_viewMode == ListView::IconMode) ? m_gridSize : QSize(q->viewport()->width() - marginsWidth(), m_gridSize.height());
+        m_itemSize = (m_viewMode == ListView::IconMode)
+                ? m_gridSize
+                : QSize(q->viewport()->width() - marginsWidth(), m_gridSize.height());
         int itemWidth = m_maxColumnCount * (m_itemSize.width() + m_spacing) - m_spacing;
         int itemHeight = m_maxRowCount * (m_itemSize.height() + m_spacing) - m_spacing;
 
@@ -136,6 +125,7 @@ public:
             m_yOffset = 0;
         }
     }
+
     // item在窗口中位置(无滚动)
     QRect rectForIndex(const QModelIndex &index) const
     {
@@ -150,12 +140,15 @@ public:
                 indexRow++;
             int row = indexRow / m_maxColumnCount;
             int col = indexRow % m_maxColumnCount;
-            rect.translate((m_itemSize.width() + m_spacing) * col, (m_itemSize.height() + m_spacing) * row);
+            rect.translate((m_itemSize.width() + m_spacing) * col,
+                           (m_itemSize.height() + m_spacing) * row);
             if (m_viewMode == ListView::ListMode && indexRow >= 1)
                 rect.translate(0, m_firstHeightDiff);
         }
-        return rect.translated(contentsMargins().left() + m_xOffset, contentsMargins().top() + m_yOffset);
+        return rect.translated(contentsMargins().left() + m_xOffset,
+                               contentsMargins().top() + m_yOffset);
     }
+
     // item在窗口中位置(无滚动)
     QModelIndex indexAt(const QPoint &p) const
     {
@@ -180,6 +173,7 @@ public:
             return index;
         return QModelIndex();
     }
+
     QVector<QModelIndex> intersectingSet(const QRect &area) const
     {
         Q_Q(const ListView);
@@ -194,14 +188,14 @@ public:
         }
         return indexs;
     }
-    inline int marginsWidth() const
-    {
-        return contentsMargins().left() + contentsMargins().right();
-    }
+
+    inline int marginsWidth() const { return contentsMargins().left() + contentsMargins().right(); }
+
     inline int marginsHidget() const
     {
         return contentsMargins().top() + contentsMargins().bottom();
     }
+
     void setContentsMargins(int left, int top, int right, int bottom)
     {
         m_contentsMargins.setLeft(left);
@@ -209,10 +203,8 @@ public:
         m_contentsMargins.setRight(right);
         m_contentsMargins.setBottom(bottom);
     }
-    QMargins contentsMargins() const
-    {
-        return m_contentsMargins;
-    }
+
+    QMargins contentsMargins() const { return m_contentsMargins; }
 
 private:
     ListView *const q_ptr;
@@ -227,7 +219,7 @@ private:
     int m_xOffset;             // x轴偏移
     int m_yOffset;             // y轴偏移
     QModelIndex m_hover;       // hover项
-    Qt::Alignment m_alignment; //　对齐方式
+    Qt::Alignment m_alignment; // 　对齐方式
     int m_firstHeightDiff;     // 第一行与其他行高差值
     QMargins m_contentsMargins;
 };
@@ -245,9 +237,7 @@ ListView::ListView(QWidget *parent)
     setMouseTracking(true);
 }
 
-ListView::~ListView()
-{
-}
+ListView::~ListView() { }
 
 void ListView::setSpacing(int space)
 {
@@ -257,6 +247,7 @@ void ListView::setSpacing(int space)
         scheduleDelayedItemsLayout();
     }
 }
+
 int ListView::spacing() const
 {
     Q_D(const ListView);
@@ -271,6 +262,7 @@ void ListView::setGridSize(const QSize &size)
         scheduleDelayedItemsLayout();
     }
 }
+
 QSize ListView::gridSize() const
 {
     Q_D(const ListView);
@@ -285,6 +277,7 @@ void ListView::setViewMode(ViewMode mode)
         scheduleDelayedItemsLayout();
     }
 }
+
 ListView::ViewMode ListView::viewMode() const
 {
     Q_D(const ListView);
@@ -299,6 +292,7 @@ void ListView::setAlignment(Qt::Alignment alignment)
         scheduleDelayedItemsLayout();
     }
 }
+
 Qt::Alignment ListView::alignment() const
 {
     Q_D(const ListView);
@@ -309,8 +303,8 @@ void ListView::setContentsMargins(int left, int top, int right, int bottom)
 {
     Q_D(ListView);
     const QMargins &margins = d->contentsMargins();
-    if (margins.left() != left || margins.top() != top
-        || margins.right() != right || margins.bottom() != bottom) {
+    if (margins.left() != left || margins.top() != top || margins.right() != right
+        || margins.bottom() != bottom) {
         d->setContentsMargins(left, top, right, bottom);
         scheduleDelayedItemsLayout();
     }
@@ -326,6 +320,7 @@ QMargins ListView::contentsMargins() const
     Q_D(const ListView);
     return d->contentsMargins();
 }
+
 /////////////////////////////////////////////////////////////////////////////
 // item在窗口中位置(加滚动偏移)
 QRect ListView::visualRect(const QModelIndex &index) const
@@ -402,7 +397,8 @@ QModelIndex ListView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifier
         currentRow++;
         break;
     case MovePageUp: {
-        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing) / (d->m_itemSize.height() + d->m_spacing);
+        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing)
+                / (d->m_itemSize.height() + d->m_spacing);
         for (int i = 0; i < pageItem; i++) {
             currentRow = moveup(currentRow, d->m_maxColumnCount);
         }
@@ -411,7 +407,8 @@ QModelIndex ListView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifier
         currentRow = moveup(currentRow, d->m_maxColumnCount);
         break;
     case MovePageDown: {
-        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing) / (d->m_itemSize.height() + d->m_spacing);
+        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing)
+                / (d->m_itemSize.height() + d->m_spacing);
         for (int i = 0; i < pageItem; i++) {
             int row = movedown(currentRow, d->m_maxColumnCount);
             if (row >= maxRow)
@@ -452,8 +449,9 @@ void ListView::updateGeometries()
     QAbstractItemView::updateGeometries();
     d->updateGeometries();
 
-    //　更新滚动条范围
-    if (geometry().isEmpty() || !model() || model()->rowCount() <= 0 || model()->columnCount() <= 0) {
+    // 　更新滚动条范围
+    if (geometry().isEmpty() || !model() || model()->rowCount() <= 0
+        || model()->columnCount() <= 0) {
         horizontalScrollBar()->setRange(0, 0);
         verticalScrollBar()->setRange(0, 0);
     } else {
@@ -461,7 +459,8 @@ void ListView::updateGeometries()
         verticalScrollBar()->setSingleStep(step.height() + spacing());
         verticalScrollBar()->setPageStep(viewport()->height());
 
-        int height = d->m_maxRowCount * (d->m_itemSize.height() + d->m_spacing) - d->m_spacing + (d->m_viewMode == ListMode ? d->m_firstHeightDiff : 0);
+        int height = d->m_maxRowCount * (d->m_itemSize.height() + d->m_spacing) - d->m_spacing
+                + (d->m_viewMode == ListMode ? d->m_firstHeightDiff : 0);
         if (height < viewport()->height()) {
             verticalScrollBar()->setRange(0, 0);
         } else {
@@ -470,7 +469,9 @@ void ListView::updateGeometries()
     }
 }
 
-void ListView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+void ListView::dataChanged(const QModelIndex &topLeft,
+                           const QModelIndex &bottomRight,
+                           const QVector<int> &roles)
 {
     QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
     scheduleDelayedItemsLayout();
@@ -523,7 +524,8 @@ void ListView::paintEvent(QPaintEvent *e)
     QStyleOptionViewItem option = viewOptions();
     QPainter painter(viewport());
 
-    const QVector<QModelIndex> toBeRendered = d->intersectingSet(e->rect().translated(horizontalOffset(), verticalOffset()));
+    const QVector<QModelIndex> toBeRendered =
+            d->intersectingSet(e->rect().translated(horizontalOffset(), verticalOffset()));
 
     const QModelIndex current = currentIndex();
     const QModelIndex hover = d->m_hover;
@@ -567,7 +569,7 @@ void ListView::paintEvent(QPaintEvent *e)
         }
         option.state.setFlag(QStyle::State_MouseOver, *it == hover);
 
-        if (alternate) { //　交替色处理，未实现
+        if (alternate) { // 　交替色处理，未实现
             int row = (*it).row();
             if (row != previousRow + 1) {
                 // adjust alternateBase according to rows in the "gap"

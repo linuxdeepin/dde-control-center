@@ -20,12 +20,13 @@
  */
 
 #include "wacomdbusproxy.h"
+
 #include "widgets/dccdbusinterface.h"
 
-#include <QMetaObject>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusPendingReply>
+#include <QMetaObject>
 
 const static QString WacomService = "org.deepin.dde.InputDevices1";
 const static QString WacomPath = "/org/deepin/dde/InputDevice1/Wacom";
@@ -34,10 +35,10 @@ const static QString WacomInterface = "org.deepin.dde.InputDevice1.Wacom";
 using namespace DCC_NAMESPACE;
 
 WacomDBusProxy::WacomDBusProxy(QObject *parent)
-    : QObject (parent)
-    , m_inputWacomInter(new DCCDBusInterface(WacomService, WacomPath, WacomInterface, QDBusConnection::sessionBus(), this))
+    : QObject(parent)
+    , m_inputWacomInter(new DCCDBusInterface(
+              WacomService, WacomPath, WacomInterface, QDBusConnection::sessionBus(), this))
 {
-
 }
 
 bool WacomDBusProxy::exist()

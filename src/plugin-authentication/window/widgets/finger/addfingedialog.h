@@ -21,8 +21,8 @@
 
 #pragma once
 
-#include "interface/namespace.h"
 #include "fingerinfowidget.h"
+#include "interface/namespace.h"
 #include "widgets/titlelabel.h"
 
 #include <DAbstractDialog>
@@ -40,8 +40,9 @@ class DSuggestButton;
 class DTipLabel;
 DWIDGET_END_NAMESPACE
 
-//添加指纹对话框
+// 添加指纹对话框
 class CharaMangerModel;
+
 class AddFingeDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
@@ -64,6 +65,7 @@ private:
     void initWidget();
     void initData();
     void keyPressEvent(QKeyEvent *event);
+
 protected:
     void closeEvent(QCloseEvent *event);
     bool eventFilter(QObject *o, QEvent *e);
@@ -85,5 +87,5 @@ private:
     QPushButton *m_cancelBtn;
     QWidget *m_spaceWidget;
     DTK_WIDGET_NAMESPACE::DSuggestButton *m_addBtn;
-    bool m_isEnrolling{true};
+    bool m_isEnrolling{ true };
 };

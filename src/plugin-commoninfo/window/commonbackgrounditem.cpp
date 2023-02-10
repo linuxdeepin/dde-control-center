@@ -24,23 +24,22 @@
 #include <DPalette>
 #include <DPaletteHelper>
 
+#include <QDebug>
+#include <QDragEnterEvent>
+#include <QDragLeaveEvent>
+#include <QLayout>
+#include <QMimeData>
 #include <QMimeDatabase>
 #include <QPainter>
 #include <QPainterPath>
-#include <QDragEnterEvent>
-#include <QDragLeaveEvent>
 #include <QRect>
-#include <QMimeData>
-#include <QLayout>
-#include <QDebug>
 
 using namespace DCC_NAMESPACE;
 DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
-static const QStringList mimeTypeList { "image/jpg", "image/jpeg",
-    "image/png", "image/tiff",
-    "image/gif", "image/bmp" };
+static const QStringList mimeTypeList{ "image/jpg",  "image/jpeg", "image/png",
+                                       "image/tiff", "image/gif",  "image/bmp" };
 static const int ItemHeight = 187;
 static const qreal Radius = 8.0;
 
@@ -75,8 +74,10 @@ void CommonBackgroundItem::paintEvent(QPaintEvent *e)
 
     painter.drawRoundedRect(this->rect(), Radius, Radius);
 
-    QRect pixRect(this->rect().x() + 10, this->rect().y() + 10,
-                  this->rect().width() - 20, this->rect().height() - 20);
+    QRect pixRect(this->rect().x() + 10,
+                  this->rect().y() + 10,
+                  this->rect().width() - 20,
+                  this->rect().height() - 20);
     pixRect.moveCenter(this->rect().center());
 
     QPainterPath path;
@@ -164,9 +165,8 @@ void CommonBackgroundItem::updateBackground(const QPixmap &pixmap)
     m_basePixmap = pixmap;
 
     auto ratio = devicePixelRatioF();
-    m_background = m_basePixmap.scaled(size() * ratio,
-                                       Qt::IgnoreAspectRatio,
-                                       Qt::FastTransformation);
+    m_background =
+            m_basePixmap.scaled(size() * ratio, Qt::IgnoreAspectRatio, Qt::FastTransformation);
     m_background.setDevicePixelRatio(ratio);
     update();
 }

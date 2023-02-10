@@ -48,4 +48,4 @@ private:
     QLabel *m_body;
 };
 
-}
+} // namespace DCC_NAMESPACE

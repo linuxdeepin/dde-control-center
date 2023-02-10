@@ -1,8 +1,8 @@
 #include "widgets/settingsgroupmodule.h"
 
+#include <QHBoxLayout>
 #include <QMap>
 #include <QWidget>
-#include <QHBoxLayout>
 
 using namespace DCC_NAMESPACE;
 
@@ -26,7 +26,9 @@ public:
         Q_Q(SettingsGroupModule);
         settingsGroup = new SettingsGroup(nullptr, bgStyle);
         m_mapWidget.clear();
-        QObject::connect(settingsGroup, &QObject::destroyed, q, [this]() { m_mapWidget.clear(); });
+        QObject::connect(settingsGroup, &QObject::destroyed, q, [this]() {
+            m_mapWidget.clear();
+        });
         settingsGroup->setHeaderVisible(headerVisible);
         settingsGroup->setSpacing(spacing);
 
@@ -42,16 +44,29 @@ public:
             }
         }
 
-        QObject::connect(q, &ModuleObject::insertedChild, settingsGroup, [this](ModuleObject *const childModule) { onAddChild(childModule); });
-        QObject::connect(q, &ModuleObject::removedChild, settingsGroup, [this](ModuleObject *const childModule) { onRemoveChild(childModule); });
-        QObject::connect(q, &ModuleObject::childStateChanged, settingsGroup, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-            if (ModuleObject::IsHiddenFlag(flag)) {
-                if (state)
-                    onRemoveChild(tmpChild);
-                else
-                    onAddChild(tmpChild);
-            }
-        });
+        QObject::connect(q,
+                         &ModuleObject::insertedChild,
+                         settingsGroup,
+                         [this](ModuleObject *const childModule) {
+                             onAddChild(childModule);
+                         });
+        QObject::connect(q,
+                         &ModuleObject::removedChild,
+                         settingsGroup,
+                         [this](ModuleObject *const childModule) {
+                             onRemoveChild(childModule);
+                         });
+        QObject::connect(q,
+                         &ModuleObject::childStateChanged,
+                         settingsGroup,
+                         [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+                             if (ModuleObject::IsHiddenFlag(flag)) {
+                                 if (state)
+                                     onRemoveChild(tmpChild);
+                                 else
+                                     onAddChild(tmpChild);
+                             }
+                         });
         return settingsGroup;
     }
 
@@ -70,6 +85,7 @@ private:
             }
         }
     }
+
     void onAddChild(DCC_NAMESPACE::ModuleObject *const childModule)
     {
         if (ModuleObject::IsHidden(childModule) || m_mapWidget.contains(childModule))
@@ -103,17 +119,17 @@ public:
     bool headerVisible;
     Q_DECLARE_PUBLIC(SettingsGroupModule)
 };
-}
+} // namespace DCC_NAMESPACE
 
-SettingsGroupModule::SettingsGroupModule(const QString &name, const QString &displayName, QObject *parent)
+SettingsGroupModule::SettingsGroupModule(const QString &name,
+                                         const QString &displayName,
+                                         QObject *parent)
     : ModuleObject(name, displayName, parent)
     , DCC_INIT_PRIVATE(SettingsGroupModule)
 {
 }
 
-SettingsGroupModule::~SettingsGroupModule()
-{
-}
+SettingsGroupModule::~SettingsGroupModule() { }
 
 void SettingsGroupModule::setHeaderVisible(const bool visible)
 {

@@ -1,8 +1,7 @@
+#include "gtest/gtest.h"
 #include "src/plugin-keyboard/window/indexmodel.h"
 
 #include <QDebug>
-
-#include "gtest/gtest.h"
 
 #include <iostream>
 
@@ -16,7 +15,7 @@ class Tst_IndexModel : public testing::Test
     void TearDown() override;
 
 public:
-//    GeneralKBSettingWidget *widget = nullptr;
+    //    GeneralKBSettingWidget *widget = nullptr;
     IndexModel *model = nullptr;
 };
 
@@ -33,7 +32,7 @@ void Tst_IndexModel::TearDown()
 
 TEST_F(Tst_IndexModel, model)
 {
-    QList<QString> ls = { "a", "b", "c"};
+    QList<QString> ls = { "a", "b", "c" };
 
     EXPECT_NO_THROW(model->setLetters(ls));
     EXPECT_EQ(ls, model->letters());

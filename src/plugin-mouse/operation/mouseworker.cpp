@@ -32,7 +32,6 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
 {
-
 }
 
 void MouseWorker::setMouseExist(bool exist)
@@ -125,7 +124,6 @@ void MouseWorker::setScrollSpeed(uint speed)
     m_model->setScrollSpeed(speed);
 }
 
-
 void MouseWorker::onPalmDetectChanged(bool palmDetect)
 {
     Q_EMIT requestSetPalmDetect(palmDetect);
@@ -210,7 +208,8 @@ int MouseWorker::converToDoubleModel(int value)
 {
     return (800 - value) / 100;
 }
-//conver slider value to real value
+
+// conver slider value to real value
 double MouseWorker::converToMotionAcceleration(int value)
 {
     switch (value) {
@@ -232,7 +231,8 @@ double MouseWorker::converToMotionAcceleration(int value)
         return 1.0;
     }
 }
-//conver real value to slider value
+
+// conver real value to slider value
 int MouseWorker::converToModelMotionAcceleration(double value)
 {
     if (value <= 0.2) {

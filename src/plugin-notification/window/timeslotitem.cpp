@@ -21,14 +21,14 @@
 #include "timeslotitem.h"
 
 #include <QCheckBox>
-#include <QLabel>
 #include <QHBoxLayout>
+#include <QLabel>
 #include <QTime>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
-//消息通知时间段项
+// 消息通知时间段项
 TimeSlotItem::TimeSlotItem(QWidget *parent)
     : SettingsItem(parent)
     , m_chkState(new QCheckBox)
@@ -62,7 +62,7 @@ TimeSlotItem::TimeSlotItem(QWidget *parent)
 
     setLayout(layout);
 
-    connect(m_chkState, &QCheckBox::stateChanged, this, [ = ]() {
+    connect(m_chkState, &QCheckBox::stateChanged, this, [=]() {
         Q_EMIT stateChanged(getState());
     });
     connect(m_editStart, &DTimeEdit::timeChanged, this, &TimeSlotItem::timeStartChanged);

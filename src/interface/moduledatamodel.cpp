@@ -1,24 +1,25 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #include "moduledatamodel.h"
+
 #include "interface/moduleobject.h"
 
 #include <dstyleoption.h>
@@ -149,11 +150,14 @@ void ModuleDataModel::setModuleObject(ModuleObject *const module)
 
     connect(m_parentObject, &ModuleObject::insertedChild, this, &ModuleDataModel::onInsertChild);
     connect(m_parentObject, &ModuleObject::removedChild, this, &ModuleDataModel::onRemovedChild);
-    connect(m_parentObject, &ModuleObject::childStateChanged, this, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-        Q_UNUSED(flag)
-        Q_UNUSED(state)
-        onDataChanged(tmpChild);
-    });
+    connect(m_parentObject,
+            &ModuleObject::childStateChanged,
+            this,
+            [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+                Q_UNUSED(flag)
+                Q_UNUSED(state)
+                onDataChanged(tmpChild);
+            });
 }
 
 QModelIndex ModuleDataModel::index(ModuleObject *module) const

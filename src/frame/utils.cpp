@@ -20,11 +20,12 @@
 */
 
 #include "utils.h"
+
 #include "interface/moduleobject.h"
 
+#include <QCryptographicHash>
 #include <QDebug>
 #include <QFile>
-#include <QCryptographicHash>
 
 using namespace DCC_NAMESPACE;
 

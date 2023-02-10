@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "metadata.h"
+
 #include <QDebug>
 
 using namespace DCC_NAMESPACE;
@@ -29,7 +30,6 @@ MetaData::MetaData(const QString &text, bool section)
     , m_section(section)
     , m_selected(false)
 {
-
 }
 
 void MetaData::setPinyin(const QString &py)
@@ -82,12 +82,12 @@ bool MetaData::selected() const
     return m_selected;
 }
 
-bool MetaData::operator ==(const MetaData &md) const
+bool MetaData::operator==(const MetaData &md) const
 {
     return m_text == md.m_text;
 }
 
-bool MetaData::operator >(const MetaData &md) const
+bool MetaData::operator>(const MetaData &md) const
 {
     int x = QString::compare(m_pinyin, md.m_pinyin, Qt::CaseInsensitive);
     return x > 0;

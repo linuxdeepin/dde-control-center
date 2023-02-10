@@ -19,11 +19,12 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "commoninfoproxy.h"
+
 #include "widgets/dccdbusinterface.h"
 
+#include <QDBusArgument>
 #include <QDBusConnection>
 #include <QDBusInterface>
-#include <QDBusArgument>
 #include <QDBusReply>
 
 const QString &GrubService = QStringLiteral("org.deepin.dde.Grub2");
@@ -57,13 +58,32 @@ const QString &PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 CommonInfoProxy::CommonInfoProxy(QObject *parent)
     : QObject(parent)
-    , m_grubInter(new DCC_NAMESPACE::DCCDBusInterface(GrubService, GrubPath, GrubInterface, QDBusConnection::systemBus(), this))
-    , m_grubThemeInter(new DCC_NAMESPACE::DCCDBusInterface(GrubService, GrubThemePath, GrubThemeInterface, QDBusConnection::systemBus(), this))
-    , m_grubEditAuthInter(new DCC_NAMESPACE::DCCDBusInterface(GrubService, GrubEditAuthPath, GrubEditAuthInterface, QDBusConnection::systemBus(), this))
-    , m_deepinIdInter(new DCC_NAMESPACE::DCCDBusInterface(DeepinIdService, DeepinIdPath, DeepinIdInterface, QDBusConnection::sessionBus(), this))
-    , m_licenseInter(new DCC_NAMESPACE::DCCDBusInterface(LicenseService, LicensePath, LicenseInterface, QDBusConnection::systemBus(), this))
-    , m_userexperienceInter(new DCC_NAMESPACE::DCCDBusInterface(UserexperienceService, UserexperiencePath, UserexperienceInterface, QDBusConnection::sessionBus(), this))
-    , m_notificationInter(new DCC_NAMESPACE::DCCDBusInterface(NotificationService, NotificationPath, NotificationInterface, QDBusConnection::sessionBus(), this))
+    , m_grubInter(new DCC_NAMESPACE::DCCDBusInterface(
+              GrubService, GrubPath, GrubInterface, QDBusConnection::systemBus(), this))
+    , m_grubThemeInter(new DCC_NAMESPACE::DCCDBusInterface(
+              GrubService, GrubThemePath, GrubThemeInterface, QDBusConnection::systemBus(), this))
+    , m_grubEditAuthInter(new DCC_NAMESPACE::DCCDBusInterface(GrubService,
+                                                              GrubEditAuthPath,
+                                                              GrubEditAuthInterface,
+                                                              QDBusConnection::systemBus(),
+                                                              this))
+    , m_deepinIdInter(new DCC_NAMESPACE::DCCDBusInterface(DeepinIdService,
+                                                          DeepinIdPath,
+                                                          DeepinIdInterface,
+                                                          QDBusConnection::sessionBus(),
+                                                          this))
+    , m_licenseInter(new DCC_NAMESPACE::DCCDBusInterface(
+              LicenseService, LicensePath, LicenseInterface, QDBusConnection::systemBus(), this))
+    , m_userexperienceInter(new DCC_NAMESPACE::DCCDBusInterface(UserexperienceService,
+                                                                UserexperiencePath,
+                                                                UserexperienceInterface,
+                                                                QDBusConnection::sessionBus(),
+                                                                this))
+    , m_notificationInter(new DCC_NAMESPACE::DCCDBusInterface(NotificationService,
+                                                              NotificationPath,
+                                                              NotificationInterface,
+                                                              QDBusConnection::sessionBus(),
+                                                              this))
 {
 }
 
@@ -156,7 +176,8 @@ void CommonInfoProxy::DisableUser(const QString &username)
 
 void CommonInfoProxy::EnableUser(const QString &username, const QString &password)
 {
-    QDBusPendingCall call = m_grubEditAuthInter->asyncCallWithArgumentList("Enable", { username, password });
+    QDBusPendingCall call =
+            m_grubEditAuthInter->asyncCallWithArgumentList("Enable", { username, password });
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {
@@ -202,7 +223,14 @@ bool CommonInfoProxy::IsEnabled()
     return false;
 }
 
-void CommonInfoProxy::Notify(const QString &in0, const uint in1, const QString &in2, const QString &in3, const QString &in4, const QStringList &in5, const QVariantMap &in6, const int in7)
+void CommonInfoProxy::Notify(const QString &in0,
+                             const uint in1,
+                             const QString &in2,
+                             const QString &in3,
+                             const QString &in4,
+                             const QStringList &in5,
+                             const QVariantMap &in6,
+                             const int in7)
 {
     m_notificationInter->asyncCall("Notify", in0, in1, in2, in3, in4, in5, in6, in7);
 }

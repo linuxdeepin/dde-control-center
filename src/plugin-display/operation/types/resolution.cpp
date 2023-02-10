@@ -35,10 +35,11 @@ void registerResolutionMetaType()
 
 QDebug operator<<(QDebug debug, const Resolution &resolution)
 {
-    debug << QString("Resolution(%1, %2, %3, %4)").arg(resolution.m_id)
-                                                    .arg(resolution.m_width)
-                                                    .arg(resolution.m_height)
-                                                    .arg(resolution.m_rate);
+    debug << QString("Resolution(%1, %2, %3, %4)")
+                     .arg(resolution.m_id)
+                     .arg(resolution.m_width)
+                     .arg(resolution.m_height)
+                     .arg(resolution.m_rate);
 
     return debug;
 }

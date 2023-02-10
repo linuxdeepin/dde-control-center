@@ -1,18 +1,15 @@
 #include <gtest/gtest.h>
 
-#include <QStandardItemModel>
-
 #include "widgets/dccslider.h"
+
+#include <QStandardItemModel>
 
 using namespace DCC_NAMESPACE;
 
 class Tst_DCCSlider : public testing::Test
 {
 public:
-    void SetUp() override
-    {
-        obj = new DCCSlider;
-    }
+    void SetUp() override { obj = new DCCSlider; }
 
     void TearDown() override
     {
@@ -33,7 +30,8 @@ TEST_F(Tst_DCCSlider, coverage)
     obj->setTickPosition(QSlider::NoTicks);
     obj->setTickInterval(10);
     obj->setSliderPosition(10);
-    obj->setAnnotations(QStringList() << "aaa" << "bbb");
+    obj->setAnnotations(QStringList() << "aaa"
+                                      << "bbb");
     obj->setOrientation(Qt::Orientation::Vertical);
     obj->setSeparateValue(10);
 }

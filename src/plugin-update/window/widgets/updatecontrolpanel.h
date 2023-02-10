@@ -5,8 +5,9 @@
 #ifndef UPDATECONTROLPANEL_H
 #define UPDATECONTROLPANEL_H
 
-#include <dtkwidget_global.h>
 #include "widgets/settingsitem.h"
+
+#include <dtkwidget_global.h>
 
 QT_BEGIN_NAMESPACE
 class QWidget;
@@ -20,22 +21,11 @@ class DIconButton;
 class DProgressBar;
 DWIDGET_END_NAMESPACE
 
-enum ButtonStatus {
-    invalid,
-    start,
-    pause,
-    retry
-};
+enum ButtonStatus { invalid, start, pause, retry };
 
-enum UpdateDProgressType {
-    InvalidType,
-    Download,
-    Paused,
-    Install,
-    Backup
-};
+enum UpdateDProgressType { InvalidType, Download, Paused, Install, Backup };
 
-class updateControlPanel: public DCC_NAMESPACE::SettingsItem
+class updateControlPanel : public DCC_NAMESPACE::SettingsItem
 {
     Q_OBJECT
 public:
@@ -63,12 +53,16 @@ public:
     void setShowMoreButtonVisible(bool visible);
     void setDetailLabelVisible(bool visible);
     void setVersionVisible(bool visible);
-    void setDatetimeVisible(bool  visible);
+    void setDatetimeVisible(bool visible);
     void setUpdateButtonVisible(bool visible);
     void setUpdateButtonEnable(bool enable);
 
-    const QString getElidedText(QWidget *widget, QString data, Qt::TextElideMode mode = Qt::ElideRight, int width = 100, int flags = 0, int line = 0);
-
+    const QString getElidedText(QWidget *widget,
+                                QString data,
+                                Qt::TextElideMode mode = Qt::ElideRight,
+                                int width = 100,
+                                int flags = 0,
+                                int line = 0);
 
     UpdateDProgressType getProgressType() const;
     void setProgressType(const UpdateDProgressType &progressType);
@@ -106,4 +100,4 @@ private:
     int m_currentValue;
 };
 
-#endif //UPDATECONTROLPANEL_H
+#endif // UPDATECONTROLPANEL_H

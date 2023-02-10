@@ -10,7 +10,9 @@ class PersonalizationDesktopModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:
-    explicit PersonalizationDesktopModule(PersonalizationModel *model, PersonalizationWorker *work, QObject *parent = nullptr);
+    explicit PersonalizationDesktopModule(PersonalizationModel *model,
+                                          PersonalizationWorker *work,
+                                          QObject *parent = nullptr);
 
 private:
     QWidget *initWindowEffect(ModuleObject *module);

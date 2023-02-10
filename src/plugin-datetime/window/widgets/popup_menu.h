@@ -39,55 +39,56 @@ class QStringListModel;
 namespace installer {
 
 // Used to display popup menu with sharp corner at middle of bottom edge.
-class PopupMenu : public QFrame {
-  Q_OBJECT
+class PopupMenu : public QFrame
+{
+    Q_OBJECT
 
- public:
-  explicit PopupMenu(QWidget* parent = nullptr);
+public:
+    explicit PopupMenu(QWidget *parent = nullptr);
 
-  // Returns the list used by menu_model to store menu items.
-  QStringList stringList() const;
+    // Returns the list used by menu_model to store menu items.
+    QStringList stringList() const;
 
- Q_SIGNALS:
-  // Q_EMITted when window is hidden.
-  void onHide();
+Q_SIGNALS:
+    // Q_EMITted when window is hidden.
+    void onHide();
 
-  // Q_EMITted when a menu item at |index| is activated.
-  void menuActivated(int index);
+    // Q_EMITted when a menu item at |index| is activated.
+    void menuActivated(int index);
 
- public Q_SLOTS:
-  // Show tooltip container at |pos| and grab keyboard focus.
-  void popup(const QPoint& pos);
+public Q_SLOTS:
+    // Show tooltip container at |pos| and grab keyboard focus.
+    void popup(const QPoint &pos);
 
-  // Set menu models's internal list to |strings|.
-  void setStringList(const QStringList& strings);
+    // Set menu models's internal list to |strings|.
+    void setStringList(const QStringList &strings);
 
- protected:
-  // Filters global mouse press event.
-  bool eventFilter(QObject* obj, QEvent* event) override;
+protected:
+    // Filters global mouse press event.
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
-  // Release keyboard focus when window is hidden.
-  void hideEvent(QHideEvent* event) override;
+    // Release keyboard focus when window is hidden.
+    void hideEvent(QHideEvent *event) override;
 
-  // Hide window when Escape button is pressed.
-  void keyPressEvent(QKeyEvent* event) override;
+    // Hide window when Escape button is pressed.
+    void keyPressEvent(QKeyEvent *event) override;
 
-  void paintEvent(QPaintEvent* event) override;
+    void paintEvent(QPaintEvent *event) override;
 
-  // Monitors global mouse event when menu is popup.
-  void showEvent(QShowEvent* event) override;
+    // Monitors global mouse event when menu is popup.
+    void showEvent(QShowEvent *event) override;
 
- private:
-  void initConnections();
-  void initUI();
+private:
+    void initConnections();
+    void initUI();
 
-  QListView* menu_view_ = nullptr;
-  QStringListModel* menu_model_ = nullptr;
+    QListView *menu_view_ = nullptr;
+    QStringListModel *menu_model_ = nullptr;
 
- private Q_SLOTS:
-  void onMenuViewActivated(const QModelIndex& index);
+private Q_SLOTS:
+    void onMenuViewActivated(const QModelIndex &index);
 };
 
-}  // namespace installer
+} // namespace installer
 
-#endif  // INSTALLER_UI_WIDGETS_TOOLTIP_CONTAINER_H
+#endif // INSTALLER_UI_WIDGETS_TOOLTIP_CONTAINER_H

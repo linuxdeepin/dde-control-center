@@ -25,7 +25,9 @@
 #pragma once
 
 #include "interface/namespace.h"
+
 #include <QFrame>
+
 namespace DCC_NAMESPACE {
 
 class SettingsItem : public QFrame
@@ -62,4 +64,4 @@ private:
     bool m_clickable;
 };
 
-}
+} // namespace DCC_NAMESPACE

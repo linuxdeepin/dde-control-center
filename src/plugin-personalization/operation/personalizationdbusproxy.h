@@ -1,23 +1,23 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #ifndef PERSONALIZATIONDBUSPROXY_H
 #define PERSONALIZATIONDBUSPROXY_H
 
@@ -50,19 +50,23 @@ public:
     Q_PROPERTY(QString IconTheme READ iconTheme WRITE setIconTheme NOTIFY IconThemeChanged)
     QString iconTheme();
     void setIconTheme(const QString &value);
-    Q_PROPERTY(QString MonospaceFont READ monospaceFont WRITE setMonospaceFont NOTIFY MonospaceFontChanged)
+    Q_PROPERTY(QString MonospaceFont READ monospaceFont WRITE setMonospaceFont NOTIFY
+                       MonospaceFontChanged)
     QString monospaceFont();
     void setMonospaceFont(const QString &value);
     Q_PROPERTY(double Opacity READ opacity WRITE setOpacity NOTIFY OpacityChanged)
     double opacity();
     void setOpacity(double value);
-    Q_PROPERTY(QString QtActiveColor READ qtActiveColor WRITE setQtActiveColor NOTIFY QtActiveColorChanged)
+    Q_PROPERTY(QString QtActiveColor READ qtActiveColor WRITE setQtActiveColor NOTIFY
+                       QtActiveColorChanged)
     QString qtActiveColor();
     void setQtActiveColor(const QString &value);
-    Q_PROPERTY(QString StandardFont READ standardFont WRITE setStandardFont NOTIFY StandardFontChanged)
+    Q_PROPERTY(
+            QString StandardFont READ standardFont WRITE setStandardFont NOTIFY StandardFontChanged)
     QString standardFont();
     void setStandardFont(const QString &value);
-    Q_PROPERTY(QString WallpaperSlideShow READ wallpaperSlideShow WRITE setWallpaperSlideShow NOTIFY WallpaperSlideShowChanged)
+    Q_PROPERTY(QString WallpaperSlideShow READ wallpaperSlideShow WRITE setWallpaperSlideShow NOTIFY
+                       WallpaperSlideShowChanged)
     QString wallpaperSlideShow();
     void setWallpaperSlideShow(const QString &value);
     Q_PROPERTY(int WindowRadius READ windowRadius WRITE setWindowRadius NOTIFY WindowRadiusChanged)
@@ -70,9 +74,11 @@ public:
     void setWindowRadius(int value);
     // SystemPersonalization
     // WM
-    Q_PROPERTY(bool compositingAllowSwitch READ compositingAllowSwitch NOTIFY compositingAllowSwitchChanged)
+    Q_PROPERTY(bool compositingAllowSwitch READ compositingAllowSwitch NOTIFY
+                       compositingAllowSwitchChanged)
     bool compositingAllowSwitch();
-    Q_PROPERTY(bool compositingEnabled READ compositingEnabled WRITE setCompositingEnabled NOTIFY compositingEnabledChanged)
+    Q_PROPERTY(bool compositingEnabled READ compositingEnabled WRITE setCompositingEnabled NOTIFY
+                       compositingEnabledChanged)
     bool compositingEnabled();
     void setCompositingEnabled(bool value);
     Q_PROPERTY(bool compositingPossible READ compositingPossible NOTIFY compositingPossibleChanged)
@@ -80,9 +86,8 @@ public:
     Q_PROPERTY(int cursorSize READ cursorSize WRITE setCursorSize NOTIFY cursorSizeChanged)
     int cursorSize();
     void setCursorSize(int value);
-    //    Q_PROPERTY(QString cursorTheme READ cursorTheme WRITE setCursorTheme NOTIFY CursorThemeChanged)
-    //    QString cursorTheme();
-    //    void setCursorTheme(const QString &value);
+    //    Q_PROPERTY(QString cursorTheme READ cursorTheme WRITE setCursorTheme NOTIFY
+    //    CursorThemeChanged) QString cursorTheme(); void setCursorTheme(const QString &value);
     Q_PROPERTY(bool zoneEnabled READ zoneEnabled WRITE setZoneEnabled NOTIFY ZoneEnabledChanged)
     bool zoneEnabled();
     void setZoneEnabled(bool value);
@@ -123,7 +128,11 @@ public slots:
     QString Show(const QString &ty, const QStringList &names);
     bool Show(const QString &ty, const QStringList &names, QObject *receiver, const char *member);
     QString Thumbnail(const QString &ty, const QString &name);
-    bool Thumbnail(const QString &ty, const QString &name, QObject *receiver, const char *member, const char *errorSlot);
+    bool Thumbnail(const QString &ty,
+                   const QString &name,
+                   QObject *receiver,
+                   const char *member,
+                   const char *errorSlot);
     // WMSwitcher
     bool AllowSwitch();
     QString CurrentWM();

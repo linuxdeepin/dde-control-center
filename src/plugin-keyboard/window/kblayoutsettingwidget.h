@@ -24,15 +24,16 @@
 #include "interface/namespace.h"
 #include "widgets/titlelabel.h"
 
-#include <DCommandLinkButton>
-#include <DListView>
-#include <DFloatingButton>
 #include <DAnchors>
+#include <DCommandLinkButton>
+#include <DFloatingButton>
+#include <DListView>
 
-#include <QVBoxLayout>
 #include <QPushButton>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
+
 namespace DCC_NAMESPACE {
 class KeyboardModel;
 class SearchInput;
@@ -42,7 +43,10 @@ class KBLayoutListView : public DListView
 {
     Q_OBJECT
 public:
-    explicit KBLayoutListView(QWidget *parent = nullptr): DListView(parent) {}
+    explicit KBLayoutListView(QWidget *parent = nullptr)
+        : DListView(parent)
+    {
+    }
 
 Q_SIGNALS:
     void currentChangedSignal(const QModelIndex &current);
@@ -56,7 +60,7 @@ protected:
 
     void mousePressEvent(QMouseEvent *event)
     {
-        if(indexAt(event->pos()).row() == count() - 1)
+        if (indexAt(event->pos()).row() == count() - 1)
             return;
 
         DListView::mousePressEvent(event);
@@ -94,11 +98,9 @@ private:
     DCommandLinkButton *m_editKBLayout;
     QStandardItemModel *m_kbLayoutModel;
     DViewItemAction *m_addLayoutAction;
+
 private:
-    enum {
-        SwitchValueRole = Dtk::UserRole + 1,
-        KBLangIdRole
-    };
+    enum { SwitchValueRole = Dtk::UserRole + 1, KBLangIdRole };
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // KBLAYOUTSETTINGWIDGET_H

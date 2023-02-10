@@ -24,21 +24,23 @@
  */
 
 #include "widgets/settingsitem.h"
+
 #include "widgets/accessibleinterface.h"
 
 #include <DPalette>
-#include <DStyle>
 #include <DPaletteHelper>
+#include <DStyle>
 
+#include <QPalette>
+#include <QResizeEvent>
 #include <QStyle>
 #include <QVBoxLayout>
-#include <QResizeEvent>
-#include <QPalette>
 
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 SET_FORM_ACCESSIBLE(SettingsItem, "SettingsItem");
+
 SettingsItem::SettingsItem(QWidget *parent)
     : QFrame(parent)
     , m_isErr(false)
@@ -97,7 +99,8 @@ void SettingsItem::paintEvent(QPaintEvent *event)
         const DPalette &dp = DPaletteHelper::instance()->palette(this);
         QPainter p(this);
         p.setPen(Qt::NoPen);
-        p.setBrush(dp.brush((m_clickable && m_hover) ? DPalette::ObviousBackground : DPalette::ItemBackground));
+        p.setBrush(dp.brush((m_clickable && m_hover) ? DPalette::ObviousBackground
+                                                     : DPalette::ItemBackground));
         p.drawRoundedRect(rect(), 8, 8);
     }
     return QFrame::paintEvent(event);

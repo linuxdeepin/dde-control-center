@@ -38,7 +38,9 @@ class PersonalizationThemeModule : public DCC_NAMESPACE::PageModule
 {
     Q_OBJECT
 public:
-    explicit PersonalizationThemeModule(PersonalizationModel *model, PersonalizationWorker *work, QObject *parent = nullptr);
+    explicit PersonalizationThemeModule(PersonalizationModel *model,
+                                        PersonalizationWorker *work,
+                                        QObject *parent = nullptr);
 
     void active() override;
 private Q_SLOTS:

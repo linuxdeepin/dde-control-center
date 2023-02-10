@@ -20,19 +20,20 @@
  */
 
 #include "addfaceinfodialog.h"
+
 #include "charamangermodel.h"
 
-#include <DTitlebar>
 #include <DFontSizeManager>
-
 #include <DSuggestButton>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QPushButton>
+#include <DTitlebar>
+
 #include <QCloseEvent>
-#include <QTimer>
 #include <QDebug>
 #include <QDialog>
+#include <QHBoxLayout>
+#include <QPushButton>
+#include <QTimer>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -50,10 +51,7 @@ AddFaceInfoDialog::AddFaceInfoDialog(CharaMangerModel *model, QWidget *parent)
     QWidget::installEventFilter(this);
 }
 
-AddFaceInfoDialog::~AddFaceInfoDialog()
-{
-
-}
+AddFaceInfoDialog::~AddFaceInfoDialog() { }
 
 void AddFaceInfoDialog::closeEvent(QCloseEvent *event)
 {
@@ -77,19 +75,20 @@ void AddFaceInfoDialog::initWidget()
     m_mainLayout->setAlignment(Qt::AlignHCenter);
 
     DTitlebar *titleIcon = new DTitlebar();
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle(tr("Enroll Face"));
 
     // 人脸图片
     m_facePic = new QLabel(this);
-    m_facePic->setPixmap(QIcon::fromTheme(getFacePicture()).pixmap(128,128));
+    m_facePic->setPixmap(QIcon::fromTheme(getFacePicture()).pixmap(128, 128));
 
     // 提示信息
     m_resultTips = new QLabel(this);
     m_resultTips->hide();
-    m_explainTips = new DLabel(tr("Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well."));
+    m_explainTips = new DLabel(tr("Make sure all parts of your face are not covered by objects and "
+                                  "are clearly visible. Your face should be well-lit as well."));
     m_explainTips->setWordWrap(true);
     m_explainTips->setAlignment(Qt::AlignCenter);
     DFontSizeManager::instance()->bind(m_explainTips, DFontSizeManager::T8);
@@ -135,12 +134,25 @@ void AddFaceInfoDialog::initWidget()
 
 void AddFaceInfoDialog::initConnect()
 {
-    connect(m_faceModel, &CharaMangerModel::enrollInfoState, this, &AddFaceInfoDialog::responseEnrollInfoState);
+    connect(m_faceModel,
+            &CharaMangerModel::enrollInfoState,
+            this,
+            &AddFaceInfoDialog::responseEnrollInfoState);
 
-    connect(m_disclaimersItem, &DisclaimersItem::requestSetWindowEnabled, this, &AddFaceInfoDialog::onSetWindowEnabled);
-    connect(m_disclaimersItem, &DisclaimersItem::requestStateChange, m_acceptBtn, &QPushButton::setDisabled);
+    connect(m_disclaimersItem,
+            &DisclaimersItem::requestSetWindowEnabled,
+            this,
+            &AddFaceInfoDialog::onSetWindowEnabled);
+    connect(m_disclaimersItem,
+            &DisclaimersItem::requestStateChange,
+            m_acceptBtn,
+            &QPushButton::setDisabled);
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddFaceInfoDialog::close);
-    connect(m_acceptBtn, &QPushButton::clicked, this, &AddFaceInfoDialog::requestShowFaceInfoDialog, Qt::UniqueConnection);
+    connect(m_acceptBtn,
+            &QPushButton::clicked,
+            this,
+            &AddFaceInfoDialog::requestShowFaceInfoDialog,
+            Qt::UniqueConnection);
 }
 
 QString AddFaceInfoDialog::getFacePicture()
@@ -175,7 +187,8 @@ QString AddFaceInfoDialog::getFacePicture()
     return QString(":/icons/deepin/builtin/icons/%1/icons/icon_face-%2.svg").arg(theme).arg(icon);
 }
 
-void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState state, const QString &tips)
+void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState state,
+                                                const QString &tips)
 {
     m_currentState = state;
 
@@ -183,7 +196,8 @@ void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState s
     if (m_currentState == CharaMangerModel::AddInfoState::StartState) {
         m_resultTips->hide();
 
-        m_explainTips->setText(tr("Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well."));
+        m_explainTips->setText(tr("Make sure all parts of your face are not covered by objects and "
+                                  "are clearly visible. Your face should be well-lit as well."));
         m_disclaimersItem->setAcceptState(false);
         m_disclaimersItem->show();
 
@@ -229,4 +243,3 @@ void AddFaceInfoDialog::onSetWindowEnabled(const bool isEnabled)
 {
     this->setEnabled(isEnabled);
 }
-

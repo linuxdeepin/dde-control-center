@@ -21,42 +21,48 @@
 
 #include "privacysecurityworker.h"
 
+#include <widgets/servicecontrolitems.h>
+
+#include <QDebug>
 #include <QFileInfo>
+#include <QFuture>
+#include <QFutureWatcher>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QDebug>
-#include <QFuture>
 #include <QtConcurrent>
-#include <QFutureWatcher>
-
-#include <widgets/servicecontrolitems.h>
 
 PrivacySecurityWorker::PrivacySecurityWorker(PrivacySecurityModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
     , m_privacyDBusInter(new PrivacySecurityDBusProxy(this))
 {
-    connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionInfoLoadFinished, this, &PrivacySecurityWorker::permissionInfoLoadFinished);
-    connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::PermissionEnableChanged, this, &PrivacySecurityWorker::refreshPermissionState);
-    connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionEnableReset, this, &PrivacySecurityWorker::resetPermissionState);
-    connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionInfoReset, this, &PrivacySecurityWorker::resetPermissionInfo);
+    connect(m_privacyDBusInter,
+            &PrivacySecurityDBusProxy::permissionInfoLoadFinished,
+            this,
+            &PrivacySecurityWorker::permissionInfoLoadFinished);
+    connect(m_privacyDBusInter,
+            &PrivacySecurityDBusProxy::PermissionEnableChanged,
+            this,
+            &PrivacySecurityWorker::refreshPermissionState);
+    connect(m_privacyDBusInter,
+            &PrivacySecurityDBusProxy::permissionEnableReset,
+            this,
+            &PrivacySecurityWorker::resetPermissionState);
+    connect(m_privacyDBusInter,
+            &PrivacySecurityDBusProxy::permissionInfoReset,
+            this,
+            &PrivacySecurityWorker::resetPermissionInfo);
 }
 
-PrivacySecurityWorker::~PrivacySecurityWorker()
-{
-
-}
+PrivacySecurityWorker::~PrivacySecurityWorker() { }
 
 void PrivacySecurityWorker::activate()
 {
     m_privacyDBusInter->getPermissionInfo();
 }
 
-void PrivacySecurityWorker::deactivate()
-{
-
-}
+void PrivacySecurityWorker::deactivate() { }
 
 void PrivacySecurityWorker::permissionInfoLoadFinished(const QString &perInfo)
 {
@@ -99,7 +105,9 @@ void PrivacySecurityWorker::permissionInfoLoadFinished(const QString &perInfo)
     }
 }
 
-void PrivacySecurityWorker::saveServiceApps(const QString &currentGroup, const QString &dameonDefineName, const QJsonArray &appInfoDate)
+void PrivacySecurityWorker::saveServiceApps(const QString &currentGroup,
+                                            const QString &dameonDefineName,
+                                            const QJsonArray &appInfoDate)
 {
     // 根据后端定义的名称 转换获取SerivceItem保存数据
     ServiceControlItems *serviceItem = m_model->getServiceItem(dameonDefineName);
@@ -126,14 +134,17 @@ void PrivacySecurityWorker::saveServiceApps(const QString &currentGroup, const Q
     serviceItem->setServiceApps(tmpApss);
 }
 
-void PrivacySecurityWorker::refreshPermissionState(const QString &permissionGroup, const QString &permissionId, bool enable)
+void PrivacySecurityWorker::refreshPermissionState(const QString &permissionGroup,
+                                                   const QString &permissionId,
+                                                   bool enable)
 {
     Q_UNUSED(permissionGroup);
     ServiceControlItems *serviceItem = m_model->getServiceItem(permissionId);
     serviceItem->setSwitchState(enable);
 }
 
-void PrivacySecurityWorker::resetPermissionState(const QString &permissionGroup, const QString &permissionId)
+void PrivacySecurityWorker::resetPermissionState(const QString &permissionGroup,
+                                                 const QString &permissionId)
 {
     Q_UNUSED(permissionGroup);
     ServiceControlItems *serviceItem = m_model->getServiceItem(permissionId);
@@ -141,7 +152,8 @@ void PrivacySecurityWorker::resetPermissionState(const QString &permissionGroup,
     serviceItem->serviceSwitchStateChange(serviceItem->getSwitchState());
 }
 
-void PrivacySecurityWorker::resetPermissionInfo(const QString &permissionGroup, const QString &permissionId)
+void PrivacySecurityWorker::resetPermissionInfo(const QString &permissionGroup,
+                                                const QString &permissionId)
 {
     Q_UNUSED(permissionGroup);
     ServiceControlItems *serviceItem = m_model->getServiceItem(permissionId);
@@ -154,23 +166,34 @@ const QString PrivacySecurityWorker::getIconPath(const QString &appName)
     return nullptr;
 }
 
-void PrivacySecurityWorker::getPermissionEnable(const QString &permissionGroup, const QString &permissionId)
+void PrivacySecurityWorker::getPermissionEnable(const QString &permissionGroup,
+                                                const QString &permissionId)
 {
-    disconnect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionEnableLoadFinished, this, nullptr);
-    connect(m_privacyDBusInter, &PrivacySecurityDBusProxy::permissionEnableLoadFinished, this, [=](bool permissionEnable){
-        qDebug() << "getPermissionEnable : " << permissionEnable;
-        refreshPermissionState(permissionGroup, permissionId, permissionEnable);
-    });
+    disconnect(m_privacyDBusInter,
+               &PrivacySecurityDBusProxy::permissionEnableLoadFinished,
+               this,
+               nullptr);
+    connect(m_privacyDBusInter,
+            &PrivacySecurityDBusProxy::permissionEnableLoadFinished,
+            this,
+            [=](bool permissionEnable) {
+                qDebug() << "getPermissionEnable : " << permissionEnable;
+                refreshPermissionState(permissionGroup, permissionId, permissionEnable);
+            });
     m_privacyDBusInter->getPermissionEnable(permissionGroup, permissionId);
 }
 
-void PrivacySecurityWorker::setPermissionEnable(const QString &permissionGroup, const QString &permissionId, bool enable)
+void PrivacySecurityWorker::setPermissionEnable(const QString &permissionGroup,
+                                                const QString &permissionId,
+                                                bool enable)
 {
     m_privacyDBusInter->setPermissionEnable(permissionGroup, permissionId, enable);
 }
 
-void PrivacySecurityWorker::setPermissionInfo(const QString &appId, const QString &permissionGroup, const QString &permissionId, const QString &value)
+void PrivacySecurityWorker::setPermissionInfo(const QString &appId,
+                                              const QString &permissionGroup,
+                                              const QString &permissionId,
+                                              const QString &value)
 {
     m_privacyDBusInter->setPermissionInfo(appId, permissionGroup, permissionId, value);
 }
-

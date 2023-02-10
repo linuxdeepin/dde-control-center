@@ -24,6 +24,7 @@
 
 namespace DCC_NAMESPACE {
 class ItemModulePrivate;
+
 class ItemModule : public ModuleObject
 {
     Q_OBJECT
@@ -32,7 +33,10 @@ public:
     ItemModule(const QString &name, const QString &displayName, bool isTitle = true);
 
     template<typename FunT>
-    ItemModule(const QString &name, const QString &displayName, FunT callback, bool leftVisible = true)
+    ItemModule(const QString &name,
+               const QString &displayName,
+               FunT callback,
+               bool leftVisible = true)
         : ItemModule(name, displayName, false)
     {
         setLeftVisible(leftVisible);
@@ -40,7 +44,11 @@ public:
     }
 
     template<class classT, class WidgetT>
-    ItemModule(const QString &name, const QString &displayName, classT *receiver, WidgetT *(classT::*callback)(ModuleObject *), bool leftVisible = true)
+    ItemModule(const QString &name,
+               const QString &displayName,
+               classT *receiver,
+               WidgetT *(classT::*callback)(ModuleObject *),
+               bool leftVisible = true)
         : ItemModule(name, displayName, false)
     {
         setLeftVisible(leftVisible);
@@ -48,7 +56,11 @@ public:
     }
 
     template<class classT, class WidgetT>
-    ItemModule(const QString &name, const QString &displayName, classT *receiver, WidgetT *(classT::*callback)(), bool leftVisible = true)
+    ItemModule(const QString &name,
+               const QString &displayName,
+               classT *receiver,
+               WidgetT *(classT::*callback)(),
+               bool leftVisible = true)
         : ItemModule(name, displayName, false)
     {
         setLeftVisible(leftVisible);
@@ -77,7 +89,9 @@ public:
     template<class classT, class WidgetT>
     void setRightWidget(classT *receiver, WidgetT *(classT::*callback)(ModuleObject *))
     {
-        auto fun = [](classT *receiver, WidgetT *(classT::*callback)(ModuleObject *), ModuleObject *module) {
+        auto fun = [](classT *receiver,
+                      WidgetT *(classT::*callback)(ModuleObject *),
+                      ModuleObject *module) {
             return (receiver->*callback)(module);
         };
         setCallback(std::bind(fun, receiver, callback, this));
@@ -93,6 +107,7 @@ public:
     }
 
     QWidget *page() override;
+
     inline DCC_MODULE_TYPE getClassID() const override { return ITEM; }
 
 Q_SIGNALS:
@@ -103,5 +118,5 @@ private:
 
     DCC_DECLARE_PRIVATE(ItemModule)
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // ITEMMODULE_H

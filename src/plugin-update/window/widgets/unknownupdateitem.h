@@ -3,15 +3,13 @@
 
 #include "updatesettingitem.h"
 
-class UnknownUpdateItem: public UpdateSettingItem
+class UnknownUpdateItem : public UpdateSettingItem
 {
     Q_OBJECT
 public:
     explicit UnknownUpdateItem(QWidget *parent = nullptr);
     void init();
     void setData(UpdateItemInfo *updateItemInfo) override;
-
 };
-
 
 #endif // UNKNOWNUPDATEITEM_H

@@ -24,8 +24,8 @@
 #include "interface/namespace.h"
 #include "src/plugin-accounts/operation/user.h"
 
-#include <DListView>
 #include <DDialog>
+#include <DListView>
 
 #include <QWidget>
 
@@ -44,6 +44,7 @@ DCORE_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 class AvatarItemDelegate;
+
 class AvatarListWidget : public DTK_WIDGET_NAMESPACE::DListView
 {
     Q_OBJECT
@@ -56,11 +57,14 @@ public:
 public:
     AvatarListWidget(User *usr, QWidget *parent = nullptr);
     virtual ~AvatarListWidget();
+
 public:
     void addItemFromDefaultDir();
     void addLastItem();
     QString getAvatarPath() const;
+
     inline QSize avatarSize() const { return m_avatarSize; }
+
     void setAvatarSize(const QSize &size);
 
 Q_SIGNALS:
@@ -81,7 +85,7 @@ private:
     QStandardItem *getCustomAvatar();
 
 private:
-    User *m_curUser{nullptr};
+    User *m_curUser{ nullptr };
     QVBoxLayout *m_mainContentLayout;
     QStandardItemModel *m_avatarItemModel;
     AvatarItemDelegate *m_avatarItemDelegate;
@@ -104,4 +108,4 @@ public:
 private:
     AvatarListWidget *m_avatarList;
 };
-}
+} // namespace DCC_NAMESPACE

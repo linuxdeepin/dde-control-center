@@ -26,20 +26,16 @@
 #include "screenrect.h"
 
 ScreenRect::ScreenRect()
-    : x(0),
-      y(0),
-      w(0),
-      h(0)
+    : x(0)
+    , y(0)
+    , w(0)
+    , h(0)
 {
-
 }
 
 QDebug operator<<(QDebug debug, const ScreenRect &rect)
 {
-    debug << QString("ScreenRect(%1, %2, %3, %4)").arg(rect.x)
-                                                    .arg(rect.y)
-                                                    .arg(rect.w)
-                                                    .arg(rect.h);
+    debug << QString("ScreenRect(%1, %2, %3, %4)").arg(rect.x).arg(rect.y).arg(rect.w).arg(rect.h);
 
     return debug;
 }

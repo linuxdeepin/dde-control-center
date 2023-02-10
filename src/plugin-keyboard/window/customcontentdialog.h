@@ -22,12 +22,14 @@
 #pragma once
 #include "interface/namespace.h"
 
-#include <DFileChooserEdit>
 #include <DAbstractDialog>
+#include <DFileChooserEdit>
+
 #include <QWidget>
 
 class QLabel;
 DWIDGET_USE_NAMESPACE
+
 namespace DCC_NAMESPACE {
 class ShortcutModel;
 struct ShortcutInfo;
@@ -38,7 +40,7 @@ class SettingsGroup;
 class LineEditWidget;
 class ButtonTuple;
 
-class CustomContentDialog  : public DAbstractDialog
+class CustomContentDialog : public DAbstractDialog
 {
     Q_OBJECT
 public:
@@ -65,4 +67,4 @@ private:
     ShortcutModel *m_model;
     ButtonTuple *m_buttonTuple;
 };
-}
+} // namespace DCC_NAMESPACE

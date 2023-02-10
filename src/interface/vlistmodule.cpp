@@ -1,10 +1,12 @@
-#include "moduledatamodel.h"
 #include "vlistmodule.h"
-#include "pagemodule.h"
+
 #include "hlistmodule.h"
+#include "moduledatamodel.h"
+#include "pagemodule.h"
 
 #include <DListView>
 #include <DVerticalLine>
+
 #include <QHBoxLayout>
 #include <QSplitter>
 
@@ -66,7 +68,8 @@ public:
 
     void onAddChild(DCC_NAMESPACE::ModuleObject *const childModule)
     {
-        if (ModuleObject::IsHidden(childModule) || !childModule->extra() || m_extraModules.contains(childModule))
+        if (ModuleObject::IsHidden(childModule) || !childModule->extra()
+            || m_extraModules.contains(childModule))
             return;
 
         Q_Q(VListModule);
@@ -88,7 +91,9 @@ public:
     {
         Q_Q(VListModule);
         m_splitter = new QSplitter(Qt::Horizontal);
-        QObject::connect(m_splitter, &QObject::destroyed, q, [this]() { m_splitter = nullptr; });
+        QObject::connect(m_splitter, &QObject::destroyed, q, [this]() {
+            m_splitter = nullptr;
+        });
 
         DListView *view = new DListView(m_splitter);
         QWidget *widget = new QWidget(m_splitter);
@@ -107,9 +112,12 @@ public:
 
         ModuleDataModel *model = new ModuleDataModel(view);
         model->setModuleObject(q);
-        QObject::connect(q, &VListModule::currentModuleChanged, m_splitter, [this](ModuleObject *child) {
-            onCurrentModuleChanged(child);
-        });
+        QObject::connect(q,
+                         &VListModule::currentModuleChanged,
+                         m_splitter,
+                         [this](ModuleObject *child) {
+                             onCurrentModuleChanged(child);
+                         });
 
         view->setModel(model);
         view->setFrameShape(QFrame::NoFrame);
@@ -139,23 +147,36 @@ public:
 
         QObject::connect(m_view, &DListView::activated, m_view, &DListView::clicked);
         QObject::connect(m_view, &DListView::clicked, m_view, onClicked);
-        QObject::connect(q, &ModuleObject::insertedChild, m_view, [this](ModuleObject *const childModule) { onAddChild(childModule); });
-        QObject::connect(q, &ModuleObject::removedChild, m_view, [this](ModuleObject *const childModule) { onRemoveChild(childModule); });
-        QObject::connect(q, &ModuleObject::childStateChanged, m_view, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-            if (ModuleObject::IsHiddenFlag(flag)) {
-                if (state)
-                    onRemoveChild(tmpChild);
-                else
-                    onAddChild(tmpChild);
-            }
-        });
-        m_childMargin = 0;//20;
+        QObject::connect(q,
+                         &ModuleObject::insertedChild,
+                         m_view,
+                         [this](ModuleObject *const childModule) {
+                             onAddChild(childModule);
+                         });
+        QObject::connect(q,
+                         &ModuleObject::removedChild,
+                         m_view,
+                         [this](ModuleObject *const childModule) {
+                             onRemoveChild(childModule);
+                         });
+        QObject::connect(q,
+                         &ModuleObject::childStateChanged,
+                         m_view,
+                         [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+                             if (ModuleObject::IsHiddenFlag(flag)) {
+                                 if (state)
+                                     onRemoveChild(tmpChild);
+                                 else
+                                     onAddChild(tmpChild);
+                             }
+                         });
+        m_childMargin = 0; // 20;
         if (qobject_cast<HListModule *>(q->getParent())) {
-            m_childMargin = 0;//10;
+            m_childMargin = 0; // 10;
             m_view->setContentsMargins(10, 0, 10, 10);
         }
         onCurrentModuleChanged(q->currentModule());
-        m_splitter->setSizes({200,600});
+        m_splitter->setSizes({ 200, 600 });
         return m_splitter;
     }
 
@@ -170,7 +191,7 @@ private:
     QList<DCC_NAMESPACE::ModuleObject *> m_extraModules;
     int m_childMargin;
 };
-}
+} // namespace DCC_NAMESPACE
 
 VListModule::VListModule(QObject *parent)
     : ModuleObject(parent)
@@ -190,45 +211,65 @@ VListModule::VListModule(const QString &name, const QStringList &contentText, QO
 {
 }
 
-VListModule::VListModule(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent)
+VListModule::VListModule(const QString &name,
+                         const QString &displayName,
+                         const QStringList &contentText,
+                         QObject *parent)
     : ModuleObject(name, displayName, contentText, parent)
     , DCC_INIT_PRIVATE(VListModule)
 {
 }
 
-VListModule::VListModule(const QString &name, const QString &displayName, const QVariant &icon, QObject *parent)
+VListModule::VListModule(const QString &name,
+                         const QString &displayName,
+                         const QVariant &icon,
+                         QObject *parent)
     : ModuleObject(name, displayName, icon, parent)
     , DCC_INIT_PRIVATE(VListModule)
 {
 }
 
-VListModule::VListModule(const QString &name, const QString &displayName, const QString &description, QObject *parent)
+VListModule::VListModule(const QString &name,
+                         const QString &displayName,
+                         const QString &description,
+                         QObject *parent)
     : ModuleObject(name, displayName, description, parent)
     , DCC_INIT_PRIVATE(VListModule)
 {
 }
 
-VListModule::VListModule(const QString &name, const QString &displayName, const QString &description, const QVariant &icon, QObject *parent)
+VListModule::VListModule(const QString &name,
+                         const QString &displayName,
+                         const QString &description,
+                         const QVariant &icon,
+                         QObject *parent)
     : ModuleObject(name, displayName, description, icon, parent)
     , DCC_INIT_PRIVATE(VListModule)
 {
 }
 
-VListModule::VListModule(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent)
+VListModule::VListModule(const QString &name,
+                         const QString &displayName,
+                         const QString &description,
+                         const QIcon &icon,
+                         QObject *parent)
     : ModuleObject(name, displayName, description, icon, parent)
     , DCC_INIT_PRIVATE(VListModule)
 {
 }
 
-VListModule::VListModule(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent)
+VListModule::VListModule(const QString &name,
+                         const QString &displayName,
+                         const QString &description,
+                         const QStringList &contentText,
+                         const QVariant &icon,
+                         QObject *parent)
     : ModuleObject(name, displayName, description, contentText, icon, parent)
     , DCC_INIT_PRIVATE(VListModule)
 {
 }
 
-VListModule::~VListModule()
-{
-}
+VListModule::~VListModule() { }
 
 QWidget *VListModule::page()
 {

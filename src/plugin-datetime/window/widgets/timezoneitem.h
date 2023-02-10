@@ -26,18 +26,16 @@
 #ifndef TIMEZONEITEM_H
 #define TIMEZONEITEM_H
 
-#include "widgets/settingsitem.h"
 #include "timezoneclock.h"
+#include "widgets/settingsitem.h"
 #include "zoneinfo.h"
 
 #include <DIconButton>
 #include <DTipLabel>
 
+#include <QHBoxLayout>
 #include <QLabel>
 #include <QString>
-#include <QHBoxLayout>
-
-
 
 class TimezoneItem : public DCC_NAMESPACE::SettingsItem
 {

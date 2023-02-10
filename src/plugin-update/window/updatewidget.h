@@ -44,17 +44,13 @@ class AppUpdateInfo;
 
 class UpdateModel;
 class UpdateWorker;
+
 class UpdateWidget : public QWidget
 {
     Q_OBJECT
 public:
-    enum UpdateType {
-        Default = -1,
-        UpdateCheck,
-        UpdateSetting,
-        UpdateSettingMir,
-        Count
-    };
+    enum UpdateType { Default = -1, UpdateCheck, UpdateSetting, UpdateSettingMir, Count };
+
 public:
     explicit UpdateWidget(QWidget *parent = nullptr);
     ~UpdateWidget();
@@ -85,10 +81,9 @@ private:
     QVBoxLayout *m_layout;
     UpdateModel *m_model;
     UpdateWorker *m_work;
-    QVBoxLayout *m_centerLayout;    
-    QLabel *m_label;//System Version display
+    QVBoxLayout *m_centerLayout;
+    QLabel *m_label; // System Version display
     QString m_systemVersion;
-    QTimer *m_lastoreHeartBeatTimer;            // lastore-daemon 心跳信号，防止lastore-daemon自动退出
+    QTimer *m_lastoreHeartBeatTimer; // lastore-daemon 心跳信号，防止lastore-daemon自动退出
     UpdatesStatus m_updateState;
 };
-

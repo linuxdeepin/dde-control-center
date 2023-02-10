@@ -1,11 +1,13 @@
 #ifndef UPDATEJOBDBUSPROXY_H
 #define UPDATEJOBDBUSPROXY_H
 
-#include <QObject>
 #include <dccdbusinterface.h>
+
+#include <QObject>
 
 class QDBusMessage;
 class QDBusInterface;
+
 class UpdateJobDBusProxy : public QObject
 {
     Q_OBJECT
@@ -14,6 +16,7 @@ public:
     ~UpdateJobDBusProxy();
 
     bool isValid() const;
+
 public:
     Q_PROPERTY(bool Cancelable READ cancelable NOTIFY CancelableChanged)
     bool cancelable();
@@ -54,18 +57,18 @@ public:
 signals:
     void Notify(int in0);
     // begin property changed signals
-    void CancelableChanged(bool  value) const;
-    void CreateTimeChanged(qlonglong  value) const;
-    void DescriptionChanged(const QString & value) const;
-    void ElapsedTimeChanged(int  value) const;
-    void IdChanged(const QString & value) const;
-    void NameChanged(const QString & value) const;
-    void PackageIdChanged(const QString & value) const;
-    void PackagesChanged(const QStringList & value) const;
-    void ProgressChanged(double  value) const;
-    void SpeedChanged(qlonglong  value) const;
-    void StatusChanged(const QString & value) const;
-    void TypeChanged(const QString & value) const;
+    void CancelableChanged(bool value) const;
+    void CreateTimeChanged(qlonglong value) const;
+    void DescriptionChanged(const QString &value) const;
+    void ElapsedTimeChanged(int value) const;
+    void IdChanged(const QString &value) const;
+    void NameChanged(const QString &value) const;
+    void PackageIdChanged(const QString &value) const;
+    void PackagesChanged(const QStringList &value) const;
+    void ProgressChanged(double value) const;
+    void SpeedChanged(qlonglong value) const;
+    void StatusChanged(const QString &value) const;
+    void TypeChanged(const QString &value) const;
 
 private:
     DCC_NAMESPACE::DCCDBusInterface *m_updateJobInter;

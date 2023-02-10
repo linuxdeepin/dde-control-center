@@ -26,6 +26,8 @@
 #include "shortcutmodel.h"
 
 #include <DSysInfo>
+
+#include <QApplication>
 #include <QDBusInterface>
 #include <QDebug>
 #include <QJsonArray>
@@ -33,53 +35,48 @@
 #include <QJsonObject>
 #include <QJsonValue>
 #include <QThreadPool>
-#include <QApplication>
 
-QStringList systemFilter = {"terminal",
-                            "terminal-quake",
-                            "global-search",
-                            "screenshot",
-                            "screenshot-delayed",
-                            "screenshot-fullscreen",
-                            "screenshot-window",
-                            "screenshot-scroll",
-                            "screenshot-ocr",
-                            "deepin-screen-recorder",
-                            "switch-group",
-                            "switch-group-backward",
-                            "preview-workspace",
-                            "expose-windows",
-                            "expose-all-windows",
-                            "launcher",
-                            "switch-applications",
-                            "switch-applications-backward",
-                            "show-desktop",
-                            "file-manager",
-                            "lock-screen",
-                            "logout",
-                            "wm-switcher",
-                            "system-monitor",
-                            "color-picker",
-                            "clipboard"};
+QStringList systemFilter = { "terminal",
+                             "terminal-quake",
+                             "global-search",
+                             "screenshot",
+                             "screenshot-delayed",
+                             "screenshot-fullscreen",
+                             "screenshot-window",
+                             "screenshot-scroll",
+                             "screenshot-ocr",
+                             "deepin-screen-recorder",
+                             "switch-group",
+                             "switch-group-backward",
+                             "preview-workspace",
+                             "expose-windows",
+                             "expose-all-windows",
+                             "launcher",
+                             "switch-applications",
+                             "switch-applications-backward",
+                             "show-desktop",
+                             "file-manager",
+                             "lock-screen",
+                             "logout",
+                             "wm-switcher",
+                             "system-monitor",
+                             "color-picker",
+                             "clipboard" };
 
-const QStringList &windowFilter = {"maximize",
-                                   "unmaximize",
-                                   "minimize",
-                                   "begin-move",
-                                   "begin-resize",
-                                   "close"};
+const QStringList &windowFilter = { "maximize",   "unmaximize",   "minimize",
+                                    "begin-move", "begin-resize", "close" };
 
-const QStringList &workspaceFilter = {"switch-to-workspace-left",
-                                      "switch-to-workspace-right",
-                                      "move-to-workspace-left",
-                                      "move-to-workspace-right"};
+const QStringList &workspaceFilter = { "switch-to-workspace-left",
+                                       "switch-to-workspace-right",
+                                       "move-to-workspace-left",
+                                       "move-to-workspace-right" };
 
-const QStringList &assistiveToolsFilter = {"ai-assistant",
-                                           "text-to-speech",
-                                           "speech-to-text",
-                                           "translation"};
+const QStringList &assistiveToolsFilter = {
+    "ai-assistant", "text-to-speech", "speech-to-text", "translation"
+};
 
 using namespace DCC_NAMESPACE;
+
 DCORE_USE_NAMESPACE
 ShortcutModel::ShortcutModel(QObject *parent)
     : QObject(parent)
@@ -182,14 +179,14 @@ void ShortcutModel::onParseInfo(const QString &info)
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
 
     Q_FOREACH (QJsonValue value, array) {
-        QJsonObject obj  = value.toObject();
-        int         type = obj["Type"].toInt();
+        QJsonObject obj = value.toObject();
+        int type = obj["Type"].toInt();
 
         ShortcutInfo *info = new ShortcutInfo();
-        info->type         = type;
-        info->accels       = obj["Accels"].toArray().first().toString();
-        info->name    = obj["Name"].toString();
-        info->id      = obj["Id"].toString();
+        info->type = type;
+        info->accels = obj["Accels"].toArray().first().toString();
+        info->name = obj["Name"].toString();
+        info->id = obj["Id"].toString();
         info->command = obj["Exec"].toString();
 
         m_infos << info;
@@ -217,21 +214,26 @@ void ShortcutModel::onParseInfo(const QString &info)
         }
     }
 
-    std::sort(m_systemInfos.begin(), m_systemInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    std::sort(m_systemInfos.begin(), m_systemInfos.end(), [=](ShortcutInfo *s1, ShortcutInfo *s2) {
         return systemShortKeys.indexOf(s1->id) < systemShortKeys.indexOf(s2->id);
     });
 
-    std::sort(m_windowInfos.begin(), m_windowInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
+    std::sort(m_windowInfos.begin(), m_windowInfos.end(), [=](ShortcutInfo *s1, ShortcutInfo *s2) {
         return windowFilter.indexOf(s1->id) < windowFilter.indexOf(s2->id);
     });
 
-    std::sort(m_workspaceInfos.begin(), m_workspaceInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
-        return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
-    });
+    std::sort(m_workspaceInfos.begin(),
+              m_workspaceInfos.end(),
+              [=](ShortcutInfo *s1, ShortcutInfo *s2) {
+                  return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
+              });
 
-    std::sort(m_assistiveToolsInfos.begin(), m_assistiveToolsInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
-        return assistiveToolsFilter.indexOf(s1->id) < assistiveToolsFilter.indexOf(s2->id);
-    });
+    std::sort(m_assistiveToolsInfos.begin(),
+              m_assistiveToolsInfos.end(),
+              [=](ShortcutInfo *s1, ShortcutInfo *s2) {
+                  return assistiveToolsFilter.indexOf(s1->id)
+                          < assistiveToolsFilter.indexOf(s2->id);
+              });
 
     Q_EMIT listChanged(m_systemInfos, InfoType::System);
     Q_EMIT listChanged(m_windowInfos, InfoType::Window);
@@ -242,15 +244,15 @@ void ShortcutModel::onParseInfo(const QString &info)
 
 void ShortcutModel::onCustomInfo(const QString &json)
 {
-    QJsonObject   obj  = QJsonDocument::fromJson(json.toStdString().c_str()).object();
+    QJsonObject obj = QJsonDocument::fromJson(json.toStdString().c_str()).object();
     ShortcutInfo *info = new ShortcutInfo();
-    info->type         = obj["Type"].toInt();
-    QString accels     = obj["Accels"].toArray().at(0).toString();
+    info->type = obj["Type"].toInt();
+    QString accels = obj["Accels"].toArray().at(0).toString();
 
     info->accels = accels;
 
-    info->name    = obj["Name"].toString();
-    info->id      = obj["Id"].toString();
+    info->name = obj["Name"].toString();
+    info->id = obj["Id"].toString();
     info->command = obj["Exec"].toString();
     m_infos.append(info);
     m_customInfos.append(info);
@@ -259,16 +261,16 @@ void ShortcutModel::onCustomInfo(const QString &json)
 
 void ShortcutModel::onKeyBindingChanged(const QString &value)
 {
-    const QJsonObject &obj       = QJsonDocument::fromJson(value.toStdString().c_str()).object();
-    const QString     &update_id = obj["Id"].toString();
-    auto res = std::find_if(m_infos.begin(), m_infos.end(), [ = ] (const ShortcutInfo *info)->bool{
+    const QJsonObject &obj = QJsonDocument::fromJson(value.toStdString().c_str()).object();
+    const QString &update_id = obj["Id"].toString();
+    auto res = std::find_if(m_infos.begin(), m_infos.end(), [=](const ShortcutInfo *info) -> bool {
         return info->id == update_id;
     });
 
     if (res != m_infos.end()) {
         (*res)->type = obj["Type"].toInt();
-        (*res)->accels  = obj["Accels"].toArray().first().toString();
-        (*res)->name    = obj["Name"].toString();
+        (*res)->accels = obj["Accels"].toArray().first().toString();
+        (*res)->name = obj["Name"].toString();
         (*res)->command = obj["Exec"].toString();
 
         Q_EMIT shortcutChanged((*res));
@@ -282,10 +284,10 @@ void ShortcutModel::onWindowSwitchChanged(bool value)
     }
 }
 
- bool ShortcutModel::getWindowSwitch()
- {
-     return m_windowSwitchState;
- }
+bool ShortcutModel::getWindowSwitch()
+{
+    return m_windowSwitchState;
+}
 
 ShortcutInfo *ShortcutModel::currentInfo() const
 {
@@ -299,8 +301,10 @@ void ShortcutModel::setCurrentInfo(ShortcutInfo *currentInfo)
 
 ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
 {
-    auto res = std::find_if(m_infos.begin(), m_infos.end(), [ = ] (const ShortcutInfo *info)->bool{
-        return !QString::compare(info->accels, shortcut, Qt::CaseInsensitive); //判断是否相等，相等则返回0
+    auto res = std::find_if(m_infos.begin(), m_infos.end(), [=](const ShortcutInfo *info) -> bool {
+        return !QString::compare(info->accels,
+                                 shortcut,
+                                 Qt::CaseInsensitive); // 判断是否相等，相等则返回0
     });
 
     if (res != m_infos.end()) {
@@ -323,13 +327,13 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
 
     QJsonArray array = QJsonDocument::fromJson(searchResult.toStdString().c_str()).array();
     for (auto value : array) {
-        QJsonObject obj  = value.toObject();
-        int         type = obj["Type"].toInt();
+        QJsonObject obj = value.toObject();
+        int type = obj["Type"].toInt();
         ShortcutInfo *info = new ShortcutInfo();
-        info->type         = type;
-        info->accels       = obj["Accels"].toArray().first().toString();
-        info->name    = obj["Name"].toString();
-        info->id      = obj["Id"].toString();
+        info->type = type;
+        info->accels = obj["Accels"].toArray().first().toString();
+        info->name = obj["Name"].toString();
+        info->id = obj["Id"].toString();
         info->command = obj["Exec"].toString();
 
         if (type != MEDIAKEY) {
@@ -352,7 +356,7 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
 
             if (type == 1) {
                 customInfoList << info;
-            }else{
+            } else {
                 delete info;
                 info = nullptr;
             }
@@ -364,15 +368,21 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
         }
     }
 
-    std::sort(systemInfoList.begin(), systemInfoList.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
-        return systemFilter.indexOf(s1->id) < systemFilter.indexOf(s2->id);
-    });
-    std::sort(windowInfoList.begin(), windowInfoList.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
-        return windowFilter.indexOf(s1->id) < windowFilter.indexOf(s2->id);
-    });
-    std::sort(workspaceInfoList.begin(), workspaceInfoList.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
-        return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
-    });
+    std::sort(systemInfoList.begin(),
+              systemInfoList.end(),
+              [=](ShortcutInfo *s1, ShortcutInfo *s2) {
+                  return systemFilter.indexOf(s1->id) < systemFilter.indexOf(s2->id);
+              });
+    std::sort(windowInfoList.begin(),
+              windowInfoList.end(),
+              [=](ShortcutInfo *s1, ShortcutInfo *s2) {
+                  return windowFilter.indexOf(s1->id) < windowFilter.indexOf(s2->id);
+              });
+    std::sort(workspaceInfoList.begin(),
+              workspaceInfoList.end(),
+              [=](ShortcutInfo *s1, ShortcutInfo *s2) {
+                  return workspaceFilter.indexOf(s1->id) < workspaceFilter.indexOf(s2->id);
+              });
     m_searchList.append(systemInfoList);
     m_searchList.append(windowInfoList);
     m_searchList.append(workspaceInfoList);

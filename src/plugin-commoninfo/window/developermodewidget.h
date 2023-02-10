@@ -20,11 +20,12 @@
  */
 
 #pragma once
-#include "interface/namespace.h"
 #include "developermodedialog.h"
+#include "interface/namespace.h"
+
+#include <DLabel>
 
 #include <QWidget>
-#include <DLabel>
 
 class QPushButton;
 class QDBusInterface;
@@ -52,12 +53,12 @@ public Q_SLOTS:
     void updateDeveloperModeState(const bool state);
 
 private:
-    bool m_enterDev{false};
+    bool m_enterDev{ false };
     QPushButton *m_devBtn;
-    CommonInfoModel *m_model{nullptr};    
+    CommonInfoModel *m_model{ nullptr };
     QDBusInterface *m_inter;
     DTK_NAMESPACE::Widget::DLabel *m_lab;
     DTK_NAMESPACE::Widget::DLabel *m_dtip;
     DeveloperModeDialog *m_developerDialog;
 };
-}
+} // namespace DCC_NAMESPACE

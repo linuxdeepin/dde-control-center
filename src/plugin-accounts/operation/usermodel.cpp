@@ -38,7 +38,6 @@ UserModel::UserModel(QObject *parent)
     , m_isADUserLogind(false)
     , m_isSecurityHighLever(false)
 {
-
 }
 
 UserModel::~UserModel()
@@ -46,14 +45,14 @@ UserModel::~UserModel()
     qDeleteAll(m_userList.values());
 }
 
-User * UserModel::getUser(const QString &id)
+User *UserModel::getUser(const QString &id)
 {
     return m_userList.value(id, nullptr);
 }
 
 QList<User *> UserModel::userList() const
 {
-    for(auto user : m_userList) {
+    for (auto user : m_userList) {
         if (m_onlineUsers.contains(user->name()))
             user->setOnline(true);
         else

@@ -1,8 +1,8 @@
 #include "updatejobdbusproxy.h"
 
 #include <QDBusInterface>
-#include <QDBusPendingReply>
 #include <QDBusMetaType>
+#include <QDBusPendingReply>
 #include <QDBusReply>
 #include <QDebug>
 
@@ -19,7 +19,8 @@ const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 UpdateJobDBusProxy::UpdateJobDBusProxy(const QString &jobPath, QObject *parent)
     : QObject(parent)
-    , m_updateJobInter(new DCC_NAMESPACE::DCCDBusInterface(UpdaterService, jobPath, UpdaterJobInterface, QDBusConnection::systemBus(), this))
+    , m_updateJobInter(new DCC_NAMESPACE::DCCDBusInterface(
+              UpdaterService, jobPath, UpdaterJobInterface, QDBusConnection::systemBus(), this))
 {
 }
 

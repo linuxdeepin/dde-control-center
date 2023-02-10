@@ -1,16 +1,17 @@
-#include "widgets/finger/addfingedialog.h"
 #include "fingerdetailwidget.h"
+
 #include "charamangermodel.h"
+#include "widgets/finger/addfingedialog.h"
 
 #include <DApplicationHelper>
 #include <DFontSizeManager>
 #include <DTipLabel>
 
-#include <QVBoxLayout>
 #include <QLabel>
-#include <QScrollArea>
 #include <QPalette>
+#include <QScrollArea>
 #include <QSize>
+#include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -23,14 +24,11 @@ FingerDetailWidget::FingerDetailWidget(QWidget *parent)
 {
 }
 
-FingerDetailWidget::~FingerDetailWidget()
-{
-
-}
+FingerDetailWidget::~FingerDetailWidget() { }
 
 void FingerDetailWidget::initFingerUI()
 {
-    //整体布局
+    // 整体布局
     QVBoxLayout *mainContentLayout = new QVBoxLayout(this);
     mainContentLayout->setContentsMargins(0, 10, 0, 0);
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
@@ -43,11 +41,23 @@ void FingerDetailWidget::initFingerUI()
     setLayout(mainContentLayout);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
 
-    //指纹界面操作
-    connect(m_fingerWidget, &FingerWidget::requestAddThumbs, this, &FingerDetailWidget::showFingeDisclaimer);
-    connect(m_fingerWidget, &FingerWidget::requestDeleteFingerItem, this, &FingerDetailWidget::requestDeleteFingerItem);
-    connect(m_fingerWidget, &FingerWidget::requestRenameFingerItem, this, &FingerDetailWidget::requestRenameFingerItem);
-    connect(m_fingerWidget, &FingerWidget::noticeEnrollCompleted, this, &FingerDetailWidget::noticeEnrollCompleted);
+    // 指纹界面操作
+    connect(m_fingerWidget,
+            &FingerWidget::requestAddThumbs,
+            this,
+            &FingerDetailWidget::showFingeDisclaimer);
+    connect(m_fingerWidget,
+            &FingerWidget::requestDeleteFingerItem,
+            this,
+            &FingerDetailWidget::requestDeleteFingerItem);
+    connect(m_fingerWidget,
+            &FingerWidget::requestRenameFingerItem,
+            this,
+            &FingerDetailWidget::requestRenameFingerItem);
+    connect(m_fingerWidget,
+            &FingerWidget::noticeEnrollCompleted,
+            this,
+            &FingerDetailWidget::noticeEnrollCompleted);
 }
 
 void FingerDetailWidget::initNotFingerDevice()
@@ -68,15 +78,15 @@ void FingerDetailWidget::initNotFingerDevice()
     pal.setColor(QPalette::Text, base_color);
     tip->setPalette(pal);
 
-    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
-    this, [ = ](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
-        Q_UNUSED(themeType);
-        pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
-
-    });
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(),
+            &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
+            this,
+            [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
+                Q_UNUSED(themeType);
+                pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
+            });
     pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
     pNotDevice->setAlignment(Qt::AlignHCenter);
-
 
     mainContentLayout->addWidget(pNotDevice);
     mainContentLayout->addWidget(tip);
@@ -113,12 +123,12 @@ void FingerDetailWidget::showDeviceStatus(bool hasDevice)
 void FingerDetailWidget::showAddFingeDialog(const QString &name, const QString &thumb)
 {
     AddFingeDialog *dlg = new AddFingeDialog(thumb, this);
-    connect(dlg, &AddFingeDialog::requestEnrollThumb, this, [ = ] {
+    connect(dlg, &AddFingeDialog::requestEnrollThumb, this, [=] {
         dlg->deleteLater();
         showAddFingeDialog(name, thumb);
     });
     connect(dlg, &AddFingeDialog::requestStopEnroll, this, &FingerDetailWidget::requestStopEnroll);
-    connect(dlg, &AddFingeDialog::requesetCloseDlg, dlg, [ = ](const QString & userName) {
+    connect(dlg, &AddFingeDialog::requesetCloseDlg, dlg, [=](const QString &userName) {
         Q_EMIT noticeEnrollCompleted(userName);
         if (m_disclaimer != nullptr) {
             m_disclaimer->close();
@@ -128,7 +138,7 @@ void FingerDetailWidget::showAddFingeDialog(const QString &name, const QString &
         dlg->deleteLater();
     });
 
-    connect(m_model, &CharaMangerModel::enrollResult, dlg, [ = ](CharaMangerModel::EnrollResult res) {
+    connect(m_model, &CharaMangerModel::enrollResult, dlg, [=](CharaMangerModel::EnrollResult res) {
         // 第一次tryEnroll进入时显示添加指纹对话框
         if (res == CharaMangerModel::Enroll_Success) {
             m_model->resetProgress();
@@ -163,7 +173,10 @@ void FingerDetailWidget::setFingerModel(CharaMangerModel *model)
 
     m_model = model;
     m_fingerWidget->setFingerModel(model);
-    connect(model, &CharaMangerModel::vaildFingerChanged, this, &FingerDetailWidget::showDeviceStatus);
+    connect(model,
+            &CharaMangerModel::vaildFingerChanged,
+            this,
+            &FingerDetailWidget::showDeviceStatus);
     showDeviceStatus(model->fingerVaild());
 }
 
@@ -175,14 +188,13 @@ void FingerDetailWidget::showFingeDisclaimer(const QString &name, const QString 
     m_disclaimer = new FingerDisclaimer(this);
     m_disclaimer->setVisible(true);
 
-    connect(m_disclaimer, &FingerDisclaimer::requestShowFingeInfoDialog, this, [ = ] {
+    connect(m_disclaimer, &FingerDisclaimer::requestShowFingeInfoDialog, this, [=] {
         m_disclaimer->setVisible(false);
         showAddFingeDialog(name, thumb);
     });
 
-    connect(m_disclaimer, &FingerDisclaimer::requesetCloseDlg, this, [ = ] {
-        if (m_disclaimer != nullptr)
-        {
+    connect(m_disclaimer, &FingerDisclaimer::requesetCloseDlg, this, [=] {
+        if (m_disclaimer != nullptr) {
             delete m_disclaimer;
             m_disclaimer = nullptr;
         }

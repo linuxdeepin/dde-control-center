@@ -20,22 +20,24 @@
  */
 
 #include "shortcutsettingwidget.h"
+
 #include "operation/shortcutmodel.h"
+#include "searchinput.h"
 #include "shortcutitem.h"
+#include "widgets/settingsgroup.h"
 #include "widgets/settingshead.h"
 #include "widgets/settingsheaderitem.h"
-#include "widgets/settingsgroup.h"
-#include "searchinput.h"
 
 #include <DAnchors>
 #include <DSysInfo>
 
 #include <QLineEdit>
-#include <QTimer>
 #include <QPushButton>
+#include <QTimer>
 
 DCORE_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
+
 ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *parent)
     : QWidget(parent)
     , m_workspaceGroup(nullptr)
@@ -73,7 +75,8 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
         m_workspaceGroup->appendItem(m_workspaceHead, SettingsGroup::NoneBackground);
     }
 
-    if (DSysInfo::UosServer != DSysInfo::uosType() && DSysInfo::UosCommunity != DSysInfo::uosEditionType()) {
+    if (DSysInfo::UosServer != DSysInfo::uosType()
+        && DSysInfo::UosCommunity != DSysInfo::uosEditionType()) {
         SettingsHead *speechHead = new SettingsHead();
         speechHead->setTitle(tr("Assistive Tools"));
         speechHead->setEditEnable(false);
@@ -104,7 +107,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     vlayout->setMargin(0);
     vlayout->setSpacing(10);
-    //vlayout->addSpacing(10);
+    // vlayout->addSpacing(10);
 
     m_layout = new QVBoxLayout;
     m_layout->setContentsMargins(0, 0, 0, 0);
@@ -125,7 +128,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addWidget(m_customGroup);
 
     m_resetBtn = new QPushButton(tr("Restore Defaults"));
-    //m_layout->setMargin(10);
+    // m_layout->setMargin(10);
     m_layout->addWidget(m_resetBtn);
     m_layout->addSpacing(10);
     m_layout->addStretch();
@@ -142,23 +145,32 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     vlayout->setContentsMargins(0, 10, 0, 5);
     setLayout(vlayout);
 
-    connect(m_resetBtn, &QPushButton::clicked, this, [ = ] {
+    connect(m_resetBtn, &QPushButton::clicked, this, [=] {
         if (!m_bIsResting) {
             m_bIsResting = true;
             Q_EMIT requestReset();
         }
     });
 
-    connect(m_searchInput, &QLineEdit::textChanged, this, &ShortCutSettingWidget::onSearchTextChanged);
+    connect(m_searchInput,
+            &QLineEdit::textChanged,
+            this,
+            &ShortCutSettingWidget::onSearchTextChanged);
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortCutSettingWidget::prepareSearchKeys);
     setWindowTitle(tr("Shortcut"));
 
     connect(m_model, &ShortcutModel::addCustomInfo, this, &ShortCutSettingWidget::onCustomAdded);
-    //每次页面点击时会通过m_work->refreshShortcut()时,model会发出listChanged信号，对界面进行初始化
+    // 每次页面点击时会通过m_work->refreshShortcut()时,model会发出listChanged信号，对界面进行初始化
     connect(m_model, &ShortcutModel::listChanged, this, &ShortCutSettingWidget::addShortcut);
-    connect(m_model, &ShortcutModel::shortcutChanged, this, &ShortCutSettingWidget::onShortcutChanged);
+    connect(m_model,
+            &ShortcutModel::shortcutChanged,
+            this,
+            &ShortCutSettingWidget::onShortcutChanged);
     connect(m_model, &ShortcutModel::keyEvent, this, &ShortCutSettingWidget::onKeyEvent);
-    connect(m_model, &ShortcutModel::searchFinished, this, &ShortCutSettingWidget::onSearchStringFinish);
+    connect(m_model,
+            &ShortcutModel::searchFinished,
+            this,
+            &ShortCutSettingWidget::onSearchStringFinish);
 
     QTimer::singleShot(10, this, [=] {
         widget->show();
@@ -187,20 +199,20 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
         }
         return;
     }
-    QMap<ShortcutModel::InfoType, QList<ShortcutItem *>*> InfoMap {
-        {ShortcutModel::System, &m_systemList},
-        {ShortcutModel::Window, &m_windowList},
-        {ShortcutModel::Workspace, &m_workspaceList},
-        {ShortcutModel::AssistiveTools, &m_assistiveToolsList},
-        {ShortcutModel::Custom, &m_customList}
+    QMap<ShortcutModel::InfoType, QList<ShortcutItem *> *> InfoMap{
+        { ShortcutModel::System, &m_systemList },
+        { ShortcutModel::Window, &m_windowList },
+        { ShortcutModel::Workspace, &m_workspaceList },
+        { ShortcutModel::AssistiveTools, &m_assistiveToolsList },
+        { ShortcutModel::Custom, &m_customList }
     };
 
-    QMap<ShortcutModel::InfoType, SettingsGroup *> GroupMap {
-        {ShortcutModel::System, m_systemGroup},
-        {ShortcutModel::Window, m_windowGroup},
-        {ShortcutModel::Workspace, m_workspaceGroup},
-        {ShortcutModel::AssistiveTools, m_assistiveToolsGroup},
-        {ShortcutModel::Custom, m_customGroup}
+    QMap<ShortcutModel::InfoType, SettingsGroup *> GroupMap{
+        { ShortcutModel::System, m_systemGroup },
+        { ShortcutModel::Window, m_windowGroup },
+        { ShortcutModel::Workspace, m_workspaceGroup },
+        { ShortcutModel::AssistiveTools, m_assistiveToolsGroup },
+        { ShortcutModel::Custom, m_customGroup }
     };
 
     QList<ShortcutItem *> *itemList{ InfoMap[type] };
@@ -219,7 +231,10 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
         ShortcutInfo *info = *it;
         ShortcutItem *item = new ShortcutItem();
         item->setAccessibleName(info->name);
-        connect(item, &ShortcutItem::requestUpdateKey, this, &ShortCutSettingWidget::requestUpdateKey);
+        connect(item,
+                &ShortcutItem::requestUpdateKey,
+                this,
+                &ShortCutSettingWidget::requestUpdateKey);
         item->setShortcutInfo(info);
         item->setTitle(info->name);
         info->item = item;
@@ -254,8 +269,14 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
             if (m_customGroup->itemCount() > 1)
                 m_head->setVisible(true);
 
-            connect(item, &ShortcutItem::requestRemove, this, &ShortCutSettingWidget::onDestroyItem);
-            connect(item, &ShortcutItem::shortcutEditChanged, this, &ShortCutSettingWidget::shortcutEditChanged);
+            connect(item,
+                    &ShortcutItem::requestRemove,
+                    this,
+                    &ShortCutSettingWidget::onDestroyItem);
+            connect(item,
+                    &ShortcutItem::shortcutEditChanged,
+                    this,
+                    &ShortCutSettingWidget::shortcutEditChanged);
             break;
         default:
             break;
@@ -327,7 +348,6 @@ void ShortCutSettingWidget::modifyStatus(bool status)
                 m_layout->insertWidget(4, m_customGroup);
             }
         }
-
     }
 }
 
@@ -347,7 +367,10 @@ void ShortCutSettingWidget::onCustomAdded(ShortcutInfo *info)
 {
     if (info) {
         ShortcutItem *item = new ShortcutItem();
-        connect(item, &ShortcutItem::requestUpdateKey, this, &ShortCutSettingWidget::requestUpdateKey);
+        connect(item,
+                &ShortcutItem::requestUpdateKey,
+                this,
+                &ShortCutSettingWidget::requestUpdateKey);
         item->setShortcutInfo(info);
         item->setTitle(info->name);
         info->item = item;
@@ -362,7 +385,10 @@ void ShortCutSettingWidget::onCustomAdded(ShortcutInfo *info)
         m_customList.append(item);
 
         connect(item, &ShortcutItem::requestRemove, this, &ShortCutSettingWidget::onDestroyItem);
-        connect(item, &ShortcutItem::shortcutEditChanged, this, &ShortCutSettingWidget::shortcutEditChanged);
+        connect(item,
+                &ShortcutItem::shortcutEditChanged,
+                this,
+                &ShortCutSettingWidget::shortcutEditChanged);
     }
 }
 
@@ -389,7 +415,7 @@ void ShortCutSettingWidget::onSearchInfo(ShortcutInfo *info, const QString &key)
     }
 }
 
-void ShortCutSettingWidget::onSearchStringFinish(const QList<ShortcutInfo*> searchList)
+void ShortCutSettingWidget::onSearchStringFinish(const QList<ShortcutInfo *> searchList)
 {
     for (int i = 0; i != m_searchGroup->itemCount(); ++i) {
         m_searchGroup->getItem(i)->deleteLater();
@@ -405,7 +431,10 @@ void ShortCutSettingWidget::onSearchStringFinish(const QList<ShortcutInfo*> sear
             continue;
 
         ShortcutItem *item = new ShortcutItem;
-        connect(item, &ShortcutItem::requestUpdateKey, this, &ShortCutSettingWidget::requestUpdateKey);
+        connect(item,
+                &ShortcutItem::requestUpdateKey,
+                this,
+                &ShortCutSettingWidget::requestUpdateKey);
         item->setShortcutInfo(list[i]);
         item->setTitle(list[i]->name);
         item->setFixedHeight(36);
@@ -490,4 +519,3 @@ void ShortCutSettingWidget::onResetFinished()
 {
     m_bIsResting = false;
 }
-

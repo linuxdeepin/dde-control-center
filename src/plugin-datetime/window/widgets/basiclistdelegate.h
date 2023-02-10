@@ -27,12 +27,11 @@
 #define BASICLISTDELEGATE_H
 
 #include <QAbstractItemDelegate>
-#include <QIcon>
 #include <QApplication>
+#include <QIcon>
 #include <QImageReader>
 
 QPixmap loadPixmap(const QString &path);
-
 
 class BasicListDelegate : public QAbstractItemDelegate
 {
@@ -41,9 +40,10 @@ class BasicListDelegate : public QAbstractItemDelegate
 public:
     explicit BasicListDelegate(QObject *parent = 0);
 
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void paint(QPainter *painter,
+               const QStyleOptionViewItem &option,
+               const QModelIndex &index) const;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
-
 
 #endif // BASICLISTDELEGATE_H

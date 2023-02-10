@@ -26,13 +26,13 @@
 #ifndef CUSTOMITEM_H
 #define CUSTOMITEM_H
 
-#include <QWidget>
-#include <QLineEdit>
-#include <QLabel>
-
 #include "interface/namespace.h"
 #include "shortcutitem.h"
 #include "widgets/settingsitem.h"
+
+#include <QLabel>
+#include <QLineEdit>
+#include <QWidget>
 
 class ShortcutKey;
 
@@ -63,6 +63,6 @@ private:
     ShortcutKey *m_shortKey;
     bool isAlert;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // CUSTOMITEM_H

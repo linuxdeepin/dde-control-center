@@ -19,8 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "notificationmodel.h"
-#include "model/sysitemmodel.h"
+
 #include "model/appitemmodel.h"
+#include "model/sysitemmodel.h"
 
 using namespace DCC_NAMESPACE;
 
@@ -30,7 +31,6 @@ NotificationModel::NotificationModel(QObject *parent)
     : QObject(parent)
     , m_sysItemModel(new SysItemModel(this))
 {
-
 }
 
 void NotificationModel::setSysSetting(SysItemModel *item)
@@ -67,5 +67,3 @@ void NotificationModel::appRemoved(const QString &appName)
 
     Q_EMIT appListChanged();
 }
-
-

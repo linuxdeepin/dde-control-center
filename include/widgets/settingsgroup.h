@@ -25,6 +25,7 @@
 #pragma once
 
 #include "interface/namespace.h"
+
 #include <dtkwidget_global.h>
 
 #include <QFrame>
@@ -45,17 +46,14 @@ class SettingsGroup : public QFrame
     Q_OBJECT
 
 public:
-    enum BackgroundStyle {
-        ItemBackground = 0,
-        GroupBackground,
-        NoneBackground
-    };
+    enum BackgroundStyle { ItemBackground = 0, GroupBackground, NoneBackground };
 
     explicit SettingsGroup(QFrame *parent = nullptr, BackgroundStyle bgStyle = ItemBackground);
     explicit SettingsGroup(const QString &title, QFrame *parent = nullptr);
     ~SettingsGroup();
 
     SettingsHeaderItem *headerItem() const { return m_headerItem; }
+
     void setHeaderVisible(const bool visible);
 
     SettingsItem *getItem(int index);
@@ -69,16 +67,18 @@ public:
 
     int itemCount() const;
     void clear();
+
     QVBoxLayout *getLayout() const { return m_layout; }
 
     void setBackgroundStyle(BackgroundStyle bgStyle);
+
     BackgroundStyle backgroundStyle() const { return m_bgStyle; }
 
 private:
-    BackgroundStyle m_bgStyle{ItemBackground};
+    BackgroundStyle m_bgStyle{ ItemBackground };
     QVBoxLayout *m_layout;
     SettingsHeaderItem *m_headerItem;
-    DTK_WIDGET_NAMESPACE::DBackgroundGroup *m_bggroup{nullptr};
+    DTK_WIDGET_NAMESPACE::DBackgroundGroup *m_bggroup{ nullptr };
 };
 
-}
+} // namespace DCC_NAMESPACE

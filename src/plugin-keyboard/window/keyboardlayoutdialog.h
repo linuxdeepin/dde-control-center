@@ -26,22 +26,23 @@
 #ifndef KEYBOARDLAYOUTDIALOG_H
 #define KEYBOARDLAYOUTDIALOG_H
 
-#include "interface/namespace.h"
-#include "widgets/buttontuple.h"
 #include "indexmodel.h"
 #include "indexview.h"
+#include "interface/namespace.h"
 #include "searchinput.h"
+#include "widgets/buttontuple.h"
 
+#include <DAbstractDialog>
 #include <DGraphicsClipEffect>
 #include <DListView>
-#include <DAbstractDialog>
 
 #include <QWidget>
 
 class QLineEdit;
 
 DWIDGET_USE_NAMESPACE
-namespace DCC_NAMESPACE{
+
+namespace DCC_NAMESPACE {
 
 class KeyboardLayoutDialog : public DAbstractDialog
 {
@@ -52,7 +53,7 @@ public:
     ~KeyboardLayoutDialog();
 
     void setDataModel(IndexModel *model, QModelIndex &selectedIndex, const QModelIndex &index);
-    void setMetaData(const QList<MetaData>& datas);
+    void setMetaData(const QList<MetaData> &datas);
     void setLetters(QList<QString> letters);
 
 protected:
@@ -62,9 +63,10 @@ Q_SIGNALS:
     void layoutSelected(const QString &value);
 
 public Q_SLOTS:
-    void onSearch(const QString& text);
+    void onSearch(const QString &text);
     void onKBLayoutSelect(const QModelIndex &index);
     void onAddKBLayout();
+
 private:
     int textLength;
     bool searchStatus;
@@ -78,5 +80,5 @@ private:
     QModelIndex m_selectIndex;
     QModelIndex m_selectSearchIndex;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // KEYBOARDLAYOUTDIALOG_H

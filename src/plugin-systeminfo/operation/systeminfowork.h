@@ -28,18 +28,21 @@
 #define SYSTEMINFOWORK_H
 
 #include <interface/namespace.h>
-#include <QObject>
+
 #include <QDBusMessage>
+#include <QObject>
 
 class SystemInfoDBusProxy;
-namespace DCC_NAMESPACE{
+
+namespace DCC_NAMESPACE {
 
 class SystemInfoModel;
+
 class SystemInfoWork : public QObject
 {
     Q_OBJECT
 public:
-    explicit SystemInfoWork(SystemInfoModel* model, QObject* parent = nullptr);
+    explicit SystemInfoWork(SystemInfoModel *model, QObject *parent = nullptr);
 
     void activate();
     void deactivate();
@@ -62,5 +65,5 @@ private:
     SystemInfoDBusProxy *m_systemInfDBusProxy;
 };
 
-}
+} // namespace DCC_NAMESPACE
 #endif // SYSTEMINFOWORK_H

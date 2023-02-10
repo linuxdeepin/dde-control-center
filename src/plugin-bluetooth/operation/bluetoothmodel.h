@@ -26,9 +26,9 @@
 #ifndef DCC_BLUETOOTH_BLUETOOTHMODEL_H
 #define DCC_BLUETOOTH_BLUETOOTHMODEL_H
 
-#include <QObject>
-
 #include "bluetoothadapter.h"
+
+#include <QObject>
 
 class BluetoothModel : public QObject
 {
@@ -40,15 +40,19 @@ public:
     const BluetoothAdapter *adapterById(const QString &id);
 
     bool canTransportable() const;
+
     inline bool canSendFile() const { return m_canSendFile; }
 
     inline bool airplaneMode() const { return m_airplaneEnable; }
+
     inline bool displaySwitch() const { return m_displaySwitch; }
 
     bool myDeviceVisible() { return m_myDeviceVisible; }
+
     void setMyDeviceVisible(const bool visible);
 
     bool otherDeviceVisible() { return m_otherDeviceVisible; }
+
     void setOtherDeviceVisible(const bool visible);
 
 public Q_SLOTS:

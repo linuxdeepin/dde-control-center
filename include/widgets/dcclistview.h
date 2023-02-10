@@ -34,5 +34,5 @@ public:
 protected slots:
     void updateGeometries() override;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // DCCLISTVIEW_H

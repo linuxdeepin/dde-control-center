@@ -27,10 +27,11 @@
 #define DCC_SOUND_SOUNDMODEL_H
 
 #include <DDesktopServices>
-#include <QObject>
-#include <QMap>
-#include <QLabel>
+
 #include <QDBusObjectPath>
+#include <QLabel>
+#include <QMap>
+#include <QObject>
 DWIDGET_USE_NAMESPACE
 
 DWIDGET_BEGIN_NAMESPACE
@@ -49,36 +50,53 @@ class Port : public QObject
 {
     Q_OBJECT
 public:
-    enum Direction {
-        Out = 1,
-        In = 2
-    };
+    enum Direction { Out = 1, In = 2 };
 
-    explicit Port(QObject * parent) : QObject(parent),m_id(""), m_name(""), m_cardName(""), m_cardId(0), m_isActive(false), m_enabled(false), m_isBluetoothPort(false), m_direction(Out){}
-    virtual ~Port() {}
+    explicit Port(QObject *parent)
+        : QObject(parent)
+        , m_id("")
+        , m_name("")
+        , m_cardName("")
+        , m_cardId(0)
+        , m_isActive(false)
+        , m_enabled(false)
+        , m_isBluetoothPort(false)
+        , m_direction(Out)
+    {
+    }
+
+    virtual ~Port() { }
 
     inline QString id() const { return m_id; }
+
     void setId(const QString &id);
 
     inline QString name() const { return m_name; }
+
     void setName(const QString &name);
 
     inline QString cardName() const { return m_cardName; }
+
     void setCardName(const QString &cardName);
 
     inline bool isActive() const { return m_isActive; }
+
     void setIsActive(bool isActive);
 
     inline Direction direction() const { return m_direction; }
+
     void setDirection(const Direction &direction);
 
     inline uint cardId() const { return m_cardId; }
+
     void setCardId(const uint &cardId);
 
     inline bool isEnabled() const { return m_enabled; }
+
     void setEnabled(const bool enabled);
 
-    inline bool isBluetoothPort() const  { return m_isBluetoothPort; }
+    inline bool isBluetoothPort() const { return m_isBluetoothPort; }
+
     void setIsBluetoothPort(const bool isBlue);
 
 Q_SIGNALS:
@@ -109,7 +127,9 @@ class SoundLabel : public QLabel
 public:
     explicit SoundLabel(QWidget *parent = nullptr);
     void mouseReleaseEvent(QMouseEvent *e) override;
-    virtual ~SoundLabel() {}
+
+    virtual ~SoundLabel() { }
+
     void setIcon(const QIcon &icon);
     void setIconSize(const QSize &size);
 
@@ -129,25 +149,32 @@ public:
     ~SoundModel();
 
     inline bool speakerOn() const { return m_speakerOn; }
+
     void setSpeakerOn(bool speakerOn);
 
     inline bool isPortEnable() const { return m_portEnable; }
+
     void setPortEnable(bool enable);
 
     inline bool reduceNoise() const { return m_reduceNoise; }
+
     void setReduceNoise(bool reduceNoise);
 
     inline bool microphoneOn() const { return m_microphoneOn; }
+
     void setMicrophoneOn(bool microphoneOn);
 
     inline double speakerBalance() const { return m_speakerBalance; }
+
     void setSpeakerBalance(double speakerBalance);
 
     inline double microphoneVolume() const { return m_microphoneVolume; }
+
     void setMicrophoneVolume(double microphoneVolume);
 
 #ifndef DCC_DISABLE_FEEDBACK
     inline double microphoneFeedback() const { return m_microphoneFeedback; }
+
     void setMicrophoneFeedback(double microphoneFeedback);
 #endif
 
@@ -159,6 +186,7 @@ public:
     QList<Port *> ports() const;
 
     inline double speakerVolume() const { return m_speakerVolume; }
+
     void setSpeakerVolume(double speakerVolume);
 
     QDBusObjectPath defaultSource() const;
@@ -171,6 +199,7 @@ public:
     void setAudioCards(const QString &audioCards);
 
     inline double MaxUIVolume() const { return m_maxUIVolume; }
+
     void setMaxUIVolume(double value);
 
     SoundEffectList soundEffectMap() const;
@@ -179,10 +208,16 @@ public:
     bool queryEffectData(DDesktopServices::SystemSoundEffect effect);
 
     bool enableSoundEffect() const { return m_enableSoundEffect; }
+
     void setEnableSoundEffect(bool enableSoundEffect);
 
     void updateSoundEffectPath(DDesktopServices::SystemSoundEffect effect, const QString &path);
-    inline QMap<DDesktopServices::SystemSoundEffect, QString> soundEffectPaths() { return m_soundEffectPaths; }
+
+    inline QMap<DDesktopServices::SystemSoundEffect, QString> soundEffectPaths()
+    {
+        return m_soundEffectPaths;
+    }
+
     const QString soundEffectPathByType(DDesktopServices::SystemSoundEffect effect);
 
     const QString getNameByEffectType(DDesktopServices::SystemSoundEffect effect) const;
@@ -195,18 +230,23 @@ public:
 
     bool isIncreaseVolume() const;
     void setIncreaseVolume(bool value);
+
     void initMicroPhone() { Q_EMIT microphoneOnChanged(m_microphoneOn); }
+
     void initSpeaker() { Q_EMIT speakerOnChanged(m_speakerOn); }
 
     inline QStringList bluetoothAudioModeOpts() { return m_bluetoothModeOpts; }
+
     void setBluetoothAudioModeOpts(const QStringList &modes);
 
     // 设置当前蓝牙耳机模式
     inline QString currentBluetoothAudioMode() { return m_currentBluetoothMode; }
+
     void setCurrentBluetoothAudioMode(const QString &mode);
 
     // 配置等待
     inline int currentWaitSoundReceiptTime() { return m_waitSoundReceiptTime; }
+
     void setWaitSoundReceiptTime(const int receiptTime);
 
 Q_SIGNALS:
@@ -226,20 +266,20 @@ Q_SIGNALS:
     void bluetoothModeOptsChanged(const QStringList &modeOpts) const;
     void bluetoothModeChanged(const QString &mode);
 
-    void setPortChanged(const Port* port) const;
-    //查询是否可用
-    void requestSwitchEnable(unsigned int cardId,QString cardName);
+    void setPortChanged(const Port *port) const;
+    // 查询是否可用
+    void requestSwitchEnable(unsigned int cardId, QString cardName);
 
-    //声音输入设备是否可见
+    // 声音输入设备是否可见
     void inputDevicesVisibleChanged(QString name, bool flag);
-    //声音输出设备是否可见
+    // 声音输出设备是否可见
     void outputDevicesVisibleChanged(QString name, bool flag);
 
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
 #endif
     void portAdded(const Port *port);
-    void portRemoved(const QString & portId, const uint &cardId, const Port::Direction &direction);
+    void portRemoved(const QString &portId, const uint &cardId, const Port::Direction &direction);
     void soundDeviceStatusChanged();
     void soundEffectDataChanged(DDesktopServices::SystemSoundEffect effect, const bool enable);
     void enableSoundEffectChanged(bool enableSoundEffect);
@@ -250,9 +290,9 @@ private:
     bool m_microphoneOn;
     bool m_enableSoundEffect;
     bool m_isLaptop;
-    bool m_increaseVolume{false};
-    bool m_reduceNoise{true};
-    bool m_portEnable{false};
+    bool m_increaseVolume{ false };
+    bool m_reduceNoise{ true };
+    bool m_portEnable{ false };
     double m_speakerVolume;
     double m_speakerBalance;
     double m_microphoneVolume;

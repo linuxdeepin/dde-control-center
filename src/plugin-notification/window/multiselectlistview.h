@@ -2,6 +2,7 @@
 #define MULTISELECTLISTVIEW_H
 
 #include "interface/namespace.h"
+
 #include <DListView>
 
 DWIDGET_USE_NAMESPACE
@@ -24,6 +25,6 @@ private:
     int m_currentIndex;
 };
 
-}
+} // namespace DCC_NAMESPACE
 
 #endif // MULTISELECTLISTVIEW_H

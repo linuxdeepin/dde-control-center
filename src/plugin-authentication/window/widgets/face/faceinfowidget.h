@@ -21,8 +21,9 @@
 
 #pragma once
 
-#include "interface/namespace.h"
 #include "charamangermodel.h"
+#include "interface/namespace.h"
+
 #include <dareader/reader.h>
 
 #include <QLabel>
@@ -53,7 +54,7 @@ private:
     QTimer *m_startTimer;
     QColor m_themeColor;
 
-    int m_persent; // 记录进度
-    int m_rotateAngle;//旋转角度
+    int m_persent;     // 记录进度
+    int m_rotateAngle; // 旋转角度
     int m_postRotateAngle;
 };

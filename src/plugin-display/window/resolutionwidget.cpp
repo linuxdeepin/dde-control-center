@@ -24,14 +24,16 @@
  */
 
 #include "resolutionwidget.h"
+
 #include "src/plugin-display/operation/displaymodel.h"
 
-#include <QHBoxLayout>
-#include <QVBoxLayout>
 #include <DApplicationHelper>
+
+#include <QHBoxLayout>
 #include <QLabel>
-#include <QStyleOption>
 #include <QStandardItemModel>
+#include <QStyleOption>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -39,29 +41,34 @@ using namespace DCC_NAMESPACE;
 fillModeCombox::fillModeCombox(QWidget *parent)
     : QComboBox(parent)
 {
-    connect(this, QOverload<int>::of(&QComboBox::highlighted), this, &fillModeCombox::OnHighlighted);
+    connect(this,
+            QOverload<int>::of(&QComboBox::highlighted),
+            this,
+            &fillModeCombox::OnHighlighted);
 
-    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, [=](DGuiApplicationHelper::ColorType themeType){
-        //在切换主题的时候，combox无法获取当前是hidepopup还是showpopup, 所以需要设置为hidepopup来达到更新图标的目的
-        Q_UNUSED(themeType)
-        hidePopup();
-    });
-
+    connect(DGuiApplicationHelper::instance(),
+            &DGuiApplicationHelper::themeTypeChanged,
+            this,
+            [=](DGuiApplicationHelper::ColorType themeType) {
+                // 在切换主题的时候，combox无法获取当前是hidepopup还是showpopup,
+                // 所以需要设置为hidepopup来达到更新图标的目的
+                Q_UNUSED(themeType)
+                hidePopup();
+            });
 }
 
 void fillModeCombox::OnHighlighted(int index)
 {
-    if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
-        for(int i = 0; i < this->count(); i++) {
-            if(i == index)
+    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
+        for (int i = 0; i < this->count(); i++) {
+            if (i == index)
                 this->setItemIcon(i, QPixmap(this->itemData(i, LightHighlightIconRole).toString()));
             else
                 this->setItemIcon(i, QPixmap(this->itemData(i, LightItemIconRole).toString()));
         }
-    }
-    else if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
-        for(int i = 0; i < this->count(); i++) {
-            if(i == index)
+    } else if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+        for (int i = 0; i < this->count(); i++) {
+            if (i == index)
                 this->setItemIcon(i, QPixmap(this->itemData(i, DarkHighlightIconRole).toString()));
             else
                 this->setItemIcon(i, QPixmap(this->itemData(i, DarkItemIconRole).toString()));
@@ -81,44 +88,47 @@ void fillModeCombox::hidePopup()
     setDefaultRoleIcon();
 }
 
-void fillModeCombox:: setDefaultRoleIcon()
+void fillModeCombox::setDefaultRoleIcon()
 {
-    //获取当前主题
-    if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
-        for(int i = 0; i < this->count(); i++) {
+    // 获取当前主题
+    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
+        for (int i = 0; i < this->count(); i++) {
             this->setItemIcon(i, QPixmap(this->itemData(i, LightDefaultIconRole).toString()));
         }
-    } else if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
-        for(int i = 0; i < this->count(); i++) {
+    } else if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+        for (int i = 0; i < this->count(); i++) {
             this->setItemIcon(i, QPixmap(this->itemData(i, DarkDefaultIconRole).toString()));
         }
     }
 }
 
-void fillModeCombox:: setItemRoleIcon()
+void fillModeCombox::setItemRoleIcon()
 {
-    //获取当前主题
-    if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
-        for(int i = 0; i < this->count(); i++) {
+    // 获取当前主题
+    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
+        for (int i = 0; i < this->count(); i++) {
             this->setItemIcon(i, QPixmap(this->itemData(i, LightItemIconRole).toString()));
         }
-    } else if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
-        for(int i = 0; i < this->count(); i++) {
+    } else if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+        for (int i = 0; i < this->count(); i++) {
             this->setItemIcon(i, QPixmap(this->itemData(i, DarkItemIconRole).toString()));
         }
     }
 }
 
-void fillModeCombox:: setHoverRoleIcon()
-{qInfo()<<this->itemData(0, LightHoverIconRole).toString()<<this->itemData(0, DarkHoverIconRole).toString();
-    qInfo()<<QPixmap(this->itemData(0, LightHoverIconRole).toString())<<QPixmap(this->itemData(0, DarkHoverIconRole).toString());
-    //获取当前主题
-    if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
-        for(int i = 0; i < this->count(); i++) {
+void fillModeCombox::setHoverRoleIcon()
+{
+    qInfo() << this->itemData(0, LightHoverIconRole).toString()
+            << this->itemData(0, DarkHoverIconRole).toString();
+    qInfo() << QPixmap(this->itemData(0, LightHoverIconRole).toString())
+            << QPixmap(this->itemData(0, DarkHoverIconRole).toString());
+    // 获取当前主题
+    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
+        for (int i = 0; i < this->count(); i++) {
             this->setItemIcon(i, QPixmap(this->itemData(i, LightHoverIconRole).toString()));
         }
-    } else if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
-        for(int i = 0; i < this->count(); i++) {
+    } else if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+        for (int i = 0; i < this->count(); i++) {
             this->setItemIcon(i, QPixmap(this->itemData(i, DarkHoverIconRole).toString()));
         }
     }
@@ -203,7 +213,10 @@ void ResolutionWidget::setModel(DisplayModel *model, Monitor *monitor)
     m_resizeDesktopCombox->setEnabled(m_model->resolutionRefreshEnable());
     connect(m_model, &DisplayModel::monitorListChanged, this, &ResolutionWidget::initResolution);
     connect(m_model, &DisplayModel::displayModeChanged, this, &ResolutionWidget::initResolution);
-    connect(m_model, &DisplayModel::resolutionRefreshEnableChanged, m_resolutionCombox, &QComboBox::setEnabled);
+    connect(m_model,
+            &DisplayModel::resolutionRefreshEnableChanged,
+            m_resolutionCombox,
+            &QComboBox::setEnabled);
 
     setMonitor(monitor);
 }
@@ -217,10 +230,16 @@ void ResolutionWidget::setMonitor(Monitor *monitor)
     // 先断开信号，设置数据再连接信号
     if (m_monitor != nullptr) {
         disconnect(m_monitor, &Monitor::currentFillModeChanged, this, nullptr);
-        disconnect(m_monitor, &Monitor::availableFillModesChanged, this, &ResolutionWidget::OnAvailableFillModesChanged);
+        disconnect(m_monitor,
+                   &Monitor::availableFillModesChanged,
+                   this,
+                   &ResolutionWidget::OnAvailableFillModesChanged);
         disconnect(m_monitor, &Monitor::modelListChanged, this, &ResolutionWidget::initResolution);
         disconnect(m_monitor, &Monitor::bestModeChanged, this, &ResolutionWidget::initResolution);
-        disconnect(m_monitor, &Monitor::currentModeChanged, this, &ResolutionWidget::OnCurrentModeChanged);
+        disconnect(m_monitor,
+                   &Monitor::currentModeChanged,
+                   this,
+                   &ResolutionWidget::OnCurrentModeChanged);
     }
 
     m_monitor = monitor;
@@ -229,10 +248,16 @@ void ResolutionWidget::setMonitor(Monitor *monitor)
     OnAvailableFillModesChanged(m_monitor->availableFillModes());
     initResizeDesktop();
 
-    connect(m_monitor, &Monitor::availableFillModesChanged, this, &ResolutionWidget::OnAvailableFillModesChanged);
-    connect(m_monitor, &Monitor::currentFillModeChanged, this, &ResolutionWidget::initResizeDesktop);
-    connect(m_monitor, &Monitor::currentFillModeChanged, this, [this] (QString currFillMode) {
-        Q_EMIT requestCurrFillModeChanged(m_monitor,currFillMode);
+    connect(m_monitor,
+            &Monitor::availableFillModesChanged,
+            this,
+            &ResolutionWidget::OnAvailableFillModesChanged);
+    connect(m_monitor,
+            &Monitor::currentFillModeChanged,
+            this,
+            &ResolutionWidget::initResizeDesktop);
+    connect(m_monitor, &Monitor::currentFillModeChanged, this, [this](QString currFillMode) {
+        Q_EMIT requestCurrFillModeChanged(m_monitor, currFillMode);
     });
 
     connect(m_monitor, &Monitor::modelListChanged, this, &ResolutionWidget::initResolution);
@@ -255,7 +280,8 @@ void ResolutionWidget::OnCurrentModeChanged(const Resolution &mode)
         auto item = m_resoItemModel->item(idx);
         auto w = item->data(WidthRole).toInt();
         auto h = item->data(HeightRole).toInt();
-        if (w == mode.width() && h == mode.height() && m_resolutionCombox->currentIndex() != item->row()) {
+        if (w == mode.width() && h == mode.height()
+            && m_resolutionCombox->currentIndex() != item->row()) {
             m_resolutionCombox->setCurrentIndex(item->row());
             break;
         }
@@ -267,52 +293,52 @@ Dtk::Widget::DStandardItem *ResolutionWidget::getItemIcon(const QString &key)
     Dtk::Widget::DStandardItem *item = nullptr;
     if (key == "None") { // 默认
         item = new Dtk::Widget::DStandardItem(tr("Default"));
-        //深色
+        // 深色
         item->setData("None", FillModeRole);
         item->setData(":/display/icons/dark/icons/dark/Default.svg", DarkItemIconRole);
         item->setData(":/display/icons/dark/icons/dark/Default.svg", DarkDefaultIconRole);
         item->setData(":/display/icons/dark/icons/white/Default.svg", DarkHighlightIconRole);
         item->setData(":/display/icons/dark/icons/hover/Default.svg", DarkHoverIconRole);
-        //浅色
+        // 浅色
         item->setData(":/display/icons/light/icon/black/Default.svg", LightItemIconRole);
         item->setData(":/display/icons/light/icon/light/Default.svg", LightDefaultIconRole);
         item->setData(":/display/icons/light/icon/white/Default.svg", LightHighlightIconRole);
         item->setData(":/display/icons/light/icon/hover/Default.svg", LightHoverIconRole);
     } else if (key == "Full aspect") { // 适应
         item = new Dtk::Widget::DStandardItem(tr("Fit"));
-        //深色
+        // 深色
         item->setData("Full aspect", FillModeRole);
         item->setData(":/display/icons/dark/icons/dark/Fit.svg", DarkItemIconRole);
         item->setData(":/display/icons/dark/icons/dark/Fit.svg", DarkDefaultIconRole);
         item->setData(":/display/icons/dark/icons/white/Fit.svg", DarkHighlightIconRole);
         item->setData(":/display/icons/dark/icons/hover/Fit.svg", DarkHoverIconRole);
-        //浅色
+        // 浅色
         item->setData(":/display/icons/light/icon/black/Fit.svg", LightItemIconRole);
         item->setData(":/display/icons/light/icon/light/Fit.svg", LightDefaultIconRole);
         item->setData(":/display/icons/light/icon/white/Fit.svg", LightHighlightIconRole);
         item->setData(":/display/icons/light/icon/hover/Fit.svg", LightHoverIconRole);
     } else if (key == "Full") { // 铺满
         item = new Dtk::Widget::DStandardItem(tr("Stretch"));
-        //深色
+        // 深色
         item->setData("Full", FillModeRole);
         item->setData(":/display/icons/dark/icons/dark/Stretch.svg", DarkItemIconRole);
         item->setData(":/display/icons/dark/icons/dark/Stretch.svg", DarkDefaultIconRole);
         item->setData(":/display/icons/dark/icons/white/Stretch.svg", DarkHighlightIconRole);
         item->setData(":/display/icons/dark/icons/hover/Stretch.svg", DarkHoverIconRole);
-        //浅色
+        // 浅色
         item->setData(":/display/icons/light/icon/black/Stretch.svg", LightItemIconRole);
         item->setData(":/display/icons/light/icon/light/Stretch.svg", LightDefaultIconRole);
         item->setData(":/display/icons/light/icon/white/Stretch.svg", LightHighlightIconRole);
         item->setData(":/display/icons/light/icon/hover/Stretch.svg", LightHoverIconRole);
     } else if (key == "Center") { // 居中
         item = new Dtk::Widget::DStandardItem(tr("Center"));
-        //深色
+        // 深色
         item->setData("Center", FillModeRole);
         item->setData(":/display/icons/dark/icons/dark/Center.svg", DarkItemIconRole);
         item->setData(":/display/icons/dark/icons/dark/Center.svg", DarkDefaultIconRole);
         item->setData(":/display/icons/dark/icons/white/Center.svg", DarkHighlightIconRole);
         item->setData(":/display/icons/dark/icons/hover/Center.svg", DarkHoverIconRole);
-        //浅色
+        // 浅色
         item->setData(":/display/icons/light/icon/black/Center.svg", LightItemIconRole);
         item->setData(":/display/icons/light/icon/light/Center.svg", LightDefaultIconRole);
         item->setData(":/display/icons/light/icon/white/Center.svg", LightHighlightIconRole);
@@ -328,30 +354,41 @@ void ResolutionWidget::initResizeDesktop()
         return;
     }
     // 先断开信号，设置数据再连接信号
-    disconnect(m_resizeDesktopCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, nullptr);
+    disconnect(m_resizeDesktopCombox,
+               static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+               this,
+               nullptr);
 
     QStringList lstFillMode = m_monitor->availableFillModes();
-    //获取最新的铺面方式
+    // 获取最新的铺面方式
     QString fillMode = m_monitor->currentFillMode();
-    if(fillMode.isEmpty())
+    if (fillMode.isEmpty())
         fillMode = "None";
     int index = lstFillMode.indexOf(fillMode);
-    if(index >= 0)
+    if (index >= 0)
         m_resizeDesktopCombox->setCurrentIndex(index);
-    //用户手动选择铺满方式时发送信号
-    connect(m_resizeDesktopCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
-        Q_EMIT requestSetFillMode(m_monitor, this->m_resizeDesktopCombox->itemData(idx,FillModeRole).toString());
-    });
+    // 用户手动选择铺满方式时发送信号
+    connect(m_resizeDesktopCombox,
+            static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this,
+            [=](int idx) {
+                Q_EMIT requestSetFillMode(
+                        m_monitor,
+                        this->m_resizeDesktopCombox->itemData(idx, FillModeRole).toString());
+            });
 }
 
 void ResolutionWidget::OnAvailableFillModesChanged(const QStringList &lstFillMode)
 {
-    disconnect(m_resizeDesktopCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, nullptr);
+    disconnect(m_resizeDesktopCombox,
+               static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+               this,
+               nullptr);
 
     m_resizeItemModel->clear();
-    for(auto str : lstFillMode) {
+    for (auto str : lstFillMode) {
         Dtk::Widget::DStandardItem *item = getItemIcon(str);
-        if(item)
+        if (item)
             m_resizeItemModel->appendRow(item);
     }
     m_resizeDesktopCombox->setDefaultRoleIcon();
@@ -389,7 +426,7 @@ bool ResolutionWidget::eventFilter(QObject *obj, QEvent *event)
 
 void ResolutionWidget::updateResizeDesktopVisible()
 {
-    //推荐分辨率下隐藏铺满方式
+    // 推荐分辨率下隐藏铺满方式
     if (m_resolutionCombox->currentText().contains(tr("Recommended"))) {
         setResizeDesktopVisible(false);
     } else {
@@ -405,7 +442,10 @@ void ResolutionWidget::initResolution()
 
     // 先断开信号，设置数据再连接信号
     if (m_resoItemModel != nullptr) {
-        disconnect(m_resolutionCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, nullptr);
+        disconnect(m_resolutionCombox,
+                   static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+                   this,
+                   nullptr);
         m_resoItemModel->clear();
     }
 
@@ -413,7 +453,7 @@ void ResolutionWidget::initResolution()
     auto curMode = m_monitor->currentMode();
 
     Resolution preMode;
-    if (qgetenv("WAYLAND_DISPLAY").isEmpty() ) {
+    if (qgetenv("WAYLAND_DISPLAY").isEmpty()) {
         for (auto mode : modeList) {
             if (Monitor::isSameResolution(preMode, mode)) {
                 continue;
@@ -497,35 +537,39 @@ void ResolutionWidget::initResolution()
         }
     }
 
-    //推荐分辨率下隐藏铺满方式并改变高度
+    // 推荐分辨率下隐藏铺满方式并改变高度
     updateResizeDesktopVisible();
 
-    connect(m_resolutionCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
-        auto item = m_resoItemModel->item(idx);
-        auto r = item->data(IdRole).toInt();
-        auto w = item->data(WidthRole).toInt();
-        auto h = item->data(HeightRole).toInt();
+    connect(m_resolutionCombox,
+            static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this,
+            [=](int idx) {
+                auto item = m_resoItemModel->item(idx);
+                auto r = item->data(IdRole).toInt();
+                auto w = item->data(WidthRole).toInt();
+                auto h = item->data(HeightRole).toInt();
 
-        //推荐分辨率下隐藏铺满方式并改变高度
-        updateResizeDesktopVisible();
+                // 推荐分辨率下隐藏铺满方式并改变高度
+                updateResizeDesktopVisible();
 
-        // 选中分辨率和当前分别率相同
-        if (m_monitor->currentMode().width() == w && m_monitor->currentMode().height() == h) {
-            return;
-        }
+                // 选中分辨率和当前分别率相同
+                if (m_monitor->currentMode().width() == w
+                    && m_monitor->currentMode().height() == h) {
+                    return;
+                }
 
-        // 优先设置最好模式
-        if (m_monitor->bestMode().width() == w && m_monitor->bestMode().height() == h) {
-            Q_EMIT requestSetResolution(m_monitor, m_monitor->bestMode().id());
-            return;
-        }
+                // 优先设置最好模式
+                if (m_monitor->bestMode().width() == w && m_monitor->bestMode().height() == h) {
+                    Q_EMIT requestSetResolution(m_monitor, m_monitor->bestMode().id());
+                    return;
+                }
 
-        for (auto mode : m_monitor->modeList()) {
-            if (mode.width() == w && mode.height() == h) {
-                Q_EMIT requestSetResolution(m_monitor, mode.id());
-                return;
-            }
-        }
-        Q_EMIT requestSetResolution(m_monitor, r);
-    });
+                for (auto mode : m_monitor->modeList()) {
+                    if (mode.width() == w && mode.height() == h) {
+                        Q_EMIT requestSetResolution(m_monitor, mode.id());
+                        return;
+                    }
+                }
+                Q_EMIT requestSetResolution(m_monitor, r);
+            });
 }

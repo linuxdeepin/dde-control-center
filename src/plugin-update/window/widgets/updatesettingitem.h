@@ -5,9 +5,9 @@
 #ifndef UpdateSettingItem_H
 #define UpdateSettingItem_H
 
+#include "widgets/detailinfoitem.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/settingsitem.h"
-#include "widgets/detailinfoitem.h"
 #include "widgets/updatecontrolpanel.h"
 #include "widgets/updateiteminfo.h"
 
@@ -25,13 +25,14 @@ class DTipLabel;
 class DShadowLine;
 DTK_END_NAMESPACE
 
-struct Error_Info {
+struct Error_Info
+{
     UpdateErrorType ErrorType;
     QString errorMessage;
     QString errorTips;
 };
 
-class UpdateSettingItem: public DCC_NAMESPACE::SettingsItem
+class UpdateSettingItem : public DCC_NAMESPACE::SettingsItem
 {
     Q_OBJECT
 public:
@@ -103,4 +104,4 @@ protected:
     DCC_NAMESPACE::SettingsGroup *m_settingsGroup;
 };
 
-#endif //UpdateSettingItem_H
+#endif // UpdateSettingItem_H

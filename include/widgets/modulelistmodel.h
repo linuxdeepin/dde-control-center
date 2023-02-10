@@ -27,6 +27,7 @@
 
 namespace DCC_NAMESPACE {
 class ModuleListModelPrivate;
+
 class ModuleListModel : public QAbstractItemModel
 {
     Q_OBJECT
@@ -35,7 +36,9 @@ public:
     ~ModuleListModel() override;
 
     // Basic functionality:
-    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex index(int row,
+                      int column,
+                      const QModelIndex &parent = QModelIndex()) const override;
     QModelIndex parent(const QModelIndex &index) const override;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -45,5 +48,5 @@ public:
 
     DCC_DECLARE_PRIVATE(ModuleListModel)
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // ModuleListModel_H

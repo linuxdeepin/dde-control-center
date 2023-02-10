@@ -1,5 +1,5 @@
-#include "src/plugin-keyboard/window/shortcutkey.h"
 #include "gtest/gtest.h"
+#include "src/plugin-keyboard/window/shortcutkey.h"
 
 class Tst_ShortcutKey : public testing::Test
 {
@@ -24,7 +24,7 @@ void Tst_ShortcutKey::TearDown()
 
 TEST_F(Tst_ShortcutKey, key)
 {
-    QStringList ls = { "aaa", "bbb", "ccc"};
+    QStringList ls = { "aaa", "bbb", "ccc" };
 
     EXPECT_NO_THROW(key->setTextList(ls));
 }

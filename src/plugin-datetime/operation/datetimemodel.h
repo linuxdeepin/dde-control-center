@@ -26,9 +26,9 @@
 #ifndef DATETIMEMODEL_H
 #define DATETIMEMODEL_H
 
-#include <QObject>
-
 #include "zoneinfo.h"
+
+#include <QObject>
 
 class DatetimeModel : public QObject
 {
@@ -37,7 +37,9 @@ public:
     explicit DatetimeModel(QObject *parent = nullptr);
 
     inline bool nTP() const { return m_ntp; }
+
     void setNTP(bool ntp);
+
     inline bool get24HourFormat() const { return m_bUse24HourType; }
 
     QList<ZoneInfo> userTimeZones() const;
@@ -47,35 +49,48 @@ public:
     QString systemTimeZoneId() const;
     void setSystemTimeZoneId(const QString &systemTimeZoneId);
 #endif
-    inline ZoneInfo currentTimeZone() const
-    {
-        return m_currentTimeZone;
-    }
+    inline ZoneInfo currentTimeZone() const { return m_currentTimeZone; }
+
     void setCurrentTimeZone(const ZoneInfo &currentTimeZone);
 
     inline ZoneInfo currentSystemTimeZone() const { return m_currentSystemTimeZone; }
+
     void setCurrentUseTimeZone(const ZoneInfo &currentTimeZone);
 
     inline QString ntpServerAddress() const { return m_strNtpServerAddress; }
+
     void setNtpServerAddress(const QString &ntpServer);
 
     inline QStringList ntpServerList() const { return m_NtpServerList; }
+
     void setNTPServerList(const QStringList &list);
 
     inline QString getTimeZone() const { return m_timeZones; }
+
     void setTimeZoneInfo(const QString &timeZone);
 
     inline int weekdayFormatType() const { return m_weekdayFormatType; }
+
     inline int shortDateFormat() const { return m_shortDateFormat; }
+
     inline int longDateFormat() const { return m_longDateFormat; }
+
     inline int longTimeFormat() const { return m_longTimeFormat; }
+
     inline int shorTimeFormat() const { return m_shorTimeFormat; }
+
     inline int weekStartDayFormat() const { return m_weekStartDayFormat; }
+
     inline int weekdayFormatTypeCount() const { return m_weekdayFormatTypeCount; }
+
     inline int shortDateFormatTypeCount() const { return m_shortDateFormatTypeCount; }
+
     inline int longDateFormatTypeCount() const { return m_longDateFormatTypeCount; }
+
     inline int longTimeFormatTypeCount() const { return m_longTimeFormatTypeCount; }
+
     inline int shorTimeFormatTypeCount() const { return m_shorTimeFormatTypeCount; }
+
     inline int weekStartDayFormatTypeCount() const { return m_weekStartDayFormatTypeCount; }
 
     void setWeekdayFormatType(int type);

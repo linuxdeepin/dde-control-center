@@ -8,7 +8,6 @@
 #include <QDBusReply>
 #include <QObject>
 
-
 namespace DCC_NAMESPACE {
 class DCCDBusInterface;
 }
@@ -20,7 +19,8 @@ class TouchScreenProxy : public QObject
 public:
     explicit TouchScreenProxy(QObject *parent = nullptr);
 
-    Q_PROPERTY(TouchscreenInfoList_V2 TouchscreensV2 READ touchscreensV2 NOTIFY TouchscreensV2Changed)
+    Q_PROPERTY(
+            TouchscreenInfoList_V2 TouchscreensV2 READ touchscreensV2 NOTIFY TouchscreensV2Changed)
     TouchscreenInfoList_V2 touchscreensV2();
 
     Q_PROPERTY(TouchscreenMap TouchMap READ touchMap NOTIFY TouchMapChanged)
@@ -31,7 +31,7 @@ public:
 
 Q_SIGNALS:
     void TouchscreensV2Changed(TouchscreenInfoList_V2 value);
-    void MonitorsChanged(const QList<QDBusObjectPath> & value);
+    void MonitorsChanged(const QList<QDBusObjectPath> &value);
     void TouchMapChanged(TouchscreenMap value);
 
 public Q_SLOTS:

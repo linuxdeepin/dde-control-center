@@ -24,8 +24,8 @@
 
 #include <dtkwidget_global.h>
 
-#include <QWidget>
 #include <QVariant>
+#include <QWidget>
 
 class QVBoxLayout;
 class QLabel;
@@ -46,6 +46,7 @@ public:
     void setSelected(bool selected);
     void setPic(const QString &picPath);
     void setId(const QVariant &id);
+
     inline const QVariant id() const { return m_id; }
 
 Q_SIGNALS:
@@ -55,7 +56,7 @@ private:
     QVBoxLayout *m_mainLayout;
     QLabel *m_title;
     bool m_state;
-    ThemeItemPic *m_itemPic;  //picture of theme
+    ThemeItemPic *m_itemPic; // picture of theme
     QVariant m_id;
     bool m_titleBelowPic;
     DTK_WIDGET_NAMESPACE::DIconButton *m_imgBtn;

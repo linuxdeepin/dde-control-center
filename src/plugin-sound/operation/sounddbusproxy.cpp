@@ -1,11 +1,12 @@
 #include "sounddbusproxy.h"
-#include "widgets/dccdbusinterface.h"
 
 #include "audioport.h"
+#include "widgets/dccdbusinterface.h"
+
 #include <QDBusArgument>
 #include <QDBusInterface>
-#include <QDBusPendingReply>
 #include <QDBusMetaType>
+#include <QDBusPendingReply>
 #include <QDBusReply>
 
 const static QString AudioService = QStringLiteral("org.deepin.dde.Audio1");
@@ -28,11 +29,18 @@ const static QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.
 const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 using namespace DCC_NAMESPACE;
+
 SoundDBusProxy::SoundDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_audioInter(new DCCDBusInterface(AudioService, AudioPath, AudioInterface, QDBusConnection::sessionBus(), this))
-    , m_soundEffectInter(new DCCDBusInterface(SoundEffectService, SoundEffectPath, SoundEffectInterface, QDBusConnection::sessionBus(), this))
-    , m_powerInter(new DCCDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::systemBus(), this))
+    , m_audioInter(new DCCDBusInterface(
+              AudioService, AudioPath, AudioInterface, QDBusConnection::sessionBus(), this))
+    , m_soundEffectInter(new DCCDBusInterface(SoundEffectService,
+                                              SoundEffectPath,
+                                              SoundEffectInterface,
+                                              QDBusConnection::sessionBus(),
+                                              this))
+    , m_powerInter(new DCCDBusInterface(
+              PowerService, PowerPath, PowerInterface, QDBusConnection::systemBus(), this))
     , m_defaultSink(nullptr)
     , m_defaultSource(nullptr)
     , m_sourceMeter(nullptr)
@@ -97,14 +105,16 @@ void SoundDBusProxy::setReduceNoise(bool value)
 void SoundDBusProxy::SetPortEnabled(uint in0, const QString &in1, bool in2)
 {
     QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2);
+    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1)
+                 << QVariant::fromValue(in2);
     m_audioInter->asyncCallWithArgumentList(QStringLiteral("SetPortEnabled"), argumentList);
 }
 
 void SoundDBusProxy::SetPort(uint in0, const QString &in1, int in2)
 {
     QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2);
+    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1)
+                 << QVariant::fromValue(in2);
     m_audioInter->asyncCallWithArgumentList(QStringLiteral("SetPort"), argumentList);
 }
 
@@ -128,21 +138,34 @@ void SoundDBusProxy::setEnabled(bool value)
 void SoundDBusProxy::GetSoundEnabledMap()
 {
     QList<QVariant> argumentList;
-    m_soundEffectInter->callWithCallback(QStringLiteral("GetSoundEnabledMap"), argumentList, this, SIGNAL(pendingCallWatcherFinished(QMap<QString, bool>)));
+    m_soundEffectInter->callWithCallback(QStringLiteral("GetSoundEnabledMap"),
+                                         argumentList,
+                                         this,
+                                         SIGNAL(pendingCallWatcherFinished(QMap<QString, bool>)));
 }
 
-void SoundDBusProxy::EnableSound(const QString &name, bool enabled, QObject *receiver, const char *member, const char *errorSlot)
+void SoundDBusProxy::EnableSound(const QString &name,
+                                 bool enabled,
+                                 QObject *receiver,
+                                 const char *member,
+                                 const char *errorSlot)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(name) << QVariant::fromValue(enabled);
-    m_soundEffectInter->callWithCallback(QStringLiteral("EnableSound"), argumentList, receiver, member, errorSlot);
+    m_soundEffectInter->callWithCallback(QStringLiteral("EnableSound"),
+                                         argumentList,
+                                         receiver,
+                                         member,
+                                         errorSlot);
 }
 
 QString SoundDBusProxy::GetSoundFile(const QString &name)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(name);
-    return QDBusPendingReply<QString>(m_soundEffectInter->asyncCallWithArgumentList(QStringLiteral("GetSoundFile"), argumentList));
+    return QDBusPendingReply<QString>(
+            m_soundEffectInter->asyncCallWithArgumentList(QStringLiteral("GetSoundFile"),
+                                                          argumentList));
 }
 
 bool SoundDBusProxy::hasBattery()
@@ -155,7 +178,11 @@ void SoundDBusProxy::setSinkDevicePath(const QString &path)
     if (m_defaultSink) {
         m_defaultSink->deleteLater();
     }
-    m_defaultSink = new DCCDBusInterface(AudioService, path, SinkInterface, QDBusConnection::sessionBus(), this);
+    m_defaultSink = new DCCDBusInterface(AudioService,
+                                         path,
+                                         SinkInterface,
+                                         QDBusConnection::sessionBus(),
+                                         this);
     m_defaultSink->setSuffix("Sink");
 }
 
@@ -180,7 +207,7 @@ double SoundDBusProxy::balanceSink()
 
 double SoundDBusProxy::baseVolumeSink()
 {
-     return qvariant_cast<double>(m_defaultSink->property("BaseVolumeSink"));
+    return qvariant_cast<double>(m_defaultSink->property("BaseVolumeSink"));
 }
 
 void SoundDBusProxy::SetBalanceSink(double in0, bool in1)
@@ -222,7 +249,11 @@ void SoundDBusProxy::setSourceDevicePath(const QString &path)
         m_defaultSource->deleteLater();
     }
 
-    m_defaultSource = new DCCDBusInterface(AudioService, path, SourceInterface, QDBusConnection::sessionBus(), this);
+    m_defaultSource = new DCCDBusInterface(AudioService,
+                                           path,
+                                           SourceInterface,
+                                           QDBusConnection::sessionBus(),
+                                           this);
     m_defaultSource->setSuffix("Source");
 }
 
@@ -262,7 +293,8 @@ uint SoundDBusProxy::cardSource()
 QDBusObjectPath SoundDBusProxy::GetMeter()
 {
     QList<QVariant> argumentList;
-    return QDBusPendingReply<QDBusObjectPath>(m_defaultSource->asyncCallWithArgumentList(QStringLiteral("GetMeter"), argumentList));
+    return QDBusPendingReply<QDBusObjectPath>(
+            m_defaultSource->asyncCallWithArgumentList(QStringLiteral("GetMeter"), argumentList));
 }
 
 void SoundDBusProxy::setMeterDevicePath(const QString &path)
@@ -270,7 +302,11 @@ void SoundDBusProxy::setMeterDevicePath(const QString &path)
     if (m_sourceMeter) {
         m_sourceMeter->deleteLater();
     }
-    m_sourceMeter = new DCCDBusInterface(AudioService, path, MeterInterface, QDBusConnection::sessionBus(), this);
+    m_sourceMeter = new DCCDBusInterface(AudioService,
+                                         path,
+                                         MeterInterface,
+                                         QDBusConnection::sessionBus(),
+                                         this);
     m_sourceMeter->setSuffix("Meter");
 }
 

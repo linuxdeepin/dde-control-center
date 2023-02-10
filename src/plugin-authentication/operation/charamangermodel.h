@@ -29,7 +29,8 @@
 class CharaMangerModel : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(bool faceDriverVaild READ faceDriverVaild WRITE setFaceDriverVaild NOTIFY vaildFaceDriverChanged)
+    Q_PROPERTY(bool faceDriverVaild READ faceDriverVaild WRITE setFaceDriverVaild NOTIFY
+                       vaildFaceDriverChanged)
     Q_PROPERTY(QStringList facesList READ facesList WRITE setFacesList NOTIFY facesListChanged)
     Q_PROPERTY(bool charaVaild READ charaVaild WRITE setCharaVaild NOTIFY charaVaildChanged)
 
@@ -38,35 +39,35 @@ public:
      * @brief The EnrollStatusType enum 人脸录入状态
      */
     enum EnrollFaceStatusType {
-        STATUS_SUCCESS = 0,   // 成功
+        STATUS_SUCCESS = 0,     // 成功
         STATUS_NOT_REAL_HUMAN,  // 非人类
-        STATUS_FACE_NOT_CENTER,  // 非中心
-        STATUS_FACE_TOO_BIG,  // 脸太大
+        STATUS_FACE_NOT_CENTER, // 非中心
+        STATUS_FACE_TOO_BIG,    // 脸太大
         STATUS_FACE_TOO_SMALL,
         STATUS_NO_FACE,
-        STATUS_FACE_TOO_MANY,  // 多人
-        STATUS_FACE_NOT_CLEARITY,  // 不清晰
-        STATUS_FACE_BRIGHTNESS,  // 亮度
-        STATUS_FACE_COVERD,  // 遮挡
-        STATUS_CANCELED, // 取消
-        STATUS_OVERTIME, // 超时
-        STATUS_COLLAPSE // 崩溃
+        STATUS_FACE_TOO_MANY,     // 多人
+        STATUS_FACE_NOT_CLEARITY, // 不清晰
+        STATUS_FACE_BRIGHTNESS,   // 亮度
+        STATUS_FACE_COVERD,       // 遮挡
+        STATUS_CANCELED,          // 取消
+        STATUS_OVERTIME,          // 超时
+        STATUS_COLLAPSE           // 崩溃
     };
 
     /**
      * @brief The EnrollIrisStatusType enum
      */
     enum EnrollIrisStatusType {
-        STATUS_IRIS_SUCCESS = 0,   // 成功
-        STATUS_IRIS_TOO_BIG,  // 太大
+        STATUS_IRIS_SUCCESS = 0, // 成功
+        STATUS_IRIS_TOO_BIG,     // 太大
         STATUS_IRIS_TOO_SMALL,
         STATUS_IRIS_NO_FACE,
-        STATUS_IRIS_NOT_CLEARITY,  // 不清晰
-        STATUS_IRIS_BRIGHTNESS,  // 亮度
-        STATUS_IRIS_EYES_CLOSE,  // 闭目
-        STATUS_IRIS_CANCELED, // 取消
-        STATUS_IRIS_Error, // 崩溃
-        STATUS_IRIS_OVERTIME // 超时
+        STATUS_IRIS_NOT_CLEARITY, // 不清晰
+        STATUS_IRIS_BRIGHTNESS,   // 亮度
+        STATUS_IRIS_EYES_CLOSE,   // 闭目
+        STATUS_IRIS_CANCELED,     // 取消
+        STATUS_IRIS_Error,        // 崩溃
+        STATUS_IRIS_OVERTIME      // 超时
     };
 
     /**
@@ -90,20 +91,9 @@ public:
         Count
     };
 
-    enum EnrollStatusType {
-        ET_Completed = 0,
-        ET_Failed,
-        ET_StagePass,
-        ET_Retry,
-        ET_Disconnect
-    };
+    enum EnrollStatusType { ET_Completed = 0, ET_Failed, ET_StagePass, ET_Retry, ET_Disconnect };
 
-    enum EnrollFailedCode {
-        FC_UnkownError = 1,
-        FC_RepeatTemplet,
-        FC_EnrollBroken,
-        FC_DataFull
-    };
+    enum EnrollFailedCode { FC_UnkownError = 1, FC_RepeatTemplet, FC_EnrollBroken, FC_DataFull };
 
     enum EnrollRetryCode {
         RC_TouchTooShort = 1,
@@ -119,25 +109,32 @@ public:
 public:
     explicit CharaMangerModel(QObject *parent = nullptr);
 
-    inline int faceCharaType() const { return  FACE_CHARA; }
-    inline int irisCharaType() const { return  IRIS_CHARA; }
+    inline int faceCharaType() const { return FACE_CHARA; }
 
-    inline bool faceDriverVaild() const {  return m_isFaceDriverVaild; }
+    inline int irisCharaType() const { return IRIS_CHARA; }
+
+    inline bool faceDriverVaild() const { return m_isFaceDriverVaild; }
+
     void setFaceDriverVaild(bool isVaild);
 
-    inline QString faceDriverName() const { return  m_faceDriverName; }
+    inline QString faceDriverName() const { return m_faceDriverName; }
+
     void setFaceDriverName(const QString &driverName);
 
-    inline QStringList facesList() const { return  m_facesList; }
+    inline QStringList facesList() const { return m_facesList; }
+
     void setFacesList(const QStringList &faces);
 
-    inline bool irisDriverVaild() const {  return m_isIrisDriverVaild; }
+    inline bool irisDriverVaild() const { return m_isIrisDriverVaild; }
+
     void setIrisDriverVaild(bool isVaild);
 
-    inline QString irisDriverName() const { return  m_irisDriverName; }
+    inline QString irisDriverName() const { return m_irisDriverName; }
+
     void setIrisDriverName(const QString &driverName);
 
-    inline QStringList irisList() const { return  m_irisList; }
+    inline QStringList irisList() const { return m_irisList; }
+
     void setIrisList(const QStringList &iris);
 
     /**
@@ -145,8 +142,8 @@ public:
      * @param code
      * @param msg
      */
-    void onEnrollStatusChanged(int code, const QString& msg);
-    void onEnrollIrisStatusChanged(int code, const QString& msg);
+    void onEnrollStatusChanged(int code, const QString &msg);
+    void onEnrollIrisStatusChanged(int code, const QString &msg);
 
     /**
      * @brief onRefreshEnrollDate  用于刷新用户已录入的数据（ eg： 重命名失败后）
@@ -159,18 +156,22 @@ public:
 
     // Finger
     void initFingerModel();
+
     inline QList<QString> getPredefineThumbsName() const { return m_predefineThumbsNames; }
 
-    inline bool fingerVaild() const {  return m_isFingerVaild; }
+    inline bool fingerVaild() const { return m_isFingerVaild; }
+
     void setFingerVaild(bool isVaild);
 
     inline QString userName() const { return m_userName; }
+
     void setUserName(const QString &name);
 
-    inline QStringList thumbsList() const { return  m_thumbsList; }
+    inline QStringList thumbsList() const { return m_thumbsList; }
+
     void setThumbsList(const QStringList &thumbs);
 
-    void onFingerEnrollStatusChanged(int code, const QString& msg);
+    void onFingerEnrollStatusChanged(int code, const QString &msg);
     void onTouch(const QString &id, bool pressed);
 
     void resetProgress() { m_progress = 0; }
@@ -223,11 +224,12 @@ Q_SIGNALS:
 
     void lockedChanged(bool locked);
 
-    //charaVaild
+    // charaVaild
     void charaVaildChanged(const bool isVaild);
 
 private:
-    void checkCharaVaild() {
+    void checkCharaVaild()
+    {
         if (m_isIrisDriverVaild || m_isFaceDriverVaild || m_isFingerVaild)
             setCharaVaild();
         else
@@ -246,7 +248,7 @@ private:
 
     // 指纹
     QString m_userName;
-    bool m_isFingerVaild{false};
+    bool m_isFingerVaild{ false };
     int m_progress;
     QStringList m_thumbsList;
     QList<QString> m_predefineThumbsNames;

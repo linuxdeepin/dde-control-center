@@ -28,12 +28,12 @@
 #ifndef ACCOUNTSWORKER_H
 #define ACCOUNTSWORKER_H
 
+#include "creationresult.h"
 #include "interface/namespace.h"
 #include "usermodel.h"
-#include "creationresult.h"
 
-#include <QObject>
 #include <QDBusPendingReply>
+#include <QObject>
 
 #define SECURITY_QUESTIONS_ERROR_COUNT 1
 
@@ -46,7 +46,8 @@ namespace DCC_NAMESPACE {
 
 class User;
 
-struct BindCheckResult {
+struct BindCheckResult
+{
     QString ubid = "";
     QString error = "";
 };
@@ -56,7 +57,7 @@ class AccountsWorker : public QObject
     Q_OBJECT
 
 public:
-    explicit AccountsWorker(UserModel * userList, QObject *parent = nullptr);
+    explicit AccountsWorker(UserModel *userList, QObject *parent = nullptr);
 
     void active();
     QString getCurrentUserName();
@@ -81,7 +82,11 @@ public Q_SLOTS:
     void setAutoLogin(User *user, const bool autoLogin);
     void setAdministrator(User *user, const bool asAdministrator);
     void onUserListChanged(const QStringList &userList);
-    void setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd,  const bool needResule = true);
+    void setPassword(User *user,
+                     const QString &oldpwd,
+                     const QString &passwd,
+                     const QString &repeatPasswd,
+                     const bool needResule = true);
     void resetPassword(User *user, const QString &password);
     void deleteUserIcon(User *user, const QString &iconPath);
     void setNopasswdLogin(User *user, const bool nopasswdLogin);
@@ -130,6 +135,6 @@ private:
     UserModel *m_userModel;
 };
 
-}   // namespace DCC_NAMESPACE
+} // namespace DCC_NAMESPACE
 
 #endif // ACCOUNTSWORKER_H

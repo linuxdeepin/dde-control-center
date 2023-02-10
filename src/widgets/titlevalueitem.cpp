@@ -24,27 +24,35 @@
  */
 
 #include "widgets/titlevalueitem.h"
+
 #include "widgets/accessibleinterface.h"
 
 #include <DPaletteHelper>
 
-#include <QHBoxLayout>
 #include <QEvent>
-#include <QPushButton>
+#include <QHBoxLayout>
 #include <QLabel>
+#include <QPushButton>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
-SET_FORM_ACCESSIBLE(TitleValueItem,"TitleValueItem")
-ResizeEventFilter::ResizeEventFilter(QObject *parent) : QObject(parent) {}
+SET_FORM_ACCESSIBLE(TitleValueItem, "TitleValueItem")
+
+ResizeEventFilter::ResizeEventFilter(QObject *parent)
+    : QObject(parent)
+{
+}
 
 bool ResizeEventFilter::eventFilter(QObject *watched, QEvent *event)
 {
-    if(event->type() == QEvent::Resize) {
-        QLabel* l = qobject_cast<QLabel*>(watched);
+    if (event->type() == QEvent::Resize) {
+        QLabel *l = qobject_cast<QLabel *>(watched);
         if (l) {
-            //as we are not interested in the y offset of the rendered text, height of the rectangle doesn't matter.
-            QRect r = l->fontMetrics().boundingRect(QRect(0, 0, l->width(), 100), Qt::TextWordWrap, l->text());
+            // as we are not interested in the y offset of the rendered text, height of the
+            // rectangle doesn't matter.
+            QRect r = l->fontMetrics().boundingRect(QRect(0, 0, l->width(), 100),
+                                                    Qt::TextWordWrap,
+                                                    l->text());
             l->setMinimumHeight(r.height());
             return true;
         }
@@ -53,11 +61,11 @@ bool ResizeEventFilter::eventFilter(QObject *watched, QEvent *event)
 }
 
 TitleValueItem::TitleValueItem(QFrame *parent)
-    : SettingsItem(parent),
-      m_title(new QLabel),
-      m_value(new ItemTitleTipsLabel(""))
+    : SettingsItem(parent)
+    , m_title(new QLabel)
+    , m_value(new ItemTitleTipsLabel(""))
 {
-    QHBoxLayout* layout = new QHBoxLayout(this);
+    QHBoxLayout *layout = new QHBoxLayout(this);
 
     m_value->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     m_value->setWordWrap(true);
@@ -123,14 +131,13 @@ void TitleValueItem::resizeEvent(QResizeEvent *event)
     SettingsItem::resizeEvent(event);
 }
 
-
 TitleAuthorizedItem::TitleAuthorizedItem(QFrame *parent)
     : SettingsItem(parent)
     , m_title(new QLabel)
     , m_value(new DTipLabel(""))
     , m_pActivatorBtn(new QPushButton)
 {
-    QHBoxLayout* layout = new QHBoxLayout;
+    QHBoxLayout *layout = new QHBoxLayout;
 
     m_value->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     m_value->setWordWrap(true);
@@ -146,16 +153,16 @@ TitleAuthorizedItem::TitleAuthorizedItem(QFrame *parent)
 
     setLayout(layout);
 
-    //传递button的点击信号
+    // 传递button的点击信号
     connect(m_pActivatorBtn, SIGNAL(clicked()), this, SIGNAL(clicked()));
 }
 
-void TitleAuthorizedItem::setTitle(const QString& title)
+void TitleAuthorizedItem::setTitle(const QString &title)
 {
     m_title->setText(title);
 }
 
-void TitleAuthorizedItem::setValue(const QString& value)
+void TitleAuthorizedItem::setValue(const QString &value)
 {
     m_value->setText(value);
 }
@@ -188,14 +195,12 @@ void TitleAuthorizedItem::setValueForegroundRole(const QColor &color)
  * @param parent
  */
 ItemTitleTipsLabel::ItemTitleTipsLabel(const QString &text, QWidget *parent)
-    : DTipLabel (text, parent)
+    : DTipLabel(text, parent)
     , m_hasBackground(false)
 {
 }
 
-ItemTitleTipsLabel::~ItemTitleTipsLabel()
-{
-}
+ItemTitleTipsLabel::~ItemTitleTipsLabel() { }
 
 void ItemTitleTipsLabel::addBackground()
 {

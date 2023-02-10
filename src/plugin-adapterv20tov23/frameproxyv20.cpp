@@ -20,10 +20,11 @@
  */
 
 #include "frameproxyv20.h"
+
 #include "moduleinterface.h"
 
-#include <QDBusMessage>
 #include <QDBusConnection>
+#include <QDBusMessage>
 #include <QDBusPendingCall>
 
 using namespace dccV20;
@@ -43,19 +44,21 @@ void FrameProxyV20::setRootModule(DCC_NAMESPACE::ModuleObject *rootModule)
 void FrameProxyV20::append(AdapterV20toV23Module *module)
 {
     m_moduleMap.insert(module->inter(), module);
-    connect(module,&AdapterV20toV23Module::actived,this,&FrameProxyV20::popAllWidgets);
+    connect(module, &AdapterV20toV23Module::actived, this, &FrameProxyV20::popAllWidgets);
 }
 
-void FrameProxyV20::pushWidget(ModuleInterface *const inter, QWidget *const w, dccV20::FrameProxyInterface::PushType type)
+void FrameProxyV20::pushWidget(ModuleInterface *const inter,
+                               QWidget *const w,
+                               dccV20::FrameProxyInterface::PushType type)
 {
     if (!m_moduleMap.contains(inter))
         return;
 
     AdapterV20toV23Module *module = m_moduleMap.value(inter);
     switch (type) {
-    case Replace:   // 替换三级页面。当在新的三级页面中单击“pop”按钮时，返回到旧的三级页面
-    case CoverTop:  //根据当前页面宽度去计算新增的页面放在最后面一层，或者Top页面
-    case DirectTop: //不需要管页面宽度，直接将新增页面放在Top页面；为解决某些页面使用CoverTop无法全部示的问题
+    case Replace: // 替换三级页面。当在新的三级页面中单击“pop”按钮时，返回到旧的三级页面
+    case CoverTop: // 根据当前页面宽度去计算新增的页面放在最后面一层，或者Top页面
+    case DirectTop: // 不需要管页面宽度，直接将新增页面放在Top页面；为解决某些页面使用CoverTop无法全部示的问题
         if (m_topWidget)
             popWidget(inter);
 
@@ -100,7 +103,10 @@ void FrameProxyV20::showModulePage(const QString &module, const QString &page, b
     QString arg = module;
     if (!page.isEmpty())
         arg += "/" + page;
-    QDBusMessage message = QDBusMessage::createMethodCall("com.deepin.dde.ControlCenter", "/com/deepin/dde/ControlCenter", "com.deepin.dde.ControlCenter", "ShowPage");
+    QDBusMessage message = QDBusMessage::createMethodCall("com.deepin.dde.ControlCenter",
+                                                          "/com/deepin/dde/ControlCenter",
+                                                          "com.deepin.dde.ControlCenter",
+                                                          "ShowPage");
     message << arg;
     QDBusConnection::sessionBus().asyncCall(message);
 }
@@ -110,12 +116,14 @@ void FrameProxyV20::setModuleSubscriptVisible(const QString &module, bool bIsDis
     Q_UNUSED(module);
     Q_UNUSED(bIsDisplay);
 }
+
 // 该函数已废弃
 void FrameProxyV20::setRemoveableDeviceStatus(QString type, bool state)
 {
     Q_UNUSED(type);
     Q_UNUSED(state);
 }
+
 // 该函数已废弃
 bool FrameProxyV20::getRemoveableDeviceStatus(QString type) const
 {
@@ -123,13 +131,9 @@ bool FrameProxyV20::getRemoveableDeviceStatus(QString type) const
     return false;
 }
 
-void FrameProxyV20::setSearchPath(ModuleInterface *const inter) const
-{
-}
+void FrameProxyV20::setSearchPath(ModuleInterface *const inter) const { }
 
-void FrameProxyV20::addChildPageTrans(const QString &menu, const QString &rran)
-{
-}
+void FrameProxyV20::addChildPageTrans(const QString &menu, const QString &rran) { }
 
 void FrameProxyV20::setModuleVisible(const QString &module, bool visible)
 {
@@ -158,11 +162,15 @@ void FrameProxyV20::setWidgetVisible(const QString &module, const QString &widge
     find_it.value()->setContentText(content);
 }
 
-void FrameProxyV20::setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible)
+void FrameProxyV20::setDetailVisible(const QString &module,
+                                     const QString &widget,
+                                     const QString &detail,
+                                     bool visible)
 {
-    auto find_it = std::find_if(m_moduleMap.cbegin(), m_moduleMap.cend(), [module, widget](auto &it) {
-        return it->displayName() == widget || it->displayName() == module;
-    });
+    auto find_it =
+            std::find_if(m_moduleMap.cbegin(), m_moduleMap.cend(), [module, widget](auto &it) {
+                return it->displayName() == widget || it->displayName() == module;
+            });
     if (find_it == m_moduleMap.cend())
         return;
 

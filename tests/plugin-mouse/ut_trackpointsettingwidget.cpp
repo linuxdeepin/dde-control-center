@@ -1,14 +1,15 @@
+#include <gtest/gtest.h>
+
 #include "interface/namespace.h"
-#include "src/plugin-mouse/window/trackpointsettingwidget.h"
 #include "src/plugin-mouse/operation/mousemodel.h"
-#include "widgets/titledslideritem.h"
+#include "src/plugin-mouse/window/trackpointsettingwidget.h"
 #include "widgets/dccslider.h"
+#include "widgets/titledslideritem.h"
 
 #include <QSignalSpy>
 
-#include <gtest/gtest.h>
-
 using namespace DCC_NAMESPACE;
+
 class Tst_TrackPointSettingWidget : public testing::Test
 {
     void SetUp() override

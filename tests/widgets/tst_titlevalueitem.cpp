@@ -7,10 +7,7 @@ using namespace DCC_NAMESPACE;
 class Tst_TitleValueItem : public testing::Test
 {
 public:
-    void SetUp() override
-    {
-        obj = new TitleValueItem();
-    }
+    void SetUp() override { obj = new TitleValueItem(); }
 
     void TearDown() override
     {

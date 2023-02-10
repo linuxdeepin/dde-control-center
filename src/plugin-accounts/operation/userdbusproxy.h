@@ -1,28 +1,28 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     Tinalu Shao <shaotianlu@uniontech.com>
-*
-* Maintainer: Tinalu Shao <shaotianlu@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     Tinalu Shao <shaotianlu@uniontech.com>
+ *
+ * Maintainer: Tinalu Shao <shaotianlu@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #ifndef USERDBUSPROXY_H
 #define USERDBUSPROXY_H
 
-#include <QObject>
 #include <QDBusPendingReply>
+#include <QObject>
 
 class QDBusInterface;
 class QDBusMessage;
@@ -42,7 +42,8 @@ public:
     Q_PROPERTY(qulonglong CreatedTime READ createdTime NOTIFY CreatedTimeChanged)
     qulonglong createdTime();
 
-    Q_PROPERTY(QStringList DesktopBackgrounds READ desktopBackgrounds NOTIFY DesktopBackgroundsChanged)
+    Q_PROPERTY(
+            QStringList DesktopBackgrounds READ desktopBackgrounds NOTIFY DesktopBackgroundsChanged)
     QStringList desktopBackgrounds();
 
     Q_PROPERTY(QString FullName READ fullName NOTIFY FullNameChanged)
@@ -136,46 +137,45 @@ public:
     QString xSession();
 
     inline QString path() { return m_accountsUserPath; }
-    inline const QDBusInterface* interface() { return m_dBusAccountsUserInter; }
 
-
+    inline const QDBusInterface *interface() { return m_dBusAccountsUserInter; }
 
 signals:
     // begin property changed signals
-    void AccountTypeChanged(int  value) const;
-    void AutomaticLoginChanged(bool  value) const;
-    void CreatedTimeChanged(qulonglong  value) const;
-    void DesktopBackgroundsChanged(const QStringList & value) const;
-    void FullNameChanged(const QString & value) const;
-    void GidChanged(const QString & value) const;
-    void GreeterBackgroundChanged(const QString & value) const;
-    void GroupsChanged(const QStringList & value) const;
-    void HistoryLayoutChanged(const QStringList & value) const;
-    void HomeDirChanged(const QString & value) const;
-    void IconFileChanged(const QString & value) const;
-    void IconListChanged(const QStringList & value) const;
-    void LayoutChanged(const QString & value) const;
-    void LocaleChanged(const QString & value) const;
-    void LockedChanged(bool  value) const;
-    void LoginTimeChanged(qulonglong  value) const;
-    void LongDateFormatChanged(int  value) const;
-    void LongTimeFormatChanged(int  value) const;
-    void MaxPasswordAgeChanged(int  value) const;
-    void NoPasswdLoginChanged(bool  value) const;
-    void PasswordHintChanged(const QString & value) const;
-    void PasswordLastChangeChanged(int  value) const;
-    void PasswordStatusChanged(const QString & value) const;
-    void ShellChanged(const QString & value) const;
-    void ShortDateFormatChanged(int  value) const;
-    void ShortTimeFormatChanged(int  value) const;
-    void SystemAccountChanged(bool  value) const;
-    void UidChanged(const QString & value) const;
-    void UUIDChanged(const QString & value) const;
-    void Use24HourFormatChanged(bool  value) const;
-    void UserNameChanged(const QString & value) const;
-    void WeekBeginsChanged(int  value) const;
-    void WeekdayFormatChanged(int  value) const;
-    void XSessionChanged(const QString & value) const;
+    void AccountTypeChanged(int value) const;
+    void AutomaticLoginChanged(bool value) const;
+    void CreatedTimeChanged(qulonglong value) const;
+    void DesktopBackgroundsChanged(const QStringList &value) const;
+    void FullNameChanged(const QString &value) const;
+    void GidChanged(const QString &value) const;
+    void GreeterBackgroundChanged(const QString &value) const;
+    void GroupsChanged(const QStringList &value) const;
+    void HistoryLayoutChanged(const QStringList &value) const;
+    void HomeDirChanged(const QString &value) const;
+    void IconFileChanged(const QString &value) const;
+    void IconListChanged(const QStringList &value) const;
+    void LayoutChanged(const QString &value) const;
+    void LocaleChanged(const QString &value) const;
+    void LockedChanged(bool value) const;
+    void LoginTimeChanged(qulonglong value) const;
+    void LongDateFormatChanged(int value) const;
+    void LongTimeFormatChanged(int value) const;
+    void MaxPasswordAgeChanged(int value) const;
+    void NoPasswdLoginChanged(bool value) const;
+    void PasswordHintChanged(const QString &value) const;
+    void PasswordLastChangeChanged(int value) const;
+    void PasswordStatusChanged(const QString &value) const;
+    void ShellChanged(const QString &value) const;
+    void ShortDateFormatChanged(int value) const;
+    void ShortTimeFormatChanged(int value) const;
+    void SystemAccountChanged(bool value) const;
+    void UidChanged(const QString &value) const;
+    void UUIDChanged(const QString &value) const;
+    void Use24HourFormatChanged(bool value) const;
+    void UserNameChanged(const QString &value) const;
+    void WeekBeginsChanged(int value) const;
+    void WeekdayFormatChanged(int value) const;
+    void XSessionChanged(const QString &value) const;
 
 public slots:
     QDBusPendingReply<> AddGroup(const QString &group);
@@ -204,6 +204,7 @@ public slots:
 private slots:
     void onPropertiesChanged(const QDBusMessage &message);
     void onLangSelectorStartServiceProcessFinished(QDBusPendingCallWatcher *w);
+
 private:
     void init();
 

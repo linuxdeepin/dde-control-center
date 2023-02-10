@@ -22,9 +22,10 @@
 #ifndef DEVICEMANAGES_H
 #define DEVICEMANAGES_H
 
-#include <dtkwidget_global.h>
 #include "interface/namespace.h"
 #include "soundmodel.h"
+
+#include <dtkwidget_global.h>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -36,15 +37,15 @@ class DListView;
 class DTipLabel;
 DWIDGET_END_NAMESPACE
 
-
 namespace DCC_NAMESPACE {
 class TitledSliderItem;
 class SettingsGroup;
-}
+} // namespace DCC_NAMESPACE
 
 DWIDGET_USE_NAMESPACE
 
 class SoundModel;
+
 class DevicemanagesPage : public QWidget
 {
     Q_OBJECT

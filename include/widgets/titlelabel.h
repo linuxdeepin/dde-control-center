@@ -21,17 +21,19 @@
 #pragma once
 
 #include "interface/namespace.h"
+
 #include <DLabel>
 
-namespace DCC_NAMESPACE
-{
+namespace DCC_NAMESPACE {
 
 class TitleLabel : public Dtk::Widget::DLabel
 {
     Q_OBJECT
 public:
     TitleLabel(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
-    TitleLabel(const QString &text, QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
+    TitleLabel(const QString &text,
+               QWidget *parent = nullptr,
+               Qt::WindowFlags f = Qt::WindowFlags());
 
 protected:
     bool event(QEvent *e) override;

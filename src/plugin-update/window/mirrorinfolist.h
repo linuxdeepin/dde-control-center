@@ -26,9 +26,9 @@
 #ifndef MIRRORINFO_H
 #define MIRRORINFO_H
 
-#include <QObject>
 #include <QDBusArgument>
 #include <QDebug>
+#include <QObject>
 #include <QtDBus>
 
 class MirrorInfo

@@ -25,13 +25,14 @@
 
 #include "updatemodel.h"
 
-DownloadInfo::DownloadInfo(const qlonglong &downloadSize, const QList<AppUpdateInfo> &appInfos, QObject *parent)
+DownloadInfo::DownloadInfo(const qlonglong &downloadSize,
+                           const QList<AppUpdateInfo> &appInfos,
+                           QObject *parent)
     : QObject(parent)
     , m_downloadSize(downloadSize)
     , m_downloadProgress(0)
     , m_appInfos(appInfos)
 {
-
 }
 
 void DownloadInfo::setDownloadProgress(double downloadProgress)
@@ -41,7 +42,6 @@ void DownloadInfo::setDownloadProgress(double downloadProgress)
         Q_EMIT downloadProgressChanged(downloadProgress);
     }
 }
-
 
 UpdateModel::UpdateModel(QObject *parent)
     : QObject(parent)
@@ -77,7 +77,6 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_isUpdatablePackages(false)
     , m_atomicBackingUp(false)
 {
-
 }
 
 UpdateModel::~UpdateModel()
@@ -85,7 +84,6 @@ UpdateModel::~UpdateModel()
     deleteUpdateInfo(m_systemUpdateInfo);
     deleteUpdateInfo(m_safeUpdateInfo);
     deleteUpdateInfo(m_unknownUpdateInfo);
-
 }
 
 DownloadInfo *UpdateModel::downloadInfo() const
@@ -108,7 +106,7 @@ UpdateItemInfo *UpdateModel::unknownDownloadInfo() const
     return m_unknownUpdateInfo;
 }
 
-QMap<ClassifyUpdateType, UpdateItemInfo *>  UpdateModel::allDownloadInfo() const
+QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateModel::allDownloadInfo() const
 {
     return m_allUpdateInfos;
 }
@@ -129,8 +127,14 @@ void UpdateModel::setSystemDownloadInfo(UpdateItemInfo *updateItemInfo)
     deleteUpdateInfo(m_systemUpdateInfo);
 
     m_systemUpdateInfo = updateItemInfo;
-    connect(m_systemUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::systemUpdateProgressChanged);
-    connect(m_systemUpdateInfo, &UpdateItemInfo::downloadSizeChanged, this, &UpdateModel::systemUpdateDownloadSizeChanged);
+    connect(m_systemUpdateInfo,
+            &UpdateItemInfo::downloadProgressChanged,
+            this,
+            &UpdateModel::systemUpdateProgressChanged);
+    connect(m_systemUpdateInfo,
+            &UpdateItemInfo::downloadSizeChanged,
+            this,
+            &UpdateModel::systemUpdateDownloadSizeChanged);
 
     Q_EMIT systemUpdateInfoChanged(updateItemInfo);
 }
@@ -139,8 +143,14 @@ void UpdateModel::setSafeDownloadInfo(UpdateItemInfo *updateItemInfo)
 {
     deleteUpdateInfo(m_safeUpdateInfo);
     m_safeUpdateInfo = updateItemInfo;
-    connect(m_safeUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::safeUpdateProgressChanged);
-    connect(m_safeUpdateInfo, &UpdateItemInfo::downloadSizeChanged, this, &UpdateModel::safeUpdateDownloadSizeChanged);
+    connect(m_safeUpdateInfo,
+            &UpdateItemInfo::downloadProgressChanged,
+            this,
+            &UpdateModel::safeUpdateProgressChanged);
+    connect(m_safeUpdateInfo,
+            &UpdateItemInfo::downloadSizeChanged,
+            this,
+            &UpdateModel::safeUpdateDownloadSizeChanged);
 
     Q_EMIT safeUpdateInfoChanged(updateItemInfo);
 }
@@ -149,8 +159,14 @@ void UpdateModel::setUnknownDownloadInfo(UpdateItemInfo *updateItemInfo)
 {
     deleteUpdateInfo(m_unknownUpdateInfo);
     m_unknownUpdateInfo = updateItemInfo;
-    connect(m_unknownUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::unkonowUpdateProgressChanged);
-    connect(m_unknownUpdateInfo, &UpdateItemInfo::downloadSizeChanged, this, &UpdateModel::unkonowUpdateDownloadSizeChanged);
+    connect(m_unknownUpdateInfo,
+            &UpdateItemInfo::downloadProgressChanged,
+            this,
+            &UpdateModel::unkonowUpdateProgressChanged);
+    connect(m_unknownUpdateInfo,
+            &UpdateItemInfo::downloadSizeChanged,
+            this,
+            &UpdateModel::unkonowUpdateDownloadSizeChanged);
 
     Q_EMIT unknownUpdateInfoChanged(updateItemInfo);
 }
@@ -163,7 +179,6 @@ void UpdateModel::setAllDownloadInfo(QMap<ClassifyUpdateType, UpdateItemInfo *> 
     setSafeDownloadInfo(allUpdateInfoInfo.value(ClassifyUpdateType::SecurityUpdate));
     setUnknownDownloadInfo(allUpdateInfoInfo.value(ClassifyUpdateType::UnknownUpdate));
 }
-
 
 bool UpdateModel::lowBattery() const
 {
@@ -209,7 +224,8 @@ void UpdateModel::setStatus(const UpdatesStatus &status)
 
 void UpdateModel::setStatus(const UpdatesStatus &status, int line)
 {
-    qDebug() << " from work set status : " << m_metaEnum.valueToKey(status) << " , set place in work line : " << line;
+    qDebug() << " from work set status : " << m_metaEnum.valueToKey(status)
+             << " , set place in work line : " << line;
     setStatus(status);
 }
 
@@ -269,10 +285,10 @@ void UpdateModel::setNetselectExist(bool netselectExist)
     Q_EMIT netselectExistChanged(netselectExist);
 }
 
-
 void UpdateModel::setAutoCheckUpdates(bool autoCheckUpdates)
 {
-    if (autoCheckUpdates == m_autoCheckUpdates) return;
+    if (autoCheckUpdates == m_autoCheckUpdates)
+        return;
 
     m_autoCheckUpdates = autoCheckUpdates;
 
@@ -354,18 +370,19 @@ void UpdateModel::isUpdatablePackages(bool isUpdatablePackages)
     Q_EMIT updatablePackagesChanged(isUpdatablePackages);
 }
 
-//判断当前是否正在备份中，若正在备份则不能再设置其他状态，直到备份有结果了才能继续设置其他状态
+// 判断当前是否正在备份中，若正在备份则不能再设置其他状态，直到备份有结果了才能继续设置其他状态
 bool UpdateModel::getIsRecoveryBackingup(UpdatesStatus state) const
 {
     bool ret = true;
 
     if (m_status == UpdatesStatus::RecoveryBackingup) {
-        if (state == UpdatesStatus::RecoveryBackingSuccessed ||
-                state == UpdatesStatus::RecoveryBackupFailed) {
+        if (state == UpdatesStatus::RecoveryBackingSuccessed
+            || state == UpdatesStatus::RecoveryBackupFailed) {
             ret = false;
             qDebug() << " Backing up End ! , state : " << state;
         } else {
-            qDebug() << " Now is Backing up , can't set other status. Please wait..." << m_metaEnum.valueToKey(state);
+            qDebug() << " Now is Backing up , can't set other status. Please wait..."
+                     << m_metaEnum.valueToKey(state);
         }
     } else {
         ret = false;
@@ -392,8 +409,11 @@ void UpdateModel::setAutoCheckUpdateCircle(const int interval)
 
 bool UpdateModel::enterCheckUpdate()
 {
-    qDebug() << "last update time:" << m_lastCheckUpdateTime << "check circle:" << m_autoCheckUpdateCircle;
-    return QDateTime::fromString(m_lastCheckUpdateTime, "yyyy-MM-dd hh:mm:ss").secsTo(QDateTime::currentDateTime()) > m_autoCheckUpdateCircle * 3600;
+    qDebug() << "last update time:" << m_lastCheckUpdateTime
+             << "check circle:" << m_autoCheckUpdateCircle;
+    return QDateTime::fromString(m_lastCheckUpdateTime, "yyyy-MM-dd hh:mm:ss")
+                   .secsTo(QDateTime::currentDateTime())
+            > m_autoCheckUpdateCircle * 3600;
 }
 
 void UpdateModel::setUpdateNotify(const bool notify)
@@ -444,7 +464,6 @@ void UpdateModel::setSystemUpdateStatus(const UpdatesStatus &systemUpdateStatus)
         m_systemUpdateStatus = systemUpdateStatus;
         Q_EMIT systemUpdateStatusChanged(systemUpdateStatus);
     }
-
 }
 
 void UpdateModel::setClassifyUpdateTypeStatus(ClassifyUpdateType type, UpdatesStatus status)
@@ -509,7 +528,8 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateModel::getAllUpdateInfos() cons
     return m_allUpdateInfos;
 }
 
-void UpdateModel::setAllUpdateInfos(const QMap<ClassifyUpdateType, UpdateItemInfo *> &allUpdateInfos)
+void UpdateModel::setAllUpdateInfos(
+        const QMap<ClassifyUpdateType, UpdateItemInfo *> &allUpdateInfos)
 {
     m_allUpdateInfos = allUpdateInfos;
 }
@@ -570,20 +590,21 @@ void UpdateModel::setAutoCheckThirdpartyUpdates(bool autoCheckThirdpartyUpdates)
         m_autoCheckThirdpartyUpdates = autoCheckThirdpartyUpdates;
         Q_EMIT autoCheckThirdpartyUpdatesChanged(m_autoCheckThirdpartyUpdates);
     }
-
 }
 
 QString UpdateModel::commitSubmissionTime()
 {
-    //显示时间，⼗位时间度为秒;
+    // 显示时间，⼗位时间度为秒;
     QString currentTime = QByteArray::number(QDateTime::currentDateTime().toTime_t());
     return currentTime;
 }
 
 QString UpdateModel::systemVersion()
 {
-    QString systemVer = QString("uos-%1-%2-%3").arg(DSysInfo::majorVersion())
-            .arg(DSysInfo::minorVersion()).arg(DSysInfo::buildVersion());
+    QString systemVer = QString("uos-%1-%2-%3")
+                                .arg(DSysInfo::majorVersion())
+                                .arg(DSysInfo::minorVersion())
+                                .arg(DSysInfo::buildVersion());
     return systemVer;
 }
 
@@ -636,7 +657,6 @@ UpdatesStatus UpdateModel::getClassifyUpdateStatus(ClassifyUpdateType type)
         break;
     default:
         break;
-
     }
     return status;
 }

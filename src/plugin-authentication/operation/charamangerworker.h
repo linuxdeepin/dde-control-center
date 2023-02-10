@@ -44,8 +44,8 @@ private:
      * @brief parseJsonData  仅仅将 mangerInfo 进行数据转化
      * @return 获取后端所有解析后的数据
      */
-    QMap<QString, uint> parseDriverNameJsonData(const QString& mangerInfo);
-    QStringList parseCharaNameJsonData(const QString& mangerInfo);
+    QMap<QString, uint> parseDriverNameJsonData(const QString &mangerInfo);
+    QStringList parseCharaNameJsonData(const QString &mangerInfo);
 
 Q_SIGNALS:
     void tryStartInputFace(const int &fd);
@@ -95,9 +95,9 @@ public Q_SLOTS:
     // Fingerprint
     void tryEnroll(const QString &name, const QString &thumb);
     void refreshFingerEnrollList(const QString &id);
-    void stopFingerEnroll(const QString& userName);
-    void deleteFingerItem(const QString& userName, const QString& finger);
-    void renameFingerItem(const QString& userName, const QString& finger, const QString& newName);
+    void stopFingerEnroll(const QString &userName);
+    void deleteFingerItem(const QString &userName, const QString &finger);
+    void renameFingerItem(const QString &userName, const QString &finger, const QString &newName);
 
 private:
     CharaMangerModel *m_model;
@@ -108,7 +108,7 @@ private:
      * 注： timer stop时机
      */
     QTimer *m_stopTimer;
-    QDBusPendingReply<QDBusUnixFileDescriptor>* m_fileDescriptor;
+    QDBusPendingReply<QDBusUnixFileDescriptor> *m_fileDescriptor;
     /**
      * @brief m_currentInputCharaType  当前录入方式 注：确保唯一性
      */

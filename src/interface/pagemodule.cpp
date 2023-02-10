@@ -1,12 +1,12 @@
 #include "pagemodule.h"
 
+#include <QDebug>
 #include <QEvent>
 #include <QResizeEvent>
 #include <QScrollArea>
 #include <QScrollBar>
 #include <QVBoxLayout>
 #include <QWidget>
-#include <QDebug>
 using namespace DCC_NAMESPACE;
 
 #define DCC_NO_Scroll 0x00080000  // 无滚动条(父项)
@@ -24,24 +24,28 @@ public:
         , m_maximumWidth(QWIDGETSIZE_MAX)
     {
         clearData();
-        QObject::connect(q_ptr, &PageModule::currentModuleChanged, q_ptr, [this](ModuleObject *currentModule) {
-            onCurrentModuleChanged(currentModule);
-        });
+        QObject::connect(q_ptr,
+                         &PageModule::currentModuleChanged,
+                         q_ptr,
+                         [this](ModuleObject *currentModule) {
+                             onCurrentModuleChanged(currentModule);
+                         });
     }
+
     void insertModule(ModuleObject *const module, int stretch, Qt::Alignment alignment)
     {
         m_mapModules.insert(module, { stretch, alignment });
     }
-    void removeModule(ModuleObject *const module)
-    {
-        m_mapModules.remove(module);
-    }
+
+    void removeModule(ModuleObject *const module) { m_mapModules.remove(module); }
+
     QPair<int, Qt::Alignment> layoutParam(ModuleObject *const module)
     {
         if (m_mapModules.contains(module))
             return m_mapModules.value(module);
         return { 0, Qt::Alignment() };
     }
+
     void clearData()
     {
         m_vlayout = nullptr;
@@ -59,13 +63,17 @@ public:
         mainLayout->setContentsMargins(0, 0, 0, 0);
         parentWidget->setLayout(mainLayout);
         m_hlayout = new QHBoxLayout();
-        QObject::connect(parentWidget, &QObject::destroyed, q, [this]() { clearData(); });
+        QObject::connect(parentWidget, &QObject::destroyed, q, [this]() {
+            clearData();
+        });
 
         QWidget *areaWidget = new QWidget();
         if (q->noScroll()) {
             m_area = nullptr;
             areaWidget->setParent(parentWidget);
-            mainLayout->addWidget(areaWidget, 0, m_contentsMargins.isNull() ? Qt::Alignment() : Qt::AlignHCenter);
+            mainLayout->addWidget(areaWidget,
+                                  0,
+                                  m_contentsMargins.isNull() ? Qt::Alignment() : Qt::AlignHCenter);
         } else {
             m_area = new QScrollArea(parentWidget);
             m_area->installEventFilter(this);
@@ -104,16 +112,29 @@ public:
             m_vlayout->addStretch(1);
 
         // 监听子项的添加、删除、状态变更，动态的更新界面
-        QObject::connect(q, &ModuleObject::insertedChild, areaWidget, [this](ModuleObject *const childModule) { onAddChild(childModule); });
-        QObject::connect(q, &ModuleObject::removedChild, areaWidget, [this](ModuleObject *const childModule) { onRemoveChild(childModule); });
-        QObject::connect(q, &ModuleObject::childStateChanged, areaWidget, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-            if (ModuleObject::IsHiddenFlag(flag)) {
-                if (state)
-                    onRemoveChild(tmpChild);
-                else
-                    onAddChild(tmpChild);
-            }
-        });
+        QObject::connect(q,
+                         &ModuleObject::insertedChild,
+                         areaWidget,
+                         [this](ModuleObject *const childModule) {
+                             onAddChild(childModule);
+                         });
+        QObject::connect(q,
+                         &ModuleObject::removedChild,
+                         areaWidget,
+                         [this](ModuleObject *const childModule) {
+                             onRemoveChild(childModule);
+                         });
+        QObject::connect(q,
+                         &ModuleObject::childStateChanged,
+                         areaWidget,
+                         [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+                             if (ModuleObject::IsHiddenFlag(flag)) {
+                                 if (state)
+                                     onRemoveChild(tmpChild);
+                                 else
+                                     onAddChild(tmpChild);
+                             }
+                         });
         Q_EMIT q->currentModuleChanged(q->currentModule());
         return parentWidget;
     }
@@ -129,6 +150,7 @@ private:
             }
         }
     }
+
     void onRemoveChild(DCC_NAMESPACE::ModuleObject *const childModule)
     {
         if (m_mapWidget.contains(childModule)) {
@@ -148,6 +170,7 @@ private:
             }
         }
     }
+
     void onAddChild(DCC_NAMESPACE::ModuleObject *const childModule)
     {
         if (ModuleObject::IsHidden(childModule) || m_mapWidget.contains(childModule))
@@ -185,7 +208,8 @@ private:
             int width = qMin(e->size().width() - left - right, m_maximumWidth);
             if (m_maximumWidth >= width && width > 0) {
                 for (int i = 0; i < m_vlayout->count(); ++i) {
-                    QAbstractScrollArea *w = qobject_cast<QAbstractScrollArea *>(m_vlayout->itemAt(i)->widget());
+                    QAbstractScrollArea *w =
+                            qobject_cast<QAbstractScrollArea *>(m_vlayout->itemAt(i)->widget());
                     if (w) {
                         w->setMaximumWidth(width);
                     }
@@ -210,7 +234,7 @@ private:
     int m_maximumWidth;
 };
 
-}
+} // namespace DCC_NAMESPACE
 
 PageModule::PageModule(QObject *parent)
     : ModuleObject(parent)
@@ -230,45 +254,65 @@ PageModule::PageModule(const QString &name, const QStringList &contentText, QObj
 {
 }
 
-PageModule::PageModule(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent)
+PageModule::PageModule(const QString &name,
+                       const QString &displayName,
+                       const QStringList &contentText,
+                       QObject *parent)
     : ModuleObject(name, displayName, contentText, parent)
     , DCC_INIT_PRIVATE(PageModule)
 {
 }
 
-PageModule::PageModule(const QString &name, const QString &displayName, const QVariant &icon, QObject *parent)
+PageModule::PageModule(const QString &name,
+                       const QString &displayName,
+                       const QVariant &icon,
+                       QObject *parent)
     : ModuleObject(name, displayName, icon, parent)
     , DCC_INIT_PRIVATE(PageModule)
 {
 }
 
-PageModule::PageModule(const QString &name, const QString &displayName, const QString &description, QObject *parent)
+PageModule::PageModule(const QString &name,
+                       const QString &displayName,
+                       const QString &description,
+                       QObject *parent)
     : ModuleObject(name, displayName, description, parent)
     , DCC_INIT_PRIVATE(PageModule)
 {
 }
 
-PageModule::PageModule(const QString &name, const QString &displayName, const QString &description, const QVariant &icon, QObject *parent)
+PageModule::PageModule(const QString &name,
+                       const QString &displayName,
+                       const QString &description,
+                       const QVariant &icon,
+                       QObject *parent)
     : ModuleObject(name, displayName, description, icon, parent)
     , DCC_INIT_PRIVATE(PageModule)
 {
 }
 
-PageModule::PageModule(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent)
+PageModule::PageModule(const QString &name,
+                       const QString &displayName,
+                       const QString &description,
+                       const QIcon &icon,
+                       QObject *parent)
     : ModuleObject(name, displayName, description, icon, parent)
     , DCC_INIT_PRIVATE(PageModule)
 {
 }
 
-PageModule::PageModule(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent)
+PageModule::PageModule(const QString &name,
+                       const QString &displayName,
+                       const QString &description,
+                       const QStringList &contentText,
+                       const QVariant &icon,
+                       QObject *parent)
     : ModuleObject(name, displayName, description, contentText, icon, parent)
     , DCC_INIT_PRIVATE(PageModule)
 {
 }
 
-PageModule::~PageModule()
-{
-}
+PageModule::~PageModule() { }
 
 int PageModule::spacing() const
 {
@@ -383,7 +427,10 @@ void PageModule::appendChild(ModuleObject *const module, int stretch, Qt::Alignm
     ModuleObject::appendChild(module);
 }
 
-void PageModule::insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module, int stretch, Qt::Alignment alignment)
+void PageModule::insertChild(QList<ModuleObject *>::iterator before,
+                             ModuleObject *const module,
+                             int stretch,
+                             Qt::Alignment alignment)
 {
     if (childrens().contains(module))
         return;
@@ -393,7 +440,10 @@ void PageModule::insertChild(QList<ModuleObject *>::iterator before, ModuleObjec
     ModuleObject::insertChild(before, module);
 }
 
-void PageModule::insertChild(const int index, ModuleObject *const module, int stretch, Qt::Alignment alignment)
+void PageModule::insertChild(const int index,
+                             ModuleObject *const module,
+                             int stretch,
+                             Qt::Alignment alignment)
 {
     if (childrens().contains(module))
         return;

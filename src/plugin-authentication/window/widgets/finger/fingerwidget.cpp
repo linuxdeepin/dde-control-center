@@ -19,18 +19,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "charamangermodel.h"
 #include "fingerwidget.h"
-#include "widgets/titlelabel.h"
-#include "widgets/settingsgroup.h"
 
-#include <DFontSizeManager>
+#include "charamangermodel.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/titlelabel.h"
 
 #include <DCommandLinkButton>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QScrollArea>
+#include <DFontSizeManager>
+
 #include <QEvent>
+#include <QHBoxLayout>
+#include <QScrollArea>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -40,7 +41,7 @@ FingerWidget::FingerWidget(QWidget *parent)
     , m_listGrp(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
     , m_clearBtn(nullptr)
 {
-	//注册所有的事件
+    // 注册所有的事件
     installEventFilter(this);
 
     m_clearBtn = new DCommandLinkButton(tr("Edit"));
@@ -79,18 +80,19 @@ FingerWidget::FingerWidget(QWidget *parent)
     mainContentLayout->addWidget(m_listGrp);
     setLayout(mainContentLayout);
 
-    //设置字体大小
+    // 设置字体大小
     DFontSizeManager::instance()->bind(m_clearBtn, DFontSizeManager::T8);
 
-    connect(m_clearBtn, &DCommandLinkButton::clicked, this, [ = ](bool checked) {
+    connect(m_clearBtn, &DCommandLinkButton::clicked, this, [=](bool checked) {
         if (checked) {
             m_clearBtn->setText(tr("Done"));
-            //添加一个空白区域
+            // 添加一个空白区域
             mainContentLayout->addSpacing(20);
         } else {
             m_clearBtn->setText(tr("Edit"));
-            //把之前添加的空白区域移除
-            mainContentLayout->removeItem(mainContentLayout->itemAt(mainContentLayout->count() - 1));
+            // 把之前添加的空白区域移除
+            mainContentLayout->removeItem(
+                    mainContentLayout->itemAt(mainContentLayout->count() - 1));
         }
         for (auto &item : m_vecItem) {
             item->setShowIcon(checked);
@@ -98,10 +100,7 @@ FingerWidget::FingerWidget(QWidget *parent)
     });
 }
 
-FingerWidget::~FingerWidget()
-{
-
-}
+FingerWidget::~FingerWidget() { }
 
 void FingerWidget::setFingerModel(CharaMangerModel *model)
 {
@@ -117,11 +116,11 @@ void FingerWidget::setFingerModel(CharaMangerModel *model)
 bool FingerWidget::eventFilter(QObject *watched, QEvent *event)
 {
     Q_UNUSED(watched);
-    //删除指纹提权超时的时候,再次输入密码需要通知界面刷新
-    if(event->type() == QEvent::WindowActivate) {
+    // 删除指纹提权超时的时候,再次输入密码需要通知界面刷新
+    if (event->type() == QEvent::WindowActivate) {
         Q_EMIT noticeEnrollCompleted(m_currentUserName);
     }
-    return  true;
+    return true;
 }
 
 void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
@@ -139,29 +138,33 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
         connect(item, &AuthenticationInfoItem::removeClicked, this, [this, finger] {
             Q_EMIT requestDeleteFingerItem(m_currentUserName, finger);
         });
-        connect(item, &AuthenticationInfoItem::editTextFinished, this, [this, finger, item, thumbs, n](QString newName) {
-            // 没有改名，直接返回
-            if (item->getTitle() == newName) {
-                return;
-            }
-            for (int i = 0; i < thumbs.size(); ++i) {
-                if (newName == thumbs.at(i) && i != n) {
-                    QString errMsg = tr("The name already exists");
-                    item->showAlertMessage(errMsg);
-                    return;
-                }
-            }
-            item->setTitle(newName);
-            Q_EMIT requestRenameFingerItem(m_currentUserName, finger, newName);
-        });
+        connect(item,
+                &AuthenticationInfoItem::editTextFinished,
+                this,
+                [this, finger, item, thumbs, n](QString newName) {
+                    // 没有改名，直接返回
+                    if (item->getTitle() == newName) {
+                        return;
+                    }
+                    for (int i = 0; i < thumbs.size(); ++i) {
+                        if (newName == thumbs.at(i) && i != n) {
+                            QString errMsg = tr("The name already exists");
+                            item->showAlertMessage(errMsg);
+                            return;
+                        }
+                    }
+                    item->setTitle(newName);
+                    Q_EMIT requestRenameFingerItem(m_currentUserName, finger, newName);
+                });
 
         connect(item, &AuthenticationInfoItem::editClicked, this, [this, item, thumbs]() {
             for (int k = 0; k < thumbs.size(); ++k) {
-                static_cast<AuthenticationInfoItem *>(m_listGrp->getItem(k))->setEditTitle(item == m_listGrp->getItem(k));
+                static_cast<AuthenticationInfoItem *>(m_listGrp->getItem(k))
+                        ->setEditTitle(item == m_listGrp->getItem(k));
             }
         });
 
-        if(m_clearBtn->isChecked())
+        if (m_clearBtn->isChecked())
             item->setShowIcon(true);
 
         m_vecItem.append(item);
@@ -191,7 +194,7 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 
 void FingerWidget::addFingerButton(const QString &newFingerName)
 {
-    AuthenticationLinkButtonItem* addfingerItem = new AuthenticationLinkButtonItem(this);
+    AuthenticationLinkButtonItem *addfingerItem = new AuthenticationLinkButtonItem(this);
 
     QString strAddFinger = tr("Add Fingerprint");
     DCommandLinkButton *addBtn = new DCommandLinkButton(strAddFinger);
@@ -206,10 +209,10 @@ void FingerWidget::addFingerButton(const QString &newFingerName)
     QFontMetrics fontMetrics(font());
     int nFontWidth = fontMetrics.horizontalAdvance(strAddFinger);
     addBtn->setMinimumWidth(nFontWidth);
-    connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
+    connect(addBtn, &DCommandLinkButton::clicked, this, [=] {
         Q_EMIT requestAddThumbs(m_currentUserName, newFingerName);
     });
-    connect(addfingerItem, &AuthenticationLinkButtonItem::mousePressed, this, [ = ] {
+    connect(addfingerItem, &AuthenticationLinkButtonItem::mousePressed, this, [=] {
         Q_EMIT requestAddThumbs(m_currentUserName, newFingerName);
     });
 }

@@ -22,14 +22,16 @@
 #define GENERALKBSETTINGWIDGET_H
 
 #include "interface/namespace.h"
-#include <QMouseEvent>
-#include <QWidget>
 
 #include <DLineEdit>
 #include <DPaletteHelper>
 #include <DStyle>
 
+#include <QMouseEvent>
+#include <QWidget>
+
 DWIDGET_USE_NAMESPACE
+
 namespace DCC_NAMESPACE {
 class KeyboardModel;
 
@@ -51,6 +53,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void setDelayValue(uint value);
     void setSpeedValue(uint value);
+
 private:
     DCCSlider *m_delaySlider;
     DCCSlider *m_speedSlider;
@@ -61,5 +64,5 @@ private:
     QVBoxLayout *m_contentLayout;
     DLineEdit *m_testArea;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // GENERALKBSETTINGWIDGET_H

@@ -25,10 +25,10 @@
 
 #include "downloadprogressbar.h"
 
-#include <QMouseEvent>
-#include <QHBoxLayout>
-#include <QPainter>
 #include <QDebug>
+#include <QHBoxLayout>
+#include <QMouseEvent>
+#include <QPainter>
 
 DownloadProgressBar::DownloadProgressBar(QWidget *parent)
     : QProgressBar(parent)

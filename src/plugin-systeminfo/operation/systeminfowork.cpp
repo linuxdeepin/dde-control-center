@@ -25,13 +25,15 @@
  */
 
 #include "systeminfowork.h"
-#include "systeminfomodel.h"
+
 #include "systeminfodbusproxy.h"
+#include "systeminfomodel.h"
 
 #include <DSysInfo>
 
 DCORE_USE_NAMESPACE
-namespace DCC_NAMESPACE{
+
+namespace DCC_NAMESPACE {
 
 SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     : QObject(parent)
@@ -39,26 +41,34 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     , m_systemInfDBusProxy(new SystemInfoDBusProxy(this))
 {
     qRegisterMetaType<ActiveState>("ActiveState");
-    connect(m_systemInfDBusProxy, &SystemInfoDBusProxy::StaticHostnameChanged, m_model, &SystemInfoModel::setHostName);
-    connect(m_systemInfDBusProxy, &SystemInfoDBusProxy::AuthorizationStateChanged, m_model, [this] (const int state) {
-        m_model->setLicenseState(static_cast<ActiveState>(state));
-    });
+    connect(m_systemInfDBusProxy,
+            &SystemInfoDBusProxy::StaticHostnameChanged,
+            m_model,
+            &SystemInfoModel::setHostName);
+    connect(m_systemInfDBusProxy,
+            &SystemInfoDBusProxy::AuthorizationStateChanged,
+            m_model,
+            [this](const int state) {
+                m_model->setLicenseState(static_cast<ActiveState>(state));
+            });
 }
 
 void SystemInfoWork::activate()
 {
-    //获取主机名
+    // 获取主机名
     m_model->setHostName(m_systemInfDBusProxy->staticHostname());
 
     if (DSysInfo::isDeepin()) {
-        m_model->setLicenseState(static_cast<ActiveState>(m_systemInfDBusProxy->authorizationState()));
+        m_model->setLicenseState(
+                static_cast<ActiveState>(m_systemInfDBusProxy->authorizationState()));
         QString productName = QString("%1").arg(DSysInfo::uosSystemName());
         m_model->setProductName(productName);
         QString versionNumber = QString("%1").arg(DSysInfo::majorVersion());
         m_model->setVersionNumber(versionNumber);
     }
     QString version;
-    if (DSysInfo::uosType() == DSysInfo::UosServer || DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
+    if (DSysInfo::uosType() == DSysInfo::UosServer
+        || DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
         version = QString("%1%2").arg(DSysInfo::minorVersion(), DSysInfo::uosEditionName());
     } else if (DSysInfo::isDeepin()) {
         version = QString("%1 (%2)").arg(DSysInfo::uosEditionName(), DSysInfo::minorVersion());
@@ -72,13 +82,11 @@ void SystemInfoWork::activate()
 
     m_model->setKernel(QSysInfo::kernelVersion());
     m_model->setProcessor(DSysInfo::cpuModelName());
-    m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), static_cast<qulonglong>(DSysInfo::memoryInstalledSize()));
+    m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()),
+                       static_cast<qulonglong>(DSysInfo::memoryInstalledSize()));
 }
 
-void SystemInfoWork::deactivate()
-{
-
-}
+void SystemInfoWork::deactivate() { }
 
 void SystemInfoWork::showActivatorDialog()
 {
@@ -87,7 +95,10 @@ void SystemInfoWork::showActivatorDialog()
 
 void SystemInfoWork::onSetHostname(const QString &hostname)
 {
-    m_systemInfDBusProxy->setStaticHostname(hostname, this, SLOT(onSetHostnameFinish()), SLOT(onSetHostnameFinish()));
+    m_systemInfDBusProxy->setStaticHostname(hostname,
+                                            this,
+                                            SLOT(onSetHostnameFinish()),
+                                            SLOT(onSetHostnameFinish()));
 }
 
 void SystemInfoWork::onSetHostnameFinish()
@@ -95,4 +106,4 @@ void SystemInfoWork::onSetHostnameFinish()
     m_model->setHostName(m_systemInfDBusProxy->staticHostname());
 }
 
-}
+} // namespace DCC_NAMESPACE

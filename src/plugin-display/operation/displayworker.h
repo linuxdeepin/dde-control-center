@@ -28,8 +28,8 @@
 #ifndef DISPLAYWORKER_H
 #define DISPLAYWORKER_H
 
-#include "interface/namespace.h"
 #include "displaydbusproxy.h"
+#include "interface/namespace.h"
 #include "machine.h"
 #include "machinedbusproxy.h"
 #include "monitor.h"
@@ -37,8 +37,8 @@
 #include <dtkcore_global.h>
 
 #include <QObject>
-#include <QTimer>
 #include <QProcess>
+#include <QTimer>
 
 DCORE_BEGIN_NAMESPACE
 class DConfig;
@@ -46,6 +46,7 @@ DCORE_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 class DisplayModel;
+
 class DisplayWorker : public QObject
 {
     Q_OBJECT
@@ -85,8 +86,8 @@ public Q_SLOTS:
     void setCurrentStopDeviceSharing(Machine *mac);
     void setOpenSharedDevices(bool on);
     void setOpenSharedClipboard(bool on);
-    void setFilesStoragePath(const QString& path);
-    void setFlowDirection(Machine *mac, const int& dir);
+    void setFilesStoragePath(const QString &path);
+    void setFlowDirection(Machine *mac, const int &dir);
 
     void backupConfig();
     void clearBackup();
@@ -121,6 +122,6 @@ private:
     DTK_CORE_NAMESPACE::DConfig *m_dconfig;
     QString m_displayConfig;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // DISPLAYWORKER_H

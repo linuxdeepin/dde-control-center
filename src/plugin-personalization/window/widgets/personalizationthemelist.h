@@ -23,8 +23,9 @@
 #include "interface/namespace.h"
 
 #include <dtkwidget_global.h>
-#include <DStyleOption>
+
 #include <DAbstractDialog>
+#include <DStyleOption>
 
 #include <QDialog>
 #include <QJsonObject>

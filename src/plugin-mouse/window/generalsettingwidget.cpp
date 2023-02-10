@@ -19,18 +19,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "generalsettingwidget.h"
-#include "widgets/switchwidget.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/dccslider.h"
-#include "palmdetectsetting.h"
+
 #include "doutestwidget.h"
+#include "palmdetectsetting.h"
 #include "src/plugin-mouse/operation/mousemodel.h"
 #include "src/plugin-mouse/operation/mouseworker.h"
-#include <QPushButton>
+#include "widgets/dccslider.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/switchwidget.h"
+
 #include <QDebug>
+#include <QPushButton>
 #include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
+
 GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     : QWidget(parent)
     , m_mouseModel(nullptr)
@@ -67,7 +70,11 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     m_scrollSpeedSlider->setAnnotations(speedList);
 
     QStringList doublelist;
-    doublelist << tr("Slow") << "" << "" << "" << "" << "";
+    doublelist << tr("Slow") << ""
+               << ""
+               << ""
+               << ""
+               << "";
     doublelist << tr("Fast");
     DCCSlider *doubleSlider = m_doubleSlider->slider();
     doubleSlider->setType(DCCSlider::Vernier);
@@ -91,25 +98,41 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     m_contentLayout->setContentsMargins(0, 10, 0, 5); // 右侧间距为10 补下面的 8
     setLayout(m_contentLayout);
 
-    connect(m_leftHand, &SwitchWidget::checkedChanged, this, &GeneralSettingWidget::requestSetLeftHand);
-    connect(m_disInTyping, &SwitchWidget::checkedChanged, this, &GeneralSettingWidget::requestSetDisTyping);
-    connect(m_scrollSpeedSlider->slider(), &DCCSlider::valueChanged, this, &GeneralSettingWidget::requestScrollSpeed);
-    connect(m_doubleSlider->slider(), &DCCSlider::valueChanged, this, &GeneralSettingWidget::requestSetDouClick);
+    connect(m_leftHand,
+            &SwitchWidget::checkedChanged,
+            this,
+            &GeneralSettingWidget::requestSetLeftHand);
+    connect(m_disInTyping,
+            &SwitchWidget::checkedChanged,
+            this,
+            &GeneralSettingWidget::requestSetDisTyping);
+    connect(m_scrollSpeedSlider->slider(),
+            &DCCSlider::valueChanged,
+            this,
+            &GeneralSettingWidget::requestScrollSpeed);
+    connect(m_doubleSlider->slider(),
+            &DCCSlider::valueChanged,
+            this,
+            &GeneralSettingWidget::requestSetDouClick);
 }
 
-GeneralSettingWidget::~GeneralSettingWidget()
-{
-}
+GeneralSettingWidget::~GeneralSettingWidget() { }
 
 void GeneralSettingWidget::setModel(MouseModel *const model)
 {
     m_mouseModel = model;
 
-    connect(model, &MouseModel::tpadExistChanged, m_disInTyping,&SwitchWidget::setVisible);
+    connect(model, &MouseModel::tpadExistChanged, m_disInTyping, &SwitchWidget::setVisible);
     connect(model, &MouseModel::leftHandStateChanged, m_leftHand, &SwitchWidget::setChecked);
     connect(model, &MouseModel::disIfTypingStateChanged, m_disInTyping, &SwitchWidget::setChecked);
-    connect(model, &MouseModel::doubleSpeedChanged, this, &GeneralSettingWidget::onDoubleClickSpeedChanged);
-    connect(model, &MouseModel::scrollSpeedChanged, this, &GeneralSettingWidget::onScrollSpeedChanged);
+    connect(model,
+            &MouseModel::doubleSpeedChanged,
+            this,
+            &GeneralSettingWidget::onDoubleClickSpeedChanged);
+    connect(model,
+            &MouseModel::scrollSpeedChanged,
+            this,
+            &GeneralSettingWidget::onScrollSpeedChanged);
     m_leftHand->setChecked(model->leftHandState());
     m_disInTyping->setChecked(model->disIfTyping());
     m_disInTyping->setVisible(model->tpadExist());

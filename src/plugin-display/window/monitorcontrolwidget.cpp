@@ -24,19 +24,20 @@
  */
 
 #include "monitorcontrolwidget.h"
+
 #include "monitorsground.h"
 #include "src/plugin-display/operation/displaymodel.h"
 
-#include <QLabel>
-#include <QVBoxLayout>
-#include <QPushButton>
 #include <QIcon>
+#include <QLabel>
+#include <QPushButton>
+#include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
 
 MonitorControlWidget::MonitorControlWidget(int activateHeight, QWidget *parent)
     : QFrame(parent)
-    , m_screensGround(new MonitorsGround(activateHeight,this))
+    , m_screensGround(new MonitorsGround(activateHeight, this))
     , m_recognize(new QPushButton(QIcon::fromTheme("dcc_recognize"), tr("Identify")))
     , m_gather(new QPushButton(QIcon::fromTheme("dcc_gather"), tr("Gather Windows")))
     , m_effectiveReminder(new QLabel(this))
@@ -71,11 +72,26 @@ MonitorControlWidget::MonitorControlWidget(int activateHeight, QWidget *parent)
     connect(m_gather, &QPushButton::clicked, this, [=] {
         Q_EMIT requestGatherWindows(QCursor::pos());
     });
-    connect(m_screensGround, &MonitorsGround::requestApplySettings, this, &MonitorControlWidget::requestSetMonitorPosition);
-    connect(m_screensGround, &MonitorsGround::showsecondaryScreen, this, &MonitorControlWidget::requestShowsecondaryScreen);
-    connect(m_screensGround, &MonitorsGround::requestMonitorPress, this, &MonitorControlWidget::requestMonitorPress);
-    connect(m_screensGround, &MonitorsGround::requestMonitorRelease, this, &MonitorControlWidget::requestMonitorRelease);
-    connect(m_screensGround, &MonitorsGround::setEffectiveReminderVisible, this, &MonitorControlWidget::onSetEffectiveReminderVisible);
+    connect(m_screensGround,
+            &MonitorsGround::requestApplySettings,
+            this,
+            &MonitorControlWidget::requestSetMonitorPosition);
+    connect(m_screensGround,
+            &MonitorsGround::showsecondaryScreen,
+            this,
+            &MonitorControlWidget::requestShowsecondaryScreen);
+    connect(m_screensGround,
+            &MonitorsGround::requestMonitorPress,
+            this,
+            &MonitorControlWidget::requestMonitorPress);
+    connect(m_screensGround,
+            &MonitorsGround::requestMonitorRelease,
+            this,
+            &MonitorControlWidget::requestMonitorRelease);
+    connect(m_screensGround,
+            &MonitorsGround::setEffectiveReminderVisible,
+            this,
+            &MonitorControlWidget::onSetEffectiveReminderVisible);
 }
 
 void MonitorControlWidget::setModel(DisplayModel *model, Monitor *moni)
@@ -97,11 +113,12 @@ void MonitorControlWidget::setScreensMerged(const int mode)
 
 void MonitorControlWidget::onSetEffectiveReminderVisible(bool visible, int nEffectiveTime)
 {
-    if(visible)
-        m_effectiveReminder->setText(tr("Screen rearrangement will take effect in %1s after changes").arg(nEffectiveTime));
+    if (visible)
+        m_effectiveReminder->setText(
+                tr("Screen rearrangement will take effect in %1s after changes")
+                        .arg(nEffectiveTime));
     else
         m_effectiveReminder->setText("");
-
 }
 
 void MonitorControlWidget::onGatherEnabled(const bool enable)

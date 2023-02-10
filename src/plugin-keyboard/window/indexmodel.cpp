@@ -24,6 +24,7 @@
  */
 
 #include "indexmodel.h"
+
 #include <DStandardItem>
 
 DWIDGET_USE_NAMESPACE

@@ -25,24 +25,25 @@
 
 #include "resultitem.h"
 
-#include <QVBoxLayout>
-#include <QLabel>
-#include <QDebug>
 #include <dhidpihelper.h>
+
+#include <QDebug>
+#include <QLabel>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 
 ResultItem::ResultItem(QFrame *parent)
-    : SettingsItem(parent),
-      m_message(new QLabel),
-      m_icon(new QLabel),
-      m_pix("")
+    : SettingsItem(parent)
+    , m_message(new QLabel)
+    , m_icon(new QLabel)
+    , m_pix("")
 {
     m_icon->setFixedSize(128, 128);
 
     m_message->setWordWrap(true);
 
-    QVBoxLayout* layout = new QVBoxLayout();
+    QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(0);
 

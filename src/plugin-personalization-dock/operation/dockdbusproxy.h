@@ -1,29 +1,29 @@
 /*
-* Copyright (C) 2021 ~ 2022 Uniontech Software Technology Co.,Ltd.
-*
-* Author:     fanpengcheng <fanpengcheng@uniontech.com>
-*
-* Maintainer: fanpengcheng <fanpengcheng@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2022 Uniontech Software Technology Co.,Ltd.
+ *
+ * Author:     fanpengcheng <fanpengcheng@uniontech.com>
+ *
+ * Maintainer: fanpengcheng <fanpengcheng@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #ifndef DOCKDBUSPROXY_H
 #define DOCKDBUSPROXY_H
 
-#include <QObject>
 #include <QDBusPendingReply>
+#include <QObject>
 
 class QDBusInterface;
 class QDBusMessage;
@@ -67,15 +67,18 @@ public:
     int hideMode();
     void setHideMode(int value);
 
-    Q_PROPERTY(uint WindowSizeEfficient READ windowSizeEfficient WRITE setWindowSizeEfficient NOTIFY WindowSizeEfficientChanged)
+    Q_PROPERTY(uint WindowSizeEfficient READ windowSizeEfficient WRITE setWindowSizeEfficient NOTIFY
+                       WindowSizeEfficientChanged)
     uint windowSizeEfficient();
     void setWindowSizeEfficient(uint value);
 
-    Q_PROPERTY(uint WindowSizeFashion READ windowSizeFashion WRITE setWindowSizeFashion NOTIFY WindowSizeFashionChanged)
+    Q_PROPERTY(uint WindowSizeFashion READ windowSizeFashion WRITE setWindowSizeFashion NOTIFY
+                       WindowSizeFashionChanged)
     uint windowSizeFashion();
     void setWindowSizeFashion(uint value);
 
-    Q_PROPERTY(bool showInPrimary READ showInPrimary WRITE setShowInPrimary NOTIFY ShowInPrimaryChanged)
+    Q_PROPERTY(bool showInPrimary READ showInPrimary WRITE setShowInPrimary NOTIFY
+                       ShowInPrimaryChanged)
     bool showInPrimary();
     void setShowInPrimary(bool value);
 
@@ -92,7 +95,9 @@ public Q_SLOTS:
     QDBusPendingReply<> setPluginVisible(const QString &pluginName, bool visible);
     QDBusPendingReply<> SetShowRecent(bool visible);
     QDBusPendingReply<DockItemInfos> plugins();
-    QDBusPendingReply<> setItemOnDock(const QString settingKey, const QString &itemKey, bool visible);
+    QDBusPendingReply<> setItemOnDock(const QString settingKey,
+                                      const QString &itemKey,
+                                      bool visible);
 
 Q_SIGNALS:
     // property changed signals

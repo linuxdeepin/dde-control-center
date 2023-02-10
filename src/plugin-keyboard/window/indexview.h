@@ -26,29 +26,31 @@
 #ifndef INDEXVIEW_H
 #define INDEXVIEW_H
 #include "interface/namespace.h"
+
 #include <DListView>
+
 #include <QLabel>
 
 DWIDGET_USE_NAMESPACE
 
-namespace DCC_NAMESPACE{
+namespace DCC_NAMESPACE {
 class IndexView : public DListView
 {
     Q_OBJECT
 
 public:
-    explicit IndexView(QWidget* parent = nullptr);
+    explicit IndexView(QWidget *parent = nullptr);
 
 public Q_SLOTS:
-    void onClick(const QString& ch);
+    void onClick(const QString &ch);
 
 protected:
-    void showEvent(QShowEvent* e);
+    void showEvent(QShowEvent *e);
     void scrollContentsBy(int dx, int dy);
 
 private:
     QString m_section;
-    QLabel* m_label;
+    QLabel *m_label;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // INDEXVIEW_H

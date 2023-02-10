@@ -1,32 +1,33 @@
 /*
-* Copyright (C) 2021 ~ 2023 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2023 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #include "timezonemodule.h"
+
 #include "datetimemodel.h"
 #include "datetimeworker.h"
-#include "timezoneitem.h"
 #include "timezonechooser.h"
-#include "widgets/widgetmodule.h"
-#include "widgets/titlelabel.h"
-#include "widgets/settingshead.h"
+#include "timezoneitem.h"
 #include "widgets/settingsgroup.h"
+#include "widgets/settingshead.h"
+#include "widgets/titlelabel.h"
+#include "widgets/widgetmodule.h"
 
 #include <DCommandLinkButton>
 
@@ -42,29 +43,47 @@ TimezoneModule::TimezoneModule(DatetimeModel *model, DatetimeWorker *work, QObje
     , m_timezoneGroup(nullptr)
 {
     deactive();
-    connect(this, &TimezoneModule::requestRemoveUserTimeZone, m_work, &DatetimeWorker::removeUserTimeZone);
+    connect(this,
+            &TimezoneModule::requestRemoveUserTimeZone,
+            m_work,
+            &DatetimeWorker::removeUserTimeZone);
 
-    appendChild(new WidgetModule<SettingsHead>("systemTimezone", tr("System Timezone"), [this](SettingsHead *w) {
-        w->setTitle(tr("System Timezone"));
-        w->removeBackground();
-        connect(w, &SettingsHead::editChanged, this, [this, w](bool) {
-            w->blockSignals(true);
-            w->toCancel();
-            w->blockSignals(false);
-            ensureZoneChooserDialog(true);
-        });
-    }));
-    appendChild(new WidgetModule<TimezoneItem>("systemTimezone", tr("System Timezone"), [this](TimezoneItem *w) {
-        w->setTimeZone(m_model->currentSystemTimeZone());
-        w->setDetailVisible(false);
-        connect(m_model, &DatetimeModel::currentSystemTimeZoneChanged, w, &TimezoneItem::setTimeZone);
-    }));
-    appendChild(new WidgetModule<SettingsHead>("timezoneList", tr("Timezone List"), [this](SettingsHead *w) {
-        w->setTitle(tr("Timezone List"));
-        connect(w, &SettingsHead::editChanged, this, &TimezoneModule::onEditClicked);
-        connect(this, &TimezoneModule::exitEdit, w, &SettingsHead::toCancel);
-    }));
-    appendChild(new WidgetModule<SettingsGroup>("timezoneList", tr("Timezone List"), this, &TimezoneModule::initTimezoneListGroup));
+    appendChild(new WidgetModule<SettingsHead>(
+            "systemTimezone",
+            tr("System Timezone"),
+            [this](SettingsHead *w) {
+                w->setTitle(tr("System Timezone"));
+                w->removeBackground();
+                connect(w, &SettingsHead::editChanged, this, [this, w](bool) {
+                    w->blockSignals(true);
+                    w->toCancel();
+                    w->blockSignals(false);
+                    ensureZoneChooserDialog(true);
+                });
+            }));
+    appendChild(
+            new WidgetModule<TimezoneItem>("systemTimezone",
+                                           tr("System Timezone"),
+                                           [this](TimezoneItem *w) {
+                                               w->setTimeZone(m_model->currentSystemTimeZone());
+                                               w->setDetailVisible(false);
+                                               connect(m_model,
+                                                       &DatetimeModel::currentSystemTimeZoneChanged,
+                                                       w,
+                                                       &TimezoneItem::setTimeZone);
+                                           }));
+    appendChild(new WidgetModule<SettingsHead>(
+            "timezoneList",
+            tr("Timezone List"),
+            [this](SettingsHead *w) {
+                w->setTitle(tr("Timezone List"));
+                connect(w, &SettingsHead::editChanged, this, &TimezoneModule::onEditClicked);
+                connect(this, &TimezoneModule::exitEdit, w, &SettingsHead::toCancel);
+            }));
+    appendChild(new WidgetModule<SettingsGroup>("timezoneList",
+                                                tr("Timezone List"),
+                                                this,
+                                                &TimezoneModule::initTimezoneListGroup));
 }
 
 void TimezoneModule::initTimezoneListGroup(DCC_NAMESPACE::SettingsGroup *timezoneGroup)
@@ -74,7 +93,8 @@ void TimezoneModule::initTimezoneListGroup(DCC_NAMESPACE::SettingsGroup *timezon
     SettingsItem *item = new SettingsItem;
     item->addBackground();
     QVBoxLayout *layout = new QVBoxLayout;
-    DCommandLinkButton *m_addTimezoneButton = new DCommandLinkButton(tr("Add Timezone"), m_timezoneGroup);
+    DCommandLinkButton *m_addTimezoneButton =
+            new DCommandLinkButton(tr("Add Timezone"), m_timezoneGroup);
     m_addTimezoneButton->setAccessibleName(tr("Add Timezone"));
     layout->addWidget(m_addTimezoneButton, 0, Qt::AlignLeft);
     item->setLayout(layout);
@@ -104,7 +124,10 @@ void TimezoneModule::initTimezoneListGroup(DCC_NAMESPACE::SettingsGroup *timezon
     connect(m_model, &DatetimeModel::userTimeZoneAdded, m_timezoneGroup, updateZones);
     connect(m_model, &DatetimeModel::userTimeZoneRemoved, m_timezoneGroup, updateZones);
 
-    connect(m_addTimezoneButton, &QPushButton::clicked, this, &TimezoneModule::ensureZoneChooserDialog);
+    connect(m_addTimezoneButton,
+            &QPushButton::clicked,
+            this,
+            &TimezoneModule::ensureZoneChooserDialog);
 }
 
 void TimezoneModule::ensureZoneChooserDialog(bool setZone)
@@ -114,10 +137,18 @@ void TimezoneModule::ensureZoneChooserDialog(bool setZone)
     zoneChooserdialog->setIsAddZone(!setZone);
 
     if (setZone) {
-        zoneChooserdialog->setMarkedTimeZone(installer::GetCurrentTimezone().isEmpty() ? m_model->getTimeZone() : installer::GetCurrentTimezone());
-        connect(zoneChooserdialog, &TimeZoneChooser::confirmed, m_work, &DatetimeWorker::setTimezone);
+        zoneChooserdialog->setMarkedTimeZone(installer::GetCurrentTimezone().isEmpty()
+                                                     ? m_model->getTimeZone()
+                                                     : installer::GetCurrentTimezone());
+        connect(zoneChooserdialog,
+                &TimeZoneChooser::confirmed,
+                m_work,
+                &DatetimeWorker::setTimezone);
     } else {
-        connect(zoneChooserdialog, &TimeZoneChooser::confirmed, m_work, &DatetimeWorker::addUserTimeZone);
+        connect(zoneChooserdialog,
+                &TimeZoneChooser::confirmed,
+                m_work,
+                &DatetimeWorker::addUserTimeZone);
     }
     Q_EMIT exitEdit();
     zoneChooserdialog->exec();

@@ -47,21 +47,10 @@ public:
     void setUser(const QString &userName);
     void bind(DTK_WIDGET_NAMESPACE::DLineEdit *lineEdit);
 
-    enum Level {
-        NoneLevel = 0,
-        LowLevel,
-        MidLevel,
-        HighLevel
-    };
+    enum Level { NoneLevel = 0, LowLevel, MidLevel, HighLevel };
     Q_ENUM(Level)
 
-    enum IconType {
-        NoneIcon = 0,
-        RedIcon,
-        YellowIcon,
-        GreenIcon,
-        ICONTYPE_NR_ITEMS
-    };
+    enum IconType { NoneIcon = 0, RedIcon, YellowIcon, GreenIcon, ICONTYPE_NR_ITEMS };
     Q_ENUM(IconType)
 
 public:

@@ -20,17 +20,18 @@
  */
 
 #include "securityquestionspage.h"
+
 #include "createaccountpage.h"
 
-#include <DMessageManager>
 #include <DAlertControl>
 #include <DGuiApplicationHelper>
+#include <DMessageManager>
 
 #include <QDebug>
 
-#include <unistd.h>
 #include <random>
 
+#include <unistd.h>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -38,7 +39,15 @@ DWIDGET_USE_NAMESPACE
 static void palrtteTransparency(QWidget *widget, qint8 alphaFloat)
 {
     QPalette palette = widget->palette();
-    QColor color = DGuiApplicationHelper::adjustColor(palette.color(QPalette::Active, QPalette::BrightText), 0, 0, 0, 0, 0, 0, alphaFloat);
+    QColor color = DGuiApplicationHelper::adjustColor(
+            palette.color(QPalette::Active, QPalette::BrightText),
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            alphaFloat);
     palette.setColor(QPalette::WindowText, color);
     widget->setPalette(palette);
 }
@@ -57,10 +66,7 @@ SecurityQuestionsPage::SecurityQuestionsPage(User *user, QWidget *parent)
     initData();
 }
 
-SecurityQuestionsPage::~SecurityQuestionsPage()
-{
-
-}
+SecurityQuestionsPage::~SecurityQuestionsPage() { }
 
 void SecurityQuestionsPage::initWidget()
 {
@@ -73,11 +79,12 @@ void SecurityQuestionsPage::initWidget()
     titleLabel->setWordWrap(true);
     titleLabel->setAlignment(Qt::AlignCenter);
     titleLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    DFontSizeManager *fontManager =  DFontSizeManager::instance();
+    DFontSizeManager *fontManager = DFontSizeManager::instance();
     fontManager->bind(titleLabel, DFontSizeManager::T5, QFont::Medium);
     palrtteTransparency(titleLabel, -10);
 
-    QLabel *messageLabel = new QLabel(tr("These questions will be used to help reset your password in case you forget it."));
+    QLabel *messageLabel = new QLabel(
+            tr("These questions will be used to help reset your password in case you forget it."));
     fontManager->bind(messageLabel, DFontSizeManager::T6, QFont::Medium);
     messageLabel->setObjectName("MessageLabel");
     messageLabel->setAccessibleName("DDialogMessageLabel");
@@ -137,20 +144,53 @@ void SecurityQuestionsPage::initWidget()
 
     connect(cancelButton, &QPushButton::clicked, this, [this] {
         // 关闭当前界面时需要断开信号连接
-        disconnect(m_curUser, &User::startSecurityQuestionsCheckReplied, this, &SecurityQuestionsPage::onSecurityQuestionsCheckReplied);
-        disconnect(m_curUser, &User::setSecurityQuestionsReplied, this, &SecurityQuestionsPage::onSetSecurityQuestionsReplied);
+        disconnect(m_curUser,
+                   &User::startSecurityQuestionsCheckReplied,
+                   this,
+                   &SecurityQuestionsPage::onSecurityQuestionsCheckReplied);
+        disconnect(m_curUser,
+                   &User::setSecurityQuestionsReplied,
+                   this,
+                   &SecurityQuestionsPage::onSetSecurityQuestionsReplied);
         Q_EMIT requestBack();
     });
 
-    connect(confirmButton, &QPushButton::clicked, this, &SecurityQuestionsPage::onConfirmButtonClicked);
-    connect(m_questionCombobox1, qOverload<int>(&QComboBox::currentIndexChanged), this, &SecurityQuestionsPage::onQuestionCombobox1CurrentTextChanged);
-    connect(m_questionCombobox2, qOverload<int>(&QComboBox::currentIndexChanged), this, &SecurityQuestionsPage::onQuestionCombobox2CurrentTextChanged);
-    connect(m_questionCombobox3, qOverload<int>(&QComboBox::currentIndexChanged), this, &SecurityQuestionsPage::onQuestionCombobox3CurrentTextChanged);
-    connect(m_answerEdit1, &DLineEdit::textChanged, this, &SecurityQuestionsPage::onAnswerEdit1CurrentTextChanged);
-    connect(m_answerEdit2, &DLineEdit::textChanged, this, &SecurityQuestionsPage::onAnswerEdit2CurrentTextChanged);
-    connect(m_answerEdit3, &DLineEdit::textChanged, this, &SecurityQuestionsPage::onAnswerEdit3CurrentTextChanged);
-    connect(m_curUser, &User::startSecurityQuestionsCheckReplied, this, &SecurityQuestionsPage::onSecurityQuestionsCheckReplied);
-    connect(m_curUser, &User::setSecurityQuestionsReplied, this, &SecurityQuestionsPage::onSetSecurityQuestionsReplied);
+    connect(confirmButton,
+            &QPushButton::clicked,
+            this,
+            &SecurityQuestionsPage::onConfirmButtonClicked);
+    connect(m_questionCombobox1,
+            qOverload<int>(&QComboBox::currentIndexChanged),
+            this,
+            &SecurityQuestionsPage::onQuestionCombobox1CurrentTextChanged);
+    connect(m_questionCombobox2,
+            qOverload<int>(&QComboBox::currentIndexChanged),
+            this,
+            &SecurityQuestionsPage::onQuestionCombobox2CurrentTextChanged);
+    connect(m_questionCombobox3,
+            qOverload<int>(&QComboBox::currentIndexChanged),
+            this,
+            &SecurityQuestionsPage::onQuestionCombobox3CurrentTextChanged);
+    connect(m_answerEdit1,
+            &DLineEdit::textChanged,
+            this,
+            &SecurityQuestionsPage::onAnswerEdit1CurrentTextChanged);
+    connect(m_answerEdit2,
+            &DLineEdit::textChanged,
+            this,
+            &SecurityQuestionsPage::onAnswerEdit2CurrentTextChanged);
+    connect(m_answerEdit3,
+            &DLineEdit::textChanged,
+            this,
+            &SecurityQuestionsPage::onAnswerEdit3CurrentTextChanged);
+    connect(m_curUser,
+            &User::startSecurityQuestionsCheckReplied,
+            this,
+            &SecurityQuestionsPage::onSecurityQuestionsCheckReplied);
+    connect(m_curUser,
+            &User::setSecurityQuestionsReplied,
+            this,
+            &SecurityQuestionsPage::onSetSecurityQuestionsReplied);
 
     m_answerEdit1->setFocus();
 }
@@ -175,10 +215,11 @@ void SecurityQuestionsPage::onConfirmButtonClicked()
     int index2 = m_questionCombobox2->currentIndex();
     int index3 = m_questionCombobox3->currentIndex();
 
-    if ((index1 == index2) || (index2 == index3 ) || (index1 == index3)) {
-        DMessageManager::instance()->sendMessage(this,
-                                                 style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                                 tr("Do not choose a duplicate question please"));
+    if ((index1 == index2) || (index2 == index3) || (index1 == index3)) {
+        DMessageManager::instance()->sendMessage(
+                this,
+                style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                tr("Do not choose a duplicate question please"));
         return;
     }
 
@@ -186,10 +227,11 @@ void SecurityQuestionsPage::onConfirmButtonClicked()
         return;
     }
 
-    QMap<int, QByteArray> securityQuestions {
-        {index1, cryptUserPassword(m_answerEdit1->text()).toUtf8()},
-        {index2, cryptUserPassword(m_answerEdit2->text()).toUtf8()},
-        {index3, cryptUserPassword(m_answerEdit3->text()).toUtf8()}};
+    QMap<int, QByteArray> securityQuestions{
+        { index1, cryptUserPassword(m_answerEdit1->text()).toUtf8() },
+        { index2, cryptUserPassword(m_answerEdit2->text()).toUtf8() },
+        { index3, cryptUserPassword(m_answerEdit3->text()).toUtf8() }
+    };
 
     Q_EMIT requestSetSecurityQuestions(m_curUser, securityQuestions);
 }
@@ -197,19 +239,28 @@ void SecurityQuestionsPage::onConfirmButtonClicked()
 void SecurityQuestionsPage::onQuestionCombobox1CurrentTextChanged(int index)
 {
     m_answerEdit1->clear();
-    checkQuestionDuplicate(index, m_questionCombobox2->currentIndex(), m_questionCombobox3->currentIndex(), m_questionCombobox1);
+    checkQuestionDuplicate(index,
+                           m_questionCombobox2->currentIndex(),
+                           m_questionCombobox3->currentIndex(),
+                           m_questionCombobox1);
 }
 
 void SecurityQuestionsPage::onQuestionCombobox2CurrentTextChanged(int index)
 {
     m_answerEdit2->clear();
-    checkQuestionDuplicate(index, m_questionCombobox1->currentIndex(), m_questionCombobox3->currentIndex(), m_questionCombobox2);
+    checkQuestionDuplicate(index,
+                           m_questionCombobox1->currentIndex(),
+                           m_questionCombobox3->currentIndex(),
+                           m_questionCombobox2);
 }
 
 void SecurityQuestionsPage::onQuestionCombobox3CurrentTextChanged(int index)
 {
     m_answerEdit3->clear();
-    checkQuestionDuplicate(index, m_questionCombobox1->currentIndex(), m_questionCombobox2->currentIndex(), m_questionCombobox3);
+    checkQuestionDuplicate(index,
+                           m_questionCombobox1->currentIndex(),
+                           m_questionCombobox2->currentIndex(),
+                           m_questionCombobox3);
 }
 
 void SecurityQuestionsPage::onAnswerEdit1CurrentTextChanged(const QString &)
@@ -244,8 +295,14 @@ void SecurityQuestionsPage::onSetSecurityQuestionsReplied(const QString &errorTe
 {
     if (errorText.isEmpty()) {
         // 关闭当前界面时需要先断开信号连接
-        disconnect(m_curUser, &User::startSecurityQuestionsCheckReplied, this, &SecurityQuestionsPage::onSecurityQuestionsCheckReplied);
-        disconnect(m_curUser, &User::setSecurityQuestionsReplied, this, &SecurityQuestionsPage::onSetSecurityQuestionsReplied);
+        disconnect(m_curUser,
+                   &User::startSecurityQuestionsCheckReplied,
+                   this,
+                   &SecurityQuestionsPage::onSecurityQuestionsCheckReplied);
+        disconnect(m_curUser,
+                   &User::setSecurityQuestionsReplied,
+                   this,
+                   &SecurityQuestionsPage::onSetSecurityQuestionsReplied);
         Q_EMIT requestBack();
     } else {
         qWarning() << "SetSecurityQuestionsReplied:" << errorText;
@@ -261,9 +318,10 @@ void SecurityQuestionsPage::addItems(DComboBox *questionCombobox)
     questionCombobox->addItem(tr("What's your favorite animal?"));
     questionCombobox->addItem(tr("What's your favorite song?"));
     questionCombobox->addItem(tr("What's your nickname?"));
-    QStandardItemModel* model = qobject_cast<QStandardItemModel*>(questionCombobox->model());
-    QModelIndex firstIndex = model->index(0, questionCombobox->modelColumn(), questionCombobox->rootModelIndex());
-    QStandardItem* firstItem = model->itemFromIndex(firstIndex);
+    QStandardItemModel *model = qobject_cast<QStandardItemModel *>(questionCombobox->model());
+    QModelIndex firstIndex =
+            model->index(0, questionCombobox->modelColumn(), questionCombobox->rootModelIndex());
+    QStandardItem *firstItem = model->itemFromIndex(firstIndex);
     firstItem->setSelectable(false);
     firstItem->setEnabled(false);
 }
@@ -295,8 +353,9 @@ bool SecurityQuestionsPage::isContentEmpty(DLineEdit *edit)
 
 bool SecurityQuestionsPage::isSecurityQuestionsEmpty()
 {
-    return isContentEmpty(m_questionCombobox1) || isContentEmpty(m_questionCombobox2) || isContentEmpty(m_questionCombobox3) ||
-            isContentEmpty(m_answerEdit1) || isContentEmpty(m_answerEdit2) || isContentEmpty(m_answerEdit3);
+    return isContentEmpty(m_questionCombobox1) || isContentEmpty(m_questionCombobox2)
+            || isContentEmpty(m_questionCombobox3) || isContentEmpty(m_answerEdit1)
+            || isContentEmpty(m_answerEdit2) || isContentEmpty(m_answerEdit3);
 }
 
 QString SecurityQuestionsPage::cryptUserPassword(const QString &password)
@@ -312,7 +371,9 @@ QString SecurityQuestionsPage::cryptUserPassword(const QString &password)
 
     std::random_device r;
     std::default_random_engine e1(r());
-    std::uniform_int_distribution<int> uniform_dist(0, seedchars.size() - 1); //seedchars.size()是64，生成随机数的范围应该写成[0, 63]。
+    std::uniform_int_distribution<int> uniform_dist(
+            0,
+            seedchars.size() - 1); // seedchars.size()是64，生成随机数的范围应该写成[0, 63]。
 
     // Random access to a character in a restricted list
     for (int i = 0; i != 16; i++) {
@@ -353,12 +414,12 @@ void SecurityQuestionsPage::hideAlert(DLineEdit *edit)
 
 bool SecurityQuestionsPage::isAllAnswersCharactersSizeRight()
 {
-    return isAnswersCharactersSizeRight(m_answerEdit1) &&
-           isAnswersCharactersSizeRight(m_answerEdit2) &&
-           isAnswersCharactersSizeRight(m_answerEdit3);
+    return isAnswersCharactersSizeRight(m_answerEdit1)
+            && isAnswersCharactersSizeRight(m_answerEdit2)
+            && isAnswersCharactersSizeRight(m_answerEdit3);
 }
 
-//设置焦点
+// 设置焦点
 void SecurityQuestionsPage::showEvent(QShowEvent *event)
 {
     Q_UNUSED(event);

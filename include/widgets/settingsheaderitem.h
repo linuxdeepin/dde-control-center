@@ -32,6 +32,7 @@ class QHBoxLayout;
 namespace DCC_NAMESPACE {
 
 class TitleLabel;
+
 class SettingsHeaderItem : public SettingsItem
 {
     Q_OBJECT
@@ -40,6 +41,7 @@ public:
     explicit SettingsHeaderItem(QWidget *parent = 0);
 
     TitleLabel *textLabel() const { return m_headerText; }
+
     QHBoxLayout *layout() const { return m_mainLayout; }
 
     void setTitle(const QString &title);
@@ -50,4 +52,4 @@ private:
     TitleLabel *m_headerText;
 };
 
-}
+} // namespace DCC_NAMESPACE

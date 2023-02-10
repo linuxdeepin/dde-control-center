@@ -1,6 +1,7 @@
 #include "touchscreenmodel.h"
-#include "touchscreenmodel_p.h"
+
 #include "monitordbusproxy.h"
+#include "touchscreenmodel_p.h"
 
 #include <ddbussender.h>
 
@@ -13,13 +14,9 @@ TouchScreenModel::TouchScreenModel(QObject *parent)
     : QObject(parent)
     , DCC_INIT_PRIVATE(TouchScreenModel)
 {
-
 }
 
-TouchScreenModel::~TouchScreenModel()
-{
-
-}
+TouchScreenModel::~TouchScreenModel() { }
 
 const TouchscreenInfoList_V2 &TouchScreenModel::touchScreenList() const
 {
@@ -73,17 +70,17 @@ void TouchScreenModelPrivate::assoiateTouch(const QString &monitor, const QStrin
 void TouchScreenModelPrivate::assoiateTouchNotify()
 {
     DDBusSender()
-        .service("org.freedesktop.Notifications")
-        .path("/org/freedesktop/Notifications")
-        .interface("org.freedesktop.Notifications")
-        .method("Notify")
-        .arg(QString("dde-control-center"))
-        .arg(static_cast<uint>(QDateTime::currentMSecsSinceEpoch()))
-        .arg(QString("preferences-system"))
-        .arg(QObject::tr("Touch Screen Settings"))
-        .arg(QObject::tr("The settings of touch screen changed"))
-        .arg(QStringList())
-        .arg(QVariantMap())
-        .arg(3000)
-        .call();
+            .service("org.freedesktop.Notifications")
+            .path("/org/freedesktop/Notifications")
+            .interface("org.freedesktop.Notifications")
+            .method("Notify")
+            .arg(QString("dde-control-center"))
+            .arg(static_cast<uint>(QDateTime::currentMSecsSinceEpoch()))
+            .arg(QString("preferences-system"))
+            .arg(QObject::tr("Touch Screen Settings"))
+            .arg(QObject::tr("The settings of touch screen changed"))
+            .arg(QStringList())
+            .arg(QVariantMap())
+            .arg(3000)
+            .call();
 }

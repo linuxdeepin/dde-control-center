@@ -23,13 +23,17 @@
 
 #include "interface/moduleobject.h"
 #include "settingsgroup.h"
+
 namespace DCC_NAMESPACE {
 class SettingsGroupModulePrivate;
+
 class SettingsGroupModule : public ModuleObject
 {
     Q_OBJECT
 public:
-    explicit SettingsGroupModule(const QString &name, const QString &displayName, QObject *parent = nullptr);
+    explicit SettingsGroupModule(const QString &name,
+                                 const QString &displayName,
+                                 QObject *parent = nullptr);
     ~SettingsGroupModule() override;
 
     void setHeaderVisible(const bool visible);
@@ -39,9 +43,10 @@ public:
     void setSizePolicy(QSizePolicy::Policy hor, QSizePolicy::Policy ver);
 
     QWidget *page() override;
+
     inline DCC_MODULE_TYPE getClassID() const override { return SETTINGSGROUP; }
 
     DCC_DECLARE_PRIVATE(SettingsGroupModule)
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // SETTINGSGROUPMODULE_H

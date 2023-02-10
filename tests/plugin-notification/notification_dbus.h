@@ -22,9 +22,9 @@
 #define NOTIFICATION_DBUS_H
 
 #include <QDBusContext>
-#include <QObject>
 #include <QDBusInterface>
 #include <QJsonDocument>
+#include <QObject>
 
 #define NOTIFICATION_SERVICE_NAME "org.deepin.dde.Notification1"
 #define NOTIFICATION_SERVICE_PATH "/org/deepin/dde/Notification1"
@@ -39,18 +39,17 @@ public:
     virtual ~Notification_DBUS();
 
     Q_PROPERTY(QString allSetting READ allSetting WRITE setAllSetting NOTIFY AllSettingChanged)
-    QString allSetting() { return m_allSetting; }
-    void setAllSetting(const QString &value)
-    {
-        m_allSetting = value;
-    }
 
-    Q_PROPERTY(QString systemSetting READ systemSetting WRITE setSystemSetting NOTIFY SystemSettingChanged)
-    QString systemSetting() {return m_systemSetting; }
-    void setSystemSetting(const QString &value)
-    {
-        m_systemSetting = value;
-    }
+    QString allSetting() { return m_allSetting; }
+
+    void setAllSetting(const QString &value) { m_allSetting = value; }
+
+    Q_PROPERTY(QString systemSetting READ systemSetting WRITE setSystemSetting NOTIFY
+                       SystemSettingChanged)
+
+    QString systemSetting() { return m_systemSetting; }
+
+    void setSystemSetting(const QString &value) { m_systemSetting = value; }
 
 Q_SIGNALS: // SIGNALS
     void ActionInvoked(uint in0, const QString &in1);
@@ -81,7 +80,14 @@ public Q_SLOTS:
     QString GetRecordsFromId(int, const QString &);
     QString GetServerInformation(QString &, QString &, QString &);
     QDBusVariant GetSystemInfo(uint);
-    uint Notify(const QString &, uint, const QString &, const QString &, const QString &, const QStringList &, const QVariantMap &, int);
+    uint Notify(const QString &,
+                uint,
+                const QString &,
+                const QString &,
+                const QString &,
+                const QStringList &,
+                const QVariantMap &,
+                int);
     void RemoveRecord(const QString &);
     void RemoveRecordQueued(const QString &);
     void SetAppInfo(const QString &, uint, const QDBusVariant &);

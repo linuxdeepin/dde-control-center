@@ -1,13 +1,15 @@
-#include "cooperationsettingsdialog.h"
 #include "treecombox.h"
 
-#include <DStyle>
-#include <DApplicationHelper>
-#include <QLabel>
-#include <QPushButton>
+#include "cooperationsettingsdialog.h"
 
 #include <src/plugin-display/operation/displaymodel.h>
 #include <src/plugin-display/operation/machine.h>
+
+#include <DApplicationHelper>
+#include <DStyle>
+
+#include <QLabel>
+#include <QPushButton>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -21,10 +23,7 @@ TreeCombox::TreeCombox(QStandardItemModel *model, QWidget *parent)
     initConnect();
 }
 
-TreeCombox::~TreeCombox()
-{
-
-}
+TreeCombox::~TreeCombox() { }
 
 void TreeCombox::initUI()
 {
@@ -60,7 +59,7 @@ void TreeCombox::addDivicesTitel(const QString &devTitel)
     DViewItemAction *action = new DViewItemAction;
     action->setWidget(devLabel);
 
-    item->setActionList(Qt::Edge::LeftEdge,{action});
+    item->setActionList(Qt::Edge::LeftEdge, { action });
     item->setFontSize(DFontSizeManager::SizeType::T6);
     item->setFlags(Qt::ItemIsUserCheckable);
     m_itemsmodel->appendRow(item);
@@ -75,18 +74,18 @@ void TreeCombox::addDevicesSettingsItem()
 
     QSize size(14, 14);
     auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-    pi->setActionList(Qt::Edge::LeftEdge, {rightAction});
+    pi->setActionList(Qt::Edge::LeftEdge, { rightAction });
     m_itemsmodel->appendRow(pi);
 }
 
-void TreeCombox::addDeviceCheckedIcon(Dtk::Widget::DStandardItem *pi,  bool initChecked)
+void TreeCombox::addDeviceCheckedIcon(Dtk::Widget::DStandardItem *pi, bool initChecked)
 {
     QSize size(14, 14);
     auto rightAction = new DViewItemAction(Qt::AlignVCenter, size, size, true);
     auto checkoutState = initChecked ? DStyle::SP_MarkElement : DStyle::SP_CustomBase;
     auto checkIcon = qobject_cast<DStyle *>(style())->standardIcon(checkoutState);
     rightAction->setIcon(checkIcon);
-    pi->setActionList(Qt::Edge::LeftEdge, {rightAction});
+    pi->setActionList(Qt::Edge::LeftEdge, { rightAction });
 }
 
 void TreeCombox::updateItemCheckStatus(const QString &name, bool visible)
@@ -113,12 +112,11 @@ TreeComboxDelegate::TreeComboxDelegate(QAbstractItemView *parent)
     m_parentWidget->update();
 }
 
-TreeComboxDelegate::~TreeComboxDelegate()
-{
+TreeComboxDelegate::~TreeComboxDelegate() { }
 
-}
-
-void TreeComboxDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void TreeComboxDelegate::paint(QPainter *painter,
+                               const QStyleOptionViewItem &option,
+                               const QModelIndex &index) const
 {
     if (index.row() == m_parentWidget->model()->rowCount() - 2) {
         // 绘制间隔线

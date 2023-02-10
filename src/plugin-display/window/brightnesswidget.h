@@ -23,15 +23,15 @@
 #define BRIGHTNESSWIDGET_H
 
 #include "interface/namespace.h"
-#include "widgets/titlelabel.h"
-#include "widgets/settingsheaderitem.h"
-#include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/settingsheaderitem.h"
 #include "widgets/switchwidget.h"
 #include "widgets/titledslideritem.h"
+#include "widgets/titlelabel.h"
 
-#include <DTipLabel>
 #include <DSwitchButton>
+#include <DTipLabel>
 
 #include <QWidget>
 
@@ -95,6 +95,6 @@ private:
     QMap<Monitor *, QWidget *> m_monitorBrightnessMap;
 };
 
-}
+} // namespace DCC_NAMESPACE
 
 #endif // BRIGHTNESSWIDGET_H

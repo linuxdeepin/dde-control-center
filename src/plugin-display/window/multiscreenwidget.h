@@ -52,6 +52,7 @@ class RefreshRateWidget;
 class RotateWidget;
 class SecondaryScreenDialog;
 class CollaborativeLinkWidget;
+
 class MultiScreenWidget : public QWidget
 {
     Q_OBJECT
@@ -79,13 +80,13 @@ Q_SIGNALS:
     void requestSetFillMode(Monitor *monitor, const QString fillMode);
     void requestCurrFillModeChanged(Monitor *monitor, const QString fillMode);
     void requestCooperationEnable(const bool enabled);
-    void requestCurrentMachineDisconnect(Machine * machine);
-    void requestCurrentMachineConnect(Machine * machine);
-    void requestCurrentDeviceSharingConnect(Machine * machine);
+    void requestCurrentMachineDisconnect(Machine *machine);
+    void requestCurrentMachineConnect(Machine *machine);
+    void requestCurrentDeviceSharingConnect(Machine *machine);
     void requestOpenSharedDevices(bool open);
     void requestOpenSharedClipboard(bool open);
     void requestFilesStoragePath(const QString &path);
-    void requestFlowDirection(Machine * machine, const int& dir);
+    void requestFlowDirection(Machine *machine, const int &dir);
 
 private:
     void initModeList();
@@ -102,7 +103,7 @@ private Q_SLOTS:
     void onResetSecondaryScreenDlg();
     void onResetFullIndication(const QRect &geometry);
     void onResetSecondaryScreenDlgTimerOut();
-    void onGSettingsChanged(const QString & gsettingsName, const QString &setting);
+    void onGSettingsChanged(const QString &gsettingsName, const QString &setting);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
@@ -120,7 +121,7 @@ private:
     QComboBox *m_primaryCombox;
     QSpacerItem *m_brightnessSpacerItem;
 
-    //协同链接
+    // 协同链接
     CollaborativeLinkWidget *m_linkWidget;
     BrightnessWidget *m_brightnessWidget;
     ScalingWidget *m_scalingWidget;
@@ -136,6 +137,6 @@ private:
     bool isReleaseMonitor = false;
     QTimer *m_resetSecondaryScreenDlgTimer;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // MULTISCREENWIDGET_H

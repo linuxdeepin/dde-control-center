@@ -1,31 +1,31 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     Tinalu Shao <shaotianlu@uniontech.com>
-*
-* Maintainer: Tinalu Shao <shaotianlu@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     Tinalu Shao <shaotianlu@uniontech.com>
+ *
+ * Maintainer: Tinalu Shao <shaotianlu@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #include "monitordbusproxy.h"
 
-#include <QMetaObject>
 #include <QDBusConnection>
 #include <QDBusInterface>
-#include <QDBusPendingReply>
 #include <QDBusMetaType>
+#include <QDBusPendingReply>
 #include <QDebug>
+#include <QMetaObject>
 
 const static QString MonitorService = "org.deepin.dde.Display1";
 const static QString MonitorInterface = "org.deepin.dde.Display1.Monitor";
@@ -47,10 +47,23 @@ MonitorDBusProxy::MonitorDBusProxy(QString monitorPath, QObject *parent)
 
 void MonitorDBusProxy::init()
 {
-    m_dBusMonitorInter = new QDBusInterface(MonitorService, m_monitorUserPath, MonitorInterface, QDBusConnection::sessionBus(), this);
-    m_dBusMonitorPropertiesInter = new QDBusInterface(MonitorService, m_monitorUserPath, PropertiesInterface, QDBusConnection::sessionBus(), this);
+    m_dBusMonitorInter = new QDBusInterface(MonitorService,
+                                            m_monitorUserPath,
+                                            MonitorInterface,
+                                            QDBusConnection::sessionBus(),
+                                            this);
+    m_dBusMonitorPropertiesInter = new QDBusInterface(MonitorService,
+                                                      m_monitorUserPath,
+                                                      PropertiesInterface,
+                                                      QDBusConnection::sessionBus(),
+                                                      this);
     QDBusConnection dbusConnection = m_dBusMonitorInter->connection();
-    dbusConnection.connect(MonitorService, m_monitorUserPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
+    dbusConnection.connect(MonitorService,
+                           m_monitorUserPath,
+                           PropertiesInterface,
+                           PropertiesChanged,
+                           this,
+                           SLOT(onPropertiesChanged(QDBusMessage)));
 }
 
 QStringList MonitorDBusProxy::availableFillModes()
@@ -61,7 +74,13 @@ QStringList MonitorDBusProxy::availableFillModes()
 Resolution MonitorDBusProxy::bestMode()
 {
     Resolution val;
-    m_dBusMonitorPropertiesInter->call("Get", MonitorInterface, "BestMode").arguments().at(0).value<QDBusVariant>().variant().value<QDBusArgument>() >> val;
+    m_dBusMonitorPropertiesInter->call("Get", MonitorInterface, "BestMode")
+                    .arguments()
+                    .at(0)
+                    .value<QDBusVariant>()
+                    .variant()
+                    .value<QDBusArgument>()
+            >> val;
     return val;
 }
 
@@ -83,7 +102,13 @@ void MonitorDBusProxy::setCurrentFillMode(const QString &value)
 Resolution MonitorDBusProxy::currentMode()
 {
     Resolution val;
-    m_dBusMonitorPropertiesInter->call("Get", MonitorInterface, "CurrentMode").arguments().at(0).value<QDBusVariant>().variant().value<QDBusArgument>() >> val;
+    m_dBusMonitorPropertiesInter->call("Get", MonitorInterface, "CurrentMode")
+                    .arguments()
+                    .at(0)
+                    .value<QDBusVariant>()
+                    .variant()
+                    .value<QDBusArgument>()
+            >> val;
     return val;
 }
 
@@ -125,7 +150,13 @@ QString MonitorDBusProxy::model()
 ResolutionList MonitorDBusProxy::modes()
 {
     ResolutionList val;
-    m_dBusMonitorPropertiesInter->call("Get", MonitorInterface, "Modes").arguments().at(0).value<QDBusVariant>().variant().value<QDBusArgument>() >> val;
+    m_dBusMonitorPropertiesInter->call("Get", MonitorInterface, "Modes")
+                    .arguments()
+                    .at(0)
+                    .value<QDBusVariant>()
+                    .variant()
+                    .value<QDBusArgument>()
+            >> val;
     return val;
 }
 
@@ -141,7 +172,12 @@ ushort MonitorDBusProxy::reflect()
 
 ReflectList MonitorDBusProxy::reflects()
 {
-    return qvariant_cast<ReflectList>(m_dBusMonitorPropertiesInter->call("Get", MonitorInterface, "Reflects").arguments().at(0).value<QDBusVariant>().variant());
+    return qvariant_cast<ReflectList>(
+            m_dBusMonitorPropertiesInter->call("Get", MonitorInterface, "Reflects")
+                    .arguments()
+                    .at(0)
+                    .value<QDBusVariant>()
+                    .variant());
 }
 
 double MonitorDBusProxy::refreshRate()
@@ -156,7 +192,12 @@ ushort MonitorDBusProxy::rotation()
 
 RotationList MonitorDBusProxy::rotations()
 {
-    return qvariant_cast<RotationList>(m_dBusMonitorPropertiesInter->call("Get", MonitorInterface, "Rotations").arguments().at(0).value<QDBusVariant>().variant());
+    return qvariant_cast<RotationList>(
+            m_dBusMonitorPropertiesInter->call("Get", MonitorInterface, "Rotations")
+                    .arguments()
+                    .at(0)
+                    .value<QDBusVariant>()
+                    .variant());
 }
 
 ushort MonitorDBusProxy::width()
@@ -192,42 +233,50 @@ QDBusPendingReply<> MonitorDBusProxy::SetModeBySize(ushort in0, ushort in1)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
-    return m_dBusMonitorInter->asyncCallWithArgumentList(QStringLiteral("SetModeBySize"), argumentList);
+    return m_dBusMonitorInter->asyncCallWithArgumentList(QStringLiteral("SetModeBySize"),
+                                                         argumentList);
 }
 
 QDBusPendingReply<> MonitorDBusProxy::SetPosition(short in0, short in1)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
-    return m_dBusMonitorInter->asyncCallWithArgumentList(QStringLiteral("SetPosition"), argumentList);
+    return m_dBusMonitorInter->asyncCallWithArgumentList(QStringLiteral("SetPosition"),
+                                                         argumentList);
 }
 
 QDBusPendingReply<> MonitorDBusProxy::SetReflect(ushort in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusMonitorInter->asyncCallWithArgumentList(QStringLiteral("SetReflect"), argumentList);
+    return m_dBusMonitorInter->asyncCallWithArgumentList(QStringLiteral("SetReflect"),
+                                                         argumentList);
 }
 
 QDBusPendingReply<> MonitorDBusProxy::SetRotation(ushort in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusMonitorInter->asyncCallWithArgumentList(QStringLiteral("SetRotation"), argumentList);
+    return m_dBusMonitorInter->asyncCallWithArgumentList(QStringLiteral("SetRotation"),
+                                                         argumentList);
 }
 
 void MonitorDBusProxy::onPropertiesChanged(const QDBusMessage &message)
 {
-    QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
+    QVariantMap changedProps =
+            qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
     for (QVariantMap::const_iterator it = changedProps.begin(); it != changedProps.end(); ++it) {
-        if(it.key() =="CurrentMode") {
+        if (it.key() == "CurrentMode") {
             emit CurrentModeChanged(qdbus_cast<Resolution>(changedProps.value(it.key())));
-        } else if(it.key() =="BestMode") {
+        } else if (it.key() == "BestMode") {
             emit BestModeChanged(qdbus_cast<Resolution>(changedProps.value(it.key())));
-        } else if(it.key() =="Modes") {
+        } else if (it.key() == "Modes") {
             emit ModesChanged(qdbus_cast<ResolutionList>(changedProps.value(it.key())));
         } else {
-            QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
+            QMetaObject::invokeMethod(this,
+                                      it.key().toLatin1() + "Changed",
+                                      Qt::DirectConnection,
+                                      QGenericArgument(it.value().typeName(), it.value().data()));
         }
     }
 }

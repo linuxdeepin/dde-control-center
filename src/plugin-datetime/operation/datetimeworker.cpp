@@ -24,11 +24,12 @@
  */
 
 #include "datetimeworker.h"
-#include "datetimedbusproxy.h"
-#include <QDebug>
 
-#include <QtConcurrent>
+#include "datetimedbusproxy.h"
+
+#include <QDebug>
 #include <QFutureWatcher>
+#include <QtConcurrent>
 
 DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     : QObject(parent)
@@ -36,11 +37,20 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     , m_timedateInter(new DatetimeDBusProxy(this))
 {
 #ifndef DCC_DISABLE_TIMEZONE
-    connect(m_timedateInter, &DatetimeDBusProxy::UserTimezonesChanged, this, &DatetimeWorker::onTimezoneListChanged);
-    connect(m_timedateInter, &DatetimeDBusProxy::TimezoneChanged, m_model, &DatetimeModel::setSystemTimeZoneId);
+    connect(m_timedateInter,
+            &DatetimeDBusProxy::UserTimezonesChanged,
+            this,
+            &DatetimeWorker::onTimezoneListChanged);
+    connect(m_timedateInter,
+            &DatetimeDBusProxy::TimezoneChanged,
+            m_model,
+            &DatetimeModel::setSystemTimeZoneId);
 #endif
     connect(m_timedateInter, &DatetimeDBusProxy::NTPChanged, m_model, &DatetimeModel::setNTP);
-    connect(m_timedateInter, &DatetimeDBusProxy::Use24HourFormatChanged, m_model, &DatetimeModel::set24HourFormat);
+    connect(m_timedateInter,
+            &DatetimeDBusProxy::Use24HourFormatChanged,
+            m_model,
+            &DatetimeModel::set24HourFormat);
 
     connect(m_timedateInter, &DatetimeDBusProxy::TimezoneChanged, this, [=](const QString &value) {
         auto tzinfo = GetZoneInfo(value);
@@ -50,8 +60,14 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
         m_model->setCurrentUseTimeZone(tzinfo);
     });
 
-    connect(m_timedateInter, &DatetimeDBusProxy::NTPServerChanged, m_model, &DatetimeModel::setNtpServerAddress);
-    connect(m_timedateInter, &DatetimeDBusProxy::TimezoneChanged, m_model, &DatetimeModel::setTimeZoneInfo);
+    connect(m_timedateInter,
+            &DatetimeDBusProxy::NTPServerChanged,
+            m_model,
+            &DatetimeModel::setNtpServerAddress);
+    connect(m_timedateInter,
+            &DatetimeDBusProxy::TimezoneChanged,
+            m_model,
+            &DatetimeModel::setTimeZoneInfo);
 
     m_model->setCurrentTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
     m_model->setCurrentUseTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
@@ -71,21 +87,37 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     m_model->setLongTimeFormatTypeCount(4);
     m_model->setWeekStartDayFormatTypeCount(2);
 
-    connect(m_timedateInter, &DatetimeDBusProxy::WeekdayFormatChanged, m_model, &DatetimeModel::setWeekdayFormatType);
-    connect(m_timedateInter, &DatetimeDBusProxy::LongDateFormatChanged, m_model, &DatetimeModel::setLongDateFormat);
-    connect(m_timedateInter, &DatetimeDBusProxy::ShortDateFormatChanged, m_model, &DatetimeModel::setShortDateFormat);
-    connect(m_timedateInter, &DatetimeDBusProxy::ShortTimeFormatChanged, m_model, &DatetimeModel::setShorTimeFormat);
-    connect(m_timedateInter, &DatetimeDBusProxy::LongTimeFormatChanged, m_model, &DatetimeModel::setLongTimeFormat);
-    connect(m_timedateInter, &DatetimeDBusProxy::WeekBeginsChanged, m_model, &DatetimeModel::setWeekStartDayFormat);
+    connect(m_timedateInter,
+            &DatetimeDBusProxy::WeekdayFormatChanged,
+            m_model,
+            &DatetimeModel::setWeekdayFormatType);
+    connect(m_timedateInter,
+            &DatetimeDBusProxy::LongDateFormatChanged,
+            m_model,
+            &DatetimeModel::setLongDateFormat);
+    connect(m_timedateInter,
+            &DatetimeDBusProxy::ShortDateFormatChanged,
+            m_model,
+            &DatetimeModel::setShortDateFormat);
+    connect(m_timedateInter,
+            &DatetimeDBusProxy::ShortTimeFormatChanged,
+            m_model,
+            &DatetimeModel::setShorTimeFormat);
+    connect(m_timedateInter,
+            &DatetimeDBusProxy::LongTimeFormatChanged,
+            m_model,
+            &DatetimeModel::setLongTimeFormat);
+    connect(m_timedateInter,
+            &DatetimeDBusProxy::WeekBeginsChanged,
+            m_model,
+            &DatetimeModel::setWeekStartDayFormat);
     refreshNtpServerList();
     m_model->setNtpServerAddress(m_timedateInter->nTPServer());
     m_model->setTimeZoneInfo(m_timedateInter->timezone());
     m_model->setNTP(m_timedateInter->nTP());
 }
 
-DatetimeWorker::~DatetimeWorker()
-{
-}
+DatetimeWorker::~DatetimeWorker() { }
 
 void DatetimeWorker::activate()
 {
@@ -96,19 +128,19 @@ void DatetimeWorker::activate()
 #endif
 }
 
-void DatetimeWorker::deactivate()
-{
-}
+void DatetimeWorker::deactivate() { }
 
 void DatetimeWorker::setNTP(bool ntp)
 {
     Q_EMIT requestSetAutoHide(false);
     m_timedateInter->SetNTP(ntp, this, SLOT(setAutoHide()), SLOT(setNTPError()));
 }
+
 void DatetimeWorker::setAutoHide()
 {
     Q_EMIT requestSetAutoHide(true);
 }
+
 void DatetimeWorker::setNTPError()
 {
     Q_EMIT m_model->NTPChanged(m_model->nTP());
@@ -122,6 +154,7 @@ void DatetimeWorker::setDatetime(const QDateTime &datetime)
     m_setDatetime = new QDateTime(datetime);
     m_timedateInter->SetNTP(false, this, SLOT(setDatetimeStart()), SLOT(setAutoHide()));
 }
+
 void DatetimeWorker::setDatetimeStart()
 {
     if (m_setDatetime) {
@@ -132,10 +165,12 @@ void DatetimeWorker::setDatetimeStart()
     }
     setAutoHide();
 }
+
 void DatetimeWorker::setDateFinished()
 {
     Q_EMIT m_model->systemTimeChanged();
 }
+
 void DatetimeWorker::set24HourType(bool state)
 {
     m_timedateInter->setUse24HourFormat(state);
@@ -144,7 +179,8 @@ void DatetimeWorker::set24HourType(bool state)
 #ifndef DCC_DISABLE_TIMEZONE
 void DatetimeWorker::setTimezone(const QString &timezone)
 {
-    m_timedateInter->SetTimezone(timezone, tr("Authentication is required to set the system timezone"));
+    m_timedateInter->SetTimezone(timezone,
+                                 tr("Authentication is required to set the system timezone"));
 }
 
 void DatetimeWorker::removeUserTimeZone(const ZoneInfo &info)
@@ -163,7 +199,11 @@ void DatetimeWorker::setNtpServer(QString server)
 
     if (server.isEmpty() && server == m_timedateInter->nTPServer())
         return;
-    m_timedateInter->SetNTPServer(server, tr("Authentication is required to change NTP server"), this, SLOT(SetNTPServerFinished()), SLOT(SetNTPServerError()));
+    m_timedateInter->SetNTPServer(server,
+                                  tr("Authentication is required to change NTP server"),
+                                  this,
+                                  SLOT(SetNTPServerFinished()),
+                                  SLOT(SetNTPServerError()));
 }
 
 void DatetimeWorker::SetNTPServerFinished()
@@ -171,6 +211,7 @@ void DatetimeWorker::SetNTPServerFinished()
     qInfo() << "set server success.";
     Q_EMIT m_model->NTPServerChanged(m_timedateInter->nTPServer());
 }
+
 void DatetimeWorker::SetNTPServerError()
 {
     qInfo() << "Not set server success.";
@@ -234,7 +275,8 @@ void DatetimeWorker::getZoneInfoFinished(ZoneInfo zoneInfo)
 void DatetimeWorker::refreshNtpServerList()
 {
 
-    m_timedateInter->GetSampleNTPServers(this, SLOT(getSampleNTPServersFinished(const QStringList &)));
+    m_timedateInter->GetSampleNTPServers(this,
+                                         SLOT(getSampleNTPServersFinished(const QStringList &)));
 }
 
 void DatetimeWorker::getSampleNTPServersFinished(const QStringList &serverList)

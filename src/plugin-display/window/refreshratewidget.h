@@ -50,12 +50,7 @@ class RefreshRateWidget : public SettingsItem
 public:
     RefreshRateWidget(int comboxWidth = 300, QWidget *parent = nullptr);
 
-    enum ResolutionRole {
-        IdRole = Dtk::UserRole,
-        WidthRole,
-        HeightRole,
-        RateRole
-    };
+    enum ResolutionRole { IdRole = Dtk::UserRole, WidthRole, HeightRole, RateRole };
 
 public:
     void setModel(DisplayModel *model, Monitor *monitor);
@@ -79,5 +74,5 @@ private:
     Monitor *m_monitor;
     QStandardItemModel *m_refreshItemModel;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // REFRESHRATEWIDGET_H

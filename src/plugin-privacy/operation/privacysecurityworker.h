@@ -22,9 +22,10 @@
 #ifndef PRIVACYSECURITYWORKER_H
 #define PRIVACYSECURITYWORKER_H
 
-#include <QObject>
 #include "privacysecuritydbusproxy.h"
 #include "privacysecuritymodel.h"
+
+#include <QObject>
 
 class PrivacySecurityWorker : public QObject
 {
@@ -39,20 +40,29 @@ public:
 public:
     void permissionInfoLoadFinished(const QString &perInfo);
     // 设置总开关
-    void getPermissionEnable(const QString& permissionGroup, const QString& permissionId);
-    void setPermissionEnable(const QString& permissionGroup, const QString& permissionId, bool enable);
+    void getPermissionEnable(const QString &permissionGroup, const QString &permissionId);
+    void setPermissionEnable(const QString &permissionGroup,
+                             const QString &permissionId,
+                             bool enable);
 
     // 设置App属性
-    void setPermissionInfo(const QString& appId, const QString& permissionGroup, const QString& permissionId, const QString& value);
-    const QString getIconPath(const QString& appName);
+    void setPermissionInfo(const QString &appId,
+                           const QString &permissionGroup,
+                           const QString &permissionId,
+                           const QString &value);
+    const QString getIconPath(const QString &appName);
 
 private:
-    void saveServiceApps(const QString &currentGroup, const QString &dameonDefineName, const QJsonArray& appInfoDate);
+    void saveServiceApps(const QString &currentGroup,
+                         const QString &dameonDefineName,
+                         const QJsonArray &appInfoDate);
 
 public Q_SLOTS:
-    void refreshPermissionState(const QString& permissionGroup, const QString& permissionId, bool enable);
-    void resetPermissionState(const QString& permissionGroup, const QString& permissionId);
-    void resetPermissionInfo(const QString& permissionGroup, const QString& permissionId);
+    void refreshPermissionState(const QString &permissionGroup,
+                                const QString &permissionId,
+                                bool enable);
+    void resetPermissionState(const QString &permissionGroup, const QString &permissionId);
+    void resetPermissionInfo(const QString &permissionGroup, const QString &permissionId);
 
 private:
     PrivacySecurityModel *m_model;

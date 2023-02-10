@@ -25,6 +25,7 @@
 #include "widgets/iris/iriswidget.h"
 
 #include <DTipLabel>
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -34,6 +35,7 @@ class QScrollArea;
 QT_END_NAMESPACE
 
 class CharaMangerModel;
+
 class IrisDetailWidget : public QWidget
 {
     Q_OBJECT
@@ -48,14 +50,20 @@ private:
 Q_SIGNALS:
     void requestAddIris(const QString &driverName, const int &charaType, const QString &charaName);
     void requestDeleteIrisItem(const int &charaType, const QString &charaName);
-    void requestRenameIrisItem(const int &charaType, const QString& oldIrisName, const QString& newIrisName);
+    void requestRenameIrisItem(const int &charaType,
+                               const QString &oldIrisName,
+                               const QString &newIrisName);
     void noticeEnrollCompleted(const QString &driverName, const int &CharaType);
-    void requestEntollStart(const QString &driverName, const int &charaType, const QString &charaName);
+    void requestEntollStart(const QString &driverName,
+                            const int &charaType,
+                            const QString &charaName);
     void requestStopEnroll();
 
 public Q_SLOTS:
     void onDeviceStatusChanged(bool hasDevice);
-    void onShowAddIrisDialog(const QString &driverName, const int &charaType, const QString &charaName);
+    void onShowAddIrisDialog(const QString &driverName,
+                             const int &charaType,
+                             const QString &charaName);
 
 private:
     CharaMangerModel *m_model;
@@ -65,4 +73,3 @@ private:
     QLabel *m_pNotDevice;
     DTK_WIDGET_NAMESPACE::DLabel *m_tip;
 };
-

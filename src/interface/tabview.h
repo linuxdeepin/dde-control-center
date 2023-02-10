@@ -21,12 +21,15 @@
 #ifndef TABVIEW_H
 #define TABVIEW_H
 #include "interface/namespace.h"
+
 #include <qglobal.h>
+
 #include <QAbstractItemView>
 
 namespace DCC_NAMESPACE {
 
 class TabViewPrivate;
+
 class TabView : public QAbstractItemView
 {
     Q_OBJECT
@@ -62,7 +65,9 @@ protected:
 
     void updateGeometries() override;
 
-    void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>()) override;
+    void dataChanged(const QModelIndex &topLeft,
+                     const QModelIndex &bottomRight,
+                     const QVector<int> &roles = QVector<int>()) override;
     void rowsInserted(const QModelIndex &parent, int start, int end) override;
     void rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end) override;
 
@@ -77,6 +82,6 @@ private:
     Q_DISABLE_COPY(TabView)
 };
 
-}
+} // namespace DCC_NAMESPACE
 
 #endif // TABVIEW_H

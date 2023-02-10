@@ -1,11 +1,12 @@
 #include "cooperationsettingsdialog.h"
 
+#include <DFileChooserEdit>
+#include <DFontSizeManager>
+#include <DSwitchButton>
 #include <DTitlebar>
+
 #include <QEvent>
 #include <QVBoxLayout>
-#include <DFontSizeManager>
-#include <DFileChooserEdit>
-#include <DSwitchButton>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -24,10 +25,7 @@ CooperationSettingsDialog::CooperationSettingsDialog(QWidget *parent)
     m_storageItem->edit()->lineEdit()->installEventFilter(this);
 }
 
-CooperationSettingsDialog::~CooperationSettingsDialog()
-{
-
-}
+CooperationSettingsDialog::~CooperationSettingsDialog() { }
 
 void CooperationSettingsDialog::onSetWindowEnabled(const bool isEnabled)
 {
@@ -75,11 +73,11 @@ bool CooperationSettingsDialog::eventFilter(QObject *o, QEvent *e)
 void CooperationSettingsDialog::initWidget()
 {
     setFixedSize(QSize(480, 362));
-//    m_mainLayout->setAlignment(Qt::AlignVCenter);
+    //    m_mainLayout->setAlignment(Qt::AlignVCenter);
 
     DTitlebar *titleIcon = new DTitlebar();
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle(tr("Collaboration Settings"));
 
@@ -104,7 +102,8 @@ void CooperationSettingsDialog::initWidget()
 
     // 共享存储
     m_storageItem->setTitle(tr("Storage path for shared files"));
-    m_storageItem->edit()->setDialogDisplayPosition(DFileChooserEdit::DialogDisplayPosition::FollowParentWindow);
+    m_storageItem->edit()->setDialogDisplayPosition(
+            DFileChooserEdit::DialogDisplayPosition::FollowParentWindow);
     m_storageItem->setContentsMargins(10, 0, 10, 0);
     m_storageTips = new DTipLabel(tr("Share the copied content across devices"), this);
     m_storageTips->setForegroundRole(DPalette::TextTips);
@@ -149,16 +148,30 @@ void CooperationSettingsDialog::initWidget()
 
 void CooperationSettingsDialog::initConnect()
 {
-    connect(m_storageItem->edit()->lineEdit(), &QLineEdit::textChanged, [this](const QString& filePath){
-        if (filePath != m_storagePath) {
-            setFilesStoragePath(filePath);
-        }
-        setButtonTupleState(true);
-    });
-    connect(m_shearSwitch, &SwitchWidget::checkedChanged, this, &CooperationSettingsDialog::setButtonEnabled);
-    connect(m_mousekeyboardSwitch, &SwitchWidget::checkedChanged, this, &CooperationSettingsDialog::setButtonEnabled);
-    connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &CooperationSettingsDialog::close);
-    connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &CooperationSettingsDialog::accept);
+    connect(m_storageItem->edit()->lineEdit(),
+            &QLineEdit::textChanged,
+            [this](const QString &filePath) {
+                if (filePath != m_storagePath) {
+                    setFilesStoragePath(filePath);
+                }
+                setButtonTupleState(true);
+            });
+    connect(m_shearSwitch,
+            &SwitchWidget::checkedChanged,
+            this,
+            &CooperationSettingsDialog::setButtonEnabled);
+    connect(m_mousekeyboardSwitch,
+            &SwitchWidget::checkedChanged,
+            this,
+            &CooperationSettingsDialog::setButtonEnabled);
+    connect(m_buttonTuple->leftButton(),
+            &QPushButton::clicked,
+            this,
+            &CooperationSettingsDialog::close);
+    connect(m_buttonTuple->rightButton(),
+            &QPushButton::clicked,
+            this,
+            &CooperationSettingsDialog::accept);
 }
 
 void CooperationSettingsDialog::setButtonTupleState(bool state)

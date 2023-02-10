@@ -30,7 +30,7 @@
 #define DCC_ALL_HIDDEN 0xA0000000
 #define DCC_ALL_DISABLED 0x50000000
 
-#define DCC_EXTRA 0x00800000 // 扩展按钮(子项)
+#define DCC_EXTRA 0x00800000    // 扩展按钮(子项)
 #define DCC_NOSEARCH 0x08000000 // 不参与搜索
 
 /** Versions:
@@ -41,6 +41,7 @@ const unsigned c_currentVersion = 10; // 1.0
 // DCORE_USE_NAMESPACE
 
 using namespace DCC_NAMESPACE;
+
 namespace DCC_NAMESPACE {
 class ModuleObjectPrivate
 {
@@ -60,16 +61,18 @@ public:
     QList<ModuleObject *> m_childrens;
     ModuleObject *m_currentModule;
 
-    QString m_name;            // 名称，作为每个模块的唯一标识，不可为空
-    QString m_displayName;     // 显示名称，如菜单的名称，页面的标题等，为空则不显示
-    QString m_description;     // 描述，如主菜单的描述信息
-    QStringList m_contentText; // 上下文数据，参与搜索，只可用于终结点：DisplayName -> ContentText(one of it)
-    QVariant m_icon;           // 图标，如主菜单的图标
-    int m_badge;               // 主菜单中的角标, 默认为0不显示，大于0显示
+    QString m_name;        // 名称，作为每个模块的唯一标识，不可为空
+    QString m_displayName; // 显示名称，如菜单的名称，页面的标题等，为空则不显示
+    QString m_description; // 描述，如主菜单的描述信息
+    QStringList m_contentText; // 上下文数据，参与搜索，只可用于终结点：DisplayName ->
+                               // ContentText(one of it)
+    QVariant m_icon; // 图标，如主菜单的图标
+    int m_badge;     // 主菜单中的角标, 默认为0不显示，大于0显示
 
     uint32_t m_flags;
 };
-}
+} // namespace DCC_NAMESPACE
+
 ModuleObject::ModuleObject(QObject *parent)
     : ModuleObject(QString(), QString(), parent)
 {
@@ -85,32 +88,54 @@ ModuleObject::ModuleObject(const QString &name, const QStringList &contentText, 
 {
 }
 
-ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent)
+ModuleObject::ModuleObject(const QString &name,
+                           const QString &displayName,
+                           const QStringList &contentText,
+                           QObject *parent)
     : ModuleObject(name, displayName, {}, contentText, QVariant(), parent)
 {
 }
 
-ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QVariant &icon, QObject *parent)
+ModuleObject::ModuleObject(const QString &name,
+                           const QString &displayName,
+                           const QVariant &icon,
+                           QObject *parent)
     : ModuleObject(name, displayName, {}, icon, parent)
 {
 }
 
-ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, QObject *parent)
+ModuleObject::ModuleObject(const QString &name,
+                           const QString &displayName,
+                           const QString &description,
+                           QObject *parent)
     : ModuleObject(name, displayName, description, {}, QVariant(), parent)
 {
 }
 
-ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, const QVariant &icon, QObject *parent)
+ModuleObject::ModuleObject(const QString &name,
+                           const QString &displayName,
+                           const QString &description,
+                           const QVariant &icon,
+                           QObject *parent)
     : ModuleObject(name, displayName, description, {}, icon, parent)
 {
 }
 
-ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent)
+ModuleObject::ModuleObject(const QString &name,
+                           const QString &displayName,
+                           const QString &description,
+                           const QIcon &icon,
+                           QObject *parent)
     : ModuleObject(name, displayName, description, {}, QVariant::fromValue(icon), parent)
 {
 }
 
-ModuleObject::ModuleObject(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent)
+ModuleObject::ModuleObject(const QString &name,
+                           const QString &displayName,
+                           const QString &description,
+                           const QStringList &contentText,
+                           const QVariant &icon,
+                           QObject *parent)
     : QObject(parent)
     , DCC_INIT_PRIVATE(ModuleObject)
 {
@@ -151,44 +176,45 @@ QWidget *ModuleObject::activePage(bool autoActive)
     return w;
 }
 
-void ModuleObject::active()
-{
-}
+void ModuleObject::active() { }
 
 QWidget *ModuleObject::page()
 {
     return nullptr;
 }
 
-void ModuleObject::deactive()
-{
-}
+void ModuleObject::deactive() { }
 
 QString ModuleObject::name() const
 {
     Q_D(const ModuleObject);
     return d->m_name;
 }
+
 QString ModuleObject::displayName() const
 {
     Q_D(const ModuleObject);
     return d->m_displayName;
 }
+
 QString ModuleObject::description() const
 {
     Q_D(const ModuleObject);
     return d->m_description;
 }
+
 QStringList ModuleObject::contentText() const
 {
     Q_D(const ModuleObject);
     return d->m_contentText;
 }
+
 QVariant ModuleObject::icon() const
 {
     Q_D(const ModuleObject);
     return d->m_icon;
 }
+
 int ModuleObject::badge() const
 {
     Q_D(const ModuleObject);
@@ -253,6 +279,7 @@ void ModuleObject::setName(const QString &name)
         Q_EMIT moduleDataChanged();
     }
 }
+
 void ModuleObject::setDisplayName(const QString &displayName)
 {
     Q_D(ModuleObject);
@@ -262,6 +289,7 @@ void ModuleObject::setDisplayName(const QString &displayName)
         Q_EMIT moduleDataChanged();
     }
 }
+
 void ModuleObject::setDescription(const QString &description)
 {
     Q_D(ModuleObject);
@@ -270,6 +298,7 @@ void ModuleObject::setDescription(const QString &description)
         Q_EMIT moduleDataChanged();
     }
 }
+
 void ModuleObject::setContentText(const QStringList &contentText)
 {
     Q_D(ModuleObject);
@@ -304,6 +333,7 @@ void ModuleObject::setIcon(const QIcon &icon)
 {
     setIcon(QVariant::fromValue(icon));
 }
+
 void ModuleObject::setBadge(int badge)
 {
     Q_D(ModuleObject);

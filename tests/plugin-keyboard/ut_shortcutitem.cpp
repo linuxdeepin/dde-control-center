@@ -3,6 +3,7 @@
 #undef private
 
 #include "gtest/gtest.h"
+
 #include <QtTest/QtTest>
 
 using namespace DCC_NAMESPACE;

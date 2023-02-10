@@ -30,7 +30,10 @@ void RingColorWidget::paintEvent(QPaintEvent *event)
 
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
-    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, this);
+    int borderWidth =
+            style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth),
+                                 nullptr,
+                                 this);
 
     // draw select circle
     QPen pen;

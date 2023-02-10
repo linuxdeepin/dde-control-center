@@ -26,11 +26,12 @@
 #include "interface/namespace.h"
 #include "widgets/titlelabel.h"
 
+#include <buttontuple.h>
+#include <switchwidget.h>
+
 #include <DAbstractDialog>
 #include <DSuggestButton>
 #include <DTipLabel>
-#include <buttontuple.h>
-#include <switchwidget.h>
 
 QT_BEGIN_NAMESPACE
 class QDialog;
@@ -48,9 +49,12 @@ public:
     void onSetWindowEnabled(const bool isEnabled);
 
     DCC_NAMESPACE::SwitchWidget *mousekeyboardSwitch() { return m_mousekeyboardSwitch; }
+
     DCC_NAMESPACE::SwitchWidget *shearClipboardSwitch() { return m_shearSwitch; }
+
     DCC_NAMESPACE::ButtonTuple *buttonTuple() { return m_buttonTuple; }
-    const QString& storagePath() { return m_storagePath; }
+
+    const QString &storagePath() { return m_storagePath; }
 
 Q_SIGNALS:
     void requestFilesStoragePath(const QString &path);
@@ -58,7 +62,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setOpenSharedDevices(bool on);
     void setOpenSharedClipboard(bool on);
-    void setFilesStoragePath(const QString& path);
+    void setFilesStoragePath(const QString &path);
     void setButtonEnabled();
     void setButtonDisabled();
 

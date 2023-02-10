@@ -24,8 +24,8 @@
 
 #include "mouseworker.h"
 
-#include <QObject>
 #include <QDBusMessage>
+#include <QObject>
 
 class QDBusInterface;
 
@@ -71,7 +71,7 @@ public Q_SLOTS:
     void onInputDevicesPathPropertiesChanged(QDBusMessage msg);
 
 private:
-    MouseWorker  *m_worker;
+    MouseWorker *m_worker;
     QDBusInterface *m_dbusMouseProperties;
     QDBusInterface *m_dbusTouchPadProperties;
     QDBusInterface *m_dbusTrackPointProperties;
@@ -81,10 +81,7 @@ private:
     QDBusInterface *m_dbusTouchPad;
     QDBusInterface *m_dbusTrackPoint;
     QDBusInterface *m_dbusDevices;
-
 };
-}
-
-
+} // namespace DCC_NAMESPACE
 
 #endif // MOUSEWORKER_H

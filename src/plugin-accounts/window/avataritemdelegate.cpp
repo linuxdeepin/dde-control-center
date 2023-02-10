@@ -20,21 +20,22 @@
  */
 
 #include "avataritemdelegate.h"
+
 #include "avatarlistwidget.h"
 
 #include <DStyle>
 
-#include <QObject>
-#include <QStyledItemDelegate>
-#include <QStyleOptionViewItem>
-#include <QModelIndex>
-#include <QPainter>
-#include <QPixmap>
-#include <QPen>
-#include <QSize>
-#include <QRect>
 #include <QDebug>
+#include <QModelIndex>
+#include <QObject>
+#include <QPainter>
 #include <QPainterPath>
+#include <QPen>
+#include <QPixmap>
+#include <QRect>
+#include <QSize>
+#include <QStyleOptionViewItem>
+#include <QStyledItemDelegate>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -44,10 +45,11 @@ AvatarItemDelegate::AvatarItemDelegate(QObject *parent)
 {
 }
 
-void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void AvatarItemDelegate::paint(QPainter *painter,
+                               const QStyleOptionViewItem &option,
+                               const QModelIndex &index) const
 {
-    painter->setRenderHints(painter->renderHints()
-                            | QPainter::Antialiasing
+    painter->setRenderHints(painter->renderHints() | QPainter::Antialiasing
                             | QPainter::SmoothPixmapTransform);
 
     if (!index.isValid())
@@ -62,8 +64,10 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
     int borderWidth = style->pixelMetric(pm, &opt, nullptr);
     pm = static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing);
     int borderSpacing = style->pixelMetric(pm, &opt, nullptr);
-    const QMargins margins(borderWidth + borderSpacing, borderWidth + borderSpacing,
-                           borderWidth + borderSpacing, borderWidth + borderSpacing);
+    const QMargins margins(borderWidth + borderSpacing,
+                           borderWidth + borderSpacing,
+                           borderWidth + borderSpacing,
+                           borderWidth + borderSpacing);
     QPixmap pixmap = index.data(Qt::DecorationRole).value<QPixmap>();
     QPainterPath path;
     path.addRoundedRect(opt.rect.marginsRemoved(margins), 8, 8);
@@ -76,7 +80,7 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
         qreal tw = opt.rect.width() / 3.0;
         qreal th = opt.rect.height() / 3.0;
 
-        //绘制背景
+        // 绘制背景
         DStyleHelper dh(style);
         QRectF rect(tw + opt.rect.x(), th + opt.rect.y(), tw, th);
         rect.moveCenter(QRect(opt.rect).center());
@@ -84,7 +88,7 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
         painter->setBrush(dh.getColor(&opt, QPalette::Button));
         painter->drawRoundedRect(opt.rect.marginsRemoved(margins), 8, 8);
 
-        //画+号
+        // 画+号
         qreal x1 = opt.rect.x() + tw;
         qreal y1 = opt.rect.y() + opt.rect.height() / 2.0 - 0.5;
         qreal x2 = opt.rect.x() + opt.rect.width() / 2.0 - 0.5;
@@ -99,7 +103,7 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
         painter->setBrush(Qt::NoBrush);
         painter->drawRoundedRect(opt.rect.adjusted(1, 1, -1, -1), 8, 8);
 
-        //在中间绘制选中小图标
+        // 在中间绘制选中小图标
         int radius = 8;
         int cx = opt.rect.marginsRemoved(margins).right();
         int cy = opt.rect.marginsRemoved(margins).top();
@@ -113,7 +117,8 @@ void AvatarItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &op
     // draw + in the end
 }
 
-QSize AvatarItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+QSize AvatarItemDelegate::sizeHint(const QStyleOptionViewItem &option,
+                                   const QModelIndex &index) const
 {
     Q_UNUSED(option)
     Q_UNUSED(index)

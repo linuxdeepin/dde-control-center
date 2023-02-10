@@ -19,18 +19,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "tabview.h"
-#include <QDebug>
-#include <QMouseEvent>
-#include <QPainter>
-#include <QScrollBar>
-#include <QModelIndex>
-#include <QApplication>
 
 #include <DApplicationHelper>
 #include <DPalette>
-#include <DStyleHelper>
 #include <DStyle>
+#include <DStyleHelper>
 #include <DStyleOption>
+
+#include <QApplication>
+#include <QDebug>
+#include <QModelIndex>
+#include <QMouseEvent>
+#include <QPainter>
+#include <QScrollBar>
 
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -56,32 +57,17 @@ public:
         setGridSize(m_gridSize);
     }
 
-    void setSpacing(int space)
-    {
-        m_spacing = space;
-    }
-    int spacing() const
-    {
-        return m_spacing;
-    }
+    void setSpacing(int space) { m_spacing = space; }
 
-    void setGridSize(const QSize &size)
-    {
-        m_gridSize = size;
-    }
-    QSize gridSize() const
-    {
-        return m_gridSize;
-    }
+    int spacing() const { return m_spacing; }
 
-    void setAlignment(Qt::Alignment alignment)
-    {
-        m_alignment = alignment;
-    }
-    Qt::Alignment alignment() const
-    {
-        return m_alignment;
-    }
+    void setGridSize(const QSize &size) { m_gridSize = size; }
+
+    QSize gridSize() const { return m_gridSize; }
+
+    void setAlignment(Qt::Alignment alignment) { m_alignment = alignment; }
+
+    Qt::Alignment alignment() const { return m_alignment; }
 
     void updateGeometries()
     {
@@ -95,7 +81,8 @@ public:
         DStyleOptionButtonBoxButton opt;
 
         QSize emptySZ = fm.size(Qt::TextShowMnemonic, QStringLiteral("XXXX"));
-        emptySZ = (dstyle.sizeFromContents(DStyle::CT_ButtonBoxButton, &opt, emptySZ, q).expandedTo(QApplication::globalStrut()));
+        emptySZ = (dstyle.sizeFromContents(DStyle::CT_ButtonBoxButton, &opt, emptySZ, q)
+                           .expandedTo(QApplication::globalStrut()));
         for (int i = 0; i < model->rowCount(); i++) {
             QString s(model->data(model->index(i, 0)).toString());
             QSize sz;
@@ -103,7 +90,8 @@ public:
                 sz = emptySZ;
             } else {
                 sz = fm.size(Qt::TextShowMnemonic, s);
-                sz = (dstyle.sizeFromContents(DStyle::CT_ButtonBoxButton, &opt, sz, q).expandedTo(QApplication::globalStrut()));
+                sz = (dstyle.sizeFromContents(DStyle::CT_ButtonBoxButton, &opt, sz, q)
+                              .expandedTo(QApplication::globalStrut()));
             }
             totalWidth += sz.width() + 14;
             m_itemX.append(totalWidth);
@@ -131,6 +119,7 @@ public:
             m_yOffset = 0;
         }
     }
+
     // item在窗口中位置(无滚动)
     QRect rectForIndex(const QModelIndex &index) const
     {
@@ -146,8 +135,10 @@ public:
             rect.setRight(m_itemX.at(indexRow));
         }
 
-        return rect.translated(q->contentsMargins().left() + m_xOffset, q->contentsMargins().top() + m_yOffset);
+        return rect.translated(q->contentsMargins().left() + m_xOffset,
+                               q->contentsMargins().top() + m_yOffset);
     }
+
     // item在窗口中位置(无滚动)
     QModelIndex indexAt(const QPoint &p) const
     {
@@ -168,6 +159,7 @@ public:
             return index;
         return QModelIndex();
     }
+
     QVector<QModelIndex> intersectingSet(const QRect &area) const
     {
         Q_Q(const TabView);
@@ -182,11 +174,13 @@ public:
         }
         return indexs;
     }
+
     inline int marginsWidth() const
     {
         Q_Q(const TabView);
         return q->contentsMargins().left() + q->contentsMargins().right();
     }
+
     inline int marginsHidget() const
     {
         Q_Q(const TabView);
@@ -204,7 +198,7 @@ private:
     int m_xOffset;             // x轴偏移
     int m_yOffset;             // y轴偏移
     QModelIndex m_hover;       // hover项
-    Qt::Alignment m_alignment; //　对齐方式
+    Qt::Alignment m_alignment; // 　对齐方式
 
     QList<int> m_itemX;
     QSize m_size;
@@ -238,6 +232,7 @@ void TabView::setSpacing(int space)
         scheduleDelayedItemsLayout();
     }
 }
+
 int TabView::spacing() const
 {
     Q_D(const TabView);
@@ -252,6 +247,7 @@ void TabView::setGridSize(const QSize &size)
         scheduleDelayedItemsLayout();
     }
 }
+
 QSize TabView::gridSize() const
 {
     Q_D(const TabView);
@@ -266,11 +262,13 @@ void TabView::setAlignment(Qt::Alignment alignment)
         scheduleDelayedItemsLayout();
     }
 }
+
 Qt::Alignment TabView::alignment() const
 {
     Q_D(const TabView);
     return d->alignment();
 }
+
 /////////////////////////////////////////////////////////////////////////////
 // item在窗口中位置(加滚动偏移)
 QRect TabView::visualRect(const QModelIndex &index) const
@@ -386,8 +384,9 @@ void TabView::updateGeometries()
     QAbstractItemView::updateGeometries();
     d->updateGeometries();
 
-    //　更新滚动条范围
-    if (geometry().isEmpty() || !model() || model()->rowCount() <= 0 || model()->columnCount() <= 0) {
+    // 　更新滚动条范围
+    if (geometry().isEmpty() || !model() || model()->rowCount() <= 0
+        || model()->columnCount() <= 0) {
         horizontalScrollBar()->setRange(0, 0);
         verticalScrollBar()->setRange(0, 0);
     } else {
@@ -404,7 +403,9 @@ void TabView::updateGeometries()
     }
 }
 
-void TabView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+void TabView::dataChanged(const QModelIndex &topLeft,
+                          const QModelIndex &bottomRight,
+                          const QVector<int> &roles)
 {
     QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
     scheduleDelayedItemsLayout();
@@ -457,7 +458,8 @@ void TabView::paintEvent(QPaintEvent *e)
     QStyleOptionViewItem option = viewOptions();
     QPainter painter(viewport());
 
-    const QVector<QModelIndex> toBeRendered = d->intersectingSet(e->rect().translated(horizontalOffset(), verticalOffset()));
+    const QVector<QModelIndex> toBeRendered =
+            d->intersectingSet(e->rect().translated(horizontalOffset(), verticalOffset()));
 
     const QModelIndex current = currentIndex();
     const QModelIndex hover = d->m_hover;

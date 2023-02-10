@@ -20,21 +20,22 @@
  */
 
 #include "brightnesswidget.h"
+
 #include "src/plugin-display/operation/displaymodel.h"
 #include "src/plugin-display/operation/monitor.h"
 
 #include <DFontSizeManager>
 
 #include <QLabel>
-#include <QVBoxLayout>
 #include <QSpacerItem>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 const double BrightnessMaxScale = 100.0;
 const int PercentageNum = 100;
-const double DoubleZero = 0.01; //后端传入的doube指为浮点型，有效位数为2位小数，存在精度丢失
+const double DoubleZero = 0.01; // 后端传入的doube指为浮点型，有效位数为2位小数，存在精度丢失
 
 BrightnessWidget::BrightnessWidget(QWidget *parent)
     : QWidget(parent)
@@ -76,7 +77,9 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_centralLayout->addSpacerItem(m_nightShiftSpacerItem);
     m_centralLayout->addWidget(m_nightShift);
 
-    m_nightTips = new DTipLabel(tr("The screen hue will be auto adjusted according to your location"), m_tempratureColorWidget);
+    m_nightTips =
+            new DTipLabel(tr("The screen hue will be auto adjusted according to your location"),
+                          m_tempratureColorWidget);
     m_tempratureColorWidget->setAccessibleName("BrightnessWidget_tempratureColor");
     m_nightTips->setForegroundRole(DPalette::TextTips);
     m_nightTips->setWordWrap(true);
@@ -88,7 +91,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_centralLayout->addWidget(m_nightTips);
 
     m_nightManual->setTitle(tr("Change Color Temperature"));
-    m_cctItem->setAnnotations({tr("Cool"), "", tr("Warm")});
+    m_cctItem->setAnnotations({ tr("Cool"), "", tr("Warm") });
     m_settingsGroup->appendItem(m_nightManual);
     m_settingsGroup->appendItem(m_cctItem);
     m_centralLayout->addSpacerItem(m_nightManualSpacerItem);
@@ -99,16 +102,20 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     setLayout(m_centralLayout);
 }
 
-BrightnessWidget::~BrightnessWidget()
-{
-}
+BrightnessWidget::~BrightnessWidget() { }
 
 void BrightnessWidget::setMode(DisplayModel *model)
 {
     m_displayModel = model;
 
-    connect(m_autoLightMode, &SwitchWidget::checkedChanged, this, &BrightnessWidget::requestAmbientLightAdjustBrightness);
-    connect(m_displayModel, &DisplayModel::adjustCCTmodeChanged, this, &BrightnessWidget::setAdjustCCTmode);
+    connect(m_autoLightMode,
+            &SwitchWidget::checkedChanged,
+            this,
+            &BrightnessWidget::requestAmbientLightAdjustBrightness);
+    connect(m_displayModel,
+            &DisplayModel::adjustCCTmodeChanged,
+            this,
+            &BrightnessWidget::setAdjustCCTmode);
     connect(m_nightManual, &SwitchWidget::checkedChanged, this, [=](const bool enable) {
         if (enable) {
             Q_EMIT requestSetMethodAdjustCCT(2);
@@ -123,18 +130,27 @@ void BrightnessWidget::setMode(DisplayModel *model)
             Q_EMIT requestSetMethodAdjustCCT(0);
         }
     });
-    connect(m_displayModel, &DisplayModel::autoLightAdjustVaildChanged, this, [=](const bool enable) {
-        m_autoLightSpacerItem->changeSize(0, enable ? 10 : 0);
-        m_autoLightMode->setVisible(enable);
-    });
-    connect(m_displayModel, &DisplayModel::autoLightAdjustSettingChanged, m_autoLightMode, &SwitchWidget::setChecked);
+    connect(m_displayModel,
+            &DisplayModel::autoLightAdjustVaildChanged,
+            this,
+            [=](const bool enable) {
+                m_autoLightSpacerItem->changeSize(0, enable ? 10 : 0);
+                m_autoLightMode->setVisible(enable);
+            });
+    connect(m_displayModel,
+            &DisplayModel::autoLightAdjustSettingChanged,
+            m_autoLightMode,
+            &SwitchWidget::setChecked);
 
     m_autoLightSpacerItem->changeSize(0, model->autoLightAdjustIsValid() ? 10 : 0);
     m_autoLightMode->setVisible(model->autoLightAdjustIsValid());
     m_autoLightMode->setChecked(model->isAudtoLightAdjust());
-    setAdjustCCTmode(model->adjustCCTMode()); //0不调节色温  1  自动调节   2手动调节
+    setAdjustCCTmode(model->adjustCCTMode()); // 0不调节色温  1  自动调节   2手动调节
     setColorTemperatureVisible(model->redshiftIsValid());
-    connect(model, &DisplayModel::redshiftVaildChanged, this, &BrightnessWidget::setColorTemperatureVisible);
+    connect(model,
+            &DisplayModel::redshiftVaildChanged,
+            this,
+            &BrightnessWidget::setColorTemperatureVisible);
 
     addSlider();
 }
@@ -159,7 +175,7 @@ void BrightnessWidget::setAdjustCCTmode(int mode)
     m_nightShift->switchButton()->setChecked(mode == 1);
     m_nightManual->switchButton()->setChecked(mode == 2);
     m_cctItem->blockSignals(true);
-    //当布局器A中嵌套布局器B时，B中的控件隐藏时，需要先隐藏B再隐藏控件，消除控件闪动问题
+    // 当布局器A中嵌套布局器B时，B中的控件隐藏时，需要先隐藏B再隐藏控件，消除控件闪动问题
     m_settingsGroup->hide();
     m_cctItem->setVisible(m_displayModel->adjustCCTMode() == 2);
     m_settingsGroup->show();
@@ -179,7 +195,7 @@ void BrightnessWidget::showBrightness(Monitor *monitor)
         }
     }
     m_brightnessTitle->setVisible(bTitle);
-    //色温模块不显示的时候 设置空白区域高度为0
+    // 色温模块不显示的时候 设置空白区域高度为0
     m_colorSpacerItem->changeSize(0, bTitle && m_displayModel->redshiftIsValid() ? 20 : 0);
 }
 
@@ -193,7 +209,7 @@ void BrightnessWidget::addSlider()
     }
 
     for (int i = 0; i < monList.size(); ++i) {
-        //单独显示每个亮度调节名
+        // 单独显示每个亮度调节名
         TitledSliderItem *slideritem = new TitledSliderItem(monList[i]->name(), this);
         slideritem->setAccessibleName("BrightnessWidget_TitledSliderItem");
         slideritem->addBackground();
@@ -226,8 +242,10 @@ void BrightnessWidget::addSlider()
             connect(monList[i], &Monitor::brightnessChanged, this, [=](const double rb) {
                 slider->blockSignals(true);
                 if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
-                    slideritem->setValueLiteral(QString("%1%").arg(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale)));
-                    slider->setValue(int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale));
+                    slideritem->setValueLiteral(QString("%1%").arg(
+                            int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale)));
+                    slider->setValue(
+                            int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale));
                 } else {
                     slideritem->setValueLiteral(QString("%1%").arg(int(rb * BrightnessMaxScale)));
                     slider->setValue(int(rb * BrightnessMaxScale));
@@ -235,8 +253,10 @@ void BrightnessWidget::addSlider()
                 slider->blockSignals(false);
             });
 
-            connect(m_displayModel, &DisplayModel::minimumBrightnessScaleChanged,
-                    this, [=](const double ms) {
+            connect(m_displayModel,
+                    &DisplayModel::minimumBrightnessScaleChanged,
+                    this,
+                    [=](const double ms) {
                         double rb = monList[i]->brightness();
                         int tmini = int(ms * PercentageNum);
                         slider->setMinimum(tmini);
@@ -284,15 +304,18 @@ void BrightnessWidget::addSlider()
                 slider->blockSignals(true);
                 slideritem->setValueLiteral(brightnessToTickInterval(rb));
                 if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
-                    slider->setValue(int((m_displayModel->minimumBrightnessScale() + DoubleZero) * maxBacklight));
+                    slider->setValue(int((m_displayModel->minimumBrightnessScale() + DoubleZero)
+                                         * maxBacklight));
                 } else {
                     slider->setValue(int((rb + DoubleZero) * maxBacklight));
                 }
                 slider->blockSignals(false);
             });
 
-            connect(m_displayModel, &DisplayModel::minimumBrightnessScaleChanged,
-                    this, [=](const double ms) {
+            connect(m_displayModel,
+                    &DisplayModel::minimumBrightnessScaleChanged,
+                    this,
+                    [=](const double ms) {
                         double rb = monList[i]->brightness();
                         int tmini = int(ms * PercentageNum);
                         slider->setMinimum(tmini);
@@ -339,8 +362,9 @@ void BrightnessWidget::addSlider()
 
 int BrightnessWidget::colorTemperatureToValue(int kelvin)
 {
-    //色温范围有效值10000-25000  值越大，色温越冷，不开启色温时值为6500,超过18000基本看不出变化，小于1500色温实际效果没法看，无实际价值
-    //此处取有效至1500-21500
+    // 色温范围有效值10000-25000
+    // 值越大，色温越冷，不开启色温时值为6500,超过18000基本看不出变化，小于1500色温实际效果没法看，无实际价值
+    // 此处取有效至1500-21500
     if (kelvin >= 6500)
         return 50 - (kelvin - 6500) / 300;
     else if (kelvin < 6500 && kelvin >= 1000)

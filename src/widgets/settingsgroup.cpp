@@ -24,20 +24,22 @@
  */
 
 #include "widgets/settingsgroup.h"
-#include "widgets/settingsitem.h"
-#include "widgets/settingsheaderitem.h"
-#include "widgets/utils.h"
+
 #include "widgets/accessibleinterface.h"
+#include "widgets/settingsheaderitem.h"
+#include "widgets/settingsitem.h"
+#include "widgets/utils.h"
 
 #include <DBackgroundGroup>
 
-#include <QVBoxLayout>
-#include <QEvent>
 #include <QDebug>
+#include <QEvent>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
-SET_FORM_ACCESSIBLE(SettingsGroup,"SettingsGroup");
+SET_FORM_ACCESSIBLE(SettingsGroup, "SettingsGroup");
+
 SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
     : QFrame(parent)
     , m_layout(nullptr)
@@ -78,7 +80,7 @@ void SettingsGroup::setHeaderVisible(const bool visible)
 void SettingsGroup::insertItem(const int index, SettingsItem *item)
 {
     if (ItemBackground == m_bgStyle) {
-        //当SettingsItem 被加入　SettingsGroup　时，为其加入背景
+        // 当SettingsItem 被加入　SettingsGroup　时，为其加入背景
         item->addBackground();
     }
     m_layout->insertWidget(index, item);
@@ -93,7 +95,7 @@ void SettingsGroup::appendItem(SettingsItem *item)
 void SettingsGroup::appendItem(SettingsItem *item, BackgroundStyle bgStyle)
 {
     if ((ItemBackground == bgStyle) && (m_bgStyle == ItemBackground)) {
-        //当SettingsItem 被加入　SettingsGroup　时，为其加入背景
+        // 当SettingsItem 被加入　SettingsGroup　时，为其加入背景
         item->addBackground();
     }
 
@@ -168,7 +170,6 @@ void SettingsGroup::setBackgroundStyle(BackgroundStyle bgStyle)
         delete m_layout;
     if (layout())
         delete layout();
-
 
     m_layout = new QVBoxLayout;
     m_layout->setSpacing(10);

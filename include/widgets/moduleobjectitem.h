@@ -24,15 +24,19 @@
 #include "interface/moduleobject.h"
 
 #include <DStyle>
+
 #include <QVariant>
 
 namespace DCC_NAMESPACE {
 class ModuleObjectItemPrivate;
+
 class ModuleObjectItem : public ModuleObject
 {
     Q_OBJECT
 public:
-    explicit ModuleObjectItem(const QString &name, const QString &displayName, QObject *parent = nullptr);
+    explicit ModuleObjectItem(const QString &name,
+                              const QString &displayName,
+                              QObject *parent = nullptr);
     ~ModuleObjectItem() override;
 
     void setRightIcon(DTK_WIDGET_NAMESPACE::DStyle::StandardPixmap st, int index = -1);
@@ -44,6 +48,7 @@ public:
 
     virtual void setData(int role, const QVariant &value);
     virtual QVariant data(int role) const;
+
     inline DCC_MODULE_TYPE getClassID() const override { return ITEM; }
 
 Q_SIGNALS:
@@ -51,5 +56,5 @@ Q_SIGNALS:
 
     DCC_DECLARE_PRIVATE(ModuleObjectItem)
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // MODULEOBJECTITEM_H

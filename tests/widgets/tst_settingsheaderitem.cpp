@@ -1,18 +1,15 @@
 #include <gtest/gtest.h>
 
-#include <QStandardItemModel>
-
 #include "widgets/settingsheaderitem.h"
+
+#include <QStandardItemModel>
 
 using namespace DCC_NAMESPACE;
 
 class Tst_SettingsHeaderItem : public testing::Test
 {
 public:
-    void SetUp() override
-    {
-        obj = new SettingsHeaderItem();
-    }
+    void SetUp() override { obj = new SettingsHeaderItem(); }
 
     void TearDown() override
     {

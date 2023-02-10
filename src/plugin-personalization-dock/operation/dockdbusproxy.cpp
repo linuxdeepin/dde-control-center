@@ -1,32 +1,32 @@
 /*
-* Copyright (C) 2021 ~ 2022 Uniontech Software Technology Co.,Ltd.
-*
-* Author:     fanpengcheng <fanpengcheng@uniontech.com>
-*
-* Maintainer: fanpengcheng <fanpengcheng@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2022 Uniontech Software Technology Co.,Ltd.
+ *
+ * Author:     fanpengcheng <fanpengcheng@uniontech.com>
+ *
+ * Maintainer: fanpengcheng <fanpengcheng@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #include "dockdbusproxy.h"
 
-#include <QMetaObject>
+#include <QApplication>
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusMetaType>
+#include <QMetaObject>
 #include <QTimer>
-#include <QApplication>
 
 const static QString DaemonDockService = "org.deepin.dde.daemon.Dock1";
 const static QString DaemonDockPath = "/org/deepin/dde/daemon/Dock1";
@@ -41,7 +41,8 @@ const static QString PropertiesChanged = "PropertiesChanged";
 QDBusArgument &operator<<(QDBusArgument &arg, const DockItemInfo &info)
 {
     arg.beginStructure();
-    arg << info.name << info.displayName << info.itemKey << info.settingKey << info.iconLight << info.iconDark << info.visible;
+    arg << info.name << info.displayName << info.itemKey << info.settingKey << info.iconLight
+        << info.iconDark << info.visible;
     arg.endStructure();
     return arg;
 }
@@ -49,25 +50,71 @@ QDBusArgument &operator<<(QDBusArgument &arg, const DockItemInfo &info)
 const QDBusArgument &operator>>(const QDBusArgument &arg, DockItemInfo &info)
 {
     arg.beginStructure();
-    arg >> info.name >> info.displayName >> info.itemKey >> info.settingKey >> info.iconLight >> info.iconDark >> info.visible;
+    arg >> info.name >> info.displayName >> info.itemKey >> info.settingKey >> info.iconLight
+            >> info.iconDark >> info.visible;
     arg.endStructure();
     return arg;
 }
 
 DockDBusProxy::DockDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_daemonDockInter(new QDBusInterface(DaemonDockService, DaemonDockPath, DaemonDockInterface, QDBusConnection::sessionBus(), this))
-    , m_dockInter(new QDBusInterface(DockService, DockPath, DockInterface, QDBusConnection::sessionBus(), this))
+    , m_daemonDockInter(new QDBusInterface(DaemonDockService,
+                                           DaemonDockPath,
+                                           DaemonDockInterface,
+                                           QDBusConnection::sessionBus(),
+                                           this))
+    , m_dockInter(new QDBusInterface(
+              DockService, DockPath, DockInterface, QDBusConnection::sessionBus(), this))
 {
-    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "DisplayModeChanged", this, SIGNAL(DisplayModeChanged(int)));
-    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "PositionChanged", this, SIGNAL(PositionChanged(int)));
-    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "HideModeChanged", this, SIGNAL(HideModeChanged(int)));
-    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "WindowSizeEfficientChanged", this, SIGNAL(WindowSizeEfficientChanged(uint)));
-    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "WindowSizeFashionChanged", this, SIGNAL(WindowSizeFashionChanged(uint)));
-    QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "showRecentChanged", this, SIGNAL(showRecentChanged(bool)));
+    QDBusConnection::sessionBus().connect(DaemonDockService,
+                                          DaemonDockPath,
+                                          DaemonDockInterface,
+                                          "DisplayModeChanged",
+                                          this,
+                                          SIGNAL(DisplayModeChanged(int)));
+    QDBusConnection::sessionBus().connect(DaemonDockService,
+                                          DaemonDockPath,
+                                          DaemonDockInterface,
+                                          "PositionChanged",
+                                          this,
+                                          SIGNAL(PositionChanged(int)));
+    QDBusConnection::sessionBus().connect(DaemonDockService,
+                                          DaemonDockPath,
+                                          DaemonDockInterface,
+                                          "HideModeChanged",
+                                          this,
+                                          SIGNAL(HideModeChanged(int)));
+    QDBusConnection::sessionBus().connect(DaemonDockService,
+                                          DaemonDockPath,
+                                          DaemonDockInterface,
+                                          "WindowSizeEfficientChanged",
+                                          this,
+                                          SIGNAL(WindowSizeEfficientChanged(uint)));
+    QDBusConnection::sessionBus().connect(DaemonDockService,
+                                          DaemonDockPath,
+                                          DaemonDockInterface,
+                                          "WindowSizeFashionChanged",
+                                          this,
+                                          SIGNAL(WindowSizeFashionChanged(uint)));
+    QDBusConnection::sessionBus().connect(DaemonDockService,
+                                          DaemonDockPath,
+                                          DaemonDockInterface,
+                                          "showRecentChanged",
+                                          this,
+                                          SIGNAL(showRecentChanged(bool)));
 
-    QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "showInPrimaryChanged", this, SLOT(ShowInPrimaryChanged(bool)));
-    QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "pluginVisibleChanged", this, SLOT(pluginVisibleChanged(const QString &, bool)));
+    QDBusConnection::sessionBus().connect(DockService,
+                                          DockPath,
+                                          DockInterface,
+                                          "showInPrimaryChanged",
+                                          this,
+                                          SLOT(ShowInPrimaryChanged(bool)));
+    QDBusConnection::sessionBus().connect(DockService,
+                                          DockPath,
+                                          DockInterface,
+                                          "pluginVisibleChanged",
+                                          this,
+                                          SLOT(pluginVisibleChanged(const QString &, bool)));
 
     regiestDockItemType();
 }
@@ -152,12 +199,16 @@ void DockDBusProxy::regiestDockItemType()
 
 void DockDBusProxy::resizeDock(int offset, bool dragging)
 {
-    m_dockInter->call(QDBus::CallMode::Block, QStringLiteral("resizeDock"), QVariant::fromValue(offset), QVariant::fromValue(dragging));
+    m_dockInter->call(QDBus::CallMode::Block,
+                      QStringLiteral("resizeDock"),
+                      QVariant::fromValue(offset),
+                      QVariant::fromValue(dragging));
 }
 
 QDBusPendingReply<QStringList> DockDBusProxy::GetLoadedPlugins()
 {
-    QDBusPendingReply<QStringList> reply = m_dockInter->asyncCall(QStringLiteral("GetLoadedPlugins"));
+    QDBusPendingReply<QStringList> reply =
+            m_dockInter->asyncCall(QStringLiteral("GetLoadedPlugins"));
     reply.waitForFinished();
     return reply;
 }
@@ -187,7 +238,8 @@ QDBusPendingReply<> DockDBusProxy::SetShowRecent(bool visible)
 {
     QList<QVariant> argumengList;
     argumengList << QVariant::fromValue(visible);
-    return m_daemonDockInter->asyncCallWithArgumentList(QStringLiteral("SetShowRecent"), argumengList);
+    return m_daemonDockInter->asyncCallWithArgumentList(QStringLiteral("SetShowRecent"),
+                                                        argumengList);
 }
 
 QDBusPendingReply<DockItemInfos> DockDBusProxy::plugins()
@@ -197,7 +249,9 @@ QDBusPendingReply<DockItemInfos> DockDBusProxy::plugins()
     return reply;
 }
 
-QDBusPendingReply<> DockDBusProxy::setItemOnDock(const QString settingKey, const QString &itemKey, bool visible)
+QDBusPendingReply<> DockDBusProxy::setItemOnDock(const QString settingKey,
+                                                 const QString &itemKey,
+                                                 bool visible)
 {
     QList<QVariant> argumengList;
     argumengList << settingKey << itemKey << QVariant::fromValue(visible);

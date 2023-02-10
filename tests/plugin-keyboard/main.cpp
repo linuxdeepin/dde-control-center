@@ -1,9 +1,9 @@
-#include <QApplication>
-
 #include <gtest/gtest.h>
 
+#include <QApplication>
+
 #ifdef QT_DEBUG
-#include <sanitizer/asan_interface.h>
+#  include <sanitizer/asan_interface.h>
 #endif
 
 int main(int argc, char **argv)

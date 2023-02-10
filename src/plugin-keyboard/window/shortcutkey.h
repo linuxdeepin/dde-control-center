@@ -26,9 +26,9 @@
 #ifndef SHORTCUTKEY_H
 #define SHORTCUTKEY_H
 
-#include <QWidget>
 #include <QHBoxLayout>
 #include <QLineEdit>
+#include <QWidget>
 
 class KeyLabel;
 
@@ -45,7 +45,7 @@ protected:
 
 private:
     QHBoxLayout *m_mainLayout;
-    QList<KeyLabel*> m_list;
+    QList<KeyLabel *> m_list;
 };
 
 #endif // SHORTCUTKEY_H

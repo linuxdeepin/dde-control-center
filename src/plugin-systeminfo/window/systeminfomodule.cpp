@@ -21,25 +21,24 @@
  */
 
 #include "systeminfomodule.h"
-#include "versionprotocolwidget.h"
-#include "userlicensewidget.h"
-#include "privacypolicywidget.h"
+
 #include "hostnameitem.h"
-#include "logoitem.h"
-#include "widgets/titlevalueitem.h"
 #include "interface/pagemodule.h"
 #include "interface/vlistmodule.h"
-#include "src/frame/utils.h"
-
-#include "operation/systeminfowork.h"
+#include "logoitem.h"
 #include "operation/systeminfomodel.h"
+#include "operation/systeminfowork.h"
+#include "privacypolicywidget.h"
+#include "src/frame/utils.h"
+#include "userlicensewidget.h"
+#include "versionprotocolwidget.h"
+#include "widgets/titlevalueitem.h"
 #include "widgets/widgetmodule.h"
 
 #include <dsysinfo.h>
-
+#include <qapplication.h>
 #include <qobject.h>
 #include <qtimer.h>
-#include <qapplication.h>
 #include <qwidget.h>
 
 using namespace DCC_NAMESPACE;
@@ -66,41 +65,93 @@ void SystemInfoModule::active()
 
 void SystemInfoModule::initChildModule()
 {
-    //二级菜单--关于本机
-    ModuleObject *moduleAboutPc = new PageModule("aboutThisPc", tr("About This PC"), QIcon::fromTheme("dcc_on_sel"), this);
+    // 二级菜单--关于本机
+    ModuleObject *moduleAboutPc = new PageModule("aboutThisPc",
+                                                 tr("About This PC"),
+                                                 QIcon::fromTheme("dcc_on_sel"),
+                                                 this);
     appendChild(moduleAboutPc);
 
-    moduleAboutPc->appendChild(new WidgetModule<LogoItem>("logo", "", this, &SystemInfoModule::initLogoModule));
-    if (DSysInfo::uosType() == DSysInfo::UosType::UosServer || (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
-        moduleAboutPc->appendChild(new WidgetModule<HostNameItem>("hostName", tr("Computer Name"), this, &SystemInfoModule::initHostnameModule));
-        moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("osName", tr("OS Name"), this, &SystemInfoModule::initOSNameModule));
-        moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("version", tr("Version"), this, &SystemInfoModule::initVersionModule));
+    moduleAboutPc->appendChild(
+            new WidgetModule<LogoItem>("logo", "", this, &SystemInfoModule::initLogoModule));
+    if (DSysInfo::uosType() == DSysInfo::UosType::UosServer
+        || (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
+        moduleAboutPc->appendChild(
+                new WidgetModule<HostNameItem>("hostName",
+                                               tr("Computer Name"),
+                                               this,
+                                               &SystemInfoModule::initHostnameModule));
+        moduleAboutPc->appendChild(
+                new WidgetModule<TitleValueItem>("osName",
+                                                 tr("OS Name"),
+                                                 this,
+                                                 &SystemInfoModule::initOSNameModule));
+        moduleAboutPc->appendChild(
+                new WidgetModule<TitleValueItem>("version",
+                                                 tr("Version"),
+                                                 this,
+                                                 &SystemInfoModule::initVersionModule));
     }
-    moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("edition", tr("Edition"), this, &SystemInfoModule::initEditionModule));
-    moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("type", tr("Type"), this, &SystemInfoModule::initTypeModule));
+    moduleAboutPc->appendChild(
+            new WidgetModule<TitleValueItem>("edition",
+                                             tr("Edition"),
+                                             this,
+                                             &SystemInfoModule::initEditionModule));
+    moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("type",
+                                                                tr("Type"),
+                                                                this,
+                                                                &SystemInfoModule::initTypeModule));
     if (!IS_COMMUNITY_SYSTEM && DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC) {
-        moduleAboutPc->appendChild(new WidgetModule<TitleAuthorizedItem>("authorization", tr("Authorization"), this, &SystemInfoModule::initAuthorizationModule));
+        moduleAboutPc->appendChild(
+                new WidgetModule<TitleAuthorizedItem>("authorization",
+                                                      tr("Authorization"),
+                                                      this,
+                                                      &SystemInfoModule::initAuthorizationModule));
     }
-    moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("kernel", tr("Kernel"), this, &SystemInfoModule::initKernelModule));
-    moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("processor", tr("Processor"), this, &SystemInfoModule::initProcessorModule));
-    moduleAboutPc->appendChild(new WidgetModule<TitleValueItem>("memory", tr("Memory"), this, &SystemInfoModule::initMemoryModule));
+    moduleAboutPc->appendChild(
+            new WidgetModule<TitleValueItem>("kernel",
+                                             tr("Kernel"),
+                                             this,
+                                             &SystemInfoModule::initKernelModule));
+    moduleAboutPc->appendChild(
+            new WidgetModule<TitleValueItem>("processor",
+                                             tr("Processor"),
+                                             this,
+                                             &SystemInfoModule::initProcessorModule));
+    moduleAboutPc->appendChild(
+            new WidgetModule<TitleValueItem>("memory",
+                                             tr("Memory"),
+                                             this,
+                                             &SystemInfoModule::initMemoryModule));
 
-    //二级菜单--协议与隐私政策
-    ModuleObject *moduleAgreement = new VListModule("agreement", tr("Agreements and Privacy Policy"), QIcon::fromTheme("dcc_version"), this);
+    // 二级菜单--协议与隐私政策
+    ModuleObject *moduleAgreement = new VListModule("agreement",
+                                                    tr("Agreements and Privacy Policy"),
+                                                    QIcon::fromTheme("dcc_version"),
+                                                    this);
 
-    //三级菜单--协议与隐私政策-版本协议
-    ModuleObject *moduleEdition = new PageModule("editionLicense", tr("Edition License"), QIcon::fromTheme("dcc_version"), moduleAgreement);
+    // 三级菜单--协议与隐私政策-版本协议
+    ModuleObject *moduleEdition = new PageModule("editionLicense",
+                                                 tr("Edition License"),
+                                                 QIcon::fromTheme("dcc_version"),
+                                                 moduleAgreement);
 
     moduleEdition->appendChild(new WidgetModule<VersionProtocolWidget>());
     moduleAgreement->appendChild(moduleEdition);
 
-    //三级菜单--协议与隐私政策-最终用户许可协议
-    ModuleObject *moduleUserAgreement = new PageModule("endUserLicenseAgreement", tr("End User License Agreement"), QIcon::fromTheme("dcc_protocol"), moduleAgreement);
+    // 三级菜单--协议与隐私政策-最终用户许可协议
+    ModuleObject *moduleUserAgreement = new PageModule("endUserLicenseAgreement",
+                                                       tr("End User License Agreement"),
+                                                       QIcon::fromTheme("dcc_protocol"),
+                                                       moduleAgreement);
     moduleUserAgreement->appendChild(new WidgetModule<UserLicenseWidget>());
     moduleAgreement->appendChild(moduleUserAgreement);
 
-    //三级菜单--协议与隐私政策-隐私政策
-    ModuleObject *modulePolicy = new PageModule("privacyPolicy", tr("Privacy Policy"), QIcon::fromTheme("dcc_privacy_policy"), moduleAgreement);
+    // 三级菜单--协议与隐私政策-隐私政策
+    ModuleObject *modulePolicy = new PageModule("privacyPolicy",
+                                                tr("Privacy Policy"),
+                                                QIcon::fromTheme("dcc_privacy_policy"),
+                                                moduleAgreement);
     modulePolicy->appendChild(new WidgetModule<PrivacyPolicyWidget>());
     moduleAgreement->appendChild(modulePolicy);
 
@@ -113,9 +164,13 @@ const QString systemCopyright()
     const QString &oem_copyright = settings.value("system_info_vendor_name").toString().toLatin1();
     if (oem_copyright.isEmpty()) {
         if (IS_COMMUNITY_SYSTEM)
-            return QApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Community").arg(QString(__DATE__).right(4));
+            return QApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Community")
+                    .arg(QString(__DATE__).right(4));
         else
-            return QApplication::translate("LogoModule", "Copyright© 2019-%1 UnionTech Software Technology Co., LTD").arg(QString(__DATE__).right(4));
+            return QApplication::translate(
+                           "LogoModule",
+                           "Copyright© 2019-%1 UnionTech Software Technology Co., LTD")
+                    .arg(QString(__DATE__).right(4));
     } else {
         return oem_copyright;
     }
@@ -124,8 +179,8 @@ const QString systemCopyright()
 void SystemInfoModule::initLogoModule(LogoItem *item)
 {
     item->addBackground();
-    item->setDescription(true); //显示文字描述
-    item->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
+    item->setDescription(true);              // 显示文字描述
+    item->setDescription(systemCopyright()); // LogoItem构造函数: set the discription visible=false
     item->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal));
 }
 
@@ -173,7 +228,7 @@ void SystemInfoModule::initTypeModule(TitleValueItem *item)
     connect(m_model, &SystemInfoModel::typeChanged, item, &TitleValueItem::setValue);
 }
 
-void setLicenseState(TitleAuthorizedItem *const authorized,  DCC_NAMESPACE::ActiveState state)
+void setLicenseState(TitleAuthorizedItem *const authorized, DCC_NAMESPACE::ActiveState state)
 {
     if (state == Authorized) {
         authorized->setValue(QObject::tr("Activated"));
@@ -203,7 +258,7 @@ void SystemInfoModule::initAuthorizationModule(TitleAuthorizedItem *item)
     item->addBackground();
     item->setTitle(tr("Authorization") + ':');
     setLicenseState(item, m_model->licenseState());
-    connect(m_model, &SystemInfoModel::licenseStateChanged, item, [item] (ActiveState state) {
+    connect(m_model, &SystemInfoModel::licenseStateChanged, item, [item](ActiveState state) {
         setLicenseState(item, state);
     });
     connect(item, &TitleAuthorizedItem::clicked, m_work, &SystemInfoWork::showActivatorDialog);
@@ -240,7 +295,7 @@ QString SystemInfoPlugin::name() const
 
 ModuleObject *SystemInfoPlugin::module()
 {
-    //一级菜单--系统信息
+    // 一级菜单--系统信息
     SystemInfoModule *moduleInterface = new SystemInfoModule();
     moduleInterface->setName("systeminfo");
     moduleInterface->setDisplayName(tr("System Info"));
@@ -254,4 +309,3 @@ QString SystemInfoPlugin::location() const
 {
     return "21";
 }
-

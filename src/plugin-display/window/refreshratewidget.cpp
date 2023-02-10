@@ -20,11 +20,12 @@
  */
 
 #include "refreshratewidget.h"
+
 #include "src/plugin-display/operation/displaymodel.h"
 
-#include <QLabel>
 #include <QComboBox>
 #include <QHBoxLayout>
+#include <QLabel>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -58,7 +59,10 @@ void RefreshRateWidget::setModel(DisplayModel *model, Monitor *monitor)
 
     connect(m_model, &DisplayModel::monitorListChanged, this, &RefreshRateWidget::initRefreshRate);
     connect(m_model, &DisplayModel::displayModeChanged, this, &RefreshRateWidget::initRefreshRate);
-    connect(m_model, &DisplayModel::resolutionRefreshEnableChanged, m_refreshCombox, &QComboBox::setEnabled);
+    connect(m_model,
+            &DisplayModel::resolutionRefreshEnableChanged,
+            m_refreshCombox,
+            &QComboBox::setEnabled);
 
     setMonitor(monitor);
 }
@@ -71,8 +75,14 @@ void RefreshRateWidget::setMonitor(Monitor *monitor)
 
     // 先断开信号，设置数据再连接信号
     if (m_monitor != nullptr) {
-        disconnect(m_monitor, &Monitor::modelListChanged, this, &RefreshRateWidget::initRefreshRate);
-        disconnect(m_monitor, &Monitor::currentModeChanged, this, &RefreshRateWidget::OnCurrentModeChanged);
+        disconnect(m_monitor,
+                   &Monitor::modelListChanged,
+                   this,
+                   &RefreshRateWidget::initRefreshRate);
+        disconnect(m_monitor,
+                   &Monitor::currentModeChanged,
+                   this,
+                   &RefreshRateWidget::OnCurrentModeChanged);
     }
 
     m_monitor = monitor;
@@ -80,7 +90,10 @@ void RefreshRateWidget::setMonitor(Monitor *monitor)
     initRefreshRate();
 
     connect(m_monitor, &Monitor::modelListChanged, this, &RefreshRateWidget::initRefreshRate);
-    connect(m_monitor, &Monitor::currentModeChanged, this, &RefreshRateWidget::OnCurrentModeChanged);
+    connect(m_monitor,
+            &Monitor::currentModeChanged,
+            this,
+            &RefreshRateWidget::OnCurrentModeChanged);
 }
 
 void RefreshRateWidget::OnCurrentModeChanged(const Resolution &mode)
@@ -104,7 +117,8 @@ void RefreshRateWidget::OnCurrentModeChanged(const Resolution &mode)
     }
 
     // 无刷新率,分辨率宽度或高度改变则重新加载刷新率
-    if (m_refreshCombox->currentIndex() < 0 || m_refreshItemModel->rowCount() < 0 || w != mode.width() || h != mode.height()) {
+    if (m_refreshCombox->currentIndex() < 0 || m_refreshItemModel->rowCount() < 0
+        || w != mode.width() || h != mode.height()) {
         initRefreshRate();
     }
 
@@ -125,7 +139,10 @@ void RefreshRateWidget::initRefreshRate()
 
     // 先断开信号，设置数据再连接信号
     if (m_refreshItemModel != nullptr) {
-        disconnect(m_refreshCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, nullptr);
+        disconnect(m_refreshCombox,
+                   static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+                   this,
+                   nullptr);
         m_refreshItemModel->clear();
     }
 
@@ -173,11 +190,14 @@ void RefreshRateWidget::initRefreshRate()
         }
     }
 
-    connect(m_refreshCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
-        auto item = m_refreshItemModel->item(idx);
-        auto r = item->data(IdRole).toUInt();
-        if (m_monitor->currentMode().id() != r) {
-            Q_EMIT requestSetResolution(m_monitor, r);
-        }
-    });
+    connect(m_refreshCombox,
+            static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this,
+            [=](int idx) {
+                auto item = m_refreshItemModel->item(idx);
+                auto r = item->data(IdRole).toUInt();
+                if (m_monitor->currentMode().id() != r) {
+                    Q_EMIT requestSetResolution(m_monitor, r);
+                }
+            });
 }

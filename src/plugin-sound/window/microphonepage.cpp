@@ -20,33 +20,32 @@
  */
 
 #include "microphonepage.h"
-#include "soundmodel.h"
-#include "widgets/switchwidget.h"
-#include "widgets/titlelabel.h"
-#include "widgets/titledslideritem.h"
-#include "widgets/dccslider.h"
-#include "widgets/comboxwidget.h"
-#include "widgets/settingsgroup.h"
-#include "audioport.h"
 
-#include <DStandardItem>
-#include <DStyle>
+#include "audioport.h"
+#include "soundmodel.h"
+#include "widgets/comboxwidget.h"
+#include "widgets/dccslider.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/switchwidget.h"
+#include "widgets/titledslideritem.h"
+#include "widgets/titlelabel.h"
+
+#include <sounddbusproxy.h>
+
+#include <DApplication>
 #include <DFontSizeManager>
 #include <DGuiApplicationHelper>
-#include <DApplication>
-#include <QDBusPendingReply>
+#include <DStandardItem>
+#include <DStyle>
 
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QLabel>
 #include <QComboBox>
+#include <QDBusInterface>
+#include <QDBusPendingReply>
 #include <QDebug>
 #include <QHBoxLayout>
-#include <QVBoxLayout>
 #include <QLabel>
 #include <QTimer>
-#include <QDBusInterface>
-#include <sounddbusproxy.h>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -70,12 +69,12 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     m_noiseReductionsw = new SwitchWidget(tr("Automatic Noise Suppression"), this);
     m_noiseReductionsw->addBackground();
 
-    m_inputModel  = new QStandardItemModel(m_inputSoundCbx->comboBox());
+    m_inputModel = new QStandardItemModel(m_inputSoundCbx->comboBox());
     m_inputSoundCbx->comboBox()->setModel(m_inputModel);
 
     m_layout->setContentsMargins(0, 0, 0, 10);
     // TODO: 配置 DCONFIG
-    connect(m_waitStatusChangeTimer, &QTimer::timeout, [this](){
+    connect(m_waitStatusChangeTimer, &QTimer::timeout, [this]() {
         refreshActivePortShow(m_currentPort);
         showWaitSoundPortStatus(true);
     });
@@ -94,7 +93,6 @@ MicrophonePage::~MicrophonePage()
         m_feedbackSlider->disconnect(m_conn);
     m_feedbackSlider->deleteLater();
 #endif
-
 }
 
 /**当用户进入扬声器端口手动切换蓝牙输出端口后，再进入麦克风页面时
@@ -102,13 +100,22 @@ MicrophonePage::~MicrophonePage()
  */
 void MicrophonePage::resetUi()
 {
-    QDBusInterface interface("org.deepin.dde.Audio1", "/org/deepin/dde/Audio1", "org.deepin.dde.Audio1", QDBusConnection::sessionBus(), this);
+    QDBusInterface interface("org.deepin.dde.Audio1",
+                             "/org/deepin/dde/Audio1",
+                             "org.deepin.dde.Audio1",
+                             QDBusConnection::sessionBus(),
+                             this);
     QDBusObjectPath defaultPath = interface.property("DefaultSource").value<QDBusObjectPath>();
-    if (defaultPath.path() == "/" || defaultPath.path().isEmpty()) //路径为空
+    if (defaultPath.path() == "/" || defaultPath.path().isEmpty()) // 路径为空
         m_inputSoundCbx->comboBox()->setCurrentIndex(-1);
     else {
-        QDBusInterface *defaultSource = new QDBusInterface("org.deepin.dde.Audio1", defaultPath.path(), "org.deepin.dde.Audio1.Source", QDBusConnection::sessionBus(), this);
-        AudioPort port = QDBusPendingReply<AudioPort>(defaultSource->asyncCall(QStringLiteral("ActivePort")));
+        QDBusInterface *defaultSource = new QDBusInterface("org.deepin.dde.Audio1",
+                                                           defaultPath.path(),
+                                                           "org.deepin.dde.Audio1.Source",
+                                                           QDBusConnection::sessionBus(),
+                                                           this);
+        AudioPort port = QDBusPendingReply<AudioPort>(
+                defaultSource->asyncCall(QStringLiteral("ActivePort")));
         if (port.name.isEmpty() || port.description.isEmpty()) {
             m_inputSoundCbx->comboBox()->setCurrentIndex(-1);
         }
@@ -121,19 +128,20 @@ void MicrophonePage::setModel(SoundModel *model)
     m_model = model;
     m_waitTimerValue = m_model->currentWaitSoundReceiptTime();
 
-    //监听消息设置是否可用
-    connect(m_model, &SoundModel::isPortEnableChanged, this, [ = ](bool enable) {
-        //启用端口后需要再判断是否启用成功后，再设置为默认端口，但因为设置端口后会有端口是否启用的状态判断，
-        //导致进入死循环，所以添加判断值，判断是否是启用或禁用端口类型的操作，若是，则设置默认端口
+    // 监听消息设置是否可用
+    connect(m_model, &SoundModel::isPortEnableChanged, this, [=](bool enable) {
+        // 启用端口后需要再判断是否启用成功后，再设置为默认端口，但因为设置端口后会有端口是否启用的状态判断，
+        // 导致进入死循环，所以添加判断值，判断是否是启用或禁用端口类型的操作，若是，则设置默认端口
         if (enable && m_enablePort) {
             QModelIndex index = m_inputSoundCbx->comboBox()->view()->currentIndex();
             if (index.isValid())
-                Q_EMIT requestSetPort(m_inputModel->data(index, Qt::WhatsThisPropertyRole).value<const Port *>());
+                Q_EMIT requestSetPort(
+                        m_inputModel->data(index, Qt::WhatsThisPropertyRole).value<const Port *>());
         }
         showDevice();
     });
-    //发送查询请求消息看是否可用
-    connect(m_model, &SoundModel::setPortChanged, this, [ = ](const Port  * port) {
+    // 发送查询请求消息看是否可用
+    connect(m_model, &SoundModel::setPortChanged, this, [=](const Port *port) {
         m_enablePort = false;
         Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
     });
@@ -142,7 +150,8 @@ void MicrophonePage::setModel(SoundModel *model)
     for (auto port : ports) {
         addPort(port);
     }
-    //这个临时这个判断,直接设置m_noiseReductionsw(m_model->reduceNoise()) 没有效果,待dtk组的同时祥查
+    // 这个临时这个判断,直接设置m_noiseReductionsw(m_model->reduceNoise())
+    // 没有效果,待dtk组的同时祥查
     if (m_model->reduceNoise())
         m_noiseReductionsw->setChecked(true);
     else
@@ -150,12 +159,24 @@ void MicrophonePage::setModel(SoundModel *model)
 
     connect(m_model, &SoundModel::portAdded, this, &MicrophonePage::addPort);
     connect(m_model, &SoundModel::portRemoved, this, &MicrophonePage::removePort);
-    connect(m_model, &SoundModel::soundDeviceStatusChanged, this, &MicrophonePage::changeComboxStatus);
-    connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),this, &MicrophonePage::changeComboxIndex);
+    connect(m_model,
+            &SoundModel::soundDeviceStatusChanged,
+            this,
+            &MicrophonePage::changeComboxStatus);
+    connect(m_inputSoundCbx->comboBox(),
+            static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
+            this,
+            &MicrophonePage::changeComboxIndex);
 
-    connect(m_noiseReductionsw, &SwitchWidget::checkedChanged, this, &MicrophonePage::requestReduceNoise);
-    connect(m_model, &SoundModel::reduceNoiseChanged, m_noiseReductionsw, &SwitchWidget::setChecked);
-    connect(m_model, &SoundModel::microphoneOnChanged, this, [ = ](bool flag) {
+    connect(m_noiseReductionsw,
+            &SwitchWidget::checkedChanged,
+            this,
+            &MicrophonePage::requestReduceNoise);
+    connect(m_model,
+            &SoundModel::reduceNoiseChanged,
+            m_noiseReductionsw,
+            &SwitchWidget::setChecked);
+    connect(m_model, &SoundModel::microphoneOnChanged, this, [=](bool flag) {
         refreshIcon();
     });
 
@@ -163,7 +184,9 @@ void MicrophonePage::setModel(SoundModel *model)
     initCombox();
 }
 
-void MicrophonePage::removePort(const QString &portId, const uint &cardId, const Port::Direction &direction)
+void MicrophonePage::removePort(const QString &portId,
+                                const uint &cardId,
+                                const Port::Direction &direction)
 {
     if (direction != Port::Direction::In)
         return;
@@ -197,9 +220,11 @@ void MicrophonePage::changeComboxIndex(const int idx)
 
     auto tFunc = [this](const int tmpIdx) {
         auto temp = m_inputModel->index(tmpIdx, 0);
-        const Port *port = m_inputModel->data(temp, Qt::WhatsThisPropertyRole).value<const Port *>();
+        const Port *port =
+                m_inputModel->data(temp, Qt::WhatsThisPropertyRole).value<const Port *>();
         this->requestSetPort(port);
-        qDebug() << "default source index change, currentTerxt:" << m_inputSoundCbx->comboBox()->itemText(tmpIdx);
+        qDebug() << "default source index change, currentTerxt:"
+                 << m_inputSoundCbx->comboBox()->itemText(tmpIdx);
     };
 
     tFunc(idx);
@@ -231,10 +256,10 @@ void MicrophonePage::addPort(const Port *port)
         pi->setText(port->name() + "(" + port->cardName() + ")");
         pi->setData(QVariant::fromValue<const Port *>(port), Qt::WhatsThisPropertyRole);
 
-        connect(port, &Port::nameChanged, this, [ = ](const QString str) {
+        connect(port, &Port::nameChanged, this, [=](const QString str) {
             pi->setText(str);
         });
-        connect(port, &Port::isInputActiveChanged, this, [ = ](bool isActive) {
+        connect(port, &Port::isInputActiveChanged, this, [=](bool isActive) {
             // 若关闭设备 此时pi为空
             if (pi) {
                 pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
@@ -244,7 +269,7 @@ void MicrophonePage::addPort(const Port *port)
                 }
             }
         });
-        connect(port, &Port::currentPortEnabled, this, [ = ](bool isEnable) {
+        connect(port, &Port::currentPortEnabled, this, [=](bool isEnable) {
             int index = m_inputSoundCbx->comboBox()->findData(port);
             // 若端口可用 且没有添加
             if (isEnable && (index == -1) && pi) {
@@ -301,7 +326,7 @@ void MicrophonePage::initSlider()
     slider->setSliderPosition(int(m_model->microphoneVolume() * 100));
     slider->setPageStep(1);
 
-    auto slotfunc1 = [ = ](int pos) {
+    auto slotfunc1 = [=](int pos) {
         double val = pos / 100.0;
         Q_EMIT requestSetMicrophoneVolume(val);
         Q_EMIT requestMute(false);
@@ -311,7 +336,7 @@ void MicrophonePage::initSlider()
     m_inputSlider->setValueLiteral(QString::number(m_model->microphoneVolume() * 100) + "%");
     connect(slider, &DCCSlider::valueChanged, this, slotfunc1);
     connect(slider, &DCCSlider::sliderMoved, this, slotfunc1);
-    connect(m_model, &SoundModel::microphoneVolumeChanged, this, [ = ](double v) {
+    connect(m_model, &SoundModel::microphoneVolumeChanged, this, [=](double v) {
         slider->blockSignals(true);
         slider->setValue(static_cast<int>(v * 100));
         slider->setSliderPosition(static_cast<int>(v * 100));
@@ -334,14 +359,21 @@ void MicrophonePage::initSlider()
     slider2->setTickInterval(1);
     slider2->setPageStep(1);
 
-    connect(m_model, &SoundModel::isPortEnableChanged, m_noiseReductionsw, &ComboxWidget::setVisible);
-    m_conn = connect(m_model, &SoundModel::microphoneFeedbackChanged, [ = ](double vol2) {
+    connect(m_model,
+            &SoundModel::isPortEnableChanged,
+            m_noiseReductionsw,
+            &ComboxWidget::setVisible);
+    m_conn = connect(m_model, &SoundModel::microphoneFeedbackChanged, [=](double vol2) {
         // TODO: gsettings 待改为dconfig
-//        int pos = GSettingWatcher::instance()->getStatus("soundFeedbackSlider") == "Disabled" ? 0 : (int(vol2 * 100));
+        //        int pos = GSettingWatcher::instance()->getStatus("soundFeedbackSlider") ==
+        //        "Disabled" ? 0 : (int(vol2 * 100));
         int pos = int(vol2 * 100);
         slider2->setSliderPosition(pos);
     });
-    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &MicrophonePage::refreshIcon);
+    connect(DGuiApplicationHelper::instance(),
+            &DGuiApplicationHelper::themeTypeChanged,
+            this,
+            &MicrophonePage::refreshIcon);
     connect(qApp, &DApplication::iconThemeChanged, this, &MicrophonePage::refreshIcon);
     m_layout->insertWidget(3, m_feedbackSlider);
 
@@ -369,15 +401,17 @@ void MicrophonePage::initCombox()
 
     m_noiseReductionsw->setVisible(false);
     m_inputSoundCbx->setVisible(false);
-    //放到宏外面修复sw架构下音频布局异常的问题
+    // 放到宏外面修复sw架构下音频布局异常的问题
     m_layout->addStretch(10);
 }
 #endif
 
-
 void MicrophonePage::refreshIcon()
 {
-    m_volumeBtn->setIcon(DStyle::standardIcon(style(),m_model->microphoneOn() ? DStyle::SP_MediaVolumeMutedElement : DStyle::SP_MediaVolumeLowElement));
+    m_volumeBtn->setIcon(DStyle::standardIcon(style(),
+                                              m_model->microphoneOn()
+                                                      ? DStyle::SP_MediaVolumeMutedElement
+                                                      : DStyle::SP_MediaVolumeLowElement));
 }
 
 void MicrophonePage::showWaitSoundPortStatus(bool showStatus)

@@ -29,6 +29,7 @@
 #include "widgets/settingsitem.h"
 
 class QLabel;
+
 namespace DCC_NAMESPACE {
 
 class LogoItem : public SettingsItem
@@ -40,7 +41,7 @@ class LogoItem : public SettingsItem
 public:
     explicit LogoItem(QFrame *parent = 0);
     void setDescription(const QString &des);
-    void setDescription(bool isVisible);//修改m_description是否默认不显示
+    void setDescription(bool isVisible); // 修改m_description是否默认不显示
     void setLogo(const QString &logo);
     const QString logo();
 
@@ -49,5 +50,5 @@ private:
     QLabel *m_description;
 };
 
-}
+} // namespace DCC_NAMESPACE
 #endif // LOGOITEM_H

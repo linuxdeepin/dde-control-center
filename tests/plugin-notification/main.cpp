@@ -1,20 +1,20 @@
+#include <gtest/gtest.h>
+
 #include "notification_dbus.h"
 
 #include <QApplication>
 #include <QDebug>
 #include <QProcess>
 
-#include <gtest/gtest.h>
-
 #ifdef QT_DEBUG
-#include <sanitizer/asan_interface.h>
+#  include <sanitizer/asan_interface.h>
 #endif
 
 int main(int argc, char **argv)
 {
     QProcess process;
     QString cmd = "dbus-daemon";
-    process.start(cmd, {"--session", "--print-address"});
+    process.start(cmd, { "--session", "--print-address" });
     process.waitForReadyRead();
 
     QString path = process.readAllStandardOutput().simplified();
@@ -34,7 +34,9 @@ int main(int argc, char **argv)
         return -1;
     }
     Notification_DBUS service;
-    bOk = conn.registerObject(NOTIFICATION_SERVICE_PATH, &service, QDBusConnection::ExportAllContents);
+    bOk = conn.registerObject(NOTIFICATION_SERVICE_PATH,
+                              &service,
+                              QDBusConnection::ExportAllContents);
     if (!bOk) {
         QDBusError err = conn.lastError();
         qWarning() << err.name() << ", " << err.message();

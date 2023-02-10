@@ -20,17 +20,18 @@
  */
 
 #include "addfingedialog.h"
+
 #include "charamangermodel.h"
 
+#include <DSuggestButton>
 #include <DTitlebar>
 
-#include <QVBoxLayout>
+#include <QCloseEvent>
+#include <QDebug>
 #include <QHBoxLayout>
 #include <QPushButton>
-#include <QCloseEvent>
 #include <QTimer>
-#include <QDebug>
-#include <DSuggestButton>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -53,18 +54,16 @@ AddFingeDialog::AddFingeDialog(const QString &thumb, QWidget *parent)
     QWidget::installEventFilter(this);
 }
 
-AddFingeDialog::~AddFingeDialog()
-{
-}
+AddFingeDialog::~AddFingeDialog() { }
 
 void AddFingeDialog::initWidget()
 {
-    setFixedSize(QSize(382,446));
+    setFixedSize(QSize(382, 446));
     m_mainLayout->setAlignment(Qt::AlignHCenter);
 
     DTitlebar *titleIcon = new DTitlebar();
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle("");
 
@@ -118,14 +117,17 @@ void AddFingeDialog::setFingerModel(CharaMangerModel *model)
     connect(m_model, &CharaMangerModel::enrollCompleted, this, &AddFingeDialog::enrollCompleted);
     connect(m_model, &CharaMangerModel::enrollStagePass, this, &AddFingeDialog::enrollStagePass);
     connect(m_model, &CharaMangerModel::enrollFailed, this, &AddFingeDialog::enrollFailed);
-    connect(m_model, &CharaMangerModel::enrollDisconnected, this, &AddFingeDialog::enrollDisconnected);
+    connect(m_model,
+            &CharaMangerModel::enrollDisconnected,
+            this,
+            &AddFingeDialog::enrollDisconnected);
     connect(m_model, &CharaMangerModel::enrollRetry, this, &AddFingeDialog::enrollRetry);
     connect(m_model, &CharaMangerModel::lockedChanged, this, [=](bool locked) {
         if (locked) {
-//            close();
+            //            close();
         }
     });
-    m_timer->start(1000 * 60);//1min
+    m_timer->start(1000 * 60); // 1min
 }
 
 void AddFingeDialog::setUsername(const QString &name)
@@ -159,7 +161,7 @@ void AddFingeDialog::enrollStagePass(int pro)
 
     m_addBtn->setEnabled(false);
     m_fingeWidget->setProsses(pro);
-    m_timer->start(1000 * 60);//1min
+    m_timer->start(1000 * 60); // 1min
 }
 
 void AddFingeDialog::enrollFailed(QString title, QString msg)
@@ -178,6 +180,7 @@ void AddFingeDialog::enrollFailed(QString title, QString msg)
 
     Q_EMIT requestStopEnroll(m_username);
 }
+
 void AddFingeDialog::enrollDisconnected()
 {
     Q_EMIT requestStopEnroll(m_username);
@@ -190,7 +193,7 @@ void AddFingeDialog::enrollDisconnected()
     m_spaceWidget->setVisible(false);
     m_timer->stop();
 
-    //会出现末知情况，需要与后端确认中断时是否可以停止
+    // 会出现末知情况，需要与后端确认中断时是否可以停止
     Q_EMIT requestStopEnroll(m_username);
 }
 
@@ -207,7 +210,7 @@ void AddFingeDialog::enrollFocusOut()
     m_spaceWidget->setVisible(true);
     m_timer->stop();
 
-    //会出现末知情况，需要与后端确认中断时是否可以停止
+    // 会出现末知情况，需要与后端确认中断时是否可以停止
     Q_EMIT requestStopEnroll(m_username);
 }
 
@@ -223,7 +226,7 @@ void AddFingeDialog::enrollOverTime()
     m_spaceWidget->setVisible(true);
     m_timer->stop();
 
-    //会出现末知情况，需要与后端确认中断时是否可以停止
+    // 会出现末知情况，需要与后端确认中断时是否可以停止
     Q_EMIT requestStopEnroll(m_username);
 }
 
@@ -234,7 +237,7 @@ void AddFingeDialog::enrollRetry(QString title, QString msg)
     }
 
     m_addBtn->setEnabled(false);
-    m_timer->start(1000 * 60);//1min
+    m_timer->start(1000 * 60); // 1min
     m_fingeWidget->setStatueMsg(title, msg, false);
 }
 
@@ -244,7 +247,7 @@ void AddFingeDialog::setInitStatus()
     m_addBtn->setEnabled(false);
     m_addBtn->setVisible(false);
     m_spaceWidget->setVisible(false);
-    m_timer->start(1000 * 60);//1min
+    m_timer->start(1000 * 60); // 1min
     m_fingeWidget->reEnter();
 }
 
@@ -259,13 +262,13 @@ void AddFingeDialog::closeEvent(QCloseEvent *event)
 
 void AddFingeDialog::keyPressEvent(QKeyEvent *event)
 {
-//    switch (event->key()) {
-//        case Qt::Key_Escape:
-//            break;
-//        default:
-//            QDialog::keyPressEvent(event);
-//            break;
-//    }
+    //    switch (event->key()) {
+    //        case Qt::Key_Escape:
+    //            break;
+    //        default:
+    //            QDialog::keyPressEvent(event);
+    //            break;
+    //    }
     if (event->key() != Qt::Key_Escape) {
         QDialog::keyPressEvent(event);
     }
@@ -274,7 +277,7 @@ void AddFingeDialog::keyPressEvent(QKeyEvent *event)
 bool AddFingeDialog::eventFilter(QObject *o, QEvent *e)
 {
     if (o == this) {
-       if (QEvent::WindowDeactivate == e->type()) {
+        if (QEvent::WindowDeactivate == e->type()) {
             clearFocus();
             if (m_isEnrolling) {
                 enrollFocusOut();
@@ -284,8 +287,8 @@ bool AddFingeDialog::eventFilter(QObject *o, QEvent *e)
                 });
             }
             setFocus();
-            return true ;
-       }
+            return true;
+        }
     }
-    return false ;
+    return false;
 }

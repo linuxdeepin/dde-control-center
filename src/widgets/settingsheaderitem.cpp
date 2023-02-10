@@ -25,17 +25,18 @@
 
 #include "widgets/settingsheaderitem.h"
 
-#include "widgets/titlelabel.h"
 #include "widgets/accessibleinterface.h"
+#include "widgets/titlelabel.h"
 
 #include <QLayout>
 
 using namespace DCC_NAMESPACE;
-SET_FORM_ACCESSIBLE(SettingsHeaderItem,"SettingsHeaderItem");
+SET_FORM_ACCESSIBLE(SettingsHeaderItem, "SettingsHeaderItem");
+
 SettingsHeaderItem::SettingsHeaderItem(QWidget *parent)
-    : SettingsItem(parent),
-      m_mainLayout(new QHBoxLayout),
-      m_headerText(new TitleLabel)
+    : SettingsItem(parent)
+    , m_mainLayout(new QHBoxLayout)
+    , m_headerText(new TitleLabel)
 {
     m_headerText->setObjectName("SettingsHeaderItemTitle");
 

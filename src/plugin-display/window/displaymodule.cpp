@@ -20,18 +20,19 @@
  */
 
 #include "displaymodule.h"
+
 #include "brightnesswidget.h"
-#include "scalingwidget.h"
-#include "resolutionwidget.h"
-#include "refreshratewidget.h"
-#include "rotatewidget.h"
-#include "secondaryscreendialog.h"
-#include "multiscreenwidget.h"
 #include "collaborativelinkwidget.h"
+#include "multiscreenwidget.h"
+#include "refreshratewidget.h"
+#include "resolutionwidget.h"
+#include "rotatewidget.h"
+#include "scalingwidget.h"
+#include "secondaryscreendialog.h"
 #include "src/frame/mainwindow.h"
-#include "src/plugin-display/window/timeoutdialog.h"
 #include "src/plugin-display/operation/displaymodel.h"
 #include "src/plugin-display/operation/displayworker.h"
+#include "src/plugin-display/window/timeoutdialog.h"
 
 #include <QApplication>
 #include <QDesktopWidget>
@@ -44,9 +45,9 @@ QString DisplayPlugin::name() const
     return QStringLiteral("display");
 }
 
-ModuleObject * DisplayPlugin::module()
+ModuleObject *DisplayPlugin::module()
 {
-    //一级菜单--显示
+    // 一级菜单--显示
     ModuleObject *moduleInterface = new PageModule();
     moduleInterface->setName("display");
     moduleInterface->setDisplayName(tr("Display"));
@@ -93,9 +94,10 @@ DisplayModule::DisplayModule(QObject *parent)
         pushScreenWidget();
     });
 
-    //wayland下没有主屏和副屏之分 所以mainwindow窗体想要居中，直接使用QGuiApplication::primaryScreen()方法
-    //获取的主屏的信息是错误的，所以不能直接使用。现在的方法是通过/com/deepin/daemon/Display服务获取主屏的名称
-    //然后再在QGuiApplication::screens()中匹配，从而获取主屏的信息。
+    // wayland下没有主屏和副屏之分
+    // 所以mainwindow窗体想要居中，直接使用QGuiApplication::primaryScreen()方法
+    // 获取的主屏的信息是错误的，所以不能直接使用。现在的方法是通过/com/deepin/daemon/Display服务获取主屏的名称
+    // 然后再在QGuiApplication::screens()中匹配，从而获取主屏的信息。
     connect(m_model, &DisplayModel::monitorListChanged, this, [=] {
         for (auto mon : m_model->monitorList()) {
             if (mon->isPrimary()) {
@@ -104,7 +106,7 @@ DisplayModule::DisplayModule(QObject *parent)
         }
     });
 
-    connect(m_model, &DisplayModel::primaryScreenChanged, this, [=] (QString primary) {
+    connect(m_model, &DisplayModel::primaryScreenChanged, this, [=](QString primary) {
         if (!primary.isEmpty()) {
             for (auto mon : m_model->monitorList()) {
                 if (mon->name() == primary) {
@@ -115,9 +117,7 @@ DisplayModule::DisplayModule(QObject *parent)
     });
 }
 
-DisplayModule::~DisplayModule()
-{
-}
+DisplayModule::~DisplayModule() { }
 
 void DisplayModule::active()
 {
@@ -141,66 +141,128 @@ void DisplayModule::showSingleScreenWidget()
     CollaborativeLinkWidget *linkWidget = new CollaborativeLinkWidget(singleScreenWidget);
     linkWidget->setModel(m_model);
     contentLayout->addWidget(linkWidget);
-    connect(linkWidget, &CollaborativeLinkWidget::requestCooperationEnable, m_worker, &DisplayWorker::setDeviceSharingSwitch);
-    connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachineDisconnect, m_worker, &DisplayWorker::setCurrentMachineDisconnect);
-    connect(linkWidget, &CollaborativeLinkWidget::requestCurrentMachineConnect, m_worker, &DisplayWorker::setCurrentMachineConnect);
-    connect(linkWidget, &CollaborativeLinkWidget::requestCurrentDeviceSharingConnect, m_worker, &DisplayWorker::setCurrentRequestDeviceSharing);
-    connect(linkWidget, &CollaborativeLinkWidget::requestOpenSharedDevices, m_worker, &DisplayWorker::setOpenSharedDevices);
-    connect(linkWidget, &CollaborativeLinkWidget::requestOpenSharedClipboard, m_worker, &DisplayWorker::setOpenSharedClipboard);
-    connect(linkWidget, &CollaborativeLinkWidget::requestFilesStoragePath, m_worker, &DisplayWorker::setFilesStoragePath);
-    connect(linkWidget, &CollaborativeLinkWidget::requestFlowDirection, m_worker, &DisplayWorker::setFlowDirection);
+    connect(linkWidget,
+            &CollaborativeLinkWidget::requestCooperationEnable,
+            m_worker,
+            &DisplayWorker::setDeviceSharingSwitch);
+    connect(linkWidget,
+            &CollaborativeLinkWidget::requestCurrentMachineDisconnect,
+            m_worker,
+            &DisplayWorker::setCurrentMachineDisconnect);
+    connect(linkWidget,
+            &CollaborativeLinkWidget::requestCurrentMachineConnect,
+            m_worker,
+            &DisplayWorker::setCurrentMachineConnect);
+    connect(linkWidget,
+            &CollaborativeLinkWidget::requestCurrentDeviceSharingConnect,
+            m_worker,
+            &DisplayWorker::setCurrentRequestDeviceSharing);
+    connect(linkWidget,
+            &CollaborativeLinkWidget::requestOpenSharedDevices,
+            m_worker,
+            &DisplayWorker::setOpenSharedDevices);
+    connect(linkWidget,
+            &CollaborativeLinkWidget::requestOpenSharedClipboard,
+            m_worker,
+            &DisplayWorker::setOpenSharedClipboard);
+    connect(linkWidget,
+            &CollaborativeLinkWidget::requestFilesStoragePath,
+            m_worker,
+            &DisplayWorker::setFilesStoragePath);
+    connect(linkWidget,
+            &CollaborativeLinkWidget::requestFlowDirection,
+            m_worker,
+            &DisplayWorker::setFlowDirection);
 
     BrightnessWidget *brightnessWidget = new BrightnessWidget(singleScreenWidget);
     brightnessWidget->setMode(m_model);
     contentLayout->addWidget(brightnessWidget);
-    const bool brightnessIsEnabled = m_model->brightnessEnable() && m_model->primaryMonitor() && m_model->primaryMonitor()->canBrightness();
+    const bool brightnessIsEnabled = m_model->brightnessEnable() && m_model->primaryMonitor()
+            && m_model->primaryMonitor()->canBrightness();
     brightnessWidget->setVisible(brightnessIsEnabled);
-    connect(brightnessWidget, &BrightnessWidget::requestSetColorTemperature, m_worker, &DisplayWorker::setColorTemperature);
-    connect(brightnessWidget, &BrightnessWidget::requestSetMonitorBrightness, m_worker, &DisplayWorker::setMonitorBrightness);
-    connect(brightnessWidget, &BrightnessWidget::requestAmbientLightAdjustBrightness, m_worker, &DisplayWorker::setAmbientLightAdjustBrightness);
-    connect(brightnessWidget, &BrightnessWidget::requestSetMethodAdjustCCT, m_worker, &DisplayWorker::SetMethodAdjustCCT);
+    connect(brightnessWidget,
+            &BrightnessWidget::requestSetColorTemperature,
+            m_worker,
+            &DisplayWorker::setColorTemperature);
+    connect(brightnessWidget,
+            &BrightnessWidget::requestSetMonitorBrightness,
+            m_worker,
+            &DisplayWorker::setMonitorBrightness);
+    connect(brightnessWidget,
+            &BrightnessWidget::requestAmbientLightAdjustBrightness,
+            m_worker,
+            &DisplayWorker::setAmbientLightAdjustBrightness);
+    connect(brightnessWidget,
+            &BrightnessWidget::requestSetMethodAdjustCCT,
+            m_worker,
+            &DisplayWorker::SetMethodAdjustCCT);
 
-    QSpacerItem *scalingSpacerItem = new QSpacerItem(0, brightnessIsEnabled? 20 : 0);
+    QSpacerItem *scalingSpacerItem = new QSpacerItem(0, brightnessIsEnabled ? 20 : 0);
     contentLayout->addSpacerItem(scalingSpacerItem);
 
     ScalingWidget *scalingWidget = new ScalingWidget(singleScreenWidget);
     scalingWidget->setModel(m_model);
     contentLayout->addWidget(scalingWidget);
-    connect(scalingWidget, &ScalingWidget::requestUiScaleChange, m_worker, &DisplayWorker::setUiScale);
+    connect(scalingWidget,
+            &ScalingWidget::requestUiScaleChange,
+            m_worker,
+            &DisplayWorker::setUiScale);
 
     QSpacerItem *resolutionSpacerItem = new QSpacerItem(0, 30);
     contentLayout->addSpacerItem(resolutionSpacerItem);
 
     ResolutionWidget *resolutionWidget = new ResolutionWidget(300, singleScreenWidget);
-    resolutionWidget->setModel(m_model, m_model->monitorList().count() ? m_model->monitorList().first() : nullptr);
+    resolutionWidget->setModel(m_model,
+                               m_model->monitorList().count() ? m_model->monitorList().first()
+                                                              : nullptr);
     contentLayout->addWidget(resolutionWidget);
-    connect(resolutionWidget, &ResolutionWidget::requestSetResolution, this, [=](Monitor *monitor, const int mode) {
-        onRequestSetResolution(monitor, mode);
-        updateWinsize();
-    }, Qt::QueuedConnection);
+    connect(
+            resolutionWidget,
+            &ResolutionWidget::requestSetResolution,
+            this,
+            [=](Monitor *monitor, const int mode) {
+                onRequestSetResolution(monitor, mode);
+                updateWinsize();
+            },
+            Qt::QueuedConnection);
 
-   connect(resolutionWidget, &ResolutionWidget::requestSetFillMode, this, [this](Monitor *monitor, const QString fillMode) {
-        onRequestSetFillMode(monitor, fillMode);
-    });
+    connect(resolutionWidget,
+            &ResolutionWidget::requestSetFillMode,
+            this,
+            [this](Monitor *monitor, const QString fillMode) {
+                onRequestSetFillMode(monitor, fillMode);
+            });
 
     RefreshRateWidget *refreshRateWidget = new RefreshRateWidget(300, singleScreenWidget);
-    refreshRateWidget->setModel(m_model, m_model->monitorList().count() ? m_model->monitorList().first() : nullptr);
+    refreshRateWidget->setModel(m_model,
+                                m_model->monitorList().count() ? m_model->monitorList().first()
+                                                               : nullptr);
     contentLayout->addSpacing(20);
     contentLayout->addWidget(refreshRateWidget);
-    connect(refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution, Qt::QueuedConnection);
+    connect(refreshRateWidget,
+            &RefreshRateWidget::requestSetResolution,
+            this,
+            &DisplayModule::onRequestSetResolution,
+            Qt::QueuedConnection);
 
     RotateWidget *rotateWidget = new RotateWidget(300, singleScreenWidget);
-    rotateWidget->setModel(m_model, m_model->monitorList().count() ? m_model->monitorList().first() : nullptr);
+    rotateWidget->setModel(m_model,
+                           m_model->monitorList().count() ? m_model->monitorList().first()
+                                                          : nullptr);
     contentLayout->addSpacing(20);
     contentLayout->addWidget(rotateWidget);
-    connect(rotateWidget, &RotateWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
+    connect(rotateWidget,
+            &RotateWidget::requestSetRotate,
+            this,
+            &DisplayModule::onRequestSetRotate,
+            Qt::QueuedConnection);
 
     contentLayout->addStretch();
 
     singleScreenWidget->setLayout(contentLayout);
 
-    if(m_displayWidget->layout()->count() > 0) {
-        QWidget * w = m_displayWidget->layout()->itemAt(0)->widget();
+    if (m_displayWidget->layout()->count() > 0) {
+        QWidget *w = m_displayWidget->layout()->itemAt(0)->widget();
         m_displayWidget->layout()->removeWidget(w);
         w->setParent(nullptr);
         delete w;
@@ -208,13 +270,14 @@ void DisplayModule::showSingleScreenWidget()
     m_displayWidget->layout()->addWidget(singleScreenWidget);
 
     auto setBrightnessWidget = [brightnessWidget, scalingSpacerItem, this]() {
-        const bool visible = m_model->brightnessEnable() && m_model->primaryMonitor() && m_model->primaryMonitor()->canBrightness();
+        const bool visible = m_model->brightnessEnable() && m_model->primaryMonitor()
+                && m_model->primaryMonitor()->canBrightness();
         scalingSpacerItem->changeSize(0, visible ? 20 : 0);
         brightnessWidget->setVisible(visible);
     };
 
-    connect(m_model, &DisplayModel::primaryScreenChanged, brightnessWidget ,setBrightnessWidget);
-    connect(m_model, &DisplayModel::brightnessEnableChanged, brightnessWidget ,setBrightnessWidget);
+    connect(m_model, &DisplayModel::primaryScreenChanged, brightnessWidget, setBrightnessWidget);
+    connect(m_model, &DisplayModel::brightnessEnableChanged, brightnessWidget, setBrightnessWidget);
 }
 
 void DisplayModule::updateWinsize(QRect rect)
@@ -223,15 +286,15 @@ void DisplayModule::updateWinsize(QRect rect)
         return;
     }
 
-    DMainWindow* topWidget = qobject_cast<DMainWindow *>(m_displayWidget->window());
+    DMainWindow *topWidget = qobject_cast<DMainWindow *>(m_displayWidget->window());
 
     if (!qApp->screens().contains(m_primaryScreen))
         return;
 
-    if(!topWidget)
+    if (!topWidget)
         return;
 
-    if(topWidget->isMaximized())
+    if (topWidget->isMaximized())
         return;
 
     int w = m_primaryScreen->geometry().width();
@@ -245,13 +308,14 @@ void DisplayModule::updateWinsize(QRect rect)
 
     topWidget->setMinimumSize(QSize(WidgetMinimumWidth, WidgetMinimumHeight));
 
-    topWidget->move(QPoint(m_primaryScreen->geometry().left() + (w - topWidget->geometry().width()) / 2,
-                m_primaryScreen->geometry().top() + (h - topWidget->geometry().height()) / 2));
+    topWidget->move(
+            QPoint(m_primaryScreen->geometry().left() + (w - topWidget->geometry().width()) / 2,
+                   m_primaryScreen->geometry().top() + (h - topWidget->geometry().height()) / 2));
 }
 
 void DisplayModule::setPrimaryScreen(QScreen *screen)
 {
-    if(m_primaryScreen == screen)
+    if (m_primaryScreen == screen)
         return;
 
     m_primaryScreen = screen;
@@ -268,77 +332,152 @@ void DisplayModule::showMultiScreenWidget()
 
     MultiScreenWidget *multiScreenWidget = new MultiScreenWidget();
     multiScreenWidget->setModel(m_model);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSwitchMode, m_worker, &DisplayWorker::switchMode);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetMonitorPosition, m_worker, &DisplayWorker::setMonitorPosition);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetPrimary, m_worker, &DisplayWorker::setPrimary);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetColorTemperature, m_worker, &DisplayWorker::setColorTemperature);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetMonitorBrightness, m_worker, &DisplayWorker::setMonitorBrightness);
-    connect(multiScreenWidget, &MultiScreenWidget::requestAmbientLightAdjustBrightness, m_worker, &DisplayWorker::setAmbientLightAdjustBrightness);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetMethodAdjustCCT, m_worker, &DisplayWorker::SetMethodAdjustCCT);
-    connect(multiScreenWidget, &MultiScreenWidget::requestUiScaleChange, m_worker, &DisplayWorker::setUiScale);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestSwitchMode,
+            m_worker,
+            &DisplayWorker::switchMode);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestSetMonitorPosition,
+            m_worker,
+            &DisplayWorker::setMonitorPosition);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestSetPrimary,
+            m_worker,
+            &DisplayWorker::setPrimary);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestSetColorTemperature,
+            m_worker,
+            &DisplayWorker::setColorTemperature);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestSetMonitorBrightness,
+            m_worker,
+            &DisplayWorker::setMonitorBrightness);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestAmbientLightAdjustBrightness,
+            m_worker,
+            &DisplayWorker::setAmbientLightAdjustBrightness);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestSetMethodAdjustCCT,
+            m_worker,
+            &DisplayWorker::SetMethodAdjustCCT);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestUiScaleChange,
+            m_worker,
+            &DisplayWorker::setUiScale);
     // 跨端协同
-    connect(multiScreenWidget, &MultiScreenWidget::requestCooperationEnable, m_worker, &DisplayWorker::setDeviceSharingSwitch);
-    connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachineDisconnect, m_worker, &DisplayWorker::setCurrentMachineDisconnect);
-    connect(multiScreenWidget, &MultiScreenWidget::requestCurrentMachineConnect, m_worker, &DisplayWorker::setCurrentMachineConnect);
-    connect(multiScreenWidget, &MultiScreenWidget::requestCurrentDeviceSharingConnect, m_worker, &DisplayWorker::setCurrentRequestDeviceSharing);
-    connect(multiScreenWidget, &MultiScreenWidget::requestOpenSharedDevices, m_worker, &DisplayWorker::setOpenSharedDevices);
-    connect(multiScreenWidget, &MultiScreenWidget::requestOpenSharedClipboard, m_worker, &DisplayWorker::setOpenSharedClipboard);
-    connect(multiScreenWidget, &MultiScreenWidget::requestFilesStoragePath, m_worker, &DisplayWorker::setFilesStoragePath);
-    connect(multiScreenWidget, &MultiScreenWidget::requestFlowDirection, m_worker, &DisplayWorker::setFlowDirection);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestCooperationEnable,
+            m_worker,
+            &DisplayWorker::setDeviceSharingSwitch);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestCurrentMachineDisconnect,
+            m_worker,
+            &DisplayWorker::setCurrentMachineDisconnect);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestCurrentMachineConnect,
+            m_worker,
+            &DisplayWorker::setCurrentMachineConnect);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestCurrentDeviceSharingConnect,
+            m_worker,
+            &DisplayWorker::setCurrentRequestDeviceSharing);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestOpenSharedDevices,
+            m_worker,
+            &DisplayWorker::setOpenSharedDevices);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestOpenSharedClipboard,
+            m_worker,
+            &DisplayWorker::setOpenSharedClipboard);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestFilesStoragePath,
+            m_worker,
+            &DisplayWorker::setFilesStoragePath);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestFlowDirection,
+            m_worker,
+            &DisplayWorker::setFlowDirection);
 
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetResolution, this, [=](Monitor *monitor, const int mode) {
-        onRequestSetResolution(monitor, mode);
-        updateWinsize();
-    }, Qt::QueuedConnection);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetFillMode, this, [this](Monitor *monitor, const QString fillMode) {
-        onRequestSetFillMode(monitor, fillMode);
-    });
+    connect(
+            multiScreenWidget,
+            &MultiScreenWidget::requestSetResolution,
+            this,
+            [=](Monitor *monitor, const int mode) {
+                onRequestSetResolution(monitor, mode);
+                updateWinsize();
+            },
+            Qt::QueuedConnection);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestSetFillMode,
+            this,
+            [this](Monitor *monitor, const QString fillMode) {
+                onRequestSetFillMode(monitor, fillMode);
+            });
 
-    connect(multiScreenWidget, &MultiScreenWidget::requestCurrFillModeChanged, this, [this](Monitor *monitor, const QString currfillMode) {
-        if (m_model->displayMode() == MERGE_MODE && monitor->isPrimary()) {
-            for (auto m : m_model->monitorList())
-                m_worker->setCurrentFillMode(m, currfillMode);
-        }
-    });
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestCurrFillModeChanged,
+            this,
+            [this](Monitor *monitor, const QString currfillMode) {
+                if (m_model->displayMode() == MERGE_MODE && monitor->isPrimary()) {
+                    for (auto m : m_model->monitorList())
+                        m_worker->setCurrentFillMode(m, currfillMode);
+                }
+            });
 
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi,  bool isInit) {
-        bool stateChanged = false;
-        //窗口初始化且窗口最大化的时候不需要移动窗口
-        if (!m_displayWidget->window()) {
-            return;
-        }
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestSetRotate,
+            this,
+            &DisplayModule::onRequestSetRotate,
+            Qt::QueuedConnection);
+    connect(multiScreenWidget,
+            &MultiScreenWidget::requestSetMainwindowRect,
+            this,
+            [=](Monitor *moi, bool isInit) {
+                bool stateChanged = false;
+                // 窗口初始化且窗口最大化的时候不需要移动窗口
+                if (!m_displayWidget->window()) {
+                    return;
+                }
 
-        if (m_displayWidget->window()->isMaximized()) {
-            if(isInit){
-                return;
-            }
-//            m_pMainWindow->setNeedRememberLastSize(false);
-//            m_pMainWindow->showNormal();
+                if (m_displayWidget->window()->isMaximized()) {
+                    if (isInit) {
+                        return;
+                    }
+                    //            m_pMainWindow->setNeedRememberLastSize(false);
+                    //            m_pMainWindow->showNormal();
 
-//            QSize lastsize = m_pMainWindow->getLastSize();
-//            if (!lastsize.isValid() || lastsize == m_pMainWindow->maximumSize()) {
-//                lastsize.setWidth(m_pMainWindow->minimumWidth());
-//                lastsize.setHeight(m_pMainWindow->minimumHeight());
-//            }
-//            m_pMainWindow->resize(lastsize);
-            stateChanged = true;
-        }
+                    //            QSize lastsize = m_pMainWindow->getLastSize();
+                    //            if (!lastsize.isValid() || lastsize ==
+                    //            m_pMainWindow->maximumSize()) {
+                    //                lastsize.setWidth(m_pMainWindow->minimumWidth());
+                    //                lastsize.setHeight(m_pMainWindow->minimumHeight());
+                    //            }
+                    //            m_pMainWindow->resize(lastsize);
+                    stateChanged = true;
+                }
 
-        if (stateChanged) {
-            m_displayWidget->window()->showMaximized();
-        }
+                if (stateChanged) {
+                    m_displayWidget->window()->showMaximized();
+                }
 
-        QScreen *screen = m_model->primaryMonitor()->getQScreen();
-        if (qApp->screens().contains(screen)) {
-            m_displayWidget->window()->setGeometry(QRect(screen->geometry().topLeft(),m_displayWidget->window()->size()));
-            m_displayWidget->window()->move(QPoint(screen->geometry().left() + (screen->geometry().width() - m_displayWidget->window()->width()) / 2,
-                        screen->geometry().top() + (screen->geometry().height() - m_displayWidget->window()->height()) / 2));
-        }
-    });
+                QScreen *screen = m_model->primaryMonitor()->getQScreen();
+                if (qApp->screens().contains(screen)) {
+                    m_displayWidget->window()->setGeometry(
+                            QRect(screen->geometry().topLeft(), m_displayWidget->window()->size()));
+                    m_displayWidget->window()->move(
+                            QPoint(screen->geometry().left()
+                                           + (screen->geometry().width()
+                                              - m_displayWidget->window()->width())
+                                                   / 2,
+                                   screen->geometry().top()
+                                           + (screen->geometry().height()
+                                              - m_displayWidget->window()->height())
+                                                   / 2));
+                }
+            });
 
-    if(m_displayWidget->layout()->count() > 0) {
-        QWidget * w = m_displayWidget->layout()->itemAt(0)->widget();
+    if (m_displayWidget->layout()->count() > 0) {
+        QWidget *w = m_displayWidget->layout()->itemAt(0)->widget();
         m_displayWidget->layout()->removeWidget(w);
         w->setParent(nullptr);
         delete w;
@@ -386,8 +525,8 @@ void DisplayModule::onRequestSetResolution(Monitor *monitor, const uint mode)
     m_worker->backupConfig();
     tfunc(monitor, firstRes);
 
-    //此处处理调用applyChanges的200ms延时, TimeoutDialog提前弹出的问题
-    QTimer::singleShot(300, monitor, [this, monitor, lastFillMode]{
+    // 此处处理调用applyChanges的200ms延时, TimeoutDialog提前弹出的问题
+    QTimer::singleShot(300, monitor, [this, monitor, lastFillMode] {
         if (showTimeoutDialog(monitor) == QDialog::Accepted) {
             m_worker->saveChanges();
         } else {
@@ -404,13 +543,13 @@ void DisplayModule::onSetFillMode(QString currFullMode)
     if (currFullMode.isEmpty())
         currFullMode = m_model->primaryMonitor()->currentFillMode();
 
-    //切分辨率时，如果是复制模式下，桌面显示不支持，全部切换为拉伸 否则以主屏为主
+    // 切分辨率时，如果是复制模式下，桌面显示不支持，全部切换为拉伸 否则以主屏为主
     if (m_model->displayMode() == MERGE_MODE) {
         for (auto m : m_model->monitorList()) {
-                if(!m_model->allSupportFillModes())
-                    m_worker->setCurrentFillMode(m, m_model->defaultFillMode());
-                else
-                    m_worker->setCurrentFillMode(m, currFullMode);
+            if (!m_model->allSupportFillModes())
+                m_worker->setCurrentFillMode(m, m_model->defaultFillMode());
+            else
+                m_worker->setCurrentFillMode(m, currFullMode);
         }
     }
 }
@@ -427,8 +566,8 @@ void DisplayModule::onRequestSetFillMode(Monitor *monitor, const QString fillMod
         m_worker->backupConfig();
         m_worker->setCurrentFillMode(monitor, fillMode);
     }
-    //桌面显示增加15秒倒计时功能
-    QTimer::singleShot(300, monitor, [this, monitor, lastFillMode]{
+    // 桌面显示增加15秒倒计时功能
+    QTimer::singleShot(300, monitor, [this, monitor, lastFillMode] {
         if (showTimeoutDialog(monitor, true) != QDialog::Accepted) {
             m_worker->resetBackup();
         }
@@ -442,8 +581,8 @@ void DisplayModule::onRequestSetRotate(Monitor *monitor, const int rotate)
     m_worker->setMonitorRotate(monitor, rotate);
     m_worker->applyChanges();
 
-    //此处处理调用applyChanges的200ms延时, TimeoutDialog提前弹出的问题
-    QTimer::singleShot(300, monitor, [this, monitor]{
+    // 此处处理调用applyChanges的200ms延时, TimeoutDialog提前弹出的问题
+    QTimer::singleShot(300, monitor, [this, monitor] {
         if (showTimeoutDialog(monitor) == QDialog::Accepted) {
             m_worker->saveChanges();
         } else {
@@ -471,7 +610,9 @@ int DisplayModule::showTimeoutDialog(Monitor *monitor, const bool isFillMode)
     TimeoutDialog *timeoutDialog = new TimeoutDialog(15);
     qreal radio = qApp->devicePixelRatio();
     QRectF rt(monitor->x(), monitor->y(), monitor->w() / radio, monitor->h() / radio);
-    QTimer::singleShot(1, this, [=] { timeoutDialog->moveToCenterByRect(rt.toRect()); });
+    QTimer::singleShot(1, this, [=] {
+        timeoutDialog->moveToCenterByRect(rt.toRect());
+    });
     // 若用户切换重力旋转 直接退出对话框
     if (!isFillMode) {
         connect(monitor, &Monitor::currentRotateModeChanged, timeoutDialog, &TimeoutDialog::close);

@@ -24,19 +24,21 @@
  */
 
 #include "widgets/settingshead.h"
-#include "widgets/titlelabel.h"
+
 #include "widgets/accessibleinterface.h"
+#include "widgets/titlelabel.h"
 
 #include <DCommandLinkButton>
+#include <DFontSizeManager>
 
+#include <QApplication>
 #include <QHBoxLayout>
 #include <QMouseEvent>
-#include <QApplication>
-#include <DFontSizeManager>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
-SET_FORM_ACCESSIBLE(SettingsHead,"SettingsHead");
+SET_FORM_ACCESSIBLE(SettingsHead, "SettingsHead");
+
 SettingsHead::SettingsHead(QFrame *parent)
     : SettingsItem(parent)
     , m_title(new TitleLabel)

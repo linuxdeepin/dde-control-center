@@ -7,10 +7,11 @@
 
 #include <DCommandLinkButton>
 
-#include <QWidget>
 #include <QVector>
+#include <QWidget>
 
 class CharaMangerModel;
+
 class FaceWidget : public QWidget
 {
     Q_OBJECT
@@ -28,7 +29,9 @@ private Q_SLOTS:
 Q_SIGNALS:
     void requestAddFace(const QString &driverName, const int &charaType, const QString &charaName);
     void requestDeleteFaceItem(const int &charaType, const QString &charaName);
-    void requestRenameFaceItem(const int &charaType, const QString &oldName, const QString &newName);
+    void requestRenameFaceItem(const int &charaType,
+                               const QString &oldName,
+                               const QString &newName);
     void noticeEnrollCompleted(const QString &driverName, const int &CharaType);
 
 public Q_SLOTS:
@@ -38,5 +41,5 @@ private:
     CharaMangerModel *m_model;
     DCC_NAMESPACE::SettingsGroup *m_listGrp;
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_clearBtn;
-    QVector<AuthenticationInfoItem*> m_vecItem;
+    QVector<AuthenticationInfoItem *> m_vecItem;
 };

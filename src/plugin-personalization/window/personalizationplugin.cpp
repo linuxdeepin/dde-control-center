@@ -19,10 +19,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "personalizationplugin.h"
-#include "personalizationmodel.h"
-#include "personalizationworker.h"
-#include "personalizationthememodule.h"
+
 #include "personalizationdesktopmodule.h"
+#include "personalizationmodel.h"
+#include "personalizationthememodule.h"
+#include "personalizationworker.h"
 
 #include <QLabel>
 
@@ -33,7 +34,11 @@ const QString gsetting_showHiberante = "showHibernate";
 const QString gsetting_showShutdown = "showShutdown";
 
 PersonalizationModule::PersonalizationModule(QObject *parent)
-    : HListModule("personalization", tr("Personalization"), tr("Personalization"), QIcon::fromTheme("dcc_nav_personalization"), parent)
+    : HListModule("personalization",
+                  tr("Personalization"),
+                  tr("Personalization"),
+                  QIcon::fromTheme("dcc_nav_personalization"),
+                  parent)
     , m_model(nullptr)
     , m_nBatteryPercentage(100.0)
     , m_useElectric(nullptr)
@@ -52,13 +57,10 @@ void PersonalizationModule::active()
     m_work->refreshTheme();
 }
 
-void PersonalizationModule::onBatteryChanged(const bool &state)
-{
-}
+void PersonalizationModule::onBatteryChanged(const bool &state) { }
+
 // done: 遗留问题，控制中心不应该发电量低通知
-void PersonalizationModule::onBatteryPercentageChanged(const double value)
-{
-}
+void PersonalizationModule::onBatteryPercentageChanged(const double value) { }
 
 PersonalizationPlugin::PersonalizationPlugin(QObject *parent)
     : PluginInterface(parent)

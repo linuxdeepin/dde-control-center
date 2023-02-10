@@ -26,27 +26,25 @@
 #ifndef DCC_BLUETOOTH_DEVICE_H
 #define DCC_BLUETOOTH_DEVICE_H
 
-#include <QObject>
 #include <QDebug>
+#include <QObject>
 
-static const QMap<QString, QString> deviceType2Icon {
-    { "unknow", "other" },
-    { "computer", "pc" },
-    { "phone", "phone" },
-    { "video-display", "vidicon" },
-    { "multimedia-player", "tv" },
-    { "scanner", "scaner" },
-    { "input-keyboard", "keyboard" },
-    { "input-mouse", "mouse" },
-    { "input-gaming", "other" },
-    { "input-tablet", "touchpad" },
-    { "audio-card", "pheadset" },
-    { "network-wireless", "lan" },
-    { "camera-video", "vidicon" },
-    { "printer", "print" },
-    { "camera-photo", "camera" },
-    { "modem", "other" }
-};
+static const QMap<QString, QString> deviceType2Icon{ { "unknow", "other" },
+                                                     { "computer", "pc" },
+                                                     { "phone", "phone" },
+                                                     { "video-display", "vidicon" },
+                                                     { "multimedia-player", "tv" },
+                                                     { "scanner", "scaner" },
+                                                     { "input-keyboard", "keyboard" },
+                                                     { "input-mouse", "mouse" },
+                                                     { "input-gaming", "other" },
+                                                     { "input-tablet", "touchpad" },
+                                                     { "audio-card", "pheadset" },
+                                                     { "network-wireless", "lan" },
+                                                     { "camera-video", "vidicon" },
+                                                     { "printer", "print" },
+                                                     { "camera-photo", "camera" },
+                                                     { "modem", "other" } };
 
 class BluetoothDevice : public QObject
 {
@@ -65,31 +63,41 @@ public:
     explicit BluetoothDevice(QObject *parent = nullptr);
 
     inline QString id() const { return m_id; }
+
     void setId(const QString &id);
 
     inline QString address() const { return m_address; }
+
     void setAddress(const QString &addr);
 
     inline QString name() const { return m_name; }
+
     void setName(const QString &name);
 
     inline QString alias() const { return m_alias; }
+
     void setAlias(const QString &alias);
 
     inline bool paired() const { return m_paired; }
+
     void setPaired(bool paired);
 
     inline State state() const { return m_state; }
+
     void setState(const State &state, bool connectState);
 
     inline bool trusted() const { return m_trusted; }
+
     void setTrusted(bool trusted);
 
     inline bool connecting() const { return m_connecting; }
+
     void setConnecting(bool connecting);
 
     inline QString deviceType() const { return m_deviceType; }
+
     void setDeviceType(const QString &deviceType);
+
     inline bool connectState() const { return m_connectState; }
 
     bool canSendFile() const;

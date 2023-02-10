@@ -21,11 +21,11 @@
 
 #pragma once
 
+#include "charamangermodel.h"
 #include "interface/namespace.h"
-#include "widgets/titlelabel.h"
 #include "widgets/buttontuple.h"
 #include "widgets/disclaimersitem.h"
-#include "charamangermodel.h"
+#include "widgets/titlelabel.h"
 
 #include <DAbstractDialog>
 
@@ -43,6 +43,7 @@ DWIDGET_END_NAMESPACE
 
 // 添加人脸对话框
 class CharaMangerModel;
+
 class AddFaceInfoDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
@@ -72,16 +73,14 @@ private:
     void initConnect();
     QString getFacePicture();
 
-
 private:
     CharaMangerModel *m_faceModel;
     QVBoxLayout *m_mainLayout;
-    QLabel *m_facePic; // 人脸图片
-    QLabel *m_resultTips; // 录入结果说明
-    DLabel *m_explainTips; // 状态说明信息
-    DisclaimersItem *m_disclaimersItem; // 免责声明
-    QPushButton* m_cancelBtn; // 取消
-    DTK_WIDGET_NAMESPACE::DSuggestButton* m_acceptBtn; // 下一步
+    QLabel *m_facePic;                                 // 人脸图片
+    QLabel *m_resultTips;                              // 录入结果说明
+    DLabel *m_explainTips;                             // 状态说明信息
+    DisclaimersItem *m_disclaimersItem;                // 免责声明
+    QPushButton *m_cancelBtn;                          // 取消
+    DTK_WIDGET_NAMESPACE::DSuggestButton *m_acceptBtn; // 下一步
     CharaMangerModel::AddInfoState m_currentState;
 };
-

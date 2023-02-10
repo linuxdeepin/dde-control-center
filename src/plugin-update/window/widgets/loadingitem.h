@@ -22,8 +22,8 @@
 #include "interface/namespace.h"
 #include "widgets/settingsitem.h"
 
-#include <QProgressBar>
 #include <QLabel>
+#include <QProgressBar>
 
 class LoadingItem : public QWidget
 {

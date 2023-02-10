@@ -21,10 +21,10 @@
 
 #pragma once
 #include "interface/namespace.h"
-
-#include <QWidget>
-#include <QTimeZone>
 #include "zoneinfo.h"
+
+#include <QTimeZone>
+#include <QWidget>
 
 class Clock : public QWidget
 {

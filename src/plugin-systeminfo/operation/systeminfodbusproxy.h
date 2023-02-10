@@ -22,6 +22,7 @@
 #define SYSTEMINFODBUSPROXY_H
 
 #include "interface/namespace.h"
+
 #include <QObject>
 
 namespace DCC_NAMESPACE {
@@ -34,12 +35,17 @@ class SystemInfoDBusProxy : public QObject
 public:
     explicit SystemInfoDBusProxy(QObject *parent = nullptr);
 
-    Q_PROPERTY(QString StaticHostname READ staticHostname WRITE setStaticHostname NOTIFY StaticHostnameChanged)
+    Q_PROPERTY(QString StaticHostname READ staticHostname WRITE setStaticHostname NOTIFY
+                       StaticHostnameChanged)
     QString staticHostname();
     void setStaticHostname(const QString &value);
-    void setStaticHostname(const QString &value, QObject *receiver, const char *member, const char *errorSlot);
+    void setStaticHostname(const QString &value,
+                           QObject *receiver,
+                           const char *member,
+                           const char *errorSlot);
 
-    Q_PROPERTY(int AuthorizationState READ authorizationState WRITE setAuthorizationState NOTIFY AuthorizationStateChanged)
+    Q_PROPERTY(int AuthorizationState READ authorizationState WRITE setAuthorizationState NOTIFY
+                       AuthorizationStateChanged)
     int authorizationState();
     void setAuthorizationState(const int value);
 

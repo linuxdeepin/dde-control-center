@@ -22,20 +22,21 @@
 #define SYSTEMLANGUAGESETTINGDIALOG_H
 
 #include "interface/namespace.h"
-#include "widgets/buttontuple.h"
 #include "src/plugin-keyboard/window/searchinput.h"
+#include "widgets/buttontuple.h"
 
+#include <DAbstractDialog>
 #include <DGraphicsClipEffect>
 #include <DListView>
-#include <DAbstractDialog>
 
-#include <QWidget>
-#include <QVBoxLayout>
+#include <QEvent>
 #include <QLabel>
 #include <QPushButton>
-#include <QEvent>
+#include <QVBoxLayout>
+#include <QWidget>
 
 DWIDGET_USE_NAMESPACE
+
 namespace DCC_NAMESPACE {
 class ButtonTuple;
 
@@ -51,13 +52,11 @@ public:
     explicit SystemLanguageSettingDialog(KeyboardModel *model, QWidget *parent = nullptr);
     ~SystemLanguageSettingDialog();
 
-    void updateDataModel(QStandardItemModel *model, QModelIndex &selectedIndex, const QModelIndex &index);
+    void updateDataModel(QStandardItemModel *model,
+                         QModelIndex &selectedIndex,
+                         const QModelIndex &index);
 
-    enum LanguageRole{
-        TextRole = DTK_NAMESPACE::UserRole + 1,
-        KeyRole,
-        PingYinRole
-    };
+    enum LanguageRole { TextRole = DTK_NAMESPACE::UserRole + 1, KeyRole, PingYinRole };
 
 Q_SIGNALS:
     void click(const QModelIndex &index);
@@ -67,6 +66,7 @@ public Q_SLOTS:
     void onSearch(const QString &text);
     void onAddLanguage();
     void onLangSelect(const QModelIndex &index);
+
 protected:
     bool eventFilter(QObject *watched, QEvent *event) override;
 
@@ -82,5 +82,5 @@ private:
     QModelIndex m_modelIndex;
     QModelIndex m_searchModelIndex;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // SYSTEMLANGUAGESETTINGDIALOG_H

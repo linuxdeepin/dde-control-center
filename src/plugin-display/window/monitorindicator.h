@@ -27,7 +27,9 @@
 #define MONITORFULLWIDGET_H
 
 #include "interface/namespace.h"
+
 #include <DPlatformWindowHandle>
+
 #include <QFrame>
 
 DWIDGET_USE_NAMESPACE
@@ -55,6 +57,6 @@ private:
     QFrame *m_leftLine;
     QFrame *m_rightLine;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // MONITORFULLWIDGET_H

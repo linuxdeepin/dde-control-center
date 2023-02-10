@@ -32,6 +32,6 @@ void Tst_IndexView::TearDown()
 
 TEST_F(Tst_IndexView, IndexView)
 {
-//    EXPECT_NO_THROW(view->onClick("test"));
-    EXPECT_NO_THROW(view->scrollContentsBy(10,10));
+    //    EXPECT_NO_THROW(view->onClick("test"));
+    EXPECT_NO_THROW(view->scrollContentsBy(10, 10));
 }

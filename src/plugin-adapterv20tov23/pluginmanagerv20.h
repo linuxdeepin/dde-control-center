@@ -14,6 +14,7 @@ public:
 
     QStringList pluginPath();
     void loadPlugin(QString path, dccV20::FrameProxyInterface *frameProxy);
+
     QList<AdapterV20toV23Module *> modules() { return m_modules; }
 
 private:

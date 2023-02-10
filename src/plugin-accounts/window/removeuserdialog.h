@@ -26,10 +26,10 @@
 #ifndef REMOVEUSERDIALOG_H
 #define REMOVEUSERDIALOG_H
 
-#include <ddialog.h>
-
 #include "interface/namespace.h"
 #include "src/plugin-accounts/operation/user.h"
+
+#include <ddialog.h>
 
 DWIDGET_USE_NAMESPACE
 
@@ -46,6 +46,6 @@ public:
 private:
     bool m_deleteHome;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // REMOVEUSERDIALOG_H

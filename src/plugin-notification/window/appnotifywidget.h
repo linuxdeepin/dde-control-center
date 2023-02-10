@@ -22,12 +22,12 @@
 
 #include "interface/namespace.h"
 
-#include <DSwitchButton>
 #include <DLabel>
+#include <DSwitchButton>
 
-#include <QWidget>
-#include <QVBoxLayout>
 #include <QCheckBox>
+#include <QVBoxLayout>
+#include <QWidget>
 
 namespace DCC_NAMESPACE {
 class SwitchWidget;
@@ -53,12 +53,12 @@ private:
 
 private:
     AppItemModel *m_model;
-    Dtk::Widget::DSwitchButton *m_btnAllowNotify;//是否允许通知
-    NotificationItem *m_itemNotifySound;//播放声音
-    NotificationItem *m_itemLockShowNotify;//锁屏通知
-    NotificationItem *m_itemShowInNotifyCenter;//仅通知中心显示
-    NotificationItem *m_itemShowNotifyPreview;//显示预览
+    Dtk::Widget::DSwitchButton *m_btnAllowNotify; // 是否允许通知
+    NotificationItem *m_itemNotifySound;          // 播放声音
+    NotificationItem *m_itemLockShowNotify;       // 锁屏通知
+    NotificationItem *m_itemShowInNotifyCenter;   // 仅通知中心显示
+    NotificationItem *m_itemShowNotifyPreview;    // 显示预览
     Dtk::Widget::DLabel *m_lblTip;
     SettingsGroup *m_settingsGrp;
 };
-}
+} // namespace DCC_NAMESPACE

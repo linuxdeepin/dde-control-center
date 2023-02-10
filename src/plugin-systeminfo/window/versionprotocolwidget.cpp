@@ -21,12 +21,13 @@
  */
 
 #include "versionprotocolwidget.h"
+
 #include "utils.h"
 
-#include <QVBoxLayout>
+#include <QFutureWatcher>
 #include <QLabel>
 #include <QLocale>
-#include <QFutureWatcher>
+#include <QVBoxLayout>
 #include <QtConcurrent>
 
 using namespace DCC_NAMESPACE;
@@ -48,7 +49,7 @@ VersionProtocolWidget::VersionProtocolWidget(QWidget *parent)
 
     QFrame *widget = new QFrame(this);
 
-    m_mainLayout->setContentsMargins(10,10,11,10);
+    m_mainLayout->setContentsMargins(10, 10, 11, 10);
     m_mainLayout->addSpacing(15);
     m_mainLayout->addWidget(m_title, 0, Qt::AlignCenter);
     m_mainLayout->addSpacing(20);
@@ -59,14 +60,14 @@ VersionProtocolWidget::VersionProtocolWidget(QWidget *parent)
     setLayout(m_mainLayout);
     setContentsMargins(0, 8, 0, 8);
 
-    QFutureWatcher<QPair<QString, QString>> *w = new QFutureWatcher<QPair<QString, QString>>(parent);
+    QFutureWatcher<QPair<QString, QString>> *w =
+            new QFutureWatcher<QPair<QString, QString>>(parent);
     w->setFuture(QtConcurrent::run(loadLicenses));
 
-    connect(w, &QFutureWatcher<QPair<QString, QString>>::finished, this, [ = ] {
+    connect(w, &QFutureWatcher<QPair<QString, QString>>::finished, this, [=] {
         const auto r = w->result();
         m_title->setText(r.first);
         m_body->setText(r.second);
         Q_EMIT loadTextFinished();
     });
 }
-

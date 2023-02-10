@@ -22,6 +22,7 @@
 
 #include "interface/namespace.h"
 #include "widgets/settingsitem.h"
+
 #include <QComboBox>
 
 QT_BEGIN_NAMESPACE
@@ -92,4 +93,4 @@ private:
     bool m_isWarning;
 };
 
-}
+} // namespace DCC_NAMESPACE

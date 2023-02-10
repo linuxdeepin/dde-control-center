@@ -20,14 +20,14 @@
  */
 #pragma once
 
+#include "common.h"
 #include "interface/namespace.h"
 #include "widgets/updatesettingitem.h"
 #include "widgets/utils.h"
-#include "common.h"
 
+#include <dtkwidget_global.h>
 
 #include <QWidget>
-#include <dtkwidget_global.h>
 
 QT_BEGIN_NAMESPACE
 class QSettings;
@@ -58,6 +58,7 @@ class SummaryItem;
 class SystemUpdateItem;
 class UnknownUpdateItem;
 class UpdateModel;
+
 class UpdateCtrlWidget : public QWidget
 {
     Q_OBJECT
@@ -88,7 +89,8 @@ private Q_SLOTS:
     void onFullUpdateClicked();
     void onRequestRefreshSize();
     void onRequestRefreshWidget();
-    void onClassityUpdateJonErrorChanged(const ClassifyUpdateType &type, const UpdateErrorType &errorType);
+    void onClassityUpdateJonErrorChanged(const ClassifyUpdateType &type,
+                                         const UpdateErrorType &errorType);
 
 private:
     void setStatus(const UpdatesStatus &status);
@@ -168,4 +170,3 @@ private:
     UpdateErrorType m_updateJobErrorMessage;
     QMap<UpdateErrorType, Error_Info> m_UpdateErrorInfoMap;
 };
-

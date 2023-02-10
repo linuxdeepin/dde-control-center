@@ -41,6 +41,7 @@ public:
 
     void activate();
     void deactivate();
+
     DatetimeModel *model() { return m_model; }
 
 Q_SIGNALS:

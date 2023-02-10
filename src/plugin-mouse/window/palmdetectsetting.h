@@ -19,9 +19,9 @@
 #ifndef PALMDETECTSETTING_H
 #define PALMDETECTSETTING_H
 
+#include "widgets/dccslider.h"
 #include "widgets/switchwidget.h"
 #include "widgets/titledslideritem.h"
-#include "widgets/dccslider.h"
 
 #include <QWidget>
 
@@ -29,13 +29,14 @@ class QVBoxLayout;
 
 namespace DCC_NAMESPACE {
 class MouseModel;
+
 class PalmDetectSetting : public QFrame
 {
     Q_OBJECT
 public:
     explicit PalmDetectSetting(QWidget *parent = nullptr);
 
-    void setModel(MouseModel * const model);
+    void setModel(MouseModel *const model);
 
 Q_SIGNALS:
     void requestDetectState(bool enable);
@@ -52,6 +53,6 @@ private:
     TitledSliderItem *m_contactSlider;
     TitledSliderItem *m_pressureSlider;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // PALMDETECTSETTING_H

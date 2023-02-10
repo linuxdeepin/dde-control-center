@@ -24,13 +24,13 @@ public:
     virtual QString location() const override;
 };
 
-
 class TouchScreenModule : public PageModule
 {
     Q_OBJECT
 public:
     explicit TouchScreenModule(QObject *parent = nullptr);
     ~TouchScreenModule();
+
     TouchScreenModel *model() { return m_model; }
 
 Q_SIGNALS:
@@ -42,12 +42,13 @@ public Q_SLOTS:
 private:
     void init();
     void resetItems();
+
 private:
-    TouchScreenModel  *m_model;
+    TouchScreenModel *m_model;
     SettingsGroupModule *m_settingGroup;
     QMap<QString, QComboBox *> m_itemMap;
     QStringList m_monitors;
     TouchscreenInfoList_V2 m_touchScreens;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // TOUCHSCREENMODULE_H

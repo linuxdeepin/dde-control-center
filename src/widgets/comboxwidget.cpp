@@ -20,29 +20,29 @@
  */
 
 #include "widgets/comboxwidget.h"
-#include "widgets/utils.h"
-#include "widgets/accessibleinterface.h"
 
-#include <QHBoxLayout>
+#include "widgets/accessibleinterface.h"
+#include "widgets/utils.h"
+
 #include <QComboBox>
 #include <QDebug>
-#include <QStringList>
-#include <QMouseEvent>
+#include <QHBoxLayout>
 #include <QLabel>
+#include <QMouseEvent>
 #include <QPainter>
+#include <QStringList>
 
 using namespace DCC_NAMESPACE;
-SET_FORM_ACCESSIBLE(ComboxWidget,"ComboxWidget")
+SET_FORM_ACCESSIBLE(ComboxWidget, "ComboxWidget")
+
 ComboxWidget::ComboxWidget(QFrame *parent)
     : ComboxWidget(new QLabel, parent)
 {
-
 }
 
 ComboxWidget::ComboxWidget(const QString &title, QFrame *parent)
     : ComboxWidget(new QLabel(title), parent)
 {
-
 }
 
 ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
@@ -59,15 +59,18 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
         m_str = m_titleLabel->text();
     }
     mainLayout->addWidget(m_leftWidget, 0, Qt::AlignVCenter);
-    mainLayout->setStretchFactor(m_leftWidget,3);
+    mainLayout->setStretchFactor(m_leftWidget, 3);
     mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
-    mainLayout->setStretchFactor(m_switchComboBox,7);
+    mainLayout->setStretchFactor(m_switchComboBox, 7);
     mainLayout->setContentsMargins(10, 0, 10, 0);
 
     m_leftWidget->setFixedWidth(ComboxTitleWidth);
     setLayout(mainLayout);
 
-    connect(m_switchComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &ComboxWidget::onIndexChanged);
+    connect(m_switchComboBox,
+            static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this,
+            &ComboxWidget::onIndexChanged);
     connect(m_switchComboBox, &QComboBox::currentTextChanged, this, &ComboxWidget::onSelectChanged);
     connect(m_switchComboBox, &QComboBox::currentTextChanged, this, [this] {
         Q_EMIT dataChanged(m_switchComboBox->currentData());
@@ -132,7 +135,8 @@ void ComboxWidget::resizeEvent(QResizeEvent *event)
             QFontMetrics fontMetrics(m_titleLabel->font());
             int fontSize = fontMetrics.horizontalAdvance(m_str);
             if (fontSize > m_titleLabel->width()) {
-                m_titleLabel->setText(fontMetrics.elidedText(m_str, Qt::ElideRight, m_titleLabel->width()));
+                m_titleLabel->setText(
+                        fontMetrics.elidedText(m_str, Qt::ElideRight, m_titleLabel->width()));
 
                 m_titleLabel->setToolTip(m_str);
             } else {
@@ -142,22 +146,21 @@ void ComboxWidget::resizeEvent(QResizeEvent *event)
         }
     }
 }
-SET_FORM_ACCESSIBLE(AlertComboBox,"AlertComboBox")
+SET_FORM_ACCESSIBLE(AlertComboBox, "AlertComboBox")
+
 /**
  * @brief 错误提示下拉框
  * @param parent
  */
 AlertComboBox::AlertComboBox(QWidget *parent)
-    : QComboBox (parent)
+    : QComboBox(parent)
     , m_isWarning(false)
 {
     installEventFilter(this);
     connect(this, &AlertComboBox::currentTextChanged, this, &AlertComboBox::onValueChange);
 }
 
-AlertComboBox::~AlertComboBox()
-{
-}
+AlertComboBox::~AlertComboBox() { }
 
 void AlertComboBox::setIsWarning(bool isWarning)
 {
@@ -195,7 +198,7 @@ void AlertComboBox::paintEvent(QPaintEvent *e)
         painter.save();
         painter.setPen(Qt::NoPen);
         painter.setBrush(QColor(241, 57, 50, qRound(0.15 * 255)));
-        QRect r = rect().adjusted(2,2,-2,-2);
+        QRect r = rect().adjusted(2, 2, -2, -2);
         painter.drawRoundedRect(r, 8, 8);
         painter.restore();
     }

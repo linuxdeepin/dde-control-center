@@ -1,4 +1,5 @@
 #include "touchscreenproxy.h"
+
 #include "widgets/dccdbusinterface.h"
 
 #include <QDBusConnection>
@@ -8,7 +9,11 @@ using namespace DCC_NAMESPACE;
 
 TouchScreenProxy::TouchScreenProxy(QObject *parent)
     : QObject(parent)
-    , m_displayInter(new DCCDBusInterface("org.deepin.dde.Display1", "/org/deepin/dde/Display1", "org.deepin.dde.Display1", QDBusConnection::sessionBus(), this))
+    , m_displayInter(new DCCDBusInterface("org.deepin.dde.Display1",
+                                          "/org/deepin/dde/Display1",
+                                          "org.deepin.dde.Display1",
+                                          QDBusConnection::sessionBus(),
+                                          this))
 {
     registerTouchscreenInfoList_V2MetaType();
 }
@@ -32,6 +37,6 @@ QDBusPendingReply<> TouchScreenProxy::AssociateTouchByUUID(const QString &in0, c
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
-    return m_displayInter->asyncCallWithArgumentList(QStringLiteral("AssociateTouchByUUID"), argumentList);
+    return m_displayInter->asyncCallWithArgumentList(QStringLiteral("AssociateTouchByUUID"),
+                                                     argumentList);
 }
-

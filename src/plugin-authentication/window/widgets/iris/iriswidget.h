@@ -10,6 +10,7 @@
 #include <QWidget>
 
 class CharaMangerModel;
+
 class IrisWidget : public QWidget
 {
     Q_OBJECT
@@ -27,7 +28,9 @@ private Q_SLOTS:
 Q_SIGNALS:
     void requestAddIris(const QString &driverName, const int &charaType, const QString &charaName);
     void requestDeleteIrisItem(const int &charaType, const QString &charaName);
-    void requestRenameIrisItem(const int &charaType, const QString &oldName, const QString &newName);
+    void requestRenameIrisItem(const int &charaType,
+                               const QString &oldName,
+                               const QString &newName);
     void noticeEnrollCompleted(const QString &driverName, const int &CharaType);
 
 public Q_SLOTS:
@@ -37,5 +40,5 @@ private:
     CharaMangerModel *m_model;
     DCC_NAMESPACE::SettingsGroup *m_listGrp;
     DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_clearBtn;
-    QVector<AuthenticationInfoItem*> m_vecItem;
+    QVector<AuthenticationInfoItem *> m_vecItem;
 };

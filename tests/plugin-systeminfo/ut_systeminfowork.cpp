@@ -5,12 +5,14 @@
 #include "src/plugin-systeminfo/operation/systeminfowork.h"
 #undef private
 
-#include <QSignalSpy>
-#include <QTest>
 #include <gtest/gtest.h>
 
+#include <QSignalSpy>
+#include <QTest>
+
 using namespace DCC_NAMESPACE;
-class Test_SystemInfoWork: public testing::Test
+
+class Test_SystemInfoWork : public testing::Test
 {
 public:
     virtual void SetUp() override;
@@ -36,7 +38,6 @@ void Test_SystemInfoWork::TearDown()
     delete m_model;
     m_model = nullptr;
 }
-
 
 TEST_F(Test_SystemInfoWork, full)
 {

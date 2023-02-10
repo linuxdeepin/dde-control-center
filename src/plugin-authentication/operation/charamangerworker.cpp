@@ -21,20 +21,19 @@
 
 #include "charamangerworker.h"
 
+#include <libintl.h>
+
 #include <QDBusInterface>
 #include <QDBusPendingCall>
 #include <QDBusReply>
-#include <QProcess>
 #include <QDebug>
-#include <QJsonDocument>
 #include <QJsonArray>
+#include <QJsonDocument>
 #include <QJsonObject>
-
-#include <unistd.h>
+#include <QProcess>
 
 #include <pwd.h>
 #include <unistd.h>
-#include <libintl.h>
 
 #define INPUT_TIME 30
 
@@ -48,22 +47,40 @@ CharaMangerWorker::CharaMangerWorker(CharaMangerModel *model, QObject *parent)
 {
     m_stopTimer->setSingleShot(true);
     // 监测录入状态
-    connect(m_charaMangerInter, &CharaMangerDBusProxy::EnrollStatusCharaManger, this, &CharaMangerWorker::refreshUserEnrollStatus);
+    connect(m_charaMangerInter,
+            &CharaMangerDBusProxy::EnrollStatusCharaManger,
+            this,
+            &CharaMangerWorker::refreshUserEnrollStatus);
 
     // 若添加新信息 触发本信号
-    connect(m_charaMangerInter, &CharaMangerDBusProxy::CharaUpdated, this, &CharaMangerWorker::refreshUserEnrollList);
+    connect(m_charaMangerInter,
+            &CharaMangerDBusProxy::CharaUpdated,
+            this,
+            &CharaMangerWorker::refreshUserEnrollList);
 
     // 获取设备信息
-    connect(m_charaMangerInter, &CharaMangerDBusProxy::DriverInfoChanged, this, &CharaMangerWorker::predefineDriverInfo);
-    connect(m_charaMangerInter, &CharaMangerDBusProxy::DriverChanged, this, &CharaMangerWorker::refreshDriverInfo);
+    connect(m_charaMangerInter,
+            &CharaMangerDBusProxy::DriverInfoChanged,
+            this,
+            &CharaMangerWorker::predefineDriverInfo);
+    connect(m_charaMangerInter,
+            &CharaMangerDBusProxy::DriverChanged,
+            this,
+            &CharaMangerWorker::refreshDriverInfo);
 
-    //处理指纹后端的录入状态信号
-    connect(m_charaMangerInter, &CharaMangerDBusProxy::EnrollStatusFingerprint, m_model, [this](const QString &, int code, const QString &msg) {
-        m_model->onFingerEnrollStatusChanged(code, msg);
-    });
-    //当前此信号末实现
+    // 处理指纹后端的录入状态信号
+    connect(m_charaMangerInter,
+            &CharaMangerDBusProxy::EnrollStatusFingerprint,
+            m_model,
+            [this](const QString &, int code, const QString &msg) {
+                m_model->onFingerEnrollStatusChanged(code, msg);
+            });
+    // 当前此信号末实现
     connect(m_charaMangerInter, &CharaMangerDBusProxy::Touch, m_model, &CharaMangerModel::onTouch);
-    connect(m_charaMangerInter, &CharaMangerDBusProxy::LockedChanged, m_model, &CharaMangerModel::lockedChanged);
+    connect(m_charaMangerInter,
+            &CharaMangerDBusProxy::LockedChanged,
+            m_model,
+            &CharaMangerModel::lockedChanged);
 
     initCharaManger();
     initFinger();
@@ -83,10 +100,12 @@ void CharaMangerWorker::initCharaManger()
 {
     // 获取DeviceInfo属性
     QDBusInterface charaManagerInter("org.deepin.dde.Authenticate1",
-                             "/org/deepin/dde/Authenticate1/CharaManger",
-                             "org.freedesktop.DBus.Properties",
-                             QDBusConnection::systemBus());
-    QDBusPendingCall call = charaManagerInter.asyncCall("Get", "org.deepin.dde.Authenticate1.CharaManger", "DriverInfo");
+                                     "/org/deepin/dde/Authenticate1/CharaManger",
+                                     "org.freedesktop.DBus.Properties",
+                                     QDBusConnection::systemBus());
+    QDBusPendingCall call = charaManagerInter.asyncCall("Get",
+                                                        "org.deepin.dde.Authenticate1.CharaManger",
+                                                        "DriverInfo");
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call, watcher] {
         if (!call.isError()) {
@@ -101,10 +120,13 @@ void CharaMangerWorker::initCharaManger()
     // 录入时间超时 停止录入
     connect(m_stopTimer, &QTimer::timeout, [this] {
         if (m_currentInputCharaType & FACE_CHARA) {
-            m_model->onEnrollStatusChanged(CharaMangerModel::EnrollFaceStatusType::STATUS_OVERTIME, QString());
+            m_model->onEnrollStatusChanged(CharaMangerModel::EnrollFaceStatusType::STATUS_OVERTIME,
+                                           QString());
         }
         if (m_currentInputCharaType & IRIS_CHARA) {
-            m_model->onEnrollIrisStatusChanged(CharaMangerModel::EnrollIrisStatusType::STATUS_IRIS_OVERTIME, QString());
+            m_model->onEnrollIrisStatusChanged(
+                    CharaMangerModel::EnrollIrisStatusType::STATUS_IRIS_OVERTIME,
+                    QString());
         }
 
         stopEnroll();
@@ -262,7 +284,9 @@ void CharaMangerWorker::refreshDriverInfo()
     predefineDriverInfo(driverInfo);
 }
 
-void CharaMangerWorker::entollStart(const QString &driverName, const int &charaType, const QString &charaName)
+void CharaMangerWorker::entollStart(const QString &driverName,
+                                    const int &charaType,
+                                    const QString &charaName)
 {
     qDebug() << " CharaMangerWorker::entollStart " << driverName << charaType << charaName;
     m_currentInputCharaType = charaType;
@@ -287,14 +311,15 @@ void CharaMangerWorker::entollStart(const QString &driverName, const int &charaT
                 Q_EMIT requestMainWindowEnabled(true);
                 m_model->setInputIrisFD(CharaMangerModel::AddInfoState::Processing);
             }
-
         }
         Q_EMIT requestMainWindowEnabled(true);
         watcher->deleteLater();
     });
 }
 
-void CharaMangerWorker::refreshUserEnrollStatus(const QString &senderid, const int &code, const QString &codeInfo)
+void CharaMangerWorker::refreshUserEnrollStatus(const QString &senderid,
+                                                const int &code,
+                                                const QString &codeInfo)
 {
     Q_UNUSED(senderid);
     if (m_currentInputCharaType & FACE_CHARA)
@@ -317,9 +342,9 @@ void CharaMangerWorker::stopEnroll()
     }
 
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [this]{
+    QObject::connect(watcher, &QDBusPendingCallWatcher::finished, this, [this] {
         if (m_fileDescriptor) {
-            delete  m_fileDescriptor;
+            delete m_fileDescriptor;
             m_fileDescriptor = nullptr;
         }
 
@@ -332,7 +357,9 @@ void CharaMangerWorker::deleteCharaItem(const int &charaType, const QString &cha
     m_charaMangerInter->Delete(charaType, charaName);
 }
 
-void CharaMangerWorker::renameCharaItem(const int &charaType, const QString &oldName, const QString &newName)
+void CharaMangerWorker::renameCharaItem(const int &charaType,
+                                        const QString &oldName,
+                                        const QString &newName)
 {
     auto call = m_charaMangerInter->Rename(charaType, oldName, newName);
     call.waitForFinished();
@@ -353,7 +380,7 @@ void CharaMangerWorker::tryEnroll(const QString &name, const QString &thumb)
         m_model->refreshEnrollResult(CharaMangerModel::EnrollResult::Enroll_ClaimFailed);
     } else {
         m_charaMangerInter->setFingerprintInterTimeout(-1);
-        auto callEnroll =  m_charaMangerInter->Enroll(thumb);
+        auto callEnroll = m_charaMangerInter->Enroll(thumb);
 
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(callEnroll, this);
         connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
@@ -370,7 +397,6 @@ void CharaMangerWorker::tryEnroll(const QString &name, const QString &thumb)
         });
     }
     m_charaMangerInter->setFingerprintInterTimeout(-1);
-
 }
 
 void CharaMangerWorker::refreshFingerEnrollList(const QString &id)
@@ -384,7 +410,6 @@ void CharaMangerWorker::refreshFingerEnrollList(const QString &id)
         qDebug() << "m_charaMangerInter->ListFingers";
     }
     m_model->setThumbsList(call);
-
 }
 
 void CharaMangerWorker::stopFingerEnroll(const QString &userName)
@@ -424,7 +449,9 @@ void CharaMangerWorker::deleteFingerItem(const QString &userName, const QString 
     m_charaMangerInter->setFingerprintInterTimeout(-1);
 }
 
-void CharaMangerWorker::renameFingerItem(const QString &userName, const QString &finger, const QString &newName)
+void CharaMangerWorker::renameFingerItem(const QString &userName,
+                                         const QString &finger,
+                                         const QString &newName)
 {
     m_charaMangerInter->RenameFinger(userName, finger, newName);
     refreshFingerEnrollList(userName);

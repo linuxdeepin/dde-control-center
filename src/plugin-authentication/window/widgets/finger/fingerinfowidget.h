@@ -28,17 +28,15 @@
 #include "widgets/titlelabel.h"
 
 #include <dpicturesequenceview.h>
-#include <QWidget>
+
 #include <QLabel>
+#include <QWidget>
 
 class FingerInfoWidget : public QWidget
 {
     Q_OBJECT
 public:
-    enum enrollStage {
-      enrollFirstStage = 1,
-      enrollSecondStage
-    };
+    enum enrollStage { enrollFirstStage = 1, enrollSecondStage };
 
     explicit FingerInfoWidget(QWidget *parent = nullptr);
 
@@ -58,13 +56,13 @@ private:
     DCC_NAMESPACE::TitleLabel *m_titleLbl;
     bool m_isFinished;
 
-    QString m_defTip{""};
-    QString m_defTitle{""};
-    int m_pro{0};
+    QString m_defTip{ "" };
+    QString m_defTitle{ "" };
+    int m_pro{ 0 };
     QTimer *m_titleTimer;
     QTimer *m_msgTimer;
     QTimer *m_liftTimer;
     QString m_theme;
-    bool m_reset{false};
-    bool m_isStageOne{true};
+    bool m_reset{ false };
+    bool m_isStageOne{ true };
 };

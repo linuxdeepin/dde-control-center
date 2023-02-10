@@ -24,29 +24,31 @@
  */
 
 #include "timezonechooser.h"
-#include "timezone_map.h"
-#include "searchinput.h"
+
 #include "datetimedbusproxy.h"
+#include "searchinput.h"
+#include "timezone_map.h"
 
 #include <dplatformwindowhandle.h>
+
 #include <DDialogCloseButton>
 #include <DPaletteHelper>
 
-#include <QVBoxLayout>
-#include <QPushButton>
+#include <QAbstractItemView>
+#include <QApplication>
 #include <QComboBox>
+#include <QCompleter>
+#include <QDebug>
+#include <QDesktopWidget>
+#include <QKeyEvent>
+#include <QLabel>
 #include <QLineEdit>
+#include <QPushButton>
+#include <QScreen>
+#include <QStyleFactory>
 #include <QTimeZone>
 #include <QTimer>
-#include <QCompleter>
-#include <QKeyEvent>
-#include <QDebug>
-#include <QScreen>
-#include <QApplication>
-#include <QDesktopWidget>
-#include <QLabel>
-#include <QStyleFactory>
-#include <QAbstractItemView>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 
@@ -66,7 +68,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget *parent)
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
 
-    //删除部分重复设置的代码，并移动部分代码到合适位置，尽量将相同功能的代码放在一起
+    // 删除部分重复设置的代码，并移动部分代码到合适位置，尽量将相同功能的代码放在一起
     m_searchInput->setMinimumSize(350, 36);
     m_cancelBtn->setMinimumSize(200, 36);
     m_confirmBtn->setMinimumSize(200, 36);
@@ -291,7 +293,7 @@ QSize TimeZoneChooser::getFitSize() const
 
 int TimeZoneChooser::getFontSize() const
 {
-    //根据屏幕大小设置标题字体大小，不至于因为屏幕太小时，字段显得太大
+    // 根据屏幕大小设置标题字体大小，不至于因为屏幕太小时，字段显得太大
     const QRect &primaryRect = QGuiApplication::primaryScreen()->availableGeometry();
 
     if (primaryRect.width() <= 1024) {
@@ -313,26 +315,27 @@ void TimeZoneChooser::setupSize()
     QFont font = m_title->font();
     font.setPointSizeF(getFontSize());
     m_title->setFont(font);
-    //获取标题部分根据字体大小计算得到的字体高度
+    // 获取标题部分根据字体大小计算得到的字体高度
     double fontHeight = m_title->fontMetrics().height() + 10.0;
 
     QSize fitSize = getFitSize();
-    //先根据屏幕大小，计算出大小合适的地图尺寸
+    // 先根据屏幕大小，计算出大小合适的地图尺寸
     const double offsetW = 20 * 2.0;
-    //close Button height and margin 6.0 * 2 + 20, layout spacing * 4 , title font height, search and btn height 36
+    // close Button height and margin 6.0 * 2 + 20, layout spacing * 4 , title font height, search
+    // and btn height 36
     const double offsetH = 6.0 * 2 + 20 + 10.0 * 4 + fontHeight + 36 * 2;
 
-    //比对地图和屏幕大小，取其中最小的大小
+    // 比对地图和屏幕大小，取其中最小的大小
     const float mapWidth = qMin(MapPixWidth, fitSize.width() - offsetW);
     const float mapHeight = qMin(MapPixHeight, fitSize.height() - offsetH);
 
-    //再计算地图和界面宽高比，取其中最小最大缩放比
+    // 再计算地图和界面宽高比，取其中最小最大缩放比
     const double widthScale = MapPictureWidth / mapWidth;
     const double heightScale = MapPictureHeight / mapHeight;
     const double scale = qMax(widthScale, heightScale);
-    //根据宽高最大缩放比设置地图大小
+    // 根据宽高最大缩放比设置地图大小
     m_map->setFixedSize(MapPictureWidth / scale, MapPictureHeight / scale);
 
-    //再根据地图大小设置界面大小，使界面与地图保持合适位置
+    // 再根据地图大小设置界面大小，使界面与地图保持合适位置
     setFixedSize(m_map->size().width() + offsetW, m_map->size().height() + offsetH);
 }

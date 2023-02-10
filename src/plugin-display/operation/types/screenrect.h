@@ -26,10 +26,10 @@
 #ifndef SCREENRECT_H
 #define SCREENRECT_H
 
-#include <QRect>
 #include <QDBusArgument>
-#include <QDebug>
 #include <QDBusMetaType>
+#include <QDebug>
+#include <QRect>
 
 struct ScreenRect
 {

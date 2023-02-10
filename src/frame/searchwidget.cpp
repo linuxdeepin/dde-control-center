@@ -19,23 +19,24 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "searchwidget.h"
+
 #include "interface/moduleobject.h"
 
 #include <DPinyin>
 
-#include <QKeyEvent>
 #include <QAbstractItemView>
+#include <QDebug>
+#include <QKeyEvent>
 #include <QPainter>
 #include <QStandardItemModel>
-#include <QDebug>
 
 #if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 0, 0)
-#    define USE_DCIICON
+#  define USE_DCIICON
 #endif
 
 #ifdef USE_DCIICON
-#    include <DDciIcon>
-#    include <DGuiApplicationHelper>
+#  include <DDciIcon>
+#  include <DGuiApplicationHelper>
 DGUI_USE_NAMESPACE
 #endif
 
@@ -43,6 +44,7 @@ DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 const QStringList &FilterText{ "-", "--", "-->", "->", ">", "/" };
+
 enum CompleterRole {
     UrlRole = Qt::UserRole + 1,
     SearchRole,
@@ -102,10 +104,10 @@ bool DccCompleter::eventFilter(QObject *o, QEvent *e)
                 popup()->setCurrentIndex(keyIndex);
             }
             popup()->hide();
-            //原因：在QCompleter上执行回车操作会触发它的activated()信号，回车也会触发DLineEdit的returnPressed()信号
-            //导致一个操作触发两次执行，模块load()会被执行两次，导致程序崩溃
-            //方法:在QCompleter的eventFilter()函数中对回车操作做过滤，直接触发DLineEdit的returnPressed()信号，
-            //不继续将事件传给QCompleter，保证回车只触发一次操作
+            // 原因：在QCompleter上执行回车操作会触发它的activated()信号，回车也会触发DLineEdit的returnPressed()信号
+            // 导致一个操作触发两次执行，模块load()会被执行两次，导致程序崩溃
+            // 方法:在QCompleter的eventFilter()函数中对回车操作做过滤，直接触发DLineEdit的returnPressed()信号，
+            // 不继续将事件传给QCompleter，保证回车只触发一次操作
             Q_EMIT static_cast<SearchWidget *>(this->parent())->returnPressed();
             return true;
         }
@@ -118,16 +120,18 @@ DccCompleterStyledItemDelegate::DccCompleterStyledItemDelegate(QObject *parent)
 {
 }
 
-void DccCompleterStyledItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void DccCompleterStyledItemDelegate::paint(QPainter *painter,
+                                           const QStyleOptionViewItem &option,
+                                           const QModelIndex &index) const
 {
-    QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
-            ? QPalette::Normal
-            : QPalette::Disabled;
+    QPalette::ColorGroup cg =
+            (option.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
     if (cg == QPalette::Normal && !(option.state & QStyle::State_Active)) {
         cg = QPalette::Inactive;
     }
 
-    if (option.showDecorationSelected && (option.state & (QStyle::State_Selected | QStyle::State_MouseOver))) {
+    if (option.showDecorationSelected
+        && (option.state & (QStyle::State_Selected | QStyle::State_MouseOver))) {
         painter->fillRect(option.rect, option.palette.brush(cg, QPalette::Highlight));
     }
 
@@ -138,7 +142,8 @@ void DccCompleterStyledItemDelegate::paint(QPainter *painter, const QStyleOption
         }
     }
     QVariant iconVar = p->icon();
-    QRect iconRect = QRect(1, option.rect.y() + 1, option.rect.height() - 2, option.rect.height() - 2);
+    QRect iconRect =
+            QRect(1, option.rect.y() + 1, option.rect.height() - 2, option.rect.height() - 2);
 #ifdef USE_DCIICON
     DDciIcon dciIcon;
     if (iconVar.canConvert<DDciIcon>()) {
@@ -163,11 +168,20 @@ void DccCompleterStyledItemDelegate::paint(QPainter *painter, const QStyleOption
             dciMode = DDciIcon::Disabled;
         }
 
-        DDciIcon::Theme theme = DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType ? DDciIcon::Dark : DDciIcon::Light;
+        DDciIcon::Theme theme =
+                DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType
+                ? DDciIcon::Dark
+                : DDciIcon::Light;
 
         painter->save();
         painter->setBrush(Qt::NoBrush);
-        dciIcon.paint(painter, iconRect, painter->device() ? painter->device()->devicePixelRatioF() : qApp->devicePixelRatio(), theme, dciMode, option.decorationAlignment);
+        dciIcon.paint(painter,
+                      iconRect,
+                      painter->device() ? painter->device()->devicePixelRatioF()
+                                        : qApp->devicePixelRatio(),
+                      theme,
+                      dciMode,
+                      option.decorationAlignment);
         painter->restore();
         iconVar.clear();
     }
@@ -200,10 +214,13 @@ void DccCompleterStyledItemDelegate::paint(QPainter *painter, const QStyleOption
         painter->setPen(option.palette.color(cg, QPalette::Text));
     }
     painter->setFont(option.font);
-    painter->drawText(option.rect.adjusted(option.rect.height() + 8, 0, 0, 0), Qt::AlignVCenter, index.data(Qt::DisplayRole).toString());
+    painter->drawText(option.rect.adjusted(option.rect.height() + 8, 0, 0, 0),
+                      Qt::AlignVCenter,
+                      index.data(Qt::DisplayRole).toString());
 }
 
-QSize DccCompleterStyledItemDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
+QSize DccCompleterStyledItemDelegate::sizeHint(const QStyleOptionViewItem &option,
+                                               const QModelIndex &index) const
 {
     QSize s = QStyledItemDelegate::sizeHint(option, index);
     s.setHeight(24);
@@ -223,11 +240,11 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_completer->popup()->setItemDelegate(delegate);
     m_completer->popup()->setAttribute(Qt::WA_InputMethodEnabled);
 
-    m_completer->setFilterMode(Qt::MatchContains);        //设置QCompleter支持匹配字符搜索
-    m_completer->setCaseSensitivity(Qt::CaseInsensitive); //这个属性可设置进行匹配时的大小写敏感性
+    m_completer->setFilterMode(Qt::MatchContains); // 设置QCompleter支持匹配字符搜索
+    m_completer->setCaseSensitivity(Qt::CaseInsensitive); // 这个属性可设置进行匹配时的大小写敏感性
     m_completer->setWrapAround(false);
     m_completer->installEventFilter(this);
-    m_completer->setWidget(lineEdit()); //设置自动补全时弹出时相应位置的widget
+    m_completer->setWidget(lineEdit()); // 设置自动补全时弹出时相应位置的widget
 
     m_completer->setCompletionRole(CompleterRole::SearchRole);
 
@@ -235,8 +252,11 @@ SearchWidget::SearchWidget(QWidget *parent)
 
     connect(this, &DSearchEdit::returnPressed, this, &SearchWidget::onReturnPressed);
 
-    //鼠标点击后直接页面跳转(存在同名信号)
-    connect(m_completer, qOverload<const QString &>(&QCompleter::activated), this, &SearchWidget::onReturnPressed);
+    // 鼠标点击后直接页面跳转(存在同名信号)
+    connect(m_completer,
+            qOverload<const QString &>(&QCompleter::activated),
+            this,
+            &SearchWidget::onReturnPressed);
 }
 
 void SearchWidget::setModuleObject(ModuleObject *const module)
@@ -258,7 +278,8 @@ QList<QPair<QString, QString>> SearchWidget::searchResults(const QString text)
 
 void SearchWidget::addModule(ModuleObject *const module)
 {
-    if (ModuleObject::IsHidden(module) || module->noSearch() || (module->displayName().isEmpty() && module->contentText().isEmpty()))
+    if (ModuleObject::IsHidden(module) || module->noSearch()
+        || (module->displayName().isEmpty() && module->contentText().isEmpty()))
         return;
 
     QList<ModuleObject *> moduleurl;
@@ -294,7 +315,8 @@ void SearchWidget::addModule(ModuleObject *const module)
     QStringList searchList(searchStr);
     if (m_bIsChinese) {
         searchStr.remove(QRegularExpression(R"([a-zA-Z\d]+)"));
-        QStringList displaynameList = Dtk::Core::Chinese2Pinyin(searchStr).split(QRegularExpression(R"(\d+)"));
+        QStringList displaynameList =
+                Dtk::Core::Chinese2Pinyin(searchStr).split(QRegularExpression(R"(\d+)"));
         if (!displaynameList.isEmpty()) {
             searchList << displaynameList.join(QString());
             QString initial;
@@ -312,7 +334,8 @@ void SearchWidget::addModule(ModuleObject *const module)
 void SearchWidget::removeModule(ModuleObject *const module)
 {
     for (int i = 0; i < m_model->rowCount(); i++) {
-        if (m_model->index(i, 0).data(CompleterRole::ModuleRole).value<ModuleObject *>() == module) {
+        if (m_model->index(i, 0).data(CompleterRole::ModuleRole).value<ModuleObject *>()
+            == module) {
             m_allText.remove(m_model->index(i, 0).data().toString());
             m_model->removeRow(i);
             break;
@@ -335,10 +358,14 @@ void SearchWidget::onReturnPressed()
 {
     if (!text().isEmpty()) {
         // enter defalt set first
-        const QString &url = m_completer->popup()->currentIndex().data(CompleterRole::UrlRole).toString();
+        const QString &url =
+                m_completer->popup()->currentIndex().data(CompleterRole::UrlRole).toString();
         if (!url.isEmpty()) {
             blockSignals(true);
-            setText(m_completer->popup()->currentIndex().data(CompleterRole::DisplayNameRole).toString());
+            setText(m_completer->popup()
+                            ->currentIndex()
+                            .data(CompleterRole::DisplayNameRole)
+                            .toString());
             blockSignals(false);
             Q_EMIT notifySearchUrl(url);
         }
@@ -350,9 +377,9 @@ void SearchWidget::onSearchTextChange(const QString &text)
     const QString &t = text.simplified();
     if (FilterText.contains(t))
         return;
-    //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
+    // 发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
     Q_EMIT focusChanged(true);
-    //实现自动补全
+    // 实现自动补全
     onAutoComplete(t);
 }
 

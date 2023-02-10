@@ -21,13 +21,14 @@
 
 #pragma once
 
-#include "interface/namespace.h"
 #include "charamangermodel.h"
-#include "widgets/titlelabel.h"
+#include "interface/namespace.h"
 #include "widgets/buttontuple.h"
 #include "widgets/disclaimersitem.h"
+#include "widgets/titlelabel.h"
 
 #include <DAbstractDialog>
+
 #include <QDialog>
 
 QT_BEGIN_NAMESPACE
@@ -41,6 +42,7 @@ class DTipLabel;
 DWIDGET_END_NAMESPACE
 
 class CharaMangerModel;
+
 class FingerDisclaimer : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
@@ -67,10 +69,10 @@ private:
 private:
     QVBoxLayout *m_mainLayout;
     QLabel *m_fingerPic;
-    QLabel *m_resultTips; // 录入结果说明
-    DTK_WIDGET_NAMESPACE::DLabel *m_explainTips; // 状态说明信息
-    DisclaimersItem *m_disclaimersItem; // 免责声明
-    QPushButton *m_cancelBtn; // 取消
+    QLabel *m_resultTips;                              // 录入结果说明
+    DTK_WIDGET_NAMESPACE::DLabel *m_explainTips;       // 状态说明信息
+    DisclaimersItem *m_disclaimersItem;                // 免责声明
+    QPushButton *m_cancelBtn;                          // 取消
     DTK_WIDGET_NAMESPACE::DSuggestButton *m_acceptBtn; // 下一步
     CharaMangerModel::AddInfoState m_currentState;
 };

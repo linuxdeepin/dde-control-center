@@ -20,18 +20,18 @@
  */
 
 #include "generalkbsettingwidget.h"
+
+#include "src/plugin-keyboard/operation/keyboardmodel.h"
 #include "widgets/dccslider.h"
 #include "widgets/settingsgroup.h"
-#include "widgets/titledslideritem.h"
-#include "widgets/switchwidget.h"
 #include "widgets/settingshead.h"
 #include "widgets/settingsheaderitem.h"
-#include "src/plugin-keyboard/operation/keyboardmodel.h"
+#include "widgets/switchwidget.h"
+#include "widgets/titledslideritem.h"
 
-#include <QVBoxLayout>
 #include <QDebug>
 #include <QLineEdit>
-
+#include <QVBoxLayout>
 
 #define GSETTINGS_NUMLOCK_ENABLE "keyboardGeneralNumlockEnable"
 using namespace DCC_NAMESPACE;
@@ -46,7 +46,7 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     systemHead->layout()->setContentsMargins(10, 0, 10, 0);
     m_generalSettingsGrp = new SettingsGroup();
     m_generalSettingsGrp->appendItem(systemHead, SettingsGroup::NoneBackground);
-    TitledSliderItem *delayItem =  new TitledSliderItem(tr("Repeat Delay"));
+    TitledSliderItem *delayItem = new TitledSliderItem(tr("Repeat Delay"));
     delayItem->setObjectName("RepeatDelay");
     m_delaySlider = delayItem->slider();
     m_delaySlider->setType(DCCSlider::Vernier);
@@ -56,11 +56,15 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_delaySlider->setPageStep(1);
     m_delaySlider->setTickPosition(QSlider::TicksBelow);
     QStringList delays;
-    delays << tr("Short") << "" << "" << "" << "" << "";
+    delays << tr("Short") << ""
+           << ""
+           << ""
+           << ""
+           << "";
     delays << tr("Long");
     delayItem->setAnnotations(delays);
     m_generalSettingsGrp->appendItem(delayItem);
-    TitledSliderItem *speedItem =  new TitledSliderItem(tr("Repeat Rate"));
+    TitledSliderItem *speedItem = new TitledSliderItem(tr("Repeat Rate"));
     speedItem->setObjectName("RepeatRate");
     speedItem->setFocusPolicy(Qt::ClickFocus);
     m_speedSlider = speedItem->slider();
@@ -71,7 +75,11 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     m_speedSlider->setPageStep(1);
     m_speedSlider->setTickPosition(QSlider::TicksBelow);
     QStringList speeds;
-    speeds << tr("Slow") << "" << "" << "" << "" << "";
+    speeds << tr("Slow") << ""
+           << ""
+           << ""
+           << ""
+           << "";
     speeds << tr("Fast");
     speedItem->setAnnotations(speeds);
 
@@ -114,16 +122,34 @@ GeneralKBSettingWidget::GeneralKBSettingWidget(KeyboardModel *model, QWidget *pa
     setLayout(m_contentLayout);
     setContentsMargins(0, 10, 0, 10);
 
-    connect(m_delaySlider, &DCCSlider::valueChanged, this, &GeneralKBSettingWidget::requestKBDelayChanged);
-    connect(m_speedSlider, &DCCSlider::valueChanged, this, &GeneralKBSettingWidget::requestKBSpeedChanged);
-    connect(m_numLock, &SwitchWidget::checkedChanged, this, &GeneralKBSettingWidget::requestNumLockChanged);
-    connect(m_upper, &SwitchWidget::checkedChanged, this, &GeneralKBSettingWidget::requestCapsLockChanged);
+    connect(m_delaySlider,
+            &DCCSlider::valueChanged,
+            this,
+            &GeneralKBSettingWidget::requestKBDelayChanged);
+    connect(m_speedSlider,
+            &DCCSlider::valueChanged,
+            this,
+            &GeneralKBSettingWidget::requestKBSpeedChanged);
+    connect(m_numLock,
+            &SwitchWidget::checkedChanged,
+            this,
+            &GeneralKBSettingWidget::requestNumLockChanged);
+    connect(m_upper,
+            &SwitchWidget::checkedChanged,
+            this,
+            &GeneralKBSettingWidget::requestCapsLockChanged);
 
-    connect(m_model, &KeyboardModel::repeatDelayChanged, this, &GeneralKBSettingWidget::setDelayValue);
-    connect(m_model, &KeyboardModel::repeatIntervalChanged, this, &GeneralKBSettingWidget::setSpeedValue);
+    connect(m_model,
+            &KeyboardModel::repeatDelayChanged,
+            this,
+            &GeneralKBSettingWidget::setDelayValue);
+    connect(m_model,
+            &KeyboardModel::repeatIntervalChanged,
+            this,
+            &GeneralKBSettingWidget::setSpeedValue);
     connect(m_model, &KeyboardModel::capsLockChanged, m_upper, &SwitchWidget::setChecked);
     connect(m_model, &KeyboardModel::numLockChanged, m_numLock, &SwitchWidget::setChecked);
-    connect(m_testArea, &DLineEdit::focusChanged, this, [ = ] {
+    connect(m_testArea, &DLineEdit::focusChanged, this, [=] {
         m_testArea->clear();
         m_testArea->update();
     });

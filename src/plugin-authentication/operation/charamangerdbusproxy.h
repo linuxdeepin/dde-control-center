@@ -1,13 +1,14 @@
 #ifndef CHARAMANGERDBUSPROXY_H
 #define CHARAMANGERDBUSPROXY_H
 
-#include <QObject>
 #include <QDBusObjectPath>
-#include <QDBusUnixFileDescriptor>
 #include <QDBusPendingReply>
+#include <QDBusUnixFileDescriptor>
+#include <QObject>
 
 class QDBusInterface;
 class QDBusMessage;
+
 class CharaMangerDBusProxy : public QObject
 {
     Q_OBJECT
@@ -20,7 +21,9 @@ public:
     // CharaManger
     QString List(const QString &driverName, int charaType);
     QString driverInfo();
-    QDBusPendingReply<QDBusUnixFileDescriptor> EnrollStart(const QString &driverName, int charaType, const QString &charaName);
+    QDBusPendingReply<QDBusUnixFileDescriptor> EnrollStart(const QString &driverName,
+                                                           int charaType,
+                                                           const QString &charaName);
     QDBusPendingReply<> EnrollStop();
     QDBusPendingReply<> Delete(int charaType, const QString &charaName);
     QDBusPendingReply<> Rename(int charaType, const QString &oldName, const QString &newName);
@@ -40,14 +43,14 @@ signals:
     void CharaUpdated(const QString &charaName, int CharaType);
     void DriverChanged();
     void EnrollStatusCharaManger(const QString &Sender, int Code, const QString &Msg);
-    void DriverInfoChanged(const QString & value) const;
+    void DriverInfoChanged(const QString &value) const;
 
     // Fingerprint signals
     void EnrollStatusFingerprint(const QString &id, int code, const QString &msg);
     void Touch(const QString &id, bool pressed);
 
     // SessionManager singnals
-    void LockedChanged(bool  value) const;
+    void LockedChanged(bool value) const;
 
 private slots:
     void onPropertiesChanged(const QDBusMessage &message);

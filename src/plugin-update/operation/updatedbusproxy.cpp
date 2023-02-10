@@ -1,10 +1,11 @@
 #include "updatedbusproxy.h"
+
 #include "widgets/dccdbusinterface.h"
 
 #include <QDBusArgument>
 #include <QDBusInterface>
-#include <QDBusPendingReply>
 #include <QDBusMetaType>
+#include <QDBusPendingReply>
 #include <QDBusReply>
 
 // Updater
@@ -32,10 +33,17 @@ const static QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 UpdateDBusProxy::UpdateDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_updateInter(new DCC_NAMESPACE::DCCDBusInterface(UpdaterService, UpdaterPath, UpdaterInterface, QDBusConnection::systemBus(), this))
-    , m_managerInter(new DCC_NAMESPACE::DCCDBusInterface(ManagerService, ManagerPath, ManagerInterface, QDBusConnection::systemBus(), this))
-    , m_powerInter(new DCC_NAMESPACE::DCCDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
-    , m_atomicUpgradeInter(new DCC_NAMESPACE::DCCDBusInterface(AtomicUpdaterService, AtomicUpdaterPath, AtomicUpdaterJobInterface, QDBusConnection::systemBus(), this))
+    , m_updateInter(new DCC_NAMESPACE::DCCDBusInterface(
+              UpdaterService, UpdaterPath, UpdaterInterface, QDBusConnection::systemBus(), this))
+    , m_managerInter(new DCC_NAMESPACE::DCCDBusInterface(
+              ManagerService, ManagerPath, ManagerInterface, QDBusConnection::systemBus(), this))
+    , m_powerInter(new DCC_NAMESPACE::DCCDBusInterface(
+              PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this))
+    , m_atomicUpgradeInter(new DCC_NAMESPACE::DCCDBusInterface(AtomicUpdaterService,
+                                                               AtomicUpdaterPath,
+                                                               AtomicUpdaterJobInterface,
+                                                               QDBusConnection::systemBus(),
+                                                               this))
 
 {
     qRegisterMetaType<LastoreUpdatePackagesInfo>("LastoreUpdatePackagesInfo");
@@ -67,19 +75,27 @@ void UpdateDBusProxy::SetUpdateNotify(bool in0)
 
 LastoreUpdatePackagesInfo UpdateDBusProxy::classifiedUpdatablePackages()
 {
-    QDBusInterface updateInter(m_updateInter->service(), m_updateInter->path(), PropertiesInterface, m_updateInter->connection());
-    QDBusMessage mess = updateInter.call(QStringLiteral("Get"),m_updateInter->interface(),QStringLiteral("ClassifiedUpdatablePackages"));
-    QVariant v  = mess.arguments().first();
+    QDBusInterface updateInter(m_updateInter->service(),
+                               m_updateInter->path(),
+                               PropertiesInterface,
+                               m_updateInter->connection());
+    QDBusMessage mess = updateInter.call(QStringLiteral("Get"),
+                                         m_updateInter->interface(),
+                                         QStringLiteral("ClassifiedUpdatablePackages"));
+    QVariant v = mess.arguments().first();
     const QDBusArgument arg = v.value<QDBusVariant>().variant().value<QDBusArgument>();
     LastoreUpdatePackagesInfo packagesInfo;
-    arg>>packagesInfo;
+    arg >> packagesInfo;
     return packagesInfo;
 }
 
 double UpdateDBusProxy::GetCheckIntervalAndTime(QString &out1)
 {
     QList<QVariant> argumentList;
-    QDBusMessage reply = m_updateInter->callWithArgumentList(QDBus::Block, QStringLiteral("GetCheckIntervalAndTime"), argumentList);
+    QDBusMessage reply =
+            m_updateInter->callWithArgumentList(QDBus::Block,
+                                                QStringLiteral("GetCheckIntervalAndTime"),
+                                                argumentList);
     if (reply.type() == QDBusMessage::ReplyMessage && reply.arguments().count() == 2) {
         out1 = qdbus_cast<QString>(reply.arguments().at(1));
     }
@@ -117,7 +133,8 @@ void UpdateDBusProxy::SetAutoDownloadUpdates(bool in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    m_updateInter->asyncCallWithArgumentList(QStringLiteral("SetAutoDownloadUpdates"), argumentList);
+    m_updateInter->asyncCallWithArgumentList(QStringLiteral("SetAutoDownloadUpdates"),
+                                             argumentList);
 }
 
 void UpdateDBusProxy::setAutoInstallUpdates(bool value)
@@ -186,18 +203,20 @@ void UpdateDBusProxy::PauseJob(const QString &in0)
     m_managerInter->asyncCallWithArgumentList(QStringLiteral("PauseJob"), argumentList);
 }
 
-QDBusPendingReply<QList<QDBusObjectPath> > UpdateDBusProxy::ClassifiedUpgrade(qulonglong in0)
+QDBusPendingReply<QList<QDBusObjectPath>> UpdateDBusProxy::ClassifiedUpgrade(qulonglong in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_managerInter->asyncCallWithArgumentList(QStringLiteral("ClassifiedUpgrade"), argumentList);
+    return m_managerInter->asyncCallWithArgumentList(QStringLiteral("ClassifiedUpgrade"),
+                                                     argumentList);
 }
 
 QDBusPendingReply<qlonglong> UpdateDBusProxy::PackagesDownloadSize(const QStringList &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_managerInter->asyncCallWithArgumentList(QStringLiteral("PackagesDownloadSize"), argumentList);
+    return m_managerInter->asyncCallWithArgumentList(QStringLiteral("PackagesDownloadSize"),
+                                                     argumentList);
 }
 
 bool UpdateDBusProxy::onBattery()
@@ -207,16 +226,21 @@ bool UpdateDBusProxy::onBattery()
 
 BatteryPercentageInfo UpdateDBusProxy::batteryPercentage()
 {
-    QDBusInterface powerInter(m_powerInter->service(), m_powerInter->path(), PropertiesInterface, m_powerInter->connection());
-    QDBusMessage mess = powerInter.call(QStringLiteral("Get"),m_powerInter->interface(),QStringLiteral("BatteryPercentage"));
-    QVariant v  = mess.arguments().first();
+    QDBusInterface powerInter(m_powerInter->service(),
+                              m_powerInter->path(),
+                              PropertiesInterface,
+                              m_powerInter->connection());
+    QDBusMessage mess = powerInter.call(QStringLiteral("Get"),
+                                        m_powerInter->interface(),
+                                        QStringLiteral("BatteryPercentage"));
+    QVariant v = mess.arguments().first();
     const QDBusArgument arg = v.value<QDBusVariant>().variant().value<QDBusArgument>();
     BatteryPercentageInfo packagesInfo;
-    arg>>packagesInfo;
+    arg >> packagesInfo;
     return packagesInfo;
 }
 
-void UpdateDBusProxy::commit(const QString& commitDate)
+void UpdateDBusProxy::commit(const QString &commitDate)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(commitDate);

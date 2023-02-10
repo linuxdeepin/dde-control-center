@@ -1,5 +1,5 @@
-#include "src/plugin-keyboard/window/keylabel.h"
 #include "gtest/gtest.h"
+#include "src/plugin-keyboard/window/keylabel.h"
 
 class Tst_KeyLabel : public testing::Test
 {

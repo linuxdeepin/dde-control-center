@@ -27,6 +27,7 @@ class QEvent;
 class QTimer;
 
 class QHBoxLayout;
+
 namespace dccV20 {
 class ModuleInterface;
 }

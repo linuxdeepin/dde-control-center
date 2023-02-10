@@ -27,21 +27,23 @@
 #define SHORTCUTCONTENTDIALOG_H
 
 #include "interface/namespace.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/buttontuple.h"
 #include "titlebuttonItem.h"
+#include "widgets/buttontuple.h"
+#include "widgets/settingsgroup.h"
 
 #include <DAbstractDialog>
 
 #include <QPushButton>
 
 DWIDGET_USE_NAMESPACE
+
 namespace DCC_NAMESPACE {
 class ShortcutModel;
 struct ShortcutInfo;
 class KeyboardControl;
 class ShortcutItem;
-class ShortcutContentDialog  : public DAbstractDialog
+
+class ShortcutContentDialog : public DAbstractDialog
 {
     Q_OBJECT
 public:
@@ -62,13 +64,13 @@ public Q_SLOTS:
 
 private:
     ShortcutModel *m_model;
-    QLabel* m_bottomTip;
-    ShortcutInfo* m_conflict;
-    ShortcutInfo* m_info;
+    QLabel *m_bottomTip;
+    ShortcutInfo *m_conflict;
+    ShortcutInfo *m_info;
     ShortcutItem *m_shortcutItem;
     ButtonTuple *m_buttonTuple;
-    TitleButtonItem* m_item;
+    TitleButtonItem *m_item;
     QString m_shortcut;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // SHORTCUTCONTENTDIALOG_H

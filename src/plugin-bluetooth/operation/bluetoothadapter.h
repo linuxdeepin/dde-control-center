@@ -26,9 +26,9 @@
 #ifndef DCC_BLUETOOTH_ADAPTER_H
 #define DCC_BLUETOOTH_ADAPTER_H
 
-#include <QObject>
-
 #include "bluetoothdevice.h"
+
+#include <QObject>
 
 class QJsonObject;
 class BluetoothDBusProxy;
@@ -40,9 +40,11 @@ public:
     explicit BluetoothAdapter(BluetoothDBusProxy *proxy, QObject *parent = 0);
 
     inline QString name() const { return m_name; }
+
     void setName(const QString &name);
 
     inline QString id() const { return m_id; }
+
     void setId(const QString &id);
 
     QMap<QString, const BluetoothDevice *> devices() const;
@@ -50,10 +52,12 @@ public:
     const BluetoothDevice *deviceById(const QString &id) const;
 
     inline bool powered() const { return m_powered; }
+
     void setPowered(bool powered, bool discovering);
     void setAdapterPowered(const bool &powered);
 
     inline bool discoverabled() const { return m_discoverable; }
+
     void setDiscoverabled(const bool discoverable);
 
     inline bool discovering() const { return m_discovering; }
@@ -87,7 +91,7 @@ private:
     bool m_discovering;
     bool m_discoverable;
     QMap<QString, const BluetoothDevice *> m_devices;
-    //按序存放设备id,确定设备显示顺序
+    // 按序存放设备id,确定设备显示顺序
     QList<QString> m_devicesId;
     BluetoothDBusProxy *m_bluetoothDBusProxy;
 };

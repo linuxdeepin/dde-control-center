@@ -31,8 +31,8 @@ QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 
-//消息通知选择项
-class NotificationItem: public SettingsItem
+// 消息通知选择项
+class NotificationItem : public SettingsItem
 {
     Q_OBJECT
 public:
@@ -49,4 +49,4 @@ private:
     QCheckBox *m_chkState;
 };
 
-}
+} // namespace DCC_NAMESPACE

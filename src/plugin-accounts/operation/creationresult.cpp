@@ -25,21 +25,20 @@
 
 #include "creationresult.h"
 
-
 using namespace DCC_NAMESPACE;
 
 CreationResult::CreationResult(QObject *parent)
     : CreationResult(NoError, QString(""), parent)
 {
-
 }
 
-CreationResult::CreationResult(CreationResult::ResultType type, const QString &message, QObject *parent)
+CreationResult::CreationResult(CreationResult::ResultType type,
+                               const QString &message,
+                               QObject *parent)
     : QObject(parent)
     , m_type(type)
     , m_message(message)
 {
-
 }
 
 void CreationResult::setType(const ResultType &type)
@@ -51,4 +50,3 @@ void CreationResult::setMessage(const QString &message)
 {
     m_message = message;
 }
-

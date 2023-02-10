@@ -28,70 +28,89 @@
 
 #include "interface/namespace.h"
 
-#include <QObject>
 #include <QDebug>
+#include <QObject>
 
 namespace DCC_NAMESPACE {
 class MouseModel : public QObject
 {
     Q_OBJECT
     friend class MouseWorker;
+
 public:
     explicit MouseModel(QObject *parent = nullptr);
     ~MouseModel();
 
     inline bool leftHandState() const { return m_leftHandState; }
+
     void setLeftHandState(const bool state);
 
     void setDisIfTyping(const bool state);
-    inline bool disIfTyping()   const { return m_disIfTyping; }
+
+    inline bool disIfTyping() const { return m_disIfTyping; }
 
     inline bool tpadExist() const { return m_tpadExist; }
+
     void setTpadExist(bool tpadExist);
 
     inline bool mouseExist() const { return m_mouseExist; }
+
     void setMouseExist(bool mouseExist);
 
     inline bool redPointExist() const { return m_redPointExist; }
+
     void setRedPointExist(bool redPointExist);
 
     inline int doubleSpeed() const { return m_doubleSpeed; }
+
     void setDoubleSpeed(int doubleSpeed);
 
     inline bool mouseNaturalScroll() const { return m_mouseNaturalScroll; }
+
     void setMouseNaturalScroll(bool mouseNaturalScroll);
 
     inline bool tpadNaturalScroll() const { return m_tpadNaturalScroll; }
+
     void setTpadNaturalScroll(bool tpadNaturalScroll);
 
     inline int mouseMoveSpeed() const { return m_mouseMoveSpeed; }
+
     void setMouseMoveSpeed(int mouseMoveSpeed);
 
     inline int tpadMoveSpeed() const { return m_tpadMoveSpeed; }
+
     void setTpadMoveSpeed(int tpadMoveSpeed);
 
     inline bool accelProfile() const { return m_accelProfile; }
+
     void setAccelProfile(bool useAdaptiveProfile);
 
     inline bool disTpad() const { return m_disTpad; }
+
     void setDisTpad(bool disTpad);
 
     inline int redPointMoveSpeed() const { return m_redPointMoveSpeed; }
+
     void setRedPointMoveSpeed(int redPointMoveSpeed);
 
     inline bool palmDetect() const { return m_palmDetect; }
+
     void setPalmDetect(bool palmDetect);
 
     inline int palmMinWidth() const { return m_palmMinWidth; }
+
     void setPalmMinWidth(int palmMinWidth);
 
     inline int palmMinz() const { return m_palmMinz; }
+
     void setPalmMinz(int palmMinz);
 
     bool tapclick() const { return m_tapclick; }
+
     void setTapClick(bool tapclick);
 
     uint scrollSpeed() const { return m_scrollSpeed; }
+
     void setScrollSpeed(uint speed);
 
 Q_SIGNALS:
@@ -126,17 +145,15 @@ private:
     bool m_disTpad;
     bool m_palmDetect;
     bool m_tapclick;
-    int  m_doubleSpeed;
-    int  m_mouseMoveSpeed;
-    int  m_tpadMoveSpeed;
-    int  m_redPointMoveSpeed;
-    int  m_palmMinWidth;
-    int  m_palmMinz;
-    uint  m_scrollSpeed;
+    int m_doubleSpeed;
+    int m_mouseMoveSpeed;
+    int m_tpadMoveSpeed;
+    int m_redPointMoveSpeed;
+    int m_palmMinWidth;
+    int m_palmMinz;
+    uint m_scrollSpeed;
 };
 
-}
-
-
+} // namespace DCC_NAMESPACE
 
 #endif // MOUSEMODEL_H

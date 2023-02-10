@@ -24,18 +24,19 @@
  */
 
 #include "personalizationworker.h"
-#include "personalizationdbusproxy.h"
-#include "model/thememodel.h"
+
 #include "model/fontmodel.h"
 #include "model/fontsizemodel.h"
+#include "model/thememodel.h"
+#include "personalizationdbusproxy.h"
 
-#include <QGuiApplication>
-#include <QScreen>
-#include <QDebug>
-#include <QJsonArray>
 #include <QCollator>
-#include <QJsonDocument>
 #include <QDBusError>
+#include <QDebug>
+#include <QGuiApplication>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QScreen>
 
 static const std::vector<int> OPACITY_SLIDER{ 0, 25, 40, 55, 70, 85, 100 };
 
@@ -53,21 +54,63 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     FontModel *fontMono = m_model->getMonoFontModel();
     FontModel *fontStand = m_model->getStandFontModel();
 
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::GtkThemeChanged, windowTheme, &ThemeModel::setDefault);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::CursorThemeChanged, cursorTheme, &ThemeModel::setDefault);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::IconThemeChanged, iconTheme, &ThemeModel::setDefault);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::GlobalThemeChanged, globalTheme, &ThemeModel::setDefault);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::MonospaceFontChanged, fontMono, &FontModel::setFontName);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::StandardFontChanged, fontStand, &FontModel::setFontName);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::FontSizeChanged, this, &PersonalizationWorker::FontSizeChanged);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::Refreshed, this, &PersonalizationWorker::onRefreshedChanged);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::GtkThemeChanged,
+            windowTheme,
+            &ThemeModel::setDefault);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::CursorThemeChanged,
+            cursorTheme,
+            &ThemeModel::setDefault);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::IconThemeChanged,
+            iconTheme,
+            &ThemeModel::setDefault);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::GlobalThemeChanged,
+            globalTheme,
+            &ThemeModel::setDefault);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::MonospaceFontChanged,
+            fontMono,
+            &FontModel::setFontName);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::StandardFontChanged,
+            fontStand,
+            &FontModel::setFontName);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::FontSizeChanged,
+            this,
+            &PersonalizationWorker::FontSizeChanged);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::Refreshed,
+            this,
+            &PersonalizationWorker::onRefreshedChanged);
 
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WMChanged, this, &PersonalizationWorker::onToggleWM);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::OpacityChanged, this, &PersonalizationWorker::refreshOpacity);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::QtActiveColorChanged, this, &PersonalizationWorker::refreshActiveColor);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::compositingAllowSwitchChanged, this, &PersonalizationWorker::onCompositingAllowSwitch);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::compositingEnabledChanged, this, &PersonalizationWorker::onWindowWM);
-    connect(m_personalizationDBusProxy, &PersonalizationDBusProxy::WindowRadiusChanged, this, &PersonalizationWorker::onWindowRadiusChanged);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::WMChanged,
+            this,
+            &PersonalizationWorker::onToggleWM);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::OpacityChanged,
+            this,
+            &PersonalizationWorker::refreshOpacity);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::QtActiveColorChanged,
+            this,
+            &PersonalizationWorker::refreshActiveColor);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::compositingAllowSwitchChanged,
+            this,
+            &PersonalizationWorker::onCompositingAllowSwitch);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::compositingEnabledChanged,
+            this,
+            &PersonalizationWorker::onWindowWM);
+    connect(m_personalizationDBusProxy,
+            &PersonalizationDBusProxy::WindowRadiusChanged,
+            this,
+            &PersonalizationWorker::onWindowRadiusChanged);
 
     m_personalizationDBusProxy->isEffectLoaded("magiclamp", this, SLOT(onMiniEffectChanged(bool)));
 
@@ -129,7 +172,11 @@ void PersonalizationWorker::addList(ThemeModel *model, const QString &type, cons
         PersonalizationWatcher *watcher = new PersonalizationWatcher(this);
         watcher->setProperty("category", type);
         watcher->setProperty("id", object["Id"].toString());
-        m_personalizationDBusProxy->Thumbnail(type, object["Id"].toString(), watcher, SLOT(onThumbnail(const QString &)), SLOT(errorSlot(const QDBusError &)));
+        m_personalizationDBusProxy->Thumbnail(type,
+                                              object["Id"].toString(),
+                                              watcher,
+                                              SLOT(onThumbnail(const QString &)),
+                                              SLOT(errorSlot(const QDBusError &)));
     }
 
     for (const QJsonObject &obj : objList) {
@@ -165,7 +212,9 @@ void PersonalizationWorker::onGetThemeFinished(const QString &category, const QS
     addList(m_themeModels[category], category, array);
 }
 
-void PersonalizationWorker::onGetPicFinished(const QString &category, const QString &id, const QString &json)
+void PersonalizationWorker::onGetPicFinished(const QString &category,
+                                             const QString &id,
+                                             const QString &json)
 {
     m_themeModels[category]->addPic(id, json);
 }
@@ -225,7 +274,9 @@ void PersonalizationWorker::setFontList(FontModel *model, const QString &type, c
 
 void PersonalizationWorker::refreshTheme()
 {
-    for (QMap<QString, ThemeModel *>::ConstIterator it = m_themeModels.begin(); it != m_themeModels.end(); it++) {
+    for (QMap<QString, ThemeModel *>::ConstIterator it = m_themeModels.begin();
+         it != m_themeModels.end();
+         it++) {
         refreshThemeByType(it.key());
     }
 }
@@ -234,12 +285,17 @@ void PersonalizationWorker::refreshThemeByType(const QString &type)
 {
     PersonalizationWatcher *watcher = new PersonalizationWatcher(this);
     watcher->setProperty("category", type);
-    m_personalizationDBusProxy->List(type, watcher, SLOT(onList(const QString &)), SLOT(errorSlot(const QDBusError &)));
+    m_personalizationDBusProxy->List(type,
+                                     watcher,
+                                     SLOT(onList(const QString &)),
+                                     SLOT(errorSlot(const QDBusError &)));
 }
 
 void PersonalizationWorker::refreshFont()
 {
-    for (QMap<QString, FontModel *>::const_iterator it = m_fontModels.begin(); it != m_fontModels.end(); it++) {
+    for (QMap<QString, FontModel *>::const_iterator it = m_fontModels.begin();
+         it != m_fontModels.end();
+         it++) {
         refreshFontByType(it.key());
     }
 
@@ -250,7 +306,10 @@ void PersonalizationWorker::refreshFontByType(const QString &type)
 {
     PersonalizationWatcher *watcher = new PersonalizationWatcher(this);
     watcher->setProperty("category", type);
-    m_personalizationDBusProxy->List(type, watcher, SLOT(onGetFont(const QString &)), SLOT(errorSlot(const QDBusError &)));
+    m_personalizationDBusProxy->List(type,
+                                     watcher,
+                                     SLOT(onGetFont(const QString &)),
+                                     SLOT(errorSlot(const QDBusError &)));
 }
 
 void PersonalizationWorker::refreshActiveColor(const QString &color)
@@ -285,8 +344,8 @@ double pxToPt(double px)
     return pt;
 }
 
-//字体大小通过点击刻度调整字体大小，可选刻度为：11px、12px、13px、14px、15px、16px、18px、20px;
-//社区版默认值为12px；专业版默认值为12px；
+// 字体大小通过点击刻度调整字体大小，可选刻度为：11px、12px、13px、14px、15px、16px、18px、20px;
+// 社区版默认值为12px；专业版默认值为12px；
 int PersonalizationWorker::sizeToSliderValue(const double value) const
 {
     int px = static_cast<int>(ptToPx(value));
@@ -317,7 +376,7 @@ void PersonalizationWorker::setDefaultByType(const QString &type, const QString 
 
 void PersonalizationWorker::setDefault(const QJsonObject &value)
 {
-    //使用type去调用
+    // 使用type去调用
     m_personalizationDBusProxy->Set(value["type"].toString(), value["Id"].toString());
 }
 
@@ -328,7 +387,7 @@ void PersonalizationWorker::setFontSize(const int value)
 
 void PersonalizationWorker::switchWM()
 {
-    //check is allowed to switch wm
+    // check is allowed to switch wm
     bool allow = allowSwitchWM();
     if (!allow)
         return;

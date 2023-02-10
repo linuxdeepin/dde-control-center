@@ -27,7 +27,7 @@ TimeoutDialog::TimeoutDialog(const int timeout, QString messageModel, QWidget *p
     , m_timeout(timeout)
     , m_messageModel(messageModel)
 {
-    setWindowFlags(Qt::WindowStaysOnTopHint | (windowFlags()&~Qt::WindowMinMaxButtonsHint));
+    setWindowFlags(Qt::WindowStaysOnTopHint | (windowFlags() & ~Qt::WindowMinMaxButtonsHint));
     // set default title, message icon
     setTitle(tr("Save the display settings?"));
     if (messageModel.isEmpty()) {

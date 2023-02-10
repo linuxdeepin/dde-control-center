@@ -23,7 +23,7 @@ public:
     Q_DECLARE_PUBLIC(ListViewModule)
     ModuleListModel *m_model;
 };
-}
+} // namespace DCC_NAMESPACE
 
 ListViewModule::ListViewModule(const QString &name, const QString &displayName, QObject *parent)
     : ModuleObject(name, displayName, parent)
@@ -31,9 +31,7 @@ ListViewModule::ListViewModule(const QString &name, const QString &displayName, 
 {
 }
 
-ListViewModule::~ListViewModule()
-{
-}
+ListViewModule::~ListViewModule() { }
 
 QWidget *ListViewModule::page()
 {

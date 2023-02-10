@@ -21,11 +21,12 @@
 
 #include "loadingitem.h"
 
+#include <DSysInfo>
+
 #include <QDebug>
-#include <QVBoxLayout>
 #include <QIcon>
 #include <QPainter>
-#include <DSysInfo>
+#include <QVBoxLayout>
 
 DCORE_USE_NAMESPACE
 
@@ -99,7 +100,7 @@ void LoadingItem::setImageVisible(bool state)
     m_labelImage->setVisible(state);
 }
 
-//image or text only use one
+// image or text only use one
 void LoadingItem::setImageOrTextVisible(bool state)
 {
     qDebug() << Q_FUNC_INFO << state;
@@ -109,13 +110,14 @@ void LoadingItem::setImageOrTextVisible(bool state)
 
     QString path = "";
     if (state) {
-        m_labelImage->setPixmap(QIcon::fromTheme("icon_success").pixmap({128, 128}));
+        m_labelImage->setPixmap(QIcon::fromTheme("icon_success").pixmap({ 128, 128 }));
     } else {
-        m_labelImage->setPixmap(QIcon(":/icons/deepin/builtin/icons/dcc_checking_update.svg").pixmap({128, 128}));
+        m_labelImage->setPixmap(
+                QIcon(":/icons/deepin/builtin/icons/dcc_checking_update.svg").pixmap({ 128, 128 }));
     }
 }
 
-//image and text all use or not use
+// image and text all use or not use
 void LoadingItem::setImageAndTextVisible(bool state)
 {
     setVersionVisible(state);

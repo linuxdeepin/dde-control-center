@@ -112,7 +112,8 @@ bool BluetoothDevice::canSendFile() const
 
 QDebug &operator<<(QDebug &stream, const BluetoothDevice *device)
 {
-    stream << "BluetoothDevice name:" << device->name() << " paired:" << device->paired() << " state:" << device->state();
+    stream << "BluetoothDevice name:" << device->name() << " paired:" << device->paired()
+           << " state:" << device->state();
 
     return stream;
 }

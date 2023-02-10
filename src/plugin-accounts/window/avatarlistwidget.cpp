@@ -20,36 +20,39 @@
  */
 
 #include "avatarlistwidget.h"
+
+#include "avataritemdelegate.h"
 #include "src/plugin-accounts/operation/user.h"
 #include "widgets/accessibleinterface.h"
-#include "avataritemdelegate.h"
 
-#include <QWidget>
-#include <QListView>
-#include <QStandardItemModel>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QPushButton>
-#include <QLabel>
-#include <QPixmap>
-#include <QDir>
-#include <QFileInfo>
-#include <QDebug>
-#include <QFileInfoList>
-#include <QFileDialog>
-#include <QStandardPaths>
-#include <QDateTime>
-#include <QRandomGenerator>
-#include <DSuggestButton>
 #include <DConfig>
+#include <DSuggestButton>
 #include <DTitlebar>
+
+#include <QDateTime>
+#include <QDebug>
+#include <QDir>
+#include <QFileDialog>
+#include <QFileInfo>
+#include <QFileInfoList>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QListView>
+#include <QPixmap>
+#include <QPushButton>
+#include <QRandomGenerator>
+#include <QStandardItemModel>
+#include <QStandardPaths>
+#include <QVBoxLayout>
+#include <QWidget>
 
 const int MaxAvatarSize = 14;
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
-SET_FORM_ACCESSIBLE(AvatarListWidget,"AvatarListWidget")
+SET_FORM_ACCESSIBLE(AvatarListWidget, "AvatarListWidget")
+
 AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
     : DListView(parent)
     , m_curUser(usr)
@@ -57,7 +60,10 @@ AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
     , m_avatarItemDelegate(new AvatarItemDelegate(this))
     , m_avatarSize(QSize(90, 90))
     , m_fd(new QFileDialog(this))
-    , m_dconfig(DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.accounts"), QString(), this))
+    , m_dconfig(DConfig::create("org.deepin.dde.control-center",
+                                QStringLiteral("org.deepin.dde.control-center.accounts"),
+                                QString(),
+                                this))
 {
     initWidgets();
 
@@ -67,11 +73,12 @@ AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
             const QString iconpath = m_fd->selectedFiles().first();
 
             QFileInfo info(iconpath);
-            m_dconfig->setValue("avatarPath",info.absolutePath());
+            m_dconfig->setValue("avatarPath", info.absolutePath());
 
             int row = -1;
             for (int i = 1; i <= m_avatarItemModel->rowCount(); ++i) {
-                if (iconpath == m_avatarItemModel->index(i, 0).data(AvatarListWidget::SaveAvatarRole)) {
+                if (iconpath
+                    == m_avatarItemModel->index(i, 0).data(AvatarListWidget::SaveAvatarRole)) {
                     row = i;
                     break;
                 }
@@ -81,7 +88,8 @@ AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
                 item->setAccessibleText(iconpath);
                 auto ratio = devicePixelRatioF();
                 auto px = QPixmap(iconpath).scaled(QSize(74, 74) * ratio,
-                                                   Qt::KeepAspectRatio, Qt::FastTransformation);
+                                                   Qt::KeepAspectRatio,
+                                                   Qt::FastTransformation);
                 px.setDevicePixelRatio(ratio);
 
                 item->setData(QVariant::fromValue(px), Qt::DecorationRole);
@@ -175,7 +183,9 @@ void AvatarListWidget::setCurrentAvatarChecked(const QString &avatar)
         return;
 
     for (int i = 0; i < m_avatarItemModel->rowCount(); ++i) {
-        QString itemAvatar = m_avatarItemModel->index(i, 0).data(AvatarListWidget::SaveAvatarRole).value<QString>();
+        QString itemAvatar = m_avatarItemModel->index(i, 0)
+                                     .data(AvatarListWidget::SaveAvatarRole)
+                                     .value<QString>();
         if (currentAvatar != itemAvatar)
             continue;
 
@@ -199,7 +209,8 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
     if (filePath.isEmpty()) {
         QString dir = m_dconfig->value("avatarPath").toString();
         if (dir.isEmpty() || !QDir(dir).exists()) {
-            QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
+            QStringList directory =
+                    QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
             if (!directory.isEmpty()) {
                 m_fd->setDirectory(directory.first());
             }
@@ -208,7 +219,7 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
         }
         m_fd->show();
     } else {
-        if(m_currentSelectIndex.isValid())
+        if (m_currentSelectIndex.isValid())
             m_avatarItemModel->item(m_currentSelectIndex.row())->setCheckState(Qt::Unchecked);
 
         m_currentSelectIndex = index;
@@ -225,14 +236,16 @@ void AvatarListWidget::addItemFromDefaultDir()
     hideList << "default.png"
              << "guest.png";
     QStringList filters;
-    filters << "*.png";          //设置过滤类型
-    dir.setNameFilters(filters); //设置文件名的过滤
+    filters << "*.png";          // 设置过滤类型
+    dir.setNameFilters(filters); // 设置文件名的过滤
     QFileInfoList list = dir.entryInfoList();
 
-    //根据文件名进行排序
-    std::sort(list.begin(), list.end(), [&](const QFileInfo &fileinfo1, const QFileInfo &fileinfo2) {
-        return fileinfo1.baseName() < fileinfo2.baseName();
-    });
+    // 根据文件名进行排序
+    std::sort(list.begin(),
+              list.end(),
+              [&](const QFileInfo &fileinfo1, const QFileInfo &fileinfo2) {
+                  return fileinfo1.baseName() < fileinfo2.baseName();
+              });
 
     for (int i = 0; i < MaxAvatarSize && i < list.size(); ++i) {
         if (hideList.contains(list.at(i).fileName())) {
@@ -250,7 +263,8 @@ void AvatarListWidget::addItemFromDefaultDir()
             pxPath.replace("icons/", "icons/bigger/");
         }
         auto px = QPixmap(pxPath).scaled(QSize(74, 74) * ratio,
-                                         Qt::KeepAspectRatio, Qt::FastTransformation);
+                                         Qt::KeepAspectRatio,
+                                         Qt::FastTransformation);
         px.setDevicePixelRatio(ratio);
 
         item->setData(QVariant::fromValue(px), Qt::DecorationRole);
@@ -279,7 +293,8 @@ QString AvatarListWidget::getUserAddedCustomPicPath(const QString &usrName)
     QString newiconpath;
     QString dirpath("/var/lib/AccountsService/icons/local/");
     QDir dir(dirpath);
-    QFileInfoList list = dir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot); //去除.和..
+    QFileInfoList list =
+            dir.entryInfoList(QDir::Dirs | QDir::Files | QDir::NoDotAndDotDot); // 去除.和..
     for (auto fi : list) {
         auto str = fi.fileName();
         if (0 != str.indexOf(key))
@@ -345,9 +360,7 @@ AvatarListDialog::AvatarListDialog(User *usr, QWidget *parent)
     setFixedSize(510, 390);
 }
 
-AvatarListDialog::~AvatarListDialog()
-{
-}
+AvatarListDialog::~AvatarListDialog() { }
 
 QString AvatarListDialog::getAvatarPath() const
 {

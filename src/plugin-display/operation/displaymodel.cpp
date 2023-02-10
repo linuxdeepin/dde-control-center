@@ -27,6 +27,7 @@
 
 using namespace DCC_NAMESPACE;
 const double DoubleZero = 0.000001;
+
 bool contains(const QList<Resolution> &container, const Resolution &item)
 {
     for (auto r : container)
@@ -119,7 +120,7 @@ void DisplayModel::monitorAdded(Monitor *mon)
 {
     m_monitors.append(mon);
     //  按照名称排序，显示的时候VGA在前，HDMI在后
-    std::sort(m_monitors.begin(), m_monitors.end(), [=](const Monitor *m1, const Monitor *m2){
+    std::sort(m_monitors.begin(), m_monitors.end(), [=](const Monitor *m1, const Monitor *m2) {
         return m1->name() > m2->name();
     });
     checkAllSupportFillModes();
@@ -308,5 +309,4 @@ void DisplayModel::setFilesStoragePath(const QString &path)
         m_filesStoragePath = path;
         Q_EMIT filesStoragePathChanged(m_filesStoragePath);
     }
-
 }

@@ -26,7 +26,7 @@
 #include "defappmodel.h"
 
 DefAppModel::DefAppModel(QObject *parent)
-    :QObject(parent)
+    : QObject(parent)
 {
     m_modBrowser = new Category(this);
     m_modMail = new Category(this);
@@ -47,5 +47,3 @@ DefAppModel::~DefAppModel()
     m_modPicture->deleteLater();
     m_modTerminal->deleteLater();
 }
-
-

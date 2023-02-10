@@ -19,13 +19,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "systeminfodbusproxy.h"
+
 #include "widgets/dccdbusinterface.h"
 
-#include <QMetaObject>
-#include <QDBusMessage>
 #include <QDBusConnection>
 #include <QDBusInterface>
+#include <QDBusMessage>
 #include <QDBusPendingReply>
+#include <QMetaObject>
 
 const QString HostnameService = QStringLiteral("org.freedesktop.hostname1");
 const QString HostnamePath = QStringLiteral("/org/freedesktop/hostname1");
@@ -44,9 +45,18 @@ const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
 SystemInfoDBusProxy::SystemInfoDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_hostname1Inter(new DCC_NAMESPACE::DCCDBusInterface(HostnameService, HostnamePath, HostnameInterface, QDBusConnection::systemBus(), this))
-    , m_licenseInfoInter(new DCC_NAMESPACE::DCCDBusInterface(LicenseInfoService, LicenseInfoPath, LicenseInfoInterface, QDBusConnection::systemBus(), this))
-    , m_licenseActivatorInter(new DCC_NAMESPACE::DCCDBusInterface(LicenseActivatorService, LicenseActivatorPath, LicenseActivatorInterface, QDBusConnection::sessionBus(), this))
+    , m_hostname1Inter(new DCC_NAMESPACE::DCCDBusInterface(
+              HostnameService, HostnamePath, HostnameInterface, QDBusConnection::systemBus(), this))
+    , m_licenseInfoInter(new DCC_NAMESPACE::DCCDBusInterface(LicenseInfoService,
+                                                             LicenseInfoPath,
+                                                             LicenseInfoInterface,
+                                                             QDBusConnection::systemBus(),
+                                                             this))
+    , m_licenseActivatorInter(new DCC_NAMESPACE::DCCDBusInterface(LicenseActivatorService,
+                                                                  LicenseActivatorPath,
+                                                                  LicenseActivatorInterface,
+                                                                  QDBusConnection::sessionBus(),
+                                                                  this))
 {
 }
 
@@ -62,11 +72,18 @@ void SystemInfoDBusProxy::setStaticHostname(const QString &value)
     m_hostname1Inter->asyncCallWithArgumentList("SetStaticHostname", argumentList);
 }
 
-void SystemInfoDBusProxy::setStaticHostname(const QString &value, QObject *receiver, const char *member, const char *errorSlot)
+void SystemInfoDBusProxy::setStaticHostname(const QString &value,
+                                            QObject *receiver,
+                                            const char *member,
+                                            const char *errorSlot)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(value) << QVariant::fromValue(true);
-    m_hostname1Inter->callWithCallback("SetStaticHostname", argumentList, receiver, member, errorSlot);
+    m_hostname1Inter->callWithCallback("SetStaticHostname",
+                                       argumentList,
+                                       receiver,
+                                       member,
+                                       errorSlot);
 }
 
 int SystemInfoDBusProxy::authorizationState()

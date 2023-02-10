@@ -1,32 +1,33 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #include "keyboarddbusproxy.h"
+
 #include "widgets/dccdbusinterface.h"
 
-#include <QMetaObject>
 #include <QDBusConnection>
 #include <QDBusInterface>
-#include <QDBusPendingReply>
 #include <QDBusMetaType>
+#include <QDBusPendingReply>
 #include <QDebug>
+#include <QMetaObject>
 
 const static QString LangSelectorService = "org.deepin.dde.LangSelector1";
 const static QString LangSelectorPath = "/org/deepin/dde/LangSelector1";
@@ -61,27 +62,52 @@ KeyboardDBusProxy::KeyboardDBusProxy(QObject *parent)
 
 void KeyboardDBusProxy::init()
 {
-    m_dBusLangSelectorInter = new DCC_NAMESPACE::DCCDBusInterface(LangSelectorService, LangSelectorPath, LangSelectorInterface, QDBusConnection::sessionBus(), this);
-    m_dBusKeyboardInter = new DCC_NAMESPACE::DCCDBusInterface(KeyboardService, KeyboardPath, KeyboardInterface, QDBusConnection::sessionBus(), this);
-    m_dBusKeybingdingInter = new DCC_NAMESPACE::DCCDBusInterface(KeybingdingService, KeybingdingPath, KeybingdingInterface, QDBusConnection::sessionBus(), this);
-    m_dBusWMInter = new DCC_NAMESPACE::DCCDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
+    m_dBusLangSelectorInter = new DCC_NAMESPACE::DCCDBusInterface(LangSelectorService,
+                                                                  LangSelectorPath,
+                                                                  LangSelectorInterface,
+                                                                  QDBusConnection::sessionBus(),
+                                                                  this);
+    m_dBusKeyboardInter = new DCC_NAMESPACE::DCCDBusInterface(KeyboardService,
+                                                              KeyboardPath,
+                                                              KeyboardInterface,
+                                                              QDBusConnection::sessionBus(),
+                                                              this);
+    m_dBusKeybingdingInter = new DCC_NAMESPACE::DCCDBusInterface(KeybingdingService,
+                                                                 KeybingdingPath,
+                                                                 KeybingdingInterface,
+                                                                 QDBusConnection::sessionBus(),
+                                                                 this);
+    m_dBusWMInter = new DCC_NAMESPACE::DCCDBusInterface(WMService,
+                                                        WMPath,
+                                                        WMInterface,
+                                                        QDBusConnection::sessionBus(),
+                                                        this);
 }
 
 void KeyboardDBusProxy::langSelectorStartServiceProcess()
 {
-    if (m_dBusLangSelectorInter->isValid())
-    {
+    if (m_dBusLangSelectorInter->isValid()) {
         qWarning() << "Service" << LangSelectorService << "is already started.";
         return;
     }
 
-    QDBusInterface freedesktopInter = QDBusInterface("org.freedesktop.DBus", "/", "org.freedesktop.DBus", QDBusConnection::systemBus(), this);
-    QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.DBus", "/", "org.freedesktop.DBus", QStringLiteral("StartServiceByName"));
+    QDBusInterface freedesktopInter = QDBusInterface("org.freedesktop.DBus",
+                                                     "/",
+                                                     "org.freedesktop.DBus",
+                                                     QDBusConnection::systemBus(),
+                                                     this);
+    QDBusMessage msg = QDBusMessage::createMethodCall("org.freedesktop.DBus",
+                                                      "/",
+                                                      "org.freedesktop.DBus",
+                                                      QStringLiteral("StartServiceByName"));
     msg << LangSelectorService << quint32(0);
     QDBusPendingReply<quint32> async = freedesktopInter.connection().asyncCall(msg);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(async, this);
 
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardDBusProxy::onLangSelectorStartServiceProcessFinished);
+    connect(watcher,
+            &QDBusPendingCallWatcher::finished,
+            this,
+            &KeyboardDBusProxy::onLangSelectorStartServiceProcessFinished);
 }
 
 void KeyboardDBusProxy::onLangSelectorStartServiceProcessFinished(QDBusPendingCallWatcher *w)
@@ -92,7 +118,7 @@ void KeyboardDBusProxy::onLangSelectorStartServiceProcessFinished(QDBusPendingCa
     w->deleteLater();
 }
 
-//Keyboard
+// Keyboard
 bool KeyboardDBusProxy::capslockToggle()
 {
     return qvariant_cast<bool>(m_dBusKeyboardInter->property("CapslockToggle"));
@@ -120,7 +146,7 @@ int KeyboardDBusProxy::cursorBlink()
 
 void KeyboardDBusProxy::setCursorBlink(int value)
 {
-   m_dBusKeyboardInter->setProperty("CursorBlink", QVariant::fromValue(value));
+    m_dBusKeyboardInter->setProperty("CursorBlink", QVariant::fromValue(value));
 }
 
 int KeyboardDBusProxy::layoutScope()
@@ -133,7 +159,6 @@ void KeyboardDBusProxy::setLayoutScope(int value)
     m_dBusKeyboardInter->setProperty("LayoutScope", QVariant::fromValue(value));
 }
 
-
 uint KeyboardDBusProxy::repeatDelay()
 {
     return qvariant_cast<uint>(m_dBusKeyboardInter->property("RepeatDelay"));
@@ -143,7 +168,6 @@ void KeyboardDBusProxy::setRepeatDelay(uint value)
 {
     m_dBusKeyboardInter->setProperty("RepeatDelay", QVariant::fromValue(value));
 }
-
 
 bool KeyboardDBusProxy::repeatEnabled()
 {
@@ -155,7 +179,6 @@ void KeyboardDBusProxy::setRepeatEnabled(bool value)
     m_dBusKeyboardInter->setProperty("RepeatEnabled", QVariant::fromValue(value));
 }
 
-
 uint KeyboardDBusProxy::repeatInterval()
 {
     return qvariant_cast<uint>(m_dBusKeyboardInter->property("RepeatInterval"));
@@ -166,19 +189,17 @@ void KeyboardDBusProxy::setRepeatInterval(uint value)
     m_dBusKeyboardInter->setProperty("RepeatInterval", QVariant::fromValue(value));
 }
 
-
 QStringList KeyboardDBusProxy::userLayoutList()
 {
     return qvariant_cast<QStringList>(m_dBusKeyboardInter->property("UserLayoutList"));
 }
-
 
 QStringList KeyboardDBusProxy::userOptionList()
 {
     return qvariant_cast<QStringList>(m_dBusKeyboardInter->property("UserOptionList"));
 }
 
-//LangSelector
+// LangSelector
 QString KeyboardDBusProxy::currentLocale()
 {
     return qvariant_cast<QString>(m_dBusLangSelectorInter->property("CurrentLocale"));
@@ -194,7 +215,7 @@ QStringList KeyboardDBusProxy::locales()
     return qvariant_cast<QStringList>(m_dBusLangSelectorInter->property("Locales"));
 }
 
-//Keybinding
+// Keybinding
 int KeyboardDBusProxy::numLockState()
 {
     return qvariant_cast<int>(m_dBusKeybingdingInter->property("NumLockState"));
@@ -224,76 +245,99 @@ QDBusPendingReply<> KeyboardDBusProxy::KeybindingReset()
 QDBusPendingReply<QString> KeyboardDBusProxy::ListAllShortcuts()
 {
     QList<QVariant> argumentList;
-    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ListAllShortcuts"), argumentList);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ListAllShortcuts"),
+                                                             argumentList);
 }
 
 QString KeyboardDBusProxy::LookupConflictingShortcut(const QString &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return QDBusPendingReply<QString>(m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("LookupConflictingShortcut"), argumentList));
+    return QDBusPendingReply<QString>(m_dBusKeybingdingInter->asyncCallWithArgumentList(
+            QStringLiteral("LookupConflictingShortcut"),
+            argumentList));
 }
 
 QDBusPendingReply<> KeyboardDBusProxy::ClearShortcutKeystrokes(const QString &in0, int in1)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
-    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ClearShortcutKeystrokes"), argumentList);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(
+            QStringLiteral("ClearShortcutKeystrokes"),
+            argumentList);
 }
 
-QDBusPendingReply<> KeyboardDBusProxy::AddShortcutKeystroke(const QString &in0, int in1, const QString &in2)
+QDBusPendingReply<> KeyboardDBusProxy::AddShortcutKeystroke(const QString &in0,
+                                                            int in1,
+                                                            const QString &in2)
 {
     QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2);
-    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("AddShortcutKeystroke"), argumentList);
+    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1)
+                 << QVariant::fromValue(in2);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("AddShortcutKeystroke"),
+                                                             argumentList);
 }
 
-QDBusPendingReply<> KeyboardDBusProxy::AddCustomShortcut(const QString &in0, const QString &in1, const QString &in2)
+QDBusPendingReply<> KeyboardDBusProxy::AddCustomShortcut(const QString &in0,
+                                                         const QString &in1,
+                                                         const QString &in2)
 {
     QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2);
-    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("AddCustomShortcut"), argumentList);
+    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1)
+                 << QVariant::fromValue(in2);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("AddCustomShortcut"),
+                                                             argumentList);
 }
 
-QDBusPendingReply<> KeyboardDBusProxy::ModifyCustomShortcut(const QString &in0, const QString &in1, const QString &in2, const QString &in3)
+QDBusPendingReply<> KeyboardDBusProxy::ModifyCustomShortcut(const QString &in0,
+                                                            const QString &in1,
+                                                            const QString &in2,
+                                                            const QString &in3)
 {
     QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2) << QVariant::fromValue(in3);
-    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ModifyCustomShortcut"), argumentList);
+    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2)
+                 << QVariant::fromValue(in3);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ModifyCustomShortcut"),
+                                                             argumentList);
 }
 
 QDBusPendingReply<> KeyboardDBusProxy::DeleteCustomShortcut(const QString &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("DeleteCustomShortcut"), argumentList);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("DeleteCustomShortcut"),
+                                                             argumentList);
 }
 
 QDBusPendingReply<> KeyboardDBusProxy::GrabScreen()
 {
     QList<QVariant> argumentList;
-    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("GrabScreen"), argumentList);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("GrabScreen"),
+                                                             argumentList);
 }
 
 void KeyboardDBusProxy::SetNumLockState(int in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("SetNumLockState"), argumentList);
+    m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("SetNumLockState"),
+                                                      argumentList);
 }
 
 QDBusPendingReply<QString> KeyboardDBusProxy::GetShortcut(const QString &in0, int in1)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
-    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("GetShortcut"), argumentList);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("GetShortcut"),
+                                                             argumentList);
 }
 
 QDBusPendingReply<QString> KeyboardDBusProxy::SearchShortcuts(const QString &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("SearchShortcuts"), argumentList);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("SearchShortcuts"),
+                                                             argumentList);
 }
 
 QDBusPendingReply<QString> KeyboardDBusProxy::Query(const QString &in0, int in1)
@@ -306,14 +350,16 @@ QDBusPendingReply<QString> KeyboardDBusProxy::Query(const QString &in0, int in1)
 void KeyboardDBusProxy::SelectKeystroke()
 {
     QList<QVariant> argumentList;
-    m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("SelectKeystroke"), argumentList);
+    m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("SelectKeystroke"),
+                                                      argumentList);
 }
 
-//keyBoard
+// keyBoard
 QDBusPendingReply<KeyboardLayoutList> KeyboardDBusProxy::LayoutList()
 {
     QList<QVariant> argumentList;
-    return m_dBusKeyboardInter->asyncCallWithArgumentList(QStringLiteral("LayoutList"), argumentList);
+    return m_dBusKeyboardInter->asyncCallWithArgumentList(QStringLiteral("LayoutList"),
+                                                          argumentList);
 }
 
 void KeyboardDBusProxy::AddUserLayout(const QString &in0)
@@ -327,39 +373,45 @@ void KeyboardDBusProxy::DeleteUserLayout(const QString &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    m_dBusKeyboardInter->asyncCallWithArgumentList(QStringLiteral("DeleteUserLayout"), argumentList);
+    m_dBusKeyboardInter->asyncCallWithArgumentList(QStringLiteral("DeleteUserLayout"),
+                                                   argumentList);
 }
 
 QDBusPendingReply<QString> KeyboardDBusProxy::GetLayoutDesc(const QString &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusKeyboardInter->asyncCallWithArgumentList(QStringLiteral("GetLayoutDesc"), argumentList);
+    return m_dBusKeyboardInter->asyncCallWithArgumentList(QStringLiteral("GetLayoutDesc"),
+                                                          argumentList);
 }
 
 QDBusPendingReply<> KeyboardDBusProxy::AddLocale(const QString &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusLangSelectorInter->asyncCallWithArgumentList(QStringLiteral("AddLocale"), argumentList);
+    return m_dBusLangSelectorInter->asyncCallWithArgumentList(QStringLiteral("AddLocale"),
+                                                              argumentList);
 }
 
 QDBusPendingReply<> KeyboardDBusProxy::DeleteLocale(const QString &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusLangSelectorInter->asyncCallWithArgumentList(QStringLiteral("DeleteLocale"), argumentList);
+    return m_dBusLangSelectorInter->asyncCallWithArgumentList(QStringLiteral("DeleteLocale"),
+                                                              argumentList);
 }
 
 QDBusPendingReply<> KeyboardDBusProxy::SetLocale(const QString &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusLangSelectorInter->asyncCallWithArgumentList(QStringLiteral("SetLocale"), argumentList);
+    return m_dBusLangSelectorInter->asyncCallWithArgumentList(QStringLiteral("SetLocale"),
+                                                              argumentList);
 }
 
 QDBusPendingReply<LocaleList> KeyboardDBusProxy::GetLocaleList()
 {
     QList<QVariant> argumentList;
-    return m_dBusLangSelectorInter->asyncCallWithArgumentList(QStringLiteral("GetLocaleList"), argumentList);
+    return m_dBusLangSelectorInter->asyncCallWithArgumentList(QStringLiteral("GetLocaleList"),
+                                                              argumentList);
 }

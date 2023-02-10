@@ -27,7 +27,8 @@ class AccessibleFactoryInterface
 public:
     explicit AccessibleFactoryInterface();
     virtual ~AccessibleFactoryInterface();
-    virtual AccessibleFactoryBase * registerAccessibleFactory(const char *factoryName, AccessibleFactoryBase *factory) = 0;
+    virtual AccessibleFactoryBase *registerAccessibleFactory(const char *factoryName,
+                                                             AccessibleFactoryBase *factory) = 0;
     static void RegisterInstance(AccessibleFactoryInterface *inter);
 };
 #endif // ACCESSIBLEFACTORYINTERFACE_H

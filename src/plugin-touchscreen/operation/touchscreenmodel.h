@@ -1,10 +1,9 @@
 #ifndef TOUCHSCREENMODEL_H
 #define TOUCHSCREENMODEL_H
 
+#include "namespace.h"
 #include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
-#include "namespace.h"
-
 
 #include <QObject>
 class TouchScreenModelPrivate;
@@ -17,7 +16,8 @@ public:
     explicit TouchScreenModel(QObject *parent = nullptr);
     ~TouchScreenModel();
 
-    Q_PROPERTY(const TouchscreenInfoList_V2 touchScreenList READ touchScreenList NOTIFY touchScreenListChanged)
+    Q_PROPERTY(const TouchscreenInfoList_V2 touchScreenList READ touchScreenList NOTIFY
+                       touchScreenListChanged)
     Q_PROPERTY(const QStringList monitors READ monitors NOTIFY monitorsChanged)
     Q_PROPERTY(TouchscreenMap touchMap READ touchMap NOTIFY touchMapChanged)
 

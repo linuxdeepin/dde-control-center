@@ -1,16 +1,16 @@
-#include "src/plugin-notification/window/systemnotifywidget.h"
-#include "src/plugin-notification/window/notificationitem.h"
-#include "src/plugin-notification/window/timeslotitem.h"
-#include "src/plugin-notification/operation/notificationworker.h"
-#include "src/plugin-notification/operation/model/sysitemmodel.h"
+#include <gtest/gtest.h>
+
 #include "interface/namespace.h"
+#include "src/plugin-notification/operation/model/sysitemmodel.h"
+#include "src/plugin-notification/operation/notificationworker.h"
+#include "src/plugin-notification/window/notificationitem.h"
+#include "src/plugin-notification/window/systemnotifywidget.h"
+#include "src/plugin-notification/window/timeslotitem.h"
 #include "widgets/switchwidget.h"
 
 #include <DSwitchButton>
 
 #include <QSignalSpy>
-
-#include <gtest/gtest.h>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -18,18 +18,11 @@ DWIDGET_USE_NAMESPACE
 class Tst_SystemNotifyWidget : public testing::Test
 {
 public:
-    void SetUp() override
-    {
+    void SetUp() override { }
 
-    }
-
-    void TearDown() override
-    {
-
-    }
+    void TearDown() override { }
 
 public:
-
 };
 
 TEST_F(Tst_SystemNotifyWidget, init)

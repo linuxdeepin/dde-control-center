@@ -21,9 +21,10 @@
 #ifndef ACCOUNTSDBUSPROXY_H
 #define ACCOUNTSDBUSPROXY_H
 
-#include <QObject>
-#include <QDBusPendingReply>
 #include "interface/namespace.h"
+
+#include <QDBusPendingReply>
+#include <QObject>
 
 namespace DCC_NAMESPACE {
 class DCCDBusInterface;

@@ -36,7 +36,7 @@ SummaryItem::SummaryItem(QFrame *parent)
 
     m_title->setObjectName("UpdateSummary");
 
-    QVBoxLayout* layout = new QVBoxLayout;
+    QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     layout->setSpacing(0);
 

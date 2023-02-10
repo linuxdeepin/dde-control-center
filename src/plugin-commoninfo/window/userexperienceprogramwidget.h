@@ -24,7 +24,6 @@
 
 #include <QWidget>
 
-
 namespace DCC_NAMESPACE {
 class SwitchWidget;
 class CommonInfoModel;
@@ -43,4 +42,4 @@ Q_SIGNALS:
 private:
     SwitchWidget *m_joinUeProgram;
 };
-}
+} // namespace DCC_NAMESPACE

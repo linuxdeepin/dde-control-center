@@ -40,10 +40,14 @@ public:
     void setServiceValid(bool valid);
 
 private Q_SLOTS:
-    void onPropertiesChanged(const QString &interfaceName, const QVariantMap &changedProperties, const QStringList &invalidatedProperties);
+    void onPropertiesChanged(const QString &interfaceName,
+                             const QVariantMap &changedProperties,
+                             const QStringList &invalidatedProperties);
     void onAsyncPropertyFinished(QDBusPendingCallWatcher *w);
     void onDBusNameHasOwner(bool valid);
-    void onDBusNameOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOWner);
+    void onDBusNameOwnerChanged(const QString &name,
+                                const QString &oldOwner,
+                                const QString &newOWner);
 
 public:
     QObject *m_parent;
@@ -55,6 +59,6 @@ public:
     Q_DECLARE_PUBLIC(DCCDBusInterface)
 };
 
-}
+} // namespace DCC_NAMESPACE
 
 #endif // DCCDBUSINTERFACE_P_H

@@ -23,10 +23,11 @@
 
 #include "interface/namespace.h"
 
-#include <QStyledItemDelegate>
 #include <QMetaType>
+#include <QStyledItemDelegate>
 
-struct LastItemData {
+struct LastItemData
+{
     bool isDrawLast;
     QString iconPath;
 };
@@ -50,9 +51,11 @@ public:
     explicit AvatarItemDelegate(QObject *parent = nullptr);
 
     // painting
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void paint(QPainter *painter,
+               const QStyleOptionViewItem &option,
+               const QModelIndex &index) const;
 
     // set item size
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const;
 };
-} // DCC_NAMESPACE
+} // namespace DCC_NAMESPACE

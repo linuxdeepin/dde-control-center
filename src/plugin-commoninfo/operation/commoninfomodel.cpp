@@ -20,6 +20,7 @@
  */
 
 #include "commoninfomodel.h"
+
 #include <QDebug>
 
 using namespace DCC_NAMESPACE;
@@ -28,7 +29,6 @@ CommonInfoModel::CommonInfoModel(QObject *parent)
     : QObject(parent)
     , m_bootDelay(false)
 {
-
 }
 
 void CommonInfoModel::setEntryLists(const QStringList &list)
@@ -121,7 +121,6 @@ void CommonInfoModel::setActivation(bool value)
         Q_EMIT LicenseStateChanged(value);
     }
 }
-
 
 QPixmap CommonInfoModel::background() const
 {

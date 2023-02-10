@@ -4,7 +4,7 @@
  * Author:     andywang <andywang_cm@deepin.com>
  *
  * Maintainer: andywang <andywang_cm@deepin.com>
-  *
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
@@ -21,13 +21,13 @@
 
 #include "titleedit.h"
 
+#include <DDesktopServices>
+#include <DLineEdit>
 #include <DToolButton>
 
+#include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
-#include <QHBoxLayout>
-#include <DLineEdit>
-#include <DDesktopServices>
 
 DWIDGET_USE_NAMESPACE
 

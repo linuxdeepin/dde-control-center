@@ -32,11 +32,7 @@ class DateWidget : public DCC_NAMESPACE::SettingsItem
 {
     Q_OBJECT
 public:
-    enum Type {
-        Year,
-        Month,
-        Day
-    };
+    enum Type { Year, Month, Day };
 
 public:
     explicit DateWidget(Type type, int minimum, int maximum, QWidget *parent = 0);

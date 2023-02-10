@@ -1,15 +1,17 @@
+#include <gtest/gtest.h>
+
 #include "interface/namespace.h"
 #include "src/plugin-systeminfo/window/logoitem.h"
 
 #include <DListView>
+
 #include <QSignalSpy>
 #include <QTest>
-#include <gtest/gtest.h>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
-class Test_LogoItem: public testing::Test
+class Test_LogoItem : public testing::Test
 {
 public:
     virtual void SetUp() override;

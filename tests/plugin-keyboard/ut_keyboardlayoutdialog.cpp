@@ -1,9 +1,8 @@
+#include "gtest/gtest.h"
 #include "src/plugin-keyboard/window/keyboardlayoutdialog.h"
 
-#include <QSignalSpy>
 #include <QPushButton>
-
-#include "gtest/gtest.h"
+#include <QSignalSpy>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -29,7 +28,4 @@ void Tst_KeyboardLayoutDialog::TearDown()
     dialog = nullptr;
 }
 
-TEST_F(Tst_KeyboardLayoutDialog, emitSignal)
-{
-
-}
+TEST_F(Tst_KeyboardLayoutDialog, emitSignal) { }

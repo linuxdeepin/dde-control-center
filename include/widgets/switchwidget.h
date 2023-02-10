@@ -26,7 +26,9 @@
 
 #include "interface/namespace.h"
 #include "widgets/settingsitem.h"
+
 #include <dtkwidget_global.h>
+
 #include <QLabel>
 
 DWIDGET_BEGIN_NAMESPACE
@@ -45,6 +47,7 @@ class SwitchLabel : public QLabel
 
 public:
     explicit SwitchLabel(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
+
     inline QSize actualSize() { return m_actualSize; }
 
 protected:
@@ -70,8 +73,10 @@ public:
     bool checked() const;
 
     void setLeftWidget(QWidget *widget);
+
     QWidget *leftWidget() const { return m_leftWidget; }
-    QHBoxLayout* getMainLayout() { return m_mainLayout; }
+
+    QHBoxLayout *getMainLayout() { return m_mainLayout; }
 
 public:
     inline DTK_WIDGET_NAMESPACE::DSwitchButton *switchButton() const { return m_switchBtn; }
@@ -91,4 +96,4 @@ private:
     QHBoxLayout *m_mainLayout;
 };
 
-}
+} // namespace DCC_NAMESPACE

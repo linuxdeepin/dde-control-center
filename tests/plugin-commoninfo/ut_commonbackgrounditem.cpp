@@ -1,15 +1,17 @@
+#include <gtest/gtest.h>
+
 #include "interface/namespace.h"
 #include "src/plugin-commoninfo/window/commonbackgrounditem.h"
 
 #include <DListView>
+
 #include <QSignalSpy>
 #include <QTest>
-#include <gtest/gtest.h>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
-class Test_CommonBackgroundItem: public testing::Test
+class Test_CommonBackgroundItem : public testing::Test
 {
 public:
     virtual void SetUp() override;

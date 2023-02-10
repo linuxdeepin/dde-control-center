@@ -21,6 +21,7 @@
 #pragma once
 
 #include "interface/namespace.h"
+
 #include <QObject>
 
 namespace DCC_NAMESPACE {
@@ -48,7 +49,8 @@ public:
     void setEnableTheme(const bool value);
     Q_PROPERTY(bool Updating READ Updating NOTIFY UpdatingChanged)
     bool Updating();
-    Q_PROPERTY(QString DefaultEntry READ DefaultEntry WRITE setDefaultEntry NOTIFY DefaultEntryChanged)
+    Q_PROPERTY(
+            QString DefaultEntry READ DefaultEntry WRITE setDefaultEntry NOTIFY DefaultEntryChanged)
     QString DefaultEntry();
     void setDefaultEntry(const QString &entry);
     Q_PROPERTY(uint Timeout READ Timeout WRITE setTimeout NOTIFY TimeoutChanged)
@@ -75,8 +77,14 @@ public:
     bool IsEnabled();
 
     // notification
-    void Notify(const QString &in0, const uint in1, const QString &in2, const QString &in3, const QString &in4,
-                const QStringList &in5, const QVariantMap &in6, const int in7);
+    void Notify(const QString &in0,
+                const uint in1,
+                const QString &in2,
+                const QString &in3,
+                const QString &in4,
+                const QStringList &in5,
+                const QVariantMap &in6,
+                const int in7);
 
 Q_SIGNALS: // SIGNALS
     // deepin id

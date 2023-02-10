@@ -35,7 +35,7 @@ class DouTestWidget;
 class SettingsGroup;
 class SwitchWidget;
 class TitledSliderItem;
-}
+} // namespace DCC_NAMESPACE
 
 namespace DCC_NAMESPACE {
 class GeneralSettingWidget : public QWidget
@@ -51,9 +51,11 @@ Q_SIGNALS:
     void requestSetDisTyping(const bool state);
     void requestScrollSpeed(const int speed);
     void requestSetDouClick(const int value);
+
 private:
     void onDoubleClickSpeedChanged(int speed);
     void onScrollSpeedChanged(uint speed);
+
 private:
     MouseModel *m_mouseModel;
     SettingsGroup *m_generalSettingsGrp;
@@ -65,5 +67,5 @@ private:
     DouTestWidget *m_doubleTest;
     QVBoxLayout *m_contentLayout;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // GENERALSETTINGWIDGET_H

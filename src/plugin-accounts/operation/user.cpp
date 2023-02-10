@@ -26,6 +26,7 @@
 #include "user.h"
 
 using namespace DCC_NAMESPACE;
+
 User::User(QObject *parent)
     : QObject(parent)
     , m_isCurrentUser(false)
@@ -148,7 +149,7 @@ void User::setIsCurrentUser(bool isCurrentUser)
     Q_EMIT isCurrentUserChanged(isCurrentUser);
 }
 
-void User::setPasswordStatus(const QString& status)
+void User::setPasswordStatus(const QString &status)
 {
     if (m_passwordStatus == status) {
         return;
@@ -159,7 +160,7 @@ void User::setPasswordStatus(const QString& status)
     Q_EMIT passwordStatusChanged(status);
 }
 
-void User::setCreatedTime(const quint64 & createdtime)
+void User::setCreatedTime(const quint64 &createdtime)
 {
     if (m_createdTime == createdtime) {
         return;
@@ -208,7 +209,7 @@ int User::charactertypes(QString password)
 
     while (*s) {
         if ('0' <= *s && '9' >= *s) {
-            Number_flag = 1 ;
+            Number_flag = 1;
         } else if ('A' <= *s && 'Z' >= *s) {
             Capital_flag = 1;
         } else if ('a' <= *s && 'z' >= *s) {
@@ -239,4 +240,3 @@ void User::setSecurityLever(const SecurityLever &securityLever)
 {
     m_securityLever = securityLever;
 }
-

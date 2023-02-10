@@ -53,6 +53,7 @@ public:
     void setLeftIcon(const QIcon &leftIcon);
     void setRightIcon(const QIcon &rightIcon);
     void setIconSize(const QSize &size);
+
     QHBoxLayout *getbottomlayout() { return m_bottomLayout; }
 
 private:
@@ -63,4 +64,4 @@ private:
     QHBoxLayout *m_bottomLayout;
 };
 
-}
+} // namespace DCC_NAMESPACE

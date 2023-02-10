@@ -19,31 +19,31 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "personalizationthememodule.h"
+
+#include "dccslider.h"
+#include "model/fontmodel.h"
+#include "model/fontsizemodel.h"
+#include "model/thememodel.h"
 #include "personalizationmodel.h"
 #include "personalizationworker.h"
-#include "widgets/ringcolorwidget.h"
-#include "model/fontsizemodel.h"
-#include "model/fontmodel.h"
-#include "widgets/themeitempic.h"
-#include "model/thememodel.h"
-#include "widgets/personalizationthemelist.h"
-#include "widgets/globalthemelistview.h"
-
-#include "widgets/widgetmodule.h"
-#include "widgets/dcclistview.h"
-#include "widgets/itemmodule.h"
-#include "titledslideritem.h"
-#include "dccslider.h"
 #include "settingsgroupmodule.h"
+#include "titledslideritem.h"
+#include "widgets/dcclistview.h"
+#include "widgets/globalthemelistview.h"
+#include "widgets/itemmodule.h"
+#include "widgets/personalizationthemelist.h"
+#include "widgets/ringcolorwidget.h"
+#include "widgets/themeitempic.h"
+#include "widgets/widgetmodule.h"
 
 #include <DGuiApplicationHelper>
-#include <DStyle>
 #include <DLabel>
+#include <DStyle>
 
-#include <QDesktopServices>
 #include <QCheckBox>
 #include <QColorDialog>
 #include <QComboBox>
+#include <QDesktopServices>
 #include <QGraphicsDropShadowEffect>
 #include <QHBoxLayout>
 #include <QLabel>
@@ -55,86 +55,100 @@ DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 
 #define CUSTOM_ACTIVE_COLOR "CUSTOM"
-const QList<QString> ACTIVE_COLORS = {
-    "#D8316C",
-    "#FF5D00",
-    "#F8CB00",
-    "#23C400",
-    "#00A48A",
-    "#0081FF",
-    "#3C02FF",
-    "#8C00D4",
-    "#4D4D4D",
-    CUSTOM_ACTIVE_COLOR
-};
+const QList<QString> ACTIVE_COLORS = { "#D8316C", "#FF5D00",          "#F8CB00", "#23C400",
+                                       "#00A48A", "#0081FF",          "#3C02FF", "#8C00D4",
+                                       "#4D4D4D", CUSTOM_ACTIVE_COLOR };
 
-const QList<QColor> ACTIVE_COLORST = {
-    { 223, 65, 135 },
-    { 234, 105, 31 },
-    { 243, 181, 23 },
-    { 73, 177, 37 },
-    { 0, 164, 138 },
-    { 0, 129, 255 },
-    { 64, 47, 219 },
-    { 119, 36, 177 },
-    { 117, 117, 117 },
-    QColor()
-};
+const QList<QColor> ACTIVE_COLORST = { { 223, 65, 135 }, { 234, 105, 31 }, { 243, 181, 23 },
+                                       { 73, 177, 37 },  { 0, 164, 138 },  { 0, 129, 255 },
+                                       { 64, 47, 219 },  { 119, 36, 177 }, { 117, 117, 117 },
+                                       QColor() };
 
-const QList<QColor> Dark_ACTIVE_COLORST = {
-    { 168, 43, 98 },
-    { 204, 77, 3 },
-    { 208, 156, 0 },
-    { 69, 159, 41 },
-    { 24, 136, 118 },
-    { 2, 76, 202 },
-    { 56, 48, 167 },
-    { 106, 36, 135 },
-    { 134, 134, 134 },
-    QColor()
-};
+const QList<QColor> Dark_ACTIVE_COLORST = { { 168, 43, 98 }, { 204, 77, 3 },   { 208, 156, 0 },
+                                            { 69, 159, 41 }, { 24, 136, 118 }, { 2, 76, 202 },
+                                            { 56, 48, 167 }, { 106, 36, 135 }, { 134, 134, 134 },
+                                            QColor() };
 
-PersonalizationThemeModule::PersonalizationThemeModule(PersonalizationModel *model, PersonalizationWorker *work, QObject *parent)
+PersonalizationThemeModule::PersonalizationThemeModule(PersonalizationModel *model,
+                                                       PersonalizationWorker *work,
+                                                       QObject *parent)
     : PageModule("theme", tr("Theme"), parent)
     , m_standardModel(new QStandardItemModel(this))
     , m_monospacedModel(new QStandardItemModel(this))
     , m_model(model)
     , m_work(work)
 {
-    appendChild(new ItemModule("themeTitle", tr("Theme"), this, &PersonalizationThemeModule::initThemeTitle, false));
+    appendChild(new ItemModule("themeTitle",
+                               tr("Theme"),
+                               this,
+                               &PersonalizationThemeModule::initThemeTitle,
+                               false));
     SettingsGroupModule *group = new SettingsGroupModule("theme", tr("Theme"));
     appendChild(group);
-    group->appendChild(new ItemModule("themeList", tr("Theme"), this, &PersonalizationThemeModule::initThemeList, false));
-    group->appendChild(new ItemModule("themeMode", tr("Appearance"), this, &PersonalizationThemeModule::initThemeSwitch));
+    group->appendChild(new ItemModule("themeList",
+                                      tr("Theme"),
+                                      this,
+                                      &PersonalizationThemeModule::initThemeList,
+                                      false));
+    group->appendChild(new ItemModule("themeMode",
+                                      tr("Appearance"),
+                                      this,
+                                      &PersonalizationThemeModule::initThemeSwitch));
 
     appendChild(new ItemModule("accentColorTitle", tr("Accent Color")));
-    appendChild(new ItemModule("accentColor", tr("Accent Color"), this, &PersonalizationThemeModule::initAccentColor, false));
+    appendChild(new ItemModule("accentColor",
+                               tr("Accent Color"),
+                               this,
+                               &PersonalizationThemeModule::initAccentColor,
+                               false));
     appendChild(new ItemModule("iconSettings", tr("Icon Settings")));
-    ItemModule *tmpModule = new ItemModule("iconTheme", tr("Icon Theme"), this, &PersonalizationThemeModule::initIconTheme);
+    ItemModule *tmpModule = new ItemModule("iconTheme",
+                                           tr("Icon Theme"),
+                                           this,
+                                           &PersonalizationThemeModule::initIconTheme);
     tmpModule->setBackground(true);
     tmpModule->setClickable(true);
     connect(tmpModule, &ItemModule::clicked, this, &PersonalizationThemeModule::setIconTheme);
     appendChild(tmpModule);
-    tmpModule = new ItemModule("cursorTheme", tr("Cursor Theme"), this, &PersonalizationThemeModule::initCursorTheme);
+    tmpModule = new ItemModule("cursorTheme",
+                               tr("Cursor Theme"),
+                               this,
+                               &PersonalizationThemeModule::initCursorTheme);
     tmpModule->setBackground(true);
     tmpModule->setClickable(true);
     connect(tmpModule, &ItemModule::clicked, this, &PersonalizationThemeModule::setCursorTheme);
     appendChild(tmpModule);
     appendChild(new ItemModule("textSettings", tr("Text Settings")));
-    tmpModule = new ItemModule("fontSize", tr("Font Size"), this, &PersonalizationThemeModule::initFontSize, false);
+    tmpModule = new ItemModule("fontSize",
+                               tr("Font Size"),
+                               this,
+                               &PersonalizationThemeModule::initFontSize,
+                               false);
     appendChild(tmpModule);
-    tmpModule = new ItemModule("standardFont", tr("Standard Font"), this, &PersonalizationThemeModule::initStandardFont);
+    tmpModule = new ItemModule("standardFont",
+                               tr("Standard Font"),
+                               this,
+                               &PersonalizationThemeModule::initStandardFont);
     tmpModule->setBackground(true);
     appendChild(tmpModule);
-    tmpModule = new ItemModule("monospacedFont", tr("Monospaced Font"), this, &PersonalizationThemeModule::initMonospacedFont);
+    tmpModule = new ItemModule("monospacedFont",
+                               tr("Monospaced Font"),
+                               this,
+                               &PersonalizationThemeModule::initMonospacedFont);
     tmpModule->setBackground(true);
     appendChild(tmpModule);
 
     setStandList(m_model->getStandFontModel()->getFontList());
-    connect(m_model->getStandFontModel(), &FontModel::listChanged, this, &PersonalizationThemeModule::setStandList);
+    connect(m_model->getStandFontModel(),
+            &FontModel::listChanged,
+            this,
+            &PersonalizationThemeModule::setStandList);
 
     setMonoList(m_model->getMonoFontModel()->getFontList());
-    connect(m_model->getMonoFontModel(), &FontModel::listChanged, this, &PersonalizationThemeModule::setMonoList);
+    connect(m_model->getMonoFontModel(),
+            &FontModel::listChanged,
+            this,
+            &PersonalizationThemeModule::setMonoList);
 }
 
 void PersonalizationThemeModule::active()
@@ -145,7 +159,7 @@ void PersonalizationThemeModule::active()
 void PersonalizationThemeModule::onActiveColorClicked()
 {
     RoundColorWidget *pItem = dynamic_cast<RoundColorWidget *>(sender());
-    //设置active color
+    // 设置active color
     QString strColor = pItem->accessibleName();
     if (strColor == CUSTOM_ACTIVE_COLOR) {
         QColorDialog *colorDialog = new QColorDialog(pItem->palette().highlight().color(), pItem);
@@ -187,7 +201,10 @@ void PersonalizationThemeModule::setIconTheme(QWidget *widget)
 {
     PersonalizationThemeList *themeList = new PersonalizationThemeList(tr("Icon Theme"), widget);
     themeList->setModel(m_model->getIconModel());
-    connect(themeList, &PersonalizationThemeList::requestSetDefault, m_work, &PersonalizationWorker::setDefault);
+    connect(themeList,
+            &PersonalizationThemeList::requestSetDefault,
+            m_work,
+            &PersonalizationWorker::setDefault);
     themeList->exec();
 }
 
@@ -195,7 +212,10 @@ void PersonalizationThemeModule::setCursorTheme(QWidget *widget)
 {
     PersonalizationThemeList *themeList = new PersonalizationThemeList(tr("Cursor Theme"), widget);
     themeList->setModel(m_model->getMouseModel());
-    connect(themeList, &PersonalizationThemeList::requestSetDefault, m_work, &PersonalizationWorker::setDefault);
+    connect(themeList,
+            &PersonalizationThemeList::requestSetDefault,
+            m_work,
+            &PersonalizationWorker::setDefault);
     themeList->exec();
 }
 
@@ -210,14 +230,14 @@ QWidget *PersonalizationThemeModule::initThemeTitle(ModuleObject *module)
     DFontSizeManager::instance()->bind(leftWidget, DFontSizeManager::T5, QFont::DemiBold);
     layout->addWidget(leftWidget);
 
-//    QToolButton *button = new QToolButton();
-//    button->setIcon(QIcon::fromTheme("help"));
-//    button->setFixedSize(24, 24);
-//    layout->addWidget(button);
-//    layout->addStretch();
-//    connect(button, &QToolButton::clicked, button, []() {
-//        QDesktopServices::openUrl(QUrl("file:///usr/share/dde-control-center/developdocument.html"));
-//    });
+    //    QToolButton *button = new QToolButton();
+    //    button->setIcon(QIcon::fromTheme("help"));
+    //    button->setFixedSize(24, 24);
+    //    layout->addWidget(button);
+    //    layout->addStretch();
+    //    connect(button, &QToolButton::clicked, button, []() {
+    //        QDesktopServices::openUrl(QUrl("file:///usr/share/dde-control-center/developdocument.html"));
+    //    });
     return widget;
 }
 
@@ -282,7 +302,8 @@ QWidget *PersonalizationThemeModule::initThemeSwitch(ModuleObject *module)
         QString themeId = getGlobalThemeId(globalTheme->getDefault(), mode);
         const QMap<QString, QJsonObject> &itemList = globalTheme->getList();
         if (itemList.contains(themeId))
-            m_work->setDefaultByType(itemList.value(themeId)["type"].toString(), themeId + dataMode);
+            m_work->setDefaultByType(itemList.value(themeId)["type"].toString(),
+                                     themeId + dataMode);
     });
     return box;
 }
@@ -295,12 +316,21 @@ QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
     colorLayout->setAlignment(Qt::AlignLeft);
     colorLayout->setContentsMargins(10, 0, 10, 0);
     colorLayout->addStretch();
-    int borderWidth = bgWidget->style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, bgWidget);
-    int borderSpacing = bgWidget->style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, bgWidget);
-    int totalSpace = borderWidth + borderSpacing + RoundColorWidget::EXTRA; // 2px extra space to avoid line cutted off
+    int borderWidth = bgWidget->style()->pixelMetric(
+            static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth),
+            nullptr,
+            bgWidget);
+    int borderSpacing = bgWidget->style()->pixelMetric(
+            static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing),
+            nullptr,
+            bgWidget);
+    int totalSpace = borderWidth + borderSpacing
+            + RoundColorWidget::EXTRA; // 2px extra space to avoid line cutted off
 
     DGuiApplicationHelper::ColorType themeType = DGuiApplicationHelper::instance()->themeType();
-    const QList<QColor> &activeColors = (themeType == DGuiApplicationHelper::ColorType::LightType ? ACTIVE_COLORST : Dark_ACTIVE_COLORST);
+    const QList<QColor> &activeColors =
+            (themeType == DGuiApplicationHelper::ColorType::LightType ? ACTIVE_COLORST
+                                                                      : Dark_ACTIVE_COLORST);
     for (int i = 0; i < activeColors.size(); ++i) {
         QColor color = activeColors.at(i);
         RoundColorWidget *colorItem = new RoundColorWidget(color, bgWidget);
@@ -308,7 +338,7 @@ QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
         effect->setBlurRadius(17); // 阴影圆角的大小
 
         color.setAlpha(68);
-        effect->setColor(color); //阴影的颜色
+        effect->setColor(color); // 阴影的颜色
         effect->setOffset(0, 5);
         colorItem->setGraphicsEffect(effect);
 
@@ -319,7 +349,10 @@ QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
         colorItem->setPalette(pa);
         colorItem->setFixedSize(20 + 2 * totalSpace, 40);
         colorLayout->addWidget(colorItem);
-        connect(colorItem, &RoundColorWidget::clicked, this, &PersonalizationThemeModule::onActiveColorClicked);
+        connect(colorItem,
+                &RoundColorWidget::clicked,
+                this,
+                &PersonalizationThemeModule::onActiveColorClicked);
     }
     colorLayout->addStretch();
     auto setColorFun = [bgWidget](const QString &newColor) {
@@ -327,10 +360,12 @@ QWidget *PersonalizationThemeModule::initAccentColor(ModuleObject *module)
         int endIndex = lyt->count() - 2;
         for (int i = 1; i <= endIndex; ++i) {
             if (lyt->itemAt(i)->widget()->accessibleName() == newColor) {
-                bgWidget->setSelectedItem(qobject_cast<RoundColorWidget *>(lyt->itemAt(i)->widget()));
+                bgWidget->setSelectedItem(
+                        qobject_cast<RoundColorWidget *>(lyt->itemAt(i)->widget()));
                 break;
             } else if (i == endIndex) {
-                bgWidget->setSelectedItem(qobject_cast<RoundColorWidget *>(lyt->itemAt(i)->widget()));
+                bgWidget->setSelectedItem(
+                        qobject_cast<RoundColorWidget *>(lyt->itemAt(i)->widget()));
             }
         }
     };
@@ -359,7 +394,8 @@ QWidget *PersonalizationThemeModule::initIconTheme(ModuleObject *module)
     connect(m_model->getIconModel(), &ThemeModel::picAdded, pic, setPic);
     layout->addWidget(pic);
     QLabel *enterIcon = new QLabel(widget);
-    enterIcon->setPixmap(DStyle::standardIcon(widget->style(), DStyle::SP_ArrowEnter).pixmap(16, 16));
+    enterIcon->setPixmap(
+            DStyle::standardIcon(widget->style(), DStyle::SP_ArrowEnter).pixmap(16, 16));
     layout->addWidget(enterIcon);
     return widget;
 }
@@ -383,7 +419,8 @@ QWidget *PersonalizationThemeModule::initCursorTheme(ModuleObject *module)
     connect(m_model->getMouseModel(), &ThemeModel::picAdded, pic, setPic);
     layout->addWidget(pic);
     QLabel *enterIcon = new QLabel(widget);
-    enterIcon->setPixmap(DStyle::standardIcon(widget->style(), DStyle::SP_ArrowEnter).pixmap(16, 16));
+    enterIcon->setPixmap(
+            DStyle::standardIcon(widget->style(), DStyle::SP_ArrowEnter).pixmap(16, 16));
     layout->addWidget(enterIcon);
     return widget;
 }
@@ -420,7 +457,10 @@ QWidget *PersonalizationThemeModule::initFontSize(ModuleObject *module)
         fontSizeSlider->slider()->blockSignals(false);
     };
     fontSizeChanged(m_model->getFontSizeModel()->getFontSize());
-    connect(m_model->getFontSizeModel(), &FontSizeModel::sizeChanged, fontSizeSlider, fontSizeChanged);
+    connect(m_model->getFontSizeModel(),
+            &FontSizeModel::sizeChanged,
+            fontSizeSlider,
+            fontSizeChanged);
     connect(slider, &DCCSlider::valueChanged, m_work, &PersonalizationWorker::setFontSize);
     connect(slider, &DCCSlider::sliderMoved, m_work, &PersonalizationWorker::setFontSize);
     return fontSizeSlider;
@@ -442,7 +482,9 @@ QWidget *PersonalizationThemeModule::initMonospacedFont(ModuleObject *module)
     return comboBox;
 }
 
-void PersonalizationThemeModule::initFontWidget(QComboBox *combox, FontModel *fontModel, QStandardItemModel *model)
+void PersonalizationThemeModule::initFontWidget(QComboBox *combox,
+                                                FontModel *fontModel,
+                                                QStandardItemModel *model)
 {
     combox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     auto defaultFont = [combox, fontModel, model](const QString &name) {

@@ -20,8 +20,8 @@
  */
 #pragma once
 
-#include "interface/namespace.h"
 #include "interface/moduleobject.h"
+#include "interface/namespace.h"
 #include "interface/plugininterface.h"
 
 #include <QObject>
@@ -42,7 +42,8 @@ class AppItemModel;
 class NotificationPlugin : public PluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Notification" FILE "NotificationPlugin.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Notification" FILE
+                          "NotificationPlugin.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
     virtual QString name() const override;
@@ -50,7 +51,7 @@ public:
     virtual QString location() const override;
 };
 
-class NotificationModule: public ModuleObject
+class NotificationModule : public ModuleObject
 {
     Q_OBJECT
 public:
@@ -60,7 +61,9 @@ public:
     virtual void deactive() override;
 
     virtual QWidget *page() override;
+
     NotificationWorker *work() { return m_worker; }
+
     NotificationModel *model() { return m_model; }
 
 private Q_SLOTS:
@@ -78,4 +81,4 @@ private:
     SystemNotifyWidget *m_systemNotifyWidget;
     QStandardItemModel *m_softwaremodel;
 };
-}
+} // namespace DCC_NAMESPACE

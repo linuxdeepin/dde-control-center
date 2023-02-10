@@ -19,42 +19,43 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "mainwindow.h"
+
 #include "interface/moduleobject.h"
+#include "mainmodule.h"
 #include "pluginmanager.h"
 #include "searchwidget.h"
-#include "widgets/utils.h"
-#include "mainmodule.h"
 #include "utils.h"
+#include "widgets/utils.h"
 
 #include <DBackgroundGroup>
-#include <DIconButton>
-#include <DTitlebar>
-#include <DConfig>
-#include <DWidgetUtil>
 #include <DButtonBox>
-#include <DPushButton>
-#include <DListView>
-#include <DPaletteHelper>
-#include <DGuiApplicationHelper>
-#include <DPalette>
+#include <DConfig>
 #include <DFrame>
+#include <DGuiApplicationHelper>
+#include <DIconButton>
+#include <DListView>
+#include <DPalette>
+#include <DPaletteHelper>
+#include <DPushButton>
+#include <DTitlebar>
+#include <DWidgetUtil>
 
-#include <QMenu>
-#include <QLayout>
-#include <QStandardItemModel>
-#include <QDBusInterface>
+#include <QColor>
 #include <QDBusConnection>
+#include <QDBusInterface>
 #include <QFuture>
 #include <QFutureWatcher>
-#include <QScrollArea>
-#include <QLabel>
-#include <QScrollBar>
-#include <QShortcut>
-#include <QTimer>
-#include <QColor>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QLabel>
+#include <QLayout>
+#include <QMenu>
+#include <QScrollArea>
+#include <QScrollBar>
+#include <QShortcut>
 #include <QShortcutEvent>
+#include <QStandardItemModel>
+#include <QTimer>
 
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -73,12 +74,14 @@ const QString HeightConfig = QStringLiteral("height");
 const QString HideConfig = QStringLiteral("hideModule");
 const QString DisableConfig = QStringLiteral("disableModule");
 const QString ControlCenterIcon = QStringLiteral("preferences-system");
-const QString ControlCenterGroupName = "org.deepin.dde-grand-search.group.dde-control-center-setting";
+const QString ControlCenterGroupName =
+        "org.deepin.dde-grand-search.group.dde-control-center-setting";
 
 MainWindow::MainWindow(QWidget *parent)
     : DMainWindow(parent)
     , m_backwardBtn(new DIconButton(QStyle::SP_ArrowBack, this))
-    , m_dconfig(DConfig::create("org.deepin.dde.control-center", ControlCenterConfig, QString(), this))
+    , m_dconfig(DConfig::create(
+              "org.deepin.dde.control-center", ControlCenterConfig, QString(), this))
     , m_searchWidget(new SearchWidget(this))
     , m_rootModule(new MainModule(this))
     , m_pluginManager(new PluginManager(this))
@@ -134,7 +137,10 @@ void MainWindow::showPage(ModuleObject *const module, const QString &url, const 
     showModule(findModule(module, url, uType));
 }
 
-ModuleObject *MainWindow::findModule(ModuleObject * const module, const QString &url, const UrlType &uType, bool fuzzy)
+ModuleObject *MainWindow::findModule(ModuleObject *const module,
+                                     const QString &url,
+                                     const UrlType &uType,
+                                     bool fuzzy)
 {
     ModuleObject *obj = module;
     QStringList names = url.split('/');
@@ -189,7 +195,7 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
             return true;
         }
     }
-    return  DMainWindow::eventFilter(watched, event);
+    return DMainWindow::eventFilter(watched, event);
 }
 
 void MainWindow::initUI()
@@ -231,7 +237,8 @@ void MainWindow::initUI()
 void MainWindow::initConfig()
 {
     if (!m_dconfig->isValid()) {
-        qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(m_dconfig->name(), m_dconfig->subpath());
+        qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].")
+                              .arg(m_dconfig->name(), m_dconfig->subpath());
         return;
     }
 
@@ -310,13 +317,14 @@ void MainWindow::loadModules(bool async)
 QString MainWindow::GrandSearchSearch(const QString json)
 {
     QJsonDocument jsonDocument = QJsonDocument::fromJson(json.toLocal8Bit().data());
-    if(!jsonDocument.isNull()) {
+    if (!jsonDocument.isNull()) {
         QJsonObject jsonObject = jsonDocument.object();
 
-        //处理搜索任务, 返回搜索结果
-        QList<QPair<QString, QString>> lstMsg = m_searchWidget->searchResults(jsonObject.value("cont").toString());
+        // 处理搜索任务, 返回搜索结果
+        QList<QPair<QString, QString>> lstMsg =
+                m_searchWidget->searchResults(jsonObject.value("cont").toString());
 
-        for(auto msg : lstMsg) {
+        for (auto msg : lstMsg) {
             qDebug() << "name:" << msg;
         }
 
@@ -333,7 +341,7 @@ QString MainWindow::GrandSearchSearch(const QString json)
         }
 
         QJsonObject objCont;
-        objCont.insert("group",ControlCenterGroupName);
+        objCont.insert("group", ControlCenterGroupName);
         objCont.insert("items", items);
 
         QJsonArray arrConts;
@@ -362,17 +370,17 @@ bool MainWindow::GrandSearchAction(const QString json)
 {
     QString searchName;
     QJsonDocument jsonDocument = QJsonDocument::fromJson(json.toLocal8Bit().data());
-    if(!jsonDocument.isNull()) {
+    if (!jsonDocument.isNull()) {
         QJsonObject jsonObject = jsonDocument.object();
         if (jsonObject.value("action") == "openitem") {
-            //打开item的操作
+            // 打开item的操作
             searchName = jsonObject.value("item").toString();
         }
     }
 
     show();
     activateWindow();
-    showPage(searchName,UrlType::Name);
+    showPage(searchName, UrlType::Name);
     return true;
 }
 
@@ -472,7 +480,11 @@ void MainWindow::onAddModule(ModuleObject *const module)
         connect(obj, &ModuleObject::removedChild, this, &MainWindow::onRemoveModule);
         connect(obj, &ModuleObject::childStateChanged, this, &MainWindow::onChildStateChanged);
         connect(obj, &ModuleObject::moduleDataChanged, this, &MainWindow::onModuleDataChanged);
-        connect(obj, &ModuleObject::triggered, this, &MainWindow::onTriggered, Qt::QueuedConnection);
+        connect(obj,
+                &ModuleObject::triggered,
+                this,
+                &MainWindow::onTriggered,
+                Qt::QueuedConnection);
         m_searchWidget->addModule(obj);
         for (auto &&tmpObj : obj->childrens()) {
             modules.append({ it.first + "/" + tmpObj->name(), tmpObj });
@@ -491,7 +503,10 @@ void MainWindow::onRemoveModule(ModuleObject *const module)
         modules.append(obj->childrens());
     }
     // 最后一个是滚动到，不参与比较
-    if (!m_currentModule.isEmpty() && std::any_of(m_currentModule.cbegin(), m_currentModule.cend() - 1, [module](auto &&data) { return data == module; }))
+    if (!m_currentModule.isEmpty()
+        && std::any_of(m_currentModule.cbegin(), m_currentModule.cend() - 1, [module](auto &&data) {
+               return data == module;
+           }))
         toHome();
 }
 
@@ -561,7 +576,9 @@ QString MainWindow::getAllModule() const
         arr.append(obj);
         const QList<ModuleObject *> &children = urlInfo.first->childrens();
         for (auto it = children.crbegin(); it != children.crend(); ++it)
-            modules.prepend({ *it, { urlInfo.second.at(0) + "/" + (*it)->name(), urlInfo.second.at(1) + "/" + (*it)->displayName() } });
+            modules.prepend({ *it,
+                              { urlInfo.second.at(0) + "/" + (*it)->name(),
+                                urlInfo.second.at(1) + "/" + (*it)->displayName() } });
     }
 
     QJsonDocument doc;

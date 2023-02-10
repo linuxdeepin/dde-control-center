@@ -26,9 +26,9 @@
 #ifndef APPUPDATEINFO_H
 #define APPUPDATEINFO_H
 
-#include <QObject>
-#include <QList>
 #include <QDBusArgument>
+#include <QList>
+#include <QObject>
 #include <QtDBus>
 
 class AppUpdateInfo

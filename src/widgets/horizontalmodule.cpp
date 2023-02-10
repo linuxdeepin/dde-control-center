@@ -1,8 +1,8 @@
 #include "widgets/horizontalmodule.h"
 
+#include <QHBoxLayout>
 #include <QMap>
 #include <QWidget>
-#include <QHBoxLayout>
 
 using namespace DCC_NAMESPACE;
 
@@ -16,14 +16,14 @@ public:
         , m_spacing(-1)
     {
     }
+
     void insertModule(ModuleObject *const module, int stretch, Qt::Alignment alignment)
     {
         m_mapModules.insert(module, { stretch, alignment });
     }
-    void removeModule(ModuleObject *const module)
-    {
-        m_mapModules.remove(module);
-    }
+
+    void removeModule(ModuleObject *const module) { m_mapModules.remove(module); }
+
     QPair<int, Qt::Alignment> layoutParam(ModuleObject *const module)
     {
         if (m_mapModules.contains(module))
@@ -36,7 +36,9 @@ public:
         Q_Q(HorizontalModule);
         QWidget *w = new QWidget();
         m_mapWidget.clear();
-        QObject::connect(w, &QObject::destroyed, q, [this]() { m_mapWidget.clear(); });
+        QObject::connect(w, &QObject::destroyed, q, [this]() {
+            m_mapWidget.clear();
+        });
 
         m_layout = new QHBoxLayout(w);
         m_layout->setMargin(0);
@@ -55,16 +57,29 @@ public:
             m_layout->addStretch();
 
         // 监听子项的添加、删除、状态变更，动态的更新界面
-        QObject::connect(q, &ModuleObject::insertedChild, w, [this](ModuleObject *const childModule) { onAddChild(childModule); });
-        QObject::connect(q, &ModuleObject::removedChild, w, [this](ModuleObject *const childModule) { onRemoveChild(childModule); });
-        QObject::connect(q, &ModuleObject::childStateChanged, w, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-            if (ModuleObject::IsHiddenFlag(flag)) {
-                if (state)
-                    onRemoveChild(tmpChild);
-                else
-                    onAddChild(tmpChild);
-            }
-        });
+        QObject::connect(q,
+                         &ModuleObject::insertedChild,
+                         w,
+                         [this](ModuleObject *const childModule) {
+                             onAddChild(childModule);
+                         });
+        QObject::connect(q,
+                         &ModuleObject::removedChild,
+                         w,
+                         [this](ModuleObject *const childModule) {
+                             onRemoveChild(childModule);
+                         });
+        QObject::connect(q,
+                         &ModuleObject::childStateChanged,
+                         w,
+                         [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+                             if (ModuleObject::IsHiddenFlag(flag)) {
+                                 if (state)
+                                     onRemoveChild(tmpChild);
+                                 else
+                                     onAddChild(tmpChild);
+                             }
+                         });
         return w;
     }
 
@@ -82,6 +97,7 @@ private:
             }
         }
     }
+
     void onAddChild(DCC_NAMESPACE::ModuleObject *const childModule)
     {
         if (ModuleObject::IsHidden(childModule) || m_mapWidget.contains(childModule))
@@ -113,7 +129,7 @@ public:
     HorizontalModule::StretchType m_stretchType;
     int m_spacing;
 };
-}
+} // namespace DCC_NAMESPACE
 
 HorizontalModule::HorizontalModule(const QString &name, const QString &displayName, QObject *parent)
     : ModuleObject(name, displayName, parent)
@@ -121,9 +137,7 @@ HorizontalModule::HorizontalModule(const QString &name, const QString &displayNa
 {
 }
 
-HorizontalModule::~HorizontalModule()
-{
-}
+HorizontalModule::~HorizontalModule() { }
 
 void HorizontalModule::setStretchType(StretchType stretchType)
 {
@@ -142,7 +156,8 @@ void HorizontalModule::appendChild(ModuleObject *const module)
     appendChild(module, 0, Qt::Alignment());
 }
 
-void HorizontalModule::insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module)
+void HorizontalModule::insertChild(QList<ModuleObject *>::iterator before,
+                                   ModuleObject *const module)
 {
     insertChild(before, module, 0, Qt::Alignment());
 }
@@ -176,7 +191,10 @@ void HorizontalModule::appendChild(ModuleObject *const module, int stretch, Qt::
     ModuleObject::appendChild(module);
 }
 
-void HorizontalModule::insertChild(QList<ModuleObject *>::iterator before, ModuleObject *const module, int stretch, Qt::Alignment alignment)
+void HorizontalModule::insertChild(QList<ModuleObject *>::iterator before,
+                                   ModuleObject *const module,
+                                   int stretch,
+                                   Qt::Alignment alignment)
 {
     if (childrens().contains(module))
         return;
@@ -186,7 +204,10 @@ void HorizontalModule::insertChild(QList<ModuleObject *>::iterator before, Modul
     ModuleObject::insertChild(before, module);
 }
 
-void HorizontalModule::insertChild(const int index, ModuleObject *const module, int stretch, Qt::Alignment alignment)
+void HorizontalModule::insertChild(const int index,
+                                   ModuleObject *const module,
+                                   int stretch,
+                                   Qt::Alignment alignment)
 {
     if (childrens().contains(module))
         return;

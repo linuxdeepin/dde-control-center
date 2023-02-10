@@ -19,13 +19,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "accountsdbusproxy.h"
+
 #include "widgets/dccdbusinterface.h"
 
-#include <QMetaObject>
 #include <QDBusConnection>
-#include <QDBusPendingReply>
 #include <QDBusMetaType>
+#include <QDBusPendingReply>
 #include <QDebug>
+#include <QMetaObject>
 
 AccountsDBusProxy::AccountsDBusProxy(QObject *parent)
     : QObject(parent)
@@ -46,8 +47,16 @@ void AccountsDBusProxy::init()
     const QString propertiesInterface = "org.freedesktop.DBus.Properties";
     const QString propertiesChanged = "PropertiesChanged";
 
-    m_dBusAccountsInter = new DCC_NAMESPACE::DCCDBusInterface(accountsService, accountsPath, accountsInterface, QDBusConnection::systemBus(), this);
-    m_dBusDisplayManagerInter = new DCC_NAMESPACE::DCCDBusInterface(displayManagerService, displayManagerPath, displayManagerInterface, QDBusConnection::systemBus(), this);
+    m_dBusAccountsInter = new DCC_NAMESPACE::DCCDBusInterface(accountsService,
+                                                              accountsPath,
+                                                              accountsInterface,
+                                                              QDBusConnection::systemBus(),
+                                                              this);
+    m_dBusDisplayManagerInter = new DCC_NAMESPACE::DCCDBusInterface(displayManagerService,
+                                                                    displayManagerPath,
+                                                                    displayManagerInterface,
+                                                                    QDBusConnection::systemBus(),
+                                                                    this);
 }
 
 // Accounts
@@ -61,63 +70,75 @@ QList<QDBusObjectPath> AccountsDBusProxy::sessions()
     return qvariant_cast<QList<QDBusObjectPath>>(m_dBusDisplayManagerInter->property("Sessions"));
 }
 
-QDBusPendingReply<QDBusObjectPath> AccountsDBusProxy::CreateUser(const QString &in0, const QString &in1, int in2)
+QDBusPendingReply<QDBusObjectPath> AccountsDBusProxy::CreateUser(const QString &in0,
+                                                                 const QString &in1,
+                                                                 int in2)
 {
     QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2);
-    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("CreateUser"), argumentList);
+    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1)
+                 << QVariant::fromValue(in2);
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("CreateUser"),
+                                                          argumentList);
 }
 
 QDBusPendingReply<> AccountsDBusProxy::DeleteUser(const QString &in0, bool in1)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
-    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("DeleteUser"), argumentList);
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("DeleteUser"),
+                                                          argumentList);
 }
 
 QDBusPendingReply<QString> AccountsDBusProxy::FindUserById(const qint64 &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("FindUserById"), argumentList);
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("FindUserById"),
+                                                          argumentList);
 }
 
 QDBusPendingReply<QString> AccountsDBusProxy::FindUserByName(const QString &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("FindUserByName"), argumentList);
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("FindUserByName"),
+                                                          argumentList);
 }
 
 QDBusPendingReply<QStringList> AccountsDBusProxy::GetGroups()
 {
     QList<QVariant> argumentList;
-    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("GetGroups"), argumentList);
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("GetGroups"),
+                                                          argumentList);
 }
 
 QDBusPendingReply<QStringList> AccountsDBusProxy::GetPresetGroups(int in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("GetPresetGroups"), argumentList);
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("GetPresetGroups"),
+                                                          argumentList);
 }
 
 QDBusPendingReply<bool, QString, int> AccountsDBusProxy::IsPasswordValid(const QString &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("IsPasswordValid"), argumentList);
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("IsPasswordValid"),
+                                                          argumentList);
 }
 
 QDBusPendingReply<bool, QString, int> AccountsDBusProxy::IsUsernameValid(const QString &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
-    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("IsUsernameValid"), argumentList);
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("IsUsernameValid"),
+                                                          argumentList);
 }
 
 QDBusPendingReply<QString> AccountsDBusProxy::RandUserIcon()
 {
     QList<QVariant> argumentList;
-    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("RandUserIcon"), argumentList);
+    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("RandUserIcon"),
+                                                          argumentList);
 }

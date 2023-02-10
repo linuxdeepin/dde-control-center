@@ -1,10 +1,12 @@
 #pragma once
 
 #include "interface/namespace.h"
+
+#include <src/plugin-display/operation/machine.h>
+
 #include <DComboBox>
 #include <DListView>
 #include <DStandardItem>
-#include <src/plugin-display/operation/machine.h>
 
 QT_BEGIN_NAMESPACE
 class QStandardItem;
@@ -12,10 +14,7 @@ class QComboBox;
 class QPushButton;
 QT_END_NAMESPACE
 
-enum DevViewItemType {
-    DeviceViewItem = 0,
-    MoreSettingsItem
-};
+enum DevViewItemType { DeviceViewItem = 0, MoreSettingsItem };
 
 Q_DECLARE_METATYPE(DevViewItemType)
 
@@ -23,9 +22,12 @@ class TreeComboxDelegate : public DTK_WIDGET_NAMESPACE::DStyledItemDelegate
 {
 public:
     explicit TreeComboxDelegate(QAbstractItemView *parent = Q_NULLPTR);
-    ~TreeComboxDelegate() ;
+    ~TreeComboxDelegate();
+
 protected:
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
+    void paint(QPainter *painter,
+               const QStyleOptionViewItem &option,
+               const QModelIndex &index) const Q_DECL_OVERRIDE;
 
 private:
     QAbstractItemView *m_parentWidget;
@@ -33,13 +35,14 @@ private:
 
 class Machine;
 class DisplayModel;
+
 class TreeCombox : public DTK_WIDGET_NAMESPACE::DComboBox
 {
     Q_OBJECT
 public:
     explicit TreeCombox(QStandardItemModel *model, QWidget *parent = nullptr);
     ~TreeCombox();
-    void addDivicesTitel(const QString& devTitel);
+    void addDivicesTitel(const QString &devTitel);
     void addDevicesSettingsItem();
 
     void addDeviceCheckedIcon(DTK_WIDGET_NAMESPACE::DStandardItem *pi, bool initChecked);
@@ -59,4 +62,3 @@ private:
     QList<QStandardItem *> m_historyDeviceItems;
     QList<QStandardItem *> m_MoreDeviceItems;
 };
-

@@ -29,11 +29,13 @@
 #define MEDIAKEY 2
 
 #include "interface/namespace.h"
+
 #include <QObject>
 
 namespace DCC_NAMESPACE {
 
 class ShortcutItem;
+
 struct ShortcutInfo
 {
     QString accels;
@@ -50,15 +52,10 @@ struct ShortcutInfo
         , item(nullptr)
     {
     }
-    bool operator==(const ShortcutInfo &info) const
-    {
-        return id == info.id && type == info.type;
-    }
 
-    QString toString()
-    {
-        return name + accels + command + id + QString::number(type);
-    }
+    bool operator==(const ShortcutInfo &info) const { return id == info.id && type == info.type; }
+
+    QString toString() { return name + accels + command + id + QString::number(type); }
 };
 
 typedef QList<ShortcutInfo> ShortcutInfoList;
@@ -69,6 +66,7 @@ class ShortcutModel : public QObject
 public:
     explicit ShortcutModel(QObject *parent = nullptr);
     ~ShortcutModel();
+
     enum InfoType {
         System,
         Custom,
@@ -118,8 +116,8 @@ private:
     QList<ShortcutInfo *> m_searchList;
     ShortcutInfo *m_currentInfo = nullptr;
     bool m_windowSwitchState;
-    //dcc::display::DisplayModel m_dis;
+    // dcc::display::DisplayModel m_dis;
 };
 
-}
+} // namespace DCC_NAMESPACE
 #endif // SHORTCUTMODEL_H

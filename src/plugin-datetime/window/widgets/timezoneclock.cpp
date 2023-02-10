@@ -37,9 +37,7 @@ TimezoneClock::TimezoneClock(QWidget *parent)
 {
 }
 
-TimezoneClock::~TimezoneClock()
-{
-}
+TimezoneClock::~TimezoneClock() { }
 
 void TimezoneClock::paintEvent(QPaintEvent *)
 {
@@ -49,7 +47,7 @@ void TimezoneClock::paintEvent(QPaintEvent *)
     const QTime time(datetime.time());
 
     // LCOV_EXCL_START
-    //paintEvent函数单元测试无法命中，使用宏跳过此部分
+    // paintEvent函数单元测试无法命中，使用宏跳过此部分
     QPainter painter(this);
     painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
 
@@ -68,7 +66,10 @@ void TimezoneClock::paintEvent(QPaintEvent *)
     painter.setPen(pen);
 
     int penWidth = pen.width();
-    const QRect rct(QRect(penWidth, penWidth, rect().width() - penWidth * 2, rect().height() - penWidth * 2));
+    const QRect rct(QRect(penWidth,
+                          penWidth,
+                          rect().width() - penWidth * 2,
+                          rect().height() - penWidth * 2));
 
     painter.drawRoundedRect(rct, rct.width() / 2.0, rct.height() / 2.0);
 

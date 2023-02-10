@@ -19,31 +19,35 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "notificationwidget.h"
+
+#include "multiselectlistview.h"
 #include "src/plugin-notification/operation/model/appitemmodel.h"
 #include "src/plugin-notification/operation/notificationmodel.h"
-#include "multiselectlistview.h"
 
 #include <DListView>
 
-#include <QMargins>
-#include <QVariant>
-#include <QMetaMethod>
-#include <QSvgRenderer>
-#include <QLabel>
-#include <QPainter>
-#include <QVBoxLayout>
-#include <QDebug>
-#include <QIcon>
-#include <QMessageBox>
-#include <QScroller>
-#include <QFile>
 #include <QApplication>
+#include <QDebug>
+#include <QFile>
+#include <QIcon>
+#include <QLabel>
+#include <QMargins>
+#include <QMessageBox>
+#include <QMetaMethod>
+#include <QPainter>
+#include <QScroller>
+#include <QSvgRenderer>
+#include <QVBoxLayout>
+#include <QVariant>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 Q_DECLARE_METATYPE(QMargins)
-NotificationWidget::NotificationWidget(NotificationModel *model, QStandardItemModel *softwaremodel, QWidget *parent)
+
+NotificationWidget::NotificationWidget(NotificationModel *model,
+                                       QStandardItemModel *softwaremodel,
+                                       QWidget *parent)
     : QWidget(parent)
     , m_softwareListView(new MultiSelectListView())
     , m_systemListView(new DListView())
@@ -65,16 +69,17 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QStandardItemMo
     m_systemListView->setMaximumHeight(50);
     m_systemListView->setResizeMode(QListView::Adjust);
     m_systemListView->setMovement(QListView::Static);
-    m_systemListView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
+    m_systemListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_systemListView->setAutoScroll(false);
     m_systemListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_systemListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_systemListView->setViewportMargins(QMargins(0, 0, 8, 0));
-    m_systemListView->setIconSize(QSize(32,32));
+    m_systemListView->setIconSize(QSize(32, 32));
 
-    DStandardItem *systemitem = new DStandardItem(QIcon::fromTheme("dcc_general_purpose"), tr("System Notifications"));
+    DStandardItem *systemitem =
+            new DStandardItem(QIcon::fromTheme("dcc_general_purpose"), tr("System Notifications"));
 
-    systemitem->setData( QVariant::fromValue(QMargins(10, 8, 10, 8)), Dtk::MarginsRole);
+    systemitem->setData(QVariant::fromValue(QMargins(10, 8, 10, 8)), Dtk::MarginsRole);
     m_sysmodel->appendRow(systemitem);
     m_systemListView->setModel(m_sysmodel);
     m_centralLayout->addWidget(m_systemListView, 0, Qt::AlignTop);
@@ -92,16 +97,17 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QStandardItemMo
     m_softwareListView->setResizeMode(QListView::Adjust);
     m_softwareListView->setMovement(QListView::Static);
     m_softwareListView->setModel(m_softwaremodel);
-    m_softwareListView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
+    m_softwareListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_softwareListView->setViewportMargins(QMargins(0, 0, 9, 0));
     m_softwareListView->setSpacing(0);
     m_softwareListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_softwareListView->setIconSize(QSize(32,32));
+    m_softwareListView->setIconSize(QSize(32, 32));
 
     QScroller::grabGesture(m_softwareListView->viewport(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_softwareListView);
     QScrollerProperties sp;
-    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy,
+                       QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
     m_centralLayout->addWidget(m_softwareListView);
@@ -114,7 +120,8 @@ void NotificationWidget::onAppClicked(const QModelIndex &index)
 {
     if (index.row() >= 0) {
         m_systemListView->clearSelection();
-        if (m_lastIndex == index) return;
+        if (m_lastIndex == index)
+            return;
 
         m_lastIndex = index;
         Q_EMIT requestShowApp(index.row());
@@ -133,7 +140,8 @@ void NotificationWidget::setAppCurrentIndex(int row)
 
 void NotificationWidget::onSystemClicked(const QModelIndex &index)
 {
-    if (m_lastIndex == index) return;
+    if (m_lastIndex == index)
+        return;
 
     m_lastIndex = index;
     switch (index.row()) {
@@ -173,7 +181,8 @@ const QPixmap NotificationWidget::loadSvg(const QString &fileName, const QSize &
 
 QIcon NotificationWidget::getAppIcon(const QString &appIcon, const QSize &size)
 {
-    const qreal ratio = qApp->devicePixelRatio();;
+    const qreal ratio = qApp->devicePixelRatio();
+    ;
     QPixmap pixmap;
 
     QIcon icon = QIcon::fromTheme(appIcon);
@@ -190,7 +199,8 @@ QIcon NotificationWidget::getAppIcon(const QString &appIcon, const QSize &size)
         icon = QIcon::fromTheme("application-x-desktop");
     }
 
-    pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    pixmap = icon.pixmap(size * ratio)
+                     .scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
     pixmap.setDevicePixelRatio(ratio);
     return pixmap;
 }

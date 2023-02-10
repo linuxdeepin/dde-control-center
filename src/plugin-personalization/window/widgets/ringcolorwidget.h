@@ -10,12 +10,10 @@ class RingColorWidget : public QWidget
     Q_OBJECT
 public:
     explicit RingColorWidget(QWidget *parent = nullptr);
+
     virtual ~RingColorWidget() { }
 
-    void setSelectedItem(RoundColorWidget *item)
-    {
-        m_selectedItem = item;
-    }
+    void setSelectedItem(RoundColorWidget *item) { m_selectedItem = item; }
 
     static const int EXTRA = 2; // 2px extra space to avoid line cutted off
 

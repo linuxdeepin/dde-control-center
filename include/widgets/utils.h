@@ -2,21 +2,20 @@
 #define UTILS_H
 #include "interface/namespace.h"
 
-#include <DSysInfo>
 #include <DPlatformHandle>
+#include <DSysInfo>
 
-#include <QMargins>
-#include <QSize>
-#include <QVariant>
-#include <QSettings>
-#include <QMetaMethod>
-#include <QString>
-#include <QLocale>
 #include <QFile>
-#include <QSettings>
-#include <QImageReader>
 #include <QGuiApplication>
 #include <QIcon>
+#include <QImageReader>
+#include <QLocale>
+#include <QMargins>
+#include <QMetaMethod>
+#include <QSettings>
+#include <QSize>
+#include <QString>
+#include <QVariant>
 
 DCORE_USE_NAMESPACE
 
@@ -26,22 +25,22 @@ const int ComboxWidgetHeight = 48;
 const int SwitchWidgetHeight = 36;
 const int ComboxTitleWidth = 110;
 
-const qint32 ActionIconSize=30;//大图标角标大小
-const qint32 ActionListSize=26;//list图标角标大小
+const qint32 ActionIconSize = 30; // 大图标角标大小
+const qint32 ActionListSize = 26; // list图标角标大小
 
-template <typename T>
-T valueByQSettings(const QStringList& configFiles,
-                   const QString&     group,
-                   const QString&     key,
-                   const QVariant&    failback)
+template<typename T>
+T valueByQSettings(const QStringList &configFiles,
+                   const QString &group,
+                   const QString &key,
+                   const QVariant &failback)
 {
-    for (const QString& path : configFiles) {
+    for (const QString &path : configFiles) {
         QSettings settings(path, QSettings::IniFormat);
         if (!group.isEmpty()) {
             settings.beginGroup(group);
         }
 
-        const QVariant& v = settings.value(key);
+        const QVariant &v = settings.value(key);
         if (v.isValid()) {
             T t = v.value<T>();
             return t;
@@ -72,6 +71,5 @@ inline QPixmap loadPixmap(const QString &path)
 
     return pixmap;
 }
-
 
 #endif // UTILS_H

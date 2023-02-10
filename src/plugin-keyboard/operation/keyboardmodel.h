@@ -29,9 +29,9 @@
 #include "interface/namespace.h"
 #include "metadata.h"
 
+#include <QMap>
 #include <QObject>
 #include <QStringList>
-#include <QMap>
 
 namespace DCC_NAMESPACE {
 
@@ -40,10 +40,8 @@ class KeyboardModel : public QObject
     Q_OBJECT
 public:
     explicit KeyboardModel(QObject *parent = nullptr);
-    enum KBLayoutScope {
-        system = 0,
-        application = 1
-    };
+
+    enum KBLayoutScope { system = 0, application = 1 };
 #ifndef DCC_DISABLE_KBLAYOUT
     void setLayoutLists(QMap<QString, QString> lists);
 #endif
@@ -71,7 +69,9 @@ public:
     void cleanUserLayout();
 
     inline int getLangChangedState() const { return m_status; }
+
     void setLangChangedState(const int state);
+
     inline QStringList &getUserLayoutList() { return m_userLaylist; }
 
 Q_SIGNALS:
@@ -86,7 +86,7 @@ Q_SIGNALS:
     void userLayoutChanged(const QString &id, const QString &value);
     void langChanged(const QList<MetaData> &data);
 
-    void curLocalLangChanged(const QStringList &localLangList);    
+    void curLocalLangChanged(const QStringList &localLangList);
     void onSetCurLangFinish(const int value);
 
 public Q_SLOTS:
@@ -99,8 +99,10 @@ public Q_SLOTS:
     void setLocaleList(const QList<MetaData> &langList);
     void setCapsLock(bool value);
     void setAllShortcut(const QMap<QStringList, int> &map);
+
 private:
     QStringList convertLang(const QStringList &langList);
+
 private:
     bool m_capsLock;
     bool m_numLock;
@@ -114,7 +116,7 @@ private:
     QMap<QString, QString> m_layouts;
     QList<MetaData> m_langList;
     QMap<QStringList, int> m_shortcutMap;
-    int m_status{0};
+    int m_status{ 0 };
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // KEYBOARDMODEL_H

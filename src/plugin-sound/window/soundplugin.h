@@ -1,23 +1,23 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     duanhongyu <duanhongyu@uniontech.com>
-*
-* Maintainer: duanhongyu <duanhongyu@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     duanhongyu <duanhongyu@uniontech.com>
+ *
+ * Maintainer: duanhongyu <duanhongyu@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #ifndef SOUNDPLUGIN_H
 #define SOUNDPLUGIN_H
@@ -27,13 +27,14 @@
 
 class SoundModel;
 class SoundWorker;
+
 class SoundPlugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.Sound" FILE "sound.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
-    explicit SoundPlugin() {}
+    explicit SoundPlugin() { }
 
     virtual QString name() const override;
     virtual DCC_NAMESPACE::ModuleObject *module() override;
@@ -49,6 +50,7 @@ public:
     ~SoundModule();
 
     SoundWorker *work() { return m_work; }
+
     SoundModel *model() { return m_model; }
 
 protected:
@@ -65,12 +67,16 @@ class OutputModule : public DCC_NAMESPACE::ModuleObject
     Q_OBJECT
 public:
     explicit OutputModule(SoundModel *model, SoundWorker *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker)  {}
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
 
     virtual QWidget *page() override;
 
 private:
-    SoundModel  *m_model;
+    SoundModel *m_model;
     SoundWorker *m_worker;
 };
 
@@ -79,12 +85,16 @@ class InputModule : public DCC_NAMESPACE::ModuleObject
     Q_OBJECT
 public:
     explicit InputModule(SoundModel *model, SoundWorker *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker)  {}
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
 
     virtual QWidget *page() override;
 
 private:
-    SoundModel  *m_model;
+    SoundModel *m_model;
     SoundWorker *m_worker;
 };
 
@@ -93,7 +103,11 @@ class SoundEffectsModule : public DCC_NAMESPACE::ModuleObject
     Q_OBJECT
 public:
     explicit SoundEffectsModule(SoundModel *model, SoundWorker *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker)  {}
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
 
     virtual QWidget *page() override;
 
@@ -101,7 +115,7 @@ protected:
     virtual void active() override;
 
 private:
-    SoundModel  *m_model;
+    SoundModel *m_model;
     SoundWorker *m_worker;
 };
 
@@ -114,19 +128,22 @@ public:
     virtual QWidget *page() override;
 };
 
-
 // 输入设备
 class InputDeviceModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
     explicit InputDeviceModule(SoundModel *model, SoundWorker *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker)  {}
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
 
     virtual QWidget *page() override;
 
 private:
-    SoundModel  *m_model;
+    SoundModel *m_model;
     SoundWorker *m_worker;
 };
 
@@ -136,12 +153,16 @@ class OutputDeviceModule : public DCC_NAMESPACE::ModuleObject
     Q_OBJECT
 public:
     explicit OutputDeviceModule(SoundModel *model, SoundWorker *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker)  {}
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
 
     virtual QWidget *page() override;
 
 private:
-    SoundModel  *m_model;
+    SoundModel *m_model;
     SoundWorker *m_worker;
 };
 

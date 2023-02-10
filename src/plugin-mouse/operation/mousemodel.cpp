@@ -26,6 +26,7 @@
 #include "mousemodel.h"
 
 using namespace DCC_NAMESPACE;
+
 MouseModel::MouseModel(QObject *parent)
     : QObject(parent)
     , m_leftHandState(false)
@@ -49,10 +50,7 @@ MouseModel::MouseModel(QObject *parent)
 {
 }
 
-MouseModel::~MouseModel()
-{
-
-}
+MouseModel::~MouseModel() { }
 
 void MouseModel::setLeftHandState(const bool state)
 {

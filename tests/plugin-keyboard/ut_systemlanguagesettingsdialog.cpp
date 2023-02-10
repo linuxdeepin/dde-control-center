@@ -1,10 +1,9 @@
-#include "src/plugin-keyboard/window/systemlanguagesettingdialog.h"
-#include "src/plugin-keyboard/operation/keyboardmodel.h"
-
-#include <QSignalSpy>
-#include <QPushButton>
-
 #include "gtest/gtest.h"
+#include "src/plugin-keyboard/operation/keyboardmodel.h"
+#include "src/plugin-keyboard/window/systemlanguagesettingdialog.h"
+
+#include <QPushButton>
+#include <QSignalSpy>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE

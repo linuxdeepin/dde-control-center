@@ -20,16 +20,16 @@
  */
 #include "datewidget.h"
 
-#include <QIntValidator>
 #include <QHBoxLayout>
-#include <QMouseEvent>
-#include <QLineEdit>
+#include <QIntValidator>
 #include <QLabel>
+#include <QLineEdit>
+#include <QMouseEvent>
 
 DWIDGET_USE_NAMESPACE
 
 DateWidget::DateWidget(Type type, int minimum, int maximum, QWidget *parent)
-    : SettingsItem (parent)
+    : SettingsItem(parent)
     , m_type(type)
     , m_minimum(minimum)
     , m_maximum(maximum)
@@ -45,7 +45,7 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QWidget *parent)
 
     m_lineEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_lineEdit->setObjectName("DCC-Datetime-QLineEdit");
-    //m_lineEdit->setFrame(false) , 这样设置只能去掉边框,无法去除背景,目前只能使用qss进行设置
+    // m_lineEdit->setFrame(false) , 这样设置只能去掉边框,无法去除背景,目前只能使用qss进行设置
     m_lineEdit->setStyleSheet("background:transparent; border-width:0; border-style:outset");
     m_addBtn->setObjectName("DCC-Datetime-Datewidget-Add");
     m_reducedBtn->setObjectName("DCC-Datetime-Datewidget-Reduce");

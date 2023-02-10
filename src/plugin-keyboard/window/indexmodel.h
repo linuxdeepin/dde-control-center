@@ -30,10 +30,10 @@
 
 #include <DListView>
 
-#include <QString>
-#include <QStandardItemModel>
-#include <QItemDelegate>
 #include <QFrame>
+#include <QItemDelegate>
+#include <QStandardItemModel>
+#include <QString>
 
 DWIDGET_USE_NAMESPACE
 
@@ -48,7 +48,7 @@ public:
 
     void setMetaData(const QList<MetaData> &datas);
     QList<MetaData> metaData() const;
-    int  indexOf(const MetaData &md);
+    int indexOf(const MetaData &md);
 
     void setLetters(QList<QString> &letters);
     QList<QString> letters() const;
@@ -56,14 +56,16 @@ public:
 
 protected:
     int rowCount(const QModelIndex &parent) const;
+
 private:
     QList<MetaData> m_datas;
     QList<QString> m_letters;
+
 public:
     enum {
         KBLayoutRole = Dtk::UserRole + 1,
     };
 };
 
-}
+} // namespace DCC_NAMESPACE
 #endif // INDEXMODEL_H

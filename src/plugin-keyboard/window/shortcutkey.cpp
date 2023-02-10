@@ -24,12 +24,14 @@
  */
 
 #include "shortcutkey.h"
+
 #include "keylabel.h"
 
-#include <QMouseEvent>
 #include <QDebug>
+#include <QMouseEvent>
 
-ShortcutKey::ShortcutKey(QWidget *parent) : QWidget(parent)
+ShortcutKey::ShortcutKey(QWidget *parent)
+    : QWidget(parent)
 {
     setAccessibleName("ShortcutKey");
     m_mainLayout = new QHBoxLayout;

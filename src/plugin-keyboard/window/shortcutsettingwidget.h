@@ -33,6 +33,7 @@ class QPushButton;
 class QVBoxLayout;
 
 DWIDGET_USE_NAMESPACE
+
 namespace DCC_NAMESPACE {
 
 class ShortcutModel;
@@ -51,10 +52,8 @@ public:
 
 protected:
     void modifyStatus(bool status);
-    void wheelEvent(QWheelEvent *event) override
-    {
-        update();
-    }
+
+    void wheelEvent(QWheelEvent *event) override { update(); }
 
 Q_SIGNALS:
     void delShortcutInfo(ShortcutInfo *info);
@@ -111,5 +110,5 @@ private:
     QStringList m_assistiveToolsIdList;
     QStringList m_workspaceIdList;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // SHORTCUTSETTINGWIDGET_H

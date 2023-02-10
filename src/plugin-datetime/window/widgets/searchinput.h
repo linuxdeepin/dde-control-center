@@ -28,14 +28,13 @@
 
 #include <QLineEdit>
 
-
 class SearchInput : public QLineEdit
 {
     Q_OBJECT
     Q_PROPERTY(QString icon READ iconPath WRITE setIcon)
 public:
-    explicit SearchInput(QWidget* parent = 0);
-    void setSearchText(const QString& text);
+    explicit SearchInput(QWidget *parent = 0);
+    void setSearchText(const QString &text);
     void setIconVisible(bool visible);
     QString iconPath() const;
     void setIcon(const QString &filepath);
@@ -49,6 +48,5 @@ private:
     QPixmap m_icon;
     QString m_iconPath;
 };
-
 
 #endif // SEARCHINPUT_H

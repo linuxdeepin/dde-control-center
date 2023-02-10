@@ -20,34 +20,29 @@
  */
 
 #include "updatectrlwidget.h"
+
 #include "updatemodel.h"
+#include "widgets/downloadprogressbar.h"
 #include "widgets/loadingitem.h"
+#include "widgets/resultitem.h"
+#include "widgets/safeupdateitem.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/summaryitem.h"
-#include "widgets/downloadprogressbar.h"
-#include "widgets/resultitem.h"
-#include "widgets/loadingitem.h"
-#include "widgets/updatesettingitem.h"
 #include "widgets/systemupdateitem.h"
-#include "widgets/safeupdateitem.h"
 #include "widgets/unknownupdateitem.h"
-#include "widgets/downloadprogressbar.h"
 #include "widgets/updateiteminfo.h"
-#include "widgets/resultitem.h"
-#include "widgets/safeupdateitem.h"
-#include "widgets/summaryitem.h"
-#include "widgets/systemupdateitem.h"
-#include "widgets/unknownupdateitem.h"
+#include "widgets/updatesettingitem.h"
 
-#include <QVBoxLayout>
-#include <QSettings>
+#include <DFontSizeManager>
+#include <DLabel>
+#include <DPalette>
+#include <DSpinner>
+#include <DSysInfo>
+
 #include <QPushButton>
 #include <QScrollArea>
-#include <DFontSizeManager>
-#include <DPalette>
-#include <DSysInfo>
-#include <DLabel>
-#include <DSpinner>
+#include <QSettings>
+#include <QVBoxLayout>
 
 #define UpgradeWarningSize 500
 #define FullUpdateBtnWidth 92
@@ -95,16 +90,24 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_checkUpdateItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_UpdateErrorInfoMap.insert(UpdateErrorType::NoError, { UpdateErrorType::NoError, "", "" });
-    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoSpace, { UpdateErrorType::NoSpace, tr("Update failed: insufficient disk space"), tr("") });
+    m_UpdateErrorInfoMap.insert(
+            UpdateErrorType::NoSpace,
+            { UpdateErrorType::NoSpace, tr("Update failed: insufficient disk space"), tr("") });
     m_UpdateErrorInfoMap.insert(UpdateErrorType::UnKnown, { UpdateErrorType::UnKnown, "", "" });
-    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoNetwork, { UpdateErrorType::NoNetwork, tr("Dependency error, failed to detect the updates"), tr("") });
-    m_UpdateErrorInfoMap.insert(UpdateErrorType::DpkgInterrupted, { UpdateErrorType::DpkgInterrupted, "", "" });
-    m_UpdateErrorInfoMap.insert(UpdateErrorType::DeependenciesBrokenError, { UpdateErrorType::DeependenciesBrokenError, "", "" });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::NoNetwork,
+                                { UpdateErrorType::NoNetwork,
+                                  tr("Dependency error, failed to detect the updates"),
+                                  tr("") });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::DpkgInterrupted,
+                                { UpdateErrorType::DpkgInterrupted, "", "" });
+    m_UpdateErrorInfoMap.insert(UpdateErrorType::DeependenciesBrokenError,
+                                { UpdateErrorType::DeependenciesBrokenError, "", "" });
 
     m_updateList->setAccessibleName("updateList");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    m_reminderTip->setText(tr("Restart the computer to use the system and the applications properly"));
+    m_reminderTip->setText(
+            tr("Restart the computer to use the system and the applications properly"));
     m_noNetworkTip->setText(tr("Network disconnected, please retry after connected"));
 
     m_progress->setVisible(false);
@@ -132,7 +135,8 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_noNetworkTip->setAlignment(Qt::AlignHCenter);
     m_noNetworkTip->setVisible(false);
 
-    m_upgradeWarning->setTitle(tr("This update may take a long time, please do not shut down or reboot during the process"));
+    m_upgradeWarning->setTitle(tr("This update may take a long time, please do not shut down or "
+                                  "reboot during the process"));
     m_upgradeWarning->setContentsMargins(20, 0, 20, 0);
     m_upgradeWarningGroup->setVisible(false);
     m_upgradeWarningGroup->appendItem(m_upgradeWarning);
@@ -155,7 +159,9 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     DFontSizeManager::instance()->bind(m_versrionTip, DFontSizeManager::T8);
     m_versrionTip->setForegroundRole(DPalette::BrightText);
     m_versrionTip->setEnabled(false);
-    QString sVersion = QString("%1 %2").arg(Dtk::Core::DSysInfo::uosProductTypeName()).arg(Dtk::Core::DSysInfo::minorVersion());
+    QString sVersion = QString("%1 %2")
+                               .arg(Dtk::Core::DSysInfo::uosProductTypeName())
+                               .arg(Dtk::Core::DSysInfo::minorVersion());
     m_versrionTip->setText(tr("Current Edition") + "：" + sVersion);
 
     updateTitleFirstVLay->addWidget(m_updateTipsLab);
@@ -182,7 +188,10 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     int fontWidth = fontMetrics.boundingRect(text).width();
     if (FullUpdateBtnWidth < fontWidth) {
         m_fullUpdateBtn->setToolTip(text);
-        text = m_fullUpdateBtn->fontMetrics().elidedText(text, Qt::ElideRight, FullUpdateBtnWidth - 10, 0);
+        text = m_fullUpdateBtn->fontMetrics().elidedText(text,
+                                                         Qt::ElideRight,
+                                                         FullUpdateBtnWidth - 10,
+                                                         0);
         m_fullUpdateBtn->setText(text);
     }
 
@@ -252,15 +261,29 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     initConnect();
 }
 
-
 void UpdateCtrlWidget::initConnect()
 {
-    auto initUpdateItemConnect = [ = ](UpdateSettingItem * updateItem) {
-        connect(updateItem, &UpdateSettingItem::requestUpdate, this, &UpdateCtrlWidget::requestUpdates);
-        connect(updateItem, &UpdateSettingItem::requestUpdateCtrl, this, &UpdateCtrlWidget::requestUpdateCtrl);
-        connect(updateItem, &UpdateSettingItem::requestRefreshSize, this, &UpdateCtrlWidget::onRequestRefreshSize);
-        connect(updateItem, &UpdateSettingItem::requestRefreshWidget, this, &UpdateCtrlWidget::onRequestRefreshWidget);
-        connect(updateItem, &UpdateSettingItem::requestFixError, this, &UpdateCtrlWidget::requestFixError);
+    auto initUpdateItemConnect = [=](UpdateSettingItem *updateItem) {
+        connect(updateItem,
+                &UpdateSettingItem::requestUpdate,
+                this,
+                &UpdateCtrlWidget::requestUpdates);
+        connect(updateItem,
+                &UpdateSettingItem::requestUpdateCtrl,
+                this,
+                &UpdateCtrlWidget::requestUpdateCtrl);
+        connect(updateItem,
+                &UpdateSettingItem::requestRefreshSize,
+                this,
+                &UpdateCtrlWidget::onRequestRefreshSize);
+        connect(updateItem,
+                &UpdateSettingItem::requestRefreshWidget,
+                this,
+                &UpdateCtrlWidget::onRequestRefreshWidget);
+        connect(updateItem,
+                &UpdateSettingItem::requestFixError,
+                this,
+                &UpdateCtrlWidget::requestFixError);
     };
 
     initUpdateItemConnect(m_systemUpdateItem);
@@ -280,21 +303,21 @@ void UpdateCtrlWidget::initConnect()
     });
 }
 
-UpdateCtrlWidget::~UpdateCtrlWidget()
-{
-}
+UpdateCtrlWidget::~UpdateCtrlWidget() { }
 
 void UpdateCtrlWidget::setShowInfo(const UiActiveState value)
 {
     bool activation;
-    if (UiActiveState::Authorized == value || UiActiveState::TrialAuthorized == value || UiActiveState::AuthorizedLapse == value) {
+    if (UiActiveState::Authorized == value || UiActiveState::TrialAuthorized == value
+        || UiActiveState::AuthorizedLapse == value) {
         activation = true;
     } else {
         activation = false;
     }
 
     m_fullProcess->setEnabled(activation);
-    m_authorizationPrompt->setVisible(UpdatesStatus::UpdatesAvailable == m_model->status() && !activation);
+    m_authorizationPrompt->setVisible(UpdatesStatus::UpdatesAvailable == m_model->status()
+                                      && !activation);
 }
 
 void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
@@ -302,7 +325,8 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_status = status;
 
     qDebug() << " ========= UpdateCtrlWidget::setStatus  " << status;
-    if (m_model->systemActivation() == UiActiveState::Unauthorized || m_model->systemActivation() == UiActiveState::TrialExpired) {
+    if (m_model->systemActivation() == UiActiveState::Unauthorized
+        || m_model->systemActivation() == UiActiveState::TrialExpired) {
         m_status = NoAtive;
     }
 
@@ -334,7 +358,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_spinner->setVisible(false);
     m_updateingTipsLab->setVisible(false);
 
-    auto showCheckButton = [this](const QString & caption) {
+    auto showCheckButton = [this](const QString &caption) {
         m_model->updateCheckUpdateTime();
         m_checkUpdateBtn->setText(caption);
         m_checkUpdateBtn->setVisible(true);
@@ -430,15 +454,17 @@ void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
     if (m_status == UpdatesStatus::Updateing || m_status == UpdatesStatus::UpdatesAvailable) {
         bool activation = false;
         const UiActiveState value = m_model->systemActivation();
-        if (UiActiveState::Authorized == value || UiActiveState::TrialAuthorized == value || UiActiveState::AuthorizedLapse == value) {
+        if (UiActiveState::Authorized == value || UiActiveState::TrialAuthorized == value
+            || UiActiveState::AuthorizedLapse == value) {
             activation = true;
         }
         if (lowBattery) {
             m_powerTip->setText(tr("Your battery is lower than 50%, please plug in to continue"));
         } else {
-            m_powerTip->setText(tr("Please ensure sufficient power to restart, and don't power off or unplug your machine"));
+            m_powerTip->setText(tr("Please ensure sufficient power to restart, and don't power off "
+                                   "or unplug your machine"));
         }
-        //电量和授权共同决定
+        // 电量和授权共同决定
         bool enable = false;
         if (lowBattery)
             enable = !lowBattery;
@@ -459,7 +485,6 @@ void UpdateCtrlWidget::setUpdateProgress(const double value)
     m_checkUpdateItem->setProgressValue(static_cast<int>(value * 100));
 }
 
-
 void UpdateCtrlWidget::setActiveState(const UiActiveState &activestate)
 {
     if (m_activeState != activestate) {
@@ -473,7 +498,6 @@ void UpdateCtrlWidget::setActiveState(const UiActiveState &activestate)
     }
 }
 
-
 void UpdateCtrlWidget::setModel(UpdateModel *model)
 {
     m_model = model;
@@ -482,29 +506,77 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
 
     connect(m_model, &UpdateModel::statusChanged, this, &UpdateCtrlWidget::setStatus);
 
-    connect(m_model, &UpdateModel::systemUpdateStatusChanged, m_systemUpdateItem, &UpdateSettingItem::onUpdateStatuChanged);
-    connect(m_model, &UpdateModel::safeUpdateStatusChanged, m_safeUpdateItem, &UpdateSettingItem::onUpdateStatuChanged);
-    connect(m_model, &UpdateModel::unkonowUpdateStatusChanged, m_unknownUpdateItem, &UpdateSettingItem::onUpdateStatuChanged);
+    connect(m_model,
+            &UpdateModel::systemUpdateStatusChanged,
+            m_systemUpdateItem,
+            &UpdateSettingItem::onUpdateStatuChanged);
+    connect(m_model,
+            &UpdateModel::safeUpdateStatusChanged,
+            m_safeUpdateItem,
+            &UpdateSettingItem::onUpdateStatuChanged);
+    connect(m_model,
+            &UpdateModel::unkonowUpdateStatusChanged,
+            m_unknownUpdateItem,
+            &UpdateSettingItem::onUpdateStatuChanged);
 
     connect(m_model, &UpdateModel::lowBatteryChanged, this, &UpdateCtrlWidget::setLowBattery);
 
-    connect(m_model, &UpdateModel::upgradeProgressChanged, this, &UpdateCtrlWidget::setProgressValue);
-    connect(m_model, &UpdateModel::updateProgressChanged, this, &UpdateCtrlWidget::setUpdateProgress);
+    connect(m_model,
+            &UpdateModel::upgradeProgressChanged,
+            this,
+            &UpdateCtrlWidget::setProgressValue);
+    connect(m_model,
+            &UpdateModel::updateProgressChanged,
+            this,
+            &UpdateCtrlWidget::setUpdateProgress);
 
-    connect(m_model, &UpdateModel::systemActivationChanged, this, &UpdateCtrlWidget::setActiveState);
-    connect(m_model, &UpdateModel::classityUpdateJobErrorChanged, this, &UpdateCtrlWidget::onClassityUpdateJonErrorChanged);
+    connect(m_model,
+            &UpdateModel::systemActivationChanged,
+            this,
+            &UpdateCtrlWidget::setActiveState);
+    connect(m_model,
+            &UpdateModel::classityUpdateJobErrorChanged,
+            this,
+            &UpdateCtrlWidget::onClassityUpdateJonErrorChanged);
 
-    connect(m_model, &UpdateModel::systemUpdateInfoChanged, this, &UpdateCtrlWidget::setSystemUpdateInfo);
-    connect(m_model, &UpdateModel::safeUpdateInfoChanged, this, &UpdateCtrlWidget::setSafeUpdateInfo);
-    connect(m_model, &UpdateModel::unknownUpdateInfoChanged, this, &UpdateCtrlWidget::setUnkonowUpdateInfo);
+    connect(m_model,
+            &UpdateModel::systemUpdateInfoChanged,
+            this,
+            &UpdateCtrlWidget::setSystemUpdateInfo);
+    connect(m_model,
+            &UpdateModel::safeUpdateInfoChanged,
+            this,
+            &UpdateCtrlWidget::setSafeUpdateInfo);
+    connect(m_model,
+            &UpdateModel::unknownUpdateInfoChanged,
+            this,
+            &UpdateCtrlWidget::setUnkonowUpdateInfo);
 
-    connect(m_model, &UpdateModel::systemUpdateProgressChanged, m_systemUpdateItem, &UpdateSettingItem::onUpdateProgressChanged);
-    connect(m_model, &UpdateModel::safeUpdateProgressChanged, m_safeUpdateItem, &UpdateSettingItem::onUpdateProgressChanged);
-    connect(m_model, &UpdateModel::unkonowUpdateProgressChanged, m_unknownUpdateItem, &UpdateSettingItem::onUpdateProgressChanged);
+    connect(m_model,
+            &UpdateModel::systemUpdateProgressChanged,
+            m_systemUpdateItem,
+            &UpdateSettingItem::onUpdateProgressChanged);
+    connect(m_model,
+            &UpdateModel::safeUpdateProgressChanged,
+            m_safeUpdateItem,
+            &UpdateSettingItem::onUpdateProgressChanged);
+    connect(m_model,
+            &UpdateModel::unkonowUpdateProgressChanged,
+            m_unknownUpdateItem,
+            &UpdateSettingItem::onUpdateProgressChanged);
 
-    connect(m_model, &UpdateModel::systemUpdateDownloadSizeChanged, m_systemUpdateItem, &UpdateSettingItem::setUpdateSize);
-    connect(m_model, &UpdateModel::safeUpdateDownloadSizeChanged, m_safeUpdateItem, &UpdateSettingItem::setUpdateSize);
-    connect(m_model, &UpdateModel::unkonowUpdateDownloadSizeChanged, m_unknownUpdateItem, &UpdateSettingItem::setUpdateSize);
+    connect(m_model,
+            &UpdateModel::systemUpdateDownloadSizeChanged,
+            m_systemUpdateItem,
+            &UpdateSettingItem::setUpdateSize);
+    connect(m_model,
+            &UpdateModel::safeUpdateDownloadSizeChanged,
+            m_safeUpdateItem,
+            &UpdateSettingItem::setUpdateSize);
+    connect(m_model,
+            &UpdateModel::unkonowUpdateDownloadSizeChanged,
+            m_unknownUpdateItem,
+            &UpdateSettingItem::setUpdateSize);
 
     m_updateingItemMap.clear();
 
@@ -524,14 +596,18 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
         }
     }
 
-    if (errorInfoMap.contains(ClassifyUpdateType::Invalid) && errorInfoMap.contains(ClassifyUpdateType::Invalid)) {
+    if (errorInfoMap.contains(ClassifyUpdateType::Invalid)
+        && errorInfoMap.contains(ClassifyUpdateType::Invalid)) {
         setUpdateJobErrorMessage(errorInfoMap.value(ClassifyUpdateType::Invalid));
     }
 
     qDebug() << "setModel" << m_model->status();
-    qDebug() << "setModel" << "getSystemUpdateStatus" << m_model->getSystemUpdateStatus();
-    qDebug() << "setModel" << "getSafeUpdateStatus" << m_model->getSafeUpdateStatus();
-    qDebug() << "setModel" << "getUnkonowUpdateStatus" << m_model->getUnkonowUpdateStatus();
+    qDebug() << "setModel"
+             << "getSystemUpdateStatus" << m_model->getSystemUpdateStatus();
+    qDebug() << "setModel"
+             << "getSafeUpdateStatus" << m_model->getSafeUpdateStatus();
+    qDebug() << "setModel"
+             << "getUnkonowUpdateStatus" << m_model->getUnkonowUpdateStatus();
 
     if (m_model->enterCheckUpdate()) {
         setStatus(UpdatesStatus::Checking);
@@ -561,7 +637,6 @@ void UpdateCtrlWidget::setSystemUpdateInfo(UpdateItemInfo *updateItemInfo)
     m_systemUpdateItem->setData(updateItemInfo);
     m_updateingItemMap.insert(ClassifyUpdateType::SystemUpdate, m_systemUpdateItem);
 }
-
 
 void UpdateCtrlWidget::setSafeUpdateInfo(UpdateItemInfo *updateItemInfo)
 {
@@ -620,18 +695,20 @@ void UpdateCtrlWidget::showUpdateInfo()
     setSafeUpdateStatus(m_model->getSafeUpdateStatus());
     setUnkonowUpdateStatus(m_model->getUnkonowUpdateStatus());
 
-    if (m_systemUpdateItem->status() == UpdatesStatus::Default || m_systemUpdateItem->status() == UpdatesStatus::UpdateSucceeded) {
+    if (m_systemUpdateItem->status() == UpdatesStatus::Default
+        || m_systemUpdateItem->status() == UpdatesStatus::UpdateSucceeded) {
         m_systemUpdateItem->setVisible(false);
     }
 
-    if (m_safeUpdateItem->status() == UpdatesStatus::Default || m_safeUpdateItem->status() == UpdatesStatus::UpdateSucceeded) {
+    if (m_safeUpdateItem->status() == UpdatesStatus::Default
+        || m_safeUpdateItem->status() == UpdatesStatus::UpdateSucceeded) {
         m_safeUpdateItem->setVisible(false);
     }
 
-    if (m_unknownUpdateItem->status() == UpdatesStatus::Default || m_unknownUpdateItem->status() == UpdatesStatus::UpdateSucceeded) {
+    if (m_unknownUpdateItem->status() == UpdatesStatus::Default
+        || m_unknownUpdateItem->status() == UpdatesStatus::UpdateSucceeded) {
         m_unknownUpdateItem->setVisible(false);
     }
-
 }
 
 void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
@@ -650,13 +727,13 @@ void UpdateCtrlWidget::onFullUpdateClicked()
 {
     for (UpdateSettingItem *updateItem : m_updateingItemMap.values()) {
         if (updateItem->status() == UpdatesStatus::UpdatesAvailable
-                || updateItem->status() == UpdatesStatus::UpdateFailed
-                || updateItem->status() == UpdatesStatus::Downloaded
-                || updateItem->status() == UpdatesStatus::Downloading
-                || updateItem->status() == UpdatesStatus::DownloadPaused
-                || updateItem->status() == UpdatesStatus::UpdateFailed
-                || updateItem->status() == UpdatesStatus::AutoDownloaded) {
-            Q_EMIT  requestUpdates(updateItem->classifyUpdateType());
+            || updateItem->status() == UpdatesStatus::UpdateFailed
+            || updateItem->status() == UpdatesStatus::Downloaded
+            || updateItem->status() == UpdatesStatus::Downloading
+            || updateItem->status() == UpdatesStatus::DownloadPaused
+            || updateItem->status() == UpdatesStatus::UpdateFailed
+            || updateItem->status() == UpdatesStatus::AutoDownloaded) {
+            Q_EMIT requestUpdates(updateItem->classifyUpdateType());
         }
     }
 }
@@ -667,10 +744,10 @@ void UpdateCtrlWidget::onRequestRefreshSize()
 
     for (UpdateSettingItem *updateItem : m_updateingItemMap.values()) {
         if (updateItem->status() != UpdatesStatus::Default
-                && updateItem->status() != UpdatesStatus::Downloaded
-                && updateItem->status() != UpdatesStatus::AutoDownloaded
-                && updateItem->status() != UpdatesStatus::Installing
-                && updateItem->status() != UpdatesStatus::Updated) {
+            && updateItem->status() != UpdatesStatus::Downloaded
+            && updateItem->status() != UpdatesStatus::AutoDownloaded
+            && updateItem->status() != UpdatesStatus::Installing
+            && updateItem->status() != UpdatesStatus::Updated) {
             m_updateSize += updateItem->updateSize();
         }
     }
@@ -678,7 +755,8 @@ void UpdateCtrlWidget::onRequestRefreshSize()
     if (m_updateSize == 0) {
         m_CheckAgainBtn->setEnabled(false);
         m_upgradeWarningGroup->setVisible(false);
-    } else if ((static_cast<int64_t>(m_updateSize) / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt()) {
+    } else if ((static_cast<int64_t>(m_updateSize) / 1024) / 1024
+               >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt()) {
         m_upgradeWarningGroup->setVisible(true);
     } else {
         m_upgradeWarningGroup->setVisible(false);
@@ -695,15 +773,16 @@ void UpdateCtrlWidget::onRequestRefreshWidget()
     bool isUpdateing = false;
     QList<ClassifyUpdateType> removeItem;
     for (UpdateSettingItem *updateItem : m_updateingItemMap.values()) {
-        if (updateItem->status() == UpdatesStatus::Default || updateItem->status() == UpdatesStatus::UpdateSucceeded) {
+        if (updateItem->status() == UpdatesStatus::Default
+            || updateItem->status() == UpdatesStatus::UpdateSucceeded) {
             removeItem.append(updateItem->classifyUpdateType());
             continue;
         }
 
         if (updateItem->status() == UpdatesStatus::AutoDownloaded
-                || updateItem->status() == UpdatesStatus::UpdatesAvailable
-                || updateItem->status() == UpdatesStatus::UpdateFailed
-                || updateItem->status() == UpdatesStatus::RecoveryBackupFailed) {
+            || updateItem->status() == UpdatesStatus::UpdatesAvailable
+            || updateItem->status() == UpdatesStatus::UpdateFailed
+            || updateItem->status() == UpdatesStatus::RecoveryBackupFailed) {
             m_isUpdateingAll = false;
         } else {
             isUpdateing = true;
@@ -758,7 +837,9 @@ void UpdateCtrlWidget::setUpdateFailedInfo(const UpdateErrorType &errorType)
         m_noNetworkTip->setVisible(true);
         return;
     }
-    m_resultItem->setMessage(m_UpdateErrorInfoMap.contains(errorType) ? m_UpdateErrorInfoMap.value(errorType).errorMessage : tr(""));
+    m_resultItem->setMessage(m_UpdateErrorInfoMap.contains(errorType)
+                                     ? m_UpdateErrorInfoMap.value(errorType).errorMessage
+                                     : tr(""));
 }
 
 void UpdateCtrlWidget::initUpdateItem(UpdateSettingItem *updateItem)
@@ -766,7 +847,8 @@ void UpdateCtrlWidget::initUpdateItem(UpdateSettingItem *updateItem)
     updateItem->setIconVisible(true);
 }
 
-void UpdateCtrlWidget::onClassityUpdateJonErrorChanged(const ClassifyUpdateType &type, const UpdateErrorType &errorType)
+void UpdateCtrlWidget::onClassityUpdateJonErrorChanged(const ClassifyUpdateType &type,
+                                                       const UpdateErrorType &errorType)
 {
     switch (type) {
     case ClassifyUpdateType::Invalid:
@@ -792,6 +874,3 @@ void UpdateCtrlWidget::onShowUpdateCtrl()
         Q_EMIT m_model->beginCheckUpdate();
     }
 }
-
-
-

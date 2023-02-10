@@ -20,20 +20,21 @@
  */
 
 #include "devicemanagespage.h"
+
 #include "soundmodel.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
 #include "widgets/titlelabel.h"
 
-#include <DStyle>
 #include <DFontSizeManager>
-#include <DTipLabel>
-#include <DStandardItem>
 #include <DListView>
+#include <DStandardItem>
+#include <DStyle>
+#include <DTipLabel>
 
 #include <QBoxLayout>
-#include <QVBoxLayout>
 #include <QStandardItemModel>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -46,10 +47,7 @@ DevicemanagesPage::DevicemanagesPage(Port::Direction direction, QWidget *parent)
 {
 }
 
-DevicemanagesPage::~DevicemanagesPage()
-{
-
-}
+DevicemanagesPage::~DevicemanagesPage() { }
 
 void DevicemanagesPage::setModel(SoundModel *model)
 {
@@ -73,7 +71,7 @@ void DevicemanagesPage::refreshPort()
 
 void DevicemanagesPage::addPort(const Port *port)
 {
-    if (m_devicePort.contains(port)){
+    if (m_devicePort.contains(port)) {
         return;
     }
 
@@ -88,8 +86,8 @@ void DevicemanagesPage::addPort(const Port *port)
     }
 
     // 切換狀態
-    connect(switchDevs, &SwitchWidget::checkedChanged, this, [ = ]{
-        if(port != nullptr){
+    connect(switchDevs, &SwitchWidget::checkedChanged, this, [=] {
+        if (port != nullptr) {
             Q_EMIT requestSwitchSetEnable(port->cardId(), port->id(), switchDevs->checked());
         } else {
             switchDevs->setChecked(false);
@@ -105,7 +103,7 @@ void DevicemanagesPage::removePort(const QString &portId, const uint &cardId)
 {
     // TODO: 修改删除逻辑
     for (int i = 0; i < m_devicePort.size(); i++) {
-        if (m_devicePort.at(i)->id() == portId && m_devicePort.at(i)->cardId() == cardId){
+        if (m_devicePort.at(i)->id() == portId && m_devicePort.at(i)->cardId() == cardId) {
             m_deviceGroup->removeItem(m_deviceGroup->getItem(i));
             m_devicePort.removeAt(i);
             return;
@@ -124,4 +122,3 @@ void DevicemanagesPage::initUI()
     m_layout->setSpacing(0);
     setLayout(m_layout);
 }
-

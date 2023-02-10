@@ -23,8 +23,9 @@
 
 #include "interface/namespace.h"
 
-#include <QWidget>
 #include <DLineEdit>
+
+#include <QWidget>
 
 DWIDGET_USE_NAMESPACE
 

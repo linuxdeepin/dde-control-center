@@ -33,6 +33,7 @@
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
+
 class Tst_CustomEdit : public testing::Test
 {
     void SetUp() override;
@@ -67,5 +68,5 @@ TEST_F(Tst_CustomEdit, CustomEdit)
     EXPECT_NO_THROW(edit->setShortcut(&info));
     EXPECT_NO_THROW(edit->setBottomTip(&info));
     EXPECT_NO_THROW(edit->onSaveAccels());
-    EXPECT_NO_THROW(edit->keyEvent(true,"Control+W"));
+    EXPECT_NO_THROW(edit->keyEvent(true, "Control+W"));
 }

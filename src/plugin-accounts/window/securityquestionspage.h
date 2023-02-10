@@ -24,9 +24,9 @@
 #include "src/plugin-accounts/operation/user.h"
 #include "src/plugin-accounts/operation/usermodel.h"
 
+#include <DComboBox>
 #include <DDialog>
 #include <DLineEdit>
-#include <DComboBox>
 
 #define SECURITY_QUESTIONS_NUM 6
 #define SECURITY_ANSWERS_CHARACTERS_MAX_SIZE 30
@@ -44,7 +44,8 @@ public:
 
 Q_SIGNALS:
     void requestBack(UserModel::ActionOption option = UserModel::ClickCancel);
-    void requestSetSecurityQuestions(User *userInter, const QMap<int, QByteArray> &securityQuestions);
+    void requestSetSecurityQuestions(User *userInter,
+                                     const QMap<int, QByteArray> &securityQuestions);
     void requestSecurityQuestionsCheck(User *userInter);
 
 public Q_SLOTS:
@@ -52,9 +53,9 @@ public Q_SLOTS:
     void onQuestionCombobox1CurrentTextChanged(int);
     void onQuestionCombobox2CurrentTextChanged(int);
     void onQuestionCombobox3CurrentTextChanged(int);
-    void onAnswerEdit1CurrentTextChanged(const QString&);
-    void onAnswerEdit2CurrentTextChanged(const QString&);
-    void onAnswerEdit3CurrentTextChanged(const QString&);
+    void onAnswerEdit1CurrentTextChanged(const QString &);
+    void onAnswerEdit2CurrentTextChanged(const QString &);
+    void onAnswerEdit3CurrentTextChanged(const QString &);
     void onSecurityQuestionsCheckReplied(const QList<int> &questions);
     void onSetSecurityQuestionsReplied(const QString &errorText);
 
@@ -71,7 +72,7 @@ private:
     QString cryptUserPassword(const QString &password);
     bool isAllAnswersCharactersSizeRight();
     bool isAnswersCharactersSizeRight(DLineEdit *edit);
-    void checkQuestionDuplicate(int id, int id1, int id2, QWidget* w);
+    void checkQuestionDuplicate(int id, int id1, int id2, QWidget *w);
     void hideAlert(DLineEdit *edit);
 
 private:
@@ -84,5 +85,4 @@ private:
     DLineEdit *m_answerEdit3;
 };
 
-}
-
+} // namespace DCC_NAMESPACE

@@ -1,17 +1,19 @@
 #include "interface/namespace.h"
-#include "src/plugin-keyboard/operation/keyboardmodel.h"
 #include "src/plugin-keyboard/operation/keyboarddbusproxy.h"
+#include "src/plugin-keyboard/operation/keyboardmodel.h"
 
 #define private public
 #include "src/plugin-keyboard/operation/keyboardwork.h"
 #undef private
 
-#include <QSignalSpy>
-#include <QTest>
 #include <gtest/gtest.h>
 
+#include <QSignalSpy>
+#include <QTest>
+
 using namespace DCC_NAMESPACE;
-class Tst_KeyboardWorker: public testing::Test
+
+class Tst_KeyboardWorker : public testing::Test
 {
 public:
     virtual void SetUp() override;
@@ -43,31 +45,30 @@ TEST_F(Tst_KeyboardWorker, full)
     EXPECT_NO_THROW(m_work->active());
 }
 
-//TEST_F(Tst_KeyboardWorker, setRepeatDelaySignal)
+// TEST_F(Tst_KeyboardWorker, setRepeatDelaySignal)
 //{
-//    uint value = m_model->repeatDelay();
-//    m_work->setRepeatDelay(value + 1);
-//    EXPECT_EQ(value + 1, m_model->repeatDelay());
-//}
+//     uint value = m_model->repeatDelay();
+//     m_work->setRepeatDelay(value + 1);
+//     EXPECT_EQ(value + 1, m_model->repeatDelay());
+// }
 
-//TEST_F(Tst_KeyboardWorker, setRepeatIntervalSignal)
+// TEST_F(Tst_KeyboardWorker, setRepeatIntervalSignal)
 //{
-//    uint value = m_model->repeatInterval();
-//    m_work->setRepeatInterval(value + 1);
-//    EXPECT_EQ(value + 1, m_model->repeatInterval());
-//}
+//     uint value = m_model->repeatInterval();
+//     m_work->setRepeatInterval(value + 1);
+//     EXPECT_EQ(value + 1, m_model->repeatInterval());
+// }
 
-//TEST_F(Tst_KeyboardWorker, setNumLockSignal)
+// TEST_F(Tst_KeyboardWorker, setNumLockSignal)
 //{
-//    bool value = m_model->numLock();
-//    m_work->setNumLock(!value);
-//    EXPECT_EQ(!value, m_model->numLock());
-//}
+//     bool value = m_model->numLock();
+//     m_work->setNumLock(!value);
+//     EXPECT_EQ(!value, m_model->numLock());
+// }
 
-//TEST_F(Tst_KeyboardWorker, setCapsLockSignal)
+// TEST_F(Tst_KeyboardWorker, setCapsLockSignal)
 //{
-//    bool value = m_model->capsLock();
-//    m_work->setCapsLock(!value);
-//    EXPECT_EQ(!value, m_model->capsLock());
-//}
-
+//     bool value = m_model->capsLock();
+//     m_work->setCapsLock(!value);
+//     EXPECT_EQ(!value, m_model->capsLock());
+// }

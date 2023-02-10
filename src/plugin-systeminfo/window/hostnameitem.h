@@ -21,6 +21,7 @@
 #pragma once
 
 #include <widgets/settingsitem.h>
+
 #include <DLineEdit>
 
 DWIDGET_BEGIN_NAMESPACE
@@ -28,9 +29,10 @@ class DLabel;
 DWIDGET_END_NAMESPACE
 class QLabel;
 class QToolButton;
+
 class HostNameEdit : public DTK_WIDGET_NAMESPACE::DLineEdit
 {
-Q_OBJECT
+    Q_OBJECT
 public:
     explicit HostNameEdit(QWidget *parent = nullptr);
 
@@ -69,6 +71,6 @@ private:
     QToolButton *m_hostNameBtn;
     HostNameEdit *m_hostNameLineEdit;
     QString m_alertMessage;
-    QString m_hostname;//保存计算机的全名
-    QString m_hostnameEdit;//保存编辑时的数据
+    QString m_hostname;     // 保存计算机的全名
+    QString m_hostnameEdit; // 保存编辑时的数据
 };

@@ -36,6 +36,7 @@ namespace DCC_NAMESPACE {
 
 class DisplayWorker;
 class TouchscreenWorker;
+
 class Monitor : public QObject
 {
     Q_OBJECT
@@ -43,50 +44,69 @@ class Monitor : public QObject
     friend class TouchscreenWorker;
 
 public:
-    enum RotateMode {
-        Normal,
-        Gravity,
-        Rotate
-    };
+    enum RotateMode { Normal, Gravity, Rotate };
 
 public:
     explicit Monitor(QObject *parent = 0);
 
     inline int x() const { return m_x; }
+
     inline int y() const { return m_y; }
+
     inline int w() const { return m_w; }
+
     inline int h() const { return m_h; }
+
     inline int mmWidth() const { return m_mmWidth; }
+
     inline int mmHeight() const { return m_mmHeight; }
+
     inline double scale() const { return m_scale; }
+
     inline bool isPrimary() const { return m_primary == m_name; }
+
     inline quint16 rotate() const { return m_rotate; }
+
     inline double brightness() const { return m_brightness; }
+
     inline const QRect rect() const { return QRect(m_x, m_y, m_w, m_h); }
+
     inline const QString name() const
     {
         Q_ASSERT(!m_name.isEmpty());
         return m_name;
     }
+
     inline const QString manufacturer() const
     {
         Q_ASSERT(!m_manufacturer.isEmpty());
         return m_manufacturer;
     }
+
     inline const QString model() const
     {
         Q_ASSERT(!m_model.isEmpty());
         return m_model;
     }
+
     inline const bool canBrightness() const { return m_canBrightness; }
+
     inline const QString path() const { return m_path; }
+
     inline const Resolution currentMode() const { return m_currentMode; }
+
     inline const QList<quint16> rotateList() const { return m_rotateList; }
+
     inline const QList<Resolution> modeList() const { return m_modeList; }
+
     inline bool enable() const { return m_enable; }
+
     inline QStringList availableFillModes() const { return m_fillModeList; }
+
     inline QString currentFillMode() const { return m_currentFillMode; }
+
     inline const Resolution bestMode() const { return m_bestMode; }
+
     inline const RotateMode currentRotateMode() const { return m_screenSensingMode; }
 
 Q_SIGNALS:
@@ -165,6 +185,6 @@ private:
     QStringList m_fillModeList;
     QString m_currentFillMode;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // MONITOR_H

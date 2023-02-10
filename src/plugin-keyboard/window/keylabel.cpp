@@ -25,20 +25,26 @@
 
 #include "keylabel.h"
 
-#include <QStyle>
-#include <QPainter>
-#include <QStylePainter>
-#include <QStyleOptionButton>
 #include <QApplication>
+#include <QPainter>
+#include <QStyle>
+#include <QStyleOptionButton>
+#include <QStylePainter>
 
-const QMap<QString, QString> &DisplaykeyMap = { {"exclam", "!"}, {"at", "@"}, {"numbersign", "#"}, {"dollar", "$"}, {"percent", "%"},
-    {"asciicircum", "^"}, {"ampersand", "&"}, {"asterisk", "*"}, {"parenleft", "("},
-    {"parenright", ")"}, {"underscore", "_"}, {"plus", "+"}, {"braceleft", "{"}, {"braceright", "}"},
-    {"bar", "|"}, {"colon", ":"}, {"quotedbl", "\""}, {"less", "<"}, {"greater", ">"}, {"question", "?"},
-    {"minus", "-"}, {"equal", "="}, {"brackertleft", "["}, {"breckertright", "]"}, {"backslash", "\\"},
-    {"semicolon", ";"}, {"apostrophe", "'"}, {"comma", ","}, {"period", "."}, {"slash", "/"}, {"Up", "↑"},
-    {"Left", "←"}, {"Down", "↓"}, {"Right", "→"}, {"asciitilde", "~"}, {"grave", "`"}, {"Control", "Ctrl"},
-    {"Super_L", "Super"}, {"Super_R", "Super"}
+const QMap<QString, QString> &DisplaykeyMap = {
+    { "exclam", "!" },     { "at", "@" },           { "numbersign", "#" },
+    { "dollar", "$" },     { "percent", "%" },      { "asciicircum", "^" },
+    { "ampersand", "&" },  { "asterisk", "*" },     { "parenleft", "(" },
+    { "parenright", ")" }, { "underscore", "_" },   { "plus", "+" },
+    { "braceleft", "{" },  { "braceright", "}" },   { "bar", "|" },
+    { "colon", ":" },      { "quotedbl", "\"" },    { "less", "<" },
+    { "greater", ">" },    { "question", "?" },     { "minus", "-" },
+    { "equal", "=" },      { "brackertleft", "[" }, { "breckertright", "]" },
+    { "backslash", "\\" }, { "semicolon", ";" },    { "apostrophe", "'" },
+    { "comma", "," },      { "period", "." },       { "slash", "/" },
+    { "Up", "↑" },         { "Left", "←" },         { "Down", "↓" },
+    { "Right", "→" },      { "asciitilde", "~" },   { "grave", "`" },
+    { "Control", "Ctrl" }, { "Super_L", "Super" },  { "Super_R", "Super" }
 };
 
 KeyLabel::KeyLabel(const QString &text, QWidget *parent)

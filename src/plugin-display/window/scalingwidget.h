@@ -72,6 +72,6 @@ private:
     TitledSliderItem *m_slider;
     QStringList m_scaleList;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // SCALINGWIDGET_H

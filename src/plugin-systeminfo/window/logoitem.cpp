@@ -25,15 +25,14 @@
 
 #include "logoitem.h"
 
-#include <QHBoxLayout>
-#include <QLabel>
 #include <QApplication>
-#include <QImageReader>
+#include <QHBoxLayout>
 #include <QIcon>
+#include <QImageReader>
+#include <QLabel>
 
-
-#define FRAME_WIDTH     408
-#define NAVBAR_WIDTH    56
+#define FRAME_WIDTH 408
+#define NAVBAR_WIDTH 56
 
 QPixmap loadPixmap(const QString &path)
 {
@@ -85,7 +84,10 @@ void LogoItem::setDescription(const QString &des)
 {
     m_description->setScaledContents(true);
     m_description->setText(des);
-    QRect r = m_description->fontMetrics().boundingRect(QRect(0, 0, m_description->minimumWidth(), 100), Qt::TextWordWrap, des);
+    QRect r = m_description->fontMetrics().boundingRect(
+            QRect(0, 0, m_description->minimumWidth(), 100),
+            Qt::TextWordWrap,
+            des);
     m_description->setMinimumHeight(r.height());
 }
 
@@ -101,7 +103,7 @@ void LogoItem::setLogo(const QString &logo)
 
 const QString LogoItem::logo()
 {
-     return m_logo->text();
+    return m_logo->text();
 }
 
-}
+} // namespace DCC_NAMESPACE

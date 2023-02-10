@@ -20,34 +20,35 @@
  */
 
 #include "modifypasswdpage.h"
-#include "widgets/titlelabel.h"
-#include "pwqualitymanager.h"
-#include "createaccountpage.h"
-#include "securitylevelitem.h"
-#include "widgets/accessibleinterface.h"
 
+#include "createaccountpage.h"
 #include "deepin_pw_check.h"
+#include "pwqualitymanager.h"
+#include "securitylevelitem.h"
 #include "unionidbindreminderdialog.h"
-#include <DDialog>
+#include "widgets/accessibleinterface.h"
+#include "widgets/titlelabel.h"
+
 #include <DDBusSender>
 #include <DDesktopServices>
+#include <DDialog>
 #include <DMessageManager>
+#include <DSysInfo>
 
-#include <QVBoxLayout>
+#include <QDBusReply>
+#include <QDebug>
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QSettings>
-#include <QDebug>
-#include <QDBusReply>
-#include <DSysInfo>
+#include <QVBoxLayout>
 
 #include <unistd.h>
-
 
 DWIDGET_USE_NAMESPACE
 DCORE_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
-SET_FORM_ACCESSIBLE(ModifyPasswdPage,"ModifyPasswdPage")
+SET_FORM_ACCESSIBLE(ModifyPasswdPage, "ModifyPasswdPage")
+
 ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     : DAbstractDialog(false, parent)
     , m_curUser(user)
@@ -63,10 +64,7 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     resize(460, -1);
 }
 
-ModifyPasswdPage::~ModifyPasswdPage()
-{
-
-}
+ModifyPasswdPage::~ModifyPasswdPage() { }
 
 void ModifyPasswdPage::initWidget()
 {
@@ -77,7 +75,8 @@ void ModifyPasswdPage::initWidget()
     mainContentLayout->addWidget(titleLabel, 0, Qt::AlignHCenter);
     if (!m_isCurrent) {
         titleLabel->setText(tr("Reset Password"));
-        QLabel *label = new QLabel(tr("Resetting the password will clear the data stored in the keyring."));
+        QLabel *label =
+                new QLabel(tr("Resetting the password will clear the data stored in the keyring."));
         label->setWordWrap(true);
         mainContentLayout->addWidget(label, 0, Qt::AlignHCenter);
     }
@@ -87,8 +86,13 @@ void ModifyPasswdPage::initWidget()
         QLabel *oldPasswdLabel = new QLabel(tr("Current Password") + ":");
         m_forgetPasswordBtn = new DCommandLinkButton(tr("Forgot password?"));
         DFontSizeManager::instance()->bind(m_forgetPasswordBtn, DFontSizeManager::T8);
-        m_forgetPasswordBtn->setVisible(!(DSysInfo::UosCommunity == DSysInfo::uosEditionType()) && getuid() < 9999); // 如果当前账户是域账号,则屏蔽重置密码入口
-        connect(m_forgetPasswordBtn, &QPushButton::clicked, this, &ModifyPasswdPage::onForgetPasswordBtnClicked);
+        m_forgetPasswordBtn->setVisible(!(DSysInfo::UosCommunity == DSysInfo::uosEditionType())
+                                        && getuid()
+                                                < 9999); // 如果当前账户是域账号,则屏蔽重置密码入口
+        connect(m_forgetPasswordBtn,
+                &QPushButton::clicked,
+                this,
+                &ModifyPasswdPage::onForgetPasswordBtnClicked);
         QHBoxLayout *hLayout = new QHBoxLayout;
         hLayout->addWidget(oldPasswdLabel);
         hLayout->addStretch();
@@ -139,29 +143,39 @@ void ModifyPasswdPage::initWidget()
 
     connect(saveBtn, &DSuggestButton::clicked, this, &ModifyPasswdPage::clickSaveBtn);
 
-    connect(m_curUser, &User::passwordModifyFinished, this, &ModifyPasswdPage::onPasswordChangeFinished);
+    connect(m_curUser,
+            &User::passwordModifyFinished,
+            this,
+            &ModifyPasswdPage::onPasswordChangeFinished);
 
-    connect(m_curUser, &User::passwordStatusChanged, this, [ = ](const QString & status) {
+    connect(m_curUser, &User::passwordStatusChanged, this, [=](const QString &status) {
         m_oldPasswordEdit->setVisible(status != NO_PASSWORD);
     });
-    connect(m_curUser, &User::passwordResetFinished, this, &ModifyPasswdPage::resetPasswordFinished);
-    connect(m_curUser, &User::startResetPasswordReplied, this, &ModifyPasswdPage::onStartResetPasswordReplied);
-    connect(m_curUser, &User::startSecurityQuestionsCheckReplied, this, &ModifyPasswdPage::onSecurityQuestionsCheckReplied);
-    connect(m_oldPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
-        if (m_oldPasswordEdit->isAlert())
-        {
+    connect(m_curUser,
+            &User::passwordResetFinished,
+            this,
+            &ModifyPasswdPage::resetPasswordFinished);
+    connect(m_curUser,
+            &User::startResetPasswordReplied,
+            this,
+            &ModifyPasswdPage::onStartResetPasswordReplied);
+    connect(m_curUser,
+            &User::startSecurityQuestionsCheckReplied,
+            this,
+            &ModifyPasswdPage::onSecurityQuestionsCheckReplied);
+    connect(m_oldPasswordEdit, &DPasswordEdit::textEdited, this, [&] {
+        if (m_oldPasswordEdit->isAlert()) {
             m_oldPasswordEdit->hideAlertMessage();
             m_oldPasswordEdit->setAlert(false);
         }
     });
-    connect(m_repeatPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
-        if (m_repeatPasswordEdit->isAlert())
-        {
+    connect(m_repeatPasswordEdit, &DPasswordEdit::textEdited, this, [&] {
+        if (m_repeatPasswordEdit->isAlert()) {
             m_repeatPasswordEdit->hideAlertMessage();
             m_repeatPasswordEdit->setAlert(false);
         }
     });
-    connect(m_passwordTipsEdit, &DLineEdit::textEdited, this, [ = ](const QString & passwdTips) {
+    connect(m_passwordTipsEdit, &DLineEdit::textEdited, this, [=](const QString &passwdTips) {
         if (passwdTips.size() > 14) {
             m_passwordTipsEdit->lineEdit()->backspace();
             DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
@@ -173,10 +187,12 @@ void ModifyPasswdPage::initWidget()
     m_securityLevelItem->setUser(m_curUser->name());
     m_securityLevelItem->bind(m_newPasswordEdit);
 
-    connect(m_repeatPasswordEdit, &DPasswordEdit::editingFinished, this, [ = ]() {
+    connect(m_repeatPasswordEdit, &DPasswordEdit::editingFinished, this, [=]() {
         if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
             m_repeatPasswordEdit->setAlert(true);
-            m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
+            m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"),
+                                                   m_repeatPasswordEdit,
+                                                   2000);
         }
     });
 
@@ -208,20 +224,27 @@ bool ModifyPasswdPage::judgeTextEmpty(DPasswordEdit *edit)
 
 void ModifyPasswdPage::clickSaveBtn()
 {
-    //校验输入密码
-    if ((judgeTextEmpty(m_oldPasswordEdit) && m_isCurrent) || judgeTextEmpty(m_newPasswordEdit) || judgeTextEmpty(m_repeatPasswordEdit))
+    // 校验输入密码
+    if ((judgeTextEmpty(m_oldPasswordEdit) && m_isCurrent) || judgeTextEmpty(m_newPasswordEdit)
+        || judgeTextEmpty(m_repeatPasswordEdit))
         return;
 
     if (m_isCurrent) {
         for (auto c : m_newPasswordEdit->text()) {
             if (m_passwordTipsEdit->text().contains(c)) {
                 m_passwordTipsEdit->setAlert(true);
-                m_passwordTipsEdit->showAlertMessage(tr("The hint is visible to all users. Do not include the password here."), m_passwordTipsEdit, 2000);
+                m_passwordTipsEdit->showAlertMessage(
+                        tr("The hint is visible to all users. Do not include the password here."),
+                        m_passwordTipsEdit,
+                        2000);
                 return;
             }
         }
 
-        Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text(), m_repeatPasswordEdit->lineEdit()->text());
+        Q_EMIT requestChangePassword(m_curUser,
+                                     m_oldPasswordEdit->lineEdit()->text(),
+                                     m_newPasswordEdit->lineEdit()->text(),
+                                     m_repeatPasswordEdit->lineEdit()->text());
     } else {
         resetPassword(m_newPasswordEdit->text(), m_repeatPasswordEdit->text());
     }
@@ -230,10 +253,11 @@ void ModifyPasswdPage::clickSaveBtn()
 void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QString &errorTxt)
 {
     Q_UNUSED(exitCode)
-    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
-                                                                                      m_newPasswordEdit->lineEdit()->text());
+    PwqualityManager::ERROR_TYPE error =
+            PwqualityManager::instance()->verifyPassword(m_curUser->name(),
+                                                         m_newPasswordEdit->lineEdit()->text());
     qDebug() << "exit code:" << exitCode << "error text:" << errorTxt << "error type:" << error
-            << "error tips:" << PwqualityManager::instance()->getErrorTips(error);
+             << "error tips:" << PwqualityManager::instance()->getErrorTips(error);
     if (exitCode != 0) {
         if (errorTxt.startsWith("Current Password: passwd:", Qt::CaseInsensitive)) {
             m_oldPasswordEdit->setAlert(true);
@@ -243,14 +267,19 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
 
         if (m_newPasswordEdit->lineEdit()->text() == m_oldPasswordEdit->lineEdit()->text()) {
             m_newPasswordEdit->setAlert(true);
-            m_newPasswordEdit->showAlertMessage(tr("New password should differ from the current one"), m_oldPasswordEdit, 2000);
+            m_newPasswordEdit->showAlertMessage(
+                    tr("New password should differ from the current one"),
+                    m_oldPasswordEdit,
+                    2000);
             return;
         }
 
         if (error == PW_NO_ERR) {
             if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
                 m_repeatPasswordEdit->setAlert(true);
-                m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
+                m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"),
+                                                       m_repeatPasswordEdit,
+                                                       2000);
                 return;
             }
         }
@@ -258,14 +287,19 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
         // 企业版控制中心修改密码屏蔽安全中心登录安全的接口需求
-        if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise) || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC))
+        if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise)
+            || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC))
             return;
 
         Q_EMIT requestCheckPwdLimitLevel();
     } else if (error != PW_NO_ERR) {
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
-        Q_EMIT requestChangePassword(m_curUser, m_newPasswordEdit->lineEdit()->text(), m_oldPasswordEdit->lineEdit()->text(), m_oldPasswordEdit->lineEdit()->text(), false);
+        Q_EMIT requestChangePassword(m_curUser,
+                                     m_newPasswordEdit->lineEdit()->text(),
+                                     m_oldPasswordEdit->lineEdit()->text(),
+                                     m_oldPasswordEdit->lineEdit()->text(),
+                                     false);
     } else {
         if (!m_passwordTipsEdit->text().simplified().isEmpty())
             requestSetPasswordHint(m_curUser, m_passwordTipsEdit->text());
@@ -284,7 +318,8 @@ void ModifyPasswdPage::setPasswordEditAttribute(DPasswordEdit *edit)
 void ModifyPasswdPage::resetPassword(const QString &password, const QString &repeatPassword)
 {
     bool check = false;
-    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(), password);
+    PwqualityManager::ERROR_TYPE error =
+            PwqualityManager::instance()->verifyPassword(m_curUser->name(), password);
 
     if (error != PW_NO_ERR) {
         m_newPasswordEdit->setAlert(true);
@@ -294,14 +329,19 @@ void ModifyPasswdPage::resetPassword(const QString &password, const QString &rep
 
     if (password != repeatPassword) {
         m_repeatPasswordEdit->setAlert(true);
-        m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
+        m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"),
+                                               m_repeatPasswordEdit,
+                                               2000);
         check = true;
     }
 
     for (auto c : password) {
         if (m_passwordTipsEdit->text().contains(c)) {
             m_passwordTipsEdit->setAlert(true);
-            m_passwordTipsEdit->showAlertMessage(tr("The hint is visible to all users. Do not include the password here."), m_passwordTipsEdit, 2000);
+            m_passwordTipsEdit->showAlertMessage(
+                    tr("The hint is visible to all users. Do not include the password here."),
+                    m_passwordTipsEdit,
+                    2000);
             check = true;
         }
     }
@@ -325,7 +365,7 @@ void ModifyPasswdPage::resetPassword(const QString &password, const QString &rep
     Q_EMIT requestResetPassword(m_curUser, password);
 }
 
-//在修改密码页面当前密码处设置焦点
+// 在修改密码页面当前密码处设置焦点
 void ModifyPasswdPage::showEvent(QShowEvent *event)
 {
     Q_UNUSED(event);
@@ -364,7 +404,9 @@ void ModifyPasswdPage::onStartResetPasswordReplied(const QString &errorText)
     if (!errorText.isEmpty()) {
         m_forgetPasswordBtn->setEnabled(true);
     } else {
-        m_enableBtnTimer.singleShot(5000, this, [this]{ m_forgetPasswordBtn->setEnabled(true); });
+        m_enableBtnTimer.singleShot(5000, this, [this] {
+            m_forgetPasswordBtn->setEnabled(true);
+        });
     }
     qDebug() << "Resetpassword reply:" << errorText;
 }
@@ -413,8 +455,9 @@ void ModifyPasswdPage::onLocalBindCheckError(const QString &error)
         tips = tr("Network error");
     }
     if (!tips.isEmpty()) {
-        DMessageManager::instance()->sendMessage(this,
-                                                 style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                                 tips);
+        DMessageManager::instance()->sendMessage(
+                this,
+                style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                tips);
     }
 }

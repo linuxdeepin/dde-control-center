@@ -21,8 +21,8 @@
 #include "notificationitem.h"
 
 #include <QCheckBox>
-#include <QLabel>
 #include <QHBoxLayout>
+#include <QLabel>
 
 using namespace DCC_NAMESPACE;
 

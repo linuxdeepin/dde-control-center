@@ -25,15 +25,15 @@
 
 #include "customitem.h"
 
-#include <QPainter>
-#include <QEvent>
-#include <QMouseEvent>
 #include <QApplication>
-#include <QFont>
 #include <QEvent>
+#include <QFont>
+#include <QMouseEvent>
+#include <QPainter>
 #include <QPen>
 
 using namespace DCC_NAMESPACE;
+
 CustomItem::CustomItem(QWidget *parent)
     : SettingsItem(parent)
     , isAlert(false)
@@ -65,7 +65,6 @@ CustomItem::CustomItem(QWidget *parent)
 
     setLayout(layout);
     setFixedHeight(36);
-
 }
 
 void CustomItem::setTitle(const QString &title)
@@ -103,7 +102,8 @@ void CustomItem::setAlert(bool isAlert)
 
 void CustomItem::mouseReleaseEvent(QMouseEvent *e)
 {
-    if (!m_shortcutEdit->isVisible() && m_shortKey->rect().contains(m_shortKey->mapFromParent(e->pos()))) {
+    if (!m_shortcutEdit->isVisible()
+        && m_shortKey->rect().contains(m_shortKey->mapFromParent(e->pos()))) {
         m_shortKey->hide();
         m_shortcutEdit->clear();
         m_shortcutEdit->setFocus();
@@ -124,8 +124,9 @@ void CustomItem::paintEvent(QPaintEvent *event)
         p.setPen(Qt::NoPen);
         p.setBrush(QColor(241, 57, 50, qRound(0.15 * 255)));
         const float Radius = 15.0f;
-        p.drawRoundedRect(rect(), int(Radius / rect().width() * 100), int(Radius / rect().height() * 100));
+        p.drawRoundedRect(rect(),
+                          int(Radius / rect().width() * 100),
+                          int(Radius / rect().height() * 100));
     }
     QWidget::paintEvent(event);
 }
-

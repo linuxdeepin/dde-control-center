@@ -21,9 +21,11 @@
 
 #pragma once
 
-#include <dtkwidget_global.h>
 #include "interface/namespace.h"
 #include "widgets/settingsitem.h"
+
+#include <dtkwidget_global.h>
+
 #include <DPalette>
 
 QT_BEGIN_NAMESPACE
@@ -39,7 +41,8 @@ class DIconButton;
 class DLineEdit;
 DWIDGET_END_NAMESPACE
 
-class AuthenticationLinkButtonItem : public DCC_NAMESPACE::SettingsItem{
+class AuthenticationLinkButtonItem : public DCC_NAMESPACE::SettingsItem
+{
     Q_OBJECT
 public:
     explicit AuthenticationLinkButtonItem(QWidget *parent = nullptr);
@@ -62,14 +65,16 @@ class AuthenticationInfoItem : public DCC_NAMESPACE::SettingsItem
 public:
     explicit AuthenticationInfoItem(QWidget *parent = nullptr);
     void setTitle(const QString &title);
+
     QString getTitle() const { return m_itemName; };
+
     void alertTitleRepeat();
     void appendItem(QWidget *widget);
     void setShowIcon(bool state);
     void setEditTitle(bool state);
     void setHideTitle(bool state);
     bool onNameEditFinished();
-    //判断账户名是否符合规则
+    // 判断账户名是否符合规则
     bool validateName(const QString &password);
     void showAlertMessage(const QString &errMsg);
 

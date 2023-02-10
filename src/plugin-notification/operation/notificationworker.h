@@ -21,14 +21,15 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "notificationmodel.h"
 #include "notificationdbusproxy.h"
+#include "notificationmodel.h"
 
 #include <QObject>
 
 namespace DCC_NAMESPACE {
 
 class NotificationModel;
+
 class NotificationWorker : public QObject
 {
     Q_OBJECT
@@ -36,6 +37,7 @@ public:
     explicit NotificationWorker(NotificationModel *model, QObject *parent = nullptr);
     void active(bool sync);
     void deactive();
+
     NotificationDBusProxy *getDbusObject() { return m_dbus; }
 
 public Q_SLOTS:
@@ -51,4 +53,4 @@ private:
     NotificationModel *m_model;
     NotificationDBusProxy *m_dbus;
 };
-}
+} // namespace DCC_NAMESPACE

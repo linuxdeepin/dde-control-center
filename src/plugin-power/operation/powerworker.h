@@ -27,9 +27,11 @@
 #define POWERWORKER_H
 
 #include "powerdbusproxy.h"
+
 #include <QObject>
 
 class PowerModel;
+
 class PowerWorker : public QObject
 {
     Q_OBJECT

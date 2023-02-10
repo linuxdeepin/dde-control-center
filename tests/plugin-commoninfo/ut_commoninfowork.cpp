@@ -5,12 +5,14 @@
 #include "src/plugin-commoninfo/operation/commoninfowork.h"
 #undef private
 
-#include <QSignalSpy>
-#include <QTest>
 #include <gtest/gtest.h>
 
+#include <QSignalSpy>
+#include <QTest>
+
 using namespace DCC_NAMESPACE;
-class Test_CommonInfoWork: public testing::Test
+
+class Test_CommonInfoWork : public testing::Test
 {
 public:
     virtual void SetUp() override;
@@ -54,7 +56,6 @@ TEST_F(Test_CommonInfoWork, setDefaultEntrySignal)
     EXPECT_NO_THROW(m_model->defaultEntry());
     EXPECT_NO_THROW(m_work->setDefaultEntry("Uniontech OS Desktop 20 Pro GNU/Linux"));
 }
-
 
 TEST_F(Test_CommonInfoWork, full)
 {

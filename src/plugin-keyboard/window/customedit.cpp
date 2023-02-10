@@ -24,26 +24,29 @@
  */
 
 #include "customedit.h"
+
 #include "customitem.h"
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QFileDialog>
 
 #include <DIconButton>
 #include <DTitlebar>
 
+#include <QFileDialog>
+#include <QHBoxLayout>
+#include <QPushButton>
+#include <QVBoxLayout>
+
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
-CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
-    DAbstractDialog(parent),
-    m_model(model),
-    m_commandGroup(new SettingsGroup),
-    m_name(new LineEditWidget),
-    m_command(new LineEditWidget),
-    m_short(new CustomItem()),
-    m_tip(new QLabel),
-    m_conflict(nullptr)
+
+CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent)
+    : DAbstractDialog(parent)
+    , m_model(model)
+    , m_commandGroup(new SettingsGroup)
+    , m_name(new LineEditWidget)
+    , m_command(new LineEditWidget)
+    , m_short(new CustomItem())
+    , m_tip(new QLabel)
+    , m_conflict(nullptr)
 {
     setFixedSize(QSize(400, 388));
     m_tip->setVisible(false);
@@ -75,8 +78,8 @@ CustomEdit::CustomEdit(ShortcutModel *model, QWidget *parent):
     buttonlayout->addWidget(okButton);
 
     DTitlebar *titleIcon = new DTitlebar();
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle(tr(""));
 
@@ -119,12 +122,16 @@ void CustomEdit::setBottomTip(ShortcutInfo *conflict)
         QString accels = conflict->accels;
         accels = accels.replace("<", "[");
         accels = accels.replace(">", "+");
-        accels = accels.replace("_L","");
+        accels = accels.replace("_L", "");
         accels = accels.replace("_R", "");
         accels = accels.replace("Control", "Ctrl");
 
-        QString str = tr("This shortcut conflicts with %1, click on Add to make this shortcut effective immediately")
-                .arg(QString("<span style=\"color: rgba(255, 90, 90, 1);\">%1 %2</span>").arg(conflict->name).arg(QString("[%1]").arg(accels)));
+        QString str =
+                tr("This shortcut conflicts with %1, click on Add to make this shortcut effective "
+                   "immediately")
+                        .arg(QString("<span style=\"color: rgba(255, 90, 90, 1);\">%1 %2</span>")
+                                     .arg(conflict->name)
+                                     .arg(QString("[%1]").arg(accels)));
         m_tip->setText(str);
         m_tip->setVisible(true);
     } else {

@@ -24,15 +24,17 @@
  */
 
 #include "titlebuttonItem.h"
-#include <QHBoxLayout>
+
 #include <QFileDialog>
+#include <QHBoxLayout>
 #include <QSpacerItem>
 #include <QTimer>
 using namespace DCC_NAMESPACE;
+
 TitleButtonItem::TitleButtonItem(QFrame *parent)
-    :SettingsItem(parent)
+    : SettingsItem(parent)
 {
-    QHBoxLayout* layout =new QHBoxLayout();
+    QHBoxLayout *layout = new QHBoxLayout();
     m_title = new QLabel();
     m_button = new QPushButton();
 

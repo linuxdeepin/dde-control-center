@@ -21,10 +21,12 @@
 #ifndef MAINMODULE_H
 #define MAINMODULE_H
 #include "interface/moduleobject.h"
+
 #include <DMainWindow>
 
 namespace DCC_NAMESPACE {
 class MainModulePrivate;
+
 class MainModule : public ModuleObject
 {
     Q_OBJECT
@@ -34,9 +36,10 @@ public:
 
     QWidget *page() override;
     ModuleObject *defultModule() override;
+
     inline DCC_MODULE_TYPE getClassID() const override { return MAINLAYOUT; }
 
     DCC_DECLARE_PRIVATE(MainModule)
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // MAINMODULE_H

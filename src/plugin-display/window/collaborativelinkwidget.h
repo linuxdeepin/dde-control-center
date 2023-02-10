@@ -22,19 +22,20 @@
 #ifndef COLLABORATIVELINKWIDGET_H
 #define COLLABORATIVELINKWIDGET_H
 
+#include "cooperationsettingsdialog.h"
+#include "interface/plugininterface.h"
+#include "treecombox.h"
+
 #include <DComboBox>
+
 #include <QStandardItem>
 #include <QWidget>
-#include "interface/plugininterface.h"
-#include "cooperationsettingsdialog.h"
-#include "treecombox.h"
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 class QComboBox;
 class QPushButton;
 QT_END_NAMESPACE
-
 
 namespace DCC_NAMESPACE {
 class TitleLabel;
@@ -59,8 +60,8 @@ public:
 
 Q_SIGNALS:
     void requestCooperationEnable(const bool enabled);
-    void requestCurrentMachineConnect(Machine * machine);
-    void requestCurrentDeviceSharingConnect(Machine * machine);
+    void requestCurrentMachineConnect(Machine *machine);
+    void requestCurrentDeviceSharingConnect(Machine *machine);
     void requestCurrentMachineDisconnect(Machine *mac);
     void requsetCooperation(Machine *machine);
 
@@ -68,7 +69,7 @@ Q_SIGNALS:
     void requestOpenSharedClipboard(bool open);
     void requestFilesStoragePath(const QString &path);
 
-    void requestFlowDirection(Machine *machine, const int& idx);
+    void requestFlowDirection(Machine *machine, const int &idx);
 
 public Q_SLOTS:
     void disconnectMachine();
@@ -77,7 +78,7 @@ public Q_SLOTS:
 
 private:
     void initMachine();
-    void addMachine(Machine * machine);
+    void addMachine(Machine *machine);
     void cooperationStatusChanged(bool status);
     void directionItemVisible(bool status);
     void initDirectionItem();
@@ -107,6 +108,6 @@ private:
     Machine *m_currentMachineDevcice;
 };
 
-}
+} // namespace DCC_NAMESPACE
 
 #endif // COLLABORATIVELINKWIDGET_H

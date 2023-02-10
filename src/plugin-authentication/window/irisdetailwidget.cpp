@@ -1,6 +1,7 @@
-#include "widgets/iris/addirisinfodialog.h"
 #include "irisdetailwidget.h"
+
 #include "charamangermodel.h"
+#include "widgets/iris/addirisinfodialog.h"
 
 #include <DApplicationHelper>
 #include <DFontSizeManager>
@@ -10,32 +11,44 @@
 #include <QLabel>
 
 IrisDetailWidget::IrisDetailWidget(CharaMangerModel *model, QWidget *parent)
-    : QWidget (parent)
-    , m_model (model)
+    : QWidget(parent)
+    , m_model(model)
     , m_mainContentLayout(new QVBoxLayout(this))
     , m_irisWidget(new IrisWidget(model, this))
     , m_pNotDevice(new QLabel(this))
     , m_tip(new DLabel(tr("No supported devices found"), this))
 {
-    connect(m_model, &CharaMangerModel::vaildIrisDriverChanged, this, &IrisDetailWidget::onDeviceStatusChanged);
+    connect(m_model,
+            &CharaMangerModel::vaildIrisDriverChanged,
+            this,
+            &IrisDetailWidget::onDeviceStatusChanged);
     onDeviceStatusChanged(model->irisDriverVaild());
 
     initIrisShow();
 
-    connect(m_irisWidget, &IrisWidget::requestAddIris, this, &IrisDetailWidget::onShowAddIrisDialog);
-    connect(m_irisWidget, &IrisWidget::requestDeleteIrisItem, this, &IrisDetailWidget::requestDeleteIrisItem);
-    connect(m_irisWidget, &IrisWidget::requestRenameIrisItem, this, &IrisDetailWidget::requestRenameIrisItem);
-    connect(m_irisWidget, &IrisWidget::noticeEnrollCompleted, this, &IrisDetailWidget::noticeEnrollCompleted);
+    connect(m_irisWidget,
+            &IrisWidget::requestAddIris,
+            this,
+            &IrisDetailWidget::onShowAddIrisDialog);
+    connect(m_irisWidget,
+            &IrisWidget::requestDeleteIrisItem,
+            this,
+            &IrisDetailWidget::requestDeleteIrisItem);
+    connect(m_irisWidget,
+            &IrisWidget::requestRenameIrisItem,
+            this,
+            &IrisDetailWidget::requestRenameIrisItem);
+    connect(m_irisWidget,
+            &IrisWidget::noticeEnrollCompleted,
+            this,
+            &IrisDetailWidget::noticeEnrollCompleted);
 }
 
-IrisDetailWidget::~IrisDetailWidget()
-{
-
-}
+IrisDetailWidget::~IrisDetailWidget() { }
 
 void IrisDetailWidget::initIrisShow()
 {
-    //整体布局
+    // 整体布局
     m_mainContentLayout->setContentsMargins(0, 10, 0, 0);
 
     m_irisWidget->setContentsMargins(0, 0, 0, 0);
@@ -44,11 +57,13 @@ void IrisDetailWidget::initIrisShow()
     setLayout(m_mainContentLayout);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
 
-    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
-        this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
-        Q_UNUSED(themeType);
-        m_pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
-    });
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(),
+            &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
+            this,
+            [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
+                Q_UNUSED(themeType);
+                m_pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
+            });
 
     m_pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
     m_pNotDevice->setAlignment(Qt::AlignHCenter);
@@ -84,7 +99,6 @@ QString IrisDetailWidget::getDisplayPath()
     return QString(":/authentication/themes/%1/icons/icon_unknown_device.svg").arg(theme);
 }
 
-
 void IrisDetailWidget::onDeviceStatusChanged(bool hasDevice)
 {
     if (hasDevice) {
@@ -100,16 +114,27 @@ void IrisDetailWidget::onDeviceStatusChanged(bool hasDevice)
     }
 }
 
-void IrisDetailWidget::onShowAddIrisDialog(const QString &driverName, const int &charaType, const QString &charaName)
+void IrisDetailWidget::onShowAddIrisDialog(const QString &driverName,
+                                           const int &charaType,
+                                           const QString &charaName)
 {
     AddIrisInfoDialog *irisDlg = new AddIrisInfoDialog(m_model, this);
-    connect(m_model, &CharaMangerModel::tryStartInputIris, irisDlg, &AddIrisInfoDialog::refreshInfoStatusDisplay);
+    connect(m_model,
+            &CharaMangerModel::tryStartInputIris,
+            irisDlg,
+            &AddIrisInfoDialog::refreshInfoStatusDisplay);
 
-    connect(irisDlg, &AddIrisInfoDialog::requestStopEnroll, this, &IrisDetailWidget::requestStopEnroll);
-    connect(irisDlg, &AddIrisInfoDialog::requesetCloseDlg, irisDlg, &AddIrisInfoDialog::deleteLater);
+    connect(irisDlg,
+            &AddIrisInfoDialog::requestStopEnroll,
+            this,
+            &IrisDetailWidget::requestStopEnroll);
+    connect(irisDlg,
+            &AddIrisInfoDialog::requesetCloseDlg,
+            irisDlg,
+            &AddIrisInfoDialog::deleteLater);
 
     // 点击下一步开始录入
-    connect(irisDlg, &AddIrisInfoDialog::requestInputIris, this, [ = ](){
+    connect(irisDlg, &AddIrisInfoDialog::requestInputIris, this, [=]() {
         Q_EMIT requestEntollStart(driverName, charaType, charaName);
     });
 

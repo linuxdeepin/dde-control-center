@@ -22,16 +22,21 @@
 #define LISTVIEWMODULE_H
 
 #include "interface/moduleobject.h"
+
 namespace DCC_NAMESPACE {
 class ListViewModulePrivate;
+
 class ListViewModule : public ModuleObject
 {
     Q_OBJECT
 public:
-    explicit ListViewModule(const QString &name, const QString &displayName, QObject *parent = nullptr);
+    explicit ListViewModule(const QString &name,
+                            const QString &displayName,
+                            QObject *parent = nullptr);
     ~ListViewModule() override;
 
     QWidget *page() override;
+
     inline DCC_MODULE_TYPE getClassID() const override { return LISTVIEW; }
 
 Q_SIGNALS:
@@ -39,5 +44,5 @@ Q_SIGNALS:
 
     DCC_DECLARE_PRIVATE(ListViewModule)
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // LISTVIEWMODULE_H

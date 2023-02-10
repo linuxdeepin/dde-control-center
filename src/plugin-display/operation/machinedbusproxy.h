@@ -1,9 +1,10 @@
 #ifndef MACHINEDBUSPROXY_H
 #define MACHINEDBUSPROXY_H
 
-#include <QObject>
-#include <QDBusPendingReply>
 #include "widgets/dccdbusinterface.h"
+
+#include <QDBusPendingReply>
+#include <QObject>
 
 class QDBusInterface;
 class QDBusMessage;
@@ -43,10 +44,10 @@ public:
     void stopDeviceSharing();
 
 Q_SIGNALS:
-    void IpChanged(const QString& ip);
-    void NameChanged(const QString& name);
+    void IpChanged(const QString &ip);
+    void NameChanged(const QString &name);
     void ConnectedChanged(bool connecteded);
-    void UuidChanged(const QString& uuid);
+    void UuidChanged(const QString &uuid);
     void DeviceSharingChanged(bool cooperating);
     void disconnectStatusChanged(bool);
     void directionChanged(quint16 dir);

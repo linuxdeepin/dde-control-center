@@ -19,17 +19,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "widgets/dcclistview.h"
+
 #include "widgets/accessibleinterface.h"
 
 #include <DStyledItemDelegate>
 
 using namespace DCC_NAMESPACE;
 SET_FORM_ACCESSIBLE(DCCListView, "DCCListView");
+
 DCCListView::DCCListView(QWidget *parent)
     : DTK_WIDGET_NAMESPACE::DListView(parent)
 {
     setEditTriggers(QAbstractItemView::NoEditTriggers);
-    setBackgroundType(DTK_WIDGET_NAMESPACE::DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    setBackgroundType(
+            DTK_WIDGET_NAMESPACE::DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     setSelectionMode(QAbstractItemView::NoSelection);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

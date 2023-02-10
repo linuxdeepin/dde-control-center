@@ -19,14 +19,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "appnotifywidget.h"
-#include "notificationitem.h"
-#include "widgets/settingsgroup.h"
-#include "src/plugin-notification/operation/notificationmodel.h"
-#include "src/plugin-notification/operation/model/appitemmodel.h"
 
-#include <DSwitchButton>
-#include <DLabel>
+#include "notificationitem.h"
+#include "src/plugin-notification/operation/model/appitemmodel.h"
+#include "src/plugin-notification/operation/notificationmodel.h"
+#include "widgets/settingsgroup.h"
+
 #include <DFontSizeManager>
+#include <DLabel>
+#include <DSwitchButton>
 
 #include <QVBoxLayout>
 
@@ -69,11 +70,12 @@ void AppNotifyWidget::initUI()
     DFontSizeManager::instance()->bind(lblAllowNotify, DFontSizeManager::T5, QFont::DemiBold);
     hLayoutAllowNotify->addWidget(lblAllowNotify, Qt::AlignLeft);
     hLayoutAllowNotify->addWidget(m_btnAllowNotify, Qt::AlignRight);
-    hLayoutAllowNotify->setContentsMargins(10, 0, 0 ,0);
+    hLayoutAllowNotify->setContentsMargins(10, 0, 0, 0);
     mainLayout->addLayout(hLayoutAllowNotify);
 
-    m_lblTip = new DLabel(tr("Show notifications from %1 on desktop and in the notification center.")
-                                .arg(m_model->getAppName()));
+    m_lblTip =
+            new DLabel(tr("Show notifications from %1 on desktop and in the notification center.")
+                               .arg(m_model->getAppName()));
     DFontSizeManager::instance()->bind(m_lblTip, DFontSizeManager::T8);
     m_lblTip->adjustSize();
     m_lblTip->setWordWrap(true);
@@ -110,7 +112,7 @@ void AppNotifyWidget::initUI()
 
 void AppNotifyWidget::initConnect()
 {
-    //set connects: model to this
+    // set connects: model to this
     connect(m_model, &AppItemModel::allowNotifyChanged, this, [this](bool state) {
         m_btnAllowNotify->setChecked(state);
     });
@@ -132,27 +134,31 @@ void AppNotifyWidget::initConnect()
     });
     m_itemShowInNotifyCenter->setState(m_model->isShowInNotifyCenter());
 
-    //set connects: this to module
-    connect(m_btnAllowNotify, &DSwitchButton::checkedChanged, this, [ = ](bool state) {
+    // set connects: this to module
+    connect(m_btnAllowNotify, &DSwitchButton::checkedChanged, this, [=](bool state) {
         m_model->setAllowNotify(state);
         m_lblTip->setVisible(state);
         m_settingsGrp->setVisible(state);
         Q_EMIT requestSetAppSetting(m_model->getActName(), AppItemModel::ENABELNOTIFICATION, state);
     });
-    connect(m_itemLockShowNotify, &NotificationItem::stateChanged, this, [ = ](bool state) {
+    connect(m_itemLockShowNotify, &NotificationItem::stateChanged, this, [=](bool state) {
         m_model->setLockShowNotify(state);
-        Q_EMIT requestSetAppSetting(m_model->getActName(), AppItemModel::LOCKSCREENSHOWNOTIFICATION, state);
+        Q_EMIT requestSetAppSetting(m_model->getActName(),
+                                    AppItemModel::LOCKSCREENSHOWNOTIFICATION,
+                                    state);
     });
-    connect(m_itemNotifySound, &NotificationItem::stateChanged, this, [ = ](bool state) {
+    connect(m_itemNotifySound, &NotificationItem::stateChanged, this, [=](bool state) {
         m_model->setNotifySound(state);
         Q_EMIT requestSetAppSetting(m_model->getActName(), AppItemModel::ENABELSOUND, state);
     });
-    connect(m_itemShowNotifyPreview, &NotificationItem::stateChanged, this, [ = ](bool state) {
+    connect(m_itemShowNotifyPreview, &NotificationItem::stateChanged, this, [=](bool state) {
         m_model->setShowNotifyPreview(state);
         Q_EMIT requestSetAppSetting(m_model->getActName(), AppItemModel::ENABELPREVIEW, state);
     });
-    connect(m_itemShowInNotifyCenter, &NotificationItem::stateChanged, this, [ = ](bool state) {
+    connect(m_itemShowInNotifyCenter, &NotificationItem::stateChanged, this, [=](bool state) {
         m_model->setShowInNotifyCenter(state);
-        Q_EMIT requestSetAppSetting(m_model->getActName(), AppItemModel::SHOWINNOTIFICATIONCENTER, state);
+        Q_EMIT requestSetAppSetting(m_model->getActName(),
+                                    AppItemModel::SHOWINNOTIFICATIONCENTER,
+                                    state);
     });
 }

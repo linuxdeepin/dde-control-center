@@ -20,6 +20,7 @@
  */
 
 #include "wacommodel.h"
+
 #include "wacommodelprivate_p.h"
 
 WacomModel::WacomModel(QObject *parent)
@@ -28,10 +29,7 @@ WacomModel::WacomModel(QObject *parent)
 {
 }
 
-WacomModel::~WacomModel()
-{
-
-}
+WacomModel::~WacomModel() { }
 
 bool WacomModel::exist() const
 {
@@ -63,10 +61,12 @@ void WacomModel::setEraserPressureSensitive(uint value)
     d->setEraserPressureSensitive(value);
 }
 
-void WacomModelPrivate::setCursorMode(bool value) {
+void WacomModelPrivate::setCursorMode(bool value)
+{
     m_wacomInterfaceProxy->setCursorMode(value);
 }
 
-void WacomModelPrivate::setEraserPressureSensitive(uint value) {
+void WacomModelPrivate::setEraserPressureSensitive(uint value)
+{
     m_wacomInterfaceProxy->setEraserPressureSensitive(value);
 }

@@ -1,8 +1,8 @@
 #pragma once
 
+#include "interface/hlistmodule.h"
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
-#include "interface/hlistmodule.h"
 #include "interface/vlistmodule.h"
 
 class Test1Plugin : public DCC_NAMESPACE::PluginInterface
@@ -30,12 +30,19 @@ class LabelModule : public DCC_NAMESPACE::ModuleObject
     Q_OBJECT
 public:
     LabelModule(QObject *parent = nullptr)
-        : ModuleObject(parent) { }
+        : ModuleObject(parent)
+    {
+    }
+
     LabelModule(const QString &name, const QString &displayName = {}, QObject *parent = nullptr)
-        : ModuleObject(name, displayName, parent) { }
+        : ModuleObject(name, displayName, parent)
+    {
+    }
+
     virtual QWidget *page() override;
 
     void setText(const QString &text);
+
     inline QString text() const { return m_text; }
 
 private:
@@ -47,12 +54,19 @@ class ButtonModule : public DCC_NAMESPACE::VListModule
     Q_OBJECT
 public:
     ButtonModule(QObject *parent = nullptr)
-        : VListModule(parent) { }
+        : VListModule(parent)
+    {
+    }
+
     ButtonModule(const QString &name, const QString &displayName = {}, QObject *parent = nullptr)
-        : VListModule(name, displayName, parent) { }
+        : VListModule(name, displayName, parent)
+    {
+    }
+
     virtual QWidget *page() override;
 
     void setText(const QString &text);
+
     inline QString text() const { return m_text; }
 
 Q_SIGNALS:

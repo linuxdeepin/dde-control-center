@@ -19,36 +19,36 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "widgets/accessibleinterface.h"
+
 #include "accessiblefactoryinterface.h"
+
 #include <QList>
 
 static AccessibleFactoryInterface *s_accessibleFactoryInterface = nullptr;
-static QList<QPair<QString,AccessibleFactoryBase *>> s_cacheFactory;
+static QList<QPair<QString, AccessibleFactoryBase *>> s_cacheFactory;
 
-AccessibleFactoryBase * AccessibleFactoryManager::RegisterAccessibleFactory(const char *factoryName,AccessibleFactoryBase *factory)
+AccessibleFactoryBase *AccessibleFactoryManager::RegisterAccessibleFactory(
+        const char *factoryName, AccessibleFactoryBase *factory)
 {
     if (s_accessibleFactoryInterface) {
         s_accessibleFactoryInterface->registerAccessibleFactory(factoryName, factory);
     } else {
-        s_cacheFactory.append({factoryName,factory});
+        s_cacheFactory.append({ factoryName, factory });
     }
     return factory;
 }
 
-AccessibleFactoryInterface::AccessibleFactoryInterface()
-{
-}
+AccessibleFactoryInterface::AccessibleFactoryInterface() { }
 
-AccessibleFactoryInterface::~AccessibleFactoryInterface()
-{
-}
+AccessibleFactoryInterface::~AccessibleFactoryInterface() { }
 
 void AccessibleFactoryInterface::RegisterInstance(AccessibleFactoryInterface *inter)
 {
-    if(!s_accessibleFactoryInterface) {
+    if (!s_accessibleFactoryInterface) {
         s_accessibleFactoryInterface = inter;
-        for (auto &&factory:s_cacheFactory) {
-            s_accessibleFactoryInterface->registerAccessibleFactory(factory.first.toLatin1().data(),factory.second);
+        for (auto &&factory : s_cacheFactory) {
+            s_accessibleFactoryInterface->registerAccessibleFactory(factory.first.toLatin1().data(),
+                                                                    factory.second);
         }
         s_cacheFactory.clear();
     }

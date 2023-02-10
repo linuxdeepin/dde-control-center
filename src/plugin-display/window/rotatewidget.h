@@ -60,6 +60,6 @@ private:
     DisplayModel *m_model;
     Monitor *m_monitor;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // ROTATEWIDGET_H

@@ -1,13 +1,13 @@
-#include "src/plugin-notification/window/notificationwidget.h"
-#include "src/plugin-notification/operation/notificationworker.h"
+#include <gtest/gtest.h>
+
 #include "interface/namespace.h"
+#include "src/plugin-notification/operation/notificationworker.h"
+#include "src/plugin-notification/window/notificationwidget.h"
 
 #include <DListView>
 
 #include <QSignalSpy>
 #include <QTest>
-
-#include <gtest/gtest.h>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -15,18 +15,11 @@ DWIDGET_USE_NAMESPACE
 class Tst_NotificationWidget : public testing::Test
 {
 public:
-    void SetUp() override
-    {
+    void SetUp() override { }
 
-    }
-
-    void TearDown() override
-    {
-
-    }
+    void TearDown() override { }
 
 public:
-
 };
 
 TEST_F(Tst_NotificationWidget, init)

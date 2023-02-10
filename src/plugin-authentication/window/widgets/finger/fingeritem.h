@@ -26,11 +26,13 @@
 #ifndef FINGERITEM_H
 #define FINGERITEM_H
 
-#include <dtkwidget_global.h>
 #include "widgets/settingsitem.h"
-#include <QWidget>
+
+#include <dtkwidget_global.h>
 
 #include <DIconButton>
+
+#include <QWidget>
 
 QT_BEGIN_NAMESPACE
 class QHBoxLayout;

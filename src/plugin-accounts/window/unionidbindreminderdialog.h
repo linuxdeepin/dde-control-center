@@ -31,8 +31,8 @@ class UnionIDBindReminderDialog : public DDialog
     Q_OBJECT
 public:
     explicit UnionIDBindReminderDialog(QWidget *parent = nullptr);
-    ~UnionIDBindReminderDialog() {}
 
+    ~UnionIDBindReminderDialog() { }
 };
 
 #endif // REMINDERDDIALOG_H

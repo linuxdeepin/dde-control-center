@@ -1,7 +1,8 @@
 #include "faceiddetailwidget.h"
-#include "widgets/face/faceinfodialog.h"
-#include "widgets/face/addfaceinfodialog.h"
+
 #include "charamangermodel.h"
+#include "widgets/face/addfaceinfodialog.h"
+#include "widgets/face/faceinfodialog.h"
 
 #include <DApplicationHelper>
 #include <DFontSizeManager>
@@ -11,8 +12,8 @@
 #include <QLabel>
 
 FaceidDetailWidget::FaceidDetailWidget(CharaMangerModel *model, QWidget *parent)
-    : QWidget (parent)
-    , m_model (model)
+    : QWidget(parent)
+    , m_model(model)
     , m_mainContentLayout(new QVBoxLayout(this))
     , m_faceWidget(new FaceWidget(model, this))
     , m_pNotDevice(new QLabel(this))
@@ -20,26 +21,38 @@ FaceidDetailWidget::FaceidDetailWidget(CharaMangerModel *model, QWidget *parent)
     , m_addFaceInfodlg(new AddFaceInfoDialog(model, this))
     , m_facedlg(new FaceInfoDialog(model, this))
 {
-    connect(m_model, &CharaMangerModel::vaildFaceDriverChanged, this, &FaceidDetailWidget::onDeviceStatusChanged);
+    connect(m_model,
+            &CharaMangerModel::vaildFaceDriverChanged,
+            this,
+            &FaceidDetailWidget::onDeviceStatusChanged);
     onDeviceStatusChanged(model->faceDriverVaild());
 
     initFaceidShow();
 
-    //人脸操作
-    connect(m_faceWidget, &FaceWidget::requestAddFace, this, &FaceidDetailWidget::onShowAddFaceDialog);
-    connect(m_faceWidget, &FaceWidget::requestDeleteFaceItem, this, &FaceidDetailWidget::requestDeleteFaceItem);
-    connect(m_faceWidget, &FaceWidget::requestRenameFaceItem, this, &FaceidDetailWidget::requestRenameFaceItem);
-    connect(m_faceWidget, &FaceWidget::noticeEnrollCompleted, this, &FaceidDetailWidget::noticeEnrollCompleted);
+    // 人脸操作
+    connect(m_faceWidget,
+            &FaceWidget::requestAddFace,
+            this,
+            &FaceidDetailWidget::onShowAddFaceDialog);
+    connect(m_faceWidget,
+            &FaceWidget::requestDeleteFaceItem,
+            this,
+            &FaceidDetailWidget::requestDeleteFaceItem);
+    connect(m_faceWidget,
+            &FaceWidget::requestRenameFaceItem,
+            this,
+            &FaceidDetailWidget::requestRenameFaceItem);
+    connect(m_faceWidget,
+            &FaceWidget::noticeEnrollCompleted,
+            this,
+            &FaceidDetailWidget::noticeEnrollCompleted);
 }
 
-FaceidDetailWidget::~FaceidDetailWidget()
-{
-
-}
+FaceidDetailWidget::~FaceidDetailWidget() { }
 
 void FaceidDetailWidget::initFaceidShow()
 {
-    //整体布局
+    // 整体布局
     m_mainContentLayout->setContentsMargins(0, 10, 0, 0);
 
     m_faceWidget->setContentsMargins(0, 0, 0, 0);
@@ -48,11 +61,13 @@ void FaceidDetailWidget::initFaceidShow()
     setLayout(m_mainContentLayout);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
 
-    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
-        this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
-        Q_UNUSED(themeType);
-        m_pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
-    });
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(),
+            &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
+            this,
+            [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
+                Q_UNUSED(themeType);
+                m_pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
+            });
 
     m_pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
     m_pNotDevice->setAlignment(Qt::AlignHCenter);
@@ -88,7 +103,6 @@ QString FaceidDetailWidget::getDisplayPath()
     return QString(":/authentication/themes/%1/icons/icon_unknown_device.svg").arg(theme);
 }
 
-
 void FaceidDetailWidget::onDeviceStatusChanged(bool hasDevice)
 {
     if (hasDevice) {
@@ -104,15 +118,22 @@ void FaceidDetailWidget::onDeviceStatusChanged(bool hasDevice)
     }
 }
 
-void FaceidDetailWidget::onShowAddFaceDialog(const QString &driverName, const int &charaType, const QString &charaName)
+void FaceidDetailWidget::onShowAddFaceDialog(const QString &driverName,
+                                             const int &charaType,
+                                             const QString &charaName)
 {
-    m_addFaceInfodlg->responseEnrollInfoState(CharaMangerModel::AddInfoState::StartState, QString());
+    m_addFaceInfodlg->responseEnrollInfoState(CharaMangerModel::AddInfoState::StartState,
+                                              QString());
 
-    connect(m_addFaceInfodlg, &AddFaceInfoDialog::requestStopEnroll, this, &FaceidDetailWidget::requestStopEnroll, Qt::UniqueConnection);
+    connect(m_addFaceInfodlg,
+            &AddFaceInfoDialog::requestStopEnroll,
+            this,
+            &FaceidDetailWidget::requestStopEnroll,
+            Qt::UniqueConnection);
 
     // 用户点击对话框开始录入
     disconnect(m_addFaceInfodlg, &AddFaceInfoDialog::requestShowFaceInfoDialog, this, nullptr);
-    connect(m_addFaceInfodlg, &AddFaceInfoDialog::requestShowFaceInfoDialog, this, [=](){
+    connect(m_addFaceInfodlg, &AddFaceInfoDialog::requestShowFaceInfoDialog, this, [=]() {
         m_addFaceInfodlg->hide();
         onShowAddFaceidVideo();
         Q_EMIT requestEntollStart(driverName, charaType, charaName);
@@ -137,8 +158,16 @@ void FaceidDetailWidget::onConnectFD(const int &facedf)
 void FaceidDetailWidget::onShowAddFaceidVideo()
 {
     // 开始录入人脸
-    connect(m_facedlg, &FaceInfoDialog::requestCloseDlg, this, &FaceidDetailWidget::requestStopEnroll, Qt::UniqueConnection);
+    connect(m_facedlg,
+            &FaceInfoDialog::requestCloseDlg,
+            this,
+            &FaceidDetailWidget::requestStopEnroll,
+            Qt::UniqueConnection);
 
     // 开始录入就弹出  TODO:  处理拿到FD后的内容
-    connect(m_model, &CharaMangerModel::tryStartInputFace, this, &FaceidDetailWidget::onConnectFD, Qt::UniqueConnection);
+    connect(m_model,
+            &CharaMangerModel::tryStartInputFace,
+            this,
+            &FaceidDetailWidget::onConnectFD,
+            Qt::UniqueConnection);
 }

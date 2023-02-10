@@ -25,11 +25,7 @@
 
 #include "mirrorinfolist.h"
 
-
-MirrorInfo::MirrorInfo()
-{
-
-}
+MirrorInfo::MirrorInfo() { }
 
 const QDBusArgument &operator>>(const QDBusArgument &argument, MirrorInfo &info)
 {

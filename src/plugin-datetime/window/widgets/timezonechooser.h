@@ -26,13 +26,14 @@
 #ifndef TIMEZONECHOOSER_H
 #define TIMEZONECHOOSER_H
 
+#include "timezone.h"
+
 #include <DBlurEffectWidget>
 #include <DSuggestButton>
 
+#include <QCompleter>
 #include <QDialog>
 #include <QMap>
-#include <QCompleter>
-#include "timezone.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -54,7 +55,9 @@ class TimeZoneChooser : public QDialog
 public:
     explicit TimeZoneChooser(QWidget *parent = nullptr);
     void setIsAddZone(const bool isAdd);
+
     inline bool isAddZone() { return m_isAddZone; }
+
     void setCurrentTimeZoneText(const QString &zone);
 
 Q_SIGNALS:

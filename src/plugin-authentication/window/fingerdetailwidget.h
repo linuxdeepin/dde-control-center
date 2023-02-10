@@ -24,8 +24,8 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "widgets/finger/fingerwidget.h"
 #include "widgets/finger/fingedisclaimer.h"
+#include "widgets/finger/fingerwidget.h"
 
 #include <QWidget>
 
@@ -37,6 +37,7 @@ QT_END_NAMESPACE
 
 class CharaMangerModel;
 class FingerWidget;
+
 class FingerDetailWidget : public QWidget
 {
     Q_OBJECT
@@ -55,7 +56,9 @@ Q_SIGNALS:
     void requestAddThumbs(const QString &name, const QString &thumb);
     void requestStopEnroll(const QString &thumb);
     void requestDeleteFingerItem(const QString &userName, const QString &finger);
-    void requestRenameFingerItem(const QString &userName, const QString &finger, const QString &newName);
+    void requestRenameFingerItem(const QString &userName,
+                                 const QString &finger,
+                                 const QString &newName);
     void noticeEnrollCompleted(QString username);
 
 public Q_SLOTS:
@@ -66,7 +69,6 @@ public Q_SLOTS:
 private:
     QString m_currentUserName;
     CharaMangerModel *m_model;
-    FingerWidget *m_fingerWidget; //指纹界面
+    FingerWidget *m_fingerWidget; // 指纹界面
     FingerDisclaimer *m_disclaimer;
 };
-

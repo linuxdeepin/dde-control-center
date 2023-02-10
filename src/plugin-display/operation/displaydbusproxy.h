@@ -1,37 +1,37 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     Tinalu Shao <shaotianlu@uniontech.com>
-*
-* Maintainer: Tinalu Shao <shaotianlu@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     Tinalu Shao <shaotianlu@uniontech.com>
+ *
+ * Maintainer: Tinalu Shao <shaotianlu@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #ifndef DISPLAYDBUSPROXY_H
 #define DISPLAYDBUSPROXY_H
 
 #include "interface/namespace.h"
+#include "types/brightnessmap.h"
+#include "types/resolutionlist.h"
+#include "types/screenrect.h"
+#include "types/touchscreeninfolist.h"
 #include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
-#include "types/resolutionlist.h"
-#include "types/brightnessmap.h"
-#include "types/touchscreeninfolist.h"
-#include "types/screenrect.h"
 
-#include <QObject>
 #include <QDBusPendingReply>
 #include <QDBusReply>
+#include <QObject>
 
 namespace DCC_NAMESPACE {
 class DCCDBusInterface;
@@ -46,10 +46,12 @@ public:
     Q_PROPERTY(BrightnessMap Brightness READ brightness NOTIFY BrightnessChanged)
     BrightnessMap brightness();
 
-    Q_PROPERTY(int ColorTemperatureManual READ colorTemperatureManual NOTIFY ColorTemperatureManualChanged)
+    Q_PROPERTY(int ColorTemperatureManual READ colorTemperatureManual NOTIFY
+                       ColorTemperatureManualChanged)
     int colorTemperatureManual();
 
-    Q_PROPERTY(int ColorTemperatureMode READ colorTemperatureMode NOTIFY ColorTemperatureModeChanged)
+    Q_PROPERTY(
+            int ColorTemperatureMode READ colorTemperatureMode NOTIFY ColorTemperatureModeChanged)
     int colorTemperatureMode();
 
     Q_PROPERTY(QString CurrentCustomId READ currentCustomId NOTIFY CurrentCustomIdChanged)
@@ -64,7 +66,8 @@ public:
     Q_PROPERTY(bool HasChanged READ hasChanged NOTIFY HasChangedChanged)
     bool hasChanged();
 
-    Q_PROPERTY(uint MaxBacklightBrightness READ maxBacklightBrightness NOTIFY MaxBacklightBrightnessChanged)
+    Q_PROPERTY(uint MaxBacklightBrightness READ maxBacklightBrightness NOTIFY
+                       MaxBacklightBrightnessChanged)
     uint maxBacklightBrightness();
 
     Q_PROPERTY(QList<QDBusObjectPath> Monitors READ monitors NOTIFY MonitorsChanged)
@@ -88,22 +91,26 @@ public:
     Q_PROPERTY(TouchscreenInfoList Touchscreens READ touchscreens NOTIFY TouchscreensChanged)
     TouchscreenInfoList touchscreens();
 
-    Q_PROPERTY(TouchscreenInfoList_V2 TouchscreensV2 READ touchscreensV2 NOTIFY TouchscreensV2Changed)
+    Q_PROPERTY(
+            TouchscreenInfoList_V2 TouchscreensV2 READ touchscreensV2 NOTIFY TouchscreensV2Changed)
     TouchscreenInfoList_V2 touchscreensV2();
 
-    //power
-    Q_PROPERTY(bool AmbientLightAdjustBrightness READ ambientLightAdjustBrightness WRITE setAmbientLightAdjustBrightness NOTIFY AmbientLightAdjustBrightnessChanged)
+    // power
+    Q_PROPERTY(bool AmbientLightAdjustBrightness READ ambientLightAdjustBrightness WRITE
+                       setAmbientLightAdjustBrightness NOTIFY AmbientLightAdjustBrightnessChanged)
     bool ambientLightAdjustBrightness();
     void setAmbientLightAdjustBrightness(bool value);
 
-    Q_PROPERTY(bool HasAmbientLightSensor READ hasAmbientLightSensor NOTIFY HasAmbientLightSensorChanged)
+    Q_PROPERTY(bool HasAmbientLightSensor READ hasAmbientLightSensor NOTIFY
+                       HasAmbientLightSensorChanged)
     bool hasAmbientLightSensor();
 
     // Cooperation
     Q_PROPERTY(QList<QDBusObjectPath> Machines READ Machines NOTIFY MachinesChanged)
     QList<QDBusObjectPath> Machines();
 
-    Q_PROPERTY(QList<QString> CooperatedMachines READ CooperatedMachines NOTIFY CooperatedMachinesChanged)
+    Q_PROPERTY(QList<QString> CooperatedMachines READ CooperatedMachines NOTIFY
+                       CooperatedMachinesChanged)
     QList<QString> CooperatedMachines();
 
     Q_PROPERTY(bool DeviceSharingSwitch READ deviceSharingSwitch NOTIFY DeviceSharingSwitchChanged)
@@ -118,7 +125,7 @@ public:
     Q_PROPERTY(bool SharedClipboard READ sharedClipboard NOTIFY SharedClipboardChanged)
     bool sharedClipboard();
 
-    void setFilesStoragePath(const QString& path);
+    void setFilesStoragePath(const QString &path);
     Q_PROPERTY(QString FilesStoragePath READ filesStoragePath NOTIFY FilesStoragePathChanged)
     QString filesStoragePath();
 
@@ -126,7 +133,7 @@ private:
     void init();
 
 public Q_SLOTS: // METHODS
-    //Display
+    // Display
     QDBusPendingReply<> ApplyChanges();
     QDBusPendingReply<> AssociateTouch(const QString &in0, const QString &in1);
     QDBusPendingReply<> AssociateTouchByUUID(const QString &in0, const QString &in1);
@@ -148,37 +155,37 @@ public Q_SLOTS: // METHODS
     QDBusPendingReply<> SwitchMode(uchar in0, const QString &in1);
     QDBusReply<bool> CanSetBrightnessSync(const QString &name);
     QDBusReply<bool> SupportSetColorTemperatureSync();
-    //Appearance
+    // Appearance
     QDBusPendingReply<double> GetScaleFactor();
-    QDBusPendingReply<QMap<QString,double> > GetScreenScaleFactors();
+    QDBusPendingReply<QMap<QString, double> > GetScreenScaleFactors();
     QDBusPendingReply<> SetScaleFactor(double in0);
-    QDBusPendingReply<> SetScreenScaleFactors(const QMap<QString,double> &scaleFactors);
+    QDBusPendingReply<> SetScreenScaleFactors(const QMap<QString, double> &scaleFactors);
     // SystemDisplay
     QString GetConfig();
     void SetConfig(QString cfgStr);
 
 Q_SIGNALS: // SIGNALS
     // begin property changed signals
-    void BrightnessChanged(BrightnessMap  value) const;
-    void ColorTemperatureManualChanged(int  value) const;
-    void ColorTemperatureModeChanged(int  value) const;
-    void CurrentCustomIdChanged(const QString & value) const;
-    void CustomIdListChanged(const QStringList & value) const;
-    void DisplayModeChanged(uchar  value) const;
-    void HasChangedChanged(bool  value) const;
-    void MaxBacklightBrightnessChanged(uint  value) const;
-    void MonitorsChanged(const QList<QDBusObjectPath> & value) const;
-    void PrimaryChanged(const QString & value) const;
-    void PrimaryRectChanged(ScreenRect  value) const;
-    void ScreenHeightChanged(ushort  value) const;
-    void ScreenWidthChanged(ushort  value) const;
-    void TouchMapChanged(TouchscreenMap  value) const;
-    void TouchscreensChanged(TouchscreenInfoList  value) const;
-    void TouchscreensV2Changed(TouchscreenInfoList_V2  value) const;
+    void BrightnessChanged(BrightnessMap value) const;
+    void ColorTemperatureManualChanged(int value) const;
+    void ColorTemperatureModeChanged(int value) const;
+    void CurrentCustomIdChanged(const QString &value) const;
+    void CustomIdListChanged(const QStringList &value) const;
+    void DisplayModeChanged(uchar value) const;
+    void HasChangedChanged(bool value) const;
+    void MaxBacklightBrightnessChanged(uint value) const;
+    void MonitorsChanged(const QList<QDBusObjectPath> &value) const;
+    void PrimaryChanged(const QString &value) const;
+    void PrimaryRectChanged(ScreenRect value) const;
+    void ScreenHeightChanged(ushort value) const;
+    void ScreenWidthChanged(ushort value) const;
+    void TouchMapChanged(TouchscreenMap value) const;
+    void TouchscreensChanged(TouchscreenInfoList value) const;
+    void TouchscreensV2Changed(TouchscreenInfoList_V2 value) const;
 
-    //power
-    void AmbientLightAdjustBrightnessChanged(bool  value) const;
-    void HasAmbientLightSensorChanged(bool  value) const;
+    // power
+    void AmbientLightAdjustBrightnessChanged(bool value) const;
+    void HasAmbientLightSensorChanged(bool value) const;
 
     // Cooperation
     void MachinesChanged(const QList<QDBusObjectPath> &value) const;
@@ -186,14 +193,14 @@ Q_SIGNALS: // SIGNALS
     void DeviceSharingSwitchChanged(bool value) const;
     void SharedClipboardChanged(bool on) const;
     void SharedDevicesChanged(bool on) const;
-    void FilesStoragePathChanged(const QString& path) const;
+    void FilesStoragePathChanged(const QString &path) const;
 
 private:
     DCC_NAMESPACE::DCCDBusInterface *m_dBusDisplayInter;
     DCC_NAMESPACE::DCCDBusInterface *m_dBusSystemDisplayInter;
     DCC_NAMESPACE::DCCDBusInterface *m_dBusAppearanceInter;
     DCC_NAMESPACE::DCCDBusInterface *m_dBusPowerInter;
-    DCC_NAMESPACE::DCCDBusInterface *m_dBusCooperationInter;  // 协同连接
+    DCC_NAMESPACE::DCCDBusInterface *m_dBusCooperationInter; // 协同连接
 };
 
 #endif // DISPLAYDBUSPROXY_H

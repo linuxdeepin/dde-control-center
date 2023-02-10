@@ -25,11 +25,14 @@
 
 class QFormLayout;
 class QScrollArea;
+
 class FormModule : public DCC_NAMESPACE::ModuleObject
 {
     Q_OBJECT
 public:
-    explicit FormModule(const QString &name, const QString &displayName = {}, QObject *parent = nullptr);
+    explicit FormModule(const QString &name,
+                        const QString &displayName = {},
+                        QObject *parent = nullptr);
 
     QWidget *page() override;
 

@@ -1,24 +1,18 @@
-#include "src/plugin-notification/operation/notificationworker.h"
-#include "notification_dbus.h"
-
 #include <gtest/gtest.h>
 
+#include "notification_dbus.h"
+#include "src/plugin-notification/operation/notificationworker.h"
+
 using namespace DCC_NAMESPACE;
+
 class Tst_NotificationWorker : public testing::Test
 {
 public:
-    void SetUp() override
-    {
+    void SetUp() override { }
 
-    }
-
-    void TearDown() override
-    {
-
-    }
+    void TearDown() override { }
 
 public:
-
 };
 
 TEST_F(Tst_NotificationWorker, init)

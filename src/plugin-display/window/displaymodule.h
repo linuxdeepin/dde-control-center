@@ -53,7 +53,9 @@ public:
     explicit DisplayModule(QObject *parent = nullptr);
     ~DisplayModule();
     virtual QWidget *page() override;
+
     DisplayWorker *work() { return m_worker; }
+
     DisplayModel *model() { return m_model; }
 
 protected:
@@ -70,16 +72,16 @@ private Q_SLOTS:
     int showTimeoutDialog(Monitor *monitor, const bool isFillMode = false);
     void onSetFillMode(QString currFullMode = "");
     void showDisplayRecognize();
-    void updateWinsize(QRect rect = QRect(0,0,0,0));
+    void updateWinsize(QRect rect = QRect(0, 0, 0, 0));
     void setPrimaryScreen(QScreen *screen);
 
 private:
-    DisplayModel  *m_model;
+    DisplayModel *m_model;
     DisplayWorker *m_worker;
     QWidget *m_displayWidget;
     QMap<QString, RecognizeWidget *> m_recognizeWidget;
     QScreen *m_primaryScreen;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // DISPLAYMODULE_H

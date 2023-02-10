@@ -1,13 +1,12 @@
-#include "src/plugin-keyboard/window/generalkbsettingwidget.h"
+#include "gtest/gtest.h"
 #include "src/plugin-keyboard/operation/keyboardmodel.h"
-#include "widgets/titledslideritem.h"
+#include "src/plugin-keyboard/window/generalkbsettingwidget.h"
 #include "widgets/dccslider.h"
 #include "widgets/switchwidget.h"
+#include "widgets/titledslideritem.h"
 
-#include <QSignalSpy>
 #include <QDebug>
-
-#include "gtest/gtest.h"
+#include <QSignalSpy>
 
 #include <iostream>
 
@@ -41,7 +40,7 @@ void Tst_GeneralKbSetteingWidget::TearDown()
 
 TEST_F(Tst_GeneralKbSetteingWidget, requestKBDelayChanged)
 {
-    TitledSliderItem *repeatDealy = widget->findChild<TitledSliderItem * >("RepeatDelay");
+    TitledSliderItem *repeatDealy = widget->findChild<TitledSliderItem *>("RepeatDelay");
     ASSERT_TRUE(repeatDealy != nullptr);
     QSignalSpy spy1(widget, SIGNAL(requestKBDelayChanged(const int)));
     repeatDealy->slider()->valueChanged(3);
@@ -50,7 +49,7 @@ TEST_F(Tst_GeneralKbSetteingWidget, requestKBDelayChanged)
 
 TEST_F(Tst_GeneralKbSetteingWidget, requestKBSpeedChanged)
 {
-    TitledSliderItem *repeatRate = widget->findChild<TitledSliderItem * >("RepeatRate");
+    TitledSliderItem *repeatRate = widget->findChild<TitledSliderItem *>("RepeatRate");
     ASSERT_TRUE(repeatRate != nullptr);
     QSignalSpy spy2(widget, SIGNAL(requestKBSpeedChanged(const int)));
     repeatRate->slider()->valueChanged(3);
@@ -86,7 +85,7 @@ TEST_F(Tst_GeneralKbSetteingWidget, model)
     strListShortcut.append("Alt");
     strListShortcut.append("F10");
     allShortcuts.insert(strListShortcut, 4);
-    m_userLayout.insert("cn","汉语");
+    m_userLayout.insert("cn", "汉语");
     EXPECT_NO_THROW(model->setLang(str));
     EXPECT_NO_THROW(model->setNumLock(false));
     EXPECT_EQ(model->numLock(), false);
@@ -97,11 +96,11 @@ TEST_F(Tst_GeneralKbSetteingWidget, model)
     EXPECT_NO_THROW(model->setRepeatDelay(7));
     EXPECT_EQ(model->repeatDelay(), 7);
     EXPECT_NO_THROW(model->setRepeatInterval(1));
-    EXPECT_EQ(model->repeatInterval(),1);
-    EXPECT_NO_THROW(model->addUserLayout("cn","汉语"));
-    EXPECT_EQ(model->userLayout(),m_userLayout);
+    EXPECT_EQ(model->repeatInterval(), 1);
+    EXPECT_NO_THROW(model->addUserLayout("cn", "汉语"));
+    EXPECT_EQ(model->userLayout(), m_userLayout);
     EXPECT_NO_THROW(model->setLayout("汉语"));
-    EXPECT_EQ(model->curLayout(),"汉语");
+    EXPECT_EQ(model->curLayout(), "汉语");
     EXPECT_NO_THROW(model->setLayoutLists(m_userLayout));
     EXPECT_NO_THROW(model->setLocaleLang(strList));
     EXPECT_NO_THROW(model->langFromText(""));
@@ -109,5 +108,4 @@ TEST_F(Tst_GeneralKbSetteingWidget, model)
     EXPECT_NO_THROW(model->kbLayout());
     EXPECT_NO_THROW(model->allShortcut());
     EXPECT_NO_THROW(model->cleanUserLayout());
-
 }

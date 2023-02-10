@@ -19,14 +19,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "personalizationthemewidget.h"
-#include "themeitem.h"
+
 #include "model/thememodel.h"
+#include "themeitem.h"
 
-#include <QMap>
-#include <QJsonObject>
 #include <QBoxLayout>
-
+#include <QJsonObject>
 #include <QLabel>
+#include <QMap>
 
 PersonalizationThemeWidget::PersonalizationThemeWidget(QWidget *parent)
     : QWidget(parent)
@@ -69,7 +69,7 @@ void PersonalizationThemeWidget::onAddItem(const QJsonObject &json)
     const QString &title = json["Id"].toString();
     theme->setId(title);
 
-    //translations
+    // translations
     if (json["type"] == "gtk") {
         if (title == "deepin") {
             //~ contents_path /personalization/General
@@ -89,11 +89,11 @@ void PersonalizationThemeWidget::onAddItem(const QJsonObject &json)
         } else {
             theme->setTitle(title);
             theme->setAccessibleName(title);
-
         }
     } else {
         theme->setTitle(title == "deepin" ? QString("deepin (%1)").arg(tr("Default")) : title);
-        theme->setAccessibleName(title == "deepin" ? QString("deepin (%1)").arg(tr("Default")) : title);
+        theme->setAccessibleName(title == "deepin" ? QString("deepin (%1)").arg(tr("Default"))
+                                                   : title);
     }
 
     theme->setSelected(title == m_model->getDefault());
@@ -137,7 +137,7 @@ void PersonalizationThemeWidget::onRemoveItem(const QString &id)
 {
     QMap<ThemeItem *, QJsonObject>::iterator it = m_valueMap.begin();
     while (it != m_valueMap.end()) {
-        if (it.key()->id() == id){
+        if (it.key()->id() == id) {
             delete it.key();
             m_valueMap.erase(it);
             return;

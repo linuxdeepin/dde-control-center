@@ -22,10 +22,10 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "widgets/titlelabel.h"
 #include "widgets/buttontuple.h"
 #include "widgets/disclaimersitem.h"
 #include "widgets/iris/irisinfowidget.h"
+#include "widgets/titlelabel.h"
 
 #include <DAbstractDialog>
 
@@ -43,11 +43,11 @@ DWIDGET_END_NAMESPACE
 
 // 虹膜对话框
 class CharaMangerModel;
+
 class AddIrisInfoDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
 public:
-
     explicit AddIrisInfoDialog(CharaMangerModel *model, QWidget *parent = nullptr);
     ~AddIrisInfoDialog();
 
@@ -73,11 +73,10 @@ private:
     CharaMangerModel *m_charaModel;
     QVBoxLayout *m_mainLayout;
     IrisInfoWidget *m_irisInfo;
-    QLabel *m_resultTips; // 录入结果说明
-    QLabel *m_explainTips; // 状态说明信息
-    DisclaimersItem *m_disclaimersItem; // 免责声明
-    QPushButton* m_cancelBtn; // 取消
-    DTK_WIDGET_NAMESPACE::DSuggestButton* m_acceptBtn; // 下一步
+    QLabel *m_resultTips;                              // 录入结果说明
+    QLabel *m_explainTips;                             // 状态说明信息
+    DisclaimersItem *m_disclaimersItem;                // 免责声明
+    QPushButton *m_cancelBtn;                          // 取消
+    DTK_WIDGET_NAMESPACE::DSuggestButton *m_acceptBtn; // 下一步
     CharaMangerModel::AddInfoState m_state;
 };
-

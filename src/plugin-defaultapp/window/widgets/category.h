@@ -28,10 +28,11 @@
 
 #include "include/interface/namespace.h"
 
-#include <QObject>
 #include <QList>
+#include <QObject>
 
-struct App {
+struct App
+{
     QString Id;
     QString Name;
     QString DisplayName;
@@ -42,15 +43,16 @@ struct App {
     bool CanDelete;
     bool MimeTypeFit;
 
-    App() : isUser(false), CanDelete(false), MimeTypeFit(false) {}
-
-    bool operator ==(const App &app) const {
-        return app.Id == Id && app.isUser == isUser;
+    App()
+        : isUser(false)
+        , CanDelete(false)
+        , MimeTypeFit(false)
+    {
     }
 
-    bool operator !=(const App &app) const {
-        return app.Id != Id && app.isUser != isUser;
-    }
+    bool operator==(const App &app) const { return app.Id == Id && app.isUser == isUser; }
+
+    bool operator!=(const App &app) const { return app.Id != Id && app.isUser != isUser; }
 };
 
 class Category : public QObject
@@ -61,12 +63,18 @@ public:
 
     void setDefault(const App &def);
 
-    const QString getName() const { return m_category;}
+    const QString getName() const { return m_category; }
+
     void setCategory(const QString &category);
-    inline const QList<App> getappItem() const { return m_applist;}
+
+    inline const QList<App> getappItem() const { return m_applist; }
+
     inline const QList<App> systemAppList() const { return m_systemAppList; }
+
     inline const QList<App> userAppList() const { return m_userAppList; }
-    inline const App getDefault() { return m_default;}
+
+    inline const App getDefault() { return m_default; }
+
     void clear();
     void addUserItem(const App &value);
     void delUserItem(const App &value);

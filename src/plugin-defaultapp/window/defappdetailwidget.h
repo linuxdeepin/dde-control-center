@@ -20,11 +20,13 @@
  */
 #pragma once
 
-#include <interface/moduleobject.h>
-#include "interface/namespace.h"
 #include "defappworker.h"
+#include "interface/namespace.h"
+
+#include <interface/moduleobject.h>
 
 #include <DStyleOption>
+
 #include <QWidget>
 
 DWIDGET_BEGIN_NAMESPACE
@@ -40,11 +42,13 @@ class QIcon;
 QT_END_NAMESPACE
 
 class defappworker;
+
 class DefappDetailWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit DefappDetailWidget(DefAppWorker::DefaultAppsCategory category, QWidget *parent = nullptr);
+    explicit DefappDetailWidget(DefAppWorker::DefaultAppsCategory category,
+                                QWidget *parent = nullptr);
     virtual ~DefappDetailWidget();
 
     void setModel(DefAppModel *const model);
@@ -57,6 +61,7 @@ private:
     void appendItemData(const App &app);
     bool isDesktopOrBinaryFile(const QString &fileName);
     bool isValid(const App &app);
+
     enum DefAppDataRole {
         DefAppIsUserRole = DTK_NAMESPACE::UserRole + 1,
         DefAppIdRole,
@@ -75,13 +80,16 @@ public Q_SLOTS:
     void onListViewClicked(const QModelIndex &index);
     void onDelBtnClicked();
     void onClearAll();
+
     DTK_WIDGET_NAMESPACE::DListView *getAppListview() const { return m_defApps; }
 
 private:
     void AppsItemChanged(const QList<App> &list);
     void addItem(const App &item);
     void removeItem(const App &item);
-    void showInvalidText(DTK_WIDGET_NAMESPACE::DStandardItem *modelItem, const QString &name, const QString &iconName);
+    void showInvalidText(DTK_WIDGET_NAMESPACE::DStandardItem *modelItem,
+                         const QString &name,
+                         const QString &iconName);
 
 private:
     QVBoxLayout *m_centralLayout;

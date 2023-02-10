@@ -3,19 +3,16 @@
 #include <QDebug>
 
 using namespace DCC_PRIVACY_NAMESPACE;
+
 ServiceControlItems::ServiceControlItems(ServiceCategory category, QObject *parent)
     : QObject(parent)
     , m_currentCategory(category)
     , m_available(false)
     , m_switch(true)
 {
-
 }
 
-ServiceControlItems::~ServiceControlItems()
-{
-
-}
+ServiceControlItems::~ServiceControlItems() { }
 
 void ServiceControlItems::setServiceGroup(const QString &group)
 {
@@ -40,7 +37,7 @@ void ServiceControlItems::setSwitchState(const bool switchState)
 
 void ServiceControlItems::setServiceApps(const QList<App> &apps)
 {
-    qDebug() << " 数据更新： setServiceApps: " << m_currentCategory << apps.size() ;
+    qDebug() << " 数据更新： setServiceApps: " << m_currentCategory << apps.size();
     if (m_appList != apps) {
         m_appList.clear();
         m_appList.append(apps);

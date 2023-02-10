@@ -1,32 +1,35 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #ifndef LISTVIEW_H
 #define LISTVIEW_H
 #include "interface/namespace.h"
+
 #include <qglobal.h>
+
 #include <QAbstractItemView>
 
 namespace DCC_NAMESPACE {
 
 class ListViewPrivate;
+
 class ListView : public QAbstractItemView
 {
     Q_OBJECT
@@ -36,8 +39,7 @@ class ListView : public QAbstractItemView
     Q_PROPERTY(Qt::Alignment alignment READ alignment WRITE setAlignment)
 
 public:
-    enum ViewMode { ListMode,
-                    IconMode };
+    enum ViewMode { ListMode, IconMode };
     Q_ENUM(ViewMode)
 
     explicit ListView(QWidget *parent = nullptr);
@@ -74,7 +76,9 @@ protected:
 
     void updateGeometries() override;
 
-    void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>()) override;
+    void dataChanged(const QModelIndex &topLeft,
+                     const QModelIndex &bottomRight,
+                     const QVector<int> &roles = QVector<int>()) override;
     void rowsInserted(const QModelIndex &parent, int start, int end) override;
     void rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end) override;
 

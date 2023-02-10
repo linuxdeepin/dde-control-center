@@ -20,22 +20,22 @@
  */
 #pragma once
 
-#include "widgets/accessibleinterface.h"
 #include "src/widgets/accessiblefactoryinterface.h"
+#include "widgets/accessibleinterface.h"
 
-#include <QPushButton>
-#include <QWidget>
-#include <QLineEdit>
-#include <QToolButton>
-#include <QSlider>
+#include <QComboBox>
 #include <QFrame>
-#include <QMenu>
 #include <QLabel>
+#include <QLineEdit>
 #include <QListWidget>
+#include <QMainWindow>
+#include <QMenu>
+#include <QPushButton>
 #include <QScrollArea>
 #include <QScrollBar>
-#include <QComboBox>
-#include <QMainWindow>
+#include <QSlider>
+#include <QToolButton>
+#include <QWidget>
 
 /**************************************************************************************/
 // Qt控件
@@ -62,16 +62,22 @@ public:
     {
         AccessibleFactoryInterface::RegisterInstance(this);
     }
+
     virtual ~AccessibleFactory() { }
-    virtual AccessibleFactoryBase *registerAccessibleFactory(const char *factoryName, AccessibleFactoryBase *factory) override
+
+    virtual AccessibleFactoryBase *
+    registerAccessibleFactory(const char *factoryName, AccessibleFactoryBase *factory) override
     {
         if (!m_factoryMap.contains(factoryName))
             m_factoryMap.insert(factoryName, factory);
         return factory;
     }
+
     QAccessibleInterface *createObject(const QString &classname, QObject *object)
     {
-        return m_factoryMap.contains(classname) ? m_factoryMap.value(classname)->createObject(object) : nullptr;
+        return m_factoryMap.contains(classname)
+                ? m_factoryMap.value(classname)->createObject(object)
+                : nullptr;
     }
 
 private:
@@ -81,12 +87,12 @@ private:
 QAccessibleInterface *accessibleFactory(const QString &classname, QObject *object)
 {
     QAccessibleInterface *interface = nullptr;
-   static AccessibleFactory * s_accessibleFactory = nullptr;
-   if (!s_accessibleFactory)
+    static AccessibleFactory *s_accessibleFactory = nullptr;
+    if (!s_accessibleFactory)
         s_accessibleFactory = new AccessibleFactory();
 
-   if (object && object->isWidgetType())
-        interface = s_accessibleFactory->createObject(classname.split("::").last(),object);
+    if (object && object->isWidgetType())
+        interface = s_accessibleFactory->createObject(classname.split("::").last(), object);
 
     return interface;
 }

@@ -27,15 +27,17 @@
 #define PERSONALIZATIONWORKER_H
 
 #include "personalizationmodel.h"
-#include <QObject>
+
 #include <QDebug>
-#include <QStringList>
-#include <QMap>
-#include <QString>
 #include <QJsonObject>
+#include <QMap>
+#include <QObject>
+#include <QString>
+#include <QStringList>
 
 class PersonalizationDBusProxy;
 class ThemeModel;
+
 class PersonalizationWorker : public QObject
 {
     Q_OBJECT
@@ -98,6 +100,7 @@ private:
 };
 
 class QDBusError;
+
 class PersonalizationWatcher : public QObject
 {
     Q_OBJECT

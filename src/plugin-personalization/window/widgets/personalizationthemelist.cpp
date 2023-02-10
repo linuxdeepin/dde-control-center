@@ -19,16 +19,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "personalizationthemelist.h"
+
 #include "model/thememodel.h"
 #include "titlelabel.h"
 
 #include <DListView>
-
-#include <QVBoxLayout>
-#include <QScroller>
-#include <QPushButton>
 #include <DSuggestButton>
 #include <DTitlebar>
+
+#include <QPushButton>
+#include <QScroller>
+#include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -41,8 +42,8 @@ PersonalizationThemeList::PersonalizationThemeList(const QString &title, QWidget
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     DTitlebar *titleIcon = new DTitlebar();
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setMenuVisible(false);
     titleIcon->setIcon(qApp->windowIcon());
     titleIcon->setTitle(title);
@@ -65,7 +66,8 @@ PersonalizationThemeList::PersonalizationThemeList(const QString &title, QWidget
 
     QScroller *scroller = QScroller::scroller(m_listview->viewport());
     QScrollerProperties sp;
-    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy,
+                       QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
     QPushButton *cancleBtn = new QPushButton(tr("Cancel"));
@@ -163,7 +165,8 @@ void PersonalizationThemeList::onSetPic(const QString &id, const QString &picPat
 
         DViewItemActionList list;
         QPixmap pxmap = QPixmap(picPath);
-        DViewItemAction *iconAction = new DViewItemAction(Qt::AlignLeft, pxmap.size() / devicePixelRatioF());
+        DViewItemAction *iconAction =
+                new DViewItemAction(Qt::AlignLeft, pxmap.size() / devicePixelRatioF());
         iconAction->setIcon(QIcon(pxmap));
         list << iconAction;
         item->setActionList(Qt::BottomEdge, list);

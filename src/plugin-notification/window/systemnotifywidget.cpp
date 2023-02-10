@@ -19,22 +19,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "systemnotifywidget.h"
-#include "notificationitem.h"
-#include "timeslotitem.h"
-#include "widgets/switchwidget.h"
-#include "widgets/settingsgroup.h"
-#include "src/plugin-notification/operation/notificationmodel.h"
-#include "src/plugin-notification/operation/model/sysitemmodel.h"
 
+#include "notificationitem.h"
+#include "src/plugin-notification/operation/model/sysitemmodel.h"
+#include "src/plugin-notification/operation/notificationmodel.h"
+#include "timeslotitem.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/switchwidget.h"
+
+#include <DFontSizeManager>
+#include <DLabel>
 #include <DLineEdit>
 #include <DSwitchButton>
-#include <DLabel>
 #include <DTipLabel>
-#include <DFontSizeManager>
 
-#include <QVBoxLayout>
 #include <QCheckBox>
 #include <QDebug>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -79,7 +80,9 @@ void SystemNotifyWidget::initUI()
     hLayoutDisturbMode->addWidget(m_btnDisturbMode, Qt::AlignRight);
     mainLayout->addLayout(hLayoutDisturbMode);
 
-    DTipLabel *lblTip = new DTipLabel(tr("App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center."));
+    DTipLabel *lblTip = new DTipLabel(
+            tr("App notifications will not be shown on desktop and the sounds will be silenced, "
+               "but you can view all messages in the notification center."));
     DFontSizeManager::instance()->bind(lblTip, DFontSizeManager::T8);
     lblTip->adjustSize();
     lblTip->setWordWrap(true);
@@ -130,21 +133,21 @@ void SystemNotifyWidget::initConnect()
     });
     m_itemLockScreen->setState(m_model->isLockScreen());
 
-    //set connects: this to module
-    connect(m_btnDisturbMode, &DSwitchButton::checkedChanged, this, [ = ](bool state) {
+    // set connects: this to module
+    connect(m_btnDisturbMode, &DSwitchButton::checkedChanged, this, [=](bool state) {
         m_settingsGrp->setVisible(state);
         Q_EMIT requestSetSysSetting(SysItemModel::DNDMODE, state);
     });
-    connect(m_itemTimeSlot, &TimeSlotItem::stateChanged, this, [ = ](bool state) {
+    connect(m_itemTimeSlot, &TimeSlotItem::stateChanged, this, [=](bool state) {
         Q_EMIT requestSetSysSetting(SysItemModel::OPENBYTIMEINTERVAL, state);
     });
-    connect(m_itemTimeSlot, &TimeSlotItem::timeStartChanged, this, [ = ](QTime time) {
+    connect(m_itemTimeSlot, &TimeSlotItem::timeStartChanged, this, [=](QTime time) {
         Q_EMIT requestSetSysSetting(SysItemModel::STARTTIME, time.toString("hh:mm"));
     });
-    connect(m_itemTimeSlot, &TimeSlotItem::timeEndChanged, this, [ = ](QTime time) {
+    connect(m_itemTimeSlot, &TimeSlotItem::timeEndChanged, this, [=](QTime time) {
         Q_EMIT requestSetSysSetting(SysItemModel::ENDTIME, time.toString("hh:mm"));
     });
-    connect(m_itemLockScreen, &NotificationItem::stateChanged, this, [ = ](bool state) {
+    connect(m_itemLockScreen, &NotificationItem::stateChanged, this, [=](bool state) {
         Q_EMIT requestSetSysSetting(SysItemModel::LOCKSCREENOPENDNDMODE, state);
     });
 }

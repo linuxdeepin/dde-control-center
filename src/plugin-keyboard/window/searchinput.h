@@ -27,6 +27,7 @@
 #define SEARCHINPUT_H
 
 #include "interface/namespace.h"
+
 #include <QLineEdit>
 
 namespace DCC_NAMESPACE {
@@ -36,8 +37,8 @@ class SearchInput : public QLineEdit
     Q_OBJECT
     Q_PROPERTY(QString icon READ iconPath WRITE setIcon)
 public:
-    explicit SearchInput(QWidget* parent = 0);
-    void setSearchText(const QString& text);
+    explicit SearchInput(QWidget *parent = 0);
+    void setSearchText(const QString &text);
     void setIconVisible(bool visible);
     QString iconPath() const;
     void setIcon(const QString &filepath);
@@ -52,6 +53,6 @@ private:
     QString m_iconPath;
 };
 
-}
+} // namespace DCC_NAMESPACE
 
 #endif // SEARCHINPUT_H

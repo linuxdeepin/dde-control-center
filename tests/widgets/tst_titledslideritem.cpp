@@ -1,18 +1,15 @@
 #include <gtest/gtest.h>
 
-#include <QStandardItemModel>
-
 #include "widgets/titledslideritem.h"
+
+#include <QStandardItemModel>
 
 using namespace DCC_NAMESPACE;
 
 class Tst_TitledSliderItem : public testing::Test
 {
 public:
-    void SetUp() override
-    {
-        obj = new TitledSliderItem("aaa");
-    }
+    void SetUp() override { obj = new TitledSliderItem("aaa"); }
 
     void TearDown() override
     {
@@ -27,7 +24,8 @@ public:
 TEST_F(Tst_TitledSliderItem, coverage)
 {
     obj->slider();
-    obj->setAnnotations(QStringList() << "aaa" << "bbb");
+    obj->setAnnotations(QStringList() << "aaa"
+                                      << "bbb");
     obj->valueLiteral();
     obj->setValueLiteral("ccc");
     obj->setLeftIcon(QIcon::fromTheme("ddd"));

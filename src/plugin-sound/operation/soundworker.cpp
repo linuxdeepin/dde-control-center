@@ -25,11 +25,11 @@
 
 #include "soundworker.h"
 
-#include <QJsonDocument>
-#include <QTimer>
-#include <QJsonArray>
-#include <QJsonObject>
 #include <QDebug>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QTimer>
 
 #define GSETTINGS_WAIT_SOUND_RECEIPT "wait-sound-receipt"
 
@@ -54,20 +54,56 @@ void SoundWorker::initConnect()
     connect(m_model, &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
     connect(m_model, &SoundModel::audioCardsChanged, this, &SoundWorker::cardsChanged);
 
-    connect(m_soundDBusInter, &SoundDBusProxy::DefaultSinkChanged, m_model, &SoundModel::setDefaultSink);
-    connect(m_soundDBusInter, &SoundDBusProxy::DefaultSourceChanged, m_model, &SoundModel::setDefaultSource);
-    connect(m_soundDBusInter, &SoundDBusProxy::MaxUIVolumeChanged, m_model, &SoundModel::setMaxUIVolume);
-    connect(m_soundDBusInter, &SoundDBusProxy::IncreaseVolumeChanged, m_model, &SoundModel::setIncreaseVolume);
-    connect(m_soundDBusInter, &SoundDBusProxy::CardsWithoutUnavailableChanged, m_model, &SoundModel::setAudioCards);
-    connect(m_soundDBusInter, &SoundDBusProxy::ReduceNoiseChanged, m_model, &SoundModel::setReduceNoise);
-    connect(m_soundDBusInter, &SoundDBusProxy::BluetoothAudioModeOptsChanged, m_model, &SoundModel::setBluetoothAudioModeOpts);
-    connect(m_soundDBusInter, &SoundDBusProxy::BluetoothAudioModeChanged, m_model, &SoundModel::setCurrentBluetoothAudioMode);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::DefaultSinkChanged,
+            m_model,
+            &SoundModel::setDefaultSink);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::DefaultSourceChanged,
+            m_model,
+            &SoundModel::setDefaultSource);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::MaxUIVolumeChanged,
+            m_model,
+            &SoundModel::setMaxUIVolume);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::IncreaseVolumeChanged,
+            m_model,
+            &SoundModel::setIncreaseVolume);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::CardsWithoutUnavailableChanged,
+            m_model,
+            &SoundModel::setAudioCards);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::ReduceNoiseChanged,
+            m_model,
+            &SoundModel::setReduceNoise);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::BluetoothAudioModeOptsChanged,
+            m_model,
+            &SoundModel::setBluetoothAudioModeOpts);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::BluetoothAudioModeChanged,
+            m_model,
+            &SoundModel::setCurrentBluetoothAudioMode);
 
-    connect(m_soundDBusInter, &SoundDBusProxy::EnabledChanged, m_model, &SoundModel::setEnableSoundEffect);
-    connect(m_soundDBusInter, &SoundDBusProxy::pendingCallWatcherFinished, this, &SoundWorker::getSoundEnabledMapFinished);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::EnabledChanged,
+            m_model,
+            &SoundModel::setEnableSoundEffect);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::pendingCallWatcherFinished,
+            this,
+            &SoundWorker::getSoundEnabledMapFinished);
 
-    connect(m_pingTimer, &QTimer::timeout, [this] { if (m_soundDBusInter) m_soundDBusInter->Tick(); });
-    connect(m_soundDBusInter, &SoundDBusProxy::HasBatteryChanged, m_model, &SoundModel::setIsLaptop);
+    connect(m_pingTimer, &QTimer::timeout, [this] {
+        if (m_soundDBusInter)
+            m_soundDBusInter->Tick();
+    });
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::HasBatteryChanged,
+            m_model,
+            &SoundModel::setIsLaptop);
 }
 
 void SoundWorker::activate()
@@ -125,7 +161,6 @@ void SoundWorker::setSinkBalance(double balance)
 {
     m_soundDBusInter->SetBalanceSink(balance, true);
     qDebug() << "set balance to " << balance;
-
 }
 
 void SoundWorker::setSourceVolume(double volume)
@@ -140,7 +175,7 @@ void SoundWorker::setSinkVolume(double volume)
     qDebug() << "set sink volume to " << volume;
 }
 
-//切换输入静音状态，flag为false时直接取消静音
+// 切换输入静音状态，flag为false时直接取消静音
 void SoundWorker::setSinkMute(bool flag)
 {
     if (flag) {
@@ -150,7 +185,7 @@ void SoundWorker::setSinkMute(bool flag)
     }
 }
 
-//通知后端切换静音状态,flag为false时直接取消静音
+// 通知后端切换静音状态,flag为false时直接取消静音
 void SoundWorker::setSourceMute(bool flag)
 {
     if (flag) {
@@ -173,13 +208,18 @@ void SoundWorker::setReduceNoise(bool value)
 void SoundWorker::setPort(const Port *port)
 {
     m_soundDBusInter->SetPort(port->cardId(), port->id(), int(port->direction()));
-    qDebug() << "cardID:" << port->cardId()  << "portName:" << port->name() << "  " << port->id() << "  " << port->direction();
+    qDebug() << "cardID:" << port->cardId() << "portName:" << port->name() << "  " << port->id()
+             << "  " << port->direction();
     m_model->setPort(port);
 }
 
 void SoundWorker::setEffectEnable(DDesktopServices::SystemSoundEffect effect, bool enable)
 {
-    m_soundDBusInter->EnableSound(m_model->getNameByEffectType(effect), enable, this , SLOT(refreshSoundEffect()), SLOT(refreshSoundEffect()));
+    m_soundDBusInter->EnableSound(m_model->getNameByEffectType(effect),
+                                  enable,
+                                  this,
+                                  SLOT(refreshSoundEffect()),
+                                  SLOT(refreshSoundEffect()));
 }
 
 void SoundWorker::enableAllSoundEffect(bool enable)
@@ -195,16 +235,29 @@ void SoundWorker::setBluetoothMode(const QString &mode)
 void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 {
     qDebug() << "sink default path:" << path.path();
-    if (path.path().isEmpty() || path.path() == "/" )
-        return; //路径为空
-
+    if (path.path().isEmpty() || path.path() == "/")
+        return; // 路径为空
 
     m_soundDBusInter->setSinkDevicePath(path.path());
-    connect(m_soundDBusInter, &SoundDBusProxy::MuteSinkChanged, [this](bool mute) { m_model->setSpeakerOn(mute);});
-    connect(m_soundDBusInter, &SoundDBusProxy::BalanceSinkChanged, m_model, &SoundModel::setSpeakerBalance);
-    connect(m_soundDBusInter, &SoundDBusProxy::VolumeSinkChanged, m_model, &SoundModel::setSpeakerVolume);
-    connect(m_soundDBusInter, &SoundDBusProxy::ActivePortSinkChanged, this, &SoundWorker::activeSinkPortChanged);
-    connect(m_soundDBusInter, &SoundDBusProxy::CardSinkChanged, this, &SoundWorker::onSinkCardChanged);
+    connect(m_soundDBusInter, &SoundDBusProxy::MuteSinkChanged, [this](bool mute) {
+        m_model->setSpeakerOn(mute);
+    });
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::BalanceSinkChanged,
+            m_model,
+            &SoundModel::setSpeakerBalance);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::VolumeSinkChanged,
+            m_model,
+            &SoundModel::setSpeakerVolume);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::ActivePortSinkChanged,
+            this,
+            &SoundWorker::activeSinkPortChanged);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::CardSinkChanged,
+            this,
+            &SoundWorker::onSinkCardChanged);
 
     m_model->setSpeakerOn(m_soundDBusInter->muteSink());
     m_model->setSpeakerBalance(m_soundDBusInter->balanceSink());
@@ -216,14 +269,26 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 {
     qDebug() << "source default path:" << path.path();
-    if (path.path().isEmpty() || path.path() == "/" ) return; //路径为空
+    if (path.path().isEmpty() || path.path() == "/")
+        return; // 路径为空
 
     m_soundDBusInter->setSourceDevicePath(path.path());
 
-    connect(m_soundDBusInter, &SoundDBusProxy::MuteSourceChanged, [this](bool mute) { m_model->setMicrophoneOn(mute); });
-    connect(m_soundDBusInter, &SoundDBusProxy::VolumeSourceChanged, m_model, &SoundModel::setMicrophoneVolume);
-    connect(m_soundDBusInter, &SoundDBusProxy::ActivePortSourceChanged, this, &SoundWorker::activeSourcePortChanged);
-    connect(m_soundDBusInter, &SoundDBusProxy::CardSourceChanged, this, &SoundWorker::onSourceCardChanged);
+    connect(m_soundDBusInter, &SoundDBusProxy::MuteSourceChanged, [this](bool mute) {
+        m_model->setMicrophoneOn(mute);
+    });
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::VolumeSourceChanged,
+            m_model,
+            &SoundModel::setMicrophoneVolume);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::ActivePortSourceChanged,
+            this,
+            &SoundWorker::activeSourcePortChanged);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::CardSourceChanged,
+            this,
+            &SoundWorker::onSourceCardChanged);
 
     m_model->setMicrophoneOn(m_soundDBusInter->muteSource());
     m_model->setMicrophoneVolume(m_soundDBusInter->volumeSource());
@@ -235,7 +300,10 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
     if (meter.path().isEmpty())
         return;
     m_soundDBusInter->setMeterDevicePath(meter.path());
-    connect(m_soundDBusInter, &SoundDBusProxy::VolumeMeterChanged, m_model, &SoundModel::setMicrophoneFeedback);
+    connect(m_soundDBusInter,
+            &SoundDBusProxy::VolumeMeterChanged,
+            m_model,
+            &SoundModel::setMicrophoneFeedback);
     m_model->setMicrophoneFeedback(m_soundDBusInter->volumeMeter());
 
 #endif
@@ -257,7 +325,7 @@ void SoundWorker::cardsChanged(const QString &cards)
         for (QJsonValue pV : jPorts) {
             QJsonObject jPort = pV.toObject();
             const double portAvai = jPort["Available"].toDouble();
-            if (portAvai == 2.0 || portAvai == 0.0) {  // 0 Unknown 1 Not available 2 Available
+            if (portAvai == 2.0 || portAvai == 0.0) { // 0 Unknown 1 Not available 2 Available
                 const QString portId = jPort["Name"].toString();
                 const QString portName = jPort["Description"].toString();
                 const bool isEnabled = jPort["Enabled"].toBool();
@@ -265,7 +333,9 @@ void SoundWorker::cardsChanged(const QString &cards)
 
                 Port *port = m_model->findPort(portId, cardId);
                 const bool include = port != nullptr;
-                if (!include) { port = new Port(m_model); }
+                if (!include) {
+                    port = new Port(m_model);
+                }
 
                 port->setId(portId);
                 port->setName(portName);
@@ -275,12 +345,16 @@ void SoundWorker::cardsChanged(const QString &cards)
                 port->setEnabled(isEnabled);
                 port->setIsBluetoothPort(isBluetooth);
 
-                const bool isActiveOuputPort = (portId == m_activeSinkPort) && (cardId == m_activeOutputCard);
-                const bool isActiveInputPort = (portId == m_activeSourcePort) && (cardId == m_activeInputCard);
+                const bool isActiveOuputPort =
+                        (portId == m_activeSinkPort) && (cardId == m_activeOutputCard);
+                const bool isActiveInputPort =
+                        (portId == m_activeSourcePort) && (cardId == m_activeInputCard);
 
                 port->setIsActive(isActiveInputPort || isActiveOuputPort);
 
-                if (!include) { m_model->addPort(port); }
+                if (!include) {
+                    m_model->addPort(port);
+                }
 
                 tmpPorts << portId;
             }
@@ -290,7 +364,7 @@ void SoundWorker::cardsChanged(const QString &cards)
     }
 
     for (Port *port : m_model->ports()) {
-        //if the card is not in the list
+        // if the card is not in the list
         if (!tmpCardIds.contains(port->cardId())) {
             m_model->removePort(port->id(), port->cardId());
         } else if (!tmpCardIds[port->cardId()].contains(port->id())) {
@@ -338,7 +412,8 @@ void SoundWorker::onSourceCardChanged(const uint &cardId)
 void SoundWorker::getSoundEnabledMapFinished(QMap<QString, bool> map)
 {
     for (auto it = map.constBegin(); it != map.constEnd(); ++it) {
-        if (!m_model->checkSEExist(it.key())) continue;
+        if (!m_model->checkSEExist(it.key()))
+            continue;
 
         DDesktopServices::SystemSoundEffect type = m_model->getEffectTypeByGsettingName(it.key());
         m_model->setEffectData(type, it.value());
@@ -348,14 +423,13 @@ void SoundWorker::getSoundEnabledMapFinished(QMap<QString, bool> map)
     }
 }
 
-
 void SoundWorker::getSoundPathFinished(QDBusPendingCallWatcher *watcher)
 {
     if (!watcher->isError()) {
         QDBusReply<QString> reply = watcher->reply();
         m_model->updateSoundEffectPath(
-                    watcher->property("Type").value<DDesktopServices::SystemSoundEffect>(),
-                    reply.value());
+                watcher->property("Type").value<DDesktopServices::SystemSoundEffect>(),
+                reply.value());
     } else {
         qDebug() << "get sound path error." << watcher->error();
     }
@@ -366,8 +440,10 @@ void SoundWorker::getSoundPathFinished(QDBusPendingCallWatcher *watcher)
 void SoundWorker::updatePortActivity()
 {
     for (Port *port : m_model->ports()) {
-        const bool isActiveOuputPort = (port->id() == m_activeSinkPort) && (port->cardId() == m_activeOutputCard);
-        const bool isActiveInputPort = (port->id() == m_activeSourcePort) && (port->cardId() == m_activeInputCard);
+        const bool isActiveOuputPort =
+                (port->id() == m_activeSinkPort) && (port->cardId() == m_activeOutputCard);
+        const bool isActiveInputPort =
+                (port->id() == m_activeSourcePort) && (port->cardId() == m_activeInputCard);
         port->setIsActive(isActiveInputPort || isActiveOuputPort);
     }
 }

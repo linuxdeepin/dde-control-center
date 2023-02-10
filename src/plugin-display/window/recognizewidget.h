@@ -39,6 +39,7 @@ namespace DCC_NAMESPACE {
 
 class Monitor;
 class DisplayModel;
+
 class RecognizeWidget : public DBlurEffectWidget
 {
     Q_OBJECT
@@ -58,6 +59,6 @@ private:
     QRect m_rect;
     QString m_text;
 };
-}
+} // namespace DCC_NAMESPACE
 
 #endif // RECOGNIZEWIDGET_H

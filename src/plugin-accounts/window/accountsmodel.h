@@ -10,21 +10,23 @@
 namespace DCC_NAMESPACE {
 class User;
 class UserModel;
-}
-
+} // namespace DCC_NAMESPACE
 
 class AccountsModel : public QAbstractItemModel
 {
     Q_OBJECT
 public:
     explicit AccountsModel(QObject *parent = nullptr);
-    ~AccountsModel() {}
+
+    ~AccountsModel() { }
 
     void setUserModel(DCC_NAMESPACE::UserModel *userModel);
     DCC_NAMESPACE::User *getUser(const QModelIndex &index) const;
     QModelIndex index(DCC_NAMESPACE::User *user) const;
     // Basic functionality:
-    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex index(int row,
+                      int column,
+                      const QModelIndex &parent = QModelIndex()) const override;
     QModelIndex parent(const QModelIndex &index) const override;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -42,26 +44,38 @@ private:
     DCC_NAMESPACE::UserModel *m_userModel;
 };
 
-
 class UserDelegate : public Dtk::Widget::DStyledItemDelegate
 {
 public:
     explicit UserDelegate(QAbstractItemView *parent = nullptr);
 
 protected:
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const override;
+    void paint(QPainter *painter,
+               const QStyleOptionViewItem &option,
+               const QModelIndex &index) const override;
     QSize sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const override;
 
-    virtual void drawDecoration(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const;
-    void drawBackground(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const;
-    void drawDisplay(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const;
-//    void drawEllipse(QPainter *painter, const QStyleOptionViewItem &option, const int message) const;
-//    void drawFocus(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const;
+    virtual void drawDecoration(QPainter *painter,
+                                const QStyleOptionViewItem &option,
+                                const QRect &rect) const;
+    void drawBackground(const QStyle *style,
+                        QPainter *painter,
+                        const QStyleOptionViewItem &option,
+                        const QRect &rect) const;
+    void drawDisplay(const QStyle *style,
+                     QPainter *painter,
+                     const QStyleOptionViewItem &option,
+                     const QRect &rect) const;
+    //    void drawEllipse(QPainter *painter, const QStyleOptionViewItem &option, const int message)
+    //    const; void drawFocus(const QStyle *style, QPainter *painter, const QStyleOptionViewItem
+    //    &option, const QRect &rect) const;
 
-    void drawOnlineIcon(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const;
+    void drawOnlineIcon(QPainter *painter,
+                        const QStyleOptionViewItem &option,
+                        const QRect &rect) const;
 
 private:
-//    QGraphicsDropShadowEffect *m_shadowEffect;
+    //    QGraphicsDropShadowEffect *m_shadowEffect;
 };
 
 #endif // ACCOUNTSMODEL_H

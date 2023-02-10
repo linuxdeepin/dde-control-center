@@ -34,6 +34,7 @@ namespace DCC_NAMESPACE {
 class SettingsGroup;
 class SwitchWidget;
 class TitledSliderItem;
+
 class MouseSettingWidget : public QWidget
 {
     Q_OBJECT
@@ -61,5 +62,5 @@ private:
     SwitchWidget *m_mouseNaturalScroll;
     QVBoxLayout *m_contentLayout;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // MOUSESETTINGWIDGET_H

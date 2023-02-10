@@ -27,27 +27,28 @@
 #define DOUTESTWIDGET_H
 
 #include "widgets/settingsitem.h"
-#include <QStringList>
+
 #include <dpicturesequenceview.h>
+
+#include <QStringList>
 
 DWIDGET_USE_NAMESPACE
 class QMouseEvent;
 class QVBoxLayout;
 
-namespace DCC_NAMESPACE
-{
+namespace DCC_NAMESPACE {
 class SettingsItem;
+
 class DouTestWidget : public SettingsItem
 {
     Q_OBJECT
 public:
     explicit DouTestWidget(QWidget *parent = nullptr);
 
-    enum State {
-        BOW,RAISE
-    };
+    enum State { BOW, RAISE };
 
-    struct DoubleTestPic {
+    struct DoubleTestPic
+    {
         QStringList double_1;
         QStringList double_2;
         QStringList click_1;
@@ -59,12 +60,11 @@ protected:
     void mouseDoubleClickEvent(QMouseEvent *event);
 
 private:
-    QVBoxLayout           *m_mainlayout;
-    DPictureSequenceView  *m_testWidget;
-    State                  m_state;
-    DoubleTestPic          m_doubleTest;
+    QVBoxLayout *m_mainlayout;
+    DPictureSequenceView *m_testWidget;
+    State m_state;
+    DoubleTestPic m_doubleTest;
 };
-}
-
+} // namespace DCC_NAMESPACE
 
 #endif // DOUTESTWIDGET_H

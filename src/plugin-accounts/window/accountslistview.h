@@ -24,13 +24,13 @@
 
 #include <QListView>
 class AccountsListViewPrivate;
+
 class AccountsListView : public QAbstractItemView
 {
     Q_OBJECT
 public:
     explicit AccountsListView(QWidget *parent = nullptr);
     virtual ~AccountsListView() override;
-
 
     void setModel(QAbstractItemModel *model) override;
     QRect visualRect(const QModelIndex &index) const override;
@@ -48,7 +48,9 @@ protected:
 
     void updateGeometries() override;
 
-    void dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles = QVector<int>()) override;
+    void dataChanged(const QModelIndex &topLeft,
+                     const QModelIndex &bottomRight,
+                     const QVector<int> &roles = QVector<int>()) override;
     void rowsInserted(const QModelIndex &parent, int start, int end) override;
     void rowsAboutToBeRemoved(const QModelIndex &parent, int start, int end) override;
 

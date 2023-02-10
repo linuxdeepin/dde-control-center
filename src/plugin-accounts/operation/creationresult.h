@@ -49,9 +49,11 @@ public:
     explicit CreationResult(ResultType type, const QString &message, QObject *parent = 0);
 
     inline ResultType type() const { return m_type; }
+
     void setType(const ResultType &type);
 
     inline QString message() const { return m_message; }
+
     void setMessage(const QString &message);
 
 private:

@@ -26,9 +26,9 @@
 #ifndef SHORTCUTITEM_H
 #define SHORTCUTITEM_H
 
-#include"interface/namespace.h"
-#include "widgets/settingsitem.h"
+#include "interface/namespace.h"
 #include "shortcutkey.h"
+#include "widgets/settingsitem.h"
 
 #include <DIconButton>
 
@@ -49,6 +49,7 @@ public:
     ~ShortcutItem();
 
     void setShortcutInfo(ShortcutInfo *info);
+
     inline ShortcutInfo *curInfo() { return m_info; }
 
     void setChecked(bool checked);
@@ -85,5 +86,5 @@ private:
     ShortcutKey *m_key;
     QString m_configName;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // SHORTCUTITEM_H

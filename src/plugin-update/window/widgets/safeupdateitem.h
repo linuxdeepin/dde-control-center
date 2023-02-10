@@ -3,7 +3,7 @@
 
 #include "updatesettingitem.h"
 
-class SafeUpdateItem: public UpdateSettingItem
+class SafeUpdateItem : public UpdateSettingItem
 {
     Q_OBJECT
 public:

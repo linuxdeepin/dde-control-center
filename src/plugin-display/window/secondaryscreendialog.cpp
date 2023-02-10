@@ -20,21 +20,22 @@
  */
 
 #include "secondaryscreendialog.h"
-#include "widgets/dccslider.h"
-#include "widgets/titlelabel.h"
-#include "widgets/titledslideritem.h"
-#include "resolutionwidget.h"
-#include "refreshratewidget.h"
-#include "rotatewidget.h"
+
 #include "monitorcontrolwidget.h"
+#include "refreshratewidget.h"
+#include "resolutionwidget.h"
+#include "rotatewidget.h"
 #include "src/plugin-display/operation/displaymodel.h"
+#include "widgets/dccslider.h"
+#include "widgets/titledslideritem.h"
+#include "widgets/titlelabel.h"
 
 #include <DFontSizeManager>
 
 #include <QGuiApplication>
-#include <QVBoxLayout>
-#include <QScreen>
 #include <QKeyEvent>
+#include <QScreen>
+#include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -42,7 +43,7 @@ DWIDGET_USE_NAMESPACE
 const int ComboxWidth = 200;
 const int PercentageNum = 100;
 const double BrightnessMaxScale = 100.0;
-const double DoubleZero = 0.01; //后端传入的doube指为浮点型，有效位数为2位小数，存在精度丢失
+const double DoubleZero = 0.01; // 后端传入的doube指为浮点型，有效位数为2位小数，存在精度丢失
 
 SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     : DAbstractDialog(parent)
@@ -57,7 +58,7 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     setFixedWidth(410);
     setMinimumHeight(480);
 
-    //WAYLAND下需要CoverWindow属性才能保证激活父窗口时，此窗口置顶的效果，而x11下则不需要
+    // WAYLAND下需要CoverWindow属性才能保证激活父窗口时，此窗口置顶的效果，而x11下则不需要
     if (!qgetenv("WAYLAND_DISPLAY").isEmpty()) {
         setWindowFlags(Qt::CoverWindow);
     }
@@ -79,14 +80,12 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     setLayout(m_contentLayout);
 }
 
-SecondaryScreenDialog::~SecondaryScreenDialog()
-{
-}
+SecondaryScreenDialog::~SecondaryScreenDialog() { }
 
 void SecondaryScreenDialog::OnRequestResizeDesktopVisibleChanged(bool visible)
 {
     if (visible)
-        setMinimumHeight(m_model->brightnessEnable() ? 610+48 : 480+48);
+        setMinimumHeight(m_model->brightnessEnable() ? 610 + 48 : 480 + 48);
     else
         setMinimumHeight(m_model->brightnessEnable() ? 610 : 480);
 }
@@ -104,15 +103,42 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, Monitor *monitor)
     m_refreshRateWidget->setModel(m_model, m_monitor);
     m_rotateWidget->setModel(m_model, m_monitor);
 
-    connect(m_monitorControlWidget, &MonitorControlWidget::requestRecognize, this, &SecondaryScreenDialog::requestRecognize);
-    connect(m_monitorControlWidget, &MonitorControlWidget::requestGatherWindows, this, &SecondaryScreenDialog::requestGatherWindows);
-    connect(this, &SecondaryScreenDialog::requestGatherEnabled, m_monitorControlWidget, &MonitorControlWidget::onGatherEnabled);
-    connect(m_resolutionWidget, &ResolutionWidget::requestSetResolution, this, &SecondaryScreenDialog::requestSetResolution);
-    connect(m_resolutionWidget, &ResolutionWidget::requestSetFillMode, this, &SecondaryScreenDialog::requestSetFillMode);
-    connect(m_resolutionWidget, &ResolutionWidget::requestCurrFillModeChanged, this, &SecondaryScreenDialog::requestCurrFillModeChanged);
-    connect(m_resolutionWidget, &ResolutionWidget::requestResizeDesktopVisibleChanged, this, &SecondaryScreenDialog::OnRequestResizeDesktopVisibleChanged);
-    connect(m_refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &SecondaryScreenDialog::requestSetResolution);
-    connect(m_rotateWidget, &RotateWidget::requestSetRotate, this, &SecondaryScreenDialog::requestSetRotate);
+    connect(m_monitorControlWidget,
+            &MonitorControlWidget::requestRecognize,
+            this,
+            &SecondaryScreenDialog::requestRecognize);
+    connect(m_monitorControlWidget,
+            &MonitorControlWidget::requestGatherWindows,
+            this,
+            &SecondaryScreenDialog::requestGatherWindows);
+    connect(this,
+            &SecondaryScreenDialog::requestGatherEnabled,
+            m_monitorControlWidget,
+            &MonitorControlWidget::onGatherEnabled);
+    connect(m_resolutionWidget,
+            &ResolutionWidget::requestSetResolution,
+            this,
+            &SecondaryScreenDialog::requestSetResolution);
+    connect(m_resolutionWidget,
+            &ResolutionWidget::requestSetFillMode,
+            this,
+            &SecondaryScreenDialog::requestSetFillMode);
+    connect(m_resolutionWidget,
+            &ResolutionWidget::requestCurrFillModeChanged,
+            this,
+            &SecondaryScreenDialog::requestCurrFillModeChanged);
+    connect(m_resolutionWidget,
+            &ResolutionWidget::requestResizeDesktopVisibleChanged,
+            this,
+            &SecondaryScreenDialog::OnRequestResizeDesktopVisibleChanged);
+    connect(m_refreshRateWidget,
+            &RefreshRateWidget::requestSetResolution,
+            this,
+            &SecondaryScreenDialog::requestSetResolution);
+    connect(m_rotateWidget,
+            &RotateWidget::requestSetRotate,
+            this,
+            &SecondaryScreenDialog::requestSetRotate);
 
     auto tfunc = [this](const double tb) {
         int tmini = int(m_model->minimumBrightnessScale() * BrightnessMaxScale);
@@ -122,10 +148,10 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, Monitor *monitor)
     };
 
     if (m_monitor->canBrightness()) {
-        TitleLabel *headTitle = new TitleLabel(tr("Brightness"), this); //亮度
+        TitleLabel *headTitle = new TitleLabel(tr("Brightness"), this); // 亮度
         DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T7, QFont::Normal);
 
-        //单独显示每个亮度调节名
+        // 单独显示每个亮度调节名
         TitledSliderItem *slideritem = new TitledSliderItem(m_monitor->name(), this);
         slideritem->addBackground();
         DCCSlider *slider = slideritem->slider();
@@ -155,7 +181,8 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, Monitor *monitor)
             connect(m_monitor, &Monitor::brightnessChanged, this, [=](const double rb) {
                 slider->blockSignals(true);
                 if ((rb - m_model->minimumBrightnessScale()) < 0.00001) {
-                    slideritem->setValueLiteral(QString("%1%").arg(int(m_model->minimumBrightnessScale() * BrightnessMaxScale)));
+                    slideritem->setValueLiteral(QString("%1%").arg(
+                            int(m_model->minimumBrightnessScale() * BrightnessMaxScale)));
                     slider->setValue(int(m_model->minimumBrightnessScale() * BrightnessMaxScale));
                 } else {
                     slideritem->setValueLiteral(QString("%1%").arg(int(rb * BrightnessMaxScale)));
@@ -164,8 +191,10 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, Monitor *monitor)
                 slider->blockSignals(false);
             });
 
-            connect(m_model, &DisplayModel::minimumBrightnessScaleChanged,
-                    this, [=](const double ms) {
+            connect(m_model,
+                    &DisplayModel::minimumBrightnessScaleChanged,
+                    this,
+                    [=](const double ms) {
                         double rb = m_monitor->brightness();
                         int tmini = int(ms * PercentageNum);
                         slider->setMinimum(tmini);
@@ -209,15 +238,18 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, Monitor *monitor)
             connect(m_monitor, &Monitor::brightnessChanged, this, [=](const double rb) {
                 slider->blockSignals(true);
                 if ((rb - m_model->minimumBrightnessScale()) < 0.00001) {
-                    slider->setValue(int((m_model->minimumBrightnessScale() + DoubleZero) * maxBacklight));
+                    slider->setValue(
+                            int((m_model->minimumBrightnessScale() + DoubleZero) * maxBacklight));
                 } else {
                     slider->setValue(int((rb + DoubleZero) * maxBacklight));
                 }
                 slider->blockSignals(false);
             });
 
-            connect(m_model, &DisplayModel::minimumBrightnessScaleChanged,
-                    this, [=](const double ms) {
+            connect(m_model,
+                    &DisplayModel::minimumBrightnessScaleChanged,
+                    this,
+                    [=](const double ms) {
                         double rb = m_monitor->brightness();
                         int tmini = int(ms * PercentageNum);
                         slider->setMinimum(tmini);
@@ -239,10 +271,13 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, Monitor *monitor)
         brightnessWidget->setLayout(brightnessLayout);
         m_contentLayout->insertWidget(1, brightnessWidget);
         brightnessWidget->setVisible(m_model->brightnessEnable());
-        connect(m_model, &DisplayModel::brightnessEnableChanged, this, [this, brightnessWidget](const bool enable) {
-            brightnessWidget->setVisible(enable);
-            resetDialog();
-        });
+        connect(m_model,
+                &DisplayModel::brightnessEnableChanged,
+                this,
+                [this, brightnessWidget](const bool enable) {
+                    brightnessWidget->setVisible(enable);
+                    resetDialog();
+                });
     }
 }
 
@@ -258,10 +293,10 @@ void SecondaryScreenDialog::resetDialog()
         rt.setHeight(m_monitor->h());
 
     QScreen *screen = m_monitor->getQScreen();
-    if(!screen)
+    if (!screen)
         return;
 
-    setGeometry(QRect(screen->geometry().topLeft(),rt.size()));
+    setGeometry(QRect(screen->geometry().topLeft(), rt.size()));
     move(QPoint(screen->geometry().left() + (screen->geometry().width() - rt.width()) / 2,
                 screen->geometry().top() + (screen->geometry().height() - rt.height()) / 2));
 

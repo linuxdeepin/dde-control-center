@@ -24,6 +24,7 @@
  */
 
 #include "recognizewidget.h"
+
 #include "src/plugin-display/operation/displaymodel.h"
 
 #include <QPainter>
@@ -37,8 +38,11 @@ const int HorizentalMargin = 22;
 const int yoffset = 220;
 
 using namespace DCC_NAMESPACE;
+
 RecognizeWidget::RecognizeWidget(Monitor *monitor, QString text, QWidget *parent)
-    : DBlurEffectWidget(parent), m_monitor(monitor), m_text(text)
+    : DBlurEffectWidget(parent)
+    , m_monitor(monitor)
+    , m_text(text)
 {
     connect(m_monitor, &Monitor::geometryChanged, this, &RecognizeWidget::onScreenRectChanged);
 
@@ -63,7 +67,10 @@ void RecognizeWidget::paintEvent(QPaintEvent *event)
     const QFontMetrics fm(font);
 
     QPainterPath path;
-    path.addText((m_rect.width() - fm.horizontalAdvance(m_text)) / 2, m_rect.height() - VerticalMargin - fm.height() / 4, font, m_text);
+    path.addText((m_rect.width() - fm.horizontalAdvance(m_text)) / 2,
+                 m_rect.height() - VerticalMargin - fm.height() / 4,
+                 font,
+                 m_text);
 
     QPalette palette;
     QColor brushCorlor;
@@ -84,7 +91,9 @@ void RecognizeWidget::onScreenRectChanged()
     font.setStyle(QFont::StyleNormal);
     font.setPixelSize(FontSize);
     const QFontMetrics fm(font);
-    int width = fm.horizontalAdvance(m_text) + 2 * HorizentalMargin > MiniWidth ? fm.horizontalAdvance(m_text) + 2 * HorizentalMargin : MiniWidth;
+    int width = fm.horizontalAdvance(m_text) + 2 * HorizentalMargin > MiniWidth
+            ? fm.horizontalAdvance(m_text) + 2 * HorizentalMargin
+            : MiniWidth;
     int height = fm.height() + 2 * VerticalMargin;
 
     const int x = displayRect.center().x() - width / 2;

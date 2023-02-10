@@ -1,15 +1,18 @@
+#include <gtest/gtest.h>
+
 #include "interface/namespace.h"
 #include "src/plugin-commoninfo/window/bootwidget.h"
 
 #include <DListView>
+
 #include <QSignalSpy>
 #include <QTest>
-#include <gtest/gtest.h>
 #include <QtConcurrent>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
-class Test_BootWidget: public testing::Test
+
+class Test_BootWidget : public testing::Test
 {
 public:
     virtual void SetUp() override;
@@ -17,13 +20,10 @@ public:
     virtual void TearDown() override;
 
 public:
-    BootWidget *m_widget  = nullptr;
+    BootWidget *m_widget = nullptr;
 };
 
-void Test_BootWidget::SetUp()
-{
-
-}
+void Test_BootWidget::SetUp() { }
 
 void Test_BootWidget::TearDown()
 {
@@ -33,6 +33,6 @@ void Test_BootWidget::TearDown()
 
 TEST_F(Test_BootWidget, fulltest)
 {
-    BootWidget *m_widget  = new BootWidget();
-    ASSERT_EQ(m_widget->isVisible(), false) ;
+    BootWidget *m_widget = new BootWidget();
+    ASSERT_EQ(m_widget->isVisible(), false);
 }

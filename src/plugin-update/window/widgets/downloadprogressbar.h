@@ -26,8 +26,9 @@
 #ifndef DOWNLOADPROGRESSBAR_H
 #define DOWNLOADPROGRESSBAR_H
 
-#include <QProgressBar>
 #include "common.h"
+
+#include <QProgressBar>
 
 class DownloadProgressBar : public QProgressBar
 {
@@ -40,7 +41,9 @@ public:
     void setProcessValue(const int progress);
 
     inline int value() const { return m_currentValue; }
+
     inline int minimum() const { return 0; }
+
     inline int maximum() const { return 100; }
 
 protected:

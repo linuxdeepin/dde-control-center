@@ -1,14 +1,15 @@
 #include "accountsmodel.h"
+
 #include "operation/user.h"
 #include "operation/usermodel.h"
 
-#include <QIcon>
-#include <QDebug>
-#include <QPainter>
-#include <QApplication>
-
-#include <DStyleOptionBackgroundGroup>
 #include <DStyle>
+#include <DStyleOptionBackgroundGroup>
+
+#include <QApplication>
+#include <QDebug>
+#include <QIcon>
+#include <QPainter>
 #include <QPainterPath>
 
 using namespace DCC_NAMESPACE;
@@ -17,15 +18,14 @@ DWIDGET_USE_NAMESPACE
 AccountsModel::AccountsModel(QObject *parent)
     : QAbstractItemModel(parent)
 {
-
 }
 
 void AccountsModel::setUserModel(UserModel *userModel)
 {
     m_userModel = userModel;
-    connect(userModel,&UserModel::userAdded,this,&AccountsModel::onUserAdded);
-    connect(userModel,&UserModel::userRemoved,this,&AccountsModel::onUserRemoved);
-    for (auto &&user:userModel->userList())
+    connect(userModel, &UserModel::userAdded, this, &AccountsModel::onUserAdded);
+    connect(userModel, &UserModel::userRemoved, this, &AccountsModel::onUserRemoved);
+    for (auto &&user : userModel->userList())
         onUserAdded(user);
 }
 
@@ -79,11 +79,11 @@ QVariant AccountsModel::data(const QModelIndex &index, int role) const
     User *user = m_data.at(row);
     switch (role) {
     case Qt::DisplayRole:
-        return user->fullname().isEmpty()?user->name():user->fullname();
+        return user->fullname().isEmpty() ? user->name() : user->fullname();
     case Qt::DecorationRole:
         return QIcon(user->currentAvatar().mid(7));
     case Qt::CheckStateRole:
-        return user->online()?Qt::Checked:Qt::Unchecked;
+        return user->online() ? Qt::Checked : Qt::Unchecked;
     default:
         break;
     }
@@ -93,10 +93,10 @@ QVariant AccountsModel::data(const QModelIndex &index, int role) const
 void AccountsModel::onUserAdded(User *user)
 {
     int row = user->isCurrentUser() ? 0 : m_data.size();
-    connect(user,&User::nameChanged,this,&AccountsModel::onDataChanged);
-    connect(user,&User::fullnameChanged,this,&AccountsModel::onDataChanged);
-    connect(user,&User::currentAvatarChanged,this,&AccountsModel::onDataChanged);
-    connect(user,&User::onlineChanged,this,&AccountsModel::onDataChanged);
+    connect(user, &User::nameChanged, this, &AccountsModel::onDataChanged);
+    connect(user, &User::fullnameChanged, this, &AccountsModel::onDataChanged);
+    connect(user, &User::currentAvatarChanged, this, &AccountsModel::onDataChanged);
+    connect(user, &User::onlineChanged, this, &AccountsModel::onDataChanged);
 
     beginInsertRows(QModelIndex(), row, row);
     m_data.insert(row, user);
@@ -117,8 +117,8 @@ void AccountsModel::onDataChanged()
 {
     User *user = qobject_cast<User *>(sender());
     if (user) {
-        QModelIndex i = index(m_data.indexOf(user),0);
-        emit dataChanged(i,i);
+        QModelIndex i = index(m_data.indexOf(user), 0);
+        emit dataChanged(i, i);
     }
 }
 
@@ -127,7 +127,9 @@ UserDelegate::UserDelegate(QAbstractItemView *parent)
 {
 }
 
-void UserDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void UserDelegate::paint(QPainter *painter,
+                         const QStyleOptionViewItem &option,
+                         const QModelIndex &index) const
 {
     painter->save();
 
@@ -135,26 +137,31 @@ void UserDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, 
     initStyleOption(&opt, index);
     // 选择高亮背景
     if (opt.state & QStyle::State_Selected) {
-        QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
-                                          ? QPalette::Normal
-                                          : QPalette::Disabled;
+        QPalette::ColorGroup cg =
+                (option.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
         opt.backgroundBrush = option.palette.color(cg, QPalette::Highlight);
     }
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
     QRect decorationRect;
-    decorationRect = QRect(opt.rect.topLeft() + QPoint((opt.rect.width() - opt.decorationSize.width()) / 2, 3), opt.decorationSize);
+    decorationRect = QRect(opt.rect.topLeft()
+                                   + QPoint((opt.rect.width() - opt.decorationSize.width()) / 2, 3),
+                           opt.decorationSize);
     opt.displayAlignment = Qt::AlignCenter;
 
-    QRect displayRect = QRect(opt.rect.topLeft() + QPoint(10, opt.decorationSize.height() + 4), QSize(opt.rect.width(), 15));
-    QRect onlineRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 8), QSize(10, 10));
-    opt.displayAlignment = Qt::AlignLeft|Qt::AlignVCenter;
-
+    QRect displayRect = QRect(opt.rect.topLeft() + QPoint(10, opt.decorationSize.height() + 4),
+                              QSize(opt.rect.width(), 15));
+    QRect onlineRect =
+            QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 8), QSize(10, 10));
+    opt.displayAlignment = Qt::AlignLeft | Qt::AlignVCenter;
 
     // draw the item
     drawBackground(style, painter, opt, decorationRect);
     // 图标的绘制用也可能会使用这些颜色
-    QPalette::ColorGroup cg = (opt.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
-    painter->setPen(opt.palette.color(cg, QPalette::Text));//(opt.state & QStyle::State_Selected) ? QPalette::HighlightedText : QPalette::Text));
+    QPalette::ColorGroup cg =
+            (opt.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
+    painter->setPen(
+            opt.palette.color(cg, QPalette::Text)); //(opt.state & QStyle::State_Selected) ?
+                                                    //QPalette::HighlightedText : QPalette::Text));
     drawDecoration(painter, opt, decorationRect);
 
     if (index.data(Qt::CheckStateRole) == Qt::Checked)
@@ -169,27 +176,36 @@ QSize UserDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelInd
     Q_UNUSED(option)
     Q_UNUSED(index)
 
-    return QSize(60,60);
+    return QSize(60, 60);
 }
 
-void UserDelegate::drawBackground(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+void UserDelegate::drawBackground(const QStyle *style,
+                                  QPainter *painter,
+                                  const QStyleOptionViewItem &option,
+                                  const QRect &rect) const
 {
     QRect r = rect;
-    r.adjust(-2,-2,2,2);
+    r.adjust(-2, -2, 2, 2);
     painter->save();
     painter->setRenderHint(QPainter::Antialiasing);
-    painter->setPen(option.palette.color(QPalette::Normal,(option.state & QStyle::State_Selected)? QPalette::Highlight:QPalette::Window));
-    painter->drawRoundedRect(r,8,8);
+    painter->setPen(option.palette.color(
+            QPalette::Normal,
+            (option.state & QStyle::State_Selected) ? QPalette::Highlight : QPalette::Window));
+    painter->drawRoundedRect(r, 8, 8);
     painter->restore();
 }
 
-void UserDelegate::drawDisplay(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+void UserDelegate::drawDisplay(const QStyle *style,
+                               QPainter *painter,
+                               const QStyleOptionViewItem &option,
+                               const QRect &rect) const
 {
     DStyle::viewItemDrawText(style, painter, &option, rect);
 }
 
-
-void UserDelegate::drawDecoration(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+void UserDelegate::drawDecoration(QPainter *painter,
+                                  const QStyleOptionViewItem &option,
+                                  const QRect &rect) const
 {
     if (option.features & QStyleOptionViewItem::HasDecoration) {
         QIcon::Mode mode = QIcon::Normal;
@@ -200,7 +216,7 @@ void UserDelegate::drawDecoration(QPainter *painter, const QStyleOptionViewItem 
         QIcon::State state = (option.state & QStyle::State_Open) ? QIcon::On : QIcon::Off;
         painter->save();
         QPainterPath painterPath;
-        painterPath.addRoundedRect(rect,8,8);
+        painterPath.addRoundedRect(rect, 8, 8);
         painter->setRenderHint(QPainter::Antialiasing);
         painter->setClipPath(painterPath);
         option.icon.paint(painter, rect, option.decorationAlignment, mode, state);
@@ -209,8 +225,9 @@ void UserDelegate::drawDecoration(QPainter *painter, const QStyleOptionViewItem 
     }
 }
 
-
-void UserDelegate::drawOnlineIcon(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+void UserDelegate::drawOnlineIcon(QPainter *painter,
+                                  const QStyleOptionViewItem &option,
+                                  const QRect &rect) const
 {
     painter->save();
     painter->setRenderHints(QPainter::Antialiasing);

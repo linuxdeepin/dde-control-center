@@ -1,16 +1,15 @@
 #include <gtest/gtest.h>
-#include <QPushButton>
+
 #include "widgets/buttontuple.h"
+
+#include <QPushButton>
 
 using namespace DCC_NAMESPACE;
 
 class Tst_ButtonTuple : public testing::Test
 {
 public:
-    void SetUp() override
-    {
-        obj = new ButtonTuple;
-    }
+    void SetUp() override { obj = new ButtonTuple; }
 
     void TearDown() override
     {

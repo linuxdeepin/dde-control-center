@@ -30,16 +30,16 @@
 #include "widgets/settingsitem.h"
 
 #include <QLabel>
-#include <QPushButton>
 #include <QLineEdit>
+#include <QPushButton>
 
 class TitleButtonItem : public DCC_NAMESPACE::SettingsItem
 {
     Q_OBJECT
 public:
-    explicit TitleButtonItem(QFrame* parent = nullptr);
-    void setTitle(const QString& title);
-    void setValue(const QString& value);
+    explicit TitleButtonItem(QFrame *parent = nullptr);
+    void setTitle(const QString &title);
+    void setValue(const QString &value);
 
 Q_SIGNALS:
     void click();

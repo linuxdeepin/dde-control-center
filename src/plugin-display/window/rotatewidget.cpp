@@ -23,16 +23,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <QtMath>
-
 #include "rotatewidget.h"
+
 #include "src/plugin-display/operation/displaymodel.h"
 
-#include <QLabel>
 #include <QComboBox>
 #include <QHBoxLayout>
+#include <QLabel>
+#include <QtMath>
 
 using namespace DCC_NAMESPACE;
+
 RotateWidget::RotateWidget(int comboxWidth, QWidget *parent)
     : SettingsItem(parent)
     , m_contentLayout(new QHBoxLayout(this))
@@ -40,7 +41,7 @@ RotateWidget::RotateWidget(int comboxWidth, QWidget *parent)
     , m_model(nullptr)
     , m_monitor(nullptr)
 {
-    //初始化列表无法进行静态翻译
+    // 初始化列表无法进行静态翻译
     //~ contents_path /display/Rotation
     m_rotateLabel = new QLabel(tr("Rotation"), this);
 
@@ -55,7 +56,7 @@ RotateWidget::RotateWidget(int comboxWidth, QWidget *parent)
     m_rotateCombox->setMinimumHeight(36);
     setLayout(m_contentLayout);
 
-    QStringList rotateList {tr("Standard"), tr("90°"), tr("180°"), tr("270°")};
+    QStringList rotateList{ tr("Standard"), tr("90°"), tr("180°"), tr("270°") };
     for (int idx = 0; idx < rotateList.size(); ++idx) {
         m_rotateCombox->addItem(rotateList[idx], qPow(2, idx));
     }
@@ -95,12 +96,18 @@ void RotateWidget::initRotate()
     }
 
     // 先断开信号，设置数据再连接信号
-    disconnect(m_rotateCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, nullptr);
+    disconnect(m_rotateCombox,
+               static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+               this,
+               nullptr);
 
     auto rotate = m_monitor->rotate();
     m_rotateCombox->setCurrentIndex(m_rotateCombox->findData(rotate));
 
-    connect(m_rotateCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
-        Q_EMIT requestSetRotate(m_monitor, m_rotateCombox->currentData().value<int>());
-    });
+    connect(m_rotateCombox,
+            static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this,
+            [=](int idx) {
+                Q_EMIT requestSetRotate(m_monitor, m_rotateCombox->currentData().value<int>());
+            });
 }

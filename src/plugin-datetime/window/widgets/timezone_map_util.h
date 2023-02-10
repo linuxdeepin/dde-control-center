@@ -40,9 +40,13 @@ double ConvertLongitudeToX(double longitude);
 
 // Get a list of zone info whose distance to (x, y) is less than |threshold|
 // in a world map with size (map_width, map_height).
-ZoneInfoList GetNearestZones(const ZoneInfoList& total_zones, double threshold,
-                             int x, int y, int map_width, int map_height);
+ZoneInfoList GetNearestZones(const ZoneInfoList &total_zones,
+                             double threshold,
+                             int x,
+                             int y,
+                             int map_width,
+                             int map_height);
 
-}  // namespace installer
+} // namespace installer
 
-#endif  // INSTALLER_DELEGATES_TIMEZONE_MAP_UTIL_H
+#endif // INSTALLER_DELEGATES_TIMEZONE_MAP_UTIL_H

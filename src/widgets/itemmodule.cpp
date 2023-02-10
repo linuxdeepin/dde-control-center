@@ -1,16 +1,18 @@
 #include "widgets/itemmodule.h"
 
-#include <QMap>
-#include <QWidget>
+#include <widgets/settingsitem.h>
+
+#include <DFontSizeManager>
+#include <DLabel>
+
 #include <QHBoxLayout>
 #include <QLabel>
-#include <DLabel>
-#include <DFontSizeManager>
-
-#include <widgets/settingsitem.h>
+#include <QMap>
+#include <QWidget>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
+
 namespace DCC_NAMESPACE {
 class ItemModulePrivate
 {
@@ -25,10 +27,8 @@ public:
         , m_clickable(false)
     {
     }
-    void setCallback(std::function<QWidget *()> callback)
-    {
-        m_callback = callback;
-    }
+
+    void setCallback(std::function<QWidget *()> callback) { m_callback = callback; }
 
 public:
     ItemModule *q_ptr;
@@ -40,7 +40,7 @@ public:
     bool m_clickable;
     Q_DECLARE_PUBLIC(ItemModule)
 };
-}
+} // namespace DCC_NAMESPACE
 
 ItemModule::ItemModule(QObject *parent)
     : ModuleObject(parent)
@@ -56,9 +56,7 @@ ItemModule::ItemModule(const QString &name, const QString &displayName, bool isT
     setTitleItem(isTitle);
 }
 
-ItemModule::~ItemModule()
-{
-}
+ItemModule::~ItemModule() { }
 
 void ItemModule::setTitleItem(bool isTitle)
 {
@@ -124,7 +122,9 @@ QWidget *ItemModule::page()
             leftWidget->setWordWrap(d->m_wordWrap);
             if (d->m_isTitle) {
                 leftWidget->setForegroundRole(DPalette::TextTitle);
-                DFontSizeManager::instance()->bind(leftWidget, DFontSizeManager::T5, QFont::DemiBold);
+                DFontSizeManager::instance()->bind(leftWidget,
+                                                   DFontSizeManager::T5,
+                                                   QFont::DemiBold);
                 layout->addWidget(leftWidget, 0, Qt::AlignVCenter);
                 if (ret)
                     layout->addWidget(ret, 0, Qt::AlignVCenter | Qt::AlignRight);

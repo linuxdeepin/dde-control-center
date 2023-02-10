@@ -22,10 +22,10 @@
 
 #pragma once
 
-#include "interface/namespace.h"
-#include "interface/plugininterface.h"
 #include "interface/hlistmodule.h"
+#include "interface/namespace.h"
 #include "interface/pagemodule.h"
+#include "interface/plugininterface.h"
 
 #include <QObject>
 
@@ -64,9 +64,13 @@ class KeyboardModule : public HListModule
 public:
     explicit KeyboardModule(QObject *parent = nullptr);
     ~KeyboardModule();
+
     KeyboardModel *model() { return m_model; }
+
     ShortcutModel *shortcutModel() { return m_shortcutModel; }
+
     KeyboardWorker *worker() { return m_work; }
+
 protected:
     virtual void active() override;
 
@@ -80,8 +84,15 @@ class GeneralSettingModule : public ModuleObject
 {
     Q_OBJECT
 public:
-    explicit GeneralSettingModule(KeyboardModel *model, KeyboardWorker *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker){}
+    explicit GeneralSettingModule(KeyboardModel *model,
+                                  KeyboardWorker *worker,
+                                  QObject *parent = nullptr)
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
+
     virtual QWidget *page() override;
 
 private:
@@ -93,8 +104,15 @@ class KBLayoutSettingModule : public ModuleObject
 {
     Q_OBJECT
 public:
-    explicit KBLayoutSettingModule(KeyboardModel *model, KeyboardWorker *worker, QObject *parent = nullptr)
-      : ModuleObject(parent), m_model(model), m_worker(worker){}
+    explicit KBLayoutSettingModule(KeyboardModel *model,
+                                   KeyboardWorker *worker,
+                                   QObject *parent = nullptr)
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
+
     virtual QWidget *page() override;
 
 public Q_SLOTS:
@@ -110,8 +128,15 @@ class SystemLanguageSettingModule : public ModuleObject
 {
     Q_OBJECT
 public:
-    explicit SystemLanguageSettingModule(KeyboardModel *model, KeyboardWorker *worker, QObject *parent = nullptr)
-      : ModuleObject(parent), m_model(model), m_worker(worker){}
+    explicit SystemLanguageSettingModule(KeyboardModel *model,
+                                         KeyboardWorker *worker,
+                                         QObject *parent = nullptr)
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
+
     virtual QWidget *page() override;
 
 public Q_SLOTS:
@@ -127,16 +152,29 @@ class ShortCutSettingMenuModule : public PageModule
 {
     Q_OBJECT
 public:
-    explicit ShortCutSettingMenuModule(const QString &name, const QString &displayName = {}, QObject *parent = nullptr)
-        : PageModule(name, displayName, parent) {}
+    explicit ShortCutSettingMenuModule(const QString &name,
+                                       const QString &displayName = {},
+                                       QObject *parent = nullptr)
+        : PageModule(name, displayName, parent)
+    {
+    }
 };
 
 class ShortCutSettingModule : public ModuleObject
 {
     Q_OBJECT
 public:
-    explicit ShortCutSettingModule(KeyboardModel *model, KeyboardWorker *worker, ShortcutModel *shortcutModel, QObject *parent = nullptr)
-      : ModuleObject(parent), m_model(model), m_worker(worker), m_shortcutModel(shortcutModel){}
+    explicit ShortCutSettingModule(KeyboardModel *model,
+                                   KeyboardWorker *worker,
+                                   ShortcutModel *shortcutModel,
+                                   QObject *parent = nullptr)
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+        , m_shortcutModel(shortcutModel)
+    {
+    }
+
     virtual QWidget *page() override;
 
 public Q_SLOTS:
@@ -149,4 +187,4 @@ private:
     KeyboardWorker *m_worker;
     ShortcutModel *m_shortcutModel;
 };
-}
+} // namespace DCC_NAMESPACE

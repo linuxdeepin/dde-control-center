@@ -66,9 +66,12 @@ const BluetoothAdapter *BluetoothModel::removeAdapater(const QString &adapterId)
 QList<const BluetoothAdapter *> BluetoothModel::adapters() const
 {
     QList<const BluetoothAdapter *> allAdapters = m_adapters.values();
-    std::sort(allAdapters.begin(), allAdapters.end(), [ & ](const BluetoothAdapter *adapter1, const BluetoothAdapter *adapter2) {
-        return m_adapterIds.indexOf(adapter1->id()) < m_adapterIds.indexOf(adapter2->id());
-    });
+    std::sort(allAdapters.begin(),
+              allAdapters.end(),
+              [&](const BluetoothAdapter *adapter1, const BluetoothAdapter *adapter2) {
+                  return m_adapterIds.indexOf(adapter1->id())
+                          < m_adapterIds.indexOf(adapter2->id());
+              });
 
     return allAdapters;
 }

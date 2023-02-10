@@ -1,8 +1,7 @@
+#include "gtest/gtest.h"
 #include "src/plugin-keyboard/window/searchinput.h"
 
 #include <QDebug>
-
-#include "gtest/gtest.h"
 
 #include <iostream>
 
@@ -15,7 +14,7 @@ class Tst_SearchInput : public testing::Test
     void TearDown() override;
 
 public:
-//    GeneralKBSettingWidget *widget = nullptr;
+    //    GeneralKBSettingWidget *widget = nullptr;
     SearchInput *view = nullptr;
 };
 

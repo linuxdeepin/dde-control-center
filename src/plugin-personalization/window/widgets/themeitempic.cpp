@@ -23,12 +23,12 @@
 #include <DStyle>
 #include <DSvgRenderer>
 
-#include <QMouseEvent>
 #include <QBitmap>
+#include <QDebug>
+#include <QImage>
+#include <QMouseEvent>
 #include <QPainter>
 #include <QPainterPath>
-#include <QImage>
-#include <QDebug>
 
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
@@ -58,8 +58,14 @@ void ThemeItemPic::setPath(const QString &picPath)
     QSize defaultSize = render->defaultSize();
 
     int margins = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameMargins));
-    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, nullptr);
-    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, nullptr);
+    int borderWidth =
+            style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth),
+                                 nullptr,
+                                 nullptr);
+    int borderSpacing =
+            style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing),
+                                 nullptr,
+                                 nullptr);
     int totalSpace = borderWidth + borderSpacing + margins;
     setFixedSize(defaultSize.width() + 2 * totalSpace, defaultSize.height() + 2 * totalSpace);
     update();
@@ -70,10 +76,11 @@ ThemeItemPic::~ThemeItemPic()
     render->deleteLater();
 }
 
-void ThemeItemPic::mousePressEvent(QMouseEvent* event)
+void ThemeItemPic::mousePressEvent(QMouseEvent *event)
 {
-    if(event->button() == Qt::LeftButton) {
-        if (m_isSelected) return;
+    if (event->button() == Qt::LeftButton) {
+        if (m_isSelected)
+            return;
         Q_EMIT clicked();
     }
 }
@@ -81,29 +88,37 @@ void ThemeItemPic::mousePressEvent(QMouseEvent* event)
 void ThemeItemPic::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
-    int radius = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameRadius), nullptr, nullptr);
+    int radius = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameRadius),
+                                      nullptr,
+                                      nullptr);
     int margins = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameMargins));
-    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, nullptr);
-    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, nullptr);
+    int borderWidth =
+            style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth),
+                                 nullptr,
+                                 nullptr);
+    int borderSpacing =
+            style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing),
+                                 nullptr,
+                                 nullptr);
     int totalSpace = borderWidth + borderSpacing + margins;
 
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
-    //first draw image
+    // first draw image
     const auto ratio = devicePixelRatioF();
     QSize defaultSize = render->defaultSize() * ratio;
     QImage img = render->toImage(defaultSize);
     QRect picRect = rect().adjusted(totalSpace, totalSpace, -totalSpace, -totalSpace);
     painter.drawImage(picRect, img, img.rect());
 
-    //second draw picture rounded rect bound
+    // second draw picture rounded rect bound
     QPen pen;
     pen.setColor(palette().base().color());
     painter.setPen(pen);
     painter.drawRoundedRect(picRect, radius, radius);
 
-    //third fill space with base brush
+    // third fill space with base brush
     QPainterPath picPath;
     picPath.addRect(picRect);
     QPainterPath roundPath;
@@ -112,7 +127,7 @@ void ThemeItemPic::paintEvent(QPaintEvent *event)
     painter.fillPath(anglePath, palette().base().color());
     painter.strokePath(picPath, palette().base().color());
 
-    //last draw focus rectangle
+    // last draw focus rectangle
     if (m_isSelected) {
         QStyleOption option;
         option.initFrom(this);

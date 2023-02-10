@@ -20,25 +20,26 @@
  */
 
 #include "customcontentdialog.h"
+
+#include "customitem.h"
+#include "operation/keyboardmodel.h"
 #include "operation/keyboardwork.h"
 #include "operation/shortcutmodel.h"
-#include "operation/keyboardmodel.h"
-#include "customitem.h"
 #include "widgets/buttontuple.h"
 #include "widgets/lineeditwidget.h"
 #include "widgets/settingsgroup.h"
 
 #include <dfilechooseredit.h>
 
+#include <DFontSizeManager>
 #include <DLineEdit>
 #include <DTitlebar>
-#include <DFontSizeManager>
 
-#include <QMap>
-#include <QHBoxLayout>
-#include <QVBoxLayout>
 #include <QFileDialog>
+#include <QHBoxLayout>
+#include <QMap>
 #include <QPushButton>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
@@ -57,15 +58,17 @@ CustomContentDialog::CustomContentDialog(ShortcutModel *model, QWidget *parent)
     QVBoxLayout *listVLayout = new QVBoxLayout();
     listVLayout->setAlignment(Qt::AlignHCenter);
     DTitlebar *titleIcon = new DTitlebar();
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle(tr(""));
 
     mainVLayout->addWidget(titleIcon);
 
     QLabel *shortCutTitle = new QLabel(tr("Add Custom Shortcut"));
-    DFontSizeManager::instance()->bind(shortCutTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
+    DFontSizeManager::instance()->bind(shortCutTitle,
+                                       DFontSizeManager::T5,
+                                       QFont::DemiBold); // 设置label字体
     shortCutTitle->setAlignment(Qt::AlignCenter);
     listVLayout->addWidget(shortCutTitle);
     listVLayout->addSpacing(30);
@@ -116,7 +119,7 @@ CustomContentDialog::CustomContentDialog(ShortcutModel *model, QWidget *parent)
         lstInfo.append(m_model->systemInfo());
         lstInfo.append(m_model->workspaceInfo());
         for (auto info : lstInfo) {
-            if (!info->name.compare(m_shortCutNameEdit->text(),Qt::CaseSensitive)) {
+            if (!info->name.compare(m_shortCutNameEdit->text(), Qt::CaseSensitive)) {
                 exist = true;
                 break;
             }
@@ -149,7 +152,7 @@ CustomContentDialog::CustomContentDialog(ShortcutModel *model, QWidget *parent)
 
     mainVLayout->addLayout(listVLayout);
     setLayout(mainVLayout);
-     setContentsMargins(0, 0, 0, 0);
+    setContentsMargins(0, 0, 0, 0);
 
     connect(cancel, &QPushButton::clicked, this, &CustomContentDialog::close);
     connect(ok, &QPushButton::clicked, this, &CustomContentDialog::onShortcut);
@@ -171,8 +174,12 @@ void CustomContentDialog::setBottomTip(ShortcutInfo *conflict)
         accels = accels.replace("_R", "");
         accels = accels.replace("Control", "Ctrl");
 
-        QString str = tr("This shortcut conflicts with %1, click on Add to make this shortcut effective immediately")
-                      .arg(QString("<span style=\"color: rgba(255, 90, 90, 1);\">%1 %2</span>").arg(conflict->name).arg(QString("[%1]").arg(accels)));
+        QString str =
+                tr("This shortcut conflicts with %1, click on Add to make this shortcut effective "
+                   "immediately")
+                        .arg(QString("<span style=\"color: rgba(255, 90, 90, 1);\">%1 %2</span>")
+                                     .arg(conflict->name)
+                                     .arg(QString("[%1]").arg(accels)));
         m_bottomTip->setText(str);
         m_bottomTip->show();
     } else {
@@ -187,7 +194,8 @@ void CustomContentDialog::onShortcut()
     m_shortCutCmdEdit->setAlert(m_shortCutCmdEdit->lineEdit()->text().isEmpty());
     m_shortcut->setAlert(m_shortcut->text().isEmpty());
 
-    if (m_shortcut->text().isEmpty() || m_shortCutCmdEdit->lineEdit()->text().isEmpty() || m_shortCutNameEdit->text().isEmpty()) {
+    if (m_shortcut->text().isEmpty() || m_shortCutCmdEdit->lineEdit()->text().isEmpty()
+        || m_shortCutNameEdit->text().isEmpty()) {
         return;
     }
 

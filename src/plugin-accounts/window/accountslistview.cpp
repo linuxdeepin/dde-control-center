@@ -20,13 +20,12 @@
  */
 #include "accountslistview.h"
 
-#include <QWheelEvent>
+#include <QApplication>
+#include <QDebug>
 #include <QPaintEvent>
 #include <QPainter>
 #include <QScrollBar>
-#include <QApplication>
-
-#include <QDebug>
+#include <QWheelEvent>
 
 class AccountsListViewPrivate
 {
@@ -46,33 +45,21 @@ public:
         setGridSize(m_gridSize);
     }
 
-    void setSpacing(int space)
-    {
-        m_spacing = space;
-    }
-    int spacing() const
-    {
-        return m_spacing;
-    }
+    void setSpacing(int space) { m_spacing = space; }
+
+    int spacing() const { return m_spacing; }
 
     void setGridSize(const QSize &size)
     {
         m_gridSize = size;
         m_firstHeightDiff = 0;
     }
-    QSize gridSize() const
-    {
-        return m_gridSize;
-    }
 
-    void setAlignment(Qt::Alignment alignment)
-    {
-        m_alignment = alignment;
-    }
-    Qt::Alignment alignment() const
-    {
-        return m_alignment;
-    }
+    QSize gridSize() const { return m_gridSize; }
+
+    void setAlignment(Qt::Alignment alignment) { m_alignment = alignment; }
+
+    Qt::Alignment alignment() const { return m_alignment; }
 
     void updateGeometries()
     {
@@ -105,6 +92,7 @@ public:
             m_yOffset = 0;
         }
     }
+
     // item在窗口中位置(无滚动)
     QRect rectForIndex(const QModelIndex &index) const
     {
@@ -124,8 +112,10 @@ public:
         //            if (m_viewMode == AccountsListView::ListMode && indexRow >= 1)
         //                rect.translate(0, m_firstHeightDiff);
         //        }
-        return rect.translated(q->contentsMargins().left() + m_xOffset, q->contentsMargins().top() + m_yOffset);
+        return rect.translated(q->contentsMargins().left() + m_xOffset,
+                               q->contentsMargins().top() + m_yOffset);
     }
+
     // item在窗口中位置(无滚动)
     QModelIndex indexAt(const QPoint &p) const
     {
@@ -141,6 +131,7 @@ public:
             return index;
         return QModelIndex();
     }
+
     QVector<QModelIndex> intersectingSet(const QRect &area) const
     {
         Q_Q(const AccountsListView);
@@ -155,11 +146,13 @@ public:
         }
         return indexs;
     }
+
     inline int marginsWidth() const
     {
         Q_Q(const AccountsListView);
         return q->contentsMargins().left() + q->contentsMargins().right();
     }
+
     inline int marginsHidget() const
     {
         Q_Q(const AccountsListView);
@@ -178,7 +171,7 @@ private:
     int m_xOffset;             // x轴偏移
     int m_yOffset;             // y轴偏移
     QModelIndex m_hover;       // hover项
-    Qt::Alignment m_alignment; //　对齐方式
+    Qt::Alignment m_alignment; // 　对齐方式
     int m_firstHeightDiff;     // 第一行与其他行高差值
 };
 
@@ -194,9 +187,7 @@ AccountsListView::AccountsListView(QWidget *parent)
     setMouseTracking(true);
 }
 
-AccountsListView::~AccountsListView()
-{
-}
+AccountsListView::~AccountsListView() { }
 
 void AccountsListView::setModel(QAbstractItemModel *model)
 {
@@ -245,7 +236,8 @@ QModelIndex AccountsListView::indexAt(const QPoint &p) const
     return d->indexAt(p + QPoint(horizontalOffset(), verticalOffset()));
 }
 
-QModelIndex AccountsListView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers /*modifiers*/)
+QModelIndex AccountsListView::moveCursor(CursorAction cursorAction,
+                                         Qt::KeyboardModifiers /*modifiers*/)
 {
     Q_D(const AccountsListView);
     QModelIndex current = currentIndex();
@@ -281,7 +273,8 @@ QModelIndex AccountsListView::moveCursor(CursorAction cursorAction, Qt::Keyboard
         currentRow++;
         break;
     case MovePageUp: {
-        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing) / (d->m_itemSize.height() + d->m_spacing);
+        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing)
+                / (d->m_itemSize.height() + d->m_spacing);
         for (int i = 0; i < pageItem; i++) {
             currentRow = moveup(currentRow, d->m_maxColumnCount);
         }
@@ -290,7 +283,8 @@ QModelIndex AccountsListView::moveCursor(CursorAction cursorAction, Qt::Keyboard
         currentRow = moveup(currentRow, d->m_maxColumnCount);
         break;
     case MovePageDown: {
-        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing) / (d->m_itemSize.height() + d->m_spacing);
+        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_spacing)
+                / (d->m_itemSize.height() + d->m_spacing);
         for (int i = 0; i < pageItem; i++) {
             int row = movedown(currentRow, d->m_maxColumnCount);
             if (row >= maxRow)
@@ -331,8 +325,9 @@ void AccountsListView::updateGeometries()
     QAbstractItemView::updateGeometries();
     d->updateGeometries();
 
-    //　更新滚动条范围
-    if (geometry().isEmpty() || !model() || model()->rowCount() <= 0 || model()->columnCount() <= 0) {
+    // 　更新滚动条范围
+    if (geometry().isEmpty() || !model() || model()->rowCount() <= 0
+        || model()->columnCount() <= 0) {
         horizontalScrollBar()->setRange(0, 0);
         verticalScrollBar()->setRange(0, 0);
     } else {
@@ -350,7 +345,9 @@ void AccountsListView::updateGeometries()
     }
 }
 
-void AccountsListView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+void AccountsListView::dataChanged(const QModelIndex &topLeft,
+                                   const QModelIndex &bottomRight,
+                                   const QVector<int> &roles)
 {
     QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
     scheduleDelayedItemsLayout();
@@ -407,7 +404,8 @@ void AccountsListView::paintEvent(QPaintEvent *e)
     QStyleOptionViewItem option = viewOptions();
     QPainter painter(viewport());
 
-    const QVector<QModelIndex> toBeRendered = d->intersectingSet(e->rect().translated(horizontalOffset(), verticalOffset()));
+    const QVector<QModelIndex> toBeRendered =
+            d->intersectingSet(e->rect().translated(horizontalOffset(), verticalOffset()));
 
     const QModelIndex current = currentIndex();
     const QModelIndex hover = d->m_hover;
@@ -451,7 +449,7 @@ void AccountsListView::paintEvent(QPaintEvent *e)
         }
         option.state.setFlag(QStyle::State_MouseOver, *it == hover);
 
-        if (alternate) { //　交替色处理，未实现
+        if (alternate) { // 　交替色处理，未实现
             int row = (*it).row();
             if (row != previousRow + 1) {
                 // adjust alternateBase according to rows in the "gap"
@@ -476,7 +474,7 @@ void AccountsListView::paintEvent(QPaintEvent *e)
     int gradualW = d->m_itemSize.width() * 2;
     QRect lRect(0, 0, gradualW, height());
     QRect rRect(width() - gradualW, 0, gradualW + 1, height());
-    if (!e->rect().intersected(lRect).isEmpty() && hbar->minimum() != hbar->value()) { //左边
+    if (!e->rect().intersected(lRect).isEmpty() && hbar->minimum() != hbar->value()) { // 左边
         QLinearGradient linearGradient(lRect.left(), 0, lRect.right(), 0);
         linearGradient.setColorAt(0, option.palette.window().color());
         linearGradient.setColorAt(1, QColor(255, 255, 255, 0));

@@ -25,6 +25,7 @@
 #include <QObject>
 
 class WacomModelPrivate;
+
 class WacomModel : public QObject
 {
     Q_OBJECT
@@ -39,7 +40,8 @@ public:
     bool CursorMode() const;
     void setCursorMode(bool value);
 
-    Q_PROPERTY(uint EraserPressureSensitive READ eraserPressureSensitive WRITE setEraserPressureSensitive NOTIFY EraserPressureSensitiveChanged)
+    Q_PROPERTY(uint EraserPressureSensitive READ eraserPressureSensitive WRITE
+                       setEraserPressureSensitive NOTIFY EraserPressureSensitiveChanged)
     uint eraserPressureSensitive();
     void setEraserPressureSensitive(uint value);
 

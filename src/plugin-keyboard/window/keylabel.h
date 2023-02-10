@@ -44,5 +44,4 @@ private:
     QString m_text;
 };
 
-
 #endif // KEYLABEL_H

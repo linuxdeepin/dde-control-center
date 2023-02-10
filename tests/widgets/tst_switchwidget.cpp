@@ -1,18 +1,15 @@
 #include <gtest/gtest.h>
 
-#include <QStandardItemModel>
-
 #include "widgets/switchwidget.h"
+
+#include <QStandardItemModel>
 
 using namespace DCC_NAMESPACE;
 
 class Tst_SwitchWidget : public testing::Test
 {
 public:
-    void SetUp() override
-    {
-        obj = new SwitchWidget();
-    }
+    void SetUp() override { obj = new SwitchWidget(); }
 
     void TearDown() override
     {

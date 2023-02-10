@@ -2,11 +2,11 @@
 
 #include <dfilechooseredit.h>
 
+#include <QDebug>
+#include <QFileDialog>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
-#include <QDebug>
-#include <QFileDialog>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE

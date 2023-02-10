@@ -21,11 +21,12 @@
  */
 
 #include "userlicensewidget.h"
-#include "widgets/utils.h"
-#include "protocolfile.h"
 
-#include <QVBoxLayout>
+#include "protocolfile.h"
+#include "widgets/utils.h"
+
 #include <QLocale>
+#include <QVBoxLayout>
 #include <QtConcurrent>
 
 using namespace DCC_NAMESPACE;
@@ -39,7 +40,7 @@ UserLicenseWidget::UserLicenseWidget(QWidget *parent)
     m_body = new QLabel(this);
     m_body->setWordWrap(true);
 
-    layout->setContentsMargins(10,10,11,10);
+    layout->setContentsMargins(10, 10, 11, 10);
     layout->addWidget(m_body);
     layout->addStretch();
 
@@ -54,7 +55,7 @@ UserLicenseWidget::UserLicenseWidget(QWidget *parent)
         w->setFuture(QtConcurrent::run(ProtocolFile::getEnduserAgreement));
     }
 
-    connect(w, &QFutureWatcher<QString>::finished, this, [ = ] {
+    connect(w, &QFutureWatcher<QString>::finished, this, [=] {
         const QString r = w->result();
         m_body->setText(r);
         Q_EMIT loadTextFinished();

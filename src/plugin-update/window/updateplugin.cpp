@@ -1,16 +1,16 @@
 #include "updateplugin.h"
-#include "updatesettingsmodule.h"
-#include "interface/pagemodule.h"
 
-#include "updatemodel.h"
-#include "updatewidget.h"
+#include "interface/pagemodule.h"
 #include "updatectrlwidget.h"
+#include "updatemodel.h"
+#include "updatesettingsmodule.h"
+#include "updatewidget.h"
 #include "updatework.h"
 #include "widgets/titlelabel.h"
 
-#include <DFontSizeManager>
-
 #include <widgets/switchwidget.h>
+
+#include <DFontSizeManager>
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
@@ -29,12 +29,15 @@ ModuleObject *UpdatePlugin::module()
 
     // 检查更新
     ModuleObject *moduleUpdate = new PageModule("checkForUpdates", tr("Check for Updates"));
-    checkUpdateModule *checkUpdatePage = new checkUpdateModule(updateInterface->model(), updateInterface->work(), moduleUpdate);
+    checkUpdateModule *checkUpdatePage =
+            new checkUpdateModule(updateInterface->model(), updateInterface->work(), moduleUpdate);
     moduleUpdate->appendChild(checkUpdatePage);
     updateInterface->appendChild(moduleUpdate);
 
     // 更新设置
-    UpdateSettingsModule *moduleUpdateSettings = new UpdateSettingsModule(updateInterface->model(), updateInterface->work(), updateInterface);
+    UpdateSettingsModule *moduleUpdateSettings = new UpdateSettingsModule(updateInterface->model(),
+                                                                          updateInterface->work(),
+                                                                          updateInterface);
     updateInterface->appendChild(moduleUpdateSettings);
 
     return updateInterface;
@@ -46,12 +49,16 @@ QString UpdatePlugin::location() const
 }
 
 UpdateModule::UpdateModule(QObject *parent)
-    : HListModule("update", tr("Updates"), tr("Updates"), QIcon::fromTheme("dcc_nav_update"), parent)
+    : HListModule(
+            "update", tr("Updates"), tr("Updates"), QIcon::fromTheme("dcc_nav_update"), parent)
     , m_model(new UpdateModel(this))
     , m_work(new UpdateWorker(m_model, this))
 {
     // TODO: 初始化更新小红点处理
-    connect(m_model, &UpdateModel::updatablePackagesChanged, this, &UpdateModule::syncUpdatablePackagesChanged);
+    connect(m_model,
+            &UpdateModel::updatablePackagesChanged,
+            this,
+            &UpdateModule::syncUpdatablePackagesChanged);
     m_work->init();
     m_work->preInitialize();
 }
@@ -66,19 +73,26 @@ void UpdateModule::active()
 {
     m_work->activate();
     // 相应授权状态 com.deepin.license.Info
-//    m_work->requestRefreshLicenseState();
+    //    m_work->requestRefreshLicenseState();
 
     connect(m_model, &UpdateModel::beginCheckUpdate, m_work, &UpdateWorker::checkForUpdates);
-    connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work, &UpdateWorker::refreshLastTimeAndCheckCircle);
+    connect(m_model,
+            &UpdateModel::updateCheckUpdateTime,
+            m_work,
+            &UpdateWorker::refreshLastTimeAndCheckCircle);
     connect(m_model, &UpdateModel::updateNotifyChanged, this, [this](const bool state) {
         qDebug() << " ---- updateNotifyChanged" << state;
-        //关闭“自动提醒”，隐藏提示角标
+        // 关闭“自动提醒”，隐藏提示角标
         if (!state) {
             syncUpdatablePackagesChanged(false);
         } else {
             UpdatesStatus status = m_model->status();
-            if (status == UpdatesStatus::UpdatesAvailable || status == UpdatesStatus::Updateing || status == UpdatesStatus::Downloading || status == UpdatesStatus::DownloadPaused || status == UpdatesStatus::Downloaded ||
-                    status == UpdatesStatus::Installing || status == UpdatesStatus::RecoveryBackingup || status == UpdatesStatus::RecoveryBackingSuccessed || m_model->getUpdatablePackages()) {
+            if (status == UpdatesStatus::UpdatesAvailable || status == UpdatesStatus::Updateing
+                || status == UpdatesStatus::Downloading || status == UpdatesStatus::DownloadPaused
+                || status == UpdatesStatus::Downloaded || status == UpdatesStatus::Installing
+                || status == UpdatesStatus::RecoveryBackingup
+                || status == UpdatesStatus::RecoveryBackingSuccessed
+                || m_model->getUpdatablePackages()) {
                 syncUpdatablePackagesChanged(true);
             }
         }
@@ -94,29 +108,47 @@ QWidget *checkUpdateModule::page()
 {
     UpdateWidget *updateWidget = new UpdateWidget;
     updateWidget->setModel(m_model, m_worker);
-    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
+    if (m_model->systemActivation() == UiActiveState::Authorized
+        || m_model->systemActivation() == UiActiveState::TrialAuthorized
+        || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
         updateWidget->setSystemVersion(m_model->systemVersionInfo());
     }
-    connect(updateWidget, &UpdateWidget::requestLastoreHeartBeat, m_worker, &UpdateWorker::onRequestLastoreHeartBeat);
+    connect(updateWidget,
+            &UpdateWidget::requestLastoreHeartBeat,
+            m_worker,
+            &UpdateWorker::onRequestLastoreHeartBeat);
 
 #ifndef DISABLE_ACTIVATOR
-    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
+    if (m_model->systemActivation() == UiActiveState::Authorized
+        || m_model->systemActivation() == UiActiveState::TrialAuthorized
+        || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
         updateWidget->setSystemVersion(m_model->systemVersionInfo());
     }
 #endif
 
 #ifndef DISABLE_ACTIVATOR
-    connect(m_model, &UpdateModel::systemActivationChanged, this, [ = ](UiActiveState systemactivation) {
-        if (systemactivation == UiActiveState::Authorized || systemactivation == UiActiveState::TrialAuthorized || systemactivation == UiActiveState::AuthorizedLapse) {
-            if (updateWidget)
-                updateWidget->setSystemVersion(m_model->systemVersionInfo());
-        }
-    });
+    connect(m_model,
+            &UpdateModel::systemActivationChanged,
+            this,
+            [=](UiActiveState systemactivation) {
+                if (systemactivation == UiActiveState::Authorized
+                    || systemactivation == UiActiveState::TrialAuthorized
+                    || systemactivation == UiActiveState::AuthorizedLapse) {
+                    if (updateWidget)
+                        updateWidget->setSystemVersion(m_model->systemVersionInfo());
+                }
+            });
 #endif
 
     connect(updateWidget, &UpdateWidget::requestUpdates, m_worker, &UpdateWorker::distUpgrade);
-    connect(updateWidget, &UpdateWidget::requestUpdateCtrl, m_worker, &UpdateWorker::OnDownloadJobCtrl);
-    connect(updateWidget, &UpdateWidget::requestOpenAppStroe, m_worker, &UpdateWorker::onRequestOpenAppStore);
+    connect(updateWidget,
+            &UpdateWidget::requestUpdateCtrl,
+            m_worker,
+            &UpdateWorker::OnDownloadJobCtrl);
+    connect(updateWidget,
+            &UpdateWidget::requestOpenAppStroe,
+            m_worker,
+            &UpdateWorker::onRequestOpenAppStore);
     connect(updateWidget, &UpdateWidget::requestFixError, m_worker, &UpdateWorker::onFixError);
     updateWidget->displayUpdateContent(UpdateWidget::UpdateType::UpdateCheck);
 
@@ -130,10 +162,13 @@ UpdateTitleModule::UpdateTitleModule(const QString &name, const QString &title, 
     setDescription(title);
     addContentText(title);
 }
+
 QWidget *UpdateTitleModule::page()
 {
     TitleLabel *titleLabel = new TitleLabel(description());
-    DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5, QFont::DemiBold); // 设置字体
+    DFontSizeManager::instance()->bind(titleLabel,
+                                       DFontSizeManager::T5,
+                                       QFont::DemiBold); // 设置字体
     return titleLabel;
 }
 
@@ -150,4 +185,3 @@ QWidget *SwitchWidgetModule::page()
     SwitchWidget *sw_widget = new SwitchWidget(description());
     return sw_widget;
 }
-

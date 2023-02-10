@@ -20,6 +20,7 @@
  */
 
 #include "scalingwidget.h"
+
 #include "src/plugin-display/operation/displaymodel.h"
 #include "src/plugin-display/operation/monitor.h"
 
@@ -38,7 +39,7 @@ ScalingWidget::ScalingWidget(QWidget *parent)
     , m_tipLabel(new DTipLabel(tr("The monitor only supports 100% display scaling"), this))
     , m_slider(new TitledSliderItem(QString(), this))
 {
-    //初始化列表无法进行静态翻译
+    // 初始化列表无法进行静态翻译
     m_title = new TitleLabel(tr("Display Scaling"), this);
     m_title->setText(tr("Display Scaling"));
 
@@ -60,9 +61,7 @@ ScalingWidget::ScalingWidget(QWidget *parent)
     setLayout(m_centralLayout);
 }
 
-ScalingWidget::~ScalingWidget()
-{
-}
+ScalingWidget::~ScalingWidget() { }
 
 void ScalingWidget::setModel(DisplayModel *model)
 {
@@ -99,7 +98,7 @@ void ScalingWidget::addSlider()
 
 void ScalingWidget::onResolutionChanged()
 {
-    QStringList fscaleList = {"1.0", "1.25", "1.5", "1.75", "2.0", "2.25", "2.5", "2.75", "3.0"};
+    QStringList fscaleList = { "1.0", "1.25", "1.5", "1.75", "2.0", "2.25", "2.5", "2.75", "3.0" };
     for (auto moni : m_displayModel->monitorList()) {
         if (!moni->enable()) {
             continue;
@@ -114,10 +113,11 @@ void ScalingWidget::onResolutionChanged()
         fscaleList = ts.size() < fscaleList.size() ? ts : fscaleList;
     }
 
-    //如果仅一个缩放值可用
+    // 如果仅一个缩放值可用
     if (fscaleList.size() <= 1) {
         fscaleList.clear();
-        fscaleList.append(QStringList() << "1.0" << "1.0");
+        fscaleList.append(QStringList() << "1.0"
+                                        << "1.0");
         m_tipWidget->setVisible(true);
     } else {
         m_tipWidget->setVisible(false);
@@ -129,14 +129,17 @@ void ScalingWidget::onResolutionChanged()
     slider->blockSignals(true);
     slider->setRange(1, m_scaleList.size());
     slider->setPageStep(1);
-    slider->setValue(convertToSlider(m_displayModel->uiScale() > 1.0 ? m_displayModel->uiScale() : 1.0));
+    slider->setValue(
+            convertToSlider(m_displayModel->uiScale() > 1.0 ? m_displayModel->uiScale() : 1.0));
     slider->update();
     slider->blockSignals(false);
 };
 
 QStringList ScalingWidget::getScaleList(const Resolution &r)
 {
-    const QStringList tvstring = {"1.0", "1.25", "1.5", "1.75", "2.0", "2.25", "2.5", "2.75", "3.0"};
+    const QStringList tvstring = {
+        "1.0", "1.25", "1.5", "1.75", "2.0", "2.25", "2.5", "2.75", "3.0"
+    };
     QStringList fscaleList;
     auto maxWScale = r.width() / MinScreenWidth;
     auto maxHScale = r.height() / MinScreenHeight;
@@ -151,7 +154,7 @@ QStringList ScalingWidget::getScaleList(const Resolution &r)
 
 int ScalingWidget::convertToSlider(const double value)
 {
-    //remove base scale (100), then convert to 1-based value
-    //with a stepping of 25
+    // remove base scale (100), then convert to 1-based value
+    // with a stepping of 25
     return int(round(double(value * 100 - 100) / 25)) + 1;
 }

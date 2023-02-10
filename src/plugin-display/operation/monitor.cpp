@@ -25,9 +25,9 @@
 
 #include "monitor.h"
 
-#include <math.h>
 #include <QGuiApplication>
 
+#include <math.h>
 
 using namespace DCC_NAMESPACE;
 const double DoubleZero = 0.000001;
@@ -202,7 +202,6 @@ void Monitor::setModeList(const ResolutionList &modeList)
     Q_EMIT modelListChanged(m_modeList);
 }
 
-
 void Monitor::setAvailableFillModes(const QStringList &fillModeList)
 {
     if (m_fillModeList == fillModeList)
@@ -274,7 +273,8 @@ bool Monitor::hasResolution(const Resolution &r)
 bool Monitor::hasResolutionAndRate(const Resolution &r)
 {
     for (auto m : m_modeList) {
-        if (fabs(m.rate() - r.rate()) < 0.000001 && m.width() == r.width() && m.height() == r.height()) {
+        if (fabs(m.rate() - r.rate()) < 0.000001 && m.width() == r.width()
+            && m.height() == r.height()) {
             return true;
         }
     }
@@ -297,9 +297,9 @@ QScreen *Monitor::getQScreen()
 {
     auto screens = QGuiApplication::screens();
 
-    for(auto screen : screens) {
-        //x11下，qt获取的名字和后端给的名字一致 wayland下，qt获取的序列号中包含名称
-        if(screen->name() == name() || screen->model().contains(name()))
+    for (auto screen : screens) {
+        // x11下，qt获取的名字和后端给的名字一致 wayland下，qt获取的序列号中包含名称
+        if (screen->name() == name() || screen->model().contains(name()))
             return screen;
     }
 

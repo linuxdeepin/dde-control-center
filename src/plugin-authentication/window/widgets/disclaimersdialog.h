@@ -24,6 +24,7 @@
 #include "widgets/settingsitem.h"
 
 #include <DAbstractDialog>
+
 #include <QCloseEvent>
 
 DWIDGET_USE_NAMESPACE
@@ -38,11 +39,7 @@ class DSuggestButton;
 class DTipLabel;
 DWIDGET_END_NAMESPACE
 
-enum DisclaimersObj {
-    Faceid,
-    Iris,
-    Finge
-};
+enum DisclaimersObj { Faceid, Iris, Finge };
 
 // 免责声明对话框
 class DisclaimersDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
@@ -71,6 +68,6 @@ Q_SIGNALS:
 
 private:
     QVBoxLayout *m_mainLayout;
-    QPushButton* m_cancelBtn;
-    DTK_WIDGET_NAMESPACE::DSuggestButton* m_acceptBtn;
+    QPushButton *m_cancelBtn;
+    DTK_WIDGET_NAMESPACE::DSuggestButton *m_acceptBtn;
 };

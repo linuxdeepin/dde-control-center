@@ -26,10 +26,10 @@
 #ifndef DCC_BLUETOOTH_BLUETOOTHWORKER_H
 #define DCC_BLUETOOTH_BLUETOOTHWORKER_H
 
-#include <QObject>
-
 #include "bluetoothmodel.h"
 #include "pincodedialog.h"
+
+#include <QObject>
 
 class QDBusObjectPath;
 class BluetoothDBusProxy;

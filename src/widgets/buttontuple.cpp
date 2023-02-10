@@ -24,18 +24,20 @@
  */
 
 #include "widgets/buttontuple.h"
+
 #include "widgets/accessibleinterface.h"
+
+#include <DPushButton>
+#include <DSuggestButton>
+#include <DWarningButton>
 
 #include <QHBoxLayout>
 #include <QPushButton>
 
-#include <DSuggestButton>
-#include <DWarningButton>
-#include <DPushButton>
-
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
-SET_FORM_ACCESSIBLE(ButtonTuple,"ButtonTuple")
+SET_FORM_ACCESSIBLE(ButtonTuple, "ButtonTuple")
+
 ButtonTuple::ButtonTuple(ButtonType type, QWidget *parent)
     : QWidget(parent)
     , m_leftButton(new QPushButton(this))
@@ -85,7 +87,7 @@ void ButtonTuple::removeSpacing()
 {
     if (!this->layout())
         return;
-    //第二个控件为space
+    // 第二个控件为space
     if (this->layout()->itemAt(1)) {
         this->layout()->removeItem(this->layout()->itemAt(1));
     }

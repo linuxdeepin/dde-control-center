@@ -21,11 +21,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "mousesettingwidget.h"
-#include "widgets/switchwidget.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/dccslider.h"
-#include "palmdetectsetting.h"
+
 #include "doutestwidget.h"
+#include "palmdetectsetting.h"
+#include "widgets/dccslider.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/switchwidget.h"
 
 #include <QVBoxLayout>
 
@@ -47,7 +48,11 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent)
     m_mouseNaturalScroll->setObjectName("mouseNaturalScroll");
 
     QStringList speedList;
-    speedList << tr("Slow") << "" << "" << "" << "" << "" ;
+    speedList << tr("Slow") << ""
+              << ""
+              << ""
+              << ""
+              << "";
     speedList << tr("Fast");
     DCCSlider *speedSlider = m_mouseMoveSlider->slider();
     speedSlider->setType(DCCSlider::Vernier);
@@ -71,25 +76,44 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent)
 
     setLayout(m_contentLayout);
 
-    connect(m_mouseMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseSettingWidget::requestSetMouseMotionAcceleration);
-    connect(m_adaptiveAccelProfile, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetAccelProfile);
-    connect(m_disTchStn, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetDisTouchPad);
-    connect(m_mouseNaturalScroll, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetMouseNaturalScroll);
+    connect(m_mouseMoveSlider->slider(),
+            &DCCSlider::valueChanged,
+            this,
+            &MouseSettingWidget::requestSetMouseMotionAcceleration);
+    connect(m_adaptiveAccelProfile,
+            &SwitchWidget::checkedChanged,
+            this,
+            &MouseSettingWidget::requestSetAccelProfile);
+    connect(m_disTchStn,
+            &SwitchWidget::checkedChanged,
+            this,
+            &MouseSettingWidget::requestSetDisTouchPad);
+    connect(m_mouseNaturalScroll,
+            &SwitchWidget::checkedChanged,
+            this,
+            &MouseSettingWidget::requestSetMouseNaturalScroll);
 }
 
-MouseSettingWidget::~MouseSettingWidget()
-{
-}
+MouseSettingWidget::~MouseSettingWidget() { }
 
 void MouseSettingWidget::setModel(MouseModel *const model)
 {
     m_mouseModel = model;
 
     connect(model, &MouseModel::tpadExistChanged, m_disTchStn, &SwitchWidget::setVisible);
-    connect(model, &MouseModel::mouseMoveSpeedChanged, this, &MouseSettingWidget::onMouseMoveSpeedChanged);
-    connect(model, &MouseModel::accelProfileChanged, m_adaptiveAccelProfile, &SwitchWidget::setChecked);
+    connect(model,
+            &MouseModel::mouseMoveSpeedChanged,
+            this,
+            &MouseSettingWidget::onMouseMoveSpeedChanged);
+    connect(model,
+            &MouseModel::accelProfileChanged,
+            m_adaptiveAccelProfile,
+            &SwitchWidget::setChecked);
     connect(model, &MouseModel::disTpadChanged, m_disTchStn, &SwitchWidget::setChecked);
-    connect(model, &MouseModel::mouseNaturalScrollChanged, m_mouseNaturalScroll, &SwitchWidget::setChecked);
+    connect(model,
+            &MouseModel::mouseNaturalScrollChanged,
+            m_mouseNaturalScroll,
+            &SwitchWidget::setChecked);
 
     onMouseMoveSpeedChanged(model->mouseMoveSpeed());
     m_adaptiveAccelProfile->setChecked(model->accelProfile());

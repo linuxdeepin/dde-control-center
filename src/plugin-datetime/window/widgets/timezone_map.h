@@ -41,7 +41,7 @@ class QStringListModel;
 namespace installer {
 class PopupMenu;
 class TooltipPin;
-};
+}; // namespace installer
 
 // Draw timezone map and bubble.
 class TimezoneMap : public QFrame

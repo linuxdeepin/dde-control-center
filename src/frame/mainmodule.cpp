@@ -1,14 +1,15 @@
+#include "mainmodule.h"
+
 #include "listitemdelegate.h"
 #include "listview.h"
-#include "mainmodule.h"
-#include "src/interface/moduledatamodel.h"
 #include "pagemodule.h"
+#include "src/interface/moduledatamodel.h"
 
 #include <QHBoxLayout>
 #include <QSplitter>
 
 #if DTK_VERSION >= DTK_VERSION_CHECK(5, 6, 3, 0)
-#    define USE_SIDEBAR
+#  define USE_SIDEBAR
 #endif
 
 using namespace DCC_NAMESPACE;
@@ -31,6 +32,7 @@ public:
         , m_layout(nullptr)
     {
     }
+
     ListView *createListView(QWidget *parentWidget)
     {
         Q_Q(MainModule);
@@ -134,9 +136,12 @@ public:
         QWidget *parentWidget = new QWidget();
         m_layout = new QHBoxLayout;
         parentWidget->setLayout(m_layout);
-        QObject::connect(q, &MainModule::currentModuleChanged, parentWidget, [this](ModuleObject *child) {
-            onCurrentModuleChanged(child);
-        });
+        QObject::connect(q,
+                         &MainModule::currentModuleChanged,
+                         parentWidget,
+                         [this](ModuleObject *child) {
+                             onCurrentModuleChanged(child);
+                         });
         m_view = createListView(parentWidget);
         m_sidebarWidget = createListView(parentWidget);
 #ifdef USE_SIDEBAR
@@ -155,7 +160,7 @@ private:
     QHBoxLayout *m_layout;
     DTK_WIDGET_NAMESPACE::DMainWindow *m_mainWindow;
 };
-}
+} // namespace DCC_NAMESPACE
 
 MainModule::MainModule(DTK_WIDGET_NAMESPACE::DMainWindow *parent)
     : ModuleObject(parent)
@@ -165,9 +170,7 @@ MainModule::MainModule(DTK_WIDGET_NAMESPACE::DMainWindow *parent)
     d->m_mainWindow = parent;
 }
 
-MainModule::~MainModule()
-{
-}
+MainModule::~MainModule() { }
 
 QWidget *MainModule::page()
 {

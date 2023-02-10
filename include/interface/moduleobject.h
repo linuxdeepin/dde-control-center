@@ -24,9 +24,9 @@
 
 #include "namespace.h"
 
+#include <QIcon>
 #include <QObject>
 #include <QVariant>
-#include <QIcon>
 
 using DCC_MODULE_TYPE = uint32_t;
 
@@ -53,8 +53,10 @@ enum : DCC_MODULE_TYPE {
     SETTINGSGROUP = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_SETTINGSGROUP_BIT,
     HORIZONTAL = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_HORIZONTAL_BIT,
     MAINLAYOUT = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_MAIN_BIT,
-    HLISTLAYOUT = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_HORIZONTAL_BIT | DCC_MODULE_LISTVIEW_BIT,
-    VLISTLAYOUT = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_VERTICAL_BIT | DCC_MODULE_LISTVIEW_BIT,
+    HLISTLAYOUT = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_HORIZONTAL_BIT
+            | DCC_MODULE_LISTVIEW_BIT,
+    VLISTLAYOUT = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_VERTICAL_BIT
+            | DCC_MODULE_LISTVIEW_BIT,
     PAGELAYOUT = DCC_MODULE_GROUP_BIT | DCC_MODULE_LAYOUT_BIT | DCC_MODULE_VERTICAL_BIT,
     CUSTOM_OBJECT = DCC_MODULE_CUSTOM_BIT,
 };
@@ -70,7 +72,8 @@ class ModuleObject : public QObject
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY moduleDataChanged)
     Q_PROPERTY(QString displayName READ displayName WRITE setDisplayName NOTIFY displayNameChanged)
     Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY moduleDataChanged)
-    Q_PROPERTY(QStringList contentText READ contentText WRITE setContentText NOTIFY moduleDataChanged)
+    Q_PROPERTY(
+            QStringList contentText READ contentText WRITE setContentText NOTIFY moduleDataChanged)
     Q_PROPERTY(QVariant icon READ icon WRITE setIcon NOTIFY moduleDataChanged)
     Q_PROPERTY(int badge READ badge WRITE setBadge NOTIFY moduleDataChanged)
 
@@ -81,12 +84,34 @@ public:
     ModuleObject(QObject *parent = nullptr);
     ModuleObject(const QString &name, const QString &displayName = {}, QObject *parent = nullptr);
     ModuleObject(const QString &name, const QStringList &contentText, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QVariant &icon, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QString &description, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QString &description, const QVariant &icon, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent = nullptr);
+    ModuleObject(const QString &name,
+                 const QString &displayName,
+                 const QStringList &contentText,
+                 QObject *parent = nullptr);
+    ModuleObject(const QString &name,
+                 const QString &displayName,
+                 const QVariant &icon,
+                 QObject *parent = nullptr);
+    ModuleObject(const QString &name,
+                 const QString &displayName,
+                 const QString &description,
+                 QObject *parent = nullptr);
+    ModuleObject(const QString &name,
+                 const QString &displayName,
+                 const QString &description,
+                 const QVariant &icon,
+                 QObject *parent = nullptr);
+    ModuleObject(const QString &name,
+                 const QString &displayName,
+                 const QString &description,
+                 const QIcon &icon,
+                 QObject *parent = nullptr);
+    ModuleObject(const QString &name,
+                 const QString &displayName,
+                 const QString &description,
+                 const QStringList &contentText,
+                 const QVariant &icon,
+                 QObject *parent = nullptr);
 
     virtual ~ModuleObject();
     /**
@@ -104,7 +129,8 @@ public Q_SLOTS:
     /**
      * @brief 每次被调均需new新的QWidget
      * @return 返回自定义页面
-     * @warning page返回的widget生命周期只是对应窗口显示的时候，即模块切换时就会被析构。ModuleObject的生命周期是从控制中心启动到关闭
+     * @warning
+     * page返回的widget生命周期只是对应窗口显示的时候，即模块切换时就会被析构。ModuleObject的生命周期是从控制中心启动到关闭
      */
     virtual QWidget *page();
     /**

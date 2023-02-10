@@ -19,20 +19,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "trackpointsettingwidget.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/dccslider.h"
-#include "widgets/titledslideritem.h"
+
 #include "src/plugin-mouse/operation/mousemodel.h"
+#include "widgets/dccslider.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/titledslideritem.h"
 
 #include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
-TrackPointSettingWidget::TrackPointSettingWidget(QWidget *parent) : QWidget(parent)
+
+TrackPointSettingWidget::TrackPointSettingWidget(QWidget *parent)
+    : QWidget(parent)
 {
     m_trackPointSettingsGrp = new SettingsGroup;
     m_trackMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
     QStringList trackPointlist;
-    trackPointlist << tr("Slow") << "" << "" << "" << "" << "";
+    trackPointlist << tr("Slow") << ""
+                   << ""
+                   << ""
+                   << ""
+                   << "";
     trackPointlist << tr("Fast");
     DCCSlider *pointSlider = m_trackMoveSlider->slider();
     pointSlider->setType(DCCSlider::Vernier);
@@ -50,13 +57,19 @@ TrackPointSettingWidget::TrackPointSettingWidget(QWidget *parent) : QWidget(pare
 
     setLayout(m_contentLayout);
     setContentsMargins(0, 10, 0, 10);
-    connect(m_trackMoveSlider->slider(), &DCCSlider::valueChanged, this, &TrackPointSettingWidget::requestSetTrackPointMotionAcceleration);
+    connect(m_trackMoveSlider->slider(),
+            &DCCSlider::valueChanged,
+            this,
+            &TrackPointSettingWidget::requestSetTrackPointMotionAcceleration);
 }
 
 void TrackPointSettingWidget::setModel(MouseModel *const model)
 {
     m_mouseModel = model;
-    connect(m_mouseModel, &MouseModel::redPointMoveSpeedChanged, this, &TrackPointSettingWidget::onRedPointMoveSpeedChanged);
+    connect(m_mouseModel,
+            &MouseModel::redPointMoveSpeedChanged,
+            this,
+            &TrackPointSettingWidget::onRedPointMoveSpeedChanged);
     onRedPointMoveSpeedChanged(m_mouseModel->redPointMoveSpeed());
 }
 

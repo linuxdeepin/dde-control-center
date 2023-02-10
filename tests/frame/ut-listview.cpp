@@ -1,103 +1,100 @@
 #include "gtest/gtest.h"
-
 #include "interface/moduleobject.h"
-#include "src/frame/listview.h"
 #include "src/frame/listitemdelegate.h"
+#include "src/frame/listview.h"
 #include "src/interface/moduledatamodel.h"
 
 using namespace DCC_NAMESPACE;
-const static QString G_icons[] = {
-    "chmsee-icon",
-    "deepin-compressor",
-    "deepin-music",
-    "fcitx",
-    "preferences-desktop-font",
-    "com.deepin.gomoku",
-    "deepin-contacts",
-    "deepin-note",
-    "firefox",
-    "preferences-system",
-    "com.deepin.lianliankan",
-    "deepin-deb-installer",
-    "deepin-phone-assistant",
-    "foxitreader",
-    "scanner",
-    "com.qq.weixin.deepin",
-    "deepin-defender",
-    "deepin-picker",
-    "gedit",
-    "steam",
-    "crossover",
-    "deepin-devicemanager",
-    "deepin-reader",
-    "gimp",
-    "thunderbird",
-    "dde-calendar",
-    "deepin-diskmanager",
-    "deepin-remote-assistance",
-    "gnome-mime-application-x-deb",
-    "uosbrowser-cn",
-    "dde-file-manager",
-    "deepin-draw",
-    "deepin-repair-tools",
-    "google-chrome",
-    "uos-downloadmanager",
-    "dde-introduction",
-    "deepin-editor",
-    "deepin-scanner",
-    "gparted",
-    "uos-installtool",
-    "dde-printer",
-    "deepin-feedback",
-    "deepin-screen-recorder",
-    "iso-customizer",
-    "uos-remote-assistance",
-    "deepin-album",
-    "deepin-font-manager",
-    "deepin-system-monitor",
-    "kbox",
-    "uos-service-support",
-    "deepin-app-store",
-    "deepin-graphics-driver-manager",
-    "deepin-terminal",
-    "kmsclient",
-    "uos-windesk",
-    "deepin-boot-maker",
-    "deepin-image-viewer",
-    "deepin-toggle-desktop",
-    "kmstools",
-    "wechat",
-    "deepin-browser",
-    "deepin-installer",
-    "deepin-voice-note",
-    "licensequick",
-    "wps-office2019-etmain",
-    "deepin-calculator",
-    "deepin-log-viewer",
-    "deepin-voice-recorder",
-    "netease-cloud-music",
-    "wps-office2019-wppmain",
-    "deepin-camera",
-    "deepin-mail",
-    "deepin-wine-assist",
-    "onboard",
-    "wps-office2019-wpsmain",
-    "deepin-clone",
-    "deepin-manual",
-    "desktop-ai-assistant",
-    "org.deepin.browser",
-    "wps-office-etmain",
-    "deepin-cloud-print-configurator",
-    "deepin-movie",
-    "evince",
-    "org.deepin.contacts",
-    "wps-office-wppmain",
-    "deepin-cloud-scan-config-helper",
-    "deepin-multitasking-view",
-    "fcitx-setting",
-    "org.gnome.Evince",
-    "wps-office-wpsmain"
-};
+const static QString G_icons[] = { "chmsee-icon",
+                                   "deepin-compressor",
+                                   "deepin-music",
+                                   "fcitx",
+                                   "preferences-desktop-font",
+                                   "com.deepin.gomoku",
+                                   "deepin-contacts",
+                                   "deepin-note",
+                                   "firefox",
+                                   "preferences-system",
+                                   "com.deepin.lianliankan",
+                                   "deepin-deb-installer",
+                                   "deepin-phone-assistant",
+                                   "foxitreader",
+                                   "scanner",
+                                   "com.qq.weixin.deepin",
+                                   "deepin-defender",
+                                   "deepin-picker",
+                                   "gedit",
+                                   "steam",
+                                   "crossover",
+                                   "deepin-devicemanager",
+                                   "deepin-reader",
+                                   "gimp",
+                                   "thunderbird",
+                                   "dde-calendar",
+                                   "deepin-diskmanager",
+                                   "deepin-remote-assistance",
+                                   "gnome-mime-application-x-deb",
+                                   "uosbrowser-cn",
+                                   "dde-file-manager",
+                                   "deepin-draw",
+                                   "deepin-repair-tools",
+                                   "google-chrome",
+                                   "uos-downloadmanager",
+                                   "dde-introduction",
+                                   "deepin-editor",
+                                   "deepin-scanner",
+                                   "gparted",
+                                   "uos-installtool",
+                                   "dde-printer",
+                                   "deepin-feedback",
+                                   "deepin-screen-recorder",
+                                   "iso-customizer",
+                                   "uos-remote-assistance",
+                                   "deepin-album",
+                                   "deepin-font-manager",
+                                   "deepin-system-monitor",
+                                   "kbox",
+                                   "uos-service-support",
+                                   "deepin-app-store",
+                                   "deepin-graphics-driver-manager",
+                                   "deepin-terminal",
+                                   "kmsclient",
+                                   "uos-windesk",
+                                   "deepin-boot-maker",
+                                   "deepin-image-viewer",
+                                   "deepin-toggle-desktop",
+                                   "kmstools",
+                                   "wechat",
+                                   "deepin-browser",
+                                   "deepin-installer",
+                                   "deepin-voice-note",
+                                   "licensequick",
+                                   "wps-office2019-etmain",
+                                   "deepin-calculator",
+                                   "deepin-log-viewer",
+                                   "deepin-voice-recorder",
+                                   "netease-cloud-music",
+                                   "wps-office2019-wppmain",
+                                   "deepin-camera",
+                                   "deepin-mail",
+                                   "deepin-wine-assist",
+                                   "onboard",
+                                   "wps-office2019-wpsmain",
+                                   "deepin-clone",
+                                   "deepin-manual",
+                                   "desktop-ai-assistant",
+                                   "org.deepin.browser",
+                                   "wps-office-etmain",
+                                   "deepin-cloud-print-configurator",
+                                   "deepin-movie",
+                                   "evince",
+                                   "org.deepin.contacts",
+                                   "wps-office-wppmain",
+                                   "deepin-cloud-scan-config-helper",
+                                   "deepin-multitasking-view",
+                                   "fcitx-setting",
+                                   "org.gnome.Evince",
+                                   "wps-office-wpsmain" };
 
 class Tst_ListView : public testing::Test
 {
@@ -110,6 +107,7 @@ public:
         model = new ModuleDataModel(view);
         view->setModel(model);
     }
+
     void TearDown() override
     {
         delete view;
@@ -197,13 +195,20 @@ TEST_F(Tst_ListView, coverage)
     view->connect(view, &ListView::viewportEntered, view, []() {
         qInfo() << __FILE__ << __LINE__ << "viewportEntered";
     });
-    //　选中顶改变时触发
-    view->connect(view->selectionModel(), &QItemSelectionModel::selectionChanged, view, [](const QItemSelection &selected, const QItemSelection &deselected) {
-        qInfo() << __FILE__ << __LINE__ << "selectionChanged" << selected << deselected;
-    });
-    view->connect(view->selectionModel(), &QItemSelectionModel::currentChanged, view, [](const QModelIndex &current, const QModelIndex &previous) {
-        qInfo() << __FILE__ << __LINE__ << "currentChanged" << current << previous;
-    });
+    // 　选中顶改变时触发
+    view->connect(view->selectionModel(),
+                  &QItemSelectionModel::selectionChanged,
+                  view,
+                  [](const QItemSelection &selected, const QItemSelection &deselected) {
+                      qInfo() << __FILE__ << __LINE__ << "selectionChanged" << selected
+                              << deselected;
+                  });
+    view->connect(view->selectionModel(),
+                  &QItemSelectionModel::currentChanged,
+                  view,
+                  [](const QModelIndex &current, const QModelIndex &previous) {
+                      qInfo() << __FILE__ << __LINE__ << "currentChanged" << current << previous;
+                  });
 
     ModuleObject *module = new ModuleObject();
     for (int i = 0; i < 17; i++) {

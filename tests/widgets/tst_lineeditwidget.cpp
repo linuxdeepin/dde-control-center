@@ -1,18 +1,15 @@
 #include <gtest/gtest.h>
 
-#include <QStandardItemModel>
-
 #include "widgets/lineeditwidget.h"
+
+#include <QStandardItemModel>
 
 using namespace DCC_NAMESPACE;
 
 class Tst_LineEditWidget : public testing::Test
 {
 public:
-    void SetUp() override
-    {
-        obj = new LineEditWidget;
-    }
+    void SetUp() override { obj = new LineEditWidget; }
 
     void TearDown() override
     {

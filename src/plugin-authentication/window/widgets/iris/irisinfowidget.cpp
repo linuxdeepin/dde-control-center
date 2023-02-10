@@ -22,6 +22,7 @@
 #include "irisinfowidget.h"
 
 #include <DGuiApplicationHelper>
+
 #include <QHBoxLayout>
 #include <QPainter>
 #include <QTimer>
@@ -29,7 +30,7 @@
 DGUI_USE_NAMESPACE
 
 IrisInfoWidget::IrisInfoWidget(QWidget *parent)
-    : QWidget (parent)
+    : QWidget(parent)
     , m_state(CharaMangerModel::AddInfoState::StartState)
     , m_timer(new QTimer(this))
     , m_angle(0)
@@ -38,10 +39,7 @@ IrisInfoWidget::IrisInfoWidget(QWidget *parent)
     connect(m_timer, &QTimer::timeout, this, static_cast<void (QWidget::*)()>(&QWidget::update));
 }
 
-IrisInfoWidget::~IrisInfoWidget()
-{
-
-}
+IrisInfoWidget::~IrisInfoWidget() { }
 
 void IrisInfoWidget::updateState(CharaMangerModel::AddInfoState state)
 {
@@ -64,10 +62,11 @@ void IrisInfoWidget::paintEvent(QPaintEvent *event)
     QString backRes;
 
     if (m_state == CharaMangerModel::AddInfoState::StartState
-            || m_state == CharaMangerModel::AddInfoState::Processing) {
+        || m_state == CharaMangerModel::AddInfoState::Processing) {
         if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
             backRes = ":/icons/deepin/builtin/icons/dcc_auth_iris-light.svg";
-        } else if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+        } else if (DGuiApplicationHelper::instance()->themeType()
+                   == DGuiApplicationHelper::DarkType) {
             backRes = ":/icons/deepin/builtin/icons/dcc_auth_iris-dark.svg";
         }
     } else if (m_state == CharaMangerModel::AddInfoState::Success) {
@@ -90,22 +89,33 @@ void IrisInfoWidget::paintEvent(QPaintEvent *event)
         // 内圈
         painter.translate(width() / 2, height() / 2);
         painter.rotate((m_angle += 1) % 360);
-        painter.translate( -(width() / 2), -(height() / 2));
+        painter.translate(-(width() / 2), -(height() / 2));
         QPixmap insidePix(":/icons/deepin/builtin/icons/dcc_auth_circle_inside.svg");
-        insidePix = insidePix.scaled(insidePix.width() / scale, insidePix.height() / scale, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-        QRect insideRect((width() - insidePix.width() / scale) / 2, (height() - insidePix.height() / scale) / 2, insidePix.width() / scale, insidePix.height() / scale);
+        insidePix = insidePix.scaled(insidePix.width() / scale,
+                                     insidePix.height() / scale,
+                                     Qt::IgnoreAspectRatio,
+                                     Qt::SmoothTransformation);
+        QRect insideRect((width() - insidePix.width() / scale) / 2,
+                         (height() - insidePix.height() / scale) / 2,
+                         insidePix.width() / scale,
+                         insidePix.height() / scale);
         painter.drawPixmap(insideRect, insidePix);
 
         // 外圈
         painter.translate(width() / 2, height() / 2);
         painter.rotate((m_angle += 2) % 360);
-        painter.translate( -(width() / 2), -(height() / 2));
+        painter.translate(-(width() / 2), -(height() / 2));
         QPixmap outsidePix(":/icons/deepin/builtin/icons/dcc_auth_circle_outside.svg");
-        outsidePix = outsidePix.scaled(outsidePix.width() / scale, outsidePix.height() / scale, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-        QRect outsideRect((width() - outsidePix.width() / scale) / 2, (height() - outsidePix.height() / scale) / 2, outsidePix.width() / scale, outsidePix.height() / scale);
+        outsidePix = outsidePix.scaled(outsidePix.width() / scale,
+                                       outsidePix.height() / scale,
+                                       Qt::IgnoreAspectRatio,
+                                       Qt::SmoothTransformation);
+        QRect outsideRect((width() - outsidePix.width() / scale) / 2,
+                          (height() - outsidePix.height() / scale) / 2,
+                          outsidePix.width() / scale,
+                          outsidePix.height() / scale);
         painter.drawPixmap(outsideRect, outsidePix);
     }
 
     QWidget::paintEvent(event);
 }
-

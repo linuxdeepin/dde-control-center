@@ -25,13 +25,13 @@
 
 #include "fingerinfowidget.h"
 
-#include <DHiDPIHelper>
 #include <DApplicationHelper>
+#include <DHiDPIHelper>
 
-#include <QVBoxLayout>
 #include <QDebug>
-#include <QTimer>
 #include <QFont>
+#include <QTimer>
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 
@@ -117,10 +117,16 @@ void FingerInfoWidget::setStatueMsg(const QString &title, const QString &msg, bo
         m_titleTimer->start();
 
         if (m_pro == 0) {
-            m_view->setPictureSequence(QStringList() << QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
+            m_view->setPictureSequence(
+                    QStringList()
+                    << QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_light.svg")
+                               .arg(m_theme));
         } else {
-            m_view->setPictureSequence(QStringList() << QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_animation_light_%2.svg")
-                                       .arg(m_theme).arg(m_pro/2));
+            m_view->setPictureSequence(QStringList()
+                                       << QString(":/icons/deepin/builtin/icons/%1/icons/finger/"
+                                                  "fingerprint_animation_light_%2.svg")
+                                                  .arg(m_theme)
+                                                  .arg(m_pro / 2));
         }
     }
 }
@@ -130,14 +136,20 @@ void FingerInfoWidget::setProsses(int pro)
     m_pro = pro;
     if (m_pro == 0) {
         m_isStageOne = true;
-        m_view->setPictureSequence(QStringList() << QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_light.svg").arg(m_theme));
+        m_view->setPictureSequence(
+                QStringList()
+                << QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_light.svg")
+                           .arg(m_theme));
         m_defTitle = tr("Place your finger");
         m_defTip = tr("Place your finger firmly on the sensor until you're asked to lift it");
     } else {
         int idx = m_pro / 2;
         idx = idx > 50 ? 50 : idx;
-        m_view->setPictureSequence(QStringList() << QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_animation_light_%2.svg")
-                                   .arg(m_theme).arg(idx));
+        m_view->setPictureSequence(QStringList()
+                                   << QString(":/icons/deepin/builtin/icons/%1/icons/finger/"
+                                              "fingerprint_animation_light_%2.svg")
+                                              .arg(m_theme)
+                                              .arg(idx));
         if (m_pro > 0 && m_pro < 35) {
             m_defTitle = tr("Lift your finger");
             m_defTip = tr("Lift your finger and place it on the sensor again");

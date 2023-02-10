@@ -27,8 +27,8 @@
 #define RESOLUTIONWIDGET_H
 
 #include "interface/namespace.h"
-#include "widgets/settingsitem.h"
 #include "widgets/settingsgroup.h"
+#include "widgets/settingsitem.h"
 
 #include <DStandardItem>
 
@@ -67,15 +67,16 @@ class fillModeCombox : public QComboBox
     Q_OBJECT
 public:
     explicit fillModeCombox(QWidget *parent = nullptr);
-    virtual void showPopup() override; //显示下拉框
-    virtual void hidePopup() override; //隐藏下拉框
-    
+    virtual void showPopup() override; // 显示下拉框
+    virtual void hidePopup() override; // 隐藏下拉框
+
     void setDefaultRoleIcon();
     void setItemRoleIcon();
     void setHoverRoleIcon();
 
 public Q_SLOTS:
     void OnHighlighted(int index);
+
 protected:
     bool event(QEvent *e) override;
 };
@@ -86,12 +87,8 @@ class ResolutionWidget : public SettingsItem
 public:
     explicit ResolutionWidget(int comboxWidth = 300, QWidget *parent = nullptr);
     ~ResolutionWidget();
-    enum ResolutionRole {
-        IdRole = Dtk::UserRole,
-        WidthRole,
-        HeightRole,
-        RateRole
-    };
+
+    enum ResolutionRole { IdRole = Dtk::UserRole, WidthRole, HeightRole, RateRole };
 
 public:
     void setModel(DisplayModel *model, Monitor *monitor);
@@ -101,8 +98,9 @@ Q_SIGNALS:
     void requestSetResolution(Monitor *monitor, const int mode);
     void requestSetFillMode(Monitor *monitor, const QString fillMode);
     void requestResizeDesktopVisibleChanged(bool visible);
-    void requestCurrFillModeChanged(Monitor *monitor, const QString fillMode); //用于复制模式下用主屏去更新其他屏幕铺满方式使用
-
+    void requestCurrFillModeChanged(
+            Monitor *monitor,
+            const QString fillMode); // 用于复制模式下用主屏去更新其他屏幕铺满方式使用
 
 public Q_SLOTS:
     void OnAvailableFillModesChanged(const QStringList &lstFillMode);
@@ -122,8 +120,8 @@ private:
     QVBoxLayout *m_contentLayout;
     QLabel *m_resolutionLabel;
     QComboBox *m_resolutionCombox;
-    QLabel *m_resizeDesktopLabel; //屏幕显示方式
-    fillModeCombox *m_resizeDesktopCombox; //拉伸-居中-适应
+    QLabel *m_resizeDesktopLabel;          // 屏幕显示方式
+    fillModeCombox *m_resizeDesktopCombox; // 拉伸-居中-适应
     SettingsItem *m_resizeDesktopItem;
 
     DisplayModel *m_model;
@@ -131,5 +129,5 @@ private:
     QStandardItemModel *m_resoItemModel;
     QStandardItemModel *m_resizeItemModel;
 };
-}
+} // namespace DCC_NAMESPACE
 #endif // RESOLUTIONWIDGET_H

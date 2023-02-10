@@ -29,18 +29,18 @@
 
 #include "timezone_map.h"
 
+#include "basiclistdelegate.h"
+#include "file_util.h"
+#include "popup_menu.h"
+#include "timezone_map_util.h"
+#include "tooltip_pin.h"
+
 #include <QDebug>
 #include <QItemSelectionModel>
 #include <QLabel>
 #include <QListView>
 #include <QMouseEvent>
 #include <QVBoxLayout>
-#include "basiclistdelegate.h"
-
-#include "file_util.h"
-#include "timezone_map_util.h"
-#include "popup_menu.h"
-#include "tooltip_pin.h"
 
 using namespace installer;
 
@@ -108,9 +108,12 @@ void TimezoneMap::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
         // Get nearest zones around mouse.
-        nearest_zones_ = GetNearestZones(total_zones_, kDistanceThreshold,
-                                         event->x(), event->y(),
-                                         this->width(), this->height());
+        nearest_zones_ = GetNearestZones(total_zones_,
+                                         kDistanceThreshold,
+                                         event->x(),
+                                         event->y(),
+                                         this->width(),
+                                         this->height());
         qDebug() << nearest_zones_;
         current_zone_ = nearest_zones_.first();
         if (nearest_zones_.length() == 1) {
@@ -138,7 +141,9 @@ void TimezoneMap::resizeEvent(QResizeEvent *event)
     QLabel *background_label = findChild<QLabel *>("background_label");
     if (background_label) {
         QPixmap timezone_pixmap = loadPixmap(kTimezoneMapFile);
-        background_label->setPixmap(timezone_pixmap.scaled(event->size() * devicePixelRatioF(), Qt::KeepAspectRatio, Qt::FastTransformation));
+        background_label->setPixmap(timezone_pixmap.scaled(event->size() * devicePixelRatioF(),
+                                                           Qt::KeepAspectRatio,
+                                                           Qt::FastTransformation));
     }
 
     QWidget::resizeEvent(event);
@@ -147,12 +152,10 @@ void TimezoneMap::resizeEvent(QResizeEvent *event)
 void TimezoneMap::initConnections()
 {
     // Hide dot when popup-zones window is hidden.
-    connect(popup_window_, &PopupMenu::onHide,
-            dot_, &QLabel::hide);
+    connect(popup_window_, &PopupMenu::onHide, dot_, &QLabel::hide);
 
     // Hide popup_window_ and mark new timezone on map.
-    connect(popup_window_, &PopupMenu::menuActivated,
-            this, &TimezoneMap::onPopupWindowActivated);
+    connect(popup_window_, &PopupMenu::menuActivated, this, &TimezoneMap::onPopupWindowActivated);
 }
 
 void TimezoneMap::initUI()
@@ -205,8 +208,7 @@ void TimezoneMap::popupZoneWindow(const QPoint &pos)
     const QPoint popup_window_pos = this->mapToGlobal(QPoint(pos.x(), dy));
     popup_window_->popup(popup_window_pos);
 
-    const QPoint dot_relative_pos(pos.x() - dot_->width() / 2,
-                                  pos.y() - dot_->height() / 2);
+    const QPoint dot_relative_pos(pos.x() - dot_->width() / 2, pos.y() - dot_->height() / 2);
     const QPoint dot_pos(this->mapToParent(dot_relative_pos));
     dot_->move(dot_pos);
     dot_->show();
@@ -231,8 +233,7 @@ void TimezoneMap::remark()
         zone_pin_->adjustSize();
 
         // Show zone pin at current marked zone.
-        const QPoint zone_pos = ZoneInfoToPosition(current_zone_, map_width,
-                                                   map_height);
+        const QPoint zone_pos = ZoneInfoToPosition(current_zone_, map_width, map_height);
         const int zone_dy = zone_pos.y() - dot_->height() / 2 - kDotVerticalMargin;
         const QPoint zone_pin_relative_pos(zone_pos.x(), zone_dy);
         const QPoint zone_pin_pos(this->mapToParent(zone_pin_relative_pos));

@@ -19,12 +19,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "touchpadsettingwidget.h"
-#include "widgets/switchwidget.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/dccslider.h"
-#include "palmdetectsetting.h"
+
 #include "doutestwidget.h"
+#include "palmdetectsetting.h"
 #include "src/plugin-mouse/operation/mousemodel.h"
+#include "widgets/dccslider.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/switchwidget.h"
 
 #include <QDebug>
 #include <QVBoxLayout>
@@ -32,6 +33,7 @@
 const QMargins ThirdPageContentsMargins(0, 10, 0, 10);
 
 using namespace DCC_NAMESPACE;
+
 TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
     : QWidget(parent)
 {
@@ -47,7 +49,11 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
     m_palmDetectSetting->setVisible(false);
 
     QStringList touchMoveList;
-    touchMoveList << tr("Slow") << "" << "" << "" << "" << "";
+    touchMoveList << tr("Slow") << ""
+                  << ""
+                  << ""
+                  << ""
+                  << "";
     touchMoveList << tr("Fast");
 
     DCCSlider *touchSlider = m_touchMoveSlider->slider();
@@ -72,23 +78,41 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
     connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, [this](int value) {
         requestSetTouchpadMotionAcceleration(value);
     });
-    connect(m_touchClickStn, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTapClick);
-    connect(m_touchNaturalScroll, &SwitchWidget::checkedChanged, this, &TouchPadSettingWidget::requestSetTouchNaturalScroll);
+    connect(m_touchClickStn,
+            &SwitchWidget::checkedChanged,
+            this,
+            &TouchPadSettingWidget::requestSetTapClick);
+    connect(m_touchNaturalScroll,
+            &SwitchWidget::checkedChanged,
+            this,
+            &TouchPadSettingWidget::requestSetTouchNaturalScroll);
 }
 
 void TouchPadSettingWidget::setModel(MouseModel *const model)
 {
     m_mouseModel = model;
-    connect(model, &MouseModel::tpadMoveSpeedChanged, this, [this] (int value) {
+    connect(model, &MouseModel::tpadMoveSpeedChanged, this, [this](int value) {
         onTouchMoveSpeedChanged(value);
     });
     connect(model, &MouseModel::tapClickChanged, m_touchClickStn, &SwitchWidget::setChecked);
-    connect(model, &MouseModel::tpadNaturalScrollChanged, m_touchNaturalScroll, &SwitchWidget::setChecked);
+    connect(model,
+            &MouseModel::tpadNaturalScrollChanged,
+            m_touchNaturalScroll,
+            &SwitchWidget::setChecked);
 
     m_palmDetectSetting->setModel(model);
-    connect(m_palmDetectSetting, &PalmDetectSetting::requestContact, this, &TouchPadSettingWidget::requestContact);
-    connect(m_palmDetectSetting, &PalmDetectSetting::requestDetectState, this, &TouchPadSettingWidget::requestDetectState);
-    connect(m_palmDetectSetting, &PalmDetectSetting::requestPressure, this, &TouchPadSettingWidget::requestPressure);
+    connect(m_palmDetectSetting,
+            &PalmDetectSetting::requestContact,
+            this,
+            &TouchPadSettingWidget::requestContact);
+    connect(m_palmDetectSetting,
+            &PalmDetectSetting::requestDetectState,
+            this,
+            &TouchPadSettingWidget::requestDetectState);
+    connect(m_palmDetectSetting,
+            &PalmDetectSetting::requestPressure,
+            this,
+            &TouchPadSettingWidget::requestPressure);
 
     onTouchMoveSpeedChanged(m_mouseModel->tpadMoveSpeed());
     m_touchClickStn->setChecked(m_mouseModel->tapclick());

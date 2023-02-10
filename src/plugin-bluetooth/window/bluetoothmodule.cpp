@@ -19,29 +19,43 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "bluetoothmodule.h"
-#include "bluetoothmodel.h"
+
 #include "adaptermodule.h"
-#include "bluetoothworker.h"
 #include "bluetoothadapter.h"
 #include "bluetoothdevice.h"
+#include "bluetoothmodel.h"
+#include "bluetoothworker.h"
 #include "pincodedialog.h"
 
-#include <QDBusObjectPath>
 #include <QApplication>
+#include <QDBusObjectPath>
 
 using namespace DCC_NAMESPACE;
 
 BluetoothModule::BluetoothModule(QObject *parent)
-    : PageModule("bluetooth", tr("Bluetooth"), tr("Bluetooth"), QIcon::fromTheme("dcc_nav_bluetooth"), parent)
+    : PageModule("bluetooth",
+                 tr("Bluetooth"),
+                 tr("Bluetooth"),
+                 QIcon::fromTheme("dcc_nav_bluetooth"),
+                 parent)
 {
     m_model = new BluetoothModel(this);
     m_work = new BluetoothWorker(m_model, this);
 
-    connect(this, &BluetoothModule::requestSetToggleAdapter, m_work, &BluetoothWorker::setAdapterPowered);
+    connect(this,
+            &BluetoothModule::requestSetToggleAdapter,
+            m_work,
+            &BluetoothWorker::setAdapterPowered);
     connect(this, &BluetoothModule::requestConnectDevice, m_work, &BluetoothWorker::connectDevice);
-    connect(this, &BluetoothModule::requestDisconnectDevice, m_work, &BluetoothWorker::disconnectDevice);
+    connect(this,
+            &BluetoothModule::requestDisconnectDevice,
+            m_work,
+            &BluetoothWorker::disconnectDevice);
     connect(this, &BluetoothModule::requestSetAlias, m_work, &BluetoothWorker::setAlias);
-    connect(this, &BluetoothModule::requestDiscoverable, m_work, &BluetoothWorker::onRequestSetDiscoverable);
+    connect(this,
+            &BluetoothModule::requestDiscoverable,
+            m_work,
+            &BluetoothWorker::onRequestSetDiscoverable);
 
     connect(m_work, &BluetoothWorker::requestConfirmation, this, &BluetoothModule::showPinCode);
     connect(m_work, &BluetoothWorker::pinCodeCancel, this, &BluetoothModule::closePinCode);
@@ -97,15 +111,36 @@ AdapterModule *BluetoothModule::getAdapter(const BluetoothAdapter *adapter)
 
     const QDBusObjectPath path(adapter->id());
 
-    connect(adpWidget, &AdapterModule::requestSetToggleAdapter, this, &BluetoothModule::requestSetToggleAdapter);
-    connect(adpWidget, &AdapterModule::requestConnectDevice, this, &BluetoothModule::requestConnectDevice);
-    connect(adpWidget, &AdapterModule::requestDisconnectDevice, this, &BluetoothModule::requestDisconnectDevice);
+    connect(adpWidget,
+            &AdapterModule::requestSetToggleAdapter,
+            this,
+            &BluetoothModule::requestSetToggleAdapter);
+    connect(adpWidget,
+            &AdapterModule::requestConnectDevice,
+            this,
+            &BluetoothModule::requestConnectDevice);
+    connect(adpWidget,
+            &AdapterModule::requestDisconnectDevice,
+            this,
+            &BluetoothModule::requestDisconnectDevice);
     connect(adpWidget, &AdapterModule::requestSetAlias, this, &BluetoothModule::requestSetAlias);
     connect(adpWidget, &AdapterModule::requestRefresh, this, &BluetoothModule::requestRefresh);
-    connect(adpWidget, &AdapterModule::requestDiscoverable, this, &BluetoothModule::requestDiscoverable);
-    connect(adpWidget, &AdapterModule::requestDiscoverable, this, &BluetoothModule::requestDiscoverable);
-    connect(adpWidget, &AdapterModule::requestSetDevAlias, m_work, &BluetoothWorker::setDeviceAlias);
-    connect(adpWidget, &AdapterModule::requestSetDisplaySwitch, m_work, &BluetoothWorker::setDisplaySwitch);
+    connect(adpWidget,
+            &AdapterModule::requestDiscoverable,
+            this,
+            &BluetoothModule::requestDiscoverable);
+    connect(adpWidget,
+            &AdapterModule::requestDiscoverable,
+            this,
+            &BluetoothModule::requestDiscoverable);
+    connect(adpWidget,
+            &AdapterModule::requestSetDevAlias,
+            m_work,
+            &BluetoothWorker::setDeviceAlias);
+    connect(adpWidget,
+            &AdapterModule::requestSetDisplaySwitch,
+            m_work,
+            &BluetoothWorker::setDisplaySwitch);
     connect(adpWidget, &AdapterModule::requestIgnoreDevice, m_work, &BluetoothWorker::ignoreDevice);
 
     return adpWidget;
@@ -119,6 +154,7 @@ void BluetoothModule::addAdapter(const BluetoothAdapter *adapter)
         updateWidget();
     }
 }
+
 void BluetoothModule::removeAdapter(const BluetoothAdapter *adapter)
 {
     if (m_valueMap.contains(adapter)) {

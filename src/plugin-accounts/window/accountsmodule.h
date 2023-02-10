@@ -61,6 +61,7 @@ public:
     virtual ModuleObject *module() override;
     virtual QString location() const override;
 };
+
 ///////////////////////////////////////
 class AccountSpinBox : public DTK_WIDGET_NAMESPACE::DSpinBox
 {
@@ -68,11 +69,13 @@ class AccountSpinBox : public DTK_WIDGET_NAMESPACE::DSpinBox
 
 public:
     explicit AccountSpinBox(QWidget *parent = nullptr);
+
 protected:
     virtual QString textFromValue(int val) const override;
     void focusInEvent(QFocusEvent *event) override;
     void focusOutEvent(QFocusEvent *event) override;
 };
+
 ///////////////////////////////////////
 class AccountsModule : public PageModule
 {
@@ -91,7 +94,9 @@ public:
 
     explicit AccountsModule(QObject *parent = nullptr);
     ~AccountsModule();
+
     AccountsWorker *work() { return m_worker; }
+
     UserModel *model() { return m_model; }
 
 protected:
@@ -133,7 +138,7 @@ protected Q_SLOTS:
     void updateLoginModule();
 
 protected:
-    QString getOtherUserAutoLogin(); //获取其它用户是否开启自动登录开关
+    QString getOtherUserAutoLogin(); // 获取其它用户是否开启自动登录开关
     bool deleteUserBtnEnable();      // 可以删除用户
 
 private:

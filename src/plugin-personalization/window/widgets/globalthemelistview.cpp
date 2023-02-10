@@ -19,18 +19,19 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "globalthemelistview.h"
-#include "model/thememodel.h"
 
-#include <QApplication>
-#include <QWheelEvent>
-#include <QScrollBar>
-#include <QPainter>
-#include <QPainterPath>
-#include <QPushButton>
+#include "model/thememodel.h"
 
 #include <DPaletteHelper>
 #include <DStyle>
 #include <DSuggestButton>
+
+#include <QApplication>
+#include <QPainter>
+#include <QPainterPath>
+#include <QPushButton>
+#include <QScrollBar>
+#include <QWheelEvent>
 
 DWIDGET_USE_NAMESPACE
 #define TAB_RADIUS 6
@@ -58,40 +59,28 @@ public:
         m_constPerPage = m_rowPerPage * m_colPerPage;
         setGridSize(m_gridSize);
         setPage(0);
-        QObject::connect(q_ptr, &GlobalThemeListView::clicked, parent, [this](const QModelIndex &index) {
-            if (index.isValid()) {
-                Q_Q(GlobalThemeListView);
-                emit q->applied(index);
-            }
-        });
+        QObject::connect(q_ptr,
+                         &GlobalThemeListView::clicked,
+                         parent,
+                         [this](const QModelIndex &index) {
+                             if (index.isValid()) {
+                                 Q_Q(GlobalThemeListView);
+                                 emit q->applied(index);
+                             }
+                         });
     }
 
-    void setSpacing(int space)
-    {
-        m_vSpacing = space;
-    }
-    int spacing() const
-    {
-        return m_vSpacing;
-    }
+    void setSpacing(int space) { m_vSpacing = space; }
 
-    void setGridSize(const QSize &size)
-    {
-        m_gridSize = size;
-    }
-    QSize gridSize() const
-    {
-        return m_gridSize;
-    }
+    int spacing() const { return m_vSpacing; }
 
-    void setAlignment(Qt::Alignment alignment)
-    {
-        m_alignment = alignment;
-    }
-    Qt::Alignment alignment() const
-    {
-        return m_alignment;
-    }
+    void setGridSize(const QSize &size) { m_gridSize = size; }
+
+    QSize gridSize() const { return m_gridSize; }
+
+    void setAlignment(Qt::Alignment alignment) { m_alignment = alignment; }
+
+    Qt::Alignment alignment() const { return m_alignment; }
 
     void updateGeometries()
     {
@@ -99,7 +88,8 @@ public:
         updateTotal();
 
         m_itemSize = m_gridSize;
-        m_hSpacing = (q->viewport()->width() - (m_colPerPage * m_itemSize.width())) / (m_colPerPage + 1);
+        m_hSpacing =
+                (q->viewport()->width() - (m_colPerPage * m_itemSize.width())) / (m_colPerPage + 1);
         if (m_hSpacing < 0)
             m_hSpacing = 0;
 
@@ -117,10 +107,12 @@ public:
 
         int tabwidth = (m_constPage - 1) * m_drawSpaacing;
         m_drawStartPagePos.setX((q->width() - tabwidth) / 2);
-        m_tabsRect = QRect(m_drawStartPagePos - QPoint(TAB_RADIUS, TAB_RADIUS), QSize(tabwidth + 2 * TAB_RADIUS, 2 * TAB_RADIUS));
+        m_tabsRect = QRect(m_drawStartPagePos - QPoint(TAB_RADIUS, TAB_RADIUS),
+                           QSize(tabwidth + 2 * TAB_RADIUS, 2 * TAB_RADIUS));
         m_leftBtnRect = QRect(5, q->height() / 2 - 16, 32, 32);
         m_rightBtnRect = QRect(q->width() - 32 - 5, q->height() / 2 - 16, 32, 32);
     }
+
     // item在窗口中位置(无滚动)
     QRect rectForIndex(const QModelIndex &index) const
     {
@@ -130,15 +122,19 @@ public:
         int page = cnt / m_constPerPage;
         int row = (cnt % m_constPerPage) / m_colPerPage;
         int col = (cnt % m_constPerPage) % m_colPerPage;
-        rect.translate(q->width() * (page - m_currentPage) + m_xOffset + (m_itemSize.width() + m_hSpacing) * col, (m_itemSize.height() + m_vSpacing) * row);
+        rect.translate(q->width() * (page - m_currentPage) + m_xOffset
+                               + (m_itemSize.width() + m_hSpacing) * col,
+                       (m_itemSize.height() + m_vSpacing) * row);
 
         return rect.translated(q->contentsMargins().left(), q->contentsMargins().top() + m_yOffset);
     }
+
     // item在窗口中位置(无滚动)
     QModelIndex indexAt(const QPoint &p) const
     {
         Q_Q(const GlobalThemeListView);
-        if ((m_itemSize.height() + m_vSpacing) <= 0 || (m_itemSize.width() + m_hSpacing) <= 0 || !q->model())
+        if ((m_itemSize.height() + m_vSpacing) <= 0 || (m_itemSize.width() + m_hSpacing) <= 0
+            || !q->model())
             return QModelIndex();
         QRect rect(p.x() - m_xOffset, p.y() - m_yOffset, 1, 1);
         int row = (rect.y()) / (m_itemSize.height() + m_vSpacing);
@@ -151,6 +147,7 @@ public:
         }
         return QModelIndex();
     }
+
     QVector<QModelIndex> intersectingSet(const QRect &area) const
     {
         Q_Q(const GlobalThemeListView);
@@ -165,20 +162,21 @@ public:
         }
         return indexs;
     }
+
     inline int marginsWidth() const
     {
         Q_Q(const GlobalThemeListView);
         return q->contentsMargins().left() + q->contentsMargins().right();
     }
+
     inline int marginsHidget() const
     {
         Q_Q(const GlobalThemeListView);
         return q->contentsMargins().top() + q->contentsMargins().bottom();
     }
-    bool updatePage(int add)
-    {
-        return setPage(m_currentPage + add);
-    }
+
+    bool updatePage(int add) { return setPage(m_currentPage + add); }
+
     bool setPage(int page)
     {
         int newPage = page;
@@ -196,6 +194,7 @@ public:
         }
         return false;
     }
+
     void updateTotal()
     {
         Q_Q(GlobalThemeListView);
@@ -214,16 +213,24 @@ public:
         else
             m_drawPageButton |= RightButton;
     }
+
     void drawTabs(QPainter *painter, const QStyleOptionViewItem &option)
     {
         painter->setPen(Qt::NoPen);
         painter->setBrush(QBrush(QColor(217, 217, 217)));
         for (int i = 0; i < m_constPage; i++) {
-            painter->drawEllipse(QPoint(m_drawStartPagePos.x() + i * m_drawSpaacing, m_drawStartPagePos.y()), TAB_RADIUS, TAB_RADIUS);
+            painter->drawEllipse(
+                    QPoint(m_drawStartPagePos.x() + i * m_drawSpaacing, m_drawStartPagePos.y()),
+                    TAB_RADIUS,
+                    TAB_RADIUS);
         }
         painter->setBrush(QBrush(QColor(168, 168, 168)));
-        painter->drawEllipse(QPoint(m_drawStartPagePos.x() + m_currentPage * m_drawSpaacing, m_drawStartPagePos.y()), TAB_RADIUS, TAB_RADIUS);
+        painter->drawEllipse(QPoint(m_drawStartPagePos.x() + m_currentPage * m_drawSpaacing,
+                                    m_drawStartPagePos.y()),
+                             TAB_RADIUS,
+                             TAB_RADIUS);
     }
+
     void drawPageButton(QPainter *painter, const QStyleOptionViewItem &option)
     {
         Q_Q(GlobalThemeListView);
@@ -233,20 +240,24 @@ public:
             if (m_drawPageButton & LeftBackground) {
                 painter->drawEllipse(m_leftBtnRect);
             }
-            DStyle::standardIcon(q->style(), DStyle::SP_ArrowLeave, &option, q).paint(painter, m_leftBtnRect.adjusted(8, 8, -8, -8));
+            DStyle::standardIcon(q->style(), DStyle::SP_ArrowLeave, &option, q)
+                    .paint(painter, m_leftBtnRect.adjusted(8, 8, -8, -8));
         }
         if (m_drawPageButton & RightButton) {
             if (m_drawPageButton & RightBackground) {
                 painter->drawEllipse(m_rightBtnRect);
             }
-            DStyle::standardIcon(q->style(), DStyle::SP_ArrowEnter, &option, q).paint(painter, m_rightBtnRect.adjusted(8, 8, -8, -8));
+            DStyle::standardIcon(q->style(), DStyle::SP_ArrowEnter, &option, q)
+                    .paint(painter, m_rightBtnRect.adjusted(8, 8, -8, -8));
         }
     }
+
     void updateHoverItem()
     {
         Q_Q(GlobalThemeListView);
         m_hover = indexAt(q->mapFromGlobal(QCursor::pos()));
     }
+
     enum PageButton : int {
         NoButton = 0x00000000,
         LeftButton = 0x00000001,
@@ -267,7 +278,7 @@ private:
     int m_xOffset;             // x轴偏移
     int m_yOffset;             // y轴偏移
     QModelIndex m_hover;       // hover项
-    Qt::Alignment m_alignment; //　对齐方式
+    Qt::Alignment m_alignment; // 　对齐方式
 
     int m_constPerPage; // 每页个数 =m_rowPerPage*m_colPerPage
     int m_rowPerPage;   // 每页行数
@@ -305,9 +316,7 @@ GlobalThemeListView::GlobalThemeListView(QWidget *parent)
     setMinimumWidth(500);
 }
 
-GlobalThemeListView::~GlobalThemeListView()
-{
-}
+GlobalThemeListView::~GlobalThemeListView() { }
 
 void GlobalThemeListView::setThemeModel(ThemeModel *model)
 {
@@ -368,7 +377,8 @@ QModelIndex GlobalThemeListView::indexAt(const QPoint &p) const
     return d->indexAt(p + QPoint(horizontalOffset(), verticalOffset()));
 }
 
-QModelIndex GlobalThemeListView::moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers)
+QModelIndex GlobalThemeListView::moveCursor(CursorAction cursorAction,
+                                            Qt::KeyboardModifiers modifiers)
 {
     Q_D(const GlobalThemeListView);
     QModelIndex current = currentIndex();
@@ -404,7 +414,8 @@ QModelIndex GlobalThemeListView::moveCursor(CursorAction cursorAction, Qt::Keybo
         currentRow++;
         break;
     case MovePageUp: {
-        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_vSpacing) / (d->m_itemSize.height() + d->m_vSpacing);
+        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_vSpacing)
+                / (d->m_itemSize.height() + d->m_vSpacing);
         for (int i = 0; i < pageItem; i++) {
             currentRow = moveup(currentRow, d->m_colPerPage);
         }
@@ -413,7 +424,8 @@ QModelIndex GlobalThemeListView::moveCursor(CursorAction cursorAction, Qt::Keybo
         currentRow = moveup(currentRow, d->m_colPerPage);
         break;
     case MovePageDown: {
-        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_vSpacing) / (d->m_itemSize.height() + d->m_vSpacing);
+        int pageItem = (viewport()->height() - d->marginsHidget() + d->m_vSpacing)
+                / (d->m_itemSize.height() + d->m_vSpacing);
         for (int i = 0; i < pageItem; i++) {
             int row = movedown(currentRow, d->m_colPerPage);
             if (row >= maxRow)
@@ -462,7 +474,8 @@ QRegion GlobalThemeListView::visualRegionForSelection(const QItemSelection &sele
     return QRegion(rect);
 }
 
-void GlobalThemeListView::setSelection(const QRect &rect, QItemSelectionModel::SelectionFlags command)
+void GlobalThemeListView::setSelection(const QRect &rect,
+                                       QItemSelectionModel::SelectionFlags command)
 {
     int rows = model()->rowCount();
     QModelIndex selectedIndex;
@@ -487,7 +500,9 @@ void GlobalThemeListView::updateGeometries()
     verticalScrollBar()->setRange(0, 0);
 }
 
-void GlobalThemeListView::dataChanged(const QModelIndex &topLeft, const QModelIndex &bottomRight, const QVector<int> &roles)
+void GlobalThemeListView::dataChanged(const QModelIndex &topLeft,
+                                      const QModelIndex &bottomRight,
+                                      const QVector<int> &roles)
 {
     QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
     scheduleDelayedItemsLayout();
@@ -511,7 +526,8 @@ void GlobalThemeListView::paintEvent(QPaintEvent *e)
     QStyleOptionViewItem option = viewOptions();
     QPainter painter(viewport());
 
-    const QVector<QModelIndex> toBeRendered = d->intersectingSet(e->rect().translated(horizontalOffset(), verticalOffset()));
+    const QVector<QModelIndex> toBeRendered =
+            d->intersectingSet(e->rect().translated(horizontalOffset(), verticalOffset()));
 
     const QModelIndex current = currentIndex();
     const QModelIndex hover = d->m_hover;
@@ -554,7 +570,7 @@ void GlobalThemeListView::paintEvent(QPaintEvent *e)
         }
         option.state.setFlag(QStyle::State_MouseOver, *it == hover);
 
-        if (alternate) { //　交替色处理，未实现
+        if (alternate) { // 　交替色处理，未实现
             int row = (*it).row();
             if (row != previousRow + 1) {
                 // adjust alternateBase according to rows in the "gap"
@@ -619,7 +635,8 @@ void GlobalThemeListView::mousePressEvent(QMouseEvent *event)
         return;
     } else if (d->m_tabsRect.contains(pos)) {
         for (int i = 0; i < d->m_constPage; i++) {
-            if (std::abs((d->m_drawStartPagePos.x() + i * d->m_drawSpaacing) - pos.x()) < TAB_RADIUS) {
+            if (std::abs((d->m_drawStartPagePos.x() + i * d->m_drawSpaacing) - pos.x())
+                < TAB_RADIUS) {
                 d->setPage(i);
                 event->setAccepted(true);
                 return;
@@ -658,6 +675,7 @@ void GlobalThemeListView::mouseMoveEvent(QMouseEvent *event)
     }
     QAbstractItemView::mouseMoveEvent(event);
 }
+
 /////////////////////////////////////////
 GlobalThemeModel::GlobalThemeModel(QObject *parent)
     : QAbstractItemModel(parent)
@@ -745,36 +763,42 @@ void GlobalThemeModel::updateData()
     m_keys = keys;
     endResetModel();
 }
+
 /////////////////////////////
 GlobalThemeDelegate::GlobalThemeDelegate(QAbstractItemView *parent)
     : DStyledItemDelegate(parent)
 {
 }
 
-void GlobalThemeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
+void GlobalThemeDelegate::paint(QPainter *painter,
+                                const QStyleOptionViewItem &option,
+                                const QModelIndex &index) const
 {
     painter->save();
     QStyleOptionViewItem opt(option);
     initStyleOption(&opt, index);
     // 选择高亮背景
     if (opt.state & QStyle::State_Selected) {
-        QPalette::ColorGroup cg = (option.state & QStyle::State_Enabled)
-                ? QPalette::Normal
-                : QPalette::Disabled;
+        QPalette::ColorGroup cg =
+                (option.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
         opt.backgroundBrush = option.palette.color(cg, QPalette::Highlight);
     }
     QStyle *style = option.widget ? option.widget->style() : QApplication::style();
     QRect decorationRect;
-    decorationRect = QRect(opt.rect.topLeft() + QPoint((opt.rect.width() - opt.decorationSize.width()) / 2, 6), opt.decorationSize);
+    decorationRect = QRect(opt.rect.topLeft()
+                                   + QPoint((opt.rect.width() - opt.decorationSize.width()) / 2, 6),
+                           opt.decorationSize);
     opt.displayAlignment = Qt::AlignCenter;
 
-    QRect displayRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 15), QSize(opt.rect.width(), 15));
+    QRect displayRect = QRect(opt.rect.topLeft() + QPoint(0, opt.decorationSize.height() + 15),
+                              QSize(opt.rect.width(), 15));
 
     // draw the item
     if (index.data(Qt::CheckStateRole) == Qt::Checked)
         drawChecked(style, painter, opt, decorationRect);
     // 图标的绘制用也可能会使用这些颜色
-    QPalette::ColorGroup cg = (opt.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
+    QPalette::ColorGroup cg =
+            (opt.state & QStyle::State_Enabled) ? QPalette::Normal : QPalette::Disabled;
     painter->setPen(opt.palette.color(cg, QPalette::Text));
     drawDecoration(painter, opt, decorationRect);
 
@@ -782,7 +806,9 @@ void GlobalThemeDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     painter->restore();
 }
 
-void GlobalThemeDelegate::drawDecoration(QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+void GlobalThemeDelegate::drawDecoration(QPainter *painter,
+                                         const QStyleOptionViewItem &option,
+                                         const QRect &rect) const
 {
     if (option.features & QStyleOptionViewItem::HasDecoration) {
         QIcon::Mode mode = QIcon::Normal;
@@ -802,7 +828,10 @@ void GlobalThemeDelegate::drawDecoration(QPainter *painter, const QStyleOptionVi
     }
 }
 
-void GlobalThemeDelegate::drawChecked(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+void GlobalThemeDelegate::drawChecked(const QStyle *style,
+                                      QPainter *painter,
+                                      const QStyleOptionViewItem &option,
+                                      const QRect &rect) const
 {
     QRect r = rect;
     r.adjust(-4, -4, 4, 4);
@@ -814,7 +843,10 @@ void GlobalThemeDelegate::drawChecked(const QStyle *style, QPainter *painter, co
     painter->restore();
 }
 
-void GlobalThemeDelegate::drawDisplay(const QStyle *style, QPainter *painter, const QStyleOptionViewItem &option, const QRect &rect) const
+void GlobalThemeDelegate::drawDisplay(const QStyle *style,
+                                      QPainter *painter,
+                                      const QStyleOptionViewItem &option,
+                                      const QRect &rect) const
 {
     DStyle::viewItemDrawText(style, painter, &option, rect);
 }

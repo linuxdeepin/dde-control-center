@@ -1,10 +1,9 @@
-#include "src/plugin-keyboard/window/customcontentdialog.h"
-#include "src/plugin-keyboard/operation/shortcutmodel.h"
-
-#include <QSignalSpy>
-#include <QPushButton>
-
 #include "gtest/gtest.h"
+#include "src/plugin-keyboard/operation/shortcutmodel.h"
+#include "src/plugin-keyboard/window/customcontentdialog.h"
+
+#include <QPushButton>
+#include <QSignalSpy>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -34,6 +33,4 @@ void Tst_CustomContentDialog::TearDown()
     dialog = nullptr;
 }
 
-TEST_F(Tst_CustomContentDialog, emitSignal)
-{
-}
+TEST_F(Tst_CustomContentDialog, emitSignal) { }

@@ -27,18 +27,18 @@
 
 #include <DIconButton>
 #include <DSysInfo>
+#include <DToolButton>
 
-#include <QDebug>
 #include <QDBusInterface>
 #include <QDBusReply>
-#include <QStandardItemModel>
+#include <QDebug>
 #include <QHBoxLayout>
-#include <DToolButton>
+#include <QStandardItemModel>
 
 Q_DECLARE_METATYPE(const Port *)
 
 const static Dtk::Core::DSysInfo::UosType UosType = Dtk::Core::DSysInfo::uosType();
-const static bool IsServerSystem = (Dtk::Core::DSysInfo::UosServer == UosType); //是否是服务器版
+const static bool IsServerSystem = (Dtk::Core::DSysInfo::UosServer == UosType); // 是否是服务器版
 
 static const QMap<DDesktopServices::SystemSoundEffect, QString> SOUND_EFFECT_MAP{
     { DDesktopServices::SystemSoundEffect::SSE_Notifications, "message" },
@@ -63,7 +63,7 @@ SoundLabel::SoundLabel(QWidget *parent)
     , m_mute(false)
     , m_btn(new DTK_WIDGET_NAMESPACE::DToolButton(this))
 {
-    QHBoxLayout* layout = new QHBoxLayout(this);
+    QHBoxLayout *layout = new QHBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(m_btn);
 
@@ -139,7 +139,7 @@ SoundModel::SoundModel(QObject *parent)
         { tr("Error"), DDesktopServices::SSE_Error },
     };
 
-    if(IsServerSystem) {
+    if (IsServerSystem) {
         m_soundEffectMapBattery.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
         m_soundEffectMapPower.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
     }
@@ -176,7 +176,6 @@ void SoundModel::setReduceNoise(bool reduceNoise)
         Q_EMIT reduceNoiseChanged(reduceNoise);
     }
 }
-
 
 void SoundModel::setMicrophoneOn(bool microphoneOn)
 {
@@ -226,8 +225,7 @@ void SoundModel::addPort(Port *port)
 
         if (port->direction() == Port::Out) {
             m_outputPorts.append(port);
-        }
-        else {
+        } else {
             m_inputPorts.append(port);
         }
 
@@ -245,8 +243,7 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
 
         if (port->direction() == Port::Out) {
             m_outputPorts.removeOne(port);
-        }
-        else {
+        } else {
             m_inputPorts.removeOne(port);
         }
         port->deleteLater();
@@ -260,7 +257,7 @@ bool SoundModel::containsPort(const Port *port)
 
 Port *SoundModel::findPort(const QString &portId, const uint &cardId) const
 {
-    auto res = std::find_if(m_ports.cbegin(), m_ports.end(), [=] (const Port *data)->bool {
+    auto res = std::find_if(m_ports.cbegin(), m_ports.end(), [=](const Port *data) -> bool {
         return ((data->id() == portId) && (data->cardId() == cardId));
     });
 
@@ -286,8 +283,8 @@ void SoundModel::setSpeakerVolume(double speakerVolume)
 
 void SoundModel::setMaxUIVolume(double value)
 {
-     double val = qRound(value * 10) / 10.0;
-     if (!qFuzzyCompare(val, m_maxUIVolume)) {
+    double val = qRound(value * 10) / 10.0;
+    if (!qFuzzyCompare(val, m_maxUIVolume)) {
         m_maxUIVolume = val;
         Q_EMIT maxUIVolumeChanged(val);
     }
@@ -340,7 +337,7 @@ SoundEffectList SoundModel::soundEffectMap() const
 
 void SoundModel::setEffectData(DDesktopServices::SystemSoundEffect effect, const bool enable)
 {
-    if(m_soundEffectData[effect] == enable)
+    if (m_soundEffectData[effect] == enable)
         return;
 
     m_soundEffectData[effect] = enable;
@@ -355,14 +352,16 @@ bool SoundModel::queryEffectData(DDesktopServices::SystemSoundEffect effect)
 
 void SoundModel::setEnableSoundEffect(bool enableSoundEffect)
 {
-    if (m_enableSoundEffect == enableSoundEffect) return;
+    if (m_enableSoundEffect == enableSoundEffect)
+        return;
 
     m_enableSoundEffect = enableSoundEffect;
 
     Q_EMIT enableSoundEffectChanged(enableSoundEffect);
 }
 
-void SoundModel::updateSoundEffectPath(DDesktopServices::SystemSoundEffect effect, const QString &path)
+void SoundModel::updateSoundEffectPath(DDesktopServices::SystemSoundEffect effect,
+                                       const QString &path)
 {
     m_soundEffectPaths[effect] = path;
 }
@@ -377,7 +376,8 @@ const QString SoundModel::getNameByEffectType(DDesktopServices::SystemSoundEffec
     return SOUND_EFFECT_MAP.value(effect);
 }
 
-DDesktopServices::SystemSoundEffect SoundModel::getEffectTypeByGsettingName(const QString &name) {
+DDesktopServices::SystemSoundEffect SoundModel::getEffectTypeByGsettingName(const QString &name)
+{
     return SOUND_EFFECT_MAP.key(name);
 }
 
@@ -391,8 +391,10 @@ bool SoundModel::isLaptop() const
     return m_isLaptop;
 }
 
-void SoundModel::setIsLaptop(bool isLaptop) {
-    if (isLaptop == m_isLaptop) return;
+void SoundModel::setIsLaptop(bool isLaptop)
+{
+    if (isLaptop == m_isLaptop)
+        return;
 
     m_isLaptop = isLaptop;
 
@@ -406,7 +408,7 @@ bool SoundModel::isIncreaseVolume() const
 
 void SoundModel::setIncreaseVolume(bool value)
 {
-    if(m_increaseVolume != value) {
+    if (m_increaseVolume != value) {
         m_increaseVolume = value;
         Q_EMIT increaseVolumeChanged(value);
     }

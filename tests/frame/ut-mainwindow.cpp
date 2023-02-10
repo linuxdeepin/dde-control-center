@@ -1,5 +1,4 @@
 #include "gtest/gtest.h"
-
 #include "src/frame/mainwindow.h"
 
 using namespace DCC_NAMESPACE;
@@ -7,15 +6,14 @@ using namespace DCC_NAMESPACE;
 class Tst_MainWindow : public testing::Test
 {
 public:
-    void SetUp() override
-    {
-        obj = new MainWindow;
-    }
+    void SetUp() override { obj = new MainWindow; }
+
     void TearDown() override
     {
         delete obj;
         obj = nullptr;
     }
+
 public:
     MainWindow *obj = nullptr;
 };

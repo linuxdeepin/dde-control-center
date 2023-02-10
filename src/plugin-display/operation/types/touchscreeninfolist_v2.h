@@ -22,18 +22,19 @@
 #ifndef TOUCHSCREENINFOLISTV2_H
 #define TOUCHSCREENINFOLISTV2_H
 
-#include <QString>
-#include <QList>
 #include <QDBusMetaType>
+#include <QList>
+#include <QString>
 
-struct TouchscreenInfo_V2 {
+struct TouchscreenInfo_V2
+{
     qint32 id;
     QString name;
     QString deviceNode;
     QString serialNumber;
     QString UUID;
 
-    bool operator ==(const TouchscreenInfo_V2& info);
+    bool operator==(const TouchscreenInfo_V2 &info);
 };
 
 typedef QList<TouchscreenInfo_V2> TouchscreenInfoList_V2;

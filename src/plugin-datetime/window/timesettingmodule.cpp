@@ -1,39 +1,40 @@
 /*
-* Copyright (C) 2021 ~ 2023 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2023 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #include "timesettingmodule.h"
+
+#include "clock.h"
 #include "datetimemodel.h"
 #include "datetimeworker.h"
-#include "clock.h"
 #include "datewidget.h"
-#include "widgets/widgetmodule.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/switchwidget.h"
+#include "widgets/buttontuple.h"
 #include "widgets/comboxwidget.h"
 #include "widgets/lineeditwidget.h"
-#include "widgets/buttontuple.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/switchwidget.h"
+#include "widgets/widgetmodule.h"
 
+#include <DBackgroundGroup>
 #include <DIconButton>
 #include <DLineEdit>
 
-#include <DBackgroundGroup>
 #include <QLineEdit>
 #include <QPushButton>
 #include <QSpinBox>
@@ -66,29 +67,50 @@ TimeSettingModule::TimeSettingModule(DatetimeModel *model, DatetimeWorker *work,
 {
     deactive();
     appendChild(new WidgetModule<Clock>("time", tr("Time")));
-    appendChild(new WidgetModule<SettingsGroup>("ntpServer", tr("Auto Sync"), this, &TimeSettingModule::initAutoSyncTime));
-    appendChild(new WidgetModule<SettingsGroup>("time", QString(), this, &TimeSettingModule::initTimeSetting));
-    appendChild(new WidgetModule<QWidget>("datetime", QString(), this, &TimeSettingModule::initDigitalClock));
+    appendChild(new WidgetModule<SettingsGroup>("ntpServer",
+                                                tr("Auto Sync"),
+                                                this,
+                                                &TimeSettingModule::initAutoSyncTime));
+    appendChild(new WidgetModule<SettingsGroup>("time",
+                                                QString(),
+                                                this,
+                                                &TimeSettingModule::initTimeSetting));
+    appendChild(new WidgetModule<QWidget>("datetime",
+                                          QString(),
+                                          this,
+                                          &TimeSettingModule::initDigitalClock));
 
-    ModuleObject *saveButton = new WidgetModule<ButtonTuple>("datetimeDatesettingConfirmbtn","",[this](ButtonTuple *buttonTuple){
-        m_buttonTuple = buttonTuple;
-        m_buttonTuple->setButtonType(ButtonTuple::Save);
-        QPushButton *cancelButton = m_buttonTuple->leftButton();
-        QPushButton *confirmButton = m_buttonTuple->rightButton();
-        cancelButton->setText(tr("Reset"));
-        confirmButton->setText(tr("Save"));
-        connect(cancelButton, &QPushButton::clicked, this, &TimeSettingModule::onCancelButtonClicked);
-        connect(cancelButton, &QPushButton::clicked, this, &TimeSettingModule::onCancelButtonClicked);
-        connect(confirmButton, &QPushButton::clicked, this, &TimeSettingModule::onConfirmButtonClicked);
-        connect(cancelButton, &QPushButton::clicked, this, [this] {
-            setBtnEnable(false);
-        });
-        connect(confirmButton, &QPushButton::clicked, this, [this] {
-            setBtnEnable(false);
-        });
-        setButtonShowState(m_model->nTP());
-        setBtnEnable(false);
-    });
+    ModuleObject *saveButton = new WidgetModule<ButtonTuple>(
+            "datetimeDatesettingConfirmbtn",
+            "",
+            [this](ButtonTuple *buttonTuple) {
+                m_buttonTuple = buttonTuple;
+                m_buttonTuple->setButtonType(ButtonTuple::Save);
+                QPushButton *cancelButton = m_buttonTuple->leftButton();
+                QPushButton *confirmButton = m_buttonTuple->rightButton();
+                cancelButton->setText(tr("Reset"));
+                confirmButton->setText(tr("Save"));
+                connect(cancelButton,
+                        &QPushButton::clicked,
+                        this,
+                        &TimeSettingModule::onCancelButtonClicked);
+                connect(cancelButton,
+                        &QPushButton::clicked,
+                        this,
+                        &TimeSettingModule::onCancelButtonClicked);
+                connect(confirmButton,
+                        &QPushButton::clicked,
+                        this,
+                        &TimeSettingModule::onConfirmButtonClicked);
+                connect(cancelButton, &QPushButton::clicked, this, [this] {
+                    setBtnEnable(false);
+                });
+                connect(confirmButton, &QPushButton::clicked, this, [this] {
+                    setBtnEnable(false);
+                });
+                setButtonShowState(m_model->nTP());
+                setBtnEnable(false);
+            });
     saveButton->setExtra();
     appendChild(saveButton);
 
@@ -156,38 +178,43 @@ void TimeSettingModule::initAutoSyncTime(SettingsGroup *ntpGroup)
         setBtnEnable(false);
     });
 
-    connect(m_ntpServerList->comboBox(), QOverload<const int>::of(&QComboBox::currentIndexChanged), this, [this](const int index) {
-        const QString &text = m_ntpServerList->comboBox()->itemText(index);
-        m_customizeAddress->setVisible(m_ntpServerList->isVisible() && text == tr("Customize"));
-        isUserOperate();
-        if (m_autoSyncTimeSwitch->checked()) {
-            if (text == tr("Customize"))
-                m_customizeAddress->setText(m_customNtpServer);
+    connect(m_ntpServerList->comboBox(),
+            QOverload<const int>::of(&QComboBox::currentIndexChanged),
+            this,
+            [this](const int index) {
+                const QString &text = m_ntpServerList->comboBox()->itemText(index);
+                m_customizeAddress->setVisible(m_ntpServerList->isVisible()
+                                               && text == tr("Customize"));
+                isUserOperate();
+                if (m_autoSyncTimeSwitch->checked()) {
+                    if (text == tr("Customize"))
+                        m_customizeAddress->setText(m_customNtpServer);
 
-            if (m_customizeAddress->isShowAlert()) {
-                m_customizeAddress->hideAlertMessage();
-            }
-        }
-        if (!m_bIsUserOperate)
-            return;
+                    if (m_customizeAddress->isShowAlert()) {
+                        m_customizeAddress->hideAlertMessage();
+                    }
+                }
+                if (!m_bIsUserOperate)
+                    return;
 
-        m_bIsUserOperate = false;
+                m_bIsUserOperate = false;
 
-        if (text != tr("Customize")) {
-            if ("" != text) {
-                Q_EMIT requestNTPServer(text);
-            }
-        } else if (!m_customizeAddress->text().isEmpty()) {
-            Q_EMIT requestNTPServer(m_customNtpServer);
-        }
+                if (text != tr("Customize")) {
+                    if ("" != text) {
+                        Q_EMIT requestNTPServer(text);
+                    }
+                } else if (!m_customizeAddress->text().isEmpty()) {
+                    Q_EMIT requestNTPServer(m_customNtpServer);
+                }
 
-        setButtonShowState(m_autoSyncTimeSwitch->checked());
-    });
+                setButtonShowState(m_autoSyncTimeSwitch->checked());
+            });
     connect(m_customizeAddress->dTextEdit(), &DLineEdit::focusChanged, this, [=] {
         m_buttonTuple->rightButton()->setEnabled(true);
     });
     m_ntpServerList->setVisible(isNtp);
-    m_customizeAddress->setVisible(isNtp && m_ntpServerList->comboBox()->currentText() == tr("Customize"));
+    m_customizeAddress->setVisible(
+            isNtp && m_ntpServerList->comboBox()->currentText() == tr("Customize"));
     ntpGroup->appendItem(m_autoSyncTimeSwitch);
     ntpGroup->appendItem(m_ntpServerList);
     ntpGroup->appendItem(m_customizeAddress);
@@ -215,7 +242,8 @@ void TimeSettingModule::initTimeSetting(SettingsGroup *datetimeGroup)
     m_timeMinWidget->setAccessibleName("TIME_MIN_WIDGET");
     m_timeHourWidget->setAccessibleName("TIME_HOUR_WIDGET");
 
-    int nIndex = QFontDatabase::addApplicationFont(":/icons/deepin/builtin/resource/deepindigitaltimes-Regular.ttf");
+    int nIndex = QFontDatabase::addApplicationFont(
+            ":/icons/deepin/builtin/resource/deepindigitaltimes-Regular.ttf");
     if (nIndex != -1) {
         QStringList strList(QFontDatabase::applicationFontFamilies(nIndex));
         if (strList.count() > 0) {
@@ -236,7 +264,9 @@ void TimeSettingModule::initTimeSetting(SettingsGroup *datetimeGroup)
     w->addBackground();
     w->setLayout(timeLayout);
 
-    m_yearWidget = new DateWidget(DateWidget::Year, QDate::currentDate().year() - 30, QDate::currentDate().year() + 30);
+    m_yearWidget = new DateWidget(DateWidget::Year,
+                                  QDate::currentDate().year() - 30,
+                                  QDate::currentDate().year() + 30);
     m_monthWidget = new DateWidget(DateWidget::Month, 1, 12);
     m_dayWidget = new DateWidget(DateWidget::Day, 1, 31);
     QDate currentDate(QDate::currentDate());
@@ -261,7 +291,8 @@ void TimeSettingModule::initTimeSetting(SettingsGroup *datetimeGroup)
 
         QDate date(year, month, 1);
         m_dayWidget->setRange(1, date.daysInMonth());
-        qDebug() << " year : " << year << " , month : " << month << " day range : 1 to " << date.daysInMonth();
+        qDebug() << " year : " << year << " , month : " << month << " day range : 1 to "
+                 << date.daysInMonth();
         if (m_dayWidget->maximum() < m_dayWidget->getCurrentText().toInt()) {
             m_dayWidget->setCurrentText(QString(m_dayWidget->maximum()));
         }
@@ -308,7 +339,8 @@ void TimeSettingModule::initDigitalClock(QWidget *w)
     centerLabel->setFont(font);
     centerLabel->setContextMenuPolicy(Qt::NoContextMenu);
 
-    int nIndex = QFontDatabase::addApplicationFont(":/icons/deepin/builtin/resource/deepindigitaltimes-Regular.ttf");
+    int nIndex = QFontDatabase::addApplicationFont(
+            ":/icons/deepin/builtin/resource/deepindigitaltimes-Regular.ttf");
     if (nIndex != -1) {
         QStringList strList(QFontDatabase::applicationFontFamilies(nIndex));
         if (strList.count() > 0) {
@@ -362,8 +394,9 @@ void TimeSettingModule::setButtonShowState(bool state)
         m_customizeAddress->hideAlertMessage();
     }
     m_buttonTuple->leftButton()->setVisible(!state);
-    m_buttonTuple->rightButton()->setVisible(!state || m_ntpServerList->comboBox()->currentText() == tr("Customize"));
-//    m_buttonTuple->rightButton()->setText(state ? tr("Save") : tr("Confirm"));
+    m_buttonTuple->rightButton()->setVisible(
+            !state || m_ntpServerList->comboBox()->currentText() == tr("Customize"));
+    //    m_buttonTuple->rightButton()->setText(state ? tr("Save") : tr("Confirm"));
 }
 
 void TimeSettingModule::setControlVisible(bool state)
@@ -372,7 +405,8 @@ void TimeSettingModule::setControlVisible(bool state)
     m_ntpServerList->setVisible(state);
     setButtonShowState(state);
     m_autoSyncTimeSwitch->setChecked(state);
-    m_customizeAddress->setVisible(state && m_ntpServerList->comboBox()->currentText() == tr("Customize"));
+    m_customizeAddress->setVisible(
+            state && m_ntpServerList->comboBox()->currentText() == tr("Customize"));
 }
 
 void TimeSettingModule::onCancelButtonClicked()
@@ -389,7 +423,8 @@ void TimeSettingModule::onCancelButtonClicked()
 
 void TimeSettingModule::onConfirmButtonClicked()
 {
-    if (m_autoSyncTimeSwitch->checked() && m_ntpServerList->comboBox()->currentText() == tr("Customize")) {
+    if (m_autoSyncTimeSwitch->checked()
+        && m_ntpServerList->comboBox()->currentText() == tr("Customize")) {
         m_buttonTuple->rightButton()->setEnabled(false);
         if (m_customizeAddress->text().isEmpty()) {
             qDebug() << "The customize address is nullptr.";
@@ -398,14 +433,16 @@ void TimeSettingModule::onConfirmButtonClicked()
         }
         //        this->setFocus();
         //        m_customNtpServer = m_addressContent->text();
-        //        QGSettings("com.deepin.dde.control-center","/com/deepin/dde/control-center/").set("custom-ntpserver", m_customNtpServer);
+        //        QGSettings("com.deepin.dde.control-center","/com/deepin/dde/control-center/").set("custom-ntpserver",
+        //        m_customNtpServer);
         qDebug() << "ok clicked, requestNTPServer";
         Q_EMIT requestNTPServer(m_customizeAddress->text());
     } else {
         qDebug() << "ok clicked, requestSetTime";
 
         QDateTime datetime;
-        datetime.setDate(QDate(m_yearWidget->value(), m_monthWidget->value(), m_dayWidget->value()));
+        datetime.setDate(
+                QDate(m_yearWidget->value(), m_monthWidget->value(), m_dayWidget->value()));
         datetime.setTime(QTime(m_timeHourWidget->value(), m_timeMinWidget->value()));
         Q_EMIT requestSetTime(datetime);
     }

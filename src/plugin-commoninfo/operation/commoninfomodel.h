@@ -33,19 +33,30 @@ public:
     explicit CommonInfoModel(QObject *parent = nullptr);
 
     void setEntryLists(const QStringList &list);
-    inline QStringList entryLists() const { return m_entryLists;}
-    inline QString defaultEntry() const { return m_defaultEntry;}
+
+    inline QStringList entryLists() const { return m_entryLists; }
+
+    inline QString defaultEntry() const { return m_defaultEntry; }
+
     bool bootDelay() const;
+
     inline bool themeEnabled() const { return m_themeEnabled; }
+
     inline bool isShowGrubEditAuth() { return m_isShowGrubEditAuth; }
+
     inline bool grubEditAuthEnabled() { return m_grubEditAuthEnabled; }
+
     inline bool updating() const { return m_updating; }
+
     QPixmap background() const;
     void setBackground(const QPixmap &background);
     bool ueProgram() const; // for user experience program
     bool developerModeState() const;
+
     inline bool isLogin() const { return m_isLogin; }
+
     inline bool isActivate() const { return m_activation; }
+
     void setActivation(bool value);
 
 Q_SIGNALS:
@@ -81,9 +92,9 @@ private:
     QStringList m_entryLists;
     QString m_defaultEntry;
     QPixmap m_background;
-    bool m_joinUeProgram;   // for user experience program
-    bool m_developerModeState{false}; // for developer mode state
-    bool m_isLogin{false};
+    bool m_joinUeProgram;               // for user experience program
+    bool m_developerModeState{ false }; // for developer mode state
+    bool m_isLogin{ false };
     bool m_activation;
 };
 } // namespace DCC_NAMESPACE

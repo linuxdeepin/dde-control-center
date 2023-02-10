@@ -47,7 +47,7 @@ public Q_SLOTS:
     void insertModule(bool append);
 
 private:
-    enum Status{
+    enum Status {
         WaitParent,
         GetPaths,
         LoadPlugin,
@@ -55,6 +55,7 @@ private:
         InsertAllModule, // 对于找不到位置的插到最后
         LoadFinished,
     };
+
     ModuleObject *m_root;
     QTimer *m_timer;
     FrameProxyV20 *m_prameProxy;
@@ -63,13 +64,13 @@ private:
     QStringList m_pluginPaths;
     QList<AdapterV20toV23Module *> m_modules;
     int m_tryCount;
-
 };
 
 class AdapterV20toV23Plugin : public DCC_NAMESPACE::PluginInterface
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.AdapterV20toV23" FILE "plugin-adapterv20tov23.json")
+    Q_PLUGIN_METADATA(IID "com.deepin.dde.ControlCenter.AdapterV20toV23" FILE
+                          "plugin-adapterv20tov23.json")
     Q_INTERFACES(DCC_NAMESPACE::PluginInterface)
 public:
     explicit AdapterV20toV23Plugin(QObject *parent = nullptr);
@@ -80,7 +81,7 @@ public:
     virtual DCC_NAMESPACE::ModuleObject *module() override;
 
 private:
-    AdapterV20toV23Root* m_moduleRoot;
+    AdapterV20toV23Root *m_moduleRoot;
 };
 
 #endif // ADAPTERV20TOV23PLUGIN_H

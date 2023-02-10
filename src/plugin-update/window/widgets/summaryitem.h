@@ -27,6 +27,7 @@
 #define SUMMARYITEM_H
 
 #include "widgets/settingsitem.h"
+
 #include <QLabel>
 
 class SummaryItem : public DCC_NAMESPACE::SettingsItem
@@ -34,10 +35,10 @@ class SummaryItem : public DCC_NAMESPACE::SettingsItem
     Q_OBJECT
 
 public:
-    explicit SummaryItem(QFrame * parent = 0);
+    explicit SummaryItem(QFrame *parent = 0);
 
-    void setTitle(const QString& title);
-    void setDetails(const QString& details);
+    void setTitle(const QString &title);
+    void setDetails(const QString &details);
 
 private:
     QLabel *m_title;

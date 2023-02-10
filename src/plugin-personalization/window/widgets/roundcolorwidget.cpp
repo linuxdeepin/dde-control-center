@@ -22,12 +22,12 @@
 
 #include <DStyle>
 
+#include <QApplication>
 #include <QColor>
+#include <QDebug>
+#include <QMouseEvent>
 #include <QPainter>
 #include <QPainterPath>
-#include <QMouseEvent>
-#include <QApplication>
-#include <QDebug>
 
 DWIDGET_USE_NAMESPACE
 
@@ -62,8 +62,9 @@ void RoundColorWidget::setColor(const QColor &color)
 
 void RoundColorWidget::mousePressEvent(QMouseEvent *event)
 {
-    if(event->button() == Qt::LeftButton) {
-        if (m_isSelected) return;
+    if (event->button() == Qt::LeftButton) {
+        if (m_isSelected)
+            return;
         Q_EMIT clicked();
     }
 }
@@ -80,15 +81,22 @@ void RoundColorWidget::paintEvent(QPaintEvent *event)
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
-    int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, this);
-    int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, this);
+    int borderWidth =
+            style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth),
+                                 nullptr,
+                                 this);
+    int borderSpacing =
+            style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing),
+                                 nullptr,
+                                 this);
     int totalSpace = borderWidth + borderSpacing;
     QRect squareRect = rect();
-    int delta = (squareRect.width() - squareRect.height())/2;
+    int delta = (squareRect.width() - squareRect.height()) / 2;
 
     if (delta != 0)
-        squareRect = (delta > 0) ? squareRect.adjusted(delta + EXTRA, EXTRA, -delta - EXTRA, -EXTRA)
-                                 : squareRect.adjusted(EXTRA, -delta + EXTRA , -EXTRA, delta - EXTRA);
+        squareRect = (delta > 0)
+                ? squareRect.adjusted(delta + EXTRA, EXTRA, -delta - EXTRA, -EXTRA)
+                : squareRect.adjusted(EXTRA, -delta + EXTRA, -EXTRA, delta - EXTRA);
 
     QPainterPath path;
     QRect r = squareRect.adjusted(totalSpace, totalSpace, -totalSpace, -totalSpace);

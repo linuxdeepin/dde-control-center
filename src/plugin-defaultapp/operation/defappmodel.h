@@ -26,10 +26,11 @@
 #ifndef DEFAPPMODEL_H
 #define DEFAPPMODEL_H
 
-#include "interface/namespace.h"
 #include "category.h"
+#include "interface/namespace.h"
 
 class Category;
+
 class DefAppModel : public QObject
 {
     Q_OBJECT
@@ -37,13 +38,19 @@ public:
     explicit DefAppModel(QObject *parent = 0);
     ~DefAppModel();
 
-    Category *getModBrowser()     {return m_modBrowser;}
-    Category *getModMail()        {return m_modMail;}
-    Category *getModText()        {return m_modText;}
-    Category *getModMusic()       {return m_modMusic;}
-    Category *getModVideo()       {return m_modVideo;}
-    Category *getModPicture()     {return m_modPicture;}
-    Category *getModTerminal()    {return m_modTerminal;}
+    Category *getModBrowser() { return m_modBrowser; }
+
+    Category *getModMail() { return m_modMail; }
+
+    Category *getModText() { return m_modText; }
+
+    Category *getModMusic() { return m_modMusic; }
+
+    Category *getModVideo() { return m_modVideo; }
+
+    Category *getModPicture() { return m_modPicture; }
+
+    Category *getModTerminal() { return m_modTerminal; }
 
 private:
     Category *m_modBrowser;

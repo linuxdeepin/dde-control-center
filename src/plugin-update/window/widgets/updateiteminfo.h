@@ -1,34 +1,37 @@
 #ifndef UPDATEITEMINFO_H
 #define UPDATEITEMINFO_H
 
-
 #include "common.h"
 #include "widgets/utils.h"
 
-struct DetailInfo {
+struct DetailInfo
+{
     QString name;
     QString updateTime;
     QString info;
     QString link;
 
-    DetailInfo() {}
+    DetailInfo() { }
 };
 
-class UpdateItemInfo: public QObject
+class UpdateItemInfo : public QObject
 {
     Q_OBJECT
 public:
-
     explicit UpdateItemInfo(QObject *parent = nullptr);
-    virtual ~UpdateItemInfo() {}
 
-    inline qlonglong downloadSize() const   { return m_downloadSize; }
+    virtual ~UpdateItemInfo() { }
+
+    inline qlonglong downloadSize() const { return m_downloadSize; }
+
     void setDownloadSize(qlonglong downloadSize);
 
     double downloadProgress() const { return m_downloadProgress; }
+
     void setDownloadProgress(double downloadProgress);
 
     double installProgress() const { return m_installProgress; }
+
     void setInstallProgress(double installProgress);
 
     QString packageId() const;

@@ -1,18 +1,18 @@
+#include <gtest/gtest.h>
+
 #include "interface/namespace.h"
-#include "src/plugin-mouse/window/generalsettingwidget.h"
 #include "src/plugin-mouse/operation/mousemodel.h"
 #include "src/plugin-mouse/window/doutestwidget.h"
+#include "src/plugin-mouse/window/generalsettingwidget.h"
+#include "widgets/dccslider.h"
 #include "widgets/switchwidget.h"
 #include "widgets/titledslideritem.h"
-#include "widgets/dccslider.h"
 
 #include <dpicturesequenceview.h>
 
-#include <QSignalSpy>
 #include <QApplication>
 #include <QMouseEvent>
-
-#include <gtest/gtest.h>
+#include <QSignalSpy>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -64,11 +64,19 @@ TEST_F(Tst_GeneralSettingWidget, emitSignal)
 
     DouTestWidget *douTest = widget->findChild<DouTestWidget *>();
     DPictureSequenceView *pic = douTest->findChild<DPictureSequenceView *>();
-    QMouseEvent event(QEvent::MouseButtonPress, QPoint(), Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
+    QMouseEvent event(QEvent::MouseButtonPress,
+                      QPoint(),
+                      Qt::LeftButton,
+                      Qt::LeftButton,
+                      Qt::NoModifier);
     QApplication::sendEvent(douTest, &event);
     pic->playEnd();
 
-    QMouseEvent event2(QEvent::MouseButtonDblClick, QPoint(), Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
+    QMouseEvent event2(QEvent::MouseButtonDblClick,
+                       QPoint(),
+                       Qt::LeftButton,
+                       Qt::LeftButton,
+                       Qt::NoModifier);
     QApplication::sendEvent(douTest, &event2);
     QApplication::sendEvent(douTest, &event);
     pic->playEnd();

@@ -31,7 +31,7 @@ namespace DCC_NAMESPACE {
 class ModuleObject;
 class PluginInterface;
 class LayoutManager;
-}
+} // namespace DCC_NAMESPACE
 
 struct PluginData
 {
@@ -43,8 +43,7 @@ struct PluginData
 
 Q_DECLARE_METATYPE(PluginData)
 
-namespace DCC_NAMESPACE
-{
+namespace DCC_NAMESPACE {
 class PluginManager : public QObject
 {
     Q_OBJECT
@@ -65,8 +64,8 @@ private:
     void initModules(const PluginData &data);
     void insertChild(bool force);
 
-    QList<PluginData> m_datas;      //cache for other plugin
-    ModuleObject *m_rootModule;     //root module from MainWindow
+    QList<PluginData> m_datas;  // cache for other plugin
+    ModuleObject *m_rootModule; // root module from MainWindow
     bool m_loadAllFinished;
     QFuture<PluginData> m_future;
 };

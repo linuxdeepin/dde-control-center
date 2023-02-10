@@ -1,24 +1,21 @@
 #include "pluginmanagerv20.h"
-#include "moduleinterface.h"
-#include "frameproxyinterface.h"
+
 #include "adapterv20tov23module.h"
+#include "frameproxyinterface.h"
+#include "moduleinterface.h"
 
 #include <QDir>
-#include <QLibrary>
 #include <QElapsedTimer>
+#include <QLibrary>
 #include <QPluginLoader>
 const QString &PluginDirectory = QStringLiteral(DefaultModuleDirectory);
 
 using namespace DCC_NAMESPACE;
 using namespace dccV20;
 
-PluginManagerV20::PluginManagerV20()
-{
-}
+PluginManagerV20::PluginManagerV20() { }
 
-PluginManagerV20::~PluginManagerV20()
-{
-}
+PluginManagerV20::~PluginManagerV20() { }
 
 QStringList PluginManagerV20::pluginPath()
 {

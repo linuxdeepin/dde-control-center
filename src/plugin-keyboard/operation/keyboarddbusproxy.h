@@ -1,29 +1,30 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     caixiangrong <caixiangrong@uniontech.com>
-*
-* Maintainer: caixiangrong <caixiangrong@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     caixiangrong <caixiangrong@uniontech.com>
+ *
+ * Maintainer: caixiangrong <caixiangrong@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #ifndef KEYBOARDDBUSPROXY_H
 #define KEYBOARDDBUSPROXY_H
 
 #include "interface/namespace.h"
-#include <QObject>
+
 #include <QDBusPendingReply>
+#include <QObject>
 
 class QDBusInterface;
 class QDBusMessage;
@@ -33,7 +34,7 @@ typedef QMap<QString, QString> KeyboardLayoutList;
 class LocaleInfo
 {
 public:
-    LocaleInfo(){}
+    LocaleInfo() { }
 
     friend QDBusArgument &operator<<(QDBusArgument &arg, const LocaleInfo &info)
     {
@@ -63,17 +64,15 @@ public:
         return ds >> info.id >> info.name;
     }
 
-    bool operator ==(const LocaleInfo &info)
-    {
-        return id==info.id && name==info.name;
-    }
+    bool operator==(const LocaleInfo &info) { return id == info.id && name == info.name; }
 
 public:
-    QString id{""};
-    QString name{""};
+    QString id{ "" };
+    QString name{ "" };
 };
 
 typedef QList<LocaleInfo> LocaleList;
+
 namespace DCC_NAMESPACE {
 class DCCDBusInterface;
 }
@@ -84,12 +83,14 @@ class KeyboardDBusProxy : public QObject
 public:
     explicit KeyboardDBusProxy(QObject *parent = nullptr);
 
-    //Keyboard
-    Q_PROPERTY(bool CapslockToggle READ capslockToggle WRITE setCapslockToggle NOTIFY CapslockToggleChanged)
+    // Keyboard
+    Q_PROPERTY(bool CapslockToggle READ capslockToggle WRITE setCapslockToggle NOTIFY
+                       CapslockToggleChanged)
     bool capslockToggle();
     void setCapslockToggle(bool value);
 
-    Q_PROPERTY(QString CurrentLayout READ currentLayout WRITE setCurrentLayout NOTIFY CurrentLayoutChanged)
+    Q_PROPERTY(QString CurrentLayout READ currentLayout WRITE setCurrentLayout NOTIFY
+                       CurrentLayoutChanged)
     QString currentLayout();
     void setCurrentLayout(const QString &value);
 
@@ -105,11 +106,13 @@ public:
     uint repeatDelay();
     void setRepeatDelay(uint value);
 
-    Q_PROPERTY(bool RepeatEnabled READ repeatEnabled WRITE setRepeatEnabled NOTIFY RepeatEnabledChanged)
+    Q_PROPERTY(bool RepeatEnabled READ repeatEnabled WRITE setRepeatEnabled NOTIFY
+                       RepeatEnabledChanged)
     bool repeatEnabled();
     void setRepeatEnabled(bool value);
 
-    Q_PROPERTY(uint RepeatInterval READ repeatInterval WRITE setRepeatInterval NOTIFY RepeatIntervalChanged)
+    Q_PROPERTY(uint RepeatInterval READ repeatInterval WRITE setRepeatInterval NOTIFY
+                       RepeatIntervalChanged)
     uint repeatInterval();
     void setRepeatInterval(uint value);
 
@@ -119,7 +122,7 @@ public:
     Q_PROPERTY(QStringList UserOptionList READ userOptionList NOTIFY UserOptionListChanged)
     QStringList userOptionList();
 
-    //LangSelector
+    // LangSelector
     Q_PROPERTY(QString CurrentLocale READ currentLocale NOTIFY CurrentLocaleChanged)
     QString currentLocale();
 
@@ -129,11 +132,12 @@ public:
     Q_PROPERTY(QStringList Locales READ locales NOTIFY LocalesChanged)
     QStringList locales();
 
-    //Keybinding
+    // Keybinding
     Q_PROPERTY(int NumLockState READ numLockState NOTIFY NumLockStateChanged)
     int numLockState();
 
-    Q_PROPERTY(uint ShortcutSwitchLayout READ shortcutSwitchLayout WRITE setShortcutSwitchLayout NOTIFY ShortcutSwitchLayoutChanged)
+    Q_PROPERTY(uint ShortcutSwitchLayout READ shortcutSwitchLayout WRITE setShortcutSwitchLayout
+                       NOTIFY ShortcutSwitchLayoutChanged)
     uint shortcutSwitchLayout();
     void setShortcutSwitchLayout(uint value);
 
@@ -142,44 +146,49 @@ public:
 
 signals:
     // Keyboard property
-    void CapslockToggleChanged(bool  value) const;
-    void CurrentLayoutChanged(const QString & value) const;
-    void CursorBlinkChanged(int  value) const;
-    void LayoutScopeChanged(int  value) const;
-    void RepeatDelayChanged(uint  value) const;
-    void RepeatEnabledChanged(bool  value) const;
-    void RepeatIntervalChanged(uint  value) const;
-    void UserLayoutListChanged(const QStringList & value) const;
-    void UserOptionListChanged(const QStringList & value) const;
+    void CapslockToggleChanged(bool value) const;
+    void CurrentLayoutChanged(const QString &value) const;
+    void CursorBlinkChanged(int value) const;
+    void LayoutScopeChanged(int value) const;
+    void RepeatDelayChanged(uint value) const;
+    void RepeatEnabledChanged(bool value) const;
+    void RepeatIntervalChanged(uint value) const;
+    void UserLayoutListChanged(const QStringList &value) const;
+    void UserOptionListChanged(const QStringList &value) const;
 
     // LangSelector property
-    void CurrentLocaleChanged(const QString & value) const;
-    void LocaleStateChanged(int  value) const;
-    void LocalesChanged(const QStringList & value) const;
+    void CurrentLocaleChanged(const QString &value) const;
+    void LocaleStateChanged(int value) const;
+    void LocalesChanged(const QStringList &value) const;
 
     // Keybinding property
-    void NumLockStateChanged(int  value) const;
-    void ShortcutSwitchLayoutChanged(uint  value) const;
+    void NumLockStateChanged(int value) const;
+    void ShortcutSwitchLayoutChanged(uint value) const;
     // Keybinding
     void Added(const QString &in0, int in1);
     void Changed(const QString &in0, int in1);
     void Deleted(const QString &in0, int in1);
     void KeyEvent(bool in0, const QString &in1);
 
-    //wm
+    // wm
     void compositingEnabledChanged(bool enabled);
 
     void langSelectorServiceStartFinished(const quint32 ret) const;
 
 public slots:
     // Keybinding
-    QDBusPendingReply<>  KeybindingReset();
+    QDBusPendingReply<> KeybindingReset();
     QDBusPendingReply<QString> ListAllShortcuts();
     QString LookupConflictingShortcut(const QString &in0);
     QDBusPendingReply<> ClearShortcutKeystrokes(const QString &in0, int in1);
     QDBusPendingReply<> AddShortcutKeystroke(const QString &in0, int in1, const QString &in2);
-    QDBusPendingReply<> AddCustomShortcut(const QString &in0, const QString &in1, const QString &in2);
-    QDBusPendingReply<> ModifyCustomShortcut(const QString &in0, const QString &in1, const QString &in2, const QString &in3);
+    QDBusPendingReply<> AddCustomShortcut(const QString &in0,
+                                          const QString &in1,
+                                          const QString &in2);
+    QDBusPendingReply<> ModifyCustomShortcut(const QString &in0,
+                                             const QString &in1,
+                                             const QString &in2,
+                                             const QString &in3);
     QDBusPendingReply<> DeleteCustomShortcut(const QString &in0);
     QDBusPendingReply<> GrabScreen();
     void SetNumLockState(int in0);
@@ -188,7 +197,7 @@ public slots:
     QDBusPendingReply<QString> Query(const QString &in0, int in1);
     void SelectKeystroke();
 
-    //KeyBoard
+    // KeyBoard
     QDBusPendingReply<KeyboardLayoutList> LayoutList();
     void AddUserLayout(const QString &in0);
     void DeleteUserLayout(const QString &in0);
@@ -201,6 +210,7 @@ public slots:
 
 private slots:
     void onLangSelectorStartServiceProcessFinished(QDBusPendingCallWatcher *w);
+
 private:
     void init();
 

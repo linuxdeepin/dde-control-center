@@ -21,8 +21,8 @@
 
 #pragma once
 
-#include "interface/namespace.h"
 #include "interface/hlistmodule.h"
+#include "interface/namespace.h"
 #include "interface/plugininterface.h"
 
 #include <QObject>
@@ -51,6 +51,7 @@ public:
     virtual void active() override;
 
     CommonInfoWork *worker() { return m_worker; }
+
     CommonInfoModel *model() { return m_model; }
 
 private:
@@ -58,14 +59,21 @@ private:
     CommonInfoModel *m_model;
 };
 
-
 class DeveloperModeModule : public ModuleObject
 {
     Q_OBJECT
 public:
-    explicit DeveloperModeModule(CommonInfoModel *model, CommonInfoWork *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker) {}
+    explicit DeveloperModeModule(CommonInfoModel *model,
+                                 CommonInfoWork *worker,
+                                 QObject *parent = nullptr)
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
+
     virtual QWidget *page() override;
+
 private:
     CommonInfoModel *m_model;
     CommonInfoWork *m_worker;
@@ -75,9 +83,17 @@ class UserExperienceProgramModule : public ModuleObject
 {
     Q_OBJECT
 public:
-    explicit UserExperienceProgramModule(CommonInfoModel *model, CommonInfoWork *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker) {}
+    explicit UserExperienceProgramModule(CommonInfoModel *model,
+                                         CommonInfoWork *worker,
+                                         QObject *parent = nullptr)
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
+
     virtual QWidget *page() override;
+
 private:
     CommonInfoModel *m_model;
     CommonInfoWork *m_worker;
@@ -88,8 +104,14 @@ class BootModule : public ModuleObject
     Q_OBJECT
 public:
     explicit BootModule(CommonInfoModel *model, CommonInfoWork *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker) {}
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
+
     virtual QWidget *page() override;
+
 private:
     CommonInfoModel *m_model;
     CommonInfoWork *m_worker;

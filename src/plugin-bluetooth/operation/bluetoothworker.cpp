@@ -24,12 +24,13 @@
  */
 
 #include "bluetoothworker.h"
+
 #include "bluetoothdbusproxy.h"
 
 #include <QDBusObjectPath>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QJsonArray>
 #include <QTimer>
 
 BluetoothWorker::BluetoothWorker(BluetoothModel *model, QObject *parent)
@@ -39,84 +40,136 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, QObject *parent)
     , m_connectingAudioDevice(false)
     , m_state(m_bluetoothDBusProxy->state())
 {
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::StateChanged, this, &BluetoothWorker::onStateChanged);
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::AdapterAdded, this, &BluetoothWorker::addAdapter);
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::AdapterPropertiesChanged, this, &BluetoothWorker::onAdapterPropertiesChanged);
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::DeviceAdded, this, &BluetoothWorker::addDevice);
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::DeviceRemoved, this, &BluetoothWorker::removeDevice);
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::DevicePropertiesChanged, this, &BluetoothWorker::onDevicePropertiesChanged);
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::Cancelled, this, [=](const QDBusObjectPath &device) {
-        PinCodeDialog *dialog = m_dialogs[device];
-        if (dialog != nullptr) {
-            m_dialogs.remove(device);
-            QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
-        } else {
-            Q_EMIT pinCodeCancel(device);
-        }
-    });
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::StateChanged,
+            this,
+            &BluetoothWorker::onStateChanged);
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::AdapterAdded,
+            this,
+            &BluetoothWorker::addAdapter);
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::AdapterRemoved,
+            this,
+            &BluetoothWorker::removeAdapter);
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::AdapterPropertiesChanged,
+            this,
+            &BluetoothWorker::onAdapterPropertiesChanged);
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::DeviceAdded,
+            this,
+            &BluetoothWorker::addDevice);
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::DeviceRemoved,
+            this,
+            &BluetoothWorker::removeDevice);
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::DevicePropertiesChanged,
+            this,
+            &BluetoothWorker::onDevicePropertiesChanged);
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::Cancelled,
+            this,
+            [=](const QDBusObjectPath &device) {
+                PinCodeDialog *dialog = m_dialogs[device];
+                if (dialog != nullptr) {
+                    m_dialogs.remove(device);
+                    QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
+                } else {
+                    Q_EMIT pinCodeCancel(device);
+                }
+            });
 
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::RequestAuthorization, this, [](const QDBusObjectPath &in0) {
-        qDebug() << "request authorization: " << in0.path();
-    });
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::RequestAuthorization,
+            this,
+            [](const QDBusObjectPath &in0) {
+                qDebug() << "request authorization: " << in0.path();
+            });
 
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::RequestConfirmation, this, &BluetoothWorker::requestConfirmation);
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::RequestConfirmation,
+            this,
+            &BluetoothWorker::requestConfirmation);
 
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::RequestPasskey, this, [](const QDBusObjectPath &in0) {
-        qDebug() << "request passkey: " << in0.path();
-    });
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::RequestPasskey,
+            this,
+            [](const QDBusObjectPath &in0) {
+                qDebug() << "request passkey: " << in0.path();
+            });
 
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::RequestPinCode, this, [](const QDBusObjectPath &in0) {
-        qDebug() << "request pincode: " << in0.path();
-    });
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::RequestPinCode,
+            this,
+            [](const QDBusObjectPath &in0) {
+                qDebug() << "request pincode: " << in0.path();
+            });
 
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::DisplayPasskey, this, [=](const QDBusObjectPath &in0, uint in1, uint in2) {
-        qDebug() << "request display passkey: " << in0.path() << in1 << in2;
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::DisplayPasskey,
+            this,
+            [=](const QDBusObjectPath &in0, uint in1, uint in2) {
+                qDebug() << "request display passkey: " << in0.path() << in1 << in2;
 
-        PinCodeDialog *dialog = PinCodeDialog::instance(QString::number(in1), false);
-        m_dialogs[in0] = dialog;
-        if (!dialog->isVisible()) {
-            dialog->exec();
-            QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
-        }
-    });
+                PinCodeDialog *dialog = PinCodeDialog::instance(QString::number(in1), false);
+                m_dialogs[in0] = dialog;
+                if (!dialog->isVisible()) {
+                    dialog->exec();
+                    QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
+                }
+            });
 
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::DisplayPinCode, this, [=](const QDBusObjectPath &in0, const QString &in1) {
-        qDebug() << "request display pincode: " << in0.path() << in1;
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::DisplayPinCode,
+            this,
+            [=](const QDBusObjectPath &in0, const QString &in1) {
+                qDebug() << "request display pincode: " << in0.path() << in1;
 
-        PinCodeDialog *dialog = PinCodeDialog::instance(in1, false);
-        m_dialogs[in0] = dialog;
-        if (!dialog->isVisible()) {
-            dialog->exec();
-            QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
-        }
-    });
+                PinCodeDialog *dialog = PinCodeDialog::instance(in1, false);
+                m_dialogs[in0] = dialog;
+                if (!dialog->isVisible()) {
+                    dialog->exec();
+                    QMetaObject::invokeMethod(dialog, "deleteLater", Qt::QueuedConnection);
+                }
+            });
 
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::TransportableChanged, m_model, &BluetoothModel::setTransportable);
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::CanSendFileChanged, m_model, &BluetoothModel::setCanSendFile);
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::DisplaySwitchChanged, m_model, &BluetoothModel::setDisplaySwitch);
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::TransportableChanged,
+            m_model,
+            &BluetoothModel::setTransportable);
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::CanSendFileChanged,
+            m_model,
+            &BluetoothModel::setCanSendFile);
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::DisplaySwitchChanged,
+            m_model,
+            &BluetoothModel::setDisplaySwitch);
 
     m_model->setTransportable(m_bluetoothDBusProxy->transportable());
     m_model->setCanSendFile(m_bluetoothDBusProxy->canSendFile());
     m_model->setDisplaySwitch(m_bluetoothDBusProxy->displaySwitch());
 
-    connect(m_bluetoothDBusProxy, &BluetoothDBusProxy::EnabledChanged, m_model, &BluetoothModel::setAirplaneEnable);
+    connect(m_bluetoothDBusProxy,
+            &BluetoothDBusProxy::EnabledChanged,
+            m_model,
+            &BluetoothModel::setAirplaneEnable);
     m_model->setAirplaneEnable(m_bluetoothDBusProxy->enabled());
 
-    //第一次调用时传true，refresh 函数会使用同步方式去获取蓝牙设备数据
-    //避免出现当dbus调用控制中心接口直接显示蓝牙模块时，
-    //因为异步的数据获取使控制中心设置了蓝牙模块不可见，
-    //而出现没办法显示蓝牙模块
+    // 第一次调用时传true，refresh 函数会使用同步方式去获取蓝牙设备数据
+    // 避免出现当dbus调用控制中心接口直接显示蓝牙模块时，
+    // 因为异步的数据获取使控制中心设置了蓝牙模块不可见，
+    // 而出现没办法显示蓝牙模块
     refresh(true);
 }
 
-BluetoothWorker::~BluetoothWorker()
-{
-}
+BluetoothWorker::~BluetoothWorker() { }
 
 void BluetoothWorker::onStateChanged(uint state)
 {
-    //当蓝牙状态由0变成大于0时，强制刷新蓝牙列表
+    // 当蓝牙状态由0变成大于0时，强制刷新蓝牙列表
     if (!m_state && state > 0)
         refresh(true);
 
@@ -163,14 +216,14 @@ void BluetoothWorker::disconnectDevice(const BluetoothDevice *device)
 
 void BluetoothWorker::ignoreDevice(const BluetoothAdapter *adapter, const BluetoothDevice *device)
 {
-    m_bluetoothDBusProxy->RemoveDevice(QDBusObjectPath(adapter->id()), QDBusObjectPath(device->id()));
+    m_bluetoothDBusProxy->RemoveDevice(QDBusObjectPath(adapter->id()),
+                                       QDBusObjectPath(device->id()));
     qDebug() << "ignore device: " << device->name();
 }
 
 void BluetoothWorker::connectDevice(const BluetoothDevice *device, const BluetoothAdapter *adapter)
 {
-    if (device->deviceType() == "audio-card"
-        && device->state() == BluetoothDevice::StateAvailable
+    if (device->deviceType() == "audio-card" && device->state() == BluetoothDevice::StateAvailable
         && device->deviceType() == "pheadset") {
         return;
     }
@@ -315,12 +368,14 @@ void BluetoothWorker::pinCodeConfirm(const QDBusObjectPath &path, bool value)
 {
     m_bluetoothDBusProxy->Confirm(path, value);
 }
+
 void BluetoothWorker::setAdapterDiscovering(const QDBusObjectPath &path, bool enable)
 {
     m_bluetoothDBusProxy->SetAdapterDiscovering(path, enable);
 }
 
-void BluetoothWorker::onRequestSetDiscoverable(const BluetoothAdapter *adapter, const bool &discoverable)
+void BluetoothWorker::onRequestSetDiscoverable(const BluetoothAdapter *adapter,
+                                               const bool &discoverable)
 {
     QDBusObjectPath path(adapter->id());
     m_bluetoothDBusProxy->SetAdapterDiscoverable(path, discoverable);

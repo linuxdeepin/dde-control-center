@@ -46,7 +46,9 @@ QWidget *FormModule::page()
     parentWidget->setLayout(mainLayout);
     m_layout = new QFormLayout();
     // 在parentWidget析构后需要清理缓存数据，可以监听信号处理，或放deactive函数中
-    connect(parentWidget, &QObject::destroyed, this, [this]() { clearData(); });
+    connect(parentWidget, &QObject::destroyed, this, [this]() {
+        clearData();
+    });
 
     QWidget *areaWidget = new QWidget();
 
@@ -69,20 +71,31 @@ QWidget *FormModule::page()
     }
 
     // 监听子项的添加、删除、状态变更，动态的更新界面
-    connect(this, &ModuleObject::insertedChild, areaWidget, [this](ModuleObject *const childModule) { onAddChild(childModule); });
-    connect(this, &ModuleObject::removedChild, areaWidget, [this](ModuleObject *const childModule) { onRemoveChild(childModule); });
-    connect(this, &ModuleObject::childStateChanged, areaWidget, [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
-        if (ModuleObject::IsHiddenFlag(flag)) { // 显示隐藏同增加删除处理
-            if (state)
-                onRemoveChild(tmpChild);
-            else
-                onAddChild(tmpChild);
-        }
+    connect(this,
+            &ModuleObject::insertedChild,
+            areaWidget,
+            [this](ModuleObject *const childModule) {
+                onAddChild(childModule);
+            });
+    connect(this, &ModuleObject::removedChild, areaWidget, [this](ModuleObject *const childModule) {
+        onRemoveChild(childModule);
     });
+    connect(this,
+            &ModuleObject::childStateChanged,
+            areaWidget,
+            [this](ModuleObject *const tmpChild, uint32_t flag, bool state) {
+                if (ModuleObject::IsHiddenFlag(flag)) { // 显示隐藏同增加删除处理
+                    if (state)
+                        onRemoveChild(tmpChild);
+                    else
+                        onAddChild(tmpChild);
+                }
+            });
     // 处理子激活项
     onCurrentModuleChanged(currentModule());
     return parentWidget;
 }
+
 // 处理子激活项
 void FormModule::onCurrentModuleChanged(dccV23::ModuleObject *child)
 {
@@ -99,6 +112,7 @@ void FormModule::onCurrentModuleChanged(dccV23::ModuleObject *child)
         }
     });
 }
+
 // 动态的添加子项
 void FormModule::onAddChild(dccV23::ModuleObject *const childModule)
 {
@@ -118,6 +132,7 @@ void FormModule::onAddChild(dccV23::ModuleObject *const childModule)
         m_mapWidget.insert(childModule, newPage);
     }
 }
+
 // 动态的删除子项
 void FormModule::onRemoveChild(dccV23::ModuleObject *const childModule)
 {
@@ -132,6 +147,7 @@ void FormModule::onRemoveChild(dccV23::ModuleObject *const childModule)
         }
     }
 }
+
 // 清理缓存数据
 void FormModule::clearData()
 {

@@ -24,8 +24,9 @@
  */
 
 #include "widgets/switchwidget.h"
-#include "widgets/utils.h"
+
 #include "widgets/accessibleinterface.h"
+#include "widgets/utils.h"
 
 #include <DSwitchButton>
 
@@ -34,16 +35,17 @@
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
-SET_LABEL_ACCESSIBLE(SwitchLabel,"SwitchLabel");
+SET_LABEL_ACCESSIBLE(SwitchLabel, "SwitchLabel");
+
 SwitchLabel::SwitchLabel(QWidget *parent, Qt::WindowFlags f)
-    : QLabel (parent,f)
+    : QLabel(parent, f)
 {
     setAccessibleName("SwitchLabel");
 }
 
 void SwitchLabel::resizeEvent(QResizeEvent *event)
 {
-    if(m_sourceText.isEmpty())
+    if (m_sourceText.isEmpty())
         m_sourceText = this->text();
 
     m_actualSize = event->size();
@@ -51,25 +53,25 @@ void SwitchLabel::resizeEvent(QResizeEvent *event)
 
     QString str = m_sourceText;
     int len = fontMetrics.horizontalAdvance(m_sourceText);
-    if(len > m_actualSize.width()) {
+    if (len > m_actualSize.width()) {
         str = fontMetrics.elidedText(str, Qt::ElideRight, m_actualSize.width());
         this->setText(str);
-    }
-    else {
+    } else {
         this->setText(m_sourceText);
     }
 
     QLabel::resizeEvent(event);
 }
 
-SET_FORM_ACCESSIBLE(SwitchWidget,"SwitchWidget");
+SET_FORM_ACCESSIBLE(SwitchWidget, "SwitchWidget");
+
 SwitchWidget::SwitchWidget(const QString &title, QWidget *parent)
     : SettingsItem(parent)
     , m_leftWidget(new SwitchLabel)
     , m_switchBtn(new DSwitchButton)
 {
     m_switchBtn->setAccessibleName(title);
-    qobject_cast<SwitchLabel*>(m_leftWidget)->setText(title);
+    qobject_cast<SwitchLabel *>(m_leftWidget)->setText(title);
     init();
 }
 
@@ -114,7 +116,7 @@ QString SwitchWidget::title() const
         return label->text();
     }
 
-   return QString();
+    return QString();
 }
 
 void SwitchWidget::setTitle(const QString &title)

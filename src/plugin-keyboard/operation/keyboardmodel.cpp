@@ -24,9 +24,11 @@
  */
 
 #include "keyboardmodel.h"
+
 #include <QDebug>
 
 using namespace DCC_NAMESPACE;
+
 KeyboardModel::KeyboardModel(QObject *parent)
     : QObject(parent)
     , m_capsLock(true)
@@ -51,9 +53,11 @@ void KeyboardModel::setLayoutLists(QMap<QString, QString> lists)
 
 QString KeyboardModel::langByKey(const QString &key) const
 {
-    auto res = std::find_if(m_langList.cbegin(), m_langList.end(), [key] (const MetaData &data)->bool{
-        return data.key() == key;
-    });
+    auto res = std::find_if(m_langList.cbegin(),
+                            m_langList.end(),
+                            [key](const MetaData &data) -> bool {
+                                return data.key() == key;
+                            });
 
     if (res != m_langList.cend()) {
         return res->text();
@@ -64,9 +68,11 @@ QString KeyboardModel::langByKey(const QString &key) const
 
 QString KeyboardModel::langFromText(const QString &text) const
 {
-    auto res = std::find_if(m_langList.cbegin(), m_langList.end(), [text] (const MetaData &data)->bool{
-        return data.text() == text;
-    });
+    auto res = std::find_if(m_langList.cbegin(),
+                            m_langList.end(),
+                            [text](const MetaData &data) -> bool {
+                                return data.text() == text;
+                            });
 
     if (res != m_langList.cend()) {
         return res->key();
@@ -81,7 +87,7 @@ void KeyboardModel::setLayout(const QString &key)
         return;
 
     if (m_layout == key)
-        return ;
+        return;
 
     m_layout = key;
 

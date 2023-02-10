@@ -1,19 +1,18 @@
 
+#include <gtest/gtest.h>
+
 #include "interface/namespace.h"
 #include "src/plugin-mouse/operation/mousemodel.h"
 
 #include <QSignalSpy>
 #include <QTest>
-#include <gtest/gtest.h>
 
 using namespace DCC_NAMESPACE;
+
 class Tst_MouseModel : public testing::Test
 {
 public:
-    void SetUp() override
-    {
-        m_model = new MouseModel;
-    }
+    void SetUp() override { m_model = new MouseModel; }
 
     void TearDown() override
     {

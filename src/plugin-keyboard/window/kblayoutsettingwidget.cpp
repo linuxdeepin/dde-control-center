@@ -19,20 +19,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "kblayoutsettingwidget.h"
-#include "widgets/comboxwidget.h"
-#include "widgets/settingsitem.h"
-#include "widgets/settingsgroup.h"
-#include "src/plugin-keyboard/window/keylabel.h"
-#include "src/plugin-keyboard/operation/keyboardmodel.h"
 
-#include <QStringList>
+#include "src/plugin-keyboard/operation/keyboardmodel.h"
+#include "src/plugin-keyboard/window/keylabel.h"
+#include "widgets/comboxwidget.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/settingsitem.h"
+
+#include <DStackedWidget>
+
 #include <QComboBox>
 #include <QDebug>
 #include <QList>
 #include <QSpinBox>
-#include <DStackedWidget>
+#include <QStringList>
 
 using namespace DCC_NAMESPACE;
+
 KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     : QWidget(parent)
     , m_bEdit(false)
@@ -43,7 +46,9 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     QHBoxLayout *headLayout = new QHBoxLayout();
 
     TitleLabel *headTitle = new TitleLabel(tr("Keyboard Layout"));
-    DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
+    DFontSizeManager::instance()->bind(headTitle,
+                                       DFontSizeManager::T5,
+                                       QFont::DemiBold); // 设置label字体
     headLayout->addWidget(headTitle);
     headTitle->setContentsMargins(10, 0, 0, 0);
 
@@ -59,17 +64,22 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_kbLayoutListView->setObjectName("KbLayoutListView");
     m_kbLayoutListView->setModel(m_kbLayoutModel);
     m_kbLayoutListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_kbLayoutListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
+    m_kbLayoutListView->setBackgroundType(
+            DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_kbLayoutListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     m_kbLayoutListView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     m_kbLayoutListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_kbLayoutListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_kbLayoutListView->setSelectionMode(QAbstractItemView::NoSelection);
 
-    //add btn
-    DCommandLinkButton *btn = new DCommandLinkButton(tr("Add Keyboard Layout")+"...",m_kbLayoutListView->viewport());
+    // add btn
+    DCommandLinkButton *btn = new DCommandLinkButton(tr("Add Keyboard Layout") + "...",
+                                                     m_kbLayoutListView->viewport());
     btn->setObjectName("AddLayout");
-    m_addLayoutAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter, QSize(10, 10), QSize(10, 10), false);
+    m_addLayoutAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
+                                            QSize(10, 10),
+                                            QSize(10, 10),
+                                            false);
     m_addLayoutAction->setWidget(btn);
     btn->setMaximumHeight(22);
     DStandardItem *kbLayoutItem = new DStandardItem();
@@ -86,10 +96,19 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     mainLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(mainLayout);
 
-    connect(static_cast<DCommandLinkButton *>(m_addLayoutAction->widget()), &DCommandLinkButton::clicked, this, &KBLayoutSettingWidget::onLayoutAdded);
+    connect(static_cast<DCommandLinkButton *>(m_addLayoutAction->widget()),
+            &DCommandLinkButton::clicked,
+            this,
+            &KBLayoutSettingWidget::onLayoutAdded);
     connect(m_editKBLayout, &QPushButton::clicked, this, &KBLayoutSettingWidget::onEditClicked);
-    connect(m_kbLayoutListView, &DListView::clicked, this, &KBLayoutSettingWidget::onKBLayoutChanged);
-    connect(m_kbLayoutListView, &KBLayoutListView::currentChangedSignal, this, &KBLayoutSettingWidget::onKBCurrentChanged);
+    connect(m_kbLayoutListView,
+            &DListView::clicked,
+            this,
+            &KBLayoutSettingWidget::onKBLayoutChanged);
+    connect(m_kbLayoutListView,
+            &KBLayoutListView::currentChangedSignal,
+            this,
+            &KBLayoutSettingWidget::onKBCurrentChanged);
 }
 
 void KBLayoutSettingWidget::setModel(KeyboardModel *model)
@@ -124,21 +143,23 @@ void KBLayoutSettingWidget::onAddKeyboard(const QString &id, const QString &valu
         return;
     DStandardItem *kbLayoutItem = new DStandardItem(value);
     kbLayoutItem->setData(id, KBLangIdRole);
-    //去除最后一个item
+    // 去除最后一个item
     DStandardItem *endItem = nullptr;
-    if(m_kbLayoutModel->rowCount() > 0) {
-        endItem = dynamic_cast<DStandardItem *>(m_kbLayoutModel->takeItem(m_kbLayoutModel->rowCount() - 1, 0));
+    if (m_kbLayoutModel->rowCount() > 0) {
+        endItem = dynamic_cast<DStandardItem *>(
+                m_kbLayoutModel->takeItem(m_kbLayoutModel->rowCount() - 1, 0));
         m_kbLayoutModel->removeRow(m_kbLayoutModel->rowCount() - 1);
     }
 
-    //按用户键盘布局列表顺序显示
+    // 按用户键盘布局列表顺序显示
     int index = 0;
     for (int i = m_kbLayoutModel->rowCount() - 1; i >= 0; --i) {
         DStandardItem *item = dynamic_cast<DStandardItem *>(m_kbLayoutModel->item(i, 0));
         if (item == nullptr) {
             return;
         }
-        if (m_model->getUserLayoutList().indexOf(id) > m_model->getUserLayoutList().indexOf(item->data(KBLangIdRole).toString())) {
+        if (m_model->getUserLayoutList().indexOf(id)
+            > m_model->getUserLayoutList().indexOf(item->data(KBLangIdRole).toString())) {
             index = i + 1;
             break;
         }
@@ -146,7 +167,7 @@ void KBLayoutSettingWidget::onAddKeyboard(const QString &id, const QString &valu
     m_kbLayoutModel->insertRow(index, kbLayoutItem);
     m_kbLangList << id;
 
-    //添加最后一个item
+    // 添加最后一个item
     if (endItem != nullptr) {
         m_kbLayoutModel->appendRow(endItem);
     }
@@ -206,12 +227,12 @@ void KBLayoutSettingWidget::onDefault(const QString &value)
     }
 }
 
-
 void KBLayoutSettingWidget::creatDelIconAction(DStandardItem *item)
 {
-    DViewItemAction *iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
+    DViewItemAction *iconAction =
+            new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
     iconAction->setIcon(DStyle::standardIcon(style(), DStyle::SP_DeleteButton));
-    item->setActionList(Qt::RightEdge, {iconAction});
+    item->setActionList(Qt::RightEdge, { iconAction });
     connect(iconAction, &DViewItemAction::triggered, this, [this, item] {
         m_kbLangList.removeOne(item->data(KBLangIdRole).toString());
         int idx = m_kbLayoutModel->indexFromItem(item).row();
@@ -234,7 +255,7 @@ void KBLayoutSettingWidget::onKBLayoutChanged(const QModelIndex &index)
         if (item && (index.row() == i)) {
             item->setCheckState(Qt::Checked);
             Q_EMIT requestCurLayoutAdded(item->text());
-        } else if(item) {
+        } else if (item) {
             item->setCheckState(Qt::Unchecked);
         }
     }
@@ -250,9 +271,9 @@ void KBLayoutSettingWidget::onKBCurrentChanged(const QModelIndex &current)
 
     if (!visibleRect.contains(itemRect)) {
         if (visibleRect.bottom() < itemRect.bottom()) {
-//            m_contentWidget->scrollTo(itemRect.bottom() - visibleRect.bottom());
+            //            m_contentWidget->scrollTo(itemRect.bottom() - visibleRect.bottom());
         } else {
-//            m_contentWidget->scrollTo(itemRect.top() - visibleRect.top());
+            //            m_contentWidget->scrollTo(itemRect.top() - visibleRect.top());
         }
     }
 }

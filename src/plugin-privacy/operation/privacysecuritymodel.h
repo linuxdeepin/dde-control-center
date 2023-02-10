@@ -22,33 +22,33 @@
 #ifndef PRIVACYSECURITYMODEL_H
 #define PRIVACYSECURITYMODEL_H
 
-#include <QObject>
 #include <QMap>
+#include <QObject>
 
 class ServiceControlItems;
 
 namespace DCC_PRIVACY_NAMESPACE {
-enum ServiceCategory : int{
-    Camera,
-    Microphone,
-    UserFolders,
-    Calendar,
-    Screenshots
-};
+enum ServiceCategory : int { Camera, Microphone, UserFolders, Calendar, Screenshots };
 
-struct DATE {
+struct DATE
+{
     QString name;
     QString displayName;
     QString icon;
     ServiceCategory category;
-    DATE(const QString &_name, const QString &_displayName, const QString _icon, ServiceCategory _category)
+
+    DATE(const QString &_name,
+         const QString &_displayName,
+         const QString _icon,
+         ServiceCategory _category)
         : name(_name)
         , displayName(_displayName)
         , icon(_icon)
         , category(_category)
-    {}
+    {
+    }
 };
-}
+} // namespace DCC_PRIVACY_NAMESPACE
 
 class PrivacySecurityModel : public QObject
 {
@@ -61,13 +61,17 @@ public:
     QString getDaemonDefineName(DCC_PRIVACY_NAMESPACE::ServiceCategory category);
 
     QList<DCC_PRIVACY_NAMESPACE::DATE> getModuleInfo();
-    QMap<QString, DCC_PRIVACY_NAMESPACE::ServiceCategory> getServiceVategory() { return m_serviceToCategory; }
+
+    QMap<QString, DCC_PRIVACY_NAMESPACE::ServiceCategory> getServiceVategory()
+    {
+        return m_serviceToCategory;
+    }
 
     DCC_PRIVACY_NAMESPACE::ServiceCategory getCategory(const QString &serviceName);
 
     // TODO: 后期需要加组信息，确认返回的Item
-    ServiceControlItems* getServiceItem(const QString &daemonDefineName);
-    ServiceControlItems* getServiceItem(DCC_PRIVACY_NAMESPACE::ServiceCategory category);
+    ServiceControlItems *getServiceItem(const QString &daemonDefineName);
+    ServiceControlItems *getServiceItem(DCC_PRIVACY_NAMESPACE::ServiceCategory category);
 
     bool findService();
     void clearServiceItemDate();
@@ -76,8 +80,8 @@ private:
     QMap<QString, DCC_PRIVACY_NAMESPACE::ServiceCategory> m_serviceToCategory;
     QList<DCC_PRIVACY_NAMESPACE::DATE> m_moduleInfo;
 
-    QList<ServiceControlItems*> m_groupService;
-//    QMap<QString, QString> m_appListInconPath; // 应用图标路径
+    QList<ServiceControlItems *> m_groupService;
+    //    QMap<QString, QString> m_appListInconPath; // 应用图标路径
 };
 
 #endif // PRIVACYSECURITYMODEL_H

@@ -19,21 +19,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "securitylevelitem.h"
-#include "widgets/accessibleinterface.h"
+
 #include "pwqualitymanager.h"
+#include "widgets/accessibleinterface.h"
 
-#include <DFontSizeManager>
 #include <DApplicationHelper>
-
+#include <DFontSizeManager>
 #include <DLineEdit>
+
 #include <QFileInfo>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QPainter>
 #include <QSvgRenderer>
 
-#define PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH ":/accounts/icons/dcc_deepin_password_strength_unactive_light_mode.svg"
-#define PASSWORD_LEVEL_ICON_DEEP_MODE_PATH ":/accounts/icons/dcc_deepin_password_strength_unactive_deep_mode.svg"
+#define PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH \
+  ":/accounts/icons/dcc_deepin_password_strength_unactive_light_mode.svg"
+#define PASSWORD_LEVEL_ICON_DEEP_MODE_PATH \
+  ":/accounts/icons/dcc_deepin_password_strength_unactive_deep_mode.svg"
 #define PASSWORD_LEVEL_ICON_LOW_PATH ":/accounts/icons/dcc_deepin_password_strength_low.svg"
 #define PASSWORD_LEVEL_ICON_MIDDLE_PATH ":/accounts/icons/dcc_deepin_password_strength_middle.svg"
 #define PASSWORD_LEVEL_ICON_HIGH_PATH ":/accounts/icons/dcc_deepin_password_strength_high.svg"
@@ -41,6 +44,7 @@
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 SET_FORM_ACCESSIBLE(SecurityLevelItem, "SecurityLevelItem")
+
 SecurityLevelItem::SecurityLevelItem(QWidget *parent)
     : QWidget(parent)
     , m_newPasswdLevelText(new QLabel(this))
@@ -50,9 +54,7 @@ SecurityLevelItem::SecurityLevelItem(QWidget *parent)
     initUi();
 }
 
-SecurityLevelItem::~SecurityLevelItem()
-{
-}
+SecurityLevelItem::~SecurityLevelItem() { }
 
 void SecurityLevelItem::setUser(const QString &userName)
 {
@@ -62,40 +64,48 @@ void SecurityLevelItem::setUser(const QString &userName)
 void SecurityLevelItem::bind(Dtk::Widget::DLineEdit *lineEdit)
 {
     QObject::disconnect(lineEdit, &DLineEdit::textChanged, this, nullptr);
-    QObject::connect(lineEdit, &DLineEdit::textChanged, this, [this, lineEdit](const QString &text) {
-        if (text.isEmpty()) {
-            setLevel(SecurityLevelItem::NoneLevel);
-            lineEdit->setAlert(false);
-            lineEdit->hideAlertMessage();
-            return;
-        }
-        PwqualityManager *pwQualityManager = PwqualityManager::instance();
-        PASSWORD_LEVEL_TYPE level = pwQualityManager->GetNewPassWdLevel(text);
-        PwqualityManager::ERROR_TYPE error = pwQualityManager->verifyPassword(m_userName, text);
+    QObject::connect(lineEdit,
+                     &DLineEdit::textChanged,
+                     this,
+                     [this, lineEdit](const QString &text) {
+                         if (text.isEmpty()) {
+                             setLevel(SecurityLevelItem::NoneLevel);
+                             lineEdit->setAlert(false);
+                             lineEdit->hideAlertMessage();
+                             return;
+                         }
+                         PwqualityManager *pwQualityManager = PwqualityManager::instance();
+                         PASSWORD_LEVEL_TYPE level = pwQualityManager->GetNewPassWdLevel(text);
+                         PwqualityManager::ERROR_TYPE error =
+                                 pwQualityManager->verifyPassword(m_userName, text);
 
-        switch (level) {
-        case PASSWORD_STRENGTH_LEVEL_HIGH:
-            setLevel(SecurityLevelItem::HighLevel);
-            break;
-        case PASSWORD_STRENGTH_LEVEL_MIDDLE:
-            setLevel(SecurityLevelItem::MidLevel);
-            break;
-        case PASSWORD_STRENGTH_LEVEL_LOW:
-            setLevel(SecurityLevelItem::LowLevel);
-            break;
-        default:
-            lineEdit->showAlertMessage(QObject::tr("Error occurred when reading the configuration files of password rules!"));
-            return;
-        }
-        if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
-            lineEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
-            lineEdit->setAlert(true);
-            lineEdit->showAlertMessage(pwQualityManager->getErrorTips(error), lineEdit, 2000);
-        } else {
-            lineEdit->setAlert(false);
-            lineEdit->hideAlertMessage();
-        }
-    });
+                         switch (level) {
+                         case PASSWORD_STRENGTH_LEVEL_HIGH:
+                             setLevel(SecurityLevelItem::HighLevel);
+                             break;
+                         case PASSWORD_STRENGTH_LEVEL_MIDDLE:
+                             setLevel(SecurityLevelItem::MidLevel);
+                             break;
+                         case PASSWORD_STRENGTH_LEVEL_LOW:
+                             setLevel(SecurityLevelItem::LowLevel);
+                             break;
+                         default:
+                             lineEdit->showAlertMessage(
+                                     QObject::tr("Error occurred when reading the configuration "
+                                                 "files of password rules!"));
+                             return;
+                         }
+                         if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+                             lineEdit->lineEdit()->setProperty("_d_dtk_lineedit_opacity", false);
+                             lineEdit->setAlert(true);
+                             lineEdit->showAlertMessage(pwQualityManager->getErrorTips(error),
+                                                        lineEdit,
+                                                        2000);
+                         } else {
+                             lineEdit->setAlert(false);
+                             lineEdit->hideAlertMessage();
+                         }
+                     });
 }
 
 void SecurityLevelItem::setLevel(SecurityLevelItem::Level level)
@@ -146,7 +156,9 @@ void SecurityLevelItem::setLevel(SecurityLevelItem::Level level)
     }
 }
 
-const QPixmap SecurityLevelItem::loadSvgImg(const QString &fileName, const int width, const int hight)
+const QPixmap SecurityLevelItem::loadSvgImg(const QString &fileName,
+                                            const int width,
+                                            const int hight)
 {
     if (!QFileInfo::exists(fileName))
         return QPixmap();
@@ -206,22 +218,35 @@ void SecurityLevelItem::initIcons()
         switch (themeType) {
         case DGuiApplicationHelper::UnknownType:
         case DGuiApplicationHelper::LightType:
-            m_icons[NoneIcon] = loadSvgImg(PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH, qRound(8 * pixelRatio), qRound(4 * pixelRatio));
+            m_icons[NoneIcon] = loadSvgImg(PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH,
+                                           qRound(8 * pixelRatio),
+                                           qRound(4 * pixelRatio));
             break;
         case DGuiApplicationHelper::DarkType:
-            m_icons[NoneIcon] = loadSvgImg(PASSWORD_LEVEL_ICON_DEEP_MODE_PATH, qRound(8 * pixelRatio), qRound(4 * pixelRatio));
+            m_icons[NoneIcon] = loadSvgImg(PASSWORD_LEVEL_ICON_DEEP_MODE_PATH,
+                                           qRound(8 * pixelRatio),
+                                           qRound(4 * pixelRatio));
             break;
         }
     };
 
     onThemeTypeChanged(DGuiApplicationHelper::instance()->themeType());
 
-    m_icons[RedIcon] = loadSvgImg(PASSWORD_LEVEL_ICON_LOW_PATH, qRound(8 * pixelRatio), qRound(4 * pixelRatio));
-    m_icons[YellowIcon] = loadSvgImg(PASSWORD_LEVEL_ICON_MIDDLE_PATH, qRound(8 * pixelRatio), qRound(4 * pixelRatio));
-    m_icons[GreenIcon] = loadSvgImg(PASSWORD_LEVEL_ICON_HIGH_PATH, qRound(8 * pixelRatio), qRound(4 * pixelRatio));
+    m_icons[RedIcon] = loadSvgImg(PASSWORD_LEVEL_ICON_LOW_PATH,
+                                  qRound(8 * pixelRatio),
+                                  qRound(4 * pixelRatio));
+    m_icons[YellowIcon] = loadSvgImg(PASSWORD_LEVEL_ICON_MIDDLE_PATH,
+                                     qRound(8 * pixelRatio),
+                                     qRound(4 * pixelRatio));
+    m_icons[GreenIcon] = loadSvgImg(PASSWORD_LEVEL_ICON_HIGH_PATH,
+                                    qRound(8 * pixelRatio),
+                                    qRound(4 * pixelRatio));
 
-    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, [=](DGuiApplicationHelper::ColorType themeType) {
-        onThemeTypeChanged(themeType);
-        setLevel(m_level);
-    });
+    connect(DGuiApplicationHelper::instance(),
+            &DGuiApplicationHelper::themeTypeChanged,
+            this,
+            [=](DGuiApplicationHelper::ColorType themeType) {
+                onThemeTypeChanged(themeType);
+                setLevel(m_level);
+            });
 }

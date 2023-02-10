@@ -20,15 +20,17 @@
  */
 
 #include "adapterv20tov23plugin.h"
+
 #include "adapterv20tov23module.h"
-#include "moduleinterface.h"
 #include "frameproxyv20.h"
+#include "moduleinterface.h"
 #include "pluginmanagerv20.h"
+
+#include <qdbusconnection.h>
+#include <qdebug.h>
 
 #include <QEvent>
 #include <QTimer>
-#include <qdbusconnection.h>
-#include <qdebug.h>
 
 AdapterV20toV23Root::AdapterV20toV23Root(QObject *parent)
     : ModuleObject("adapterV20toV23", QString(), parent)
@@ -80,7 +82,11 @@ void AdapterV20toV23Root::timerTask()
     case GetPaths: // 获取插件路径，并完成一些初始化
         m_root->removeChild(this);
         connect(m_root, &ModuleObject::destroyed, this, &AdapterV20toV23Root::deleteLater);
-        connect(m_root, &ModuleObject::insertedChild, this, &AdapterV20toV23Root::pushModule, Qt::QueuedConnection);
+        connect(m_root,
+                &ModuleObject::insertedChild,
+                this,
+                &AdapterV20toV23Root::pushModule,
+                Qt::QueuedConnection);
         m_prameProxy = new FrameProxyV20(this);
         m_prameProxy->setRootModule(m_root);
         m_pluginManagerV20 = new PluginManagerV20();
@@ -129,9 +135,11 @@ void AdapterV20toV23Root::insertModule(bool append)
         QString follow = module->follow();
         ModuleObject *root = m_root;
         if (path != "mainwindow") {
-            auto it = std::find_if(m_root->childrens().begin(), m_root->childrens().end(), [path](auto &&child) {
-                return child->name() == path;
-            });
+            auto it = std::find_if(m_root->childrens().begin(),
+                                   m_root->childrens().end(),
+                                   [path](auto &&child) {
+                                       return child->name() == path;
+                                   });
 
             if (it == m_root->childrens().end()) {
                 if (append) {
@@ -182,9 +190,7 @@ AdapterV20toV23Plugin::AdapterV20toV23Plugin(QObject *parent)
 {
 }
 
-AdapterV20toV23Plugin::~AdapterV20toV23Plugin()
-{
-}
+AdapterV20toV23Plugin::~AdapterV20toV23Plugin() { }
 
 QString AdapterV20toV23Plugin::name() const
 {

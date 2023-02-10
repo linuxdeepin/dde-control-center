@@ -217,12 +217,14 @@ void PowerModel::setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode)
     }
 }
 
-void PowerModel::setPowerSavingModeLowerBrightnessThreshold(uint dPowerSavingModeLowerBrightnessThreshold)
+void PowerModel::setPowerSavingModeLowerBrightnessThreshold(
+        uint dPowerSavingModeLowerBrightnessThreshold)
 {
     if (dPowerSavingModeLowerBrightnessThreshold != m_dPowerSavingModeLowerBrightnessThreshold) {
         m_dPowerSavingModeLowerBrightnessThreshold = dPowerSavingModeLowerBrightnessThreshold;
 
-        Q_EMIT powerSavingModeLowerBrightnessThresholdChanged(dPowerSavingModeLowerBrightnessThreshold);
+        Q_EMIT powerSavingModeLowerBrightnessThresholdChanged(
+                dPowerSavingModeLowerBrightnessThreshold);
     }
 }
 

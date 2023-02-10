@@ -31,7 +31,6 @@
 
 #include <QObject>
 
-
 namespace DCC_NAMESPACE {
 class MouseWorker : public QObject
 {
@@ -104,8 +103,6 @@ private:
 private:
     MouseModel *m_model;
 };
-}
-
-
+} // namespace DCC_NAMESPACE
 
 #endif // MOUSEWORKER_H

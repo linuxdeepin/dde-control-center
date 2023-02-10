@@ -24,9 +24,8 @@
 
 #include "interface/namespace.h"
 
-#include <QWidget>
 #include <QLabel>
-
+#include <QWidget>
 
 namespace DCC_NAMESPACE {
 
@@ -43,4 +42,4 @@ private:
     QLabel *m_body;
 };
 
-}
+} // namespace DCC_NAMESPACE

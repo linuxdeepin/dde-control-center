@@ -28,16 +28,16 @@
 
 #include "math.h"
 
-namespace DCC_NAMESPACE{
+namespace DCC_NAMESPACE {
 
 static QString formatCap(qulonglong cap, const int size = 1024, quint8 precision = 1)
 {
-    static QStringList type = {" B", " KB", " MB", " GB", " TB"};
+    static QStringList type = { " B", " KB", " MB", " GB", " TB" };
     qulonglong lc = cap;
     double dc = cap;
     double ds = size;
 
-    for(int p = 0; p < type.count(); ++p) {
+    for (int p = 0; p < type.count(); ++p) {
         if (cap < pow(size, p + 1) || p == type.count() - 1) {
             if (!precision) {
 #ifdef __sw_64__
@@ -59,20 +59,20 @@ SystemInfoModel::SystemInfoModel(QObject *parent)
     , m_type(64)
     , m_licenseState(ActiveState::Unauthorized)
 {
-
 }
 
-void SystemInfoModel::setProductName(const QString& name)
+void SystemInfoModel::setProductName(const QString &name)
 {
-    if(m_productName == name)
+    if (m_productName == name)
         return;
 
     m_productName = name;
     Q_EMIT productNameChanged(m_productName);
 }
-void SystemInfoModel::setVersionNumber(const QString& number)
+
+void SystemInfoModel::setVersionNumber(const QString &number)
 {
-    if(m_versionNumber == number)
+    if (m_versionNumber == number)
         return;
 
     m_versionNumber = number;
@@ -81,7 +81,7 @@ void SystemInfoModel::setVersionNumber(const QString& number)
 
 void SystemInfoModel::setVersion(const QString &version)
 {
-    if(m_version == version)
+    if (m_version == version)
         return;
 
     m_version = version;
@@ -90,8 +90,8 @@ void SystemInfoModel::setVersion(const QString &version)
 
 void SystemInfoModel::setType(qlonglong type)
 {
-    if(m_type == QString("%1").arg(type))
-        return ;
+    if (m_type == QString("%1").arg(type))
+        return;
 
     m_type = QString("%1").arg(type);
     typeChanged(m_type);
@@ -99,7 +99,7 @@ void SystemInfoModel::setType(qlonglong type)
 
 void SystemInfoModel::setProcessor(const QString &processor)
 {
-    if(m_processor == processor)
+    if (m_processor == processor)
         return;
 
     m_processor = processor;
@@ -116,14 +116,13 @@ void SystemInfoModel::setMemory(qulonglong totalMemory, qulonglong installedMemo
 {
     QString mem_device_size = formatCap(installedMemory, 1024, 0);
     QString mem = formatCap(totalMemory);
-    if(m_memory == mem)
-        return ;
+    if (m_memory == mem)
+        return;
 
     m_memory = mem;
     m_memory = QString("%1 (%2 %3)").arg(mem_device_size, mem, tr("available"));
     memoryChanged(m_memory);
 }
-
 
 void SystemInfoModel::setKernel(const QString &kernel)
 {
@@ -142,4 +141,4 @@ void SystemInfoModel::setLicenseState(DCC_NAMESPACE::ActiveState state)
     }
 }
 
-}
+} // namespace DCC_NAMESPACE

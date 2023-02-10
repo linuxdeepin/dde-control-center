@@ -21,6 +21,7 @@
 #pragma once
 
 #include "interface/namespace.h"
+
 #include <QObject>
 
 namespace DCC_NAMESPACE {
@@ -45,8 +46,9 @@ public:
     void setSelected(bool selected);
     bool selected() const;
 
-    bool operator ==(const MetaData &md) const;
-    bool operator >(const MetaData &md) const;
+    bool operator==(const MetaData &md) const;
+    bool operator>(const MetaData &md) const;
+
 private:
     QString m_key;
     QString m_text;
@@ -58,5 +60,5 @@ private:
 
 QDebug &operator<<(QDebug dbg, const MetaData &md);
 
-}
+} // namespace DCC_NAMESPACE
 Q_DECLARE_METATYPE(DCC_NAMESPACE::MetaData)

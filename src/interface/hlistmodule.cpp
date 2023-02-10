@@ -1,10 +1,12 @@
 #include "hlistmodule.h"
+
 #include "moduledatamodel.h"
+#include "pagemodule.h"
 #include "tabitemdelegate.h"
 #include "tabview.h"
-#include "pagemodule.h"
 
 #include <DFrame>
+
 #include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
@@ -32,7 +34,7 @@ public:
         }
         if (child) {
             PageModule *module = qobject_cast<PageModule *>(child);
-            if(module) {
+            if (module) {
                 module->setContentsMargins(60, 0, 60, 0);
                 module->setMaximumWidth(DCC_PAGEMODULE_MAX_WIDTH + 60 * 2);
             }
@@ -48,16 +50,21 @@ public:
         QWidget *parentWidget = new QWidget();
         m_layout = new QVBoxLayout(parentWidget);
         parentWidget->setLayout(m_layout);
-        QObject::connect(parentWidget, &QObject::destroyed, m_layout, [this]() { m_layout = nullptr; });
+        QObject::connect(parentWidget, &QObject::destroyed, m_layout, [this]() {
+            m_layout = nullptr;
+        });
 
         m_view = new TabView(parentWidget);
 
         TabItemDelegate *delegate = new TabItemDelegate(m_view);
         ModuleDataModel *model = new ModuleDataModel(m_view);
         model->setModuleObject(q);
-        QObject::connect(q, &HListModule::currentModuleChanged, m_layout, [this](ModuleObject *child) {
-            onCurrentModuleChanged(child);
-        });
+        QObject::connect(q,
+                         &HListModule::currentModuleChanged,
+                         m_layout,
+                         [this](ModuleObject *child) {
+                             onCurrentModuleChanged(child);
+                         });
         m_view->setModel(model);
         m_view->setItemDelegate(delegate);
 
@@ -83,7 +90,7 @@ private:
     TabView *m_view;
     QVBoxLayout *m_layout;
 };
-}
+} // namespace DCC_NAMESPACE
 
 HListModule::HListModule(QObject *parent)
     : ModuleObject(parent)
@@ -103,45 +110,65 @@ HListModule::HListModule(const QString &name, const QStringList &contentText, QO
 {
 }
 
-HListModule::HListModule(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent)
+HListModule::HListModule(const QString &name,
+                         const QString &displayName,
+                         const QStringList &contentText,
+                         QObject *parent)
     : ModuleObject(name, displayName, contentText, parent)
     , DCC_INIT_PRIVATE(HListModule)
 {
 }
 
-HListModule::HListModule(const QString &name, const QString &displayName, const QVariant &icon, QObject *parent)
+HListModule::HListModule(const QString &name,
+                         const QString &displayName,
+                         const QVariant &icon,
+                         QObject *parent)
     : ModuleObject(name, displayName, icon, parent)
     , DCC_INIT_PRIVATE(HListModule)
 {
 }
 
-HListModule::HListModule(const QString &name, const QString &displayName, const QString &description, QObject *parent)
+HListModule::HListModule(const QString &name,
+                         const QString &displayName,
+                         const QString &description,
+                         QObject *parent)
     : ModuleObject(name, displayName, description, parent)
     , DCC_INIT_PRIVATE(HListModule)
 {
 }
 
-HListModule::HListModule(const QString &name, const QString &displayName, const QString &description, const QVariant &icon, QObject *parent)
+HListModule::HListModule(const QString &name,
+                         const QString &displayName,
+                         const QString &description,
+                         const QVariant &icon,
+                         QObject *parent)
     : ModuleObject(name, displayName, description, icon, parent)
     , DCC_INIT_PRIVATE(HListModule)
 {
 }
 
-HListModule::HListModule(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent)
+HListModule::HListModule(const QString &name,
+                         const QString &displayName,
+                         const QString &description,
+                         const QIcon &icon,
+                         QObject *parent)
     : ModuleObject(name, displayName, description, icon, parent)
     , DCC_INIT_PRIVATE(HListModule)
 {
 }
 
-HListModule::HListModule(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent)
+HListModule::HListModule(const QString &name,
+                         const QString &displayName,
+                         const QString &description,
+                         const QStringList &contentText,
+                         const QVariant &icon,
+                         QObject *parent)
     : ModuleObject(name, displayName, description, contentText, icon, parent)
     , DCC_INIT_PRIVATE(HListModule)
 {
 }
 
-HListModule::~HListModule()
-{
-}
+HListModule::~HListModule() { }
 
 QWidget *HListModule::page()
 {

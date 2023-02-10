@@ -22,8 +22,9 @@
 #ifndef MACHINE_H
 #define MACHINE_H
 
-#include <QObject>
 #include "interface/namespace.h"
+
+#include <QObject>
 
 namespace DCC_NAMESPACE {
 
@@ -34,35 +35,42 @@ public:
     explicit Machine(QObject *parent = 0);
     ~Machine();
 
-    void setPath(const QString& path);
+    void setPath(const QString &path);
+
     inline QString Path() { return m_path; }
 
     inline const QString Name() { return m_name; }
+
     inline const QString IP() { return m_IP; }
+
     inline const bool Connected() { return m_connected; }
+
     inline const bool deviceSharing() { return m_deviceSharing; }
+
     inline const bool isHistory() { return m_isHistoryDev; }
+
     inline const QString UUID() { return m_UUID; }
+
     inline const quint16 direction() { return m_direction; }
 
 public Q_SLOTS:
-    void setName(const QString& name);
-    void setIP(const QString& ip);
+    void setName(const QString &name);
+    void setIP(const QString &ip);
     void setConnected(const bool connected);
     void setDeviceSharing(const bool deviceSharing);
     void setDisconnectStatus(bool status);
     void setHistoryStates(bool isHistory);
-    void setUUID(const QString& uuid);
+    void setUUID(const QString &uuid);
     void setDirection(const quint16 dir);
 
 Q_SIGNALS:
     void connectedChanged(bool connected);
-    void nameChanged(const QString& name);
-    void IPChanged(const QString& Ip);
+    void nameChanged(const QString &name);
+    void IPChanged(const QString &Ip);
     void deviceSharingChanged(bool deviceSharing);
     void disconnnectStatusChanged(bool status);
     void historyStatusChanged(bool status);
-    void directionChanged(const quint16& dir);
+    void directionChanged(const quint16 &dir);
 
 private:
     QString m_path;
@@ -76,5 +84,5 @@ private:
     quint16 m_direction;
 };
 
-}
+} // namespace DCC_NAMESPACE
 #endif // MACHINE_H

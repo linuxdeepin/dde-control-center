@@ -30,6 +30,7 @@
 #include "gtest/gtest.h"
 
 using namespace DCC_NAMESPACE;
+
 class Tst_TitleButtonItem : public testing::Test
 {
     void SetUp() override;

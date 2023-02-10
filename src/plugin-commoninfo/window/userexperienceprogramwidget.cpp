@@ -20,20 +20,22 @@
  */
 
 #include "userexperienceprogramwidget.h"
-#include "src/plugin-commoninfo/operation/commoninfomodel.h"
+
 #include "src/frame/utils.h"
+#include "src/plugin-commoninfo/operation/commoninfomodel.h"
 #include "widgets/switchwidget.h"
 
-#include <DTipLabel>
 #include <DSysInfo>
+#include <DTipLabel>
 
 #include <QDesktopServices>
+#include <QTimer>
 #include <QUrl>
 #include <QVBoxLayout>
-#include <QTimer>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
+
 DCORE_USE_NAMESPACE
 UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     : QWidget(parent)
@@ -48,17 +50,24 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     m_joinUeProgram->setTitle(tr("Join User Experience Program"));
 
     QString text = "";
-    QString http = IS_COMMUNITY_SYSTEM ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/privacy-en");
+    QString http = IS_COMMUNITY_SYSTEM ? tr("https://www.deepin.org/en/agreement/privacy/")
+                                       : tr("https://www.uniontech.com/agreement/privacy-en");
     if (IS_COMMUNITY_SYSTEM) {
-        text = tr("<p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
-                  "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
-                  "For details, please refer to Deepin Privacy Policy (<a href=\"%1\"> %1</a>).</p>")
-               .arg(http);
+        text = tr("<p>Joining User Experience Program means that you grant and authorize us to "
+                  "collect and use the information of your device, system and applications. "
+                  "If you refuse our collection and use of the aforementioned information, do not "
+                  "join User Experience Program. "
+                  "For details, please refer to Deepin Privacy Policy (<a href=\"%1\"> "
+                  "%1</a>).</p>")
+                       .arg(http);
     } else {
-        text = tr("<p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
-                  "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
-                  "To know more about the management of your data, please refer to UnionTech OS Privacy Policy (<a href=\"%1\"> %1</a>).</p>")
-               .arg(http);
+        text = tr("<p>Joining User Experience Program means that you grant and authorize us to "
+                  "collect and use the information of your device, system and applications. "
+                  "If you refuse our collection and use of the aforementioned information, do not "
+                  "join User Experience Program. "
+                  "To know more about the management of your data, please refer to UnionTech OS "
+                  "Privacy Policy (<a href=\"%1\"> %1</a>).</p>")
+                       .arg(http);
     }
 
     DTipLabel *label = new DTipLabel(text);
@@ -82,7 +91,7 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
 
     connect(m_joinUeProgram, &SwitchWidget::checkedChanged, this, [this](bool state) {
         m_joinUeProgram->setEnabled(false);
-        QTimer::singleShot(0, this, [ = ] {
+        QTimer::singleShot(0, this, [=] {
             this->enableUeProgram(state);
         });
     });

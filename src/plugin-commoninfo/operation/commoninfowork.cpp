@@ -20,37 +20,39 @@
  */
 
 #include "commoninfowork.h"
+
 #include "commoninfomodel.h"
 #include "commoninfoproxy.h"
 #include "widgets/utils.h"
 
-#include <signal.h>
-#include <QStandardPaths>
-#include <QDebug>
 #include <QDateTime>
+#include <QDebug>
 #include <QProcess>
+#include <QStandardPaths>
+
+#include <signal.h>
 
 using namespace DCC_NAMESPACE;
 
 const QString &GRUB_EDIT_AUTH_ACCOUNT("root");
 
-const QStringList &SYSTEM_LOCAL_LIST {
+const QStringList &SYSTEM_LOCAL_LIST{
     "zh_CN",
     "zh_HK",
     "zh_TW",
-    "ug_CN",    // 维语
-    "bo_CN"     // 藏语
+    "ug_CN", // 维语
+    "bo_CN"  // 藏语
 };
 
-const QMap<QString, QString> &SYSTEM_LOCAL_MAP {
-    {"zh_CN", "zh_CN"},
-    {"zh_HK", "zh_HK"},
-    {"zh_TW", "zh_TW"},
+const QMap<QString, QString> &SYSTEM_LOCAL_MAP{
+    { "zh_CN", "zh_CN" },
+    { "zh_HK", "zh_HK" },
+    { "zh_TW", "zh_TW" },
 };
 
 static const QString getLicensePath(const QString &filePath, const QString &type)
 {
-    const QString& locale { QLocale::system().name() };
+    const QString &locale{ QLocale::system().name() };
     QString lang = SYSTEM_LOCAL_LIST.contains(locale) ? locale : "en_US";
 
     QString path = QString(filePath).arg(lang).arg(type);
@@ -58,22 +60,31 @@ static const QString getLicensePath(const QString &filePath, const QString &type
         return path;
     else
         return QString(filePath).arg("en_US").arg(type);
-
 }
 
 static QString getUserExpContent()
 {
-    QString userExpContent = getLicensePath("/usr/share/protocol/userexperience-agreement/User-Experience-Program-License-Agreement-CN-%1.md", "");
+    QString userExpContent = getLicensePath("/usr/share/protocol/userexperience-agreement/"
+                                            "User-Experience-Program-License-Agreement-CN-%1.md",
+                                            "");
     if (DSysInfo::isCommunityEdition()) {
-        userExpContent = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement-Community/User-Experience-Program-License-Agreement-CN-%1.md", "");
+        userExpContent = getLicensePath("/usr/share/deepin-deepinid-client/privacy/"
+                                        "User-Experience-Program-License-Agreement-Community/"
+                                        "User-Experience-Program-License-Agreement-CN-%1.md",
+                                        "");
         return userExpContent;
     }
     QFile newfile(userExpContent);
     if (false == newfile.exists()) {
-        userExpContent = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement/User-Experience-Program-License-Agreement-CN-%1.md", "");
+        userExpContent = getLicensePath("/usr/share/deepin-deepinid-client/privacy/"
+                                        "User-Experience-Program-License-Agreement/"
+                                        "User-Experience-Program-License-Agreement-CN-%1.md",
+                                        "");
         QFile file(userExpContent);
         if (false == file.exists()) {
-            userExpContent = getLicensePath("/usr/share/deepin-deepinid-client/privacy/User-Experience-Program-License-Agreement-%1.md", "");
+            userExpContent = getLicensePath("/usr/share/deepin-deepinid-client/privacy/"
+                                            "User-Experience-Program-License-Agreement-%1.md",
+                                            "");
         }
     }
     return userExpContent;
@@ -81,7 +92,7 @@ static QString getUserExpContent()
 
 static const QString getDevelopModeLicense(const QString &filePath, const QString &type)
 {
-    const QString& locale { QLocale::system().name() };
+    const QString &locale{ QLocale::system().name() };
     QString lang;
     if (SYSTEM_LOCAL_MAP.keys().contains(locale)) {
         lang = { SYSTEM_LOCAL_MAP.value(QLocale::system().name(), "en_US") };
@@ -109,32 +120,59 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     , m_title("")
     , m_content("")
 {
-    //监听开发者在线认证失败的错误接口信息
-    connect(m_commonInfoProxy, &CommonInfoProxy::DeepinIdError, this, &CommonInfoWork::deepinIdErrorSlot);
-    connect(m_commonInfoProxy, &CommonInfoProxy::IsLoginChanged, m_commomModel, &CommonInfoModel::setIsLogin);
-    connect(m_commonInfoProxy, &CommonInfoProxy::DeviceUnlockedChanged, m_commomModel, &CommonInfoModel::setDeveloperModeState);
-    connect(m_commonInfoProxy, &CommonInfoProxy::DefaultEntryChanged, m_commomModel, &CommonInfoModel::setDefaultEntry);
-    connect(m_commonInfoProxy, &CommonInfoProxy::EnableThemeChanged, m_commomModel, &CommonInfoModel::setThemeEnabled);
-    connect(m_commonInfoProxy, &CommonInfoProxy::TimeoutChanged, m_commomModel, [this] (const uint timeout) {
-        m_commomModel->setBootDelay(timeout > 1);
-    });
-    connect(m_commonInfoProxy, &CommonInfoProxy::UpdatingChanged, m_commomModel, &CommonInfoModel::setUpdating);
-    connect(m_commonInfoProxy, &CommonInfoProxy::BackgroundChanged, m_commomModel, [this] () {
+    // 监听开发者在线认证失败的错误接口信息
+    connect(m_commonInfoProxy,
+            &CommonInfoProxy::DeepinIdError,
+            this,
+            &CommonInfoWork::deepinIdErrorSlot);
+    connect(m_commonInfoProxy,
+            &CommonInfoProxy::IsLoginChanged,
+            m_commomModel,
+            &CommonInfoModel::setIsLogin);
+    connect(m_commonInfoProxy,
+            &CommonInfoProxy::DeviceUnlockedChanged,
+            m_commomModel,
+            &CommonInfoModel::setDeveloperModeState);
+    connect(m_commonInfoProxy,
+            &CommonInfoProxy::DefaultEntryChanged,
+            m_commomModel,
+            &CommonInfoModel::setDefaultEntry);
+    connect(m_commonInfoProxy,
+            &CommonInfoProxy::EnableThemeChanged,
+            m_commomModel,
+            &CommonInfoModel::setThemeEnabled);
+    connect(m_commonInfoProxy,
+            &CommonInfoProxy::TimeoutChanged,
+            m_commomModel,
+            [this](const uint timeout) {
+                m_commomModel->setBootDelay(timeout > 1);
+            });
+    connect(m_commonInfoProxy,
+            &CommonInfoProxy::UpdatingChanged,
+            m_commomModel,
+            &CommonInfoModel::setUpdating);
+    connect(m_commonInfoProxy, &CommonInfoProxy::BackgroundChanged, m_commomModel, [this]() {
         QPixmap pix = QPixmap(m_commonInfoProxy->Background());
         m_commomModel->setBackground(pix);
     });
-    connect(m_commonInfoProxy, &CommonInfoProxy::EnabledUsersChanged, m_commomModel, [this] (const QStringList &users) {
-        m_commomModel->setGrubEditAuthEnabled(users.contains(GRUB_EDIT_AUTH_ACCOUNT));
-    });
-    connect(m_commonInfoProxy, &CommonInfoProxy::AuthorizationStateChanged, m_commomModel, [this] (const int code) {
-        m_commomModel->setActivation(code == 1 || code == 3);
-    });
+    connect(m_commonInfoProxy,
+            &CommonInfoProxy::EnabledUsersChanged,
+            m_commomModel,
+            [this](const QStringList &users) {
+                m_commomModel->setGrubEditAuthEnabled(users.contains(GRUB_EDIT_AUTH_ACCOUNT));
+            });
+    connect(m_commonInfoProxy,
+            &CommonInfoProxy::AuthorizationStateChanged,
+            m_commomModel,
+            [this](const int code) {
+                m_commomModel->setActivation(code == 1 || code == 3);
+            });
 
-    connect(m_commonInfoProxy, &CommonInfoProxy::resetEnableTheme, this, [=](){
+    connect(m_commonInfoProxy, &CommonInfoProxy::resetEnableTheme, this, [=]() {
         m_commomModel->themeEnabledChanged(m_commomModel->themeEnabled());
     });
 
-    connect(m_commonInfoProxy, &CommonInfoProxy::resetGrubEditAuthEnabled, this, [=](){
+    connect(m_commonInfoProxy, &CommonInfoProxy::resetGrubEditAuthEnabled, this, [=]() {
         m_commomModel->grubEditAuthEnabledChanged(m_commomModel->grubEditAuthEnabled());
     });
 }
@@ -143,7 +181,7 @@ CommonInfoWork::~CommonInfoWork()
 {
     qDebug() << "~CommonInfoWork";
     if (m_process) {
-        //如果控制中心被强制关闭，需要用kill来杀掉没有被关闭的窗口
+        // 如果控制中心被强制关闭，需要用kill来杀掉没有被关闭的窗口
         kill(static_cast<__pid_t>(m_process->processId()), 15);
         m_process->deleteLater();
         m_process = nullptr;
@@ -157,7 +195,8 @@ void CommonInfoWork::active()
     m_commomModel->setDeveloperModeState(m_commonInfoProxy->DeviceUnlocked());
     m_commomModel->setThemeEnabled(m_commonInfoProxy->EnableTheme());
     m_commomModel->setBootDelay(m_commonInfoProxy->Timeout() > 1);
-    m_commomModel->setGrubEditAuthEnabled(m_commonInfoProxy->EnabledUsers().contains(GRUB_EDIT_AUTH_ACCOUNT));
+    m_commomModel->setGrubEditAuthEnabled(
+            m_commonInfoProxy->EnabledUsers().contains(GRUB_EDIT_AUTH_ACCOUNT));
     m_commomModel->setUpdating(m_commonInfoProxy->Updating());
     auto AuthorizationState = m_commonInfoProxy->AuthorizationState();
     m_commomModel->setActivation(AuthorizationState == 1 || AuthorizationState == 3);
@@ -171,7 +210,7 @@ void CommonInfoWork::active()
 
 void CommonInfoWork::setBootDelay(bool value)
 {
-    qDebug()<<" CommonInfoWork::setBootDelay  value =  "<< value;
+    qDebug() << " CommonInfoWork::setBootDelay  value =  " << value;
     m_commonInfoProxy->setTimeout(value ? 5 : 1);
 }
 
@@ -219,20 +258,27 @@ void CommonInfoWork::setUeProgram(bool enabled)
         if (!SYSTEM_LOCAL_LIST.contains(QLocale::system().name()))
             pathType = "-e";
         m_process->start("dde-license-dialog",
-                                      QStringList() << "-t" << m_title << pathType << m_content << "-a" << allowContent);
-        qDebug()<<" Deliver content QStringList() = "<<"dde-license-dialog"
-                                                     << "-t" << m_title << pathType << m_content << "-a" << allowContent;
-        connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, [=](int result) {
-            if (96 == result) {
-                m_commonInfoProxy->Enable(enabled);
-                m_commomModel->setUeProgram(enabled);
-            } else {
-                m_commomModel->setUeProgram(!enabled);
-                qInfo() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
-            }
-            m_process->deleteLater();
-            m_process = nullptr;
-        });
+                         QStringList() << "-t" << m_title << pathType << m_content << "-a"
+                                       << allowContent);
+        qDebug() << " Deliver content QStringList() = "
+                 << "dde-license-dialog"
+                 << "-t" << m_title << pathType << m_content << "-a" << allowContent;
+        connect(m_process,
+                static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
+                this,
+                [=](int result) {
+                    if (96 == result) {
+                        m_commonInfoProxy->Enable(enabled);
+                        m_commomModel->setUeProgram(enabled);
+                    } else {
+                        m_commomModel->setUeProgram(!enabled);
+                        qInfo() << QString("On %1, users cancel the switch to join the user "
+                                           "experience program!")
+                                           .arg(current_date);
+                    }
+                    m_process->deleteLater();
+                    m_process = nullptr;
+                });
     } else {
         m_commonInfoProxy->Enable(enabled);
         m_commomModel->setUeProgram(enabled);
@@ -258,8 +304,11 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
     QString allowContent(tr("Agree and Request Root Access"));
 
     // license内容
-    QString content = getDevelopModeLicense(":/systeminfo/license/deepin-end-user-license-agreement_developer_community_%1.txt", "");
-    QString contentPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation).append("tmpDeveloperMode.txt");// 临时存储路径
+    QString content = getDevelopModeLicense(
+            ":/systeminfo/license/deepin-end-user-license-agreement_developer_community_%1.txt",
+            "");
+    QString contentPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)
+                                  .append("tmpDeveloperMode.txt"); // 临时存储路径
     QFile *contentFile = new QFile(contentPath);
     // 如果文件不存在，则创建文件
     if (!contentFile->exists()) {
@@ -274,24 +323,31 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
 
     auto pathType = "-c";
     QStringList sl;
-    sl << "zh_CN" << "zh_TW";
+    sl << "zh_CN"
+       << "zh_TW";
     if (!sl.contains(QLocale::system().name()))
         pathType = "-e";
 
     m_process = new QProcess(this);
-    m_process->start("dde-license-dialog", QStringList() << "-t" << title << pathType << contentPath << "-a" << allowContent);
+    m_process->start("dde-license-dialog",
+                     QStringList()
+                             << "-t" << title << pathType << contentPath << "-a" << allowContent);
 
-    connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, [=](int result) {
-        if (96 == result) {
-            m_commonInfoProxy->UnlockDevice();
-        } else {
-            qInfo() << QString("On %1, Remove developer mode Disclaimer!").arg(current_date);
-        }
-        contentFile->remove();
-        contentFile->deleteLater();
-        m_process->deleteLater();
-        m_process = nullptr;
-    });
+    connect(m_process,
+            static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
+            this,
+            [=](int result) {
+                if (96 == result) {
+                    m_commonInfoProxy->UnlockDevice();
+                } else {
+                    qInfo() << QString("On %1, Remove developer mode Disclaimer!")
+                                       .arg(current_date);
+                }
+                contentFile->remove();
+                contentFile->deleteLater();
+                m_process->deleteLater();
+                m_process = nullptr;
+            });
 }
 
 void CommonInfoWork::login()
@@ -301,9 +357,10 @@ void CommonInfoWork::login()
 
 QString CommonInfoWork::passwdEncrypt(const QString &password)
 {
-    const QString &pbkdf2_cmd(R"(echo -e "%1\n%2\n"| grub-mkpasswd-pbkdf2 | grep PBKDF2 | awk '{print $4}')");
+    const QString &pbkdf2_cmd(
+            R"(echo -e "%1\n%2\n"| grub-mkpasswd-pbkdf2 | grep PBKDF2 | awk '{print $4}')");
     QProcess pbkdf2;
-    pbkdf2.start("bash", {"-c", pbkdf2_cmd.arg(password).arg(password)});
+    pbkdf2.start("bash", { "-c", pbkdf2_cmd.arg(password).arg(password) });
     pbkdf2.waitForFinished();
     QString pwdOut = pbkdf2.readAllStandardOutput();
     pwdOut[pwdOut.length() - 1] = '\0';
@@ -314,7 +371,7 @@ void CommonInfoWork::deepinIdErrorSlot(int code, const QString &msg)
 {
     Q_UNUSED(code);
 
-    //初始化Notify 七个参数
+    // 初始化Notify 七个参数
     QString in0("dde-control-center");
     uint in1 = 101;
     QString in2("preferences-system");
@@ -324,7 +381,8 @@ void CommonInfoWork::deepinIdErrorSlot(int code, const QString &msg)
     QVariantMap in6;
     int in7 = 5000;
 
-    //截取error接口 1001:未导入证书 1002:未登录 1003:无法获取硬件信息 1004:网络异常 1005:证书加载失败 1006:签名验证失败 1007:文件保存失败
+    // 截取error接口 1001:未导入证书 1002:未登录 1003:无法获取硬件信息 1004:网络异常
+    // 1005:证书加载失败 1006:签名验证失败 1007:文件保存失败
     QString msgcode = msg;
     msgcode = msgcode.split(":").at(0);
     if (msgcode == "1001") {
@@ -342,6 +400,6 @@ void CommonInfoWork::deepinIdErrorSlot(int code, const QString &msg)
     } else if (msgcode == "1007") {
         in3 = tr("Failed to get root access");
     }
-    //系统通知 认证失败 无法进入开发模式
+    // 系统通知 认证失败 无法进入开发模式
     m_commonInfoProxy->Notify(in0, in1, in2, in3, in4, in5, in6, in7);
 }

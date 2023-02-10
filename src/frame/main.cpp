@@ -23,16 +23,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "accessible.h"
 #include "controlcenterdbusadaptor.h"
 #include "mainwindow.h"
-#include "accessible.h"
 #include "utils.h"
 
 #include <DApplication>
+#include <DApplicationHelper>
+#include <DApplicationSettings>
 #include <DDBusSender>
 #include <DLog>
-#include <DApplicationSettings>
-#include <DApplicationHelper>
 
 #include <QIcon>
 #include <QScreen>
@@ -47,9 +47,15 @@ int main(int argc, char *argv[])
     app->setApplicationName("dde-control-center");
 
     // take care of command line options
-    QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
-    QCommandLineOption toggleOption(QStringList() << "t" << "toggle", "toggle control center visible.");
-    QCommandLineOption dbusOption(QStringList() << "d" << "dbus" << "startup on dbus");
+    QCommandLineOption showOption(QStringList() << "s"
+                                                << "show",
+                                  "show control center(hide for default).");
+    QCommandLineOption toggleOption(QStringList() << "t"
+                                                  << "toggle",
+                                    "toggle control center visible.");
+    QCommandLineOption dbusOption(QStringList() << "d"
+                                                << "dbus"
+                                                << "startup on dbus");
     QCommandLineOption pageOption("p", "specified module page", "page");
 
     QCommandLineParser parser;
@@ -67,29 +73,28 @@ int main(int argc, char *argv[])
     if (!app->setSingleInstance(app->applicationName())) {
         if (parser.isSet(toggleOption)) {
             DDBusSender()
-            .service("org.deepin.dde.ControlCenter1")
-            .interface("org.deepin.dde.ControlCenter1")
-            .path("/org/deepin/dde/ControlCenter1")
-            .method("Toggle")
-            .call();
+                    .service("org.deepin.dde.ControlCenter1")
+                    .interface("org.deepin.dde.ControlCenter1")
+                    .path("/org/deepin/dde/ControlCenter1")
+                    .method("Toggle")
+                    .call();
         }
 
         if (!reqPage.isEmpty()) {
             DDBusSender()
-            .service("org.deepin.dde.ControlCenter1")
-            .interface("org.deepin.dde.ControlCenter1")
-            .path("/org/deepin/dde/ControlCenter1")
-            .method("ShowPage")
-            .arg(reqPage)
-            .call();
-        }
-        else if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
+                    .service("org.deepin.dde.ControlCenter1")
+                    .interface("org.deepin.dde.ControlCenter1")
+                    .path("/org/deepin/dde/ControlCenter1")
+                    .method("ShowPage")
+                    .arg(reqPage)
+                    .call();
+        } else if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
             DDBusSender()
-            .service("org.deepin.dde.ControlCenter1")
-            .interface("org.deepin.dde.ControlCenter1")
-            .path("/org/deepin/dde/ControlCenter1")
-            .method("Show")
-            .call();
+                    .service("org.deepin.dde.ControlCenter1")
+                    .interface("org.deepin.dde.ControlCenter1")
+                    .path("/org/deepin/dde/ControlCenter1")
+                    .method("Show")
+                    .call();
         }
 
         return -1;
@@ -101,7 +106,7 @@ int main(int argc, char *argv[])
 #ifdef CVERSION
     QString verstr(CVERSION);
     if (verstr.isEmpty())
-        verstr="6.0";
+        verstr = "6.0";
     app->setApplicationVersion(verstr);
 #else
     app->setApplicationVersion("6.0");
@@ -115,7 +120,9 @@ int main(int argc, char *argv[])
     DApplicationSettings settings;
 
     app->setApplicationDisplayName(QObject::tr("Control Center"));
-    app->setApplicationDescription(QApplication::translate("main", "Control Center provides the options for system settings."));
+    app->setApplicationDescription(
+            QApplication::translate("main",
+                                    "Control Center provides the options for system settings."));
 
     QAccessible::installFactory(accessibleFactory);
 
@@ -125,9 +132,10 @@ int main(int argc, char *argv[])
     DCC_NAMESPACE::DBusControlCenterGrandSearchService grandSearchadAptor(&mw);
 
     QDBusConnection conn = QDBusConnection::sessionBus();
-    if (!conn.registerService("org.deepin.dde.ControlCenter1") ||
-        !conn.registerObject("/org/deepin/dde/ControlCenter1", &mw)) {
-        qDebug() << "dbus service already registered!" << "pid is:" << qApp->applicationPid();
+    if (!conn.registerService("org.deepin.dde.ControlCenter1")
+        || !conn.registerObject("/org/deepin/dde/ControlCenter1", &mw)) {
+        qDebug() << "dbus service already registered!"
+                 << "pid is:" << qApp->applicationPid();
         if (!parser.isSet(showOption))
             return -1;
     }
@@ -141,16 +149,16 @@ int main(int argc, char *argv[])
     }
 
 #ifdef QT_DEBUG
-    //debug时会直接show
-    //发布版本，不会直接显示，为了满足在被dbus调用时，
-    //如果dbus参数错误，不会有任何UI上的变化
+    // debug时会直接show
+    // 发布版本，不会直接显示，为了满足在被dbus调用时，
+    // 如果dbus参数错误，不会有任何UI上的变化
     if (1 == argc) {
         DDBusSender()
-            .service("org.deepin.dde.ControlCenter1")
-            .interface("org.deepin.dde.ControlCenter1")
-            .path("/org/deepin/dde/ControlCenter1")
-            .method("Show")
-            .call();
+                .service("org.deepin.dde.ControlCenter1")
+                .interface("org.deepin.dde.ControlCenter1")
+                .path("/org/deepin/dde/ControlCenter1")
+                .method("Show")
+                .call();
     }
 #endif
 

@@ -22,11 +22,12 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "widgets/face/facewidget.h"
 #include "widgets/face/addfaceinfodialog.h"
 #include "widgets/face/faceinfodialog.h"
+#include "widgets/face/facewidget.h"
 
 #include <DTipLabel>
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -36,6 +37,7 @@ class QScrollArea;
 QT_END_NAMESPACE
 
 class CharaMangerModel;
+
 class FaceidDetailWidget : public QWidget
 {
     Q_OBJECT
@@ -50,14 +52,20 @@ private:
 
 Q_SIGNALS:
     void requestDeleteFaceItem(const int &charaType, const QString &charaName);
-    void requestRenameFaceItem(const int &charaType, const QString& oldFaceName, const QString& newFaceName);
+    void requestRenameFaceItem(const int &charaType,
+                               const QString &oldFaceName,
+                               const QString &newFaceName);
     void noticeEnrollCompleted(const QString &driverName, const int &CharaType);
-    void requestEntollStart(const QString &driverName, const int &charaType, const QString &charaName);
+    void requestEntollStart(const QString &driverName,
+                            const int &charaType,
+                            const QString &charaName);
     void requestStopEnroll();
 
 public Q_SLOTS:
     void onDeviceStatusChanged(bool hasDevice);
-    void onShowAddFaceDialog(const QString &driverName, const int &charaType, const QString &charaName);
+    void onShowAddFaceDialog(const QString &driverName,
+                             const int &charaType,
+                             const QString &charaName);
 
 private Q_SLOTS:
     void onConnectFD(const int &facedf);
@@ -73,4 +81,3 @@ private:
     AddFaceInfoDialog *m_addFaceInfodlg;
     FaceInfoDialog *m_facedlg;
 };
-

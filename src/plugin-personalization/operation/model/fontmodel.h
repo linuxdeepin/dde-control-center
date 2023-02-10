@@ -26,10 +26,9 @@
 #ifndef FONTMODEL_H
 #define FONTMODEL_H
 
-#include <QObject>
-#include <QList>
 #include <QJsonObject>
-
+#include <QList>
+#include <QObject>
 
 class FontModel : public QObject
 {
@@ -38,8 +37,10 @@ public:
     explicit FontModel(QObject *parent = 0);
     void setFontList(const QList<QJsonObject> &list);
     void setFontName(const QString &name);
-    inline const QList<QJsonObject> getFontList() const {return m_list;}
-    inline const QString getFontName() const {return m_fontName;}
+
+    inline const QList<QJsonObject> getFontList() const { return m_list; }
+
+    inline const QString getFontName() const { return m_fontName; }
 
 Q_SIGNALS:
     void listChanged(const QList<QJsonObject> &list);
@@ -50,5 +51,5 @@ private:
     QString m_fontName;
 };
 
-Q_DECLARE_METATYPE(FontModel*)
+Q_DECLARE_METATYPE(FontModel *)
 #endif // FONTMODEL_H

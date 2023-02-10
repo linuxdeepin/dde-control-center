@@ -1,13 +1,14 @@
 #include "facewidget.h"
-#include "widgets/titlelabel.h"
+
 #include "charamangermodel.h"
+#include "widgets/titlelabel.h"
 
 #include <DFontSizeManager>
 
-#include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QScrollArea>
 #include <QEvent>
+#include <QHBoxLayout>
+#include <QScrollArea>
+#include <QVBoxLayout>
 
 #define FACEID_NUM 5
 
@@ -15,7 +16,7 @@ DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE;
 
 FaceWidget::FaceWidget(CharaMangerModel *model, QWidget *parent)
-    : QWidget (parent)
+    : QWidget(parent)
     , m_model(model)
     , m_listGrp(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
     , m_clearBtn(new DCommandLinkButton(tr("Edit"), this))
@@ -24,10 +25,7 @@ FaceWidget::FaceWidget(CharaMangerModel *model, QWidget *parent)
     initConnect();
 }
 
-FaceWidget::~FaceWidget()
-{
-
-}
+FaceWidget::~FaceWidget() { }
 
 void FaceWidget::initUI()
 {
@@ -66,18 +64,19 @@ void FaceWidget::initUI()
     mainContentLayout->addWidget(m_listGrp);
     setLayout(mainContentLayout);
 
-    //设置字体大小
+    // 设置字体大小
     DFontSizeManager::instance()->bind(m_clearBtn, DFontSizeManager::T8);
 
-    connect(m_clearBtn, &DCommandLinkButton::clicked, this, [ = ](bool checked) {
+    connect(m_clearBtn, &DCommandLinkButton::clicked, this, [=](bool checked) {
         if (checked) {
             m_clearBtn->setText(tr("Done"));
-            //添加一个空白区域
+            // 添加一个空白区域
             mainContentLayout->addSpacing(20);
         } else {
             m_clearBtn->setText(tr("Edit"));
-            //把之前添加的空白区域移除
-            mainContentLayout->removeItem(mainContentLayout->itemAt(mainContentLayout->count() - 1));
+            // 把之前添加的空白区域移除
+            mainContentLayout->removeItem(
+                    mainContentLayout->itemAt(mainContentLayout->count() - 1));
         }
         for (auto &item : m_vecItem) {
             item->setShowIcon(checked);
@@ -87,17 +86,16 @@ void FaceWidget::initUI()
 
 void FaceWidget::initConnect()
 {
-    connect(m_model, &CharaMangerModel::enrollInfoState, this, [this](){
+    connect(m_model, &CharaMangerModel::enrollInfoState, this, [this]() {
         Q_EMIT noticeEnrollCompleted(m_model->faceDriverName(), m_model->faceCharaType());
     });
     connect(m_model, &CharaMangerModel::facesListChanged, this, &FaceWidget::onFaceidListChanged);
     onFaceidListChanged(m_model->facesList());
-
 }
 
 void FaceWidget::addFaceButton(const QString &newFaceName)
 {
-    AuthenticationLinkButtonItem* addfaceItem = new AuthenticationLinkButtonItem(this);
+    AuthenticationLinkButtonItem *addfaceItem = new AuthenticationLinkButtonItem(this);
     QString strAddFace = tr("Add Face");
     DCommandLinkButton *addBtn = new DCommandLinkButton(strAddFace);
     QHBoxLayout *faceLayout = new QHBoxLayout();
@@ -112,10 +110,10 @@ void FaceWidget::addFaceButton(const QString &newFaceName)
     QFontMetrics fontMetrics(font());
     int nFontWidth = fontMetrics.horizontalAdvance(strAddFace);
     addBtn->setMinimumWidth(nFontWidth);
-    connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
+    connect(addBtn, &DCommandLinkButton::clicked, this, [=] {
         Q_EMIT requestAddFace(m_model->faceDriverName(), m_model->faceCharaType(), newFaceName);
     });
-    connect(addfaceItem, &AuthenticationLinkButtonItem::mousePressed, this, [ = ] {
+    connect(addfaceItem, &AuthenticationLinkButtonItem::mousePressed, this, [=] {
         Q_EMIT requestAddFace(m_model->faceDriverName(), m_model->faceCharaType(), newFaceName);
     });
 }
@@ -136,26 +134,31 @@ void FaceWidget::onFaceidListChanged(const QStringList &facelist)
             Q_EMIT requestDeleteFaceItem(m_model->faceCharaType(), faceid);
         });
 
-        connect(item, &AuthenticationInfoItem::editTextFinished, this, [this, faceid, item, facelist, n](QString newName) {
-            // 没有改名，直接返回
-            if (item->getTitle() == newName) {
-                return;
-            }
-            for (int i = 0; i < facelist.size(); ++i) {
-                if (newName == facelist.at(i) && i != n) {
-                    QString errMsg = tr("The name already exists");
-                    item->showAlertMessage(errMsg);
-                    return;
-                }
-            }
-            item->setTitle(newName);
-            Q_EMIT requestRenameFaceItem(m_model->faceCharaType(), faceid, newName);
-            Q_EMIT noticeEnrollCompleted(m_model->faceDriverName(), m_model->faceCharaType());
-        });
+        connect(item,
+                &AuthenticationInfoItem::editTextFinished,
+                this,
+                [this, faceid, item, facelist, n](QString newName) {
+                    // 没有改名，直接返回
+                    if (item->getTitle() == newName) {
+                        return;
+                    }
+                    for (int i = 0; i < facelist.size(); ++i) {
+                        if (newName == facelist.at(i) && i != n) {
+                            QString errMsg = tr("The name already exists");
+                            item->showAlertMessage(errMsg);
+                            return;
+                        }
+                    }
+                    item->setTitle(newName);
+                    Q_EMIT requestRenameFaceItem(m_model->faceCharaType(), faceid, newName);
+                    Q_EMIT noticeEnrollCompleted(m_model->faceDriverName(),
+                                                 m_model->faceCharaType());
+                });
 
         connect(item, &AuthenticationInfoItem::editClicked, this, [this, item, facelist]() {
             for (int k = 0; k < facelist.size(); ++k) {
-                static_cast<AuthenticationInfoItem *>(m_listGrp->getItem(k))->setEditTitle(item == m_listGrp->getItem(k));
+                static_cast<AuthenticationInfoItem *>(m_listGrp->getItem(k))
+                        ->setEditTitle(item == m_listGrp->getItem(k));
             }
         });
 

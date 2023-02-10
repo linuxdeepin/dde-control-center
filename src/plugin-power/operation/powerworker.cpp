@@ -24,19 +24,19 @@
  */
 
 #include "powerworker.h"
+
 #include "powermodel.h"
 #include "widgets/utils.h"
 
-#include <QProcessEnvironment>
 #include <QFutureWatcher>
+#include <QProcessEnvironment>
 #include <QtConcurrent>
 
 #define POWER_CAN_SLEEP "POWER_CAN_SLEEP"
 #define POWER_CAN_HIBERNATE "POWER_CAN_HIBERNATE"
 
-static const QStringList DCC_CONFIG_FILES {
-    "/etc/deepin/dde-control-center.conf",
-    "/usr/share/dde-control-center/dde-control-center.conf"
+static const QStringList DCC_CONFIG_FILES{
+    "/etc/deepin/dde-control-center.conf", "/usr/share/dde-control-center/dde-control-center.conf"
 };
 
 PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
@@ -44,37 +44,115 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     , m_powerModel(model)
     , m_powerDBusProxy(new PowerDBusProxy(this))
 {
-    connect(m_powerDBusProxy, &PowerDBusProxy::ScreenBlackLockChanged, m_powerModel, &PowerModel::setScreenBlackLock);
-    connect(m_powerDBusProxy, &PowerDBusProxy::SleepLockChanged, m_powerModel, &PowerModel::setSleepLock);
-    connect(m_powerDBusProxy, &PowerDBusProxy::LidIsPresentChanged, m_powerModel, &PowerModel::setLidPresent);
-    connect(m_powerDBusProxy, &PowerDBusProxy::LidClosedSleepChanged, m_powerModel, &PowerModel::setSleepOnLidOnPowerClose);
-    connect(m_powerDBusProxy, &PowerDBusProxy::LinePowerScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModelOnPower);
-    connect(m_powerDBusProxy, &PowerDBusProxy::LinePowerSleepDelayChanged, this, &PowerWorker::setSleepDelayToModelOnPower);
-    connect(m_powerDBusProxy, &PowerDBusProxy::BatteryScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModelOnBattery);
-    connect(m_powerDBusProxy, &PowerDBusProxy::BatterySleepDelayChanged, this, &PowerWorker::setSleepDelayToModelOnBattery);
-    connect(m_powerDBusProxy, &PowerDBusProxy::BatteryLockDelayChanged, this, &PowerWorker::setResponseBatteryLockScreenDelay);
-    connect(m_powerDBusProxy, &PowerDBusProxy::LinePowerLockDelayChanged, this, &PowerWorker::setResponsePowerLockScreenDelay);
-    connect(m_powerDBusProxy, &PowerDBusProxy::IsHighPerformanceSupportedChanged, this, &PowerWorker::setHighPerformanceSupported);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::ScreenBlackLockChanged,
+            m_powerModel,
+            &PowerModel::setScreenBlackLock);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::SleepLockChanged,
+            m_powerModel,
+            &PowerModel::setSleepLock);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::LidIsPresentChanged,
+            m_powerModel,
+            &PowerModel::setLidPresent);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::LidClosedSleepChanged,
+            m_powerModel,
+            &PowerModel::setSleepOnLidOnPowerClose);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::LinePowerScreenBlackDelayChanged,
+            this,
+            &PowerWorker::setScreenBlackDelayToModelOnPower);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::LinePowerSleepDelayChanged,
+            this,
+            &PowerWorker::setSleepDelayToModelOnPower);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::BatteryScreenBlackDelayChanged,
+            this,
+            &PowerWorker::setScreenBlackDelayToModelOnBattery);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::BatterySleepDelayChanged,
+            this,
+            &PowerWorker::setSleepDelayToModelOnBattery);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::BatteryLockDelayChanged,
+            this,
+            &PowerWorker::setResponseBatteryLockScreenDelay);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::LinePowerLockDelayChanged,
+            this,
+            &PowerWorker::setResponsePowerLockScreenDelay);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::IsHighPerformanceSupportedChanged,
+            this,
+            &PowerWorker::setHighPerformanceSupported);
 
-    connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeAutoChanged, m_powerModel, &PowerModel::setAutoPowerSaveMode);
-    connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeEnabledChanged, m_powerModel, &PowerModel::setPowerSaveMode);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::PowerSavingModeAutoChanged,
+            m_powerModel,
+            &PowerModel::setAutoPowerSaveMode);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::PowerSavingModeEnabledChanged,
+            m_powerModel,
+            &PowerModel::setPowerSaveMode);
 
-    connect(m_powerDBusProxy, &PowerDBusProxy::HasBatteryChanged, m_powerModel, &PowerModel::setHaveBettary);
-    connect(m_powerDBusProxy, &PowerDBusProxy::BatteryPercentageChanged, m_powerModel, &PowerModel::setBatteryPercentage);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::HasBatteryChanged,
+            m_powerModel,
+            &PowerModel::setHaveBettary);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::BatteryPercentageChanged,
+            m_powerModel,
+            &PowerModel::setBatteryPercentage);
 
     //--------------------sp2 add----------------------------
-    connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeAutoWhenBatteryLowChanged, m_powerModel, &PowerModel::setPowerSavingModeAutoWhenQuantifyLow);
-    connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeAutoChanged, m_powerModel, &PowerModel::setPowerSavingModeAuto);
-    connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeBrightnessDropPercentChanged, m_powerModel, &PowerModel::setPowerSavingModeLowerBrightnessThreshold);
-    connect(m_powerDBusProxy, &PowerDBusProxy::LinePowerPressPowerBtnActionChanged, m_powerModel, &PowerModel::setLinePowerPressPowerBtnAction);
-    connect(m_powerDBusProxy, &PowerDBusProxy::LinePowerLidClosedActionChanged, m_powerModel, &PowerModel::setLinePowerLidClosedAction);
-    connect(m_powerDBusProxy, &PowerDBusProxy::BatteryPressPowerBtnActionChanged, m_powerModel, &PowerModel::setBatteryPressPowerBtnAction);
-    connect(m_powerDBusProxy, &PowerDBusProxy::BatteryLidClosedActionChanged, m_powerModel, &PowerModel::setBatteryLidClosedAction);
-    connect(m_powerDBusProxy, &PowerDBusProxy::LowPowerNotifyEnableChanged, m_powerModel, &PowerModel::setLowPowerNotifyEnable);
-    connect(m_powerDBusProxy, &PowerDBusProxy::LowPowerNotifyThresholdChanged, m_powerModel, &PowerModel::setLowPowerNotifyThreshold);
-    connect(m_powerDBusProxy, &PowerDBusProxy::LowPowerAutoSleepThresholdChanged, m_powerModel, &PowerModel::setLowPowerAutoSleepThreshold);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::PowerSavingModeAutoWhenBatteryLowChanged,
+            m_powerModel,
+            &PowerModel::setPowerSavingModeAutoWhenQuantifyLow);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::PowerSavingModeAutoChanged,
+            m_powerModel,
+            &PowerModel::setPowerSavingModeAuto);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::PowerSavingModeBrightnessDropPercentChanged,
+            m_powerModel,
+            &PowerModel::setPowerSavingModeLowerBrightnessThreshold);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::LinePowerPressPowerBtnActionChanged,
+            m_powerModel,
+            &PowerModel::setLinePowerPressPowerBtnAction);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::LinePowerLidClosedActionChanged,
+            m_powerModel,
+            &PowerModel::setLinePowerLidClosedAction);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::BatteryPressPowerBtnActionChanged,
+            m_powerModel,
+            &PowerModel::setBatteryPressPowerBtnAction);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::BatteryLidClosedActionChanged,
+            m_powerModel,
+            &PowerModel::setBatteryLidClosedAction);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::LowPowerNotifyEnableChanged,
+            m_powerModel,
+            &PowerModel::setLowPowerNotifyEnable);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::LowPowerNotifyThresholdChanged,
+            m_powerModel,
+            &PowerModel::setLowPowerNotifyThreshold);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::LowPowerAutoSleepThresholdChanged,
+            m_powerModel,
+            &PowerModel::setLowPowerAutoSleepThreshold);
     //-------------------------------------------------------
-    connect(m_powerDBusProxy, &PowerDBusProxy::ModeChanged, m_powerModel, &PowerModel::setPowerPlan);
+    connect(m_powerDBusProxy,
+            &PowerDBusProxy::ModeChanged,
+            m_powerModel,
+            &PowerModel::setPowerPlan);
 }
 
 void PowerWorker::active()
@@ -87,8 +165,10 @@ void PowerWorker::active()
     m_powerModel->setLidPresent(m_powerDBusProxy->lidIsPresent());
     m_powerModel->setSleepOnLidOnPowerClose(m_powerDBusProxy->lidClosedSleep());
     m_powerModel->setHaveBettary(m_powerDBusProxy->hasBattery());
-    m_powerModel->setPowerSavingModeAutoWhenQuantifyLow(m_powerDBusProxy->powerSavingModeAutoWhenBatteryLow());
-    m_powerModel->setPowerSavingModeLowerBrightnessThreshold(m_powerDBusProxy->powerSavingModeBrightnessDropPercent());
+    m_powerModel->setPowerSavingModeAutoWhenQuantifyLow(
+            m_powerDBusProxy->powerSavingModeAutoWhenBatteryLow());
+    m_powerModel->setPowerSavingModeLowerBrightnessThreshold(
+            m_powerDBusProxy->powerSavingModeBrightnessDropPercent());
     m_powerModel->setLowPowerNotifyEnable(m_powerDBusProxy->lowPowerNotifyEnable());
     m_powerModel->setLowPowerAutoSleepThreshold(m_powerDBusProxy->lowPowerAutoSleepThreshold());
     m_powerModel->setLowPowerNotifyThreshold(m_powerDBusProxy->lowPowerNotifyThreshold());
@@ -128,9 +208,7 @@ void PowerWorker::active()
     QFutureWatcher<bool> *canHibernateWatcher = new QFutureWatcher<bool>();
     connect(canHibernateWatcher, &QFutureWatcher<bool>::finished, this, [=] {
         bool canHibernate = canHibernateWatcher->result();
-        bool can_hibernate = env.contains(POWER_CAN_HIBERNATE)
-                                     ? envVal_hibernate
-                                     : canHibernate;
+        bool can_hibernate = env.contains(POWER_CAN_HIBERNATE) ? envVal_hibernate : canHibernate;
         m_powerModel->setCanHibernate(can_hibernate);
         canHibernateWatcher->deleteLater();
     });
@@ -228,9 +306,11 @@ void PowerWorker::setPowerSavingModeAuto(bool bAutoIntoSaveEnergyMode)
     m_powerDBusProxy->setPowerSavingModeAuto(bAutoIntoSaveEnergyMode);
 }
 
-void PowerWorker::setPowerSavingModeLowerBrightnessThreshold(uint dPowerSavingModeLowerBrightnessThreshold)
+void PowerWorker::setPowerSavingModeLowerBrightnessThreshold(
+        uint dPowerSavingModeLowerBrightnessThreshold)
 {
-    m_powerDBusProxy->setPowerSavingModeBrightnessDropPercent(dPowerSavingModeLowerBrightnessThreshold);
+    m_powerDBusProxy->setPowerSavingModeBrightnessDropPercent(
+            dPowerSavingModeLowerBrightnessThreshold);
 }
 
 void PowerWorker::setLinePowerPressPowerBtnAction(int nLinePowerPressPowerBtnAction)

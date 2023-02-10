@@ -1,16 +1,17 @@
+#include <gtest/gtest.h>
+
 #include "interface/namespace.h"
-#include "src/plugin-mouse/window/touchpadsettingwidget.h"
 #include "src/plugin-mouse/operation/mousemodel.h"
 #include "src/plugin-mouse/window/palmdetectsetting.h"
-#include "widgets/titledslideritem.h"
-#include "widgets/switchwidget.h"
+#include "src/plugin-mouse/window/touchpadsettingwidget.h"
 #include "widgets/dccslider.h"
+#include "widgets/switchwidget.h"
+#include "widgets/titledslideritem.h"
 
 #include <QSignalSpy>
 
-#include <gtest/gtest.h>
-
 using namespace DCC_NAMESPACE;
+
 class Tst_TouchPadSettingWidget : public testing::Test
 {
     void SetUp() override

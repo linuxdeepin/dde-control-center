@@ -1,8 +1,9 @@
 #ifndef SOUNDDBUSPROXY_H
 #define SOUNDDBUSPROXY_H
 
-#include "interface/namespace.h"
 #include "audioport.h"
+#include "interface/namespace.h"
+
 #include <QDBusObjectPath>
 #include <QObject>
 
@@ -13,6 +14,7 @@ class DCCDBusInterface;
 }
 
 class QDBusMessage;
+
 class SoundDBusProxy : public QObject
 {
     Q_OBJECT
@@ -30,7 +32,11 @@ public:
 
     // SoundEffect
     void GetSoundEnabledMap();
-    void EnableSound(const QString &name, bool enabled, QObject *receiver, const char *member, const char *errorSlot);
+    void EnableSound(const QString &name,
+                     bool enabled,
+                     QObject *receiver,
+                     const char *member,
+                     const char *errorSlot);
     QString GetSoundFile(const QString &name);
 
     // Power
@@ -60,7 +66,8 @@ public:
     // Audio
     Q_PROPERTY(double MaxUIVolume READ maxUIVolume NOTIFY MaxUIVolumeChanged)
     double maxUIVolume();
-    Q_PROPERTY(bool IncreaseVolume READ increaseVolume WRITE setIncreaseVolume NOTIFY IncreaseVolumeChanged)
+    Q_PROPERTY(bool IncreaseVolume READ increaseVolume WRITE setIncreaseVolume NOTIFY
+                       IncreaseVolumeChanged)
     bool increaseVolume();
     void setIncreaseVolume(bool value);
     Q_PROPERTY(bool ReduceNoise READ reduceNoise WRITE setReduceNoise NOTIFY ReduceNoiseChanged)
@@ -68,9 +75,11 @@ public:
     void setReduceNoise(bool value);
     Q_PROPERTY(QString BluetoothAudioMode READ bluetoothAudioMode NOTIFY BluetoothAudioModeChanged)
     QString bluetoothAudioMode();
-    Q_PROPERTY(QStringList BluetoothAudioModeOpts READ bluetoothAudioModeOpts NOTIFY BluetoothAudioModeOptsChanged)
+    Q_PROPERTY(QStringList BluetoothAudioModeOpts READ bluetoothAudioModeOpts NOTIFY
+                       BluetoothAudioModeOptsChanged)
     QStringList bluetoothAudioModeOpts();
-    Q_PROPERTY(QString CardsWithoutUnavailable READ cardsWithoutUnavailable NOTIFY CardsWithoutUnavailableChanged)
+    Q_PROPERTY(QString CardsWithoutUnavailable READ cardsWithoutUnavailable NOTIFY
+                       CardsWithoutUnavailableChanged)
     QString cardsWithoutUnavailable();
     Q_PROPERTY(QDBusObjectPath DefaultSource READ defaultSource NOTIFY DefaultSourceChanged)
     QDBusObjectPath defaultSource();

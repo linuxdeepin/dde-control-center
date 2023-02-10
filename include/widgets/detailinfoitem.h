@@ -22,6 +22,7 @@
 
 #include "interface/namespace.h"
 #include "widgets/settingsitem.h"
+
 #include <dtkwidget_global.h>
 
 DWIDGET_BEGIN_NAMESPACE
@@ -38,7 +39,7 @@ const int dateFontSize = 12;
 const int detailFontSize = 8;
 const int linkFontSize = 10;
 
-class DetailInfoItem: public SettingsItem
+class DetailInfoItem : public SettingsItem
 {
     Q_OBJECT
 public:
@@ -61,5 +62,4 @@ private:
     Dtk::Widget::DLabel *m_title;
 };
 
-}
-
+} // namespace DCC_NAMESPACE

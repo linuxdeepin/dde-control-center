@@ -26,8 +26,8 @@
 #include "datetimemodel.h"
 
 #include <QDateTime>
-#include <QTimeZone>
 #include <QSettings>
+#include <QTimeZone>
 
 DatetimeModel::DatetimeModel(QObject *parent)
     : QObject(parent)

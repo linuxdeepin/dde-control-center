@@ -19,13 +19,13 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "themeitem.h"
+
 #include "themeitempic.h"
 
 #include <DIconButton>
 
-#include <QVBoxLayout>
 #include <QLabel>
-
+#include <QVBoxLayout>
 
 DWIDGET_USE_NAMESPACE
 
@@ -34,7 +34,7 @@ ThemeItem::ThemeItem(bool titleBelowPic, QWidget *parent)
     , m_titleBelowPic(titleBelowPic)
     , m_imgBtn(nullptr)
 {
-    m_mainLayout = new  QVBoxLayout();
+    m_mainLayout = new QVBoxLayout();
     m_mainLayout->setMargin(0);
 
     m_title = new QLabel(this);
@@ -48,7 +48,7 @@ ThemeItem::ThemeItem(bool titleBelowPic, QWidget *parent)
         m_mainLayout->addWidget(m_title);
         m_mainLayout->setAlignment(Qt::AlignHCenter);
     } else {
-        //icon themes and cursor thems
+        // icon themes and cursor thems
         QHBoxLayout *titlebuttonLayout = new QHBoxLayout();
         titlebuttonLayout->addWidget(m_title);
         m_imgBtn = new DIconButton(DStyle::SP_MarkElement, this);

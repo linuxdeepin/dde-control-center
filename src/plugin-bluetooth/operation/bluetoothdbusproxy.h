@@ -27,6 +27,7 @@
 class QDBusInterface;
 class QDBusMessage;
 class QDBusObjectPath;
+
 namespace DCC_NAMESPACE {
 class DCCDBusInterface;
 }
@@ -46,7 +47,8 @@ public:
     bool transportable();
     Q_PROPERTY(bool CanSendFile READ canSendFile NOTIFY CanSendFileChanged)
     bool canSendFile();
-    Q_PROPERTY(bool DisplaySwitch READ displaySwitch WRITE setDisplaySwitch NOTIFY DisplaySwitchChanged)
+    Q_PROPERTY(bool DisplaySwitch READ displaySwitch WRITE setDisplaySwitch NOTIFY
+                       DisplaySwitchChanged)
     bool displaySwitch();
     void setDisplaySwitch(bool value);
     // AirplaneMode
@@ -83,7 +85,11 @@ public Q_SLOTS: // METHODS
     void ClearUnpairedDevice();
     void ClearUnpairedDevice(QObject *receiver, const char *member);
     void SetAdapterPowered(const QDBusObjectPath &adapter, bool powered);
-    void SetAdapterPowered(const QDBusObjectPath &adapter, bool powered, QObject *receiver, const char *member, const char *errorSlot);
+    void SetAdapterPowered(const QDBusObjectPath &adapter,
+                           bool powered,
+                           QObject *receiver,
+                           const char *member,
+                           const char *errorSlot);
     void DisconnectDevice(const QDBusObjectPath &device);
     void RemoveDevice(const QDBusObjectPath &adapter, const QDBusObjectPath &device);
     void ConnectDevice(const QDBusObjectPath &device, const QDBusObjectPath &adapter);

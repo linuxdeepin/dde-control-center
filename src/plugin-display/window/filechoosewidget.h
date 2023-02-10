@@ -2,6 +2,7 @@
 #define FILECHOOSEWIDGET_H
 
 #include "widgets/settingsitem.h"
+
 #include <dfilechooseredit.h>
 
 QT_BEGIN_NAMESPACE
@@ -16,6 +17,7 @@ public:
     explicit FileChooseWidget(QWidget *parent = nullptr);
 
     DTK_WIDGET_NAMESPACE::DFileChooserEdit *edit() const { return m_fileChooserEdit; }
+
     void setTitle(const QString &title);
     virtual void setIsErr(const bool err = true) override;
 

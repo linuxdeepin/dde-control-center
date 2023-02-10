@@ -19,14 +19,15 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "hostnameitem.h"
+
 #include "dtkwidget_global.h"
+
+#include <qevent.h>
+#include <qtoolbutton.h>
+#include <qvalidator.h>
 
 #include <DDesktopServices>
 #include <DLabel>
-
-#include <qevent.h>
-#include <qvalidator.h>
-#include <qtoolbutton.h>
 
 DWIDGET_USE_NAMESPACE
 
@@ -42,17 +43,19 @@ bool HostNameEdit::eventFilter(QObject *obj, QEvent *event)
 {
     if (obj == lineEdit() && event->type() == QEvent::KeyPress) {
         QKeyEvent *e = dynamic_cast<QKeyEvent *>(event);
-        if (e && (e->matches(QKeySequence::Copy) || e->matches(QKeySequence::Cut) || e->matches(QKeySequence::Paste))) {
+        if (e
+            && (e->matches(QKeySequence::Copy) || e->matches(QKeySequence::Cut)
+                || e->matches(QKeySequence::Paste))) {
             return true;
         }
 
-        if(e->key() >= 0x20 && e->key() <= 0x0a1) {
-            //首先判断键盘事件带的字符串是否为符合"^[A-Za-z0-9-]+$"规则
+        if (e->key() >= 0x20 && e->key() <= 0x0a1) {
+            // 首先判断键盘事件带的字符串是否为符合"^[A-Za-z0-9-]+$"规则
             QRegExp regx("^[A-Za-z0-9-]+$");
             QRegExpValidator v(regx);
             QString text = e->text();
             int pos = 0;
-            if(QValidator::Acceptable != v.validate(text, pos)) {
+            if (QValidator::Acceptable != v.validate(text, pos)) {
                 DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
             }
         }
@@ -93,9 +96,9 @@ void HostNameItem::resizeEvent(QResizeEvent *event)
     if (!m_hostNameLineEdit)
         return;
 
-    if(m_hostNameLineEdit->isAlert()) {
+    if (m_hostNameLineEdit->isAlert()) {
         m_hostNameLineEdit->hideAlertMessage();
-        m_hostNameLineEdit->showAlertMessage(m_alertMessage,this);
+        m_hostNameLineEdit->showAlertMessage(m_alertMessage, this);
     }
 
     if (m_hostNameLineEdit->lineEdit() && !m_hostnameEdit.isEmpty()) {
@@ -105,6 +108,7 @@ void HostNameItem::resizeEvent(QResizeEvent *event)
     }
     SettingsItem::resizeEvent(event);
 }
+
 void HostNameItem::initUI()
 {
     // 添加主机名称
@@ -129,7 +133,7 @@ void HostNameItem::initUI()
     m_hostNameLineEdit->setAlertMessageAlignment(Qt::AlignRight);
     m_hostNameLineEdit->lineEdit()->setAlignment(Qt::AlignRight);
     m_hostNameLineEdit->setFixedHeight(36);
-    m_hostNameLineEdit->lineEdit()->setTextMargins(0,0,0,0);
+    m_hostNameLineEdit->lineEdit()->setTextMargins(0, 0, 0, 0);
     // lineEdit 无边框 透明背景
     DStyle::setFocusRectVisible(m_hostNameLineEdit->lineEdit(), false);
     QPalette palette = m_hostNameLineEdit->lineEdit()->palette();
@@ -138,12 +142,15 @@ void HostNameItem::initUI()
     hostNameLayout->addWidget(m_hostNameLineEdit);
     m_hostNameLineEdit->hide();
 
-    //点击编辑按钮
+    // 点击编辑按钮
     connect(m_hostNameBtn, &QToolButton::clicked, this, &HostNameItem::onToolButtonButtonClicked);
     connect(m_hostNameLineEdit, &DLineEdit::focusChanged, this, &HostNameItem::onFocusChanged);
     connect(m_hostNameLineEdit, &DLineEdit::textEdited, this, &HostNameItem::onTextEdited);
     connect(m_hostNameLineEdit, &DLineEdit::alertChanged, this, &HostNameItem::onAlertChanged);
-    connect(m_hostNameLineEdit->lineEdit(), &QLineEdit::editingFinished, this, &HostNameItem::onEditingFinished);
+    connect(m_hostNameLineEdit->lineEdit(),
+            &QLineEdit::editingFinished,
+            this,
+            &HostNameItem::onEditingFinished);
 }
 
 QString HostNameItem::getElidedText(const QString &string)
@@ -161,7 +168,8 @@ QString HostNameItem::getElidedText(const QString &string)
     int fontWidth = fontMetrics.boundingRect(string).width();
 
     if (fontWidth > hostnameWidth) {
-        retTxt = m_hostNameLabel->fontMetrics().elidedText(string, Qt::ElideRight, hostnameWidth, 0);
+        retTxt =
+                m_hostNameLabel->fontMetrics().elidedText(string, Qt::ElideRight, hostnameWidth, 0);
     }
 
     return retTxt;
@@ -183,19 +191,18 @@ void HostNameItem::onEditingFinished()
         return;
     }
 
-    if(!hostName.isEmpty()) {
-        if((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
+    if (!hostName.isEmpty()) {
+        if ((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
             m_hostNameLineEdit->setAlert(true);
             m_hostNameLineEdit->showAlertMessage(tr("It cannot start or end with dashes"), this);
             m_alertMessage = tr("It cannot start or end with dashes");
             DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
-        }
-        else {
+        } else {
             m_hostNameLineEdit->setAlert(false);
             m_hostNameLineEdit->hideAlertMessage();
         }
 
-        if(!m_hostNameLineEdit->isAlert()) {
+        if (!m_hostNameLineEdit->isAlert()) {
             m_hostNameLineEdit->lineEdit()->clearFocus();
             m_hostnameEdit.clear();
             m_hostNameLineEdit->setVisible(false);
@@ -228,8 +235,7 @@ void HostNameItem::onTextEdited(const QString &hostName)
             m_hostNameLineEdit->setAlert(false);
             m_hostNameLineEdit->hideAlertMessage();
         }
-    }
-    else if (m_hostNameLineEdit->isAlert()) {
+    } else if (m_hostNameLineEdit->isAlert()) {
         m_hostNameLineEdit->setAlert(false);
         m_hostNameLineEdit->hideAlertMessage();
     }
@@ -238,19 +244,18 @@ void HostNameItem::onTextEdited(const QString &hostName)
 void HostNameItem::onFocusChanged(const bool onFocus)
 {
     QString hostName = m_hostNameLineEdit->lineEdit()->text();
-    if(!onFocus && hostName.isEmpty()) {
+    if (!onFocus && hostName.isEmpty()) {
         m_hostnameEdit.clear();
         m_hostNameLineEdit->setVisible(false);
         m_hostNameLabel->setVisible(true);
         m_hostNameBtn->setVisible(true);
-    }
-    else if(!onFocus && !hostName.isEmpty()) {
-        if((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
+    } else if (!onFocus && !hostName.isEmpty()) {
+        if ((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
             m_hostNameLineEdit->setAlert(true);
             m_hostNameLineEdit->showAlertMessage(tr("It cannot start or end with dashes"), this);
             m_alertMessage = tr("It cannot start or end with dashes");
             DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
-        }else if (hostName.size() > 63) {
+        } else if (hostName.size() > 63) {
             m_hostNameLineEdit->setAlert(true);
             m_hostNameLineEdit->showAlertMessage(tr("1~63 characters please"), this);
             m_alertMessage = tr("1~63 characters please");

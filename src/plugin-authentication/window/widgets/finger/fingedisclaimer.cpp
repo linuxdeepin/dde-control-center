@@ -20,19 +20,20 @@
  */
 
 #include "fingedisclaimer.h"
+
 #include "charamangermodel.h"
 
-#include <DTitlebar>
 #include <DFontSizeManager>
 #include <DSuggestButton>
+#include <DTitlebar>
 
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QPushButton>
 #include <QCloseEvent>
-#include <QTimer>
 #include <QDebug>
 #include <QDialog>
+#include <QHBoxLayout>
+#include <QPushButton>
+#include <QTimer>
+#include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -50,10 +51,7 @@ FingerDisclaimer::FingerDisclaimer(QWidget *parent)
     QWidget::installEventFilter(this);
 }
 
-FingerDisclaimer::~FingerDisclaimer()
-{
-
-}
+FingerDisclaimer::~FingerDisclaimer() { }
 
 void FingerDisclaimer::closeEvent(QCloseEvent *event)
 {
@@ -77,8 +75,8 @@ void FingerDisclaimer::initWidget()
     m_mainLayout->setAlignment(Qt::AlignHCenter);
 
     DTitlebar *titleIcon = new DTitlebar();
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle(tr("Add Fingerprint"));
 
@@ -134,10 +132,20 @@ void FingerDisclaimer::initWidget()
 
 void FingerDisclaimer::initConnect()
 {
-    connect(m_disclaimersItem, &DisclaimersItem::requestSetWindowEnabled, this, &FingerDisclaimer::onSetWindowEnabled);
-    connect(m_disclaimersItem, &DisclaimersItem::requestStateChange, m_acceptBtn, &QPushButton::setDisabled);
+    connect(m_disclaimersItem,
+            &DisclaimersItem::requestSetWindowEnabled,
+            this,
+            &FingerDisclaimer::onSetWindowEnabled);
+    connect(m_disclaimersItem,
+            &DisclaimersItem::requestStateChange,
+            m_acceptBtn,
+            &QPushButton::setDisabled);
     connect(m_cancelBtn, &QPushButton::clicked, this, &FingerDisclaimer::close);
-    connect(m_acceptBtn, &QPushButton::clicked, this, &FingerDisclaimer::requestShowFingeInfoDialog, Qt::UniqueConnection);
+    connect(m_acceptBtn,
+            &QPushButton::clicked,
+            this,
+            &FingerDisclaimer::requestShowFingeInfoDialog,
+            Qt::UniqueConnection);
 }
 
 QString FingerDisclaimer::getFacePicture()
@@ -159,10 +167,8 @@ QString FingerDisclaimer::getFacePicture()
     return QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_light.svg").arg(theme);
 }
 
-
 // 处理界面失焦效果 配合 模态对话框
 void FingerDisclaimer::onSetWindowEnabled(const bool isEnabled)
 {
     this->setEnabled(isEnabled);
 }
-

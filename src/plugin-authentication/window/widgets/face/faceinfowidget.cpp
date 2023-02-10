@@ -24,16 +24,16 @@
 #include <DApplicationHelper>
 #include <DPlatformTheme>
 
-#include <QDBusUnixFileDescriptor>
 #include <QBoxLayout>
-#include <QTimer>
+#include <QDBusUnixFileDescriptor>
 #include <QPainter>
 #include <QPainterPath>
+#include <QTimer>
 
 #define Faceimg_SIZE 248
 
 FaceInfoWidget::FaceInfoWidget(QWidget *parent)
-    : QLabel (parent)
+    : QLabel(parent)
     , m_faceLable(new QLabel(this))
     , m_startTimer(new QTimer(this))
     , m_themeColor(DGuiApplicationHelper::instance()->systemTheme()->activeColor())
@@ -91,12 +91,17 @@ void FaceInfoWidget::recvCamara(void *const context, const DA_img *const img)
     QPainterPath path;
     path.addEllipse(0, 0, Faceimg_SIZE, Faceimg_SIZE);
     painter.setClipPath(path);
-    painter.drawPixmap(0, 0, Faceimg_SIZE, Faceimg_SIZE, QPixmap::fromImage(QImage((uchar *)(img->data), img->width, img->height, QImage::Format_RGB888)));
+    painter.drawPixmap(
+            0,
+            0,
+            Faceimg_SIZE,
+            Faceimg_SIZE,
+            QPixmap::fromImage(
+                    QImage((uchar *)(img->data), img->width, img->height, QImage::Format_RGB888)));
     if (label_ptr) {
         label_ptr->setPixmap(pix);
     }
 }
-
 
 void FaceInfoWidget::paintEvent(QPaintEvent *event)
 {
@@ -107,7 +112,7 @@ void FaceInfoWidget::paintEvent(QPaintEvent *event)
     m_rotateAngle = 360 * m_persent / 100;
     int side = qMin(width(), height());
     QRectF outRect(0, 0, side, side);
-    QRectF inRect(5, 5, side-10, side-10);
+    QRectF inRect(5, 5, side - 10, side - 10);
 
     painter.setPen(Qt::NoPen);
     painter.setOpacity(0.1);
@@ -126,9 +131,9 @@ void FaceInfoWidget::paintEvent(QPaintEvent *event)
     painter.setOpacity(1);
     painter.setBrush(QBrush(m_themeColor));
     // startAngle和spanAngle必须以1/16度指定，即整圆等于5760（16 * 360）
-    painter.drawPie(outRect, (90 - m_rotateAngle)*16, 40 * 16);
+    painter.drawPie(outRect, (90 - m_rotateAngle) * 16, 40 * 16);
 
-    //画遮罩
+    // 画遮罩
     painter.setBrush(palette().window().color());
     painter.drawEllipse(inRect);
     painter.restore();

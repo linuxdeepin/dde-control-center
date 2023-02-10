@@ -1,7 +1,7 @@
 #pragma once
 
-#include "widgets/settingsitem.h"
 #include "disclaimersdialog.h"
+#include "widgets/settingsitem.h"
 
 QT_BEGIN_NAMESPACE
 class QCheckBox;

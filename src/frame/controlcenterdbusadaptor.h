@@ -27,8 +27,10 @@
 
 QT_BEGIN_NAMESPACE
 class QByteArray;
-template<class T> class QList;
-template<class Key, class Value> class QMap;
+template<class T>
+class QList;
+template<class Key, class Value>
+class QMap;
 class QString;
 class QStringList;
 class QVariant;
@@ -38,12 +40,11 @@ QT_END_NAMESPACE
  * Adaptor class for interface com.deepin.dde.ControlCenter
  */
 
-namespace DCC_NAMESPACE
-{
+namespace DCC_NAMESPACE {
 
 class MainWindow;
 
-class ControlCenterDBusAdaptor: public QDBusAbstractAdaptor
+class ControlCenterDBusAdaptor : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.deepin.dde.ControlCenter1")
@@ -65,10 +66,9 @@ public Q_SLOTS: // METHODS
     void ShowPage(const QString &url);
     void Toggle();
     QString GetAllModule();
-
 };
 
-class DBusControlCenterGrandSearchService: public QDBusAbstractAdaptor
+class DBusControlCenterGrandSearchService : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.deepin.dde.ControlCenter1.GrandSearch")

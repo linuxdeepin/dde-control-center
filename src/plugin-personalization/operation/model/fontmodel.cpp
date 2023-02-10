@@ -25,9 +25,9 @@
 
 #include "fontmodel.h"
 
-FontModel::FontModel(QObject *parent) : QObject(parent)
+FontModel::FontModel(QObject *parent)
+    : QObject(parent)
 {
-
 }
 
 void FontModel::setFontList(const QList<QJsonObject> &list)
@@ -37,6 +37,7 @@ void FontModel::setFontList(const QList<QJsonObject> &list)
         Q_EMIT listChanged(list);
     }
 }
+
 void FontModel::setFontName(const QString &name)
 {
     if (m_fontName != name) {

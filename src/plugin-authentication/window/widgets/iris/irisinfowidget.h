@@ -21,8 +21,8 @@
 
 #pragma once
 
-#include "interface/namespace.h"
 #include "charamangermodel.h"
+#include "interface/namespace.h"
 
 #include <QWidget>
 

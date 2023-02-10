@@ -24,6 +24,7 @@
  */
 
 #include "shortcutcontentdialog.h"
+
 #include "operation/shortcutmodel.h"
 #include "shortcutitem.h"
 
@@ -32,6 +33,7 @@
 #include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE;
+
 ShortcutContentDialog::ShortcutContentDialog(ShortcutModel *model, QWidget *parent)
     : DAbstractDialog(parent)
     , m_model(model)
@@ -48,8 +50,8 @@ ShortcutContentDialog::ShortcutContentDialog(ShortcutModel *model, QWidget *pare
     QVBoxLayout *listVLayout = new QVBoxLayout();
     listVLayout->setAlignment(Qt::AlignHCenter);
     DTitlebar *titleIcon = new DTitlebar();
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle(tr(""));
 
@@ -63,8 +65,9 @@ ShortcutContentDialog::ShortcutContentDialog(ShortcutModel *model, QWidget *pare
     QPushButton *cancel = m_buttonTuple->leftButton();
     QPushButton *ok = m_buttonTuple->rightButton();
     if (m_buttonTuple->layout()) {
-        //第二个控件为space
-        if (m_buttonTuple->layout()->itemAt(1) != nullptr && m_buttonTuple->layout()->itemAt(1)->spacerItem() != nullptr) {
+        // 第二个控件为space
+        if (m_buttonTuple->layout()->itemAt(1) != nullptr
+            && m_buttonTuple->layout()->itemAt(1)->spacerItem() != nullptr) {
             int height = m_buttonTuple->layout()->itemAt(1)->spacerItem()->sizeHint().height();
             m_buttonTuple->layout()->itemAt(1)->spacerItem()->changeSize(20, height);
         }
@@ -88,7 +91,10 @@ ShortcutContentDialog::ShortcutContentDialog(ShortcutModel *model, QWidget *pare
 
     connect(ok, &QPushButton::clicked, this, &ShortcutContentDialog::onReplace);
     connect(cancel, &QPushButton::clicked, this, &ShortcutContentDialog::close);
-    connect(m_shortcutItem, &ShortcutItem::requestUpdateKey, this, &ShortcutContentDialog::onUpdateKey);
+    connect(m_shortcutItem,
+            &ShortcutItem::requestUpdateKey,
+            this,
+            &ShortcutContentDialog::onUpdateKey);
     connect(m_model, &ShortcutModel::keyEvent, this, &ShortcutContentDialog::keyEvent);
 }
 
@@ -106,8 +112,12 @@ void ShortcutContentDialog::setBottomTip(ShortcutInfo *conflict)
         accels = accels.replace("_R", "");
         accels = accels.replace("Control", "Ctrl");
 
-        QString str = tr("This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately")
-                      .arg(QString("<span style=\"color: rgba(255, 90, 90, 1);\">%1 %2</span>").arg(conflict->name).arg(QString("[%1]").arg(accels)));
+        QString str =
+                tr("This shortcut conflicts with  %1, click on Replace to make this shortcut "
+                   "effective immediately")
+                        .arg(QString("<span style=\"color: rgba(255, 90, 90, 1);\">%1 %2</span>")
+                                     .arg(conflict->name)
+                                     .arg(QString("[%1]").arg(accels)));
         m_bottomTip->setText(str);
         m_bottomTip->show();
     } else {
@@ -178,4 +188,3 @@ void ShortcutContentDialog::onUpdateKey()
 {
     Q_EMIT requestUpdateKey(nullptr);
 }
-

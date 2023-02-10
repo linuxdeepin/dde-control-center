@@ -24,29 +24,31 @@
  */
 
 #include "defappworker.h"
+
 #include "defappmodel.h"
-#include <QStringList>
-#include <QList>
-#include <QFileInfo>
+
 #include <QDebug>
 #include <QDir>
-#include <QJsonDocument>
+#include <QFileInfo>
 #include <QJsonArray>
+#include <QJsonDocument>
 #include <QJsonObject>
+#include <QList>
+#include <QStringList>
 
-DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
-    QObject(parent),
-    m_defAppModel(model),
-    m_dbusManager(new MimeDBusProxy(this))
+DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent)
+    : QObject(parent)
+    , m_defAppModel(model)
+    , m_dbusManager(new MimeDBusProxy(this))
 {
 
-    m_stringToCategory.insert("Browser",     Browser);
-    m_stringToCategory.insert("Mail",        Mail);
-    m_stringToCategory.insert("Text",        Text);
-    m_stringToCategory.insert("Music",       Music);
-    m_stringToCategory.insert("Video",       Video);
-    m_stringToCategory.insert("Picture",     Picture);
-    m_stringToCategory.insert("Terminal",    Terminal);
+    m_stringToCategory.insert("Browser", Browser);
+    m_stringToCategory.insert("Mail", Mail);
+    m_stringToCategory.insert("Text", Text);
+    m_stringToCategory.insert("Music", Music);
+    m_stringToCategory.insert("Video", Video);
+    m_stringToCategory.insert("Picture", Picture);
+    m_stringToCategory.insert("Terminal", Terminal);
 
     connect(m_dbusManager, &MimeDBusProxy::Change, this, &DefAppWorker::onGetListApps);
 
@@ -71,18 +73,19 @@ void DefAppWorker::onSetDefaultApp(const QString &category, const App &item)
 {
     QStringList mimelist = getTypeListByCategory(m_stringToCategory[category]);
     m_dbusManager->SetDefaultApp(mimelist, item.Id);
-    qDebug() << "setting MIME " << category << "to " <<  item.Id;
+    qDebug() << "setting MIME " << category << "to " << item.Id;
 }
 
 void DefAppWorker::onGetListApps()
 {
-    //遍历QMap去获取dbus数据
-    for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
-        const QString type { getTypeByCategory(mimelist.value()) };
+    // 遍历QMap去获取dbus数据
+    for (auto mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd();
+         ++mimelist) {
+        const QString type{ getTypeByCategory(mimelist.value()) };
 
         getDefaultAppFinished(mimelist.key(), m_dbusManager->GetDefaultApp(type));
-        getListAppFinished(mimelist.key(),m_dbusManager->ListApps(type), false);
-        getListAppFinished(mimelist.key(),m_dbusManager->ListUserApps(type), true);
+        getListAppFinished(mimelist.key(), m_dbusManager->ListApps(type), false);
+        getListAppFinished(mimelist.key(), m_dbusManager->ListUserApps(type), true);
     }
 }
 
@@ -98,7 +101,7 @@ void DefAppWorker::onDelUserApp(const QString &mime, const App &item)
         m_dbusManager->DeleteUserApp(item.Id);
     }
 
-    //remove file
+    // remove file
     QFile file(m_userLocalPath + item.Id);
     file.remove();
 }
@@ -139,15 +142,21 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
 
         QTextStream out(&file);
         out << "[Desktop Entry]\n"
-            "Type=Application\n"
-            "Version=1.0\n"
-            "Name=" + info.baseName() + "\n"
-            "Path=" + info.path() + "\n"
-            "Exec=" +  info.filePath() + "\n"
-            "Icon=application-default-icon\n"
-            "Terminal=false\n"
-            "Categories=" + mime + ";"
-#if (QT_VERSION < QT_VERSION_CHECK(5,15,0))
+               "Type=Application\n"
+               "Version=1.0\n"
+               "Name=" + info.baseName()
+                        + "\n"
+                          "Path="
+                        + info.path()
+                        + "\n"
+                          "Exec="
+                        + info.filePath()
+                        + "\n"
+                          "Icon=application-default-icon\n"
+                          "Terminal=false\n"
+                          "Categories="
+                        + mime + ";"
+#if (QT_VERSION < QT_VERSION_CHECK(5, 15, 0))
             << endl;
 #else
             << Qt::endl;
@@ -175,10 +184,9 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
 
 void DefAppWorker::getListAppFinished(const QString &mime, const QString &defaultApp, bool isUser)
 {
-    const  QJsonArray defApp = QJsonDocument::fromJson(defaultApp.toUtf8()).array();
+    const QJsonArray defApp = QJsonDocument::fromJson(defaultApp.toUtf8()).array();
     saveListApp(mime, defApp, isUser);
 }
-
 
 void DefAppWorker::getDefaultAppFinished(const QString &mime, const QString &w)
 {
@@ -297,27 +305,87 @@ const QString DefAppWorker::getTypeByCategory(const DefaultAppsCategory &categor
 const QStringList DefAppWorker::getTypeListByCategory(const DefaultAppsCategory &category)
 {
     switch (category) {
-    case Browser:       return QStringList() << "x-scheme-handler/http" << "x-scheme-handler/ftp" << "x-scheme-handler/https"
-                                   << "text/html" << "text/xml" << "text/xhtml_xml" << "text/xhtml+xml";
-    case Mail:          return QStringList() << "x-scheme-handler/mailto" << "message/rfc822" << "application/x-extension-eml"
-                                   << "application/x-xpinstall";
-    case Text:          return QStringList() << "text/plain";
-    case Music:         return QStringList() << "audio/mpeg" << "audio/mp3" << "audio/x-mp3" << "audio/mpeg3" << "audio/x-mpeg-3"
-                                   << "audio/x-mpeg" << "audio/flac" << "audio/x-flac" << "application/x-flac"
-                                   << "audio/ape" << "audio/x-ape" << "application/x-ape" << "audio/ogg" << "audio/x-ogg"
-                                   << "audio/musepack" << "application/musepack" << "audio/x-musepack"
-                                   << "application/x-musepack" << "audio/mpc" << "audio/x-mpc" << "audio/vorbis"
-                                   << "audio/x-vorbis" << "audio/x-wav" << "audio/x-ms-wma";
-    case Video:         return QStringList() << "video/mp4" << "audio/mp4" << "audio/x-matroska" << "video/x-matroska"
-                                   << "application/x-matroska" << "video/avi" << "video/msvideo" << "video/x-msvideo"
-                                   << "video/ogg" << "application/ogg" << "application/x-ogg" << "video/3gpp" << "video/3gpp2"
-                                   << "video/flv" << "video/x-flv" << "video/x-flic" << "video/mpeg" << "video/x-mpeg"
-                                   << "video/x-ogm" << "application/x-shockwave-flash" << "video/x-theora" << "video/quicktime"
-                                   << "video/x-ms-asf" << "application/vnd.rn-realmedia" << "video/x-ms-wmv";
-    case Picture:       return QStringList() << "image/jpeg" << "image/pjpeg" << "image/bmp" << "image/x-bmp" << "image/png"
-                                   << "image/x-png" << "image/tiff" << "image/svg+xml" << "image/x-xbitmap" << "image/gif"
-                                   << "image/x-xpixmap" << "image/vnd.microsoft.icon";
-    case Terminal:      return QStringList() << "application/x-terminal";
+    case Browser:
+        return QStringList() << "x-scheme-handler/http"
+                             << "x-scheme-handler/ftp"
+                             << "x-scheme-handler/https"
+                             << "text/html"
+                             << "text/xml"
+                             << "text/xhtml_xml"
+                             << "text/xhtml+xml";
+    case Mail:
+        return QStringList() << "x-scheme-handler/mailto"
+                             << "message/rfc822"
+                             << "application/x-extension-eml"
+                             << "application/x-xpinstall";
+    case Text:
+        return QStringList() << "text/plain";
+    case Music:
+        return QStringList() << "audio/mpeg"
+                             << "audio/mp3"
+                             << "audio/x-mp3"
+                             << "audio/mpeg3"
+                             << "audio/x-mpeg-3"
+                             << "audio/x-mpeg"
+                             << "audio/flac"
+                             << "audio/x-flac"
+                             << "application/x-flac"
+                             << "audio/ape"
+                             << "audio/x-ape"
+                             << "application/x-ape"
+                             << "audio/ogg"
+                             << "audio/x-ogg"
+                             << "audio/musepack"
+                             << "application/musepack"
+                             << "audio/x-musepack"
+                             << "application/x-musepack"
+                             << "audio/mpc"
+                             << "audio/x-mpc"
+                             << "audio/vorbis"
+                             << "audio/x-vorbis"
+                             << "audio/x-wav"
+                             << "audio/x-ms-wma";
+    case Video:
+        return QStringList() << "video/mp4"
+                             << "audio/mp4"
+                             << "audio/x-matroska"
+                             << "video/x-matroska"
+                             << "application/x-matroska"
+                             << "video/avi"
+                             << "video/msvideo"
+                             << "video/x-msvideo"
+                             << "video/ogg"
+                             << "application/ogg"
+                             << "application/x-ogg"
+                             << "video/3gpp"
+                             << "video/3gpp2"
+                             << "video/flv"
+                             << "video/x-flv"
+                             << "video/x-flic"
+                             << "video/mpeg"
+                             << "video/x-mpeg"
+                             << "video/x-ogm"
+                             << "application/x-shockwave-flash"
+                             << "video/x-theora"
+                             << "video/quicktime"
+                             << "video/x-ms-asf"
+                             << "application/vnd.rn-realmedia"
+                             << "video/x-ms-wmv";
+    case Picture:
+        return QStringList() << "image/jpeg"
+                             << "image/pjpeg"
+                             << "image/bmp"
+                             << "image/x-bmp"
+                             << "image/png"
+                             << "image/x-png"
+                             << "image/tiff"
+                             << "image/svg+xml"
+                             << "image/x-xbitmap"
+                             << "image/gif"
+                             << "image/x-xpixmap"
+                             << "image/vnd.microsoft.icon";
+    case Terminal:
+        return QStringList() << "application/x-terminal";
     }
     return QStringList();
 }

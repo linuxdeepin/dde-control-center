@@ -20,12 +20,14 @@
  */
 
 #include "systemlanguagesettingdialog.h"
+
 #include "src/plugin-keyboard/operation/keyboardmodel.h"
 #include "src/plugin-keyboard/window/indexview.h"
 
 #include <DTitlebar>
 
 using namespace DCC_NAMESPACE;
+
 SystemLanguageSettingDialog::SystemLanguageSettingDialog(KeyboardModel *model, QWidget *parent)
     : DAbstractDialog(parent)
     , m_searchStatus(false)
@@ -59,13 +61,15 @@ SystemLanguageSettingDialog::SystemLanguageSettingDialog(KeyboardModel *model, Q
     QVBoxLayout *listVLayout = new QVBoxLayout();
     listVLayout->setAlignment(Qt::AlignHCenter);
     DTitlebar *titleIcon = new DTitlebar();
-    titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
-    titleIcon->setBackgroundTransparent(true);//透明
+    titleIcon->setFrameStyle(QFrame::NoFrame); // 无边框
+    titleIcon->setBackgroundTransparent(true); // 透明
     titleIcon->setMenuVisible(false);
     titleIcon->setTitle(tr(""));
 
     QLabel *headTitle = new QLabel(tr("Add System Language"));
-    DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
+    DFontSizeManager::instance()->bind(headTitle,
+                                       DFontSizeManager::T5,
+                                       QFont::DemiBold); // 设置label字体
     headTitle->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     headTitle->setAlignment(Qt::AlignCenter);
 
@@ -87,7 +91,10 @@ SystemLanguageSettingDialog::SystemLanguageSettingDialog(KeyboardModel *model, Q
     installEventFilter(this);
 
     connect(m_search, &SearchInput::textChanged, this, &SystemLanguageSettingDialog::onSearch);
-    connect(m_keyboardModel, &KeyboardModel::langChanged, this, &SystemLanguageSettingDialog::setModelData);
+    connect(m_keyboardModel,
+            &KeyboardModel::langChanged,
+            this,
+            &SystemLanguageSettingDialog::setModelData);
     connect(cancel, &QPushButton::clicked, this, &SystemLanguageSettingDialog::close);
     connect(ok, &QPushButton::clicked, this, &SystemLanguageSettingDialog::onAddLanguage);
     connect(m_view, &DListView::clicked, this, &SystemLanguageSettingDialog::onLangSelect);
@@ -95,9 +102,7 @@ SystemLanguageSettingDialog::SystemLanguageSettingDialog(KeyboardModel *model, Q
     setModelData(m_keyboardModel->langLists());
 }
 
-SystemLanguageSettingDialog::~SystemLanguageSettingDialog()
-{
-}
+SystemLanguageSettingDialog::~SystemLanguageSettingDialog() { }
 
 void SystemLanguageSettingDialog::onSearch(const QString &text)
 {
@@ -113,8 +118,8 @@ void SystemLanguageSettingDialog::onSearch(const QString &text)
             if (md.text().contains(text, Qt::CaseInsensitive)) {
                 auto item = new DStandardItem(md.text());
                 item->setText(md.text());
-                item->setData(md.key(),KeyRole);
-                item->setData(md.pinyin(),PingYinRole);
+                item->setData(md.key(), KeyRole);
+                item->setData(md.pinyin(), PingYinRole);
                 m_searchModel->appendRow(item);
             }
         }
@@ -124,9 +129,9 @@ void SystemLanguageSettingDialog::onSearch(const QString &text)
 
 void SystemLanguageSettingDialog::onAddLanguage()
 {
-    if(m_searchStatus) {
+    if (m_searchStatus) {
         Q_EMIT click(m_searchModelIndex);
-    } else{
+    } else {
         Q_EMIT click(m_modelIndex);
     }
 
@@ -135,14 +140,17 @@ void SystemLanguageSettingDialog::onAddLanguage()
 
 void SystemLanguageSettingDialog::onLangSelect(const QModelIndex &index)
 {
-    if(m_searchStatus) {
+    if (m_searchStatus) {
         updateDataModel(m_searchModel, m_searchModelIndex, index);
     } else {
         updateDataModel(m_model, m_modelIndex, index);
     }
 }
 
-void SystemLanguageSettingDialog::updateDataModel(QStandardItemModel *model, QModelIndex &selectedIndex, const QModelIndex &index) {
+void SystemLanguageSettingDialog::updateDataModel(QStandardItemModel *model,
+                                                  QModelIndex &selectedIndex,
+                                                  const QModelIndex &index)
+{
 
     if (selectedIndex.isValid()) {
         model->itemFromIndex(selectedIndex)->setCheckState(Qt::Unchecked);
@@ -171,8 +179,8 @@ void SystemLanguageSettingDialog::setModelData(const QList<MetaData> &datas)
     for (auto md : m_datas) {
         auto item = new DStandardItem();
         item->setText(md.text());
-        item->setData(md.key(),KeyRole);
-        item->setData(md.pinyin(),PingYinRole);
+        item->setData(md.key(), KeyRole);
+        item->setData(md.pinyin(), PingYinRole);
         m_model->appendRow(item);
     }
     m_view->setModel(m_model);

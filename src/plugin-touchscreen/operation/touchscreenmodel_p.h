@@ -41,16 +41,22 @@ protected:
 
     void init()
     {
-        QObject::connect(m_displayProxy, &TouchScreenProxy::TouchscreensV2Changed, q_ptr,
-                         [this] (const TouchscreenInfoList_V2 &newTouchScreenList) {
-                             touchScreenListChanged({newTouchScreenList});
+        QObject::connect(m_displayProxy,
+                         &TouchScreenProxy::TouchscreensV2Changed,
+                         q_ptr,
+                         [this](const TouchscreenInfoList_V2 &newTouchScreenList) {
+                             touchScreenListChanged({ newTouchScreenList });
                          });
-        QObject::connect(m_displayProxy, &TouchScreenProxy::MonitorsChanged, q_ptr,
-                         [this] (const QList<QDBusObjectPath> & monitors) {
+        QObject::connect(m_displayProxy,
+                         &TouchScreenProxy::MonitorsChanged,
+                         q_ptr,
+                         [this](const QList<QDBusObjectPath> &monitors) {
                              monitorsChanged(monitors);
                          });
-        QObject::connect(m_displayProxy, &TouchScreenProxy::TouchMapChanged, q_ptr,
-                         [this] (TouchscreenMap  value) {
+        QObject::connect(m_displayProxy,
+                         &TouchScreenProxy::TouchMapChanged,
+                         q_ptr,
+                         [this](TouchscreenMap value) {
                              touchMapChanged(value);
                          });
         monitorsChanged(m_displayProxy->monitors());
@@ -59,7 +65,7 @@ protected:
         return;
     }
 
-    void monitorsChanged(const QList<QDBusObjectPath> & monitors);
+    void monitorsChanged(const QList<QDBusObjectPath> &monitors);
     void assoiateTouch(const QString &monitor, const QString &touchscreenUUID);
     void assoiateTouchNotify();
 

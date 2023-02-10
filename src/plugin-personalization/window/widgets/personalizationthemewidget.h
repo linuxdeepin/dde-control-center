@@ -22,13 +22,14 @@
 
 #include "themeitem.h"
 
-#include <QWidget>
 #include <QBoxLayout>
 #include <QJsonObject>
+#include <QWidget>
 
 class ThemeModel;
 
 class ThemeItem;
+
 class PersonalizationThemeWidget : public QWidget
 {
     Q_OBJECT
@@ -46,8 +47,9 @@ public Q_SLOTS:
     void onSetPic(const QString &id, const QString &picPath);
     void onAddItem(const QJsonObject &json);
     void onRemoveItem(const QString &id);
+
 protected:
-    void mouseMoveEvent(QMouseEvent* event)override;
+    void mouseMoveEvent(QMouseEvent *event) override;
     QBoxLayout *m_centerLayout;
     QMap<ThemeItem *, QJsonObject> m_valueMap;
     ThemeModel *m_model;

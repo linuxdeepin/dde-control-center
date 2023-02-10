@@ -30,13 +30,9 @@ Machine::Machine(QObject *parent)
     , m_isHistoryDev(false)
     , m_direction(1)
 {
-
 }
 
-Machine::~Machine()
-{
-
-}
+Machine::~Machine() { }
 
 void Machine::setPath(const QString &path)
 {
@@ -71,7 +67,7 @@ void Machine::setDeviceSharing(const bool deviceSharing)
 {
     if (m_deviceSharing != deviceSharing) {
         m_deviceSharing = deviceSharing;
-        Q_EMIT  deviceSharingChanged(deviceSharing);
+        Q_EMIT deviceSharingChanged(deviceSharing);
     }
 }
 
@@ -100,4 +96,3 @@ void Machine::setDirection(const quint16 dir)
         Q_EMIT directionChanged(dir);
     }
 }
-

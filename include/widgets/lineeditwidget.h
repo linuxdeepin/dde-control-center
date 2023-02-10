@@ -39,7 +39,8 @@ class QHBoxLayout;
 
 namespace DCC_NAMESPACE {
 
-class ErrorTip : public Dtk::Widget::DArrowRectangle {
+class ErrorTip : public Dtk::Widget::DArrowRectangle
+{
     Q_OBJECT
 public:
     explicit ErrorTip(QWidget *parent = nullptr);
@@ -64,7 +65,9 @@ public:
     explicit LineEditWidget(bool isPasswordMode, QWidget *parent = nullptr);
 
     QLineEdit *textEdit() const;
+
     inline Dtk::Widget::DLineEdit *dTextEdit() const { return m_edit; }
+
     QString text() const;
     void setTitleVisible(const bool visible);
     void addRightWidget(QWidget *widget);
@@ -72,6 +75,7 @@ public:
     void setIsErr(const bool err = true);
 
     bool isShowAlert() { return m_errTip->isVisible(); }
+
     void showAlertMessage(const QString &message);
     void hideAlertMessage();
 
@@ -94,4 +98,4 @@ private:
     ErrorTip *m_errTip;
 };
 
-}
+} // namespace DCC_NAMESPACE

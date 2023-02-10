@@ -1,8 +1,9 @@
 #include "unknownupdateitem.h"
 
-#include <QLayout>
 #include <DFontSizeManager>
 #include <DLabel>
+
+#include <QLayout>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -38,7 +39,9 @@ void UnknownUpdateItem::setData(UpdateItemInfo *updateItemInfo)
         return;
     }
 
-    m_controlWidget->setVersion(updateItemInfo->updateTime().isEmpty() ? "" : tr("Release date: ") + updateItemInfo->updateTime());
+    m_controlWidget->setVersion(updateItemInfo->updateTime().isEmpty()
+                                        ? ""
+                                        : tr("Release date: ") + updateItemInfo->updateTime());
     m_controlWidget->setTitle(updateItemInfo->name());
 
     setProgressVlaue(updateItemInfo->downloadProgress());

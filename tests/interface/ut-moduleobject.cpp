@@ -1,7 +1,6 @@
 #include "gtest/gtest.h"
-
-#include "interface/pagemodule.h"
 #include "interface/hlistmodule.h"
+#include "interface/pagemodule.h"
 
 #include <QDebug>
 
@@ -10,19 +9,17 @@ using namespace DCC_NAMESPACE;
 class Tst_ModuleObject : public testing::Test
 {
 public:
-    void SetUp() override
-    {
-        obj = new HListModule;
-    }
+    void SetUp() override { obj = new HListModule; }
+
     void TearDown() override
     {
         delete obj;
         obj = nullptr;
     }
+
 public:
     ModuleObject *obj = nullptr;
 };
-
 
 TEST_F(Tst_ModuleObject, coverage)
 {
@@ -32,7 +29,9 @@ TEST_F(Tst_ModuleObject, coverage)
     obj->setIcon(QIcon::fromTheme("preferences-system"));
 
     for (int i = 1; i < 4; i++) {
-        ModuleObject *module = new PageModule(QString("menu%1").arg(i), QString("菜单%1").arg(i), QString("我是菜单%1").arg(i));
+        ModuleObject *module = new PageModule(QString("menu%1").arg(i),
+                                              QString("菜单%1").arg(i),
+                                              QString("我是菜单%1").arg(i));
 
         obj->appendChild(module);
     }
@@ -49,5 +48,4 @@ TEST_F(Tst_ModuleObject, coverage)
     obj->removeChild(0);
 
     ASSERT_TRUE(obj->childrens().size() == 2);
-
 }

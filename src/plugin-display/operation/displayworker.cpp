@@ -26,17 +26,18 @@
  */
 
 #include "displayworker.h"
+
 #include "displaymodel.h"
 #include "widgets/utils.h"
 
-#include <DApplicationHelper>
 #include <dconfig.h>
 
-#include <QDebug>
+#include <DApplicationHelper>
+
 #include <QDateTime>
+#include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
-
 
 const QString DisplayInterface("org.deepin.dde.Display1");
 
@@ -49,29 +50,78 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     , m_displayInter(new DisplayDBusProxy(this))
     , m_updateScale(false)
     , m_timer(new QTimer(this))
-    , m_dconfig(DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.display"), QString(), this))
+    , m_dconfig(DConfig::create("org.deepin.dde.control-center",
+                                QStringLiteral("org.deepin.dde.control-center.display"),
+                                QString(),
+                                this))
 {
     m_timer->setSingleShot(true);
     m_timer->setInterval(200);
 
-    connect(m_displayInter, &DisplayDBusProxy::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
-    connect(m_displayInter, &DisplayDBusProxy::MachinesChanged, this, &DisplayWorker::onMachinesChanged);
-    connect(m_displayInter, &DisplayDBusProxy::CooperatedMachinesChanged, this, &DisplayWorker::onHistoryDevChanged);
-    connect(m_displayInter, &DisplayDBusProxy::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
-    connect(m_displayInter, &DisplayDBusProxy::BrightnessChanged, model, &DisplayModel::setBrightnessMap);
-    connect(m_displayInter, &DisplayDBusProxy::TouchscreensV2Changed, model, &DisplayModel::setTouchscreenList);
+    connect(m_displayInter,
+            &DisplayDBusProxy::MonitorsChanged,
+            this,
+            &DisplayWorker::onMonitorListChanged);
+    connect(m_displayInter,
+            &DisplayDBusProxy::MachinesChanged,
+            this,
+            &DisplayWorker::onMachinesChanged);
+    connect(m_displayInter,
+            &DisplayDBusProxy::CooperatedMachinesChanged,
+            this,
+            &DisplayWorker::onHistoryDevChanged);
+    connect(m_displayInter,
+            &DisplayDBusProxy::BrightnessChanged,
+            this,
+            &DisplayWorker::onMonitorsBrightnessChanged);
+    connect(m_displayInter,
+            &DisplayDBusProxy::BrightnessChanged,
+            model,
+            &DisplayModel::setBrightnessMap);
+    connect(m_displayInter,
+            &DisplayDBusProxy::TouchscreensV2Changed,
+            model,
+            &DisplayModel::setTouchscreenList);
     connect(m_displayInter, &DisplayDBusProxy::TouchMapChanged, model, &DisplayModel::setTouchMap);
-    connect(m_displayInter, &DisplayDBusProxy::ScreenHeightChanged, model, &DisplayModel::setScreenHeight);
-    connect(m_displayInter, &DisplayDBusProxy::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
-    connect(m_displayInter, &DisplayDBusProxy::DisplayModeChanged, model, &DisplayModel::setDisplayMode);
-    connect(m_displayInter, &DisplayDBusProxy::MaxBacklightBrightnessChanged, model, &DisplayModel::setmaxBacklightBrightness);
-    connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureModeChanged, model, &DisplayModel::setAdjustCCTmode);
-    connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureManualChanged, model, &DisplayModel::setColorTemperature);
-    connect(m_displayInter, &DisplayDBusProxy::DeviceSharingSwitchChanged, m_model, &DisplayModel::setDeviceSharingSwitch);
-    connect(m_displayInter, static_cast<void (DisplayDBusProxy::*)(const QString &) const>(&DisplayDBusProxy::PrimaryChanged), model, &DisplayModel::setPrimary);
+    connect(m_displayInter,
+            &DisplayDBusProxy::ScreenHeightChanged,
+            model,
+            &DisplayModel::setScreenHeight);
+    connect(m_displayInter,
+            &DisplayDBusProxy::ScreenWidthChanged,
+            model,
+            &DisplayModel::setScreenWidth);
+    connect(m_displayInter,
+            &DisplayDBusProxy::DisplayModeChanged,
+            model,
+            &DisplayModel::setDisplayMode);
+    connect(m_displayInter,
+            &DisplayDBusProxy::MaxBacklightBrightnessChanged,
+            model,
+            &DisplayModel::setmaxBacklightBrightness);
+    connect(m_displayInter,
+            &DisplayDBusProxy::ColorTemperatureModeChanged,
+            model,
+            &DisplayModel::setAdjustCCTmode);
+    connect(m_displayInter,
+            &DisplayDBusProxy::ColorTemperatureManualChanged,
+            model,
+            &DisplayModel::setColorTemperature);
+    connect(m_displayInter,
+            &DisplayDBusProxy::DeviceSharingSwitchChanged,
+            m_model,
+            &DisplayModel::setDeviceSharingSwitch);
+    connect(m_displayInter,
+            static_cast<void (DisplayDBusProxy::*)(const QString &) const>(
+                    &DisplayDBusProxy::PrimaryChanged),
+            model,
+            &DisplayModel::setPrimary);
 
-    //display redSfit/autoLight
-    connect(m_displayInter, &DisplayDBusProxy::HasAmbientLightSensorChanged, m_model, &DisplayModel::autoLightAdjustVaildChanged);
+    // display redSfit/autoLight
+    connect(m_displayInter,
+            &DisplayDBusProxy::HasAmbientLightSensorChanged,
+            m_model,
+            &DisplayModel::autoLightAdjustVaildChanged);
     connect(m_timer, &QTimer::timeout, this, [=] {
         m_displayInter->ApplyChanges().waitForFinished();
         m_displayInter->Save().waitForFinished();
@@ -86,17 +136,25 @@ DisplayWorker::~DisplayWorker()
 
 void DisplayWorker::active()
 {
-//    m_model->setAllowEnableMultiScaleRatio(
-//        valueByQSettings<bool>(DCC_CONFIG_FILES,
-//                               "Display",
-//                               "AllowEnableMultiScaleRatio",
-//                               false));
+    //    m_model->setAllowEnableMultiScaleRatio(
+    //        valueByQSettings<bool>(DCC_CONFIG_FILES,
+    //                               "Display",
+    //                               "AllowEnableMultiScaleRatio",
+    //                               false));
 
-    QDBusPendingCallWatcher *scalewatcher = new QDBusPendingCallWatcher(m_displayInter->GetScaleFactor());
-    connect(scalewatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScaleFinished);
+    QDBusPendingCallWatcher *scalewatcher =
+            new QDBusPendingCallWatcher(m_displayInter->GetScaleFactor());
+    connect(scalewatcher,
+            &QDBusPendingCallWatcher::finished,
+            this,
+            &DisplayWorker::onGetScaleFinished);
 
-    QDBusPendingCallWatcher *screenscaleswatcher = new QDBusPendingCallWatcher(m_displayInter->GetScreenScaleFactors());
-    connect(screenscaleswatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScreenScalesFinished);
+    QDBusPendingCallWatcher *screenscaleswatcher =
+            new QDBusPendingCallWatcher(m_displayInter->GetScreenScaleFactors());
+    connect(screenscaleswatcher,
+            &QDBusPendingCallWatcher::finished,
+            this,
+            &DisplayWorker::onGetScreenScalesFinished);
 
     onMonitorsBrightnessChanged(m_displayInter->brightness());
     m_model->setBrightnessMap(m_displayInter->brightness());
@@ -118,9 +176,18 @@ void DisplayWorker::active()
     m_model->setOpenSharedDevices(m_displayInter->sharedDevices());
     m_model->setOpenSharedClipboard(m_displayInter->sharedClipboard());
     m_model->setFilesStoragePath(m_displayInter->filesStoragePath());
-    connect(m_displayInter, &DisplayDBusProxy::SharedClipboardChanged, m_model, &DisplayModel::setOpenSharedClipboard);
-    connect(m_displayInter, &DisplayDBusProxy::SharedDevicesChanged, m_model, &DisplayModel::setOpenSharedDevices);
-    connect(m_displayInter, &DisplayDBusProxy::FilesStoragePathChanged, m_model, &DisplayModel::setFilesStoragePath);
+    connect(m_displayInter,
+            &DisplayDBusProxy::SharedClipboardChanged,
+            m_model,
+            &DisplayModel::setOpenSharedClipboard);
+    connect(m_displayInter,
+            &DisplayDBusProxy::SharedDevicesChanged,
+            m_model,
+            &DisplayModel::setOpenSharedDevices);
+    connect(m_displayInter,
+            &DisplayDBusProxy::FilesStoragePathChanged,
+            m_model,
+            &DisplayModel::setFilesStoragePath);
 
     bool isRedshiftValid = true;
     QDBusReply<bool> reply = m_displayInter->SupportSetColorTemperatureSync();
@@ -132,8 +199,8 @@ void DisplayWorker::active()
     QVariant minBrightnessValue = 0.1f;
     minBrightnessValue = m_dconfig->value("minBrightnessValue", minBrightnessValue);
     m_model->setMinimumBrightnessScale(minBrightnessValue.toDouble());
-//    m_model->setResolutionRefreshEnable(m_dccSettings->get(GSETTINGS_SHOW_MUTILSCREEN).toBool());
-//    m_model->setBrightnessEnable(m_dccSettings->get(GSETTINGS_BRIGHTNESS_ENABLE).toBool());
+    //    m_model->setResolutionRefreshEnable(m_dccSettings->get(GSETTINGS_SHOW_MUTILSCREEN).toBool());
+    //    m_model->setBrightnessEnable(m_dccSettings->get(GSETTINGS_BRIGHTNESS_ENABLE).toBool());
 }
 
 void DisplayWorker::saveChanges()
@@ -196,9 +263,7 @@ void DisplayWorker::onGetScreenScalesFinished(QDBusPendingCallWatcher *w)
 
     for (auto &m : m_model->monitorList()) {
         if (rmap.find(m->name()) != rmap.end()) {
-            m->setScale(rmap.value(m->name()) < 1.0
-                            ? m_model->uiScale()
-                            : rmap.value(m->name()));
+            m->setScale(rmap.value(m->name()) < 1.0 ? m_model->uiScale() : rmap.value(m->name()));
         }
     }
 
@@ -209,9 +274,9 @@ void DisplayWorker::onMachinesChanged(const QList<QDBusObjectPath> &machines)
 {
     // TODO: 获取协同接口 同步协同设备
     QList<QString> machList;
-    QList<QString> existMachines;  //存在的Machine
+    QList<QString> existMachines; // 存在的Machine
 
-    for (auto&& mon : m_machines.keys()) {
+    for (auto &&mon : m_machines.keys()) {
         existMachines.append(mon->Path());
     }
 
@@ -233,7 +298,7 @@ void DisplayWorker::onHistoryDevChanged(const QList<QString> &machines)
 {
     for (const auto &hisdevPath : machines) {
         const QString path = hisdevPath;
-        for (auto&& machine : m_machines.keys()) {
+        for (auto &&machine : m_machines.keys()) {
             machine->setHistoryStates(machine->UUID() == path);
         }
     }
@@ -282,7 +347,7 @@ void DisplayWorker::SetMethodAdjustCCT(int mode)
     m_displayInter->SetMethodAdjustCCT(mode);
 }
 
-void DisplayWorker::setCurrentFillMode(Monitor *mon,const QString fillMode)
+void DisplayWorker::setCurrentFillMode(Monitor *mon, const QString fillMode)
 {
     MonitorDBusProxy *inter = m_monitors.value(mon);
     Q_ASSERT(inter);
@@ -291,7 +356,7 @@ void DisplayWorker::setCurrentFillMode(Monitor *mon,const QString fillMode)
 
 void DisplayWorker::setDeviceSharingSwitch(const bool enable)
 {
-     m_displayInter->setDeviceSharingSwitch(enable);
+    m_displayInter->setDeviceSharingSwitch(enable);
 }
 
 void DisplayWorker::setCurrentMachineConnect(Machine *mac)
@@ -359,12 +424,17 @@ void DisplayWorker::resetBackup()
         QJsonObject jsonObj = doc.object();
 
         QDateTime time = QDateTime::currentDateTime();
-        int offset = time.offsetFromUtc()/60;
-        bool negative = offset <0;
+        int offset = time.offsetFromUtc() / 60;
+        bool negative = offset < 0;
         if (negative)
             offset = -offset;
 
-        jsonObj.insert("UpdateAt", QString("%1%2%3:%4").arg(time.toString("yyyy-MM-ddThh:mm:ss.zzz000000")).arg(negative ? '-' : '+').arg(offset / 60, 2, 10, QChar('0')).arg(offset % 60, 2, 10, QChar('0')));
+        jsonObj.insert("UpdateAt",
+                       QString("%1%2%3:%4")
+                               .arg(time.toString("yyyy-MM-ddThh:mm:ss.zzz000000"))
+                               .arg(negative ? '-' : '+')
+                               .arg(offset / 60, 2, 10, QChar('0'))
+                               .arg(offset % 60, 2, 10, QChar('0')));
         doc.setObject(jsonObj);
 
         m_displayInter->SetConfig(doc.toJson(QJsonDocument::Compact));
@@ -381,7 +451,10 @@ void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 
 void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
 {
-    m_displayInter->SetAndSaveBrightness(mon->name(), std::max(brightness, m_model->minimumBrightnessScale())).waitForFinished();
+    m_displayInter
+            ->SetAndSaveBrightness(mon->name(),
+                                   std::max(brightness, m_model->minimumBrightnessScale()))
+            .waitForFinished();
 }
 
 void DisplayWorker::setMonitorPosition(QHash<Monitor *, QPair<int, int>> monitorPosition)
@@ -389,7 +462,9 @@ void DisplayWorker::setMonitorPosition(QHash<Monitor *, QPair<int, int>> monitor
     for (auto it(monitorPosition.cbegin()); it != monitorPosition.cend(); ++it) {
         MonitorDBusProxy *inter = m_monitors.value(it.key());
         Q_ASSERT(inter);
-        inter->SetPosition(static_cast<short>(it.value().first), static_cast<short>(it.value().second)).waitForFinished();
+        inter->SetPosition(static_cast<short>(it.value().first),
+                           static_cast<short>(it.value().second))
+                .waitForFinished();
     }
     applyChanges();
 }
@@ -440,9 +515,18 @@ void DisplayWorker::setNightMode(const bool nightmode)
         serverCmd = "disable";
     }
 
-    connect(process, static_cast<void (QProcess::*)(int exitCode, QProcess::ExitStatus)>(&QProcess::finished), process, &QProcess::deleteLater);
+    connect(process,
+            static_cast<void (QProcess::*)(int exitCode, QProcess::ExitStatus)>(
+                    &QProcess::finished),
+            process,
+            &QProcess::deleteLater);
 
-    process->start("bash", QStringList() << "-c" << QString("systemctl --user %1 redshift.service && systemctl --user %2 redshift.service").arg(serverCmd).arg(cmd));
+    process->start("bash",
+                   QStringList() << "-c"
+                                 << QString("systemctl --user %1 redshift.service && systemctl "
+                                            "--user %2 redshift.service")
+                                            .arg(serverCmd)
+                                            .arg(cmd));
 }
 
 void DisplayWorker::monitorAdded(const QString &path)
@@ -479,15 +563,26 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorDBusProxy::ModesChanged, mon, &Monitor::setModeList);
     connect(inter, &MonitorDBusProxy::RotationsChanged, mon, &Monitor::setRotateList);
     connect(inter, &MonitorDBusProxy::EnabledChanged, mon, &Monitor::setMonitorEnable);
-    connect(inter, &MonitorDBusProxy::CurrentRotateModeChanged, mon, &Monitor::setCurrentRotateMode);
-    connect(inter, &MonitorDBusProxy::AvailableFillModesChanged, mon, &Monitor::setAvailableFillModes);
+    connect(inter,
+            &MonitorDBusProxy::CurrentRotateModeChanged,
+            mon,
+            &Monitor::setCurrentRotateMode);
+    connect(inter,
+            &MonitorDBusProxy::AvailableFillModesChanged,
+            mon,
+            &Monitor::setAvailableFillModes);
     connect(inter, &MonitorDBusProxy::CurrentFillModeChanged, mon, &Monitor::setCurrentFillMode);
-    connect(m_displayInter, static_cast<void (DisplayDBusProxy::*)(const QString &) const>(&DisplayDBusProxy::PrimaryChanged), mon, &Monitor::setPrimary);
+    connect(m_displayInter,
+            static_cast<void (DisplayDBusProxy::*)(const QString &) const>(
+                    &DisplayDBusProxy::PrimaryChanged),
+            mon,
+            &Monitor::setPrimary);
     connect(this, &DisplayWorker::requestUpdateModeList, this, [=] {
         mon->setModeList(inter->modes());
     });
 
-    // NOTE: DO NOT using async dbus call. because we need to have a unique name to distinguish each monitor
+    // NOTE: DO NOT using async dbus call. because we need to have a unique name to distinguish each
+    // monitor
     mon->setName(inter->name());
     mon->setManufacturer(inter->manufacturer());
     mon->setModel(inter->model());
@@ -555,8 +650,14 @@ void DisplayWorker::machinesAdded(const QString &path)
     connect(interProxy, &MachineDBusProxy::IpChanged, machine, &Machine::setIP);
     connect(interProxy, &MachineDBusProxy::NameChanged, machine, &Machine::setName);
     connect(interProxy, &MachineDBusProxy::ConnectedChanged, machine, &Machine::setConnected);
-    connect(interProxy, &MachineDBusProxy::DeviceSharingChanged, machine, &Machine::setDeviceSharing);
-    connect(interProxy, &MachineDBusProxy::disconnectStatusChanged, machine, &Machine::setDisconnectStatus);
+    connect(interProxy,
+            &MachineDBusProxy::DeviceSharingChanged,
+            machine,
+            &Machine::setDeviceSharing);
+    connect(interProxy,
+            &MachineDBusProxy::disconnectStatusChanged,
+            machine,
+            &Machine::setDisconnectStatus);
     connect(interProxy, &MachineDBusProxy::directionChanged, machine, &Machine::setDirection);
     machine->setPath(path);
     machine->setIP(interProxy->IP());
@@ -581,7 +682,7 @@ void DisplayWorker::machinesAdded(const QString &path)
 void DisplayWorker::machinesRemoved(const QString &path)
 {
     Machine *machine = nullptr;
-    for (auto it(m_machines.cbegin()); it !=m_machines.cend(); ++it) {
+    for (auto it(m_machines.cbegin()); it != m_machines.cend(); ++it) {
         if (it.key()->Path() == path) {
             machine = it.key();
             break;
@@ -603,7 +704,8 @@ void DisplayWorker::setAmbientLightAdjustBrightness(bool able)
     m_displayInter->setAmbientLightAdjustBrightness(able);
 }
 
-void DisplayWorker::setTouchScreenAssociation(const QString &monitor, const QString &touchscreenUUID)
+void DisplayWorker::setTouchScreenAssociation(const QString &monitor,
+                                              const QString &touchscreenUUID)
 {
     m_displayInter->AssociateTouch(monitor, touchscreenUUID);
 }
@@ -613,7 +715,8 @@ void DisplayWorker::setMonitorResolutionBySize(Monitor *mon, const int width, co
     MonitorDBusProxy *inter = m_monitors.value(mon);
     Q_ASSERT(inter);
 
-    QDBusPendingCall call = inter->SetModeBySize(static_cast<ushort>(width), static_cast<ushort>(height));
+    QDBusPendingCall call =
+            inter->SetModeBySize(static_cast<ushort>(width), static_cast<ushort>(height));
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
         if (call.isError()) {

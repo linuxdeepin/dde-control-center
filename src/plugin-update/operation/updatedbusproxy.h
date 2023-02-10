@@ -16,6 +16,7 @@ class DCCDBusInterface;
 
 class QDBusMessage;
 class QDBusInterface;
+
 class UpdateDBusProxy : public QObject
 {
     Q_OBJECT
@@ -35,7 +36,8 @@ public:
     bool autoDownloadUpdates();
     void SetAutoDownloadUpdates(bool in0);
 
-    Q_PROPERTY(bool AutoInstallUpdates READ autoInstallUpdates WRITE setAutoInstallUpdates NOTIFY AutoInstallUpdatesChanged)
+    Q_PROPERTY(bool AutoInstallUpdates READ autoInstallUpdates WRITE setAutoInstallUpdates NOTIFY
+                       AutoInstallUpdatesChanged)
     bool autoInstallUpdates();
     void setAutoInstallUpdates(bool value);
 
@@ -70,32 +72,32 @@ public:
     BatteryPercentageInfo batteryPercentage();
 
     // Atomic Upgrade
-    void commit(const QString& commitDate);
+    void commit(const QString &commitDate);
     Q_PROPERTY(bool Running READ running NOTIFY RunningChanged)
     bool running();
 
 signals:
     // updater
-    void UpdateNotifyChanged(bool  value) const;
-    void AutoDownloadUpdatesChanged(bool  value) const;
-    void AutoInstallUpdatesChanged(bool  value) const;
-    void AutoInstallUpdateTypeChanged(qulonglong  value) const;
-    void MirrorSourceChanged(const QString & value) const;
-    void AutoCheckUpdatesChanged(bool  value) const;
-    void ClassifiedUpdatablePackagesChanged(LastoreUpdatePackagesInfo  value) const;
+    void UpdateNotifyChanged(bool value) const;
+    void AutoDownloadUpdatesChanged(bool value) const;
+    void AutoInstallUpdatesChanged(bool value) const;
+    void AutoInstallUpdateTypeChanged(qulonglong value) const;
+    void MirrorSourceChanged(const QString &value) const;
+    void AutoCheckUpdatesChanged(bool value) const;
+    void ClassifiedUpdatablePackagesChanged(LastoreUpdatePackagesInfo value) const;
 
     // ManagerInter
-    void JobListChanged(const QList<QDBusObjectPath> & value) const;
-    void AutoCleanChanged(bool  value) const;
-    void UpdateModeChanged(qulonglong  value) const;
+    void JobListChanged(const QList<QDBusObjectPath> &value) const;
+    void AutoCleanChanged(bool value) const;
+    void UpdateModeChanged(qulonglong value) const;
 
     // Power
-    void OnBatteryChanged(bool  value) const;
-    void BatteryPercentageChanged(BatteryPercentageInfo  value) const;
+    void OnBatteryChanged(bool value) const;
+    void BatteryPercentageChanged(BatteryPercentageInfo value) const;
 
     // Atomic Upgrade
     void StateChanged(int operate, int state, QString version, QString message);
-    void RunningChanged(bool  value) const;
+    void RunningChanged(bool value) const;
 
 private:
     DCC_NAMESPACE::DCCDBusInterface *m_updateInter;

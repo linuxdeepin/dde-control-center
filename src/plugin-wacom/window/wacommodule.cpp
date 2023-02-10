@@ -1,35 +1,47 @@
 #include "wacommodule.h"
-#include "widgets/widgetmodule.h"
-#include "widgets/itemmodule.h"
 
-#include <DSlider>
+#include "widgets/dccslider.h"
+#include "widgets/itemmodule.h"
+#include "widgets/widgetmodule.h"
+
 #include <settingsgroupmodule.h>
 #include <titledslideritem.h>
 #include <wacommodel.h>
 #include <widgetmodule.h>
-#include "widgets/dccslider.h"
-#include <QComboBox>
 
+#include <DSlider>
+
+#include <QComboBox>
 #include <QDebug>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
 
 WacomModule::WacomModule(QObject *parent)
-    : PageModule("wacom", tr("Drawing Tablet") , tr("Drawing Tablet"), QIcon::fromTheme("dcc_nav_wacom"), parent)
+    : PageModule("wacom",
+                 tr("Drawing Tablet"),
+                 tr("Drawing Tablet"),
+                 QIcon::fromTheme("dcc_nav_wacom"),
+                 parent)
     , m_model(new WacomModel(this))
 {
-    connect(m_model, &WacomModel::ExistChanged, this, [this](bool exist){
-        this->setHidden(!exist);qInfo()<<__FILE__<<__LINE__<<m_model->exist()<<exist;
+    connect(m_model, &WacomModel::ExistChanged, this, [this](bool exist) {
+        this->setHidden(!exist);
+        qInfo() << __FILE__ << __LINE__ << m_model->exist() << exist;
     });
     // Mode
-    appendChild(new ItemModule("Mode", tr("Mode"), this, &WacomModule::initModeModule,true));
+    appendChild(new ItemModule("Mode", tr("Mode"), this, &WacomModule::initModeModule, true));
     // Pressure
-    appendChild(new ItemModule("Pressure",tr("Pressure Sensitivity"),this, &WacomModule::initPressureModule,false));
-    setHidden(!m_model->exist());qInfo()<<__FILE__<<__LINE__<<m_model->exist();
+    appendChild(new ItemModule("Pressure",
+                               tr("Pressure Sensitivity"),
+                               this,
+                               &WacomModule::initPressureModule,
+                               false));
+    setHidden(!m_model->exist());
+    qInfo() << __FILE__ << __LINE__ << m_model->exist();
 }
 
-QWidget* WacomModule::initModeModule(ModuleObject *module)
+QWidget *WacomModule::initModeModule(ModuleObject *module)
 {
     Q_UNUSED(module);
 
@@ -40,10 +52,13 @@ QWidget* WacomModule::initModeModule(ModuleObject *module)
         modeComboBox->blockSignals(false);
     };
 
-    connect(m_model, &WacomModel::CursorModeChanged, modeComboBox, [onCursorModeChanged](const bool curMode){
-        onCursorModeChanged(curMode);
-    });
-    connect(modeComboBox, &QComboBox::currentTextChanged, this, [ = ](const QString curMode) {
+    connect(m_model,
+            &WacomModel::CursorModeChanged,
+            modeComboBox,
+            [onCursorModeChanged](const bool curMode) {
+                onCursorModeChanged(curMode);
+            });
+    connect(modeComboBox, &QComboBox::currentTextChanged, this, [=](const QString curMode) {
         Q_UNUSED(curMode);
         QVariant curData = modeComboBox->currentData();
         m_model->setCursorMode(curData.toBool());
@@ -62,11 +77,12 @@ QWidget *WacomModule::initPressureModule(ModuleObject *module)
     Q_UNUSED(module);
     SettingsGroup *group = new SettingsGroup;
 
-    connect(m_model, &WacomModel::CursorModeChanged, group, [group](const bool curMode){
+    connect(m_model, &WacomModel::CursorModeChanged, group, [group](const bool curMode) {
         group->setVisible(!curMode);
     });
 
-    DCC_NAMESPACE::TitledSliderItem *pressureSlider = new DCC_NAMESPACE::TitledSliderItem(tr("Pressure Sensitivity"));
+    DCC_NAMESPACE::TitledSliderItem *pressureSlider =
+            new DCC_NAMESPACE::TitledSliderItem(tr("Pressure Sensitivity"));
     pressureSlider->slider()->setType(DCCSlider::Vernier);
     pressureSlider->slider()->setTickPosition(QSlider::TicksBelow);
     pressureSlider->slider()->setRange(1, 7);
@@ -74,11 +90,15 @@ QWidget *WacomModule::initPressureModule(ModuleObject *module)
     pressureSlider->slider()->setPageStep(1);
 
     QStringList delays;
-    delays<<tr("Light")<<""<<""<<""<<""<<""<<tr("Heavy");
+    delays << tr("Light") << ""
+           << ""
+           << ""
+           << ""
+           << "" << tr("Heavy");
     pressureSlider->setAnnotations(delays);
     group->appendItem(pressureSlider);
 
-    DSlider * preSlider = qobject_cast<DSlider *>(pressureSlider->slider());
+    DSlider *preSlider = qobject_cast<DSlider *>(pressureSlider->slider());
     connect(m_model, &WacomModel::EraserPressureSensitiveChanged, preSlider, &DSlider::setValue);
     connect(preSlider, &DSlider::valueChanged, m_model, &WacomModel::setEraserPressureSensitive);
     preSlider->setValue(static_cast<int>(m_model->eraserPressureSensitive()));

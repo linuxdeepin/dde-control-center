@@ -1,24 +1,28 @@
-#include "formmodule.h"
 #include "testplugin.h"
+
+#include "formmodule.h"
 #include "interface/moduleobject.h"
 #include "interface/pagemodule.h"
+#include "widgets/horizontalmodule.h"
+#include "widgets/itemmodule.h"
 #include "widgets/listviewmodule.h"
 #include "widgets/moduleobjectitem.h"
-#include "widgets/horizontalmodule.h"
 #include "widgets/settingsgroupmodule.h"
-#include "widgets/itemmodule.h"
 
-#include <QLabel>
 #include <qboxlayout.h>
 #include <qlabel.h>
 #include <qpushbutton.h>
 #include <qwidget.h>
-#include <QThread>
-#include <QLineEdit>
-#include <QApplication>
+
 #include <DStyle>
+
+#include <QApplication>
 #include <QComboBox>
+#include <QLabel>
+#include <QLineEdit>
+#include <QThread>
 using namespace DCC_NAMESPACE;
+
 QString Test1Plugin::name() const
 {
     return QStringLiteral("plugin-test1");
@@ -32,7 +36,8 @@ ModuleObject *Test1Plugin::module()
 }
 
 Test1ModuleObject::Test1ModuleObject()
-    : HListModule("firstmenu", tr("主菜单"), tr("我是主菜单"), QIcon::fromTheme("preferences-system"))
+    : HListModule(
+            "firstmenu", tr("主菜单"), tr("我是主菜单"), QIcon::fromTheme("preferences-system"))
 {
     // 根节点继承于HListModule
     //-----------正常树构建----------
@@ -41,7 +46,10 @@ Test1ModuleObject::Test1ModuleObject()
         ModuleObject *module = new PageModule(QString("menu%1").arg(i), tr("菜单%1").arg(i), this);
 
         for (int j = 0; j < 5; j++) {
-            LabelModule *labelModule = new LabelModule(QString("main%1menu%2").arg(i).arg(j), QString("具体页面%1的第%2个page的标题").arg(i).arg(j), module);
+            LabelModule *labelModule =
+                    new LabelModule(QString("main%1menu%2").arg(i).arg(j),
+                                    QString("具体页面%1的第%2个page的标题").arg(i).arg(j),
+                                    module);
             labelModule->setText(QString("我是具体页面%1的第%2个page").arg(i).arg(j));
             module->appendChild(labelModule);
         }
@@ -54,7 +62,10 @@ Test1ModuleObject::Test1ModuleObject()
         ModuleObject *module = new PageModule(QString("menu%1").arg(i), tr("菜单%1").arg(i), this);
 
         for (int j = 0; j < 30; j++) {
-            ButtonModule *buttonModule = new ButtonModule(QString("main%1menu%2").arg(i).arg(j), QString("具体页面%1的第%2个page的标题").arg(i).arg(j), module);
+            ButtonModule *buttonModule =
+                    new ButtonModule(QString("main%1menu%2").arg(i).arg(j),
+                                     QString("具体页面%1的第%2个page的标题").arg(i).arg(j),
+                                     module);
             buttonModule->setText(QString("我是具体页面%1的第%2个page").arg(i).arg(j));
             module->appendChild(buttonModule);
         }
@@ -67,7 +78,10 @@ Test1ModuleObject::Test1ModuleObject()
         ModuleObject *module = new FormModule(QString("menu%1").arg(i), tr("菜单%1").arg(i), this);
 
         for (int j = 0; j < 30; j++) {
-            ButtonModule *buttonModule = new ButtonModule(QString("main%1menu%2").arg(i).arg(j), QString("自定义布局页面%1的第%2个page的标题").arg(i).arg(j), module);
+            ButtonModule *buttonModule =
+                    new ButtonModule(QString("main%1menu%2").arg(i).arg(j),
+                                     QString("自定义布局页面%1的第%2个page的标题").arg(i).arg(j),
+                                     module);
             buttonModule->setText(QString("我是页面%1的第%2个按钮").arg(i).arg(j));
             module->appendChild(buttonModule);
         }
@@ -86,7 +100,8 @@ Test1ModuleObject::Test1ModuleObject()
     module->appendChild(lstModule1);
 
     // 正常子项的Page
-    LabelModule *labelModule1 = new LabelModule(QString("pageSpeci1"), QString("特殊页面1"), lstModule1);
+    LabelModule *labelModule1 =
+            new LabelModule(QString("pageSpeci1"), QString("特殊页面1"), lstModule1);
     labelModule1->setText("特殊页面内容1");
     lstModule1->appendChild(labelModule1);
 
@@ -94,16 +109,19 @@ Test1ModuleObject::Test1ModuleObject()
     PageModule *lstModule2 = new PageModule("menuSpeci2", "特殊菜单2", module);
     module->appendChild(lstModule2);
 
-    LabelModule *module2_1 = new LabelModule(QString("pageSpeci2"), QString("特殊页面2"), lstModule2);
+    LabelModule *module2_1 =
+            new LabelModule(QString("pageSpeci2"), QString("特殊页面2"), lstModule2);
     module2_1->setText("特殊页面内容2");
     lstModule2->appendChild(module2_1);
 
-    ButtonModule *module2_2 = new ButtonModule(QString("pageSpeci2"), QString("特殊页面2"), lstModule2);
+    ButtonModule *module2_2 =
+            new ButtonModule(QString("pageSpeci2"), QString("特殊页面2"), lstModule2);
     module2_2->setText("Page中的测试按钮");
     module2_2->setExtra(); // 设置为附加按钮，父ChildType为ModuleObject::Page
     lstModule2->appendChild(module2_2);
 
-    ButtonModule *ButtonModule3 = new ButtonModule(QString("pageSpeci3"), QString("特殊页面3"), lstModule2);
+    ButtonModule *ButtonModule3 =
+            new ButtonModule(QString("pageSpeci3"), QString("特殊页面3"), lstModule2);
     ButtonModule3->setText("测试按钮");
     ButtonModule3->setExtra(); // 设置为附加按钮，父ChildType为ModuleObject::VList
     module->appendChild(ButtonModule3);
@@ -126,16 +144,21 @@ QWidget *Test1ModuleObject::initButton()
 {
     return new QPushButton();
 }
+
 void Test1ModuleObject::addTestModule(ModuleObject *parent)
 {
     // ItemModule测试
     // ItemModule提供一个回调函数接口,方便窗口与ModuleObject结合
     // 左边是displayName字符串，右则是回调函数返回的widget，回调函数可以是匿名函数，也可以是成员函数。其参数是ModuleObject*，返回值为创建的QWidget*
     // 同时ItemModule提供一些接口如setLeftVisible设置左则是否显示，setClickable是否处理点击。具体参考ItemModule头文件
-    // @warning 回调函数返回的widget生命周期只是对应窗口显示的时候，即模块切换时就会被析构。ItemModule的生命周期是从控制中心启动到关闭。
+    // @warning
+    // 回调函数返回的widget生命周期只是对应窗口显示的时候，即模块切换时就会被析构。ItemModule的生命周期是从控制中心启动到关闭。
     ItemModule *item = new ItemModule("item", tr("Title"));
     item->setRightWidget([](ModuleObject *item) {
-        return new QPushButton(Dtk::Widget::DStyle::standardIcon(qApp->style(), Dtk::Widget::DStyle::SP_EditElement), "");
+        return new QPushButton(
+                Dtk::Widget::DStyle::standardIcon(qApp->style(),
+                                                  Dtk::Widget::DStyle::SP_EditElement),
+                "");
     });
     parent->appendChild(item);
     ItemModule *itemButton = new ItemModule("itemButton", tr("Button:"), false);
@@ -145,9 +168,18 @@ void Test1ModuleObject::addTestModule(ModuleObject *parent)
     // SettingsGroupModule测试
     // SettingsGroupModule提供一个基于SettingsGroup的ModuleObject,可实现SettingsGroup的窗口背景处理
     SettingsGroupModule *groupModule = new SettingsGroupModule("group", tr("group Module"));
-    groupModule->appendChild(new ItemModule("groupItem1", tr("group PushButton"), [](ModuleObject *module) { return new QPushButton(); }));
-    groupModule->appendChild(new ItemModule("groupItem2", tr("group LineEdit"), [](ModuleObject *module) { return new QLineEdit(); }));
-    groupModule->appendChild(new ItemModule("groupItem3", tr("group ComboBox"), [](ModuleObject *module) { return new QComboBox(); }));
+    groupModule->appendChild(
+            new ItemModule("groupItem1", tr("group PushButton"), [](ModuleObject *module) {
+                return new QPushButton();
+            }));
+    groupModule->appendChild(
+            new ItemModule("groupItem2", tr("group LineEdit"), [](ModuleObject *module) {
+                return new QLineEdit();
+            }));
+    groupModule->appendChild(
+            new ItemModule("groupItem3", tr("group ComboBox"), [](ModuleObject *module) {
+                return new QComboBox();
+            }));
     parent->appendChild(groupModule);
 
     // HorizontalModule测试
@@ -156,7 +188,9 @@ void Test1ModuleObject::addTestModule(ModuleObject *parent)
     hor->setStretchType(HorizontalModule::AllStretch);
     parent->appendChild(hor);
     ItemModule *hlabel = new ItemModule(
-            "hlabel", tr("Horizontal Edit"), [](ModuleObject *module) {
+            "hlabel",
+            tr("Horizontal Edit"),
+            [](ModuleObject *module) {
                 QLabel *label = new QLabel(module->displayName());
                 connect(module, &ModuleObject::displayNameChanged, label, &QLabel::setText);
                 return label;
@@ -167,7 +201,9 @@ void Test1ModuleObject::addTestModule(ModuleObject *parent)
     });
 
     ItemModule *hedit = new ItemModule(
-            "hedit", tr("Horizontal Edit"), [hlabel](ModuleObject *module) {
+            "hedit",
+            tr("Horizontal Edit"),
+            [hlabel](ModuleObject *module) {
                 QLineEdit *edit = new QLineEdit(module->displayName());
                 edit->setFixedHeight(32);
                 connect(module, &ModuleObject::displayNameChanged, edit, &QLineEdit::setText);
@@ -184,9 +220,13 @@ void Test1ModuleObject::addTestModule(ModuleObject *parent)
             false);
     hedit->setHidden(true);
     ItemModule *hbutton = new ItemModule(
-            "hbutton", tr("Horizontal QPushButton"), [hlabel, hedit](ModuleObject *module) {
+            "hbutton",
+            tr("Horizontal QPushButton"),
+            [hlabel, hedit](ModuleObject *module) {
                 QPushButton *but = new QPushButton();
-                but->setIcon(Dtk::Widget::DStyle::standardIcon(qApp->style(), Dtk::Widget::DStyle::SP_EditElement));
+                but->setIcon(
+                        Dtk::Widget::DStyle::standardIcon(qApp->style(),
+                                                          Dtk::Widget::DStyle::SP_EditElement));
                 but->setFixedSize(32, 32);
                 connect(but, &QPushButton::clicked, module, [hlabel, hedit, module]() {
                     hlabel->setHidden(true);

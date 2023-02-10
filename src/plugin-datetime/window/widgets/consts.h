@@ -43,6 +43,6 @@ const char kDomainName[] = "deepin.org";
 // Default locale used in program.
 const char kDefaultLocale[] = "en_US.UTF-8";
 
-}
+} // namespace installer
 
-#endif  // INSTALLER_CONSTS_H
+#endif // INSTALLER_CONSTS_H

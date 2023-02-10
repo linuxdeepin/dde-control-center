@@ -1,29 +1,29 @@
 /*
-* Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
-*
-* Author:     Tianlu Shao <shaotianlu@uniontech.com>
-*
-* Maintainer: Tianlu Shao <shaotianlu@uniontech.com>
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-*
-* You should have received a copy of the GNU General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * Copyright (C) 2021 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     Tianlu Shao <shaotianlu@uniontech.com>
+ *
+ * Maintainer: Tianlu Shao <shaotianlu@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 #ifndef NotificationDBusProxy_H
 #define NotificationDBusProxy_H
 
-#include <QObject>
 #include <QDBusPendingReply>
 #include <QDBusReply>
+#include <QObject>
 
 class QDBusInterface;
 class QDBusMessage;
@@ -38,7 +38,8 @@ public:
     QString allSetting();
     void setAllSetting(const QString &value);
 
-    Q_PROPERTY(QString systemSetting READ systemSetting WRITE setSystemSetting NOTIFY systemSettingChanged)
+    Q_PROPERTY(QString systemSetting READ systemSetting WRITE setSystemSetting NOTIFY
+                       systemSettingChanged)
     QString systemSetting();
     void setSystemSetting(const QString &value);
 
@@ -46,7 +47,7 @@ private:
     void init();
 
 public Q_SLOTS: // METHODS
-    //Notification
+    // Notification
     QDBusPendingReply<> ClearRecords();
     QDBusPendingReply<> CloseNotification(uint in0);
     QDBusPendingReply<QString> GetAllRecords();
@@ -59,7 +60,14 @@ public Q_SLOTS: // METHODS
     QDBusReply<QString> GetServerInformation(QString &out1, QString &out2, QString &out3);
     QDBusPendingReply<QDBusVariant> GetSystemInfo(uint in0);
     QDBusPendingReply<> Hide();
-    QDBusPendingReply<uint> Notify(const QString &in0, uint in1, const QString &in2, const QString &in3, const QString &in4, const QStringList &in5, const QVariantMap &in6, int in7);
+    QDBusPendingReply<uint> Notify(const QString &in0,
+                                   uint in1,
+                                   const QString &in2,
+                                   const QString &in3,
+                                   const QString &in4,
+                                   const QStringList &in5,
+                                   const QVariantMap &in6,
+                                   int in7);
     QDBusPendingReply<> RemoveRecord(const QString &in0);
     QDBusPendingReply<> SetAppInfo(const QString &in0, uint in1, const QDBusVariant &in2);
     QDBusPendingReply<> SetSystemInfo(uint in0, const QDBusVariant &in1);
@@ -85,8 +93,8 @@ Q_SIGNALS: // SIGNALS
     void appSettingChanged(const QString &in0);
     void systemSettingChanged(const QString &in0);
     // begin property changed signals
-    void allSettingChanged(const QString & value) const;
-    void systemSettingChanged(const QString & value) const;
+    void allSettingChanged(const QString &value) const;
+    void systemSettingChanged(const QString &value) const;
 
 private:
     QDBusInterface *m_dBusNotificationInter;

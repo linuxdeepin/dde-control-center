@@ -58,9 +58,10 @@ PinCodeDialog::~PinCodeDialog()
 
 PinCodeDialog *PinCodeDialog::instance(const QString &pinCode, const bool &cancelable)
 {
-    QList<PinCodeDialog *>::Iterator it = std::find_if(Instances.begin(), Instances.end(), [pinCode](PinCodeDialog *dia) {
-        return dia->pinCode() == pinCode;
-    });
+    QList<PinCodeDialog *>::Iterator it =
+            std::find_if(Instances.begin(), Instances.end(), [pinCode](PinCodeDialog *dia) {
+                return dia->pinCode() == pinCode;
+            });
     if (it != Instances.end()) {
         return *it;
     }

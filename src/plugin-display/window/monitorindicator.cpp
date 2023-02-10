@@ -25,9 +25,9 @@
 
 #include "monitorindicator.h"
 
-#include <QPainter>
 #include <QApplication>
 #include <QDebug>
+#include <QPainter>
 
 #define LINE_WIDTH 10
 
@@ -46,19 +46,23 @@ MonitorIndicator::MonitorIndicator(QWidget *parent)
     QPalette pal = QPalette();
     pal.setColor(QPalette::Window, QColor("#2ca7f8"));
 
-    m_topLine->setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
+    m_topLine->setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen
+                              | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
     m_topLine->setAutoFillBackground(true);
     m_topLine->setPalette(pal);
 
-    m_bottomLine->setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
+    m_bottomLine->setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen
+                                 | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
     m_bottomLine->setAutoFillBackground(true);
     m_bottomLine->setPalette(pal);
 
-    m_leftLine->setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
+    m_leftLine->setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen
+                               | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
     m_leftLine->setAutoFillBackground(true);
     m_leftLine->setPalette(pal);
 
-    m_rightLine->setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
+    m_rightLine->setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint | Qt::SplashScreen
+                                | Qt::FramelessWindowHint | Qt::X11BypassWindowManagerHint);
     m_rightLine->setAutoFillBackground(true);
     m_rightLine->setPalette(pal);
 }
@@ -82,7 +86,7 @@ void MonitorIndicator::setVisible(bool visible)
 
 void MonitorIndicator::updateGeometry()
 {
-    QPoint topLeft = mapToGlobal(QPoint(0,0));
+    QPoint topLeft = mapToGlobal(QPoint(0, 0));
     int lineWidth = static_cast<int>(LINE_WIDTH / qApp->devicePixelRatio());
     m_topLine->setGeometry(topLeft.x(), topLeft.y(), width(), lineWidth);
     m_bottomLine->setGeometry(topLeft.x(), topLeft.y() + height() - lineWidth, width(), lineWidth);

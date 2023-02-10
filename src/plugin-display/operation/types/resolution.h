@@ -41,8 +41,11 @@ public:
     bool operator==(const Resolution &other) const;
 
     quint32 id() const { return m_id; }
+
     quint16 width() const { return m_width; }
+
     quint16 height() const { return m_height; }
+
     double rate() const { return m_rate; }
 
 public:
@@ -51,7 +54,6 @@ public:
     quint16 m_height;
     double m_rate;
 };
-
 
 Q_DECLARE_METATYPE(Resolution)
 

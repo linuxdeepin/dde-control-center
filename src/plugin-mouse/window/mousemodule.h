@@ -21,8 +21,8 @@
 
 #pragma once
 
-#include "interface/namespace.h"
 #include "interface/hlistmodule.h"
+#include "interface/namespace.h"
 #include "interface/plugininterface.h"
 
 #include <QObject>
@@ -49,18 +49,20 @@ public:
     virtual QString location() const override;
 };
 
-//一级菜单
+// 一级菜单
 class MouseModule : public HListModule
 {
     Q_OBJECT
 public:
     explicit MouseModule(QObject *parent = nullptr);
     ~MouseModule();
+
     MouseWorker *work() { return m_worker; }
+
     MouseModel *model() { return m_model; }
 
 private:
-    MouseModel  *m_model;
+    MouseModel *m_model;
     MouseWorker *m_worker;
     MouseDBusProxy *m_dbusProxy;
 };
@@ -70,11 +72,16 @@ class GeneralSettingModule : public ModuleObject
     Q_OBJECT
 public:
     explicit GeneralSettingModule(MouseModel *model, MouseWorker *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker)  {}
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
+
     virtual QWidget *page() override;
 
 private:
-    MouseModel  *m_model;
+    MouseModel *m_model;
     MouseWorker *m_worker;
 };
 
@@ -86,7 +93,7 @@ public:
     virtual QWidget *page() override;
 
 private:
-    MouseModel  *m_model;
+    MouseModel *m_model;
     MouseWorker *m_worker;
 };
 
@@ -98,7 +105,7 @@ public:
     virtual QWidget *page() override;
 
 private:
-    MouseModel  *m_model;
+    MouseModel *m_model;
     MouseWorker *m_worker;
 };
 
@@ -107,12 +114,17 @@ class MouseSettingModule : public ModuleObject
     Q_OBJECT
 public:
     explicit MouseSettingModule(MouseModel *model, MouseWorker *worker, QObject *parent = nullptr)
-        : ModuleObject(parent), m_model(model), m_worker(worker) {}
+        : ModuleObject(parent)
+        , m_model(model)
+        , m_worker(worker)
+    {
+    }
+
     virtual QWidget *page() override;
 
 private:
-    MouseModel  *m_model;
+    MouseModel *m_model;
     MouseWorker *m_worker;
 };
 
-}
+} // namespace DCC_NAMESPACE

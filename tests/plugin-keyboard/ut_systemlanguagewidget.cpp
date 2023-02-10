@@ -1,11 +1,11 @@
-#include "src/plugin-keyboard/window/systemlanguagewidget.h"
+#include "gtest/gtest.h"
 #include "src/plugin-keyboard/operation/keyboardmodel.h"
+#include "src/plugin-keyboard/window/systemlanguagewidget.h"
 
-#include <QSignalSpy>
-#include <QModelIndex>
 #include <DFloatingButton>
 
-#include "gtest/gtest.h"
+#include <QModelIndex>
+#include <QSignalSpy>
 
 using namespace DCC_NAMESPACE;
 DWIDGET_USE_NAMESPACE
@@ -50,7 +50,7 @@ TEST_F(Tst_SystemLanguageWidget, widget)
     emit model->curLocalLangChanged(strList);
     widget->onDefault("简体中文");
     widget->onSetCurLang(0);
-    DCommandLinkButton *btnEdit= widget->findChild<DCommandLinkButton *>("Edit");
+    DCommandLinkButton *btnEdit = widget->findChild<DCommandLinkButton *>("Edit");
     btnEdit->click();
     btnEdit->click();
     DCommandLinkButton *btn = widget->findChild<DCommandLinkButton *>("AddSystemLanguage");

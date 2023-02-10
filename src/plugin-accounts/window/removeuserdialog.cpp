@@ -25,16 +25,17 @@
 
 #include "removeuserdialog.h"
 
-#include <QUrl>
+#include "avatarwidget.h"
+
+#include <QCheckBox>
 #include <QPainter>
 #include <QPainterPath>
-#include <QCheckBox>
-
-#include "avatarwidget.h"
+#include <QUrl>
 
 using namespace DCC_NAMESPACE;
 
-static QPixmap RoundPixmap(const QPixmap &pix) {
+static QPixmap RoundPixmap(const QPixmap &pix)
+{
     QPixmap ret(pix.size());
     ret.fill(Qt::transparent);
 
@@ -59,7 +60,10 @@ RemoveUserDialog::RemoveUserDialog(const User *user, QWidget *parent)
 
     const auto ratio = devicePixelRatioF();
     const QString iconFile = QUrl(user->currentAvatar()).toLocalFile();
-    const QPixmap pix = QPixmap(iconFile).scaled(48 * ratio, 48 * ratio, Qt::IgnoreAspectRatio, Qt::FastTransformation);
+    const QPixmap pix = QPixmap(iconFile).scaled(48 * ratio,
+                                                 48 * ratio,
+                                                 Qt::IgnoreAspectRatio,
+                                                 Qt::FastTransformation);
     QPixmap p = RoundPixmap(pix);
     p.setDevicePixelRatio(ratio);
     setIcon(p);
