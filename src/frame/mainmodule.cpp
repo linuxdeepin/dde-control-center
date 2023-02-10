@@ -109,7 +109,7 @@ public:
             m_view->setGridSize(ListViweItemSize_IconMode);
             m_view->setContentsMargins(0, 0, 0, 0);
             m_view->setSpacing(20);
-            m_view->setAlignment(Qt::AlignCenter);
+            m_view->setAlignment(Qt::AlignHCenter);
 
             while (!m_layout->isEmpty()) {
                 QLayoutItem *item = m_layout->takeAt(0);
@@ -117,7 +117,10 @@ public:
                     delete item->widget();
                 delete item;
             }
-            m_layout->addWidget(m_view);
+            QVBoxLayout *vlayout = new QVBoxLayout;
+            vlayout->addSpacing(20);
+            vlayout->addWidget(m_view);
+            m_layout->addLayout(vlayout);
 
             m_view->setMinimumWidth(0);
             m_view->setMaximumWidth(QWIDGETSIZE_MAX);
