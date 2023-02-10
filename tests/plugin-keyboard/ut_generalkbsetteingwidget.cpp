@@ -1,3 +1,6 @@
+//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//
+//SPDX-License-Identifier: GPL-3.0-or-later
 #include "src/plugin-keyboard/window/generalkbsettingwidget.h"
 #include "src/plugin-keyboard/operation/keyboardmodel.h"
 #include "widgets/titledslideritem.h"
