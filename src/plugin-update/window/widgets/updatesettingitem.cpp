@@ -1,7 +1,6 @@
+//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-// Created by swq on 2021/9/7.
-//
-
+//SPDX-License-Identifier: GPL-3.0-or-later
 #include "updatesettingitem.h"
 
 #include <QWidget>

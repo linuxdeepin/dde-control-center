@@ -74,10 +74,12 @@ You can press `F1` to start [deepin-manual](https://github.com/linuxdeepin/deepi
 
 You may also find these channels useful if you encounter any other issues:
 
-* [Gitter](https://gitter.im/orgs/linuxdeepin/rooms)
-* [IRC Channel](https://webchat.freenode.net/?channels=deepin)
-* [Official Forum](https://bbs.deepin.org/)
-* [Wiki](https://wiki.deepin.org/)
+* [Telegram group](https://t.me/deepin)
+* [Matrix](https://matrix.to/#/#deepin-community:matrix.org)
+* [IRC (libera.chat)](https://web.libera.chat/#deepin-community)
+* [Forum](https://bbs.deepin.org)
+* [WiKi](https://wiki.deepin.org/)
+
 
 ## Getting involved
 
@@ -88,4 +90,4 @@ We encourage you to report issues and contribute changes
 
 ## License
 
-DDE Control Center is licensed under [GPLv3](LICENSE).
+DDE Control Center is licensed under [GPL-3.0-or-later](LICENSE).

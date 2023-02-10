@@ -1,0 +1,39 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: dtkcore
+Upstream-Contact: UnionTech Software Technology Co., Ltd. <>
+Source: https://github.com/linuxdeepin/dtkcore
+
+# ci
+Files: .github/* .gitlab-ci.yml
+Copyright: None
+License: CC0-1.0
+
+# debian rpm archlinux
+Files: debian/* rpm/* archlinux/*
+Copyright: None
+License: CC0-1.0
+
+# translation
+Files: translations/*
+Copyright: UnionTech Software Technology Co., Ltd.
+License: GPL-3.0-or-later
+
+# png svg
+Files: **/*.svg **/*.png **/*.dci **/*.gif
+Copyright: UnionTech Software Technology Co., Ltd.
+License: CC0-1.0
+
+# xml toml json conf yaml ...
+Files: **/*.json **/*.service **/*.txt **/*.sh **/*.html **/conf .gitignore **/*.desktop **/*.css **/*.ttf
+Copyright: None
+License: CC0-1.0
+
+# README
+Files: **/*.md README.md README.zh_CN.md
+Copyright: UnionTech Software Technology Co., Ltd.
+License: CC-BY-4.0
+
+# Project file
+Files: **/*.cmake **/CMakeLists.txt **/*.in **/*.qrc CMakeLists.txt
+Copyright: None
+License: CC0-1.0

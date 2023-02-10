@@ -1,3 +1,6 @@
+//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//
+//SPDX-License-Identifier: GPL-3.0-or-later
 #include "interface/namespace.h"
 #include "src/plugin-mouse/window/generalsettingwidget.h"
 #include "src/plugin-mouse/operation/mousemodel.h"
