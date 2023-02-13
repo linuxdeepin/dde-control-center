@@ -12,8 +12,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Werror=return-type")
 # INFO:
 # plugins can be disabled and their options
 # plugin-authentication : DISABLE_AUTHENTICATION
+# plugin-update : DISABLE_UPDATE
 
-option(DISABLE_AUTHENTICATION "build private plugins" OFF)
+option(DISABLE_AUTHENTICATION "disable build authentication plugins" OFF)
+option(DISABLE_UPDATE "disable build update plugins" OFF)
 
 # asan 自己有内存泄露，暂不使用
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -1009,7 +1011,7 @@ if (BUILD_PLUDIN)
     install(TARGETS ${Plugin_Personalization_Dock_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-control-center/modules)
 endif()
 #--------------------------plugin-Update--------------------------
-if (BUILD_PLUDIN)
+if (BUILD_PLUDIN AND NOT DISABLE_UPDATE)
     set(Update_Name dcc-update-plugin)
     file(GLOB_RECURSE Update_SRCS
         "src/plugin-update/window/*.cpp"
