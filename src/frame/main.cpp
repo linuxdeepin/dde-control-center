@@ -102,6 +102,8 @@ int main(int argc, char *argv[])
     DCC_NAMESPACE::ControlCenterDBusAdaptor adaptor(&mw);
     DCC_NAMESPACE::DBusControlCenterGrandSearchService grandSearchadAptor(&mw);
 
+    mw.loadModules(!(parser.isSet(showOption) && parser.isSet(dbusOption)));
+
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("org.deepin.dde.ControlCenter1") ||
         !conn.registerObject("/org/deepin/dde/ControlCenter1", &mw)) {
@@ -109,7 +111,7 @@ int main(int argc, char *argv[])
         if (!parser.isSet(showOption))
             return -1;
     }
-    mw.loadModules(!(parser.isSet(showOption) && parser.isSet(dbusOption)));
+
     if (!reqPage.isEmpty()) {
         adaptor.ShowPage(reqPage);
     }
