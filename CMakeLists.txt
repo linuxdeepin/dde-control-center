@@ -1,7 +1,14 @@
 cmake_minimum_required(VERSION 3.13)
 
+set (DVERSION "5.6.3" CACHE STRING "define project version")
+
 set(PROJECT_NAME dde-control-center)
-project(${PROJECT_NAME})
+project(${PROJECT_NAME}
+  VERSION ${DVERSION}
+  DESCRIPTION "Deepin Control Center"
+  HOMEPAGE_URL "https://github.com/linuxdeepin/dde-control-center"
+  LANGUAGES CXX C
+)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -112,6 +119,11 @@ target_link_libraries(${Interface_Name} PRIVATE
     ${Interface_Libraries}
 )
 
+set_target_properties(${Interface_Name} PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+)
+
 # so
 install(TARGETS ${Interface_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
@@ -144,6 +156,10 @@ target_link_libraries(${Dcc_Widgets_Name} PRIVATE
     ${Dcc_Widgets_Libraries}
 )
 
+set_target_properties(${Dcc_Widgets_Name} PROPERTIES
+  VERSION ${CMAKE_PROJECT_VERSION}
+  SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+)
 # so
 install(TARGETS ${Dcc_Widgets_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
