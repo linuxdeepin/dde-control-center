@@ -113,7 +113,7 @@ target_link_libraries(${Interface_Name} PRIVATE
 )
 
 # so
-install(TARGETS ${Interface_Name} DESTINATION lib)
+install(TARGETS ${Interface_Name} DESTINATION ${CMAKE_INSTALL_LIBDIR})
 
 
 #--------------------------dccwidgets library----------------------------
