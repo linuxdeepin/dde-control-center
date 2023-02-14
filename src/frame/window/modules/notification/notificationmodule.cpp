@@ -106,6 +106,11 @@ QStringList NotificationModule::availPage() const
 {
     QStringList list;
     list << "System Notification";
+
+    // 如果读取到的数据为空，那么就加载数据
+    if (m_model->getAppSize() == 0)
+        m_worker->active(true);
+
     for(int i = 0; i < m_model->getAppSize(); i++) {
         list << m_model->getAppModel(i)->getAppName();
     }
