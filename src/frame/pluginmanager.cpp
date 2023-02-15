@@ -15,11 +15,13 @@
 #include <QtConcurrent>
 #include <QFileInfo>
 #include <QSettings>
+#include <QSet>
 #include <queue>
 
 using namespace DCC_NAMESPACE;
 
-const QString &PluginDirectory = QStringLiteral(DefaultModuleDirectory);
+const QString PLUGIN_DIRECTORY = QStringLiteral(DefaultModuleDirectory);
+const QString OLD_PLUGIN_DIRECTORY = QStringLiteral("/usr/lib/dde-control-center/modules/");
 
 bool compareVersion(const QString &targetVersion, const QString &baseVersion)
 {
@@ -143,7 +145,7 @@ void PluginManager::loadModules(ModuleObject *root, bool async)
         initModules(data);
     });
 
-    QDir pluginDir(PluginDirectory);
+    QDir pluginDir(PLUGIN_DIRECTORY);
 #ifdef QT_DEBUG
     pluginDir.setPath(qApp->applicationDirPath());
 #endif
@@ -152,13 +154,26 @@ void PluginManager::loadModules(ModuleObject *root, bool async)
         return;
     }
 
-    auto &&pluginList = pluginDir.entryInfoList();
+    auto pluginList = pluginDir.entryInfoList();
+    if (PLUGIN_DIRECTORY != OLD_PLUGIN_DIRECTORY) {
+        QDir oldPluginDir(OLD_PLUGIN_DIRECTORY);
+        pluginList += oldPluginDir.entryInfoList();
+    }
+
+    QSet<QString> filenames;
     QList<QPair<PluginManager *, QString>> libraryNames;
-    for (auto &&lib : pluginList) {
-        auto &&fileName = lib.absoluteFilePath();
-        if (!QLibrary::isLibrary(fileName))
+    for (auto &lib : pluginList) {
+        const QString &filepath = lib.absoluteFilePath();
+        if (!QLibrary::isLibrary(filepath)) {
             continue;
-        libraryNames.append({ this, fileName });
+        }
+        auto filename = lib.fileName();
+        // 不加载文件名重复的模块
+        if (filenames.contains(filename)) {
+            continue;
+        }
+        filenames.insert(filename);
+        libraryNames.append({ this, filepath });
     }
 
     QFutureWatcher<PluginData> *watcher = new QFutureWatcher<PluginData>(this);
