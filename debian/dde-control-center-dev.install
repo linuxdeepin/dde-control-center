@@ -1,2 +1,3 @@
 usr/include
 usr/lib/*/cmake
+usr/lib/*/*.so
