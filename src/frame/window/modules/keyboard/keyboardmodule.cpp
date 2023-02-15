@@ -389,6 +389,7 @@ void KeyboardModule::onPushSystemLanguageSetting()
     });
     m_frameProxy->pushWidget(this, m_systemLanguageSettingWidget);
     m_systemLanguageSettingWidget->setVisible(true);
+    m_systemLanguageSettingWidget->setFocus();
 }
 
 void KeyboardModule::onPushCustomShortcut()
