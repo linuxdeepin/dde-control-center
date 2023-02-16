@@ -184,6 +184,9 @@ void UserGroupsPage::editTextFinished(UserGroupsInfoItem *item, QString group)
     if (userGroup.contains(group)) {
         item->showAlertMessage(tr("also has this group!"));
         return;
+    } else if (QRegExp("\\d*").exactMatch(group)) {     //check the numeric
+        item->showAlertMessage(tr("can't set all numeric group name!"));
+        return;
     }
     if (oldGroup.isEmpty()) {
         // Create group
