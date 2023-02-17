@@ -24,7 +24,7 @@ Copyright: UnionTech Software Technology Co., Ltd.
 License: CC0-1.0
 
 # xml toml json conf yaml ...
-Files: **/*.json **/*.service **/*.txt **/*.sh **/*.html **/conf .gitignore **/*.desktop **/*.css **/*.ttf
+Files: **/*.json **/*.service **/*.txt **/*.sh **/*.html **/conf .gitignore **/*.desktop **/*.css **/*.ttf *.conf
 Copyright: None
 License: CC0-1.0
 
