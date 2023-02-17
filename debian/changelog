@@ -1,3 +1,8 @@
+dde-control-center (6.0.10) unstable; urgency=medium
+  * fix align of center widget
+
+ -- chenhongtao <chenhongtao@uniontech.com> Fri, 17 Feb 2023 16:18:00 +0800
+
 dde-control-center (6.0.9.1) unstable; urgency=medium
 
   [ TagBuilder ]
