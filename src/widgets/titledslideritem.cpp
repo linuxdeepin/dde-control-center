@@ -51,6 +51,10 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     mainLayout->addSpacing(10);
     mainLayout->addLayout(bottomLayout);
 
+    setValueLiteral("0%");
+    connect(m_slider, &DCCSlider::valueChanged, this, [this](int value) {
+        setValueLiteral(QString("%1%").arg(value));
+    });
     setAccessibleName(title);
 }
 
