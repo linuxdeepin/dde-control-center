@@ -87,6 +87,7 @@ private:
     KeyboardWorker *m_worker;
 };
 
+#ifndef DCC_DISABLE_LANUGAGE
 class SystemLanguageSettingModule : public ModuleObject
 {
     Q_OBJECT
@@ -103,6 +104,7 @@ private:
     KeyboardModel *m_model;
     KeyboardWorker *m_worker;
 };
+#endif
 
 class ShortCutSettingMenuModule : public PageModule
 {

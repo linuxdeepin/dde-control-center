@@ -87,7 +87,6 @@ void KeyboardWorker::refreshShortcut()
             SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
 }
 
-#ifndef DCC_DISABLE_LANGUAGE
 void KeyboardWorker::refreshLang()
 {
     m_keyboardDBusProxy->blockSignals(false);
@@ -96,7 +95,6 @@ void KeyboardWorker::refreshLang()
     else
         onLangSelectorServiceFinished();
 }
-#endif
 
 void KeyboardWorker::windowSwitch()
 {
@@ -752,7 +750,6 @@ void KeyboardWorker::setLayout(const QString &value)
     m_keyboardDBusProxy->setCurrentLayout(value);
 }
 
-#ifndef DCC_DISABLE_LANGUAGE
 void KeyboardWorker::setLang(const QString &value)
 {
     Q_EMIT requestSetAutoHide(false);
@@ -806,4 +803,3 @@ void KeyboardWorker::deleteLang(const QString &value)
         watcher->deleteLater();
     });
 }
-#endif
