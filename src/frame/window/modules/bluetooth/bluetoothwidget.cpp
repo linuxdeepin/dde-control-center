@@ -9,6 +9,7 @@
 #include "modules/bluetooth/bluetoothworker.h"
 
 #include <QVBoxLayout>
+#include <QApplication>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::bluetooth;
@@ -111,6 +112,7 @@ void BluetoothWidget::removeAdapter(const Adapter *adapter)
 
 void BluetoothWidget::updateWidget()
 {
+    auto lastFocusWidget = QApplication::focusWidget();
     QLayout *layout = m_tFrame->layout();
     //每次添加蓝牙设备都会重新使用一个新的QVBoxLayout进行布局
     QVBoxLayout *vLayout = new QVBoxLayout;
@@ -135,7 +137,11 @@ void BluetoothWidget::updateWidget()
     vLayout->addStretch();
     m_tFrame->setLayout(vLayout);
     setContent(m_tFrame);
-    this->setFocus();
+
+    // 上面代码会导致焦点丢失，导致焦点跳转到其他控件
+    if (lastFocusWidget) {
+        lastFocusWidget->setFocus();
+    }
 }
 
 void BluetoothWidget::setVisibleState()
