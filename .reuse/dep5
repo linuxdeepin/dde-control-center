@@ -8,6 +8,11 @@ Files: .github/* .gitlab-ci.yml
 Copyright: None
 License: CC0-1.0
 
+# config
+Files: .clang-format
+Copyright: None
+License: CC0-1.0
+
 # debian rpm archlinux
 Files: debian/* rpm/* archlinux/*
 Copyright: None
