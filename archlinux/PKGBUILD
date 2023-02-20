@@ -37,6 +37,7 @@ build() {
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DDISABLE_UPDATE=ON \
         -DDISABLE_AUTHENTICATION=ON \
+        -DDISABLE_LANGUAGE=ON \
         -DCMAKE_INSTALL_LIBDIR=/usr/lib
   ninja
 }

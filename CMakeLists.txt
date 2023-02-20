@@ -20,9 +20,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Werror=return-type")
 # plugins can be disabled and their options
 # plugin-authentication : DISABLE_AUTHENTICATION
 # plugin-update : DISABLE_UPDATE
+# plugin-keyboard: DISABLE_LANGUAGE to disable language panel
 
 option(DISABLE_AUTHENTICATION "disable build authentication plugins" OFF)
 option(DISABLE_UPDATE "disable build update plugins" OFF)
+option(DISABLE_LANGUAGE "disable lanugage settings in control center" OFF)
 
 # asan 自己有内存泄露，暂不使用
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -721,7 +723,9 @@ if (BUILD_PLUDIN)
         "src/plugin-keyboard/operation/*.cpp"
         "src/plugin-keyboard/operation/qrc/keyboard.qrc"
     )
-
+    if (DISABLE_LANGUAGE)
+      add_definitions(-DDCC_DISABLE_LANUGAGE)
+    endif()
     add_library(${KeyBoard_Name} MODULE
         ${KEYBOARD_SRCS}
     )

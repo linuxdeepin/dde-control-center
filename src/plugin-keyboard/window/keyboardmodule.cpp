@@ -7,8 +7,10 @@
 #include "kblayoutsettingwidget.h"
 #include "keyboardlayoutdialog.h"
 #include "shortcutsettingwidget.h"
+#ifndef DCC_DISABLE_LANUGAGE
 #include "systemlanguagewidget.h"
 #include "systemlanguagesettingdialog.h"
+#endif
 #include "widgets/settingshead.h"
 #include "operation/keyboardwork.h"
 #include "operation/keyboardmodel.h"
@@ -64,11 +66,13 @@ ModuleObject *KeyboardPlugin::module()
     moduleKeyBoard->appendChild(kBLayoutSettingModule);
     moduleInterface->appendChild(moduleKeyBoard);
 
+#ifndef DCC_DISABLE_LANUGAGE
     //二级菜单--系统语言
     ModuleObject *moduleSystemLanguageSetting = new PageModule("keyboardLanguage", tr("Language"));
     SystemLanguageSettingModule *systemLanguageSettingModule = new SystemLanguageSettingModule(moduleInterface->model(), moduleInterface->worker());
     moduleSystemLanguageSetting->appendChild(systemLanguageSettingModule);
     moduleInterface->appendChild(moduleSystemLanguageSetting);
+#endif
 
     //二级菜单--快捷键
     ShortCutSettingMenuModule *moduleShortCutSetting = new ShortCutSettingMenuModule("keyboardShortcuts", tr("Shortcuts"));
@@ -181,6 +185,7 @@ QWidget *KBLayoutSettingModule::page()
     return w;
 }
 
+#ifndef DCC_DISABLE_LANUGAGE
 QWidget *SystemLanguageSettingModule::page()
 {
     m_worker->refreshLang();
@@ -207,6 +212,7 @@ void SystemLanguageSettingModule::onAddLocale(const QModelIndex &index)
     QVariant var = index.data(SystemLanguageSettingDialog::KeyRole);
     m_worker->addLang(var.toString());
 }
+#endif
 
 QWidget *ShortCutSettingModule::page()
 {
