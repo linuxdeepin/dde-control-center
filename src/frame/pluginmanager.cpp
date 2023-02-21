@@ -302,7 +302,7 @@ void PluginManager::insertChild(bool force)
     if (force) {
         // 释放加不进去的module
         for (auto &&data : m_datas) {
-            qWarning() << "Unkown Module! name:" << data.Module->name() << "follow:" << data.Follow << "location:" << data.Location;
+            qWarning() << "Unknown Module! name:" << data.Module->name() << "follow:" << data.Follow << "location:" << data.Location;
             delete data.Module;
         }
         m_datas.clear();
