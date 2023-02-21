@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
     // take care of command line options
     QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
     QCommandLineOption toggleOption(QStringList() << "t" << "toggle", "toggle control center visible.");
-    QCommandLineOption dbusOption(QStringList() << "d" << "dbus" << "startup on dbus");
+    QCommandLineOption dbusOption(QStringList() << "d" << "dbus" , "startup on dbus");
     QCommandLineOption pageOption("p", "specified module page", "page");
 
     QCommandLineParser parser;
@@ -102,7 +102,7 @@ int main(int argc, char *argv[])
     DCC_NAMESPACE::ControlCenterDBusAdaptor adaptor(&mw);
     DCC_NAMESPACE::DBusControlCenterGrandSearchService grandSearchadAptor(&mw);
 
-    mw.loadModules(!(parser.isSet(showOption) && parser.isSet(dbusOption)));
+    mw.loadModules(!parser.isSet(dbusOption));
 
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("org.deepin.dde.ControlCenter1") ||
