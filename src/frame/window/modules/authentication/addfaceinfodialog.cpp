@@ -24,6 +24,7 @@ using namespace DCC_NAMESPACE::authentication;
 AddFaceInfoDialog::AddFaceInfoDialog(dcc::authentication::CharaMangerModel *model, QWidget *parent)
     : BiologicalBaseDialog(parent)
     , m_faceModel(model)
+    , m_spaceWidget(new QWidget(this))
     , m_currentState(dcc::authentication::CharaMangerModel::AddInfoState::StartState)
 {
     initWidget();
@@ -86,15 +87,17 @@ void AddFaceInfoDialog::initBioWidget()
     // 免责声明
     m_disclaimersItem->show();
 
-    // 下方按钮
-    QHBoxLayout *btnLayout = new QHBoxLayout(this);
     m_cancelBtn->setText(tr("Cancel"));
     m_cancelBtn->hide();
+    m_spaceWidget->setFixedWidth(10);
+    m_spaceWidget->hide();
     m_acceptBtn->setText(tr("Next"));
     m_acceptBtn->setDisabled(true);
 
+    // 下方按钮
+    QHBoxLayout *btnLayout = new QHBoxLayout(this);
     btnLayout->addWidget(m_cancelBtn, Qt::AlignCenter);
-    btnLayout->addSpacing(10);
+    btnLayout->addWidget(m_spaceWidget);
     btnLayout->addWidget(m_acceptBtn, Qt::AlignCenter);
     btnLayout->setContentsMargins(20, 10, 20, 20);
 
@@ -108,7 +111,6 @@ void AddFaceInfoDialog::initBioWidget()
     bioLayout->addStretch();
     bioLayout->addWidget(m_disclaimersItem, 0, Qt::AlignCenter);
     bioLayout->addLayout(btnLayout);
-    bioLayout->setMargin(0);
     bioLayout->setSpacing(0);
 
     m_bioWidget->setLayout(bioLayout);
@@ -187,6 +189,7 @@ void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState s
         m_disclaimersItem->show();
 
         m_cancelBtn->hide();
+        m_spaceWidget->hide();
         m_acceptBtn->setText(tr("Next"));
         m_acceptBtn->setDisabled(true);
         m_acceptBtn->show();
@@ -203,6 +206,7 @@ void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState s
         m_disclaimersItem->hide();
         m_acceptBtn->hide();
         m_cancelBtn->show();
+        m_spaceWidget->hide();
         m_cancelBtn->setFocus();
         m_cancelBtn->setText(tr("Done"));
     }
@@ -219,6 +223,8 @@ void AddFaceInfoDialog::responseEnrollInfoState(CharaMangerModel::AddInfoState s
         m_acceptBtn->setDisabled(false);
         m_acceptBtn->setFocus();
         m_cancelBtn->show();
+        m_spaceWidget->show();
+
         m_cancelBtn->setText(tr("Close"));
     }
 

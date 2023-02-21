@@ -9,11 +9,8 @@
 #include <DFontSizeManager>
 
 #include <QVBoxLayout>
-#include <QHBoxLayout>
 #include <QPushButton>
 #include <QCloseEvent>
-#include <QTimer>
-#include <QDebug>
 #include <QDialog>
 
 DWIDGET_USE_NAMESPACE
@@ -55,7 +52,7 @@ void FingerDisclaimer::initBioWidget()
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setAlignment(Qt::AlignHCenter);
 
-    DTitlebar *titleIcon = new DTitlebar();
+    DTitlebar *titleIcon = new DTitlebar(this);
     titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
     titleIcon->setBackgroundTransparent(true);//透明
     titleIcon->setMenuVisible(false);
@@ -67,12 +64,12 @@ void FingerDisclaimer::initBioWidget()
     // 提示信息
     m_resultTips = new QLabel(this);
     m_resultTips->hide();
-    m_explainTips = new DLabel();
+    m_explainTips = new DLabel(this);
     m_explainTips->setWordWrap(true);
     m_explainTips->setAlignment(Qt::AlignCenter);
     DFontSizeManager::instance()->bind(m_explainTips, DFontSizeManager::T8);
 
-    QHBoxLayout *tips = new QHBoxLayout(this);
+    QHBoxLayout *tips = new QHBoxLayout();
     tips->addWidget(m_explainTips);
     tips->setContentsMargins(42, 10, 42, 10);
 
@@ -80,16 +77,13 @@ void FingerDisclaimer::initBioWidget()
     m_disclaimersItem->show();
 
     // 下方按钮
-    QHBoxLayout *btnLayout = new QHBoxLayout(this);
-    m_cancelBtn->setText(tr("Cancel"));
+    QHBoxLayout *btnLayout = new QHBoxLayout();
     m_cancelBtn->hide();
     m_acceptBtn->setText(tr("Next"));
     m_acceptBtn->setDisabled(true);
 
-    btnLayout->addWidget(m_cancelBtn, Qt::AlignCenter);
-    btnLayout->addSpacing(10);
     btnLayout->addWidget(m_acceptBtn, Qt::AlignHorizontal_Mask);
-    btnLayout->setContentsMargins(8, 10, 10, 12);
+    btnLayout->setContentsMargins(10, 10, 10, 12);
 
     mainLayout->addWidget(titleIcon, Qt::AlignTop | Qt::AlignRight);
     mainLayout->addSpacing(85);
@@ -101,7 +95,6 @@ void FingerDisclaimer::initBioWidget()
     mainLayout->addStretch();
     mainLayout->addWidget(m_disclaimersItem, 0, Qt::AlignCenter);
     mainLayout->addLayout(btnLayout);
-    mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
 
     m_bioWidget->setLayout(mainLayout);
@@ -126,7 +119,6 @@ void FingerDisclaimer::initWidget()
 
 void FingerDisclaimer::initConnect()
 {
-    connect(m_cancelBtn, &QPushButton::clicked, this, &FingerDisclaimer::close);
     connect(m_acceptBtn, &QPushButton::clicked, this, &FingerDisclaimer::requestShowFingeInfoDialog, Qt::UniqueConnection);
 }
 

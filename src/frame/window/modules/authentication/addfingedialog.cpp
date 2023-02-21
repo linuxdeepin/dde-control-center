@@ -8,11 +8,9 @@
 #include <DTitlebar>
 
 #include <QVBoxLayout>
-#include <QHBoxLayout>
 #include <QPushButton>
 #include <QCloseEvent>
 #include <QTimer>
-#include <QDebug>
 
 using namespace dcc::authentication;
 using namespace DCC_NAMESPACE::authentication;
@@ -45,7 +43,7 @@ void AddFingeDialog::initWidget()
     setFixedSize(QSize(382,446));
     m_mainLayout->setAlignment(Qt::AlignHCenter);
 
-    DTitlebar *titleIcon = new DTitlebar();
+    DTitlebar *titleIcon = new DTitlebar(this);
     titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
     titleIcon->setBackgroundTransparent(true);//透明
     titleIcon->setMenuVisible(false);
@@ -55,11 +53,9 @@ void AddFingeDialog::initWidget()
     m_mainLayout->addSpacing(65); // UI 暂定 整体115
     m_mainLayout->addWidget(m_fingeWidget, 0, Qt::AlignTop | Qt::AlignHCenter);
 
+    m_spaceWidget->setFixedWidth(20);
+
     m_btnHLayout->addWidget(m_cancelBtn, Qt::AlignHorizontal_Mask);
-    QHBoxLayout *btnHLayout = new QHBoxLayout(this);
-    btnHLayout->addSpacing(20);
-    m_spaceWidget->setMaximumWidth(20);
-    m_spaceWidget->setLayout(btnHLayout);
     m_btnHLayout->addWidget(m_spaceWidget, Qt::AlignHorizontal_Mask);
     m_btnHLayout->addWidget(m_addBtn, Qt::AlignHorizontal_Mask);
     m_btnHLayout->setContentsMargins(10, 0, 10, 10);
@@ -166,7 +162,7 @@ void AddFingeDialog::enrollFailed(QString title, QString msg)
 void AddFingeDialog::claimFailed()
 {
     m_fingeWidget->setStatueMsg(tr("The device is unavailable"), tr(""), true);
-    m_spaceWidget->setVisible(true);
+    m_spaceWidget->setVisible(false);
 }
 
 void AddFingeDialog::enrollDisconnected()

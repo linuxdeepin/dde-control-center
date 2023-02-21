@@ -10,7 +10,6 @@
 
 #include <QCloseEvent>
 #include <QBoxLayout>
-#include <QTimer>
 
 DWIDGET_USE_NAMESPACE
 
@@ -23,6 +22,7 @@ AddIrisInfoDialog::AddIrisInfoDialog(CharaMangerModel *model, QWidget *parent)
     , m_irisInfo(new IrisInfoWidget(this))
     , m_resultTips(new QLabel(this))
     , m_explainTips(new QLabel(this))
+    , m_spaceWidget(new QWidget(this))
 {
     initWidget();
     initConnect();
@@ -82,15 +82,17 @@ void AddIrisInfoDialog::initBioWidget()
     // 免责声明
     m_disclaimersItem->show();
 
-    // 下方按钮
-    QHBoxLayout *btnLayout = new QHBoxLayout(this);
     m_cancelBtn->setText(tr("Cancel"));
     m_cancelBtn->hide();
+    m_spaceWidget->setFixedWidth(10);
+    m_spaceWidget->hide();
     m_acceptBtn->setText(tr("Next"));
     m_acceptBtn->setDisabled(true);
 
+    // 下方按钮
+    QHBoxLayout *btnLayout = new QHBoxLayout(this);
     btnLayout->addWidget(m_cancelBtn, Qt::AlignCenter);
-    btnLayout->addSpacing(10);
+    btnLayout->addWidget(m_spaceWidget);
     btnLayout->addWidget(m_acceptBtn, Qt::AlignCenter);
     btnLayout->setContentsMargins(20, 10, 20, 20);
 
@@ -104,7 +106,6 @@ void AddIrisInfoDialog::initBioWidget()
     bioLayout->addStretch();
     bioLayout->addWidget(m_disclaimersItem, 0, Qt::AlignCenter);
     bioLayout->addLayout(btnLayout);
-    bioLayout->setMargin(0);
     bioLayout->setSpacing(0);
 
     m_bioWidget->setLayout(bioLayout);
@@ -150,6 +151,7 @@ void AddIrisInfoDialog::refreshInfoStatusDisplay(CharaMangerModel::AddInfoState 
         m_resultTips->setVisible(false);
         m_disclaimersItem->setVisible(false);
         m_cancelBtn->setVisible(false);
+        m_spaceWidget->setVisible(false);
         m_acceptBtn->setVisible(false);
         m_explainTips->setVisible(true);
     }
@@ -160,6 +162,7 @@ void AddIrisInfoDialog::refreshInfoStatusDisplay(CharaMangerModel::AddInfoState 
         m_disclaimersItem->setVisible(false);
         m_cancelBtn->setVisible(true);
         m_cancelBtn->setText(tr("Done"));
+        m_spaceWidget->setVisible(false);
         m_acceptBtn->setVisible(false);
         m_explainTips->setVisible(false);
 
@@ -172,6 +175,7 @@ void AddIrisInfoDialog::refreshInfoStatusDisplay(CharaMangerModel::AddInfoState 
         m_disclaimersItem->setVisible(false);
         m_cancelBtn->setVisible(true);
         m_cancelBtn->setText(tr("Done"));
+        m_spaceWidget->setVisible(true);
         m_acceptBtn->setVisible(true);
         m_acceptBtn->setText(tr("Try Again"));
         m_explainTips->setVisible(false);

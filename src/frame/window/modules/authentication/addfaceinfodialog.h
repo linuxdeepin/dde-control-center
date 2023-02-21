@@ -69,6 +69,7 @@ private:
     QLabel *m_facePic; // 人脸图片
     QLabel *m_resultTips; // 录入结果说明
     DLabel *m_explainTips; // 状态说明信息
+    QWidget *m_spaceWidget;
     dcc::authentication::CharaMangerModel::AddInfoState m_currentState;
 };
 

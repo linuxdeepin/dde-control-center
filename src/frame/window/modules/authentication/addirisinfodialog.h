@@ -63,6 +63,7 @@ private:
     dcc::authentication::IrisInfoWidget *m_irisInfo;
     QLabel *m_resultTips; // 录入结果说明
     QLabel *m_explainTips; // 状态说明信息
+    QWidget *m_spaceWidget;
     dcc::authentication::CharaMangerModel::AddInfoState m_state;
 };
 
