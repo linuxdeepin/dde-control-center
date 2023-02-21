@@ -177,31 +177,16 @@ void PluginManager::loadModules(ModuleObject *root, bool async)
     }
 
     QFutureWatcher<PluginData> *watcher = new QFutureWatcher<PluginData>(this);
-    if (async) {
-        m_future = QtConcurrent::mapped(libraryNames, loadAndGetModule);
-        connect(watcher, &QFutureWatcher<PluginData>::finished, this, [this] {
-            // 加载非一级插件
-            insertChild(true);
-            m_loadAllFinished = true;
-            emit loadAllFinished();
-        });
-        watcher->setFuture(m_future);
-    } else {
-        QFuture<PluginData> future = QtConcurrent::mapped(libraryNames, loadModule);
+    m_future = QtConcurrent::mapped(libraryNames, loadAndGetModule);
+    connect(watcher, &QFutureWatcher<PluginData>::finished, this, [this] {
+        // 加载非一级插件
+        insertChild(true);
+        m_loadAllFinished = true;
+        emit loadAllFinished();
+    });
+    watcher->setFuture(m_future);
+    if (!async) {
         watcher->waitForFinished();
-        future.results();
-        QList<QPair<PluginManager *, PluginData>> pluginDatas;
-        for (auto &&data : future.results()) {
-            pluginDatas.append({ this, data });
-        }
-        m_future = QtConcurrent::mapped(pluginDatas, getModule);
-        connect(watcher, &QFutureWatcher<PluginData>::finished, this, [this] {
-            // 加载非一级插件
-            insertChild(true);
-            m_loadAllFinished = true;
-            emit loadAllFinished();
-        });
-        watcher->setFuture(m_future);
     }
 }
 
