@@ -20,10 +20,14 @@
 #include <QScroller>
 #include <QFile>
 #include <QGSettings>
+#include <QApplication>
+#include <QTimer>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::notification;
 using namespace DCC_NAMESPACE::notification;
+
+static bool Exiting = false;
 
 NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent)
     : QWidget(parent)
@@ -97,6 +101,13 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
 
     connect(m_model, &NotificationModel::appListChanged, this, &NotificationWidget::refreshList);
     connect(m_setting, &QGSettings::changed, this,  &NotificationWidget::onSettingChanged);
+    Exiting = false;
+}
+
+NotificationWidget::~NotificationWidget()
+{
+    Exiting = true;
+    qApp->processEvents();
 }
 
 void NotificationWidget::onAppClicked(const QModelIndex &index)
@@ -138,6 +149,10 @@ void NotificationWidget::onSystemClicked(const QModelIndex &index)
 
 void NotificationWidget::refreshList()
 {
+    Exiting = true;
+    qApp->processEvents();
+    Exiting = false;
+
     int row = 0;
     bool systemHasChecked = m_systemListView->selectionModel()->hasSelection();
 
@@ -149,13 +164,25 @@ void NotificationWidget::refreshList()
     }
 
     m_softwaremodel->clear();
+    auto tmpIcon = QPixmap(QSize(32, 32));
+    tmpIcon.fill(Qt::transparent);
+    QList<DStandardItem*> itemList;
     for (int i = 0; i < m_model->getAppSize(); ++i) {
         QString softName = m_model->getAppModel(i)->getAppName();
-        QIcon icon = getAppIcon(m_model->getAppModel(i)->getIcon(), QSize(32, 32));
-        DStandardItem *item = new DStandardItem(icon, softName);
+        DStandardItem *item = new DStandardItem(tmpIcon, softName);
+        itemList.append(item);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_softwaremodel->appendRow(item);
     }
+
+    QTimer::singleShot(0, this, [this, itemList]() ->void{
+        for (int i = 0; i < itemList.count(); ++i) {
+            if (Exiting)
+                break;
+            itemList[i]->setIcon(getAppIcon(m_model->getAppModel(i)->getIcon(), QSize(32, 32)));
+            qApp->processEvents();
+        }
+    });
 
     if (!systemHasChecked) {
         onAppClicked(m_softwaremodel->indexFromItem(m_softwaremodel->item(row)));

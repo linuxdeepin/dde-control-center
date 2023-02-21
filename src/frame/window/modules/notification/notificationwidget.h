@@ -37,6 +37,7 @@ class NotificationWidget : public QWidget
     Q_OBJECT
 public:
     explicit NotificationWidget(dcc::notification::NotificationModel *model, QWidget *parent = nullptr);
+    ~NotificationWidget() override;
     QIcon getAppIcon(const QString &appIcon, const QSize &size);
 
 Q_SIGNALS:
