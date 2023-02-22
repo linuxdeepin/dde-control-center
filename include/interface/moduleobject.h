@@ -60,15 +60,15 @@ class ModuleObject : public QObject
     Q_PROPERTY(bool disabled READ isDisabled WRITE setDisabled NOTIFY stateChanged)
 
 public:
-    ModuleObject(QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName = {}, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QStringList &contentText, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QVariant &icon, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QString &description, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QString &description, const QVariant &icon, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent = nullptr);
-    ModuleObject(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent = nullptr);
+    explicit ModuleObject(QObject *parent = nullptr);
+    explicit ModuleObject(const QString &name, const QString &displayName = {}, QObject *parent = nullptr);
+    explicit ModuleObject(const QString &name, const QStringList &contentText, QObject *parent = nullptr);
+    explicit ModuleObject(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent = nullptr);
+    explicit ModuleObject(const QString &name, const QString &displayName, const QVariant &icon, QObject *parent = nullptr);
+    explicit ModuleObject(const QString &name, const QString &displayName, const QString &description, QObject *parent = nullptr);
+    explicit ModuleObject(const QString &name, const QString &displayName, const QString &description, const QVariant &icon, QObject *parent = nullptr);
+    explicit ModuleObject(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent = nullptr);
+    explicit ModuleObject(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent = nullptr);
 
     virtual ~ModuleObject();
     /**

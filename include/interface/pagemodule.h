@@ -14,14 +14,14 @@ class PageModule : public ModuleObject
     Q_OBJECT
 public:
     explicit PageModule(QObject *parent = nullptr);
-    PageModule(const QString &name, const QString &displayName = {}, QObject *parent = nullptr);
-    PageModule(const QString &name, const QStringList &contentText, QObject *parent = nullptr);
-    PageModule(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent = nullptr);
-    PageModule(const QString &name, const QString &displayName, const QVariant &icon, QObject *parent = nullptr);
-    PageModule(const QString &name, const QString &displayName, const QString &description, QObject *parent = nullptr);
-    PageModule(const QString &name, const QString &displayName, const QString &description, const QVariant &icon, QObject *parent = nullptr);
-    PageModule(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent = nullptr);
-    PageModule(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent = nullptr);
+    explicit PageModule(const QString &name, const QString &displayName = {}, QObject *parent = nullptr);
+    explicit PageModule(const QString &name, const QStringList &contentText, QObject *parent = nullptr);
+    explicit PageModule(const QString &name, const QString &displayName, const QStringList &contentText, QObject *parent = nullptr);
+    explicit PageModule(const QString &name, const QString &displayName, const QVariant &icon, QObject *parent = nullptr);
+    explicit PageModule(const QString &name, const QString &displayName, const QString &description, QObject *parent = nullptr);
+    explicit PageModule(const QString &name, const QString &displayName, const QString &description, const QVariant &icon, QObject *parent = nullptr);
+    explicit PageModule(const QString &name, const QString &displayName, const QString &description, const QIcon &icon, QObject *parent = nullptr);
+    explicit PageModule(const QString &name, const QString &displayName, const QString &description, const QStringList &contentText, const QVariant &icon, QObject *parent = nullptr);
     ~PageModule() override;
 
     int spacing() const;
