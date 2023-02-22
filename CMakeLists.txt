@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 
-set (DVERSION "6.0.10" CACHE STRING "define project version")
+set (DVERSION "6.0.11" CACHE STRING "define project version")
 
 set(PROJECT_NAME dde-control-center)
 project(${PROJECT_NAME}
