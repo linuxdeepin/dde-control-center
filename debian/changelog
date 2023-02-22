@@ -1,3 +1,11 @@
+dde-control-center (6.0.11) unstable; urgency=medium
+
+  * Fix slider item
+  * Fix battery setting lost
+  * Fix the bug of async
+
+ -- chenhongtao <chenhongtao@uniontech.com> Wed, 22 Feb 2023 14:53:04 +0800
+
 dde-control-center (6.0.10) unstable; urgency=medium
   * fix align of center widget
 
