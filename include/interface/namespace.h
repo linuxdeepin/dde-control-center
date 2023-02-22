@@ -1,6 +1,7 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
+// clang-format off
 #ifndef DCC_NAMESPACE_H
 #define DCC_NAMESPACE_H
 
@@ -20,3 +21,4 @@ private: \
 #define DCC_INIT_PRIVATE(Class) d_ptr##Class(new Class##Private(this))
 
 #endif // DCC_NAMESPACE_H
+// clang-format on
