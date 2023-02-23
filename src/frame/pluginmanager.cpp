@@ -155,10 +155,12 @@ void PluginManager::loadModules(ModuleObject *root, bool async)
     }
 
     auto pluginList = pluginDir.entryInfoList();
+#ifndef QT_DEBUG
     if (PLUGIN_DIRECTORY != OLD_PLUGIN_DIRECTORY) {
         QDir oldPluginDir(OLD_PLUGIN_DIRECTORY);
         pluginList += oldPluginDir.entryInfoList();
     }
+#endif
 
     QSet<QString> filenames;
     QList<QPair<PluginManager *, QString>> libraryNames;
