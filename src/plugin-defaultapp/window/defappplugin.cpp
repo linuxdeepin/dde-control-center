@@ -27,7 +27,7 @@ struct DATE
 
     DATE(const QString &_name,
          const QString &_displayName,
-         const QString _icon,
+         const QString &_icon,
          DefAppWorker::DefaultAppsCategory _category)
         : name(_name)
         , displayName(_displayName)
@@ -159,10 +159,10 @@ DefappDetailModule::DefappDetailModule(DefAppWorker::DefaultAppsCategory categor
                                        DefAppModel *model,
                                        DefAppWorker *work)
     : ModuleObject("defappApplistDefapp")
+    , m_category(category)
+    , m_model(model)
+    , m_work(work)
 {
-    m_category = category;
-    m_model = model;
-    m_work = work;
 }
 
 QWidget *DefappDetailModule::page()
