@@ -1,21 +1,23 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "pluginmanager.h"
+
 #include "interface/moduleobject.h"
 #include "interface/plugininterface.h"
 #include "utils.h"
 
-#include <QDir>
-#include <QDebug>
-#include <QElapsedTimer>
-#include <QPluginLoader>
 #include <QCoreApplication>
-#include <QtConcurrent>
+#include <QDebug>
+#include <QDir>
+#include <QElapsedTimer>
 #include <QFileInfo>
-#include <QSettings>
+#include <QPluginLoader>
 #include <QSet>
+#include <QSettings>
+#include <QtConcurrent>
+
 #include <queue>
 
 using namespace DCC_NAMESPACE;
@@ -60,7 +62,9 @@ PluginData getModule(const QPair<PluginManager *, PluginData> &pair)
         data.Module = data.Plugin->module();
         data.Module->setParent(nullptr);
         data.Module->moveToThread(qApp->thread());
-        qInfo() << QString("get module: %1 end, using time: %2 ms").arg(data.Module->name()).arg(et.elapsed());
+        qInfo() << QString("get module: %1 end, using time: %2 ms")
+                           .arg(data.Module->name())
+                           .arg(et.elapsed());
         emit pair.first->loadedModule(data);
     }
     return data;
@@ -88,7 +92,8 @@ PluginData loadPlugin(const QPair<PluginManager *, QString> &pair)
     et.start();
     QScopedPointer<QPluginLoader> loader(new QPluginLoader(fileName));
     if (!loader->load()) {
-        qWarning() << QString("The plugin: %1 load failed! error message: %2").arg(fileName, loader->errorString());
+        qWarning() << QString("The plugin: %1 load failed! error message: %2")
+                              .arg(fileName, loader->errorString());
         return data;
     }
     const QJsonObject &meta = loader->metaData().value("MetaData").toObject();
@@ -244,7 +249,8 @@ void PluginManager::initModules(const PluginData &data)
         for (; i >= 0; i--) {
             if (isInt) {
                 bool ok = false;
-                const QString &location = m_rootModule->childrens().at(i)->property("location").toString();
+                const QString &location =
+                        m_rootModule->childrens().at(i)->property("location").toString();
                 int tmpLocation = location.toInt(&ok);
                 if (ok && tmpLocation >= 0 && curLocation > tmpLocation) {
                     break;
@@ -272,7 +278,8 @@ void PluginManager::insertChild(bool force)
                 bool isInt;
                 int locationIndex = it->Location.toInt(&isInt);
                 if (!isInt) {
-                    for (locationIndex = 0; locationIndex < module->getChildrenSize(); ++locationIndex) {
+                    for (locationIndex = 0; locationIndex < module->getChildrenSize();
+                         ++locationIndex) {
                         if (module->children(locationIndex)->name() == it->Location) {
                             ++locationIndex;
                             break;
@@ -289,7 +296,8 @@ void PluginManager::insertChild(bool force)
     if (force) {
         // 释放加不进去的module
         for (auto &&data : m_datas) {
-            qWarning() << "Unknown Module! name:" << data.Module->name() << "follow:" << data.Follow << "location:" << data.Location;
+            qWarning() << "Unknown Module! name:" << data.Module->name() << "follow:" << data.Follow
+                       << "location:" << data.Location;
             delete data.Module;
         }
         m_datas.clear();
